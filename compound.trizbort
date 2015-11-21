@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<trizbort version="1.5.9.3">
+	<info>
+		<title>The Problems Compound</title>
+		<author>Andrew Schultz</author>
+		<description>A map for my prospective IFComp 2015 game, The Problems Compound. Map is very fluid at the moment. Anyone with NPC/room suggestions is a total hero.</description>
+		<history>Conceived November 2013 as a totally different name, then procrastinated as other projects came up.
+
+"Maybe you'll cope but I'll be exciting. Whatevs."</history>
+	</info>
+	<map>
+		<room id="26" name="Vision Tunnel" subtitle="" x="320" y="224" w="96" h="64" region="Entry" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Earth of Scum|Flower Wall|    Picture Hole</objects>
+		</room>
+		<room id="27" name="Tension Surface" subtitle="" x="160" y="224" w="96" h="64" region="Entry" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>    Rogue Arch/Mouth Mush|    (give Proof of Burden)</objects>
+		</room>
+		<room id="31" name="Court of Contempt" subtitle="" x="0" y="-288" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Buddy Best, General Attorney|Motion Table</objects>
+		</room>
+		<room id="33" name="Judgment Pass" subtitle="" x="320" y="-32" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="0" cornerTopRight="0" cornerBottomLeft="0" cornerBottomRight="0" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Officer Petty|Intuition Counter</objects>
+		</room>
+		<room id="35" name="Freak Control" subtitle="" x="160" y="-416" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="This is the final area!" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects at="n">Complex Messiah/|  Baiter Master</objects>
+		</room>
+		<room id="38" name="Jerk Circle/Groan Collective" subtitle="" x="160" y="-32" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>7 jerks|</objects>
+		</room>
+		<room id="39" name="Speaking Plain" subtitle="" x="160" y="-160" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Turk Young|Uncle Dutch|Fright Stage</objects>
+		</room>
+		<room id="40" name="Directors of Bored" subtitle="" x="480" y="-160" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="Labeled the &quot;interest compound&quot;" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Art Fine|Harmonic Phil</objects>
+		</room>
+		<room id="41" name="Pressure Pier" subtitle="" x="160" y="96" w="96" h="64" region="Outer Bounds" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>      Howdy Boy|      Purposes Cross</objects>
+		</room>
+		<room id="42" name="Scheme Pyramid" subtitle="" x="-160" y="-160" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Labor Child|Fund Hedge/Money Seed</objects>
+		</room>
+		<line id="2">
+			<dock index="0" id="38" port="e" />
+			<dock index="1" id="33" port="w" />
+		</line>
+		<line id="4">
+			<dock index="0" id="39" port="s" />
+			<dock index="1" id="38" port="n" />
+		</line>
+		<line id="10" style="dashed">
+			<dock index="0" id="38" port="s" />
+			<dock index="1" id="41" port="n" />
+		</line>
+		<room id="11" name="Chipper Wood" subtitle="" x="0" y="-32" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Assassination Character|Chase Paper</objects>
+		</room>
+		<room id="13" name="Idiot Village" subtitle="" x="480" y="-32" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Business Monkey|Sly Moore</objects>
+		</room>
+		<room id="3" name="Crazy Drive" subtitle="" x="320" y="-160" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Drug Gateway|A Long String</objects>
+		</room>
+		<line id="15" color="#000000">
+			<dock index="0" id="40" port="w" />
+			<dock index="1" id="3" port="e" />
+		</line>
+		<line id="16" color="#000000">
+			<dock index="0" id="3" port="w" />
+			<dock index="1" id="39" port="e" />
+		</line>
+		<room id="17" name="Tense Past" subtitle="" x="-480" y="-32" w="96" h="64" region="Dream" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="18" name="Tense Present" subtitle="" x="-480" y="-160" w="96" h="64" region="Dream" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="0" cornerTopRight="0" cornerBottomLeft="0" cornerBottomRight="0" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="19" name="Tense Future" subtitle="" x="-480" y="-288" w="96" h="64" region="Dream" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="0" cornerTopRight="0" cornerBottomLeft="0" cornerBottomRight="0" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="1" name="Classic Cult" subtitle="" x="-320" y="-32" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Faith &amp; Grace Goode</objects>
+		</room>
+		<line id="14" color="#000000" style="dashed">
+			<dock index="0" id="33" port="e" />
+			<dock index="1" id="13" port="w" />
+		</line>
+		<line id="20" color="#000000" flow="oneWay" startText="Wait">
+			<dock index="0" id="17" port="n" />
+			<dock index="1" id="18" port="s" />
+		</line>
+		<line id="21" color="#000000" flow="oneWay" startText="Wait">
+			<dock index="0" id="18" port="n" />
+			<dock index="1" id="19" port="s" />
+		</line>
+		<line id="22" color="#000000" flow="oneWay" startText="Wait">
+			<dock index="0" id="19" port="sw" />
+			<dock index="1" id="17" port="nw" />
+		</line>
+		<room id="23" name="Disposed Well" subtitle="" x="-160" y="-32" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Nine Yards Hole</objects>
+		</room>
+		<room id="25" name="The Belt Below" subtitle="" x="-160" y="96" w="96" h="64" region="Cluey Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Insanity Terminal</objects>
+		</room>
+		<line id="30" color="#000000">
+			<dock index="0" id="42" port="s" />
+			<dock index="1" id="23" port="n" />
+		</line>
+		<line id="32" color="#000000">
+			<dock index="0" id="23" port="w" />
+			<dock index="1" id="1" port="e" />
+		</line>
+		<room id="34" name="Bottom Rock" subtitle="" x="-320" y="96" w="96" h="64" region="Cluey Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Note Crib</objects>
+		</room>
+		<line id="12">
+			<dock index="0" id="11" port="e" />
+			<dock index="1" id="38" port="w" />
+		</line>
+		<line id="43">
+			<dock index="0" id="11" port="w" />
+			<dock index="1" id="23" port="e" />
+		</line>
+		<line id="36" color="#000000" style="dashed" startText="down" endText="up">
+			<dock index="0" id="25" port="w" />
+			<dock index="1" id="34" port="e" />
+		</line>
+		<room id="44" name="Standard Bog" subtitle="" x="320" y="-288" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="&#xD;&#xA;" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Language|  Machine</objects>
+		</room>
+		<line id="45" color="#000000">
+			<dock index="0" id="3" port="n" />
+			<dock index="1" id="44" port="s" />
+		</line>
+		<room id="49" name="Variety Garden" subtitle="" x="0" y="224" w="96" h="64" region="Entry" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="The Word Weasel talks to you to begin. He will explain how things work around here. You have to visit to move on. The basics!&#xD;&#xA;&#xD;&#xA;The Word Weasel is also grateful if you give it good information. Or it would be if you could. So return the favor, eh?" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Word Weasel|Poor Dirt|Against Rails</objects>
+		</room>
+		<room id="52" name="Sinister Bar" subtitle="" x="480" y="224" w="96" h="64" region="Outer Bounds" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects at="e">Liver Lily|The Punch Sucker</objects>
+		</room>
+		<room id="57" name="Pot Chamber" subtitle="" x="480" y="-288" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="Pusher Penn gives you the wacker weed. If you get it to Fritz the On safely, you get the Poory Pot." roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Pusher Penn|Walker Street|Wacker Weed|Poor-y Pot</objects>
+		</room>
+		<line id="58" startText="in" endText="out">
+			<dock index="0" id="3" port="ne" />
+			<dock index="1" id="57" port="sw" />
+		</line>
+		<room id="59" name="Accountable Hold" subtitle="" x="-160" y="-288" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>      Sound Safe|      (Finger Index)</objects>
+		</room>
+		<line id="60" color="#000000" style="dashed" startText="in" endText="out">
+			<dock index="0" id="42" port="n" />
+			<dock index="1" id="59" port="s" />
+		</line>
+		<room id="76" name="Meal Square" subtitle="" x="0" y="96" w="96" h="64" region="Outer Bounds" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="Cracker Safe&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;Order Apple Pie?&#xD;&#xA;Factor Fudge" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Gallery Peanut|  Gagging Lolly, Condition Mint|  Cutter Cookie, Iron Waffle|</objects>
+		</room>
+		<room id="56" name="Joint Strip" subtitle="" x="480" y="96" w="96" h="64" region="Outer Bounds" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects at="e">  Stool Toad|  Minimum Bear</objects>
+		</room>
+		<room id="82" name="Temper Keep" subtitle="" x="0" y="-160" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="The relief light is found in the spleen vent once you get past Sal." roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Spleen Vent|Volatile Sal</objects>
+		</room>
+		<room id="28" name="A Round Lounge" subtitle="" x="160" y="352" w="96" h="64" region="Entry" handDrawn="no" allcornersequal="no" ellipse="yes" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="There's a plan hatch and a people chair here." roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>A round stick|A round screw|Person Chair</objects>
+		</room>
+		<line id="9" color="#000000" style="dashed" flow="oneWay" startText="in">
+			<dock index="0" id="28" port="n" />
+			<dock index="1" id="27" port="s" />
+		</line>
+		<line id="37">
+			<dock index="0" id="27" port="e" />
+			<dock index="1" id="26" port="w" />
+		</line>
+		<line id="50">
+			<dock index="0" id="27" port="w" />
+			<dock index="1" id="49" port="e" />
+		</line>
+		<line id="69" color="#000000" flow="oneWay" startText="in">
+			<dock index="0" id="27" port="n" />
+			<dock index="1" id="41" port="s" />
+		</line>
+		<room id="90" name="Truth Home" subtitle="" x="-320" y="-160" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>|Proof Fool|Logical Psycho</objects>
+		</room>
+		<room id="93" name="Questions Field" subtitle="" x="160" y="-288" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="yes" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Keeper Brothers|Blood, Big, Soul|</objects>
+		</room>
+		<line id="94" color="#000000">
+			<dock index="0" id="39" port="n" />
+			<dock index="1" id="93" port="s" />
+		</line>
+		<line id="95" color="#000000" style="dashed">
+			<dock index="0" id="93" port="n" />
+			<dock index="1" id="35" port="s" />
+		</line>
+		<line id="6" color="#000000">
+			<dock index="0" id="82" port="e" />
+			<dock index="1" id="39" port="w" />
+		</line>
+		<line id="74" color="#000000">
+			<dock index="0" id="93" port="w" />
+			<dock index="1" id="31" port="e" />
+		</line>
+		<room id="61" name="Down Ground" subtitle="" x="320" y="96" w="96" h="64" region="Outer Bounds" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Warmer Bench (To "tense" dream)|Fritz the On</objects>
+		</room>
+		<line id="71" color="#000000">
+			<dock index="0" id="41" port="e" />
+			<dock index="1" id="61" port="w" />
+		</line>
+		<line id="80">
+			<dock index="0" id="61" port="e" />
+			<dock index="1" id="56" port="w" />
+		</line>
+		<line id="98" color="#000000">
+			<dock index="0" id="56" port="s" />
+			<dock index="1" id="52" port="n" />
+		</line>
+		<room id="97" name="Smart Street" subtitle="" x="320" y="352" w="96" h="64" region="Entry" handDrawn="no" allcornersequal="no" ellipse="yes" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" isStartRoom="yes" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Broke Flat|Game Shell|Guy Sweet</objects>
+		</room>
+		<line id="99" color="#000000" flow="oneWay" startText="in" endText="out">
+			<dock index="0" id="97" port="w" />
+			<dock index="1" id="28" port="e" />
+		</line>
+		<line id="70" color="#000000" startText="in" endText="out">
+			<dock index="0" id="23" port="nw" />
+			<dock index="1" id="90" port="se" />
+		</line>
+		<line id="29" style="dashed" startText="down" endText="up">
+			<dock index="0" id="11" port="sw" />
+			<dock index="1" id="25" port="ne" />
+		</line>
+		<line id="5" style="dashed">
+			<dock index="0" id="76" port="e" />
+			<dock index="1" id="41" port="w" />
+		</line>
+	</map>
+	<settings>
+		<colors>
+			<canvas>White</canvas>
+			<fill>White</fill>
+			<border>Black</border>
+			<line>Black</line>
+			<selectedLine>SteelBlue</selectedLine>
+			<hoverLine>DarkOrange</hoverLine>
+			<largeText>Black</largeText>
+			<smallText>Black</smallText>
+			<lineText>Black</lineText>
+			<grid>#F5F5F5</grid>
+		</colors>
+		<regions>
+			<Bad____Ends Name="Bad Ends" TextColor="Black">Red</Bad____Ends>
+			<Cluey____Area Name="Cluey Area" TextColor="Black">#C06020</Cluey____Area>
+			<Dream Name="Dream" TextColor="Black">#2090FF</Dream>
+			<Entry Name="Entry" TextColor="Black">Yellow</Entry>
+			<Hypothetical Name="Hypothetical" TextColor="Black">#FF8000</Hypothetical>
+			<Main____Area Name="Main Area" TextColor="Black">Lime</Main____Area>
+			<NoRegion Name="NoRegion" TextColor="Blue">White</NoRegion>
+			<Outer____Bounds Name="Outer Bounds" TextColor="Black">Silver</Outer____Bounds>
+			<Post-Game____Fun Name="Post-Game Fun" TextColor="Black">#9020FF</Post-Game____Fun>
+		</regions>
+		<fonts>
+			<room size="12">Arial</room>
+			<object size="9.75">Arial</object>
+			<line size="8.25">Arial</line>
+		</fonts>
+		<grid>
+			<snapTo>yes</snapTo>
+			<visible>yes</visible>
+			<showOrigin>yes</showOrigin>
+			<size>32</size>
+		</grid>
+		<lines>
+			<width>2</width>
+			<handDrawn>no</handDrawn>
+			<arrowSize>8</arrowSize>
+			<textOffset>4</textOffset>
+		</lines>
+		<rooms>
+			<darknessStripeSize>24</darknessStripeSize>
+			<objectListOffset>4</objectListOffset>
+			<connectionStalkLength>16</connectionStalkLength>
+			<preferredDistanceBetweenRooms>64</preferredDistanceBetweenRooms>
+			<defaultRoomName>Cave</defaultRoomName>
+		</rooms>
+		<ui>
+			<handleSize>12</handleSize>
+			<snapToElementSize>16</snapToElementSize>
+		</ui>
+		<keypadNavigation>
+			<creationModifier>control</creationModifier>
+			<unexploredModifier>alt</unexploredModifier>
+		</keypadNavigation>
+	</settings>
+</trizbort>

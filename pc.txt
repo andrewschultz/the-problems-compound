@@ -1,0 +1,441 @@
+out=problems-compound-invisiclues.htm
+!The Problems Compound HTML Clues
+->c:/games/inform/Compound Materials/Release
+>INTRODUCTION
+>>Smart Street
+?What is the flat for?
+You can enter it, eventually.
+But you should probably look around first.
+Okay, the game sort of forces you to.
+?What is the shell for?
+It features a lot of canonical puzzles.
+You can PLAY them in any order.
+Well, actually, you just need to play one.
+The gesture token you get is useful later.
+?Is there any advantage to solving many or all of the puzzles?
+No. You only need to solve one.
+?What does Guy Sweet have to say?
+A lot of bluster, really.
+He'll let you know about the main bad guy and about some other characters.
+He also seems--well, subservient to the other characters, and a bit mean to you. Sort of an authorial warning.
+And he'll let you know about the broke flat. So you have some information before you enter.
+He's no help at all with the puzzles. You understand them better than he does.
+?Hey! I'm sort of interested in the puzzles. Alec knows them, but I don't.
+Most of them are easily Google-able.
+Some of them, I actually didn't know, or felt I should know, when I was a teen.
+Some of the extensions I made were purposefully trivial, but others I found interesting.
+Like rotating Peg Solitaire was harder than I expected it to be.
+And it's always a pain to do the last bit of the Rubik's Cube.
+?No! I want details.
+Okay, for Peg Solitaire, clear out the bottom 3x3. Then leave the top 4x3, with the center open. Then memorize the end.
+For Towers of Hanoi, the first move is to the opposite peg if there're odd towers, to the same if even.
+For the necklace, you cut things so you have lengths of 1, 2 and 4.
+For the 8 queens, I have a post at <a href="http://drdanstreetmentioner.blogspot.com/2015/09/the-8-queens-problem-revisited.html">my blog</a> with the details.
+"Everybody but everybody" knows the 5-, 3- and 4-gallon jug puzzle. But I found it interesting to try different sizes.
+Matchstick puzzles are all over the Internet, and really, if you remember you only need to move so many, there are only so many possibilities. Try and see which you CAN'T move, or which are effectively symmetrical.
+Nim--well, strong induction on the total number of Nim pieces is the way to go. How someone would see that proof is another matter. I remember being utterly confused seeing the explanation in Beyond Zork. Not as bad as Cardano's method, but still--wow.
+The riverboat is a classic problem. I remember trying to expand it and noting it was a bit trivial. So the extensions capture that.
+>>A Round Lounge
+?What are the screw and stick good for?
+The stick has a hole in it.
+It's helically carved, like...
+...a screw.
+PUT SCREW IN HOLE, or PUT SCREW IN STICK.
+The contraption you've made is a bit longer now. That will help.
+?What's the chair for?
+If you climb on it, you get closer to the hatch.
+?How do I reach the hatch?
+You can't reach it with your hands.
+The stick or screw gets you closer, but not quite enough.
+See the screw and stick clue to see how to combine them.
+Once you do, you can OPEN HATCH or HIT HATCH to move on.
+>>Tension Surface
+?The mush won't let me by!
+You need certification.
+You'll need to go east and west.
+?Do I need to talk to the Rogue Arch?
+No. The mouth mush is where it's at.
+?What certification does the arch want?
+Something is hidden to the east.
+But you need it signed, too.
+You need to listen to the Word Weasel blather on to the west. Then give it the proof.
+Don't forget to give the arch the signed proof.
+>>Vision Tunnel
+?What is the flower wall for?
+A cheap trick to keep you from going anywhere except back west.
+?What is the picture hole for?
+It shows what you need to be doing, etc.
+You also see a picture of yourself digging.
+If you don't have a digging tool, that's a clue.
+It's not much help, practically, though.
+?Ew! The earth of scum is icky, but something may be under it.
+You can't dig with your hands.
+But you can, with the pocket pick the Weasel gives you.
+?What is the Proof of Burden for?
+It sounds like something you could use to get by the Rogue Arch.
+Did you try giving it to the Rogue Arch?
+Well, the Rogue Arch can't sign it, but someone else can.
+There's only one other NPC in this area.
+The Word Weasel.
+>>Variety Garden
+?What do I ask the Word Weasel about?
+Unfortunately, he pretty much (wait for it) weasels you into listening to him. But that sort of helps you, too.
+You pretty much need to plow through the conversation before he helps you.
+But the conversation is hopefully helpful for later on.
+However, there is one thing he can do for you. He wants to trade.
+GIVE TOKEN TO WEASEL. Woohoo! Something back!
+?What are the rails for?
+To give me a plausible excuse to kick the player back east.
+?Why can't I leave?
+You need to DIG THE DIRT now the Weasel gave you the pick. You need to work to pay off the rest.
+?What is the poor dirt for?
+To give (useless) variety to the variety garden.
+Also, once you get the pocket pick, you need to DIG there. Because you're paying off what your gesture token couldn't.
+?Can the Word Weasel do anything else for me?
+Yes. He can sign the Proof of Burden, if you found it.
+GIVE PROOF TO WEASEL.
+>Getting past the Howdy Boy
+>>Pressure Pier
+?The Howdy Boy won't let me past!
+He's exerting ... peer pressure. Thank you, thank you, I'm here all game.
+To not be a total square.
+You need to talk to him.
+He wants a trail paper.
+You can find pieces of it elsewhere in this area.
+If you accumulate boo ticketies, each one will help you.
+Spoilers ahead.
+One piece if you give Fritz the bear.
+One piece if the Stool Toad catches you with a drink.
+One piece if Liver Lily gets upset when you aren't really listening to her, or you keep saying hi/goodbye.
+One piece for sleeping on the bench and getting caught.
+One piece if you wander off the track in Joint Strip.
+You can also get a tickety for dropping the tickety: littering and suppressing evidence!
+If you get five, that is too many, and you get a "special" end scene.
+?The Howdy Boy won't let me visit Meal Square to the west!
+You have to prove your worth. See above.
+?Is the Purposes Cross significant?
+Not for solving the game.
+>>Down Ground
+?What's the bench for?
+It's for sleeping on.
+Have a good long dream to get a tickety.
+?What do I do with Fritz?
+He has lost something.
+Something to the east.
+He is the owner of Minimum Bear.
+GIVE BEAR TO FRITZ.
+>>Joint Strip
+?What do I do with the Stool Toad?
+Wrong way around. What does the STOOL TOAD do with YOU?
+He issues you a tickety when you do something wrong.
+?What's the teddy bear for?
+Someone lost it. You can find who, by trial and error. Or by talking to people.
+Someone has missed a friend he's reluctant to talk about.
+It's for Fritz the On.
+>>Sinister Bar
+?What do I do with the Punch Sucker?
+He will supply you with two drinks, one at a time.
+They are functionally equivalent.
+?What do I do with the drinks?
+There are two ways to get a tickety.
+One is to leave the bar with a drink.
+The other is to talk to Lily, then offer her a drink.
+?What's the deal with Lily?
+Talk to her.
+She'll be more open to gifts after you listen to her theories and "wonderful" stories.
+Or not.
+One thing is to give her a drink.
+Another is to keep pestering her.
+>>Meal Square
+?What's the Cutter Cookie for?
+It's for a quick "win."
+You turn into a bit of a jerk, and you are forced through to Freak Control.
+?What's the Iron Waffle for?
+Amusement only.
+?What's the Condition Mint for?
+Later on, you can give it to someone to help with a puzzle.
+Any one of the jerks.
+?What's the gagging lolly for?
+A stupid cheap insta-death.
+And a stupid cheap joke or two.
+?What are the bakers for? Why am I seeing an extra one?
+They are a dozen bakers.
+Or a baker's dozen.
+Commonly known as 13.
+See what I did there?
+>THE MAIN BIT
+>>The Jerk Circle/Groan Collective
+?What are the jerks doing there? Do I need to get rid of them quickly?
+You'll need to get rid of them eventually.
+They're having a conversation.
+You can't get in a word edgewise, though, until you have information on them.
+A bit further in the game, you'll find it.
+The finger index in Accountable Hold.
+?Okay, I have the info. How do I get rid of them?
+Each one seems to know about the other.
+They're mostly complimentary, but there's a derogatory shot or two.
+This changes with each play.
+The key is to note who's who from the finger index .
+If you get seven in a row, they get in a big fight and leave.
+This is a logic puzzle, but not a tough one.
+Note that J is Dandy Jim--the only person with J in his name.
+M is Warm Luke or Jim, but it can't be Jim, since he's already J. So M is Warm Luke.
+Similarly, K is Warm Luke or Paul Kast, e.g. Paul Kast.
+D is Dandy Jim or Warner Dyer, so that's Warner Dyer.
+T is Paul Kast or Wash White, e.g. Wash White.
+L is Warm Luke, Paul Kast or Silly Boris. Silly Boris it is.
+* is Cain Reyes, by elimination.
+?Is there any way to cheat a bit?
+You can give the condition mint to any jerk.
+L seems like the best, because there are three candidates.
+?What is the Quiz Pop for?
+It's for the final showdown.
+You need to drink it in the Questions Field, to get by the final security device.
+But only once you have gotten rid of the Keeper Brothers.
+>>WEST AREA
+>>>Chipper Wood and below
+?What's the Assassination Character for?
+He doesn't actually hurt you, but he's rather mean.
+Apparently, if you don't want to figure things out, and you're just a big puzzle-nerd, there's one below.
+So hopefully it's clear that this is optional.
+Of course, he taunts you if you don't want to solve things.
+?What's the chase paper for?
+GET ON the chase paper.
+Catching the Character is a puzzle. It's not necessary for the game, but it gives you a pretty easy cheat.
+?How do I catch the Character?
+You notice he always seems one square ahead of you if you chase him straight up, staying on the grid.
+You may also notice the diagonal directions send you (2,2) across the grid, while straight lines are (3,0).
+So maybe diagonal directions can help. But which diagonal directions, and how?
+Note that going in one diagonal direction 3 times in a row moves you 6,6. He will move 6,3 or 9,0 in that time.
+In other words, you will move an even number of intersections, but he will move an odd number.
+Then you are an even number of intersections away.
+Note he is a bit of a coward. He always runs away from you.
+When you trap him in the corner (and you are 1N1E of him or whatever) then he will give up.
+This is a parity problem.
+?What's the deal with the chessboard problem he asks you about?
+It's a sort of parting shot.
+The chessboard problem is a parity problem of its own. Basically, can you fill it with 1x2 dominoes after pulling out opposite corners?
+If you don't want it spoiled, turn away now.
+The solution is several places on the Internet, with a simple Google.
+A chessboard has 32 white and black squares. Pulling opposing corners makes it 32 and 30.
+So 31 1x2 tiles would cover 31 white and black squares, and you never can.
+>>>>The Belt Below
+?What is the puzzle on the Insanity Terminal?
+It's a puzzle inspired by Jim Propp's Self Referential Aptitude Test.
+If you know that answer, you may have a clue. But if not, there's a logical way through.
+?How do I solve the puzzle?
+Well, look for the weak links first.
+Question 7 must be C. That means each letter must appear once in each answer.
+Now note 2 cannot be A as there are 8 questions and 6 answers. 4 cannot be A as that contradicts 3. If 5 is A, then 1 is F and that creates problems. We must have A, B, C, D, E and F, and then 5 answers that duplicate these, or 11 answers total. 7 is already C, and 8 can't be A or B since there is one A and one E. So 3 is A. That means 1 is A.
+Now 2 can only be b or c. If it is d, then 3 letters appear twice and 3 appear once, meaning we need at least 9 questions. But if 2 is C, then 4 is C--otherwise we have 2 C's, 3 A's and 3 slots for 4 letters. So 2 is B. This also means that there is another A in here somewhere, and there is one each of D, E and F.
+That means 8 must be E, 3 A's and one E = 4 vowels. This leaves ADF for 4/5/6.
+If 5 is D, then 4 is C. 5 can't be A, so 5 is F.
+Similarly, 4 can't be A, so it is D. That leaves a for 6.
+A BAD FACE.
+>>>>BOTTOM ROCK
+?What do I do with the note crib?
+It's a total spoiler device. So spoily, you won't need this.
+You can examine the red, the blue or the big area. Or all of them.
+Each corresponds to a brother in the Way of Right.
+So you can see what you need to do next.
+>>>DISPOSED WELL
+?Is there anything in the well?
+Yes, but you can't reach in there.
+You'll need something long.
+If you've explored other areas, you may find something.
+The long string in Crazy Drive.
+PUT STRING IN WELL.
+>>>CLASSIC CULT
+?Is there any way to get suckered into the cult?
+No.
+You don't want to anyway.
+?What's with the 3/4 blossom?
+Well, it would be nice if you could find a quarter blossom elsewhere.
+Or a fourth-blossom.
+If you've gotten to Idiot Village, the Business Monkey can grow one for you.
+From giving him the Money Seed.
+>>>SCHEME PYRAMID
+?Why can't I go north?
+The Labor Child wants a signature on the contract.
+You can get one from the Business Monkey in Idiot Village.
+But you'll need to give him something first.
+?Can I take anything from the Fund Hedge?
+Yes. Just examine it, and you'll get a Money Seed.
+You can give it to the Business Monkey in Idiot Village.
+?What's this contract?
+You don't want to sign it, but someone else might.
+Probably best if that someone is not a person. That gives them a loophole.
+Give the contract to the Business Monkey in Idiot Village.
+>>>ACCOUNTABLE HOLD
+?What to do here?
+Not much except take the safe.
+Oh, wait! Something else!
+The Finger Index has information on seven people.
+Where else have you seen seven people?
+The Jerk Circle/Groan Collective!
+>>>TRUTH HOME
+?What do I do with the Psycho and the Fool?
+The Psycho seems to be laying down the facts, and he doesn't shut up.
+An annoying noise might help.
+If you got the Trap Rattle from Sly Moore, that'll do it.
+>>EAST AREA
+>>>JUDGEMENT PASS
+?How do I get past Officer Petty?
+He's sort of blocking you with the Intuition Counter.
+But he's like to be able to do something.
+An official summons could help him. Do you have anything?
+Visit Buddy Best to get a long tag.
+Then give it to Officer Petty so you can go east.
+>>>IDIOT VILLAGE
+?What do I do with the Business Monkey?
+Transact business.
+Possibly very silly business.
+You can give him the Money Seed from the Fund Hedge in the Scheme Pyramid.
+Now you've done business, you can get him to sign something.
+The cold contract.
+?What do I do with Sly Moore?
+His magic tricks utterly fail, don't they?
+He could use a boost.
+Is there any item that could make him more sneaky or dexterous or whatever?
+He just needs to learn three...
+...what's a phrase for three of something?
+Specifically, goals?
+Give him the Trick Hat.
+Which you get from the Language Machine.
+>>NORTH AREA
+>>>Speaking Plain
+?The Fright Stage sure is imposing! Is there any way to get around it?
+Yes. Just go in whatever direction.
+?Are Uncle Dutch and Turk Young helpful?
+Well, depending on the meaning of 'helpful...'
+They seem like they've better things to do than be in some game.
+They can't help you at all. If you listen to their lectures, the game mentions that they'll be less helpful the second time through.
+>>>Questions Field
+?How do I get past the Keeper Brothers?
+They have nothing better to do than protect the Baiter Master/Complex Messiah. They know, because he told them!
+You need to give them more meaning in life, something higher to shoot for.
+Each brother you give a special item will thank you and disappear.
+Once they're gone, you can face the Big Bad Guy. Well, almost.
+?What does Brother Soul need?
+Brother Soul needs a relief light (in Temper Keep.)
+?What does Brother Blood need?
+Brother Blood needs a Mind of Peace (in Classic Cult.)
+?What does Brother Big need?
+Brother Big needs the Trade of Tricks (in Truth Home.)
+?Do any of these quests overlap? Is one tougher than the other?
+Brother Big's is the biggest (sorry) quest. The other two are about equal.
+Brother Blood's and Brother Big's quests overlap.
+So if you go Soul, Blood, Big, they should all seem equal.
+?The brothers are gone! Why can't I go north?
+You're ambushed by the question and exclamation mark.
+You'll need some sort of antidote.
+Have you figured how to work with the jerks yet?
+DRINK QUIZ POP.N
+>>>Temper Keep
+?What does Sal want?
+He wants it to smell less.
+You may notice the smell is coming from the spleen vent.
+What could smell a bit better, that could burst through the air?
+Don't go on until you've conducted full business with Pusher Penn.
+The poory pot can go in the Spleen Vent.
+>>>Court of Contempt
+?What can I do with Buddy Best?
+Not much. Just listen to what he has to say, and he'll give you something useful.
+A long tag. A ticket for someone to go somewhere. You can't get there, but you could help someone else.
+?Why can't I get back here? Do I need to?
+Buddy Best is busy. He doesn't have time for you.
+You don't need to go back. You've gotten what you want.
+>>>Crazy Drive
+?Is the string useful?
+Yes. Way on the other side of the game.
+Find a very deep place you can't climb down.
+>>>Pot Chamber
+?Should I accept Pusher Penn's task? If so, what do I do?
+Yes. It's not really that illegal, here in the Compound.
+You have already met and talked to his client.
+That is Fritz the ON.
+GIVE WEED TO FRITZ.
+?I accepted and completed the task! What do I do now?
+GIVE PENNY TO PENN.
+>>>Interest Compound/The Directors of Bored
+?Do I need the Poetic Wax? Can I take it?
+Yes and yes.
+But Phil and Art are blocking it.
+You need a way to chase both of them.
+They seem opposed to inane art they can't make fun of.
+Since Phil likes music and Art likes books, that may help you guess.
+?Do I need to do anything with the Song Swan and Book Crack?
+They're there just for fun.
+I wish I could've written more.
+If you have a good title, email me, and I'll give you credit.
+?What do I do with Phil?
+He's not big on horrible sounds.
+Have you found anything that makes a horrible sound?
+It's in a room you can't get to right away.
+Accountable Hold, behind the Scheme Pyramid.
+It's the Sound Safe.
+You just open it when you're in the Compound, and Phil will run away.
+?What do I do with Art?
+He would probably hate a really bad story.
+What do you know that tells a bad story?
+The fish from the Disposed Well.
+You already have a long string, so you can get the fish with that, then come back.
+TALK TO FISH. It will chase Art.
+?Does it matter whom I get rid of first?
+No.
+?What do I do with the wax?
+It's useful for someone, or something, who is sick of just writing prose.
+>>>Standard Bog
+?What is the Language Machine doing?
+It's writing sad stories, looking sad.
+It doesn't seem to 'want' to keep writing stories.
+What could help it write something else?
+The Poetic Wax from the Interest Compound.
+>DREAM SEQUENCE
+>>Tense Present
+?How do I move about here?
+If you WAIT, you move to another era.
+If you WAKE, you return.
+If you THINK, you will relive horrible things that you just can't stop. Well, they're meant to be sort of funny, too.
+If you WAIT three times to loop back, the Stool Toad will gaffle you for aggravated timewasting and give you a boo tickety.
+>>Tense Future
+?Is there anything special here?
+Not really. Just different worries of the future.
+>>Tense Past
+?Is there anything special here?
+Well, the first time you sleep through, the Stool Toad gets you.
+But otherwise, not really. Just different worries of the past, things you can't change, and things you now recognize as wrong. The stories appear randomly. I hope they're amusing.
+>PENALTY AREAS
+?Is there any way out? Am I stuck here?
+No, there's not. In fact, if you get "killed," you are allowed to go back where you were.
+?How many areas are there?
+There are five you can access from the game proper.
+Punishment Capitol, Hut Ten, Criminals' Harbor, Fight Fair and Maintenance High.
+Actually, there's another one, but you can't go there. It pushes the bounds of good taste.
+If you make it to Window Bay in the Director's Cut, you'll see it.
+>Meta-Questions
+?How many endings are there?
+Well, there are bad ones where you mess up.
+You can eat the cookie cutter.
+Or you can just beat the Complex Messiah/Baiter Master.
+?I'd like a walkthrough. Is there a walkthrough?
+Yes. It should be included with the game as a short HTML file.
+>>Director's Cut
+?Is there any objective?
+Not really, other than seeing all the footnotes.
+The game tracks this for you with SCORE.
+?Is there any special command besides JUMP?
+No. But JUMP will let you see into rejected locations.
+>>General Questions
+?How autobiographical is Alec Smart? Andrew Schultz, A. S., Alec Smart...?
+(Nervous hemming and hawing) ... um, the name just fit, and I ran with it. Then I saw...oops.
+A truthful answer is: somewhat. He probably knows puzzles better than I do.
+I also loved The Phantom Tollbooth, and I was often at a loss to understand Social Stuff.
+Alec is probably a more extreme version of me. But I tried to avoid details from my own life.
+;
+"If you like details so much..."
+
+the weights are a classic
+
+Also as you ask more he says more
+Or you protest he seemed to want to get rid of you
