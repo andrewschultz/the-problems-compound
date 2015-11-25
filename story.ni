@@ -1851,6 +1851,20 @@ after doing something with a logic-game:
 	set the pronoun it to noun;
 	continue the action;
 
+section knockharding
+
+knockharding is an action out of world.
+
+understand the command "knock hard" as something new.
+
+understand "knock hard" as knockharding.
+
+carry out knockharding:
+	if player is in smart street:
+		say "You stride up to Broke Flat with purpose, You knock, hard, hoping to avoid a hard knock--and you do! You are escorted to Pressure Pier, skipping a Round Lounge and the Tension Surface. (Note: if you wish to see those areas, you can UNDO.)[paragraph break]";
+		move player to pressure pier instead;
+	say "There's nothing to knock hard at." instead;
+
 chapter logic games
 
 a logic-game is a kind of thing. a logic-game has a number called times-won. times-won of a logic-game is usually 0. a logic-game has a number called max-won.
@@ -2658,6 +2672,11 @@ part Pressure Pier
 
 Pressure Pier is north of Tension Surface. It is in Outer Bounds. "[one of]So, this is Pressure Pier. Off south is water--no way back to the Tension Surface[or]Water south, passage north[stopping]. You smell food to the west, and the land sinks a bit to the east. Ahead north, things open up further behind [one of]something called[or]the[stopping] Purposes Cross."
 
+pier-visited is a truth state that varies.
+
+ after printing the locale description for Pressure Pier when Pressure Pier is unvisited:
+	now pier-visited is true; [not the best way to do things but I need to reference something in I6 to modify the play-end text, and it's just cleaner to define a boolean in I7]
+ 
 check going in Pressure Pier:
 	if noun is west and trail paper is not in lalaland:
 		say "'You're not authorized yet!' yells the Howdy Boy." instead;
@@ -5203,7 +5222,7 @@ workname	authname	booksubj
 "War's Star"	"Lucas George"	"how some kid ignored his weenie father's humble advice and took over the galaxy"
 "Mannering Guy"	"Scott Walter"	"a man eschewing a life of travel and adventure for simple pleasures like putting neighbors in their place"
 "Life, MY"	"Clinton William"	"a poor uncharismatic schlub appalled with the complexity and speed of today's fast-paced world, especially politics"
-"The Convictions of Our Courage"	"Blair Anthony"	"a fellow jailed numerous times for radically opposing milquetoast politicians who still grovel shamefully"
+"The Convictions of Our Courage"	"Blair Anthony"	"the emotional and moral fulfillment a fellow who told on his friends to milquetoast seeming politicians who grovel shamefully before greater power"
 "Jest in Finite"	"Wallace Foster David"	"a snappy fifty-page tour de force that's about nothing and everything--err, make that everything and nothing"
 "Willows in the Wind"	"Graham Kenneth"	"a toad who learns to leave behind his less clever animal friends and passe forest life for more advanced, luxurious society"
 "A Mockingbird to Kill"	"Lee Harper"	"losers who try to imitate people less weird than them. Or don't EVEN try"
@@ -6226,7 +6245,8 @@ Include (-
 	print "***";
 	VM_Style(NORMAL_VMSTY);
 	print "^^"; #Ifndef NO_SCORE; print "^"; #Endif;
-	if ( (+ cheese-eaten +) || (+ cookie-eaten +) ) { print "(Note: this is not the best ending.)^"; }
+	if ( (+ pier-visited +) ) { print "(Note: you can skip to Pressure Pier on retry with KNOCK HARD in Smart Street.)^"; }
+	if ( (+ cheese-eaten +) || (+ cookie-eaten +) ) { print "(Also note: this is not the best ending.)^"; }
 	rfalse;
 ];
 
