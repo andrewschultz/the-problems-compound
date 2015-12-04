@@ -125,6 +125,8 @@ a room can be endfound. a room is usually not endfound.
 
 a person can be smalltalked. a person is usually not smalltalked.
 
+a person can be surveyable, baiter-aligned, or unaffected. a person is usually unaffected.
+
 Procedural rule: ignore the print final score rule.
 
 [the print final score rule does nothing.]
@@ -2842,7 +2844,7 @@ section Fritz the On
 after printing the locale description for down ground when down ground is unvisited:
 	say "A large human-sized toad strolls in from the east. 'So! A new juvenile, eh? Gonna be on the straight and narrow? Or wind up like Fritz the On, here? Eh? EH?' Before you can answer, he turns back.[paragraph break]Fritz the On mutters something about that oppressive Stool Toad."
 
-Fritz the On is a person in Down Ground. "[one of]A fellow a bit older, but likely not wiser, than you sits cross-legged next to the Warmer Bench.[or]Fritz the On still mumbles, sitting cross-legged.[stopping]"
+Fritz the On is a surveyable person in Down Ground. "[one of]A fellow a bit older, but likely not wiser, than you sits cross-legged next to the Warmer Bench.[or]Fritz the On still mumbles, sitting cross-legged.[stopping]"
 
 description of fritz is "Fritz the On may be cosmically 'on,' but physically, he's out of it. Scruffy and unclean, he wobbles to and fro, mouthing words you can't make out[if fritz has bear]. He's clinging tightly to Minimum Bear[end if]."
 
@@ -3527,7 +3529,7 @@ wrongalong is a number that varies. wrongalong is 8.
 
 to reset-the-table:
 	d "WRONG!";
-	say "[last-jerk] snickers noncommitally.";
+	say "[last-jerk] snickers noncommitally.[line break]";
 	if jerk-close-listen is true:
 		if jerks-scared >= 2:
 			say "[line break]The [j-co]['] conversation ratchets back up to full volume. You must've made the wrong accusation.";
@@ -3551,7 +3553,7 @@ to check-jerks-done:
 
 check going north when player is in well:
 	if silly boris is in lalaland:
-		say "There's nothing left now that the Labor Child has been removed from the premises." instead;
+		say "[one of]Before you enter, you hear the Labor Child squealing how this all can't be legal and he knows people. Various jerks express interest at this confidential document or that and relief they never stooped that low. It looks like they are uncovering other of the Labor Child's 'business interests,' and they don't need you. Nothing violent is happening, and you enjoy some schadenfreude at the Labor Child's expense before deciding to move on.[or]No, you don't need or want to help the jerks. The Labor Child's in for it enough.[stopping]" instead;
 
 chapter jerk talking
 
@@ -4075,7 +4077,7 @@ check talking to Logical Psycho:
 
 section Proof Fool
 
-the Proof Fool is a person in Truth Home.
+the Proof Fool is a surveyable person in Truth Home.
 
 understand "small" and "small guy" as Proof Fool when player is in Truth Home.
 
@@ -4404,9 +4406,9 @@ to get-mind:
 
 chapter Goode Sisters
 
-Faith Goode is a female person in Classic Cult. description is "A mirror image of Grace."
+Faith Goode is a surveyable female person in Classic Cult. description is "A mirror image of Grace."
 
-Grace Goode is a female person in Classic Cult. description is "A mirror image of Faith."
+Grace Goode is a surveyable female person in Classic Cult. description is "A mirror image of Faith."
 
 does the player mean talking to grace goode: it is very likely.
 does the player mean giving to grace goode: it is very likely.
@@ -5297,6 +5299,7 @@ workname	singername	songsubj
 "Train Downtown"	"Stewart Rodd"	"a man rightfully too busy advancing his career prospects to spend time with his woman"
 "Life is WHAT"	"Harrison George"	"a man too clever for all the constant love-is-life babble"
 "Out Movin[']"	"Joel Billey"	"someone who finds value in a more stressful life"
+"The Light of Dying"	"The Machine Against Rage"	"admitting that there are smarter people than you who know what's best and if you care about society, maybe it's time to go, but don't, like, make a messy suicide. Even better than The Name in Killing"
 "Work Fire"	"Perry Keady"	"having everyday up and at em for the things you deserve to do (if you're smart) or better do to survive (if you're dumb)"
 "Bound Homeward"	"Simon Paul"	"someone who wants to get out more but his stupid artsy worries get in the way"
 "My Mind in Carolina"	"Taylor James"	"getting away from one's backward past and entering sophistication"
@@ -5579,9 +5582,21 @@ The relief light is a thing. description of relief light is "It glows comforting
 
 part Freak Control
 
-Freak Control is north of Questions Field. It is in Main Chunk. "Well, you made it. But--it's a bit run down. Shot screens track various areas in the Compound, including places you haven't been. If there's another exit than back south, it's surely only available to the [bad-guy]."
+Freak Control is north of Questions Field. It is in Main Chunk. "[if accel-ending]There's all sorts of stuff here but really all you want to do is show the [bad-guy] what's what.[else]Well, you made it. There's so much to look at! Shot screens track various areas in the Compound, including places you haven't been. A Twister Brain hacks away at some sort of psychometric analysis, and a Witness Eye provides tracking of several suspicious individuals. A Language Sign also has a pretty prominent message ahead.[paragraph break]While there's another exit than back south, it's surely only available to the [bad-guy]. All the same, you don't want to leave now. You can't.[end if]"
 
-the shot screens are scenery. "[if cookie-eaten is true]You're torn between wondering if it's not worth watching the jokers being surveyed, or you deserve a good laugh.[else]For a moment, you get a glimpse of [one of]the jerks going about their business[or]the parts of Idiot Village you couldn't explore[or]a secret room in the Sinister Bar[or]Officer Petty at the 'event,' writing notes furiously[or]the hideout the Stool Toad was too lazy to notice[or]The Logical Psycho back at his home[or]exiles living beyond the Standard Bog[in random order].[end if]"
+freaked-out is a truth state that varies.
+
+the shot screens are scenery in Freak Control. "[if cookie-eaten is true]You're torn between wondering if it's not worth watching the jokers being surveyed, or you deserve a good laugh.[else]For a moment, you get a glimpse of [one of]the jerks going about their business[or]the parts of Idiot Village you couldn't explore[or]a secret room in the Sinister Bar[or]Officer Petty at the 'event,' writing notes furiously[or]the hideout the Stool Toad was too lazy to notice[or]The Logical Psycho back at his home[or]exiles living beyond the Standard Bog[in random order].[end if]"
+
+every turn when player is in freak control and qbc_litany is not table of baiter master talk (this is the random stuff in FC rule):
+	unless accel-ending:
+		say "[one of]The Twister Brain spits out a page of data the [bad-guy] speed reads. He mutters 'Pfft. I already sort of knew that. Mostly.'[or]The Witness Eye swivels around with a VVSSHHKK before changing the focus to [a random surveyable person].[or]The Shot Screen blinks a bit before changing its focus.[in random order]"
+
+the Twister Brain is scenery in Freak Control.
+
+the Witness Eye is scenery in Freak Control.
+
+the Language Sign is scenery in Freak Control. "It says, in various languages: OUT, FREAK. [one of]You're momentarily impressed, then you feel slightly jealous that the [bad-guy] took the time to research them. You remember getting grilled for trying to learn new languages in elementary school, before you could take language classes. You mentally blame the [bad-guy] for that. Well, it was someone like him. [or]You also take a second or two to pick which language is which line. Got [']em all. Even the ones with the unusual alphabets you meant to figure.[stopping]"
 
 The Baiter Master is a proper-named person in Freak Control. "The [bad-guy] stands here with his back to you.". description is "You can only see the back of him, well, until you gaze in some reflective panels. He looks up, as if to acknowledge you see him. He doesn't look that nasty, or distinguished, or strong, or whatever. Surprisingly ordinary. He gestures as if to say, let's get things started."
 
@@ -5590,7 +5605,9 @@ understand "complex" and "messiah" and "complex/messiah" as Baiter Master.
 litany of Baiter Master is the table of Baiter Master talk.
 
 check talking to Baiter Master:
-	say "He turns around. 'Oh, someone made it, finally. Stupid unreliable guards.' He quickly downs a can of soda and chucks it away.";
+	if freaked-out is false:
+		say "[one of]He waves you off without even looking. 'Whoever you are, I'm busy. Too busy for your lame problems. And they must be lame, if you asked so weakly.' You'll need an entirely more aggressive way to get his attention.[or]You just aren't good enough at yelling to do things straight up. Maybe you can upset things somehow.[stopping]" instead;
+	say "'Dude! You need to chill... there are things called manners...' but he does have your attention now. 'This better be good. How'd you get by my stupid guards anyway? I mean, you obviously ARE a lot smarter than they are.'"
 
 table of Baiter Master talk
 prompt	response	enabled	permit
@@ -5613,7 +5630,7 @@ bm-litter	"'Oh, nothing.' He seems nervous. You peer more closely. It's Jerk Sod
 bm-spike	"'It's--it's, well, tribute is what it is.'"
 bm-so-spike	"'Oh, come on, you know the difference.'[wfk][line break]It just slips out. 'Yeah, it's easy, there's not much of it.'"
 bm-tribute	"'There will be. Just--society needs to be stable, first. And it almost was. Until you stepped in.'"
-bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Great. You think you can do better? Do so. I'll be waiting in Questions Field. You'll miss something obvious. Always have, always will.' The Baiter Master storms out.[paragraph break]You're not sure who can help, but maybe...the Goods? Yes. The Jerks? Surprisingly, yes, too. You even call Mark Black on the Quiz Pop's customer service number? Then Spike Price pretending to be the [bad-guy] and you prank him. It's--there's so much to do, questions you never asked. Mark Black is on his way--but you are unprepared for the military coup--someone named Admiral Vice. 'A danger to Slicker City! We will break him,' he says, gesturing to you.[wfk][line break]'Where? In the BREAK JAIL!'[paragraph break]You keep a straight face and, later that night, your wits. Could people who yell that loud REALLY be that wrong? The way out leads--back to your bedroom hallway, and to your bedroom. Your parents both complain about your late night moping getting worse than ever, and you--well, you promise them it'll get better.[wfk][paragraph break]But first, you have a look at [i]The Phantom Tolllbooth[r]. The Baiter Master was right--you do miss obvious things. 'Other books you may enjoy.' There will be other obvious things you should've discovered. But it's good you found something right away, back in the normal world. You're confident you'll find more--and that people like the Baiter Master aren't the accelerated life experts you built them up to be."
+bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Great. You think you can do better? Do so. I'll be waiting in Questions Field. You'll miss something obvious. Always have, always will.' The Baiter Master storms out.[paragraph break]You're not sure who can help, but maybe...the Goods? Yes. The Jerks? Surprisingly, yes, too. You even call Mark Black on the Quiz Pop's customer service number? Then Spike Price pretending to be the [bad-guy] and you prank him. It's--there's so much to do, questions you never asked. Mark Black is on his way--but you are unprepared for the military coup--someone named Admiral Vice. 'A danger to Slicker City! We will break him,' he says, gesturing to you.[wfk][line break]'Where? In the BREAK JAIL!'[paragraph break]You keep a straight face and, later that night, your wits. Could people who yell that loud REALLY be that wrong? The way out leads--back to your bedroom hallway, and to your bedroom. Your parents both complain about your late night moping getting worse than ever, and you--well, you promise them it'll get better.[wfk][line break]But first, you have a look at [i]The Phantom Tolllbooth[r]. The Baiter Master was right--you do miss obvious things. 'Other books you may enjoy.' There will be other obvious things you should've discovered. But it's good you found something right away, back in the normal world. You're confident you'll find more--and that people like the Baiter Master aren't the accelerated life experts you built them up to be."
 bm-bye	"'You're not going anywhere.' And he's right. But it's not out totally out of fear, now."
 
 after quipping when qbc_litany is table of baiter master talk:
@@ -5638,6 +5655,32 @@ after quipping when qbc_litany is table of baiter master talk:
 	if current quip is bm-fear:
 		say "By the way, you may now restart the game and type ANNO for annotations, or JUMP to jump to an area of rejected rooms.";
 		end the story finally saying "Defeat of agony?";
+
+chapter freakouting
+
+freakouting is an action applying to nothing.
+
+understand the command "freak out" as something new.
+understand "freak out" as freakouting.
+
+carry out freakouting:
+	say "You let it all out. You haven't let it all out, since the good old days when James Scott and Scott James, ever fair and balanced, castigated you alternately for being too creepy-silent or being too overemotional. You blame the [bad-guy] for stuff that couldn't possibly be his fault, but it feels good--and it gets his attention.";
+	now freaked-out is true;
+	try talking to baiter master instead;
+
+chapter powertriping
+
+powertriping is an action applying to nothing.
+
+understand the command "trip power" as something new.
+understand "trip power" as freakouting.
+
+carry out powertriping:
+	say "You wonder if it could be that easy. Of course there has to be a switch somewhere! It might be hard to find, and the [bad-guy] might catch you...no, he is too absorbed in his surveillance. He'd already have picked at you, if he cared.[paragraph break]Ah, there it is. Just shut it down...";
+	wfak;
+	say "[line break]Oops, it's dark! The [bad-guy] yells. 'It'll take FIVE MINUTES to boot up again![paragraph break]Well, you have nothing to do but talk right now.";
+	now freaked-out is true;
+	try talking to baiter master instead;
 
 part Meal Square
 
