@@ -753,8 +753,8 @@ check listening (this is the listening in a place rule):
 		say "[one of]'See there, Proof Fool? This guy sits and listens. Right?' Before you can agree, the Logical Psycho continues. Strictly speaking, everything he says is true, but he tends to weight this or that more than he should...[or]The Logical Psycho continues to spew truths, with his own unique weighting of what is important.[stopping]" instead;
 	if player is in Interest Compound:
 		if phil is in Interest Compound:
-			say "[one of]M[or]More m[stopping]usic from the song swan!";
-			try examining song swan instead;
+			say "[one of]M[or]More m[stopping]usic from the song torch!";
+			try examining song torch instead;
 	say "Nothing crazy or unusual." instead;
 
 chapter searching
@@ -929,7 +929,7 @@ the block singing rule is not listed in any rulebook.
 
 check singing:
 	if player is in interest:
-		say "[if phil is in interest]You don't want to hear Phil's critique of your singing[else]You still can't compete with the song swan[end if]." instead;
+		say "[if phil is in interest]You don't want to hear Phil's critique of your singing[else]You still can't compete with the song torch[end if]." instead;
 	if player is in cult:
 		say "You sense singing may be overdoing it for the cult here." instead;
 	say "You never were the artsy type. And the songs you want to sing are always out of fashion." instead;
@@ -1061,7 +1061,7 @@ check attacking:
 		say "You don't want to embarrass yourself like that." instead;
 	if noun is tee:
 		say "Instead of breaking the tee, maybe you can use it to break something else." instead;
-	if noun is swan:
+	if noun is torch:
 		if phil is in Interest Compound or art is in Interest Compound:
 			say "'VANDAL!' shouts [if phil is not in Interest Compound]Art[else if art is not in Interest Compound]Phil[else]the pair of impresarios[end if]. 'You don't realize how priceless it is!' Law enforcement arrives. There's only one place for unartistic lummoxes like you.";
 			ship-off Hut Ten instead;
@@ -1249,7 +1249,39 @@ carry out diging:
 		say "With your pocket pick, the work is steady and clean, if arduous. Beneath the earth of scum, you hit something which snaps your pocket pick in two. It's a thin plaque. But not just any plaque: a PROOF OF BURDEN. You wipe it off and pick it up, then you bury the pocket pick, which is not only broken but also rusted." instead;
 	say "That's not soft enough." instead;
 	the rule succeeds.
-	
+
+chapter explaining
+
+explaining is an action applying to one visible thing.
+
+understand the command "explain" as something new.
+
+understand "explain [something]" as explaining.
+
+carry out explaining:
+	if noun is a exp-thing listed in table of explanations:
+		say "[exp-text entry][line break]";
+	else:
+		say "There should be an explanation, but there isn't.";
+	the rule succeeds.
+
+understand the command "explain [any thing]" as something new.
+
+understand "explain [text]" as a mistake ("You've come across nothing like that, yet. Or perhaps it is way in the past by now.")
+
+understand "explain [any explainable thing]" as explaining.
+
+table of explanations
+exp-thing	exp-text
+Song Torch	"A Torch Song is about looking back on a love you can't quite let go of. The Song Torch is more cynical than that, being a bit rougher on its subjects."
+
+definition: a thing (called x) is explainable:
+	if x is in lalaland, decide yes;
+	if location of x is visited, decide yes;
+	if player carries x, decide yes;
+	if x is Baiter Master, decide yes;
+	decide no;
+
 chapter noteing
 
 noteflating is an action out of world.
@@ -2109,7 +2141,7 @@ carry out playing:
 		the rule succeeds;
 	if noun is story fish:
 		try talking to story fish instead;
-	if noun is swan:
+	if noun is torch:
 		say "It is cranking out music nicely on its own. Ok, the music isn't so nice." instead;
 	if noun is Guy Sweet:
 		say "Why not play one of his games instead?" instead;
@@ -3408,6 +3440,9 @@ prompt	response	enabled	permit
 "So, hear you secretly like that lousy pro sports team."	jerk-pro	0	1
 "So, you definitely don't wear colored underwear. Right?"	jerk-undies	0	1
 "So, reread [i]Anne of Green Gables[r] lately?"	jerk-anne	0	1
+"So, you big on violent games? Or not?"	jerk-video	0	1
+"So, Mr. Rogers. Does he conquer the basics?"	jerk-rogers	0	1
+"So, what sort of glossy magazines do you read?"	jerk-maga	0	1
 "(bug the next [j-g])"	jerk-next	0	1
 "So, what about the [bad-guy]?"	jerk-baiter	1	1
 "[later-or-thanks]."	jerk-bye	3	1
@@ -3418,6 +3453,7 @@ to say j-g:
 when play begins (this is the initialize jerks rule):
 	let temp be 0;
 	now all clients are in Jerk Circle;
+	sort table of fingerings in random order;
 	while number of not specified clients > 0:
 		let Q be a random not specified client;
 		increment temp;
@@ -3428,9 +3464,11 @@ when play begins (this is the initialize jerks rule):
 	sort table of fingerings in random order;
 	choose row 7 in table of fingerings;
 	let temp-cli be jerky-guy entry;
+	let f-cur-row be 0;
 	repeat through table of fingerings:
-		now next-c of temp-cli is jerky-guy entry;
-		now temp-cli is jerky-guy entry;
+		unless jerky-guy entry is Buddy Best:
+			now next-c of temp-cli is jerky-guy entry;
+			now temp-cli is jerky-guy entry;
 
 a client has a client called next-c.
 
@@ -3443,6 +3481,9 @@ Buddy Best	"studies chess on the sly"	jerk-chess	0
 Buddy Best	"may or may not wear colored underwear"	jerk-undies	0
 Buddy Best	"has not only read but re-read [i]Anne of Green Gables[r]"	jerk-anne	0
 Buddy Best	"enjoys light music--worse, sung by MEN"	jerk-light	0
+Buddy Best	"enjoys nonviolent video games and not just because they're cheap"	jerk-video	0
+Buddy Best	"prefers fashion magazines to swimsuit editions"	jerk-maga	0
+Buddy Best	"uses life lessons from Mr. Rogers"	jerk-rogers	0
 
 table of quip texts (continued)
 quip	quiptext
@@ -3454,6 +3495,9 @@ jerk-chess	"[innue]."
 jerk-pro	"[innue]."
 jerk-undies	"[innue]."
 jerk-anne	"[innue]."
+jerk-rogers	"[innue]."
+jerk-video	"[innue]."
+jerk-maga	"[innue]."
 jerk-next	"You move on to [next-c-x of last-jerk]."
 jerk-baiter	"Everyone chimes in. Oh, does the [bad-guy] know his cultural references! And oh, how they respect him for knowing more culture despite the intensity of working up north in Freak Control to keep Spike Price at bay! They are pretty sure Spike Price wouldn't allow seven people to assemble in one place so freely."
 jerk-bye	"[last-jerk] turns away and goes back to talking to his buddies."
@@ -3480,7 +3524,7 @@ check going when player is in jerk circle:
 
 to reset-fingerings:
 	repeat through table of fingerings:
-		if suspect entry is not 2:
+		if suspect entry is not 2 and suspect entry is not -1:
 			now suspect entry is 0;
 
 to decide what number is jerks-scared:
@@ -4581,7 +4625,7 @@ check taking the finger index:
 
 chapter sound safe
 
-The Sound Safe is a thing in Accountable Hold. "[if player is in Interest Compound]The safe lies here beneath the song swan[else]A safe lies here. It doesn't look particularly heavy or secure. You hear some sound from it[end if]."
+The Sound Safe is a thing in Accountable Hold. "[if player is in Interest Compound]The safe lies here beneath the song torch[else]A safe lies here. It doesn't look particularly heavy or secure. You hear some sound from it[end if]."
 
 after taking Sound Safe:
 	say "It's not THAT heavy. The sound magnifies when you pick it up and the door opens briefly, but you close it. You try, but there's no way to lock it.[paragraph break]But what's this? Something's stuck under the safe. It's a piece of paper marked CONFIDENTIAL.";
@@ -4595,7 +4639,7 @@ check opening sound safe:
 		say "You don't need to, again." instead;
 	if player is not in Interest Compound:
 		say "You crack it open, but it makes such a terrible noise you have to close it again. You wouldn't want to open it again unless you were around someone you really wanted to spite." instead;
-	say "The Sound Safe makes a brutal noise in the Interest Compound, made worse by the special acoustics. Harmonic Phil covers his ears. 'I can't even blather about how this is so bad it's good!' he yells, running off.[paragraph break]You put the safe down by the song swan.";
+	say "The Sound Safe makes a brutal noise in the Interest Compound, made worse by the special acoustics. Harmonic Phil covers his ears. 'I can't even blather about how this is so bad it's good!' he yells, running off.[paragraph break]You put the safe down by the song torch.";
 	now sound safe is in Interest Compound;
 	now harmonic phil is in lalaland;
 	say "[line break][if art fine is in Interest Compound]Art Fine chuckles and nods approval. 'That's what you get for dabbling in art that's not intellectually robust.' Wow. Even before a line like that, you figured Art Fine had to go, too.[else]Well, that's Phil AND Art gone.[end if]";
@@ -5074,7 +5118,7 @@ after quipping when qbc_litany is table of best talk:
 
 part Interest Compound
 
-Interest Compound is east of Crazy Drive. It is in Main Chunk. "On one wall, a book crack is embedded--like a bookshelf, only tougher to extract the books. On another, a song swan."
+Interest Compound is east of Crazy Drive. It is in Main Chunk. "On one wall, a book crack is embedded--like a bookshelf, only tougher to extract the books. On another, a song torch."
 
 the poetic wax is in Interest Compound. "Poetic Wax--a whole ball of it--lies here behind [if number of waxblocking people is 0]where Art and Phil used to be[else][list of waxblocking people][end if]."
 
@@ -5271,13 +5315,13 @@ Richter Conrad: The Forest in the Light?
 Hugo Victor: Eternity with Conversations? (not really by Hugo)
 ]
 
-chapter song swan
+chapter song torch
 
-a song swan is scenery in Interest Compound. "Tacky and glitzy, and that's just the music coming from it."
+a song torch is scenery in Interest Compound. "Tacky and glitzy and afire (sorry) with music you're supposed to be smart enough to appreciate, but you can't."
 
 song-ord is a number that varies.
 
-check examining song swan:
+check examining song torch:
 	increment song-ord;
 	if song-ord > number of rows in table of horrendous songs:
 		if harmonic phil is in compound:
@@ -5592,7 +5636,9 @@ every turn when player is in freak control and qbc_litany is not table of baiter
 	unless accel-ending:
 		say "[one of]The Twister Brain spits out a page of data the [bad-guy] speed reads. He mutters 'Pfft. I already sort of knew that. Mostly.'[or]The Witness Eye swivels around with a VVSSHHKK before changing the focus to [a random surveyable person].[or]The Shot Screen blinks a bit before changing its focus.[in random order]"
 
-the Twister Brain is scenery in Freak Control.
+the Twister Brain is scenery in Freak Control. "Its ridges seem twisted into a smirk."
+
+understand "ridge/ridges" as Twister Brain.
 
 the Witness Eye is scenery in Freak Control.
 
@@ -6232,11 +6278,12 @@ biglaff
 "waiting?"
 "an empty command?"
 "XYZZY? Four times?"
-"attacking anyone? Or the swan?"
+"attacking anyone? Or the torch?"
 "cussing in front of certain people?"
 "giving Pusher Penn's 'merchandise' to the Stool Toad or Officer Petty?"
 "giving Minimum Bear to anyone except Fritz the On?"
-"listening to all the songs from the song swan (there are [number of rows in table of horrendous songs])?"
+"putting the poetic wax on anything except the language machine?"
+"listening to all the songs from the song torch (there are [number of rows in table of horrendous songs])?"
 "reading all the books from the book crack (there are [number of rows in table of horrendous books])?"
 
 book continuing
@@ -6244,6 +6291,20 @@ book continuing
 Table of Final Question Options (continued)
 final question wording	only if victorious	topic	final response rule	final response activity
 "see where minor SWEARS change"	true	"SWEARS"	swear-see rule	swearseeing
+"see the SINS the jerks didn't commit"	true	"SINS"	sin-see rule	sinseeing
+
+chapter sins
+
+sinseeing is an activity.
+
+this is the sin-see rule:
+	say "None of the jerks was so square that he...[line break]";
+	repeat through table of fingerings:
+		if jerky-guy entry is Buddy Best:
+			say " ... [blackmail entry][line break]";
+	say "Not that there's anything wrong with that. Or there would be, if they did. But you knew that."
+
+chapter swearing
 
 swearseeing is an activity.
 
@@ -6815,7 +6876,7 @@ test winfast with "gonear freak control/1/1/1/1/1/1/1/1"
 
 test pops with "get pop/n/n/drink pop/n"
 
-test arts-before-after with "gonear compound/x crack/x swan/purloin fish/play it/purloin safe/open it/x crack/x swan"
+test arts-before-after with "gonear compound/x crack/x torch/purloin fish/play it/purloin safe/open it/x crack/x torch"
 
 chapter broing
 
