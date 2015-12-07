@@ -1255,25 +1255,79 @@ chapter explaining
 explaining is an action applying to one visible thing.
 
 understand the command "explain" as something new.
-
-understand "explain [something]" as explaining.
-
-carry out explaining:
-	if noun is a exp-thing listed in table of explanations:
-		say "[exp-text entry][line break]";
-	else:
-		say "There should be an explanation, but there isn't.";
-	the rule succeeds.
+understand the command "xp" as something new.
 
 understand the command "explain [any thing]" as something new.
+understand the command "xp [any thing]" as something new.
+
+understand "explain [any explainable thing]" as explaining.
+understand "xp [any explainable thing]" as explaining.
+
+expl-hint is a truth state that varies.
+
+told-xpoff is a truth state that varies;
+
+carry out explaining:
+	let found-yet be false;
+	if noun is an exp-thing listed in the table of explanations:
+		if anno-allow is true and told-xpoff is false:
+			now told-xpoff is true;
+		if anno-allow is false or no-basic-anno is false:
+			say "[exp-text entry][line break]";
+		now found-yet is true;
+[	repeat through table of explanations:
+		if noun is exp-thing entry:
+			if anno-allow is true and told-xpoff is false:
+				now told-xpoff is true;
+			if anno-allow is false or no-basic-anno is false:
+				say "[exp-text entry][line break]";
+			now found-yet is true;]
+	if found-yet is false:
+		say "There should be an explanation, but there isn't.";
+		the rule succeeds;
+	choose row with exp-thing of noun in table of explanations;
+	if there is an exp-anno entry:
+		if anno-allow is false:
+			if expl-hint is false:
+				now expl-hint is true;
+				say "[line break][i][bracket]NOTE: [if ever-anno is true]typing ANNO and explaining again will let you see more details notes on this item and others[else]once you finish the game, you'll get a command that will annotate this more fully, beyond the basics[end if].[close bracket][r][line break]";
+			the rule succeeds;
+		say "[exp-anno entry]";
+	the rule succeeds.
 
 understand "explain [text]" as a mistake ("You've come across nothing like that, yet. Or perhaps it is way in the past by now.")
 
-understand "explain [any explainable thing]" as explaining.
-
 table of explanations
-exp-thing	exp-text
-Song Torch	"A Torch Song is about looking back on a love you can't quite let go of. The Song Torch is more cynical than that, being a bit rougher on its subjects."
+exp-thing	exp-text	exp-anno
+Poetic Wax	"To wax poetic is to, well, rhapsodize with poems or song or whatever. It's slightly less gross than wax."
+Harmonic Phil	"Many orchestras bill themselves as philharmonic. I suppose they could be anti-harmonic, but an Auntie character felt a bit stereotyped, and Auntie feels a bit too charged."
+Art Fine	"Why, fine art, of course. Highfalutin['] stuff, not easy to understand."
+Song Torch	"A Torch Song is about looking back on a love you can't quite let go of. The Song Torch is more cynical than that, being a bit rougher on its subjects, and, well, actually torching them."
+Finger Index	"The index finger is the one next to your thumb. Also, to finger someone means to point them out."
+Jerk Circle	"You'll have to look on Urban Dictionary for that."
+Guy Sweet	"Guy Sweet is more of a candy-[a-word] than a sweet guy, but 'sweet guy' is such a terrible compliment as-is. To yourself or others."
+Game Shell	"A shell game is where an operator and possibly an assistant rig a game so that mugs think it's an easy win, but they can't. The most popular one is when they hide a bean under a hollowed shell and shift them around."	"The game shell is a shell game of its own. No matter how much you solve, you won't impress Guy Sweet, and you won't--well--figure the real puzzles you want to, beyond logic etc."
+Broke Flat	"Flat Broke means out of money."	"This was originally a location until I discovered A Round Lounge."
+A Round Lounge	"To lounge around is to do nothing--the opposite of what you want."
+Plan Hatch	"To hatch a plan is to figure a way to do something."
+Word Weasel	"A weasel word is something that seems to mean more than it should."
+Flower Wall	"A wallflower is someone who doesn't participate socially."
+Variety Garden	"Garden-variety means ordinary, nothing special."
+Vision Tunnel	"Tunnel vision is the inability to see anything other than what is in front of you."
+Mouth Mush	"A mush-mouth is someone who talks unclearly or uses weak words."
+Rogue Arch	"An arch-rogue is a big bad guy, obviously inappropriate for early in the story."
+Twister Brain	"The opposite of a brain twister, where someone derives a conclusion from a fact, the brain has a set conclusion and twists and weights facts to line up with them."
+
+does the player mean explaining the player:
+	it is likely;
+
+carry out explaining the player:
+	if debug-state is true:
+		let count be 0;
+		repeat with Q running through explainable things:
+			if Q is not an exp-thing listed in table of explanations:
+				increment count;
+				say "[count]: [Q] needs an explanation.";
 
 definition: a thing (called x) is explainable:
 	if x is in lalaland, decide yes;
@@ -1281,6 +1335,22 @@ definition: a thing (called x) is explainable:
 	if player carries x, decide yes;
 	if x is Baiter Master, decide yes;
 	decide no;
+
+chapter xpoffing
+
+xpoffing is an action out of world.
+
+understand the command "xpoff" as something new.
+
+understand "xpoff" as xpoffing when ever-anno is true.
+
+no-basic-anno is a truth state that varies.
+
+carry out xpoffing:
+	now told-xpoff is true;
+	now no-basic-anno is whether or not no-basic-anno is true;
+	say "Basic explanations now [if no-basic-anno is true]don't [end if]appear with annotations.";
+	the rule succeeds;
 
 chapter noteing
 
@@ -1592,8 +1662,9 @@ carry out annoing:
 			now anno-allow is true;
 		now anno-check is true instead;
 	now anno-allow is whether or not anno-allow is false;
-[	say "Now annotations are [if anno-allow is true]on[else]off[end if].";
-	showme whether or not anno-allow is true;] [commented this code for later reference. It's handy.]
+	now ever-anno is true;
+	say "Now annotations are [if anno-allow is true]on[else]off[end if].";
+	[showme whether or not anno-allow is true;] [commented this code for later reference. It's handy.]
 	the rule succeeds;
 
 cur-anno is a number that varies. cur-anno is usually 0.
@@ -1791,6 +1862,9 @@ guy-bye	"'Whatever, dude.'"
 
 to say bad-guy:
 	say "[if allow-swears is true]Baiter Master[else]Complex Messiah[end if]"
+
+to say a-word:
+	say "[if allow-swears is true]ass[else]***[end if]"
 
 after quipping when qbc_litany is table of guy sweet talk:
 	if current quip is guy-flat or current quip is guy-stuck:
@@ -3442,6 +3516,7 @@ prompt	response	enabled	permit
 "So, reread [i]Anne of Green Gables[r] lately?"	jerk-anne	0	1
 "So, you big on violent games? Or not?"	jerk-video	0	1
 "So, Mr. Rogers. Does he conquer the basics?"	jerk-rogers	0	1
+"So, you wouldn't be ashamed of driving a clunker?"	jerk-car	0	1
 "So, what sort of glossy magazines do you read?"	jerk-maga	0	1
 "(bug the next [j-g])"	jerk-next	0	1
 "So, what about the [bad-guy]?"	jerk-baiter	1	1
@@ -3463,12 +3538,19 @@ when play begins (this is the initialize jerks rule):
 		d "[jerky-guy entry] = [blackmail entry].";
 	sort table of fingerings in random order;
 	choose row 7 in table of fingerings;
-	let temp-cli be jerky-guy entry;
 	let f-cur-row be 0;
+	let temp-cli be Buddy Best;
+	let first-cli be Buddy Best;
 	repeat through table of fingerings:
 		unless jerky-guy entry is Buddy Best:
-			now next-c of temp-cli is jerky-guy entry;
+			unless temp-cli is Buddy Best:
+				now next-c of temp-cli is jerky-guy entry;
+				d "[temp-cli] to [jerky-guy entry].";
+			else:
+				now first-cli is jerky-guy entry;
 			now temp-cli is jerky-guy entry;
+	d "[temp-cli] to [first-cli].";
+	now next-c of temp-cli is first-cli;
 
 a client has a client called next-c.
 
@@ -3481,6 +3563,7 @@ Buddy Best	"studies chess on the sly"	jerk-chess	0
 Buddy Best	"may or may not wear colored underwear"	jerk-undies	0
 Buddy Best	"has not only read but re-read [i]Anne of Green Gables[r]"	jerk-anne	0
 Buddy Best	"enjoys light music--worse, sung by MEN"	jerk-light	0
+Buddy Best	"wouldn't mind a sensible, un-flashy car in the future"	jerk-car	0
 Buddy Best	"enjoys nonviolent video games and not just because they're cheap"	jerk-video	0
 Buddy Best	"prefers fashion magazines to swimsuit editions"	jerk-maga	0
 Buddy Best	"uses life lessons from Mr. Rogers"	jerk-rogers	0
@@ -3495,6 +3578,7 @@ jerk-chess	"[innue]."
 jerk-pro	"[innue]."
 jerk-undies	"[innue]."
 jerk-anne	"[innue]."
+jerk-car	"[innue]."
 jerk-rogers	"[innue]."
 jerk-video	"[innue]."
 jerk-maga	"[innue]."
@@ -4058,7 +4142,7 @@ the nine yards hole is scenery in Disposed Well. "It looks rather deep, too narr
 
 understand "disposed/well" as the yards hole.
 
-the story fish is a thing. description of story fish is "[if player has story fish]It looks wooden and mechanical[else]The story fish has been stuffed into the book crack here[end if]."
+the story fish is a thing. description of story fish is "[if player has story fish]It looks wooden and mechanical[else]The story fish has been stuffed into the book bank here[end if]."
 
 before giving the fish to:
 	say "It's far too tacky for anyone to use. You probably just want to TALK to it to get it going." instead;
@@ -4068,11 +4152,11 @@ check taking story fish:
 		continue the action;
 	say "No, it's happy in the compound. You're happy you put it there to get rid of Art." instead;
 
-check putting fish on crack:
+check putting fish on bank:
 	say "'Certainly not!' says Art Fine. 'Such a vulgar thing, among so many great books?'[paragraph break]Hm. You wonder what he'd think if he actually heard the fish." instead;
 
 check inserting it into (this is the insert it right rule):
-	if noun is fish and noun is crack:
+	if noun is fish and second noun is bank:
 		say "'Certainly not!' says Art Fine. 'Such a vulgar thing, among so many great books?'[paragraph break]Hm. You wonder what he'd think if he actually heard the fish." instead;
 	if noun is long string and second noun is yards hole:
 		unless story fish is off-stage:
@@ -5118,7 +5202,7 @@ after quipping when qbc_litany is table of best talk:
 
 part Interest Compound
 
-Interest Compound is east of Crazy Drive. It is in Main Chunk. "On one wall, a book crack is embedded--like a bookshelf, only tougher to extract the books. On another, a song torch."
+Interest Compound is east of Crazy Drive. It is in Main Chunk. "On one wall, a book bank is embedded--like a bookshelf, only tougher to extract the books. On another, a song torch."
 
 the poetic wax is in Interest Compound. "Poetic Wax--a whole ball of it--lies here behind [if number of waxblocking people is 0]where Art and Phil used to be[else][list of waxblocking people][end if]."
 
@@ -5132,7 +5216,7 @@ after examining the poetic wax:
 		enable the phil-wax quip;
 	continue the action;
 
-description of poetic wax is "It fluctuates through many shades of grey. As you look at it, words seem to appear and vanish as it swirls. it becomes whatever you want it to be, but whatever it is, it isn't quite good enough and you think, just one more adjustment...it's the most fun you've had in forever."
+description of poetic wax is "It fluctuates through many shades of grey and colors of the rainbow at once. As you look at it, words seem to appear and vanish as it swirls. it becomes whatever you want it to be, but whatever it is, it isn't quite good enough and you think, just one more adjustment...it's the most fun you've had in forever."
 
 check taking the poetic wax:
 	if number of waxblocking people > 0:
@@ -5158,7 +5242,7 @@ table of Art Fine talk
 prompt	response	enabled	permit
 "Some place you got here!"	art-hi	1	1
 "Blather like yours is the sort of thing that scared me off reading, you know."	art-pomp	0	0
-"May I check out anything from the Book Crack?"	art-book	0	1
+"May I check out anything from the Book Bank?"	art-book	0	1
 "What is your aesthetic?"	art-aes	0	1
 "So, what's with wax back there?"	art-wax	0	1
 "What would be totally unsuitable for this fine sanctum? Just so I can, y'know, gaffle anyone who tries before they enter."	art-tol	0	1
@@ -5170,7 +5254,7 @@ quip	quiptext
 art-hi	"'It is. Phil[if phil is off-stage], wherever he is,[end if] and I have worked hard to make it a paragon of good taste!'"
 art-pomp
 art-aes	"'Well, closed-mindedness. I'll never like that in people. But in art? Ah, I can appreciate anything. Even stuff that's so bad it's good. Especially in the presence of other aficionados. Unless it's just drivel. Of course.'"
-art-book	"'This is not a library! However, if you so choose, you may marvel at the titles, record them for your pleasure, and check them out at your nearest library.'"
+art-book	"'This is not a library! However, if you so choose, you may marvel at the titles, record them for your pleasure, and check them out at your nearest library.' Art mumbles something about you not being able to pay the interest back with exciting criticism of your own. You're pretty sure he meant you to hear it."
 art-tol	"'Drivel so dreary, from a mind so banal. I shudder to think. It would make me run screaming.'"
 art-wax	"[wax-blab]"
 art-baiter	"'A top notch fellow. A true patron of the arts. Our aesthetics do line up. He seeks to encourage all art, unless it could be understood by dumb people. Now, art that dumb people SHOULD be able to understand but don't, that's a different story.'"
@@ -5229,13 +5313,13 @@ after quipping when qbc_litany is litany of Harmonic Phil:
 	if current quip is phil-bye:
 		quit small talk;
 
-chapter book crack
+chapter book bank
 
-a book crack is scenery in Interest Compound. "Just filled with books!"
+the book bank is scenery in Interest Compound. "Just filled with books!"
 
 book-ord is a number that varies.
 
-check examining book crack:
+check examining book bank:
 	increment book-ord;
 	if book-ord > number of rows in table of horrendous books:
 		if art fine is in compound:
@@ -5248,6 +5332,9 @@ check examining book crack:
 		say "Oh, dear. [i][workname entry][r] by [authname entry]. Looks depressing." instead;
 	say "'Ah, yes,' drones Art Fine. '[i][workname entry][r]. A most [one of]iconic[or]transformative[or]edifying[or]scintillating[or]zeitgeisty[in random order] read, providing you are a good reader. [authname entry]. A [one of]stirring treatise[or]vigorous discussion[or]tour de force[or]stunning perspective[at random] on [booksubj entry]. And more. [pompous-phrase]! More sensible than some jingle!'";
 	the rule succeeds;
+
+check taking book bank:
+	say "You consider trying to Steal This Book, but then you picture the Stool Toad[if Judgment Pass is visited] or Officer Petty[end if] ready to Book This Steal. Even without Art or Phil here to see you." instead;
 
 to say pompous-phrase:
 	say "[one of]Indeed[or]True art[or]Simple, yet complex[or]Quite so[or]Immaculate[or]Ah[or]Fascinating[or]Food for thought[in random order]"
@@ -5317,7 +5404,7 @@ Hugo Victor: Eternity with Conversations? (not really by Hugo)
 
 chapter song torch
 
-a song torch is scenery in Interest Compound. "Tacky and glitzy and afire (sorry) with music you're supposed to be smart enough to appreciate, but you can't."
+a song torch is scenery in Interest Compound. "Tacky and glitzy and afire (sorry) with music you're supposed to be smart and worldly enough to appreciate, but you can't."
 
 song-ord is a number that varies.
 
@@ -5334,6 +5421,9 @@ check examining song torch:
 		say "You listen, and the song's lyrics seem to indicate it's [i][workname entry][r] by, you guess, [singername entry]. Ridiculous." instead;
 	say "'Ah, yes,' drones Harmonic Phil. '[i][workname entry][r]. A most [one of]titillating[or]sense-enhancing[or]transcending[or]pure-art[or]spine-tingling[in random order] experience, providing you are a good listener. [singername entry]. Such [one of]complex melodies[or]vigorous discussion[or]tour de force[or]stunning perspective[at random] on [songsubj entry]. And more. [pompous-phrase]! It wouldn't be the same in print!'";
 	the rule succeeds;
+
+check taking song torch:
+	say "Maybe that could reduce a new castle to coals, but you're not sure that'd be a good idea even if you found one." instead;
 
 section all the songs
 
@@ -6869,6 +6959,8 @@ test cookie with "j/j/j/j/s/w/get cookie/e/n/n/n/n"
 test cheese with "j/j/j/j/s/w/get cheese/e/n/n/n/n"
 
 test final with "n/talk to baiter/1/1/1/1/1/1/1/1/1"
+
+test lastroom with "test startit/test blood/test soul/test big/purloin quiz pop/n/n/drink quiz pop/n/explain me"
 
 test winit with "test startit/test blood/test soul/test big/purloin quiz pop/n/n/drink quiz pop/test final"
 
