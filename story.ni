@@ -1427,7 +1427,10 @@ carry out verbing:
 	say "[2da]specific items may mention a verb to use in CAPS, e.g 'You can SHOOT the gun AT something.'";
 	say "[2da]conversations use numbered options, and you often need to end them before using standard verbs. RECAP shows your options.";
 	say "[2da]other standard parser verbs apply, and some may provide alternate solutions, but you should be able to win without them.";
-	say "[2da]you can also type ABOUT or CREDITS or HISTORY to see meta-information.";
+	say "[2da]Meta-commands listed below.";
+	say "[2da]you can also type ABOUT or CREDITS or HISTORY to see meta-information, and XP/EXPLAIN (any object) gives a brief description.";
+	if anno-allow is true or ever-anno is true:
+		say "[2da]ANNO toggles director's cut information on rooms and gives more information to XP. Also, XPOFF turns off basic information, if ANNO is turned on.";
 	say "[2da]EXITS shows the exits. While these should be displayed in the room text, you can see where they lead if you've been there.";
 	say "[2da]HELP/HINT/HINTS/WALKTHROUGH will redirect you to the PDF and HTML hints that come with the game. THINK/SCORE gives very broad, general hinting. WAIT lets you wait.";
 	if in-beta is true:
@@ -6392,7 +6395,7 @@ this is the sin-see rule:
 	repeat through table of fingerings:
 		if jerky-guy entry is Buddy Best:
 			say " ... [blackmail entry][line break]";
-	say "Not that there's anything wrong with that. Or there would be, if they did. But you knew that."
+	say "Not that there's anything wrong with that. Or there would be, if they did. But you knew that. And, uh, I know that, too. Really!"
 
 chapter swearing
 
