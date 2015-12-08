@@ -1140,12 +1140,24 @@ the block giving rule is not listed in any rulebook.
 
 [the warn against giving to nonperson rule is listed first in the before giving to rulebook.]
 
-check giving to guy sweet:
-	if noun is token:
-		say "'No, I don't want [if noun is gesture token]it back. I have plenty. You might need it[else]that. Or anything from you, really. I'm here to help YOU[end if].'" instead;
-	say "There's some awkward gesturing before and after you realize [the second noun] doesn't particularly need or want [the noun]." instead;
+book check/before giving
 
-check giving:
+[there were too many CHECK GIVING rules and there were too many possibilities for fun stuff. So I thought I would put everything in order here.]
+
+chapter item based
+
+chapter person based
+
+chapter big one and default
+
+check giving (this is the big giving organized by room rule) :
+	if second noun is Guy Sweet: [smart street]
+		if noun is token: [second noun must be Guy Sweet]
+			say "'No, I don't want [if noun is gesture token]it back. I have plenty. You might need it[else]that. Or anything from you, really. I'm here to help YOU[end if].'" instead;
+		say "There's some awkward gesturing before and after you realize Guy doesn't particularly need or want [the noun]." instead;
+
+
+check giving (this is the default fall-through giving rule) :
 	if noun is not a person:
 		say "You should probably GIVE stuff to people. For inanimate objects, try PUT X ON/IN Y." instead;
 	say "As you reach for that, [the second noun] blinks and looks at you. No, you don't see how they'd want THAT." instead;
@@ -2816,10 +2828,52 @@ instead of doing something with water-scen:
 		continue the action;
 	say "You can probably just go east to see more of the water."
 
-the Purposes Cross is scenery in Pressure Pier. "It labels seemingly contradictory things to want: to be clever enough to cut down too-clever weirdos. To have enough interests you can almost empathize with obsessed nerds, but not quite. To know enough pop culture you can poke fun at people who care too much about it. To be nice enough adults are sure you'll go far, but not be some useless dweeb.[paragraph break]There's also something about how if you don't know how to balance those things and have to ask others, or if this triggers some oversensitivity, well, REALLY."
+the Purposes Cross is scenery in Pressure Pier. "It labels seemingly contradictory things to want and to be: to be clever enough to cut down too-clever weirdos. To have enough interests you can almost empathize with obsessed nerds, but not quite. To know enough pop culture you can poke fun at people who care too much about it. To be nice enough adults are sure you'll go far, but not be some useless dweeb.[paragraph break]There's also something about how if you don't know how to balance those things and have to ask others, or if this triggers some oversensitivity, well, REALLY. And there's even a tip of the moment![paragraph break][tip-of-moment]"
 
-after examining cross when cookie-eaten is true:
-	say "Well, DUH. It seems so obvious now you've eaten the cookie.";
+cross-row is a number that varies. cross-row is usually 0.
+
+cross-cycled is a truth state that varies. cross-cycled is usually false.
+
+to say tip-of-moment:
+	increment cross-row;
+	if cross-row > number of rows in table of cross references:
+		now cross-row is 1;
+		now cross-cycled is true;
+	choose row cross-row in the table of cross references;
+	say "[italic type][reference-blurb entry][line break]";
+	if cross-row is number of rows in table of cross references:
+		say "[r]LAST HINT. You'd better have learned something, but remember, you can push around people who don't matter by saying they aren't persistent enough or they are a bit obsessed. Often within five minutes of each other. Because it's important to see both sides.";
+	else if cross-row is 1:
+		say "Of course, just internalizing this tip won't make you quite the guy the [bad-guy] is. Everyone can be right about some random thing. You need a variety of moves. To be a complete person![r]";
+	else:
+		say "[r]";
+	unless accel-ending:
+		if cross-cycled is false and cross-row is a looknum listed in table of cross reflections:
+			choose row with looknum of cross-row in table of cross reflections;
+			say "[reflection entry]";
+
+table of cross reflections
+looknum	reflection
+1	"Well, you do need to be more dynamic in conversations. But that doesn't seem right. You wonder if you're just being lazy or unsocial or antisocial."
+3	"Man. It's frustrating. People have pulled these moves on you. And you're pretty sure they're wrong. You've got no way to go around them."
+
+table of cross references [Ha! Ha!]
+reference-blurb
+"Use 'fair enough' frequently to cool off someone who actually may have a point."
+"Pretend to misunderstand everyone even if they're clear. If they don't stick up for themselves, well, they need to learn."
+"Pick out an unsocial skeptic and be skeptical they actually care."
+"Assure people you get to the point, but be sure to laugh before responding. 'Is it something I said' is a good follow up question."
+"Throw someone a bone with 'Even so-and-so knows...' You'd be surprised how many 'nice quiet types' lash out at charity."
+"When asked for help, say 'oh, it's easy.' If someone asks why, tell them to stop badgering you."
+"Be sure one weirdo a day is a nice guy. Let him know. It's not your fault if he responds...weirdly."
+"Understand how flattery and the golden rule interact, unless someone is fishing for approval."
+"Pick out someone creepy with a valid criticism and go ad hominem."
+
+after examining cross when accel-ending:
+	if cookie-eaten is true:
+		say "Well, DUH. It seems so obvious now you've eaten the cookie.";
+	else:
+		say "Geez. You don't want to have to put up with that any more. You'll be more forceful telling people to expletive off in the future, though. That should help.";
 	continue the action;
 
 instead of doing something with Purposes Cross:
@@ -5153,7 +5207,7 @@ check going nowhere in Court of Contempt:
 
 Buddy Best is a person in Court of Contempt. "[one of]Oh, look! A potential friend![paragraph break]'Yah. Hi. I'm Buddy Best. You seem real nice. Nice enough not to waste too much of my time.'[paragraph break]Okay, never mind.[or]Buddy Best waits and taps his foot here.[stopping]". description is "Buddy Best has a half-smile on his face, which is totally a delicate balance of happiness and seriousness and not a sign of contempt, so stop saying that."
 
-a long tag is a thing. description is "By Order of the [bad-guy]:[paragraph break]The holder of this ticket is entitled, irregardless (I know, I'm being ironic and vernacular) of station or current responsibility, to visit Enough Fair, a whirlwind event of social skills where the bearer learns[paragraph break][2da]1. Judicious use of 'fair enough' to 'win' conversations[line break][2da]2. how to yell at others to stop complaining life's not fair AND still point how it's rigged against you[line break][2da]3. Of course, not trying to be too fair. People who overdo things are the worst![line break][2da]4. Lots more, but if we wrote everything, you wouldn't need to show up. Ha ha."
+a long tag is a thing. description is "By Order of the [bad-guy]:[paragraph break]The holder of this ticket is entitled, irregardless (I know, I'm being ironic and vernacular) of station or current responsibility, to visit Enough Fair, a whirlwind event of social skills where the bearer learns[paragraph break][2da]1. how to yell at others to stop complaining life's not fair AND still point how it's rigged against you[line break][2da]3. Of course, not trying to be too fair. People who overdo things are the worst![line break][2da]3. Lots more, but if we wrote everything, you wouldn't need to show up. Ha ha."
 
 before giving long tag to:
 	if noun is dutch or noun is turk or noun is child:
