@@ -1476,7 +1476,11 @@ understand the command "credits" as something new.
 understand "credits" as creditsing.
 
 carry out creditsing:
-	say "I was able to bounce technical and non-technical ideas off several other people. Wade Clarke, Marco Innocenti, Hugo Labrande, Juhana Leinonen, Brian Rushton and Matt Weiner offered testing and general encouragement and insight on what was a VERY short deadline given the game's size. An anonymous tester provided other direction.[paragraph break]Robert DeFord, Harry Giles and Steven Watson had ideas for the white paper and direction, as did the Interactive Fiction Faction, a private Google group. They include Hanon Ondricek, Robert Patten, Miguel Garza, Matt Goh and Joseph Geipel.[paragraph break]I'd also like to thank people who alerted me to bugs in the comp version: Olly Kirk, Paul Lee, Michael Martin and Al Golden.[paragraph break]Jason Lautzenheiser's work on Genstein's Trizbort app (www.trizbort.com) was invaluable for big-picture planning and for adding in ideas I wasn't ready to code. If you are writing a parser game, I recommend it. (Disclaimer: I am a contributor, too.)[paragraph break]Many websites and resources helped me discover silly phrases. The Director's Cut has details on specific names, but www.thefreedictionary.com was a big help with its idioms search/subdomain idioms.thefreedictionary.com. Various compound word lists gave me ideas, too.";
+	say "I was able to bounce technical and non-technical ideas off several other people. Wade Clarke, Marco Innocenti, Hugo Labrande, Juhana Leinonen, Brian Rushton and Matt Weiner offered testing and general encouragement and insight on what was a VERY short deadline given the game's size. An anonymous tester provided other direction.[paragraph break]Robert DeFord, Harry Giles and Steven Watson had ideas for the white paper and direction, as did the Interactive Fiction Faction, a private Google group. They include Hanon Ondricek, Robert Patten, Miguel Garza, Matt Goh and Joseph Geipel.[paragraph break]Jason Lautzenheiser's work on Genstein's Trizbort app (www.trizbort.com) was invaluable for big-picture planning and for adding in ideas I wasn't ready to code. If you are writing a parser game, I recommend it. (Disclaimer: I am a contributor, too.)[paragraph break]Many websites and resources helped me discover silly phrases. The Director's Cut has details on specific names, but www.thefreedictionary.com was a big help with its idioms search/subdomain idioms.thefreedictionary.com. Various compound word lists gave me ideas, too.";
+	say "====IN-COMP THANKS:";
+	say "I'd also like to thank people who alerted me to bugs in the comp version: Olly Kirk, Paul Lee, Michael Martin and Al Golden.";
+	say "====POST-COMP THANKS:";
+	say "Thanks to Alex Butterfield and Hugo Labrande for our games of code tennis, which is basically, try and do something every other day, or the other guy scores a point. Hugo worked with me more on a 'related project,' but a lot of things I pinged him with were relevant here.";
 	the rule succeeds;
 
 chapter abouting
@@ -2793,7 +2797,7 @@ Outer Bounds is a region.
 
 part Pressure Pier
 
-Pressure Pier is north of Tension Surface. It is in Outer Bounds. "[one of]So, this is Pressure Pier. Off south is water--no way back to the Tension Surface[or]Water south, passage north[stopping]. You smell food to the west, and the land sinks a bit to the east. Ahead north, things open up further behind [one of]something called[or]the[stopping] Purposes Cross."
+Pressure Pier is north of Tension Surface. It is in Outer Bounds. "[one of]So, this is Pressure Pier. Off south is water--no way back to the Tension Surface[or]Water south, passage north[stopping]. You smell food to the west, and the land sinks a bit to the east. Ahead north, things open up further behind [one of]something called[or]the[stopping] Saver Screen."
 
 pier-visited is a truth state that varies.
 
@@ -2828,40 +2832,46 @@ instead of doing something with water-scen:
 		continue the action;
 	say "You can probably just go east to see more of the water."
 
-the Purposes Cross is scenery in Pressure Pier. "It labels seemingly contradictory things to want and to be: to be clever enough to cut down too-clever weirdos. To have enough interests you can almost empathize with obsessed nerds, but not quite. To know enough pop culture you can poke fun at people who care too much about it. To be nice enough adults are sure you'll go far, but not be some useless dweeb.[paragraph break]There's also something about how if you don't know how to balance those things and have to ask others, or if this triggers some oversensitivity, well, REALLY. And there's even a tip of the moment![paragraph break][tip-of-moment]"
+the Saver Screen is scenery in Pressure Pier. "It labels seemingly contradictory things to want and to be: to be clever enough to cut down too-clever weirdos. To have enough interests you can almost empathize with obsessed nerds, but not quite. To know enough pop culture you can poke fun at people who care too much about it. To be nice enough adults are sure you'll go far, but not be some useless dweeb.[paragraph break]There's also something about how if you don't know how to balance those things and have to ask others, or if this triggers some oversensitivity, well, REALLY. And there's even a tip of the moment![paragraph break][tip-of-moment]"
 
-cross-row is a number that varies. cross-row is usually 0.
+saver-row is a number that varies. saver-row is usually 0.
 
-cross-cycled is a truth state that varies. cross-cycled is usually false.
+saver-cycled is a truth state that varies. saver-cycled is usually false.
 
 to say tip-of-moment:
-	increment cross-row;
-	if cross-row > number of rows in table of cross references:
-		now cross-row is 1;
-		now cross-cycled is true;
-	choose row cross-row in the table of cross references;
+	increment saver-row;
+	if saver-row > number of rows in table of cross references:
+		now saver-row is 1;
+		now saver-cycled is true;
+	choose row saver-row in the table of cross references;
 	say "[italic type][reference-blurb entry][line break]";
-	if cross-row is number of rows in table of cross references:
+	if saver-row is number of rows in table of cross references:
 		say "[r]LAST HINT. You'd better have learned something, but remember, you can push around people who don't matter by saying they aren't persistent enough or they are a bit obsessed. Often within five minutes of each other. Because it's important to see both sides.";
-	else if cross-row is 1:
+	else if saver-row is 1:
 		say "Of course, just internalizing this tip won't make you quite the guy the [bad-guy] is. Everyone can be right about some random thing. You need a variety of moves. To be a complete person![r]";
 	else:
 		say "[r]";
 	unless accel-ending:
-		if cross-cycled is false and cross-row is a looknum listed in table of cross reflections:
-			choose row with looknum of cross-row in table of cross reflections;
+		if saver-cycled is false and saver-row is a looknum listed in table of cross reflections:
+			choose row with looknum of saver-row in table of cross reflections;
 			say "[reflection entry]";
 
-table of cross reflections
+table of saver reflections
 looknum	reflection
 1	"Well, you do need to be more dynamic in conversations. But that doesn't seem right. You wonder if you're just being lazy or unsocial or antisocial."
 3	"Man. It's frustrating. People have pulled these moves on you. And you're pretty sure they're wrong. You've got no way to go around them."
 
-table of cross references [Ha! Ha!]
+table of saver references
 reference-blurb
 "Use 'fair enough' frequently to cool off someone who actually may have a point."
 "Pretend to misunderstand everyone even if they're clear. If they don't stick up for themselves, well, they need to learn."
 "Pick out an unsocial skeptic and be skeptical they actually care."
+"Tell people you're not a mind reader, then say you know what they're thinking."
+"A single 'I'm not mad at you' can go a long way."
+"Be exciting when you refuse to apologize, and cut people down for boring apologies which don't make others feel better."
+"Be okay once they get to know you around people it's not worth bothering to get to know."
+"Some people aren't special, but they have special weird quirks. Don't let them off the hook!"
+"Let people know when they need to take a hint and when stuff is in all their head."
 "Assure people you get to the point, but be sure to laugh before responding. 'Is it something I said' is a good follow up question."
 "Throw someone a bone with 'Even so-and-so knows...' You'd be surprised how many 'nice quiet types' lash out at charity."
 "When asked for help, say 'oh, it's easy.' If someone asks why, tell them to stop badgering you."
@@ -2876,12 +2886,12 @@ after examining cross when accel-ending:
 		say "Geez. You don't want to have to put up with that any more. You'll be more forceful telling people to expletive off in the future, though. That should help.";
 	continue the action;
 
-instead of doing something with Purposes Cross:
+instead of doing something with Saver Screen:
 	if action is procedural:
 		continue the action;
 	say "It's mostly there for looking at and absorbing its philosophy, whatever that may be."
 
-check taking the purposes cross:
+check taking the Saver Screen:
 	say "That'd be too much of a burden." instead;
 
 section Howdy Boy
@@ -3574,6 +3584,7 @@ prompt	response	enabled	permit
 "So, you big on violent games? Or not?"	jerk-video	0	1
 "So, Mr. Rogers. Does he conquer the basics?"	jerk-rogers	0	1
 "So, you wouldn't be ashamed of driving a clunker?"	jerk-car	0	1
+"So, do women's sports really have better fundamentals?"	jerk-wsport	0	1
 "So, what sort of glossy magazines do you read?"	jerk-maga	0	1
 "(bug the next [j-g])"	jerk-next	0	1
 "So, what about the [bad-guy]?"	jerk-baiter	1	1
@@ -3621,6 +3632,7 @@ Buddy Best	"may or may not wear colored underwear"	jerk-undies	0
 Buddy Best	"has not only read but re-read [i]Anne of Green Gables[r]"	jerk-anne	0
 Buddy Best	"enjoys light music--worse, sung by MEN"	jerk-light	0
 Buddy Best	"wouldn't mind a sensible, un-flashy car in the future"	jerk-car	0
+Buddy Best	"watches women's sports without ogling or negging"	jerk-wsport	0
 Buddy Best	"enjoys nonviolent video games and not just because they're cheap"	jerk-video	0
 Buddy Best	"prefers fashion magazines to swimsuit editions"	jerk-maga	0
 Buddy Best	"uses life lessons from Mr. Rogers"	jerk-rogers	0
@@ -3638,6 +3650,7 @@ jerk-anne	"[innue]."
 jerk-car	"[innue]."
 jerk-rogers	"[innue]."
 jerk-video	"[innue]."
+jerk-wsport	"[innue]."
 jerk-maga	"[innue]."
 jerk-next	"You move on to [next-c-x of last-jerk]."
 jerk-baiter	"Everyone chimes in. Oh, does the [bad-guy] know his cultural references! And oh, how they respect him for knowing more culture despite the intensity of working up north in Freak Control to keep Spike Price at bay! They are pretty sure Spike Price wouldn't allow seven people to assemble in one place so freely."
