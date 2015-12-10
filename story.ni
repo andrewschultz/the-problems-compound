@@ -367,6 +367,11 @@ to decide what number is abc:
 
 the maximum score is 17.
 
+special-score is a number that varies. max-special-score is a number that varies. max-special-score is 4.
+
+to special-bonus:
+	say "[i][bracket][if special-score is 1]You just found the first hidden secret in the Problems Compound[else]You found another secret[end if]. You are at [special-score] of [max-special-score] now.[close bracket][r][line break]";
+
 check requesting the score:
 	if cookie-eaten is true:
 		say "It's probably pretty good, but you're too cool for numbery nonsense." instead;
@@ -386,6 +391,8 @@ check requesting the score:
 			say "You have [your-tix] of the 4 boo-ticketies you need." instead;
 		say "You don't feel you've made it anywhere, yet." instead;
 	say "You have scored [score] of [maximum score] points.";
+	say "[line break]";
+	say "You have also found [special-score] of [max-special-score] points.";
 	say "[line break]";
 	if Questions Field is unvisited:
 		say "You haven't gotten near the [bad-guy]'s hideout yet. So maybe you need to explore a bit more." instead;
@@ -2840,20 +2847,20 @@ saver-cycled is a truth state that varies. saver-cycled is usually false.
 
 to say tip-of-moment:
 	increment saver-row;
-	if saver-row > number of rows in table of cross references:
+	if saver-row > number of rows in table of saver references:
 		now saver-row is 1;
 		now saver-cycled is true;
-	choose row saver-row in the table of cross references;
+	choose row saver-row in the table of saver references;
 	say "[italic type][reference-blurb entry][line break]";
-	if saver-row is number of rows in table of cross references:
+	if saver-row is number of rows in table of saver references:
 		say "[r]LAST HINT. You'd better have learned something, but remember, you can push around people who don't matter by saying they aren't persistent enough or they are a bit obsessed. Often within five minutes of each other. Because it's important to see both sides.";
 	else if saver-row is 1:
 		say "Of course, just internalizing this tip won't make you quite the guy the [bad-guy] is. Everyone can be right about some random thing. You need a variety of moves. To be a complete person![r]";
 	else:
 		say "[r]";
 	unless accel-ending:
-		if saver-cycled is false and saver-row is a looknum listed in table of cross reflections:
-			choose row with looknum of saver-row in table of cross reflections;
+		if saver-cycled is false and saver-row is a looknum listed in table of saver reflections:
+			choose row with looknum of saver-row in table of saver reflections;
 			say "[reflection entry]";
 
 table of saver reflections
@@ -2879,7 +2886,7 @@ reference-blurb
 "Understand how flattery and the golden rule interact, unless someone is fishing for approval."
 "Pick out someone creepy with a valid criticism and go ad hominem."
 
-after examining cross when accel-ending:
+after examining saver screen when accel-ending:
 	if cookie-eaten is true:
 		say "Well, DUH. It seems so obvious now you've eaten the cookie.";
 	else:
@@ -4120,6 +4127,7 @@ to bye-paper:
 	say "[line break]As he begins rolling up the chase paper, he asks if you're one of those odd brainy types who might know how to fill up a chessboard with 31 tiles. Well, you take the opposite corners off...[paragraph break]";
 		wfak;
 		say "You show him the solution, and he starts yelling about how nobody could have figured that out for themselves unless they really have nothing to do with their time.[paragraph break]Well, you have something to do with your time, now. Like seeing what's below.";
+		special-bonus;
 		now assassination is in lalaland;
 		now chase paper is in lalaland;
 		now belt below is below chipper wood;
@@ -4525,7 +4533,9 @@ carry out abadfaceing:
 		now Bottom Rock is below Belt Below;
 		now Belt Below is above Bottom Rock;
 		now Insanity Terminal is in lalaland;
-		say "You hear a great rumbling as you put on -- well, a bad face -- and the Insanity Terminal cracks in half to reveal a tunnel further below." instead;
+		say "You hear a great rumbling as you put on -- well, a bad face -- and the Insanity Terminal cracks in half to reveal a tunnel further below.";
+		special-bonus;
+		the rule succeeds;
 	else:
 		say "You already solved the puzzle. If any more of Bottom Rock collapsed, you might not have a way back up." instead;
 	the rule succeeds;
@@ -4866,20 +4876,31 @@ part Idiot Village
 
 Idiot Village is east of Judgment Pass. It is in Main Chunk. "Idiot Village is surprisingly empty right now. It expands in all directions, though you'd feel safest going back west. You hear a chant."
 
-check going nowhere in idiot village:
-	say "Idiot Village expands in all directions, but of course, nobody was smart enough to provide a map. OR WERE THEY CLEVER ENOUGH NOT TO GIVE INVADERS AN EASY ROUTE IN?[paragraph break]Either way, you don't want to risk getting lost." instead;
+village-explored is a truth state that varies.
 
-The Business Monkey is a person in Idiot Village. "A monkey mopes around here in a ridiculous suit two sizes too large for him."
+check going nowhere in idiot village:
+	say "Idiot Village expands in all directions, but of course, nobody was smart enough to provide a map. OR WERE THEY CLEVER ENOUGH NOT TO GIVE INVADERS AN EASY ROUTE IN?[paragraph break]Either way, you don't want to risk getting lost.";
+	if village-explored is false:
+		now village-explored is true;
+		special-bonus;
+	do nothing instead;
+
+The Business Monkey is a neuter person in Idiot Village. "A monkey mopes around here in a ridiculous suit two sizes too large for it."
 
 the Business Monkey wears the suit. description of suit is "It's halfway between a business suit and a monkey suit (eg a tuxedo), without capturing the intended dignity or prestige of either."
 
-description of Business Monkey is "He grins happily and vacantly, occasionally adjusting his suit or pawing in the ground."
+description of Business Monkey is "The monkey grins happily and vacantly, occasionally adjusting its suit or pawing in the ground."
+
+after doing something with business monkey:
+	set the pronoun him to business monkey;
+	set the pronoun her to business monkey;
+	continue the action;
 
 check talking to Business Monkey:
 	if fourth-blossom is off-stage:
-		say "The Business Monkey opens his pockets and smiles. Then he claws at the dirt. He touches it with one finger and then raises the finger." instead;
+		say "The Business Monkey opens its pockets and smiles before clawing at the dirt and making a rising-up gesture with one paw." instead;
 	if contract-signed is false:
-		say "The Business Monkey pulls a pen out of his pocket, scribbles into thin air, shrugs, and puts the pen back." instead;
+		say "The Business Monkey pulls a pen out of its pocket, scribbles into thin air, shrugs, and puts the pen back." instead;
 	say "The Business Monkey shakes your hand, gives you a thumbs up, and snickers." instead;
 
 the fourth-blossom is a thing. understand "fourth/blossom" and "fourth blossom" as fourth-blossom. description is "Seen from above, it'd take up one quadrant of the four it should. It looks like it should start falling apart at any time, since it's all sliced, but somehow, it holds together despite its weird angularity."
@@ -4897,7 +4918,7 @@ check giving the cold contract to the business monkey:
 	if contract-signed is true:
 		say "You already did." instead;
 	if money seed is not in lalaland:
-		say "The monkey looks at it, smiles and shrugs. He seems to trust you, but not enough to sign a contract, yet." instead;
+		say "The monkey looks at it, smiles and shrugs. It seems to trust you, but not enough to sign a contract, yet." instead;
 	say "You feel only momentary guilt at having the business monkey sign such a contract. After all, it binds the [i]person[r] to the terms. And is a monkey a person? Corporations, maybe, but monkeys, certainly not, despite any genetic simiarities! The monkey eagerly pulls a pen from an inside pocket, then signs and returns the contract.";
 	increment the score;
 	now contract-signed is true;
@@ -5163,6 +5184,13 @@ some poory pot is a thing. description is "Geez. You can smell it. It's a sickly
 part Standard Bog
 
 Standard Bog is north of Crazy Drive. It is in Main Chunk. "This is a pretty standard bog. It's got slimy ground, some quicksand traps, and... [one of]well, the machine off to the side is not so standard. It seems to be mumbling, trying different ways to express itself. Yes, to use language. A language machine.[or]the Language Machine, still [if wax is in lalaland]burbling poems[else]grinding out dreary sentences[end if].[stopping]"
+
+the hopper grass is a thing in Standard Bog.
+
+check giving hopper grass to pusher penn:
+	say "'Brilliant! This might be some really good stuff.'";
+	special-bonus;
+	now hopper grass is in lalaland instead;
 
 check going nowhere in standard bog:
 	say "It's really only safe to go back south." instead;
@@ -6452,6 +6480,21 @@ Table of Final Question Options (continued)
 final question wording	only if victorious	topic	final response rule	final response activity
 "see where minor SWEARS change"	true	"SWEARS"	swear-see rule	swearseeing
 "see the SINS the jerks didn't commit"	true	"SINS"	sin-see rule	sinseeing
+"see the SPECIAL ways to see a bit more of the Compound"	true	"SPECIAL"	special-see rule	specialseeing
+
+chapter special
+
+specialseeing is an activity.
+
+this is the special-see rule:
+	unless hopper grass is in lalaland:
+		say "[2da]Pusher Penn had more merchandise, not that he needed a bigger profit.";
+	unless assassination character is in lalaland:
+		say "[2da]The assassination character can be faked out.";
+	if assassination character is in lalaland and insanity terminal is not in lalaland:
+		say "[2da]There's a hint device you don't need beneath the Insanity Terminal.";
+	if village-explored is false:
+		say "[2da]You could've asked for help to find your way through Idiot Village.";
 
 chapter sins
 
@@ -6474,6 +6517,7 @@ this is the swear-see rule:
 	say "[2da]The Business Monkey's efforts are half-brained or assed.";
 	say "[2da]If you actually swear, obscenely or mildly (BOTHER)[line break]";
 	say "[2da]A different reaction to repeatedly playing the logic puzzles[line break]";
+	say "[2da]EXPLAIN Guy Sweet has a slight difference[line break]";
 	say "Well, that's not much. I planned to have a lot more, but I just got sidetracked with silly stuff like bug fixing and adding to the story, which hopefully gave you less occasion to use profanity. Sorry about that."
 
 escape mode is a truth state that varies.
