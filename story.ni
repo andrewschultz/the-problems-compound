@@ -1621,7 +1621,7 @@ before doing something when you-are-conversing is true:
 	if current action is going:
 		if the room noun of location of player is nowhere:
 			say "You can't escape the conversation that way!" instead;
-		if qbc_litany is table of sucker talk:
+		if qbc_litany is table of Punch Sucker talk:
 			say "The Punch Sucker, with other customers to serve, is actually glad to be spared hi-bye small talk.";
 			terminate the conversation;
 			continue the action;			
@@ -1837,7 +1837,7 @@ check talking to guy sweet when alec-intro is false:
 	now alec-intro is true;
 	say "You introduce yourself as Alec Smart, and Guy coughs. 'You do know...' You sort of hope he doesn't ask why you aren't just Al or Alex or Alan, but then it's disappointing he doesn't let you explain you called yourself Alec when you were four.[paragraph break]'Whatever.'"
 
-table of guy sweet talk
+table of gs - guy sweet talk
 prompt	response	enabled	permit
 "So. What are these games for?"	guy-games	1	1
 "How'd you get stuck here?"	guy-stuck	1	1
@@ -1888,6 +1888,9 @@ guy-bye	"'Whatever, dude.'"
 
 to say bad-guy:
 	say "[if allow-swears is true]Baiter Master[else]Complex Messiah[end if]"
+
+to say bg:
+	say "[if allow-swears is true]BM[else]CM[end if]"
 
 to say a-word:
 	say "[if allow-swears is true]ass[else]***[end if]"
@@ -2714,7 +2717,7 @@ after doing something with the weasel:
 
 the litany of Word Weasel is the table of weasel talk.
 
-table of weasel talk
+table of ww - weasel talk
 prompt	response	enabled	permit
 "Hi! What are you here for?"	weasel-hi	1	1
 "What can you do for me?"	weasel-forme	1	0
@@ -2913,7 +2916,7 @@ check talking to howdy boy:
 
 the litany of Howdy Boy is table of howdy boy talks.
 
-table of howdy boy talks
+table of hb - howdy boy talks
 prompt	response	enabled	permit
 "So, um. Hi. I mean Howdy. Or heya."	howdy-howdy	1	1
 "Boy howdy! This sure is an interesting place!"	howdy-boy	0	0
@@ -3096,7 +3099,7 @@ to get-ticketed:
 
 litany of fritz is the table of fritz talk.
 
-table of fritz talk
+table of fto - fritz talk
 prompt	response	enabled	permit
 "Hi."	fritz-hi	1	1
 "You okay?"	fritz-ok	1	1
@@ -3222,10 +3225,10 @@ check going north in sinister bar:
 
 to activate-drink-check:
 	if cooler wine is not in lalaland:
-		choose row with response of sucker-cooler in table of sucker talk;
+		choose row with response of sucker-cooler in table of Punch Sucker talk;
 		now enabled entry is 1;
 	if haha brew is not in lalaland:
-		choose row with response of sucker-haha in table of sucker talk;
+		choose row with response of sucker-haha in table of Punch Sucker talk;
 		now enabled entry is 1;
 
 check giving to the Stool Toad:
@@ -3240,7 +3243,7 @@ check giving to the Stool Toad:
 
 litany of stool toad is the table of stool toad talk.
 
-table of stool toad talk
+table of st - stool toad talk
 prompt	response	enabled	permit
 "Um, yeah, hi, don't worry about me, I'm a good person and stuff."	toad-hi	1	1
 "Why's this called the Joint Strip? I don't see anyone..."	toad-joint	1	1
@@ -3307,7 +3310,7 @@ description of Liver Lily is "She is waiting for conversation in her rehearsal d
 
 litany of Lily is the table of Lily talk.
 
-table of Lily talk
+table of ll - Lily talk
 prompt	response	enabled	permit
 "Um, er, yeah, hi, I'm Alec."	lily-hi	1	1
 "Sure!"	lily-sure	0	1
@@ -3423,9 +3426,9 @@ check giving to sucker:
 		say "He doesn't need it." instead;
 	say "'Thanks, but no thanks. I do okay enough with tips.'" instead;
 
-litany of Punch Sucker is the table of sucker talk.
+litany of Punch Sucker is the table of Punch Sucker talk.
 
-table of sucker talk
+table of ps - Punch Sucker talk
 prompt	response	enabled	permit
 "What've you got, for drinks? Um, non-alcoholic?"	sucker-drinks	1	1
 "Got any booze?"	sucker-alco	1	0
@@ -3578,7 +3581,7 @@ after doing something with jerks:
 
 litany of generic-jerk is the table of generic-jerk talk.
 
-table of generic-jerk talk
+table of jt - generic-jerk talk
 prompt	response	enabled	permit
 "So, um--how's things, I guess?"	jerk-hows	1	1
 "So, I hear you like all the vegetables, even gross ones."	jerk-veg	0	1
@@ -4630,9 +4633,9 @@ check talking to Grace:
 	
 does the player mean talking to Grace when player is in Cult: it is very likely.
 
-litany of grace is the table of grace talk.
+litany of grace is the table of Grace Goode talk.
 
-table of grace talk
+table of gg - Grace Goode talk
 prompt	response	enabled	permit
 "Hi. I'm -- well, I'm looking for something. Uh, not religion."	grace-hi	1	1
 "What's wrong with the googly bowl?"	grace-googly	0	1
@@ -4841,7 +4844,7 @@ check going east in Judgment Pass:
 
 litany of officer petty is the table of officer petty talk.
 
-table of officer petty talk
+table of op - officer petty talk
 prompt	response	enabled	permit
 "So, how's business?"	petty-biz	1	1
 "Career objectives?"	petty-career	0	1
@@ -4953,7 +4956,7 @@ check talking to sly moore:
 		say "He introduces himself as Sly Moore.";
 		now talked-to-sly is true;
 
-table of Sly Moore talk
+table of sm - Sly Moore talk
 prompt	response	enabled	permit
 "How's the magic going?"	sly-magic	1	1
 "How's life here in Idiot Village?"	sly-idiot	1	1
@@ -5105,7 +5108,7 @@ Pusher Penn is a person in Pot Chamber. description is "He looks rather ordinary
 
 litany of Pusher Penn is the table of Pusher Penn talk.
 
-table of Pusher Penn talk
+table of pp - Pusher Penn talk
 prompt	response	enabled	permit
 "Um, hi, what's up?"	penn-nodrugs	1	1
 "Whoah, I'm, like, all in for DRUGS, BABY!"	penn-drugs	0	0
@@ -5258,9 +5261,9 @@ before giving long tag to:
 	if noun is a bro:
 		say "He's not searching for that. He's searching for something real." instead;
 
-litany of buddy best is the table of best talk.
+litany of buddy best is the table of Buddy Best talk.
 
-table of best talk
+table of bb - Buddy Best talk
 prompt	response	enabled	permit
 "Wow, so, um, you do lawyering stuff?"	best-law	1	1
 "What sort of interesting people?"	best-int	0	1
@@ -5282,7 +5285,7 @@ check going west in Questions Field:
 	if long tag is not off-stage:
 		say "Buddy Best has seen enough of you. Hmm, come to think of it, you've seen enough of Buddy Best. You're surprised he even gave you the long tag." instead;
 
-after quipping when qbc_litany is table of best talk:
+after quipping when qbc_litany is table of Buddy Best talk:
 	if current quip is best-law:
 		enable the best-int quip;
 	if current quip is best-int:
@@ -5336,7 +5339,7 @@ Art Fine is a person in Interest Compound. description is "He's wearing a shirt 
 
 litany of Art Fine is the table of Art Fine talk.
 
-table of Art Fine talk
+table of af - Art Fine talk
 prompt	response	enabled	permit
 "Some place you got here!"	art-hi	1	1
 "Blather like yours is the sort of thing that scared me off reading, you know."	art-pomp	0	0
@@ -5379,7 +5382,7 @@ Harmonic Phil is a person.
 
 litany of Harmonic Phil is the table of Harmonic Phil talk.
 
-table of Harmonic Phil talk
+table of hp - Harmonic Phil talk
 prompt	response	enabled	permit
 "Some place you got here!"	phil-hi	1	1
 "That sounded hella pompous."	phil-pomp	0	0
@@ -5448,7 +5451,7 @@ when play begins (this is the sort ALL the tables rule) :
 	sort the table of horrendous songs in random order;
 	continue the action;
 	
-table of horrendous books
+table of hb - horrendous books
 workname	authname	booksubj
 "War's Star"	"Lucas George"	"how some kid ignored his weenie father's humble advice and took over the galaxy"
 "Mannering Guy"	"Scott Walter"	"a man eschewing a life of travel and adventure for simple pleasures like putting neighbors in their place"
@@ -5525,7 +5528,7 @@ check taking song torch:
 
 section all the songs
 
-table of horrendous songs
+table of hs - horrendous songs
 workname	singername	songsubj
 "Stop Believing, Don't"	"Perry Steven"	"people who already tried enough and should stop embarrassing themselves"
 "Train Downtown"	"Stewart Rodd"	"a man rightfully too busy advancing his career prospects to spend time with his woman"
@@ -5625,7 +5628,7 @@ to check-left:
 		
 litany of Brother Big is the table of Brother Big talk.
 
-table of Brother Big talk
+table of b1 - Brother Big talk
 prompt	response	enabled	permit
 "Hi. Having fun--guarding--whatever?"	big-hi	1	1
 "Your duty. What's he done for you?"	big-duty	0	1
@@ -5676,7 +5679,7 @@ check giving to Brother Soul:
 
 litany of Brother Soul is the table of Brother Soul talk.
 
-table of Brother Soul talk
+table of b2 - Brother Soul talk
 prompt	response	enabled	permit
 "Hi there! Why are you moping here and not somewhere more soulful?"	soul-why	1	1
 "Why not get out and live? See people?"	soul-live	0	1
@@ -5726,7 +5729,7 @@ check giving to Brother Blood:
 
 litany of Brother Blood is the table of Brother Blood talk.
 
-table of Brother Blood talk
+table of b3 - Brother Blood talk
 prompt	response	enabled	permit
 "Whoah, hey, you seem tense."	blood-hi	1	1
 "Well, it might not be all you."	blood-maybe	0	1
@@ -5843,7 +5846,7 @@ check talking to Baiter Master:
 		say "[one of]He waves you off without even looking. 'Whoever you are, I'm busy. Too busy for your lame problems. And they must be lame, if you asked so weakly.' You'll need an entirely more aggressive way to get his attention.[or]You just aren't good enough at yelling to do things straight up. Maybe you can upset things somehow.[stopping]" instead;
 	say "'Dude! You need to chill... there are things called manners...' but he does have your attention now. 'This better be good. How'd you get by my stupid guards anyway? I mean, you obviously ARE a lot smarter than they are.'"
 
-table of Baiter Master talk
+table of bm - Baiter Master talk
 prompt	response	enabled	permit
 "They're not stupid. They just needed help."	bm-help	1	1
 "What's that can?"	bm-litter	1	1
@@ -6786,6 +6789,36 @@ bullpen is a room in meta-rooms. "You should never see this. If you do, it is a 
 
 lalaland is a room in meta-rooms. "You should never see this. If you do, it is a [bug]."
 
+volume extended stuff
+
+the crocked half is a thing. description is "[fixed letter spacing][stars][upper][stars][variable letter spacing]"
+
+to say stars:
+	say "   *     *[line break]";
+
+to say upper:
+	say "   |\   /|[line break]
+   | \ / |[line break]
+*--*--*--*--*[line break]
+ \ | / \ | /[line break]
+  \|/   \|/[line break]";
+
+to say lower:
+	say "  /|\   /|\[line break]
+ / | \ / | \[line break]
+*--*--*--*--*[line break]
+   | / \ |[line break]
+   |/   \|[line break]"
+
+the bugging doodle is a thing. description is "[fixed letter spacing][stars][upper][stars][lower][stars][variable letter spacing]"
+
+to get-half-doodle:
+	if player has crocked half:
+		say "Another crocked half. You put them together and get...a bugging doodle!";
+		now crocked half is in lalaland;
+	else:
+		say "It looks like you got a crocked half."
+
 volume rule replacements
 
 the can't insert into what's not a container rule is not listed in any rulebook.
@@ -7133,7 +7166,100 @@ when play begins (this is the force tester wherever rule):
 		try switching the story transcript on;
 		say "Transcripts can be sent to blurglecruncheon@gmail.com. Any punctuation before the comment is okay, e.g. *TYPO or ;typo or :typo.";
 	continue the action;
+
+chapter skiping
+
+chapter nu-skiping
+
+skiping is an action applying to one number.
+
+understand the command "skip" as something new.
+
+understand "skip [number]" as nu-skiping.
+
+skipped-yet is a truth state that varies.
+
+carry out nu-skiping:
+	if skipped-yet is true:
+		say "You already skipped. Doing so again is too messy to keep track of.";
+		the rule succeeds;
+	if number understood is 0:
+		say "[skip-list]" instead;
+	if number understood is 100:
+		move player to chipper wood;
+		now lock-in-place is true;
+	if number understood is 101:
+		move-puzzlies-and-jerks;
+		move player to jerk circle;
+		now player has crocked half;
+	if number understood is 102:
+		move-puzzlies-and-jerks;
+		move player to jerk circle;
+		now player has crocked half;
+	if number understood > 7:
+		say "You need a number between 1 and 7 or, if you are testing very specific things, 100-100.[line break][skip-list]" instead;
+	now skipped-yet is true;
+	if number understood is 1:
+		move player to round lounge;
+		now player has gesture token;
+	else if number understood is 2:
+		move player to tension surface;
+		now player has gesture token;
+	else if number understood is 3:
+		move player to pressure pier;
+	else if number understood is 4:
+		move player to jerk circle;
+		now trail paper is in lalaland;
+		now howdy boy is in lalaland;
+	else if number understood is 5:
+		move-puzzlies-and-jerks;
+		move player to jerk circle;
+		now block-pier is true;
+		now all bros are in lalaland;
+	else if number understood is 6:
+		move player to jerk circle;
+		now all clients are in lalaland;
+		now all bros are in lalaland;
+		now player has quiz pop;
+		now block-pier is true;
+		now block-other is true;
+	else if number understood is 7:
+		move player to freak control;
+	the rule succeeds;
 	
+to move-puzzlies-and-jerks:
+	move all clients to lalaland;
+	move-puzzlies;
+
+to move-puzzlies:
+	say "NOTE: this should be right, but if you see someone or something astray, ignore them.";
+	move proof fool to lalaland;
+	move logical psycho to lalaland;
+	move harmonic phil to lalaland;
+	move art fine to lalaland;
+	move officer petty to lalaland;
+	move sly moore to lalaland;
+	move brother big to lalaland;
+	move all bros  to lalaland;
+	move brother blood to lalaland;
+	move howdy boy to lalaland;
+	move uncle dutch to lalaland; [they don't need to go but let's keep the focus]
+	move turk young to lalaland;
+	move long tag to lalaland;
+
+block-other is a truth state that varies;
+block-pier is a truth state that varies;
+
+check going south in jerk circle when block-pier is true:
+	say "You don't need to go back here for focused testing." instead;
+
+check going when block-pier is true:
+	if noun is west or noun is east:
+		say "This is testing, so I won't allow you to move to the side." instead;
+
+to say skip-list:
+	say "1: Round Lounge 2: Tension Surface 3: Pressure Pier 4: Jerk Circle 5: All 3 given to Brothers 6: Jerks solved 7: Final chat[line break]100. Chipper Wood/Assassination Character[line break]"
+
 chapter ctcing
 
 [* ctc = clear the chase]
@@ -7160,25 +7286,30 @@ chapter montying
 
 [* this turns testing stuff on and off. It will be more detailed later.]
 
-montying is an action out of world.
+montying is an action applying to one topic.
 
 widdershins is a direction. the opposite of widdershins is turnwise. description of turnwise is "[bug]".
 
 understand the command "monty" as something new.
 
-understand "monty" as montying.
+understand "monty [any topic]" as montying.
 
 monty-full is a truth state that varies.
 
 carry out montying:
+	if the topic understood matches "all":
+		repeat through table of monties:
+			now on-off entry is true;
+		the rule succeeds;
 	say "[b]Going Widdershins (ungoable direction) :[r]";
-	try going widdershins;
-	say "[b]Smelling: [r]";
-	try smelling;
-	say "[b]Listening: [r]";
-	try listening;
-	say "[b]Crib hints: [r]";
-	say "[b]Score: [r]";
+	repeat through table of monties:
+		if the topic understood matches montopic entry:
+			now on-off entry is whether or not on-off entry is true;
+			say "[test-title entry] is now [if on-off entry is true]on[else]off[end if].";
+			now found-one is true;
+	if found-one is false:
+		say "MONTY didn't find anything to toggle.";
+	the rule succeeds;
 	try requesting the score;	
 	if monty-full is false:
 		say "Currently blocking crib hints with MONTY. Type CRIB to turn them on." instead;
@@ -7188,6 +7319,35 @@ carry out montying:
 	else:
 		say "You haven't made it to the jerk circle, so I won't look in the crib, yet." instead;
 	the rule succeeds;
+
+table of monties
+montopic	on-off	test-action
+"s" or "smell"	false	"SMELLING"	try-smelling rule
+"l" or "listen"	false	"LISTENING"	try-listening rule
+"sc" or "score"	false	"SCORING"	try-scoring rule
+"dir" or "noway"	false	"DEAD ENDING"	try-wid rule
+"donote" or "note"	false	"DONOTEING"	try-noting rule
+
+this is the try-noting rule:
+	try donoteing;
+
+this is the try-wid rule:
+	try going widdershins;
+
+this is the try-smelling rule:
+	try smelling;
+
+this is the try-listening rule:
+	try listening;
+
+this is the try-scoring rule:
+	try requesting the score;
+
+every turn:
+	repeat running through table of monties:
+		if on-off entry is true:
+			say "========[test-title entry]:[line break]";
+			follow the test-action entry;
 
 chapter nobooing
 
