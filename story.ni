@@ -16,6 +16,8 @@ book includes
 
 include Basic Screen Effects by Emily Short.
 
+include In-Game Mapping by Andrew Schultz.
+
 chapter quips
 
 include Reactable Quips Modified by Michael Martin.
@@ -369,9 +371,6 @@ the maximum score is 17.
 
 special-score is a number that varies. max-special-score is a number that varies. max-special-score is 4.
 
-to special-bonus:
-	say "[i][bracket][if special-score is 1]You just found the first hidden secret in the Problems Compound[else]You found another secret[end if]. You are at [special-score] of [max-special-score] now.[close bracket][r][line break]";
-
 check requesting the score:
 	if cookie-eaten is true:
 		say "It's probably pretty good, but you're too cool for numbery nonsense." instead;
@@ -391,8 +390,9 @@ check requesting the score:
 			say "You have [your-tix] of the 4 boo-ticketies you need." instead;
 		say "You don't feel you've made it anywhere, yet." instead;
 	say "You have scored [score] of [maximum score] points.";
-	say "[line break]";
-	say "You have also found [special-score] of [max-special-score] points.";
+	if special-score > 0:
+		say "[line break]";
+		say "You have also found [special-score] of [max-special-score] points.";
 	say "[line break]";
 	if Questions Field is unvisited:
 		say "You haven't gotten near the [bad-guy]'s hideout yet. So maybe you need to explore a bit more." instead;
@@ -400,6 +400,10 @@ check requesting the score:
 		say "You need some way to get past the question/exclamation mark guard combination. It's like--I don't know. A big ol['] pop quiz or something." instead;
 	say "You have currently helped [if bros-left is 3]none[else if bros-left is 0]all[else][3 - bros-left in words][end if] of the Keeper Brothers." instead;
 	say "You've found [number of endfound rooms] bad end[if number of endfound rooms is not 1]s[end if] out of [number of rooms in Bad Ends]: [list of endfound rooms]." instead;
+
+to special-bonus:
+	increment special-score;
+	say "[i][bracket][if special-score is 1]You just found the first hidden secret in the Problems Compound[else]You found another secret[end if]. You are at [special-score] of [max-special-score] now.[close bracket][r][line break]";
 
 chapter waking verb
 
@@ -486,7 +490,7 @@ chapter buying
 
 the block buying rule is not listed in any rulebook.
 
-understand "buy [text]" as a mistake ("If you want a[n-dr] drink, you'll need to talk to the Punch Sucker.") when player is in sinister bar.
+understand "buy [text]" as a mistake ("If you want a[n-dr] drink, you'll need to talk to the Punch Sucker.") when player is in Soda Club.
 
 to say n-dr:
 	say "[if cooler is in lalaland or brew is in lalaland]nother[end if]"
@@ -533,8 +537,8 @@ instead of swearing obscenely:
 do-swearing is an action applying to nothing.
 
 carry out do-swearing:
-	if player is in bar:
-		say "You reckon that's how people are supposed to cuss in a bar, but you can't give that word the right oomph." instead;
+	if player is in Soda Club:
+		say "You reckon that's how people are supposed to cuss in a bar, er, club, but you can't give that word the right oomph." instead;
 	if player is in cult:
 		say "That'd be extra rude in a place like this." instead;
 	if player is in wood and assassination is in wood:
@@ -683,6 +687,8 @@ check smelling (this is the smelling a thing rule):
 		say "That never works. People who smell bad are used to their own smells, but if you're caught sniffing yourself, whew." instead;
 	if noun is poor dirt:
 		say "The dirt doesn't smell of anything much." instead;
+	if noun is poetic wax:
+		say "You're sure you've smelled it before, and it's good and bad and a bit beyond you." instead;
 	if noun is flower wall:
 		say "Smells nice. Cancels out the [if scum is in tunnel]now-gone scum[else]scum, almost[end if]." instead;
 	if noun is scum:
@@ -748,7 +754,7 @@ check listening (this is the listening in a place rule):
 		say "[if boris is in lalaland]Mercifully silent[else]The jerks gabble away about what is cool and what is not, and how they do not participate in any of the second[end if]." instead;
 	if player is in surface and mush is in surface:
 		say "The arch makes a slight tapping noise as it dances from side to side." instead;
-	if player is in sinister bar:
+	if player is in Soda Club:
 		say "Some [one of]popular[or]alternative[or]classical[in random order] tune you really should know." instead;
 	if player is in pyramid:
 		try listening to labor child instead;
@@ -925,7 +931,9 @@ understand "es" as southeast.
 understand "wn" as northwest.
 understand "en" as northeast.
 
-before going:
+before going (this is the diagonals are wrong 99% of the time rule) :
+	if player is in idiot village or player is in service community:
+		continue the action;
 	if p-c is false and player is not in joint strip:
 		if noun is southeast or noun is northeast or noun is southwest or noun is northwest:
 			say "You don't need to use diagonal directions in this game unless they're specifically mentioned. Hopefully this makes it simpler for you." instead;
@@ -1014,10 +1022,10 @@ carry out gotoing:
 		say "You already are." instead;
 	if player is in freak control:
 		say "No wimping out! This is the final confrontation." instead;
-	if player is in sinister bar:
+	if player is in Soda Club:
 		if player has brew or player has wine:
 			say "You can't just go jetting off with a drink in your hand!" instead;
-	if noun is sinister bar and player is not in joint strip:
+	if noun is Soda Club and player is not in joint strip:
 		say "You'll have to walk by that nosy Stool Toad directly[if trail paper is in lalaland], not that you need to go back[end if]." instead;
 	if noun is not a room:
 		say "You need to specify a room or a thing." instead;
@@ -1152,6 +1160,42 @@ book check/before giving
 [there were too many CHECK GIVING rules and there were too many possibilities for fun stuff. So I thought I would put everything in order here.]
 
 chapter item based
+
+check giving wax to:
+	ignore the can't give what you haven't got rule;
+	if second noun is proof fool or second noun is logical psycho:
+		say "[one of]The Logical Psycho begins an extremely boring, but loud, discourse on a poet you never heard of and never want to hear of again. The sort of poet who would not want his work read or discussed quietly[or]No, the poetic wax doesn't belong here[stopping]." instead;
+	if second noun is grace goode or second noun is faith goode:
+		say "[one of]Faith and Grace begin humming a tune too wonderful to remember to remember. You feel refreshed after hearing it, but you can't remember why[or]You feel greedy, for some reason, giving [second noun] the Poetic Wax. But you don't know why[stopping]." instead;
+	if second noun is Stool Toad:
+		say "He booms 'I can't arrest you for slovenliness, young man. But you're well on your way to trouble.'" instead;
+	if second noun is Pusher Penn:
+		say "[one of]'Yo, yo, hit me with the beatbox!' he cries. 'I gots tales of...' but he tails off before you can get your fists up to your mouth. 'Okay, man. Be wack.'[or]Nah, you funked out the first time.[stopping]" instead;
+	if second noun is Buddy Best:
+		say "'I'm not some neat freak. But geez, that stuff's just gross.'" instead;
+	if second noun is Punch Sucker:
+		say "'The Stool Toad would LOVE to find a health violation. Put that away.'" instead;
+	if second noun is assassination character:
+		say "You can't get near enough to him." instead;
+	if second noun is Labor Child:
+		say "He squirms. The [i]thought[r] of getting something like that over his practical, getting-ahead clothes!" instead;
+	if second noun is Officer Petty:
+		say "'You'll have to work a little harder to bribe me. Well, if I [i]could[r] be bribed." instead;
+	if second noun is Sly Moore:
+		say "Sly examines the wax, waves at it and tries to make it disappear, and fails." instead;
+	if second noun is Art Fine or second noun is Harmonic Phil:
+		say "'Nonsense! It is I who might bequeath it on you. Until then, do not sully it with your prying fingers!'" instead;
+	if second noun is Volatile Sal:
+		say "[one of]'Yo, man, ear wax probably doesn't smell as bad as whatever, but still. No.'[or]Sal doesn't seem open to the wax. It DOES look a bit stinky.[stopping]" instead;
+	if second noun is a client:
+		say "The [j-co] mutter something about how decent people don't pick their ears, much less their nose, and certainly not THAT much." instead;
+	if second noun is fritz the on:
+		say "Fritz moans. The poetry he's thinking of is probably pretty whacked, so best not to torture him." instead;
+	if second noun is turk young or second noun is uncle dutch:
+		say "[one of]As you approach them with a bit of the wax, they boom 'We once knew a worthless old bum. Not then, but he's now and then some. Learned weird stuff instead of getting ahead. So he was so smart he was dumb.'[or]'Roses are Red! Violets are blue! We're both gung ho...but why aren't you?' They're running out.[or]They both make a 'pay up' gesture. Looks like you've had all the artistic inspiration they're willing to give.[stopping]";
+		now no-dutch is true instead;
+	else if second noun is lily:
+		say "That would gross her out. Deservedly, but still. Guys would come to her 'rescue' and probably gaffle you or something." instead;
 
 chapter person based
 
@@ -1742,7 +1786,7 @@ anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
 0	--	Disposed Well	"well"	"This was originally the preserved well, and the Belt Below was below it. There was going to be a Barrel of the Bottom that opened, but it seemed too far-fetched. So I just went with a well where you couldn't quite reach something."
 0	--	Scheme Pyramid	"pyramid"	"I find pyramid schemes endlessly funny in theory, though their cost is real and sad. They're worse than lotteries."
 0	--	Standard Bog	"bog"	"This was something entirely different until the end. Something different enough, it might go in a sequel."
-0	--	Sinister Bar	"bar"	"I forget what medieval text I read that made me figure this out."
+0	--	Soda Club	"bar"	"I forget what medieval text I read that made me figure this out."
 0	--	Joint Strip	"strip"	"Sometimes the names just fall into your lap. It's pretty horrible and silly either way, isn't it? I don't smoke pot myself, but I can't resist minor drug humor, and between Reefer Madness and Cheech and Chong, there is a lot of fertile ground out there."
 0	--	Classic Cult	"cult"	"Of course, a cult never calls itself a cult these days. It just--emphasizes things society doesn't. Which is seductive, since we all should do it on our own. But whether the thinking is New or Old, it remains. It can be dogma, even if people say it all exciting.[paragraph break]Plus I cringe when someone replies 'That's classic!' to a joke that's a bit too well-worn or even mean-spirited."
 0	--	Speaking Plain	"plain"	"The people here do go in for plain speaking, but also, they just go in for speaking."
@@ -2875,6 +2919,8 @@ table of saver references
 reference-blurb
 "Use 'fair enough' frequently to cool off someone who actually may have a point."
 "Pretend to misunderstand everyone even if they're clear. If they don't stick up for themselves, well, they need to learn."
+"Use 'y'know' a lot, especially when berating unnecessary adverbs."
+"Smack [']em down with 'It's called...' two or three times a day."
 "Pick out an unsocial skeptic and be skeptical they actually care."
 "Tell people you're not a mind reader, then say you know what they're thinking."
 "A single 'I'm not mad at you' can go a long way."
@@ -3123,7 +3169,7 @@ after quipping when qbc_litany is litany of fritz:
 
 part Joint Strip
 
-Joint Strip is east of Down Ground. It is in Outer Bounds. "There's a familiar but disturbing scent in the air--those responsible for it are probably hiding nearby from the local law enforcement. The clearest exits are south to a sinister bar or back west to Down Ground."
+Joint Strip is east of Down Ground. It is in Outer Bounds. "There's a familiar but disturbing scent in the air--those responsible for it are probably hiding nearby from the local law enforcement. The clearest exits are south to a Soda Club or back west to Down Ground."
 
 check going nowhere in Joint Strip:
 	unless trail paper is off-stage:
@@ -3206,7 +3252,7 @@ instead of doing something with pigeon stool:
 
 toad-got-you is a truth state that varies.
 
-check going north in sinister bar:
+check going north in Soda Club:
 	if player has haha brew or player has cooler wine:
 		if toad-got-you is false:
 			say "'HALT! FREEZE! A MINOR WITH ALCOHOL!' booms the Stool Toad. He takes your drink and throws it off to the side. 'THAT'S AN INFRACTION!'[paragraph break]He looks around in his pockets but only finds a diagonal scrap of paper. 'Well, this'll do, for a boo tickety. Remember, you're warned.' You feel sort of rebellious--good rebellious--as he [if your-tix >= 4]counts your infractions on his fingers. Uh oh. Maybe you could've DROPped the booze before leaving[else]goes back to his pigeon stool[end if].";
@@ -3277,22 +3323,22 @@ after quipping when qbc_litany is litany of stool toad:
 	if current quip is toad-bye:
 		quit small talk;
 
-part Sinister Bar
+part Soda Club
 
-Sinister Bar is south of Joint Strip. It is in Outer Bounds. "There's no actual fighting here, but patrons turn to glare at any new person entering or, failing that, the newest person (hi!).[paragraph break]The only way out is north."
+Soda Club is south of Joint Strip. It is in Outer Bounds. "There's no actual fighting here, but patrons turn to glare at any new person entering or, failing that, the newest person (hi!).[paragraph break]The only way out is north."
 
-check going nowhere in Sinister Bar:
+check going nowhere in Soda Club:
 	say "There aren't, like, hidden bathrooms, and you wouldn't need to go even if there were. Maybe there's a hidden room where they serve real alcohol, but you aren't cool enough to get there. So, back north it'll be, once you want to leave." instead;
 
-[Chips Cash is a person in Sinister Bar.
+[Chips Cash is a person in Soda Club.
 
-Kinetic Psycho is a person in Sinister Bar.
+Kinetic Psycho is a person in Soda Club.
 
-A Feel Cop is a person in Sinister Bar.]
+A Feel Cop is a person in Soda Club.]
 
 section Liver Lily
 
-Liver Lily is a female person in Sinister Bar. "[one of]A girl is here. She's--well, pretty attractive. And well-dressed.[or]Liver Lily waits here for intelligent, stimulating conversation.[stopping]"
+Liver Lily is a female person in Soda Club. "[one of]A girl is here. She's--well, pretty attractive. And well-dressed.[or]Liver Lily waits here for intelligent, stimulating conversation.[stopping]"
 
 Liver Lily wears the rehearsal dress.
 
@@ -3303,7 +3349,7 @@ instead of doing something with rehearsal dress:
 		continue the action;
 	say "In this game, you can pretty much only examine the dress."
 
-after printing the locale description for sinister bar when sinister bar is unvisited:
+after printing the locale description for Soda Club when Soda Club is unvisited:
 	say "The bartender calls you over. 'Psst! Pal! Can you give me a break from Liver Lily over there? She's--she's usually pretty interesting, but when she's wearing that rehearsal dress she tends to repeat what she's already said. By the way, you can call me the Punch Sucker. Cuz it's my favorite drink.'"
 
 description of Liver Lily is "She is waiting for conversation in her rehearsal dress."
@@ -3413,7 +3459,7 @@ to chase-lily:
 
 section Punch Sucker
 
-A Punch Sucker is a person in Sinister Bar. "The [one of]guy you guess is the bartender[or]Punch Sucker[stopping] bustles around, serving drinks to the customers."
+A Punch Sucker is a person in Soda Club. "The [one of]guy you guess is the bartender[or]Punch Sucker[stopping] bustles around, serving drinks to the customers."
 
 understand "bartender" as punch sucker.
 
@@ -4881,11 +4927,25 @@ Idiot Village is east of Judgment Pass. It is in Main Chunk. "Idiot Village is s
 
 village-explored is a truth state that varies.
 
+last-dir is a direction that varies.
+
+rotation is a number that varies.
+
 check going nowhere in idiot village:
+	if player has crocked half:
+		if noun is northeast or noun is east:
+			say "You run past the Brain Idol. Its eyes follow you.";
+			if noun is northeast:
+				now rotation is 3;
+				now last-dir is northeast;
+			else:
+				now rotation is 5;
+				now last-dir is east;
+			now idol-tries is 0;
+			now thought idol is in Service Community;
+			move player to Service Community;
+			the rule succeeds;
 	say "Idiot Village expands in all directions, but of course, nobody was smart enough to provide a map. OR WERE THEY CLEVER ENOUGH NOT TO GIVE INVADERS AN EASY ROUTE IN?[paragraph break]Either way, you don't want to risk getting lost.";
-	if village-explored is false:
-		now village-explored is true;
-		special-bonus;
 	do nothing instead;
 
 The Business Monkey is a neuter person in Idiot Village. "A monkey mopes around here in a ridiculous suit two sizes too large for it."
@@ -5020,6 +5080,45 @@ chapter trap rattle
 
 the trap rattle is a thing. description is "It's tough to hold on to. It constantly seems to be trying to bite you, but if you try to clip it to your clothes, it doesn't even try to catch. You sense there's some logic to how it works, but you can't quite figure it out."
 
+part Service Community
+
+a direction has a number called orientation. the orientation of a direction is usually -1.
+
+orientation of north is 0.
+orientation of northeast is 1.
+orientation of east is 2.
+orientation of southeast is 3.
+orientation of south is 4.
+orientation of southwest is 5.
+orientation of west is 6.
+orientation of northwest is 7.
+
+the thought idol is scenery in Idiot Village.
+
+the Service Community is a room in Main Chunk. "You just came from the [opposite of last-dir]."
+
+idol-tries is a number that varies.
+
+check going in service community:
+	if orientation of noun is -1:
+		say "You need to go in a compass direction.";
+	let q be orientation of noun - orientation of last-dir;
+	if q < 0:
+		now q is q + 8;
+	if q is rotation:
+		say "The thought idol continues to whizz around.";
+		increment idol-tries;
+		now last-dir is noun;
+		if idol-tries is 7:
+			say "BOOM! The idol explodes!";
+			now thought idol is in lalaland;
+			move player to idiot village, without printing a room description;
+			special-bonus;
+		the rule succeeds;
+	else:
+		move thought idol to idiot village;
+		say "You run and run and run but don't seem to get anywhere. You hear a hmph from the idol. You pass out and wake up in the entry to Idiot Village.";
+
 part Speaking Plain
 
 Speaking Plain is north of Jerk Circle. It is in Main Chunk. "Roads go in all four directions here. North seems a bit wider. There's a keep to the west. But the main 'attraction' is [if fright stage is examined]Fright Stage[else]a huge stage[end if] in the center."
@@ -5041,7 +5140,12 @@ check talking to Uncle Dutch:
 
 dutch-blab is a number that varies.
 
+no-dutch is a truth state that varies.
+
 every turn when Alec Smart is in Speaking Plain and Speaking Plain was visited and Dutch is in Speaking Plain:
+	if no-dutch is true:
+		now no-dutch is false;
+		continue the action;
 	increment dutch-blab;
 	if dutch-blab > number of rows in table of dutch-blab:
 		now dutch-blab is 1;
@@ -5377,8 +5481,6 @@ after quipping when qbc_litany is litany of Art Fine:
 chapter Harmonic Phil
 
 Harmonic Phil is a person in Interest Compound. description is "He's wearing a shirt with a band you never heard of."
-
-Harmonic Phil is a person.
 
 litany of Harmonic Phil is the table of Harmonic Phil talk.
 
@@ -5798,8 +5900,10 @@ check talking to volatile sal:
 
 check inserting it into (this is the put it in vent rule):
 	if second noun is spleen vent:
+		if noun is poetic wax:
+			say "It might calm Sal down, but you're not sure if it would be wasted on him. Or worse, he might write some of that manic poetry that's too much for you." instead;
 		if noun is wacker weed:
-			say "That might calm Sal down, but how would you explain things to Pusher Penn? Maybe if you got the free sample.";
+			say "That might calm Sal down, but how would you explain things to Pusher Penn? Perhaps a different variety of...vegetation.";
 			now pot-not-weed is true instead;
 		if noun is poory pot:
 			now poory pot is in lalaland;
@@ -5821,7 +5925,7 @@ Freak Control is north of Questions Field. It is in Main Chunk. "[if accel-endin
 
 freaked-out is a truth state that varies.
 
-the shot screens are scenery in Freak Control. "[if cookie-eaten is true]You're torn between wondering if it's not worth watching the jokers being surveyed, or you deserve a good laugh.[else]For a moment, you get a glimpse of [one of]the jerks going about their business[or]the parts of Idiot Village you couldn't explore[or]a secret room in the Sinister Bar[or]Officer Petty at the 'event,' writing notes furiously[or]the hideout the Stool Toad was too lazy to notice[or]The Logical Psycho back at his home[or]exiles living beyond the Standard Bog[in random order].[end if]"
+the shot screens are scenery in Freak Control. "[if cookie-eaten is true]You're torn between wondering if it's not worth watching the jokers being surveyed, or you deserve a good laugh.[else]For a moment, you get a glimpse of [one of]the jerks going about their business[or]the parts of Idiot Village you couldn't explore[or]a secret room in the Soda Club[or]Officer Petty at the 'event,' writing notes furiously[or]the hideout the Stool Toad was too lazy to notice[or]The Logical Psycho back at his home[or]exiles living beyond the Standard Bog[in random order].[end if]"
 
 every turn when player is in freak control and qbc_litany is not table of baiter master talk (this is the random stuff in FC rule):
 	unless accel-ending:
@@ -5835,7 +5939,7 @@ the Witness Eye is scenery in Freak Control.
 
 the Language Sign is scenery in Freak Control. "It says, in various languages: OUT, FREAK. [one of]You're momentarily impressed, then you feel slightly jealous that the [bad-guy] took the time to research them. You remember getting grilled for trying to learn new languages in elementary school, before you could take language classes. You mentally blame the [bad-guy] for that. Well, it was someone like him. [or]You also take a second or two to pick which language is which line. Got [']em all. Even the ones with the unusual alphabets you meant to figure.[stopping]"
 
-The Baiter Master is a proper-named person in Freak Control. "The [bad-guy] stands here with his back to you.". description is "You can only see the back of him, well, until you gaze in some reflective panels. He looks up, as if to acknowledge you see him. He doesn't look that nasty, or distinguished, or strong, or whatever. Surprisingly ordinary. He gestures as if to say, let's get things started."
+The Baiter Master is a proper-named person in Freak Control. "The [bad-guy] stands here with his back to you.". description is "You can only see the back of him, well, until you gaze in some reflective panels. He looks up but does not acknowledge you. He doesn't look that nasty, or distinguished, or strong, or whatever. Surprisingly ordinary. He shrugs and resumes his apparent thoughtfulness."
 
 understand "complex" and "messiah" and "complex/messiah" as Baiter Master.
 
@@ -6563,7 +6667,47 @@ Include (-
 
 -) instead of "Print Obituary Headline Rule" in "OrderOfPlay.i6t".
 
-volume map inits
+volume mapping
+
+book in-game map
+
+table of map coordinates (continued)
+rm	x	y	l1	l2	indir	outdir	updir	downdir
+Smart Street	5	6	"SMART"	"STREE"	west
+Round Lounge	4	6	"ROUND"	"LOUNG"	--	--	north
+Tension Surface	4	5	"TENSI"	"SURFA"
+Variety Garden	3	5	"VARIE"	"GARDN"
+Vision Tunnel	5	5	"VISIO"	"TUNNL"
+Soda Club	6	5	"SODA "	"CLUB "
+Tense Future	0	1	"TENSE"	"FUTUR"
+Tense Present	0	2	"TENSE"	"PRESE"
+Tense Past	0	3	"TENSE"	"PAST "
+Freak Control	4	0	"FREAK"	"CNTRL"
+Accountable Hold	2	1	"ACCOU"	"HOLD "
+Court of Contempt	3	1	"COURT"	"CONTE"
+Questions Field	4	1	"QUEST"	"FIELD"
+Standard Bog	5	1	"STAND"	"-BOG-"
+Pot Chamber	6	1	"-POT-"	"CHAMB"
+Truth Home	1	2	"TRUTH"	"HOME "
+Scheme Pyramid	2	2	"SCHEM"	"PYRAM"
+Temper Keep	3	2	"TEMPR"	"KEEP "
+Speaking Plain	4	2	"SPEAK"	"PLAIN"
+Crazy Drive	5	2	"CRAZY"	"DRIVE"
+Interest Compound	6	2	"INTRS"	"COMPO"
+Classic Cult	1	3	"CLASS"	"CULT "
+Disposed Well	2	3	"DISPO"	"WELL "
+Chipper Wood	3	3	"CHIPR"	"WOOD "
+Jerk Circle	4	3	"JERK "	"CIRCL"
+Judgment Pass	5	3	"JGMNT"	"PASS "
+Idiot Village	6	3	"IDIOT"	"VILLG"
+Bottom Rock	1	4	"BOTTM"	"ROCK "
+Belt Below	2	4	"BELT "	"BELOW"
+Meal Square	3	4	"MEAL "	"SQUAR"
+Pressure Pier	4	4	"PRESS"	"PIER "
+Down Ground	5	4	"DOWN "	"GROUN"
+Joint Strip	6	4	"JOINT"	"STRIP"
+
+book Inform IDE inits
 
 index map with A Round Lounge mapped south of Tension Surface.
 
@@ -6802,22 +6946,6 @@ to say upper:
 *--*--*--*--*[line break]
  \ | / \ | /[line break]
   \|/   \|/[line break]";
-
-to say lower:
-	say "  /|\   /|\[line break]
- / | \ / | \[line break]
-*--*--*--*--*[line break]
-   | / \ |[line break]
-   |/   \|[line break]"
-
-the bugging doodle is a thing. description is "[fixed letter spacing][stars][upper][stars][lower][stars][variable letter spacing]"
-
-to get-half-doodle:
-	if player has crocked half:
-		say "Another crocked half. You put them together and get...a bugging doodle!";
-		now crocked half is in lalaland;
-	else:
-		say "It looks like you got a crocked half."
 
 volume rule replacements
 
@@ -7171,13 +7299,15 @@ chapter skiping
 
 chapter nu-skiping
 
-skiping is an action applying to one number.
+nu-skiping is an action applying to one number.
 
 understand the command "skip" as something new.
 
 understand "skip [number]" as nu-skiping.
 
 skipped-yet is a truth state that varies.
+
+lock-in-place is a truth state that varies.
 
 carry out nu-skiping:
 	if skipped-yet is true:
@@ -7214,12 +7344,16 @@ carry out nu-skiping:
 	else if number understood is 5:
 		move-puzzlies-and-jerks;
 		move player to jerk circle;
+		move brother big to lalaland;
+		move brother soul to lalaland;
+		move brother blood to lalaland;
 		now block-pier is true;
-		now all bros are in lalaland;
 	else if number understood is 6:
 		move player to jerk circle;
 		now all clients are in lalaland;
-		now all bros are in lalaland;
+		move brother big to lalaland;
+		move brother soul to lalaland;
+		move brother blood to lalaland;
 		now player has quiz pop;
 		now block-pier is true;
 		now block-other is true;
@@ -7228,7 +7362,7 @@ carry out nu-skiping:
 	the rule succeeds;
 	
 to move-puzzlies-and-jerks:
-	move all clients to lalaland;
+	now all clients are in lalaland;
 	move-puzzlies;
 
 to move-puzzlies:
@@ -7240,7 +7374,7 @@ to move-puzzlies:
 	move officer petty to lalaland;
 	move sly moore to lalaland;
 	move brother big to lalaland;
-	move all bros  to lalaland;
+	move brother soul to lalaland;
 	move brother blood to lalaland;
 	move howdy boy to lalaland;
 	move uncle dutch to lalaland; [they don't need to go but let's keep the focus]
@@ -7292,11 +7426,12 @@ widdershins is a direction. the opposite of widdershins is turnwise. description
 
 understand the command "monty" as something new.
 
-understand "monty [any topic]" as montying.
+understand "monty [text]" as montying.
 
 monty-full is a truth state that varies.
 
 carry out montying:
+	let found-toggle be false;
 	if the topic understood matches "all":
 		repeat through table of monties:
 			now on-off entry is true;
@@ -7306,8 +7441,8 @@ carry out montying:
 		if the topic understood matches montopic entry:
 			now on-off entry is whether or not on-off entry is true;
 			say "[test-title entry] is now [if on-off entry is true]on[else]off[end if].";
-			now found-one is true;
-	if found-one is false:
+			now found-toggle is true;
+	if found-toggle is false:
 		say "MONTY didn't find anything to toggle.";
 	the rule succeeds;
 	try requesting the score;	
@@ -7321,12 +7456,12 @@ carry out montying:
 	the rule succeeds;
 
 table of monties
-montopic	on-off	test-action
-"s" or "smell"	false	"SMELLING"	try-smelling rule
-"l" or "listen"	false	"LISTENING"	try-listening rule
-"sc" or "score"	false	"SCORING"	try-scoring rule
-"dir" or "noway"	false	"DEAD ENDING"	try-wid rule
-"donote" or "note"	false	"DONOTEING"	try-noting rule
+montopic (topic)	on-off	test-title	test-action
+"s/smell"	false	"SMELLING"	try-smelling rule
+"l/listen"	false	"LISTENING"	try-listening rule
+"sc/score"	false	"SCORING"	try-scoring rule
+"dir/noway"	false	"DEAD ENDING"	try-wid rule
+"donote/note"	false	"DONOTEING"	try-noting rule
 
 this is the try-noting rule:
 	try donoteing;
@@ -7344,7 +7479,7 @@ this is the try-scoring rule:
 	try requesting the score;
 
 every turn:
-	repeat running through table of monties:
+	repeat through table of monties:
 		if on-off entry is true:
 			say "========[test-title entry]:[line break]";
 			follow the test-action entry;
@@ -7362,7 +7497,7 @@ understand "noboo" as nobooing.
 carry out nobooing:
 	move player to pressure pier;
 	now trail paper is off-stage;
-	now lily is in sinister bar;
+	now lily is in Soda Club;
 	now lily-warn is false;
 	now toad-got-you is false;
 	now drop-ticket is false;
