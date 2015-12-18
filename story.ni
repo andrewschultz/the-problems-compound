@@ -139,6 +139,11 @@ a thing can be abstract. a thing is usually not abstract.
 
 a client is a kind of person. a client is usually male. a client can be specified. a client is usually not specified. a client has text called clue-letter.
 
+to decide whether the action is undrastic:
+	if examining, decide yes;
+	if explaining, decide yes;
+	decide no;
+
 volume stubs
 
 section rerouting verb tries
@@ -1331,7 +1336,11 @@ expl-hint is a truth state that varies.
 told-xpoff is a truth state that varies;
 
 carry out explaining:
+	if debug-state is true:
+		now all rooms are visited;
 	let found-yet be false;
+	if noun is not explainable:
+		say "That doesn't need any special explanation. I think/hope.";
 	if noun is an exp-thing listed in the table of explanations:
 		if anno-allow is true and told-xpoff is false:
 			now told-xpoff is true;
@@ -1363,11 +1372,39 @@ understand "explain [text]" as a mistake ("You've come across nothing like that,
 table of explanations
 exp-thing	exp-text	exp-anno
 Poetic Wax	"To wax poetic is to, well, rhapsodize with poems or song or whatever. It's slightly less gross than wax."
+Ability Suit	"Suitability means appropriateness. And the suit is not appropriate for the monkey."
+blossoms	"Now that the blossoms are in place, well, it'd be mean to say they're 'some blah.'"
+Buddy Best	"A best buddy is your favorite friend."
+Insanity Terminal	"Terminal insanity is having no chance to regain sanity."
+iron waffle	"A waffle iron is what you put batter in to make a waffle. But a waffle is also what you use when you don't know what to say. An iron waffle, then, would be something to say when you don't know what to say--but it is hard to take down."
+note crib	"To crib notes is to copy from someone who was at a lecture."
+Eye Witness	"Someone at the scene of the crime."
+Gallery Peanut	"The peanut gallery is where people sit around and make wisecracks."
+Off Cheese	"To cheese someone off is to annoy them."
+gagging lolly	"Lollygagging is waiting around."
+condition mint	"Mint condition is brand new."
+cutter cookie	"Cookie-cutter means predictable and formulaic."
+Alec Smart	"A smart alec is someone who always has a clever quip."
+Dandy Jim	"Jim Dandy is something excellent."
+Silly Boris	"Bore us silly."
+Wash White	"To whitewash is to wipe clean."
+Warner Dyer	"A dire warner has a message for you to keep away."
+Warm Luke	"Lukewarm is not really warm."
+Paul Kast	"To cast a pall is to give an air of unhappiness."
+Cain Reyes	"To raise Cain is to be loud."
+Pusher Penn	"A pen pusher is someone working at a boring job."
+Cards of the House	"The house of cards is something that falls down easily."
+View of Points	"Points of view are opinions."
+picture of a dozen bakers	"A baker's dozen is thirteen, thus counting for the illusion."
+Sly Moore	"More sly = slyer = cleverer."
+fourth-blossom	"To blossom fourth is to grow."
+Business Monkey	"Monkey business is general silliness."
 Harmonic Phil	"Many orchestras bill themselves as philharmonic. I suppose they could be anti-harmonic, but an Auntie character felt a bit stereotyped, and Auntie feels a bit too charged."
 Art Fine	"Why, fine art, of course. Highfalutin['] stuff, not easy to understand."
 Song Torch	"A Torch Song is about looking back on a love you can't quite let go of. The Song Torch is more cynical than that, being a bit rougher on its subjects, and, well, actually torching them."
 Finger Index	"The index finger is the one next to your thumb. Also, to finger someone means to point them out."
 Jerk Circle	"You'll have to look on Urban Dictionary for that."
+Drug Gateway	"A gateway drug leads you to bigger drugs, but here, the gateway may be blocking you from them."
 Guy Sweet	"Guy Sweet is more of a candy-[a-word] than a sweet guy, but 'sweet guy' is such a terrible compliment as-is. To yourself or others."
 Game Shell	"A shell game is where an operator and possibly an assistant rig a game so that mugs think it's an easy win, but they can't. The most popular one is when they hide a bean under a hollowed shell and shift them around."	"The game shell is a shell game of its own. No matter how much you solve, you won't impress Guy Sweet, and you won't--well--figure the real puzzles you want to, beyond logic etc."
 Broke Flat	"Flat Broke means out of money."	"This was originally a location until I discovered A Round Lounge."
@@ -1380,6 +1417,81 @@ Vision Tunnel	"Tunnel vision is the inability to see anything other than what is
 Mouth Mush	"A mush-mouth is someone who talks unclearly or uses weak words."
 Rogue Arch	"An arch-rogue is a big bad guy, obviously inappropriate for early in the story."
 Twister Brain	"The opposite of a brain twister, where someone derives a conclusion from a fact, the brain has a set conclusion and twists and weights facts to line up with them."
+Uncle Dutch	"A Dutch Uncle gives useful advice."
+Turk Young	"A Young Turk is a brave rebel."
+Story Fish	"A fish story is a long winding story."
+Punch Sucker	"A sucker punch is hitting someone when they aren't looking."
+jerks	"Pick one by name to see details."
+Logical Psycho	"Psychological, e.g. in the mind."
+Googly bowl	"To bowl a googly is to throw someone for a loop."
+Faith Goode	"Good faith."
+Grace Goode	"Good grace."
+fund hedge	"A hedge fund is for super rich people to get even richer."
+money seed	"Seed money helps an investment."
+Labor Child	"Child labor is about putting children to tough manual labor."
+Deal Clothes	"To close the deal means to agree to terms."
+Trap Rattle	"A rattle trap is a cheap car."
+relief light	"Light relief would be a silly joke."
+Baiter Master	"[if allow-swears is true]Masturbater is someone who--pleasures himself[else]Messiah Complex means someone believes they're the chosen one[end if]."
+Proof Fool	"Being fool-proof means you aren't suckered by anything."
+yards hole	"The whole nine yards means everything."
+Assassination Character	"Character assassination is the act of tearing someone down."
+Brother Big	"Big Brother is the character from Orwell's 1984."
+Brother Blood	"A blood brother is someone related by blood or who has sworn an oath of loyalty to someone else."
+proof of burden	"The burden of proof means: you need to come up with evidence to prove your point."
+Rehearsal Dress	"A dress rehearsal is the final staging of the play before the audience sees it."
+hopper grass	"A grasshopper is a small insect. Also, 'grasshopper' is an overused term when describing what a wise man calls a disciple."
+Brother Soul	"A soul brother is one who has very similar opinions to you."
+the Book Bank	"A bankbook records numbers and is very un-literary."
+Spleen Vent	"To vent one's spleen is to let our your anger."
+Language Sign	"Sign language is how people communicate with the deaf."
+Thought Idol	"Idle thoughts are what it purports to oppose."
+Absence of Leaves	"Leaves of absence means taking time off."
+Liver lily	"Lily-liver means coward."
+Minimum Bear	"Bare minimum is the very least you need to do to get by."
+dreadful penny	"A penny dreadful is a trashy novel."
+haha brew	"Brouhaha is a commotion or noise."
+long string	"To string along someone is to keep them trying or asking for more."
+chase paper	"A paper chase is excessive paperwork. In this case, work not strictly needed to reach the Assassination Character."
+cooler wine	"A wine cooler is very low in alcohol content."
+pocket pick	"A pickpocket is a thief."
+earth of scum	"Scum of the earth is the worst possible person."
+Stool Toad	"A toadstool is a mushroom."
+Pigeon Stool	"A stool pigeon is someone who tattles."
+Language Machine	"Machine Language is very low-level, unreadable (without training) code of bits. No English or anything."
+round screw	"To screw around is to do silly unproductive stuff."
+round stick	"To stick around is to move nowhere."
+gesture token	"A token gesture is something done as a bare minimum of acknowledgement."
+off tee	"To tee off is to yell or punch out at someone."
+boo tickety	"Tickety-boo means okay, all right, etc."
+person chair	"A chairperson is someone in charge of things."
+against rails	"If someone rails against something, they're upset with it."
+trail paper	"A paper trail is evidence in white-collar crimes. People often have to piece it together."
+tension surface	"Surface tension is a scientific phenomenon where water can, say, go a bit above the top of a cup without falling out."
+Howdy Boy	"Boy Howdy is a colloquial expression of surprise."
+Intuition Counter	"Counterintuition means the reverse of what you'd expect."
+Fright Stage	"Stage fright is being scared to get out in front of a crowd."
+Trick Hat	"A hat trick, in hockey or soccer, is scoring three times."
+Saver Screen	"A screen saver is often an amusing little graphic, animated or otherwise, on a computer that's been idle."
+Fritz the On	"On the fritz means on the blink."
+Poor Dirt	"Dirt poor means especially not rich."
+picture hole	"Seeing the whole picture means you see everything."
+warmer bench	"A bench warmer is someone who doesn't get into the action, especially in a sports game."
+Quiz Pop	"A pop quiz is when a teacher gives an unannounced quiz on materials."
+Poory Pot	"Potpourri, which smells good. Of course, I've read about pipe and cigar snobs who babble on about aromas and such."
+a long tag	"To tag along is to follow behind."
+Volatile Sal	"Sal volatile is given to wake up unconscious people with its smell."
+Cold contract	"To contract a cold is to get sick."
+Trade of Tricks	"Tricks of the Trade are things that outsiders to a specialty probably don't know that are a bit out of the range of common sense."
+wacker weed	"A weed whacker is the slang for a gardening tool to cut weeds."
+shot screens	"A screenshot is a still frame from a video."
+Officer Petty	"A petty officer is actually reasonably far up in the hierarchy, the equivalent of a sergeant."
+Sound Safe	"Safe, sound means being out of trouble. Also, the safe isn't very sound, as it's easy to open."
+mind of peace	"Peace of mind means being able to think."
+pen fountain	"A fountain pen is (these days) a typical pen. You don't have to dip it in ink to keep writing. It's less exotic than a pen fountain, of course."
+consciousness stream	"Stream of consciousness is a form of writing that relies heavily on inner monologue."
+
+[?? big brother reference]
 
 does the player mean explaining the player:
 	it is likely;
@@ -1393,10 +1505,21 @@ carry out explaining the player:
 				say "[count]: [Q] needs an explanation.";
 
 definition: a thing (called x) is explainable:
+	if x is a logic-game, decide no;
 	if x is in lalaland, decide yes;
-	if location of x is visited, decide yes;
+	if x is part of towers of hanoi or x is part of broke flat or x is part of games counter or x is games counter or x is games, decide no;
+	if x is t-surf, decide no;
+	if x is in pressure pier:
+		if x is water-scen or x is stall-scen, decide no;
+	if x is in disposed well:
+		if x is scen-home or x is scen-church, decide no;
+	if x is nametag or x is bar-scen or x is writing, decide no;
 	if player carries x, decide yes;
 	if x is Baiter Master, decide yes;
+	if x is not off-stage:
+		let mrlx be map region of location of x;
+		if mrlx is Dream Sequence, decide no;
+	if location of x is visited, decide yes;
 	decide no;
 
 chapter xpoffing
@@ -2134,7 +2257,7 @@ the logic puzzles are a plural-named logic-game in Smart Street. description is 
 section general logic game stuff
 
 instead of doing something with a logic-game:
-	if current action is playing or current action is examining:
+	if current action is playing or action is undrastic:
 		continue the action;
 	if current action is taking:
 		say "'Dude, no stealing!' says Guy. 'If you want to muck with a game, you can PLAY with it.' Besides, you've seen that puzzle before." instead;
@@ -2344,7 +2467,7 @@ the plan hatch is scenery in Round Lounge. "It's directly above the chair. Writt
 the writing is part of the plan hatch. description is "PLAN: FIND A WAY OUT OF THE ROUND LOUNGE."
 
 instead of doing something with writing:
-	if current action is examining:
+	if action is undrastic:
 		continue the action;
 	say "You can't do much besides examining the writing, so let's do that.";
 	try examining the writing instead;
@@ -2536,8 +2659,8 @@ after printing the locale description for down ground when down ground is unvisi
 
 t-surf is privately-named scenery in tension surface. understand "surface" as t-surf. printed name of t-surf is "the surface". "It feels like it could burst at any minute. The longer it doesn't, the sillier you feel for worrying in the first place."
 
-instead of doing something with surface:
-	if current action is examining:
+instead of doing something with t-surf:
+	if action is undrastic:
 		continue the action;
 	say "You can't do much except examine it."
 
@@ -3191,7 +3314,7 @@ bar-scen is privately-named scenery in Joint Strip. "It seems unobtrusive, with 
 instead of doing something with bar-scen:
 	if current action is entering:
 		try going south instead;
-	if current action is examining:
+	if action is undrastic:
 		continue the action;
 	say "You can't do much with the bar except enter it. But on the bright side, you can probably do more once you're in the bar." instead;
 
@@ -3219,7 +3342,7 @@ to say ex-min:
 	now minimum bear is examined;
 
 instead of doing something with the nametag:
-	if current action is examining:
+	if action is undrastic:
 		continue the action;
 	say "You don't need to fiddle with the tag.";
 
@@ -3246,7 +3369,7 @@ the pigeon stool is scenery in Joint Strip. "It's shaped like a curled up pigeon
 does the player mean doing something with the pigeon stool: it is likely. [more likely to use stool as a noun and all that]
 
 instead of doing something with pigeon stool:
-	if current action is examining:
+	if action is undrastic:
 		continue the action;
 	say "Since it's under the Stool Toad, there's not much you can do with it."
 
@@ -3345,7 +3468,7 @@ Liver Lily wears the rehearsal dress.
 description of dress is "It--well, it's one of those things you can't think of anything wrong to say about it. It's neither too tacky or dowdy. Yet it seems, to your unfashionable eye, a bit [i]comme il faut[r]."
 
 instead of doing something with rehearsal dress:
-	if current action is examining:
+	if action is undrastic:
 		continue the action;
 	say "In this game, you can pretty much only examine the dress."
 
@@ -4243,7 +4366,7 @@ scen-home is privately-named scenery in disposed well. "[if truth home is visite
 understand "home" as scen-home.
 
 instead of doing something with scen-home:
-	if current action is examining:
+	if action is undrastic:
 		continue the action;
 	if current action is entering:
 		try going inside instead;
@@ -4254,7 +4377,7 @@ scen-church is privately-named scenery in disposed well. "[if truth home is visi
 understand "church" as scen-church.
 
 instead of doing something with scen-church:
-	if current action is examining:
+	if action is undrastic:
 		continue the action;
 	if current action is entering:
 		try going inside instead;
@@ -4604,7 +4727,7 @@ for writing a paragraph about a person (called fgg) in Classic Cult:
 the blossoms are scenery in classic cult. description is "[bug]"
 
 instead of doing something with blossoms:
-	say "They're only for looking. Currently they're [if fourth-blossom is in lalaland]restored[else]only covering 75% of the bowl[end if]." instead;
+	say "They're only for looking, and you think they'd make you feel some blah, but they don't. Currently they're [if fourth-blossom is in lalaland]restored[else]only covering 75% of the bowl[end if]." instead;
 
 the googly bowl is scenery in Classic Cult. "[if fourth-blossom is in lalaland]It looks balanced, beautiful, proper.[else]It looks lopsided--one more flower or whatever in the bowl might fix that.[end if]"
 
@@ -4950,9 +5073,9 @@ check going nowhere in idiot village:
 
 The Business Monkey is a neuter person in Idiot Village. "A monkey mopes around here in a ridiculous suit two sizes too large for it."
 
-the Business Monkey wears the suit. description of suit is "It's halfway between a business suit and a monkey suit (eg a tuxedo), without capturing the intended dignity or prestige of either."
+the Business Monkey wears the Ability Suit. description of suit is "It's halfway between a business suit and a monkey suit (eg a tuxedo), without capturing the intended dignity or prestige of either. Nevertheless, the Monkey does preen in it a bit[if ability suit is not examined]. It's probably an Ability Suit, if you had to guess[end if]."
 
-description of Business Monkey is "The monkey grins happily and vacantly, occasionally adjusting its suit or pawing in the ground."
+description of Business Monkey is "The monkey grins happily and vacantly, occasionally adjusting its [if suit is examined]Ability Suit[else]suit[end if] or pawing in the ground."
 
 after doing something with business monkey:
 	set the pronoun him to business monkey;
@@ -6042,7 +6165,7 @@ after doing something with bakers:
 	set the pronoun them to bakers;
 
 instead of doing something with bakers:
-	if current action is examining:
+	if action is undrastic:
 		continue the action;
 	say "It's just there for scenery. There's nothing behind it or whatever."
 
