@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<trizbort version="1.5.9.3">
+<trizbort version="1.5.9.4">
 	<info>
 		<title>The Problems Compound</title>
 		<author>Andrew Schultz</author>
@@ -22,7 +22,7 @@
 			<objects>Officer Petty|Intuition Counter</objects>
 		</room>
 		<room id="35" name="Freak Control" subtitle="" x="160" y="-416" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="This is the final area!" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects>Complex Messiah/|  Baiter Master|</objects>
+			<objects at="n">Complex Messiah/|  Baiter Master</objects>
 		</room>
 		<room id="38" name="Jerk Circle/Groan Collective" subtitle="" x="160" y="-32" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects>7 jerks|</objects>
@@ -30,7 +30,7 @@
 		<room id="39" name="Speaking Plain" subtitle="" x="160" y="-160" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects>Turk Young|Uncle Dutch|Fright Stage</objects>
 		</room>
-		<room id="40" name="Directors of Bored" subtitle="" x="480" y="-160" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="Labeled the &quot;interest compound&quot;" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+		<room id="40" name="Interest Compound" subtitle="" x="480" y="-160" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="Labeled the &quot;interest compound&quot;" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects>Art Fine|Harmonic Phil</objects>
 		</room>
 		<room id="41" name="Pressure Pier" subtitle="" x="160" y="96" w="96" h="64" region="Outer Bounds" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
@@ -54,8 +54,8 @@
 		<room id="11" name="Chipper Wood" subtitle="" x="0" y="-32" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects>Assassination Character|Chase Paper</objects>
 		</room>
-		<room id="13" name="Idiot Village" subtitle="" x="480" y="-32" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects>Business Monkey|Sly Moore</objects>
+		<room id="13" name="Idiot Village (Service Community)" subtitle="" x="480" y="-32" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Business Monkey|Sly Moore|Thoughts Idol</objects>
 		</room>
 		<room id="3" name="Crazy Drive" subtitle="" x="320" y="-160" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects>Drug Gateway|A Long String</objects>
@@ -105,7 +105,7 @@
 			<dock index="1" id="1" port="e" />
 		</line>
 		<room id="34" name="Bottom Rock" subtitle="" x="-320" y="96" w="96" h="64" region="Cluey Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects>Note Crib</objects>
+			<objects>Note Crib|(Crocked Half)</objects>
 		</room>
 		<line id="12">
 			<dock index="0" id="11" port="e" />
@@ -138,7 +138,7 @@
 		<room id="51" name="Chicken Free Range" subtitle="" x="-320" y="352" w="96" h="64" region="Post-Game Fun" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="0" cornerTopRight="0" cornerBottomLeft="0" cornerBottomRight="0" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects>Low Low Troll|The "Up" Gang</objects>
 		</room>
-		<room id="52" name="Sinister Bar" subtitle="" x="480" y="224" w="96" h="64" region="Outer Bounds" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+		<room id="52" name="Soda Club" subtitle="" x="480" y="224" w="96" h="64" region="Outer Bounds" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects at="e">Liver Lily|The Punch Sucker</objects>
 		</room>
 		<room id="53" name="Criminals' Harbor" subtitle="" x="-480" y="-416" w="96" h="64" region="Bad Ends" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
@@ -333,6 +333,7 @@
 			<smallText>Black</smallText>
 			<lineText>Black</lineText>
 			<grid>#F5F5F5</grid>
+			<startRoom>GreenYellow</startRoom>
 		</colors>
 		<regions>
 			<Bad____Ends Name="Bad Ends" TextColor="Black">Red</Bad____Ends>
@@ -373,6 +374,11 @@
 			<handleSize>12</handleSize>
 			<snapToElementSize>16</snapToElementSize>
 		</ui>
+		<margins>
+			<documentSpecific>yes</documentSpecific>
+			<horizontal>96</horizontal>
+			<vertical>96</vertical>
+		</margins>
 		<keypadNavigation>
 			<creationModifier>control</creationModifier>
 			<unexploredModifier>alt</unexploredModifier>
