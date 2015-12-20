@@ -144,6 +144,16 @@ to decide whether the action is undrastic:
 	if explaining, decide yes;
 	decide no;
 
+chapter misc defs for later
+
+a drinkable is a kind of thing.
+
+a smokable is a kind of thing.
+
+a logic-game is a kind of thing. a logic-game has a number called times-won. times-won of a logic-game is usually 0. a logic-game has a number called max-won.
+
+a logic-game can be tried. a logic-game is usually not tried.
+
 volume stubs
 
 section rerouting verb tries
@@ -1164,7 +1174,102 @@ book check/before giving
 
 [there were too many CHECK GIVING rules and there were too many possibilities for fun stuff. So I thought I would put everything in order here.]
 
+[#16 on github]
+
 chapter item based
+
+check giving a drinkable to:
+	if second noun is lily:
+		if lily-hi is not talked-thru:
+			say "Lily ignores your offer. Perhaps if you talked to her first, she might be more receptive." instead;
+		say "Lily looks outraged. 'This?! Are you trying to make me boring like you?! HONESTLY! After all the advice I gave you!' She takes your drink and pours it in your face before running off.";
+		wfak;
+		now noun is in lalaland;
+		activate-drink-check;
+		chase-lily instead;
+	if second noun is punch sucker:
+		say "'No refunds. Good thing it was free, eh?'" instead;
+	say "This is a BUG. You shouldn't be able to carry liquor out of the Soda Club." instead;
+
+check giving wacker weed to:
+	if second noun is Fritz the On:
+		say "You look every which way to the Stool Toad, then put your finger to your lips as you hand Fritz the packet. He conceals the stash and hands you a coin back--a dreadful penny. Proper payment for the cheap stuff.";
+		increment the score;
+		now wacker weed is in lalaland;
+		now player has dreadful penny instead;
+
+check giving minimum bear to (this is the fun stuff if you give the bear to someone else rule) :
+	if second noun is Stool Toad:
+		say "'DO I LOOK LIKE A SOFTIE?'" instead;
+	if second noun is Fritz the On:
+		say "'Dude! Minimum Bear!' he says, snatching it from you. 'I--I gotta give you something to thank you.' And he does. 'Here's a boo tickety I got for, like, not minding right. I've got so many, I won't miss it.'[paragraph break]";
+		now Fritz has minimum bear;
+		if your-tix >= 4:
+			say "You decline Fritz's generous offer, since you're already in enough trouble with the Stool Toad. He winks at you in solidarity." instead;
+		get-ticketed instead;
+	if second noun is howdy boy:
+		say "A momentary expression of rage crosses his face. 'Is this some sort of joke? You'd have to be wacked out to still like that.'" instead;
+	if second noun is lily:
+		say "'Aww. That's so sweet. Or it would've been if I was still eight.'" instead;
+	if second noun is a bro: [note that this *is* possible if you perform other lawbreaking tasks]
+		say "He gazes at it wistfully. 'No, I'm too old. I better be.'" instead;
+
+check giving tickety to:
+	if second noun is Fritz:
+		say "'No way, dude. I already have too many[unless fritz has minimum bear]. But I can give you one if you like[else]. Keep the one I gave you[end if].'" instead;
+	if second noun is howdy boy:
+		say "'Not bad. But you still need [4 - your-tix in words] more.'" instead;
+	if second noun is Lily:
+		say "She is not impressed by your attempts to be a Bad Boy." instead;
+	if second noun is Punch Sucker:
+		say "[one of]A sardonic laugh. 'Tough customer, eh? We better not give you the REAL stuff, then!'[or]He ignores you the second time.[stopping]" instead;
+	if second noun is stool toad:
+		say "You consider it, but it'd be embarrassing to get another tickety. Or not even be important enough for one." instead;
+
+check giving the trail paper to:
+	if second noun is Fritz:
+		say "'That's not the kind of trips I go in for, dude.'" instead;
+	if second noun is howdy boy:
+		now trail paper is in lalaland;
+		choose row with response of howdy-west in table of howdy boy talks;
+		now enabled entry is 0;
+		say "'Well done. You've acted up enough. Here, I'll shred the evidence. So you don't get caught later. Say, after all that goofing around, you might be hungry. Look around in Meal Square. But be careful.'" instead;
+	if second noun is Lily:
+		say "She shrugs and mentions she's been better places." instead;
+	if second noun is Punch Sucker:
+		say "She is unimpressed with your attempt at being a Bad Boy." instead;
+	if second noun is Stool Toad:
+		say "He might put two and two together and arrest you." instead;
+
+check giving pick to:
+	if second noun is mouth mush:
+		say "'Thanks, but I floss reguarly.'" instead;
+	if second noun is weasel:
+		say "'No! It's yours now! I'm not strong enough for manual labor, anyway. But you are.' He grins brightly." instead;
+
+check giving gesture token to:
+	if second noun is weasel:
+		now token is in lalaland;
+		now player has the pocket pick;
+		say "He tucks away the token with a sniff. 'Well, it's not much--but, very well, I'll let you in my work study program. I won't even charge interest. Have this pocket pick. It'll help you DIG to find stuff. You can try it here, with the poor dirt!'" instead;
+	if second noun is mush:
+		say "'Pfft. Petty bribery. I need forms. Signed forms.'" instead;
+
+check giving burden to:
+	if second noun is mush:
+		if burden-signed is true:
+			say "With a horrible SCHLURP, the mouth mush vacuums the signed burden away from you. You hear digestive noises, then a burp, and an 'Ah!'[paragraph break]'That'll do. Okay, you stupid arch, stay put. And YOU--wait a few seconds before walking through. I'm just as alive as you are.' You're too stunned to step right away, and after the mush bubbles into plain ground, you take a few seconds to make sure the Rogue Arch is motionless.";
+			now burden is in lalaland;
+			now mouth mush is in lalaland;
+			the rule succeeds;
+		say "'It's not properly signed! And it's not officially a proof [']til it is!'" instead;
+	if second noun is weasel:
+		if burden-signed is true:
+			say "'That's my signature. Don't wear it out.'" instead;
+		if weasel-baiter is not talked-thru:
+			say "'Oh no! You obviously need a little help being more social, but you haven't listened to me enough yet. That'll help. Totally.'" instead;
+		say "The weasel makes a big show about how he would normally charge for this sort of thing, but then, signing for you means he'll feel less guilty rejecting an actual charity since he already did something for someone. He makes you sign a disclaimer in term absolving him if you do anything dumb.[paragraph break]Well, the proof is signed now.";
+		now burden-signed is true instead;
 
 check giving wax to:
 	ignore the can't give what you haven't got rule;
@@ -1206,12 +1311,22 @@ chapter person based
 
 chapter big one and default
 
-check giving (this is the big giving organized by room rule) :
+[#16-2]
+
+check giving (this is the big giving organized by room rule) : [this is a catch-all]
 	if second noun is Guy Sweet: [smart street]
 		if noun is token: [second noun must be Guy Sweet]
 			say "'No, I don't want [if noun is gesture token]it back. I have plenty. You might need it[else]that. Or anything from you, really. I'm here to help YOU[end if].'" instead;
 		say "There's some awkward gesturing before and after you realize Guy doesn't particularly need or want [the noun]." instead;
-
+	if second noun is arch: [tension surface]
+		if mush is in lalaland:
+			say "The arch doesn't react. Which is sort of a good thing." instead;
+		say "As you try, the mush coughs, somehow." instead;
+		try giving noun to mush instead;
+	if second noun is weasel: [variety garden]
+		say "'I don't know what I can do with that. I suppose I could re-sell it at a markup, if it were worth anything, which I don't think it is. No offense.'" instead;
+	if second noun is Fritz the On: [down ground]
+		say "Fritz rambles about material possessions bringing you down for a bit. [if fritz has minimum bear]You've given him enough[else]That can't be what he wants[end if]." instead;
 
 check giving (this is the default fall-through giving rule) :
 	if noun is not a person:
@@ -2169,12 +2284,6 @@ carry out knockharding:
 		move player to pressure pier instead;
 	say "There's nothing to knock hard at." instead;
 
-chapter logic games
-
-a logic-game is a kind of thing. a logic-game has a number called times-won. times-won of a logic-game is usually 0. a logic-game has a number called max-won.
-
-a logic-game can be tried. a logic-game is usually not tried.
-
 section chessboard
 
 the chess board is a logic-game in Smart Street. description is "The chessboard has eight queens all of one color lumped into an almost-3x3 square in one corner."
@@ -2695,9 +2804,6 @@ description of mouth mush is "It almost seems to whistle innocently as you exami
 check talking to mouth mush when burden-signed is true:
 	say "You don't have much to say, now you have the signed burden. Maybe just GIVE it to the mouth." instead;
 
-check giving pick to mouth mush:
-	say "'Thanks, but I floss reguarly.'" instead;
-
 to say r-a:
 	say "[if rogue arch is examined]Rogue Arch[else]arch[end if]"
 
@@ -2720,23 +2826,6 @@ check talking to Rogue Arch:
 to say talk-back:
 	if mush-go is not talked-thru:
 		say "[paragraph break][if mush-go is not talked-thru]Hmm. Maybe you can talk to it, back.[no line break][end if]"
-
-check giving to arch:
-	if mush is in lalaland:
-		say "The arch doesn't react. Which is sort of a good thing." instead;
-	say "As you try, the mush coughs, somehow." instead;
-	try giving noun to mush instead;
-
-check giving gesture token to mush:
-	say "'Pfft. Petty bribery. I need forms. Signed forms.'" instead;
-
-check giving burden to mush:
-	if burden-signed is true:
-		say "With a horrible SCHLURP, the mouth mush vacuums the signed burden away from you. You hear digestive noises, then a burp, and an 'Ah!'[paragraph break]'That'll do. Okay, you stupid arch, stay put. And YOU--wait a few seconds before walking through. I'm just as alive as you are.' You're too stunned to step right away, and after the mush bubbles into plain ground, you take a few seconds to make sure the Rogue Arch is motionless.";
-		now burden is in lalaland;
-		now mouth mush is in lalaland;
-		the rule succeeds;
-	say "'It's not properly signed! And it's not officially a proof [']til it is!'" instead;
 
 litany of mouth mush is the table of arch talk
 
@@ -2938,31 +3027,12 @@ weasel-baiter	"'Well, if everyone's praising him, that's because he really is gr
 weasel-pick-oops	"'Good thing I didn't charge you a deposit, eh?'"
 weasel-bye	"'Gosh! You're lucky I didn't charge you for all this cleverness!'"
 
-check giving the token to the weasel:
-	now token is in lalaland;
-	now player has the pocket pick;
-	say "He tucks away the token with a sniff. 'Well, it's not much--but, very well, I'll let you in my work study program. I won't even charge interest. Have this pocket pick. It'll help you DIG to find stuff. You can try it here, with the poor dirt!'" instead;
-	
-check giving pocket pick to weasel:
-	say "'No! It's yours now! I'm not strong enough for manual labor, anyway. But you are.' He grins brightly." instead;
-
 check going east when player is in variety garden:
 	if dirt-dug is false:
 		if player has pocket pick:
 			say "'You just going to run away without paying off the pocket pick in full? C'mon, just DIG a bit here.'" instead;
 		else:
 			say "'Well, let me know when you're ready to do business.'";
-
-check giving the burden to the weasel:
-	if burden-signed is true:
-		say "'That's my signature. Don't wear it out.'" instead;
-	if weasel-baiter is not talked-thru:
-		say "'Oh no! You obviously need a little help being more social, but you haven't listened to me enough yet. That'll help. Totally.'" instead;
-	say "The weasel makes a big show about how he would normally charge for this sort of thing, but then, signing for you means he'll feel less guilty rejecting an actual charity since he already did something for someone. He makes you sign a disclaimer in term absolving him if you do anything dumb.[paragraph break]Well, the proof is signed now.";
-	now burden-signed is true instead;
-
-check giving to the weasel:
-	say "'I don't know what I can do with that. I suppose I could re-sell it at a markup, if it were worth anything, which I don't think it is. No offense.'" instead;
 
 section pocket pick
 
@@ -3152,18 +3222,6 @@ section trail paper
 
 the trail paper is a thing. description is "It looks pretty official. It's made up of the four boo ticketys, but now they're folded right, it may be just what the Howdy Boy wanted."
 
-check giving to howdy boy:
-	if noun is tickety:
-		say "'Not bad. But you still need [4 - your-tix in words] more.'" instead;
-	if noun is bear:
-		say "'Pfft. Really?'" instead;
-
-check giving the trail paper to howdy boy:
-	now trail paper is in lalaland;
-	choose row with response of howdy-west in table of howdy boy talks;
-	now enabled entry is 0;
-	say "'Well done. You've acted up enough. Here, I'll shred the evidence. So you don't get caught later. Say, after all that goofing around, you might be hungry. Look around in Meal Square. But be careful.'" instead;
-
 part Down Ground
 
 Down Ground is east of Pressure Pier. It is in Outer Bounds. "[one of]Walking east of Pressure Pier, the land dips a bit. You pass by a bench that seems to radiate heat. A closer look reveals that, yes, it is a Warmer Bench.[or]The Warmer Bench waits here. It may be useful to lie on, or not[stopping]. Even choosing between eventually exiting to the east or west is oppressive."
@@ -3225,24 +3283,6 @@ check dropping boo tickety:
 		say "Either the Stool Toad will have given up on you, or he'll really get to bust you for a repeat offense. Neither seems to help you." instead;
 
 the dreadful penny is a thing. description is "It has a relief of the [bad-guy] on the front and back, with 'TRUST A BRAIN' on the back. You hope it's worth more than you think it is."
-
-check giving to Fritz the On:
-	if noun is wacker weed:
-		say "You look every which way to the Stool Toad, then put your finger to your lips as you hand Fritz the packet. He conceals the stash and hands you a coin back--a dreadful penny. Proper payment for the cheap stuff.";
-		increment the score;
-		now wacker weed is in lalaland;
-		now player has dreadful penny instead;
-	if noun is Minimum Bear:
-		say "'Dude! Minimum Bear!' he says, snatching it from you. 'I--I gotta give you something to thank you.' And he does. 'Here's a boo tickety I got for, like, not minding right. I've got so many, I won't miss it.'[paragraph break]";
-		now Fritz has minimum bear;
-		if your-tix >= 4:
-			say "You decline Fritz's generous offer, since you're already in enough trouble with the Stool Toad. He winks at you in solidarity." instead;
-		get-ticketed instead;
-	if noun is boo tickety:
-		say "'No way, dude. I already have too many[unless fritz has minimum bear]. But I can give you one if you like[else]. Keep the one I gave you[end if].'" instead;
-	if noun is trail paper:
-		say "'That's not the kind of trips I go in for, dude.'" instead;
-	say "Fritz rambles about material possessions bringing you down for a bit. [if fritz has minimum bear]You've given him enough[else]That can't be what he wants[end if]." instead;
 
 your-tix is a number that varies.
 
@@ -3401,12 +3441,8 @@ to activate-drink-check:
 		now enabled entry is 1;
 
 check giving to the Stool Toad:
-	if noun is tickety or noun is trail paper:
-		say "He'd probably rather remind YOU what a hooligan you are." instead;
-	if noun is bear:
-		say "'DO I LOOK LIKE A SOFTIE?'" instead;
 	if noun is wacker weed or noun is poory pot:
-		say "the Stool Toad jumps a whole foot in the air. 'How DARE you--on my turf--by me! OFFICER PETTY!' [if judgment pass is visited]Officer Petty[else]A man with a less fancy uniform[end if] rushes in and handcuffs you away and takes you to the...";
+		say "The Stool Toad jumps a whole foot in the air. 'How DARE you--on my turf--by me! OFFICER PETTY!' [if judgment pass is visited]Officer Petty[else]A man with a less fancy uniform[end if] rushes in and handcuffs you away and takes you to the...";
 		ship-off Maintenance High instead;
 	say "'NO BRIBERY! Plus, that looks worthless. No offense.'" instead;
 
@@ -3562,19 +3598,6 @@ after quipping when qbc_litany is table of lily talk:
 			enable the lily-prac quip;
 		quit small talk;
 
-check giving to lily:
-	if noun is minimum bear:
-		say "'Aww. That's so sweet. Or it would've been if I was still eight.'" instead;
-	if noun is haha brew or noun is cooler wine:
-		if lily-hi is not talked-thru:
-			say "Lily ignores your offer. Perhaps if you talked to her first, she might be more receptive." instead;
-		say "Lily looks outraged. 'This?! Are you trying to make me boring like you?! HONESTLY! After all the advice I gave you!' She takes your drink and pours it in your face before running off.";
-		wfak;
-		now noun is in lalaland;
-		activate-drink-check;
-		chase-lily instead;
-	say "'I'm sure that's interesting for you, but not for me.'" instead;
-
 to chase-lily:
 	say "The Punch Sucker sidles over. 'Sorry, champ. Looks like you did something to chase off a good patron. By the moral authority vested in me by the [bad-guy], it is my pleasure and duty to issue a boo-tickety.'";
 	now lily is in lalaland;
@@ -3608,9 +3631,9 @@ prompt	response	enabled	permit
 "What do you think of the [bad-guy]?"	sucker-baiter	1	1
 "[later-or-thanks]."	sucker-bye	3	1
 
-the cooler wine is a thing. description is "My goodness! It's almost fluorescent."
+the cooler wine is a drinkable. description is "My goodness! It's almost fluorescent."
 
-the haha brew is a thing. description is "Extra golden and bubbly."
+the haha brew is a drinkable. description is "Extra golden and bubbly."
 
 understand "drink" as cooler wine when player has cooler wine.
 understand "drink" as haha brew when player has haha brew.
@@ -5402,14 +5425,14 @@ after quipping when qbc_litany is litany of pusher penn:
 	if current quip is penn-bye:
 		quit small talk;
 
-the wacker weed is a thing. description is "You couldn't tell if it is good or bad, really. But it needs to be delivered. It's in a baggie and everything."
+the wacker weed is a smokable. description is "You couldn't tell if it is good or bad, really. But it needs to be delivered. It's in a baggie and everything."
 
 understand "baggie" as wacker weed.
 
 check opening wacker weed:
 	say "Don't dip into the supply." instead;
 
-some poory pot is a thing. description is "Geez. You can smell it. It's a sickly sweet smell."
+some poory pot is a smokable. description is "Geez. You can smell it. It's a sickly sweet smell."
 
 part Standard Bog
 
