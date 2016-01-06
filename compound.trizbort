@@ -246,15 +246,11 @@
 			<startRoom>GreenYellow</startRoom>
 		</colors>
 		<regions>
-			<Bad____Ends Name="Bad Ends" TextColor="Black">Red</Bad____Ends>
 			<Cluey____Area Name="Cluey Area" TextColor="Black">#C06020</Cluey____Area>
 			<Dream Name="Dream" TextColor="Black">#2090FF</Dream>
 			<Entry Name="Entry" TextColor="Black">Yellow</Entry>
-			<Hypothetical Name="Hypothetical" TextColor="Black">#FF8000</Hypothetical>
 			<Main____Area Name="Main Area" TextColor="Black">Lime</Main____Area>
-			<NoRegion Name="NoRegion" TextColor="Black">White</NoRegion>
 			<Outer____Bounds Name="Outer Bounds" TextColor="Black">Silver</Outer____Bounds>
-			<Post-Game____Fun Name="Post-Game Fun" TextColor="Black">#9020FF</Post-Game____Fun>
 		</regions>
 		<fonts>
 			<room size="12">Arial</room>

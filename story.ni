@@ -1044,7 +1044,7 @@ carry out gotoing:
 		say "You'll have to walk by that nosy Stool Toad directly[if trail paper is in lalaland], not that you need to go back[end if]." instead;
 	if noun is not a room:
 		say "You need to specify a room or a thing." instead;
-	if noun is court of contempt and long tag is not off-stage:
+	if noun is court of contempt and reasoning circular is not off-stage:
 		say "You can't go back.";
 	if noun is unvisited:
 		say "You haven't visited there yet." instead;
@@ -1594,6 +1594,7 @@ picture hole	"Seeing the whole picture means you see everything."
 warmer bench	"A bench warmer is someone who doesn't get into the action, especially in a sports game."
 Quiz Pop	"A pop quiz is when a teacher gives an unannounced quiz on materials."
 Poory Pot	"Potpourri, which smells good. Of course, I've read about pipe and cigar snobs who babble on about aromas and such."
+the Reasoning Circular	"Circular Reasoning is, for instance, I'm smart because I'm clever because I'm smart."
 a long tag	"To tag along is to follow behind."
 Volatile Sal	"Sal volatile is given to wake up unconscious people with its smell."
 Cold contract	"To contract a cold is to get sick."
@@ -4609,12 +4610,12 @@ to hint-blue:
 	say "[line break]";
 
 to hint-red:
-	if a long tag is off-stage:
+	if the Reasoning Circular is off-stage:
 		now already-clued is true;
 		say "Talk to Buddy Best until he gives you something.";
 	else if officer petty is not in lalaland:
 		now already-clued is true;
-		say "Give a long tag to Officer Petty.";
+		say "Give the Reasoning Circular to Officer Petty.";
 	else if money seed is off-stage:
 		now already-clued is true;
 		say "Get the Money Seed from the Scheme Pyramid.";
@@ -4633,11 +4634,11 @@ to hint-red:
 
 to hint-big: [already-clued indicates that you already saw a clue]
 	if already-clued is false:
-		if a long tag is off-stage:
+		if the Reasoning Circular is off-stage:
 			say "Talk to Buddy Best until he gives you something.";
 			continue the action;
 		else if officer petty is not in lalaland:
-			say "Give a long tag to Officer Petty.";
+			say "Give the Reasoning Circular to Officer Petty.";
 			continue the action;
 		else if contract-signed is false:
 			say "Get the Business Monkey to sign the contract.";
@@ -5022,10 +5023,10 @@ check giving to Officer Petty:
 	if noun is weed or noun is pot:
 		say "'Hoo, boy! Really? REALLY? That'll get you to worse than Idiot Village. STOOL TOAD!' Not that Officer Petty needed backup, but it's the principle of the thing. You are escorted away.";
 		move player to maintenance high instead;
-	if noun is a long tag:
+	if noun is the Reasoning Circular:
 		now Officer Petty is in lalaland;
-		now a long tag is in lalaland;
-		say "A tear starts to form in Officer Petty's eye. 'Really? I...well, this definitely isn't bribery! I've always been good at yelling at people who get simple stuff wrong, but I always felt there was more. I could have more complex reasons to put people down. Thank you.' He looks at the tag again. 'Wait, wait. Maybe you wouldn't have gotten anything out of this invitation anyway. So it's not so generous.' Officer Petty beams at his newfound profundity before shuffling off.";
+		now the Reasoning Circular is in lalaland;
+		say "A tear starts to form in Officer Petty's eye. 'Really? I...well, this definitely isn't bribery! I've always been good at yelling at people who get simple stuff wrong, but I always felt there was more. I could have more complex reasons to put people down. Thank you.' He looks at the Reasoning Circular again. 'Wait, wait. Maybe you wouldn't have gotten anything out of this invitation anyway. So it's not so generous.' Officer Petty beams at his newfound profundity before shuffling off.";
 		increment the score;
 		continue the action;
 	say "'NO BRIBERY! Besides, that's not worth anything. But, uh, it's perfectly legal to give me something that might help my career.'" instead;
@@ -5501,15 +5502,24 @@ check going nowhere in Court of Contempt:
 
 Buddy Best is a person in Court of Contempt. "[one of]Oh, look! A potential friend![paragraph break]'Yah. Hi. I'm Buddy Best. You seem real nice. Nice enough not to waste too much of my time.'[paragraph break]Okay, never mind.[or]Buddy Best waits and taps his foot here.[stopping]". description is "Buddy Best has a half-smile on his face, which is totally a delicate balance of happiness and seriousness and not a sign of contempt, so stop saying that."
 
-a long tag is a thing. description is "By Order of the [bad-guy]:[paragraph break]The holder of this ticket is entitled, irregardless (I know, I'm being ironic and vernacular) of station or current responsibility, to visit Enough Fair, a whirlwind event of social skills where the bearer learns[paragraph break][2da]1. how to yell at others to stop complaining life's not fair AND still point how it's rigged against you[line break][2da]3. Of course, not trying to be too fair. People who overdo things are the worst![line break][2da]3. Lots more, but if we wrote everything, you wouldn't need to show up. Ha ha."
+the Reasoning Circular is a thing. description is "It's full of several pages why you're great if you think you are, unless you're lame, in which case you don't know what great means. There's a long tag stapled to it."
 
-before giving long tag to:
+before giving Reasoning Circular to:
 	if noun is dutch or noun is turk or noun is child:
 		say "Oh, he's long since mastered THAT." instead;
 	if noun is Stool Toad:
 		say "'BASIC TRAINING! I completed that long ago. Some of my colleagues haven't, yet.'" instead;
 	if noun is a bro:
 		say "He's not searching for that. He's searching for something real." instead;
+
+instead of doing something with the long tag:
+	if current action is examining:
+		continue the action;
+	if current action is giving:
+		try giving Reasoning Circular to the second noun;
+	say "You don't want to pull it out. Maybe someone else could use it. Someone you want to get rid of.";
+
+the long tag is part of the Reasoning Circular. description is "It's stapeld to the Reasoning Circular and reads:[paragraph break]By Order of the [bad-guy]:[paragraph break]The holder of this ticket is entitled, irregardless (I know, I'm being ironic and vernacular) of station or current responsibility, to visit Enough Fair, a whirlwind event of social skills where the bearer learns[paragraph break][2da]1. how to yell at others to stop complaining life's not fair AND still point how it's rigged against you[line break][2da]3. Of course, not trying to be too fair. People who overdo things are the worst![line break][2da]3. Lots more, but if we wrote everything, you wouldn't need to show up. Ha ha."
 
 litany of buddy best is the table of Buddy Best talk.
 
@@ -5532,8 +5542,8 @@ best-baiter	"'Obviously he knows what's what. We had a good long discussion on d
 best-bye	"'Not very curious of you there. I'm an interesting fella, yet you...'"
 
 check going west in Questions Field:
-	if long tag is not off-stage:
-		say "Buddy Best has seen enough of you. Hmm, come to think of it, you've seen enough of Buddy Best. You're surprised he even gave you the long tag." instead;
+	if Reasoning Circular is not off-stage:
+		say "Buddy Best has seen enough of you. Hmm, come to think of it, you've seen enough of Buddy Best. You're surprised he even gave you the Reasoning Circular." instead;
 
 after quipping when qbc_litany is table of Buddy Best talk:
 	if current quip is best-law:
@@ -5545,10 +5555,10 @@ after quipping when qbc_litany is table of Buddy Best talk:
 		quit small talk;
 		say "Buddy waves his hands to change the subject. 'Well, I don't want to waste any more of your time,' he says, with fake humility not meant to be convincing. You freeze.";
 		wfak;
-		say "[line break]'Negotiator, eh? Standing your ground?' Buddy Best shoves a long tag in your hands as he pushes you out. 'That's all you'll be getting. It's a ticket for self improvement. Stuff I'm sure you're smart enough to understand. Smart enough to have understood a few years ago, really.'";
+		say "[line break]'Negotiator, eh? Standing your ground?' Buddy Best shoves something in your hands as he pushes you out. 'It's, well, stuff I could tell you personally, but I don't want to waste your time. Self improvement stuff. I'm sure you're smart enough to understand. Smart enough to have understood a few years ago, really.'";
 		wfak;
 		say "[line break]Well, it's something. Which is more than you expected. Generally, obnoxious fast-talkers wound up taking something from YOU after a short, loud, fast dialog. You're not sorry you had no chance to say good-bye.";
-		now player has a long tag;
+		now player has the Reasoning Circular;
 		try going east;
 
 part Interest Compound
@@ -5796,7 +5806,7 @@ workname	singername	songsubj
 
 part Questions Field
 
-Questions Field is north of Speaking Plain. It is in Main Chunk. "North is what can only be the [bad-guy]'s lair: Freak Control. You can go back south to the Speaking Plain, [if long tag is not off-stage]though Buddy Best probably won't welcome you back west[else]and also you can go west to [c-house][end if]."
+Questions Field is north of Speaking Plain. It is in Main Chunk. "North is what can only be the [bad-guy]'s lair: Freak Control. You can go back south to the Speaking Plain, [if reasoning circular is not off-stage]though Buddy Best probably won't welcome you back west[else]and also you can go west to [c-house][end if]."
 
 check going south in questions field when got-pop is true:
 	say "No. You've drunk the quiz pop, and it's time to face the [bad-guy]." instead;
@@ -7525,7 +7535,7 @@ to move-puzzlies:
 	move howdy boy to lalaland;
 	move uncle dutch to lalaland; [they don't need to go but let's keep the focus]
 	move turk young to lalaland;
-	move long tag to lalaland;
+	move reasoning circular to lalaland;
 
 block-other is a truth state that varies;
 block-pier is a truth state that varies;
