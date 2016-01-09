@@ -6953,10 +6953,10 @@ Rule for printing a parser error when the latest parser error is the can't see a
 	say "You see nothing there like that. You may want to check for typos or excess words or prepositions."
 
 Rule for printing a parser error when the latest parser error is the nothing to do error:
-	if drop-warn is true:
+	if current action is dropping:
 		say "You don't need to drop anything in the game, much less all your possessions.";
 	else:
-		say "Sorry, but right now ALL doesn't encompass anything." instead.
+		say "Sorry, but right now ALL doesn't encompass anything. But don't worry, everything you need should be visible." instead.
 	
 volume real stuff
 

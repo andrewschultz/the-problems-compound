@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<trizbort version="1.5.9.3">
+<trizbort version="1.5.9.4">
 	<info>
 		<title>The Problems Compound walkthrough</title>
 		<author>Andrew Schultz</author>
@@ -54,36 +54,32 @@
 			<dock index="1" id="16" port="wnw" />
 		</line>
 		<room id="22" name="Give Mind of Peace to Brother Blood" subtitle="" x="288" y="-96" w="96" h="64" region="blood" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Dash" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<room id="23" name="Give Trade of Tricks to Brother Big" subtitle="" x="416" y="0" w="96" h="64" region="big" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Dash" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<room id="24" name="Give Relief Light to Brother Soul" subtitle="" x="416" y="-192" w="96" h="64" region="soul" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Dash" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<room id="28" name="Disperse the Jerks" subtitle="" x="-224" y="0" w="96" h="64" region="NoRegion" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Dash" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<room id="30" name="Talk to Bad Guy in Freak Control" subtitle="" x="416" y="-96" w="96" h="64" region="NoRegion" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="23" name="Give Trade of Tricks to Brother Big" subtitle="" x="416" y="-192" w="96" h="64" region="big" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Dash" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="24" name="Give Relief Light to Brother Soul" subtitle="" x="416" y="0" w="96" h="64" region="soul" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Dash" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="28" name="Disperse the Jerks" subtitle="" x="-224" y="-192" w="96" h="64" region="Post-Bros" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Dash" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="30" name="Talk to Bad Guy in Freak Control" subtitle="" x="416" y="-96" w="96" h="64" region="Post-Bros" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<room id="35" name="Get a long tag from Buddy Best" subtitle="" x="-352" y="-96" w="96" h="64" region="merged" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<line id="36">
+		<line id="36" flow="oneWay">
 			<dock index="0" id="16" port="e" />
 			<dock index="1" id="35" port="w" />
 		</line>
-		<room id="27" name="Give Penny to Penn" subtitle="" x="32" y="-192" w="96" h="64" region="soul" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<room id="25" name="Give Fritz Pusher Penn's Weed" subtitle="" x="-160" y="-192" w="96" h="64" region="soul" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<line id="40">
+		<room id="27" name="Give Penny to Penn" subtitle="" x="32" y="0" w="96" h="64" region="soul" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="25" name="Give Fritz Pusher Penn's Weed" subtitle="" x="-160" y="0" w="96" h="64" region="soul" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<line id="40" flow="oneWay">
 			<dock index="0" id="25" port="e" />
 			<dock index="1" id="27" port="w" />
 		</line>
-		<room id="29" name="Put Pot in Spleen Vent" subtitle="" x="224" y="-192" w="96" h="64" region="soul" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<line id="41">
+		<room id="29" name="Put Pot in Spleen Vent" subtitle="" x="224" y="0" w="96" h="64" region="soul" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<line id="41" flow="oneWay">
 			<dock index="0" id="29" port="e" />
 			<dock index="1" id="24" port="w" />
 		</line>
-		<line id="34">
-			<dock index="0" id="29" port="w" />
-			<dock index="1" id="27" port="e" />
+		<line id="34" flow="oneWay">
+			<dock index="0" id="27" port="e" />
+			<dock index="1" id="29" port="w" />
 		</line>
-		<room id="38" name="Get Weed from Pusher Penn" subtitle="" x="-352" y="-192" w="96" h="64" region="soul" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<line id="42">
-			<dock index="0" id="16" port="ene" />
-			<dock index="1" id="38" port="w" />
-		</line>
-		<line id="43">
+		<room id="38" name="Get Weed from Pusher Penn" subtitle="" x="-352" y="0" w="96" h="64" region="soul" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<line id="43" flow="oneWay">
 			<dock index="0" id="38" port="e" />
 			<dock index="1" id="25" port="w" />
 		</line>
@@ -91,77 +87,73 @@
 			<dock index="0" id="22" port="e" />
 			<dock index="1" id="30" port="w" />
 		</line>
-		<room id="33" name="Give tag to Officer Petty" subtitle="" x="-224" y="-96" w="96" h="64" region="merged" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<line id="37">
+		<room id="33" name="Give Circular to Officer Petty" subtitle="" x="-224" y="-96" w="96" h="64" region="merged" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<line id="37" flow="oneWay">
 			<dock index="0" id="35" port="e" />
 			<dock index="1" id="33" port="w" />
 		</line>
 		<room id="39" name="Get Money Seed (Hedge in Pyramid)" subtitle="" x="-96" y="-96" w="96" h="64" region="merged" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<line id="44">
+		<line id="44" flow="oneWay">
 			<dock index="0" id="33" port="e" />
 			<dock index="1" id="39" port="w" />
 		</line>
 		<room id="45" name="Give Seed to Business Monkey" subtitle="" x="32" y="-96" w="96" h="64" region="merged" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<line id="46">
+		<line id="46" flow="oneWay">
 			<dock index="0" id="39" port="e" />
 			<dock index="1" id="45" port="w" />
 		</line>
-		<room id="47" name="Get Business Monkey's Signature" subtitle="" x="32" y="0" w="96" h="64" region="big" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="47" name="Get Business Monkey's Signature" subtitle="" x="32" y="-192" w="96" h="64" region="big" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<room id="49" name="Give Fourth-Blossom to Faith/Grace" subtitle="" x="160" y="-96" w="96" h="64" region="blood" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<line id="51">
+		<line id="51" flow="oneWay">
 			<dock index="0" id="49" port="e" />
 			<dock index="1" id="22" port="w" />
 		</line>
-		<room id="52" name="Get Sound Safe from Hold" subtitle="" x="160" y="0" w="96" h="64" region="big" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<line id="53">
+		<room id="52" name="Get Sound Safe from Hold" subtitle="" x="160" y="-192" w="96" h="64" region="big" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<line id="53" flow="oneWay">
 			<dock index="0" id="47" port="e" />
 			<dock index="1" id="52" port="w" />
 		</line>
-		<line id="50">
+		<line id="50" flow="oneWay">
 			<dock index="0" id="45" port="e" />
 			<dock index="1" id="49" port="w" />
 		</line>
-		<room id="54" name="Get fish from well (long string)" subtitle="" x="-96" y="96" w="96" h="64" region="big" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<room id="57" name="TALK TO FISH in compound" subtitle="" x="32" y="96" w="96" h="64" region="big" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<line id="48">
-			<dock index="0" id="45" port="s" />
-			<dock index="1" id="47" port="n" />
+		<room id="54" name="Get fish from well (long string)" subtitle="" x="-96" y="-288" w="96" h="64" region="big" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="57" name="TALK TO FISH in compound" subtitle="" x="32" y="-288" w="96" h="64" region="big" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<line id="48" flow="oneWay">
+			<dock index="0" id="45" port="n" />
+			<dock index="1" id="47" port="s" />
 		</line>
-		<line id="55">
-			<dock index="0" id="47" port="s" />
-			<dock index="1" id="54" port="n" />
+		<line id="55" flow="oneWay">
+			<dock index="0" id="47" port="nnw" />
+			<dock index="1" id="54" port="s" />
 		</line>
-		<room id="60" name="OPEN SAFE in Compound" subtitle="" x="288" y="0" w="96" h="64" region="big" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<room id="62" name="Get Wax, put it in language machine" subtitle="" x="160" y="96" w="96" h="64" region="big" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="60" name="OPEN SAFE in Compound" subtitle="" x="288" y="-192" w="96" h="64" region="big" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="62" name="Get Wax, put it in language machine" subtitle="" x="160" y="-288" w="96" h="64" region="big" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<line id="63" flow="oneWay">
-			<dock index="0" id="60" port="s" />
-			<dock index="1" id="62" port="n" />
+			<dock index="0" id="60" port="n" />
+			<dock index="1" id="62" port="s" />
 		</line>
 		<line id="58" flow="oneWay">
 			<dock index="0" id="57" port="e" />
 			<dock index="1" id="62" port="w" />
 		</line>
-		<room id="64" name="Give Trick Hat to Sly Moore" subtitle="" x="288" y="96" w="96" h="64" region="big" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<line id="65">
+		<room id="64" name="Give Trick Hat to Sly Moore" subtitle="" x="288" y="-288" w="96" h="64" region="big" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<line id="65" flow="oneWay">
 			<dock index="0" id="62" port="e" />
 			<dock index="1" id="64" port="w" />
 		</line>
-		<room id="66" name="Give Trap Rattle to Proof Fool" subtitle="" x="416" y="96" w="96" h="64" region="big" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<line id="67">
+		<room id="66" name="Give Trap Rattle to Proof Fool" subtitle="" x="416" y="-288" w="96" h="64" region="big" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<line id="67" flow="oneWay">
 			<dock index="0" id="64" port="e" />
 			<dock index="1" id="66" port="w" />
 		</line>
 		<line id="69" flow="oneWay">
-			<dock index="0" id="28" port="ne" />
-			<dock index="1" id="30" port="sw" />
-		</line>
-		<line id="26" flow="oneWay">
-			<dock index="0" id="24" port="s" />
-			<dock index="1" id="30" port="n" />
+			<dock index="0" id="28" port="se" />
+			<dock index="1" id="30" port="nw" />
 		</line>
 		<line id="32" flow="oneWay">
-			<dock index="0" id="23" port="n" />
-			<dock index="1" id="30" port="s" />
+			<dock index="0" id="23" port="s" />
+			<dock index="1" id="30" port="n" />
 		</line>
 		<line id="3" flow="oneWay">
 			<dock index="0" id="1" port="w" />
@@ -184,7 +176,7 @@
 			<dock index="0" id="70" port="w" />
 			<dock index="1" id="4" port="e" />
 		</line>
-		<room id="73" name="Read the Finger Index" subtitle="" x="-96" y="0" w="96" h="64" region="NoRegion" handDrawn="no" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="73" name="Read the Finger Index" subtitle="" x="-96" y="-192" w="96" h="64" region="Post-Bros" handDrawn="no" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<line id="74" flow="oneWay">
 			<dock index="0" id="47" port="w" />
 			<dock index="1" id="73" port="e" />
@@ -202,40 +194,81 @@
 			<dock index="0" id="68" port="w" />
 			<dock index="1" id="4" port="ene" />
 		</line>
-		<line id="56">
-			<dock index="0" id="57" port="w" />
-			<dock index="1" id="54" port="e" />
+		<line id="56" flow="oneWay">
+			<dock index="0" id="54" port="e" />
+			<dock index="1" id="57" port="w" />
 		</line>
-		<line id="59">
+		<line id="59" flow="oneWay">
 			<dock index="0" id="52" port="e" />
 			<dock index="1" id="60" port="w" />
 		</line>
-		<line id="61">
-			<dock index="0" id="66" port="n" />
-			<dock index="1" id="23" port="s" />
+		<line id="61" flow="oneWay">
+			<dock index="0" id="66" port="s" />
+			<dock index="1" id="23" port="n" />
+		</line>
+		<room id="78" name="Catch Assassination Character" subtitle="" x="-352" y="-192" w="96" h="64" region="Bonus puzzles" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<line id="79" flow="oneWay">
+			<dock index="0" id="16" port="ene" />
+			<dock index="1" id="78" port="w" />
+		</line>
+		<room id="80" name="Solve Insanity Terminal" subtitle="" x="-352" y="-288" w="96" h="64" region="Bonus puzzles" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<line id="81" flow="oneWay">
+			<dock index="0" id="78" port="n" />
+			<dock index="1" id="80" port="s" />
+		</line>
+		<room id="82" name="Destroy Thoughts Idol" subtitle="" x="-224" y="-288" w="96" h="64" region="Bonus puzzles" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Dash" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<line id="83" flow="oneWay">
+			<dock index="0" id="80" port="e" />
+			<dock index="1" id="82" port="w" />
+		</line>
+		<room id="85" name="Airy Station" subtitle="" x="544" y="-288" w="96" h="64" region="Bonus puzzles" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<line id="87" flow="oneWay">
+			<dock index="0" id="82" port="ne" />
+			<dock index="1" id="85" port="nw" />
+		</line>
+		<room id="88" name="Whole Worm" subtitle="" x="544" y="-96" w="96" h="64" region="Post-Bros" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<line id="89" flow="oneWay">
+			<dock index="0" id="30" port="e" />
+			<dock index="1" id="88" port="w" />
+		</line>
+		<room id="90" name="Rooms/events are color coded by whom you help" subtitle="blue = soul red = blood yellow = big" x="-480" y="-384" w="896" h="64" region="NoRegion" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<line id="26" flow="oneWay">
+			<dock index="0" id="30" port="ne" />
+			<dock index="1" id="85" port="sw" />
+		</line>
+		<line id="42" flow="oneWay">
+			<dock index="0" id="16" port="ese" />
+			<dock index="1" id="38" port="w" />
+		</line>
+		<line id="84" flow="oneWay">
+			<dock index="0" id="24" port="n" />
+			<dock index="1" id="30" port="s" />
 		</line>
 	</map>
 	<settings>
 		<colors>
 			<canvas>White</canvas>
 			<fill>White</fill>
-			<border>MidnightBlue</border>
-			<line>MidnightBlue</line>
+			<border>Black</border>
+			<line>Black</line>
 			<selectedLine>Gold</selectedLine>
 			<hoverLine>DarkOrange</hoverLine>
-			<largeText>MidnightBlue</largeText>
-			<smallText>MidnightBlue</smallText>
-			<lineText>MidnightBlue</lineText>
+			<largeText>Black</largeText>
+			<smallText>Black</smallText>
+			<lineText>Black</lineText>
 			<grid>#F5F5F5</grid>
+			<startRoom>GreenYellow</startRoom>
 		</colors>
 		<regions>
-			<_x0034_____of____7 Name="4 of 7" TextColor="MidnightBlue">Lime</_x0034_____of____7>
+			<_x0034_____of____7 Name="4 of 7" TextColor="Black">Lime</_x0034_____of____7>
 			<big Name="big" TextColor="Black">Yellow</big>
 			<blood Name="blood" TextColor="Black">Red</blood>
+			<Bonus____puzzles Name="Bonus puzzles" TextColor="Black">#D2D2D2</Bonus____puzzles>
 			<merged Name="merged" TextColor="Black">#FF8000</merged>
-			<NoRegion Name="NoRegion" TextColor="Black">#C06020</NoRegion>
-			<soul Name="soul" TextColor="MidnightBlue">Aqua</soul>
-			<very____start Name="very start" TextColor="MidnightBlue">Gray</very____start>
+			<NoRegion Name="NoRegion" TextColor="Black">White</NoRegion>
+			<Post-Bros Name="Post-Bros" TextColor="Black">#C06020</Post-Bros>
+			<soul Name="soul" TextColor="Black">Aqua</soul>
+			<very____start Name="very start" TextColor="Black">Gray</very____start>
 		</regions>
 		<fonts>
 			<room size="12">Arial</room>
@@ -265,6 +298,11 @@
 			<handleSize>12</handleSize>
 			<snapToElementSize>16</snapToElementSize>
 		</ui>
+		<margins>
+			<documentSpecific>no</documentSpecific>
+			<horizontal>0</horizontal>
+			<vertical>0</vertical>
+		</margins>
 		<keypadNavigation>
 			<creationModifier>control</creationModifier>
 			<unexploredModifier>alt</unexploredModifier>
