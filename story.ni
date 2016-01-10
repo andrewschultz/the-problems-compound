@@ -1580,6 +1580,9 @@ gesture token	"A token gesture is something done as a bare minimum of acknowledg
 off tee	"To tee off is to yell or punch out at someone."
 boo tickety	"Tickety-boo means okay, all right, etc."
 person chair	"A chairperson is someone in charge of things."
+off brush	"To brush off is to ignore. It's more ignoring someone's ideas than ignoring them fully."
+back brush	"To brush back is to repel someone or keep them out."
+aside brush	"To brush aside is to ignore someone as you move past them."
 against rails	"If someone rails against something, they're upset with it."
 trail paper	"A paper trail is evidence in white-collar crimes. People often have to piece it together."
 tension surface	"Surface tension is a scientific phenomenon where water can, say, go a bit above the top of a cup without falling out."
@@ -2921,7 +2924,40 @@ smak-quip	smak-txt
 weasel-forme	"You imagine the Word Weasel saying that anything you do for it would be doing for you, because it probably knows what's good for you."
 lily-bye	"No, it'd be even more embarrassing not to say anything. Come on, now, Alec."
 
-Variety Garden is a room in Beginning. Variety Garden is west of Tension Surface. "[if againsties is true]Those pesky 'against rails'[else]Rails[end if] bound this garden every way except back east to the Tension Surface. There are few plants here, but poor dirt in all shapes and textures lies here.[paragraph break]There's also an absence of leaves."
+Variety Garden is a room in Beginning. Variety Garden is west of Tension Surface. "Brush guards every way out except back east to the Tension Surface. There are few plants here, but poor dirt in all shapes and textures lies here.[paragraph break]There's also an absence of leaves."
+
+the gen-brush is privately-named scenery in variety garden. understand "brush" as gen-brush. "You're not an expert on plants[plant-disc]."
+
+to say plant-disc:
+	if off brush is off-stage and off brush is off-stage and off brush is off-stage:
+		say ", and you don't recognize any type of brush. Maybe if you walked in a direction closer to it, you could";
+		the rule succeeds;
+	say ", but you do recognize some of it";
+	if off brush is in variety garden:
+		say ". West-ish, off brush";
+	if back brush is in variety garden:
+		say ". South and southeast, back brush";
+	if aside brush is in variety garden:
+		say ". North and northeast, aside brush";
+
+the off brush is scenery.
+
+the back brush is scenery.
+
+the aside brush is scenery.
+
+after doing something with back brush:
+	now current-brush is back brush;
+
+after doing something with aside brush:
+	now current-brush is aside brush;
+
+after doing something with off brush:
+	now current-brush is off brush;
+
+current-brush is a thing that varies. current-brush is usually gen-brush.
+
+does the player mean doing something with current-brush: it is very likely.
 
 the absence of leaves is scenery in Variety Garden. "[bug]"
 
@@ -2943,19 +2979,20 @@ instead of doing something with poor dirt:
 		now enabled entry is 1;
 	say "The poor dirt, though providing the main variety of the garden, isn't good for much other than digging[if dirt-dug is true], which you already did[else if pocket pick is off-stage], but you don't have a tool for that, yet[end if]."
 
-againsties is a truth state that varies.
-
-the against rails are scenery in Variety Garden. "You walk over for a closer look, and the rails quiver and open up like a zipper or something. You hear voices--complaining voices. 'Why don't we have anything better to do? What makes that person think they can pass us? Why do we have to be AGAINST rails?'"
-
-after examining against rails:
-	now againsties is true;
-	continue the action;
-
 check going in variety garden:
 	if noun is up or noun is down:
 		say "No. Only back east." instead;
-	now againsties is true;
+	if noun is south or noun is southeast:
+		now current-brush is back brush;
+		move back brush to variety garden;
+		say "You run into some brush. More precisely, you run near it but back off. 'Found the back brush, eh?' says the Word Weasel." instead;
+	if noun is north or noun is northeast:
+		now current-brush is off brush;
+		move off brush to variety garden;
+		say "You run into some brush. More precisely, you run near it but just don't feel up to it, as if you don't have the fight to look beyond it. 'Found the off brush, eh?' says the Word Weasel." instead;
 	if noun is not east:
+		now current-brush is aside brush;
+		move aside brush to variety garden;
 		say "As you step over the rails, voices boom in your head. 'Who is he, to think he can go that way?' / 'It's private property! Doesn't anyone expect...?'[paragraph break]The Word Weasel snickers. [one of]'Guess you got up close with the against rails!'[or]'The against rails are AGAIN rails, amirite?'[stopping]" instead;
 
 carry out going west in Tension Surface:
@@ -6078,6 +6115,8 @@ The relief light is a thing. description of relief light is "It glows comforting
 part Freak Control
 
 Freak Control is north of Questions Field. It is in Main Chunk. "[if accel-ending]There's all sorts of stuff here but really all you want to do is show the [bad-guy] what's what.[else]Well, you made it. There's so much to look at! Shot screens track various areas in the Compound, including places you haven't been. A Twister Brain hacks away at some sort of psychometric analysis, and a Witness Eye provides tracking of several suspicious individuals. A Language Sign also has a pretty prominent message ahead.[paragraph break]While there's another exit than back south, it's surely only available to the [bad-guy]. All the same, you don't want to leave now. You can't.[end if]"
+
+the against rails are scenery in Freak Control. "You're not sure whether they're meant to be touched or not. No matter what you do, though, you feel someone would yell 'Isn't it obvious Alec should/shouldn't touch the rails?'"
 
 freaked-out is a truth state that varies.
 
