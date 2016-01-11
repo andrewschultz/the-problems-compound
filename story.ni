@@ -2130,7 +2130,7 @@ prompt	response	enabled	permit
 "Any advice on any of the games?"	guy-advice	1	1
 "So. What's in [b-f]?"	guy-flat	1	1
 "The Problems Compound?"	guy-problems	0	1
-"Spike Price?"	guy-spike	0	1
+"[bad-guy-2]?"	guy-bad2	0	1
 "[later-or-thanks]."	guy-bye	3	1
 
 to say later-or-thanks:
@@ -2169,11 +2169,17 @@ guy-flat	"'Well, that way is the Problems Compound. If you can figure out some b
 guy-names	"'I know what you really want to ask. It's not at all about twisting things back around and making them the opposite of what they should mean. It's about SEEING things at every angle. You'll meet people who do. You'll be a bit jealous they can, and that they're that well-adjusted. But if you pay attention, you'll learn. I have. Though I've got a way to go. But I want to learn!'"
 guy-problems	"'Well, it's a place where lots of people more social than you--or even me--pose real-life problems. Tough but fair. Lots of real interesting people. Especially the Baiter Master[if allow-swears is false]. Oops. You don't like swears? Okay. Call him the Complex Messiah[else]. AKA the Complex Messiah[end if]. His castle, Freak Control, is guarded by a trap where a question mark hooks you, then an exclamation mark clobbers you. Brutal stuff.'"
 guy-mess	"'Oh, the [bad-guy]. He certainly knows what's what, and that's that! A bit of time around him, and you too will know a bit--not as much as he did. But he teaches by example! And if he ribs you a little, that's just his way of caring. Remember, it's up to YOU what you make of his lessons! Some people--they just don't get him. Which is ironic. They're usually the type that claim society doesn't get THEM.'"
-guy-spike	"'Spike Price. Well, without the [bad-guy]'s snark, Spike Price would probably be in charge. Then things would get worse. You see, Spike Price is after our time and money. The [bad-guy] just likes to share a little snark.'"
+guy-bad2	"'[bad-guy-2]. Well, without the [bad-guy]'s snark, [bad-guy-2] would probably be in charge. Then things would get worse. You see, [bad-guy-2] is after our time and money. The [bad-guy] just likes to share a little snark.'"
 guy-bye	"'Whatever, dude.'"
 
 to say bad-guy:
 	say "[if allow-swears is true]Baiter Master[else]Complex Messiah[end if]"
+
+to say bad-guy-2:
+	say "[if allow-swears is true]Buster Ball[else]Gunnar Wilde[end if]"
+
+to say bad-guy-2-c:
+	say "[if allow-swears is true]BUSTER BALL[else]GUNNAR WILDE[end if]"
 
 to say bg:
 	say "[if allow-swears is true]BM[else]CM[end if]"
@@ -2186,7 +2192,7 @@ after quipping when qbc_litany is table of guy sweet talk:
 		if guy-problems is not talked-thru:
 			enable the guy-problems quip;
 	if current quip is guy-mess:
-		enable the guy-spike quip;
+		enable the guy-bad2 quip;
 	else if current quip is guy-bye:
 		quit small talk;
 
@@ -2511,9 +2517,9 @@ table of win chat
 win-check	achieved	guy-banter
 3	false	"'Oh, yeah, hey, if you were expecting a new gift, I heard these puzzles are their own reward for, uh, you people. What?! C'mon, now. You'll need thicker skin than that to get to the [bad-guy] through Broke Flat over there.'"
 6	false	"'Wow. You have, like, aptitude or something. You're gonna go far in life. Well, unless you use your smarts or memory on silly games like these. Or use [']em to put off bigger challenges. Like in Broke Flat over there.'"
-10	false	"'All these wins are most impressive! I'm sure your skills will come in handy in a technical field. Not enough to be a high-level manager, but yeah. Boy. You need the [bad-guy]'s snark even more. If a brain like yours fell into Spike Price's clutches...'"
+10	false	"'All these wins are most impressive! I'm sure your skills will come in handy in a technical field. Not enough to be a high-level manager, but yeah. Boy. You need the [bad-guy]'s snark even more. If a brain like yours fell into [bad-guy-2]'s clutches...'"
 15	false	"'Hey, you've shown some heavy-duty, I guess! Uh, yeah, I'm totally yawning because my brain is tired, not because I am.'"
-99	false	"'Gee. That's the end. Impressive. If you had the social skills to match, why, it'd be YOU defending us against Spike Price, not the [bad-guy].'"
+99	false	"'Gee. That's the end. Impressive. If you had the social skills to match, why, it'd be YOU defending us against [bad-guy-2], not the [bad-guy].'"
 	
 carry out playing:
 	if noun is rattle:
@@ -3213,7 +3219,7 @@ howdy-fun	"'Well, there's solving boring puzzles. But that's a bit too square. N
 howdy-ways	"'Well, there's public laziness. Annoying other bar patrons. Possession of alcohol. Littering and/or obfuscating your own transgressions record.'"
 howdy-north	"'Well, it gets a bit seedier there. Rougher. I'm sure you're nice and all, but it might be better not to be totally nice. Tell you what. You find me a trail paper, I let you by. It's made up of--oh, what do you call em? For not being a total kiss-up? Anyway, don't do anything too dumb. But you'll want to annoy authorities a bit.'"
 howdy-west	"'Meal Square. But you can't get up to much trouble there.'"
-howdy-baiter	"'I'm sure he'd like to welcome you individually, but he's just too busy fending off Spike Price. And thinking up his own philosophies. And making sure nobody weirds out too much, from his big observation room in Freak Control. So he delegates the greeting to me, while making sure nobody acts out the wrong way. Don't get me wrong. He's a geek/dork/nerd and loves the rest of us. Just, those who give it a bad name...'"
+howdy-baiter	"'I'm sure he'd like to welcome you individually, but he's just too busy fending off [bad-guy-2]. And thinking up his own philosophies. And making sure nobody weirds out too much, from his big observation room in Freak Control. So he delegates the greeting to me, while making sure nobody acts out the wrong way. Don't get me wrong. He's a geek/dork/nerd and loves the rest of us. Just, those who give it a bad name...'"
 howdy-bye	"'Later. Be good. But not too good. That's just boring.'"
 
 before quipping when player has trail paper:
@@ -3359,7 +3365,7 @@ quip	quiptext
 fritz-hi	"'I...I lost my...'"
 fritz-ok	"'Yeah... just need... my pal.' Fritz looks around."
 fritz-pal	"Fritz looks embarrassed, as if he doesn't want to say who his pal is. 'Others say he's not up to scratch, but he fits in ok with me.'"
-fritz-bm	"'Well, he tolerates me more than he says Spike Price would. He also said it was ironic he got more out of drug humor than I did. He's even seen [i]Reefer Madness[r], and I haven't!'"
+fritz-bm	"'Well, he tolerates me more than he says [bad-guy-2] would. He also said it was ironic he got more out of drug humor than I did. He's even seen [i]Reefer Madness[r], and I haven't!'"
 fritz-bye	"As you turn away, Fritz mumbles something about hoping you find genuine consciousness."
 
 after quipping when qbc_litany is litany of fritz:
@@ -3504,7 +3510,7 @@ toad-joint	"'Of course not! But they would be if I weren't here! In fact, there'
 toad-troub	"'[bad-toad].'"
 toad-refresh	"'Y'mean you don't remember[one of][or], again[stopping]? [bad-toad].'"
 toad-pomp	--
-toad-bm	"'Well, he's a smart fella, but he still looks out for folks like me. Got me this position keeping order here. Said Spike Price wouldn't pay half as much. Plus the job satisfaction. Making people smarter than me feel dumb. Can't beat that. Asked my opinion on sedition laws the other day, too.'"
+toad-bm	"'Well, he's a smart fella, but he still looks out for folks like me. Got me this position keeping order here. Said [bad-guy-2] wouldn't pay half as much. Plus the job satisfaction. Making people smarter than me feel dumb. Can't beat that. Asked my opinion on sedition laws the other day, too.'"
 toad-sedition	--
 toad-bye	"'Don't do anything stupid.'"
 
@@ -3893,7 +3899,7 @@ jerk-video	"[innue]."
 jerk-wsport	"[innue]."
 jerk-maga	"[innue]."
 jerk-next	"You move on to [next-c-x of last-jerk]."
-jerk-baiter	"Everyone chimes in. Oh, does the [bad-guy] know his cultural references! And oh, how they respect him for knowing more culture despite the intensity of working up north in Freak Control to keep Spike Price at bay! They are pretty sure Spike Price wouldn't allow seven people to assemble in one place so freely."
+jerk-baiter	"Everyone chimes in. Oh, does the [bad-guy] know his cultural references! And oh, how they respect him for knowing more culture despite the intensity of working up north in Freak Control to keep [bad-guy-2] at bay! They are pretty sure [bad-guy-2] wouldn't allow seven people to assemble in one place so freely."
 jerk-bye	"[last-jerk] turns away and goes back to talking to his buddies."
 
 to decide which client is next-c-x of (cli - a client):
@@ -5219,8 +5225,8 @@ sly-idiot	"Well, I feel dumb if I learn anything, cuz I probably should've. But 
 sly-bm	"'Well, he told me I needed to banter more. He's real good at banter. He even borrowed my magic book and assured me it was easy enough for him, and he has the whole Problems Compound to run. In fact, he said he'd be checking up on me.'"
 sly-check	"'My progress. I mean, if it's what I'd like to do and all, I'd better be good at it. Or else he might be forced to label me a Candidate Dummy.'"
 sly-dummy	"'Oh, no! Not an actual dummy. It was sort of a warning shot. Motivation to wise up. I mean he laughed real silvery and all after he said it. Or else. But I guess I took it wrong. Because I'm too worried about it.'"
-sly-geez	"'Well, I figure he's a lot harder on himself. Guess you have to be, to be the main guy dealing with Spike Price. But he said--if I can just do three things right, someone else would get the label.'"
-sly-didhe	"'That's kind of unfair to him, isn't it? I mean, he's busy running the place. And dealing with Spike Price. Magic tricks won't help against Spike.'"
+sly-geez	"'Well, I figure he's a lot harder on himself. Guess you have to be, to be the main guy dealing with [bad-guy-2]. But he said--if I can just do three things right, someone else would get the label.'"
+sly-didhe	"'That's kind of unfair to him, isn't it? I mean, he's busy running the place. And dealing with [bad-guy-2]. Magic tricks won't help against Spike.'"
 sly-help	"'Well, I could maybe use part of a costume. Or study tips. Or something that does both. Help me score three different routines.'"
 sly-bye	"'Later.'"
 
@@ -5410,7 +5416,7 @@ prompt	response	enabled	permit
 table of quip texts (continued)
 quip	quiptext
 penn-nodrugs	"'Come on. You know the deal. I sell drugs. In person, or with a delivery boy.'"
-penn-yousell	"'Well, the [bad-guy] legalized them, but he gets the markup if they buy from him. And of course he makes fun of the serious druggies, because that's seeing both sides of things. Plus, I think he deals with Spike Price. No proof, though. Eh, I make a good profit underselling. Say, if you want a little sample, I just need a small favor.'"
+penn-yousell	"'Well, the [bad-guy] legalized them, but he gets the markup if they buy from him. And of course he makes fun of the serious druggies, because that's seeing both sides of things. Plus, I think he deals with [bad-guy-2]. No proof, though. Eh, I make a good profit underselling. Say, if you want a little sample, I just need a small favor.'"
 penn-drugs	--
 penn-free	"'Ha ha. Well, not quite free. Just a little favor. Make a little delivery. Behind five-oh's back.'"
 penn-cops	--
@@ -6037,7 +6043,7 @@ table of quip texts (continued)
 quip	quiptext
 blood-hi	"'Yeah. Well, it started the first time I met the [bad-guy]. He cracked a few self-depreciating jokes then gave me a few to laugh at. But I got all mad. Took a swing. He said he bet he wasn't the first I lashed out at. He was right.'"
 blood-maybe	"'Maybe not, but it's ENOUGH me, you know? And the [bad-guy] said maybe some inactivity might help me. Only lash out at people who deserve it. Like trespassers trying to bug him. If I hung around smart people, I might get angry at them. So I'm sort of more useful here.'"
-blood-manip	"'Yeah. The [bad-guy] says Spike Price can be even more manipulative. Makes me all agitated about what happens if I ever lose this post.'"
+blood-manip	"'Yeah. The [bad-guy] says [bad-guy-2] can be even more manipulative. Makes me all agitated about what happens if I ever lose this post.'"
 blood-calm	"'Well, the [bad-guy] joked that even a stupid spiritual healing stone might not help me. If those things worked at all. Which they can't.'"
 blood-all	"'Yeah. Not like they were really challenging or edgy, though. I mean, it feels nice to talk and stuff but the [bad-guy] said questions like yours weren't real nitty-gritty. No offense.'"
 blood-bye	"'Later. You, um, yeah, seem okay.'"
@@ -6116,7 +6122,7 @@ part Freak Control
 
 Freak Control is north of Questions Field. It is in Main Chunk. "[if accel-ending]There's all sorts of stuff here but really all you want to do is show the [bad-guy] what's what.[else]Well, you made it. There's so much to look at! Shot screens track various areas in the Compound, including places you haven't been. A Twister Brain hacks away at some sort of psychometric analysis, and a Witness Eye provides tracking of several suspicious individuals. A Language Sign also has a pretty prominent message ahead.[paragraph break]While there's another exit than back south, it's surely only available to the [bad-guy]. All the same, you don't want to leave now. You can't.[end if]"
 
-the against rails are scenery in Freak Control. "You're not sure whether they're meant to be touched or not. No matter what you do, though, you feel someone would yell 'Isn't it obvious Alec should/shouldn't touch the rails?'"
+the against rails are plural-named scenery in Freak Control. "You're not sure whether they're meant to be touched or not. No matter what you do, though, you feel someone would yell 'Isn't it obvious Alec should/shouldn't touch the rails?'"
 
 freaked-out is a truth state that varies.
 
@@ -6149,24 +6155,24 @@ table of bm - Baiter Master talk
 prompt	response	enabled	permit
 "They're not stupid. They just needed help."	bm-help	1	1
 "What's that can?"	bm-litter	1	1
-"A gift from Spike Price? WHAT?!"	bm-spike	0	1
+"A gift from [bad-guy-2]? WHAT?!"	bm-bad2	0	1
 "Well, I took the time to go fetch stuff."	bm-fetch	0	1
 "Oh, they had something to SAY, all right."	bm-tosay	0	1
-"So does Spike Price."	bm-so-spike	0	1
+"So does [bad-guy-2]."	bm-so-bad2	0	1
 "Tribute? Is there any left over for the rest?"	bm-tribute	0	1
 "Oh, yes. Yes they are. I kind of already helped them."	bm-fear	0	1
 "Um, later."	bm-bye	2	1
 
 table of quip texts (continued)
 quip	quiptext
-bm-help	"'Really? What sort of help?'[paragraph break]You describe what you did for them and how you did it.[paragraph break]'Oh, so a fetch quest, then. You should be above that, shouldn't you? I mean, a fetch quest helps one other person, but clever philosophy--it helps a lot. Spike Price, you know.'"
+bm-help	"'Really? What sort of help?'[paragraph break]You describe what you did for them and how you did it.[paragraph break]'Oh, so a fetch quest, then. You should be above that, shouldn't you? I mean, a fetch quest helps one other person, but clever philosophy--it helps a lot. [bad-guy-2], you know.'"
 bm-fetch	"'Big deal. You probably never considered how lucky you were, how improbable those helpful items were just lying around. Intelligent design? Pah! What a joke! My social ideals fix society and all that sort of thing. Surely you heard what people said? They had something to say.'"
 bm-tosay	"'You have to admit, I have leadership skills.'"
-bm-litter	"'Oh, nothing.' He seems nervous. You peer more closely. It's Jerk Soda. You walk over. 'COMPLIMENTARY FROM SPIKE PRICE.'"
-bm-spike	"'It's--it's, well, tribute is what it is.'"
-bm-so-spike	"'Oh, come on, you know the difference.'[wfk][line break]It just slips out. 'Yeah, it's easy, there's not much of it.'"
+bm-litter	"'Oh, nothing.' He seems nervous. You peer more closely. It's Jerk Soda. You walk over. 'COMPLIMENTARY FROM [bad-guy-2-c].'"
+bm-bad2	"'It's--it's, well, tribute is what it is.'"
+bm-so-bad2	"'Oh, come on, you know the difference.'[wfk][line break]It just slips out. 'Yeah, it's easy, there's not much of it.'"
 bm-tribute	"'There will be. Just--society needs to be stable, first. And it almost was. Until you stepped in.'"
-bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Great. You think you can do better? Do so. I'll be waiting in Questions Field. You'll miss something obvious. Always have, always will.' The Baiter Master storms out.[paragraph break]You're not sure who can help, but maybe...the Goods? Yes. The Jerks? Surprisingly, yes, too. You even call Mark Black on the Quiz Pop's customer service number? Then Spike Price pretending to be the [bad-guy] and you prank him. It's--there's so much to do, questions you never asked. Mark Black is on his way--but you are unprepared for the military coup--someone named Admiral Vice. 'A danger to Slicker City! We will break him,' he says, gesturing to you.[wfk][line break]'Where? In the BREAK JAIL!'[paragraph break]You keep a straight face and, later that night, your wits. Could people who yell that loud REALLY be that wrong? The way out leads--back to your bedroom hallway, and to your bedroom. Your parents both complain about your late night moping getting worse than ever, and you--well, you promise them it'll get better.[wfk][line break]But first, you have a look at [i]The Phantom Tolllbooth[r]. The Baiter Master was right--you do miss obvious things. 'Other books you may enjoy.' There will be other obvious things you should've discovered. But it's good you found something right away, back in the normal world. You're confident you'll find more--and that people like the Baiter Master aren't the accelerated life experts you built them up to be."
+bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Great. You think you can do better? Do so. I'll be waiting in Questions Field. You'll miss something obvious. Always have, always will.' The Baiter Master storms out.[paragraph break]You're not sure who can help, but maybe...the Goods? Yes. The Jerks? Surprisingly, yes, too. You even call Mark Black on the Quiz Pop's customer service number? Then [bad-guy-2] pretending to be the [bad-guy] and you prank him. It's--there's so much to do, questions you never asked. Mark Black is on his way--but you are unprepared for the military coup--someone named Admiral Vice. 'A danger to Slicker City! We will break him,' he says, gesturing to you.[wfk][line break]'Where? In the BREAK JAIL!'[paragraph break]You keep a straight face and, later that night, your wits. Could people who yell that loud REALLY be that wrong? The way out leads--back to your bedroom hallway, and to your bedroom. Your parents both complain about your late night moping getting worse than ever, and you--well, you promise them it'll get better.[wfk][line break]But first, you have a look at [i]The Phantom Tolllbooth[r]. The Baiter Master was right--you do miss obvious things. 'Other books you may enjoy.' There will be other obvious things you should've discovered. But it's good you found something right away, back in the normal world. You're confident you'll find more--and that people like the Baiter Master aren't the accelerated life experts you built them up to be."
 bm-bye	"'You're not going anywhere.' And he's right. But it's not out totally out of fear, now."
 
 after quipping when qbc_litany is table of baiter master talk:
@@ -6175,19 +6181,19 @@ after quipping when qbc_litany is table of baiter master talk:
 	if current quip is bm-fetch:
 		enable the bm-tosay quip;
 	if current quip is bm-tosay:
-		enable the bm-so-spike quip;
+		enable the bm-so-bad2 quip;
 	do nothing; [cut things in two]
 	if current quip is bm-litter:
-		enable the bm-spike quip;
-	if current quip is bm-spike:
+		enable the bm-bad2 quip;
+	if current quip is bm-bad2:
 		enable the bm-tribute quip;
-	if current quip is bm-tribute or current quip is bm-so-spike:
-		if bm-tribute is talked-thru or bm-so-spike is talked-thru:
+	if current quip is bm-tribute or current quip is bm-so-bad2:
+		if bm-tribute is talked-thru or bm-so-bad2 is talked-thru:
 			say "'If I was really such a bad guy, wouldn't people have been smart enough to figure it out by now?'";
 			enable the bm-fear quip;
 		else:
 			d "trib [if bm-tribute is talked-thru]1[else]0[end if]";
-			d "spike [if bm-so-spike is talked-thru]1[else]0[end if]";
+			d "spike [if bm-so-bad2 is talked-thru]1[else]0[end if]";
 	if current quip is bm-fear:
 		say "By the way, you may now restart the game and type ANNO for annotations, or JUMP to jump to an area of rejected rooms.";
 		end the story finally saying "Defeat of agony?";
@@ -6354,11 +6360,11 @@ after printing the locale description when accel-ending:
 			say "Back home, people notice a difference. You're still upset about things, but you're upset the right way--the way that helps other people feel comfortable going on too. You notice other kids who just kind of seem vaguely upset, like you were before the Compound, not even bothering with constructive criticism. You try to get them to see things as you do, or relate to them, but they don't listen. Tough luck, them. You've matured, from...";
 			end the story saying "Can't Complain to Complain Cant!";
 		else:
-			say "You speak first. 'Don't pretend you can't see me, with all those reflective panels and stuff.'[paragraph break]He turns around, visible surprised.[paragraph break]'Leadership, schmeadership,' you say. You're worried for a moment he might call you out on how dumb that sounds. You're open-minded like that. But when he hesitates, you know the good insults will work even better. 'Really. Leaving the cutter cookie right where I could take it, and plow through, and expose you for the lame chump you are. Pfft. I could do better than that.'[paragraph break]He stutters a half-response.[paragraph break]'Maybe that's why Spike Price hasn't been dealt with, yet. You say all the right things, but you're not forceful enough. Things'll change once I'm in power.'";
+			say "You speak first. 'Don't pretend you can't see me, with all those reflective panels and stuff.'[paragraph break]He turns around, visible surprised.[paragraph break]'Leadership, schmeadership,' you say. You're worried for a moment he might call you out on how dumb that sounds. You're open-minded like that. But when he hesitates, you know the good insults will work even better. 'Really. Leaving the cutter cookie right where I could take it, and plow through, and expose you for the lame chump you are. Pfft. I could do better than that.'[paragraph break]He stutters a half-response.[paragraph break]'Maybe that's why [bad-guy-2] hasn't been dealt with, yet. You say all the right things, but you're not forceful enough. Things'll change once I'm in power.'";
 			wfak;
-			say "[line break]He has no response. You point outside. He goes. Settling in is easy--as a new leader of Freak Control, you glad-hand the important people and assure them you're a bit cleverer than the [bad-guy] was.  Naturally, you keep a list of Spike Price's atrocities, and they're pretty easy to rail against, and people respect you for it, and from what you've seen, it's not like they could really get together and do anything, so you're making their lame lives more exciting.";
+			say "[line break]He has no response. You point outside. He goes. Settling in is easy--as a new leader of Freak Control, you glad-hand the important people and assure them you're a bit cleverer than the [bad-guy] was.  Naturally, you keep a list of [bad-guy-2]'s atrocities, and they're pretty easy to rail against, and people respect you for it, and from what you've seen, it's not like they could really get together and do anything, so you're making their lame lives more exciting.";
 			wfak;
-			say "[line break]You settle into a routine, as you read case studies of kids a lot like you used to be. Maybe you'd help one or two, if they had initiative...but until then, you'd like to chill and just let people appreciate the wit they always knew you had.[paragraph break]Really, who can defeat you? Anyone of power or consequence is on your side. Even Spike Price gives you tribute of a cutter cookie now and then. One day, you drop one in Meal Square... but nobody is brave enough to eat one. Well, for a while.";
+			say "[line break]You settle into a routine, as you read case studies of kids a lot like you used to be. Maybe you'd help one or two, if they had initiative...but until then, you'd like to chill and just let people appreciate the wit they always knew you had.[paragraph break]Really, who can defeat you? Anyone of power or consequence is on your side. Even [bad-guy-2] gives you tribute of a cutter cookie now and then. One day, you drop one in Meal Square... but nobody is brave enough to eat one. Well, for a while.";
 			end the story saying "Mean Something? Something Mean!";
 	continue the action;
 
@@ -6450,11 +6456,11 @@ Bad Ends is a region.
 
 part Punishment Capitol
 
-Punishment Capitol is in Bad Ends. "You've really hit the jackpot! I guess. Everything is bigger and better here, and of course you're constantly reminded that you have more potential to build character here than in Hut Ten or Criminals['] Harbor. And whether you grumble or agree, someone officious is there to reenforce the message you probably won't build that character. But you have to try![paragraph break]Oh, also, there's word some of the officers have a black market going with Spike Price, too, but people who do that--well, there's never any evidence."
+Punishment Capitol is in Bad Ends. "You've really hit the jackpot! I guess. Everything is bigger and better here, and of course you're constantly reminded that you have more potential to build character here than in Hut Ten or Criminals['] Harbor. And whether you grumble or agree, someone officious is there to reenforce the message you probably won't build that character. But you have to try![paragraph break]Oh, also, there's word some of the officers have a black market going with [bad-guy-2], too, but people who do that--well, there's never any evidence."
 
 part Hut Ten
 
-Hut Ten is a room in Bad Ends. "Here you spend time in pointless military marches next to people who might be your friends in kinder environs. Apparently you're being trained for some sort of strike on Spike Price's base, whoever he is. As time goes on, more recruits come in. You do well enough, you're allowed to boss a few around. But it's not good ENOUGH."
+Hut Ten is a room in Bad Ends. "Here you spend time in pointless military marches next to people who might be your friends in kinder environs. Apparently you're being trained for some sort of strike on [bad-guy-2]'s base, whoever he is. As time goes on, more recruits come in. You do well enough, you're allowed to boss a few around. But it's not good ENOUGH."
 
 part Shape Ship
 
@@ -6732,7 +6738,7 @@ Deal Square is a room in Just Ideas Now. "People rush past, performing social tr
 
 chapter perilous siege
 
-Perilous Siege is a room in Just Ideas Now. "Some kind of combat is going on here! A big castle labeled SPIKE PRICE'S PLACE is surrounded by forces that can only be the [bad-guy][']s. Nobody's getting killed, but the insults are coming fast from each side."
+Perilous Siege is a room in Just Ideas Now. "Some kind of combat is going on here! A big castle labeled [bad-guy-2-c]'S PLACE is surrounded by forces that can only be the [bad-guy][']s. Nobody's getting killed, but the insults are coming fast from each side."
 
 chapter Truck Dump
 
