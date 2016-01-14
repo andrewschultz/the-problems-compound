@@ -1233,6 +1233,7 @@ check giving the trail paper to:
 		now trail paper is in lalaland;
 		choose row with response of howdy-west in table of howdy boy talks;
 		now enabled entry is 0;
+		now howdy boy is in lalaland;
 		say "'Well done. You've acted up enough. Here, I'll shred the evidence. So you don't get caught later. Say, after all that goofing around, you might be hungry. Look around in Meal Square. But be careful.'" instead;
 	if second noun is Lily:
 		say "She shrugs and mentions she's been better places." instead;
@@ -5350,6 +5351,8 @@ Speaking Plain is north of Jerk Circle. It is in Main Chunk. "Roads go in all fo
 
 The Fright Stage is scenery in Speaking Plain. "It's decorated with all manner of horrible fate for people that, you assume, messed up in life. From homelessness to getting fired visiting a porn store on Christmas Day to just plain envying other people with more stuff or social life, it's a mural of Scared Straight for kids without the guts to do anything jail-worthy."
 
+understand "business/show" and "business show" as Fright Stage
+
 Turk Young is a person in Speaking Plain. description is "He seems a little trimmer, a little better dressed, and a little taller than you. And of course a lot more confident. Even when he's letting Uncle Dutch speak, his furious nods indicate control. He is clearly a fellow who is Going Places, and the Fright Stage is an apprenticeship."
 
 Uncle Dutch is a person in Speaking Plain. description is "The sort of adult you used to think was just really muscular, but now that you're as tall as a lot of them, you're willing to admit it's fat. His hair looks either artificial or combed-over, his teeth disturbingly white when he talks.[paragraph break]You'd say he looked avuncular if someone twisted your arm to say it (though come to think of it, you've gotten your arm twisted for saying words like avuncular, too,) but then again, he looks like he'd hire people to do that."
@@ -5374,21 +5377,23 @@ every turn when Alec Smart is in Speaking Plain and Speaking Plain was visited a
 	increment dutch-blab;
 	if dutch-blab > number of rows in table of dutch-blab:
 		now dutch-blab is 1;
-		say "Uncle Dutch and Turk Young applaud each other, then look to you. They sigh when you fail to applaud. 'Does not provide minimal encouragement to others. He'll be a failure for sure,' notes Uncle Dutch. 'I've had teachers like that. But they still had to give me A's!' beams Turk Young.[paragraph break][one of]You look back on all their advice and realize none of it could even conceivably help you with what you need to do, here. At least they're not stopping you from going anywhere.[or]They're going to start up again in a bit. But it can't be that bad the next time through.[stopping]";
+		say "'THUS ENDS THE BUSINESS SHOW.' Uncle Dutch and Turk Young shout in unison before applauding each other. They then look to you and sigh when you fail to applaud. 'Does not provide minimal encouragement to others. He'll be a failure for sure,' notes Uncle Dutch. 'I've had teachers like that. But they still had to give me A's!' beams Turk Young.[paragraph break][one of]You look back on all their advice and realize none of it could even conceivably help you with what you need to do, here. At least they're not stopping you from going anywhere.[or]They're going to start up again in a bit. But it can't be that bad the next time through.[stopping]";
 	else:
 		choose row dutch-blab in table of dutch-blab;
 		say "[banter entry][line break]";
 
 table of dutch-blab
 banter
+"Uncle Dutch mentions kids who have more potential than Turk who are destined to be screwups. Turk Young condemns adults who had more going for them than Uncle Dutch but predictably failed."
 "Uncle Dutch mentions he's not trying to scare people, but if they are scared, that's his problem. All the same, he mentions one truly scary person he had to deal with the other week."
 "Uncle Dutch takes a moment to commend Turk Young's youthful enthusiasm, with which Turk Young takes a moment to commend Uncle Dutch's wisdom."
 "Uncle Dutch mentions things you'd better learn unless you're stupid. Turk Young mentions things you'd better already know if you're smart."
+"Uncle Dutch and Turk discuss the right amount to be scared to be at your most productive, but if you achieve that, you'd better not feel you have nothing to be scared of."
 "Uncle Dutch complains about lazy kids these days, and Turk Young complains about adults who are have given up on life. They both wind up agreeing initiative in general is a good thing."
 "Uncle Dutch reminds Turk to focus on school, but to remember it's more than school. Turk agrees. 'One day I'll have a job where I can tell people to focus on their job and make it more than a job!'"
 
 for writing a paragraph about a person (called udyt) in Speaking Plain:
-	say "[one of]As you approach the stage, the man and the teen on it boom: 'Approach the Fright Stage with care! Uncle Dutch and Turk Young bring it hard and keep it real!'[or]Uncle Dutch and Turk Young continue their practical philosophy lessons on the Fright Stage.[stopping]";
+	say "[one of]As you approach the stage, the man and the teen on it boom: 'Approach the Fright Stage with care! Uncle Dutch and Turk Young bring it hard and keep it real with the BUSINESS SHOW!'[or]Uncle Dutch and Turk Young continue their practical philosophy lessons on the Fright Stage.[stopping]";
 	now uncle dutch is mentioned;
 	now turk young is mentioned;
 
