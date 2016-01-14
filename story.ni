@@ -890,7 +890,7 @@ check listening (this is the listening in a place rule):
 	if player is in surface and mush is in surface:
 		say "The arch makes a slight tapping noise as it dances from side to side." instead;
 	if player is in Soda Club:
-		say "Some [one of]popular[or]alternative[or]classical[in random order] tune you really should know." instead;
+		say "Under some [one of]popular[or]alternative[or]classical[in random order] tune you really should know, you think you hear some really hearty arguments about really dumb stuff." instead;
 	if player is in pyramid:
 		try listening to labor child instead;
 	if player is in judgment and petty is in judgment:
@@ -2207,7 +2207,8 @@ anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
 
 table of annotations (continued) [toa-badend]
 anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
-0	--	Hut Ten	"hut"	"This was brought about by all the countless drills I was forced into in Boy Scouts, as well as the fear of possible war with the Russians and me getting drafted. I was also nervous for a few days about the first Iraq War, and what if it lasted [']til I went to college? Fortunately, the US got in and got out quickly, and there were no problems after that."
+0	--	Hut Ten	"hut"	"This was brought about by all the countless drills I was forced into in Boy Scouts, as well as the fear of possible war with the Russians and me getting drafted. I was also nervous for a few days about the first Iraq War, and what if it lasted [']til I went to college? Fortunately, the US got in and got out quickly, and there were totally no problems at all after that, amirite."
+0	--	A Beer Pound	"pound"	"I think there's a chance to be moralistic about alcohol no matter how much you drink. Maybe you are sure you need it after a hard day's work, or people never should've started. I've seen my share of people cutting down others who don't know their limits, including former employees upset with a junior employee they took out drinking and he found it hard to control. It's sad and unfortunate, and I've had my fair share of awkward explanations that, well, I'd be a fool to risk drinking."
 0	--	Shape Ship	"ship"	"If you've ever read any novels about rough life on a ship, well, this is just a gimme."
 0	--	Criminals' Harbor	"harbor"	"This could have been lumped with Shape Ship, but I liked them both too much."
 0	--	Maintenance High	"high"	"One irony I've found about avoiding being high maintenance is that I've often forgotten to do simple things to keep things going. Most of the time that's paying a bill or putting off an eye doctor appointment. But more seriously, it's tough for me to evaluate high maintenance vs. high standards."
@@ -2417,6 +2418,8 @@ after doing something with a logic-game:
 
 section notice advance
 
+jumped-at-start is a truth state that varies.
+
 noticeadvanceing is an action out of world.
 
 understand the command "notice advance" as something new.
@@ -2425,7 +2428,8 @@ understand "notice advance" as noticeadvanceing.
 
 carry out noticeadvanceing:
 	if player is not in smart street:
-		say "It's too late to skip ahead like that now. You may wish to restart the game." instead;
+		say "Oh, man! Looking back, you totally see a shortcut you should've at least checked at, back in Smart Street. But it's too late to skip ahead like that now. You may wish to restart the game." instead;
+	now jumped-at-start is true;
 	say "Guy Sweet yells 'Hey! Where are you going?'";
 	move player to jerk circle;
 	the rule succeeds;
@@ -2442,7 +2446,8 @@ understand "figure cut" as figureacuting.
 
 carry out figureacuting:
 	if player is not in smart street:
-		say "It's too late to skip ahead like that now. You may wish to restart the game." instead;
+		say "Oh, man! Looking back, you totally see a shortcut you should've at least checked at, back in Smart Street. But it's too late to skip ahead like that now. You may wish to restart the game." instead;
+	now jumped-at-start is true;
 	say "Guy Sweet yells 'Hey! Where are you going?'";
 	move player to jerk circle;
 	the rule succeeds;
@@ -2458,6 +2463,7 @@ understand "knock hard" as knockharding.
 carry out knockharding:
 	if player is in smart street:
 		say "You stride up to Broke Flat with purpose, You knock, hard, hoping to avoid a hard knock--and you do! You are escorted to Pressure Pier, skipping a Round Lounge and the Tension Surface. (Note: if you wish to see those areas, you can UNDO.)[paragraph break]";
+		now jumped-at-start is true;
 		move player to pressure pier instead;
 	say "There's nothing to knock hard at." instead;
 
@@ -3491,9 +3497,13 @@ to get-ticketed:
 	increment your-tix;
 	say "[line break]";
 	if your-tix is 5:
-		say "The Stool Toad looks all quiet. 'Son, you've gone too far. It's time to ship you out.' And he does. Even Fritz the On shakes his head sadly as you are marched past to the west.";
-		ship-off Shape Ship;
-	if your-tix is 4:
+		if player is in soda club:
+			say "'Up to trouble, eh? I thought you might be.' The Stool Toad frog-marches you (ha! Ha!) out of the Soda Club to a rehabilitation area.";
+			ship-off A Beer Pound;
+		else:
+			say "The Stool Toad looks all quiet. 'Son, you've gone too far. It's time to ship you out.' And he does. Even Fritz the On shakes his head sadly as you are marched past to the west.";
+			ship-off Shape Ship;
+	else if your-tix is 4:
 		say "You have the fourth and final boo tickety you need! Using some origami skills you felt would never be practical, you fold them to form a coherent document: a trail paper!";
 		now boo tickety is in lalaland;
 		now player has trail paper;
@@ -3505,7 +3515,9 @@ to get-ticketed:
 	else if your-tix is 2:
 		say "What luck! The second boo tickety you got fits in with the first. You now have a diagonal-half of, well, something.";
 	else if your-tix is 3:
-		say "You now have almost a full paper from the boo ticketys."
+		say "You now have almost a full paper from the boo ticketys.";
+	else:
+		say "Uh-oh. You have entirely too many ticketies. This is a BUG. Write me at [email].";
 
 litany of fritz is the table of fritz talk.
 
@@ -3534,6 +3546,12 @@ after quipping when qbc_litany is litany of fritz:
 part Joint Strip
 
 Joint Strip is east of Down Ground. It is in Outer Bounds. "There's a familiar but disturbing scent in the air--those responsible for it are probably hiding nearby from the local law enforcement. The clearest exits are south to a Soda Club or back west to Down Ground."
+
+check going south in joint strip:
+	if jumped-at-start is true:
+		say "[one of]'There's something about you, young man. Like you've been shifty before. I can't trust you. So you better use some common sense. Or I'll use it for you!' booms the Stool Toad.[paragraph break]On further reflection, you figure there probably wasn't much in there. Much you need any more, anyway. Also, his last little put-down didn't make any sense. But it still hurt.[or]You don't want to be told off by the Stool Toad again. Whether or not he makes sense the next time.[stopping]" instead;
+	if soda club is unvisited:
+		say "You look over your shoulder at the Stool Toad. 'I can't stop you, young man. But you keep your nose clean!' he shouts.";
 
 check going nowhere in Joint Strip:
 	unless trail paper is off-stage:
@@ -3679,10 +3697,10 @@ after quipping when qbc_litany is litany of stool toad:
 
 part Soda Club
 
-Soda Club is south of Joint Strip. It is in Outer Bounds. "There's no actual fighting here, but patrons turn to glare at any new person entering or, failing that, the newest person (hi!).[paragraph break]The only way out is north."
+Soda Club is south of Joint Strip. It is in Outer Bounds. "Maybe if it were past 1 AM, you'd see passages west, south, and east, making this place the Total T instead. But if it were past 1 AM, you'd probably be home and asleep and not here. Or, at least, persuaded to leave a while ago.[paragraph break]The only way out is north."
 
 check going nowhere in Soda Club:
-	say "There aren't, like, hidden bathrooms, and you wouldn't need to go even if there were. Maybe there's a hidden room where they serve real alcohol, but you aren't cool enough to get there. So, back north it'll be, once you want to leave." instead;
+	say "There aren't, like, hidden bathrooms, and you wouldn't need to go even if there were. And if there's a secret passage, there's probably a secret code you don't know, too. So, back north it'll be, once you want to leave." instead;
 
 [Chips Cash is a person in Soda Club.
 
@@ -6586,6 +6604,10 @@ part Hut Ten
 
 Hut Ten is a room in Bad Ends. "Here you spend time in pointless military marches next to people who might be your friends in kinder environs. Apparently you're being trained for some sort of strike on [bad-guy-2]'s base, whoever he is. As time goes on, more recruits come in. You do well enough, you're allowed to boss a few around. But it's not good ENOUGH."
 
+part Beer Pound
+
+there is a room called A Beer Pound. It is in Bad Ends. "Here prisoners are subjected to abuse from prison guards who CAN hold their liquor and NEED a drink at the end of the day. Though of course they do not go in for the hard stuff."
+
 part Shape Ship
 
 Shape Ship is a room in Bad Ends. "Here, you spend months toiling pointlessly with others who acquired too many boo ticketies. You actually strike up a few good friendships, and you all vow to take more fun silly risks when you get back home.[paragraph break]As the days pass, the whens change to ifs."
@@ -6797,6 +6819,7 @@ table of alt-views
 therm	thealt
 punishment capitol	"The place for the worst crimes, like attacking the [bad-guy]. Obviously, it had to be."
 hut ten	"I never got to implement as many deaths as I thought, but this was an obvious pun along the lines of Stalag 17 or something."
+beer pound	"This came up when I was looking for better names for the Sinister Bar (now the Soda Club) post-release. I wanted a place for alcohol-related offenses but had nowhere until this seemed a bit obvious."
 shape ship	"What better place to get ship shape than on a shape ship? Again, the creative deaths/failures didn't pile up enough, but I still enjoyed imagining all this."
 criminals' harbor	"This pun was too good to pass up. Maybe I should've saved it for the sequel. Maybe I will anyway. It's delightfully seedy."
 maintenance high	"Most people who complain about others being high maintenance usually are emotionally high maintenance themselves. So I imagined a place where people learned WHY they were high maintenance and had it beat into their skulls. If they learned quickly, see, it was right. If not, well, they're taking up teaching time. Where people doled out abuse and projected their own deficiencies on others."
