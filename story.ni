@@ -104,10 +104,130 @@ include Property Checking by Emily Short.
 
 [include Object Response Tests by Juhana Leinonen.]
 
-section when play begins
+section when play begins debugging
 
 [when play begins (this is the debugging stuff first thing rule):
 	rulesAll;]
+
+the set debug first rule is listed first in the when play begins rules.
+
+when play begins (this is the set debug first rule):
+	now ignore-wait is true;
+	let one-true be false;
+	repeat with RM running through rooms:
+		if map region of RM is nothing and RM is not lalaland and RM is not bullpen:
+			say "[RM] needs a region.";
+			now one-true is true;
+	if one-true is false:
+		say "DEBUG TEST: All rooms have regions.";
+	anno-check;
+	now debug-state is true;
+	[rulesOn;]
+	[rulesAll;]
+
+book when play begins
+
+when play begins (this is the maximize wins rule):
+	repeat through table of logic game wins:
+		if max-won of the-game entry < num-wins entry:
+			now max-won of the-game entry is num-wins entry;
+		increment max-game-wins;
+	let temp be 0;
+	repeat with Q running through logic-games:
+		increase temp by max-won of Q;
+	continue the action;
+
+when play begins (this is the initialize jerks rule):
+	let temp be 0;
+	now all clients are in Jerk Circle;
+	sort table of fingerings in random order;
+	while number of not specified clients > 0:
+		let Q be a random not specified client;
+		increment temp;
+		choose row temp in table of fingerings;
+		now jerky-guy entry is Q;
+		now Q is specified;
+		d "[jerky-guy entry] = [blackmail entry].";
+	sort table of fingerings in random order;
+	choose row 7 in table of fingerings;
+	let f-cur-row be 0;
+	let temp-cli be Buddy Best;
+	let first-cli be Buddy Best;
+	repeat through table of fingerings:
+		unless jerky-guy entry is Buddy Best:
+			unless temp-cli is Buddy Best:
+				now next-c of temp-cli is jerky-guy entry;
+				d "[temp-cli] to [jerky-guy entry].";
+			else:
+				now first-cli is jerky-guy entry;
+			now temp-cli is jerky-guy entry;
+	d "[temp-cli] to [first-cli].";
+	now next-c of temp-cli is first-cli;
+
+when play begins (this is the sort ALL the tables rule) :
+	sort the table of dutch-blab in random order;
+	sort the table of painful narratives in random order;
+	sort the table of horrendous books in random order;
+	sort the table of horrendous songs in random order;
+	continue the action;
+
+when play begins (this is the initialize bad room viewing rule):
+	let room-index be 0;
+	repeat with RM running through rooms in Just Ideas Now:
+		increment room-index;
+		now point-view of RM is room-index;
+	now switch-to-bad is room-index;
+	repeat with RM running through rooms in Bad Ends:
+		increment room-index;
+		now point-view of RM is room-index;
+	now idea-rooms is room-index;
+
+when play begins (this is the actual start rule):
+	force-status;
+	say "The Problems Compound may contain minor profanity/innuendo that is not critical to the story. Type Y or YES if this is okay. Typing N or NO will provide alternate text.";
+	let qq be swear-decide;
+	if qq is 2:
+		say "You hear someone moan 'Great, another indecisive type! We'll go easy with the tough language. I guess.'[paragraph break]";
+		now allow-swears is false;
+	else if qq is 1:
+		say "You hear someone sniff. 'Oh, good, someone at least willing to TRY the heavy-hitting stuff.'[paragraph break]";
+		now allow-swears is true;
+	else:
+		say "You hear a far-off voice: 'Great. No freakin['] profanity. Sorry, FLIPPIN[']. In case they're extra sensitive.'";
+		now allow-swears is false;
+	wfak;
+	say "Also, The Problems Compound has minimal support for screen readers. In particular, it makes one puzzle less nightmarish. Are you using a screen reader?";
+	if the player no-consents:
+		now screen-read is true;
+	else:
+		now screen-read is false;
+	say "It's not [i]The Phantom Tollbooth[r]'s fault your umpteenth re-reading fell flat earlier this evening. Perhaps now you're really too old for it to give you a boost, especially since you're in advanced high school classes. Classes where you learn about the Law of Diminishing Returns.[paragraph break]Or how protagonists gain character through conflict--conflict much tougher than class discussions you barely have energy for. You pick the book up--you shouldn't have chucked it on the floor. Back to the bookcase...";
+	wfak;
+	say "[line break]Odd. Why's a bookmark wedged there? You always read the book in one go!";
+	wfak;
+	say "[line break]That's not a bookmark. It's a ticket to some place called the Problems Compound, just off Smart Street. And it has your name on it! FOR ALEC SMART. Too bad it's missing directions.";
+	wfak;
+	say "[line break]> TAKE TICKET. PUT BOOK ON SHELF. GO GET A DRINK OF WATER";
+	wfak;
+	say "[paragraph break]The end of the hallway keeps getting farther away. You start to run, which makes it worse. You close your eyes until, exhausted, you catch your breath. The hallway's gone.";
+	set the pronoun him to Guy Sweet;
+	now right hand status line is "[your-mood]";
+	now started-yet is true;
+
+section read what's been done
+
+when play begins (this is the read options file rule):
+	if file of verb-unlocks exists:
+		read file of verb-unlocks into table of verb-unlocks;
+
+the file of verb-unlocks is called "pcunlock".
+
+table of verb-unlocks
+brief	found	descr
+"anno"	false	"ANNO to show annotations."
+"knock hard"	false	"KNOCK HARD to get to Pressure Pier."
+"figure a cut"	false	"FIGURE A CUT to skip past the Howdy Boy to the [jc]."
+"notice advance"	false	"NOTICE ADVANCE to skip to after you disposed of the jerks."
 
 book people and things
 
@@ -1178,6 +1298,16 @@ book check/before giving
 
 chapter item based
 
+check giving smokable to:
+	if second noun is stool toad:
+		say "The Stool Toad jumps a whole foot in the air. 'How DARE you--on my turf--by me! OFFICER PETTY!' [if judgment pass is visited]Officer Petty[else]A man with a less fancy uniform[end if] rushes in and handcuffs you away and takes you to the...";
+		ship-off Maintenance High instead;
+	if second noun is Officer Petty:
+		say "Officer Petty begins a quick cuff em and stuff em routine while remarking how that stuff impairs your judgement, and you seemed kind of weird anyway.";
+		ship-off Maintenance High instead;
+	if second noun is logical psycho:
+		say "That might mellow him out, but it also might start him lecturing on the idiocy of anti-pot laws. Which you don't want, regardless of his stance." instead;
+
 check giving a drinkable to:
 	if second noun is lily:
 		if lily-hi is not talked-thru:
@@ -1328,11 +1458,15 @@ check giving (this is the big giving organized by room rule) : [this is a catch-
 		say "'I don't know what I can do with that. I suppose I could re-sell it at a markup, if it were worth anything, which I don't think it is. No offense.'" instead;
 	if second noun is Fritz the On: [down ground]
 		say "Fritz rambles about material possessions bringing you down for a bit. [if fritz has minimum bear]You've given him enough[else]That can't be what he wants[end if]." instead;
+	if second noun is Stool Toad: [joint strip]
+		say "'NO BRIBERY! Plus, that looks worthless. No offense.'" instead;
 
 check giving (this is the default fall-through giving rule) :
 	if noun is not a person:
 		say "You should probably GIVE stuff to people. For inanimate objects, try PUT X ON/IN Y." instead;
 	say "As you reach for that, [the second noun] blinks and looks at you. No, you don't see how they'd want THAT." instead;
+
+[end giving rules block]
 
 book common irregular verbs
 
@@ -2428,16 +2562,6 @@ max-game-wins is a number that varies.
 
 your-game-wins is a number that varies.
 
-when play begins (this is the maximize wins rule):
-	repeat through table of logic game wins:
-		if max-won of the-game entry < num-wins entry:
-			now max-won of the-game entry is num-wins entry;
-		increment max-game-wins;
-	let temp be 0;
-	repeat with Q running through logic-games:
-		increase temp by max-won of Q;
-	continue the action;
-
 table of logic game wins
 the-game	num-wins	quote
 gallon jugs	0	"You've seen this before. Pour three gallons out of the five, the remaining two in the three, pour out the five, fill it, and pour one gallon in the three.[paragraph break]'Less style than Bruce Willis in Die Hard 3. You did see that, right? Right? But you solved this all nonchalant-like, so maybe you'll have more fun with a ten-quart jug. And a seven! And a five! I guess it's fun for people who find this fun!'"
@@ -3517,12 +3641,6 @@ to activate-drink-check:
 		choose row with response of sucker-haha in table of Punch Sucker talk;
 		now enabled entry is 1;
 
-check giving to the Stool Toad:
-	if noun is wacker weed or noun is poory pot:
-		say "The Stool Toad jumps a whole foot in the air. 'How DARE you--on my turf--by me! OFFICER PETTY!' [if judgment pass is visited]Officer Petty[else]A man with a less fancy uniform[end if] rushes in and handcuffs you away and takes you to the...";
-		ship-off Maintenance High instead;
-	say "'NO BRIBERY! Plus, that looks worthless. No offense.'" instead;
-
 litany of stool toad is the table of stool toad talk.
 
 table of st - stool toad talk
@@ -3874,33 +3992,6 @@ prompt	response	enabled	permit
 
 to say j-g:
 	say "[if allow-swears is true]jerk[else]groaner[end if]"
-
-when play begins (this is the initialize jerks rule):
-	let temp be 0;
-	now all clients are in Jerk Circle;
-	sort table of fingerings in random order;
-	while number of not specified clients > 0:
-		let Q be a random not specified client;
-		increment temp;
-		choose row temp in table of fingerings;
-		now jerky-guy entry is Q;
-		now Q is specified;
-		d "[jerky-guy entry] = [blackmail entry].";
-	sort table of fingerings in random order;
-	choose row 7 in table of fingerings;
-	let f-cur-row be 0;
-	let temp-cli be Buddy Best;
-	let first-cli be Buddy Best;
-	repeat through table of fingerings:
-		unless jerky-guy entry is Buddy Best:
-			unless temp-cli is Buddy Best:
-				now next-c of temp-cli is jerky-guy entry;
-				d "[temp-cli] to [jerky-guy entry].";
-			else:
-				now first-cli is jerky-guy entry;
-			now temp-cli is jerky-guy entry;
-	d "[temp-cli] to [first-cli].";
-	now next-c of temp-cli is first-cli;
 
 a client has a client called next-c.
 
@@ -5351,7 +5442,7 @@ Speaking Plain is north of Jerk Circle. It is in Main Chunk. "Roads go in all fo
 
 The Fright Stage is scenery in Speaking Plain. "It's decorated with all manner of horrible fate for people that, you assume, messed up in life. From homelessness to getting fired visiting a porn store on Christmas Day to just plain envying other people with more stuff or social life, it's a mural of Scared Straight for kids without the guts to do anything jail-worthy."
 
-understand "business/show" and "business show" as Fright Stage
+understand "business/show" and "business show" as Fright Stage.
 
 Turk Young is a person in Speaking Plain. description is "He seems a little trimmer, a little better dressed, and a little taller than you. And of course a lot more confident. Even when he's letting Uncle Dutch speak, his furious nods indicate control. He is clearly a fellow who is Going Places, and the Fright Stage is an apprenticeship."
 
@@ -5785,13 +5876,6 @@ to say pompous-phrase:
 
 section all the books
 
-when play begins (this is the sort ALL the tables rule) :
-	sort the table of dutch-blab in random order;
-	sort the table of painful narratives in random order;
-	sort the table of horrendous books in random order;
-	sort the table of horrendous songs in random order;
-	continue the action;
-	
 table of hb - horrendous books
 workname	authname	booksubj
 "War's Star"	"Lucas George"	"how some kid ignored his weenie father's humble advice and took over the galaxy"
@@ -6761,17 +6845,6 @@ a room has a number called point-view. point-view of a room is usually 0.
 
 switch-to-bad is a number that varies.
 
-when play begins:
-	let room-index be 0;
-	repeat with RM running through rooms in Just Ideas Now:
-		increment room-index;
-		now point-view of RM is room-index;
-	now switch-to-bad is room-index;
-	repeat with RM running through rooms in Bad Ends:
-		increment room-index;
-		now point-view of RM is room-index;
-	now idea-rooms is room-index;
-
 chapter deal square
 
 Deal Square is a room in Just Ideas Now. "People rush past, performing social tricks and calculus that you can only imagine, reading facial expressions and knowing when to interrupt. Man. You're sure you'd get skinned."
@@ -7114,51 +7187,6 @@ to debug-freeze: [this is so, in case I want to freeze the game, it doesn't seep
 rule for constructing the status line when started-yet is false (this is the status before you move rule) :
 	center "Your bedroom, up too late" at row 1;
 
-when play begins (this is the actual start rule):
-	force-status;
-	say "The Problems Compound may contain minor profanity/innuendo that is not critical to the story. Type Y or YES if this is okay. Typing N or NO will provide alternate text.";
-	let qq be swear-decide;
-	if qq is 2:
-		say "You hear someone moan 'Great, another indecisive type! We'll go easy with the tough language. I guess.'[paragraph break]";
-		now allow-swears is false;
-	else if qq is 1:
-		say "You hear someone sniff. 'Oh, good, someone at least willing to TRY the heavy-hitting stuff.'[paragraph break]";
-		now allow-swears is true;
-	else:
-		say "You hear a far-off voice: 'Great. No freakin['] profanity. Sorry, FLIPPIN[']. In case they're extra sensitive.'";
-		now allow-swears is false;
-	wfak;
-	say "Also, The Problems Compound has minimal support for screen readers. In particular, it makes one puzzle less nightmarish. Are you using a screen reader?";
-	if the player no-consents:
-		now screen-read is true;
-	else:
-		now screen-read is false;
-	say "It's not [i]The Phantom Tollbooth[r]'s fault your umpteenth re-reading fell flat earlier this evening. Perhaps now you're really too old for it to give you a boost, especially since you're in advanced high school classes. Classes where you learn about the Law of Diminishing Returns.[paragraph break]Or how protagonists gain character through conflict--conflict much tougher than class discussions you barely have energy for. You pick the book up--you shouldn't have chucked it on the floor. Back to the bookcase...";
-	wfak;
-	say "[line break]Odd. Why's a bookmark wedged there? You always read the book in one go!";
-	wfak;
-	say "[line break]That's not a bookmark. It's a ticket to some place called the Problems Compound, just off Smart Street. And it has your name on it! FOR ALEC SMART. Too bad it's missing directions.";
-	wfak;
-	say "[line break]> TAKE TICKET. PUT BOOK ON SHELF. GO GET A DRINK OF WATER";
-	wfak;
-	say "[paragraph break]The end of the hallway keeps getting farther away. You start to run, which makes it worse. You close your eyes until, exhausted, you catch your breath. The hallway's gone.";
-	set the pronoun him to Guy Sweet;
-	now right hand status line is "[your-mood]";
-	now started-yet is true;
-
-the file of verb-unlocks is called "pcunlock".
-
-when play begins (this is the read options file rule):
-	if file of verb-unlocks exists:
-		read file of verb-unlocks into table of verb-unlocks;
-
-table of verb-unlocks
-brief	found	descr
-"anno"	false	"ANNO to show annotations."
-"knock hard"	false	"KNOCK HARD to get to Pressure Pier."
-"figure a cut"	false	"FIGURE A CUT to skip past the Howdy Boy to the [jc]."
-"notice advance"	false	"NOTICE ADVANCE to skip to after you disposed of the jerks."
-
 jump-from-room is a room that varies. jump-from-room is Smart Street.
 
 jump-to-room is a room that varies. jump-to-room is One Route.
@@ -7304,22 +7332,6 @@ to rulesOn: [used to turn rules on at the very start of play]
 to rulesAll: [used to turn rules ALL on at the very start of play]
 	(- RulesAllSub(); -)
 
-the set debug first rule is listed first in the when play begins rules.
-
-when play begins (this is the set debug first rule):
-	now ignore-wait is true;
-	let one-true be false;
-	repeat with RM running through rooms:
-		if map region of RM is nothing and RM is not lalaland and RM is not bullpen:
-			say "[RM] needs a region.";
-			now one-true is true;
-	if one-true is false:
-		say "DEBUG TEST: All rooms have regions.";
-	anno-check;
-	now debug-state is true;
-	[rulesOn;]
-	[rulesAll;]
-
 chapter sring
 
 sring is an action out of world.
@@ -7446,8 +7458,9 @@ to decide whether (Q - a person) is talkative:
 	if Q is a client, decide no;
 	decide yes;
 
-when play begins:
+when play begins (this is the test for talkers rule):
 	let count be 0;
+	let c2 be 0;
 	repeat with Q running through people:
 		if litany of Q is table of no conversation:
 			if Q is talkative:
