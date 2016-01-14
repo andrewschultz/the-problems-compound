@@ -225,9 +225,23 @@ the file of verb-unlocks is called "pcunlock".
 table of verb-unlocks
 brief	found	descr
 "anno"	false	"ANNO to show annotations."
-"knock hard"	false	"KNOCK HARD to get to Pressure Pier."
-"figure a cut"	false	"FIGURE A CUT to skip past the Howdy Boy to the [jc]."
-"notice advance"	false	"NOTICE ADVANCE to skip to after you disposed of the jerks."
+"knock"	false	"KNOCK HARD to get to Pressure Pier."
+"figure"	false	"FIGURE A CUT to skip past the Howdy Boy to the [jc]."
+"notice"	false	"NOTICE ADVANCE to skip to after you disposed of the jerks."
+
+to decide whether (t - text) is skip-verified:
+	if t is a brief listed in table of verb-unlocks:
+		choose row with brief of t in table of verb-unlocks;
+		if found entry is false:
+			say "You don't seem to have unlocked that verb yet. Are you sure you wish to go ahead?";
+			unless the player consents:
+				say "OK. You can try this again, if you want. There's no penalty.";
+				decide no;
+			say "Okay. You can undo if you change your mind.";
+			decide yes;
+		decide yes;
+	else:
+		decide no;
 
 book people and things
 
@@ -2103,14 +2117,12 @@ understand the command "anno" as something new.
 understand "anno" as annoing.
 
 carry out annoing:
-	if anno-check is false:
-		say "NOTE: if you haven't solved Problems Compound, or certain parts, this may work as a spoiler. Say yes to make sure that you want to go through with it. This nag will not appear if you wish to toggle annotations again.";
-		if the player yes-consents:
-			now anno-allow is true;
-		now anno-check is true instead;
-	now anno-allow is whether or not anno-allow is false;
-	now ever-anno is true;
-	say "Now annotations are [if anno-allow is true]on[else]off[end if].";
+	choose row with brief of "anno" in table of verb-unlocks;
+	unless anno-check is true or "anno" is skip-verified:
+		now anno-check is true;
+		now anno-allow is whether or not anno-allow is false;
+		now ever-anno is true;
+		say "Now annotations are [if anno-allow is true]on[else]off[end if].";
 	[showme whether or not anno-allow is true;] [commented this code for later reference. It's handy.]
 	the rule succeeds;
 
@@ -2416,6 +2428,31 @@ after doing something with a logic-game:
 	set the pronoun it to noun;
 	continue the action;
 
+section jump macros
+
+to move-puzzlies-and-jerks:
+	now all clients are in lalaland;
+	move-puzzlies;
+
+to send-bros:
+	move brother big to lalaland;
+	move brother soul to lalaland;
+	move brother blood to lalaland;
+
+to move-puzzlies:
+	if in-beta is true:
+		say "NOTE: this should be right, but if you see someone or something astray, ignore them.";
+	move proof fool to lalaland;
+	move logical psycho to lalaland;
+	move harmonic phil to lalaland;
+	move art fine to lalaland;
+	move officer petty to lalaland;
+	move sly moore to lalaland;
+	move howdy boy to lalaland;
+	move uncle dutch to lalaland; [they don't need to go but let's keep the focus]
+	move turk young to lalaland;
+	move reasoning circular to lalaland;
+
 section notice advance
 
 jumped-at-start is a truth state that varies.
@@ -2429,11 +2466,19 @@ understand "notice advance" as noticeadvanceing.
 carry out noticeadvanceing:
 	if player is not in smart street:
 		say "Oh, man! Looking back, you totally see a shortcut you should've at least checked at, back in Smart Street. But it's too late to skip ahead like that now. You may wish to restart the game." instead;
-	now jumped-at-start is true;
-	say "Guy Sweet yells 'Hey! Where are you going?'";
-	move player to jerk circle;
+	unless "notice" is skip-verified:
+		now jumped-at-start is true;
+		say "Guy Sweet yells 'Hey! Where are you going?'";
+		notice-advance;
 	the rule succeeds;
 
+to notice-advance:
+	move player to jerk circle;
+	now all clients are in lalaland;
+	send-bros;
+	now player has quiz pop;
+	now gesture token is in lalaland;
+	
 section figure a cut
 
 figureacuting is an action out of world.
@@ -2447,10 +2492,17 @@ understand "figure cut" as figureacuting.
 carry out figureacuting:
 	if player is not in smart street:
 		say "Oh, man! Looking back, you totally see a shortcut you should've at least checked at, back in Smart Street. But it's too late to skip ahead like that now. You may wish to restart the game." instead;
-	now jumped-at-start is true;
-	say "Guy Sweet yells 'Hey! Where are you going?'";
-	move player to jerk circle;
+	unless "figure" is skip-verified:
+		now jumped-at-start is true;
+		say "Guy Sweet yells 'Hey! Where are you going?'";
+		figure-cut;
 	the rule succeeds;
+
+to figure-cut:
+	move player to jerk circle;
+	now trail paper is in lalaland;
+	now howdy boy is in lalaland;
+	now gesture token is in lalaland;
 
 section knockharding
 
@@ -2461,11 +2513,17 @@ understand the command "knock hard" as something new.
 understand "knock hard" as knockharding.
 
 carry out knockharding:
-	if player is in smart street:
+	if player is not in smart street:
+		say "There's nothing to knock hard at. Or nothing it seems you should knock hard at.";
+	unless "knock" is skip-verified:
 		say "You stride up to Broke Flat with purpose, You knock, hard, hoping to avoid a hard knock--and you do! You are escorted to Pressure Pier, skipping a Round Lounge and the Tension Surface. (Note: if you wish to see those areas, you can UNDO.)[paragraph break]";
 		now jumped-at-start is true;
-		move player to pressure pier instead;
+		knock-hard instead;
 	say "There's nothing to knock hard at." instead;
+
+to knock-hard:
+	move player to pressure pier;
+	now gesture is in lalaland;
 
 section chessboard
 
@@ -5001,6 +5059,17 @@ chapter Goode Sisters
 Faith Goode is a surveyable female person in Classic Cult. description is "A mirror image of Grace."
 
 Grace Goode is a surveyable female person in Classic Cult. description is "A mirror image of Faith."
+
+instead of doing something when second noun is faith goode:
+	now second noun is grace goode;
+	continue the action;
+
+instead of doing something with faith goode:
+	if current action is examining or current action is explaining:
+		continue the action;
+	else:
+		now noun is grace goode;
+		continue the action;
 
 does the player mean talking to grace goode: it is very likely.
 does the player mean giving to grace goode: it is very likely.
@@ -7589,21 +7658,21 @@ when play begins (this is the force tester wherever rule):
 
 chapter skiping
 
-chapter nu-skiping
-
-nu-skiping is an action applying to one number.
+chapter num-skiping
 
 understand the command "skip" as something new.
 
 understand "skip [number]" as nu-skiping.
+
+num-skiping is an action applying to one number.
 
 skipped-yet is a truth state that varies.
 
 lock-in-place is a truth state that varies.
 
 carry out nu-skiping:
-	if skipped-yet is true:
-		say "You already skipped. Doing so again is too messy to keep track of.";
+	if player is not in Smart Street:
+		say "You already skipped. Doing so again is too messy to keep track of. You may wish to restart and try again.";
 		the rule succeeds;
 	if number understood is 0:
 		say "[skip-list]" instead;
@@ -7628,50 +7697,23 @@ carry out nu-skiping:
 		move player to tension surface;
 		now player has gesture token;
 	else if number understood is 3:
-		move player to pressure pier;
+		knock-hard;
 	else if number understood is 4:
-		move player to jerk circle;
-		now trail paper is in lalaland;
-		now howdy boy is in lalaland;
+		figure-cut;
 	else if number understood is 5:
 		move-puzzlies-and-jerks;
 		move player to jerk circle;
-		move brother big to lalaland;
-		move brother soul to lalaland;
-		move brother blood to lalaland;
-		now block-pier is true;
-	else if number understood is 6:
-		move player to jerk circle;
-		now all clients are in lalaland;
-		move brother big to lalaland;
-		move brother soul to lalaland;
-		move brother blood to lalaland;
-		now player has quiz pop;
-		now block-pier is true;
-		now block-other is true;
+		send-bros;
+		if in-beta is true:
+			now block-pier is true;
+	else if number understood is 6: [notice advance]
+		notice-advance;
+		if in-beta is true:
+			now block-pier is true;
+			now block-other is true;
 	else if number understood is 7:
 		move player to freak control;
 	the rule succeeds;
-	
-to move-puzzlies-and-jerks:
-	now all clients are in lalaland;
-	move-puzzlies;
-
-to move-puzzlies:
-	say "NOTE: this should be right, but if you see someone or something astray, ignore them.";
-	move proof fool to lalaland;
-	move logical psycho to lalaland;
-	move harmonic phil to lalaland;
-	move art fine to lalaland;
-	move officer petty to lalaland;
-	move sly moore to lalaland;
-	move brother big to lalaland;
-	move brother soul to lalaland;
-	move brother blood to lalaland;
-	move howdy boy to lalaland;
-	move uncle dutch to lalaland; [they don't need to go but let's keep the focus]
-	move turk young to lalaland;
-	move reasoning circular to lalaland;
 
 block-other is a truth state that varies;
 block-pier is a truth state that varies;
