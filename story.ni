@@ -2280,6 +2280,38 @@ after doing something with a logic-game:
 	set the pronoun it to noun;
 	continue the action;
 
+section notice advance
+
+noticeadvanceing is an action out of world.
+
+understand the command "notice advance" as something new.
+
+understand "notice advance" as noticeadvanceing.
+
+carry out noticeadvanceing:
+	if player is not in smart street:
+		say "It's too late to skip ahead like that now. You may wish to restart the game." instead;
+	say "Guy Sweet yells 'Hey! Where are you going?'";
+	move player to jerk circle;
+	the rule succeeds;
+
+section figure a cut
+
+figureacuting is an action out of world.
+
+understand the command "figure a cut" as something new.
+understand the command "figure cut" as something new.
+
+understand "figure a cut" as figureacuting.
+understand "figure cut" as figureacuting.
+
+carry out figureacuting:
+	if player is not in smart street:
+		say "It's too late to skip ahead like that now. You may wish to restart the game." instead;
+	say "Guy Sweet yells 'Hey! Where are you going?'";
+	move player to jerk circle;
+	the rule succeeds;
+
 section knockharding
 
 knockharding is an action out of world.
@@ -3738,7 +3770,10 @@ Main Chunk is a region.
 
 part Jerk Circle
 
-Jerk Circle is north of Pressure Pier. It is in Main Chunk. printed name of Jerk Circle is "[if allow-swears is true]Jerk Circle[else]Groan Collective[end if]". "[if silly boris is in lalaland]The only evidence the [j-co] were here is that the ground seems slightly trampled[else]Seven [j-co] stand in a circle (okay, a heptagon) here, talking to and about others[end if]. It looks like there's forested area to the west, a narrow valley to the east, and things open up to the north. Nothing's stopping you going back south in this crossroads, either."
+Jerk Circle is north of Pressure Pier. It is in Main Chunk. printed name of Jerk Circle is "[jc]". "[if silly boris is in lalaland]The only evidence the [j-co] were here is that the ground seems slightly trampled[else]Seven [j-co] stand in a circle (okay, a heptagon) here, talking to and about others[end if]. It looks like there's forested area to the west, a narrow valley to the east, and things open up to the north. Nothing's stopping you going back south in this crossroads, either."
+
+to say jc:
+	say "[if allow-swears is true]Jerk Circle[else]Groan Collective[end if]"
 
 Dandy Jim is a client. clue-letter of Dandy Jim is "J". description is "He's well dressed, but not some yuppie or preppie or anything."
 
@@ -6776,6 +6811,7 @@ biglaff
 "XYZZY? Four times?"
 "attacking anyone? Or the torch?"
 "cussing in front of certain people?"
+"going west/north/south in the Variety Garden?"
 "giving Pusher Penn's 'merchandise' to the Stool Toad or Officer Petty?"
 "giving Minimum Bear to anyone except Fritz the On?"
 "putting the poetic wax on anything except the language machine?"
@@ -6821,6 +6857,7 @@ swearseeing is an activity.
 
 this is the swear-see rule:
 	say "[2da]The Baiter Master is the Complex Messiah.";
+	say "[2da]Buster Ball is Gunnar Wilde.";
 	say "[2da]The Jerk Circle is the Groan Collective.";
 	say "[2da]The Business Monkey's efforts are half-brained or assed.";
 	say "[2da]If you actually swear, obscenely or mildly (BOTHER)[line break]";
@@ -7103,7 +7140,20 @@ when play begins (this is the actual start rule):
 	set the pronoun him to Guy Sweet;
 	now right hand status line is "[your-mood]";
 	now started-yet is true;
-	
+
+the file of verb-unlocks is called "pcunlock".
+
+when play begins (this is the read options file rule):
+	if file of verb-unlocks exists:
+		read file of verb-unlocks into table of verb-unlocks;
+
+table of verb-unlocks
+brief	found	descr
+"anno"	false	"ANNO to show annotations."
+"knock hard"	false	"KNOCK HARD to get to Pressure Pier."
+"figure a cut"	false	"FIGURE A CUT to skip past the Howdy Boy to the [jc]."
+"notice advance"	false	"NOTICE ADVANCE to skip to after you disposed of the jerks."
+
 jump-from-room is a room that varies. jump-from-room is Smart Street.
 
 jump-to-room is a room that varies. jump-to-room is One Route.
