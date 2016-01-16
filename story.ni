@@ -1633,8 +1633,15 @@ carry out explaining:
 
 understand "explain [text]" as a mistake ("You've come across nothing like that, yet. Or perhaps it is way in the past by now.")
 
+after explaining dots:
+	if the player consents:
+		say "[one of][or]Oh no! Forgot already? [stopping]From the lower right, go up-left two, right 3, down-left 3, up 3. It's part of 'outside the box' thinking. But you can also roll a paper into a cylinder so one line goes through, or you can assume the dots have height and draw three gently sloping lines back and forth.";
+	else:
+		say "Okay."
+
 table of explanations
 exp-thing	exp-text	exp-anno
+dots	"These aren't a pun, but it's something mathy people see a lot of, and motivational speakers tend to abuse it. If you'd like the solution to the four lines to draw to connect all the points, and even other smart-aleck answers, say yes."
 Poetic Wax	"To wax poetic is to, well, rhapsodize with poems or song or whatever. It's slightly less gross than wax."
 Ability Suit	"Suitability means appropriateness. And the suit is not appropriate for the monkey."
 blossoms	"Now that the blossoms are in place, well, it'd be mean to say they're 'some blah.'"
@@ -2346,7 +2353,13 @@ after quipping when qbc_litany is table of guy sweet talk:
 
 section Game Shell
 
-the Game Shell is scenery in Smart Street. "It's shaped like a carved-out turtle's shell. Behind the counter, Guy Sweet half-smiles, staring at the games on offer."
+the Game Shell is scenery in Smart Street. "It's shaped like a carved-out turtle's shell[one of]. Scratched on the side you see nine dots in a square with FOUR LINES THROUGH ALL POINTS scratched out below, then EVERYONE KNOWS THAT.[or][stopping]. Behind the counter, Guy Sweet half-smiles, staring at the games on offer."
+
+the dots are part of the game shell. understand "square" and "nine" and "nine dots" as dots when player is in smart street.
+
+instead of doing something with the dots:
+	if current action is not explaining:
+		say "No. You know that puzzle. You forget if you got it when you saw it, but people made you feel awkward for actually knowing it. Best not to dwell." instead;
 
 instead of entering shell:
 	say "'Whoah. Back up there, champ. We need to, like, verify your aptitude. Just PLAY a game here. Any game.'"
