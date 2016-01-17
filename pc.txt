@@ -132,7 +132,7 @@ He issues you a tickety when you do something wrong.
 Someone lost it. You can find who, by trial and error. Or by talking to people.
 Someone has missed a friend he's reluctant to talk about.
 It's for Fritz the On.
->>Sinister Bar
+>>Soda Club
 ?What do I do with the Punch Sucker?
 He will supply you with two drinks, one at a time.
 They are functionally equivalent.
@@ -150,6 +150,9 @@ Another is to keep pestering her.
 ?What's the Cutter Cookie for?
 It's for a quick "win."
 You turn into a bit of a jerk, and you are forced through to Freak Control.
+?What's the Off Cheese for?
+It's for another quick "win."
+You turn into a bit of a grump, and you are forced through to Freak Control.
 ?What's the Iron Waffle for?
 Amusement only.
 ?What's the Condition Mint for?
@@ -238,6 +241,12 @@ It's a total spoiler device. So spoily, you won't need this.
 You can examine the red, the blue or the big area. Or all of them.
 Each corresponds to a brother in the Way of Right.
 So you can see what you need to do next.
+?What do I do with the crocked half?
+That's for the "best best" ending.
+It's half of something.
+If you put it with its mirror, it makes a shape.
+An eight pointed star.
+You can run around the Thoughts Idol in that pattern--clockwise or counterclockwise.
 >>>DISPOSED WELL
 ?Is there anything in the well?
 Yes, but you can't reach in there.
@@ -302,6 +311,28 @@ He just needs to learn three...
 Specifically, goals?
 Give him the Trick Hat.
 Which you get from the Language Machine.
+?What's the Thoughts Idol for?
+It just stares you down. It's too tough for you.
+How can you get, or look, tougher?
+Don't continue until you've been everywhere.
+That includes below ground.
+And below the insanity terminal.
+Once you get that puzzle, you get a bad face.
+That will allow you to walk closer to the idol.
+In fact, you can go east or northeast to get to a new part of Idiot Village.
+>>SERVICE COMMUNITY
+?Is this area critical?
+For the best ending, yes.
+?What do I do here?
+The idol is watching you!
+Maybe you can put it on the blink.
+Depending on how you run around, you could...
+The crocked half is a clue but not a necessary one.
+Make the idol's head spin so fast it short circuits.
+The path on the crocked half is half of...
+...an eight pointed star.
+E.NW.S.NE.W.SE.N.SW.
+Or you can flip and reverse the directions.
 >>NORTH AREA
 >>>Speaking Plain
 ?The Fright Stage sure is imposing! Is there any way to get around it?
@@ -391,6 +422,38 @@ It's writing sad stories, looking sad.
 It doesn't seem to 'want' to keep writing stories.
 What could help it write something else?
 The Poetic Wax from the Interest Compound.
+>>FINAL ROOMS
+>>>Freak Control
+?Does any of the scenery matter?
+Not really. Well, it clues what to do, but you don't need to fiddle directly.
+?Should I avoid the bad guy or get his attention?
+Get his attention. He likes to ignore people just SO.
+There are a few clues.
+They're also handily in caps.
+OUT, FREAK!
+POWER TRIP.
+You can FREAK OUT or TRIP POWER.
+?How do I avoid "losing" the conversation?
+The only way to lose is not to play to the end.
+However, your ending (good/best) is locked in once you enter Freak Control.
+>>>Haves Wood
+?What do I do here?
+The Wood Worm isn't any worm, or a small worm. But it's stuck, maybe just over half a worm.
+TURN WORM to unearth it.
+You need to enter it, but how?
+You can see all of it now.
+ENTER WHOLE WORM.
+>>>Airy Station
+?What do I do here?
+Well, you need to enter the Snowflake Special to get home.
+You have a hammer.
+But what do you do with it?
+There are three things to do. They are all the same.
+HAMMER (something) doesn't work with a generic hammer.
+Call it an AWAY HAMMER.
+Or a HOME HAMMER.
+Or even a DOWN HAMMER.
+Either one opens the Snowflake Special and lets you go home.
 >DREAM SEQUENCE
 >>Tense Present
 ?How do I move about here?
@@ -410,16 +473,22 @@ But otherwise, not really. Just different worries of the past, things you can't 
 No, there's not. In fact, if you get "killed," you are allowed to go back where you were.
 ?How many areas are there?
 There are five you can access from the game proper.
-Punishment Capitol, Hut Ten, Criminals' Harbor, Fight Fair and Maintenance High.
-Actually, there's another one, but you can't go there. It pushes the bounds of good taste.
+Punishment Capitol, Hut Ten, Criminals' Harbor, Fight Fair, A Beer Pound and Maintenance High.
+Actually, there's another one, but you can't go there. It pushes the bounds of good taste, so you can't get there in the game proper..
 If you make it to Window Bay in the Director's Cut, you'll see it.
 >Meta-Questions
 ?How many endings are there?
 Well, there are bad ones where you mess up.
 You can eat the cookie cutter.
-Or you can just beat the Complex Messiah/Baiter Master.
+You can eat the off cheese.
+You can just beat the Complex Messiah/Baiter Master and not the Thoughts Idol.
+Or you can beat the bad guy and the Thoughts Idol.
 ?I'd like a walkthrough. Is there a walkthrough?
 Yes. It should be included with the game as a short HTML file.
+?What meta-commands are there to jump ahead?
+KNOCK HARD gets you to the pier.
+FIGURE A CUT gets you past the Howdy Boy.
+NOTICE ADVANCE skips all the way to disposing of the jerks and helping the Brothers, but you won't get past the Assassination Character.
 >>Director's Cut
 ?Is there any objective?
 Not really, other than seeing all the footnotes.
