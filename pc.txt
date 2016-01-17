@@ -438,15 +438,17 @@ The only way to lose is not to play to the end.
 However, your ending (good/best) is locked in once you enter Freak Control.
 >>>Haves Wood
 ?What do I do here?
-The Wood Worm isn't any worm, or a small worm. But it's stuck, maybe just over half a worm.
-TURN WORM to unearth it.
-You need to enter it, but how?
-You can see all of it now.
+The Worm Ring is collapsing under its own weight, struggling. It's not at its true weight.
+How can you make it lighter?
+HOLLOW RING.
+It's a whole worm.
 ENTER WHOLE WORM.
+You should be unsurprised to find a wormhole.
 >>>Airy Station
 ?What do I do here?
 Well, you need to enter the Snowflake Special to get home.
-You have a hammer.
+The lock caps are blocking it, and you can't remove them with your hands.
+There's that hammer lying there.
 But what do you do with it?
 There are three things to do. They are all the same.
 HAMMER (something) doesn't work with a generic hammer.
