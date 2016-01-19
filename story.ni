@@ -6566,8 +6566,12 @@ carry out worming:
 part merged ending
 
 to go-back-home:
-	say "The door leads to your closet and vanishes when you walk through. You're hungry after all that work. So you go downstairs for a snack. There's some old cereal you got sick of--but now you realize it could be Procrastination Cereal, Moping Cereal, or anything else--a small joke you'll be able to use for a while. So
-	The trip leads to your bedroom hallway, and through your closet to. Your parents both complain about your late night moping getting worse than ever, and you--well, you promise them it'll get better.[wfk][line break]But first, you have a look at [i]The Phantom Tolllbooth[r]. The Baiter Master was right--you do miss obvious things. 'Other books you may enjoy.' There will be other obvious things you should've discovered. But it's good you found something right away, back in the normal world. You're confident you'll find more--and that people like the Baiter Master aren't the accelerated life experts you built them up to be.";
+	say "The door leads to your closet and vanishes when you walk through. You're hungry after all that running around. Downstairs you find some old cereal you got sick of--but now you realize it could be Procrastination Cereal, Moping Cereal, or anything else--a small joke you'll be able to use for a while. Especially since it's hardly killer cereal--not even close.";
+	wfak;
+	say "You laugh at your own joke, which brings your parents out, complaining your late night moping is worse than ever. You promise them it'll get better.";
+	wfak;
+	say "Back in your bedroom, you have a thought. The Baiter Master saying you miss obvious things. Another look at [i]The Phantom Tolllbooth[r]: the inside flap. 'Other books you may enjoy.' There will be other obvious things you should've discovered. But it's good you found something right away, back in the normal world. You're confident you'll find more--and that people like the Baiter Master aren't the accelerated life experts you built them up to be.";
+	end the game in victory;
 
 part Meal Square
 
