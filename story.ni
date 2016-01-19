@@ -1716,7 +1716,7 @@ Brother Soul	"A soul brother is one who has very similar opinions to you."
 the Book Bank	"A bankbook records numbers and is very un-literary."
 Spleen Vent	"To vent one's spleen is to let our your anger."
 Language Sign	"Sign language is how people communicate with the deaf."
-Thought Idol	"Idle thoughts are what it purports to oppose."
+Thoughts Idol	"Idle thoughts are what it purports to oppose."
 Absence of Leaves	"Leaves of absence means taking time off."
 Liver lily	"Lily-liver means coward."
 Minimum Bear	"Bare minimum is the very least you need to do to get by."
@@ -2331,10 +2331,10 @@ to say bad-guy:
 	say "[if allow-swears is true]Baiter Master[else]Complex Messiah[end if]"
 
 to say bad-guy-2:
-	say "[if allow-swears is true]Buster Ball[else]Gunnar Wilde[end if]"
+	say "[if allow-swears is true]Buster Ball[else]Hunter Savage[end if]"
 
 to say bad-guy-2-c:
-	say "[if allow-swears is true]BUSTER BALL[else]GUNNAR WILDE[end if]"
+	say "[if allow-swears is true]BUSTER BALL[else]HUNTER SAVAGE[end if]"
 
 to say bg:
 	say "[if allow-swears is true]BM[else]CM[end if]"
@@ -5362,7 +5362,7 @@ check going nowhere in idiot village:
 				now rotation is 5;
 				now last-dir is east;
 			now idol-tries is 0;
-			now thought idol is in Service Community;
+			now thoughts idol is in Service Community;
 			move player to Service Community;
 			the rule succeeds;
 	say "Idiot Village expands in all directions, but of course, nobody was smart enough to provide a map. OR WERE THEY CLEVER ENOUGH NOT TO GIVE INVADERS AN EASY ROUTE IN?[paragraph break]Either way, you don't want to risk getting lost.";
@@ -5513,7 +5513,7 @@ orientation of southwest is 5.
 orientation of west is 6.
 orientation of northwest is 7.
 
-the thought idol is scenery in Idiot Village.
+the thoughts idol is scenery in Idiot Village.
 
 the Service Community is a room in Main Chunk. "You just came from the [opposite of last-dir]."
 
@@ -5526,17 +5526,17 @@ check going in service community:
 	if q < 0:
 		now q is q + 8;
 	if q is rotation:
-		say "The thought idol continues to whizz around.";
+		say "The thoughts idol continues to whizz around.";
 		increment idol-tries;
 		now last-dir is noun;
 		if idol-tries is 7:
 			say "BOOM! The idol explodes!";
-			now thought idol is in lalaland;
+			now thoughts idol is in lalaland;
 			move player to idiot village, without printing a room description;
 			special-bonus;
 		the rule succeeds;
 	else:
-		move thought idol to idiot village;
+		move thoughts idol to idiot village;
 		say "You run and run and run but don't seem to get anywhere. You hear a hmph from the idol. You pass out and wake up in the entry to Idiot Village.";
 
 part Speaking Plain
@@ -6399,7 +6399,7 @@ bm-litter	"'Oh, nothing.' He seems nervous. You peer more closely. It's Jerk Sod
 bm-bad2	"'It's--it's, well, tribute is what it is.'"
 bm-so-bad2	"'Oh, come on, you know the difference.'[wfk][line break]It just slips out. 'Yeah, it's easy, there's not much of it.'"
 bm-tribute	"'There will be. Just--society needs to be stable, first. And it almost was. Until you stepped in.'"
-bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Great. You think you can do better? Do so. I'll be waiting in Questions Field. You'll miss something obvious. Always have, always will.' The Baiter Master storms out.[paragraph break]You're not sure who can help, but maybe...the Goods? Yes. The Jerks? Surprisingly, yes, too. You even call Mark Black on the Quiz Pop's customer service number? Then [bad-guy-2] pretending to be the [bad-guy] and you prank him. It's--there's so much to do, questions you never asked. Mark Black is on his way--but you are unprepared for the military coup--someone named Admiral Vice. 'A danger to Slicker City! We will break him,' he says, gesturing to you.[wfk][line break]'Where? In the BREAK JAIL!'[paragraph break]You keep a straight face and, later that night, your wits. Could people who yell that loud REALLY be that wrong? The way out leads--back to your bedroom hallway, and to your bedroom. Your parents both complain about your late night moping getting worse than ever, and you--well, you promise them it'll get better.[wfk][line break]But first, you have a look at [i]The Phantom Tolllbooth[r]. The Baiter Master was right--you do miss obvious things. 'Other books you may enjoy.' There will be other obvious things you should've discovered. But it's good you found something right away, back in the normal world. You're confident you'll find more--and that people like the Baiter Master aren't the accelerated life experts you built them up to be."
+bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Great. You think you can do better? Do so. I'll be waiting in Questions Field. You'll miss something obvious. Always have, always will.' The Baiter Master storms out.[paragraph break]You're not sure who can help, but maybe...the Goods? Yes. The Jerks? Surprisingly, yes, too. You even call Mark Black on the Quiz Pop's customer service number. Then [bad-guy-2] pretending to be the [bad-guy] and you prank him. It's--there's so much to do, questions you never asked. Mark Black is on his way--but you are unprepared for the military coup--someone named Admiral Vice. 'A danger to Slicker City! We will break him,' he says, gesturing to you.[wfk]"
 bm-bye	"'You're not going anywhere.' And he's right. But it's not out totally out of fear, now."
 
 after quipping when qbc_litany is table of baiter master talk:
@@ -6422,6 +6422,14 @@ after quipping when qbc_litany is table of baiter master talk:
 			d "trib [if bm-tribute is talked-thru]1[else]0[end if]";
 			d "spike [if bm-so-bad2 is talked-thru]1[else]0[end if]";
 	if current quip is bm-fear:
+		if thoughts idol is in lalaland:
+			say "[line break]But Idiot Village has had time to assemble and rescue the hero that dispelled the Thoughts Idol! They overwhelm the Admiral, trash the more sinister surveillance technology in Freak Control, and lead you somewhere new. You protest you're not a leader--you just, well, did a bunch of errands. But they insist they have something to show you.";
+			now player has hammer;
+			move player to Airy Station;
+		else:
+			say "[line break]'Where? In the BREAK JAIL!'[paragraph break]You keep a straight face and, later that night, your wits. Could people who yell that loud REALLY be that wrong? The way out leads--well--to a wood.";
+			move player to Haves Wood;
+		terminate the conversation;
 		say "By the way, you may now restart the game and type ANNO for annotations, or JUMP to jump to an area of rejected rooms.";
 		end the story finally saying "Defeat of agony?";
 
@@ -6450,6 +6458,116 @@ carry out powertriping:
 	say "[line break]Oops, it's dark! The [bad-guy] yells. 'It'll take FIVE MINUTES to boot up again![paragraph break]Well, you have nothing to do but talk right now.";
 	now freaked-out is true;
 	try talking to baiter master instead;
+
+book endings
+
+Endings is a region.
+
+part Airy Station
+
+Airy Station is a room in Endings. "[one of]A cheering crowd[or]The mentality crowd[stopping] surrounds you on all sides! They're going pretty crazy over their new-found freedom, and how you got it for them."
+
+description of hammer is "It's a nondescript hammer. You feel a power, though, as you carry it--as if you were able to change it."
+
+after printing the name of the hammer when taking inventory:
+	say " (much plainer than it should be)";
+
+instead of doing something with hammer:
+	let q be right-adj;
+	if q is 0:
+		continue the action;
+	if q is 1:
+		say "The hammer glows a bit. You feel it pulling you towards the lock caps. Its claw end grabs one after another, strangling them until they pop off.";
+		best-end;
+	if q is 2:
+		say "The hammer glows a bit. You feel it pulling your arm up. The hammer crackles a bit, and you slam it down on the lock caps, which fall quickly.";
+		best-end;
+	if q is 3:
+		say "The hammer glows a bit. You feel it swinging side to side, and before it touches the lock caps, they crack open and fall to the ground.";
+		best-end;
+
+to best-end:
+	say "The door to the Return Carriage creaks open. You wave to the crowd as you enter the Return Carriage. You think of all the people you helped, the smart-alecks you didn't let get you down. The clues won't be as obvious back home, but you see some people are full of hot air, and you can overcome them, and that's a relief.";
+	go-back-home;
+
+to decide which number is right-adj:
+	if the player's command matches the regular expression "\block\b":
+		decide on 1;
+	if the player's command matches the regular expression "\bhome\b":
+		decide on 2;
+	if the player's command matches the regular expression "\baway\b":
+		decide on 3;
+	decide on 0;
+		
+the Return Carriage is a thing. description is  "The Return Carriage awaits, but the problem is, you can't find an obvious way to, um, enter."
+
+the lock caps are part of the return carriage.
+
+airy-wait is a number that varies.
+
+every turn when player is in Airy Station:
+	increment airy-wait;
+	if airy-wait is 5:
+		say "You jiggle the hammer in your hand, nervously. There has to be a way to use it, or change it. Maybe more than one.";
+		now airy-wait is 0;
+
+check entering Return Carriage:
+	say "You approach the whitespace around the return carriage, then try a new line of entry, but you have to admit failure and retreat to backspace. Those caps locks--you can't find a way to control [']em." instead;
+
+check attacking lock caps:
+	say "Your plain old hammer doesn't do much."
+	
+instead of doing something with lock caps:
+	if current action is attacking or current action is examining or current action is explaining:
+		continue the action;
+	say "They're pretty secure, for locks. You can't see how to start to open them." instead;
+
+after printing the locale description for Airy Station when Airy Station is unvisited:
+	say "The crowd's adulation shakes you a bit. You worry you'll be stuck in charge of the whole place, and you might get corrupted like the [bad-guy] or whatever. So you make a speech about how someone local should rule--and they eat it up! They praise your humility!";
+	say "An odd vehicle rolls out. 'The Return Carriage!' shots the mentality crowd. 'It's for you! To go back to your world! And do great things there!'";
+	move return carriage to Airy Station;
+
+check going in Airy Station:
+	if noun is inside:
+		say "You need to figure how to open the Return Carriage first." instead;
+	else:
+		say "You won't get through the Mentality Crowd. They want you to get into the Return Carriage." instead;
+
+part Haves Wood
+
+Haves Wood is a room in Endings. "A worm ring sits in the middle of the wood here. You hear your pursuers approaching."
+
+to good-end:
+	say "The Whole Worm is bigger than you thought. You hide deeper and deeper. A passage turns down, and then here's a door. Through it you see your bedroom.";
+	go-back-home;
+
+the worm ring is scenery in Haves Wood.
+
+chapter verbs for wood
+
+worming is an action applying to one thing.
+
+understand the command "change" as something new.
+understand the command "tone" as something new.
+understand the command "hollow" as something new.
+
+understand "hollow [thing]" and "tone [thing]" and "change [thing]" as worming when player is in Haves Wood.
+
+does the player mean worming the worm ring: it is very likely.
+
+carry out worming:
+	if noun is not worm ring:
+		say "That's the right idea, but the wrong thing to do it to." instead;
+	say "You scoop out the innards of the worm. The moment they're outside the worm, it extends a bit more. Then it twitches and straightens.";
+	wfak;
+	say "It's a whole worm. What luck! You enter it, hoping things are still a bit flip flopped...";
+	good-end;
+
+part merged ending
+
+to go-back-home:
+	say "The door leads to your closet and vanishes when you walk through. You're hungry after all that work. So you go downstairs for a snack. There's some old cereal you got sick of--but now you realize it could be Procrastination Cereal, Moping Cereal, or anything else--a small joke you'll be able to use for a while. So
+	The trip leads to your bedroom hallway, and through your closet to. Your parents both complain about your late night moping getting worse than ever, and you--well, you promise them it'll get better.[wfk][line break]But first, you have a look at [i]The Phantom Tolllbooth[r]. The Baiter Master was right--you do miss obvious things. 'Other books you may enjoy.' There will be other obvious things you should've discovered. But it's good you found something right away, back in the normal world. You're confident you'll find more--and that people like the Baiter Master aren't the accelerated life experts you built them up to be.";
 
 part Meal Square
 
@@ -7043,7 +7161,7 @@ swearseeing is an activity.
 
 this is the swear-see rule:
 	say "[2da]The Baiter Master is the Complex Messiah.";
-	say "[2da]Buster Ball is Gunnar Wilde.";
+	say "[2da]Buster Ball is Hunter Savage.";
 	say "[2da]The Jerk Circle is the Groan Collective.";
 	say "[2da]The Business Monkey's efforts are half-brained or assed.";
 	say "[2da]If you actually swear, obscenely or mildly (BOTHER)[line break]";
@@ -7703,8 +7821,8 @@ carry out nu-skiping:
 		move-puzzlies-and-jerks;
 		move player to jerk circle;
 		now player has crocked half;
-	if number understood > 7:
-		say "You need a number between 1 and 7 or, if you are testing very specific things, 100-100.[line break][skip-list]" instead;
+	if number understood > 9:
+		say "You need a number between 1 and 9 or, if you are testing very specific things, 100-100.[line break][skip-list]" instead;
 	now skipped-yet is true;
 	if number understood is 1:
 		move player to round lounge;
@@ -7729,6 +7847,10 @@ carry out nu-skiping:
 			now block-other is true;
 	else if number understood is 7:
 		move player to freak control;
+	else if number understood is 8:
+		move player to haves wood;
+	else if number understood is 9:
+		move player to airy station;
 	the rule succeeds;
 
 block-other is a truth state that varies;
@@ -7742,7 +7864,7 @@ check going when block-pier is true:
 		say "This is testing, so I won't allow you to move to the side." instead;
 
 to say skip-list:
-	say "1: Round Lounge 2: Tension Surface 3: Pressure Pier 4: Jerk Circle 5: All 3 given to Brothers 6: Jerks solved 7: Final chat[line break]100. Chipper Wood/Assassination Character[line break]"
+	say "1: Round Lounge 2: Tension Surface 3: Pressure Pier 4: Jerk Circle 5: All 3 given to Brothers 6: Jerks solved 7: Final chat 8: Haves Wood 9: Airy Station[line break]100. Chipper Wood/Assassination Character[line break]"
 
 chapter ctcing
 

@@ -237,15 +237,15 @@
 			<dock index="0" id="13" port="e" />
 			<dock index="1" id="102" port="w" />
 		</line>
-		<room id="104" name="Haves' Wood" subtitle="" x="0" y="-416" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="#80FF80" secondFillLocation="BottomRight" roomBorder="" roomLargeText="" roomSmallText="">
+		<room id="104" name="Haves' Wood" subtitle="" x="0" y="-416" w="96" h="64" region="Endings" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="#A0A000" secondFillLocation="BottomRight" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects>Whole (Wood) Worm</objects>
 		</room>
 		<line id="105" flow="oneWay" midText="Win">
 			<dock index="0" id="35" port="nw" />
 			<dock index="1" id="104" port="ne" />
 		</line>
-		<room id="106" name="Airy Station" subtitle="" x="320" y="-416" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="#80FF80" secondFillLocation="BottomLeft" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects>Snowflake Special</objects>
+		<room id="106" name="Airy Station" subtitle="" x="320" y="-416" w="96" h="64" region="Endings" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="#A0A000" secondFillLocation="BottomLeft" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Return Carriage|Mentality Crowd</objects>
 		</room>
 		<line id="107" style="dashed" flow="oneWay" midText="Win">
 			<dock index="0" id="35" port="ne" />
@@ -269,6 +269,7 @@
 		<regions>
 			<Cluey____Area Name="Cluey Area" TextColor="Black">#C06020</Cluey____Area>
 			<Dream Name="Dream" TextColor="Black">#2090FF</Dream>
+			<Endings Name="Endings" TextColor="White">#606060</Endings>
 			<Entry Name="Entry" TextColor="Black">Yellow</Entry>
 			<Main____Area Name="Main Area" TextColor="Black">Lime</Main____Area>
 			<Outer____Bounds Name="Outer Bounds" TextColor="Black">Silver</Outer____Bounds>
