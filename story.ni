@@ -7794,6 +7794,55 @@ when play begins (this is the force tester wherever rule):
 		say "Transcripts can be sent to blurglecruncheon@gmail.com. Any punctuation before the comment is okay, e.g. *TYPO or ;typo or :typo.";
 	continue the action;
 
+chapter gating
+
+gating is an action applying to one thing.
+
+understand the command "gat" as something new.
+
+understand "gat [something]" as gating.
+
+gat-ruin is a truth state that varies.
+
+to gat-ruin-check:
+	if gat-ruin is false:
+		say "NOTE: This ruins the game.";
+		now gat-ruin is true;
+
+carry out gating:
+	if tension surface is unvisited:
+		do nothing;
+	else if pressure pier is unvisited:
+		gat-ruin-check;
+		now player has pick;
+		now player has burden;
+	else if howdy boy is not in lalaland:
+		gat-ruin-check;
+		now player has fritz;
+		if player is in soda club:
+			if player does not have haha brew:
+				now player has cooler wine;
+	else:
+		gat-ruin-check;
+		now player has poory pot;
+		now player has dreadful penny;
+		now player has wacker weed;
+		now player has minimum bear;
+		now player has long string;
+		now player has reasoning circular;
+		now player has poetic wax;
+		now player has trick hat;
+		now player has trap rattle;
+		now player has trade of tricks;
+		now player has relief light;
+		now player has condition mint;
+		now player has money seed;
+		now player has fourth-blossom;
+		now player has mind of peace;
+	repeat with Q running through held items:
+		try giving Q to the noun;
+	the rule succeeds.
+	
 chapter skiping
 
 chapter num-skiping
