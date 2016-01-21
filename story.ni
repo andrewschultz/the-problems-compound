@@ -229,6 +229,18 @@ brief	found	descr
 "figure"	false	"FIGURE A CUT to skip past the Howdy Boy to the [jc]."
 "notice"	false	"NOTICE ADVANCE to skip to after you disposed of the jerks."
 
+to unlock-verb (t - text):
+	unless t is a brief listed in table of verb-unlocks:
+		say "BUG! I tried to add a verb for [t] but failed. Let me know at [email] as this should not have happened.";
+		continue the action;
+	choose row with brief of t in table of verb-unlocks;
+	if found entry is true:
+		continue the action;
+	say "[i][bracket]NOTE: you have just unlocked a new verb![close bracket][r]";
+	say "On restarting, you may now [descr entry][line break]";
+	now found entry is true;
+	write file of verb-unlocks from table of verb-unlocks;
+
 to decide whether (t - text) is skip-verified:
 	if t is a brief listed in table of verb-unlocks:
 		choose row with brief of t in table of verb-unlocks;
@@ -1378,7 +1390,9 @@ check giving the trail paper to:
 		choose row with response of howdy-west in table of howdy boy talks;
 		now enabled entry is 0;
 		now howdy boy is in lalaland;
-		say "'Well done. You've acted up enough. Here, I'll shred the evidence. So you don't get caught later. Say, after all that goofing around, you might be hungry. Look around in Meal Square. But be careful.'" instead;
+		say "'Well done. You've acted up enough. Here, I'll shred the evidence. So you don't get caught later. Say, after all that goofing around, you might be hungry. Look around in Meal Square. But be careful.'";
+		unlock-verb "figure";
+		the rule succeeds;
 	if second noun is Lily:
 		say "She shrugs and mentions she's been better places." instead;
 	if second noun is Punch Sucker:
@@ -3328,6 +3342,7 @@ pier-visited is a truth state that varies.
 
  after printing the locale description for Pressure Pier when Pressure Pier is unvisited:
 	now pier-visited is true; [not the best way to do things but I need to reference something in I6 to modify the play-end text, and it's just cleaner to define a boolean in I7]
+	unlock-verb "knock"
  
 check going in Pressure Pier:
 	if noun is west and trail paper is not in lalaland:
@@ -3392,6 +3407,7 @@ reference-blurb
 "Pretend to misunderstand everyone even if they're clear. If they don't stick up for themselves, well, they need to learn."
 "Use 'y'know' a lot, especially when berating unnecessary adverbs."
 "Smack [']em down with 'It's called...' two or three times a day."
+"Make people feel like they blew it and they never had it in the first place."
 "Say people need to put first thing first, then laugh at every other thing they say."
 "If you can make people feel their weirdness is forcing you to lie to them, good for you!"
 "Pick out an unsocial skeptic and be skeptical they actually care."
@@ -4212,6 +4228,7 @@ to check-jerks-done:
 	say "[line break]The (ex-)jerks arrive back, and [a random client] hands you a bottle of Quiz Pop. 'Man, you seem to know what's what, and you helped us see it was okay to be us. Here's some totally sweet contraband.'";
 	now player has quiz pop;
 	now all clients are in lalaland;
+	unlock-verb "notice";
 	quit small talk;
 
 check going north when player is in well:
@@ -6571,7 +6588,8 @@ to go-back-home:
 	say "You laugh at your own joke, which brings your parents out, complaining your late night moping is worse than ever. You promise them it'll get better.";
 	wfak;
 	say "Back in your bedroom, you have a thought. The Baiter Master saying you miss obvious things. Another look at [i]The Phantom Tolllbooth[r]: the inside flap. 'Other books you may enjoy.' There will be other obvious things you should've discovered. But it's good you found something right away, back in the normal world. You're confident you'll find more--and that people like the Baiter Master aren't the accelerated life experts you built them up to be.";
-	end the game in victory;
+	unlock-verb "anno";
+	end the story finally saying "Wisdom Received!";
 
 part Meal Square
 
