@@ -170,6 +170,11 @@ when play begins (this is the sort ALL the tables rule) :
 	sort the table of horrendous books in random order;
 	sort the table of horrendous songs in random order;
 	continue the action;
+	
+when play begins (this is the initialize missing table element rule) :
+	repeat through table of amusingness:
+		if there is no anyrule entry:
+			now anyrule entry is degen-true rule;
 
 when play begins (this is the initialize bad room viewing rule):
 	let room-index be 0;
@@ -7126,23 +7131,51 @@ volume amusing and continuing
 book amusing
 
 rule for amusing a victorious player:
+	let missed-one be false;
 	say "Have you tried:";
 	repeat through table of amusingness:
-		say "[2da][biglaff entry][line break]";
+		if there is an anyrule entry:
+			follow the anyrule entry;
+		if the rule succeeded:
+			say "[2da][biglaff entry][line break]";
+		else:
+			now missed-one is true;
+	if missed-one is true:
+		say "NOTE: the ending you chose missed a few things. You can "
 
 table of amusingness
-biglaff
-"waiting?"
-"an empty command?"
-"XYZZY? Four times?"
-"attacking anyone? Or the torch?"
-"cussing in front of certain people?"
-"going west/north/south in the Variety Garden?"
-"giving Pusher Penn's 'merchandise' to the Stool Toad or Officer Petty?"
-"giving Minimum Bear to anyone except Fritz the On?"
-"putting the poetic wax on anything except the language machine?"
-"listening to all the songs from the song torch (there are [number of rows in table of horrendous songs])?"
-"reading all the books from the book crack (there are [number of rows in table of horrendous books])?"
+biglaff	anyrule
+"waiting?"	degen-true rule
+"an empty command?"	--
+"XYZZY? Four times?"	--
+"attacking anyone? Or the torch?"	--
+"cussing in front of certain people?"	--
+"going west/north/south in the Variety Garden?"	--
+"giving Pusher Penn's 'merchandise' to the Stool Toad or Officer Petty?"	--
+"giving Minimum Bear to anyone except Fritz the On?"	--
+"putting the poetic wax on anything except the language machine?"	--
+"visiting the Scheme Pyramid after the jerks take their revenge?"	--
+"listening to all the songs from the song torch (there are [number of rows in table of horrendous songs])? Or just reading the source for them?"	--
+"reading all the books from the book crack (there are [number of rows in table of horrendous books])? Or just reading the source for them?"	--
+"SLEEPing in the extra directors' cut rooms in ANNO mode?"	--
+"ENTERing the Return Carriage?"	very-good-end rule
+"MAN HAMMER, BAN HAMMER, HAMMER JACK, HAMMER NINNY, HAMMER SLEDGE in Airy Station?"	very-good-end rule
+"WORM ROUND in the Haves Wood?"	good-end rule
+"LET RING or MASTER RING in the Haves Wood?"	good-end rule
+
+this is the degen-true rule:
+	the rule succeeds;
+
+this is the degen-false rule:
+	the rule fails;
+
+this is the good-end rule:
+	if haves wood is visited, the rule succeeds;
+	the rule fails;
+
+this is the very-good-end rule:
+	if airy station is visited, the rule succeeds;
+	the rule fails;
 
 book continuing
 
