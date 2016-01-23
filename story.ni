@@ -391,7 +391,12 @@ to say bug:
 		if stop-on-bug is true:
 			say "OOPS! A programmer-testing-killing bug.";
 			end the story;
-	say "BUG! If you let me know at [email] I'll be grateful.";
+	say "BUG! If you let me know at [email] or report the bug at [my-repo] I'd be grateful. If you can include [if currently transcripting]the current[else]a[end if] transcript, even better. Thanks, and sorry, though--you may get in my ABOUT section for finding this!";
+	unless currently transcripting:
+		say "You're not currently transcripting, but you can try to cut and paste text, or you can undo a few times, TRANSCRIPT and then redo."
+
+to say my-repo:
+	say "http://github.com/andrewschultz/the-problems-compound"
 
 section printing exits
 
@@ -1963,7 +1968,7 @@ carry out abouting:
 	say "The Problems Compound is meant to be less puzzly than my previous efforts. If you need to see verbs, type VERBS. Though there's no hint command, a walkthrough should be included with the game.";
 	say "[line break]TPC also, well, may suffer from AGT disease. It's intended to be a bit juvenile, but hopefully funny for all that. It was inspired by Hulk Handsome's very fun 2012 IFComp entry, In a Manner of Speaking and leans heavily on my 'researching' a website that you can find in CREDITS.";
 	say "[line break]But more importantly, CREDITS lists my testers first, because they've helped make the game less rocky and found bugs that saved me time when I had (yet again) procrastinated.[paragraph break]Also, if you want, HISTORY will contain details about the game's history.";
-	say "[line break]One other thing. If you find bugs, send them at [email]. If you can take a transcript of how it happens, use the TRANSCRIPT command and attach the file. Oh, also, I'm on twitter as @ned_yompus.";
+	say "[line break]One other thing. If you find bugs, send them at [email] or visit the repository for the game at [my-repo]. If you can take a transcript of how it happens, use the TRANSCRIPT command and attach the file. Oh, also, I'm on twitter as @ned_yompus.";
 	the rule succeeds;
 
 chapter historying
