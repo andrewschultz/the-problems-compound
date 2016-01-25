@@ -2336,9 +2336,6 @@ definition: a logic-game (called j) is defeated:
 		decide yes;
 	decide no;
 
-to say advice-rock of (j - a thing):
-	say "[if j is defeated]Boy, do I rock at [j] or what[else]Any tips on [j][end if]";
-
 table of quip texts (continued)
 quip	quiptext
 guy-games	"'They're for people who don't like regular fun social games. Sort of like IQ tests. You look like you'd enjoy them more than most. No offense.'"
@@ -2346,7 +2343,7 @@ guy-stuck	"'Well, yeah, I used to be kind of a dork. And by kind of a dork I mea
 guy-advice	"'Hm, well, if I give you too much advice, you won't enjoy solving them. And if I don't give you enough, you'll be kind of mad at me. So I'm doing you a favor, saying just go ahead and PLAY.'"
 guy-flat	"'Well, that way is the Problems Compound. If you can figure out some basic stuff, you'll make it to Pressure Pier. Then--oh, the people you'll meet!'"
 guy-names	"'I know what you really want to ask. It's not at all about twisting things back around and making them the opposite of what they should mean. It's about SEEING things at every angle. You'll meet people who do. You'll be a bit jealous they can, and that they're that well-adjusted. But if you pay attention, you'll learn. I have. Though I've got a way to go. But I want to learn!'"
-guy-problems	"'Well, it's a place where lots of people more social than you--or even me--pose real-life problems. Tough but fair. Lots of real interesting people. Especially the Baiter Master[if allow-swears is false]. Oops. You don't like swears? Okay. Call him the Complex Messiah[else]. AKA the Complex Messiah[end if]. His castle, Freak Control, is guarded by a trap where a question mark hooks you, then an exclamation mark clobbers you. Brutal stuff.'"
+guy-problems	"'Well, it's a place where lots of people more social than you--or even me--pose real-life problems. Tough but fair. Lots of real interesting people. Especially the Baiter Master[if allow-swears is false]. Oops. You don't like swears? Okay. Call him the Complex Messiah[else]. AKA the Complex Messiah[end if]. But not [bg]. Even I haven't earned that right yet. His workplace, Freak Control, is guarded by a trap where a question mark hooks you, then an exclamation mark clobbers you.' He pauses, and as you're about to speak, throws in a 'YEAH.'"
 guy-mess	"'Oh, the [bad-guy]. He certainly knows what's what, and that's that! A bit of time around him, and you too will know a bit--not as much as he did. But he teaches by example! And if he ribs you a little, that's just his way of caring. Remember, it's up to YOU what you make of his lessons! Some people--they just don't get him. Which is ironic. They're usually the type that claim society doesn't get THEM.'"
 guy-bad2	"'[bad-guy-2]. Well, without the [bad-guy]'s snark, [bad-guy-2] would probably be in charge. Then things would get worse. You see, [bad-guy-2] is after our time and money. The [bad-guy] just likes to share a little snark.'"
 guy-bye	"'Whatever, dude.'"
@@ -2965,7 +2962,7 @@ check opening hatch:
 to say lounge-implement:
 	say "[if player has tee]tee[else if player has stick]stick[else]screw[end if]"
 
-to say screw-and-or-stick:
+to say screw-and-or-stick: [unused]
 	if player does not have stick:
 		say "the screw";
 	else if player does not have screw:
@@ -2974,7 +2971,7 @@ to say screw-and-or-stick:
 		say "the screw and the stick"
 
 report taking when player is on person chair:
-	say "It's too flat on the ground to take while you're on the chair, so you jump off to pick it up.";
+	say "It's too flat on the ground to take while you're on the chair, so you jump off for a second to pick it up.";
 	try silently getting off the person chair;
 	now player has the noun;
 	the rule succeeds;
@@ -5370,7 +5367,7 @@ after quipping when qbc_litany is litany of officer petty:
 
 part Idiot Village
 
-Idiot Village is east of Judgment Pass. It is in Main Chunk. "Idiot Village is surprisingly empty right now. It expands in all directions, though you'd feel safest going back west. You hear a chant."
+Idiot Village is east of Judgment Pass. It is in Main Chunk. "Idiot Village is surprisingly empty right now. It expands in all directions, though you'd feel safest going back west, especially with that creepy [one of]idol[or]Thoughts Idol[stopping] staring at you east-northeast-ish. You hear a chant."
 
 village-explored is a truth state that varies.
 
@@ -5378,7 +5375,7 @@ last-dir is a direction that varies.
 
 rotation is a number that varies.
 
-check going nowhere in idiot village:
+check going nowhere in idiot village (this is the final idol puzzle rule):
 	if player has crocked half:
 		if noun is northeast or noun is east:
 			say "You run past the Brain Idol. Its eyes follow you.";
@@ -5540,7 +5537,10 @@ orientation of southwest is 5.
 orientation of west is 6.
 orientation of northwest is 7.
 
-the thoughts idol is scenery in Idiot Village.
+the thoughts idol is scenery in Idiot Village. "[if player is in idiot village][iv-idol][else]If you look back at the Thoughts Idol now, it may distract you. Gotta keep running, somehow, somewhere[end if]"
+
+to say iv-idol:
+	say "You stare at the thoughts idol, [if player has crocked half]and as it glares back, you resist the urge to look away. It--it actually blinks first.[else]but it stares back at you. You lose the war of facial expressions[end if]"
 
 the Service Community is a room in Main Chunk. "You just came from the [opposite of last-dir]."
 
@@ -5842,7 +5842,7 @@ best-law	"'Brilliant. Yeah. I kind of see the good side of people. Well, interes
 best-int	"'Oh, you know. People who break the rules. Break [']em creatively enough to be able to afford my fees. Nobody too square. No offense.'"
 best-good	"'Look, I already said I'm sure you're nice, and all. Whether or not you pick your nose too much. There. Happy with that? No? Well, I did my best. Can't do much more for ya.'"
 best-dirty	"'Y'know, that's shameful coming from you. Maybe someone said you were really weird, but it turned out you were only kind of weird? I'm doing the same thing. But for criminals. I mean, suspected criminals. Look, I can't have these accusations.'"
-best-baiter	"'Obviously he knows what's what. We had a good long discussion on dorkery, nerdery and geekery, and how it's busted out since the Internet blew up. We can say that. We're both hip to nerd culture, but we need to keep less consequential dorks, nerds and geeks from defining the lot of us. Aggressively. He's really fair, though. He doesn't insult anyone else without insulting himself first. Just--others may have bigger deficiencies than him.'"
+best-baiter	"'Obviously [bg] knows what's what. We had a good long discussion on dorkery, nerdery and geekery, and how it's busted out since the Internet blew up. We can say that. We're both hip to nerd culture, but we need to keep less consequential dorks, nerds and geeks from defining the lot of us. Aggressively. He's really fair, though. He doesn't insult anyone else without insulting himself first. Just--others, well, without self-awareness.'"
 best-bye	"'Not very curious of you there. I'm an interesting fella, yet you...'"
 
 check going west in Questions Field:
