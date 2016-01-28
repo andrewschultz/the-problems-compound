@@ -508,17 +508,24 @@ the block saying no rule is not listed in any rulebook.
 the block saying yes rule is not listed in any rulebook.
 
 instead of saying no:
-	if player is in pot chamber:
-		say "Nancy Reagan would be proud." instead;
 	say "[no-yes]"
 	
 instead of saying yes:
-	if player is in pot chamber:
-		say "Nancy Reagan would be ashamed." instead;
 	say "[no-yes]"
-	
+
+yes-yet is a truth state that varies.
+
 to say no-yes:
-	say "[one of]You freeze up. Was that a rhetorical question just now? [bracket]NOTE: you don't need to answer rhetorical questions, and I tried to avoid them, but characters may ask you a few.[close bracket][line break][or]Your nos and yesses never quiiite meant what they hoped to mean. Sometimes it's a relief not to be forced to say an essay, but other times--man, others seem to be better with those short words than you are.[stopping]";
+	if player is in pot chamber:
+		say "Nancy Reagan would be [if current action is saying no]proud[else]ashamed[end if].";
+		continue the action;
+	if qbc_litany is the table of no conversation:
+		say "You always feel pushed around being asked a yes-or-no question. Like you can't say what you really want to say, not that you were sure anyway (you don't need to say yes or no here, but you can RECAP to see a list of options).";
+	else:
+		say "[one of]You freeze up. Was that a rhetorical question just now? Where did it come from? [or][stopping]Your nos and yesses never quiiite meant what they hoped to mean. Sometimes it's a relief not to be forced to say an essay, but other times--man, others seem to be better with those short words than you are.";
+	if yes-yet is false:
+		now yes-yet is true;
+		say "[bracket]NOTE: you don't need to answer rhetorical questions, and I tried to avoid them, but characters may ask you a few.[close bracket][line break]";
 
 chapter throwing at
 
@@ -1195,7 +1202,7 @@ carry out gotoing:
 		say "EXIT the chase first." instead;
 	if noun is location of player:
 		say "You're already there. I mean, here." instead;
-	if player is in haves wood:
+	if player is in Out Mist:
 		say "Since you're being chased, backtracking would be a bad idea." instead;
 	if player is in airy station:
 		say "You can go home again--in fact, you're ready to--but you can't go back again." instead;
@@ -5578,7 +5585,10 @@ check going in service community:
 		the rule succeeds;
 	else:
 		move thoughts idol to idiot village;
-		say "[bad-text entry]";
+		if q is 4:
+			say "You feel particularly helpless running back and forth. The idol shakes its head, as if to let you know that just won't do, and it's tired of telling lesser things or people or whatever that.";
+		else:
+			say "[bad-text entry]";
 		prevent undo;
 
 chapter community text
@@ -5594,8 +5604,8 @@ rule for deciding whether to allow undo:
 
 table of idol text
 good-text	bad-text	undo-text
-"The thoughts idol continues to whizz around."	"The idol catches you. That could not have been the way to go."	"You sense you're locked in. There's no turning around."
-"The thoughts idol continues to whizz around."	"The idol catches you. That could not have been the way to go."	"You sense you're locked in. There's no turning around."
+"The thoughts idol whizzes around to track you, quicker as you get close, then slower as you get near."	"You look back at the idol after your run. But you can't look at its face. A loud buzz emanates from the idol, and you sink to the ground, covering your ears. Once they stop ringing, you go back to the entrance to Idiot Village."	"It's--well, you could just turn around right away, but that'd feel chicken."
+"The thoughts idol whirls around some more. Was it just you, or did it go a little more slowly?"	"The idol catches you. That could not have been the way to go."	"You sense you're locked in. There's no turning around."
 "The thoughts idol continues to whizz around."	"The idol catches you. That could not have been the way to go."	"You sense you're locked in. There's no turning around."
 "The thoughts idol continues to whizz around."	"The idol catches you. That could not have been the way to go."	"You sense you're locked in. There's no turning around."
 "The thoughts idol continues to whizz around."	"The idol catches you. That could not have been the way to go."	"You sense you're locked in. There's no turning around."
@@ -6491,8 +6501,8 @@ after quipping when qbc_litany is table of baiter master talk:
 			now player has hammer;
 			move player to Airy Station;
 		else:
-			say "[line break]'Where? In the BREAK JAIL!'[paragraph break]You keep a straight face and, later that night, your wits. Could people who yell that loud REALLY be that wrong? The way out leads--well--to a wood.";
-			move player to Haves Wood;
+			say "[line break]'Where? In the BREAK JAIL!'[paragraph break]You keep a straight face and, later that night, your wits. Could people who yell that loud REALLY be that wrong? You don't sneak out quietly, enough, though, and guards give chase. There's a mist ahead--maybe they'll lose you! But you've done even better. 'The out mist!' they yell. 'People eventually leave there to get back to real life.'";
+			move player to Out Mist;
 		terminate the conversation;
 		say "By the way, you may now restart the game and type ANNO for annotations, or JUMP to jump to an area of rejected rooms.";
 		end the story finally saying "Defeat of agony?";
@@ -6597,15 +6607,15 @@ check going in Airy Station:
 	else:
 		say "You won't get through the Mentality Crowd. They want you to get into the Return Carriage." instead;
 
-part Haves Wood
+part Out Mist
 
-Haves Wood is a room in Endings. "A worm ring sits in the middle of the wood here. You hear your pursuers approaching."
+Out Mist is a room in Endings. "A worm ring sits in the middle of the wood here. You hear your pursuers approaching."
 
 to good-end:
 	say "The Whole Worm is bigger than you thought. You hide deeper and deeper. A passage turns down, and then here's a door. Through it you see your bedroom.";
 	go-back-home;
 
-the worm ring is scenery in Haves Wood.
+the worm ring is scenery in Out Mist.
 
 chapter verbs for wood
 
@@ -6615,7 +6625,7 @@ understand the command "change" as something new.
 understand the command "tone" as something new.
 understand the command "hollow" as something new.
 
-understand "hollow [thing]" and "tone [thing]" and "change [thing]" as worming when player is in Haves Wood.
+understand "hollow [thing]" and "tone [thing]" and "change [thing]" as worming when player is in Out Mist.
 
 does the player mean worming the worm ring: it is very likely.
 
@@ -7202,8 +7212,8 @@ biglaff	anyrule
 "SLEEPing in the extra directors' cut rooms in ANNO mode?"	--
 "ENTERing the Return Carriage?"	very-good-end rule
 "MAN HAMMER, BAN HAMMER, HAMMER JACK, HAMMER NINNY, HAMMER SLEDGE in Airy Station?"	very-good-end rule
-"WORM ROUND in the Haves Wood?"	good-end rule
-"LET RING or MASTER RING in the Haves Wood?"	good-end rule
+"WORM ROUND in the Out Mist?"	good-end rule
+"LET RING or MASTER RING in the Out Mist?"	good-end rule
 
 this is the degen-true rule:
 	the rule succeeds;
@@ -7212,7 +7222,7 @@ this is the degen-false rule:
 	the rule fails;
 
 this is the good-end rule:
-	if haves wood is visited, the rule succeeds;
+	if Out Mist is visited, the rule succeeds;
 	the rule fails;
 
 this is the very-good-end rule:
@@ -7996,7 +8006,7 @@ carry out nu-skiping:
 	else if number understood is 7:
 		move player to freak control;
 	else if number understood is 8:
-		move player to haves wood;
+		move player to Out Mist;
 	else if number understood is 9:
 		move player to airy station;
 	the rule succeeds;
@@ -8012,7 +8022,7 @@ check going when block-pier is true:
 		say "This is testing, so I won't allow you to move to the side." instead;
 
 to say skip-list:
-	say "1: Round Lounge 2: Tension Surface 3: Pressure Pier 4: Jerk Circle 5: All 3 given to Brothers 6: Jerks solved 7: Final chat 8: Haves Wood 9: Airy Station[line break]100. Chipper Wood/Assassination Character[line break]"
+	say "1: Round Lounge 2: Tension Surface 3: Pressure Pier 4: Jerk Circle 5: All 3 given to Brothers 6: Jerks solved 7: Final chat 8: Out Mist 9: Airy Station[line break]100. Chipper Wood/Assassination Character[line break]"
 
 chapter ctcing
 
@@ -8258,5 +8268,3 @@ carry out jing:
 		now player is in jerk circle instead;
 	say "Now that you're in the main area, this command won't let you warp further in your beta testing quest. However, BROBYE will disperse the Brothers and JERK will spoil the jerks['] puzzle." instead;
 	the rule succeeds;
-
-
