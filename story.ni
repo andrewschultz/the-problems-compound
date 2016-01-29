@@ -1257,6 +1257,10 @@ chapter attacking
 
 the block attacking rule is not listed in any rulebook.
 
+understand the command "kick" as something new.
+
+understand "kick [thing]" as attacking.
+
 check attacking:
 	if noun is player:
 		say "You don't want to embarrass yourself like that." instead;
@@ -1282,6 +1286,8 @@ check attacking:
 	if noun is a bro:
 		say "'Silently, [noun] grabs you. [if bros-left is 1]Even without his brothers, it's a quick affair[else]His brothers hold you[end if]. He's apologetic--but he'd have liked to work with you, and violence is violence, and his job is his job.";
 		ship-off Hut Ten instead;
+	if noun is list bucket:
+		say "You didn't come so far only to -- wait for it -- kick the bucket. Surely there's a better way to get the [bad-guy]'s attention." instead;
 	if noun is a person:
 		if noun is female:
 			say "Attacking people is uncool, but attacking females is doubly uncool. You may not feel big and strong, but with that recent growth spurt, you're bigger than you used to be. While the Stool Toad's knight-in-shining-armor act goes way overboard, to the point [noun] says that's enough--well, it's the least you deserve. And you can't complain about where you're shipped off.";
@@ -5604,14 +5610,14 @@ rule for deciding whether to allow undo:
 
 table of idol text
 good-text	bad-text	undo-text
-"The thoughts idol whizzes around to track you, quicker as you get close, then slower as you get near."	"You look back at the idol after your run. But you can't look at its face. A loud buzz emanates from the idol, and you sink to the ground, covering your ears. Once they stop ringing, you go back to the entrance to Idiot Village."	"It's--well, you could just turn around right away, but that'd feel chicken."
-"The thoughts idol whirls around some more. Was it just you, or did it go a little more slowly?"	"The idol catches you. That could not have been the way to go."	"You sense you're locked in. There's no turning around."
-"The thoughts idol continues to whizz around."	"The idol catches you. That could not have been the way to go."	"You sense you're locked in. There's no turning around."
-"The thoughts idol continues to whizz around."	"The idol catches you. That could not have been the way to go."	"You sense you're locked in. There's no turning around."
-"The thoughts idol continues to whizz around."	"The idol catches you. That could not have been the way to go."	"You sense you're locked in. There's no turning around."
-"The thoughts idol continues to whizz around."	"The idol catches you. That could not have been the way to go."	"You sense you're locked in. There's no turning around."
-"The thoughts idol continues to whizz around."	"The idol catches you. That could not have been the way to go."	"You sense you're locked in. There's no turning around."
-"The thoughts idol continues to whizz around."	"The idol catches you. That could not have been the way to go."	"You sense you're locked in. There's no turning around."
+"The thoughts idol whizzes around to track you, quicker as you get close, then slower as you get near."	"You look back at the idol after your run. But you can't look at its face. A loud buzz emanates from the idol, and you sink to the ground, covering your ears. Once they stop ringing, you go back to the entrance to Idiot Village."	"You didn't really do much wrong. There's not much to undo."
+"The thoughts idol whirls around some more. Was it just you, or did it go a little more slowly?"	"The idol catches you. A loud buzz, and you cover your ears. That could not have been the way to go."	"You didn't really do much wrong. There's not much to undo."
+"The thoughts idol whizzes around, adjusting speed--but did you hear a little cough?"	"The idol buzzes. You feel frozen, then are frozen."	"You thought you almost had the idol there for a bit, but it's not exactly going to be open to letting you brute-force it into submission."
+"The thoughts idol whizzes around a bit more. You're really making it spin. You wonder if it's had a workout like this in a while."	"You glance at the idol, feel frozen and collapse. The idol almost seems to be mocking you, but fearing you at the same time. Maybe if you think, you can run again."	"There's not too much ground to retrack. No need for would'ves."
+"The thoughts idol seems to twitch back and forth while following you."	"You feel frozen and collapse. The idol's contempt can't hide a legitimate frown. You slipped up, but you got pretty far."	"Halfway there...maybe if you get momentum, you'll nail the pattern down for good."
+"The thoughts idol barely catches its gaze up with you."	"The idol gives that look--you know it--'Smart, but no common sense.' Still--you can give it another shot."	"Would'ves won't help here. You've actually gotten in better shape, walking around just thinking."
+"The thoughts idol warps and seems to wobble a bit but still looks at you."	"You--well, confidence or whatever it was let you down."	"Geez. You were that close. But no chance to stew. You bet you could do it, next time. But you can't say 'Oh, I meant to...'"
+"The thoughts idol spins, coughs, and with a final buzz, its eyes spark and go out."	"You must have been close. But no."	"The idol's look reminds you of when you got a really hard math problem right except for adding 1 and 6 to get 8. People laughed at you. It hurt."
 
 part Speaking Plain
 
@@ -6421,7 +6427,16 @@ The relief light is a thing. description of relief light is "It glows comforting
 
 part Freak Control
 
-Freak Control is north of Questions Field. It is in Main Chunk. "[if accel-ending]There's all sorts of stuff here but really all you want to do is show the [bad-guy] what's what.[else]Well, you made it. There's so much to look at! Shot screens track various areas in the Compound, including places you haven't been. A Twister Brain hacks away at some sort of psychometric analysis, and a Witness Eye provides tracking of several suspicious individuals. A Language Sign also has a pretty prominent message ahead.[paragraph break]While there's another exit than back south, it's surely only available to the [bad-guy]. All the same, you don't want to leave now. You can't.[end if]"
+Freak Control is north of Questions Field. It is in Main Chunk. "[if accel-ending]There's all sorts of stuff here but really all you want to do is show the [bad-guy] what's what.[else]Well, you made it. There's so much to look at![paragraph break]While there's probably another secret exit than back south, it's surely only available to the [bad-guy]. All the same, you don't want to leave now. You can't.[end if]"
+
+a list bucket is a thing in Freak Control. "[one of]A list bucket lying nearby may help you make sense of the fancy machinery, though you worry might kill yourself trying[or]The list bucket waits here, a handy reference to the gadgetry of Freak Control[stopping]."
+
+check taking the bucket:
+	say "You would, but the [bad-guy] might turn around and ask if you really needed to steal a bucket, and no, the text isn't going to change if you pick it up, and so forth." instead;
+
+description of list bucket is "[2da]The Language Sign should, um, y'know, make things obvious.[line break][2da]Shot screens: track various areas in the Compound[line break][2da]The Twister Brain: to see what people REALLY mean when they oppose you just a little[line break][2da]the Witness Eye provides tracking of several suspicious individuals[line break][2da]The Incident Miner processes fuller meaning of events the perpetrators wish were harmless."
+
+the incident miner is scenery in Freak Control. "The incident miner churns and coughs. You see text like 'not as nice/interesting/worthwhile as he thinks' and 'passive aggressive but doesn't know it' and 'extraordinary lack of self awareness' spin by."
 
 the against rails are plural-named scenery in Freak Control. "You're not sure whether they're meant to be touched or not. No matter what you do, though, you feel someone would yell 'Isn't it obvious Alec should/shouldn't touch the rails?'"
 
@@ -7206,6 +7221,7 @@ biglaff	anyrule
 "giving Pusher Penn's 'merchandise' to the Stool Toad or Officer Petty?"	--
 "giving Minimum Bear to anyone except Fritz the On?"	--
 "putting the poetic wax on anything except the language machine?"	--
+"saying YES or NO in the Drug Gateway?"	--
 "visiting the Scheme Pyramid after the jerks take their revenge?"	--
 "listening to all the songs from the song torch (there are [number of rows in table of horrendous songs])? Or just reading the source for them?"	--
 "reading all the books from the book crack (there are [number of rows in table of horrendous books])? Or just reading the source for them?"	--
