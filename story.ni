@@ -230,11 +230,11 @@ when play begins (this is the read options file rule):
 the file of verb-unlocks is called "pcunlock".
 
 table of verb-unlocks
-brief	found	descr
-"anno"	false	"ANNO to show annotations."
-"knock"	false	"KNOCK HARD to get to Pressure Pier."
-"figure"	false	"FIGURE A CUT to skip past the Howdy Boy to the [jc]."
-"notice"	false	"NOTICE ADVANCE to skip to after you disposed of the jerks."
+brief	found	expound	descr
+"anno"	false	false	"ANNO to show annotations, or JUMP to jump to a bunch of rejected rooms, as a sort of director's cut."
+"knock"	false	true	"KNOCK HARD to get to Pressure Pier."
+"figure"	false	true	"FIGURE A CUT to skip past the Howdy Boy to the [jc]."
+"notice"	false	true	"NOTICE ADVANCE to skip to after you disposed of the jerks."
 
 to unlock-verb (t - text):
 	unless t is a brief listed in table of verb-unlocks:
@@ -552,6 +552,8 @@ the maximum score is 17.
 special-score is a number that varies. max-special-score is a number that varies. max-special-score is 4.
 
 check requesting the score:
+	if greater-eaten is true:
+		say "You're more worried about scoring points with the right people than in some silly game." instead;
 	if cookie-eaten is true:
 		say "It's probably pretty good, but you're too cool for numbery nonsense." instead;
 	if off-eaten is true:
@@ -1209,7 +1211,7 @@ carry out gotoing:
 	if player is in freak control:
 		say "No wimping out! This is the final confrontation." instead;
 	if player is in Soda Club:
-		if player has brew or player has wine:
+		if player has a drinkable:
 			say "You can't just go jetting off with a drink in your hand!" instead;
 	if noun is Soda Club and player is not in joint strip:
 		say "You'll have to walk by that nosy Stool Toad directly[if trail paper is in lalaland], not that you need to go back[end if]." instead;
@@ -3267,15 +3269,15 @@ check going in variety garden:
 	if noun is south or noun is southeast:
 		now current-brush is back brush;
 		move back brush to variety garden;
-		say "You run into some brush. More precisely, you run near it but back off. 'Found the back brush, eh?' says the Word Weasel." instead;
+		say "You run into some brush. More precisely, you run near it but back off. 'Found the back brush, eh?' snickers the Word Weasel." instead;
 	if noun is north or noun is northeast:
 		now current-brush is off brush;
 		move off brush to variety garden;
-		say "You run into some brush. More precisely, you run near it but just don't feel up to it, as if you don't have the fight to look beyond it. 'Found the off brush, eh?' says the Word Weasel." instead;
+		say "You run into some brush. More precisely, you run near it but just don't feel up to it, as if you don't have the fight to look beyond it. 'Found the off brush, eh?' snickers the Word Weasel." instead;
 	if noun is not east:
 		now current-brush is aside brush;
 		move aside brush to variety garden;
-		say "As you step over the rails, voices boom in your head. 'Who is he, to think he can go that way?' / 'It's private property! Doesn't anyone expect...?'[paragraph break]The Word Weasel snickers. [one of]'Guess you got up close with the against rails!'[or]'The against rails are AGAIN rails, amirite?'[stopping]" instead;
+		say "You run into some brush. More precisely, you get close to it but turn to the side to avoid its prickliness. You look for a way around--it's not that dense, so there should be one--but no luck. 'Found the aside brush, eh?' snickers the Word Weasel." instead;
 
 carry out going west in Tension Surface:
 	if variety garden is unvisited:
@@ -3364,7 +3366,7 @@ Outer Bounds is a region.
 
 part Pressure Pier
 
-Pressure Pier is north of Tension Surface. It is in Outer Bounds. "[one of]So, this is Pressure Pier. Off south is water--no way back to the Tension Surface[or]Water south, passage north[stopping]. You smell food to the west, and the land sinks a bit to the east. Ahead north, things open up further behind [one of]something called[or]the[stopping] Saver Screen."
+Pressure Pier is north of Tension Surface. It is in Outer Bounds. "[one of]So, this is Pressure Pier. Off south is water--no way back to the Tension Surface[or]Water south, passage north[stopping]. You smell food to the west, and the land sinks a bit to the east. Ahead north, things open up further behind [one of]something labeled[or]the[stopping] Saver Screen."
 
 pier-visited is a truth state that varies.
 
@@ -3450,6 +3452,7 @@ reference-blurb
 "Throw someone a bone with 'Even so-and-so knows...' You'd be surprised how many 'nice quiet types' lash out at charity."
 "When asked for help, say 'oh, it's easy.' If someone asks why, tell them to stop badgering you."
 "Be sure one weirdo a day is a nice guy. Let him know. It's not your fault if he responds...weirdly."
+"Tell someone they're clear when they're unclear, and vice versa."
 "Understand how flattery and the golden rule interact, unless someone is fishing for approval."
 "Pick out someone creepy with a valid criticism and go ad hominem."
 
@@ -3625,7 +3628,7 @@ to get-ticketed:
 		say "You have the fourth and final boo tickety you need! Using some origami skills you felt would never be practical, you fold them to form a coherent document: a trail paper!";
 		now boo tickety is in lalaland;
 		now player has trail paper;
-		if player has brew or player has cooler:
+		if player has a drinkable:
 			say "[line break]Uh oh. You look at the drink in your hand. You're a hardened lawbreaker, now, and if the Stool Toad caught you with it, he'd have reason to send you off somewhere no good. You should probably DROP the [if player has brew]brew[else]cooler[end if].";
 	else if your-tix is 1:
 		say "You aren't sure what to do with this. It's not quite a ticket, because it's not shaped like one. It's cut diagonally, and it's triangular. You notice it's got a quarter of some sort of stamped seal on the other side.";
@@ -3663,7 +3666,18 @@ after quipping when qbc_litany is litany of fritz:
 
 part Joint Strip
 
-Joint Strip is east of Down Ground. It is in Outer Bounds. "There's a familiar but disturbing scent in the air--those responsible for it are probably hiding nearby from the local law enforcement. The clearest exits are south to a Soda Club or back west to Down Ground."
+Joint Strip is east of Down Ground. It is in Outer Bounds. "There's a familiar but disturbing scent in the air--those responsible for it are probably hiding nearby from the local law enforcement. The clearest exits are south to [if Soda Club is visited]the Soda Club[else]a bar[end if] or back west to Down Ground."
+
+the bar is scenery in Joint Strip. "[if soda club is visited]It isn't labeled, but there's not a bouncer or anything[else]The Soda Club seems much less mysterious now you've been in it[end if]."
+
+instead of entering bar:
+	try going south.
+
+instead of doing something with the bar:
+	if action is undrastic:
+		continue the action;
+	say "You can't do much with the bar other than enter it."
+
 
 check going south in joint strip:
 	if jumped-at-start is true:
@@ -3753,7 +3767,7 @@ instead of doing something with pigeon stool:
 toad-got-you is a truth state that varies.
 
 check going north in Soda Club:
-	if player has haha brew or player has cooler wine:
+	if player has a drinkable:
 		if toad-got-you is false:
 			say "'HALT! FREEZE! A MINOR WITH ALCOHOL!' booms the Stool Toad. He takes your drink and throws it off to the side. 'THAT'S AN INFRACTION!'[paragraph break]He looks around in his pockets but only finds a diagonal scrap of paper. 'Well, this'll do, for a boo tickety. Remember, you're warned.' You feel sort of rebellious--good rebellious--as he [if your-tix >= 4]counts your infractions on his fingers. Uh oh. Maybe you could've DROPped the booze before leaving[else]goes back to his pigeon stool[end if].";
 			get-ticketed;
@@ -3886,7 +3900,7 @@ to say lily-creep:
 		now lily-warn is true;
 	else:
 		say "'That's--just creepy,' she says. 'I didn't come to the bar for this.' The Punch Sucker blows a whistle, and the Stool Toad charges in.[paragraph break]He explains that this is pretty bad, seeing as how you looked like a nice kid, or at least a quiet one, and goes on some irrelevant diatribe against prank callers who just hang up, and also how if this is how you act SOBER...";
-		if player has haha brew or player has cooler wine:
+		if player has a drinkable:
 			say "The Punch Sucker takes your drink away from you, too.";
 			if player has haha brew:
 				now haha brew is in lalaland;
@@ -5129,7 +5143,7 @@ instead of doing something when second noun is faith goode:
 	continue the action;
 
 instead of doing something with faith goode:
-	if current action is examining or current action is explaining:
+	if action is undrastic:
 		continue the action;
 	else:
 		now noun is grace goode;
@@ -5341,7 +5355,7 @@ description of Officer Petty is "Officer Petty stares back at you, cracks his kn
 the Intuition Counter is scenery in Judgment Pass. "It's labeled with all manner of dire motivational phrases."
 
 check giving to Officer Petty:
-	if noun is weed or noun is pot:
+	if noun is smokable:
 		say "'Hoo, boy! Really? REALLY? That'll get you to worse than Idiot Village. STOOL TOAD!' Not that Officer Petty needed backup, but it's the principle of the thing. You are escorted away.";
 		move player to maintenance high instead;
 	if noun is the Reasoning Circular:
@@ -5464,7 +5478,7 @@ check giving the cold contract to the labor child:
 
 chapter Sly Moore
 
-Sly Moore is a person in Idiot Village. "[if talked-to-sly is true]Sly Moore[else]A would-be magician[end if] loafs about here, trying and utterly failing to perform simple magic."
+Sly Moore is a surveyable person in Idiot Village. "[if talked-to-sly is true]Sly Moore[else]A would-be magician[end if] loafs about here, trying and utterly failing to perform simple magic."
 
 description of Sly Moore is "For someone trying to do magic tricks, he's dressed rather plainly. No cape, no wand or, well, anything."
 
@@ -5605,7 +5619,7 @@ rule for deciding whether to allow undo:
 			say "[if thoughts idol is in lalaland]No, you did it right. No need to relive past victories[else]You kick yourself for doing something wrong, but ... well, the idol didn't kill you or anything. You can try again.";
 		deny undo;
 		if player is in service community:
-			say "No, you need to keep going on.";
+			say "You're worried you might've messed up, but no, the Idol would've gotten you, then. Need to keep going on.";
 			deny undo;
 
 table of idol text
@@ -5870,7 +5884,7 @@ before giving Reasoning Circular to:
 		say "He's not searching for that. He's searching for something real." instead;
 
 instead of doing something with the long tag:
-	if current action is examining:
+	if action is undrastic:
 		continue the action;
 	if current action is giving:
 		try giving Reasoning Circular to the second noun;
@@ -6444,7 +6458,7 @@ freaked-out is a truth state that varies.
 
 the shot screens are scenery in Freak Control. "[if cookie-eaten is true]You're torn between wondering if it's not worth watching the jokers being surveyed, or you deserve a good laugh.[else]For a moment, you get a glimpse of [one of]the jerks going about their business[or]the parts of Idiot Village you couldn't explore[or]a secret room in the Soda Club[or]Officer Petty at the 'event,' writing notes furiously[or]the hideout the Stool Toad was too lazy to notice[or]The Logical Psycho back at his home[or]exiles living beyond the Standard Bog[in random order].[end if]"
 
-every turn when player is in freak control and qbc_litany is not table of baiter master talk (this is the random stuff in FC rule):
+every turn when player is in freak control and qbc_litany is not table of baiter master talk (this is the random stuff in FC rule): [?? if player doesn't know names, don't write them]
 	unless accel-ending:
 		say "[one of]The Twister Brain spits out a page of data the [bad-guy] speed reads. He mutters 'Pfft. I already sort of knew that. Mostly.'[or]The Witness Eye swivels around with a VVSSHHKK before changing the focus to [a random surveyable person].[or]The Shot Screen blinks a bit before changing its focus.[in random order]"
 
@@ -6519,8 +6533,6 @@ after quipping when qbc_litany is table of baiter master talk:
 			say "[line break]'Where? In the BREAK JAIL!'[paragraph break]You keep a straight face and, later that night, your wits. Could people who yell that loud REALLY be that wrong? You don't sneak out quietly, enough, though, and guards give chase. There's a mist ahead--maybe they'll lose you! But you've done even better. 'The out mist!' they yell. 'People eventually leave there to get back to real life.'";
 			move player to Out Mist;
 		terminate the conversation;
-		say "By the way, you may now restart the game and type ANNO for annotations, or JUMP to jump to an area of rejected rooms.";
-		end the story finally saying "Defeat of agony?";
 
 chapter freakouting
 
@@ -6607,7 +6619,7 @@ check attacking lock caps:
 	say "Your plain old hammer doesn't do much."
 	
 instead of doing something with lock caps:
-	if current action is attacking or current action is examining or current action is explaining:
+	if current action is attacking or action is undrastic:
 		continue the action;
 	say "They're pretty secure, for locks. You can't see how to start to open them." instead;
 
@@ -6710,20 +6722,20 @@ before going when accel-ending:
 			say "The heck with this dump.";
 			continue the action;
 		else:
-			say "You do feel like [if off-eaten is true]banging the walls[else]bouncing off the walls[end if] now you've eaten the [co-ch], but not literally. But when you get bored, there's back east." instead;
+			say "You do feel like [if off-eaten is true]banging[else if greater-eaten is true]busting through[else]bouncing off[end if] the walls now you've eaten the [co-ch], but not literally. But when you get bored, there's back east." instead;
 	if noun is north:
 		say "[if off-eaten is true]Maybe up ahead will be less lame[else]Time to leave [location of player] in the dust[end if].";
 		continue the action;
 	if noun is south:
 		if player is in pressure pier:
-			say "[if off-eaten is true]You can't deal with the Word Weasel and Rogue Arch again. Well, actually, you can, but it's a new quasi-fun experience to pretend you can't[else]You'd like to go back and show the Word Weasel a thing or two, but he seems like small potatoes compared to taking out the [bad-guy][end if]." instead;
+			say "[if off-eaten is true]You can't deal with the Word Weasel and Rogue Arch again. Well, actually, you can, but it's a new quasi-fun experience to pretend you can't[else if cookie-eaten is true]You'd like to go back and win an argument with the Word Weasel, but he seems like small potatoes compared to showing the [bad-guy] a thing or two[else]You're too good to need to kiss up to the Word Weasel again[end if]." instead;
 		say "[if off-eaten is true]Go back south? Oh geez. Please, no[else]Much as you'd like to revisit the site of that argument you won so quickly, you wish to move on to greater and bigger ones[end if]." instead;
 	if the room noun of location of player is nowhere:
 		say "Nothing that-a-way." instead;
 	if the room noun of the location of player is visited:
 		say "You look [noun]. Pfft. Why would you want to go back? You're more focused after having an invigorating meal.";
 	else:
-		say "[if off-eaten is true]You really don't want to get lost among whatever weird people are [noun]. You're not up to it. You just want to talk to anyone who can get you out of here.[else]Pfft. Nothing important enough that way! Maybe before you'd eaten the cookie, you'd have spent time wandering about, but not now. North to Freak Control![end if]" instead;
+		say "[if off-eaten is true]You really don't want to get lost among whatever weird people are [noun]. You're not up to it. You just want to talk to anyone who can get you out of here.[else]Pfft. Nothing important enough that way! Maybe before you'd eaten, you'd have spent time wandering about, but not now. North to Freak Control![end if]" instead;
 
 section greater cheese
 
@@ -7252,7 +7264,7 @@ rule for amusing a victorious player:
 		else:
 			now missed-one is true;
 	if missed-one is true:
-		say "NOTE: the ending you chose missed a few things. You can "
+		say "NOTE: both 'good' endings are mutually exclusive, so you missed a bit. But you can NOTICE ADVANCE to get back past the jerks and try the other, if you haven't seen it yet."
 
 table of amusingness
 biglaff	anyrule
@@ -7370,7 +7382,7 @@ Include (-
 	VM_Style(NORMAL_VMSTY);
 	print "^^"; #Ifndef NO_SCORE; print "^"; #Endif;
 	if ( (+ pier-visited +) ) { print "(Note: you can skip to Pressure Pier on retry with KNOCK HARD in Smart Street.)^"; }
-	if ( (+ off-eaten +) || (+ cookie-eaten +) ) { print "(Also note: this is not the best ending.)^"; }
+	if ( (+ off-eaten +) || (+ cookie-eaten +) || (+ greater-eaten +)) { print "(Also note: this is not the best ending.)^"; }
 	rfalse;
 ];
 
@@ -7518,6 +7530,8 @@ to say your-mood:
 		say "WAY TOO COOL";
 	else if off-eaten is true:
 		say "NO FUNNY STUFF";
+	else if greater-eaten is true:
+		say "PUZZLES? PFF";
 	else if player is in Smart Street:
 		say "Just Starting";
 	else if player is in lounge:
@@ -7863,7 +7877,7 @@ when play begins (this is the test for talkers rule):
 					increment count;
 					say "PERSON [count] [Q] has no litany.";
 
-chapter macros
+chapter test macros
 
 test dream with "gonear bench/sleep/wake/sleep/z/wake/sleep/z/wake/sleep/z/wake"
 
@@ -7891,10 +7905,6 @@ test big with "n/e/get string/w/s/w/w/put string in hole/n/n/get sound safe/s/s/
 
 test jk with "j/j/j/j/brobye/purloin finger/x finger/talk to jerks/talk to boris"
 
-test cookie with "j/j/j/j/s/w/get cookie/e/n/n/n/n"
-
-test cheese with "j/j/j/j/s/w/get cheese/e/n/n/n/n"
-
 test final with "n/talk to baiter/1/1/1/1/1/1/1/1/1"
 
 test lastroom with "test startit/test blood/test soul/test big/purloin quiz pop/n/n/drink quiz pop/n/explain me"
@@ -7906,6 +7916,12 @@ test winfast with "gonear freak control/1/1/1/1/1/1/1/1"
 test pops with "get pop/n/n/drink pop/n"
 
 test arts-before-after with "gonear compound/x crack/x torch/purloin fish/play it/purloin safe/open it/x crack/x torch"
+
+section bad endings
+
+test cookie with "gonear meal square/get cookie/e/n/score/n/n/n"
+test off-c with "j/j/j/j/s/w/get off cheese/e/n/score/n/n/n"
+test greater-c with "j/j/j/j/s/w/get greater cheese/e/n/score/n/n/n"
 
 chapter broing
 
@@ -7933,6 +7949,20 @@ carry out broing:
 			say "SUCCESS!";
 		else:
 			say "FAILURE!";
+	the rule succeeds;
+
+chapter anchecking
+
+anchecking is an action out of world.
+
+understand the command "ancheck" as something new.
+
+understand "ancheck" as anchecking.
+
+carry out anchecking:
+	repeat with Q running through rooms:
+		unless Q is a listed in table of annotations:
+			say "Room: [Q] needs annotation.";
 	the rule succeeds;
 
 volume beta testing - not for release
@@ -8008,13 +8038,13 @@ carry out gating:
 	
 chapter skiping
 
-chapter num-skiping
+chapter nu-skiping
 
 understand the command "skip" as something new.
 
 understand "skip [number]" as nu-skiping.
 
-num-skiping is an action applying to one number.
+nu-skiping is an action applying to one number.
 
 skipped-yet is a truth state that varies.
 
@@ -8249,6 +8279,21 @@ carry out brobyeing:
 	say "The Keeper Brothers are now out of play.";
 	the rule succeeds;
 
+chapter bro1ing
+
+[* random bro to lalaland]
+
+bro1ing is an action out of world.
+
+understand the command "bro1" as something new.
+
+understand "bro1" as brobyeing.
+
+carry out bro1ing:
+	now a random bro is in lalaland;
+	say "In lalaland: [list of bros in lalaland]. This is a test command only.";
+	the rule succeeds;
+
 chapter jerking
 
 [* this tells testers what to do with the jerks]
@@ -8301,6 +8346,22 @@ understand "soff" as soffing.
 carry out soffing:
 	repeat with Q running through rooms in bad ends:
 		ship-off Q;
+	the rule succeeds;
+
+chapter xpalling
+
+[* this explains all visible]
+
+xpalling is an action out of world.
+
+understand the command "xpall" as something new.
+
+understand "xpall" as xpalling.
+
+carry out xpalling:
+	repeat with Q running through visible things:
+		if Q is not Alec Smart:
+			try explaining Q;
 	the rule succeeds;
 
 chapter jing
