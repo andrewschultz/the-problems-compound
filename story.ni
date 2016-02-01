@@ -231,10 +231,12 @@ the file of verb-unlocks is called "pcunlock".
 
 table of verb-unlocks
 brief	found	expound	descr
-"anno"	false	false	"ANNO to show annotations, or JUMP to jump to a bunch of rejected rooms, as a sort of director's cut."
+"anno"	false	true	"ANNO to show annotations, or JUMP to jump to a bunch of rejected rooms, as a sort of director's cut."
 "knock"	false	true	"KNOCK HARD to get to Pressure Pier."
 "figure"	false	true	"FIGURE A CUT to skip past the Howdy Boy to the [jc]."
 "notice"	false	true	"NOTICE ADVANCE to skip to after you disposed of the jerks."
+"good"	false	false	--
+"great"	false	false	--
 
 to unlock-verb (t - text):
 	unless t is a brief listed in table of verb-unlocks:
@@ -243,8 +245,9 @@ to unlock-verb (t - text):
 	choose row with brief of t in table of verb-unlocks;
 	if found entry is true:
 		continue the action;
-	say "[i][bracket]NOTE: you have just unlocked a new verb![close bracket][r]";
-	say "On restarting, you may now [descr entry][line break]";
+	if expound entry is true:
+		say "[i][bracket]NOTE: you have just unlocked a new verb![close bracket][r]";
+		say "On restarting, you may now [descr entry][line break]";
 	now found entry is true;
 	write file of verb-unlocks from table of verb-unlocks;
 
@@ -3437,6 +3440,7 @@ reference-blurb
 "Pretend to misunderstand everyone even if they're clear. If they don't stick up for themselves, well, they need to learn."
 "Use 'y'know' a lot, especially when berating unnecessary adverbs."
 "Smack [']em down with 'It's called...' two or three times a day."
+"Make your I CAN'T and YOU CAN'T equally forcible."
 "Make people feel like they blew it and they never had it in the first place."
 "Say people need to put first thing first, then laugh at every other thing they say."
 "If you can make people feel their weirdness is forcing you to lie to them, good for you!"
@@ -6673,7 +6677,29 @@ to go-back-home:
 	wfak;
 	say "Back in your bedroom, you have a thought. The Baiter Master saying you miss obvious things. Another look at [i]The Phantom Tolllbooth[r]: the inside flap. 'Other books you may enjoy.' There will be other obvious things you should've discovered. But it's good you found something right away, back in the normal world. You're confident you'll find more--and that people like the Baiter Master aren't the accelerated life experts you built them up to be.";
 	unlock-verb "anno";
+	print-replay-message;
 	end the story finally saying "Wisdom Received!";
+
+to print-replay-message:
+	choose row with brief of "good" in the table of verb-unlocks;
+	let T1 be found entry;
+	choose row with brief of "great" in the table of verb-unlocks;
+	let T2 be found entry;
+	if T1 is true and T2 is true:
+		say "Thanks for playing through again! I'm glad you found the game interesting enough to do so.";
+	continue the action;
+	if out mist is visited:
+		unlock-verb "good";
+		if T1 is false:
+			say "Thanks for replaying to find the good-but-not-great ending!";
+		else if T2 is false:
+			say "A better ending is [if T1 is true]still [end if]out there! [if assassination character is not in lalaland]There's something below the Assassination Character[else if Insanity Terminal is not in lalaland]The Insanity Terminal hides a clue[else]The Thoughts Idol still remains to torture Idiot Village[end if].";
+	else:
+		unlock-verb "great";
+		if T1 is true:
+			say "Congratulations, and for replaying to find the slightly better ending! I, and the imaginary people of Idiot Village, thank you!";
+		if T1 is false:
+			say "There's [if T2 is true]still [end if]a slightly different ending if you don't rescue Idiot Village from the Thoughts Idol, if you're curious and/or completist.";
 
 part Meal Square
 
