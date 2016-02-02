@@ -7723,6 +7723,8 @@ check inserting it into:
 		try eating noun instead;
 	try tying noun to second noun instead;
 
+period-warn is a truth state that varies.
+
 after reading a command:
 	if parser error flag is false:
 		if the player's command matches the regular expression "^\p" or the player's command matches the regular expression "^<\*;>":
@@ -7734,6 +7736,11 @@ after reading a command:
 				replace the regular expression "^answer " in the player's command with "";
 		if the player's command matches the regular expression "^talk to": [a hack for TALK TO vs TALK giving a non-awkward disambiguation]
 			replace the regular expression "^talk to" in the player's command with "talk";
+	if period-warn is false:
+		if the player's command matches the regular expression " ":
+			if the player's command matches the regular expression "\.":
+				now period-warn is true;
+				ital-say "extended commands may cause errors in rare cases such as E.N.W.GIVE X TO Y. This shouldn't happen often, but for future reference, it's a part of Inform parsing I never figured out. If you need to move around, GO TO is the preferred verb.";
 	if player is in airy station:
 		if the player's command includes "home hammer":
 			try examining hammer instead;
