@@ -314,6 +314,15 @@ a logic-game can be tried. a logic-game is usually not tried.
 
 volume stubs
 
+section nicety stubs
+
+to ital-say (x - text):
+	say "[italic type][bracket]NOTE: [x][close bracket][roman type][line break]";
+
+to score-now:
+	increment the score;
+	consider the notify score changes rule;
+
 section rerouting verb tries
 
 the last-command is indexed text that varies.
@@ -445,9 +454,6 @@ every turn:
 			now exits-mentioned is true;
 	continue the action;]
 
-to ital-say (x - text):
-	say "[italic type][bracket]NOTE: [x][close bracket][roman type][line break]";
-
 section peing
 
 peing is an action out of world.
@@ -552,7 +558,7 @@ chapter score
 to decide what number is abc:
 	decide on the number of people in lalaland;
 
-the maximum score is 17.
+the maximum score is 19.
 
 special-score is a number that varies. max-special-score is a number that varies. max-special-score is 4.
 
@@ -6459,7 +6465,12 @@ a list bucket is a thing in Freak Control. "[one of]A list bucket lying nearby m
 check taking the bucket:
 	say "You would, but the [bad-guy] might turn around and ask if you really needed to steal a bucket, and no, the text isn't going to change if you pick it up, and so forth." instead;
 
-description of list bucket is "[2da]The Language Sign should, um, y'know, make things obvious.[line break][2da]Shot screens: track various areas in the Compound[line break][2da]The Twister Brain: to see what people REALLY mean when they oppose you just a little[line break][2da]the Witness Eye provides tracking of several suspicious individuals[line break][2da]The Incident Miner processes fuller meaning of events the perpetrators wish were harmless."
+description of list bucket is "[2da]The Language Sign should, um, y'know, make things obvious.[line break][2da]Shot screens: track various areas in the Compound[line break][2da]The Twister Brain: to see what people REALLY mean when they oppose you just a little[line break][2da]the Witness Eye provides tracking of several suspicious individuals[line break][2da]The Incident Miner processes fuller meaning of events the perpetrators wish were harmless.[line break][2da]the Call Curtain is somewhere the [bad-guy] better not have to go behind more than once a day.[line break][2da]the Frenzy Feed magnifies social violations people don't know they're making, or want to hide from others, and lets you feel fully outraged.[paragraph break]All this gadgetry is well and good, but the [bad-guy] probably knows it better than you. You may need some other way to overcome him."
+
+the call curtain is scenery in Freak Control. "It doesn't look particularly malevolent--it seems well washed--but you don't know what's going on behind it."
+
+check entering call curtain:
+	say "The [bad-guy] wouldn't allow a repeat performance. Or any performance, really."
 
 the incident miner is scenery in Freak Control. "The incident miner churns and coughs. You see text like 'not as nice/interesting/worthwhile as he thinks' and 'passive aggressive but doesn't know it' and 'extraordinary lack of self awareness' spin by."
 
@@ -6477,7 +6488,9 @@ the Twister Brain is scenery in Freak Control. "Its ridges seem twisted into a s
 
 understand "ridge/ridges" as Twister Brain.
 
-the Witness Eye is scenery in Freak Control.
+the Witness Eye is scenery in Freak Control. "It's weird, it's circular, but it has enough pointy protrustions, it could be a Witness Star too. You see lots of things going on Most look innocent, but there's an occasional flash, the screen reddens, and WEIRD or WRONG flashes over for a half-second."
+
+understand "witness star" and "star" as Witness Eye.
 
 the Language Sign is scenery in Freak Control. "It says, in various languages: OUT, FREAK. [one of]You're momentarily impressed, then you feel slightly jealous that the [bad-guy] took the time to research them. You remember getting grilled for trying to learn new languages in elementary school, before you could take language classes. You mentally blame the [bad-guy] for that. Well, it was someone like him. [or]You also take a second or two to pick which language is which line. Got [']em all. Even the ones with the unusual alphabets you meant to figure.[stopping]"
 
@@ -6490,12 +6503,12 @@ litany of Baiter Master is the table of Baiter Master talk.
 check talking to Baiter Master:
 	if freaked-out is false:
 		say "[one of]He waves you off without even looking. 'Whoever you are, I'm busy. Too busy for your lame problems. And they must be lame, if you asked so weakly.' You'll need an entirely more aggressive way to get his attention.[or]You just aren't good enough at yelling to do things straight up. Maybe you can upset things somehow.[stopping]" instead;
-	say "'Dude! You need to chill... there are things called manners...' but he does have your attention now. 'This better be good. How'd you get by my stupid guards anyway? I mean, you obviously ARE a lot smarter than they are.'"
+	say "'Dude! You need to chill... there are things called manners...' but he does have your attention now. 'So. Someone finally got past those mopey brothers. You want a vision duel? Because we can have a vision duel. I have...an [i]opinion[r] of difference. You don't even have...one right serve.' He takes a slurp from a shot mug (with a too-flattering self-portrait, of course) and perks up."
 
 table of bm - Baiter Master talk
 prompt	response	enabled	permit
-"They're not stupid. They just needed help."	bm-help	1	1
-"What's that can?"	bm-litter	1	1
+"I've gained...belief beyond."	bm-help	1	1
+"What's in the shot mug?"	bm-mug	1	1
 "A gift from [bad-guy-2]? WHAT?!"	bm-bad2	0	1
 "Well, I took the time to go fetch stuff."	bm-fetch	0	1
 "Oh, they had something to SAY, all right."	bm-tosay	0	1
@@ -6509,7 +6522,7 @@ quip	quiptext
 bm-help	"'Really? What sort of help?'[paragraph break]You describe what you did for them and how you did it.[paragraph break]'Oh, so a fetch quest, then. You should be above that, shouldn't you? I mean, a fetch quest helps one other person, but clever philosophy--it helps a lot. [bad-guy-2], you know.'"
 bm-fetch	"'Big deal. You probably never considered how lucky you were, how improbable those helpful items were just lying around. Intelligent design? Pah! What a joke! My social ideals fix society and all that sort of thing. Surely you heard what people said? They had something to say.'"
 bm-tosay	"'You have to admit, I have leadership skills.'"
-bm-litter	"'Oh, nothing.' He seems nervous. You peer more closely. It's Jerk Soda. You walk over. 'COMPLIMENTARY FROM [bad-guy-2-c].'"
+bm-mug	"'Oh, it's Crisis Energy. For taking urgent action when someone's -- out of line.' You look more closely. 'COMPLIMENTARY FROM [bad-guy-2-c].'"
 bm-bad2	"'It's--it's, well, tribute is what it is.'"
 bm-so-bad2	"'Oh, come on, you know the difference.'[wfk][line break]It just slips out. 'Yeah, it's easy, there's not much of it.'"
 bm-tribute	"'There will be. Just--society needs to be stable, first. And it almost was. Until you stepped in.'"
@@ -6524,7 +6537,7 @@ after quipping when qbc_litany is table of baiter master talk:
 	if current quip is bm-tosay:
 		enable the bm-so-bad2 quip;
 	do nothing; [cut things in two]
-	if current quip is bm-litter:
+	if current quip is bm-mug:
 		enable the bm-bad2 quip;
 	if current quip is bm-bad2:
 		enable the bm-tribute quip;
@@ -6555,6 +6568,7 @@ understand "freak out" as freakouting.
 carry out freakouting:
 	say "You let it all out. You haven't let it all out, since the good old days when James Scott and Scott James, ever fair and balanced, castigated you alternately for being too creepy-silent or being too overemotional. You blame the [bad-guy] for stuff that couldn't possibly be his fault, but it feels good--and it gets his attention.";
 	now freaked-out is true;
+	score-now;
 	try talking to baiter master instead;
 
 chapter powertriping
@@ -6718,6 +6732,7 @@ to go-back-home:
 	if end-stress-test is true:
 		say "Yay! This worked. I am blocking the ending so you can try again.";
 		continue the action;
+	score-now;
 	say "The door leads to your closet and vanishes when you walk through. You're hungry after all that running around. Downstairs you find some old cereal you got sick of--but now you realize it could be Procrastination Cereal, Moping Cereal, or anything else--a small joke you'll be able to use for a while. Especially since it's hardly killer cereal--not even close.";
 	wfak;
 	say "You laugh at your own joke, which brings your parents out, complaining your late night moping is worse than ever. You promise them it'll get better.";
