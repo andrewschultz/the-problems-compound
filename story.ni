@@ -6705,7 +6705,12 @@ carry out worming:
 
 part merged ending
 
+end-stress-test is a truth state that varies.
+
 to go-back-home:
+	if end-stress-test is true:
+		say "Yay! This worked. I am blocking the ending so you can try again.";
+		continue the action;
 	say "The door leads to your closet and vanishes when you walk through. You're hungry after all that running around. Downstairs you find some old cereal you got sick of--but now you realize it could be Procrastination Cereal, Moping Cereal, or anything else--a small joke you'll be able to use for a while. Especially since it's hardly killer cereal--not even close.";
 	wfak;
 	say "You laugh at your own joke, which brings your parents out, complaining your late night moping is worse than ever. You promise them it'll get better.";
@@ -8039,6 +8044,9 @@ the force tester wherever rule is listed last in the when play begins rulebook.
 
 beta-zap-room is a room that varies. beta-zap-room is lalaland.
 
+after printing the locale description when mrlp is endings and location of player is unvisited:
+	say "NOTE TO BETA TESTERS: the EST command lets you toggle whether or not win-tries end the game, so you don't have to keep UNDOing. Whatever you can try is a big help.";
+
 after printing the locale description when player is in beta-zap-room and beta-zap-room is unvisited (this is the stop the game before I'm embarrassed by implementation rule) :
 	if debug-state is false:
 		say "You've gotten as far as is useful to me know. Thank you so much! Please send the transcript to [email].";
@@ -8430,6 +8438,21 @@ carry out xpalling:
 	repeat with Q running through visible things:
 		if Q is not Alec Smart:
 			try explaining Q;
+	the rule succeeds;
+
+chapter esting
+
+[* this lets the player try a bunch of wins without undo ]
+
+esting is an action out of world.
+
+understand the command "est" as something new.
+
+understand "est" as esting.
+
+carry out esting:
+	now end-stress-test is whether or not end-stress-test is false;
+	say "End stress testing is now [on-off of end-stress-test].";
 	the rule succeeds;
 
 chapter jing
