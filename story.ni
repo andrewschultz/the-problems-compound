@@ -208,6 +208,8 @@ when play begins (this is the actual start rule):
 		now screen-read is true;
 	else:
 		now screen-read is false;
+	say "Also, do you wear gla--? Wait, no, that's irrelevant. Let's...let's get on with things.";
+	wfak;
 	say "It's not [i]The Phantom Tollbooth[r]'s fault your umpteenth re-reading fell flat earlier this evening. Perhaps now you're really too old for it to give you a boost, especially since you're in advanced high school classes. Classes where you learn about the Law of Diminishing Returns.[paragraph break]Or how protagonists gain character through conflict--conflict much tougher than class discussions you barely have energy for. You pick the book up--you shouldn't have chucked it on the floor. Back to the bookcase...";
 	wfak;
 	say "[line break]Odd. Why's a bookmark wedged there? You always read the book in one go!";
