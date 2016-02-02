@@ -1678,7 +1678,6 @@ Insanity Terminal	"Terminal insanity is having no chance to regain sanity."
 iron waffle	"A waffle iron is what you put batter in to make a waffle. But a waffle is also what you use when you don't know what to say. An iron waffle, then, would be something to say when you don't know what to say--but it is hard to take down."
 note crib	"To crib notes is to copy from someone who was at a lecture."
 Eye Witness	"Someone at the scene of the crime."
-Gallery Peanut	"The peanut gallery is where people sit around and make wisecracks."
 Off Cheese	"To cheese someone off is to annoy them."
 gagging lolly	"Lollygagging is waiting around."
 condition mint	"Mint condition is brand new."
@@ -1806,7 +1805,7 @@ Flames Fan	"To fan the flames is to keep things going. The Flames Fan just watch
 to say ham-desc:
 	choose row with brief of "great" in table of verb-unlocks;
 	if found entry is true:
-		say ": AWAY HAMMMER = hammer away = keep trying, HOME HAMMER = hammer home = to make a point forcefully, LOCK HAMMER = hammer lock = a wrestling hold";
+		say ": AWAY HAMMMER = hammer away = keep trying, HOME HAMMER = hmmer home = to make a point forcefully, LOCK HAMMER = hammer lock = a wrestling hold";
 	else:
 		say " I can't spoil yet";
 
@@ -1827,6 +1826,7 @@ carry out explaining the player:
 
 definition: a thing (called x) is explainable:
 	if x is a logic-game, decide no;
+	if x is in bullpen and debug-state is true, decide yes;
 	if x is in lalaland, decide yes;
 	if x is part of towers of hanoi or x is part of broke flat or x is part of games counter or x is games counter or x is games, decide no;
 	if x is t-surf, decide no;
@@ -2285,7 +2285,7 @@ anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
 table of annotations (continued) [toa-items]
 anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
 0	round stick	lalaland	"stick"	"It took a bit of time to find the magic item to cross over. Originally it was the Proof of Burden, but that was too magical, too early. And that might've forced the mechanic on you. I think A Round Stick is a bit subtler."
-0	game shell	lalaland	"Shell"	"This was originally a location, and its predecessor was the Gallery Peanut, which deserved a more prominent fate than I gave it. But once I moved it, it became obvious: a place where you could play games and win, but never really win anything valuable. Or you'd lose interest, or confidence."
+0	game shell	lalaland	"Shell"	"This was originally a location, and its predecessor was the Gallery Peanut, which got shuffled to Meal Square, then to a potential sequel. But once I moved the Peanut, the Shell became obvious: a place where you could play games and win, but never really win anything valuable. Or you'd lose interest, or confidence."
 
 volume the game itself
 
@@ -2719,8 +2719,6 @@ logic puzzles	0	"You don't even need the scratch paper Guy offers you. There are
 logic puzzles	1	"It's a bit tougher, now. You hand-draw a grid on a piece of paper Guy gives you. There are more clues to wade through. It's sort of fun, nosing into people's houses (but not really) without having to ask any nosy que...[paragraph break]'Nice job. I knew a guy who can do it in his head--don't worry, you have more hope than him...' Guy takes the scratch paper and crumples it and throws it away. 'Aw, you couldn't have been ATTACHED to it, right?'"
 logic puzzles	2	"You work away. It's a bit tedious, and you're not sure what you get, and you remember burning through a whole book so quickly your parents said you'd have to wait for a new one. It's knowledge you never lose, and as you mechanically fill in a few more, Guy crumples it and throws it."
 logic puzzles	3	"It's--grr. You see a clear choice between seeming lazy and potentially boring Guy, and after some mental gymnastics, you opt for lazy.[paragraph break]There's a brain game in here for a third option you can't quite solve. [if allow-swears is true]Damn[else]Rats[end if]."
-
-[gallery peanut]
 
 section playing
 
@@ -3860,6 +3858,7 @@ instead of doing something with rehearsal dress:
 	say "In this game, you can pretty much only examine the dress."
 
 after printing the locale description for Soda Club when Soda Club is unvisited:
+	now Total T is in lalaland;
 	say "The bartender calls you over. 'Psst! Pal! Can you give me a break from Liver Lily over there? She's--she's usually pretty interesting, but when she's wearing that rehearsal dress she tends to repeat what she's already said. By the way, you can call me the Punch Sucker. Cuz it's my favorite drink.'"
 
 description of Liver Lily is "She is waiting for conversation in her rehearsal dress."
@@ -4024,6 +4023,7 @@ to say here-or-not:
 
 after quipping when qbc_litany is litany of Punch Sucker:
 	if current quip is sucker-drinks:
+		move go rum to lalaland;
 		enable the sucker-but quip;
 		enable the sucker-haha quip;
 		enable the sucker-cooler quip;
@@ -6760,7 +6760,20 @@ check going west in pressure pier:
 	otherwise:
 		say "The Howdy Boy coughs. '[one of]That's Meal Square. No one to get in a food fight with or anything[or]There's other better places to break the rules than Meal Square[stopping].'" instead;
 
-Meal Square is west of Pressure Pier. Meal Square is in Main Chunk. "This is a small alcove with Pressure Pier back east. [one of]One wall features a huge peanut, with a gallery of foods[or]The gallery peanut covers one wall[stopping]. There's also a picture of a dozen bakers."
+Meal Square is west of Pressure Pier. Meal Square is in Main Chunk. "This is a small alcove with Pressure Pier back east. There's not much decoration except a picture of a dozen bakers."
+
+Tray A is a supporter in Meal Square.
+
+Tray B is a supporter in Meal Square.
+
+check examining a supporter when accel-ending:
+	say "You've already seen the food there and made your choice." instead;
+
+check taking when player is in Meal Square and accel-ending:
+	say "Ug. You're full. Move on." instead;
+
+check eating when player is in Meal Square and accel-ending:
+	say "Ug. You're full. Move on." instead;
 
 check going nowhere in meal square:
 	say "No way out except east." instead;
@@ -6816,7 +6829,7 @@ before going when accel-ending:
 
 section greater cheese
 
-the greater cheese is an edible thing in Meal Square.
+the greater cheese is an edible thing on Tray B.
 
 greater-eaten is a truth state that varies.
 
@@ -6837,7 +6850,7 @@ check eating greater cheese:
 
 section off cheese
 
-the off cheese is an edible thing in Meal Square.
+the off cheese is an edible thing on Tray B.
 
 off-eaten is a truth state that varies.
 
@@ -6857,6 +6870,10 @@ check eating off cheese:
 	now off-eaten is true instead;
 	
 chapter cutter cookie
+
+cookie-eaten is a truth state that varies.
+
+the cutter cookie is an edible thing on Tray B. description is "It looks like the worst sort of thing to give kids on Halloween. If it doesn't have any actual razor blades, it's pointy as a cookie should not be. It's also grey and oatmeal-y, which cookies should never be. I mean, I like oatmeal cookies, just not dingy grey ones. It seems like excellent food for if you want to be very nasty indeed."
 
 check taking cutter cookie:
 	try eating cutter cookie instead;
@@ -6958,24 +6975,13 @@ to say bro-s:
 to say bro-nos:
 	say "[unless bros-left is 1]s[end if]";
 
-cookie-eaten is a truth state that varies.
-
-a cutter cookie is an edible thing in Meal Square. description is "It looks like the worst sort of thing to give kids on Halloween. If it doesn't have any actual razor blades, it's pointy as a cookie should not be. It's also grey and oatmeal-y, which cookies should never be. I mean, I like oatmeal cookies, just not dingy grey ones. It seems like excellent food for if you want to be very nasty indeed."
-
-chapter gallery peanut
-
-the gallery peanut is scenery in Meal Square. "It's hollowed out to contain a variety of foods: [a list of edible things in meal square]."
-
-check eating gallery peanut:
-	say "It's too big to be edible and probably too sturdy, too.";
-
 chapter condition mint
 
-for writing a paragraph about an edible thing:
-	say "The gallery peanut contains several different food samples: [a list of edible things in meal square].";
-	now all edible things in meal square are mentioned;
+for writing a paragraph about a supporter in Meal Square:
+	say "Two trays sit here, labeled, semi-helpfully, Tray A and Tray B.";
+	now all supporters in meal square are mentioned;
 
-a condition mint is an edible thing in Meal Square. description is "It's one inch square, with SHARE WITH A FRIEND on it."
+a condition mint is an edible thing on Tray A. description is "It's one inch square, with SHARE WITH A FRIEND on it."
 
 check eating the condition mint:
 	say "No, it's for someone else." instead;
@@ -7000,7 +7006,7 @@ definition: a client (called cli) is befriended:
 
 chapter iron waffle
 
-an iron waffle is an edible thing in Meal Square. description is "Just staring at it, you imagine ways to brush off people who get up in your grill with dumb questions. You try and forge them into a set of rules, but you feel, well, rusty."
+an iron waffle is an edible thing on Tray A. description is "Just staring at it, you imagine ways to brush off people who get up in your grill with dumb questions. You try and forge them into a set of rules, but you feel, well, rusty."
 
 check taking the iron waffle:
 	say "It'd be too heavy." instead;
@@ -7010,7 +7016,7 @@ check eating the iron waffle:
 
 chapter gagging lolly
 
-a gagging lolly is an edible thing in Meal Square. description is "Staring at the circular lolly's blend of hideous colors, you also feel less sure of things, which makes you feel open-minded, which makes you feel more sure of things, which makes you feel closed-minded and eventually less sure of things.[paragraph break]Man! That was tough to digest. Just all that thinking was a choking enough sensation."
+a gagging lolly is an edible thing on Tray A. description is "Staring at the circular lolly's blend of hideous colors, you also feel less sure of things, which makes you feel open-minded, which makes you feel more sure of things, which makes you feel closed-minded and eventually less sure of things.[paragraph break]Man! That was tough to digest. Just all that thinking was a choking enough sensation."
 
 check taking lolly:
 	say "You haven't walked around with a lolly since you were five years old, and it'd be a bit embarrassing to do so now." instead;
@@ -7599,7 +7605,13 @@ Rule for printing a parser error when the latest parser error is the nothing to 
 		say "You don't need to drop anything in the game, much less all your possessions.";
 	else:
 		say "Sorry, but right now ALL doesn't encompass anything. But don't worry, everything you need should be visible." instead.
-	
+
+Rule for printing a parser error when the latest parser error is the noun did not make sense in that context error:
+	if current action is explaining:
+		say "I couldn't find anything named that to explain.";
+	else:
+		say "The verb was ok, but you referred to something that hasn't come up yet in the game--and may not."
+
 volume real stuff
 
 to say your-mood:
@@ -7698,6 +7710,10 @@ chapter lalaland
 meta-rooms is a region.
 
 bullpen is a room in meta-rooms. "You should never see this. If you do, it is a [bug]."
+
+the Total T is a thing in bullpen.
+
+the Go Rum is a thing in bullpen.
 
 lalaland is a room in meta-rooms. "You should never see this. If you do, it is a [bug]."
 
