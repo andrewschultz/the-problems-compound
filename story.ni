@@ -20,6 +20,8 @@ include Conditional Undo by Jesse McGrew.
 
 include In-Game Mapping by Andrew Schultz.
 
+include Trivial Niceties by Andrew Schultz.
+
 chapter quips
 
 include Reactable Quips Modified by Michael Martin.
@@ -208,8 +210,9 @@ when play begins (this is the actual start rule):
 		now screen-read is true;
 	else:
 		now screen-read is false;
-	say "Also, do you wear gla--? Wait, no, that's irrelevant. Let's...let's get on with things.";
-	wfak;
+	if screen-read is false:
+		say "Also, do you wear gla--? Wait, no, that's irrelevant. Let's...let's get on with things.";
+		wfak;
 	say "It's not [i]The Phantom Tollbooth[r]'s fault your umpteenth re-reading fell flat earlier this evening. Perhaps now you're really too old for it to give you a boost, especially since you're in advanced high school classes. Classes where you learn about the Law of Diminishing Returns.[paragraph break]Or how protagonists gain character through conflict--conflict much tougher than class discussions you barely have energy for. You pick the book up--you shouldn't have chucked it on the floor. Back to the bookcase...";
 	wfak;
 	say "[line break]Odd. Why's a bookmark wedged there? You always read the book in one go!";
@@ -231,7 +234,7 @@ when play begins (this is the read options file rule):
 
 the file of verb-unlocks is called "pcunlock".
 
-table of verb-unlocks
+table of vu - verb-unlocks [tvu]
 brief	found	expound	descr
 "anno"	false	true	"ANNO to show annotations, or JUMP to jump to a bunch of rejected rooms, as a sort of director's cut."
 "knock"	false	true	"KNOCK HARD to get to Pressure Pier."
@@ -359,31 +362,6 @@ Rule for reading a command when the parser error flag is true:
 	now the parser error flag is false; 
 	change the text of the player's command to the last-command.
 
-section pronoun setting
-
-[This allows us to refer to a plural noun as it/them. Thanks to Climbingstars!]
-
-To set the/-- pronoun it to (O - an object): (- LanguagePronouns-->3 = {O}; -).
-To set the/-- pronoun him to (O - an object): (- LanguagePronouns-->6 = {O}; -).
-To set the/-- pronoun her to (O - an object): (- LanguagePronouns-->9 = {O}; -).
-To set the/-- pronoun them to (O - an object): (- LanguagePronouns-->12 = {O}; -).
-
-section transcripting stub
-
-[This makes a check for if the transcript is on. I use it to check if a person starts with * but transcripting is off. Thanks to Zarf!]
-
-Include (-
-[ CheckTranscriptStatus;
-#ifdef TARGET_ZCODE;
-return ((0-->8) & 1);
-#ifnot;
-return (gg_scriptstr ~= 0);
-#endif;
-];
--).
-
-To decide whether currently transcripting: (- CheckTranscriptStatus() -)
-
 section debug stubs
 
 [these 2 must be in release section since release code uses them trivially at points]
@@ -393,14 +371,6 @@ in-beta is a truth state that varies.
 debug-state is a truth state that varies. debug-state is false.
 
 stop-on-bug is a truth state that varies. stop-on-bug is false.
-
-to d (a - indexed text):
-	if debug-state is true:
-		say "DEBUG INFO: [a][line break]"
-
-to dn (a - indexed text):
-	if debug-state is true:
-		say "DEBUG INFO: [a]"
 
 to say bug:
 	if debug-state is true:
@@ -1697,7 +1667,7 @@ after explaining dots:
 	else:
 		say "Okay."
 
-table of explanations
+table of explanations [toe]
 exp-thing	exp-text	exp-anno
 dots	"These aren't a pun, but it's something mathy people see a lot of, and motivational speakers tend to abuse it. If you'd like the solution to the four lines to draw to connect all the points, and even other smart-aleck answers, say yes."
 Poetic Wax	"To wax poetic is to, well, rhapsodize with poems or song or whatever. It's slightly less gross than wax."
@@ -1792,6 +1762,7 @@ round screw	"To screw around is to do silly unproductive stuff."
 round stick	"To stick around is to move nowhere."
 gesture token	"A token gesture is something done as a bare minimum of acknowledgement."
 off tee	"To tee off is to yell or punch out at someone."
+fly bar	"A barfly is someone who goes around to bars and gets drunk."
 boo tickety	"Tickety-boo means okay, all right, etc."
 person chair	"A chairperson is someone in charge of things."
 off brush	"To brush off is to ignore. It's more ignoring someone's ideas than ignoring them fully."
@@ -1818,13 +1789,26 @@ Cold contract	"To contract a cold is to get sick."
 Trade of Tricks	"Tricks of the Trade are things that outsiders to a specialty probably don't know that are a bit out of the range of common sense."
 wacker weed	"A weed whacker is the slang for a gardening tool to cut weeds."
 shot screens	"A screenshot is a still frame from a video."
+list bucket	"A bucket list has things to do before you die."
+call curtain	"A curtain call is when someone comes back out after lots of applause."
+hammer	"The hammer can be three things[ham-desc]."
+incident miner	"A minor incident is not a big deal, but the incident miner makes a big deal of small things."
+worm ring	"A ringworm is a form of parasite."
+greater cheese	"A cheese grater chops up cheese. Also, you do become a bit of a grater if you eat it."
 Officer Petty	"A petty officer is actually reasonably far up in the hierarchy, the equivalent of a sergeant."
 Sound Safe	"Safe, sound means being out of trouble. Also, the safe isn't very sound, as it's easy to open."
 mind of peace	"Peace of mind means being able to think."
 pen fountain	"A fountain pen is (these days) a typical pen. You don't have to dip it in ink to keep writing. It's less exotic than a pen fountain, of course."
 consciousness stream	"Stream of consciousness is a form of writing that relies heavily on inner monologue."
+Francis Pope	"Pope Francis is the current pope as of this game's writing."
+Flames Fan	"To fan the flames is to keep things going. The Flames Fan just watches them."
 
-[?? big brother reference]
+to say ham-desc:
+	choose row with brief of "great" in table of verb-unlocks;
+	if found entry is true:
+		say ": AWAY HAMMMER = hammer away = keep trying, HOME HAMMER = hammer home = to make a point forcefully, LOCK HAMMER = hammer lock = a wrestling hold";
+	else:
+		say " I can't spoil yet";
 
 does the player mean explaining the player:
 	it is likely;
@@ -1835,7 +1819,11 @@ carry out explaining the player:
 		repeat with Q running through explainable things:
 			if Q is not an exp-thing listed in table of explanations:
 				increment count;
-				say "[count]: [Q] needs an explanation.";
+				say "[count]: [Q][if Q is privately-named](privately-named)[end if] ([location of Q]) needs an explanation.";
+		if count is 0:
+			say "Yay! No unexplained things.";
+		unless the player's command includes "me":
+			the rule succeeds;
 
 definition: a thing (called x) is explainable:
 	if x is a logic-game, decide no;
@@ -1846,6 +1834,7 @@ definition: a thing (called x) is explainable:
 		if x is water-scen or x is stall-scen, decide no;
 	if x is in disposed well:
 		if x is scen-home or x is scen-church, decide no;
+	if x is gen-brush or x is hole, decide no;
 	if x is nametag or x is bar-scen or x is writing, decide no;
 	if player carries x, decide yes;
 	if x is Baiter Master, decide yes;
@@ -3683,9 +3672,9 @@ after quipping when qbc_litany is litany of fritz:
 
 part Joint Strip
 
-Joint Strip is east of Down Ground. It is in Outer Bounds. "There's a familiar but disturbing scent in the air--those responsible for it are probably hiding nearby from the local law enforcement. The clearest exits are south to [if Soda Club is visited]the Soda Club[else]a bar[end if] or back west to Down Ground."
+Joint Strip is east of Down Ground. It is in Outer Bounds. "There's a familiar but disturbing scent in the air--those responsible for it are probably hiding nearby from the local law enforcement. The clearest exits are south to [if Soda Club is visited]the Soda Club[else]a fly bar[end if] or back west to Down Ground."
 
-the bar is scenery in Joint Strip. "[if soda club is visited]It isn't labeled, but there's not a bouncer or anything[else]The Soda Club seems much less mysterious now you've been in it[end if]."
+the fly bar is scenery in Joint Strip. "[if soda club is visited]It isn't labeled, but there's not a bouncer or anything[else]The Soda Club seems much less mysterious now you've been in it[end if]."
 
 instead of entering bar:
 	try going south.
@@ -7771,13 +7760,7 @@ after reading a command:
 		if the player's command includes "lock hammer":
 			try examining hammer instead;
 
-volume yes-no substitutes
-
-to decide whether the player yes-consents:
-	(- YesOrNoExt(1) -).
-
-to decide whether the player no-consents:
-	(- YesOrNoExt(0) -).
+volume swear deciding
 
 To decide what number is swear-decide:
 	(- OKSwear(); -)
@@ -7807,14 +7790,6 @@ Global copout;
 			print "I won't judge. Yes or no. > ";
 		} else { print "No wrong answer. You won't miss anything either way. Yes or no. > "; }
 	}
-];
-
-[ YesOrNoExt yn;
-	if ( (+ debug-state +) == 1)
-	{
-	    return yn;
-	}
-	return YesOrNo();
 ];
 
 -)
@@ -8022,7 +7997,9 @@ test arts-before-after with "gonear compound/x crack/x torch/purloin fish/play i
 section bad endings
 
 test cookie with "gonear meal square/get cookie/e/n/score/n/n/n"
+
 test off-c with "j/j/j/j/s/w/get off cheese/e/n/score/n/n/n"
+
 test greater-c with "j/j/j/j/s/w/get greater cheese/e/n/score/n/n/n"
 
 chapter broing
@@ -8063,7 +8040,7 @@ understand "ancheck" as anchecking.
 
 carry out anchecking:
 	repeat with Q running through rooms:
-		unless Q is a listed in table of annotations:
+		unless Q is a anno-loc listed in table of annotations:
 			say "Room: [Q] needs annotation.";
 	the rule succeeds;
 
@@ -8137,10 +8114,10 @@ carry out gating:
 		now player has money seed;
 		now player has fourth-blossom;
 		now player has mind of peace;
-	repeat with Q running through held items:
+	repeat with Q running through carried things:
 		try giving Q to the noun;
 	the rule succeeds.
-	
+
 chapter skiping
 
 chapter nu-skiping
@@ -8395,8 +8372,15 @@ understand the command "bro1" as something new.
 understand "bro1" as brobyeing.
 
 carry out bro1ing:
+	if number of stillblocking people is 0:
+		say "Everyone's gone.";
+		the rule succeeds;
+	let Z be a random stillblocking person;
+	now Z is in lalaland;
+	say "Moved [Z] to lalaland.";
 	now a random bro is in lalaland;
-	say "In lalaland: [list of bros in lalaland]. This is a test command only.";
+	say "[list of stillblocking people] still in Questions Field.";
+	say "This is a test command only.";
 	the rule succeeds;
 
 chapter jerking
@@ -8466,6 +8450,7 @@ understand "xpall" as xpalling.
 carry out xpalling:
 	repeat with Q running through visible things:
 		if Q is not Alec Smart:
+			say "[Q]: ";
 			try explaining Q;
 	the rule succeeds;
 
