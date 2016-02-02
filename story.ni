@@ -6572,13 +6572,29 @@ part Airy Station
 
 Airy Station is a room in Endings. "[one of]A cheering crowd[or]The mentality crowd[stopping] surrounds you on all sides! They're going pretty crazy over their new-found freedom, and how you got it for them."
 
-description of hammer is "It's a nondescript hammer. You feel a power, though, as you carry it--as if you were able to change it."
+understand "man hammer" as a mistake ("So, this game isn't badly cartoonish enough for you?") when player is in Airy Station.
+
+understand "ban hammer" as a mistake ("You feel confident you could be an internet forum mod. But--if you banned the hammer, you'd never get back home.") when player is in Airy Station.
+
+understand "hammer jack" as a mistake ("There's probably someone named Jack in the crowd, but even if he deserved it, it'd take too long to go and ask.") when player is in Airy Station.
+
+understand "hammer ninny" as a mistake("This is a nonviolent mistake, and besides, everyone here has been slandered as an idiot, not a ninny.") when player is in Airy Station.
+
+understand "hammer sledge" as a mistake("If there were a sledge, you wouldn't want to destroy it. Trust me, I know what I'm doing. And you will, soon, too.") when player is in Airy Station.
+
+understand "worm round" as a mistake("You consider worming around, but you're not very good at flattery, and there's nobody to flatter. Not that it's worth being good at flattery.") when player is in Airy Station.
+
+understand "hammer [text]" and "[text] hammer" as a mistake ("You look at the hammer, hoping it will change, but nothing happens. Maybe another word.") when player is in Airy Station.
+
+the hammer is a thing in Airy Station. description of hammer is "It's a nondescript hammer. You feel a power, though, as you carry it--as if you were able to change it, if you knew how to describe it."
 
 after printing the name of the hammer when taking inventory:
 	say " (much plainer than it should be)";
 
 instead of doing something with hammer:
 	let q be right-adj;
+	if q is -1:
+		say "That should have worked. But it didn't. You must be close, though." instead;
 	if q is 0:
 		continue the action;
 	if q is 1:
@@ -6596,6 +6612,8 @@ to best-end:
 	go-back-home;
 
 to decide which number is right-adj:
+	if the player's command matches the regular expression "\bcaps\b":
+		decide on -1;
 	if the player's command matches the regular expression "\block\b":
 		decide on 1;
 	if the player's command matches the regular expression "\bhome\b":
@@ -6620,7 +6638,7 @@ check entering Return Carriage:
 	say "You approach the whitespace around the return carriage, then try a new line of entry, but you have to admit failure and retreat to backspace. Those caps locks--you can't find a way to control [']em." instead;
 
 check attacking lock caps:
-	say "Your plain old hammer doesn't do much."
+	say "Your plain old hammer doesn't do much." instead;
 	
 instead of doing something with lock caps:
 	if current action is attacking or action is undrastic:
@@ -6640,11 +6658,28 @@ check going in Airy Station:
 
 part Out Mist
 
-Out Mist is a room in Endings. "A worm ring sits in the middle of the wood here. You hear your pursuers approaching."
+Out Mist is a room in Endings. "A worm ring sits in the middle of the wood here. It's cannibalizing itself too much to be whole.[paragraph break]It's silent here and tough to see, but you're pretty sure your pursuers aren't approaching any more."
+
+check going nowhere in Out Mist:
+	say "No. This is the first thing you stumbled on, and getting more or less lost both seem equally bad." instead;
+
+check going inside in out mist:
+	try entering worm ring instead;
+
+check entering worm ring:
+	say "There's not enough space for you to fit." instead;
 
 to good-end:
 	say "The Whole Worm is bigger than you thought. You hide deeper and deeper. A passage turns down, and then here's a door. Through it you see your bedroom.";
 	go-back-home;
+
+understand "let ring" as a mistake("Your hair curls at the thought of such passivity.") when player is in Out Mist.
+
+understand "master ring" as a mistake("You're RUNNING from the ring master, and you've already spent time mastering the Problems Compound.") when player is in Out Mist.
+
+understand "ring [text]" and "[text] ring" as a mistake ("Nothing happens to the ring. It sits there as lumpy as before.") when player is in Out Mist.
+
+understand "worm [text]" and "[text] worm" as a mistake ("The worm ring's problem isn't that it's a worm, but rather that it's a ring.") when player is in Out Mist.
 
 the worm ring is scenery in Out Mist.
 
@@ -7694,6 +7729,13 @@ after reading a command:
 				replace the regular expression "^answer " in the player's command with "";
 		if the player's command matches the regular expression "^talk to": [a hack for TALK TO vs TALK giving a non-awkward disambiguation]
 			replace the regular expression "^talk to" in the player's command with "talk";
+	if player is in airy station:
+		if the player's command includes "home hammer":
+			try examining hammer instead;
+		if the player's command includes "away hammer":
+			try examining hammer instead;
+		if the player's command includes "lock hammer":
+			try examining hammer instead;
 
 volume yes-no substitutes
 
