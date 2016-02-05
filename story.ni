@@ -119,7 +119,7 @@ when play begins (this is the set debug first rule):
 	now ignore-wait is true;
 	let one-true be false;
 	repeat with RM running through rooms:
-		if map region of RM is nothing and RM is not lalaland and RM is not bullpen:
+		if map region of RM is nothing:
 			say "[RM] needs a region.";
 			now one-true is true;
 	if one-true is false:
@@ -292,10 +292,6 @@ a person can be surveyable, baiter-aligned, or unaffected. a person is usually u
 
 Procedural rule: ignore the print final score rule.
 
-[the print final score rule does nothing.]
-
-[use scoring.] [needed for 6l]
-
 a thing can be abstract. a thing is usually not abstract.
 
 a client is a kind of person. a client is usually male. a client can be specified. a client is usually not specified. a client has text called clue-letter.
@@ -319,13 +315,6 @@ volume stubs
 
 section nicety stubs
 
-to ital-say (x - text):
-	say "[italic type][bracket]NOTE: [x][close bracket][roman type][line break]";
-
-to score-now:
-	increment the score;
-	consider the notify score changes rule;
-
 section rerouting verb tries
 
 the last-command is indexed text that varies.
@@ -339,7 +328,7 @@ Rule for printing a parser error when the latest parser error is the only unders
 	say "That command seemed like it was longer than it needed to be. You may wish to cut a word or two down. Push 1 to retry [word number 1 in the player's command in upper case][if nw > 1] or up to [nw] to retry the first [nw] words, or any other key to try something else.";
 	let Q be the chosen letter;
 	d "[Q] vs 49 vs [48 + nw], [nw].";
-	if Q >= 49 and Q <= 48 + nw:
+	if Q >= 49 and Q <= 48 + nw: [since it's ascii, 49 = the number 1]
 		now parser error flag is true;
 		now the last-command is "[word number 1 in the player's command]";
 		let temp be 50;
@@ -364,7 +353,7 @@ Rule for reading a command when the parser error flag is true:
 
 section debug stubs
 
-[these 2 must be in release section since release code uses them trivially at points]
+[these 3 must be in release section since release code uses them trivially at points. Beta = for beta testers, Debug-state is my own debugging, stop-on-bug is for me in case something bad happens.]
 
 in-beta is a truth state that varies.
 
@@ -381,6 +370,9 @@ to say bug:
 	unless currently transcripting:
 		say "You're not currently transcripting, but you can try to cut and paste text, or you can undo a few times, TRANSCRIPT and then redo."
 
+to say email:
+	say "blurglecruncheon@gmail.com";
+
 to say my-repo:
 	say "http://github.com/andrewschultz/the-problems-compound"
 
@@ -389,6 +381,8 @@ section printing exits
 print-exits is a truth state that varies.
 
 definition: a direction (called myd) is viable:
+	if the player is in freak control:
+		decide no;
 	if the player is in round lounge:
 		if myd is up:
 			decide yes;
@@ -530,8 +524,6 @@ to decide what number is abc:
 
 the maximum score is 19.
 
-special-score is a number that varies. max-special-score is a number that varies. max-special-score is 4.
-
 check requesting the score:
 	if greater-eaten is true:
 		say "You're more worried about scoring points with the right people than in some silly game." instead;
@@ -553,20 +545,15 @@ check requesting the score:
 			say "You have [your-tix] of the 4 boo-ticketies you need." instead;
 		say "You don't feel you've made it anywhere, yet." instead;
 	say "You have scored [score] of [maximum score] points.";
-	if special-score > 0:
-		say "[line break]";
-		say "You have also found [special-score] of [max-special-score] points.";
 	say "[line break]";
 	if Questions Field is unvisited:
 		say "You haven't gotten near the [bad-guy]'s hideout yet. So maybe you need to explore a bit more." instead;
 	if qp-hint is true:
 		say "You need some way to get past the question/exclamation mark guard combination. It's like--I don't know. A big ol['] pop quiz or something." instead;
+	if player has crocked half:
+		say "You haven't found what the crocked half's clue is, either." instead;
 	say "You have currently helped [if bros-left is 3]none[else if bros-left is 0]all[else][3 - bros-left in words][end if] of the Keeper Brothers." instead;
 	say "You've found [number of endfound rooms] bad end[if number of endfound rooms is not 1]s[end if] out of [number of rooms in Bad Ends]: [list of endfound rooms]." instead;
-
-to special-bonus:
-	increment special-score;
-	say "[i][bracket][if special-score is 1]You just found the first hidden secret in the Problems Compound[else]You found another secret[end if]. You are at [special-score] of [max-special-score] now.[close bracket][r][line break]";
 
 chapter waking verb
 
@@ -1524,6 +1511,8 @@ carry out exitsing:
 	let got-one be false;
 	if player is in round lounge:
 		say "The hatch above." instead;
+	if player is in idiot village and player has crocked half:
+		say "You can exit to the west, but--you may want to poke around Idiot Village in even some crazy diagonal directions." instead;
 	repeat with G running through directions:
 		if G is viable:
 			now got-one is true;
@@ -1805,7 +1794,7 @@ Flames Fan	"To fan the flames is to keep things going. The Flames Fan just watch
 to say ham-desc:
 	choose row with brief of "great" in table of verb-unlocks;
 	if found entry is true:
-		say ": AWAY HAMMMER = hammer away = keep trying, HOME HAMMER = hmmer home = to make a point forcefully, LOCK HAMMER = hammer lock = a wrestling hold";
+		say ": AWAY HAMMMER = hammer away = keep trying, HOME HAMMER = hammer home = to make a point forcefully, LOCK HAMMER = hammer lock = a wrestling hold";
 	else:
 		say " I can't spoil yet";
 
@@ -1827,6 +1816,7 @@ carry out explaining the player:
 definition: a thing (called x) is explainable:
 	if x is a logic-game, decide no;
 	if x is in bullpen and debug-state is true, decide yes;
+	if x is in conceptville and debug-state is true, decide yes;
 	if x is in lalaland, decide yes;
 	if x is part of towers of hanoi or x is part of broke flat or x is part of games counter or x is games counter or x is games, decide no;
 	if x is t-surf, decide no;
@@ -4650,7 +4640,6 @@ to bye-paper:
 	say "[line break]As he begins rolling up the chase paper, he asks if you're one of those odd brainy types who might know how to fill up a chessboard with 31 tiles. Well, you take the opposite corners off...[paragraph break]";
 		wfak;
 		say "You show him the solution, and he starts yelling about how nobody could have figured that out for themselves unless they really have nothing to do with their time.[paragraph break]Well, you have something to do with your time, now. Like seeing what's below.";
-		special-bonus;
 		now assassination is in lalaland;
 		now chase paper is in lalaland;
 		now belt below is below chipper wood;
@@ -5055,7 +5044,6 @@ carry out abadfaceing:
 			say "You wonder if you should. You see some data on [if finger index is examined]who of seven guys likes what, which seems familiar[else]seven guys[end if], which looks valuable.";
 		open-bottom;
 		say "You hear a great rumbling as you put on -- well, a bad face -- and the Insanity Terminal cracks in half to reveal a tunnel further below.";
-		special-bonus;
 		the rule succeeds;
 	else:
 		say "You already solved the puzzle. If any more of Bottom Rock collapsed, you might not have a way back up." instead;
@@ -5607,7 +5595,8 @@ check going in service community:
 		if idol-tries is 7:
 			now thoughts idol is in lalaland;
 			move player to idiot village, without printing a room description;
-			special-bonus;
+			move crocked half to lalaland;
+			increment the score;
 		the rule succeeds;
 	else:
 		move thoughts idol to idiot village;
@@ -5820,7 +5809,6 @@ the hopper grass is a thing in Standard Bog.
 
 check giving hopper grass to pusher penn:
 	say "'Brilliant! This might be some really good stuff.'";
-	special-bonus;
 	now hopper grass is in lalaland instead;
 
 check going nowhere in standard bog:
@@ -7274,9 +7262,6 @@ to view-point:
 		move the player to Window Bay, without printing a room description;
 	say "[line break]The vision blurs, and you look up from the View of Points, sadder but hopefully wiser."
 
-to say email:
-	say "blurglecruncheon@gmail.com";
-
 before switching on the view of points:
 	if current-idea-room is switch-to-bad:
 		say "The view becomes darker. You've moved on to less desirable areas now. Places the [bad-guy] would've had people ship you if you really messed up.";
@@ -7709,11 +7694,13 @@ chapter lalaland
 
 meta-rooms is a region.
 
-bullpen is a room in meta-rooms. "You should never see this. If you do, it is a [bug]."
+bullpen is a room in meta-rooms. "You should never see this. If you do, it is a [bug]." [the bullpen is for items that you dropped when you slept]
 
-the Total T is a thing in bullpen.
+conceptville is a room in meta-rooms.
 
-the Go Rum is a thing in bullpen.
+the Total T is a thing in conceptville. "[bug]"
+
+the Go Rum is a thing in conceptville. "[bug]"
 
 lalaland is a room in meta-rooms. "You should never see this. If you do, it is a [bug]."
 
@@ -7862,7 +7849,7 @@ book anno-check
 
 to anno-check:
 	repeat with Q running through rooms:
-		if Q is lalaland or Q is bullpen:
+		if map region of Q is meta-rooms:
 			next;
 		if Q is not an anno-loc listed in table of annotations:
 			say "[Q] [map region of Q] needs annotations.";
@@ -8485,6 +8472,26 @@ carry out esting:
 	say "End stress testing is now [on-off of end-stress-test].";
 	the rule succeeds;
 
+chapter amaping
+
+amaping is an action out of world.
+
+understand the command "amap" as something new.
+
+understand "amap" as amaping.
+
+amap-on is a truth state that varies.
+
+carry out amaping:
+	now amap-on is whether or not amap-on is false;
+	say "Automapping is now [on-off of amap-on]";
+	the rule succeeds;
+
+after printing the locale description when location of player is unvisited:
+	if amap-on is true:
+		try maping;
+	continue the action;
+		
 chapter jing
 
 [* this jumps the tester ahead one stage]
