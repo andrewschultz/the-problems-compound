@@ -586,7 +586,7 @@ check waiting (this is the caught napping rule):
 		move-dream-ahead instead;
 	if player is in down ground and slept-through is false:
 		say "[one of]You attempt to loiter in this seedy area in order to get in trouble or something, but no dice.[or]Still, nobody comes to break up your loitering.[or]You reflect if you want to get zapped for loitering, maybe you need to do better than just hang around.[or]Hm, you wonder what is even lazier than standing around.[stopping]" instead;
-	say "You take a thought-second. Then you take another, but you reflect it wasn't as good. OR WAS IT?" instead;
+	say "Turn your wait." instead;
 	
 every turn when player is in tense past and tense present is not visited:
 	say "Torpor. You can't do much besides LOOK or WAIT or THINK.";
@@ -668,9 +668,20 @@ instead of thinking:
 	if think-score is false:
 		say "NOTE: THINK will redirect to SCORE in the future.";
 		now think-score is true;
+	say "[one of]You take a thought-second. Then you take another, but you reflect it wasn't as good. OR WAS IT? So you just[or]You[stopping] think about what you've accomplished..." instead;
 	try requesting the score instead;
 
 pot-not-weed is a truth state that varies.
+
+chapter waving
+
+understand the command "wave" as something new.
+
+understand "waving" as waving.
+
+carry out waving:
+	say "Your awkward wave never managed the gravitas others['] awkward waves have. Yours accepts awkwardness, but theirs foists it on others.";
+	the rule succeeds;
 
 chapter swearing
 
@@ -794,7 +805,11 @@ check climbing:
 		say "No footholds or handholds. You'd be stuck.";
 	if noun is fright stage:
 		say "[if dutch is in plain]There's not room enough for you. Well, there is, but you'd get shouted down quickly[else]You're too busy to shout platitudes right now. You could do better than Uncle Dutch and Turk Young, but really, you're thinking bigger than that[end if]." instead;
-	say "You don't need to climb a lot here." instead;
+	if noun is thoughts idol:
+		say "No way. It probably has weird rays and stuff. Or anti-weird rays." instead;
+	if location of player is round lounge:
+		say "Hm. Maybe. You need to get up somehow, but you seem to need a tool or tools." instead;
+	say "You don't need to climb a lot here. Or, really, at all." instead;
 
 check entering fright stage:
 	try climbing fright stage instead;
@@ -853,6 +868,8 @@ check smelling (this is the smelling a thing rule):
 		say "It doesn't smell dangerous to brain cells, but it is." instead;
 	if noun is fish:
 		say "The story fish is thankfully not organic enough to stink, or boy, WOULD it." instead;
+	if noun is a person:
+		say "You've had people give YOU the smell test, but somehow, even when you passed, you still failed." instead;
 
 check smelling (this is the smelling a place rule):
 	if player is in jerk circle and silly boris is in jerk circle:
@@ -918,6 +935,12 @@ check listening (this is the listening in a place rule):
 		if phil is in Interest Compound:
 			say "[one of]M[or]More m[stopping]usic from the song torch!";
 			try examining song torch instead;
+	if player is in freak control:
+		say "The apparatus emits an occasional work grunt, you suspect., to impress visitors." instead;
+	if player is in out mist:
+		say "You can't hear anyone. That's good." instead;
+	if player is in airy station:
+		say "The cheering's nice, but--it's a bit old. You wonder if you've done THAT much." instead;
 	say "Nothing crazy or unusual." instead;
 
 chapter searching
@@ -929,7 +952,7 @@ search-x-warn is a truth state that varies.
 check searching:
 	if search-x-warn is false:
 		now search-x-warn is true;
-		say "Most of the time, searching will be equivalent to examining in the game. So you can just type X (WHATEVER).";
+		say "Searching is equivalent to examining in the game. So you can just type EXAMINE or, if you're into the whole brevity thing, X (WHATEVER).";
 	try examining the noun instead;
 
 chapter eating
@@ -984,6 +1007,8 @@ the can't unlock without the correct key rule is not listed in any rulebook.
 the can't unlock what's already unlocked rule is not listed in any rulebook.
 
 check unlocking:
+	if player is in airy station:
+		say "The locks are too intricate to pick, and you have no key. Maybe you can be more direct." instead;
 	say "There are no locks in this game. Well, nothing you need to get through." instead;
 
 chapter touching
@@ -1000,7 +1025,7 @@ check touching:
 	if noun is assassination character:
 		say "You'll need to [if p-c is true]catch him[else]ENTER the chase paper[end if]." instead;
 	if noun is a person:
-		say "That wouldn't be a fun poke." instead;
+		say "That wouldn't be a fun poke. It might even be a base touch." instead;
 	say "You can just TAKE something if you want to." instead;
 
 chapter taking inventory
@@ -1022,12 +1047,22 @@ check kissing:
 		say "You don't know what sort of vows of chastity they took. Plus the other sister might beat you up for your indiscretion. Or just report you to the Stool Toad." instead;
 	if noun is a bro:
 		say "He needs something to hold, yes, but more like an object." instead;
+	if noun is labor child:
+		say "He's probably had enough people pinch his cheeks, and besides, he'd probably delegate bullies to get revenge on you." instead;
+	if noun is officer or noun is toad:
+		say "Ugh, no." instead;
+	if noun is baiter master:
+		say "Someone more clever and ironic than you could skeeve the you know what out of him, and it'd be fun, but you can't." instead;
+	if noun is monkey:
+		say "As a businessperson, he doesn't have time for romance." instead;
+	if noun is a client:
+		say "[if finger index is examined]That's not his secret. Or, well, it's not the one the Labor Child is blackmailing him with. Not that either secret is wrong, just, people can be mean[else]This is not the way to make friends[end if]." instead;
 	if noun is a person:
 		say "You don't need to open yourself to gay-bashing. Despite equal rights blah blah, that stuff still HAPPENS in high school, because." instead;
-	if noun is monkey or noun is child:
-		say "As a businessperson, he doesn't have time for romance." instead;
 	if noun is minimum bear:
 		say "You're too old for that. You think." instead;
+	if noun is language machine:
+		say "No. You remember a story about another kid who loved his calculator too much, and what happened to him. The guy who told it liked to brag about his 60 inch TV." instead;
 	say "Icky." instead;
 
 chapter talking
@@ -1035,6 +1070,10 @@ chapter talking
 check talking to alec:
 	if cookie is in lalaland:
 		say "You take time to discuss to yourself how people are dumber than they used to be before you had that Cutter Cookie." instead;
+	if greater cheese is in lalaland:
+		say "You mutter to yourself about how lame your self-talk used to be." instead;
+	if off cheese is in lalaland:
+		say "You grumble to yourself. You feel real hard to hang with." instead;
 	say "You've already taken heat for talking to yourself. With people around or no, it's a bad habit. Socially, at least." instead;
 
 understand "ask [person]" as talking to.
@@ -1164,10 +1203,8 @@ carry out gotoing:
 	if mrlg is nothing or mrlg is meta-rooms:
 		say "Congratulations! You discovered an off-stage room. But I can't let you get there." instead;
 	d "Trying location [noun].";
-	if cookie-eaten is true:
-		say "Nonsense. Forward!" instead;
-	if off-eaten is true:
-		say "Ugh. Why would you want to go THERE again? It was no fun the first time." instead;
+	if accel-ending:
+		say "[if cookie-eaten is true]Nonsense. Forward![else if off-eaten is true]Ugh. Why would you want to go THERE again? It was no fun the first time.[else]You know what's important, and the past is so over. Only north to the [bad-guy] will do![end if]" instead;
 	if p-c is true:
 		say "EXIT the chase first." instead;
 	if noun is location of player:
@@ -1181,6 +1218,10 @@ carry out gotoing:
 	if player is in Soda Club:
 		if player has a drinkable:
 			say "You can't just go jetting off with a drink in your hand!" instead;
+	if noun is service community:
+		say "You'll need to navigate that by yourself." instead;
+	if player is in service community:
+		say "So many ways to go! The Service Community expands everywhere. You need to just pick a direction." instead;
 	if noun is Soda Club and player is not in joint strip:
 		say "You'll have to walk by that nosy Stool Toad directly[if trail paper is in lalaland], not that you need to go back[end if]." instead;
 	if noun is not a room:
@@ -1216,7 +1257,7 @@ check examining (this is the don't examine directions rule) :
 	if noun is down:
 		say "The earth is not crumbling. Whew." instead;
 	if noun is a direction:
-		say "You don't need to look in directions. Nothing will ambush you if you just go that way." instead;
+		say "You don't need to look in directions. Nothing will phsyically ambush you if you just go that way." instead;
 
 after examining (this is the say it's examined rule):
 	if noun provides the property examined:
@@ -1269,6 +1310,8 @@ check attacking:
 		say "[if wax is in lalaland]After you were so nice to it? That's rough, man[else]No, it needs compassion, here[end if]." instead;
 	if noun is jerks:
 		say "You've been suckered into lashing out before, but these guys--well, you've faced more annoying, truth be told." instead;
+	if mrlp is endings:
+		say "You don't need violence right now[if player is in station]. Well, maybe the right sort against the caps[end if]." instead;
 	say "Lashing out against inanimate objects won't help, here. In fact, you may be lucky this one's unimportant enough you didn't get arrested." instead;
 
 return-room is a room that varies.
@@ -7337,10 +7380,13 @@ rule for amusing a victorious player:
 table of amusingness
 biglaff	anyrule
 "waiting?"	degen-true rule
+"(first time only) thinking?"	degen-true rule
 "an empty command?"	--
 "XYZZY? Four times?"	--
 "attacking anyone? Or the torch?"	--
-"cussing in front of certain people?"	--
+"cussing in front of certain people, especially authority figures?"	--
+"kissing the Language Machine?"	--
+"drinking someone?"	--
 "going west/north/south in the Variety Garden?"	--
 "giving Pusher Penn's 'merchandise' to the Stool Toad or Officer Petty?"	--
 "giving Minimum Bear to anyone except Fritz the On?"	--
@@ -8119,6 +8165,7 @@ carry out gating:
 		now player has mind of peace;
 	repeat with Q running through carried things:
 		try giving Q to the noun;
+	try taking the noun; [heck why not?]
 	the rule succeeds.
 
 chapter skiping
