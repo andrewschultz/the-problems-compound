@@ -5613,7 +5613,28 @@ orientation of southwest is 5.
 orientation of west is 6.
 orientation of northwest is 7.
 
-the thoughts idol is scenery in Idiot Village. "[if player is in idiot village][iv-idol][else]If you look back at the Thoughts Idol now, it may distract you. Gotta keep running, somehow, somewhere[end if]"
+[ 5E  3NE
+ 70   01
+ 6  1 7  2
+ 5  2 6  3
+  43   54]
+
+the thoughts idol is scenery in Idiot Village. "[if player is in idiot village][iv-idol][else]If you look back at the Thoughts Idol now, it may distract you. You know it's [vague-dir]. Gotta keep running, somehow, somewhere[end if]"
+
+to say vague-dir:
+	let J be orientation of last-dir * 2;
+	now J is J + rotation;
+	now J is the remainder after dividing J by 16;
+	let J1 be (J + 1) / 4;
+	say "mostly [if j1 is 0]east[else if j1 is 1]south[else if j1 is 2]west[else if j1 is 3]north and a bit ";
+	if J is 5 or J is 11:
+		say "west";
+	else if J is 13 or J is 3:
+		say "east";
+	else if j > 8: [9 or 15]
+		say "north";
+	else: [1 or 7]
+		say "south";
 
 to say iv-idol:
 	say "You stare at the thoughts idol, [if player has crocked half]and as it glares back, you resist the urge to look away. It--it actually blinks first.[else]but it stares back at you. You lose the war of facial expressions[end if]"
