@@ -2205,8 +2205,7 @@ understand the command "anno" as something new.
 understand "anno" as annoing.
 
 carry out annoing:
-	choose row with brief of "anno" in table of verb-unlocks;
-	unless anno-check is true or "anno" is skip-verified:
+	if anno-check is true or "anno" is skip-verified:
 		now anno-check is true;
 		now anno-allow is whether or not anno-allow is false;
 		now ever-anno is true;
@@ -2225,7 +2224,7 @@ after printing the locale description (this is the show annos rule):
 			if myloc is anno-loc entry:
 				if anno-num entry is 0:
 					increment cur-anno;
-					say "([cur-anno]) [anno-long entry]";
+					say "([cur-anno]) [anno-long entry][line break]";
 					now anno-num entry is cur-anno;
 				continue the action;
 		if mrlp is rejected rooms:
@@ -2282,10 +2281,10 @@ anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
 
 table of annotations (continued) [toa-views]
 anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
-0	--	Deal Square	"deal"	"This was one of the more obvious flips, but I already had the Scheme Pyramid and so forth. It tries to encapsulate how I'm a terrible negotiator fast and up close. Or was. I've learned that not feeling forced to say anything is big--and certainly, realizing I don't need something ASAP helps me prepare in advance for negotiations."
+[0	--	Deal Square	"deal"	"This was one of the more obvious flips, but I already had the Scheme Pyramid and so forth. It tries to encapsulate how I'm a terrible negotiator fast and up close. Or was. I've learned that not feeling forced to say anything is big--and certainly, realizing I don't need something ASAP helps me prepare in advance for negotiations."]
 0	--	Everything Hold	"hold"	"The obvious pun here is that trying to hold everything physically often makes you hold everything in terms of time. So this seemed apt, but if I put anything in this room, I'd put in a lot, and that'd be way too much trouble to implement."
 0	--	Mine Land	"mine"	"I definitely don't want to trivialize the devastating effects of land mines. And from a technical viewpoint, Mine Land would probably have been an empty room. But really, a bunch of people crying 'Mine! Mine!' is destructive in its own way."
-0	--	Truck Dump	"dump"	"I've always found it depressing we need so many trucks, for garbage or transport or whatever. But I couldn't do anything with it in-story."
+0	--	Robbery Highway	"highway"	"Highway robbery being a clear rip-off, I liked the idea of a location made especially for that."
 0	--	Space of Waste	"space"	"Like Mine Land, this is one of those areas that don't work well in a game, but all the same--so many spaces are space of waste."
 0	--	Clown Class	"class"	"I had an idea of making Clown Class a dead end, or maybe even a separate game, but I couldn't pull it off."
 0	--	Shoulder Square	"shoulder"	"I do like the pun shoulder/should, er. They mix well with shoulders tensing thinking what you should do."
@@ -7097,6 +7096,10 @@ part Beer Pound
 
 there is a room called A Beer Pound. It is in Bad Ends. "Here prisoners are subjected to abuse from prison guards who CAN hold their liquor and NEED a drink at the end of the day. Though of course they do not go in for the hard stuff."
 
+part In-Dignity Heap
+
+In-Dignity Heap is a room in Bad Ends. "Here we have someone at the top of the heap, telling people to have a little respect for themselves, you know?"
+
 part Shape Ship
 
 Shape Ship is a room in Bad Ends. "Here, you spend months toiling pointlessly with others who acquired too many boo ticketies. You actually strike up a few good friendships, and you all vow to take more fun silly risks when you get back home.[paragraph break]As the days pass, the whens change to ifs."
@@ -7112,8 +7115,6 @@ Maintenance High is a room in Bad Ends. "A teacher drones on endlessly about how
 part Fight Fair
 
 Fight Fair is a room in Bad Ends. "The [bad-guy] watches down from a video screen as much stronger people beat up on much weaker people. 'Use your minds! Be grateful they're not really hurting you!' Nobody dares call it barbaric. After all, it could be worse."
-
-Camp Concentration is a room in Bad Ends. "This one's impossible to joke about straight-up."
 
 book dream sequence
 
@@ -7355,9 +7356,15 @@ a room has a number called point-view. point-view of a room is usually 0.
 
 switch-to-bad is a number that varies.
 
-chapter deal square
+chapter Camp Concentration
 
-Deal Square is a room in Just Ideas Now. "People rush past, performing social tricks and calculus that you can only imagine, reading facial expressions and knowing when to interrupt. Man. You're sure you'd get skinned."
+Camp Concentration is a room in Just Ideas Now. "This one's impossible to joke about straight-up."
+
+chapter Expectations Meet
+
+Expectations Meet is a room in Just Ideas Now. "People all discuss what they deserve to have and why they deserve it more than others. Well, most. There's some impressively nuanced false humility here, though you could never call anyone on it."
+
+[Deal Square is a room in Just Ideas Now. "People rush past, performing social tricks and calculus that you can only imagine, reading facial expressions and knowing when to interrupt. Man. You're sure you'd get skinned."]
 
 chapter perilous siege
 
@@ -7365,7 +7372,7 @@ Perilous Siege is a room in Just Ideas Now. "Some kind of combat is going on her
 
 chapter Truck Dump
 
-Truck Dump is a room in Just Ideas Now. "So many trucks. Why do we need them? They beep at each other, everyone needing, if not wanting, to get where they're going. Piles of trash cut the plain into de facto narrow streets."
+Robbery Highway is a room in Just Ideas Now. "There's a speed limit sign here, but it's just put there so anyone dumb enough to follow it will get mugged."
 
 chapter Space of Waste
 
@@ -7567,7 +7574,7 @@ Meal Square	3	4	"MEAL "	"SQUAR"
 Pressure Pier	4	4	"PRESS"	"PIER "
 Down Ground	5	4	"DOWN "	"GROUN"
 Joint Strip	6	4	"JOINT"	"STRIP" [end actual game locs]
-Window Bay	0	4	"WINDO"	" BAY "
+Window Bay	0	4	"WINDO"	" BAY " [meta locs you can visit]
 Madness March	0	5	"MADNS"	"MARCH"
 Eternal Hope Springs	1	5	"ETERN"	"SPRNG"
 Brains Beat	2	5	"BRAIN"	"BEAT "
@@ -7579,6 +7586,23 @@ Mine Land	0	7	"MINE "	"LAND "
 Rage Road	1	7	"RAGE "	"ROAD "
 Muster Pass	2	7	"MUSTR"	"PASS "
 One Route	3	7	" ONE "	"ROUTE"
+Shoulder Square	0	0	"EXPEC"	"MEET " [unused locs]
+Everything Hold	1	0	"EVERY"	"HOLD "
+Perilous Siege	2	0	"SHOUL"	"SQUAR"
+Camp Concentration	3	0	"PERIL"	"SIEGE"
+Mine Land	0	1	"MINE "	"LAND "
+Space of Waste	1	1	"SPACE"	"WASTE"
+Clown Class	0	2	"CLOWN"	"CLASS"
+Robbery Highway	0	3	"ROBRY"	"HIWAY"
+In-Dignity Heap	7	4	"INDIG"	"HEAP "	["death" rooms]
+Beer Pound	7	5	"BEER "	"POUND"
+Shape Ship	6	6	"SHAPE"	"SHIP "
+Fight Fair	7	6	"FIGHT"	"FAIR "
+Criminals' Harbor	4	7	"CRIMN"	"HARBR"
+Punishment Capitol	5	7		"PUNSH"	"CAPIT"
+Maintenance High	6	7	"MAINT"	"HIGH "
+Hut Ten	7	7	" HUT "	" TEN "
+
 
 book Inform IDE inits
 
@@ -7586,27 +7610,71 @@ index map with A Round Lounge mapped south of Tension Surface.
 
 index map with Tension Surface mapped south of Pressure Pier.
 
-index map with Tense Present mapped north of Tense Past.
-
-index map with Tense Future mapped east of Tense Present.
-
 index map with Bottom Rock mapped south of Disposed Well.
 
 index map with The Belt Below mapped west of Bottom Rock.
 
+index map with Service Community mapped east of Idiot Village.
+
 index map with Eternal Hope Springs mapped south of The Belt Below.
 
-index map with Tense Past mapped west of Classic Cult.
+[post game]
 
-index map with Punishment Capitol mapped east of A Round Lounge.
+index map with Out Mist mapped east of Freak Control.
 
-index map with Hut Ten mapped east of Punishment Capitol.
+index map with Airy Station mapped east of Out Mist.
 
-index map with Maintenance High mapped south of Punishment Capitol.
+[sleep areas]
 
-index map with Criminals' Harbor mapped south of Hut Ten.
+index map with Tense Past mapped east of Interest Compound.
 
-index map with Fight Fair mapped south of A Round Lounge.
+index map with Tense Present mapped north of Tense Past.
+
+index map with Tense Future mapped north of Tense Present.
+
+[bad ends]
+
+index map with In-Dignity Heap mapped east of Joint Strip.
+
+index map with A Beer Pound mapped east of Soda Club.
+
+index map with Shape Ship mapped east of Smart Street.
+
+index map with Fight Fair mapped east of Shape Ship.
+
+index map with Criminals' Harbor mapped south of A Round Lounge.
+
+index map with Punishment Capitol mapped south of Smart Street.
+
+index map with Maintenance High mapped east of Punishment Capitol.
+
+index map with Hut Ten mapped east of Maintenance High.
+
+[begin oranges = idea-areas]
+
+index map with Camp Concentration mapped west of Freak Control.
+
+index map with Perilous Siege mapped west of Camp Concentration.
+
+index map with Everything Hold mapped west of Perilous Siege.
+
+index map with Shoulder Square mapped west of Everything Hold.
+
+index map with Expectations Meet mapped south of Shoulder Square.
+
+index map with Space of Waste mapped south of Everything Hold.
+
+index map with Clown Class mapped south of Expectations Meet.
+
+index map with Robbery Highway mapped south of Clown Class.
+
+[not really rooms but for neatness's sake]
+
+index map with lalaland mapped east of Tense Present.
+
+index map with bullpen mapped east of Tense Future.
+
+index map with conceptville mapped east of Tense Past.
 
 volume parser errors
 
@@ -8042,6 +8110,8 @@ when play begins (this is the test for talkers rule):
 					say "PERSON [count] [Q] has no litany.";
 
 chapter test macros
+
+test allanno with "anno/y/jump/w/w/w/e/n/e/e/w/w/w/e/n/e/w/w/n/e/w/w/n/x view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view"
 
 test dream with "gonear bench/sleep/wake/sleep/z/wake/sleep/z/wake/sleep/z/wake"
 
