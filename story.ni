@@ -1663,9 +1663,11 @@ told-xpoff is a truth state that varies;
 carry out explaining:
 	if debug-state is true:
 		now all rooms are visited;
+	if accel-ending:
+		say "Hmph. You don't want explanations. You put first things first, now, and you just need to get through." instead;
 	let found-yet be false;
 	if noun is not explainable:
-		say "That doesn't need any special explanation. I think/hope.";
+		say "That doesn't need any special explanation. I think/hope." instead;
 	if noun is an exp-thing listed in the table of explanations:
 		if anno-allow is true and told-xpoff is false:
 			now told-xpoff is true;
@@ -1771,7 +1773,6 @@ Brother Big	"Big Brother is the character from Orwell's 1984."
 Brother Blood	"A blood brother is someone related by blood or who has sworn an oath of loyalty to someone else."
 proof of burden	"The burden of proof means: you need to come up with evidence to prove your point."
 Rehearsal Dress	"A dress rehearsal is the final staging of the play before the audience sees it."
-hopper grass	"A grasshopper is a small insect. Also, 'grasshopper' is an overused term when describing what a wise man calls a disciple."
 Brother Soul	"A soul brother is one who has very similar opinions to you."
 the Book Bank	"A bankbook records numbers and is very un-literary."
 Spleen Vent	"To vent one's spleen is to let our your anger."
@@ -1834,6 +1835,10 @@ pen fountain	"A fountain pen is (these days) a typical pen. You don't have to di
 consciousness stream	"Stream of consciousness is a form of writing that relies heavily on inner monologue."
 Francis Pope	"Pope Francis is the current pope as of this game's writing."
 Flames Fan	"To fan the flames is to keep things going. The Flames Fan just watches them."
+Total T	"Teetotal means alcohol-free."
+Go Rum	"A rum go is an unforeseen unusual experience, as opposed to 'GO' anything which indicates general motivation."
+Tray A	"Just a tray, contrasted with Tray B."
+Tray B	"Eating anything on it may betray who you really are."
 
 to say ham-desc:
 	choose row with brief of "great" in table of verb-unlocks;
@@ -2432,7 +2437,7 @@ section Game Shell
 
 the Game Shell is scenery in Smart Street. "It's shaped like a carved-out turtle's shell[one of]. Scratched on the side you see nine dots in a square with FOUR LINES THROUGH ALL POINTS scratched out below, then EVERYONE KNOWS THAT.[or][stopping]. Behind the counter, Guy Sweet half-smiles, staring at the games on offer."
 
-the dots are part of the game shell. understand "square" and "nine" and "nine dots" as dots when player is in smart street.
+the dots are part of the game shell. understand "square" and "nine" and "nine dots" as dots when player is in smart street. description is "It's the old puzzle where you have nine dots in a square and four lines and the solution is a diagonal arrow that goes outside the square."
 
 instead of doing something with the dots:
 	if current action is not explaining:
@@ -3257,11 +3262,11 @@ to say plant-disc:
 	if aside brush is in variety garden:
 		say ". North and northeast, aside brush";
 
-the off brush is scenery.
+the off brush is scenery. "The brush is tangled so it seems to be pointed at you to back off."
 
-the back brush is scenery.
+the back brush is scenery. "The brush seems to wave forwards and back in a breeze you can't feel yourself."
 
-the aside brush is scenery.
+the aside brush is scenery. "The brush seems to wave left and right in a breeze you can't feel yourself."
 
 after doing something with back brush:
 	now current-brush is back brush;
@@ -5869,12 +5874,6 @@ part Standard Bog
 
 Standard Bog is north of Crazy Drive. It is in Main Chunk. "This is a pretty standard bog. It's got slimy ground, some quicksand traps, and... [one of]well, the machine off to the side is not so standard. It seems to be mumbling, trying different ways to express itself. Yes, to use language. A language machine.[or]the Language Machine, still [if wax is in lalaland]burbling poems[else]grinding out dreary sentences[end if].[stopping]"
 
-the hopper grass is a thing in Standard Bog.
-
-check giving hopper grass to pusher penn:
-	say "'Brilliant! This might be some really good stuff.'";
-	now hopper grass is in lalaland instead;
-
 check going nowhere in standard bog:
 	say "It's really only safe to go back south." instead;
 
@@ -6686,7 +6685,7 @@ to decide which number is right-adj:
 		
 the Return Carriage is a thing. description is  "The Return Carriage awaits, but the problem is, you can't find an obvious way to, um, enter."
 
-the lock caps are part of the return carriage.
+the lock caps are part of the return carriage. description is "They don't look too menacing, but then you look closer, and you feel like you're being shouted at. Hm."
 
 airy-wait is a number that varies.
 
@@ -6743,7 +6742,7 @@ understand "ring [text]" and "[text] ring" as a mistake ("Nothing happens to the
 
 understand "worm [text]" and "[text] worm" as a mistake ("The worm ring's problem isn't that it's a worm, but rather that it's a ring.") when player is in Out Mist.
 
-the worm ring is scenery in Out Mist.
+the worm ring is scenery in Out Mist. "It's circular and seems to be almost eating itself, Ouroborous-style, though it looks a bit slushy on the inside that you can see. You can't quite enter it, but maybe if it straightened out into a regular worm..."
 
 chapter verbs for wood
 
@@ -6814,9 +6813,9 @@ check going west in pressure pier:
 
 Meal Square is west of Pressure Pier. Meal Square is in Main Chunk. "This is a small alcove with Pressure Pier back east. There's not much decoration except a picture of a dozen bakers."
 
-Tray A is a supporter in Meal Square.
+Tray A is a supporter in Meal Square. description is "It's just a tray, really. Nothing special. A few foods rest on tray A: [list of things on tray a]"
 
-Tray B is a supporter in Meal Square.
+Tray B is a supporter in Meal Square. description is "[if accel-ending]You still see [list of things on tray b] on Tray B, but you're pretty full[else]You're both scared and intrigued by Tray B, which reads, in small print NOT FOR THE UNSOPHISTICATED. Three unappetizing looking foods lie on it, labeled as : [list of things on tray b][end if]."
 
 check examining a supporter when accel-ending:
 	say "You've already seen the food there and made your choice." instead;
@@ -6851,6 +6850,14 @@ chapter fast food menu
 
 [fast food? Get it? It gets you through the game fast! Ha ha!]
 
+a badfood is a kind of thing. a badfood is usually edible.
+
+to decide which thing is yourfood:
+	repeat with X running through badfoods:
+		if X is in lalaland:
+			decide on X;
+	decide on Alec Smart;
+
 to decide whether accel-ending:
 	if greater-eaten is true or off-eaten is true or cookie-eaten is true, decide yes;
 	decide no;
@@ -6881,7 +6888,7 @@ before going when accel-ending:
 
 section greater cheese
 
-the greater cheese is an edible thing on Tray B.
+greater cheese is a badfood on Tray B. description is "It looks just as icky as the off cheese. Maybe it's marbled differently or something. These things are beyond you."
 
 greater-eaten is a truth state that varies.
 
@@ -6902,7 +6909,7 @@ check eating greater cheese:
 
 section off cheese
 
-the off cheese is an edible thing on Tray B.
+off cheese is a badfood on Tray B. description is "[if greater-eaten is true or cookie-eaten is true]It's really gross, and you'd have to be weird to consider eating it[else]It looks really gross but you're sure other people have better reasons why it is[end if]."
 
 off-eaten is a truth state that varies.
 
@@ -6921,11 +6928,11 @@ check eating off cheese:
 	now off cheese is in lalaland;
 	now off-eaten is true instead;
 	
-chapter cutter cookie
+section cutter cookie
+
+a cutter cookie is a badfood on Tray B. description is "It looks like the worst sort of thing to give kids on Halloween. If it doesn't have any actual razor blades, it's pointy as a cookie should not be. It's also grey and oatmeal-y, which cookies should never be. I mean, I like oatmeal cookies, just not dingy grey ones. It seems like excellent food for if you want to be very nasty indeed."
 
 cookie-eaten is a truth state that varies.
-
-the cutter cookie is an edible thing on Tray B. description is "It looks like the worst sort of thing to give kids on Halloween. If it doesn't have any actual razor blades, it's pointy as a cookie should not be. It's also grey and oatmeal-y, which cookies should never be. I mean, I like oatmeal cookies, just not dingy grey ones. It seems like excellent food for if you want to be very nasty indeed."
 
 check taking cutter cookie:
 	try eating cutter cookie instead;
@@ -7458,8 +7465,6 @@ chapter special
 specialseeing is an activity.
 
 this is the special-see rule:
-	unless hopper grass is in lalaland:
-		say "[2da]Pusher Penn had more merchandise, not that he needed a bigger profit.";
 	unless assassination character is in lalaland:
 		say "[2da]The assassination character can be faked out.";
 	if assassination character is in lalaland and insanity terminal is not in lalaland:
@@ -7832,6 +7837,8 @@ instead of jumping:
 	if player is in tension surface:
 		say "[if mush is in lalaland]You can just enter the arch[else]No, it's too far to jump over the mouth[end if]." instead;
 	if anno-allow is true:
+		if accel-ending:
+			say "That [random badfood in lalaland] you ate was enough of a mental jump. You don't have time for silly details--well, not until you restart the game." instead;
 		say "[one of]You jump farther than you could've imagined[or]You've got the hang of jumping, now[stopping].";
 		if mrlp is Rejected:
 			now jump-to-room is location of player;
@@ -7848,11 +7855,11 @@ meta-rooms is a region.
 
 bullpen is a room in meta-rooms. "You should never see this. If you do, it is a [bug]." [the bullpen is for items that you dropped when you slept]
 
-conceptville is a room in meta-rooms.
+conceptville is a room in meta-rooms. "You should never see this. If you do, it is a [bug]."
 
-the Total T is a thing in conceptville. "[bug]"
+the Total T is a thing in conceptville. description is "[bug]"
 
-the Go Rum is a thing in conceptville. "[bug]"
+the Go Rum is a thing in conceptville. description is "[bug]"
 
 lalaland is a room in meta-rooms. "You should never see this. If you do, it is a [bug]."
 
