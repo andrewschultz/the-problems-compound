@@ -1318,6 +1318,7 @@ return-room is a room that varies.
 
 to ship-off (X - a room):
 	move player to X;
+	now X is map-pinged;
 	if X is a room-loc listed in table of ending-places:
 		choose row with room-loc of X in table of ending-places;
 		say "[room-fun entry]";
@@ -7324,6 +7325,7 @@ to view-point:
 		move the player to the-view-room;
 		now alt-view is false;
 		move the player to Window Bay, without printing a room description;
+		now the-view-room is map-pinged;
 	say "[line break]The vision blurs, and you look up from the View of Points, sadder but hopefully wiser."
 
 before switching on the view of points:
@@ -7528,7 +7530,7 @@ volume mapping
 book in-game map
 
 table of map coordinates (continued)
-rm	x	y	l1	l2	indir	outdir	updir	downdir
+rm	x	y	l1	l2	indir	outdir	updir	downdir	view-rule
 Smart Street	5	6	"SMART"	"STREE"	west
 Round Lounge	4	6	"ROUND"	"LOUNG"	--	--	north
 Tension Surface	4	5	"TENSI"	"SURFA"
@@ -7566,7 +7568,17 @@ Pressure Pier	4	4	"PRESS"	"PIER "
 Down Ground	5	4	"DOWN "	"GROUN"
 Joint Strip	6	4	"JOINT"	"STRIP" [end actual game locs]
 Window Bay	0	4	"WINDO"	" BAY "
-Madness March	1	4	"MADNS"	"MARCH"
+Madness March	0	5	"MADNS"	"MARCH"
+Eternal Hope Springs	1	5	"ETERN"	"SPRNG"
+Brains Beat	2	5	"BRAIN"	"BEAT "
+Humor Gallows	0	6	"HUMOR"	"GALLO"
+Chicken Free Range	1	6	"CHCKN"	"RANGE"
+Tuff Butt Fair	2	6	"TUFF "	"FAIR "
+Ill Falls	3	6	" ILL "	"FALLS"
+Mine Land	0	7	"MINE "	"LAND "
+Rage Road	1	7	"RAGE "	"ROAD "
+Muster Pass	2	7	"MUSTR"	"PASS "
+One Route	3	7	" ONE "	"ROUTE"
 
 book Inform IDE inits
 
