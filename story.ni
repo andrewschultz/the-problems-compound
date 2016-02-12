@@ -1694,6 +1694,47 @@ carry out explaining:
 		say "[exp-anno entry]";
 	the rule succeeds.
 
+does the player mean explaining the player:
+	it is likely;
+
+carry out explaining the player:
+	if debug-state is true:
+		if out mist is unvisited or airy station is unvisited:
+			now all rooms are visited;
+		let count be 0;
+		repeat with Q running through explainable things:
+			if Q is not an exp-thing listed in table of explanations:
+				increment count;
+				say "[count]: [Q][if Q is privately-named](privately-named)[end if] ([location of Q]) needs an explanation.";
+		if count is 0:
+			say "Yay! No unexplained things.";
+		unless the player's command includes "me":
+			the rule succeeds;
+
+definition: a thing (called x) is explainable:
+	if x is a logic-game, decide no;
+	if x is generic-jerk, decide no;
+	if x is a direction, decide no;
+	if debug-state is true and x is off-stage, decide yes; [it is going on stage at some point]
+	if x is in bullpen and debug-state is true, decide yes;
+	if x is in conceptville and debug-state is true, decide yes;
+	if x is in lalaland, decide yes;
+	if x is part of towers of hanoi or x is part of broke flat or x is part of games counter or x is games counter or x is games, decide no;
+	if x is t-surf, decide no;
+	if x is in pressure pier:
+		if x is water-scen or x is stall-scen, decide no;
+	if x is in disposed well:
+		if x is scen-home or x is scen-church, decide no;
+	if x is gen-brush or x is hole, decide no;
+	if x is nametag or x is bar-scen or x is writing, decide no;
+	if player carries x, decide yes;
+	if x is Baiter Master, decide yes;
+	if x is not off-stage:
+		let mrlx be map region of location of x;
+		if mrlx is Dream Sequence, decide no;
+	if location of x is visited, decide yes;
+	decide no;
+
 understand "explain [text]" as a mistake ("You've come across nothing like that, yet. Or perhaps it is way in the past by now.")
 
 after explaining dots:
@@ -1710,6 +1751,7 @@ Ability Suit	"Suitability means appropriateness. And the suit is not appropriate
 blossoms	"Now that the blossoms are in place, well, it'd be mean to say they're 'some blah.'"
 Buddy Best	"A best buddy is your favorite friend."
 Insanity Terminal	"Terminal insanity is having no chance to regain sanity."
+crocked half	"Half-crocked means drunk."
 iron waffle	"A waffle iron is what you put batter in to make a waffle. But a waffle is also what you use when you don't know what to say. An iron waffle, then, would be something to say when you don't know what to say--but it is hard to take down."
 note crib	"To crib notes is to copy from someone who was at a lecture."
 Eye Witness	"Someone at the scene of the crime."
@@ -1818,7 +1860,7 @@ Poory Pot	"Potpourri, which smells good. Of course, I've read about pipe and cig
 the Reasoning Circular	"Circular Reasoning is, for instance, I'm smart because I'm clever because I'm smart."
 a long tag	"To tag along is to follow behind."
 Volatile Sal	"Sal volatile is given to wake up unconscious people with its smell."
-Cold contract	"To contract a cold is to get sick."
+Cold contract	"To contract a cold is to get sick. Also, the contract is pretty cold-blooded."
 Trade of Tricks	"Tricks of the Trade are things that outsiders to a specialty probably don't know that are a bit out of the range of common sense."
 wacker weed	"A weed whacker is the slang for a gardening tool to cut weeds."
 shot screens	"A screenshot is a still frame from a video."
@@ -1827,6 +1869,8 @@ call curtain	"A curtain call is when someone comes back out after lots of applau
 hammer	"The hammer can be three things[ham-desc]."
 incident miner	"A minor incident is not a big deal, but the incident miner makes a big deal of small things."
 worm ring	"A ringworm is a form of parasite."
+Return Carriage	"Carriage Return is going back to the start of a new line in a document with text. And you are sort of going back to the start, too."
+lock caps	"I THINK YOU KNOW WHAT CAPS LOCK IS, BUT HERE'S A DEMONSTRATION OF WHAT HAPPENS IF YOU LEAVE IT ON."
 greater cheese	"A cheese grater chops up cheese. Also, you do become a bit of a grater if you eat it."
 Officer Petty	"A petty officer is actually reasonably far up in the hierarchy, the equivalent of a sergeant."
 Sound Safe	"Safe, sound means being out of trouble. Also, the safe isn't very sound, as it's easy to open."
@@ -1846,42 +1890,6 @@ to say ham-desc:
 		say ": AWAY HAMMMER = hammer away = keep trying, HOME HAMMER = hammer home = to make a point forcefully, LOCK HAMMER = hammer lock = a wrestling hold";
 	else:
 		say " I can't spoil yet";
-
-does the player mean explaining the player:
-	it is likely;
-
-carry out explaining the player:
-	if debug-state is true:
-		let count be 0;
-		repeat with Q running through explainable things:
-			if Q is not an exp-thing listed in table of explanations:
-				increment count;
-				say "[count]: [Q][if Q is privately-named](privately-named)[end if] ([location of Q]) needs an explanation.";
-		if count is 0:
-			say "Yay! No unexplained things.";
-		unless the player's command includes "me":
-			the rule succeeds;
-
-definition: a thing (called x) is explainable:
-	if x is a logic-game, decide no;
-	if x is in bullpen and debug-state is true, decide yes;
-	if x is in conceptville and debug-state is true, decide yes;
-	if x is in lalaland, decide yes;
-	if x is part of towers of hanoi or x is part of broke flat or x is part of games counter or x is games counter or x is games, decide no;
-	if x is t-surf, decide no;
-	if x is in pressure pier:
-		if x is water-scen or x is stall-scen, decide no;
-	if x is in disposed well:
-		if x is scen-home or x is scen-church, decide no;
-	if x is gen-brush or x is hole, decide no;
-	if x is nametag or x is bar-scen or x is writing, decide no;
-	if player carries x, decide yes;
-	if x is Baiter Master, decide yes;
-	if x is not off-stage:
-		let mrlx be map region of location of x;
-		if mrlx is Dream Sequence, decide no;
-	if location of x is visited, decide yes;
-	decide no;
 
 chapter xpoffing
 
@@ -2278,11 +2286,14 @@ anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
 0	--	Truth Home	"home"	"Of course, the truth home has lots of truth--it's just all misused."
 0	--	The Belt Below	"belt"	"I wanted a seedy underbelly. And I got one."
 0	--	Bottom Rock	"bottom"	"I forget when the idea of giving you a powerful item if you got abstract puzzles came to me. But I wanted it to be powerful and cleverly named. I wasn't sure where I could put a crib, because I couldn't implement a bedroom, but then I realized it could be discarded somewhere, because the Problems Compound is not for babies."
-0	--	Idiot Village	"village"	"Of course, the people here aren't total idiots, even if they are very silly."
+0	--	Idiot Village	"village"	"Of course, the people here aren't total idiots, even if they are very silly. But I liked the idea of turning 'village idiot' on its head, as well as having a caste of 'outs' who maybe weren't stupid but let themselves be treated that way."
+0	--	Service Community	"community"	""
 0	--	Chipper Wood	"wood"	"I got the idea for this when reminded of a certain Coen Brothers movie. The contrast of violence and happiness in the title made me realize it was a better choice than Rage Road."
 0	--	Temper Keep	"keep"	"This is one of those ideas that came relatively late, but once it did, I had a few adjectives and verbs that tipped me off to a quick puzzle that should be in there."
 0	--	Pot Chamber	"chamber"	"Some room names made me smile with their subtlety. Others, with their utter lack. Since this combines two awkward conversation subjects, guess which it was?"
 0	--	Freak Control	"control"	"This was one of those rooms that made me realize I had a game. And I think the false humility in it ties up an important thing: the Baiter claims he's a bit of a dork, but he's like moderate and stuff. Except when he needs to be extreme to win an argument. The for-your-own good of how he went through it adds to the pile."
+0	--	Out Mist	"mist"	"I needed a name for a final location, and originally it was the Haves Wood, which didn't quite make sense. It needed to be somewhere shadowy--unclear. Then I overheard someone saying 'Boy, you missed out,' and I wanted to thank them, but they would've thought it was weird. The wordplay is, of course, that you missed out a bit, but the mist is still out of bounds for people in the Compound."
+0	--	Airy Station	"station"	"Since stationary means motion and you are leaving, this seems good. I wanted a way for people to say thanks for Alec before he left, as opposed to him just sneaking out."
 
 table of annotations (continued) [toa-views]
 anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
@@ -2294,6 +2305,7 @@ anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
 0	--	Clown Class	"class"	"I had an idea of making Clown Class a dead end, or maybe even a separate game, but I couldn't pull it off."
 0	--	Shoulder Square	"shoulder"	"I do like the pun shoulder/should, er. They mix well with shoulders tensing thinking what you should do."
 0	--	Perilous Siege	"siege"	"The Siege Perilous is where Galahad was allowed to sit. It signified virtue. Of course, many of the antagonists in the Compound think they have virtue, but they don't. Since this room was so general, I didn't see a way to include it in the game proper."
+0	--	Expectations Meet	"meet"	"The irony of expectations meet is that if people gather together and discuss their expectations, they never quite meet them."
 
 table of annotations (continued) [toa-rej]
 anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
@@ -2319,6 +2331,7 @@ anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
 0	--	Fight Fair	"fight"	"Of course, there's not a single fair fight here."
 0	--	Punishment Capitol	"capitol"	"I'm opposed to capital punishment. And I think the [bad-guy] is, too. Well, until it happens to him. I needed a place for the big crimes, and here it is."
 0	--	Camp Concentration	"camp"	"Ever think of something and feel guilty about it after? Yup."
+0	--	In-Dignity Heap	"heap"	"This was only put in to make the map 8x8 but I think it's a good one. People with seeming dignity giving pompous morality lectures do heap indignity on others. And some of us take it for our own good."
 
 table of annotations (continued) [toa-items]
 anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
@@ -2834,6 +2847,8 @@ win-check	achieved	guy-banter
 10	false	"'All these wins are most impressive! I'm sure your skills will come in handy in a technical field. Not enough to be a high-level manager, but yeah. Boy. You need the [bad-guy]'s snark even more. If a brain like yours fell into [bad-guy-2]'s clutches...'"
 15	false	"'Hey, you've shown some heavy-duty, I guess! Uh, yeah, I'm totally yawning because my brain is tired, not because I am.'"
 99	false	"'Gee. That's the end. Impressive. If you had the social skills to match, why, it'd be YOU defending us against [bad-guy-2], not the [bad-guy].'"
+
+does the player mean playing assassination character: it is likely.
 	
 carry out playing:
 	if noun is rattle:
@@ -2846,6 +2861,8 @@ carry out playing:
 		try talking to story fish instead;
 	if noun is torch:
 		say "It is cranking out music nicely on its own. Ok, the music isn't so nice." instead;
+	if noun is assassination character:
+		try entering chase paper instead;
 	if noun is Guy Sweet:
 		say "Why not play one of his games instead?" instead;
 	if noun is Alec Smart:
@@ -4330,7 +4347,7 @@ Chipper Wood is west of Jerk Circle. It is in Main Chunk. "The path cuts east-we
 to say say-paper:
 	say "[one of]But this path is clear, with an odd large paper grid. It's five by five, with fainter diagonal lines too[or]The chase paper is still there, taunting you with its apparent simplicity[stopping]";
 	
-understand "grid" as chase paper.
+understand "grid" and "paper grid" as chase paper.
 
 the chase paper is scenery in Chipper Wood. "Goodness knows how it sticks to the ground, but it does. You can probably GET ON it."
 
@@ -7855,7 +7872,7 @@ meta-rooms is a region.
 
 bullpen is a room in meta-rooms. "You should never see this. If you do, it is a [bug]." [the bullpen is for items that you dropped when you slept]
 
-conceptville is a room in meta-rooms. "You should never see this. If you do, it is a [bug]."
+conceptville is a room in meta-rooms. "You should never see this. If you do, it is a [bug]." [this is a cheesy hack, as concepts you haven't seen yet are here, and when you see them, they move to lalaland.]
 
 the Total T is a thing in conceptville. description is "[bug]"
 
