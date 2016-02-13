@@ -221,12 +221,16 @@
 			<dock index="0" id="80" port="e" />
 			<dock index="1" id="82" port="w" />
 		</line>
-		<room id="85" name="Airy Station" subtitle="" x="544" y="-288" w="96" h="64" region="Bonus puzzles" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="85" name="Airy Station" subtitle="" x="544" y="-288" w="96" h="64" region="Bonus puzzles" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>* HAMMER</objects>
+		</room>
 		<line id="87" flow="oneWay">
 			<dock index="0" id="82" port="ne" />
 			<dock index="1" id="85" port="nw" />
 		</line>
-		<room id="88" name="Whole Worm" subtitle="" x="544" y="-96" w="96" h="64" region="Post-Bros" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="88" name="Out Mist" subtitle="" x="544" y="-96" w="96" h="64" region="Post-Bros" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>RING *</objects>
+		</room>
 		<line id="89" flow="oneWay">
 			<dock index="0" id="30" port="e" />
 			<dock index="1" id="88" port="w" />
@@ -243,6 +247,10 @@
 		<line id="84" flow="oneWay">
 			<dock index="0" id="24" port="n" />
 			<dock index="1" id="30" port="s" />
+		</line>
+		<line id="86" style="dashed" flow="oneWay" midText="KNOCK HARD">
+			<dock index="0" id="1" port="se" />
+			<dock index="1" id="16" port="nw" />
 		</line>
 	</map>
 	<settings>

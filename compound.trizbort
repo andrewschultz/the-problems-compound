@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<trizbort version="1.5.9.3">
+<trizbort version="1.5.9.4">
 	<info>
 		<title>The Problems Compound</title>
 		<author>Andrew Schultz</author>
@@ -268,6 +268,7 @@
 			<smallText>Black</smallText>
 			<lineText>Black</lineText>
 			<grid>#F5F5F5</grid>
+			<startRoom>GreenYellow</startRoom>
 		</colors>
 		<regions>
 			<Cluey____Area Name="Cluey Area" TextColor="Black">#C06020</Cluey____Area>
@@ -305,6 +306,11 @@
 			<handleSize>12</handleSize>
 			<snapToElementSize>16</snapToElementSize>
 		</ui>
+		<margins>
+			<documentSpecific>yes</documentSpecific>
+			<horizontal>96</horizontal>
+			<vertical>96</vertical>
+		</margins>
 		<keypadNavigation>
 			<creationModifier>control</creationModifier>
 			<unexploredModifier>alt</unexploredModifier>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<trizbort version="1.5.9.3">
+<trizbort version="1.5.9.4">
 	<info>
 		<title>The Problems Compound</title>
 		<author>Andrew Schultz</author>
@@ -339,7 +339,7 @@
 			<dock index="0" id="35" port="ne" />
 			<dock index="1" id="106" port="nw" />
 		</line>
-		<room id="108" name="Mine Land" subtitle="" x="-480" y="-288" w="96" h="64" region="Hypothetical" handDrawn="no" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="108" name="Expectations Meet" subtitle="" x="-480" y="-288" w="96" h="64" region="Hypothetical" handDrawn="no" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<room id="109" name="Space of Waste" subtitle="" x="-320" y="-288" w="96" h="64" region="Hypothetical" handDrawn="no" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<room id="110" name="In-Dignity Heap" subtitle="" x="640" y="96" w="96" h="64" region="Bad Ends" handDrawn="no" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<room id="111" name="Robbery Highway" subtitle="" x="-480" y="-32" w="96" h="64" region="Hypothetical" handDrawn="no" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
@@ -361,6 +361,7 @@
 			<smallText>Black</smallText>
 			<lineText>Black</lineText>
 			<grid>#F5F5F5</grid>
+			<startRoom>GreenYellow</startRoom>
 		</colors>
 		<regions>
 			<Bad____Ends Name="Bad Ends" TextColor="Black">Red</Bad____Ends>
@@ -402,6 +403,11 @@
 			<handleSize>12</handleSize>
 			<snapToElementSize>16</snapToElementSize>
 		</ui>
+		<margins>
+			<documentSpecific>yes</documentSpecific>
+			<horizontal>96</horizontal>
+			<vertical>96</vertical>
+		</margins>
 		<keypadNavigation>
 			<creationModifier>control</creationModifier>
 			<unexploredModifier>alt</unexploredModifier>

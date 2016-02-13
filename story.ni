@@ -697,7 +697,10 @@ instead of swearing obscenely:
 
 do-swearing is an action applying to nothing.
 
+toad-swear is a truth state that varies.
+
 carry out do-swearing:
+	say "A voice in your head reminds you of your gross, gross hypocrisy in swearing when you opted for no profanity, but dang it, you're confused and frustrated.";
 	if player is in Soda Club:
 		say "You reckon that's how people are supposed to cuss in a bar, er, club, but you can't give that word the right oomph." instead;
 	if player is in cult:
@@ -706,6 +709,15 @@ carry out do-swearing:
 		say "The assassin smirks[if p-c is true]. 'That won't do any good!'[else].[end if]" instead;
 	if player is in belt and terminal is in belt:
 		say "Sorry, man. I didn't mean for it to be THIS hard." instead;
+	if player is in joint strip:
+		if toad-swear is false:
+			now toad-swear is true;
+			say "'It's a damn shame. Kids thinking they're tougher than they are. I had a lot more to swear ABOUT when I was a kid.'" instead;
+		say "'Repeat offender? Cutting up for the fun of it? Off you go!'";
+		ship-off in-dignity heap instead;
+	if player is in freak control:
+		say "That gets the [bad-guy]'s attention. 'DUDE!' he says. 'REALLY, dude! Some respect for authority? I mean, don't respect stupid authority but I *** need to *** concentrate, here. My job's not *** easy and anyone who just swears frivolously to grab attention--well, they don't GET IT, y'know? Besides, you sounded lame when you said that.' As you're pulled away by guards you hadn't seen before, the 'OUT, FREAK' sign catches your eye. Perhaps there was another way to annoy him, without letting him be so self-righteous.";
+		ship-off in-dignity heap instead;		
 	if big-swear is false:
 		say "That's a wishy-washy swear--it wouldn't seem to do you any good if you [if allow-swears is true]dis[else]en[end if]abled profanity in this game." instead;
 	say "[if allow-swears is false]You mumble a swear under your breath, remembering full well you didn't want to hear it from others[else]Much as you'd like it to, your profanity has no oomph[end if]." instead;
@@ -1887,7 +1899,7 @@ Tray B	"Eating anything on it may betray who you really are."
 to say ham-desc:
 	choose row with brief of "great" in table of verb-unlocks;
 	if found entry is true:
-		say ": AWAY HAMMMER = hammer away = keep trying, HOME HAMMER = hammer home = to make a point forcefully, LOCK HAMMER = hammer lock = a wrestling hold";
+		say ": AWAY HAMMER = hammer away = keep trying, HOME HAMMER = hammer home = to make a point forcefully, LOCK HAMMER = hammer lock = a wrestling hold";
 	else:
 		say " I can't spoil yet";
 
@@ -7438,7 +7450,8 @@ biglaff	anyrule
 "an empty command?"	--
 "XYZZY? Four times?"	--
 "attacking anyone? Or the torch?"	--
-"cussing in front of certain people, especially authority figures?"	--
+"cussing when you asked for no profanity?"	--
+"cussing in front of certain people, especially authority figures (twice for a 'bad' ending)?"	--
 "kissing the Language Machine?"	--
 "drinking someone?"	--
 "going west/north/south in the Variety Garden?"	--
@@ -7451,6 +7464,7 @@ biglaff	anyrule
 "reading all the books from the book crack (there are [number of rows in table of horrendous books])? Or just reading the source for them?"	--
 "SLEEPing in the extra directors' cut rooms in ANNO mode?"	--
 "ENTERing the Return Carriage?"	very-good-end rule
+"EXPLAINing the lock caps?"	very-good-end rule
 "MAN HAMMER, BAN HAMMER, HAMMER JACK, HAMMER NINNY, HAMMER SLEDGE in Airy Station?"	very-good-end rule
 "WORM ROUND in the Out Mist?"	good-end rule
 "LET RING or MASTER RING in the Out Mist?"	good-end rule
@@ -7476,6 +7490,23 @@ final question wording	only if victorious	topic	final response rule	final respon
 "see where minor SWEARS change"	true	"SWEARS"	swear-see rule	swearseeing
 "see the SINS the jerks didn't commit"	true	"SINS"	sin-see rule	sinseeing
 "see the SPECIAL ways to see a bit more of the Compound"	true	"SPECIAL"	special-see rule	specialseeing
+"see how to get to each of the BAD END rooms"	true	"BAD/END" or "BAD END"	bad-end-see rule	badendseeing
+
+chapter bad end
+
+badendseeing is an activity.
+
+this is the bad-end-see rule:
+	repeat with X running through rooms in bad ends:
+		if X is not a badroom listed in table of bad end listing:
+			say "[2da][X] needs a bad-end listing.";
+		else:
+			choose row with badroom of X in the table of bad end listing;
+			say "[2da][X]: [howto entry][line break]";
+
+table of bad end listing
+badroom	howto
+in-dignity heap	"Careless swearing around the [bad-guy], Officer Petty or the Stool Toad."
 
 chapter special
 
