@@ -699,8 +699,18 @@ do-swearing is an action applying to nothing.
 
 toad-swear is a truth state that varies.
 
+hypoc-swear is a number that varies.
+
 carry out do-swearing:
-	say "A voice in your head reminds you of your gross, gross hypocrisy in swearing when you opted for no profanity, but dang it, you're confused and frustrated.";
+	unless accel-ending:
+		if hypoc-swear is 0:
+			say "A voice in your head reminds you of your gross, gross hypocrisy in swearing when you opted for no profanity, but dang it, you're confused and frustrated.";
+		else if hypoc-swear is 1:
+			say "The 'hypocrisy' of swearing feels a bit less, now. Yes, you're allowed to change your mind. And...well...you know how people can manipulate with the threat of a swear, or saying, don't make me swear.";
+		else:
+			say "It's almost getting a bit boring breaking the rules again.";
+		if hypoc-swear < 2:
+			increment hypoc-swear;
 	if player is in Soda Club:
 		say "You reckon that's how people are supposed to cuss in a bar, er, club, but you can't give that word the right oomph." instead;
 	if player is in cult:
@@ -1289,17 +1299,25 @@ check attacking:
 		say "You don't want to embarrass yourself like that." instead;
 	if noun is tee:
 		say "Instead of breaking the tee, maybe you can use it to break something else." instead;
-	if noun is torch:
-		if phil is in Interest Compound or art is in Interest Compound:
-			say "'VANDAL!' shouts [if phil is not in Interest Compound]Art[else if art is not in Interest Compound]Phil[else]the pair of impresarios[end if]. 'You don't realize how priceless it is!' Law enforcement arrives. There's only one place for unartistic lummoxes like you.";
-			ship-off Hut Ten instead;
 	if noun is mouth mush:
 		say "How? By stepping on it and falling into it? Smooth." instead;
 	if noun is arch:
 		say "[if mush is in surface]Maybe you could do a flying karate-leap to touch the arch, but you'd fall into the mouth mush, so no[else]You should really just ENTER it now[end if]." instead;
+	if noun is a logic-game:
+		say "'Dude! I don't care about the logic games, but they're, like, someone's PROPERTY! And lashing out like that doesn't make you any less, um...' As you wait, you're grabbed from behind. It's some giant toad in a police uniform. Weird. 'There's a place for disrespectful troublemakers like you.'";
+		ship-off Hut Ten instead;
 	if noun is insanity terminal:
 		say "It gives a ton of warning beeps. You run, but the Stool Toad and Officer Petty block the way up. 'Vandalism, eh? An expensive piece of property!'";
-		ship-off Punishment Capitol instead;
+		ship-off Hut Ten instead;
+	if noun is torch or noun is book bank:
+		if phil is in Interest Compound or art is in Interest Compound:
+			say "'VANDAL!' shouts [if phil is not in Interest Compound]Art[else if art is not in Interest Compound]Phil[else]the pair of impresarios[end if]. 'You don't realize how priceless it is!' Law enforcement arrives. There's only one place for unartistic lummoxes like you.";
+		else:
+			say "An alarm blasts as you take your first swing! You try to run, but Officer Petty is quickly on the scene to send you elsewhere." instead;
+		ship-off Hut Ten instead;
+	if noun is thoughts idol:
+		say "You feel weirdly paralyzed as you get too close. As you're frozen, you hear the voice of Officer Petty mumbling 'Another fool who thought he was smart.' He dumps you in a quasi-military area, and if you thought you had a break from ad hoc philosophizing, you'd be wrong.";
+		ship-off Hut Ten instead;
 	if noun is Baiter:
 		say "Of course, with all those screens, he saw you well before you got close. He whirls and smacks you. Stunned, you offer no resistance as you're sent away to where those who commit high treason go...";
 		ship-off Punishment Capitol instead;
@@ -1307,14 +1325,14 @@ check attacking:
 		say "'ATTACKING A LAW ENFORCEMENT OFFICER?' Ouch. You should've known better. And [noun] lets you know that in utterly needless detail, explaining just because you had no chance of beating him up doesn't mean it's not a very serious crime indeed.[paragraph break]It's almost a relief when he has finished shipping you off.";
 		ship-off Punishment Capitol instead;
 	if noun is a bro:
-		say "'Silently, [noun] grabs you. [if bros-left is 1]Even without his brothers, it's a quick affair[else]His brothers hold you[end if]. He's apologetic--but he'd have liked to work with you, and violence is violence, and his job is his job.";
-		ship-off Hut Ten instead;
+		say "'Silently, [noun] grabs you. [if bros-left is 1]Even without his brothers, it's a quick affair[else]His brothers hold you[end if]. He's apologetic--but he'd have liked to work with you, and violence is violence, and his job is his job. He realizes he is not so important, but anyone trying to break past him must have SOMETHING bad on their mind.";
+		ship-off Punishment Capitol instead;
 	if noun is list bucket:
 		say "You didn't come so far only to -- wait for it -- kick the bucket. Surely there's a better way to get the [bad-guy]'s attention." instead;
 	if noun is a person:
 		if noun is female:
 			say "Attacking people is uncool, but attacking females is doubly uncool. You may not feel big and strong, but with that recent growth spurt, you're bigger than you used to be. While the Stool Toad's knight-in-shining-armor act goes way overboard, to the point [noun] says that's enough--well, it's the least you deserve. And you can't complain about where you're shipped off.";
-			ship-off Hut Ten instead;
+			ship-off Punishment Capitol instead;
 		say "You begin to lash out, but [the noun] says 'Hey! What's your problem?' [if joint strip is
 		 visited]the Stool Toad[else]A big scary important looking man[end if] blusters over. 'WHOSE FAULT? QUIT HORSING AROUND!' You have no defense. 'THERE'S ONLY ONE PLACE TO REFORM VIOLENT TYPES LIKE YOU.' You--you should've KNOWN better than to lash out, but...";
 		ship-off Fight Fair instead;
@@ -1384,10 +1402,10 @@ chapter item based
 check giving smokable to:
 	if second noun is stool toad:
 		say "The Stool Toad jumps a whole foot in the air. 'How DARE you--on my turf--by me! OFFICER PETTY!' [if judgment pass is visited]Officer Petty[else]A man with a less fancy uniform[end if] rushes in and handcuffs you away and takes you to the...";
-		ship-off Maintenance High instead;
+		ship-off Criminals' Harbor instead;
 	if second noun is Officer Petty:
 		say "Officer Petty begins a quick cuff em and stuff em routine while remarking how that stuff impairs your judgement, and you seemed kind of weird anyway.";
-		ship-off Maintenance High instead;
+		ship-off Criminals' Harbor instead;
 	if second noun is logical psycho:
 		say "That might mellow him out, but it also might start him lecturing on the idiocy of anti-pot laws. Which you don't want, regardless of his stance." instead;
 
@@ -6934,6 +6952,7 @@ check eating greater cheese:
 		say "[line break]OK." instead;
 	say "You manage to appreciate the cheese and feel superior to those who don't. You have a new outlook on life!";
 	now greater cheese is in lalaland;
+	force-swear;
 	now greater-eaten is true instead;
 
 section off cheese
@@ -6955,6 +6974,7 @@ check eating off cheese:
 		say "[line break]OK." instead;
 	say "Ugh. Bleah. It feels and tastes awful--but if you sat through this, you can sit through an awkward conversation. Not that you'll do anything like cause a few.";
 	now off cheese is in lalaland;
+	force-swear;
 	now off-eaten is true instead;
 	
 section cutter cookie
@@ -6976,7 +6996,13 @@ check eating cutter cookie:
 		say "[line break]OK." instead;
 	say "[line break]You have to eat it carefully, because of its spikes, but it gives you...a sharp tongue. Suddenly you're ready to go off on pretty much anyone who's gotten in your way, or even not helped you enough[if allow-swears is false]. You'll show those punks you don't need to swear to kick butt![else].[end if]";
 	now cookie is in lalaland;
+	force-swear;
 	now cookie-eaten is true instead;
+
+to force-swear:
+	if allow-swears is false:
+		say "Also, you realize how lame it was to be stuffy about swears. You have stuff to swear ABOUT now, see?";
+		now allow-swears is true;
 
 table of accel-text
 accel-place	alt-num	accel-cookie	accel-off	accel-greater
@@ -7122,7 +7148,7 @@ Bad Ends is a region.
 
 part Punishment Capitol
 
-Punishment Capitol is in Bad Ends. "You've really hit the jackpot! I guess. Everything is bigger and better here, and of course you're constantly reminded that you have more potential to build character here than in Hut Ten or Criminals['] Harbor. And whether you grumble or agree, someone officious is there to reenforce the message you probably won't build that character. But you have to try![paragraph break]Oh, also, there's word some of the officers have a black market going with [bad-guy-2], too, but people who do that--well, there's never any evidence."
+Punishment Capitol is a room in Bad Ends. "You've really hit the jackpot! I guess. Everything is bigger and better here, and of course you're constantly reminded that you have more potential to build character here than in Hut Ten or Criminals['] Harbor. And whether you grumble or agree, someone officious is there to reenforce the message you probably won't build that character. But you have to try![paragraph break]Oh, also, there's word some of the officers have a black market going with [bad-guy-2], too, but people who do that--well, there's never any evidence."
 
 part Hut Ten
 
@@ -7506,7 +7532,14 @@ this is the bad-end-see rule:
 
 table of bad end listing
 badroom	howto
-in-dignity heap	"Careless swearing around the [bad-guy], Officer Petty or the Stool Toad."
+A Beer Pound	"Get your fifth ticket in A Beer Pound."
+Criminals' Harbor	"Give a smokable to an officer."
+In-Dignity Heap	"Careless swearing around the [bad-guy], Officer Petty or the Stool Toad"
+Fight Fair	"Attacking other people"
+Hut Ten	"Vandalizing things like the Insanity Terminal or Thoughts Idol or a logic game"
+Maintenance High	"Choke on the gagging lolly."
+Punishment Capitol	"Attacking the [bad-guy], or women"
+Shape Ship	"Get your fifth ticket outside A Beer Pound."
 
 chapter special
 
@@ -7539,11 +7572,12 @@ this is the swear-see rule:
 	say "[2da]The Baiter Master is the Complex Messiah.";
 	say "[2da]Buster Ball is Hunter Savage.";
 	say "[2da]The Jerk Circle is the Groan Collective.";
-	say "[2da]The Business Monkey's efforts are half-brained or assed.";
-	say "[2da]If you actually swear, obscenely or mildly (BOTHER)[line break]";
+	say "[2da]The Business Monkey's efforts are half-brained or [if allow-swears is true]ass[else]posterior[end if]ed.";
+	say "[2da]If you actually swear, obscenely or mildly (BOTHER)--there's a small inner dialogue for swearing with swears off[line break]";
 	say "[2da]A different reaction to repeatedly playing the logic puzzles[line break]";
 	say "[2da]EXPLAIN Guy Sweet has a slight difference[line break]";
-	say "Well, that's not much. I planned to have a lot more, but I just got sidetracked with silly stuff like bug fixing and adding to the story, which hopefully gave you less occasion to use profanity. Sorry about that."
+	say "[2da]Eating a food from Tray B turns swears on, if they were off[line break]";
+	say "Welp, that's not much. I planned to have a lot more, but I just got sidetracked with silly stuff like bug fixing and adding to the story, which hopefully gave you less occasion to use profanity. Sorry about that."
 
 escape mode is a truth state that varies.
 
