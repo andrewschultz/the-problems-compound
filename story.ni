@@ -5503,6 +5503,8 @@ last-dir is a direction that varies.
 rotation is a number that varies.
 
 check going nowhere in idiot village (this is the final idol puzzle rule):
+	if crocked half is in lalaland:
+		say "You don't need a victory lap through the Service Community now, fun as it might be." instead;
 	if player has crocked half:
 		if noun is northeast or noun is east:
 			say "You run past the Thoughts Idol. Its eyes follow you.";

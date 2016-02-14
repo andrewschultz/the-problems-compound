@@ -118,7 +118,7 @@
 			<dock index="1" id="49" port="w" />
 		</line>
 		<room id="54" name="Get fish from well (long string)" subtitle="" x="-96" y="-288" w="96" h="64" region="big" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<room id="57" name="TALK TO FISH in compound" subtitle="" x="32" y="-288" w="96" h="64" region="big" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="57" name="TALK TO FISH in Block" subtitle="" x="32" y="-288" w="96" h="64" region="big" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<line id="48" flow="oneWay">
 			<dock index="0" id="45" port="n" />
 			<dock index="1" id="47" port="s" />
@@ -127,7 +127,7 @@
 			<dock index="0" id="47" port="nnw" />
 			<dock index="1" id="54" port="s" />
 		</line>
-		<room id="60" name="OPEN SAFE in Compound" subtitle="" x="288" y="-192" w="96" h="64" region="big" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="60" name="OPEN SAFE in Block" subtitle="" x="288" y="-192" w="96" h="64" region="big" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<room id="62" name="Get Wax, put it in language machine" subtitle="" x="160" y="-288" w="96" h="64" region="big" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<line id="63" flow="oneWay">
 			<dock index="0" id="60" port="n" />
@@ -235,7 +235,7 @@
 			<dock index="0" id="30" port="e" />
 			<dock index="1" id="88" port="w" />
 		</line>
-		<room id="90" name="Rooms/events are color coded by whom you help" subtitle="blue = soul red = blood yellow = big" x="-480" y="-384" w="896" h="64" region="NoRegion" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="90" name="Rooms/events are color coded by whom you help: blue = SOUL, red = BLOOD, yellow = BIG, brown = AFTER, grey = best ending" subtitle="" x="-352" y="-384" w="864" h="64" region="NoRegion" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<line id="26" flow="oneWay">
 			<dock index="0" id="30" port="ne" />
 			<dock index="1" id="85" port="sw" />
