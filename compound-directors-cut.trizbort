@@ -30,7 +30,7 @@
 		<room id="39" name="Speaking Plain" subtitle="" x="160" y="-160" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects>Turk Young|Uncle Dutch|Fright Stage</objects>
 		</room>
-		<room id="40" name="Interest Compound" subtitle="" x="480" y="-160" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="Labeled the &quot;interest compound&quot;" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+		<room id="40" name="Discussion Block" subtitle="" x="480" y="-160" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="Labeled the &quot;interest compound&quot;" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects>Art Fine|Harmonic Phil</objects>
 		</room>
 		<room id="41" name="Pressure Pier" subtitle="" x="160" y="96" w="96" h="64" region="Outer Bounds" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="yes" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
@@ -325,14 +325,14 @@
 			<dock index="0" id="13" port="e" />
 			<dock index="1" id="102" port="w" />
 		</line>
-		<room id="104" name="Out Mist" subtitle="" x="320" y="-416" w="96" h="64" region="Endings" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="#A0A000" secondFillLocation="BottomRight" roomBorder="" roomLargeText="" roomSmallText="">
+		<room id="104" name="Out Mist" subtitle="" x="320" y="-416" w="96" h="64" region="Endings" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="#A0A000" secondFillLocation="Right" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects>Whole (Wood) Worm</objects>
 		</room>
 		<line id="105" flow="oneWay" midText="Win">
 			<dock index="0" id="35" port="e" />
 			<dock index="1" id="104" port="w" />
 		</line>
-		<room id="106" name="Airy Station" subtitle="" x="480" y="-416" w="96" h="64" region="Endings" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="#A0A000" secondFillLocation="BottomLeft" roomBorder="" roomLargeText="" roomSmallText="">
+		<room id="106" name="Airy Station" subtitle="" x="480" y="-416" w="96" h="64" region="Endings" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="#A0A000" secondFillLocation="Left" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects>Return Carriage|Mentality Crowd</objects>
 		</room>
 		<line id="107" style="dashed" flow="oneWay" midText="REALLY Win">

@@ -953,8 +953,8 @@ check listening (this is the listening in a place rule):
 		say "Hard NOT to listen to Uncle Dutch." instead;
 	if player is in truth home and psycho is in truth home:
 		say "[one of]'See there, Proof Fool? This guy sits and listens. Right?' Before you can agree, the Logical Psycho continues. Strictly speaking, everything he says is true, but he tends to weight this or that more than he should...[or]The Logical Psycho continues to spew truths, with his own unique weighting of what is important.[stopping]" instead;
-	if player is in Interest Compound:
-		if phil is in Interest Compound:
+	if player is in Discussion Block:
+		if phil is in Discussion Block:
 			say "[one of]M[or]More m[stopping]usic from the song torch!";
 			try examining song torch instead;
 	if player is in freak control:
@@ -1154,8 +1154,8 @@ chapter singing
 the block singing rule is not listed in any rulebook.
 
 check singing:
-	if player is in interest:
-		say "[if phil is in interest]You don't want to hear Phil's critique of your singing[else]You still can't compete with the song torch[end if]." instead;
+	if player is in Discussion Block:
+		say "[if phil is in Discussion Block]You don't want to hear Phil's critique of your singing[else]You still can't compete with the song torch[end if]." instead;
 	if player is in cult:
 		say "You sense singing may be overdoing it for the cult here." instead;
 	say "You never were the artsy type. And the songs you want to sing are always out of fashion." instead;
@@ -1310,8 +1310,8 @@ check attacking:
 		say "It gives a ton of warning beeps. You run, but the Stool Toad and Officer Petty block the way up. 'Vandalism, eh? An expensive piece of property!'";
 		ship-off Hut Ten instead;
 	if noun is torch or noun is book bank:
-		if phil is in Interest Compound or art is in Interest Compound:
-			say "'VANDAL!' shouts [if phil is not in Interest Compound]Art[else if art is not in Interest Compound]Phil[else]the pair of impresarios[end if]. 'You don't realize how priceless it is!' Law enforcement arrives. There's only one place for unartistic lummoxes like you.";
+		if phil is in Discussion Block or art is in Discussion Block:
+			say "'VANDAL!' shouts [if phil is not in Discussion Block]Art[else if art is not in Discussion Block]Phil[else]the pair of impresarios[end if]. 'You don't realize how priceless it is!' Law enforcement arrives. There's only one place for unartistic lummoxes like you.";
 		else:
 			say "An alarm blasts as you take your first swing! You try to run, but Officer Petty is quickly on the scene to send you elsewhere." instead;
 		ship-off Hut Ten instead;
@@ -2301,7 +2301,7 @@ anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
 0	--	Pressure Pier	"pier"	"This shuffled around a bit until I found someone who was adequate for pressuring you, as opposed to just talking you down. That was the Howdy Boy. And, in fact, he was just 'there' in Sense Common for a while. Early I took a 'best/worst remaining pun' approach to the map, but as I started writing code and sending the game to testers, I realized how it could make more sense."
 0	--	Questions Field	"field"	"This was originally the Way of Right, which was sort of close to Freak Control, but then close to release I was searching for other names and this popped up. I liked it better--the three Brothers are asking questions--and it seemed less generic. So it stayed."
 0	--	Court of Contempt	"court"	"As someone unimpressed by all the yelling that went on in law-firm shows when I was younger, any sort of court always seemed fearful to me. What would I be doing there? I was shocked when I got my first traffic ticket and went in to protest that it was relatively quiet and orderly. But the image and fears still remain, funnier now."
-0	--	Interest Compound	"compound"	"This riffs a bit on the title, but the Directors of Bored--Art and Phil--well, this was called Directors of Bored for a while. Actually, before that, it was called Nation of Conster, before I decided to just work at real words for what's in the game."
+0	--	Discussion Block	"block"	"This was the Interest Compound in release 1, but that was too close to the title. The discussions, of course, block any real discussion. The books and songs are purposely bad, but you can't SAY that."
 0	--	Disposed Well	"well"	"This was originally the preserved well, and the Belt Below was below it. There was going to be a Barrel of the Bottom that opened, but it seemed too far-fetched. So I just went with a well where you couldn't quite reach something."
 0	--	Scheme Pyramid	"pyramid"	"I find pyramid schemes endlessly funny in theory, though their cost is real and sad. They're worse than lotteries."
 0	--	Standard Bog	"bog"	"This was something entirely different until the end. Something different enough, it might go in a sequel."
@@ -2344,7 +2344,7 @@ anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
 0	--	Rage Road	"rage"	"This flip made me giggle immediately, but it was one of those things where I could do better. The flipped meaning wasn't skewed enough. So when I stumbled on Chipper Wood, I decided to change it. That said, even though road rage is serious, coworkers and I riff on it when we're carrying lots of stuff and want pedestrians out of our way.[paragraph break]I also had ideas for a diner called Pizza Road."
 0	--	Chicken Free Range	"range"	"The Chicken Free Range is, well, free of everyone. It was replaced by the Speaking Plain and Chipper Wood. As much as I like the idea of rotating two of three names, the problem is that you have six possibilities now, which gets confusing. Plus, free-range chicken may be a bit obscure, though I like the connotation of chicken-free range as 'THOU SHALT NOT FEAR.'"
 0	--	Humor Gallows	"gallows"	"This was originally part of the main map, but the joke wasn't universal enough. I like the idea of killing jokes from something that should be funny, the reverse of gallows humor--which draws humor from tragedy or near tragedy. As well as the variety of ways jokes can be killed."
-0	--	Tuff Butt Fair	"fair"	"This was one of the first locations I found, and I took it, and I put it in the game. Tough butt/tough but is a good pun, and I have a personal test that if I can picture pundits calling a person 'tough but fair,' that person is a loudmouthed critical jerk. The only problem is, 'fair but tough' isn't really a fair flip. It was replaced by the Interest Compound and Judgment Pass.[paragraph break]I originally thought of a lot of contemporary sounding people I could put in here, but they got rejected. Even Francis Pope (who'd be a rather nasty opposite of the Pontiff, whom I respect.) I wanted to keep it abstract and not Talk About Important People. However, for a truly atrocious inside joke, I was tempted to put in a bully named Nelson Graham who beat other kids up for playing games over three years old--or for even TRYING to make their own programming language. I decided agai--oops."
+0	--	Tuff Butt Fair	"fair"	"This was one of the first locations I found, and I took it, and I put it in the game. Tough butt/tough but is a good pun, and I have a personal test that if I can picture pundits calling a person 'tough but fair,' that person is a loudmouthed critical jerk. The only problem is, 'fair but tough' isn't really a fair flip. It was replaced by the Interest Compound, which became the Discussion Block, and Judgment Pass.[paragraph break]I originally thought of a lot of contemporary sounding people I could put in here, but they got rejected. Even Francis Pope (who'd be a rather nasty opposite of the Pontiff, whom I respect.) I wanted to keep it abstract and not Talk About Important People. However, for a truly atrocious inside joke, I was tempted to put in a bully named Nelson Graham who beat other kids up for playing games over three years old--or for even TRYING to make their own programming language. I decided agai--oops."
 0	--	Ill Falls	"falls"	"This was simply a good pun that might have afforded a play on Ill, which often means beautiful and ugly at the same time."
 0	--	Eternal Hope Springs	"springs"	"This was the original place you'd sleep. Then I put the warmer bench, but then I discovered the Joint Strip as perfectly seedy. Since, like Chicken Free Range, this had three substansive words in its name, it didn't quite fit the room aesthetic. But I still liked the name, and it probably catalyzed other ideas before becoming obsolete."
 0	--	Brains Beat	"beat"	"I like the image of brainy people walking a beat, talking bout stuff, making someone (figuratively, of course) want to beat their brains in. Them being themselves or the others. Intellectual Conversation in general drives me up the wall."
@@ -4857,15 +4857,15 @@ before talking to story fish:
 		say "'NONSENSE!  FACTS, FACTS, FACTS!' roars the Psycho. The fish clams up after the tide of abuse leaves it all at sea." instead;
 	if player is in standard bog:
 		say "'Eh? I--I would tell my story, but the computer wouldn't appreciate it. Manufactured stuff. Mine is ORIGINAL.'" instead;
-	if player is not in Interest Compound:
+	if player is not in Discussion Block:
 		say "The fish opens a sleepy eye. 'Eh? Anyone here? Nope, nobody artsy.'" instead;
-	if art fine is in Interest Compound:
+	if art fine is in Discussion Block:
 		say "The fish eyes you sleepily but then sees the bookshelf, then Art Fine. 'Ah! Good sir! May I begin!' The fish's story is much funnier this time, and a bit shorter, too, because Art barely lasts five minutes before he runs away screaming. You pat the fish on the head and put it in the bookshelf.[paragraph break]";
 		now art fine is in lalaland;
-		now story fish is in Interest Compound;
-		say "[if harmonic phil is in Interest Compound]Harmonic Phil snickers. 'Well, Art was smart and all, but he was getting kind of boring anyway. And he didn't know a THING about music.'[else]Well, that's Phil AND Art gone.[end if]";
+		now story fish is in Discussion Block;
+		say "[if harmonic phil is in Discussion Block]Harmonic Phil snickers. 'Well, Art was smart and all, but he was getting kind of boring anyway. And he didn't know a THING about music.'[else]Well, that's Phil AND Art gone.[end if]";
 		increment the score instead;
-	say "[if harmonic phil is in Interest Compound and player is in Interest Compound]Harmonic Phil hums loudly over the sound of the fish talking. You'll need to ... fish for another way to get rid of Phil.[else]'Eh? Where'd everyone go? I'll wait [']til there's a crowd to tell my story.'[end if]";
+	say "[if harmonic phil is in Discussion Block and player is in Discussion Block]Harmonic Phil hums loudly over the sound of the fish talking. You'll need to ... fish for another way to get rid of Phil.[else]'Eh? Where'd everyone go? I'll wait [']til there's a crowd to tell my story.'[end if]";
 	the rule succeeds;
 
 a long string is a thing. description is "It's coiled, now, but it seems pretty easy to untangle if you want to PUT it IN somewhere deep."
@@ -5409,28 +5409,28 @@ check taking the finger index:
 
 chapter sound safe
 
-The Sound Safe is a thing in Accountable Hold. "[if player is in Interest Compound]The safe lies here beneath the song torch[else]A safe lies here. It doesn't look particularly heavy or secure. You hear some sound from it[end if]."
+The Sound Safe is a thing in Accountable Hold. "[if player is in Discussion Block]The safe lies here beneath the song torch[else]A safe lies here. It doesn't look particularly heavy or secure. You hear some sound from it[end if]."
 
 after taking Sound Safe:
 	say "It's not THAT heavy. The sound magnifies when you pick it up and the door opens briefly, but you close it. You try, but there's no way to lock it.[paragraph break]But what's this? Something's stuck under the safe. It's a piece of paper marked CONFIDENTIAL.";
 	now finger index is in Accountable Hold;
 	the rule succeeds;
 
-description of Sound Safe is "[if sound safe is in interest compound]It's, well, not very sound. While it's closed, you can OPEN it at will. You're not even sure how to lock it[else]It sits, closed, and you probably want to keep it that way[end if]."
+description of Sound Safe is "[if sound safe is in Discussion Block]It's, well, not very sound. While it's closed, you can OPEN it at will. You're not even sure how to lock it[else]It sits, closed, and you probably want to keep it that way[end if]."
 
 check opening sound safe:
 	if harmonic phil is in lalaland:
 		say "You don't need to, again." instead;
-	if player is not in Interest Compound:
+	if player is not in Discussion Block:
 		say "You crack it open, but it makes such a terrible noise you have to close it again. You wouldn't want to open it again unless you were around someone you really wanted to spite." instead;
-	say "The Sound Safe makes a brutal noise in the Interest Compound, made worse by the special acoustics. Harmonic Phil covers his ears. 'I can't even blather about how this is so bad it's good!' he yells, running off.[paragraph break]You put the safe down by the song torch.";
-	now sound safe is in Interest Compound;
+	say "The Sound Safe makes a brutal noise in the Discussion Block, made worse by the special acoustics. Harmonic Phil covers his ears. 'I can't even blather about how this is so bad it's good!' he yells, running off.[paragraph break]You put the safe down by the song torch.";
+	now sound safe is in Discussion Block;
 	now harmonic phil is in lalaland;
-	say "[line break][if art fine is in Interest Compound]Art Fine chuckles and nods approval. 'That's what you get for dabbling in art that's not intellectually robust.' Wow. Even before a line like that, you figured Art Fine had to go, too.[else]Well, that's Phil AND Art gone.[end if]";
+	say "[line break][if art fine is in Discussion Block]Art Fine chuckles and nods approval. 'That's what you get for dabbling in art that's not intellectually robust.' Wow. Even before a line like that, you figured Art Fine had to go, too.[else]Well, that's Phil AND Art gone.[end if]";
 	increment the score instead;
 
 check taking sound safe:
-	if player is in Interest Compound:
+	if player is in Discussion Block:
 		say "No, you like it here. Good insurance against Harmonic Phil coming back." instead;
 
 part Judgment Pass
@@ -6036,11 +6036,11 @@ after quipping when qbc_litany is table of Buddy Best talk:
 		now player has the Reasoning Circular;
 		try going east;
 
-part Interest Compound
+part Discussion Block
 
-Interest Compound is east of Crazy Drive. It is in Main Chunk. "On one wall, a book bank is embedded--like a bookshelf, only tougher to extract the books. On another, a song torch."
+Discussion Block is east of Crazy Drive. It is in Main Chunk. "On one wall, a book bank is embedded--like a bookshelf, only tougher to extract the books. On another, a song torch."
 
-the poetic wax is in Interest Compound. "Poetic Wax--a whole ball of it--lies here behind [if number of waxblocking people is 0]where Art and Phil used to be[else][list of waxblocking people][end if]."
+the poetic wax is in Discussion Block. "Poetic Wax--a whole ball of it--lies here behind [if number of waxblocking people is 0]where Art and Phil used to be[else][list of waxblocking people][end if]."
 
 after taking the poetic wax:
 	say "You're worried it might melt or vanish in your hands if you think too much or too little. Poetic things are that way.[paragraph break]Fortunately, it stays firm yet pliable in your hands.";
@@ -6059,18 +6059,19 @@ check taking the poetic wax:
 		say "'Oh, no! Certainly not! The poetic wax is a valuable intersection of music and art, one [if number of waxblocking people is 1]I still[else]we[end if] must guard from less artful people! No offense.'" instead;
 
 definition: a person (called p) is waxblocking:
-	unless p is in Interest Compound, decide no;
+	unless p is in Discussion Block, decide no;
 	if p is art fine or p is harmonic phil, decide yes;
 	decide no;
 
 [MUSIC FACE]
 
-check going to Interest Compound for the first time:
-	say "Two guys greet you as you walk in. 'I'm Art Fine. This is Harmonic Phil. We're the Directors of Bored. We're--well, we're bored of things the right way. Of written and aural art.'"
+check going to Discussion Block for the first time:
+	say "Two guys greet you as you walk in. 'I'm Art Fine. This is Harmonic Phil. Welcome to the Discussion Block! All discussion is welcome here, but some is more welcome than others.' They squabble briefly over whether music or books is superior, ask you whom you agree with and what you especially like, and shrug when you have nothing to say";
+	wfak;
 
 chapter Art Fine
 
-Art Fine is a person in Interest Compound. description is "He's wearing a shirt with a quote from an author you never read."
+Art Fine is a person in Discussion Block. description is "He's wearing a shirt with a quote from an author you never read."
 
 litany of Art Fine is the table of Art Fine talk.
 
@@ -6111,7 +6112,7 @@ after quipping when qbc_litany is litany of Art Fine:
 
 chapter Harmonic Phil
 
-Harmonic Phil is a person in Interest Compound. description is "He's wearing a shirt with a band you never heard of."
+Harmonic Phil is a person in Discussion Block. description is "He's wearing a shirt with a band you never heard of."
 
 litany of Harmonic Phil is the table of Harmonic Phil talk.
 
@@ -6149,14 +6150,14 @@ after quipping when qbc_litany is litany of Harmonic Phil:
 
 chapter book bank
 
-the book bank is scenery in Interest Compound. "Just filled with books!"
+the book bank is scenery in Discussion Block. "Just filled with books!"
 
 book-ord is a number that varies.
 
 check examining book bank:
 	increment book-ord;
 	if book-ord > number of rows in table of horrendous books:
-		if art fine is in compound:
+		if art fine is in Discussion Block:
 			say "Art Fine sighs. While he's obviously happy to reiterate his opinions on literature, he does need to let you know how kind he is to give his wisdom for free.[paragraph break]";
 		else:
 			say "You go back to the start of the book crack.[paragraph break]";
@@ -6231,14 +6232,14 @@ Hugo Victor: Eternity with Conversations? (not really by Hugo)
 
 chapter song torch
 
-a song torch is scenery in Interest Compound. "Tacky and glitzy and afire (sorry) with music you're supposed to be smart and worldly enough to appreciate, but you can't."
+a song torch is scenery in Discussion Block. "Tacky and glitzy and afire (sorry) with music you're supposed to be smart and worldly enough to appreciate, but you can't."
 
 song-ord is a number that varies.
 
 check examining song torch:
 	increment song-ord;
 	if song-ord > number of rows in table of horrendous songs:
-		if harmonic phil is in compound:
+		if harmonic phil is in Discussion Block:
 			say "Harmonic Phil sighs. While he's obviously happy to reiterate his opinions on music, he does need to let you know how kind he is to give his wisdom for free.[paragraph break]";
 		else:
 			say "Hmm, the songs seem to be repeating.[paragraph break]";
@@ -7647,7 +7648,7 @@ Scheme Pyramid	2	2	"SCHEM"	"PYRAM"
 Temper Keep	3	2	"TEMPR"	"KEEP "
 Speaking Plain	4	2	"SPEAK"	"PLAIN"
 Crazy Drive	5	2	"CRAZY"	"DRIVE"
-Interest Compound	6	2	"INTRS"	"COMPO"
+Discussion Block	6	2	"DISCU"	"BLOCK"
 Classic Cult	1	3	"CLASS"	"CULT "
 Disposed Well	2	3	"DISPO"	"WELL "
 Chipper Wood	3	3	"CHIPR"	"WOOD "
@@ -7713,7 +7714,7 @@ index map with Airy Station mapped east of Out Mist.
 
 [sleep areas]
 
-index map with Tense Past mapped east of Interest Compound.
+index map with Tense Past mapped east of Discussion Block.
 
 index map with Tense Present mapped north of Tense Past.
 
@@ -7887,8 +7888,6 @@ to say bro-sco:
 
 understand "man/boy/dude/guy/fellow" as a person when the item described is male and the item described is not Alec Smart.
 understand "woman/girl/lady" as a person when the item described is female.
-
-understand "director" as a person when the item described is in Interest Compound and the item described is not Alec Smart.
 
 allow-swears is a truth state that varies.
 

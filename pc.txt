@@ -388,7 +388,7 @@ That is Fritz the ON.
 GIVE WEED TO FRITZ.
 ?I accepted and completed the task! What do I do now?
 GIVE PENNY TO PENN.
->>>Interest Compound/The Directors of Bored
+>>>Discussion Block
 ?Do I need the Poetic Wax? Can I take it?
 Yes and yes.
 But Phil and Art are blocking it.
@@ -421,7 +421,7 @@ It's useful for someone, or something, who is sick of just writing prose.
 It's writing sad stories, looking sad.
 It doesn't seem to 'want' to keep writing stories.
 What could help it write something else?
-The Poetic Wax from the Interest Compound.
+The Poetic Wax from the Discussion Block.
 >>FINAL ROOMS
 >>>Freak Control
 ?Does any of the scenery matter?
