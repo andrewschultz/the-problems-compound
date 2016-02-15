@@ -1,0 +1,44 @@
+Problems Compound release 2 notes
+by Andrew Schultz
+============================================================
+
+MAJOR CHANGES:
+--The big change is that there is now a good ending and a very good ending. You can save Idiot Village from...well, something. I won't spoil it. Although the new Trizbort map will.
+----this is a small puzzle in the Service Community, a new location, but you need to solve another puzzle that seemed extraneous in release 1.
+----there's also a small end puzzle
+--Two other changes (well, identical) are that there are now two foods in addition to the Cutter Cookie. They are in Meal Square, and the "bad" foods are now on Tray B, with the neutral-ish ones on Tray A.
+--You now have verbs to jump through the game. They kick you to Pressure Pier, the Jerk Circle (jerks still there) and the Jerk Circle (jerks still gone). These magic commands are all in the source file.
+--EXPLAIN now explains the figures of speech. It is shortened by XP.
+
+In addition, there's a lot of renaming of rooms, scenery and items.
+--Bar Sinister -> Soda Club
+--Interest Compound -> Discussion Block
+--book crack -> book bank
+--purposes cross -> Saver Screen
+--song swan -> now song torch
+--a long tag -> Reasoning Circular, with a long tag
+
+Story and robustness.
+--the ending now has Alec have a small revelation
+
+And there's a lot of extra silliness, too.
+--PUT WAX ON (anything)
+--the Variety Garden is now guarded by brush
+--lots and lots of scenery in Freak Control!
+--the Business Show is on the Fright Stage
+--"deaths" are more organized with A Beer Pound for sins in the Soda Club
+--the 7 jerks now have 13 different "secret sins" chosen randomly at game's start
+--the Saver Screen has lots of tips to be like the bad guy.
+--the "bad guy beyond" is no longer Spike Price. He has a new name, based on if you want profanity.
+
+==========================================
+
+MAJOR
+--(NOT YET) Fixed blocker bug in the Soda Club (formerly the Sinister Bar) when Lily calls the Stool Toad on you.
+
+--clearer chase paper is optional and also the terminal's puzzle now offers clues
+
+silliness
+--GIVE X TO Y
+
+I also did a full source code vet which shook out bugs, typos, stylistics, etc.
