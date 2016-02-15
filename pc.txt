@@ -333,6 +333,10 @@ The path on the crocked half is half of...
 ...an eight pointed star.
 E.NW.S.NE.W.SE.N.SW.
 Or you can flip and reverse the directions.
+NE.S.NW.E.SW.N.SE.W
+Either way, you spin the idol around until it explodes.
+?Hey, that wasn't fair! How else would I figure it?
+Well, there's trial and error. And noticing that the directions follow a pattern, and none are reused.
 >>NORTH AREA
 >>>Speaking Plain
 ?The Fright Stage sure is imposing! Is there any way to get around it?

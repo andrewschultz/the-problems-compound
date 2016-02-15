@@ -7949,17 +7949,20 @@ lalaland is a room in meta-rooms. "You should never see this. If you do, it is a
 
 volume extended stuff
 
-the crocked half is a thing. description is "[fixed letter spacing][stars][upper][stars][variable letter spacing]"
+the crocked half is a thing. description is "It's half-a-square and seems to be torn at the bottom, as if, well, there were another part."
 
 to say stars:
 	say "   *     *[line break]";
 
 to say upper:
-	say "   |\   /|[line break]
+	if screen-read is false:
+		say "[fixed letter spacing][stars]   |\   /|[line break]
    | \ / |[line break]
 *--*--*--*--*[line break]
  \ | / \ | /[line break]
-  \|/   \|/[line break]";
+  \|/   \|/[line break][stars][variable letter spacing]";
+	else:
+		say "The paper is ridged in a clear pattern--there's a straight line across, and each quarter is a leg of an isosceles right triangle: in order, below, above, above and below."
 
 volume rule replacements
 
