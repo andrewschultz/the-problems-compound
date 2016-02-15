@@ -1725,8 +1725,9 @@ carry out explaining:
 		say "[exp-anno entry]";
 	the rule succeeds.
 
-does the player mean explaining the player:
-	it is likely;
+does the player mean explaining the player when debug-state is true: it is likely;
+
+does the player mean explaining the location when debug-state is false: it is likely;
 
 carry out explaining the player:
 	if debug-state is true:
@@ -1739,6 +1740,13 @@ carry out explaining the player:
 				say "[count]: [Q][if Q is privately-named](privately-named)[end if] ([location of Q]) needs an explanation.";
 		if count is 0:
 			say "Yay! No unexplained things.";
+		now count is 0;
+		repeat with Q running through rooms:
+			if Q is not an exp-thing listed in table of explanations and map region of Q is not meta-rooms:
+				increment count;
+				say "[count]: [Q][if Q is privately-named](privately-named)[end if] ([location of Q]) needs an explanation.";
+		if count is 0:
+			say "Yay! No unexplained rooms.";
 		unless the player's command includes "me":
 			the rule succeeds;
 
@@ -1778,6 +1786,7 @@ table of explanations [toe]
 exp-thing	exp-text	exp-anno
 dots	"These aren't a pun, but it's something mathy people see a lot of, and motivational speakers tend to abuse it. If you'd like the solution to the four lines to draw to connect all the points, and even other smart-aleck answers, say yes."
 Poetic Wax	"To wax poetic is to, well, rhapsodize with poems or song or whatever. It's slightly less gross than wax."
+Mistake Grave	"A grave mistake is a very bad mistake indeed."
 Ability Suit	"Suitability means appropriateness. And the suit is not appropriate for the monkey."
 blossoms	"Now that the blossoms are in place, well, it'd be mean to say they're 'some blah.'"
 Buddy Best	"A best buddy is your favorite friend."
@@ -2308,9 +2317,9 @@ anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
 0	--	Standard Bog	"bog"	"This was something entirely different until the end. Something different enough, it might go in a sequel."
 0	--	Soda Club	"bar"	"I forget what medieval text I read that made me figure this out."
 0	--	Joint Strip	"strip"	"Sometimes the names just fall into your lap. It's pretty horrible and silly either way, isn't it? I don't smoke pot myself, but I can't resist minor drug humor, and between Reefer Madness and Cheech and Chong, there is a lot of fertile ground out there."
-0	--	Classic Cult	"cult"	"Of course, a cult never calls itself a cult these days. It just--emphasizes things society doesn't. Which is seductive, since we all should do it on our own. But whether the thinking is New or Old, it remains. It can be dogma, even if people say it all exciting.[paragraph break]Plus I cringe when someone replies 'That's classic!' to a joke that's a bit too well-worn or even mean-spirited."
-0	--	Speaking Plain	"plain"	"The people here do go in for plain speaking, but also, they just go in for speaking."
-0	--	Crazy Drive	"drive"	"Crazy Drive is, well, not very crazy. But the places around it are."
+0	--	Classic Cult	"cult"	"Of course, a cult never calls itself a cult these days. It just--emphasizes things society doesn't. Which is seductive, since we all should do it on our own. But whether the thinking is New or Old, it remains. It can be dogma, even if people say it all exciting.[paragraph break]Plus I cringe when someone replies 'That's classic!' to a joke that's a bit too well-worn or even mean-spirited. Oh, a cult classic is a movie with a small but fervent following."
+0	--	Speaking Plain	"plain"	"The people here do go in for plain speaking, but that doesn't mean it's good speaking."
+0	--	Walker Street	"drive"	"Walker Street was Crazy Drive in release 1. But I found the joke of somewhere plain or boring too much to resist, especially after finding 'Walker Street' as a stray annotation to delete in my Trizbort map file. Oh, a streetwalker is, well, someone who trades favors for money. Yes, THAT sort of favor."
 0	--	Accountable Hold	"hold"	"I'm critical of Big Business and people who think they've done a lot more than they have because they have a good network they don't give much back to. In particular, if someone talks about accountability, it's a sad but safe bet that in a minute they will start blaming less powerful people for things out of their control. There's a certain confidence you need for business, but too often it turns into bluster."
 0	--	Judgment Pass	"pass"	"This seemed as good a generic place-you-need-a-puzzle-to-get-by as any. Especially since I wanted solutions to focus around outsmarting instead of violence or pushing someone out of the way."
 0	--	Jerk Circle	"circle"	"The idea of Jerk Circle made me laugh until I realized it might be a bit too icky to see too much. Thus it became part of the swearing-only part of the game once I realized the Groan Collective was an adequate replacement. Of course, when you know the 'other' name is Jerk Circle, there are still connotations. But the image of one person starting to groan encouraging others is very apt. Once I saw how the NPCs could interact, I felt even more amused."
@@ -5062,9 +5071,9 @@ to hint-big: [already-clued indicates that you already saw a clue]
 	if player does not have sound safe:
 		say "Get the Sound Safe from the Accountable Hold.";
 	else if long string is off-stage:
-		say "Visit Crazy Drive east of Speaking Plain.";
+		say "Visit Walker Street east of Speaking Plain.";
 	else if player does not have string:
-		say "Get the string from Crazy Drive.";
+		say "Get the string from Walker Street.";
 	else if story fish is off-stage:
 		say "PUT STRING IN WELL for an important item.";
 	else if art fine is not in lalaland:
@@ -5800,14 +5809,18 @@ for writing a paragraph about a person (called udyt) in Speaking Plain:
 	now turk young is mentioned;
 
 
-part Crazy Drive
+part Walker Street
 
-Crazy Drive is east of Speaking Plain. It is in Main Chunk. "While Crazy Drive itself isn't especially crazy, it leads to three very different buildings indeed. To the north is [if standard bog is visited]the Standard Bog[else]some swamp or something[end if], east is some sort of museum, and you can go inside [gateway-desc]. Or you can go back west to the Speaking Plain."
+Walker Street is east of Speaking Plain. It is in Main Chunk. "A huge mistake grave blocks passage south, but to the north is [if standard bog is visited]the Standard Bog[else]some swamp or something[end if], east is some sort of museum, and you can go inside [gateway-desc]. Or you can go back west to the Speaking Plain."
 
-check going nowhere in crazy drive:
-	say "There's no crazy secret passage in Crazy Drive. Just north, east, in and west." instead;
+the mistake grave is scenery in Walker Street. "It's illuminated oddly, as if a red light were flashing behind it, and reads: IN MEMORY OF THE NAMELESS IDIOT WHO WENT ONLY FIVE MILES OVER THE SPEED LIMIT AND DIDN'T HEAR THE JOYRIDERS GOING THIRTY FORTY OR FIFTY OVER THUS RUINING THIS PRIME JOYRIDING ZONE FOR MORE EXCITING PEOPLE. -[bad-abb][line break]"
 
-understand "pot/chamber" and "pot chamber" as drug gateway when player is in crazy drive
+check going nowhere in Walker Street:
+	if noun is south:
+		say "I'm afraid the Mistake Grave is a determined bound." instead;
+	say "If there were a red light here, it would flash . Just north, east, in and west." instead;
+
+understand "pot/chamber" and "pot chamber" as drug gateway when player is in Walker Street
 
 to say gateway-desc:
 	say "[if gateway is examined]the Drug Gateway[else]a gateway[end if] to ";
@@ -5816,7 +5829,7 @@ to say gateway-desc:
 	else:
 		say "the Pot Chamber"
 
-a long string is in crazy drive. "A long string lies piled up here."
+a long string is in Walker Street. "A long string lies piled up here."
 
 check entering drug gateway:
 	try going inside instead;
@@ -5827,13 +5840,13 @@ check closing drug gateway:
 check opening drug gateway:
 	say "It already is." instead;
 
-Drug Gateway is scenery in Crazy Drive. "[one of]You look at it--a weird amalgam of swirls that don't seem to say anything. But they are captivating. Then they come together--DRUG GATEWAY. [or]Now you've seen the pattern in the Drug Gateway, you can't un-see it. [stopping]As you haven't heard any cries or gunshots, yet, it can't be too bad to enter[if pot chamber is visited] again[end if].. you think."
+Drug Gateway is scenery in Walker Street. "[one of]You look at it--a weird amalgam of swirls that don't seem to say anything. But they are captivating. Then they come together--DRUG GATEWAY. [or]Now you've seen the pattern in the Drug Gateway, you can't un-see it. [stopping]As you haven't heard any cries or gunshots, yet, it can't be too bad to enter[if pot chamber is visited] again[end if].. you think."
 
 does the player mean entering drug gateway: it is very likely.
 
 part Pot Chamber
 
-Pot Chamber is inside of Crazy Drive. It is in Main Chunk. It is only-out. "This is a reclusive little chamber that sells far more of incense and air freshener than any place has a right to[one of], and after a moment's thought, you realize why[or][stopping]. Any sort of incriminating equipment is probably behind secret passages you'll never find, and you can only go out again."
+Pot Chamber is inside of Walker Street. It is in Main Chunk. It is only-out. "This is a reclusive little chamber that sells far more of incense and air freshener than any place has a right to[one of], and after a moment's thought, you realize why[or][stopping]. Any sort of incriminating equipment is probably behind secret passages you'll never find, and you can only go out again."
 
 check going nowhere in pot chamber:
 	say "The only way to go is out." instead;
@@ -5922,7 +5935,7 @@ some poory pot is a smokable. description is "Geez. You can smell it. It's a sic
 
 part Standard Bog
 
-Standard Bog is north of Crazy Drive. It is in Main Chunk. "This is a pretty standard bog. It's got slimy ground, some quicksand traps, and... [one of]well, the machine off to the side is not so standard. It seems to be mumbling, trying different ways to express itself. Yes, to use language. A language machine.[or]the Language Machine, still [if wax is in lalaland]burbling poems[else]grinding out dreary sentences[end if].[stopping]"
+Standard Bog is north of Walker Street. It is in Main Chunk. "This is a pretty standard bog. It's got slimy ground, some quicksand traps, and... [one of]well, the machine off to the side is not so standard. It seems to be mumbling, trying different ways to express itself. Yes, to use language. A language machine.[or]the Language Machine, still [if wax is in lalaland]burbling poems[else]grinding out dreary sentences[end if].[stopping]"
 
 check going nowhere in standard bog:
 	say "It's really only safe to go back south." instead;
@@ -6041,7 +6054,7 @@ after quipping when qbc_litany is table of Buddy Best talk:
 
 part Discussion Block
 
-Discussion Block is east of Crazy Drive. It is in Main Chunk. "On one wall, a book bank is embedded--like a bookshelf, only tougher to extract the books. On another, a song torch."
+Discussion Block is east of Walker Street. It is in Main Chunk. "On one wall, a book bank is embedded--like a bookshelf, only tougher to extract the books. On another, a song torch."
 
 the poetic wax is in Discussion Block. "Poetic Wax--a whole ball of it--lies here behind [if number of waxblocking people is 0]where Art and Phil used to be[else][list of waxblocking people][end if]."
 
@@ -7650,7 +7663,7 @@ Truth Home	1	2	"TRUTH"	"HOME "
 Scheme Pyramid	2	2	"SCHEM"	"PYRAM"
 Temper Keep	3	2	"TEMPR"	"KEEP "
 Speaking Plain	4	2	"SPEAK"	"PLAIN"
-Crazy Drive	5	2	"CRAZY"	"DRIVE"
+Walker Street	5	2	"WALKR"	"STREE"
 Discussion Block	6	2	"DISCU"	"BLOCK"
 Classic Cult	1	3	"CLASS"	"CULT "
 Disposed Well	2	3	"DISPO"	"WELL "

@@ -13,10 +13,10 @@
 			<objects>Earth of Scum|Flower Wall|    Picture Hole</objects>
 		</room>
 		<room id="27" name="Tension Surface" subtitle="" x="160" y="224" w="96" h="64" region="Entry" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="yes" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects>    Rogue Arch/Mouth Mush|    (give Proof of Burden)</objects>
+			<objects>Rogue Arch|Mouth Mush|</objects>
 		</room>
 		<room id="31" name="Court of Contempt" subtitle="" x="0" y="-288" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="yes" ellipse="no" roundedCorners="yes" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects>Buddy Best, General Attorney|Motion Table</objects>
+			<objects>Buddy Best|Motion Table</objects>
 		</room>
 		<room id="33" name="Judgment Pass" subtitle="" x="320" y="-32" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="0" cornerTopRight="0" cornerBottomLeft="0" cornerBottomRight="0" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects>Officer Petty|Intuition Counter</objects>
@@ -34,7 +34,7 @@
 			<objects>Art Fine|Harmonic Phil</objects>
 		</room>
 		<room id="41" name="Pressure Pier" subtitle="" x="160" y="96" w="96" h="64" region="Outer Bounds" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="yes" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects>      Howdy Boy|      Purposes Cross</objects>
+			<objects>Howdy Boy|Saver Screen</objects>
 		</room>
 		<room id="42" name="Scheme Pyramid" subtitle="" x="-160" y="-160" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects>Labor Child|Fund Hedge/Money Seed</objects>
@@ -57,8 +57,8 @@
 		<room id="13" name="Idiot Village" subtitle="" x="480" y="-32" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects>Business Monkey|Sly Moore|Thoughts Idol</objects>
 		</room>
-		<room id="3" name="Crazy Drive" subtitle="" x="320" y="-160" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects>Drug Gateway|A Long String</objects>
+		<room id="3" name="Walker Street" subtitle="" x="320" y="-160" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Drug Gateway|A Long String|Mistake Grave</objects>
 		</room>
 		<line id="15" color="#000000">
 			<dock index="0" id="40" port="w" />
@@ -150,15 +150,15 @@
 		<room id="55" name="Punishment Capitol" subtitle="" x="320" y="480" w="96" h="64" region="Bad Ends" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="0" cornerTopRight="0" cornerBottomLeft="0" cornerBottomRight="0" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects>Will Steele|War of Prisoners</objects>
 		</room>
-		<room id="57" name="Pot Chamber" subtitle="" x="480" y="-288" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="Pusher Penn gives you the wacker weed. If you get it to Fritz the On safely, you get the Poory Pot." roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects>Pusher Penn|Walker Street|Wacker Weed|Poor-y Pot</objects>
+		<room id="57" name="Pot Chamber" subtitle="" x="480" y="-288" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="Pusher Penn gives you the wacker weed. If you get it to Fritz the On safely, you get the Poory Pot." roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Pusher Penn|Wacker Weed|Poor-y Pot</objects>
 		</room>
 		<line id="58" startText="in" endText="out">
 			<dock index="0" id="3" port="ne" />
 			<dock index="1" id="57" port="sw" />
 		</line>
-		<room id="59" name="Accountable Hold" subtitle="" x="-160" y="-288" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects>      Sound Safe|      (Finger Index)</objects>
+		<room id="59" name="Accountable Hold" subtitle="" x="-160" y="-288" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>      Sound Safe|        Finger Index</objects>
 		</room>
 		<line id="60" color="#000000" style="dashed" startText="in" endText="out">
 			<dock index="0" id="42" port="n" />
@@ -260,7 +260,7 @@
 			<dock index="0" id="84" port="w" />
 			<dock index="1" id="89" port="e" />
 		</line>
-		<room id="68" name="One Route" subtitle="" x="0" y="480" w="96" h="64" region="Post-Game Fun" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="68" name="One Route" subtitle="" x="0" y="480" w="96" h="64" region="Post-Game Fun" handDrawn="no" allcornersequal="no" ellipse="yes" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<line id="91" color="#000000">
 			<dock index="0" id="88" port="e" />
 			<dock index="1" id="68" port="w" />
@@ -293,7 +293,7 @@
 		<room id="97" name="Smart Street" subtitle="" x="320" y="352" w="96" h="64" region="Entry" handDrawn="no" allcornersequal="no" ellipse="yes" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" isStartRoom="yes" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects>Broke Flat|Game Shell|Guy Sweet</objects>
 		</room>
-		<line id="99" color="#000000" flow="oneWay" startText="in" endText="out">
+		<line id="99" color="#000000" flow="oneWay" startText="in">
 			<dock index="0" id="97" port="w" />
 			<dock index="1" id="28" port="e" />
 		</line>
@@ -316,7 +316,7 @@
 			<dock index="0" id="46" port="w" />
 			<dock index="1" id="47" port="e" />
 		</line>
-		<room id="100" name="Green = main area, purple = director's cut rooms, orange = &quot;almost&quot; rooms, Red = &quot;you died&quot; rooms, Yellow/Grey = intro rooms, Brown = optional puzzle, Rounded=blocked later in game" subtitle="" x="-480" y="-544" w="1056" h="64" region="NoRegion" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="100" name="Green = main area, purple = director's cut rooms, orange = &quot;almost&quot; rooms, Red = &quot;you died&quot; rooms, Yellow/Grey = intro rooms, Brown = optional puzzle, Ellipse=starting, Rounded=blocked later in game" subtitle="" x="-480" y="-544" w="1216" h="64" region="NoRegion" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<room id="101" name="A Beer Pound" subtitle="" x="640" y="224" w="96" h="64" region="Bad Ends" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<room id="102" name="Service Community" subtitle="" x="640" y="-32" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="yes" ellipse="no" roundedCorners="yes" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects>Thoughts Idol</objects>
@@ -349,10 +349,10 @@
 		</line>
 		<room id="67" name="Camp Concentration" subtitle="" x="0" y="-416" w="96" h="64" region="Hypothetical" handDrawn="no" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<line id="113" style="dashed" flow="oneWay" startText="(special command)">
-			<dock index="0" id="97" port="nnw" />
-			<dock index="1" id="41" port="ene" />
+			<dock index="0" id="97" port="n" />
+			<dock index="1" id="41" port="se" />
 		</line>
-		<line id="114" style="dashed">
+		<line id="114" style="dashed" startText="SLEEP" endText="WAKE">
 			<dock index="0" id="61" port="ne" />
 			<dock index="1" id="17" port="w" />
 		</line>
