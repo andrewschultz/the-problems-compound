@@ -664,6 +664,7 @@ instead of thinking:
 	if mrlp is dream sequence:
 		move-dream-ahead instead;
 	if finger index is examined and silly boris is in jerk circle:
+		say "Hmm. You remember the finger index and the seven jerks.";
 		say "[finger-say]" instead;
 	if think-score is false:
 		say "NOTE: THINK will redirect to SCORE in the future.";
@@ -3518,6 +3519,7 @@ looknum	reflection
 
 table of saver references
 reference-blurb
+"Misunderstand someone blatantly to see if they react excitingly enough. If so, you may have a new associate!"
 "Use 'fair enough' frequently to cool off someone who actually may have a point."
 "Pretend to misunderstand everyone even if they're clear. If they don't stick up for themselves, well, they need to learn."
 "Use 'y'know' a lot, especially when berating unnecessary adverbs."
@@ -5390,13 +5392,12 @@ after examining the finger index (this is the know what jerks are about rule) :
 
 understand "paper" as finger index.
 
-description of finger index is "[finger-say].".
+description of finger index is "FINGER INDEX (CONFIDENTIAL):[paragraph break][finger-say].".
 
 check examining finger index when finger index is not examined:
 	say "It looks like a list of customers--wait, no, it's a list of embarrassing secrets. The little brat!";
 
 to say finger-say:
-	say "FINGER INDEX (CONFIDENTIAL):[paragraph break]";
 	let temp be 0;
 	repeat through the table of fingerings:
 		increment temp;
