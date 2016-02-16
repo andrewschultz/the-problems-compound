@@ -1697,7 +1697,7 @@ carry out explaining:
 	if accel-ending:
 		say "Hmph. You don't want explanations. You put first things first, now, and you just need to get through." instead;
 	let found-yet be false;
-	if noun is not explainable:
+	if noun is not explainable and noun is not a room:
 		say "That doesn't need any special explanation. I think/hope." instead;
 	if noun is an exp-thing listed in the table of explanations:
 		if anno-allow is true and told-xpoff is false:
@@ -1727,7 +1727,7 @@ carry out explaining:
 
 does the player mean explaining the player when debug-state is true: it is likely;
 
-does the player mean explaining the location when debug-state is false: it is likely;
+does the player mean explaining the location of the player when debug-state is false: it is likely;
 
 carry out explaining the player:
 	if debug-state is true:
@@ -1741,17 +1741,36 @@ carry out explaining the player:
 		if count is 0:
 			say "Yay! No unexplained things.";
 		now count is 0;
-		repeat with Q running through rooms:
-			if Q is not an exp-thing listed in table of explanations and map region of Q is not meta-rooms:
+		repeat with Q running through rooms not in meta-rooms:
+			if Q is not an room-to-exp listed in table of room explanations:
 				increment count;
 				say "[count]: [Q][if Q is privately-named](privately-named)[end if] ([location of Q]) needs an explanation.";
+			else:
+				unless there is an exp-text corresponding to a room-to-exp of Q in table of room explanations:
+					increment count;
+					say "[count]: [Q][if Q is privately-named](privately-named)[end if] ([location of Q]) is in the table but needs an explanation.";
 		if count is 0:
 			say "Yay! No unexplained rooms.";
 		unless the player's command includes "me":
 			the rule succeeds;
 
+rxing is an action applying to nothing.
+
+carry out rxing:
+	d "Explaining [location of player].";
+	repeat through table of room explanations:
+		if room-to-exp entry is location of player:
+			say "[exp-text entry][line break]";
+			the rule succeeds;
+	say "This room needs an explanation.";
+	the rule succeeds;
+
+understand "xp" as rxing.
+understand "explain" as rxing.
+
 definition: a thing (called x) is explainable:
 	if x is a logic-game, decide no;
+	if x is a room, decide yes;
 	if x is generic-jerk, decide no;
 	if x is a direction, decide no;
 	if debug-state is true and x is off-stage, decide yes; [it is going on stage at some point]
@@ -1924,12 +1943,76 @@ Go Rum	"A rum go is an unforeseen unusual experience, as opposed to 'GO' anythin
 Tray A	"Just a tray, contrasted with Tray B."
 Tray B	"Eating anything on it may betray who you really are."
 
+table of room explanations [tore]
+room-to-exp	exp-text
+Smart Street	"Street Smart means knowing your way around tricky people and situations. Alec is not, to start."
+A Round Lounge	"To lounge around is to sit and do nothing--the opposite of what you want to do here."
+Tension Surface	"Surface Tension is a scientific phenomenon where water can stay over the top of a glass."
+Vision Tunnel	"Tunnel vision is only being able to see certain things due to mental or physical blocks."
+Variety Garden	"Garden variety means ordinary."
+Pressure Pier	"Peer pressure is when others in your social circle try to get you to do something."
+Meal Square	"A square meal is a full meal."
+Down Ground	"Ground down means worn out."
+Joint Strip	"A strip joint is a gentlemen's club. Under 18 are not let in, and it's not just because of alcohol."
+Soda Club	"Club soda is tonic water e.g. water with bubbles and no flavoring."
+Jerk Circle	"A collective groan is when everyone groans at once. A circle jerk is people getting together and stroking each other's egos. Or, well, something else."
+Chipper Wood	"A wood chipper puts in logs and spits out small wood chips." [west-ish]
+Disposed Well	"To be well disposed is to be agreeable."
+Truth Home	"A home truth is an unpleasant fact about oneself."
+Bottom Rock	"Rock bottom is the very bottom, usually emotionally more than physically. But in this case, you may be on a bit of a high after solving the terminal's puzzle."
+The Belt Below	"Below the belt describes a cheap shot, more specifically, a low punch in boxing."
+Classic Cult	"A cult classic is a movie that appeals to a small but devoted audience."
+Scheme Pyramid	"A pyramid scheme is where one person gets multiple clients to pay into an 'investment' for later, and they find several, and so forth."
+Accountable Hold	"To hold accountable is to place the blame or praise on someone."
+Judgment Pass	"To pass judgment is to, well, judge." [east-ish]
+Idiot Village	"The village idiot is the person everyone looks down on. On whom everyone looks down. Oh, never mind."
+Service Community	"Community service is doing good without expecting pay. Although it can also be ordered charity work in place of jail time, for minor crimes like vandalism."
+Speaking Plain	"Plain speaking doesn't use many tricks." [north-ish]
+Walker Street	"A streetwalker is--well, a woman of the night."
+Pot Chamber	"A chamber pot is the predecessor of the toilet."
+Standard Bog	"Bog standard means boring and average."
+Court of Contempt	"Contempt of court is when someone refuses to speak when ordered, or they speak out of turn."
+Questions Field	"To field questions is to listen to what people have to ask."
+Discussion Block	"To block discussion is to no longer allow talking on a subject."
+Temper Keep	"To keep your temper means not to lash out at anyone."
+Freak Control	"A control freak is a micromanager who insists people do things a certain way."
+Airy Station	"Stationary is standing still. Oh, and the homonym people often wonder about: stationery is stuff you write letters on." [endings]
+Out Mist	"If someone missed out, it means they didn't get to see or do something neat."
+Punishment Capitol	"Capital punishment is the death penalty, an eye for an eye and so forth." ["loser" locs]
+Hut Ten	"Ten-hut is military parlance for ATTENTION!"
+A Beer Pound	"To pound a beer is to drink a beer."
+In-Dignity Heap	"To heap indignity on someone is to shame them and make them look bad."
+Shape Ship	"Ship-shape means orderly."
+Criminals' Harbor	"To harbor criminals is to protect them from the law."
+Maintenance High	"High Maintenance means you need constant watching over."
+Fight Fair	"A fair fight is when two people are evenly matched."
+Tense Past	"Past tense is I knew, versus I know/I will know." [sleepytime]
+Tense Present	"Present tense is I know, versus I knew/I will know."
+Tense Future	"Past tense is I will know, versus I knew/I know."
+Route	"Route One is the most direct way through." [rejected locations]
+Muster Pass	"To pass muster is to be good enough."
+Chicken Free Range	"A free range chicken is one that is not cooped up in a henhouse."
+Tuff Butt Fair	"Fair but tough means--well, hopefully, a balanced view of things."
+Ill Falls	"If someone falls ill, they get sick."
+Eternal Hope Springs	"'Hope springs eternal in the human breast' is a line from Alexander Pope's [i]Essay on Man[r]."
+Brains Beat	"To beat your brains is to strain for an idea."
+Rage Road	"Road rage is when drivers are upset at traffic jams or other drivers['] actions."
+Mine Land	"A land mine is something hidden that explodes if you step on it."
+Humor Gallows	"Gallows humor is a laugh when you're facing something very bad indeed."
+Madness March	"March Madness is the 68-team knockout-style college basketball tournament held every year in, well, March. It's 68 and not 64 because mo['] games mo['] money, I mean, a few more teams get to make it in and play in a preliminary round."
+Window Bay	"A bay window is pretty much from floor to ceiling."
+Camp Concentration	"Well, the reverse is a very large tragedy indeed." [just-ideas rooms]
+Expectations Meet	"To meet expectations is to do as well as you hoped."
+Perilous Siege	"The Siege Perilous is where only Galahad got to sit."
+Robbery Highway	"Highway robbery is slang for a very unfair price."
+Space of Waste	"A waste of space is something that doesn't belong where it is."
+Clown Class	"The class clown is the one who makes jokes or is the butt of them."
+Everything Hold	"To hold everything is to do nothing and wait."
+Shoulder Square	"Square Shoulders means strong."
+
 to say ham-desc:
 	choose row with brief of "great" in table of verb-unlocks;
-	if found entry is true:
-		say ": AWAY HAMMER = hammer away = keep trying, HOME HAMMER = hammer home = to make a point forcefully, LOCK HAMMER = hammer lock = a wrestling hold";
-	else:
-		say " I can't spoil yet";
+	say "[if found entry is true]: AWAY HAMMER = hammer away = keep trying, HOME HAMMER = hammer home = to make a point forcefully, LOCK HAMMER = hammer lock = a wrestling hold[else] I can't spoil yet[end if]";
 
 chapter xpoffing
 
@@ -2023,7 +2106,7 @@ carry out verbing:
 	say "[2da]conversations use numbered options, and you often need to end them before using standard verbs. RECAP shows your options.";
 	say "[2da]other standard parser verbs apply, and some may provide alternate solutions, but you should be able to win without them.";
 	say "[2da]Meta-commands listed below.";
-	say "[2da]you can also type ABOUT or CREDITS or HISTORY to see meta-information, and XP/EXPLAIN (any object) gives a brief description.";
+	say "[2da]you can also type ABOUT or CREDITS or HISTORY to see meta-information, and XP/EXPLAIN (any object) gives a brief description. XP with no argument explains the room name.";
 	if anno-allow is true or ever-anno is true:
 		say "[2da]ANNO toggles director's cut information on rooms and gives more information to XP. Also, XPOFF turns off basic information, if ANNO is turned on.";
 	say "[2da]EXITS shows the exits. While these should be displayed in the room text, you can see where they lead if you've been there.";
@@ -2297,39 +2380,38 @@ section the table
 
 table of annotations [toa]
 anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
-0	--	Tense Past	"past"	"These three rooms fell pretty quickly once I heard 'past tense.' Dreams have often been a source of helplessness for me, with one 'favorite' flavor being me as my younger self knowing what I know now, knowing I'd get cut down for using that knowledge. That snafu has grown amusing over the years, but it wasn't as a teen."
+0	--	Smart Street	"smart"	"This came surprisingly late, but the reverse made total sense. The main point is that Alec may not be street smart, but people often assume he'll wind up somewhere around clever people." [very start]
+0	--	A Round Lounge	"lounge"	"This came to me pretty late. I'm never quite sure how to start games. It always seems the best idea comes at the end, and yet on the other hand it's not fully comforting that I know how my story will end. I wanted you to start pretty normally, but move to progressively odder places."
+0	--	Tension Surface	"compound"	"I thought of making this the title of the game. But it was probably better to have it clue you to the room names. Anyway, It'd be hard to believe such a big world was part of a compound." [start intro]
+0	--	Variety Garden	"garden"	"The title was totally silly until release 2, when I added varieties of brush. Basically, the garden has a lot of variety, but not really quality. Originally there was a Stream of Consciousness and Train of Thought, but these were placeholders. The Word Weasel didn't come until later, but I always liked that phrase. I went through a bunch of vegetables before I found an animal would do just as well."
+0	--	Vision Tunnel	"tunnel"	"I'm pleased with the flip here from 'tunnel vision' as the vision tunnel opens you up to the different ways to see things."
+0	--	Pressure Pier	"pier"	"This shuffled around a bit until I found someone who was adequate for pressuring you, as opposed to just talking you down. That was the Howdy Boy. And, in fact, he was just 'there' in Sense Common for a while. Early I took a 'best/worst remaining pun' approach to the map, but as I started writing code and sending the game to testers, I realized how it could make more sense." [start outskirts]
+0	--	Meal Square	"square"	"This was the Tactics Stall for a while, until I had enough food items for a separate area, and then I didn't have enough time to implement tactical items. I needed a place to put them. 'Sink kitchen' didn't quite work, but eventually I found this. The baker's dozen was my first scenery implemented, and I'm quite pleased at the bad pun. Also, the Gagging Lolly was the first silly-death thing I implemented."
+0	--	Down Ground	"jump"	"Some locations didn't make the cut, but they helped me figure out better ones.  However, Down Ground was one of the first and most reliable. It was behind Rejection Retreat, which--well--didn't fit the bill.[paragraph break]You can now JUMP to or from random areas that didn't quite make it. Actually, you could've once you turned on annotation mode. But now you know you can."
+0	--	Joint Strip	"strip"	"Sometimes the names just fall into your lap. It's pretty horrible and silly either way, isn't it? I don't smoke pot myself, but I can't resist minor drug humor, and between Reefer Madness and Cheech and Chong, there is a lot of fertile ground out there."
+0	--	Soda Club	"club"	"I forget what medieval text I read that made me figure out the Sinister Bar, but that's what it was in release 1. Then one day at the grocery store, I saw club soda, thought--could it be that easy? Having an ironic title for a speakeasy? It was!"
+0	--	Tense Past	"past"	"These three rooms fell pretty quickly once I heard 'past tense.' Dreams have often been a source of helplessness for me, with one 'favorite' flavor being me as my younger self knowing what I know now, knowing I'd get cut down for using that knowledge. That snafu has grown amusing over the years, but it wasn't as a teen." [sleepytime rooms]
 0	--	Tense Present	"present"	"Of course we've all had dreams about stuff we can't do now, or issues that keep coming up. I'd like to think that my bad dreams, once I confronted them, let me exaggerate things for humor in everday conversation. Still, it's been a developing process."
 0	--	Tense Future	"future"	"We all worry about the future and what it will be, and we get it wrong, but that doesn't make it any less scary. I included this once I saw that dreams and fears could be traced into three segments: how you messed up, how you are messing up, and how you won't be able to stop messing up."
-0	--	Smart Street	"smart"	"This came surprisingly late, but the reverse made total sense. The main point is that Alec may not be street smart, but people often assume he'll wind up somewhere around clever people."
-0	--	A Round Lounge	"lounge"	"This came to me pretty late. I'm never quite sure how to start games. It always seems the best idea comes at the end, and yet on the other hand it's not fully comforting that I know how my story will end."
-0	--	Down Ground	"jump"	"Some locations didn't make the cut, but they helped me figure out better ones.  However, Down Ground was one of the first and most reliable. It was behind Rejection Retreat, which has a double meaning I may reserve for another game.[paragraph break]You can now JUMP to or from random areas that didn't quite make it. Actually, you could've once you turned on annotation mode. But now you know you can."
-0	--	A Round Lounge	"intro"	"The basic idea is that you start somewhere that's pretty normal, but people reverse their names." [start intro]
-0	--	Tension Surface	"compound"	"I thought of making this the title of the game. But it was probably better to have it clue you to the room names. Anyway, It'd be hard to believe such a big world was part of a compound."
-0	--	Variety Garden	"garden"	"The garden has a lot of variety, but it's plain, hence Variety Garden. Originally there was a Stream of Consciousness and Train of Thought, but these were immense placeholders. The Word Weasel didn't come until later, but I always liked that phrase. I went through a bunch of vegetables before I found an animal would do just as well."
-0	--	Vision Tunnel	"tunnel"	"I'm pleased with the flip here since tunnel vision means narrowing things, but the vision tunnel opens you up to the different ways to see things."
-0	--	Meal Square	"square"	"This was the Tactics Stall for a while, until I had enough food items for a separate area, and then I didn't have enough time to implement tactical items. I needed a place to put them. 'Sink kitchen' didn't quite work, but eventually I found this. The baker's dozen was my first scenery implemented, and I'm quite pleased at the bad pun. Also, the Gagging Lolly was the first silly-death thing I implemented."
-0	--	Pressure Pier	"pier"	"This shuffled around a bit until I found someone who was adequate for pressuring you, as opposed to just talking you down. That was the Howdy Boy. And, in fact, he was just 'there' in Sense Common for a while. Early I took a 'best/worst remaining pun' approach to the map, but as I started writing code and sending the game to testers, I realized how it could make more sense."
-0	--	Questions Field	"field"	"This was originally the Way of Right, which was sort of close to Freak Control, but then close to release I was searching for other names and this popped up. I liked it better--the three Brothers are asking questions--and it seemed less generic. So it stayed."
-0	--	Court of Contempt	"court"	"As someone unimpressed by all the yelling that went on in law-firm shows when I was younger, any sort of court always seemed fearful to me. What would I be doing there? I was shocked when I got my first traffic ticket and went in to protest that it was relatively quiet and orderly. But the image and fears still remain, funnier now."
-0	--	Discussion Block	"block"	"This was the Interest Compound in release 1, but that was too close to the title. The discussions, of course, block any real discussion. The books and songs are purposely bad, but you can't SAY that."
+0	--	Jerk Circle	"circle"	"The idea of Jerk Circle made me laugh until I realized it might be a bit too icky to see too much. Thus it became part of the swearing-only part of the game once I realized the Groan Collective was an adequate replacement. Of course, when you know the 'other' name is Jerk Circle, there are still connotations. But the image of one person starting to groan encouraging others is very apt. Once I saw how the NPCs could interact, I felt even more amused." [main area]
+0	--	Chipper Wood	"wood"	"I got the idea for this when reminded of a certain Coen Brothers movie. The contrast of violence and happiness in the title made me realize it was a better choice than Rage Road." [west-a-ways first]
 0	--	Disposed Well	"well"	"This was originally the preserved well, and the Belt Below was below it. There was going to be a Barrel of the Bottom that opened, but it seemed too far-fetched. So I just went with a well where you couldn't quite reach something."
-0	--	Scheme Pyramid	"pyramid"	"I find pyramid schemes endlessly funny in theory, though their cost is real and sad. They're worse than lotteries."
-0	--	Standard Bog	"bog"	"This was something entirely different until the end. Something different enough, it might go in a sequel."
-0	--	Soda Club	"bar"	"I forget what medieval text I read that made me figure this out."
-0	--	Joint Strip	"strip"	"Sometimes the names just fall into your lap. It's pretty horrible and silly either way, isn't it? I don't smoke pot myself, but I can't resist minor drug humor, and between Reefer Madness and Cheech and Chong, there is a lot of fertile ground out there."
 0	--	Classic Cult	"cult"	"Of course, a cult never calls itself a cult these days. It just--emphasizes things society doesn't. Which is seductive, since we all should do it on our own. But whether the thinking is New or Old, it remains. It can be dogma, even if people say it all exciting.[paragraph break]Plus I cringe when someone replies 'That's classic!' to a joke that's a bit too well-worn or even mean-spirited. Oh, a cult classic is a movie with a small but fervent following."
-0	--	Speaking Plain	"plain"	"The people here do go in for plain speaking, but that doesn't mean it's good speaking."
-0	--	Walker Street	"drive"	"Walker Street was Crazy Drive in release 1. But I found the joke of somewhere plain or boring too much to resist, especially after finding 'Walker Street' as a stray annotation to delete in my Trizbort map file. Oh, a streetwalker is, well, someone who trades favors for money. Yes, THAT sort of favor."
+0	--	Truth Home	"home"	"Of course, the truth home has lots of truth--it's just all misused. And I liked the idea of a name that sounds a bit superior but isn't."
+0	--	Scheme Pyramid	"pyramid"	"I find pyramid schemes endlessly funny in theory, though their cost is real and sad. They're worse than lotteries."
 0	--	Accountable Hold	"hold"	"I'm critical of Big Business and people who think they've done a lot more than they have because they have a good network they don't give much back to. In particular, if someone talks about accountability, it's a sad but safe bet that in a minute they will start blaming less powerful people for things out of their control. There's a certain confidence you need for business, but too often it turns into bluster."
-0	--	Judgment Pass	"pass"	"This seemed as good a generic place-you-need-a-puzzle-to-get-by as any. Especially since I wanted solutions to focus around outsmarting instead of violence or pushing someone out of the way."
-0	--	Jerk Circle	"circle"	"The idea of Jerk Circle made me laugh until I realized it might be a bit too icky to see too much. Thus it became part of the swearing-only part of the game once I realized the Groan Collective was an adequate replacement. Of course, when you know the 'other' name is Jerk Circle, there are still connotations. But the image of one person starting to groan encouraging others is very apt. Once I saw how the NPCs could interact, I felt even more amused."
-0	--	Truth Home	"home"	"Of course, the truth home has lots of truth--it's just all misused."
-0	--	The Belt Below	"belt"	"I wanted a seedy underbelly. And I got one."
-0	--	Bottom Rock	"bottom"	"I forget when the idea of giving you a powerful item if you got abstract puzzles came to me. But I wanted it to be powerful and cleverly named. I wasn't sure where I could put a crib, because I couldn't implement a bedroom, but then I realized it could be discarded somewhere, because the Problems Compound is not for babies."
+0	--	The Belt Below	"belt"	"I wanted a seedy underbelly. And I got one. I didn't know what it was for, and certainly, it didn't all come together in the initial release. But the room name spurred me to make a puzzle that FELT unfair."
+0	--	Bottom Rock	"bottom"	"I forget when the idea of giving you a powerful item if you got abstract puzzles came to me. But I wanted it to be powerful and cleverly named. I wasn't sure where I could put a crib, because I couldn't implement a bedroom, but then I realized it could be just dropped anywhere, to show the Problems Compound is not for babies--or maybe to insinuate that hints are for babies. I mean, for the [bad-guy] to insinuate, not me. I use them a lot, too."
+0	--	Judgment Pass	"pass"	"This seemed as good a generic place-you-need-a-puzzle-to-get-by as any. Especially since I wanted solutions to focus around outsmarting instead of violence or pushing someone out of the way." [east-ish]
 0	--	Idiot Village	"village"	"Of course, the people here aren't total idiots, even if they are very silly. But I liked the idea of turning 'village idiot' on its head, as well as having a caste of 'outs' who maybe weren't stupid but let themselves be treated that way."
-0	--	Service Community	"community"	""
-0	--	Chipper Wood	"wood"	"I got the idea for this when reminded of a certain Coen Brothers movie. The contrast of violence and happiness in the title made me realize it was a better choice than Rage Road."
+0	--	Service Community	"community"	"I liked the idea of an underclass that needs to rebel, and Idiot Village was good enough for getting the game out there. But then while playing Kingdom of Loathing, which has inspired a lot of my 'jokes,' the Community Service path's name kept pinging me."
+0	--	Speaking Plain	"plain"	"The people here do go in for plain speaking, but that doesn't mean it's good speaking. In general, Alec is assaulted by a bunch of people who want to convince him they're wasting their time speaking to him than the other way around. They act like advertisements, to me." [north-ish]
 0	--	Temper Keep	"keep"	"This is one of those ideas that came relatively late, but once it did, I had a few adjectives and verbs that tipped me off to a quick puzzle that should be in there."
+0	--	Questions Field	"field"	"This was originally the Way of Right, which was sort of close to Freak Control, but then close to release I was searching for other names and this popped up. I liked it better--the three Brothers are asking questions, first of you and then of why they're there and how they could leave--and it seemed less generic. So it stayed."
+0	--	Court of Contempt	"court"	"As someone unimpressed and/or intimidated by all the yelling that went on in law-firm shows when I was younger, any sort of court always seemed fearful to me. What would I be doing there? I was shocked when I got my first traffic ticket and went in to protest that it was relatively quiet and orderly. But the image and fears still remain, funnier now."
+0	--	Walker Street	"drive"	"Walker Street was Crazy Drive in release 1. But I found the joke of somewhere plain or boring too much to resist, especially after finding 'Walker Street' as a stray annotation to delete in my Trizbort map file. Oh, a streetwalker is, well, someone who trades favors for money. Yes, THAT sort of favor."
+0	--	Discussion Block	"block"	"This was the Interest Compound in release 1, but that was too close to the title. The discussions, of course, block any real discussion. The books and songs are purposely bad, but you can't SAY that."
+0	--	Standard Bog	"bog"	"This was something entirely different until the end. Something different enough, it might go in a sequel."
 0	--	Pot Chamber	"chamber"	"Some room names made me smile with their subtlety. Others, with their utter lack. Since this combines two awkward conversation subjects, guess which it was?"
 0	--	Freak Control	"control"	"This was one of those rooms that made me realize I had a game. And I think the false humility in it ties up an important thing: the Baiter claims he's a bit of a dork, but he's like moderate and stuff. Except when he needs to be extreme to win an argument. The for-your-own good of how he went through it adds to the pile."
 0	--	Out Mist	"mist"	"I needed a name for a final location, and originally it was the Haves Wood, which didn't quite make sense. It needed to be somewhere shadowy--unclear. Then I overheard someone saying 'Boy, you missed out,' and I wanted to thank them, but they would've thought it was weird. The wordplay is, of course, that you missed out a bit, but the mist is still out of bounds for people in the Compound."
@@ -3647,6 +3729,298 @@ section trail paper
 
 the trail paper is a thing. description is "It looks pretty official. It's made up of the four boo ticketys, but now they're folded right, it may be just what the Howdy Boy wanted."
 
+part Meal Square
+
+check going west in pressure pier:
+	if trail paper is in lalaland:
+		do nothing;
+	otherwise:
+		say "The Howdy Boy coughs. '[one of]That's Meal Square. No one to get in a food fight with or anything[or]There's other better places to break the rules than Meal Square[stopping].'" instead;
+
+Meal Square is west of Pressure Pier. Meal Square is in Outer Bounds. "This is a small alcove with Pressure Pier back east. There's not much decoration except a picture of a dozen bakers."
+
+Tray A is a supporter in Meal Square. description is "It's just a tray, really. Nothing special. A few foods rest on tray A: [list of things on tray a]"
+
+Tray B is a supporter in Meal Square. description is "[if accel-ending]You still see [list of things on tray b] on Tray B, but you're pretty full[else]You're both scared and intrigued by Tray B, which reads, in small print NOT FOR THE UNSOPHISTICATED. Three unappetizing looking foods lie on it, labeled as : [list of things on tray b][end if]."
+
+check examining a supporter when accel-ending:
+	say "You've already seen the food there and made your choice." instead;
+
+check taking when player is in Meal Square and accel-ending:
+	say "Ug. You're full. Move on." instead;
+
+check eating when player is in Meal Square and accel-ending:
+	say "Ug. You're full. Move on." instead;
+
+check going nowhere in meal square:
+	say "No way out except east." instead;
+
+the picture of a dozen bakers is scenery in Meal Square. "It's a weird optical illusion--sometimes you count twelve, but if you look right, they warp a bit, and there's on extra. What's up with that?"
+
+after doing something with bakers:
+	set the pronoun them to bakers;
+
+instead of doing something with bakers:
+	if action is undrastic:
+		continue the action;
+	say "It's just there for scenery. There's nothing behind it or whatever."
+
+chapter cracker safe
+
+[The cracker safe is a fixed in place container in Meal Square. "This is a safe with walls shaped like crackers. Its 'dial' is circular (crackers come in all sizes and shapes, dontcha know) and appears to be unlabeled."
+
+check opening cracker safe:
+	say "The safe offers no way to open it." instead;]
+
+chapter fast food menu
+
+[fast food? Get it? It gets you through the game fast! Ha ha!]
+
+a badfood is a kind of thing. a badfood is usually edible.
+
+to decide which thing is yourfood:
+	repeat with X running through badfoods:
+		if X is in lalaland:
+			decide on X;
+	decide on Alec Smart;
+
+to decide whether accel-ending:
+	if greater-eaten is true or off-eaten is true or cookie-eaten is true, decide yes;
+	decide no;
+
+to say co-ch:
+	say "[if off-eaten is true]off cheese[else if greater-eaten is true]greater cheese[else]cutter cookie[end if]"
+
+before going when accel-ending:
+	if player is in meal square:
+		if noun is east or noun is outside:
+			say "The heck with this dump.";
+			continue the action;
+		else:
+			say "You do feel like [if off-eaten is true]banging[else if greater-eaten is true]busting through[else]bouncing off[end if] the walls now you've eaten the [co-ch], but not literally. But when you get bored, there's back east." instead;
+	if noun is north:
+		say "[if off-eaten is true]Maybe up ahead will be less lame[else]Time to leave [location of player] in the dust[end if].";
+		continue the action;
+	if noun is south:
+		if player is in pressure pier:
+			say "[if off-eaten is true]You can't deal with the Word Weasel and Rogue Arch again. Well, actually, you can, but it's a new quasi-fun experience to pretend you can't[else if cookie-eaten is true]You'd like to go back and win an argument with the Word Weasel, but he seems like small potatoes compared to showing the [bad-guy] a thing or two[else]You're too good to need to kiss up to the Word Weasel again[end if]." instead;
+		say "[if off-eaten is true]Go back south? Oh geez. Please, no[else]Much as you'd like to revisit the site of that argument you won so quickly, you wish to move on to greater and bigger ones[end if]." instead;
+	if the room noun of location of player is nowhere:
+		say "Nothing that-a-way." instead;
+	if the room noun of the location of player is visited:
+		say "You look [noun]. Pfft. Why would you want to go back? You're more focused after having an invigorating meal.";
+	else:
+		say "[if off-eaten is true]You really don't want to get lost among whatever weird people are [noun]. You're not up to it. You just want to talk to anyone who can get you out of here.[else]Pfft. Nothing important enough that way! Maybe before you'd eaten, you'd have spent time wandering about, but not now. North to Freak Control![end if]" instead;
+
+section greater cheese
+
+greater cheese is a badfood on Tray B. description is "It looks just as icky as the off cheese. Maybe it's marbled differently or something. These things are beyond you."
+
+greater-eaten is a truth state that varies.
+
+check taking greater cheese:
+	try eating noun instead;
+
+check eating greater cheese:
+	if off-eaten is true:
+		say "Ugh! You've had enough cheese." instead;
+	if cookie-eaten is true:
+		say "Ugh! You've had enough cheese." instead;
+	say "You pause a moment before eating the greater cheese. Perhaps you will not appreciate it fully, or you will appreciate it too much and become someone unrecognizable. Try eating it anyway?";
+	unless the player yes-consents:
+		say "[line break]OK." instead;
+	say "You manage to appreciate the cheese and feel superior to those who don't. You have a new outlook on life!";
+	now greater cheese is in lalaland;
+	force-swear;
+	now greater-eaten is true instead;
+
+section off cheese
+
+off cheese is a badfood on Tray B. description is "[if greater-eaten is true or cookie-eaten is true]It's really gross, and you'd have to be weird to consider eating it[else]It looks really gross but you're sure other people have better reasons why it is[end if]."
+
+off-eaten is a truth state that varies.
+
+check taking off cheese:
+	try eating off cheese instead;
+
+check eating off cheese:
+	if greater-eaten is true:
+		say "You are above eating disgusting cheese. Unless it's tastefully disgusting, like what you just ate." instead;
+	if cookie-eaten is true:
+		say "Ugh! Now that you've eaten the cutter cookie, the off cheese looks even more gross than before. No way. You just want to leave." instead;
+	say "Hmm. It seems edible, but it might be, well, character-building. You might not be the same person after eating it. Try eating it anyway?";
+	unless the player yes-consents:
+		say "[line break]OK." instead;
+	say "Ugh. Bleah. It feels and tastes awful--but if you sat through this, you can sit through an awkward conversation. Not that you'll do anything like cause a few.";
+	now off cheese is in lalaland;
+	force-swear;
+	now off-eaten is true instead;
+	
+section cutter cookie
+
+a cutter cookie is a badfood on Tray B. description is "It looks like the worst sort of thing to give kids on Halloween. If it doesn't have any actual razor blades, it's pointy as a cookie should not be. It's also grey and oatmeal-y, which cookies should never be. I mean, I like oatmeal cookies, just not dingy grey ones. It seems like excellent food for if you want to be very nasty indeed."
+
+cookie-eaten is a truth state that varies.
+
+check taking cutter cookie:
+	try eating cutter cookie instead;
+
+check eating cutter cookie:
+	if off-eaten is true:
+		say "Ugh. You're not in the mood for something sweet like cookies. You're good and jaded." instead;
+	if greater-eaten is true:
+		say "Pfft. Anyone can appreciate cookies. Cookies aren't sophisticated." instead;
+	say "It's so sharp, it'd start you bleeding if you carried it around. Even as you pick the cookie up your thoughts turn resentful, yet you feel justified as never before. Try eating it anyway?";
+	unless the player yes-consents:
+		say "[line break]OK." instead;
+	say "[line break]You have to eat it carefully, because of its spikes, but it gives you...a sharp tongue. Suddenly you're ready to go off on pretty much anyone who's gotten in your way, or even not helped you enough[if allow-swears is false]. You'll show those punks you don't need to swear to kick butt![else].[end if]";
+	now cookie is in lalaland;
+	force-swear;
+	now cookie-eaten is true instead;
+
+to force-swear:
+	if allow-swears is false:
+		say "Also, you realize how lame it was to be stuffy about swears. You have stuff to swear ABOUT now, see?";
+		now allow-swears is true;
+
+table of accel-text
+accel-place	alt-num	accel-cookie	accel-off	accel-greater
+pressure pier	0	"You take a moment to sneer at the Howdy Boy. 'Is this your JOB? Man, that's SAD. The stupid stuff you want people to do to show you they're cool? Little league stuff. I mean, thanks for the start and all, but SERIOUSLY.' He gapes, shocked, then flees before your wrath.[paragraph break]Man! You've never won an argument before. And you didn't expect to win that conclusively. Oh, wait, yes you did."	"You give an exasperated sigh. 'I'm not here because I want to be. I got suckered into it. Do you think I could...?'[paragraph break]'You know, some people don't even ASK. Or if they do, it's all unforceful. You're okay. You can go through.' The Howdy Boy bows slightly--you don't care if it's sarcastic or not--and you walk past. You turn around, but he's not there."	--
+jerk circle	1	"'Hey, move it, I'm on a quest here!' They look shocked. You proceed to berate them for, is this all they ever do? Is it their purpose in life? Do they have anyone better to talk to? If so, what a waste. If not, sad.[paragraph break]Before this terrifying onslaught of hard-hitting language and lucid, back-to-basics logic, the [j-co] recognize how minor-league they are. They run off to chat or commiserate elsewhere.[paragraph break]Bam! Seven at one blow!"	"'Hey, what you all talking about?' you ask. 'Gossip, eh?' You try to join in, but--they seem a bit jealous of how good your grumbling is, and they excuse themselves."
+lalaland	2	"Oh, boy. Looking back, you didn't need all that reasoning to get past them. You could've probably just acted a little exasperated, said you were SURE someone could help, and wham! Well, it's good to have all this space, but you need to be going north."	"You sniff at the memory of the [j-co] you helped. They weren't properly grateful, and they weren't even good at being jerks. Maybe you should've gone into business with the Labor Child. You'd figure how to backstab him later. Still, you learned a lot from that. Perhaps you can find ways to keep tabs on people, probe their weaknesses. Makes up for earlier memories of your own."
+speaking plain	0	"Oh geez. You can't take this. You really can't. All this obvious improvement stuff. You lash out, do they think people REALLY don't know this? Do they think hearing it again will help? Uncle Dutch and Turk Young revile you as a purveyor of negative energy. No, they won't go on with all this cynicism around. But you will be moving on soon enough. They go away for a break for a bit."	"'FRAUDS!!!' you yell at Uncle Dutch and Turk Young. 'ANYONE CAN SPOUT PLATITUDES!' You break it down sumpin['] sumpin['] real contrarian on them, twisting their generalities. A crowd gathers around. They applaud your snark! You yell at them that applause is all well and good, but there's DOING. They ooh and ahh further. After a brief speech about the dork you used to be, and if you can get better, anyone can, you wave them away."
+questions field	3	"Well, of COURSE the Brothers didn't leave a thank-you note. Ungrateful chumps. Next time you help someone, you'll demand a deposit of flattery up front, that's for sure."	"You expected no thanks, but you didn't expect to feel bad about getting no thanks. Hmph. Lesson learned!"
+questions field	4	"'Kinda jealous of your brother[bro-s], eh? Not jealous enough to DO anything about it.' The brother[bro-nos]s nod at your sterling logic. 'You gonna waste your whole life here? I can't help everyone. I'm not a charity, you know.' More hard hitting truth! Ba-bam!'[wfk]'Go on, now! Go! What's that? I'm even bossier than the [bad-guy]? Excellent! If I can change, so can you! And the guy bossier than the [bad-guy] is ORDERING you to do something useful with your life!'[paragraph break]They follow your orders. You remember being bossed around by someone dumber than you--and now you turned the tables! Pasta fazoo!"
+questions field	5	"'[qfjs] standing around, eh? Nothing to do? Well, I've been out, y'know, DOING stuff. You might try it. Go along. Go. You wanna block me from seeing the [bad-guy]? I'll remember it once he's out of my way.' You're convincing enough, they rush along."	"You've done your share of standing around, but you're pretty sure you did a bit of thinking. 'Look,' you say, 'I just need to get through and get out of here. I'm not challenging anyone's authority. Just, I really don't want to be here.' [bro-consider]. You're free to continue."
+freak control	0	"You speak first. 'Don't pretend you can't see me, with all those reflective panels and stuff.'[paragraph break]He turns around, visible surprised.[paragraph break]'Leadership, schmeadership,' you say. You're worried for a moment he might call you out on how dumb that sounds. You're open-minded like that. But when he hesitates, you know the good insults will work even better. 'Really. Leaving the cutter cookie right where I could take it, and plow through, and expose you for the lame chump you are. Pfft. I could do better than that.'[paragraph break]He stutters a half-response.[paragraph break]'Maybe that's why [bad-guy-2] hasn't been dealt with, yet. You say all the right things, but you're not forceful enough. Things'll change once I'm in power.'[wfk]He has no response. You point outside. He goes. Settling in is easy--as a new leader of Freak Control, you glad-hand the important people and assure them you're a bit cleverer than the [bad-guy] was.  Naturally, you keep a list of [bad-guy-2]'s atrocities, and they're pretty easy to rail against, and people respect you for it, and from what you've seen, it's not like they could really get together and do anything, so you're making their lame lives more exciting.[wfk]You settle into a routine, as you read case studies of kids a lot like you used to be. Maybe you'd help one or two, if they had initiative...but until then, you'd like to chill and just let people appreciate the wit they always knew you had.[paragraph break]Really, who can defeat you? Anyone of power or consequence is on your side. Even [bad-guy-2] gives you tribute of a cutter cookie now and then. One day, you drop one in Meal Square... but nobody is brave enough to eat one. Well, for a while."	"You speak first. Well, you sigh REALLY loudly first. 'Just--this is messed up. I want to leave.'[paragraph break]'Of course you do,' says the [bad-guy]. 'I don't blame you. If you're not in power here, it's not fun. It's sort of your fault, but not totally. Hey, you actually showed some personality to get here. Just--show me you're worthy of leaving.' You complain--more excitingly than you've ever complained before. Without flattering or insulting the [bad-guy] too much: fair and balanced. You let him interrupt you, and you even interrupt him--but only to agree with his complaints.[wfk]'You're okay, I guess. You seem to know your place. Here, let me show you the Snipe Gutter. It seems like just the place for you. The [bad-guy] pushes a button and gestures to an opening. It's a slide. You complain a bit, but he holds up his hand. 'You'll have a lot more to complain about if you don't go.' You're impressed by this logic, and you only wish you could've stayed longer to absorb more of it, and maybe you could complain even more interestingly.[wfk]Back home, people notice a difference. You're still upset about things, but you impress people with it now. You notice other kids who just kind of seem vaguely upset, like you were before the Compound, not even bothering with constructive criticism. They're not worth it, but everywhere you go, you're able to fall in with complainers who complain about such a wide variety of things, especially people too dense to realize how much there is to complain about! You've matured, from..."	"'Hey! It's me!' you yell. The [bad-guy] turns. 'You know, I probably skipped a lot of dumb stuff to get here. You think you could be a LITTLE impressed?'[wfk]But he isn't. 'You know? You're not the first. Still, so many people just sort of putter around. You're going to be okay in life.' You two have a good laugh about things--you're even able to laugh at yourself, which of course gives you the right to laugh at people who haven't figured things out yet. Humor helps you deal, well, if it doesn't suck. You realize how silly you were before with all your fears, and you try to communicate that to a few creeps who don't want to be social. But they just don't listen. You'd rather hang around more with-it typpes, and from now on, you do."
+
+after printing the locale description when accel-ending:
+	if location of player is cheat-surveyed:
+		continue the action;
+	unless location of player is an accel-place listed in table of accel-text:
+		say "BUG. There should be text here.";
+		now location of player is cheat-surveyed;
+		the rule succeeds;
+	if player is in jerk circle:
+		if silly boris is in jerk circle:
+			choose row with alt-num of 1 in table of accel-text;
+		else:
+			choose row with alt-num of 2 in table of accel-text;
+	else if player is in questions field:
+		let my-alt be 3 + bros-left;
+		if my-alt > 4:
+			decrement my-alt;
+		choose row with alt-num of my-alt in table of accel-text;
+	if off-eaten is true:
+		if there is no accel-off entry:
+			say "[bug]. There should be text for the off-cheese and this location.";
+		else:
+			say "[accel-off entry]";
+	if greater-eaten is true:
+		if there is no accel-greater entry:
+			say "[bug]. There should be text for the greater-cheese and this location.";
+		else:
+			say "[accel-off entry]";
+	if cookie-eaten is true:
+		if there is no accel-off entry:
+			say "[bug]. There should be text for the cookie and this location.";
+		else:
+			say "[accel-cookie entry]";
+	if player is in pressure pier: [cleanup]
+		now howdy boy is in lalaland;
+	if player is in jerk circle:
+		now all clients are in lalaland;
+	if player is in speaking plain:
+		now turk is in lalaland;
+		now dutch is in lalaland;
+	if player is in questions field:
+		now brother soul is in lalaland;
+		now brother blood is in lalaland;
+		now brother big is in lalaland;
+	if player is in freak control:
+		end the story saying "[final-fail-quip]";
+	now location of player is cheat-surveyed;
+	continue the action;
+
+to say final-fail-quip:
+	if greater-eaten is true:
+		say "People Power? Power People!";
+	else if off-eaten is true:
+		say "Can't Complain? Complain Cant!";
+	else if cookie-eaten is true:
+		say "Mean Something? Something Mean!";
+
+to say qfjs:
+	say "[if questions field is unvisited]Just[else]Still[end if]"
+
+to say bro-consider:
+	if bros-left is 1:
+		say "You both agree that you probably would've helped him, too, if you had the time, but life stinks. You exchange an awkward handshake good-bye";
+	else:
+		say "The brothers confer. '[bad-abb] said to let him in...obviously harmless...grumbly...' You tap your foot a bit and sigh. They wave you through and nip off to the side"
+
+to say bad-abb:
+	say "[if allow-swears is true]BM[else]CM[end if]"
+
+to say bro-s:
+	say "[if bros-left is 1]s[end if]";
+
+to say bro-nos:
+	say "[unless bros-left is 1]s[end if]";
+
+chapter condition mint
+
+for writing a paragraph about a supporter in Meal Square:
+	say "Two trays sit here, labeled, semi-helpfully, Tray A and Tray B.";
+	now all supporters in meal square are mentioned;
+
+a condition mint is an edible thing on Tray A. description is "It's one inch square, with SHARE WITH A FRIEND on it."
+
+check eating the condition mint:
+	say "No, it's for someone else." instead;
+
+check giving the condition mint to:
+	if noun is not a client:
+		say "Your offer is declined. Perhaps you need to find someone who has just finished a meal." instead;
+	if finger index is not examined:
+		say "The [j-co] seem nasty enough, you don't want to share even a mint with any of them. Maybe if you found some way to empathize with them." instead;
+	choose row with jerky-guy of noun in table of fingerings;
+	if suspect entry is 1:
+		say "[noun] is a bit too nervous around you, as you already figured his secret." instead;
+	say "[noun] accepts your offer gratefully, and you discuss the list with him. 'Oh dear,' he says, 'I must be [clue-letter].'[paragraph break]You assure him his secret is safe with you.";
+	now suspect entry is 2;
+	the rule succeeds;
+
+definition: a client (called cli) is befriended:
+	choose row with jerky-guy of cli in table of fingerings;
+	if suspect entry is 2:
+		decide yes;
+	decide no;
+
+chapter iron waffle
+
+an iron waffle is an edible thing on Tray A. description is "Just staring at it, you imagine ways to brush off people who get up in your grill with dumb questions. You try and forge them into a set of rules, but you feel, well, rusty."
+
+check taking the iron waffle:
+	say "It'd be too heavy." instead;
+
+check eating the iron waffle:
+	say "Your teeth are actually pretty good, and that'd be a great way to change that." instead;
+
+chapter gagging lolly
+
+a gagging lolly is an edible thing on Tray A. description is "Staring at the circular lolly's blend of hideous colors, you also feel less sure of things, which makes you feel open-minded, which makes you feel more sure of things, which makes you feel closed-minded and eventually less sure of things.[paragraph break]Man! That was tough to digest. Just all that thinking was a choking enough sensation."
+
+check taking lolly:
+	say "You haven't walked around with a lolly since you were five years old, and it'd be a bit embarrassing to do so now." instead;
+
+before giving gagging lolly to:
+	if noun is labor child:
+		say "He's so totally outgrown that." instead;
+	if noun is a bro:
+		say "That'd be a vicious cheat, if it worked. Shame on you." instead;
+	say "Alas, [second noun], recognizing the gagging lolly would shut [if second noun is male]him[else]her[end if] up or worse, rejects your gift." instead;
+
 part Down Ground
 
 Down Ground is east of Pressure Pier. It is in Outer Bounds. "[one of]Walking east of Pressure Pier, the land dips a bit. You pass by a bench that seems to radiate heat. A closer look reveals that, yes, it is a Warmer Bench.[or]The Warmer Bench waits here. It may be useful to lie on, or not[stopping]. Even choosing between eventually exiting to the east or west is oppressive."
@@ -3853,11 +4227,11 @@ to decide what number is tix-adv:
 to say tix-adv:
 	say "[if tix-adv is 0]patronizingly[else if tix-adv is 1]somberly[else if tix-adv is 2]suspiciously[else]oppressively[end if]"
 
-description of the Stool Toad is "Green, bloated and, oh yes, poisonous. Green and bloated, he reminds you of a security guard at your high school whose every other sentence was 'YOUNG MAN!'"
+description of the Stool Toad is "Green, bloated and, oh yes, poisonous. He reminds you of a security guard at your high school whose every other sentence was 'YOUNG MAN!'"
 
 the pigeon stool is scenery in Joint Strip. "It's shaped like a curled up pigeon, though its head might be a bit too big and flat. It's kind of snazzy, and you'd actually sort of like one. You read the words SUPPORT MORAL on it and feel immediately depressed."
 
-does the player mean doing something with the pigeon stool: it is likely. [more likely to use stool as a noun and all that]
+does the player mean doing something with the stool toad when player is in joint strip: it is unlikely. [more likely to use stool as a noun and all that]
 
 instead of doing something with pigeon stool:
 	if action is undrastic:
@@ -6867,298 +7241,6 @@ to print-replay-message:
 		if T1 is false:
 			say "There's [if T2 is true]still [end if]a slightly different ending if you don't rescue Idiot Village from the Thoughts Idol, if you're curious and/or completist.";
 
-part Meal Square
-
-check going west in pressure pier:
-	if trail paper is in lalaland:
-		do nothing;
-	otherwise:
-		say "The Howdy Boy coughs. '[one of]That's Meal Square. No one to get in a food fight with or anything[or]There's other better places to break the rules than Meal Square[stopping].'" instead;
-
-Meal Square is west of Pressure Pier. Meal Square is in Main Chunk. "This is a small alcove with Pressure Pier back east. There's not much decoration except a picture of a dozen bakers."
-
-Tray A is a supporter in Meal Square. description is "It's just a tray, really. Nothing special. A few foods rest on tray A: [list of things on tray a]"
-
-Tray B is a supporter in Meal Square. description is "[if accel-ending]You still see [list of things on tray b] on Tray B, but you're pretty full[else]You're both scared and intrigued by Tray B, which reads, in small print NOT FOR THE UNSOPHISTICATED. Three unappetizing looking foods lie on it, labeled as : [list of things on tray b][end if]."
-
-check examining a supporter when accel-ending:
-	say "You've already seen the food there and made your choice." instead;
-
-check taking when player is in Meal Square and accel-ending:
-	say "Ug. You're full. Move on." instead;
-
-check eating when player is in Meal Square and accel-ending:
-	say "Ug. You're full. Move on." instead;
-
-check going nowhere in meal square:
-	say "No way out except east." instead;
-
-the picture of a dozen bakers is scenery in Meal Square. "It's a weird optical illusion--sometimes you count twelve, but if you look right, they warp a bit, and there's on extra. What's up with that?"
-
-after doing something with bakers:
-	set the pronoun them to bakers;
-
-instead of doing something with bakers:
-	if action is undrastic:
-		continue the action;
-	say "It's just there for scenery. There's nothing behind it or whatever."
-
-chapter cracker safe
-
-[The cracker safe is a fixed in place container in Meal Square. "This is a safe with walls shaped like crackers. Its 'dial' is circular (crackers come in all sizes and shapes, dontcha know) and appears to be unlabeled."
-
-check opening cracker safe:
-	say "The safe offers no way to open it." instead;]
-
-chapter fast food menu
-
-[fast food? Get it? It gets you through the game fast! Ha ha!]
-
-a badfood is a kind of thing. a badfood is usually edible.
-
-to decide which thing is yourfood:
-	repeat with X running through badfoods:
-		if X is in lalaland:
-			decide on X;
-	decide on Alec Smart;
-
-to decide whether accel-ending:
-	if greater-eaten is true or off-eaten is true or cookie-eaten is true, decide yes;
-	decide no;
-
-to say co-ch:
-	say "[if off-eaten is true]off cheese[else if greater-eaten is true]greater cheese[else]cutter cookie[end if]"
-
-before going when accel-ending:
-	if player is in meal square:
-		if noun is east or noun is outside:
-			say "The heck with this dump.";
-			continue the action;
-		else:
-			say "You do feel like [if off-eaten is true]banging[else if greater-eaten is true]busting through[else]bouncing off[end if] the walls now you've eaten the [co-ch], but not literally. But when you get bored, there's back east." instead;
-	if noun is north:
-		say "[if off-eaten is true]Maybe up ahead will be less lame[else]Time to leave [location of player] in the dust[end if].";
-		continue the action;
-	if noun is south:
-		if player is in pressure pier:
-			say "[if off-eaten is true]You can't deal with the Word Weasel and Rogue Arch again. Well, actually, you can, but it's a new quasi-fun experience to pretend you can't[else if cookie-eaten is true]You'd like to go back and win an argument with the Word Weasel, but he seems like small potatoes compared to showing the [bad-guy] a thing or two[else]You're too good to need to kiss up to the Word Weasel again[end if]." instead;
-		say "[if off-eaten is true]Go back south? Oh geez. Please, no[else]Much as you'd like to revisit the site of that argument you won so quickly, you wish to move on to greater and bigger ones[end if]." instead;
-	if the room noun of location of player is nowhere:
-		say "Nothing that-a-way." instead;
-	if the room noun of the location of player is visited:
-		say "You look [noun]. Pfft. Why would you want to go back? You're more focused after having an invigorating meal.";
-	else:
-		say "[if off-eaten is true]You really don't want to get lost among whatever weird people are [noun]. You're not up to it. You just want to talk to anyone who can get you out of here.[else]Pfft. Nothing important enough that way! Maybe before you'd eaten, you'd have spent time wandering about, but not now. North to Freak Control![end if]" instead;
-
-section greater cheese
-
-greater cheese is a badfood on Tray B. description is "It looks just as icky as the off cheese. Maybe it's marbled differently or something. These things are beyond you."
-
-greater-eaten is a truth state that varies.
-
-check taking greater cheese:
-	try eating noun instead;
-
-check eating greater cheese:
-	if off-eaten is true:
-		say "Ugh! You've had enough cheese." instead;
-	if cookie-eaten is true:
-		say "Ugh! You've had enough cheese." instead;
-	say "You pause a moment before eating the greater cheese. Perhaps you will not appreciate it fully, or you will appreciate it too much and become someone unrecognizable. Try eating it anyway?";
-	unless the player yes-consents:
-		say "[line break]OK." instead;
-	say "You manage to appreciate the cheese and feel superior to those who don't. You have a new outlook on life!";
-	now greater cheese is in lalaland;
-	force-swear;
-	now greater-eaten is true instead;
-
-section off cheese
-
-off cheese is a badfood on Tray B. description is "[if greater-eaten is true or cookie-eaten is true]It's really gross, and you'd have to be weird to consider eating it[else]It looks really gross but you're sure other people have better reasons why it is[end if]."
-
-off-eaten is a truth state that varies.
-
-check taking off cheese:
-	try eating off cheese instead;
-
-check eating off cheese:
-	if greater-eaten is true:
-		say "You are above eating disgusting cheese. Unless it's tastefully disgusting, like what you just ate." instead;
-	if cookie-eaten is true:
-		say "Ugh! Now that you've eaten the cutter cookie, the off cheese looks even more gross than before. No way. You just want to leave." instead;
-	say "Hmm. It seems edible, but it might be, well, character-building. You might not be the same person after eating it. Try eating it anyway?";
-	unless the player yes-consents:
-		say "[line break]OK." instead;
-	say "Ugh. Bleah. It feels and tastes awful--but if you sat through this, you can sit through an awkward conversation. Not that you'll do anything like cause a few.";
-	now off cheese is in lalaland;
-	force-swear;
-	now off-eaten is true instead;
-	
-section cutter cookie
-
-a cutter cookie is a badfood on Tray B. description is "It looks like the worst sort of thing to give kids on Halloween. If it doesn't have any actual razor blades, it's pointy as a cookie should not be. It's also grey and oatmeal-y, which cookies should never be. I mean, I like oatmeal cookies, just not dingy grey ones. It seems like excellent food for if you want to be very nasty indeed."
-
-cookie-eaten is a truth state that varies.
-
-check taking cutter cookie:
-	try eating cutter cookie instead;
-
-check eating cutter cookie:
-	if off-eaten is true:
-		say "Ugh. You're not in the mood for something sweet like cookies. You're good and jaded." instead;
-	if greater-eaten is true:
-		say "Pfft. Anyone can appreciate cookies. Cookies aren't sophisticated." instead;
-	say "It's so sharp, it'd start you bleeding if you carried it around. Even as you pick the cookie up your thoughts turn resentful, yet you feel justified as never before. Try eating it anyway?";
-	unless the player yes-consents:
-		say "[line break]OK." instead;
-	say "[line break]You have to eat it carefully, because of its spikes, but it gives you...a sharp tongue. Suddenly you're ready to go off on pretty much anyone who's gotten in your way, or even not helped you enough[if allow-swears is false]. You'll show those punks you don't need to swear to kick butt![else].[end if]";
-	now cookie is in lalaland;
-	force-swear;
-	now cookie-eaten is true instead;
-
-to force-swear:
-	if allow-swears is false:
-		say "Also, you realize how lame it was to be stuffy about swears. You have stuff to swear ABOUT now, see?";
-		now allow-swears is true;
-
-table of accel-text
-accel-place	alt-num	accel-cookie	accel-off	accel-greater
-pressure pier	0	"You take a moment to sneer at the Howdy Boy. 'Is this your JOB? Man, that's SAD. The stupid stuff you want people to do to show you they're cool? Little league stuff. I mean, thanks for the start and all, but SERIOUSLY.' He gapes, shocked, then flees before your wrath.[paragraph break]Man! You've never won an argument before. And you didn't expect to win that conclusively. Oh, wait, yes you did."	"You give an exasperated sigh. 'I'm not here because I want to be. I got suckered into it. Do you think I could...?'[paragraph break]'You know, some people don't even ASK. Or if they do, it's all unforceful. You're okay. You can go through.' The Howdy Boy bows slightly--you don't care if it's sarcastic or not--and you walk past. You turn around, but he's not there."	--
-jerk circle	1	"'Hey, move it, I'm on a quest here!' They look shocked. You proceed to berate them for, is this all they ever do? Is it their purpose in life? Do they have anyone better to talk to? If so, what a waste. If not, sad.[paragraph break]Before this terrifying onslaught of hard-hitting language and lucid, back-to-basics logic, the [j-co] recognize how minor-league they are. They run off to chat or commiserate elsewhere.[paragraph break]Bam! Seven at one blow!"	"'Hey, what you all talking about?' you ask. 'Gossip, eh?' You try to join in, but--they seem a bit jealous of how good your grumbling is, and they excuse themselves."
-lalaland	2	"Oh, boy. Looking back, you didn't need all that reasoning to get past them. You could've probably just acted a little exasperated, said you were SURE someone could help, and wham! Well, it's good to have all this space, but you need to be going north."	"You sniff at the memory of the [j-co] you helped. They weren't properly grateful, and they weren't even good at being jerks. Maybe you should've gone into business with the Labor Child. You'd figure how to backstab him later. Still, you learned a lot from that. Perhaps you can find ways to keep tabs on people, probe their weaknesses. Makes up for earlier memories of your own."
-speaking plain	0	"Oh geez. You can't take this. You really can't. All this obvious improvement stuff. You lash out, do they think people REALLY don't know this? Do they think hearing it again will help? Uncle Dutch and Turk Young revile you as a purveyor of negative energy. No, they won't go on with all this cynicism around. But you will be moving on soon enough. They go away for a break for a bit."	"'FRAUDS!!!' you yell at Uncle Dutch and Turk Young. 'ANYONE CAN SPOUT PLATITUDES!' You break it down sumpin['] sumpin['] real contrarian on them, twisting their generalities. A crowd gathers around. They applaud your snark! You yell at them that applause is all well and good, but there's DOING. They ooh and ahh further. After a brief speech about the dork you used to be, and if you can get better, anyone can, you wave them away."
-questions field	3	"Well, of COURSE the Brothers didn't leave a thank-you note. Ungrateful chumps. Next time you help someone, you'll demand a deposit of flattery up front, that's for sure."	"You expected no thanks, but you didn't expect to feel bad about getting no thanks. Hmph. Lesson learned!"
-questions field	4	"'Kinda jealous of your brother[bro-s], eh? Not jealous enough to DO anything about it.' The brother[bro-nos]s nod at your sterling logic. 'You gonna waste your whole life here? I can't help everyone. I'm not a charity, you know.' More hard hitting truth! Ba-bam!'[wfk]'Go on, now! Go! What's that? I'm even bossier than the [bad-guy]? Excellent! If I can change, so can you! And the guy bossier than the [bad-guy] is ORDERING you to do something useful with your life!'[paragraph break]They follow your orders. You remember being bossed around by someone dumber than you--and now you turned the tables! Pasta fazoo!"
-questions field	5	"'[qfjs] standing around, eh? Nothing to do? Well, I've been out, y'know, DOING stuff. You might try it. Go along. Go. You wanna block me from seeing the [bad-guy]? I'll remember it once he's out of my way.' You're convincing enough, they rush along."	"You've done your share of standing around, but you're pretty sure you did a bit of thinking. 'Look,' you say, 'I just need to get through and get out of here. I'm not challenging anyone's authority. Just, I really don't want to be here.' [bro-consider]. You're free to continue."
-freak control	0	"You speak first. 'Don't pretend you can't see me, with all those reflective panels and stuff.'[paragraph break]He turns around, visible surprised.[paragraph break]'Leadership, schmeadership,' you say. You're worried for a moment he might call you out on how dumb that sounds. You're open-minded like that. But when he hesitates, you know the good insults will work even better. 'Really. Leaving the cutter cookie right where I could take it, and plow through, and expose you for the lame chump you are. Pfft. I could do better than that.'[paragraph break]He stutters a half-response.[paragraph break]'Maybe that's why [bad-guy-2] hasn't been dealt with, yet. You say all the right things, but you're not forceful enough. Things'll change once I'm in power.'[wfk]He has no response. You point outside. He goes. Settling in is easy--as a new leader of Freak Control, you glad-hand the important people and assure them you're a bit cleverer than the [bad-guy] was.  Naturally, you keep a list of [bad-guy-2]'s atrocities, and they're pretty easy to rail against, and people respect you for it, and from what you've seen, it's not like they could really get together and do anything, so you're making their lame lives more exciting.[wfk]You settle into a routine, as you read case studies of kids a lot like you used to be. Maybe you'd help one or two, if they had initiative...but until then, you'd like to chill and just let people appreciate the wit they always knew you had.[paragraph break]Really, who can defeat you? Anyone of power or consequence is on your side. Even [bad-guy-2] gives you tribute of a cutter cookie now and then. One day, you drop one in Meal Square... but nobody is brave enough to eat one. Well, for a while."	"You speak first. Well, you sigh REALLY loudly first. 'Just--this is messed up. I want to leave.'[paragraph break]'Of course you do,' says the [bad-guy]. 'I don't blame you. If you're not in power here, it's not fun. It's sort of your fault, but not totally. Hey, you actually showed some personality to get here. Just--show me you're worthy of leaving.' You complain--more excitingly than you've ever complained before. Without flattering or insulting the [bad-guy] too much: fair and balanced. You let him interrupt you, and you even interrupt him--but only to agree with his complaints.[wfk]'You're okay, I guess. You seem to know your place. Here, let me show you the Snipe Gutter. It seems like just the place for you. The [bad-guy] pushes a button and gestures to an opening. It's a slide. You complain a bit, but he holds up his hand. 'You'll have a lot more to complain about if you don't go.' You're impressed by this logic, and you only wish you could've stayed longer to absorb more of it, and maybe you could complain even more interestingly.[wfk]Back home, people notice a difference. You're still upset about things, but you impress people with it now. You notice other kids who just kind of seem vaguely upset, like you were before the Compound, not even bothering with constructive criticism. They're not worth it, but everywhere you go, you're able to fall in with complainers who complain about such a wide variety of things, especially people too dense to realize how much there is to complain about! You've matured, from..."	"'Hey! It's me!' you yell. The [bad-guy] turns. 'You know, I probably skipped a lot of dumb stuff to get here. You think you could be a LITTLE impressed?'[wfk]But he isn't. 'You know? You're not the first. Still, so many people just sort of putter around. You're going to be okay in life.' You two have a good laugh about things--you're even able to laugh at yourself, which of course gives you the right to laugh at people who haven't figured things out yet. Humor helps you deal, well, if it doesn't suck. You realize how silly you were before with all your fears, and you try to communicate that to a few creeps who don't want to be social. But they just don't listen. You'd rather hang around more with-it typpes, and from now on, you do."
-
-after printing the locale description when accel-ending:
-	if location of player is cheat-surveyed:
-		continue the action;
-	unless location of player is an accel-place listed in table of accel-text:
-		say "BUG. There should be text here.";
-		now location of player is cheat-surveyed;
-		the rule succeeds;
-	if player is in jerk circle:
-		if silly boris is in jerk circle:
-			choose row with alt-num of 1 in table of accel-text;
-		else:
-			choose row with alt-num of 2 in table of accel-text;
-	else if player is in questions field:
-		let my-alt be 3 + bros-left;
-		if my-alt > 4:
-			decrement my-alt;
-		choose row with alt-num of my-alt in table of accel-text;
-	if off-eaten is true:
-		if there is no accel-off entry:
-			say "[bug]. There should be text for the off-cheese and this location.";
-		else:
-			say "[accel-off entry]";
-	if greater-eaten is true:
-		if there is no accel-greater entry:
-			say "[bug]. There should be text for the greater-cheese and this location.";
-		else:
-			say "[accel-off entry]";
-	if cookie-eaten is true:
-		if there is no accel-off entry:
-			say "[bug]. There should be text for the cookie and this location.";
-		else:
-			say "[accel-cookie entry]";
-	if player is in pressure pier: [cleanup]
-		now howdy boy is in lalaland;
-	if player is in jerk circle:
-		now all clients are in lalaland;
-	if player is in speaking plain:
-		now turk is in lalaland;
-		now dutch is in lalaland;
-	if player is in questions field:
-		now brother soul is in lalaland;
-		now brother blood is in lalaland;
-		now brother big is in lalaland;
-	if player is in freak control:
-		end the story saying "[final-fail-quip]";
-	now location of player is cheat-surveyed;
-	continue the action;
-
-to say final-fail-quip:
-	if greater-eaten is true:
-		say "People Power? Power People!";
-	else if off-eaten is true:
-		say "Can't Complain? Complain Cant!";
-	else if cookie-eaten is true:
-		say "Mean Something? Something Mean!";
-
-to say qfjs:
-	say "[if questions field is unvisited]Just[else]Still[end if]"
-
-to say bro-consider:
-	if bros-left is 1:
-		say "You both agree that you probably would've helped him, too, if you had the time, but life stinks. You exchange an awkward handshake good-bye";
-	else:
-		say "The brothers confer. '[bad-abb] said to let him in...obviously harmless...grumbly...' You tap your foot a bit and sigh. They wave you through and nip off to the side"
-
-to say bad-abb:
-	say "[if allow-swears is true]BM[else]CM[end if]"
-
-to say bro-s:
-	say "[if bros-left is 1]s[end if]";
-
-to say bro-nos:
-	say "[unless bros-left is 1]s[end if]";
-
-chapter condition mint
-
-for writing a paragraph about a supporter in Meal Square:
-	say "Two trays sit here, labeled, semi-helpfully, Tray A and Tray B.";
-	now all supporters in meal square are mentioned;
-
-a condition mint is an edible thing on Tray A. description is "It's one inch square, with SHARE WITH A FRIEND on it."
-
-check eating the condition mint:
-	say "No, it's for someone else." instead;
-
-check giving the condition mint to:
-	if noun is not a client:
-		say "Your offer is declined. Perhaps you need to find someone who has just finished a meal." instead;
-	if finger index is not examined:
-		say "The [j-co] seem nasty enough, you don't want to share even a mint with any of them. Maybe if you found some way to empathize with them." instead;
-	choose row with jerky-guy of noun in table of fingerings;
-	if suspect entry is 1:
-		say "[noun] is a bit too nervous around you, as you already figured his secret." instead;
-	say "[noun] accepts your offer gratefully, and you discuss the list with him. 'Oh dear,' he says, 'I must be [clue-letter].'[paragraph break]You assure him his secret is safe with you.";
-	now suspect entry is 2;
-	the rule succeeds;
-
-definition: a client (called cli) is befriended:
-	choose row with jerky-guy of cli in table of fingerings;
-	if suspect entry is 2:
-		decide yes;
-	decide no;
-
-chapter iron waffle
-
-an iron waffle is an edible thing on Tray A. description is "Just staring at it, you imagine ways to brush off people who get up in your grill with dumb questions. You try and forge them into a set of rules, but you feel, well, rusty."
-
-check taking the iron waffle:
-	say "It'd be too heavy." instead;
-
-check eating the iron waffle:
-	say "Your teeth are actually pretty good, and that'd be a great way to change that." instead;
-
-chapter gagging lolly
-
-a gagging lolly is an edible thing on Tray A. description is "Staring at the circular lolly's blend of hideous colors, you also feel less sure of things, which makes you feel open-minded, which makes you feel more sure of things, which makes you feel closed-minded and eventually less sure of things.[paragraph break]Man! That was tough to digest. Just all that thinking was a choking enough sensation."
-
-check taking lolly:
-	say "You haven't walked around with a lolly since you were five years old, and it'd be a bit embarrassing to do so now." instead;
-
-before giving gagging lolly to:
-	if noun is labor child:
-		say "He's so totally outgrown that." instead;
-	if noun is a bro:
-		say "That'd be a vicious cheat, if it worked. Shame on you." instead;
-	say "Alas, [second noun], recognizing the gagging lolly would shut [if second noun is male]him[else]her[end if] up or worse, rejects your gift." instead;
-
 book Bad Ends
 
 Bad Ends is a region.
@@ -7445,11 +7527,11 @@ Expectations Meet is a room in Just Ideas Now. "People all discuss what they des
 
 [Deal Square is a room in Just Ideas Now. "People rush past, performing social tricks and calculus that you can only imagine, reading facial expressions and knowing when to interrupt. Man. You're sure you'd get skinned."]
 
-chapter perilous siege
+chapter Perilous Siege
 
 Perilous Siege is a room in Just Ideas Now. "Some kind of combat is going on here! A big castle labeled [bad-guy-2-c]'S PLACE is surrounded by forces that can only be the [bad-guy][']s. Nobody's getting killed, but the insults are coming fast from each side."
 
-chapter Truck Dump
+chapter Robbery Highway
 
 Robbery Highway is a room in Just Ideas Now. "There's a speed limit sign here, but it's just put there so anyone dumb enough to follow it will get mugged."
 
@@ -8489,7 +8571,7 @@ chapter montying
 
 montying is an action applying to one topic.
 
-widdershins is a direction. the opposite of widdershins is turnwise. description of turnwise is "[bug]".
+widdershins is a direction. turnwise is a direction. the opposite of widdershins is turnwise. the opposite of turnwise is widdershins.
 
 understand the command "monty" as something new.
 
