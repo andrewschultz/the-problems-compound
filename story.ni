@@ -1924,7 +1924,7 @@ Volatile Sal	"Sal volatile is given to wake up unconscious people with its smell
 Cold contract	"To contract a cold is to get sick. Also, the contract is pretty cold-blooded."
 Trade of Tricks	"Tricks of the Trade are things that outsiders to a specialty probably don't know that are a bit out of the range of common sense."
 wacker weed	"A weed whacker is the slang for a gardening tool to cut weeds."
-shot screens	"A screenshot is a still frame from a video."
+shot screen	"A screenshot is a still frame from a video."
 list bucket	"A bucket list has things to do before you die."
 call curtain	"A curtain call is when someone comes back out after lots of applause."
 hammer	"The hammer can be three things[ham-desc]."
@@ -7016,7 +7016,7 @@ a list bucket is a thing in Freak Control. "[one of]A list bucket lying nearby m
 check taking the bucket:
 	say "You would, but the [bad-guy] might turn around and ask if you really needed to steal a bucket, and no, the text isn't going to change if you pick it up, and so forth." instead;
 
-description of list bucket is "[2da]The Language Sign should, um, y'know, make things obvious.[line break][2da]Shot screens: track various areas in the Compound[line break][2da]The Twister Brain: to see what people REALLY mean when they oppose you just a little[line break][2da]the Witness Eye provides tracking of several suspicious individuals[line break][2da]The Incident Miner processes fuller meaning of events the perpetrators wish were harmless.[line break][2da]the Call Curtain is somewhere the [bad-guy] better not have to go behind more than once a day.[line break][2da]the Frenzy Feed magnifies social violations people don't know they're making, or want to hide from others, and lets you feel fully outraged.[paragraph break]All this gadgetry is well and good, but the [bad-guy] probably knows it better than you. You may need some other way to overcome him."
+description of list bucket is "[2da]The Language Sign should, um, y'know, make things obvious.[line break][2da]Shot screen: track various areas in the Compound[line break][2da]The Twister Brain: to see what people REALLY mean when they oppose you just a little[line break][2da]the Witness Eye provides tracking of several suspicious individuals[line break][2da]The Incident Miner processes fuller meaning of events the perpetrators wish were harmless.[line break][2da]the Call Curtain is somewhere the [bad-guy] better not have to go behind more than once a day.[line break][2da]the Frenzy Feed magnifies social violations people don't know they're making, or want to hide from others, and lets you feel fully outraged.[paragraph break]All this gadgetry is well and good, but the [bad-guy] probably knows it better than you. You may need some other way to overcome him."
 
 the call curtain is scenery in Freak Control. "It doesn't look particularly malevolent--it seems well washed--but you don't know what's going on behind it."
 
@@ -7029,7 +7029,7 @@ the against rails are plural-named scenery in Freak Control. "You're not sure wh
 
 freaked-out is a truth state that varies.
 
-the shot screens are scenery in Freak Control. "[if cookie-eaten is true]You're torn between wondering if it's not worth watching the jokers being surveyed, or you deserve a good laugh.[else]For a moment, you get a glimpse of [one of]the jerks going about their business[or]the parts of Idiot Village you couldn't explore[or]a secret room in the Soda Club[or]Officer Petty at the 'event,' writing notes furiously[or]the hideout the Stool Toad was too lazy to notice[or]The Logical Psycho back at his home[or]exiles living beyond the Standard Bog[in random order].[end if]"
+the shot screen is scenery in Freak Control. "[if cookie-eaten is true]You're torn between wondering if it's not worth watching the jokers being surveyed, or you deserve a good laugh.[else]For a moment, you get a glimpse of [one of]the jerks going about their business[or]the parts of Idiot Village you couldn't explore[or]a secret room in the Soda Club[or]Officer Petty at the 'event,' writing notes furiously[or]the hideout the Stool Toad was too lazy to notice[or]The Logical Psycho back at his home[or]exiles living beyond the Standard Bog[in random order].[end if]"
 
 every turn when player is in freak control and qbc_litany is not table of baiter master talk (this is the random stuff in FC rule): [?? if player doesn't know names, don't write them]
 	unless accel-ending:
@@ -7039,7 +7039,7 @@ the Twister Brain is scenery in Freak Control. "Its ridges seem twisted into a s
 
 understand "ridge/ridges" as Twister Brain.
 
-the Witness Eye is scenery in Freak Control. "It's weird, it's circular, but it has enough pointy protrustions, it could be a Witness Star too. You see lots of things going on Most look innocent, but there's an occasional flash, the screen reddens, and WEIRD or WRONG flashes over for a half-second."
+the Witness Eye is scenery in Freak Control. "It's weird, it's circular, but it has enough pointy protrustions, it could be a Witness Star too. You see lots of things going on. Most look innocent, but there's an occasional flash, the screen reddens, and WEIRD or WRONG flashes over for a half-second."
 
 understand "witness star" and "star" as Witness Eye.
 

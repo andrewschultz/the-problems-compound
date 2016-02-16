@@ -236,11 +236,15 @@ If 5 is D, then 4 is C. 5 can't be A, so 5 is F.
 Similarly, 4 can't be A, so it is D. That leaves a for 6.
 A BAD FACE.
 >>>>BOTTOM ROCK
-?What do I do with the note crib?
-It's a total spoiler device. So spoily, you won't need this.
+?What do I do with the note crib? Which item should I take?
+It houses two spoiler devices.
+The Legend of Stuff tells you how to get through the game, but not the optional puzzle.
 You can examine the red, the blue or the big area. Or all of them.
-Each corresponds to a brother in the Way of Right.
+Each corresponds to a brother in Questions Field.
 So you can see what you need to do next.
+It gives a vague clue for the jerks, too.
+?Can I take both the items in the crib?
+No. Get one, the other vanishes.
 ?What do I do with the crocked half?
 That's for the "best best" ending.
 It's half of something.
@@ -476,18 +480,18 @@ Not really. Just different worries of the future.
 Well, the first time you sleep through, the Stool Toad gets you.
 But otherwise, not really. Just different worries of the past, things you can't change, and things you now recognize as wrong. The stories appear randomly. I hope they're amusing.
 >PENALTY AREAS
-?Is there any way out? Am I stuck here?
-No, there's not. In fact, if you get "killed," you are allowed to go back where you were.
+?Is there anything to do?
+No, you should bounce back to where you were.
 ?How many areas are there?
-There are five you can access from the game proper.
-Punishment Capitol, Hut Ten, Criminals' Harbor, Fight Fair, A Beer Pound and Maintenance High.
-Actually, there's another one, but you can't go there. It pushes the bounds of good taste, so you can't get there in the game proper..
-If you make it to Window Bay in the Director's Cut, you'll see it.
+There are eight you can access from the game proper.
+Punishment Capitol, Hut Ten, In-Dignity Heap, Shape Ship, Criminals' Harbor, Maintenance High, Fight Fair, and A Beer Pound
+If you make it to Window Bay in the Director's Cut, you'll see them all.
 >Meta-Questions
 ?How many endings are there?
 Well, there are bad ones where you mess up.
 You can eat the cookie cutter.
 You can eat the off cheese.
+You can eat the greater cheese.
 You can just beat the Complex Messiah/Baiter Master and not the Thoughts Idol.
 Or you can beat the bad guy and the Thoughts Idol.
 ?I'd like a walkthrough. Is there a walkthrough?

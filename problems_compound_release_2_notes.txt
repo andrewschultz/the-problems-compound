@@ -10,6 +10,8 @@ MAJOR CHANGES:
 --There are now two "bad" foods in addition to the Cutter Cookie. They are in Meal Square, and the foods are separated into Tray B and Tray A. You can guess which one is the bad one.
 --You now have verbs to jump through the game. They kick you to Pressure Pier, the Jerk Circle (jerks still there) and the Jerk Circle (jerks gone). These magic commands are all in the source file.
 --EXPLAIN now explains the figures of speech for various objects or ideas. It is shortened by XP. No argument tells the meaning of the current room.
+--there are now two hint items in the belt below. Neither is necessary to complete the game or get the better ending.
+--solving the Terminal now gets you to *two* hint items in the Note Crib below. They are mutually exclusive, but one hints the main game and one hints the side puzzle.
 
 In addition, there's a lot of renaming of rooms, scenery and items.
 --Bar Sinister -> Soda Club
@@ -31,7 +33,8 @@ And there's a lot of extra silliness, too.
 --PUT WAX ON (anything)
 --the Variety Garden is now guarded by three types of brush, because VARIETY!
 --lots and lots of scenery in Freak Control!
---the Business Show is on the Fright Stage
+--The bad guy snarks insufferably on how many hints you used, even if you didn't.
+--the Business Show is the name of the display on the Fright Stage.
 --added several rooms to view from Window Bay in the Director's Cut area
 --"deaths" are more organized with new location A Beer Pound for sins in the Soda Club
 --the game cuts you down differently for swearing
