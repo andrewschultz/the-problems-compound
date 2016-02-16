@@ -307,6 +307,8 @@ a drinkable is a kind of thing.
 
 a smokable is a kind of thing.
 
+a hintable is a kind of thing.
+
 a logic-game is a kind of thing. a logic-game has a number called times-won. times-won of a logic-game is usually 0. a logic-game has a number called max-won.
 
 a logic-game can be tried. a logic-game is usually not tried.
@@ -3622,7 +3624,7 @@ reference-blurb
 "Pick out an unsocial skeptic and be skeptical they actually care."
 "Tell people you're not a mind reader, then say you know what they're thinking."
 "A single 'I'm not mad at you' can go a long way."
-"'Don't get me wrong' puts the burden on THEM. If you don't think you deserve to use it, you don't."
+"'Don't get me wrong' puts the burden on THEM. If you don't think you deserve to use it, you don't. Don't take this the wrong way!"
 "Be exciting when you refuse to apologize, and cut people down for boring apologies which don't make others feel better."
 "Be okay once they get to know you around people it's not worth bothering to get to know."
 "Some people aren't special, but they have special weird quirks. Don't let them off the hook!"
@@ -5319,152 +5321,220 @@ Bottom Rock is a room. It is in Main Chunk. "You've reached a rock chamber. It's
 check going nowhere in bottom rock:
 	say "You can only go back up." instead;
 
-the note crib is a thing in Bottom Rock. it is fixed in place. "[if crib-talk is true]The note crib[else]An odd crib[end if] rests here."
+the note crib is a thing in Bottom Rock. it is fixed in place. "[one of]A crib barred by musical notes--it must be a notes crib--[or]The notes crib [stopping]stands here. [if Legend of Stuff is in crib]It contains two small papers: a small flipbook entitled Legend of Stuff, and a crocked half[else]It's empty, now[end if]."
 
-understand "notes" and "notes crib" as note crib.
+understand "musical notes" as note crib. understand "notes" and "notes crib" as note crib. understand "odd" and "odd crib" as note crib.
 
-understand "odd" and "odd crib" as note crib.
-
-description of note crib is "[bug]".
-
-Include (-
-	has transparent talkable
--) when defining note crib.
+description of note crib is "[if Legend of Stuff is in crib]It contains a flipbook called Legend of Stuff and a crocked half. Each looks written on, but you can't make out what's on it[else]Nothing now[end if].".
 
 check entering crib:
 	try sleeping instead;
 
-crib-talk is a truth state that varies.
+report taking a hintable:
+	say "As you take the [noun], the note crib schlurps up the [random not carried hintable]. Well, you're still up one hint, net. You hope.";
+	now random not carried hintable is in lalaland;
+	continue the action;
 
-check examining the note crib:
+before examining a hintable (this is the fuzz out but hint taking rule):
+	if noun is in note crib:
+		say "[if noun is crocked half]It's got a pattern on it, but you'd need to take it to see it more closely.[else]It's weird--the details shift from things you remember: that looked like the word weasel, this looked like the Stool Toad--who knows what else it'd look like if you decided to TAKE it?[end if]" instead;
+
+section Legend of Stuff
+
+the Legend of Stuff is a hintable. it is in the Note Crib.
+
+Include (-
+	has transparent talkable
+-) when defining Legend of Stuff.
+
+understand "flipbook" and "flip book" and "flip/book" as Legend of Stuff.
+
+stuff-talk is a truth state that varies.
+
+check examining the Legend of Stuff:
 	if bros-left is 0:
 		if silly boris is in jerk circle:
-			say "A final note mentions 'Be brutal. Ask a jerk twice to catch him off-guard, if the finger index doesn't help you.'" instead;
-		say "A huge seven-pointed stain covers the crib. It looks like some liquid has been spilled." instead;
-	say "[one of]The crib's bars appear to be notes, and doesn't have any bedding, but it is divided into a red section, a blue section, and a section as big as the other two combined. Looking below the header FOR BABIES, you see writing in the three sections. Which[or]Which section[stopping] do you wish to look at?";
-	try talking to the crib instead;
+			say "As you flip through the Legend of Stuff, you notice two identical pages, of a stick-figure is asking the second stick-figure the same question twice. The second response is nervier.'" instead;
+		say "The Legend of Stuff has nothing new to offer." instead;
+	say "The Legend of Stuff seems to be in roughly three parts: a red section, a blue section, and a section as big as the other two combined. Which section do you wish to look at?";
+	try talking to the Legend of Stuff instead;
 
 check taking the note crib:
-	say "You can take notes, but you can't take the crib." instead;
+	say "You can take notes and maybe crib notes, but you can't take the crib." instead;
 
-check talking to crib:
-	now crib-talk is true;
-	now qbc_litany is the table of note crib talk;
+check talking to Legend of Stuff:
+	now stuff-talk is true;
+	now qbc_litany is the table of Legend of Stuff talk;
 	display the qbc options;
 	the rule succeeds;
 
-table of note crib talk
+table of Legend of Stuff talk
 prompt	response	enabled	permit
-"Red."	crib-blood	2	1
-"Blue."	crib-soul	2	1
-"Big."	crib-big	2	1
-"All."	crib-all	2	1
-"None of them."	crib-bye	3	1
+"Red."	stuff-blood	2	1
+"Blue."	stuff-soul	2	1
+"Big."	stuff-big	2	1
+"All."	stuff-all	2	1
+"None of them."	stuff-bye	3	1
 
 table of quip texts (continued)
 quip	quiptext
-crib-blood	"You stare at the red section."
-crib-soul	"You stare at the blue section."
-crib-big	"You stare at the big section."
-crib-all	"You stare at all the sections."
-crib-bye	"Nah, you don't want any hints just now."
+stuff-blood	"You stare at the red section."
+stuff-soul	"You stare at the blue section."
+stuff-big	"You stare at the big section."
+stuff-all	"You stare at all the sections."
+stuff-bye	"Nah, you don't want any hints just now."
 
 already-clued is a truth state that varies.
 
-ever-clue-crib is a truth state that varies.
+last-clue is a number that varies;
 
-after quipping when qbc_litany is table of note crib talk:
-	now already-clued is false;
-	if current quip is crib-blood or current quip is crib-all:
+after quipping when qbc_litany is table of Legend of Stuff talk:
+	now red-big-clued-this-turn is false;
+	if current quip is stuff-blood or current quip is stuff-all:
 		hint-red;
-	if current quip is crib-soul or current quip is crib-all:
+	if current quip is stuff-soul or current quip is stuff-all:
 		hint-blue;
-	if current quip is crib-big or current quip is crib-all:
+	if current quip is stuff-big or current quip is stuff-all:
 		hint-big;
 	now already-clued is true;
-	if current quip is crib-bye:
+	if current quip is stuff-bye:
+		say "You close the Legend of Stuff.";
 		quit small talk;
-	else:
-		say "Hm, the crib doesn't seem to have decayed spontaneously. Guess that means you can revisit it all you want.";
-		now ever-clue-crib is true:
 
+to set-clue (x - a number): [set-clue numbers are arbitrary but unique]
+	if last-clue is x:
+		say "You cringe [if reused-hint is true]again[else]a bit[end if] because you realize you may not have understood the last picture you saw[one of]. You almost wait for someone authoritative to tell you to stop daydreaming and flaking, but there is none. Whew[or][stopping].";
+		now reused-hint is true;
+	now last-clue is x;
+		
 to hint-blue:
-	if wacker weed is off-stage:
-		say "Talk to Pusher Penn in the Pot Chamber.";
+	if relief light is in lalaland:
+		say "The blue area morphs to Brother Soul smiling for a moment.";
+	else if wacker weed is off-stage:
+		say "You see yourself engaged in a business transaction with someone shady.";
+		set-clue 1;
 	else if player has wacker weed:
-		say "Give Fritz the On the wacker weed.";
+		say "You see yourself giving a small package to a down and out fellow.";
+		set-clue 2;
 	else if poory pot is off-stage:
-		say "Go back and give Pusher Penn the dreadful penny.";
+		say "You see yourself receiving a coin from a shady person.";
+		set-clue 3;
 	else if player has poory pot:
-		say "Put the poory pot in the Spleen Vent in Temper Keep to pacify Volatile Sal.";
+		say "You see yourself stuffing something down a vent.";
+		set-clue 4;
 	else if relief light is off-stage:
-		say "Open the Spleen Vent for the relief light.";
+		say "You see yourself opening a vent.";
+		set-clue 5;
 	else if player has relief light:
-		say "Give the relief light to Brother Soul.";
+		say "You see yourself handing a shining light to someone.";
+		set-clue 6;
 	else:
-		say "The blue area is blank now. You think to Brother Soul for a minute. You hope he is at ease.";
+		say "[bug]";
 	say "[line break]";
+
+red-big-clued-this-turn is a truth state that varies.
+
+this is the red-big-together rule:
+	if red-big-clued-this-turn is true: [this is so that you don't see the same clue twice where big and blood's clues merge]
+		the rule succeeds;
+	now red-big-clued-this-turn is true;
+	if questions field is unvisited:
+		say "You see a facsimile of yourself exploring a bit more, turning left by three guardians.";
+		set-clue 7;
+		the rule succeeds;
+	if the Reasoning Circular is off-stage:
+		say "You see yourself in conversation in a court of law.";
+		set-clue 8;
+		the rule succeeds;
+	if officer petty is not in lalaland:
+		say "You see yourself handing a paper to a police officer.";
+		set-clue 9;
+		the rule succeeds;
+	if money seed is off-stage:
+		say "You see yourself picking a seed from a hedge.";
+		set-clue 10;
+		the rule succeeds;
+	if player has money seed:
+		say "You see yourself giving a seed to a monkey.";
+		set-clue 11;
+		the rule succeeds;
+	now red-big-clued-this-turn is false;
+	the rule fails; [in other words we didn't find a clue that applies to red and big]
 
 to hint-red:
-	if the Reasoning Circular is off-stage:
-		now already-clued is true;
-		say "Talk to Buddy Best until he gives you something.";
-	else if officer petty is not in lalaland:
-		now already-clued is true;
-		say "Give the Reasoning Circular to Officer Petty.";
-	else if money seed is off-stage:
-		now already-clued is true;
-		say "Get the Money Seed from the Scheme Pyramid.";
-	else if contract-signed is false:
-		now already-clued is true;
-		say "Get the Business Monkey to sign the contract.";
-	else if money seed is not in lalaland:
-		say "Give the Money Seed to the Business Monkey.";
-	else if player has fourth-blossom:
-		say "Give the fourth-blossom to Faith or Grace Goode.";
-	else if player has the mind of peace:
+	if mind of peace is in lalaland:
+		say "The red area morphs to Brother Blood smiling for a moment.";
+		continue the action;
+	consider the red-big-together rule;
+	if the rule succeeded:
+		continue the action;
+	if player has fourth-blossom:
+		say "You see yourself giving a flower to two women in clerical robes.";
+		set-clue 12;
+	else if player has mind of peace:
 		say "Give the mind of peace to Brother Blood.";
-	else:
-		say "The red area is blank now. You think to Brother Blood for a moment. You hope he is at ease.";
+		set-clue 13;
 	say "[line break]";
 
-to hint-big: [already-clued indicates that you already saw a clue]
-	if already-clued is false:
-		if the Reasoning Circular is off-stage:
-			say "Talk to Buddy Best until he gives you something.";
-			continue the action;
-		else if officer petty is not in lalaland:
-			say "Give the Reasoning Circular to Officer Petty.";
-			continue the action;
-		else if contract-signed is false:
-			say "Get the Business Monkey to sign the contract.";
-			continue the action;
-		else if money seed is off-stage:
-			say "Get the Money Seed from the Scheme Pyramid.";
-			continue the action;
+to hint-big:
+	if trade of tricks is in lalaland:
+		say "The big area morphs to Brother Big smiling for a moment.";
+		continue the action;
+	consider the red-big-together rule;
+	if the rule succeeded:
+		continue the action;
 	if player does not have sound safe:
-		say "Get the Sound Safe from the Accountable Hold.";
+		say "You see yourself picking up a big square object--a safe, maybe[if hold is unvisited]. The surroundings aren't familiar[end if].";
+		set-clue 14;
 	else if long string is off-stage:
-		say "Visit Walker Street east of Speaking Plain.";
+		say "You see yourself wandering to a place you can't identify yet.";
+		set-clue 15;
 	else if player does not have string:
-		say "Get the string from Walker Street.";
+		say "You see yourself picking up a pile of string near a large grave.";
+		set-clue 16;
 	else if story fish is off-stage:
-		say "PUT STRING IN WELL for an important item.";
+		say "You see yourself dropping a long string in the well.";
+		set-clue 17;
 	else if art fine is not in lalaland:
-		say "PLAY the story fish by Art Fine.";
+		say "You see yourself playing a fish around some artwork.";
+		set-clue 18;
 	else if harmonic phil is not in lalaland:
-		say "OPEN the sound safe by Harmonic Phil.";
+		say "You see yourself opening the safe around some artwork.";
+		set-clue 19;
 	else if poetic wax is not in lalaland:
-		say "PUT the poetic wax on the Language Machine.";
+		say "You see yourself glopping something gooey on some sort of computer.";
+		set-clue 20;
 	else if trap rattle is off-stage:
-		say "WEAR the trick hat then talk to the Charmer Snake.";
+		say "You see yourself giving a hat to a hopeless magician.";
+		set-clue 21;
 	else if trade of tricks is off-stage:
-		say "GIVE the trap rattle to the Proof Fool.";
+		say "You see yourself giving a rattle to a harried man.";
+		set-clue 22;
 	else if the player has trade of tricks:
-		say "GIVE the Trade of Tricks to Brother Big.";
+		say "You see yourself giving a book to someone much bigger than you.";
+		set-clue 23;
 	else:
-		say "The big area is blank now. You think to Brother Big for a moment. You hope he is at ease.";
+		say "[bug]";
 	say "[line break]";
+
+section crocked half
+
+the crocked half is a hintable. it is in the Note Crib. "A crocked half of a paper is here, ready to blow away. You'd better take it quickly, if you want it."
+
+description of the crocked half is "It's half-a-square and seems to be torn at the bottom, as if, well, there were another part."
+
+to say stars:
+	say "   *     *[line break]";
+
+to say upper:
+	if screen-read is false:
+		say "[fixed letter spacing][stars]   |\   /|[line break]
+   | \ / |[line break]
+*--*--*--*--*[line break]
+ \ | / \ | /[line break]
+  \|/   \|/[line break][stars][variable letter spacing]";
+	else:
+		say "The paper is ridged in a clear pattern--there's a straight line across, and each quarter is a leg of an isosceles right triangle: in order, below, above, above and below."
 
 part The Belt Below
 
@@ -5887,7 +5957,7 @@ last-dir is a direction that varies.
 rotation is a number that varies.
 
 check going nowhere in idiot village (this is the final idol puzzle rule):
-	if crocked half is in lalaland:
+	if thoughts idol is in lalaland:
 		say "You don't need a victory lap through the Service Community now, fun as it might be." instead;
 	if player has crocked half:
 		if noun is northeast or noun is east:
@@ -5898,7 +5968,7 @@ check going nowhere in idiot village (this is the final idol puzzle rule):
 			else:
 				now rotation is 5;
 				now last-dir is east;
-			now idol-tries is 0;
+			now idol-progress is 0;
 			now thoughts idol is in Service Community;
 			move player to Service Community;
 			prevent undo;
@@ -6079,7 +6149,9 @@ to say iv-idol:
 
 the Service Community is a room in Main Chunk. "You just came from the [opposite of last-dir]."
 
-idol-tries is a number that varies.
+idol-progress is a number that varies.
+
+idol-fails is a number that varies.
 
 check going in service community:
 	if orientation of noun is -1:
@@ -6088,13 +6160,13 @@ check going in service community:
 	if q < 0:
 		now q is q + 8;
 	if q is rotation:
-		choose row idol-tries + 1 in the table of idol text;
-		d "[idol-tries]";
+		choose row idol-progress + 1 in the table of idol text;
+		d "[idol-progress]";
 		say "[good-text entry]";
-		increment idol-tries;
+		increment idol-progress;
 		now last-dir is noun;
 		prevent undo;
-		if idol-tries is 7:
+		if idol-progress is 7:
 			now thoughts idol is in lalaland;
 			move player to idiot village, without printing a room description;
 			move crocked half to lalaland;
@@ -6106,6 +6178,7 @@ check going in service community:
 			say "You feel particularly helpless running back and forth. The idol shakes its head, as if to let you know that just won't do, and it's tired of telling lesser things or people or whatever that.";
 		else:
 			say "[bad-text entry]";
+		increment idol-fails;
 		prevent undo;
 
 chapter community text
@@ -6981,7 +7054,46 @@ litany of Baiter Master is the table of Baiter Master talk.
 check talking to Baiter Master:
 	if freaked-out is false:
 		say "[one of]He waves you off without even looking. 'Whoever you are, I'm busy. Too busy for your lame problems. And they must be lame, if you asked so weakly.' You'll need an entirely more aggressive way to get his attention.[or]You just aren't good enough at yelling to do things straight up. Maybe you can upset things somehow.[stopping]" instead;
-	say "'Dude! You need to chill... there are things called manners...' but he does have your attention now. 'So. Someone finally got past those mopey brothers. You want a vision duel? Because we can have a vision duel. I have...an [i]opinion[r] of difference. You don't even have...one right serve.' He takes a slurp from a shot mug (with a too-flattering self-portrait, of course) and perks up."
+	say "'Dude! You need to chill... there are things called manners...' but he does have your attention now. 'So. Someone finally got past those mopey brothers. You want a vision duel? Because we can have a vision duel. I have...an [i]opinion[r] of difference. You don't even have...one right serve.' He takes a slurp from a shot mug (with a too-flattering self-portrait, of course) and perks up.";
+	if player has legend of stuff:
+		say "He points to the Legend of Stuff. 'Oh. It looks like you took the easy way out. In fact...";
+		say "[bm-stuff-brags][line break]";
+	say "[if thoughts idol is in lalaland]Destroyed the Thoughts Idol, too[else if service community is in lalaland]You'd think failing with the Thoughts Idol would be a hint, but maybe not[else if insanity terminal is in lalaland]Knew better than to challenge the Thoughts Idol, at least[else]Well, I have...resources...in place to fix your mess[end if].";
+	if insanity terminal is in lalaland:
+		say "[bm-idol-brags]";
+
+to say bm-stuff-brags:
+	repeat through table of bm stuff brags:
+		if idol-fails <= times-failed entry or times-failed entry is -1:
+			say "'[what-to-say entry][if reused-hint is true] And you had to look something up twice, too, I bet. No focus.'[else]'";
+			continue the action;
+
+to say bm-idol-brags:
+	repeat through table of bm idol brags:
+		if idol-fails <= times-failed entry or times-failed entry is -1:
+			say "[if idol is in lalaland][win-say entry][else][nowin-say entry]";
+			continue the action;
+
+reused-hint is a truth state that varies.
+
+table of bm stuff brags
+times-failed	what-to-say
+0	"More precisely, you went to all that trouble and didn't even use it."
+1	"Only used it once, maybe, but still--you had to cheat."
+2	"Used it twice, there."
+5	"The really easy way."
+10	"Did you even TRY to think on your own? I'm all for research, but..."
+-1	"You should be embarrassed using it that much! Honestly."
+
+table of bm idol brags
+times-failed	win-say	nowin-say
+0	"'Destroyed the Thoughts Idol in one try, too. Lucky.'"	"'Didn't even try. That's a good way to get far in life.'"
+1	"'You're lucky the Thoughts Idol didn't kill you first try you got. It should've. But, mercy and stuff.'"	"'Quit pretty quickly, though.'"
+5	"'I suppose you can feel smart enough, beating the idol pretty quickly.'"	"'You sort of tried to figure it, I guess.'"
+10	"'Eh, well, sort of average performance taking the idol.'"	"'Guess I'll give you credit for persistence even in failure.'"
+15	"'Boy. Took you long enough.'"	"'Boy, you seem like the sort that'd figure how to get by the Idol. Guess you got frustrated.'"
+21	"'Well. Trial and error worked, I guess. But--didn't you feel dumb once you realized what you did?'"	"'Too bad there wasn't an answer in back of the book.'"
+-1	"'Congratulations, I guess. If you were persistent with, y'know, practical stuff...'"	"'Doubt you learned much from all your failures.'"
 
 table of bm - Baiter Master talk
 prompt	response	enabled	permit
@@ -8041,23 +8153,6 @@ the Total T is a thing in conceptville. description is "[bug]"
 the Go Rum is a thing in conceptville. description is "[bug]"
 
 lalaland is a room in meta-rooms. "You should never see this. If you do, it is a [bug]."
-
-volume extended stuff
-
-the crocked half is a thing. description is "It's half-a-square and seems to be torn at the bottom, as if, well, there were another part."
-
-to say stars:
-	say "   *     *[line break]";
-
-to say upper:
-	if screen-read is false:
-		say "[fixed letter spacing][stars]   |\   /|[line break]
-   | \ / |[line break]
-*--*--*--*--*[line break]
- \ | / \ | /[line break]
-  \|/   \|/[line break][stars][variable letter spacing]";
-	else:
-		say "The paper is ridged in a clear pattern--there's a straight line across, and each quarter is a leg of an isosceles right triangle: in order, below, above, above and below."
 
 volume rule replacements
 

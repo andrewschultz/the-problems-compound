@@ -5,11 +5,11 @@ by Andrew Schultz
 MAJOR CHANGES:
 --The big change is that there is now a good ending and a very good ending. You can save Idiot Village from...well, something. I won't spoil it. Although the new Trizbort map will.
 ----this is a small puzzle in the Service Community, a new location, but you need to solve another puzzle that seemed extraneous in release 1.
-----there's also a small end puzzle
---you now need to do something to get the Bad Guy's attention in Freak Control beyond just talking. Nothing major, and it's signposted pretty clearly. In fact, there are two ways.
---Two other changes (well, identical) are that there are now two foods in addition to the Cutter Cookie. They are in Meal Square, and the "bad" foods are now on Tray B, with the neutral-ish ones on Tray A.
---You now have verbs to jump through the game. They kick you to Pressure Pier, the Jerk Circle (jerks still there) and the Jerk Circle (jerks still gone). These magic commands are all in the source file.
---EXPLAIN now explains the figures of speech. It is shortened by XP.
+----there's also a small end puzzle based on the game gimmick, and it's different for the good and bad ending.
+--you now need to do something to get the Bad Guy's attention in Freak Control beyond just talking. Nothing major, and it's signposted pretty clearly. In fact, there are two ways, both identical.
+--There are now two "bad" foods in addition to the Cutter Cookie. They are in Meal Square, and the foods are separated into Tray B and Tray A. You can guess which one is the bad one.
+--You now have verbs to jump through the game. They kick you to Pressure Pier, the Jerk Circle (jerks still there) and the Jerk Circle (jerks gone). These magic commands are all in the source file.
+--EXPLAIN now explains the figures of speech for various objects or ideas. It is shortened by XP. No argument tells the meaning of the current room.
 
 In addition, there's a lot of renaming of rooms, scenery and items.
 --Bar Sinister -> Soda Club
@@ -20,10 +20,12 @@ In addition, there's a lot of renaming of rooms, scenery and items.
 --a long tag -> Reasoning Circular, with a long tag
 
 Story and robustness.
---the ending now has Alec have a small revelation
---some people now refer to the bad guy by initials
+--the ending now has Alec have a small revelation.
+--some people now refer to the bad guy by initials.
 --"you just have to get to know him" about the bad guy is a refrain
---minor explanation of puzzles and solving them in Round Lounge
+--minor explanation of puzzles and solving them in Round Lounge.
+--VERBS now says what verbs you can use, including the unlocked "jump" verbs.
+--THINK now reminds you what you should be doing.
 
 And there's a lot of extra silliness, too.
 --PUT WAX ON (anything)
@@ -32,9 +34,10 @@ And there's a lot of extra silliness, too.
 --the Business Show is on the Fright Stage
 --added several rooms to view from Window Bay in the Director's Cut area
 --"deaths" are more organized with new location A Beer Pound for sins in the Soda Club
---64 total rooms now all fit on the (modified) Trizbort/PDF maps
+--the game cuts you down differently for swearing
+--With the above two modifications, 64 total rooms now all fit on the new Trizbort/PDF "full" maps. The regular game only added 3 rooms: Service Community and two separate endings
 --the 7 jerks now have 13 different "secret sins" chosen randomly at game's start
---the Saver Screen has lots of tips to be like the bad guy but recognizes ordinary boring people only follow one or two
+--the Saver Screen has lots of tips (24) to be like the bad guy but recognizes ordinary boring people only follow one or two
 --the "bad guy beyond" is no longer Spike Price. He has a new name, based on if you want profanity.
 --expanded "for your amusement" post-game section
 --expanded profanity-difference post-game section

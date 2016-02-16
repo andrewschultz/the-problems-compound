@@ -104,8 +104,8 @@
 			<dock index="0" id="23" port="w" />
 			<dock index="1" id="1" port="e" />
 		</line>
-		<room id="34" name="Bottom Rock" subtitle="" x="-320" y="96" w="96" h="64" region="Cluey Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects>Note Crib|(Crocked Half)</objects>
+		<room id="34" name="Bottom Rock" subtitle="" x="-320" y="96" w="96" h="64" region="Cluey Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Note Crib|  Crocked Half|  Legend of Stuff</objects>
 		</room>
 		<line id="12">
 			<dock index="0" id="11" port="e" />
