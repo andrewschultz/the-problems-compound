@@ -303,6 +303,8 @@ to decide whether the action is undrastic:
 
 chapter misc defs for later
 
+an undesc is a kind of thing. description of an undesc is usually "[bug]"
+
 a drinkable is a kind of thing.
 
 a smokable is a kind of thing.
@@ -1805,152 +1807,161 @@ after explaining dots:
 
 table of explanations [toe]
 exp-thing	exp-text	exp-anno
-dots	"These aren't a pun, but it's something mathy people see a lot of, and motivational speakers tend to abuse it. If you'd like the solution to the four lines to draw to connect all the points, and even other smart-aleck answers, say yes."
-Poetic Wax	"To wax poetic is to, well, rhapsodize with poems or song or whatever. It's slightly less gross than wax."
-Mistake Grave	"A grave mistake is a very bad mistake indeed."
-Ability Suit	"Suitability means appropriateness. And the suit is not appropriate for the monkey."
-blossoms	"Now that the blossoms are in place, well, it'd be mean to say they're 'some blah.'"
-Buddy Best	"A best buddy is your favorite friend."
-Insanity Terminal	"Terminal insanity is having no chance to regain sanity."
-crocked half	"Half-crocked means drunk."
-iron waffle	"A waffle iron is what you put batter in to make a waffle. But a waffle is also what you use when you don't know what to say. An iron waffle, then, would be something to say when you don't know what to say--but it is hard to take down."
-note crib	"To crib notes is to copy from someone who was at a lecture."
-Eye Witness	"Someone at the scene of the crime."
+dots	"These aren't a pun, but it's something mathy people see a lot of, and motivational speakers tend to abuse it. If you'd like the solution to the four lines to draw to connect all the points, and even other smart-aleck answers, say yes." [note a non-person must come first or Inform thinks it's a thing]
+Alec Smart	"A smart alec is someone who always has a clever quip."
+Guy Sweet	"Guy Sweet is more of a candy-[a-word] than a sweet guy, but 'sweet guy' is such a terrible compliment as-is. To yourself or others." [smart street]
+Game Shell	"A shell game is where an operator and possibly an assistant rig a game so that mugs think it's an easy win, but they can't. The most popular one is when they hide a bean under a hollowed shell and shift them around."	"The game shell is a shell game of its own. No matter how much you solve, you won't impress Guy Sweet, and you won't--well--figure the real puzzles you want to, beyond logic etc."
+Broke Flat	"Flat Broke means out of money."	"This was originally a location until I discovered A Round Lounge."
+A Round Lounge	"To lounge around is to do nothing--the opposite of what you want."
+Plan Hatch	"To hatch a plan is to figure a way to do something."
+gesture token	"A token gesture is something done as a bare minimum of acknowledgement."
+round screw	"To screw around is to do silly unproductive stuff." [a round lounge]
+round stick	"To stick around is to move nowhere."
+off tee	"To tee off is to yell or punch out at someone."
+person chair	"A chairperson is someone in charge of things."
+Mouth Mush	"A mush-mouth is someone who talks unclearly or uses weak words." [tension surface]
+Rogue Arch	"An arch-rogue is a big bad guy, obviously inappropriate for early in the story."
+Word Weasel	"A weasel word is something that seems to mean more than it should." [variety garden]
+pocket pick	"A pickpocket is a thief."
+proof of burden	"The burden of proof means: you need to come up with evidence to prove your point."
+Absence of Leaves	"Leaves of absence means taking time off."
+off brush	"To brush off is to ignore. It's more ignoring someone's ideas than ignoring them fully."
+back brush	"To brush back is to repel someone or keep them out."
+aside brush	"To brush aside is to ignore someone as you move past them."
+Flower Wall	"A wallflower is someone who doesn't participate socially." [vision tunnel]
+Poor Dirt	"Dirt poor means especially not rich."
+picture hole	"Seeing the whole picture means you see everything."
+earth of scum	"Scum of the earth is the worst possible person."
+Howdy Boy	"Boy Howdy is a colloquial expression of surprise." [pressure pier]
+Saver Screen	"A screen saver is often an amusing little graphic, animated or otherwise, on a computer that's been idle."
+boo tickety	"Tickety-boo means okay, all right, etc."
+trail paper	"A paper trail is evidence in white-collar crimes. People often have to piece it together."
+Howdy Boy	"Boy Howdy is a colloquial expression of surprise."
+Tray A	"Just a tray, contrasted with Tray B." [meal square]
+Tray B	"Eating anything on it may betray who you really are."
+cutter cookie	"Cookie-cutter means predictable and formulaic."
+greater cheese	"A cheese grater chops up cheese. Also, you do become a bit of a grater if you eat it."
 Off Cheese	"To cheese someone off is to annoy them."
 gagging lolly	"Lollygagging is waiting around."
 condition mint	"Mint condition is brand new."
-cutter cookie	"Cookie-cutter means predictable and formulaic."
-Alec Smart	"A smart alec is someone who always has a clever quip."
-Dandy Jim	"Jim Dandy is something excellent."
+iron waffle	"A waffle iron is what you put batter in to make a waffle. But a waffle is also what you use when you don't know what to say. An iron waffle, then, would be something to say when you don't know what to say--but it is hard to take down."
+picture of a dozen bakers	"A baker's dozen is thirteen, thus counting for the illusion."
+warmer bench	"A bench warmer is someone who doesn't get into the action, especially in a sports game." [down ground]
+Fritz the On	"On the fritz means on the blink."
+dreadful penny	"A penny dreadful is a trashy novel."
+Stool Toad	"A toadstool is a mushroom." [joint strip]
+Pigeon Stool	"A stool pigeon is someone who tattles."
+Minimum Bear	"Bare minimum is the very least you need to do to get by."
+haha brew	"Brouhaha is a commotion or noise." [soda club]
+cooler wine	"A wine cooler is very low in alcohol content."
+Liver lily	"Lily-liver means coward."
+Rehearsal Dress	"A dress rehearsal is the final staging of the play before the audience sees it."
+Punch Sucker	"A sucker punch is hitting someone when they aren't looking."
+fly bar	"A barfly is someone who goes around to bars and gets drunk."
+Dandy Jim	"Jim Dandy is something excellent." [jerk circle]
 Silly Boris	"Bore us silly."
 Wash White	"To whitewash is to wipe clean."
 Warner Dyer	"A dire warner has a message for you to keep away."
 Warm Luke	"Lukewarm is not really warm."
 Paul Kast	"To cast a pall is to give an air of unhappiness."
 Cain Reyes	"To raise Cain is to be loud."
-Pusher Penn	"A pen pusher is someone working at a boring job."
-Cards of the House	"The house of cards is something that falls down easily."
-View of Points	"Points of view are opinions."
-picture of a dozen bakers	"A baker's dozen is thirteen, thus counting for the illusion."
-Sly Moore	"More sly = slyer = cleverer."
-fourth-blossom	"To blossom fourth is to grow."
-Business Monkey	"Monkey business is general silliness."
-Harmonic Phil	"Many orchestras bill themselves as philharmonic. I suppose they could be anti-harmonic, but an Auntie character felt a bit stereotyped, and Auntie feels a bit too charged."
-Art Fine	"Why, fine art, of course. Highfalutin['] stuff, not easy to understand."
-Song Torch	"A Torch Song is about looking back on a love you can't quite let go of. The Song Torch is more cynical than that, being a bit rougher on its subjects, and, well, actually torching them."
-Finger Index	"The index finger is the one next to your thumb. Also, to finger someone means to point them out."
-Jerk Circle	"You'll have to look on Urban Dictionary for that."
-Drug Gateway	"A gateway drug leads you to bigger drugs, but here, the gateway may be blocking you from them."
-Guy Sweet	"Guy Sweet is more of a candy-[a-word] than a sweet guy, but 'sweet guy' is such a terrible compliment as-is. To yourself or others."
-Game Shell	"A shell game is where an operator and possibly an assistant rig a game so that mugs think it's an easy win, but they can't. The most popular one is when they hide a bean under a hollowed shell and shift them around."	"The game shell is a shell game of its own. No matter how much you solve, you won't impress Guy Sweet, and you won't--well--figure the real puzzles you want to, beyond logic etc."
-Broke Flat	"Flat Broke means out of money."	"This was originally a location until I discovered A Round Lounge."
-A Round Lounge	"To lounge around is to do nothing--the opposite of what you want."
-Plan Hatch	"To hatch a plan is to figure a way to do something."
-Word Weasel	"A weasel word is something that seems to mean more than it should."
-Flower Wall	"A wallflower is someone who doesn't participate socially."
-Variety Garden	"Garden-variety means ordinary, nothing special."
-Vision Tunnel	"Tunnel vision is the inability to see anything other than what is in front of you."
-Mouth Mush	"A mush-mouth is someone who talks unclearly or uses weak words."
-Rogue Arch	"An arch-rogue is a big bad guy, obviously inappropriate for early in the story."
-Twister Brain	"The opposite of a brain twister, where someone derives a conclusion from a fact, the brain has a set conclusion and twists and weights facts to line up with them."
-Uncle Dutch	"A Dutch Uncle gives useful advice."
-Turk Young	"A Young Turk is a brave rebel."
-Story Fish	"A fish story is a long winding story."
-Punch Sucker	"A sucker punch is hitting someone when they aren't looking."
+Quiz Pop	"A pop quiz is when a teacher gives an unannounced quiz on materials."
 jerks	"Pick one by name to see details."
-Logical Psycho	"Psychological, e.g. in the mind."
-Googly bowl	"To bowl a googly is to throw someone for a loop."
-Faith Goode	"Good faith."
-Grace Goode	"Good grace."
-fund hedge	"A hedge fund is for super rich people to get even richer."
+Assassination Character	"Character assassination is the act of tearing someone down." [chipper wood]
+chase paper	"A paper chase is excessive paperwork. In this case, work not strictly needed to reach the Assassination Character."
+Insanity Terminal	"Terminal insanity is having no chance to regain sanity." [the belt below]
+note crib	"To crib notes is to copy from someone who was at a lecture." [bottom rock]
+legend of stuff	"The Stuff of Legend means a book about great tales of yore, as opposed to the scribble-hint-book you get."
+crocked half	"Half-crocked means drunk."
+Logical Psycho	"Psychological, e.g. in the mind." [truth home]
+Proof Fool	"Being fool-proof means you aren't suckered by anything."
+Trade of Tricks	"Tricks of the Trade are things that outsiders to a specialty probably don't know that are a bit out of the range of common sense."
+fund hedge	"A hedge fund is for super rich people to get even richer." [scheme pyramid]
 money seed	"Seed money helps an investment."
 Labor Child	"Child labor is about putting children to tough manual labor."
 Deal Clothes	"To close the deal means to agree to terms."
-Trap Rattle	"A rattle trap is a cheap car."
-relief light	"Light relief would be a silly joke."
-Baiter Master	"[if allow-swears is true]Masturbater is someone who--pleasures himself[else]Messiah Complex means someone believes they're the chosen one[end if]."
-Proof Fool	"Being fool-proof means you aren't suckered by anything."
-yards hole	"The whole nine yards means everything."
-Assassination Character	"Character assassination is the act of tearing someone down."
-Brother Big	"Big Brother is the character from Orwell's 1984."
-Brother Blood	"A blood brother is someone related by blood or who has sworn an oath of loyalty to someone else."
-proof of burden	"The burden of proof means: you need to come up with evidence to prove your point."
-Rehearsal Dress	"A dress rehearsal is the final staging of the play before the audience sees it."
-Brother Soul	"A soul brother is one who has very similar opinions to you."
-the Book Bank	"A bankbook records numbers and is very un-literary."
-Spleen Vent	"To vent one's spleen is to let our your anger."
-Language Sign	"Sign language is how people communicate with the deaf."
-Thoughts Idol	"Idle thoughts are what it purports to oppose."
-Absence of Leaves	"Leaves of absence means taking time off."
-Liver lily	"Lily-liver means coward."
-Minimum Bear	"Bare minimum is the very least you need to do to get by."
-dreadful penny	"A penny dreadful is a trashy novel."
-haha brew	"Brouhaha is a commotion or noise."
-long string	"To string along someone is to keep them trying or asking for more."
-chase paper	"A paper chase is excessive paperwork. In this case, work not strictly needed to reach the Assassination Character."
-cooler wine	"A wine cooler is very low in alcohol content."
-pocket pick	"A pickpocket is a thief."
-earth of scum	"Scum of the earth is the worst possible person."
-Stool Toad	"A toadstool is a mushroom."
-Pigeon Stool	"A stool pigeon is someone who tattles."
-Language Machine	"Machine Language is very low-level, unreadable (without training) code of bits. No English or anything."
-round screw	"To screw around is to do silly unproductive stuff."
-round stick	"To stick around is to move nowhere."
-gesture token	"A token gesture is something done as a bare minimum of acknowledgement."
-off tee	"To tee off is to yell or punch out at someone."
-fly bar	"A barfly is someone who goes around to bars and gets drunk."
-boo tickety	"Tickety-boo means okay, all right, etc."
-person chair	"A chairperson is someone in charge of things."
-off brush	"To brush off is to ignore. It's more ignoring someone's ideas than ignoring them fully."
-back brush	"To brush back is to repel someone or keep them out."
-aside brush	"To brush aside is to ignore someone as you move past them."
-against rails	"If someone rails against something, they're upset with it."
-trail paper	"A paper trail is evidence in white-collar crimes. People often have to piece it together."
-tension surface	"Surface tension is a scientific phenomenon where water can, say, go a bit above the top of a cup without falling out."
-Howdy Boy	"Boy Howdy is a colloquial expression of surprise."
+Cold contract	"To contract a cold is to get sick. Also, the contract is pretty cold-blooded."
+Sound Safe	"Safe, sound means being out of trouble. Also, the safe isn't very sound, as it's easy to open." [accountable hold]
+Finger Index	"The index finger is the one next to your thumb. Also, to finger someone means to point them out."
+yards hole	"The whole nine yards means everything." [disposed well]
+Story Fish	"A fish story is a long winding story."
+Googly bowl	"To bowl a googly is to throw someone for a loop." [classic cult]
+Faith Goode	"Good faith."
+Grace Goode	"Good grace."
+blossoms	"Now that the blossoms are in place, well, it'd be mean to say a blossom is 'some blah.' Oops."
+mind of peace	"Peace of mind means being able to think."
+Officer Petty	"A petty officer is actually reasonably far up in the hierarchy, the equivalent of a sergeant." [judgment pass]
 Intuition Counter	"Counterintuition means the reverse of what you'd expect."
+Business Monkey	"Monkey business is general silliness." [idiot village]
+Ability Suit	"Suitability means appropriateness. And the suit is not appropriate for the monkey."
+Sly Moore	"More sly = slyer = cleverer."
+fourth-blossom	"To blossom fourth is to grow."
+Thoughts Idol	"Idle thoughts, e.g., a wandering mind, are what it purports to oppose."
+Trap Rattle	"A rattle trap is a cheap car."
+Uncle Dutch	"A Dutch Uncle gives useful advice." [speaking plain] [??test XP BUSINESS SHOW]
+Turk Young	"A Young Turk is a brave rebel."
 Fright Stage	"Stage fright is being scared to get out in front of a crowd."
+Volatile Sal	"Sal volatile is given to wake up unconscious people with its smell." [temper keep]
+Spleen Vent	"To vent one's spleen is to let our your anger."
+relief light	"Light relief would be a silly joke."
+Drug Gateway	"A gateway drug leads you to bigger drugs, but here, the gateway may be blocking you from them." [walker street]
+Mistake Grave	"A grave mistake is a very bad mistake indeed."
+long string	"To string along someone is to keep them trying or asking for more."
+Harmonic Phil	"Many orchestras bill themselves as philharmonic. I suppose they could be anti-harmonic, but an Auntie character felt a bit stereotyped, and Auntie feels a bit too charged." [discussion block]
+Art Fine	"Why, fine art, of course. Highfalutin['] stuff, not easy to understand."
+Poetic Wax	"To wax poetic is to, well, rhapsodize with poems or song or whatever. It's slightly less gross than wax."
+Song Torch	"A Torch Song is about looking back on a love you can't quite let go of. The Song Torch is more cynical than that, being a bit rougher on its subjects, and, well, actually torching them."
+the Book Bank	"A bankbook records numbers and is very un-literary."
+Pusher Penn	"A pen pusher is someone working at a boring job." [pot chamber]
+wacker weed	"A weed whacker is the slang for a gardening tool to cut weeds."
+Poory Pot	"Potpourri, which smells good. Of course, I've read about pipe and cigar snobs who babble on about aromas and such, and apparently there are marijuana snobs too in this progressive time! Perhaps there always were."
+Language Machine	"Machine Language is very low-level, unreadable (without training) code of bits. No English or anything." [standard bog]
 Trick Hat	"A hat trick, in hockey or soccer, is scoring three times."
-Saver Screen	"A screen saver is often an amusing little graphic, animated or otherwise, on a computer that's been idle."
-Fritz the On	"On the fritz means on the blink."
-Poor Dirt	"Dirt poor means especially not rich."
-picture hole	"Seeing the whole picture means you see everything."
-warmer bench	"A bench warmer is someone who doesn't get into the action, especially in a sports game."
-Quiz Pop	"A pop quiz is when a teacher gives an unannounced quiz on materials."
-Poory Pot	"Potpourri, which smells good. Of course, I've read about pipe and cigar snobs who babble on about aromas and such."
+Brother Big	"Big Brother is the character from Orwell's 1984." [questions field]
+Brother Blood	"A blood brother is someone related by blood or who has sworn an oath of loyalty to someone else."
+Brother Soul	"A soul brother is one who has very similar opinions to you."
+Buddy Best	"A best buddy is your favorite friend." [court of contempt]
 the Reasoning Circular	"Circular Reasoning is, for instance, I'm smart because I'm clever because I'm smart."
 a long tag	"To tag along is to follow behind."
-Volatile Sal	"Sal volatile is given to wake up unconscious people with its smell."
-Cold contract	"To contract a cold is to get sick. Also, the contract is pretty cold-blooded."
-Trade of Tricks	"Tricks of the Trade are things that outsiders to a specialty probably don't know that are a bit out of the range of common sense."
-wacker weed	"A weed whacker is the slang for a gardening tool to cut weeds."
-shot screen	"A screenshot is a still frame from a video."
+Baiter Master	"[if allow-swears is true]Masturbater is someone who--pleasures himself[else]Messiah Complex means someone believes they're the chosen one[end if]." [freak control]
 list bucket	"A bucket list has things to do before you die."
+Language Sign	"Sign language is how people communicate with the deaf."
 call curtain	"A curtain call is when someone comes back out after lots of applause."
-hammer	"The hammer can be three things[ham-desc]."
+shot screen	"A screenshot is a still frame from a video."
 incident miner	"A minor incident is not a big deal, but the incident miner makes a big deal of small things."
-worm ring	"A ringworm is a form of parasite."
+Twister Brain	"The opposite of a brain twister, where someone derives a conclusion from a fact, the brain has a set conclusion and twists and weights facts to line up with them."
+Witness Eye	"Someone at the scene of the crime."
+against rails	"If someone rails against something, they're upset with it."
+worm ring	"A ringworm is a form of parasite." [final final areas]
 Return Carriage	"Carriage Return is going back to the start of a new line in a document with text. And you are sort of going back to the start, too."
+hammer	"The hammer can be three things[ham-desc]."
 lock caps	"I THINK YOU KNOW WHAT CAPS LOCK IS, BUT HERE'S A DEMONSTRATION OF WHAT HAPPENS IF YOU LEAVE IT ON."
-greater cheese	"A cheese grater chops up cheese. Also, you do become a bit of a grater if you eat it."
-Officer Petty	"A petty officer is actually reasonably far up in the hierarchy, the equivalent of a sergeant."
-Sound Safe	"Safe, sound means being out of trouble. Also, the safe isn't very sound, as it's easy to open."
-mind of peace	"Peace of mind means being able to think."
+
+table of explanations (continued) [this is stuff referred to in the director's cut area]
+exp-thing	exp-text	exp-anno
 pen fountain	"A fountain pen is (these days) a typical pen. You don't have to dip it in ink to keep writing. It's less exotic than a pen fountain, of course."
 consciousness stream	"Stream of consciousness is a form of writing that relies heavily on inner monologue."
 Francis Pope	"Pope Francis is the current pope as of this game's writing."
 Flames Fan	"To fan the flames is to keep things going. The Flames Fan just watches them."
+Cards of the House	"The house of cards is something that falls down easily."
+View of Points	"Points of view are opinions."
+
+table of explanations (continued) [this is stuff referred to tangentially]
+exp-thing	exp-text	exp-anno
 Total T	"Teetotal means alcohol-free."
+Business Show	"Show business is the act of entertainment, and the business show's is (purportedly) more practical."
 Go Rum	"A rum go is an unforeseen unusual experience, as opposed to 'GO' anything which indicates general motivation."
-Tray A	"Just a tray, contrasted with Tray B."
-Tray B	"Eating anything on it may betray who you really are."
+Complain Cant	"Cant means a tendency towards something, so someone with a complain cant would only say 'can't complain' very ironically."
+Received Wisdom	"Received wisdom is generally accepted knowledge which is often not true, such as we only use 10% of our brain. Gustave Flaubert wrote a book called The Dictionary of Received Wisdom that makes fun of many examples."
+Power People	"People power was a rallying cry in demonstrations against the authoritarianism of, well, power people."
+Something Mean	"Mean something = talk or act with purpose. Something mean = well, nastiness."
 
 table of room explanations [tore]
 room-to-exp	exp-text
 Smart Street	"Street Smart means knowing your way around tricky people and situations. Alec is not, to start."
 A Round Lounge	"To lounge around is to sit and do nothing--the opposite of what you want to do here."
 Tension Surface	"Surface Tension is a scientific phenomenon where water can stay over the top of a glass."
-Vision Tunnel	"Tunnel vision is only being able to see certain things due to mental or physical blocks."
+Vision Tunnel	"Tunnel vision is only being able to see certain things--particularly what's just in front of you--due to mental or physical blocks."
 Variety Garden	"Garden variety means ordinary."
 Pressure Pier	"Peer pressure is when others in your social circle try to get you to do something."
 Meal Square	"A square meal is a full meal."
@@ -5255,8 +5266,6 @@ before talking to story fish:
 	say "[if harmonic phil is in Discussion Block and player is in Discussion Block]Harmonic Phil hums loudly over the sound of the fish talking. You'll need to ... fish for another way to get rid of Phil.[else]'Eh? Where'd everyone go? I'll wait [']til there's a crowd to tell my story.'[end if]";
 	the rule succeeds;
 
-a long string is a thing. description is "It's coiled, now, but it seems pretty easy to untangle if you want to PUT it IN somewhere deep."
-
 part Truth Home
 
 Truth Home is inside of Disposed Well. It is in Main Chunk. It is only-out. "Nothing feels wrong here, but it feels incredibly uncomfortable. It's also a small home, with the only exit back out."
@@ -6276,7 +6285,7 @@ to say gateway-desc:
 	else:
 		say "the Pot Chamber"
 
-a long string is in Walker Street. "A long string lies piled up here."
+a long string is a thing in Walker Street. "A long string lies piled up here.". description is "It's coiled, now, but it seems pretty easy to untangle if you want to PUT it IN somewhere deep."
 
 check entering drug gateway:
 	try going inside instead;
@@ -8140,19 +8149,37 @@ instead of jumping:
 		the rule succeeds;
 	say "You're not ready to form hasty conclusions."
 
-chapter lalaland
+part meta-rooms
 
 meta-rooms is a region.
 
+chapter bullpen
+
 bullpen is a room in meta-rooms. "You should never see this. If you do, it is a [bug]." [the bullpen is for items that you dropped when you slept]
+
+chapter conceptville
 
 conceptville is a room in meta-rooms. "You should never see this. If you do, it is a [bug]." [this is a cheesy hack, as concepts you haven't seen yet are here, and when you see them, they move to lalaland.]
 
-the Total T is a thing in conceptville. description is "[bug]"
+the Total T is an undesc in conceptville.
 
-the Go Rum is a thing in conceptville. description is "[bug]"
+the Go Rum is an undesc in conceptville.
+
+chapter lalaland
+
+section pure eternal concepts
 
 lalaland is a room in meta-rooms. "You should never see this. If you do, it is a [bug]."
+
+Show Business is an undesc in lalaland. understand "business show" as show business.
+
+Wisdom Received is an undesc in lalaland. understand "received wisdom" as wisdom received.
+
+Something Mean is an undesc in lalaland. understand "mean something" as Something Mean.
+
+Complain Cant is an undesc in lalaland. understand "cant complain" as Complain Cant.
+
+People Power is an undesc in lalaland. understand "power people" as People Power.
 
 volume rule replacements
 
