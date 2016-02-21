@@ -900,8 +900,10 @@ check smelling (this is the smelling a thing rule):
 		say "You've had people give YOU the smell test, but somehow, even when you passed, you still failed." instead;
 
 check smelling (this is the smelling a place rule):
+	if noun is fritz the on:
+		say "You don't need proof you're not the worst smelling person around." instead;
 	if player is in jerk circle and silly boris is in jerk circle:
-		say "It smells like the [j-co] cooked a fancy meal recently. Or had one." instead;
+		say "The [j-co] sniff back at you." instead;
 	if player is in down ground:
 		say "It smells okay here, but maybe that's because you're not too close to Fritz the On." instead;
 	if player is in temper keep:
@@ -4625,8 +4627,12 @@ before talking to jerks:
 for writing a paragraph about a client (called jrk) in Jerk Circle:
 	if cookie-eaten is true:
 		say "Pfft. None of the [j-co] look like they really know what's what. If they did, they'd be the ones in charge, not the [bad-guy].";
+	else if off-eaten is true:
+		say "Pfft. A clique of [j-co]. Almost as boring as the [bad-guy].";
+	else if greater-eaten is true:
+		say "Pfft. Look at those [j-co]. They don't have the initiative the [bad-guy] does.";
 	else if finger is not examined:
-		say "The seven [j-co] are too intimidating now. Even two people conversing, that's tough to break in the middle of.";
+		say "The seven [j-co] are too intimidating now. Even two people conversing, that's tough to break in the middle of, much less seven.";
 	else:
 		say "[one of]The jerks, again. Wait a minute. Seven jerks, talking about being cool, seven 'clients' for the Labor Child. Could it be...? You ask if they know about the Labor Child. Once it's established you hate him, they're relieved.[or]The [j-co] continue to talk about what's cool and what's not.[stopping]";
 	now all clients are mentioned;
@@ -5605,20 +5611,32 @@ The Insanity Terminal is scenery in the Belt Below. description is "[bug]";
 understand "puzzle" as terminal
 
 after printing the locale description when player is in belt below and belt below is unvisited:
-	say "'ATTENTION RECOVERING NERDLING!' booms the terminal. 'I THE INSANITY TERMINAL HAVE A CHALLENGE FOR YOU! IF YOU SOLVE IT, YOU WILL KNOW HOW TO PASS THE BROTHERS. IF YOU PASS THE BROTHERS, I WILL HELP YOU WITH THE [if allow-swears is true]JERKS[else]GROANERS[end if] ANYWAY.'";
+	say "'ATTENTION RECOVERING NERDLING!' booms the terminal. 'I THE INSANITY TERMINAL HAVE A CHALLENGE FOR YOU! IF YOU SOLVE IT, KNOWLEDGE UNIMAGINABLE WILL BE YOURS AND IT WILL BE ESPECIALLY VALUABLE IF YOU ARE UNIMAGINATIVE.'";
 	say "[line break]You have a look, and -- well, it's about the oddest puzzle you've ever seen.";
 
-talked-to-pop is a truth state that varies.
+jerks-spoiled is a truth state that varies.
 
 check examining the insanity terminal:
-	if bros-left is 0:
+	if jerks-spoiled is true:
+		say "The terminal spits out who's 'guilty' of what, again:[line break]";
 		repeat through table of fingerings:
 			say "[jerky-guy entry]: [blackmail entry][line break]";
+		the rule succeeds;
+	if know-jerks is true:
+		say "You look at the Insanity Terminal. It's big on logic puzzles, like the one you're struggling with, with the [j-co]. Maybe you could program it. Give it a shot?";
+		if the player consents:
+			repeat through table of fingerings:
+				say "[jerky-guy entry]: [blackmail entry][line break]";
+			now jerks-spoiled is true;
+		else:
+			say "OK.";
 		do nothing instead;
 	if terminal is examined:
 		say "You re-read the clues." instead;
 	repeat through table of quiz lines:
 		say "[qline entry][line break]";
+	if ffffffff is false:
+		say "Go FFFFFFFF at any time to disable my editorializing!";
 	say "There's a cursor, and you can probably just type out the right answer on, uh, the cursor before YOU. Convenient!" instead;
 
 to say ps:
@@ -5635,6 +5653,21 @@ qline
 "7. At least one of each letter is a correct answer a[ps]false b[ps]false c[ps]true d[ps]false e[ps]false f[ps]false"
 "8. How many questions have vowels as correct answers? a[ps]0 b[ps]1 c[ps]2 d[ps]3 e[ps]4 f[ps]5"
 
+ffffffff is a truth state that varies.
+
+chapter ffffffffing
+
+ffffffffing is an action out of world.
+
+understand the command "ffffffff" as something new.
+
+understand "ffffffff" as ffffffffing when player is in Belt Below and Terminal is in Belt Below.
+
+carry out ffffffffing:
+	now ffffffff is whether or not ffffffff is false;
+	say "Insanity Terminal heckling turned [off-on of ffffffff]";
+	the rule succeeds;
+
 chapter abadfaceing
 
 abadfaceing is an action applying to nothing.
@@ -5646,14 +5679,14 @@ understand "a bad face" as abadfaceing when player is in Belt Below.
 understand "abadface" as abadfaceing when player is in Belt Below.
 
 carry out abadfaceing:
+	if jerks-spoiled is true:
+		say "[one of]The Insanity Terminal emits an ultrasound squeal that brings you to your knees. It's probably mad you made it solve the jerks for you and doesn't believe you solved its harder puzzle on your own. Or rather, its calculations lead it to suspect cheating[or]Nah. You don't want the Terminal to squeal at you again (note: on winning, you'll get a code where you can solve the terminal the right way and see what's below)[stopping]." instead;
 	if Insanity Terminal is in Belt Below:
-		if bros-left is 0:
-			say "You wonder if you should. You see some data on [if finger index is examined]who of seven guys likes what, which seems familiar[else]seven guys[end if], which looks valuable.";
 		open-bottom;
 		say "You hear a great rumbling as you put on -- well, a bad face -- and the Insanity Terminal cracks in half to reveal a tunnel further below.";
 		the rule succeeds;
 	else:
-		say "You already solved the puzzle. If any more of Bottom Rock collapsed, you might not have a way back up." instead;
+		say "You already solved the puzzle. If any more of [if bottom rock is visited]Bottom Rock[else]the floor[end if] collapsed, you might not have a way back up." instead;
 	the rule succeeds;
 
 to open-bottom:
@@ -8041,6 +8074,8 @@ volume parser errors
 
 Rule for deciding whether all includes a helpy thing when taking: it does not.
 
+terminal-errors is a number that varies;
+
 rule for printing a parser error when the latest parser error is the didn't understand error:
 	if the player's command matches the regular expression "^<0-9>":
 		if player is in belt below and terminal is in belt below:
@@ -8052,10 +8087,32 @@ rule for printing a parser error when the latest parser error is the didn't unde
 		let jj be the player's command;
 		replace the text " " in jj with "";
 		if number of characters in jj is 8:
-			if jj matches the regular expression "^<abcdef>$":
-				say "The Insanity Terminal emits an annoying buzz. It looks like you'll need to try again.";
+			if jj matches the regular expression "^<abcdef>*$":
+				if ffffffff is false:
+					say "The Insanity Terminal emits ";
+					let Q be 0;
+					if character number 1 in jj is not "a", increment Q;
+					if character number 2 in jj is not "b", increment Q;
+					if character number 3 in jj is not "a", increment Q;
+					if character number 4 in jj is not "d", increment Q;
+					if character number 5 in jj is not "f", increment Q;
+					if character number 6 in jj is not "a", increment Q;
+					if character number 7 in jj is not "c", increment Q;
+					if character number 8 in jj is not "e", increment Q;
+					if Q > 6:
+						say "the loudest gong you ever heard";
+					else if Q > 4:
+						say "a loud BZZZT";
+					else if Q > 2:
+						say "a piercing siren tone";
+					else:
+						say "a soft WOMP WOMP";
+				else:
+					say "a screech";
+				say ". It looks like you'll need to try again.";
+				increment terminal-errors;
 				the rule succeeds;
-		say "That isn't a recognized verb, or it's too complex a sentence. If you want to answer the terminal's puzzle, type AAAAAAAA -- or the answers all in a row. No need for spaces.";
+		say "That isn't a recognized verb, or it's too complex a sentence. If you want to answer the terminal's puzzle, type all eight letter answers in a row. No need for spaces.";
 		the rule succeeds;
 	if the player is on person chair or player is in round lounge: [give the player a mulligan with guess-the-verb]
 		if player has tee:
