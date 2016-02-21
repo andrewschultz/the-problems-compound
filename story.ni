@@ -237,6 +237,7 @@ the file of verb-unlocks is called "pcunlock".
 table of vu - verb-unlocks [tvu]
 brief	found	expound	descr
 "anno"	false	true	"ANNO to show annotations, or JUMP to jump to a bunch of rejected rooms, as a sort of director's cut."
+"duck"	false	true	"DUCK SITTING to jump to Tension Surface."
 "knock"	false	true	"KNOCK HARD to get to Pressure Pier."
 "figure"	false	true	"FIGURE A CUT to skip past the Howdy Boy to the [jc]."
 "notice"	false	true	"NOTICE ADVANCE to skip to after you disposed of the jerks."
@@ -2120,16 +2121,23 @@ carry out verbing:
 	say "[2da]other standard parser verbs apply, and some may provide alternate solutions, but you should be able to win without them.";
 	say "[2da]Meta-commands listed below.";
 	say "[2da]you can also type ABOUT or CREDITS or HISTORY to see meta-information, and XP/EXPLAIN (any object) gives a brief description. XP with no argument explains the room name.";
-	if anno-allow is true or ever-anno is true:
-		say "[2da]ANNO toggles director's cut information on rooms and gives more information to XP. Also, XPOFF turns off basic information, if ANNO is turned on.";
 	say "[2da]EXITS shows the exits. While these should be displayed in the room text, you can see where they lead if you've been there.";
 	say "[2da]HELP/HINT/HINTS/WALKTHROUGH will redirect you to the PDF and HTML hints that come with the game. THINK/SCORE gives very broad, general hinting. WAIT lets you wait.";
+	if verbs-unlocked:
+		say "You've also unlocked some verbs:";
+		repeat through table of vu:
+			if found-entry is true, say "[2da][descr entry][line break]";
 	if in-beta is true:
 		list-debug-cmds;
 	the rule succeeds;
 
+to decide whether verbs-unlocked:
+	repeat through table of vu:
+		if found entry is true, decide yes;
+	decide no;
+
 to list-debug-cmds:
-	say "DEBUG COMMANDS:[paragraph break][2da]J jumps you to the next bit from the Street, Lounge, or Way.[line break][2da]MONTY listens and smells and, if CRIB is toggled, looks at the note crib.[line break][2da]DONOTE lists the current note crib contents.[line break][2da]JERK tells you what to do with the jerks.[line break][2da]JGO gets rid of them[line break][2da]BROBYE kicks the Keeper Brothers out.[line break][2da]CTC clears the chase paper.";
+	say "DEBUG COMMANDS:[paragraph break][2da]J jumps you to the next bit from the Street, Lounge, Surface or Pier.[line break][2da]MONTY listens and smells and, if CRIB is toggled, looks at the note crib.[line break][2da]DONOTE lists the current note crib contents.[line break][2da]JERK tells you what to do with the jerks.[line break][2da]JGO gets rid of them[line break][2da]BROBYE kicks the Keeper Brothers out.[line break][2da]CTC clears the chase paper.";
 
 chapter hinting
 
@@ -2696,7 +2704,22 @@ to move-puzzlies:
 	move turk young to lalaland;
 	move reasoning circular to lalaland;
 
-section notice advance
+section ducksittinging [get to tension surface]
+
+ducksittinging is an action out of world.
+
+understand the command "duck sitting" as something new.
+
+understand "duck sitting" as ducksittinging.
+
+carry out ducksittinging:
+	if player is not in smart street:
+		say "Boy! Knowing then what you know now, you'd have liked to duck sitting in some house and getting to action. But you can't, unless you restart." instead;
+	unless "duck" is skip-verified:
+		now jumped-at-start is true;
+	the rule succeeds;
+
+section notice advance [skips you to the endgame before the BM]
 
 jumped-at-start is a truth state that varies.
 
@@ -2721,8 +2744,16 @@ to notice-advance:
 	send-bros;
 	now player has quiz pop;
 	now gesture token is in lalaland;
-	
-section figure a cut
+
+to write-undo (x - text):
+	unless x is a brief listed in the table of vu:
+		say "[bug] -- [x] was called as a table element.";
+		continue the action;
+	choose row with brief of x in table of vu;
+	if found entry is false:
+		ital-say "You may have found a secret command that will skip you across rooms you haven't seen. However, you can UNDO if you'd like.";
+
+section figure a cut [get to the jerk circle]
 
 figureacuting is an action out of world.
 
@@ -2735,10 +2766,10 @@ understand "figure cut" as figureacuting.
 carry out figureacuting:
 	if player is not in smart street:
 		say "Oh, man! Looking back, you totally see a shortcut you should've at least checked at, back in Smart Street. But it's too late to skip ahead like that now. You may wish to restart the game." instead;
-	unless "figure" is skip-verified:
-		now jumped-at-start is true;
-		say "Guy Sweet yells 'Hey! Where are you going?'";
-		figure-cut;
+	now jumped-at-start is true;
+	say "Guy Sweet yells 'Hey! Where are you going? I mean, you're probably like accelerated in school but if you think you're accelerated at life...' You ignore him. You don't need to be taught a same lesson twice. Well, not this one. You rattle the doorknob just so--and you recognize a few odd passages in Broke Flat--and bam! You fall through an invisible slide to the [jc]";
+	write-undo "figure";
+	figure-cut;
 	the rule succeeds;
 
 to figure-cut:
@@ -2747,7 +2778,7 @@ to figure-cut:
 	now howdy boy is in lalaland;
 	now gesture token is in lalaland;
 
-section knockharding
+section knockharding [get to pressure pier]
 
 knockharding is an action out of world.
 
@@ -2757,12 +2788,11 @@ understand "knock hard" as knockharding.
 
 carry out knockharding:
 	if player is not in smart street:
-		say "There's nothing to knock hard at. Or nothing it seems you should knock hard at.";
-	unless "knock" is skip-verified:
-		say "You stride up to Broke Flat with purpose, You knock, hard, hoping to avoid a hard knock--and you do! You are escorted to Pressure Pier, skipping a Round Lounge and the Tension Surface. (Note: if you wish to see those areas, you can UNDO.)[paragraph break]";
-		now jumped-at-start is true;
-		knock-hard instead;
-	say "There's nothing to knock hard at." instead;
+		say "There's nothing to knock hard at. Or nothing it seems you should knock hard at." instead;
+	say "You stride up to Broke Flat with purpose, You knock, hard, hoping to avoid a hard knock--and you do! You are escorted to Pressure Pier, skipping a Round Lounge and the Tension Surface. ";
+	write-undo "knock";
+	now jumped-at-start is true;
+	knock-hard instead;
 
 to knock-hard:
 	move player to pressure pier;
@@ -8620,8 +8650,8 @@ carry out nu-skiping:
 		now assassination character is in lalaland;
 		open-bottom;
 		now player has crocked half;
-	if number understood > 9:
-		say "You need a number between 1 and 9 or, if you are testing very specific things, 100-100.[line break][skip-list]" instead;
+	if number understood > 10:
+		say "You need a number between 1 and 10 or, if you are testing very specific things, 100-100.[line break][skip-list]" instead;
 	now skipped-yet is true;
 	if number understood is 1:
 		move player to round lounge;
@@ -8645,10 +8675,12 @@ carry out nu-skiping:
 			now block-pier is true;
 			now block-other is true;
 	else if number understood is 7:
-		move player to freak control;
+		duck-sitting;
 	else if number understood is 8:
-		move player to Out Mist;
+		move player to freak control;
 	else if number understood is 9:
+		move player to Out Mist;
+	else if number understood is 10:
 		move player to airy station;
 	the rule succeeds;
 
