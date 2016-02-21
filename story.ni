@@ -8283,11 +8283,8 @@ To decide what number is swear-decide:
 
 Include (-
 
-Global copout;
-
-[ OKSwear i j;
+[ OKSwear i j u u2 times bigSwear smallSwear returnYes returnNo copout;
 	if ((+ debug-state +) == 1) rtrue;
-	copout = 0;
 	for (::) {
 		#Ifdef TARGET_ZCODE;
 		if (location == nothing || parent(player) == nothing) read buffer parse;
@@ -8297,14 +8294,43 @@ Global copout;
 		KeyboardPrimitive(buffer, parse);
 		j = parse-->0;
 		#Endif; ! TARGET_
-		copout++;
-		if (copout == 4) { return 2; }
-		if (j) { ! at least one word entered
-			i = parse-->1;
-			if (i == YES1__WD or YES2__WD or YES3__WD) rtrue;
-			if (i == NO1__WD or NO2__WD or NO3__WD) rfalse;
-			print "I won't judge. Yes or no. > ";
-		} else { print "No wrong answer. You won't miss anything either way. Yes or no. > "; }
+		if (j)
+		{ ! at least one word entered
+			returnYes = 0;
+			returnNo = 0;
+			bigSwear = 0;
+			smallSwear = 0;
+			for (u = 1: u <= j: u=u+1)
+			{
+			#ifdef TARGET_ZCODE;
+			u2 = 2 * u - 1;
+			#Ifnot; ! TARGET_GLULX;
+			u2 = 3 * u - 2;
+			#ENDif; ! TARGET_
+			i = parse-->u2;
+			print "Word " , u , " of " , j , ": " , i, ", before & after^";
+			if (i == 'fuck//' or 'shit//' or 'damn//') { bigSwear = true; }
+			if (i == 'bother//' or 'curses//' or 'drat//' or 'darn//') { smallSwear = true; }
+			if (i == 'yes//' or 'y//') { returnYes = true; }
+			if (i == 'no//' or 'n//') { returnNo = true; }
+			}
+			if (returnYes)
+			{
+				if (bigSwear) { print "'Dude! CHILL!' a voice says."; }
+				if (smallSwear) { print "'You hear snickering at your half-body-parted swear attempts."; }
+				rtrue;
+			}
+			if (returnNo)
+			{
+				if (bigSwear) { print "'Don't play mind games with us!' a voice booms. 'Just for that, you're in for it.'"; rtrue; }
+				if (smallSwear) { print "'You sure can't! What a lame try.' a voice booms."; }
+				rfalse;
+			}
+		}
+		times++;
+		if (times == 4) { return 2; }
+		print "I won't judge. And it won't affect the game. Yes or No (Y or N for short also works). ";
+		print "> ";
 	}
 ];
 
