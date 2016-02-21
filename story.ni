@@ -2736,6 +2736,7 @@ carry out ducksittinging:
 		say "Boy! Knowing then what you know now, you'd have liked to duck sitting in some house and getting to action. But you can't, unless you restart." instead;
 	say "You open the door to Broke Flat slowly, looking inside for people waiting in ambush. Nobody. You skulk around a bit more--hmm, a passage you'd've missed if you just ran through. You think you see your bathroom up ahead. Wait, no, it's another weird warp. ";
 	write-undo "duck";
+	duck-sitting;
 	the rule succeeds;
 
 section notice advance [skips you to the endgame before the BM]
@@ -2777,7 +2778,6 @@ understand "figure cut" as figureacuting.
 carry out figureacuting:
 	if player is not in smart street:
 		say "Oh, man! Looking back, you totally see a shortcut you should've at least checked at, back in Smart Street. But it's too late to skip ahead like that now. You may wish to restart the game." instead;
-	now jumped-at-start is true;
 	say "Guy Sweet yells 'Hey! Where are you going? I mean, you're probably like accelerated in school but if you think you're accelerated at life...' You ignore him. You don't need to be taught a same lesson twice. Well, not this one. You rattle the doorknob just so--and you recognize a few odd passages in Broke Flat--and bam! You fall through an invisible slide to the [jc] ";
 	write-undo "figure";
 	figure-cut;
@@ -2802,11 +2802,15 @@ carry out knockharding:
 		say "There's nothing to knock hard at. Or nothing it seems you should knock hard at." instead;
 	say "You stride up to Broke Flat with purpose, You knock, hard, hoping to avoid a hard knock--and you do! You are escorted through a maze of hallways that eventually open up to a wide area with water behind: Pressure Pier. ";
 	write-undo "knock";
-	now jumped-at-start is true;
-	knock-hard instead;
+	knock-hard;
+	the rule succeeds;
 
 to knock-hard:
 	move player to pressure pier;
+	now gesture token is in lalaland;
+
+to duck-sitting:
+	move player to tension surface;
 	now gesture token is in lalaland;
 
 section chessboard
@@ -5173,8 +5177,8 @@ to see-if-caught:
 to bye-paper:
 	say "[line break]As he begins rolling up the chase paper, he asks if you're one of those odd brainy types who might know how to fill up a chessboard with 31 tiles. Well, you take the opposite corners off...[paragraph break]";
 		wfak;
-		say "You show him the solution, and he starts yelling about how nobody could have figured that out for themselves unless they really have nothing to do with their time.[paragraph break]Well, you have something to do with your time, now. Like seeing what's below.";
-		now assassination is in lalaland;
+		say "You show him the solution, and he starts yelling about how nobody could have figured that out for themselves unless they really have nothing to do with their time. As he runs off, he raves about how the hint below won't really help you with anything you couldn't figure out yourself, and besides there's another worse puzzle below only weird people would enjoy, and...[paragraph break]Hey, wait, you sort of enjoy weird puzzles. Not sure if you're up for it right now, but eh, something to do if you bog down up here.";
+		now assassination character is in lalaland;
 		now chase paper is in lalaland;
 		now belt below is below chipper wood;
 		now chipper wood is above belt below;
@@ -5225,7 +5229,7 @@ to say wfk:
 	say "[line break]";
 
 to say as-char:
-	say "[one of]You hear a rustle from behind. Someone slaps you on the left side of your neck--you look there but see no-one. Then you look right. Ah, there. You STILL hate when people do that.[paragraph break]'Hey. It's me, the Assassination Character. You can call me AC for short--hey, I have plenty of names for you.' He tries a few, and you rush at him, and he snickers. 'Temper, temper. Well, I'll still let you cheat if you can get by me. Oh, and what's below.'[wfk]'Cheat?'[paragraph break]'Yup! If you can catch me, you'll be real close to something I'll let you under the chase paper. Just ENTER it. UNLESS YOU'RE CHICKEN.'[paragraph break]You wonder why you wouldn't fall through the chase paper if there was nothing under there, but the AC probably has an annoying response for that.[no line break][or]The Assassination Character springs out of nowhere again, asking whether you are too chicken to get on the chase paper or you are just too lazy not to cheat.[no line break][stopping]"
+	say "[one of]You hear a rustle from behind. Someone slaps you on the left side of your neck--you look there but see no-one. Then you look right. Ah, there. You STILL hate when people do that.[paragraph break]'Hey. It's me, the Assassination Character. You can call me AC for short--hey, I have plenty of names for you.' He tries a few, and you rush at him, and he snickers. 'Temper, temper. Well, if you're not a lazy quitter, there's a cheat below.'[wfk]'Cheat?'[paragraph break]'Oop! Interested, eh? Guess you're not perfectly honest. Just ENTER the chase paper and give it a try. UNLESS YOU'RE CHICKEN.'[paragraph break]You wonder why you wouldn't fall through the chase paper if there was nothing under there, but the AC probably has an annoying response for that.[no line break][or]The Assassination Character springs out of nowhere again, asking whether you are too chicken to get on the chase paper or maybe you want to be lazy and cheat but you're scared you'll fail.[no line break][stopping]"
 
 does the player mean entering the chase paper: it is likely.
 
@@ -8762,7 +8766,7 @@ carry out ctcing:
 	say "Ok, bye-bye AC.";
 	now belt below is below chipper wood;
 	now chipper wood is above belt below;
-	now assassination is in lalaland;
+	now assassination character is in lalaland;
 	now chase paper is in lalaland;
 	the rule succeeds;
 
