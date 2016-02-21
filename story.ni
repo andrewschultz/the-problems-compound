@@ -240,7 +240,7 @@ brief	found	expound	descr
 "duck"	false	true	"DUCK SITTING to jump to Tension Surface."
 "knock"	false	true	"KNOCK HARD to get to Pressure Pier."
 "figure"	false	true	"FIGURE A CUT to skip past the Howdy Boy to the [jc]."
-"notice"	false	true	"NOTICE ADVANCE to skip to after you disposed of the jerks."
+"notice"	false	true	"NOTICE ADVANCE to skip to Questions Field, with the brothers and jerks gone."
 "good"	false	false	--
 "great"	false	false	--
 
@@ -2126,7 +2126,7 @@ carry out verbing:
 	if verbs-unlocked:
 		say "You've also unlocked some verbs:";
 		repeat through table of vu:
-			if found-entry is true, say "[2da][descr entry][line break]";
+			if found entry is true, say "[2da][descr entry][line break]";
 	if in-beta is true:
 		list-debug-cmds;
 	the rule succeeds;
@@ -2692,17 +2692,36 @@ to send-bros:
 
 to move-puzzlies:
 	if in-beta is true:
-		say "NOTE: this should be right, but if you see someone or something astray, ignore them.";
+		say "NOTE: if you see someone or something astray, let me know.";
 	move proof fool to lalaland;
 	move logical psycho to lalaland;
 	move harmonic phil to lalaland;
 	move art fine to lalaland;
+	move poetic wax to lalaland;
 	move officer petty to lalaland;
 	move sly moore to lalaland;
+	move money seed to lalaland;
+	move cold contract to lalaland;
+	move trade of tricks to lalaland;
 	move howdy boy to lalaland;
-	move uncle dutch to lalaland; [they don't need to go but let's keep the focus]
-	move turk young to lalaland;
-	move reasoning circular to lalaland;
+	move wacker weed to lalaland;
+	move howdy boy to lalaland;
+	move trail paper to lalaland;
+	move boo tickety to lalaland;
+	move fourth-blossom to lalaland;
+	move reasoning circular to lalaland; [this blocks Court of Contempt]
+
+section write-undo
+
+to write-undo (x - text):
+	unless x is a brief listed in the table of vu:
+		say "[bug] -- [x] was called as a table element.";
+		continue the action;
+	choose row with brief of x in table of vu;
+	if found entry is false:
+		ital-say "You may have found a secret command that will skip you across rooms you haven't seen. However, you can UNDO if you'd like.";
+	else:
+		say "[line break]"
 
 section ducksittinging [get to tension surface]
 
@@ -2715,8 +2734,8 @@ understand "duck sitting" as ducksittinging.
 carry out ducksittinging:
 	if player is not in smart street:
 		say "Boy! Knowing then what you know now, you'd have liked to duck sitting in some house and getting to action. But you can't, unless you restart." instead;
-	unless "duck" is skip-verified:
-		now jumped-at-start is true;
+	say "You open the door to Broke Flat slowly, looking inside for people waiting in ambush. Nobody. You skulk around a bit more--hmm, a passage you'd've missed if you just ran through. You think you see your bathroom up ahead. Wait, no, it's another weird warp. ";
+	write-undo "duck";
 	the rule succeeds;
 
 section notice advance [skips you to the endgame before the BM]
@@ -2732,26 +2751,18 @@ understand "notice advance" as noticeadvanceing.
 carry out noticeadvanceing:
 	if player is not in smart street:
 		say "Oh, man! Looking back, you totally see a shortcut you should've at least checked at, back in Smart Street. But it's too late to skip ahead like that now. You may wish to restart the game." instead;
-	unless "notice" is skip-verified:
-		now jumped-at-start is true;
-		say "Guy Sweet yells 'Hey! Where are you going?'";
-		notice-advance;
+	say "Guy Sweet yells 'Hey! What could you POSSIBLY... you can't just... someone a lot less lame must've showed you that, no offense...' ";
+	write-undo "notice";
+	notice-advance;
 	the rule succeeds;
 
 to notice-advance:
-	move player to jerk circle;
+	move player to questions field;
 	now all clients are in lalaland;
 	send-bros;
+	now the score is 17;
 	now player has quiz pop;
 	now gesture token is in lalaland;
-
-to write-undo (x - text):
-	unless x is a brief listed in the table of vu:
-		say "[bug] -- [x] was called as a table element.";
-		continue the action;
-	choose row with brief of x in table of vu;
-	if found entry is false:
-		ital-say "You may have found a secret command that will skip you across rooms you haven't seen. However, you can UNDO if you'd like.";
 
 section figure a cut [get to the jerk circle]
 
@@ -2767,7 +2778,7 @@ carry out figureacuting:
 	if player is not in smart street:
 		say "Oh, man! Looking back, you totally see a shortcut you should've at least checked at, back in Smart Street. But it's too late to skip ahead like that now. You may wish to restart the game." instead;
 	now jumped-at-start is true;
-	say "Guy Sweet yells 'Hey! Where are you going? I mean, you're probably like accelerated in school but if you think you're accelerated at life...' You ignore him. You don't need to be taught a same lesson twice. Well, not this one. You rattle the doorknob just so--and you recognize a few odd passages in Broke Flat--and bam! You fall through an invisible slide to the [jc]";
+	say "Guy Sweet yells 'Hey! Where are you going? I mean, you're probably like accelerated in school but if you think you're accelerated at life...' You ignore him. You don't need to be taught a same lesson twice. Well, not this one. You rattle the doorknob just so--and you recognize a few odd passages in Broke Flat--and bam! You fall through an invisible slide to the [jc] ";
 	write-undo "figure";
 	figure-cut;
 	the rule succeeds;
@@ -2789,14 +2800,14 @@ understand "knock hard" as knockharding.
 carry out knockharding:
 	if player is not in smart street:
 		say "There's nothing to knock hard at. Or nothing it seems you should knock hard at." instead;
-	say "You stride up to Broke Flat with purpose, You knock, hard, hoping to avoid a hard knock--and you do! You are escorted to Pressure Pier, skipping a Round Lounge and the Tension Surface. ";
+	say "You stride up to Broke Flat with purpose, You knock, hard, hoping to avoid a hard knock--and you do! You are escorted through a maze of hallways that eventually open up to a wide area with water behind: Pressure Pier. ";
 	write-undo "knock";
 	now jumped-at-start is true;
 	knock-hard instead;
 
 to knock-hard:
 	move player to pressure pier;
-	now gesture is in lalaland;
+	now gesture token is in lalaland;
 
 section chessboard
 
@@ -5390,6 +5401,9 @@ understand "flipbook" and "flip book" and "flip/book" as Legend of Stuff.
 
 stuff-talk is a truth state that varies.
 
+check taking legend of stuff when Thoughts Idol is in lalaland:
+	say "You hear a very low voice tell you to feel very very guilty for taking the Legend of Stuff for puzzles easier than getting rid of the Thoughts Idol. A voice...like you'd expect from the Thoughts Idol. Which you just destroyed. You imagine NOT taking the Legend of Stuff and hearing the Idol also asking if you're too good to ask for help, and--well, that does it.";
+
 check examining the Legend of Stuff:
 	if bros-left is 0:
 		if silly boris is in jerk circle:
@@ -5998,6 +6012,8 @@ rotation is a number that varies.
 check going nowhere in idiot village (this is the final idol puzzle rule):
 	if thoughts idol is in lalaland:
 		say "You don't need a victory lap through the Service Community now, fun as it might be." instead;
+	if player has legend of stuff:
+		say "The idol glares at you. Once it makes eye contact, it lowers its eyes to the Legend of Stuff. You feel a bit silly." instead;
 	if player has crocked half:
 		if noun is northeast or noun is east:
 			say "You run past the Thoughts Idol. Its eyes follow you.";
@@ -6074,7 +6090,7 @@ to say sly-s:
 litany of Sly Moore is the table of Sly Moore talk.
 
 every turn when player is in idiot village and sly moore is in idiot village and you-are-conversing is false:
-	say "[one of][sly-s] tries to play a three-shell game, but a bean appears under each one.[or][sly-s] tries and fails to shuffle a deck of cards. Several fall out, and he picks them up and pockets them.[or][sly-s] tries to palm an egg in a handkerchief, but you hear a crunch. 'Well, good thing I hollowed it out first, eh?'[or][sly-s] slaps a bunch of paperclips on some folded paper and unfolds the paper. They go flying. 'They were supposed to connect...'[or][sly-s] mumbles 'Number from one to a thousand, ten guesses, five hundred, two fifty--now round up or down? Dang, I'm stuck.'[or][sly-s] pulls out a funny flower which doesn't squirt you when he pokes it. He looks at it up close, fiddles with it and--yup. Right in his face.[or][sly-s] reaches to shake your hand, but you see the joy buzzer pretty clearly. He slaps his knee in disappointment...BZZT.[or][sly-s] looks befuddled on pulling only one handkerchief out of his pocket.[or][sly-s] cuts a paper lady in half. 'Oops. Good thing she wasn't real.'[in random order]"
+	say "[one of][sly-s] tries to play a three-shell game, but a bean appears under each one.[or][sly-s] tries and fails to shuffle a deck of cards. Several fall out, and he picks them up and pockets them.[or][sly-s] tries to palm an egg in a handkerchief, but you hear a crunch. 'Well, good thing I hollowed it out first, eh?'[or][sly-s] slaps a bunch of paperclips on some folded paper and unfolds the paper. They go flying. 'They were supposed to connect...'[or][sly-s] performs a riffle shuffle where one side of the deck of cards falls much quicker.[or][sly-s] mumbles 'Number from one to a thousand, ten guesses, five hundred, two fifty, one twenty-five--round up or down, now? Dang, I'm stuck.'[or][sly-s] pulls out a funny flower which doesn't squirt you when he pokes it. He looks at it up close, fiddles with it and--yup. Right in his face.[or][sly-s] reaches to shake your hand, but you see the joy buzzer pretty clearly. He slaps his knee in disappointment...BZZT.[or][sly-s] looks befuddled on pulling only one handkerchief out of his pocket.[or][sly-s] cuts a paper lady in half. 'Oops. Good thing she wasn't real.'[in random order]"
 
 talked-to-sly is a truth state that varies.
 
@@ -6184,6 +6200,9 @@ to say vague-dir:
 		say "south";
 
 to say iv-idol:
+	if player has Legend of Stuff:
+		say "The idol stares back at you and seems to shake its head slightly. You look down guiltily at the Legend of Stuff.";
+		continue the action;
 	say "You stare at the thoughts idol, [if player has crocked half]and as it glares back, you resist the urge to look away. It--it actually blinks first.[else]but it stares back at you. You lose the war of facial expressions[end if]"
 
 the Service Community is a room in Main Chunk. "You just came from the [opposite of last-dir]."
@@ -7739,8 +7758,9 @@ biglaff	anyrule
 "listening to all the songs from the song torch (there are [number of rows in table of horrendous songs])? Or just reading the source for them?"	--
 "reading all the books from the book crack (there are [number of rows in table of horrendous books])? Or just reading the source for them?"	--
 "SLEEPing in the extra directors' cut rooms in ANNO mode?"	--
+"taking the Legend of Stuff after defeating the Thoughts Idol?"	very-good-end rule
 "ENTERing the Return Carriage?"	very-good-end rule
-"EXPLAINing the lock caps?"	very-good-end rule
+"(XP/EXPLAIN)ing the lock caps?"	very-good-end rule
 "MAN HAMMER, BAN HAMMER, HAMMER JACK, HAMMER NINNY, HAMMER SLEDGE in Airy Station?"	very-good-end rule
 "WORM ROUND in the Out Mist?"	good-end rule
 "LET RING or MASTER RING in the Out Mist?"	good-end rule
@@ -7812,7 +7832,7 @@ this is the sin-see rule:
 	repeat through table of fingerings:
 		if jerky-guy entry is Buddy Best:
 			say " ... [blackmail entry][line break]";
-	say "Not that there's anything wrong with that. Or there would be, if they did. But you knew that. And, uh, I know that, too. Really!"
+	say "Not that there's anything wrong with any of the above. Or there would be, if the jerks were guilty. Um, interested. But you knew that. And, uh, I know that, too. Really!"
 
 chapter swearing
 
@@ -8644,6 +8664,7 @@ carry out nu-skiping:
 		move-puzzlies-and-jerks;
 		move player to jerk circle;
 		now player has crocked half;
+		now legend of stuff is in lalaland;
 	if number understood is 102:
 		move-puzzlies-and-jerks;
 		move player to jerk circle;

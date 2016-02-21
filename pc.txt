@@ -256,7 +256,7 @@ You can run around the Thoughts Idol in that pattern--clockwise or counterclockw
 Yes, but you can't reach in there.
 You'll need something long.
 If you've explored other areas, you may find something.
-The long string in Crazy Drive.
+The long string in Walker Street.
 PUT STRING IN WELL.
 >>>CLASSIC CULT
 ?Is there any way to get suckered into the cult?
@@ -384,7 +384,7 @@ A long tag. A ticket for someone to go somewhere. You can't get there, but you c
 ?Why can't I get back here? Do I need to?
 Buddy Best is busy. He doesn't have time for you.
 You don't need to go back. You've gotten what you want.
->>>Crazy Drive
+>>>Walker Street
 ?Is the string useful?
 Yes. Way on the other side of the game.
 Find a very deep place you can't climb down.
@@ -488,7 +488,7 @@ Punishment Capitol, Hut Ten, In-Dignity Heap, Shape Ship, Criminals' Harbor, Mai
 If you make it to Window Bay in the Director's Cut, you'll see them all.
 >Meta-Questions
 ?How many endings are there?
-Well, there are bad ones where you mess up.
+Well, there are bad ones where you mess up, but they don't really end it.
 You can eat the cookie cutter.
 You can eat the off cheese.
 You can eat the greater cheese.
@@ -497,9 +497,10 @@ Or you can beat the bad guy and the Thoughts Idol.
 ?I'd like a walkthrough. Is there a walkthrough?
 Yes. It should be included with the game as a short HTML file.
 ?What meta-commands are there to jump ahead?
-KNOCK HARD gets you to the pier.
+DUCK SITTING jumps to the Tension Surface
+KNOCK HARD gets you to Pressure Pier.
 FIGURE A CUT gets you past the Howdy Boy.
-NOTICE ADVANCE skips all the way to disposing of the jerks and helping the Brothers, but you won't get past the Assassination Character.
+NOTICE ADVANCE skips all the way to disposing of the jerks and helping the Brothers and leaves you at the Questions Field, but you still need to take down the Assassination Character and Thoughts Idol for the best ending.
 >>Director's Cut
 ?Is there any objective?
 Not really, other than seeing all the footnotes.
@@ -510,12 +511,8 @@ No. But JUMP will let you see into rejected locations.
 ?How autobiographical is Alec Smart? Andrew Schultz, A. S., Alec Smart...?
 (Nervous hemming and hawing) ... um, the name just fit, and I ran with it. Then I saw...oops.
 A truthful answer is: somewhat. He probably knows puzzles better than I do.
+And the nuisances are roughly based on people I knew long ago. Maybe they're subconsciously based on more recent people, but I tried to tackle stuff I had some perspective on.
 I also loved The Phantom Tollbooth, and I was often at a loss to understand Social Stuff.
-Alec is probably a more extreme version of me. But I tried to avoid details from my own life.
+Alec is probably a more extreme version of me.
+I'm better looking, though. Not that he's bad looking.
 ;
-"If you like details so much..."
-
-the weights are a classic
-
-Also as you ask more he says more
-Or you protest he seemed to want to get rid of you
