@@ -174,7 +174,7 @@ when play begins (this is the sort ALL the tables rule) :
 	sort the table of horrendous books in random order;
 	sort the table of horrendous songs in random order;
 	continue the action;
-	
+
 when play begins (this is the initialize missing table element rule) :
 	repeat through table of amusingness:
 		if there is no anyrule entry:
@@ -351,9 +351,9 @@ to cut-command-down:
 	now parser error flag is true;
 	now the last-command is "[word number 1 in the player's command]";
 
-Rule for reading a command when the parser error flag is true: 
+Rule for reading a command when the parser error flag is true:
 	d "Reading [last-command].";
-	now the parser error flag is false; 
+	now the parser error flag is false;
 	change the text of the player's command to the last-command.
 
 section debug stubs
@@ -489,7 +489,7 @@ the block saying yes rule is not listed in any rulebook.
 
 instead of saying no:
 	say "[no-yes]"
-	
+
 instead of saying yes:
 	say "[no-yes]"
 
@@ -592,7 +592,7 @@ check waiting (this is the caught napping rule):
 	if player is in down ground and slept-through is false:
 		say "[one of]You attempt to loiter in this seedy area in order to get in trouble or something, but no dice.[or]Still, nobody comes to break up your loitering.[or]You reflect if you want to get zapped for loitering, maybe you need to do better than just hang around.[or]Hm, you wonder what is even lazier than standing around.[stopping]" instead;
 	say "Turn your wait." instead;
-	
+
 every turn when player is in tense past and tense present is not visited:
 	say "Torpor. You can't do much besides LOOK or WAIT or THINK.";
 
@@ -631,7 +631,39 @@ rule for deciding whether all includes a thing when dropping:
 	now drop-warn is true;
 	it does not;
 
-check dropping:
+check dropping gesture token:
+	say "It seems worthless, but you never know. Anyway, it's harmless at worst in your pocket." instead;
+
+check dropping when player is in Round Lounge:
+	if noun is off tee:
+		say "But you made it with your own hands! It must be useful for something. You hope." instead;
+	if noun is stick or noun is screw:
+		say "You can't think of any reason to drop that. It seems no better or worse than the [if noun is screw]stick[else]screw[end if] to help you get out of here." instead;
+
+check dropping the proof of burden:
+	say "No. There's a part of you that always sort of believed what the proof said, even if it's said kind of snide. Most of the time, you just hear disbelief you're smart and you can't deal, but there may be help here." instead;
+
+check dropping boo tickety:
+	if drop-ticket is false:
+		now drop-ticket is true;
+		say "As you drop it, you feel a tap on your shoulder. The Stool Toad, again![paragraph break]'Son, I'm going to have to write you up.' And he does. He gives you what you've dropped, plus a new boo tickety.";
+		get-ticketed;
+		do nothing instead;
+	else:
+		say "Either the Stool Toad will have given up on you, or he'll really get to bust you for a repeat offense. Neither seems to help you." instead;
+
+check dropping long string:
+	if player is in disposed well:
+		say "(dropping it down the well)[line break]";
+		try inserting long string into yards hole instead;
+
+check dropping (this is the general dropping rule):
+	if noun is pocket pick:
+		say "'Aw, c'mon,' you hear the Word Weasel say, in your head[if player is in garden]. You think it was in your head[end if]." instead;
+	if noun is dreadful penny:
+		say "The penny doesn't drop on any puzzle you want to solve." instead;
+	if noun is minimum bear:
+		say "No. It's somebody's. But whose?" instead;
 	if noun is cooler or noun is haha:
 		if your-tix >= 4:
 			say "Now you're living on the edge with four ticketies, you're confident you can get away with dropping a drink to avoid getting busted by the Stool Toad.";
@@ -639,6 +671,28 @@ check dropping:
 		if lily is in lalaland:
 			say "You don't want to drink it, and nobody else seems to want it. So you throw it away, instead.";
 			now noun is in lalaland instead;
+	if noun is story fish:
+		say "Maybe you could PLAY it at the right moment to annoy someone who deserves it." instead;
+	if noun is mind of peace or noun is relief light or noun is trade of tricks:
+		say "No! This is too valuable. It might not be yours, but someone can use it." instead;
+	if noun is cold contract:
+		say "It's yours. You're bound to [if contract-signed is true]it [']til you sign it or find someone who can[else]return it, now it's signed[end if]. The Labor Child has records in triplicate." instead;
+	if noun is money seed:
+		say "It'd vanish." instead;
+	if noun is sound safe:
+		say "It'd probably make a terrible clang." instead;
+	if noun is reasoning circular:
+		say "You don't want to drop it because it is probably valuable, and it's probably valuable because you don't want to drop it." instead;
+	if noun is a smokable:
+		say "Your fingerprints would be on it, and you'd probably get busted." instead;
+	if noun is poetic wax:
+		say "It'd be tough to wipe off your fingers, and it'd be a mess just lying around." instead;
+	if noun is fourth-blossom:
+		say "It would probably die, not being whole." instead;
+	if noun is legend of stuff:
+		say "It just won't let you. Weird." instead;
+	if noun is crocked half:
+		say "Nah, why litter." instead;
 	say "You don't need to leave anything lying around. In fact, you shouldn't." instead;
 
 chapter buying
@@ -658,7 +712,11 @@ check buying:
 	if noun is female:
 		say "Just the suggestion is horrible. Really. I felt skanky even coding this reject." instead;
 	if noun is a person:
-		say "Everyone seems richer than you." instead;
+		say "Everyone seems richer than you. Anyway, you always sort of hated politicians buying stuff." instead;
+	if noun is baiter master:
+		say "His currency is flattery, which you can't do right." instead;
+	if noun is a logic-game:
+		say "'Nonsense! And deprive the next person who needs help? Besides, you'd get bored of it. Unless you're REALLY lame.'" instead;
 	say "You might need to GIVE someone an item to get something, but BUYing is not necessary." instead;
 
 chapter thinking
@@ -733,7 +791,7 @@ carry out do-swearing:
 		ship-off in-dignity heap instead;
 	if player is in freak control:
 		say "That gets the [bad-guy]'s attention. 'DUDE!' he says. 'REALLY, dude! Some respect for authority? I mean, don't respect stupid authority but I *** need to *** concentrate, here. My job's not *** easy and anyone who just swears frivolously to grab attention--well, they don't GET IT, y'know? Besides, you sounded lame when you said that.' As you're pulled away by guards you hadn't seen before, the 'OUT, FREAK' sign catches your eye. Perhaps there was another way to annoy him, without letting him be so self-righteous.";
-		ship-off in-dignity heap instead;		
+		ship-off in-dignity heap instead;
 	if big-swear is false:
 		say "That's a wishy-washy swear--it wouldn't seem to do you any good if you [if allow-swears is true]dis[else]en[end if]abled profanity in this game." instead;
 	say "[if allow-swears is false]You mumble a swear under your breath, remembering full well you didn't want to hear it from others[else]Much as you'd like it to, your profanity has no oomph[end if]." instead;
@@ -899,11 +957,9 @@ check smelling (this is the smelling a thing rule):
 	if noun is a person:
 		say "You've had people give YOU the smell test, but somehow, even when you passed, you still failed." instead;
 
-check smelling (this is the smelling a place rule):
-	if noun is fritz the on:
-		say "You don't need proof you're not the worst smelling person around." instead;
+check smelling (this is the smelling a place rule): [see above for people]
 	if player is in jerk circle and silly boris is in jerk circle:
-		say "The [j-co] sniff back at you." instead;
+		say "The [j-co] sniff back at you. You detect a greasy aroma, of meals that give indigestion." instead;
 	if player is in down ground:
 		say "It smells okay here, but maybe that's because you're not too close to Fritz the On." instead;
 	if player is in temper keep:
@@ -1156,7 +1212,7 @@ before going (this is the diagonals are wrong 99% of the time rule) :
 	if p-c is false and player is not in joint strip:
 		if noun is southeast or noun is northeast or noun is southwest or noun is northwest:
 			say "You don't need to use diagonal directions in this game unless they're specifically mentioned. Hopefully this makes it simpler for you." instead;
- 
+
 chapter singing
 
 the block singing rule is not listed in any rulebook.
@@ -1167,7 +1223,7 @@ check singing:
 	if player is in cult:
 		say "You sense singing may be overdoing it for the cult here." instead;
 	say "You never were the artsy type. And the songs you want to sing are always out of fashion." instead;
- 
+
 chapter drinking
 
 the block drinking rule is not listed in any rulebook.
@@ -1405,9 +1461,9 @@ book check/before giving
 
 [#16 on github]
 
-chapter item based
+chapter item based [these see us giving specific items to specific characters. They come first.]
 
-check giving smokable to:
+check giving smokable to: [poory pot or wacker weed]
 	if second noun is stool toad:
 		say "The Stool Toad jumps a whole foot in the air. 'How DARE you--on my turf--by me! OFFICER PETTY!' [if judgment pass is visited]Officer Petty[else]A man with a less fancy uniform[end if] rushes in and handcuffs you away and takes you to the...";
 		ship-off Criminals' Harbor instead;
@@ -1416,26 +1472,46 @@ check giving smokable to:
 		ship-off Criminals' Harbor instead;
 	if second noun is logical psycho:
 		say "That might mellow him out, but it also might start him lecturing on the idiocy of anti-pot laws. Which you don't want, regardless of his stance." instead;
+	if second noun is faith or second noun is grace:
+		say "That's probably not the sort of incense or decoration they want to use[if fourth-blossom is in lalaland]. You restored the blossom, anyway[else]. The bowl seems more for flowers[end if]." instead;
 
-check giving a drinkable to:
-	if second noun is lily:
-		if lily-hi is not talked-thru:
-			say "Lily ignores your offer. Perhaps if you talked to her first, she might be more receptive." instead;
-		say "Lily looks outraged. 'This?! Are you trying to make me boring like you?! HONESTLY! After all the advice I gave you!' She takes your drink and pours it in your face before running off.";
-		wfak;
-		now noun is in lalaland;
-		activate-drink-check;
-		chase-lily instead;
-	if second noun is punch sucker:
-		say "'No refunds. Good thing it was free, eh?'" instead;
-	say "This is a BUG. You shouldn't be able to carry liquor out of the Soda Club." instead;
+section giving items in intro
 
-check giving wacker weed to:
-	if second noun is Fritz the On:
-		say "You look every which way to the Stool Toad, then put your finger to your lips as you hand Fritz the packet. He conceals the stash and hands you a coin back--a dreadful penny. Proper payment for the cheap stuff.";
-		increment the score;
-		now wacker weed is in lalaland;
-		now player has dreadful penny instead;
+check giving gesture token to:
+	if second noun is weasel:
+		now token is in lalaland;
+		now player has the pocket pick;
+		say "He tucks away the token with a sniff. 'Well, it's not much--but, very well, I'll let you in my work study program. I won't even charge interest. Have this pocket pick. It'll help you DIG to find stuff. You can try it here, with the poor dirt!'" instead;
+	if second noun is mush:
+		say "'Pfft. Petty bribery. I need forms. Signed forms.'" instead;
+	if second noun is guy sweet:
+		say "'No way! These games are free. And if I charged, it'd be more than THAT.'" instead;
+
+check giving burden to:
+	if second noun is mush:
+		if burden-signed is true:
+			say "With a horrible SCHLURP, the mouth mush vacuums the signed burden away from you. You hear digestive noises, then a burp, and an 'Ah!'[paragraph break]'That'll do. Okay, you stupid arch, stay put. And YOU--wait a few seconds before walking through. I'm just as alive as you are.' You're too stunned to step right away, and after the mush bubbles into plain ground, you take a few seconds to make sure the Rogue Arch is motionless.";
+			now burden is in lalaland;
+			now mouth mush is in lalaland;
+			the rule succeeds;
+		say "'It's not properly signed! And it's not officially a proof [']til it is!'" instead;
+	if second noun is weasel:
+		if burden-signed is true:
+			say "'That's my signature. Don't wear it out.'" instead;
+		if weasel-baiter is not talked-thru:
+			say "'Oh no! You obviously need a little help being more social, but you haven't listened to me enough yet. That'll help. Totally.'" instead;
+		say "The weasel makes a big show about how he would normally charge for this sort of thing, but then, signing for you means he'll feel less guilty rejecting an actual charity since he already did something for someone. He makes you sign a disclaimer in term absolving him if you do anything dumb.[paragraph break]Well, the proof is signed now.";
+		now burden-signed is true instead;
+
+section giving items from surface
+
+check giving pick to:
+	if second noun is mouth mush:
+		say "'Thanks, but I floss reguarly.'" instead;
+	if second noun is weasel:
+		say "'No! It's yours now! I'm not strong enough for manual labor, anyway. But you are.' He grins brightly." instead;
+
+section giving items from outskirts
 
 check giving minimum bear to (this is the fun stuff if you give the bear to someone else rule) :
 	if second noun is Stool Toad:
@@ -1483,35 +1559,86 @@ check giving the trail paper to:
 	if second noun is Stool Toad:
 		say "He might put two and two together and arrest you." instead;
 
-check giving pick to:
-	if second noun is mouth mush:
-		say "'Thanks, but I floss reguarly.'" instead;
-	if second noun is weasel:
-		say "'No! It's yours now! I'm not strong enough for manual labor, anyway. But you are.' He grins brightly." instead;
+section giving items from west
 
-check giving gesture token to:
-	if second noun is weasel:
-		now token is in lalaland;
-		now player has the pocket pick;
-		say "He tucks away the token with a sniff. 'Well, it's not much--but, very well, I'll let you in my work study program. I won't even charge interest. Have this pocket pick. It'll help you DIG to find stuff. You can try it here, with the poor dirt!'" instead;
-	if second noun is mush:
-		say "'Pfft. Petty bribery. I need forms. Signed forms.'" instead;
+check giving the fish to:
+	if second noun is buddy best:
+		say "'Really. I don't have time for stories.'" instead;
+	if second noun is uncle dutch or noun is turk young:
+		say "'It was marketable once. To total suckers.'" instead;
+	if second noun is a bro:
+		say "That would depress [second noun] even more." instead;
+	say "It's far too tacky for anyone to use. You probably just want to TALK to it to get it going." instead;
 
-check giving burden to:
-	if second noun is mush:
-		if burden-signed is true:
-			say "With a horrible SCHLURP, the mouth mush vacuums the signed burden away from you. You hear digestive noises, then a burp, and an 'Ah!'[paragraph break]'That'll do. Okay, you stupid arch, stay put. And YOU--wait a few seconds before walking through. I'm just as alive as you are.' You're too stunned to step right away, and after the mush bubbles into plain ground, you take a few seconds to make sure the Rogue Arch is motionless.";
-			now burden is in lalaland;
-			now mouth mush is in lalaland;
-			the rule succeeds;
-		say "'It's not properly signed! And it's not officially a proof [']til it is!'" instead;
-	if second noun is weasel:
-		if burden-signed is true:
-			say "'That's my signature. Don't wear it out.'" instead;
-		if weasel-baiter is not talked-thru:
-			say "'Oh no! You obviously need a little help being more social, but you haven't listened to me enough yet. That'll help. Totally.'" instead;
-		say "The weasel makes a big show about how he would normally charge for this sort of thing, but then, signing for you means he'll feel less guilty rejecting an actual charity since he already did something for someone. He makes you sign a disclaimer in term absolving him if you do anything dumb.[paragraph break]Well, the proof is signed now.";
-		now burden-signed is true instead;
+check giving mind of peace to:
+	if second noun is Brother Blood:
+		now mind of peace is in lalaland;
+		now brother blood is in lalaland;
+		say "Brother Blood takes the mind and gazes at it from all different angles He smiles. 'Yeah...yeah. Some people are just jerks. Nothing you can do to brush [']em off but brush [']em off. I mean, I knew that, but I KNOW it now.'[paragraph break]'Thank you!' he says, squeezing your arm a bit too hard. 'Oops, sorry, let's try that again.' The other arm works better. 'I'm--I'm not just good for snarling and yelling at people and pushing them around, like the [bad-guy] said. I'm more than that. So I guess I need to go find myself or something.'";
+		check-left;
+		the rule succeeds;
+
+check giving trade of tricks to:
+	if second noun is Brother Big:
+		now brother big is in lalaland;
+		now trade of tricks is in lalaland;
+		say "'Wow! All these things I never learned before! Was it really--did people really--yes, they did.' You read through with him, [if trade of tricks is examined]re-[end if]appreciating all the things you'd fallen for and won't again.[paragraph break]'I won't be suckered again.'";
+		check-left;
+		the rule succeeds;
+
+check giving money seed to:
+	if second noun is sly moore:
+		say "'I'm not the farmer here. The monkey, though...'" instead;
+	if second noun is language machine:
+		say "The Standard Bog is no place to grow anything." instead;
+	if second noun is Fritz the On:
+		say "'Whoah, I don't farm materialistic stuff.'" instead;
+	if second noun is faith or second noun is grace:
+		say "'Our bowl cannot grow flowers. It can only accept them.'" instead;
+	if second noun is business monkey:
+		say "The business monkey grabs it eagerly, stuffing it into the soil.";
+		wfak;
+		say "[line break]As both actions were rather half-[if allow-swears is true]assed[else]brained[end if] to say the least, you are completely unsurprised to see, not a full blossom, but a fourth of one spring up--one quadrant from above, instead of, well, a blossom one-fourth the length or size it should be. He plucks it and offers it to you--very generous, you think, as you accept it. As you do, three others pop up, and he pockets them.";
+		increment the score;
+		now player has the fourth-blossom;
+		now money seed is in lalaland;
+		the rule succeeds;
+
+check giving cold contract to:
+	if second noun is labor child:
+		continue the action;
+	if contract-signed is true:
+		say "It's already signed. No point." instead;
+	if second noun is sly moore:
+		say "[if talked-to-sly is true]Sly[else]He[end if] looks confused, but the Business Monkey looks over curiously." instead;
+	if second noun is not business monkey:
+		say "You can't bring yourself to sucker a person into signing this. Regardless of how nice they may (not) be." instead;
+
+check giving the cold contract to the business monkey:
+	if contract-signed is true:
+		say "You already did." instead;
+	if money seed is not in lalaland:
+		say "The monkey looks at it, smiles and shrugs. It seems to trust you, but not enough to sign a contract, yet." instead;
+	say "You feel only momentary guilt at having the business monkey sign such a contract. After all, it binds the [i]person[r] to the terms. And is a monkey a person? Corporations, maybe, but monkeys, certainly not, despite any genetic simiarities! The monkey eagerly pulls a pen from an inside pocket, then signs and returns the contract.";
+	increment the score;
+	now contract-signed is true;
+	the rule succeeds;
+
+check giving the cold contract to the labor child:
+	if contract-signed is false:
+		say "'Trying to exploit a defenseless kid! Shame on you! I need that signature, and I need it NOW!'" instead;
+	now cold contract is in lalaland;
+	say "'Excellent! You now have a customer in your pipeline. You will receive 5% of whatever he buys from us in the future. Oh, and you may go IN to the back room.'" instead;
+
+section giving items from north
+
+check giving relief light to:
+	if second noun is Brother Soul:
+		now relief light is in lalaland;
+		now brother soul is in lalaland;
+		say "'Thank you! My soul is less heavy and dark now. I believe I have a higher purpose than just blocking people.'";
+		check-left;
+		the rule succeeds;
 
 check giving wax to:
 	ignore the can't give what you haven't got rule;
@@ -1549,7 +1676,55 @@ check giving wax to:
 	else if second noun is lily:
 		say "That would gross her out. Deservedly, but still. Guys would come to her 'rescue' and probably gaffle you or something." instead;
 
+check giving wacker weed to:
+	if second noun is Fritz the On:
+		say "You look every which way to the Stool Toad, then put your finger to your lips as you hand Fritz the packet. He conceals the stash and hands you a coin back--a dreadful penny. Proper payment for the cheap stuff.";
+		increment the score;
+		now wacker weed is in lalaland;
+		now player has dreadful penny instead;
+
+section giving items from east
+
+section giving items from below
+
+check giving legend of stuff to:
+	say "The Legend of Stuff feels stuck to you." instead;
+
+check giving crocked half to:
+	say "[if thoughts idol is in lalaland]It's completely useless now[else]Probably even more useless for them than you[end if]." instead;
+
 chapter person based
+
+check giving to Brother Big:
+	if noun is poetic wax:
+		say "'I am too clumsy to write poetry.'" instead;
+	if noun is Trick Hat:
+		say "It doesn't even close to fit him. Too bad! Anyway, he could maybe use some real education and not just a magic boost." instead;
+	if noun is Mind of Peace:
+		say "'I need education, not peace. However, that may be perfect for Brother Blood.'" instead;
+	if noun is Relief Light:
+		say "'I need specific relief from my own lack of knowledge. However, that may be perfect for Brother Soul.'" instead;
+	say "'Alas, that is not educational enough for me.'" instead;
+
+check giving to Brother Soul:
+	if noun is poetic wax:
+		say "'If I were cheerier, that might help me write decent poetry. But alas, I am not, yet.'" instead;
+	if noun is Trade of Tricks:
+		say "'That would be perfect for Brother Big. But it is not best for me.'" instead;
+	if noun is mind of peace:
+		say "'That would be perfect for Brother Blood. But any peace I have would be temporary. I would still need relief.'" instead;
+	if noun is not relief light:
+		say "'No, I need something to dispel this sad darkness in my soul.'" instead;
+
+check giving to Brother Blood:
+	if noun is poetic wax:
+		say "'I am scared of what I might write.'" instead;
+	if noun is Trade of Tricks:
+		say "'That would be perfect for Brother Big. But it is not best for me.'" instead;
+	if noun is relief light:
+		say "'That would be perfect for Brother Soul. But it might only give me temporary relief from my violent worries.'" instead;
+	if noun is not mind of peace:
+		say "'No, I need something to calm me down.'" instead;
 
 chapter big one and default
 
@@ -1577,7 +1752,7 @@ check giving (this is the default fall-through giving rule) :
 		say "You should probably GIVE stuff to people. For inanimate objects, try PUT X ON/IN Y." instead;
 	say "As you reach for that, [the second noun] blinks and looks at you. No, you don't see how they'd want THAT." instead;
 
-[end giving rules block]
+[end check giving rules block -- if you grep, nothing should be below here until the testing section]
 
 book common irregular verbs
 
@@ -1984,7 +2159,7 @@ Judgment Pass	"To pass judgment is to, well, judge." [east-ish]
 Idiot Village	"The village idiot is the person everyone looks down on. On whom everyone looks down. Oh, never mind."
 Service Community	"Community service is doing good without expecting pay. Although it can also be ordered charity work in place of jail time, for minor crimes like vandalism."
 Speaking Plain	"Plain speaking doesn't use many tricks." [north-ish]
-Walker Street	"A streetwalker is--well, a woman of the night."
+Walker Street	"A streetwalker is--well, a woman of the night. And walking is, well, less 'fast' or exciting or daring than driving."
 Pot Chamber	"A chamber pot is the predecessor of the toilet."
 Standard Bog	"Bog standard means boring and average."
 Court of Contempt	"Contempt of court is when someone refuses to speak when ordered, or they speak out of turn."
@@ -2167,7 +2342,7 @@ understand "credits" as creditsing.
 carry out creditsing:
 	say "I was able to bounce technical and non-technical ideas off several other people. Wade Clarke, Marco Innocenti, Hugo Labrande, Juhana Leinonen, Brian Rushton and Matt Weiner offered testing and general encouragement and insight on what was a VERY short deadline given the game's size. An anonymous tester provided other direction.[paragraph break]Robert DeFord, Harry Giles and Steven Watson had ideas for the white paper and direction, as did the Interactive Fiction Faction, a private Google group. They include Hanon Ondricek, Robert Patten, Miguel Garza, Matt Goh and Joseph Geipel.[paragraph break]Jason Lautzenheiser's work on Genstein's Trizbort app (www.trizbort.com) was invaluable for big-picture planning and for adding in ideas I wasn't ready to code. If you are writing a parser game, I recommend it. (Disclaimer: I am a contributor, too.)[paragraph break]Many websites and resources helped me discover silly phrases. The Director's Cut has details on specific names, but www.thefreedictionary.com was a big help with its idioms search/subdomain idioms.thefreedictionary.com. Various compound word lists gave me ideas, too.";
 	say "====IN-COMP THANKS:";
-	say "I'd also like to thank people who alerted me to bugs in the comp version: Olly Kirk, Paul Lee, Michael Martin and Al Golden.";
+	say "I'd also like to thank non-competitors who alerted me to bugs in the comp version: Olly Kirk, Paul Lee, Michael Martin and Al Golden. Competitors offered both praise and criticism which helped add features and polish to the post-comp release.";
 	say "====POST-COMP THANKS:";
 	say "Thanks to Alex Butterfield and Hugo Labrande for our games of code tennis, which is basically, try and do something every other day, or the other guy scores a point. Hugo worked with me more on a 'related project,' but a lot of things I pinged him with were relevant here.";
 	the rule succeeds;
@@ -2306,11 +2481,11 @@ before doing something when you-are-conversing is true:
 		if qbc_litany is table of Punch Sucker talk:
 			say "The Punch Sucker, with other customers to serve, is actually glad to be spared hi-bye small talk.";
 			terminate the conversation;
-			continue the action;			
+			continue the action;
 		if qbc_litany is table of fritz talk:
 			say "Fritz barely notices you wandering off to end the conversation.";
 			terminate the conversation;
-			continue the action;		
+			continue the action;
 		say "You don't have the guts to ditch someone in the middle of a conversation, unless they're REALLY busy or REALLY self-absorbed. [note-recap]" instead;
 	if current action is talking to:
 		say "You're already in a conversation." instead;
@@ -2612,9 +2787,6 @@ instead of doing something with the games counter:
 section leaving Smart Street
 
 the gesture token is a thing. description is "It's got a thumbs-up and a finger-gun on one side and a fake grin and a sneer on the other. [if player is in smart street]It's the closest to congratulations you'll probably get from Guy Sweet[else if player is not in variety garden]You wonder where it could be useful[else]The Word Weasel seems to crane in and look at the coin[end if]."
-
-check dropping gesture token:
-	say "It seems worthless, but you never know. Anyway, it's harmless at worst in your pocket." instead;
 
 check going inside when player is in Smart Street:
 	if guy-games is not talked-thru:
@@ -2979,7 +3151,7 @@ rule for supplying a missing noun when the current action is playing (this is th
 			say "There are a lot of games. To be precise, [number of logic-games in words]. Pick one at random?";
 			unless the player consents:
 				say "[ok-rand]." instead;
-			say "[ok-rand].";			
+			say "[ok-rand].";
 		repeat through table of logic game wins:
 			if the-game entry is not tried:
 				say "([the the-game entry], why not)[line break]";
@@ -3031,7 +3203,7 @@ win-check	achieved	guy-banter
 99	false	"'Gee. That's the end. Impressive. If you had the social skills to match, why, it'd be YOU defending us against [bad-guy-2], not the [bad-guy].'"
 
 does the player mean playing assassination character: it is likely.
-	
+
 carry out playing:
 	if noun is rattle:
 		say "Rattle, rattle.";
@@ -3109,7 +3281,7 @@ hatch-known is a truth state that varies.
 after examining hatch:
 	name-hatch;
 	continue the action;
-	
+
 to name-hatch:
 	if hatch-known is false:
 		say "I guess you could call it a plan hatch. Well, I'm going to, anyway.";
@@ -3156,12 +3328,6 @@ check exiting when player is on person chair:
 	say "You jump off.";
 	move player to round lounge, without printing a room description;
 	the rule succeeds;
-
-check dropping when player is in Round Lounge:
-	if noun is off tee:
-		say "But you made it with your own hands! It must be useful for something. You hope." instead;
-	if noun is stick or noun is screw:
-		say "You can't think of any reason to drop that. It seems no better or worse than the [if noun is screw]stick[else]screw[end if] to help you get out of here." instead;
 
 to make-tee:
 	say "You twist the round screw into the hole in the round stick. The result is a slightly asymmetrical T. Yes, you could call it an off tee. In fact, it's best to think of it that way from now on, and not as the screw and/or stick it was.";
@@ -3247,7 +3413,7 @@ to wfak:
 			say "[paragraph break]";
 		else:
 			wait for any key;
-			
+
 to say screw-or-stick:
 	if player does not have screw:
 		say "[stick]";
@@ -3333,7 +3499,7 @@ to say r-a:
 	say "[if rogue arch is examined]Rogue Arch[else]arch[end if]"
 
 section Rogue Arch
-	
+
 the Rogue Arch is scenery in Tension Surface. "It is rectangular, maybe 6 feet wide by 9 tall. When you look, you can see a much different area beyond the arch than to the side of it. [if mush is in lalaland]It's not dancing back and forth any more.[else]It's dancing back and forth, as if daring you to try to enter. [one of]The [m-m] jabbers 'Looks interesting in there, eh? I'll need documentation to let you past! Documentation that the land beyond will help you!'[talk-back][or]The [m-m] smirks, again.[stopping]"
 
 to say m-m:
@@ -3395,7 +3561,7 @@ the flower wall is scenery in the Vision Tunnel. "All manner of flowers, real an
 
 to say pic-hole:
 	say "[if picture hole is examined]the picture hole you looked through[else]a small hole, call it a picture hole, because it looks like there's some sort of picture in there[end if]"
-	
+
 check taking flower wall:
 	say "The flowers seem delicately interconnected. If you take one, you fear the whole structure might collapse. And you fear loneliness, too." instead;
 
@@ -3426,9 +3592,6 @@ after printing the name of the proof of burden while taking inventory:
 understand "plaque/document" as proof of burden when mrlp is Beginning.
 
 burden-signed is a truth state that varies.
-
-check dropping the proof of burden:
-	say "No. There's a part of you that always sort of believed what the proof said, even if it's said kind of snide. Most of the time, you just hear disbelief you're smart and you can't deal, but there may be help here." instead;
 
 description of proof of burden is "The bearer of this plaque is certifiably unable to brush aside problems he feels he really should be smart enough to, and he quite bluntly has no clue how to rectify the situation. I mean, we all feel this way from time to time, but boy, the bearer got an extra dose. He certainly could use an audience with the [bad-guy], whether he deserves it or not.[paragraph break]Of course, he's not just going to be allowed to walk in. Goodness no! This will just get him one step closer. Plus the journey is the important thing, and so on.[paragraph break]There's a line below: SIGNED BY APPROPRIATE AUTHORITY (BEARER DOES NOT COUNT). It is [if burden-signed is true]filled[else]blank[end if]."
 
@@ -3487,7 +3650,7 @@ after doing something with leaves:
 
 instead of doing something with the absence of leaves:
 	say "It's an absence of leaves, so you can't do much with it."
-	
+
 the poor dirt is scenery in Variety Garden. "[bug]"
 
 instead of doing something with poor dirt:
@@ -3610,7 +3773,7 @@ pier-visited is a truth state that varies.
  after printing the locale description for Pressure Pier when Pressure Pier is unvisited:
 	now pier-visited is true; [not the best way to do things but I need to reference something in I6 to modify the play-end text, and it's just cleaner to define a boolean in I7]
 	unlock-verb "knock"
- 
+
 check going in Pressure Pier:
 	if noun is west and trail paper is not in lalaland:
 		say "'You're not authorized yet!' yells the Howdy Boy." instead;
@@ -3915,7 +4078,7 @@ check eating off cheese:
 	now off cheese is in lalaland;
 	force-swear;
 	now off-eaten is true instead;
-	
+
 section cutter cookie
 
 a cutter cookie is a badfood on Tray B. description is "It looks like the worst sort of thing to give kids on Halloween. If it doesn't have any actual razor blades, it's pointy as a cookie should not be. It's also grey and oatmeal-y, which cookies should never be. I mean, I like oatmeal cookies, just not dingy grey ones. It seems like excellent food for if you want to be very nasty indeed."
@@ -4135,15 +4298,6 @@ understand "boo ticket" and "ticket" as boo tickety.
 
 drop-ticket is a truth state that varies.
 
-check dropping boo tickety:
-	if drop-ticket is false:
-		now drop-ticket is true;
-		say "As you drop it, you feel a tap on your shoulder. The Stool Toad, again![paragraph break]'Son, I'm going to have to write you up.' And he does. He gives you what you've dropped, plus a new boo tickety.";
-		get-ticketed;
-		do nothing instead;
-	else:
-		say "Either the Stool Toad will have given up on you, or he'll really get to bust you for a repeat offense. Neither seems to help you." instead;
-
 the dreadful penny is a thing. description is "It has a relief of the [bad-guy] on the front and back, with 'TRUST A BRAIN' on the back. You hope it's worth more than you think it is."
 
 your-tix is a number that varies.
@@ -4256,9 +4410,6 @@ after taking Minimum Bear:
 	else:
 		say "You look around nervously as you pick Minimum Bear up. The Stool Toad scoffs slightly.";
 
-check dropping Minimum Bear:
-	say "No. It's somebody's. But whose?" instead;
-		
 the nametag is part of minimum bear. description is "The tag identifies Minimum Bear by name[ex-min]."
 
 understand "tag" as nametag when player has minimum bear.
@@ -4559,7 +4710,7 @@ after quipping when qbc_litany is litany of Punch Sucker:
 		enable the sucker-cooler quip;
 	if current quip is sucker-alco:
 		if player has cooler wine:
-			enable the sucker-haha quip;	
+			enable the sucker-haha quip;
 	if current quip is sucker-cooler:
 		if player has haha brew:
 			enable the sucker-cooler quip;
@@ -4591,9 +4742,9 @@ Warner Dyer is a client. clue-letter of Warner Dyer is "D". description is "His 
 Warm Luke is a client. clue-letter of Warm Luke is "M". description is "Smiling a bit too wide, saying sure a bit too often."
 
 Paul Kast is a client. clue-letter of Paul Kast is "K". description is "Dressed darkyl and frowning."
- 
+
 Cain Reyes is a client. clue-letter of Cain Reyes is "*". description is "The loudest of the bunch."
-   
+
 the bottle of Quiz Pop is a thing. "The [j-co] left a bottle of Quiz Pop here.". description is "It's typical ucky brown for pop, though it is fizzing furiously. The label proclaiming it Quiz Pop reveals no nutritional information, which may be for the better. It also provides a warning that it is therapeutic for people who don't always ask the questions they want to, but people who already ask loaded questions are at risk. It's from Mark Black industries."
 
 before giving quiz pop to:
@@ -4825,7 +4976,7 @@ Chipper Wood is west of Jerk Circle. It is in Main Chunk. "The path cuts east-we
 
 to say say-paper:
 	say "[one of]But this path is clear, with an odd large paper grid. It's five by five, with fainter diagonal lines too[or]The chase paper is still there, taunting you with its apparent simplicity[stopping]";
-	
+
 understand "grid" and "paper grid" as chase paper.
 
 the chase paper is scenery in Chipper Wood. "Goodness knows how it sticks to the ground, but it does. You can probably GET ON it."
@@ -4864,14 +5015,14 @@ before entering the chase paper:
 	now corner-yet is false;
 	say "'I'll even let you cut diagonally if you want.'";
 	do nothing instead;
-	
+
 you-x is a number that varies. you-y is a number that varies.
 
 printed name of Chipper Wood is "[if p-c is true]Chase Paper [you-x] [you-y][else]Chipper Wood[end if]"
 
 every turn when p-c is true:
 	print-the-chase;
-	
+
 to decide which number is x-delt:
 	if you-x > ac-x, decide on you-x - ac-x;
 	decide on ac-x - you-x;
@@ -4998,7 +5149,7 @@ check going when p-c is true (this is the move on paper rule):
 			say "You'd go off the edge of the chase paper." instead;
 	the rule succeeds;
 
-[	
+[
 	if you-x is 3 and you-y is 3: [northwest corner trap]
 		if ac-x is 0 and ac-y is 3:
 			if last-p-dir is not north:
@@ -5023,7 +5174,7 @@ check going when p-c is true (this is the move on paper rule):
 			if last-p-dir is not west:
 				now ac-x is ac-x + 3;
 			else:
-				now ac-x is ac-x - 3;	
+				now ac-x is ac-x - 3;
 			continue the action;
 	if you-x is 9 and you-y is 9: [southeast corner]
 		if ac-x is 9 and ac-y is 12:
@@ -5188,7 +5339,7 @@ to bye-paper:
 		now chase paper is in lalaland;
 		now belt below is below chipper wood;
 		now chipper wood is above belt below;
-		
+
 to decide whether assassin-in-corner:
 	if ac-x is 0 and ac-y is 12:
 		decide yes;
@@ -5199,15 +5350,15 @@ to decide whether assassin-in-corner:
 	if ac-x is 12 and ac-y is 12:
 		decide yes;
 	decide no;
-	
+
 to decide whether you-near-assassin:
 	unless ac-x - you-x is 3 or ac-x - you-x is -3:
 		decide no;
 	unless ac-y - you-y is 3 or ac-y - you-y is -3:
 		decide no;
 	decide yes;
-		
-	
+
+
 p-c is a truth state that varies.
 
 [check going when player is in chipper wood and assassination character is in chipper wood:
@@ -5277,9 +5428,6 @@ the nine yards hole is scenery in Disposed Well. "It looks rather deep, too narr
 understand "disposed/well" as the yards hole.
 
 the story fish is a thing. description of story fish is "[if player has story fish]It looks wooden and mechanical[else]The story fish has been stuffed into the book bank here[end if]."
-
-before giving the fish to:
-	say "It's far too tacky for anyone to use. You probably just want to TALK to it to get it going." instead;
 
 check taking story fish:
 	if player has fish:
@@ -5469,7 +5617,7 @@ to set-clue (x - a number): [set-clue numbers are arbitrary but unique]
 		say "You cringe [if reused-hint is true]again[else]a bit[end if] because you realize you may not have understood the last picture you saw[one of]. You almost wait for someone authoritative to tell you to stop daydreaming and flaking, but there is none. Whew[or][stopping].";
 		now reused-hint is true;
 	now last-clue is x;
-		
+
 to hint-blue:
 	if relief light is in lalaland:
 		say "The blue area morphs to Brother Soul smiling for a moment.";
@@ -5728,16 +5876,6 @@ check giving penny to:
 	if second noun is faith or second noun is grace:
 		say "'We need no monetary donations. Big or small. The googly bowl [if fourth-blossom is in lalaland]must be[else]is[end if] healed, and that is most important.'" instead;
 
-check giving poory pot to:
-	if second noun is faith or second noun is grace:
-		say "That's probably not the sort of incense or decoration they want to use[if fourth-blossom is in lalaland]. You restored the blossom, anyway[else]. The bowl seems more for flowers[end if]." instead;
-
-check giving money seed to:
-	if second noun is sly moore:
-		say "'I'm not the farmer here. The monkey, though...'" instead;
-	if second noun is faith or second noun is grace:
-		say "'Our bowl cannot grow flowers. It can only accept them.'" instead;
-
 check putting on googly bowl:
 	try giving noun to faith instead;
 
@@ -5759,7 +5897,7 @@ check giving fourth-blossom to:
 
 check taking googly bowl:
 	say "Sacrilege." instead;
-	
+
 to get-mind:
 	say "Faith and Grace place the blossom and spin it, and when it slows, the flowers are changed so you can't remember which was which. 'This is the least we can do for you. Have this mind of peace.' It's beautiful, but not gaudy.";
 	now player has mind of peace;
@@ -5792,7 +5930,7 @@ check talking to Faith:
 check talking to Grace:
 	if fourth-blossom is in lalaland:
 		say "You exchange views on inner peace, finding yourself, achievement, and so forth. She's not particularly persuasive, so you sense whatever cult she had or will have won't be charismatic or forceful enough to give anyone any crazy ideas. But you still feel better for the chat, for all that." instead;
-	
+
 does the player mean talking to Grace when player is in Cult: it is very likely.
 
 litany of grace is the table of Grace Goode talk.
@@ -5871,23 +6009,10 @@ check examining the fund hedge:
 
 the cold contract is a thing. description is "All the legal jargon is nothing to sneeze at. (Sorry.)[paragraph break]The main gist is that any person [if contract-signed is false](written extensively, instead of 'party') [end if]who signs it is probably screwed if they breathe wrong, and it's their fault if they missed something or didn't have access to someone who could read all the details.[paragraph break]It is currently [if contract-signed is false]unsigned[else]signed by the Business Monkey[end if]."
 
-before giving cold contract to a person:
-	if second noun is labor child:
-		continue the action;
-	if contract-signed is true:
-		say "It's already signed. No point." instead;
-	if second noun is sly moore:
-		say "[if talked-to-sly is true]Sly[else]He[end if] looks confused, but the Business Monkey looks over curiously." instead;
-	if second noun is not business monkey:
-		say "You can't bring yourself to sucker a person into signing this. Regardless of how nice they may (not) be." instead;
-
 after printing the name of the cold contract while taking inventory:
 	say " ([if contract-signed is false]un[end if]signed)";
 
 contract-signed is a truth state that varies.
-
-check dropping the cold contract:
-	say "It's yours. You're bound to it [']til you sign it or find someone who can. The Labor Child has records in triplicate." instead;
 
 check going inside in scheme pyramid:
 	try going north instead;
@@ -5998,7 +6123,7 @@ check giving to Officer Petty:
 		increment the score;
 		continue the action;
 	say "'NO BRIBERY! Besides, that's not worth anything. But, uh, it's perfectly legal to give me something that might help my career.'" instead;
-	
+
 check going east in Judgment Pass:
 	if Officer Petty is in Judgment Pass:
 		say "'Whoah! I can't just let you go to Idiot Village. You're not qualified to show them what's what. And I have nothing better to do than stop you. For now.'" instead;
@@ -6087,31 +6212,6 @@ check talking to Business Monkey:
 	say "The Business Monkey shakes your hand, gives you a thumbs up, and snickers." instead;
 
 the fourth-blossom is a thing. understand "fourth/blossom" and "fourth blossom" as fourth-blossom. description is "Seen from above, it'd take up one quadrant of the four it should. It looks like it should start falling apart at any time, since it's all sliced, but somehow, it holds together despite its weird angularity."
-
-check giving the money seed to the business monkey:
-	say "The business monkey grabs it eagerly, stuffing it into the soil.";
-	wfak;
-	say "[line break]As both actions were rather half-[if allow-swears is true]assed[else]brained[end if] to say the least, you are completely unsurprised to see, not a full blossom, but a fourth of one spring up--one quadrant from above, instead of, well, a blossom one-fourth the length or size it should be. He plucks it and offers it to you--very generous, you think, as you accept it. As you do, three others pop up, and he pockets them.";
-	increment the score;
-	now player has the fourth-blossom;
-	now money seed is in lalaland;
-	the rule succeeds;
-
-check giving the cold contract to the business monkey:
-	if contract-signed is true:
-		say "You already did." instead;
-	if money seed is not in lalaland:
-		say "The monkey looks at it, smiles and shrugs. It seems to trust you, but not enough to sign a contract, yet." instead;
-	say "You feel only momentary guilt at having the business monkey sign such a contract. After all, it binds the [i]person[r] to the terms. And is a monkey a person? Corporations, maybe, but monkeys, certainly not, despite any genetic simiarities! The monkey eagerly pulls a pen from an inside pocket, then signs and returns the contract.";
-	increment the score;
-	now contract-signed is true;
-	the rule succeeds;
-	
-check giving the cold contract to the labor child:
-	if contract-signed is false:
-		say "'Trying to exploit a defenseless kid! Shame on you! I need that signature, and I need it NOW!'" instead;
-	now cold contract is in lalaland;
-	say "'Excellent! You now have a customer in your pipeline. You will receive 5% of whatever he buys from us in the future. Oh, and you may go IN to the back room.'" instead;
 
 chapter Sly Moore
 
@@ -6504,7 +6604,7 @@ check inserting into the language machine:
 	if poetic wax is in lalaland:
 		say "[no-pos]." instead;
 	try putting noun on language machine instead;
-	
+
 check putting on the language machine:
 	if poetic wax is in lalaland:
 		say "[no-pos]." instead;
@@ -6887,20 +6987,6 @@ section Brother Big
 
 Brother Big is a bro in Questions Field. description is "He is a foot taller than either of his brothers, but his eyes seem duller, and he frequently scratches his head."
 
-check giving to Brother Big:
-	if noun is Trick Hat:
-		say "It doesn't even close to fit him. Too bad! Anyway, he could maybe use some real education and not just a magic boost." instead;
-	if noun is Mind of Peace:
-		say "'I need education, not peace. However, that may be perfect for Brother Blood.'" instead;
-	if noun is Relief Light:
-		say "'I need specific relief from my own lack of knowledge. However, that may be perfect for Brother Soul.'" instead;
-	if noun is not Trade of Tricks:
-		say "'That is not educational enough for me.'" instead;
-	now brother big is in lalaland;
-	now trade of tricks is in lalaland;
-	say "'Wow! All these things I never learned before! Was it really--did people really--yes, they did.' You read through with him, [if trade of tricks is examined]re-[end if]appreciating all the things you'd fallen for and won't again.[paragraph break]'I won't be suckered again.'";
-	check-left instead;
-
 to check-left:
 	say "[line break]";
 	if bros-left is 2:
@@ -6910,7 +6996,7 @@ to check-left:
 	if bros-left is 0:
 		say "Oh, man! The way north is free now! As the final brother leaves, he turns to say 'Beware...trap...question mark...exclamation mark...'";
 	increment the score;
-		
+
 litany of Brother Big is the table of Brother Big talk.
 
 table of b1 - Brother Big talk
@@ -6947,20 +7033,6 @@ after quipping when qbc_litany is litany of Brother Big:
 section Brother Soul
 
 Brother Soul is a bro in Questions Field. description is "His frowning and moping make him perfect for standing guard but not much else. He might not try to stop you if you passed by just him, but you'd feel guilty for doing so."
-
-check giving to Brother Soul:
-	if noun is poetic wax:
-		say "'If I were cheerier, that might help me write decent poetry. But alas, I am not, yet.'" instead;
-	if noun is Trade of Tricks:
-		say "'That would be perfect for Brother Big. But it is not best for me.'" instead;
-	if noun is mind of peace:
-		say "'That would be perfect for Brother Blood. But any peace I have would be temporary. I would still need relief.'" instead;
-	if noun is not relief light:
-		say "'No, I need something to dispel this sad darkness in my soul.'" instead;
-	now relief light is in lalaland;
-	now brother soul is in lalaland;
-	say "'Thank you! My soul is less heavy and dark now. I believe I have a higher purpose than just blocking people.'";
-	check-left instead;
 
 litany of Brother Soul is the table of Brother Soul talk.
 
@@ -6999,18 +7071,6 @@ after quipping when qbc_litany is litany of Brother Soul:
 section Brother Blood
 
 Brother Blood is a bro in Questions Field. description is "He jitters with rage for a few seconds, then takes a fw breaths, whispers to calm himself down, then starts over again."
-
-check giving to Brother Blood:
-	if noun is Trade of Tricks:
-		say "'That would be perfect for Brother Big. But it is not best for me.'" instead;
-	if noun is relief light:
-		say "'That would be perfect for Brother Soul. But it might only give me temporary relief from my violent worries.'" instead;
-	if noun is not mind of peace:
-		say "'No, I need something to calm me down.'" instead;
-	now mind of peace is in lalaland;
-	now brother blood is in lalaland;
-	say "Brother Blood takes the mind and gazes at it from all different angles He smiles. 'Yeah...yeah. Some people are just jerks. Nothing you can do to brush [']em off but brush [']em off. I mean, I knew that, but I KNOW it now.'[paragraph break]'Thank you!' he says, squeezing your arm a bit too hard. 'Oops, sorry, let's try that again.' The other arm works better. 'I'm--I'm not just good for snarling and yelling at people and pushing them around, like the [bad-guy] said. I'm more than that. So I guess I need to go find myself or something.'";
-	check-left instead;
 
 litany of Brother Blood is the table of Brother Blood talk.
 
@@ -7327,7 +7387,7 @@ to decide which number is right-adj:
 	if the player's command matches the regular expression "\baway\b":
 		decide on 3;
 	decide on 0;
-		
+
 the Return Carriage is a thing. description is  "The Return Carriage awaits, but the problem is, you can't find an obvious way to, um, enter."
 
 the lock caps are part of the return carriage. description is "They don't look too menacing, but then you look closer, and you feel like you're being shouted at. Hm."
@@ -7345,7 +7405,7 @@ check entering Return Carriage:
 
 check attacking lock caps:
 	say "Your plain old hammer doesn't do much." instead;
-	
+
 instead of doing something with lock caps:
 	if current action is attacking or action is undrastic:
 		continue the action;
@@ -7520,7 +7580,7 @@ every turn when mrlp is dream sequence:
 table of painful narratives
 b4-nar	now-nar	af-nar	ac-nar
 "'Dude, why do you read so much? It's sort of showing off.'"	"You are, for the moment, in English class. People are running circles around you discussing an assigned book. You overhear that YOU should be participating more, with all you used to read."	"You are outside a charity dinner--not allowed in, of course. A grown-up version of the classmate who made fun of you in the past for reading blathers on about how reading books helps children become success stories."	true
-"A teacher chides the class to be 'nice like Alec.' They aren't, at recess."	"Some fake contrarian says that just being nice isn't nearly enough, and it's so formulated."	"You face an onslaught of people who were apparently trying to be nice to you, but NO..." 	
+"A teacher chides the class to be 'nice like Alec.' They aren't, at recess."	"Some fake contrarian says that just being nice isn't nearly enough, and it's so formulated."	"You face an onslaught of people who were apparently trying to be nice to you, but NO..."
 "The rest of the class glares at you after you ask one too many 'why' questions."	"Classmates moan endlessly about research papers, and you figure there's probably some law against choosing a subject you'd like."	"A classmate all grown up espouses original dynamic thinking and how schools just don't do enough."
 "A young version of a now ex-friend berates young you for a small inefficiency in code his father noted."	"The ex-friend, older now, wonders why you stink at big-picture programming for computer class despite writing that immaculate Quick Sort routine."	"The ex-friend is lecturing at a big conference now, about how coding is about flexibility and trading ideas, but there's still a great job market for low-level stuff most people totally fear."
 "You feel slightly sick hearing what a smart young boy you are. Study hard, and the social stuff will work itself out later."	"You hear whispers that Alec may be smart, but he can't be bothered to, you know, work well with other people. People who do the organizational stuff."	"You're stuck listening to a self-help guru tape blathering how what REALLY matters is how well you work with other people, and if brainy types never bothered to get this, the worse for them."
@@ -7778,10 +7838,12 @@ rule for amusing a victorious player:
 table of amusingness
 biglaff	anyrule
 "waiting?"	degen-true rule
-"(first time only) thinking?"	degen-true rule
+"(first time only) thinking?"	--
+"swearing (and saying yes or no) when the game asks if you want swearing?"	--
 "an empty command?"	--
 "XYZZY? Four times?"	--
 "attacking anyone? Or the torch?"	--
+"DROPping the dreadful penny, reasoning circluar or other things?"	--
 "cussing when you asked for no profanity?"	--
 "cussing in front of certain people, especially authority figures (twice for a 'bad' ending)?"	--
 "kissing the Language Machine?"	--
@@ -8494,7 +8556,7 @@ carry out ruving:
 			now got-one is true;
 	say "[if got-one is false] no rooms[end if].";
 	the rule succeeds;
- 
+
 chapter puving
 
 puving is an action out of world.
@@ -8856,7 +8918,7 @@ carry out montying:
 	if found-toggle is false:
 		say "MONTY didn't find anything to toggle.";
 	the rule succeeds;
-	try requesting the score;	
+	try requesting the score;
 	if monty-full is false:
 		say "Currently blocking crib hints with MONTY. Type CRIB to turn them on." instead;
 	if jerk circle is visited:
@@ -8950,7 +9012,7 @@ carry out donoteing:
 	say "Blood: ";
 	hint-red;
 	say "Big: ";
-	hint-big;	
+	hint-big;
 	the rule succeeds;
 
 chapter brobyeing
@@ -9097,7 +9159,7 @@ after printing the locale description when location of player is unvisited:
 	if amap-on is true:
 		try maping;
 	continue the action;
-		
+
 chapter jing
 
 [* this jumps the tester ahead one stage]
