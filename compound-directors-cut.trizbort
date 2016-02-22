@@ -326,7 +326,7 @@
 			<dock index="1" id="102" port="w" />
 		</line>
 		<room id="104" name="Out Mist" subtitle="" x="320" y="-416" w="96" h="64" region="Endings" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="#A0A000" secondFillLocation="Right" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects>Whole (Wood) Worm</objects>
+			<objects>Worm Ring</objects>
 		</room>
 		<line id="105" flow="oneWay" midText="Win">
 			<dock index="0" id="35" port="e" />
