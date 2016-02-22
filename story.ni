@@ -2904,7 +2904,7 @@ guy-stuck	"'Well, yeah, I used to be kind of a dork. And by kind of a dork I mea
 guy-advice	"'Hm, well, if I give you too much advice, you won't enjoy solving them. And if I don't give you enough, you'll be kind of mad at me. So I'm doing you a favor, saying just go ahead and PLAY.'"
 guy-flat	"'Well, that way is the Problems Compound. If you can figure out some basic stuff, you'll make it to Pressure Pier. Then--oh, the people you'll meet!'"
 guy-names	"'I know what you really want to ask. It's not at all about twisting things back around and making them the opposite of what they should mean. It's about SEEING things at every angle. You'll meet people who do. You'll be a bit jealous they can, and that they're that well-adjusted. But if you pay attention, you'll learn. I have. Though I've got a way to go. But I want to learn!'"
-guy-problems	"'Well, it's a place where lots of people more social than you--or even me--pose real-life problems. Tough but fair. Lots of real interesting people. Especially the Baiter Master[if allow-swears is false]. Oops. You don't like swears? Okay. Call him the Complex Messiah[else]. AKA the Complex Messiah[end if]. But not [bg]. Even I haven't earned that right yet. His workplace, Freak Control, is guarded by a trap where a question mark hooks you, then an exclamation mark clobbers you.' He pauses, and as you're about to speak, throws in a 'YEAH.'"
+guy-problems	"'Well, it's a place where lots of people more social than you--or even me--pose real-life problems. Tough but fair. Lots of real interesting people. Especially the Baiter Master[if allow-swears is false]. Oops. You don't like swears? Okay. Call him the Complex Messiah[else]. AKA the Complex Messiah[end if]. But not [bg]. Even I haven't earned that right yet. Or even to enter Freak Control. It's guarded by a trap where a question mark hooks you, then an exclamation mark clobbers you.' He pauses, and you are about to speak...[wfk]'YEAH. He's really nice once you get to know him, I've heard, it's just, there's too many people might waste his time, or not deserve him or not appreciate him.' Guy stage-whispers. 'OR ALL THREE.'"
 guy-mess	"'Oh, the [bad-guy]. He certainly knows what's what, and that's that! A bit of time around him, and you too will know a bit--not as much as he did. But he teaches by example! And if he ribs you a little, that's just his way of caring. Remember, it's up to YOU what you make of his lessons! Some people--they just don't get him. Which is ironic. They're usually the type that claim society doesn't get THEM.'"
 guy-bad2	"'[bad-guy-2]. Well, without the [bad-guy]'s snark, [bad-guy-2] would probably be in charge. Then things would get worse. You see, [bad-guy-2] is after our time and money. The [bad-guy] just likes to share a little snark.'"
 guy-bye	"'Whatever, dude.'"
@@ -6773,7 +6773,7 @@ after quipping when qbc_litany is table of Buddy Best talk:
 		quit small talk;
 		say "Buddy waves his hands to change the subject. 'Well, I don't want to waste any more of your time,' he says, with fake humility not meant to be convincing. You freeze.";
 		wfak;
-		say "[line break]'Negotiator, eh? Standing your ground?' Buddy Best shoves something in your hands as he pushes you out. 'It's, well, stuff I could tell you personally, but I don't want to waste your time. Self improvement stuff. I'm sure you're smart enough to understand. Smart enough to have understood a few years ago, really.'";
+		say "[line break]'Negotiator, eh? Standing your ground?' Buddy Best shoves something in your hands as he pushes you out. 'It's, well, stuff I could tell you personally, but I don't want to waste your time. I'm sure you're nice once I get to know you even if you're not as nice as [bg] once you get to know him, but this is real efficient self improvement stuff. I'm sure you're smart enough to understand. [']Cause you probably should've understood it a few years ago.'";
 		wfak;
 		say "[line break]Well, it's something. Which is more than you expected. Generally, obnoxious fast-talkers wound up taking something from YOU after a short, loud, fast dialog. You're not sorry you had no chance to say good-bye.";
 		now player has the Reasoning Circular;
@@ -7036,7 +7036,7 @@ to say bro-i-we:
 
 check going north in Questions Field:
 	if bros-left > 0:
-		say "[random bro in Questions Field] wags a finger dolefully. [one of]'[bro-i-we] can't let you by to see the [bad-guy]. What was his joke?' He pauses. '[bro-i-we] had ONE JOB!'[or]'[bro-i-we] have one job.'[stopping]" instead;
+		say "[random bro in Questions Field] wags a finger dolefully. [one of]'[bro-i-we] can't let you by to see the [bad-guy]. What was his joke?' He pauses. '[bro-i-we] had ONE JOB!'[or]'[bro-i-we] have one job.'[stopping][paragraph break]'He wasn't being cruel. He's nice once you get to know him, we hear. But if he had to be nice to too many people, it'd get diluted.'" instead;
 	if cookie-eaten is true:
 		say "Bye-bye, Questions Field. A question mark pops out from the side and tries to hook you out of Freak Control, but that's a stupid trap. The exclamation mark that tries to bash you? A punch disables it.";
 		continue the action;
