@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<trizbort version="1.5.9.4">
+	<info>
+		<title>The Problems Compound</title>
+		<author>Andrew Schultz</author>
+		<description>A map for my prospective IFComp 2015 game, The Problems Compound. Map is very fluid at the moment. Anyone with NPC/room suggestions is a total hero.</description>
+		<history>Conceived November 2013 as a totally different name, then procrastinated as other projects came up.
+
+"Maybe you'll cope but I'll be exciting. Whatevs."</history>
+	</info>
+	<map>
+		<room id="26" name="R5" subtitle="" x="320" y="224" w="96" h="64" region="Entry" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Earth of Scum|Flower Wall|    Picture Hole|(proof of burden)</objects>
+		</room>
+		<room id="27" name="R3" subtitle="" x="160" y="224" w="96" h="64" region="Entry" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="yes" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Dash" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Rogue Arch|Mouth Mush|</objects>
+		</room>
+		<room id="31" name="R21" subtitle="" x="0" y="-288" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="yes" ellipse="no" roundedCorners="yes" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Buddy Best|Motion Table|(reasoning circular)</objects>
+		</room>
+		<room id="33" name="R26" subtitle="" x="320" y="-32" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Officer Petty|Intuition Counter</objects>
+		</room>
+		<room id="35" name="R31" subtitle="" x="160" y="-416" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="This is the final area! It contains crazy scenery.&#xD;&#xA;List Bucket&#xD;&#xA;Call Curtain&#xD;&#xA;Incident Miner&#xD;&#xA;Language Sign&#xD;&#xA;Shot Screen&#xD;&#xA;Twister Brain&#xD;&#xA;Witness Eye/Star" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Complex Messiah/|  Baiter Master</objects>
+		</room>
+		<room id="38" name="R11" subtitle="" x="160" y="-32" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Dash" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>7 jerks|(quiz pop)</objects>
+		</room>
+		<room id="39" name="R18" subtitle="" x="160" y="-160" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Turk Young|Uncle Dutch|Fright Stage</objects>
+		</room>
+		<room id="40" name="R25" subtitle="" x="480" y="-160" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Art Fine|Harmonic Phil|(poetic wax)</objects>
+		</room>
+		<room id="41" name="R6" subtitle="" x="160" y="96" w="96" h="64" region="Outer Bounds" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="yes" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Dash" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Howdy Boy|Saver Screen</objects>
+		</room>
+		<room id="42" name="R16" subtitle="" x="-160" y="-160" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Labor Child|Fund Hedge|(Money Seed)|(Cold Contract)</objects>
+		</room>
+		<line id="2">
+			<dock index="0" id="38" port="e" />
+			<dock index="1" id="33" port="w" />
+		</line>
+		<line id="4">
+			<dock index="0" id="39" port="s" />
+			<dock index="1" id="38" port="n" />
+		</line>
+		<line id="10" style="dashed">
+			<dock index="0" id="38" port="s" />
+			<dock index="1" id="41" port="n" />
+		</line>
+		<room id="11" name="R12" subtitle="" x="0" y="-32" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Assassination Character|Chase Paper</objects>
+		</room>
+		<room id="13" name="R27" subtitle="" x="480" y="-32" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Business Monkey|Sly Moore|(get fourth blossom)|(get trap rattle)</objects>
+		</room>
+		<room id="3" name="R22" subtitle="" x="320" y="-160" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Drug Gateway|(A Long String)|Mistake Grave</objects>
+		</room>
+		<line id="15" color="#000000">
+			<dock index="0" id="40" port="w" />
+			<dock index="1" id="3" port="e" />
+		</line>
+		<line id="16" color="#000000">
+			<dock index="0" id="3" port="w" />
+			<dock index="1" id="39" port="e" />
+		</line>
+		<room id="1" name="R14" subtitle="" x="-320" y="-32" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Faith &amp; Grace Goode|(mind of peace)</objects>
+		</room>
+		<line id="14" color="#000000" style="dashed">
+			<dock index="0" id="33" port="e" />
+			<dock index="1" id="13" port="w" />
+		</line>
+		<room id="23" name="R13" subtitle="" x="-160" y="-32" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Nine Yards Hole|(story fish)</objects>
+		</room>
+		<room id="25" name="R29" subtitle="" x="-160" y="96" w="96" h="64" region="Cluey Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Insanity Terminal</objects>
+		</room>
+		<line id="30" color="#000000">
+			<dock index="0" id="42" port="s" />
+			<dock index="1" id="23" port="n" />
+		</line>
+		<line id="32" color="#000000">
+			<dock index="0" id="23" port="w" />
+			<dock index="1" id="1" port="e" />
+		</line>
+		<room id="34" name="R30" subtitle="" x="-320" y="96" w="96" h="64" region="Cluey Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Note Crib|  Crocked Half|  Legend of Stuff</objects>
+		</room>
+		<line id="12">
+			<dock index="0" id="11" port="e" />
+			<dock index="1" id="38" port="w" />
+		</line>
+		<line id="43">
+			<dock index="0" id="11" port="w" />
+			<dock index="1" id="23" port="e" />
+		</line>
+		<line id="36" color="#000000" style="dashed" startText="down" endText="up">
+			<dock index="0" id="25" port="w" />
+			<dock index="1" id="34" port="e" />
+		</line>
+		<room id="44" name="R23" subtitle="" x="320" y="-288" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="&#xD;&#xA;" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Language|  Machine|(trick hat)</objects>
+		</room>
+		<line id="45" color="#000000">
+			<dock index="0" id="3" port="n" />
+			<dock index="1" id="44" port="s" />
+		</line>
+		<room id="49" name="R4" subtitle="" x="0" y="224" w="96" h="64" region="Entry" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Word Weasel|Poor Dirt|Brush (3 types)|</objects>
+		</room>
+		<room id="52" name="R10" subtitle="" x="480" y="224" w="96" h="64" region="Outer Bounds" handDrawn="no" allcornersequal="yes" ellipse="no" roundedCorners="yes" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Liver Lily|The Punch Sucker|(drinkable)</objects>
+		</room>
+		<room id="57" name="R24" subtitle="" x="480" y="-288" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Pusher Penn|(Wacker Weed)|(Poory Pot)</objects>
+		</room>
+		<line id="58" startText="in" endText="out">
+			<dock index="0" id="3" port="ne" />
+			<dock index="1" id="57" port="sw" />
+		</line>
+		<room id="59" name="R17" subtitle="" x="-160" y="-288" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>      Sound Safe|        Finger Index</objects>
+		</room>
+		<line id="60" color="#000000" style="dashed" startText="in" endText="out">
+			<dock index="0" id="42" port="n" />
+			<dock index="1" id="59" port="s" />
+		</line>
+		<room id="76" name="R7" subtitle="" x="0" y="96" w="96" h="64" region="Outer Bounds" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Tray A|  Silly Foods|Tray B|  Bad End Foods||</objects>
+		</room>
+		<room id="56" name="R9" subtitle="" x="480" y="96" w="96" h="64" region="Outer Bounds" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>  Stool Toad|  Minimum Bear</objects>
+		</room>
+		<room id="82" name="R19" subtitle="" x="0" y="-160" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Spleen Vent|Volatile Sal|(relief light)</objects>
+		</room>
+		<room id="28" name="R2" subtitle="" x="160" y="352" w="96" h="64" region="Entry" handDrawn="no" allcornersequal="no" ellipse="yes" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>A round stick|A round screw|Person Chair|A plan hatch</objects>
+		</room>
+		<line id="9" color="#000000" style="dashed" flow="oneWay" startText="up">
+			<dock index="0" id="28" port="n" />
+			<dock index="1" id="27" port="s" />
+		</line>
+		<line id="37">
+			<dock index="0" id="27" port="e" />
+			<dock index="1" id="26" port="w" />
+		</line>
+		<line id="50">
+			<dock index="0" id="27" port="w" />
+			<dock index="1" id="49" port="e" />
+		</line>
+		<line id="69" color="#000000" style="dashed" flow="oneWay">
+			<dock index="0" id="27" port="n" />
+			<dock index="1" id="41" port="s" />
+		</line>
+		<room id="90" name="R15" subtitle="" x="-320" y="-160" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>|Proof Fool|Logical Psycho|(trade of tricks)</objects>
+		</room>
+		<room id="93" name="R20" subtitle="" x="160" y="-288" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="yes" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Dash" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Keeper Brothers|Blood, Big, Soul|</objects>
+		</room>
+		<line id="94" color="#000000">
+			<dock index="0" id="39" port="n" />
+			<dock index="1" id="93" port="s" />
+		</line>
+		<line id="95" color="#000000" style="dashed">
+			<dock index="0" id="93" port="n" />
+			<dock index="1" id="35" port="s" />
+		</line>
+		<line id="6" color="#000000">
+			<dock index="0" id="82" port="e" />
+			<dock index="1" id="39" port="w" />
+		</line>
+		<line id="74" color="#000000">
+			<dock index="0" id="93" port="w" />
+			<dock index="1" id="31" port="e" />
+		</line>
+		<room id="61" name="R8" subtitle="" x="320" y="96" w="96" h="64" region="Outer Bounds" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Warmer Bench (To "tense" dream)|Fritz the On|(boo tickety)|(trail paper)|(dreadful penny)</objects>
+		</room>
+		<line id="71" color="#000000">
+			<dock index="0" id="41" port="e" />
+			<dock index="1" id="61" port="w" />
+		</line>
+		<line id="80">
+			<dock index="0" id="61" port="e" />
+			<dock index="1" id="56" port="w" />
+		</line>
+		<line id="98" color="#000000">
+			<dock index="0" id="56" port="s" />
+			<dock index="1" id="52" port="n" />
+		</line>
+		<room id="97" name="R1" subtitle="" x="320" y="352" w="96" h="64" region="Entry" handDrawn="no" allcornersequal="no" ellipse="yes" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" isStartRoom="yes" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Broke Flat|Game Shell|Guy Sweet|(gesture token)</objects>
+		</room>
+		<line id="99" color="#000000" flow="oneWay" startText="in">
+			<dock index="0" id="97" port="w" />
+			<dock index="1" id="28" port="e" />
+		</line>
+		<line id="70" color="#000000" startText="in" endText="out">
+			<dock index="0" id="23" port="nw" />
+			<dock index="1" id="90" port="se" />
+		</line>
+		<line id="29" style="dashed" startText="down" endText="up">
+			<dock index="0" id="11" port="sw" />
+			<dock index="1" id="25" port="ne" />
+		</line>
+		<line id="5" style="dashed">
+			<dock index="0" id="76" port="e" />
+			<dock index="1" id="41" port="w" />
+		</line>
+		<room id="102" name="R28" subtitle="" x="640" y="-32" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="yes" ellipse="no" roundedCorners="yes" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Thoughts Idol</objects>
+		</room>
+		<line id="103" style="dashed">
+			<dock index="0" id="13" port="e" />
+			<dock index="1" id="102" port="w" />
+		</line>
+		<room id="104" name="Out Mist" subtitle="" x="320" y="-416" w="96" h="64" region="Endings" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="#A0A000" secondFillLocation="Right" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Whole (Wood) Worm</objects>
+		</room>
+		<line id="105" flow="oneWay" midText="Win">
+			<dock index="0" id="35" port="e" />
+			<dock index="1" id="104" port="w" />
+		</line>
+		<room id="106" name="Airy Station" subtitle="" x="480" y="-416" w="96" h="64" region="Endings" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="#A0A000" secondFillLocation="Left" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects>Return Carriage|Mentality Crowd</objects>
+		</room>
+		<line id="107" style="dashed" flow="oneWay" midText="REALLY Win">
+			<dock index="0" id="35" port="ne" />
+			<dock index="1" id="106" port="nw" />
+		</line>
+		<line id="112" style="dashed">
+			<dock index="0" id="13" port="ne" />
+			<dock index="1" id="102" port="nw" />
+		</line>
+	</map>
+	<settings>
+		<colors>
+			<canvas>White</canvas>
+			<fill>White</fill>
+			<border>Black</border>
+			<line>Black</line>
+			<selectedLine>SteelBlue</selectedLine>
+			<hoverLine>DarkOrange</hoverLine>
+			<largeText>Black</largeText>
+			<smallText>Black</smallText>
+			<lineText>Black</lineText>
+			<grid>#F5F5F5</grid>
+			<startRoom>GreenYellow</startRoom>
+		</colors>
+		<regions>
+			<Bad____Ends Name="Bad Ends" TextColor="Black">Red</Bad____Ends>
+			<Cluey____Area Name="Cluey Area" TextColor="Black">#C06020</Cluey____Area>
+			<Dream Name="Dream" TextColor="Black">#2090FF</Dream>
+			<Endings Name="Endings" TextColor="White">#606060</Endings>
+			<Entry Name="Entry" TextColor="Black">Yellow</Entry>
+			<Hypothetical Name="Hypothetical" TextColor="Black">#FF8000</Hypothetical>
+			<Main____Area Name="Main Area" TextColor="Black">Lime</Main____Area>
+			<NoRegion Name="NoRegion" TextColor="Black">White</NoRegion>
+			<Outer____Bounds Name="Outer Bounds" TextColor="Black">Silver</Outer____Bounds>
+			<Post-Game____Fun Name="Post-Game Fun" TextColor="Black">#9020FF</Post-Game____Fun>
+		</regions>
+		<fonts>
+			<room size="12">Arial</room>
+			<object size="9.75">Arial</object>
+			<line size="9">Arial</line>
+		</fonts>
+		<grid>
+			<snapTo>yes</snapTo>
+			<visible>yes</visible>
+			<showOrigin>yes</showOrigin>
+			<size>32</size>
+		</grid>
+		<lines>
+			<width>2</width>
+			<handDrawn>no</handDrawn>
+			<arrowSize>8</arrowSize>
+			<textOffset>4</textOffset>
+		</lines>
+		<rooms>
+			<darknessStripeSize>24</darknessStripeSize>
+			<objectListOffset>4</objectListOffset>
+			<connectionStalkLength>16</connectionStalkLength>
+			<preferredDistanceBetweenRooms>64</preferredDistanceBetweenRooms>
+			<defaultRoomName>Cave</defaultRoomName>
+		</rooms>
+		<ui>
+			<handleSize>12</handleSize>
+			<snapToElementSize>16</snapToElementSize>
+		</ui>
+		<margins>
+			<documentSpecific>yes</documentSpecific>
+			<horizontal>96</horizontal>
+			<vertical>96</vertical>
+		</margins>
+		<keypadNavigation>
+			<creationModifier>control</creationModifier>
+			<unexploredModifier>alt</unexploredModifier>
+		</keypadNavigation>
+	</settings>
+</trizbort>

@@ -1901,6 +1901,10 @@ carry out exitsing:
 		say "The hatch above." instead;
 	if player is in idiot village and player has crocked half:
 		say "You can exit to the west, but--you may want to poke around Idiot Village in even some crazy diagonal directions." instead;
+	if player is in service community:
+		say "You can go pretty much any which way, but you sense that there's only one right way out." instead;
+	if mrlp is endings:
+		say "It looks like you have a small puzzle on how to get out of here." instead;
 	repeat with G running through directions:
 		if G is viable:
 			now got-one is true;
@@ -1920,7 +1924,7 @@ understand "xyzzy" as xyzzying.
 understand "plugh" as xyzzying.
 
 carry out xyzzying:
-	say "A hollow voice booms '[one of]Disaster spelling[or]Obvious, Captain[or]Nonsense? No[or]Errors of comedy[cycling]!'";
+	say "A hollow voice booms '[one of]Disaster spelling[activation of spelling disaster][or]Obvious, Captain[activation of captain obvious][or]Nonsense? No[activation of nonsense no][or]Errors of comedy[activation of comedy of errors][cycling]!'";
 	the rule succeeds;
 
 chapter diging
@@ -2232,7 +2236,7 @@ Brother Soul	"A soul brother is one who has very similar opinions to you."
 Buddy Best	"A best buddy is your favorite friend." [court of contempt]
 the Reasoning Circular	"Circular Reasoning is, for instance, I'm smart because I'm clever because I'm smart."
 a long tag	"To tag along is to follow behind."
-Baiter Master	"[if allow-swears is true]Masturbater is someone who--pleasures himself[else]Messiah Complex means someone believes they're the chosen one[end if]." [freak control]
+Baiter Master	"[if allow-swears is true]Masturbater is someone who--pleasures himself[else]Messiah Complex means someone believes they're the chosen one[end if]." [freak control] [?? break this up]
 list bucket	"A bucket list has things to do before you die."
 Language Sign	"Sign language is how people communicate with the deaf."
 call curtain	"A curtain call is when someone comes back out after lots of applause."
@@ -2257,13 +2261,20 @@ View of Points	"Points of view are opinions."
 
 table of explanations (continued) [this is stuff referred to tangentially]
 exp-thing	exp-text	exp-anno
+Buster Ball	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure."
+Hunter Savage	"A savage hunter is, well, someone with no mercy. Yup, I like the 'dirty' tangential bad guy better, too."
+Nonsense No	"No-nonsense means, well, not taking any silliness."
+Captain Obvious	"Captain Obvious is someone who always states what's readily apparent. Captain has a sarcastic meaning, here."
+Comedy of Errors	"A comedy of errors is so much going wrong it's funny. Errors of comedy would be so much wrong there's nothing to laugh at."
+Spelling Disaster	"Disaster spelling is, well, consonants clumped together. Spelling disaster is leading to bad news."
 Total T	"Teetotal means alcohol-free."
-Business Show	"Show business is the act of entertainment, and the business show's is (purportedly) more practical."
+Business Show	"Show business is the act of entertainment, and the business show's is (purportedly) more practical." [?? test this]
 Go Rum	"A rum go is an unforeseen unusual experience, as opposed to 'GO' anything which indicates general motivation."
-Complain Cant	"Cant means a tendency towards something, so someone with a complain cant would only say 'can't complain' very ironically."
-Received Wisdom	"Received wisdom is generally accepted knowledge which is often not true, such as we only use 10% of our brain. Gustave Flaubert wrote a book called The Dictionary of Received Wisdom that makes fun of many examples."
+Complain Cant	"Cant means a tendency towards something, so someone with a complain cant would only say 'can't complain' very ironically." [eternal concepts]
+Received Wisdom	"Received wisdom is generally accepted knowledge which is often not true, such as we only use 10% of our brain. Gustave Flaubert wrote a fun book called The Dictionary of Received Wisdom that makes fun of many examples. For instance, a hamlet is always charming."
 Power People	"People power was a rallying cry in demonstrations against the authoritarianism of, well, power people."
 Something Mean	"Mean something = talk or act with purpose. Something mean = well, nastiness."
+Sitting Duck	"A sitting duck is someone just waiting to be taking advantage of. But if you duck sitting, you aren't waiting."
 
 table of room explanations [tore]
 room-to-exp	exp-text
@@ -2877,10 +2888,14 @@ to say bad-guy:
 	say "[if allow-swears is true]Baiter Master[else]Complex Messiah[end if]"
 
 to say bad-guy-2:
-	say "[if allow-swears is true]Buster Ball[else]Hunter Savage[end if]"
+	say "[if allow-swears is true]Buster Ball[else]Hunter Savage[end if]";
+	now buster ball is in lalaland;
+	now hunter savage is in lalaland;
 
 to say bad-guy-2-c:
-	say "[if allow-swears is true]BUSTER BALL[else]HUNTER SAVAGE[end if]"
+	say "[if allow-swears is true]BUSTER BALL[else]HUNTER SAVAGE[end if]";
+	now buster ball is in lalaland;
+	now hunter savage is in lalaland;
 
 to say bg:
 	say "[if allow-swears is true]BM[else]CM[end if]"
@@ -8360,11 +8375,30 @@ bullpen is a room in meta-rooms. "You should never see this. If you do, it is a 
 
 chapter conceptville
 
+to say activation of (x - a thing):
+	now x is in lalaland;
+
 conceptville is a room in meta-rooms. "You should never see this. If you do, it is a [bug]." [this is a cheesy hack, as concepts you haven't seen yet are here, and when you see them, they move to lalaland.]
+
+section soda club concepts
 
 the Total T is an undesc in conceptville.
 
 the Go Rum is an undesc in conceptville.
+
+section xyzzy concepts
+
+Captain Obvious is an undesc in conceptville. understand "obvious captain" as captain obvious.
+
+a thing called Nonsense No is an undesc in conceptville. understand "no nonsense" as nonsense.
+
+Comedy of Errors is an undesc in conceptville. understand "errors of comedy" as comedy of errors.
+
+Spelling Disaster is an undesc in conceptville. understand "disaster spelling" as spelling disaster.
+
+Buster Ball is an undesc in conceptville. understand "ball buster" as buster ball.
+
+Hunter Savage is an undesc in conceptville. understand "savage hunter" as hunter savage.
 
 chapter lalaland
 
@@ -8381,6 +8415,8 @@ Something Mean is an undesc in lalaland. understand "mean something" as Somethin
 Complain Cant is an undesc in lalaland. understand "cant complain" as Complain Cant.
 
 People Power is an undesc in lalaland. understand "power people" as People Power.
+
+Sitting Duck is an undesc in lalaland. understand "duck sitting" as Sitting Duck.
 
 volume rule replacements
 
@@ -8476,6 +8512,11 @@ Include (-
 				if (bigSwear) { print "'Don't play mind games with us!' a voice booms. 'Just for that, you're in for it.'"; rtrue; }
 				if (smallSwear) { print "'You sure can't! What a lame try.' a voice booms."; }
 				rfalse;
+			}
+			if (bigSwear || smallSwear)
+			{
+			  print "'Waffling, but we get the point.'";
+			  rtrue;
 			}
 		}
 		times++;
