@@ -1945,7 +1945,7 @@ dirt-dug is a truth state that varies.
 
 rule for supplying a missing noun when diging:
 	if player does not have pocket pick:
-		say "Nothing to dig with." instead;
+		say "Nothing to dig with. You try to dig things generally, but it doesn't work[if player is in down ground]. Not even with Fritz around[end if]." instead;
 	if player is in garden:
 		now the noun is poor dirt;
 	else if player is in tunnel:
@@ -1960,6 +1960,10 @@ rule for supplying a missing noun when diging:
 			now noun is arch;
 
 carry out diging:
+	if noun is Fritz:
+		say "You were warned about trying to dig people like Fritz, but you fail to do so, so--no harm, no foul." instead;
+	if noun is a person:
+		say "Yeah, that's the problem, you don't quite dig other people, but you'd like to." instead;
 	if player does not have pocket pick:
 		say "You have nothing to dig with." instead;
 	if noun is t-surf:
@@ -2059,7 +2063,7 @@ carry out explaining the player:
 			say "Yay! No unexplained things.";
 		now count is 0;
 		repeat with Q running through rooms not in meta-rooms:
-			if Q is not an room-to-exp listed in table of room explanations:
+			if Q is not a room-to-exp listed in table of room explanations:
 				increment count;
 				say "[count]: [Q][if Q is privately-named](privately-named)[end if] ([location of Q]) needs an explanation.";
 			else:
@@ -2070,6 +2074,8 @@ carry out explaining the player:
 			say "Yay! No unexplained rooms.";
 		unless the player's command includes "me":
 			the rule succeeds;
+
+section rxing [e.g. xp without an argument]
 
 rxing is an action applying to nothing.
 
@@ -2085,14 +2091,16 @@ carry out rxing:
 understand "xp" as rxing.
 understand "explain" as rxing.
 
+section what is explainable
+
 definition: a thing (called x) is explainable:
 	if x is a logic-game, decide no;
 	if x is a room, decide yes;
 	if x is generic-jerk, decide no;
 	if x is a direction, decide no;
 	if debug-state is true and x is off-stage, decide yes; [it is going on stage at some point]
-	if x is in bullpen and debug-state is true, decide yes;
-	if x is in conceptville and debug-state is true, decide yes;
+	if x is in bullpen, decide yes; [bullpen is for items 'lost' during sleep]
+	if x is in conceptville and debug-state is true, decide yes; [can it ever be in play? In debug, we need to know]
 	if x is in lalaland, decide yes;
 	if x is part of towers of hanoi or x is part of broke flat or x is part of games counter or x is games counter or x is games, decide no;
 	if x is t-surf, decide no;
@@ -2112,7 +2120,7 @@ definition: a thing (called x) is explainable:
 
 understand "explain [text]" as a mistake ("You've come across nothing like that, yet. Or perhaps it is way in the past by now.")
 
-after explaining dots:
+after explaining dots: [just below, the dots explanation asks a question, if you want it spoiled]
 	if the player consents:
 		say "[one of][or]Oh no! Forgot already? [stopping]From the lower right, go up-left two, right 3, down-left 3, up 3. It's part of 'outside the box' thinking. But you can also roll a paper into a cylinder so one line goes through, or you can assume the dots have height and draw three gently sloping lines back and forth.";
 	else:
@@ -2261,14 +2269,14 @@ View of Points	"Points of view are opinions."
 
 table of explanations (continued) [this is stuff referred to tangentially]
 exp-thing	exp-text	exp-anno
-Buster Ball	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure."
+Buster Ball	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure." [the 2 bad guys]
 Hunter Savage	"A savage hunter is, well, someone with no mercy. Yup, I like the 'dirty' tangential bad guy better, too."
-Nonsense No	"No-nonsense means, well, not taking any silliness."
+Nonsense No	"No-nonsense means, well, not taking any silliness." [xyzzy snark]
 Captain Obvious	"Captain Obvious is someone who always states what's readily apparent. Captain has a sarcastic meaning, here."
 Comedy of Errors	"A comedy of errors is so much going wrong it's funny. Errors of comedy would be so much wrong there's nothing to laugh at."
 Spelling Disaster	"Disaster spelling is, well, consonants clumped together. Spelling disaster is leading to bad news."
 Total T	"Teetotal means alcohol-free."
-Business Show	"Show business is the act of entertainment, and the business show's is (purportedly) more practical." [?? test this]
+Business Show	"Show business is the act of entertainment, and the business show's is (purportedly) more practical." [?? test this!]
 Go Rum	"A rum go is an unforeseen unusual experience, as opposed to 'GO' anything which indicates general motivation."
 Complain Cant	"Cant means a tendency towards something, so someone with a complain cant would only say 'can't complain' very ironically." [eternal concepts]
 Received Wisdom	"Received wisdom is generally accepted knowledge which is often not true, such as we only use 10% of our brain. Gustave Flaubert wrote a fun book called The Dictionary of Received Wisdom that makes fun of many examples. For instance, a hamlet is always charming."
@@ -2358,9 +2366,11 @@ understand "xpoff" as xpoffing when ever-anno is true.
 no-basic-anno is a truth state that varies.
 
 carry out xpoffing:
+	unless anno-check is true or "anno" is skip-verified:
+		say "You may've stumbled on a command you shouldn't be aware of yet. This is meant to be used in conjunction with the ANNO command. So I'm going to reject it until you specifically ANNO." instead;
 	now told-xpoff is true;
 	now no-basic-anno is whether or not no-basic-anno is true;
-	say "Basic explanations now [if no-basic-anno is true]don't [end if]appear with annotations.";
+	say "Basic explanations now [if no-basic-anno is true]don't [end if]appear with ANNO annotations.";
 	the rule succeeds;
 
 chapter noteing
@@ -2442,6 +2452,8 @@ carry out verbing:
 	say "[2da]you can also type ABOUT or CREDITS or HISTORY to see meta-information, and XP/EXPLAIN (any object) gives a brief description. XP with no argument explains the room name.";
 	say "[2da]EXITS shows the exits. While these should be displayed in the room text, you can see where they lead if you've been there.";
 	say "[2da]HELP/HINT/HINTS/WALKTHROUGH will redirect you to the PDF and HTML hints that come with the game. THINK/SCORE gives very broad, general hinting. WAIT lets you wait.";
+	if cur-anno > 0:
+		say "[2da]NOTE (number or text) displays a previous note you uncovered." instead;
 	if verbs-unlocked:
 		say "You've also unlocked some verbs:";
 		repeat through table of vu:
@@ -2450,13 +2462,13 @@ carry out verbing:
 		list-debug-cmds;
 	the rule succeeds;
 
-to decide whether verbs-unlocked:
+to decide whether verbs-unlocked: [I could probably check "duck sitting" but best to be thorough]
 	repeat through table of vu:
 		if found entry is true, decide yes;
 	decide no;
 
 to list-debug-cmds:
-	say "DEBUG COMMANDS:[paragraph break][2da]J jumps you to the next bit from the Street, Lounge, Surface or Pier.[line break][2da]MONTY listens and smells and, if CRIB is toggled, looks at the note crib.[line break][2da]DONOTE lists the current note crib contents.[line break][2da]JERK tells you what to do with the jerks.[line break][2da]JGO gets rid of them[line break][2da]BROBYE kicks the Keeper Brothers out.[line break][2da]CTC clears the chase paper.";
+	say "DEBUG COMMANDS:[paragraph break][2da]J jumps you to the next bit from the Street, Lounge, Surface or Pier.[line break][2da]MONTY listens and smells and other commands. It may be more for programming[line break][2da]JERK tells you what to do with the jerks.[line break][2da]JGO gets rid of them[line break][2da]BROBYE kicks the Keeper Brothers out.[line break][2da]CTC clears the chase paper so you don't have to do that little dance.";
 
 chapter hinting
 
@@ -2514,6 +2526,7 @@ understand "history" as historying.
 
 carry out historying:
 	say "I originally thought up this game in November of 2013. It had a completely different name, which I like a lot, but it didn't fit. PC went through several other names which sounded good but not good enough. The basic idea behind most room names etc. was unchanged.[paragraph break]I wanted to riff on some facet of language without being as abstract and obscure as Ugly Oafs, or as puzzly as the Stale Tales Slate or Threediopolis. The ideas poured in slowly, often by accident. Sometimes I'd overhear stuff, or I'd read an article or book, and there it was. Other times, I'd see a word I was sure had to work some way.[paragraph break]There were enough ideas that didn't fit my story line that I have a sequel and a name for it too. That name will be reveled in a successful ending.";
+	say "Nuts-and-bolts details can be found in the latest release's included notes.";
 	the rule succeeds;
 
 chapter signing
@@ -2529,6 +2542,8 @@ carry out signing:
 		say "[if burden-signed is true]You've already got the Weasel's signature! [else]It says you can't sign it yourself, and you aren't good at forging. [end if]Besides, you have no pen." instead;
 	if noun is cold contract:
 		say "No way. Maybe if some fast talker shoved it in your face, you would sign it to shut them up, but that's not the case here." instead;
+	if noun is language sign:
+		say "It's nowhere near close enough. Perhaps you need to do something else gimmicky." instead;
 	say "You aren't famous or popular enough for your signature to mean anything, and besides, you have no pen, anyway." instead;
 
 volume new rule (re-)definitions
@@ -2541,7 +2556,7 @@ check exiting:
 		say "You exit the chase paper." instead;
 	if location of player is only-out:
 		continue the action;
-	if number of viable directions is 0:
+	if number of viable directions is 0: [see section printing exits for what a viable direction is]
 		say "There's no way to exit.";
 	else if number of viable directions is 1:
 		let Q be a random viable direction;
@@ -4353,6 +4368,23 @@ definition: a client (called cli) is befriended:
 	if suspect entry is 2:
 		decide yes;
 	decide no;
+
+chapter up gum
+
+some up gum is an edible thing on Tray A. description is "You know it's UP GUM since that's what's carved into the top surface."
+
+check taking some up gum:
+	try eating some up gum instead;
+
+check eating some up gum:
+	say "Man! As you start chewing, you realize how to chew for better pleasure and taste preservation. You keep experimenting--wow, that works, that doesn't--man, you totally have ideas for a REALLY COOL SCIENCE PAPER! Until [if joint strip is unvisited]two shadowy characters[else if judgment pass is unvisited]the Stool Toad and some other bossy looking fellow[else]the Stool Toad and Officer Petty[end if] approach.";
+	wfak;
+	say "'Say! Look-a-here! Can't walk and chew gum at the same time!' Startled, you blink.";
+	wfak;
+	say "'But he can blink and chew gum, so that's something! Well, another one of these. Only one place for [']em.'";
+	wfak;
+	say "You should've expected that treat would...gum up your progress.";
+	ship-off Maintenance High instead;
 
 chapter iron waffle
 
@@ -8978,6 +9010,10 @@ carry out montying:
 		repeat through table of monties:
 			now on-off entry is true;
 		the rule succeeds;
+	if the topic understood matches "none":
+		repeat through table of monties:
+			now on-off entry is false;
+		the rule succeeds;
 	say "[b]Going Widdershins (ungoable direction) :[r]";
 	repeat through table of monties:
 		if the topic understood matches montopic entry:
@@ -8985,20 +9021,12 @@ carry out montying:
 			say "[test-title entry] is now [if on-off entry is true]on[else]off[end if].";
 			now found-toggle is true;
 	if found-toggle is false:
-		say "MONTY didn't find anything to toggle.";
-	the rule succeeds;
-	try requesting the score;
-	if monty-full is false:
-		say "Currently blocking crib hints with MONTY. Type CRIB to turn them on." instead;
-	if jerk circle is visited:
-		say "Currently allowing crib hints with MONTY. Type CRIB to turn them off.";
-		try donoteing instead;
-	else:
-		say "You haven't made it to the jerk circle, so I won't look in the crib, yet." instead;
+		say "MONTY didn't find anything to toggle. Here is a list: legend, smell, listen, score, noway, note.";
 	the rule succeeds;
 
 table of monties
 montopic (topic)	on-off	test-title	test-action
+"legend/hint"	false	"LEGEND HINTING"	try-hinting rule
 "s/smell"	false	"SMELLING"	try-smelling rule
 "l/listen"	false	"LISTENING"	try-listening rule
 "sc/score"	false	"SCORING"	try-scoring rule
@@ -9011,6 +9039,11 @@ this is the try-noting rule:
 this is the try-wid rule:
 	try going widdershins;
 
+this is the try-hinting rule:
+	hint-red;
+	hint-blue;
+	hint-big;
+
 this is the try-smelling rule:
 	try smelling;
 
@@ -9020,7 +9053,7 @@ this is the try-listening rule:
 this is the try-scoring rule:
 	try requesting the score;
 
-every turn:
+every turn (this is the full monty test rule) :
 	repeat through table of monties:
 		if on-off entry is true:
 			say "========[test-title entry]:[line break]";
