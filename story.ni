@@ -1369,6 +1369,10 @@ check attacking:
 		say "How? By stepping on it and falling into it? Smooth." instead;
 	if noun is arch:
 		say "[if mush is in surface]Maybe you could do a flying karate-leap to touch the arch, but you'd fall into the mouth mush, so no[else]You should really just ENTER it now[end if]." instead;
+	if noun is gen-brush or noun is off brush or noun is back brush or noun is aside brush:
+		say "Beating that brush would be beating around the brush." instead;
+	if noun is fund hedge:
+		say "'Vandalism is subject to fines and incarceration,' the Labor Child warns you as you take a swing. You [if money seed is off-stage]can probably just take what you need[else]already got the money seed[end if]." instead;
 	if noun is a logic-game:
 		say "'Dude! I don't care about the logic games, but they're, like, someone's PROPERTY! And lashing out like that doesn't make you any less, um...' As you wait, you're grabbed from behind. It's some giant toad in a police uniform. Weird. 'There's a place for disrespectful troublemakers like you.'";
 		ship-off Hut Ten instead;
@@ -1384,6 +1388,9 @@ check attacking:
 	if noun is thoughts idol:
 		say "You feel weirdly paralyzed as you get too close. As you're frozen, you hear the voice of Officer Petty mumbling 'Another fool who thought he was smart.' He dumps you in a quasi-military area, and if you thought you had a break from ad hoc philosophizing, you'd be wrong.";
 		ship-off Hut Ten instead;
+	if noun is Labor Child:
+		say "'Help! Officers!' The Labor Child searches for a hidden button, and you can only assume a hidden alarm has gone off. The Stool Toad and [if judgment pass is visited]Officer Petty[else]another man[end if] block the exit. 'Kid, give [']im the lecture! The one the boss loves!' It's one you don't. The adults give you the lecture about picking on someone smaller than you and mention that you aren't the first but you're the worst. 'Good job! [bg] will be pleased!' the Labor Child says as you're carried away.";
+		ship-off Fight Fair instead;
 	if noun is Baiter:
 		say "Of course, with all those screens, he saw you well before you got close. He whirls and smacks you. Stunned, you offer no resistance as you're sent away to where those who commit high treason go...";
 		ship-off Punishment Capitol instead;
@@ -1472,6 +1479,8 @@ check giving smokable to: [poory pot or wacker weed]
 	if second noun is Officer Petty:
 		say "Officer Petty begins a quick cuff em and stuff em routine while remarking how that stuff impairs your judgement, and you seemed kind of weird anyway. He summons the Stool Toad for backup, not that he's needed, but just to make your perp walk a little more humiliating.";
 		ship-off Criminals' Harbor instead;
+	if second noun is volatile sal:
+		say "[if noun is poory pot]Sal might be offended by that. As if he is the one causing the smell. Maybe if you can make it so the poory pot can take over the whole room...[else]Sal would probably tell you he's no druggie.[end if]" instead;
 	if second noun is logical psycho:
 		say "That might mellow him out, but it also might start him lecturing on the idiocy of anti-pot laws. Which you don't want, regardless of his stance." instead;
 	if second noun is faith or second noun is grace:
@@ -1847,8 +1856,6 @@ check giving to Brother Blood:
 		say "'No, I need something to calm me down.'" instead;
 
 chapter big one and default
-
-[#16-2]
 
 check giving (this is the big giving organized by room rule) : [this is a catch-all]
 	if second noun is Guy Sweet: [smart street]
@@ -2696,11 +2703,14 @@ understand the command "anno" as something new.
 understand "anno" as annoing.
 
 carry out annoing:
-	if anno-check is true or "anno" is skip-verified:
+	unless anno-check is true or "anno" is skip-verified:
+		say "This is the command for annotations, which are usually only for after you win the game. While it has no spoilers, and it can be toggled, it may be a distraction. Are you sure you want to activate annotations?";
 		now anno-check is true;
-		now anno-allow is whether or not anno-allow is false;
-		now ever-anno is true;
-		say "Now annotations are [if anno-allow is true]on[else]off[end if].";
+		unless the player consents:
+			say "OK. This warning won't appear again." instead;
+	now anno-allow is whether or not anno-allow is false;
+	now ever-anno is true;
+	say "Now annotations are [if anno-allow is true]on[else]off[end if].";
 	[showme whether or not anno-allow is true;] [commented this code for later reference. It's handy.]
 	the rule succeeds;
 
@@ -4064,7 +4074,7 @@ howdy-boy
 howdy-int
 howdy-fun	"'Well, there's solving boring puzzles. But that's a bit too square. No offense, but that's probably how you wound up here. What if you--well, bend the rules a bit? Nothing too stupid, but annoy authority. Convince me--and yourself, of course--you're not just some boring square.'"
 howdy-ways	"'Well, there's public laziness. Annoying other bar patrons. Possession of alcohol. Littering and/or obfuscating your own transgressions record.'"
-howdy-north	"'Well, it gets a bit seedier there. Rougher. I'm sure you're nice and all, but it might be better not to be totally nice. Tell you what. You find me a trail paper, I let you by. It's made up of--oh, what do you call em? For not being a total kiss-up? Anyway, don't do anything too dumb. But you'll want to annoy authorities a bit.'"
+howdy-north	"'Well, it gets a bit seedier there. Rougher. I'm sure you're nice and all, even if you're not actually nice TO anyone, but it might be better not to be totally nice. Tell you what. You find me a trail paper, I let you by. It's made up of--oh, what do you call em? For not being a total kiss-up? Anyway, don't do anything too dumb. But you'll want to annoy authorities a bit.'"
 howdy-west	"'Meal Square. But you can't get up to much trouble there.'"
 howdy-baiter	"'I'm sure he'd like to welcome you individually, but he's just too busy fending off [bad-guy-2]. And thinking up his own philosophies. And making sure nobody weirds out too much, from his big observation room in Freak Control. So he delegates the greeting to me, while making sure nobody acts out the wrong way. Don't get me wrong. He's a geek/dork/nerd and loves the rest of us. Just, those who give it a bad name...'"
 howdy-bye	"'Later. Be good. But not too good. That's just boring.'"
@@ -4841,10 +4851,10 @@ quip	quiptext
 sucker-drinks	"'Well, you wouldn't be ready for the Rummy Gin or Go Rum. If we served it after-hours, of course. If we served it after-hours. But we have Haha Brew and Cooler Wine. Both so watered down, the Stool Toad won't nab you long as you drink it here.'"
 sucker-alco	"'Haha. No.'"
 sucker-onrocks	"He pushes a button on an unseen machine. You hear ice cubes rattle. He holds up a glass, swirls it, and nods meaningfully before putting it away."
-sucker-but	"'Well, everyone here is a bit smarter and maturer than normal, and anyway, this isn't the high-proof stuff. Plus the Stool Toad, we've paid him off. As long as nobody makes it obvious and walks out with a drink. So what the hey.'"
+sucker-but	"'Well, everyone here is a bit smarter and maturer than normal, and anyway, this isn't the high-proof stuff. Plus the Stool Toad, we've paid him off. As long as nobody makes it obvious and walks out with a drink. Then he's pretty awesome. So what the hey.'"
 sucker-haha	"[here-or-not]"
 sucker-cooler	"[here-or-not]"
-sucker-baiter	"'He lets me stay open for very reasonable shakedown fees. He just, well, he just wants to know about all the patrons in here. Why, he drops in here himself and gets the good stuff. But he's very fair and balanced. He knows it's not how much you drink but how it affects you. Why, he's better at shaming unruly customers than I am!'"
+sucker-baiter	"'The [bg] lets me stay open for very reasonable shakedown fees. He just, well, he just wants to know about all the patrons in here. Why, he drops in here himself and gets the good stuff. But he's very fair and balanced. He knows it's not how much you drink but how it affects you. Why, he's better at shaming unruly customers than I am!'"
 sucker-bye	"He goes back to mixing and serving drinks."
 
 to say here-or-not:
@@ -5545,7 +5555,7 @@ to say wfk:
 	say "[line break]";
 
 to say as-char:
-	say "[one of]You hear a rustle from behind. Someone slaps you on the left side of your neck--you look there but see no-one. Then you look right. Ah, there. You STILL hate when people do that.[paragraph break]'Hey. It's me, the Assassination Character. You can call me AC for short--hey, I have plenty of names for you.' He tries a few, and you rush at him, and he snickers. 'Temper, temper. Well, if you're not a lazy quitter, there's a cheat below.'[wfk]'Cheat?'[paragraph break]'Oop! Interested, eh? Guess you're not perfectly honest. Just ENTER the chase paper and give it a try. UNLESS YOU'RE CHICKEN.'[paragraph break]You wonder why you wouldn't fall through the chase paper if there was nothing under there, but the AC probably has an annoying response for that.[no line break][or]The Assassination Character springs out of nowhere again, asking whether you are too chicken to get on the chase paper or maybe you want to be lazy and cheat but you're scared you'll fail.[no line break][stopping]"
+	say "[one of]You hear a rustle from behind. Someone slaps you on the left side of your neck--you look there but see no-one. Then you look right. Ah, there. You STILL hate when people do that.[paragraph break]'Hey. It's me, the Assassination Character. You can call me AC for short (aren't I swell? The [bg], err, [bad-guy], won't let me. I mean, you)--what're you? AS? No, not as catchy. Don't worry, I could make plenty of names for you.' He tries a few, guessing your middle name is Sheldon or Steve, and you rush at him, and he snickers.[wfk]'Temper, temper. Well, if you're not a lazy quitter, there's a cheat below.'[wfk]'Cheat?'[paragraph break]'Oop! Interested, eh? Guess you're not perfectly honest. Just ENTER the chase paper and give it a try. UNLESS YOU'RE CHICKEN.'[paragraph break]You wonder why you wouldn't fall through the chase paper if there was nothing under there, but the AC probably has an annoying response for that.[no line break][or]The Assassination Character springs out of nowhere again, asking whether you are too chicken to get on the chase paper or maybe you want to be lazy and cheat but you're scared you'll fail.[no line break][stopping]"
 
 does the player mean entering the chase paper: it is likely.
 
@@ -6104,7 +6114,7 @@ description of Labor Child is "He's dressed in abhorrently cute Deal Clothes, th
 
 check talking to labor child:
 	if contract is off-stage:
-		say "'I'm a busy kid. In addition to delegating all my homework I am running a business! There's startup materials in the Hedge Fund.'" instead;
+		say "'I'm a busy kid. Almost as busy as [bg]. In addition to delegating all my homework I am running a business! There's startup materials in the Hedge Fund.'" instead;
 	if player has contract:
 		if contract-signed is false:
 			say "'The contract! Less talk! More do!' Oh, man, there's something you'd like to DO." instead;
@@ -6257,7 +6267,7 @@ petty-career	"'Well, I used to enjoy just shouting at people and pushing them ar
 petty-village	"'Smart fella like you doesn't belong there. And no offense, but you're not the sort to whip [']em into line. So I can't let you past.'"
 petty-break	"'Not any time soon, kid. But dispensation from above, and bam. I'm gone.'"
 petty-help	"'Cash donations are illegal. But gifts from the goodness of your heart...'"
-petty-baiter	"'He had a philosophical discussion with me once. Boy, oh, boy! It was about how just because someone is boring or passive doesn't mean they're not suspicious. What an exciting discussion!'"
+petty-baiter	"'The [bad-guy] had a philosophical discussion with me once. Boy, oh, boy! It was about how just because someone is boring or passive doesn't mean they're not suspicious. What an exciting discussion! He said if I kept it up I could call him [bg] one day, even!'"
 petty-bye	"'Stay law-abiding and stuff, kid.'"
 
 after quipping when qbc_litany is litany of officer petty:
@@ -6362,7 +6372,7 @@ table of quip texts (continued)
 quip	quiptext
 sly-magic	"'Not so good. I keep following instructions, but everything goes wrong. Not even the [bad-guy] could help me.'"
 sly-idiot	"Well, I feel dumb if I learn anything, cuz I probably should've. But I feel dumb if I don't, too."
-sly-bm	"'Well, he told me I needed to banter more. He's real good at banter. He even borrowed my magic book and assured me it was easy enough for him, and he has the whole Problems Compound to run. In fact, he said he'd be checking up on me.'"
+sly-bm	"'Well, the [bad-guy] told me I needed to banter more. He's real good at banter. He even borrowed my magic book and assured me it was easy enough for him, and he even has the whole Problems Compound to run. Too busy to explain, but hey, teaching yourself works best.'"
 sly-check	"'My progress. I mean, if it's what I'd like to do and all, I'd better be good at it. Or else he might be forced to label me a Candidate Dummy.'"
 sly-dummy	"'Oh, no! Not an actual dummy. It was sort of a warning shot. Motivation to wise up. I mean he laughed real silvery and all after he said it. Or else. But I guess I took it wrong. Because I'm too worried about it.'"
 sly-geez	"'Well, I figure he's a lot harder on himself. Guess you have to be, to be the main guy dealing with [bad-guy-2]. But he said--if I can just do three things right, someone else would get the label.'"
@@ -6523,7 +6533,7 @@ every turn when Alec Smart is in Speaking Plain and Speaking Plain was visited a
 	increment dutch-blab;
 	if dutch-blab > number of rows in table of dutch-blab:
 		now dutch-blab is 1;
-		say "'THUS ENDS THE BUSINESS SHOW.' Uncle Dutch and Turk Young shout in unison before applauding each other. They then look to you and sigh when you fail to applaud. 'Does not provide minimal encouragement to others. He'll be a failure for sure,' notes Uncle Dutch. 'I've had teachers like that. But they still had to give me A's!' beams Turk Young.[paragraph break][one of]You look back on all their advice and realize none of it could even conceivably help you with what you need to do, here. At least they're not stopping you from going anywhere.[or]They're going to start up again in a bit. But it can't be that bad the next time through.[stopping]";
+		say "'THUS ENDS THE BUSINESS SHOW.' Uncle Dutch and Turk Young shout in unison before applauding each other. They then look to you and sigh when you fail to applaud. 'Does not provide minimal encouragement to others or appreciate clever generalities. He'll be a failure for sure,' notes Uncle Dutch. 'I've had teachers like that. But they still had to give me A's!' beams Turk Young.[paragraph break][one of]You look back on all their advice and realize none of it could even conceivably help you with what you need to do, here. At least they're not stopping you from going anywhere.[or]They're going to start up again in a bit. But it can't be that bad the next time through.[stopping]";
 	else:
 		choose row dutch-blab in table of dutch-blab;
 		say "[banter entry][line break]";
@@ -6537,9 +6547,10 @@ banter
 "Uncle Dutch and Turk discuss the right amount to be scared to be at your most productive, but if you achieve that, you'd better not feel you have nothing to be scared of."
 "Uncle Dutch complains about lazy kids these days, and Turk Young complains about adults who are have given up on life. They both wind up agreeing initiative in general is a good thing."
 "Uncle Dutch reminds Turk to focus on school, but to remember it's more than school. Turk agrees. 'One day I'll have a job where I can tell people to focus on their job and make it more than a job!'"
+"Uncle Dutch and Turk discuss the etiquette of whether you should call the [bad-guy] [bg] or not. Well, YOU never should, and Turk isn't ready yet, but what a big day it will be in the near future when he is allowed!"
 
 for writing a paragraph about a person (called udyt) in Speaking Plain:
-	say "[one of]As you approach the stage, the man and the teen on it boom: 'Approach the Fright Stage with care! Uncle Dutch and Turk Young bring it hard and keep it real with the BUSINESS SHOW!'[or]Uncle Dutch and Turk Young continue their practical philosophy lessons on the Fright Stage.[stopping]";
+	say "[one of]As you approach the stage, the man and the teen on it boom: 'Approach the Fright Stage with care! Uncle Dutch and Turk Young bring it hard and keep it real with the BUSINESS SHOW! With thanks to the [bad-guy] for not arresting us yet and who will one day let us call him [bg]!'[or]Uncle Dutch and Turk Young continue their practical philosophy lessons on the Fright Stage.[stopping]";
 	now uncle dutch is mentioned;
 	now turk young is mentioned;
 
@@ -6741,7 +6752,7 @@ prompt	response	enabled	permit
 
 table of quip texts (continued)
 quip	quiptext
-best-law	"'Brilliant. Yeah. I kind of see the good side of people. Well, interesting people.'"
+best-law	"'Brilliant. Yeah. I kind of see the good side of people. Well, interesting people. They don't even have to be as interesting as [bg]. But they better be close.'"
 best-int	"'Oh, you know. People who break the rules. Break [']em creatively enough to be able to afford my fees. Nobody too square. No offense.'"
 best-good	"'Look, I already said I'm sure you're nice, and all. Whether or not you pick your nose too much. There. Happy with that? No? Well, I did my best. Can't do much more for ya.'"
 best-dirty	"'Y'know, that's shameful coming from you. Maybe someone said you were really weird, but it turned out you were only kind of weird? I'm doing the same thing. But for criminals. I mean, suspected criminals. Look, I can't have these accusations.'"
@@ -6826,7 +6837,7 @@ art-aes	"'Well, closed-mindedness. I'll never like that in people. But in art? A
 art-book	"'This is not a library! However, if you so choose, you may marvel at the titles, record them for your pleasure, and check them out at your nearest library.' Art mumbles something about you not being able to pay the interest back with exciting criticism of your own. You're pretty sure he meant you to hear it."
 art-tol	"'Drivel so dreary, from a mind so banal. I shudder to think. It would make me run screaming.'"
 art-wax	"[wax-blab]"
-art-baiter	"'A top notch fellow. A true patron of the arts. Our aesthetics do line up. He seeks to encourage all art, unless it could be understood by dumb people. Now, art that dumb people SHOULD be able to understand but don't, that's a different story.'"
+art-baiter	"'[bg] is a top notch fellow. A true patron of the arts. Our aesthetics do line up, and I even suspect he is slightly more partial to me than my friend. He seeks to encourage all art, unless it could be understood by dumb people. Now, art that dumb people SHOULD be able to understand but don't, that's a different story.'"
 art-bye	"[enj-splend]"
 
 to say wax-blab:
@@ -6865,7 +6876,7 @@ phil-pomp	--
 phil-aes	"'Indeed, how can one describe an aesthetic of good music? It just is. Except when it isn't. Good music--not rubbish noise--is music that convinces me to converse about it endlessly! I'm sure I've helped create more good music that way.'"
 phil-wax	"[wax-blab]"
 phil-tol	"'I enjoy any music that can be shown you have to be advanced to enjoy. It engenders discussion! Intelligent discussion! In fact, I only abhor pointless, constant noise.'"
-phil-baiter	"'Why, his music criticism is even more wonderful to listen to than the music itself! Even a great piece of music remains the same, but his alternate opinions... the complexity, the variety of though. My, my!'"
+phil-baiter	"'Why, [bg]'s music criticism is even more wonderful to listen to than the music itself! Even a great piece of music remains the same, but his alternate opinions... the complexity, the variety of though. My, my! [bg]has clued me that he could not perform such mental gymnastics with mere literature. Not that there's anything wrong with it.'"
 phil-bye	"[enj-splend]"
 
 to say enj-splend:
@@ -7188,10 +7199,10 @@ check going nowhere in Temper Keep:
 to say say-vent:
 	say "[one of]You look around for the cause, and you only see a vent shaped like a spleen[or]The spleen vent catches your eye[stopping]"
 
-Volatile Sal is a person in Temper Keep. "[one of]'Ah! A new person!' An angry looking man takes a sniff. 'You smell awful too! What is it with all these visitors? Anyway, I'm Volatile Sal. Nice to meet you. Be nicer if you smelled better.'[or][if sal-sleepy is false]Volatile Sal paces around here anxiously, holding his nose every few seconds[else]Volatile Sal is snoozing in a corner by [sp-vent][end if]. It [if sal-sleepy is true]does smell nicer here after your operations[else]does smell a bit odd here[end if].[stopping]"
+Volatile Sal is a person in Temper Keep. "[one of]'Oh, man! [bad-guy] maybe finally sent someone to fix...' An angry looking man takes a sniff. 'You smell awful too! What is it with all these visitors? Anyway, I'm Volatile Sal. Nice to meet you. Be nicer if you smelled better.'[or][if sal-sleepy is false]Volatile Sal paces around here anxiously, holding his nose every few seconds[else]Volatile Sal is snoozing in a corner by [sp-vent][end if]. It [if sal-sleepy is true]does smell nicer here after your operations[else]does smell a bit odd here[end if].[stopping]"
 
 check putting pot on sal:
-	say "Sal might be offended by that. As if he is the one causing the smell. Maybe if you can make it so the poory pot can take over the whole room..." instead;
+	try giving poory pot to sal instead;
 
 understand "angry man" as Sal when player is in Temper Keep.
 
@@ -7213,7 +7224,7 @@ to say sp-vent:
 	say "[if spleen vent is examined]the Spleen Vent[else]a vent[end if]";
 
 check talking to volatile sal:
-	say "[if sal-sleepy is true]You don't want to risk waking him. Who knows what new faults he might find?[else]'Um, yeah, um, back up. I really don't want to smell your breath. Just in case.'[end if]" instead;
+	say "[if sal-sleepy is true]You don't want to risk waking him. Who knows what new faults he might find?[else]'Um, yeah, um, back up. I really don't want to smell your breath. Just in case.' He curses the [bad-guy] for both not caring about the smell here and actively being the cause of it.[end if]" instead;
 
 check inserting it into (this is the put it in vent rule):
 	if second noun is spleen vent:
