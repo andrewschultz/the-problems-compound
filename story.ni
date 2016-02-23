@@ -213,7 +213,7 @@ when play begins (this is the actual start rule):
 	if screen-read is false:
 		say "Also, do you wear gla--? Wait, no, that's irrelevant. Let's...let's get on with things.";
 		wfak;
-	say "It's not [i]The Phantom Tollbooth[r]'s fault your umpteenth re-reading fell flat earlier this evening. Perhaps now you're really too old for it to give you a boost, especially since you're in advanced high school classes. Classes where you learn about the Law of Diminishing Returns.[paragraph break]Or how protagonists gain character through conflict--conflict much tougher than class discussions you barely have energy for. You pick the book up--you shouldn't have chucked it on the floor. Back to the bookcase...";
+	say "It's not [i]The Phantom Tollbooth[r]'s fault your umpteenth re-reading fell flat earlier this evening. Perhaps now you're really too old for it to give you a boost, especially since you're in advanced high school classes. Classes where you learn about the Law of Diminishing Returns.[paragraph break]Or how protagonists gain character through conflict--conflict much tougher than class discussions you barely have energy for. It's all so frustrating--you hate small talk, but you still talk small, and there's no way around. You pick the book up--you shouldn't have chucked it on the floor. Back to the bookcase...";
 	wfak;
 	say "[line break]Odd. Why's a bookmark wedged there? You always read the book in one go!";
 	wfak;
@@ -475,8 +475,13 @@ volume about the player
 
 Alec Smart is a person. the player is Alec Smart.
 
-check examining alec when cookie-eaten is true:
-	say "Well, you know looks don't matter now. You're pretty sure you can take either tack. 'Even a guy looking like ME can have confidence' or, well, just having confidence.[paragraph break]Still, probably above average. Yup." instead;
+check examining alec when accel-ending:
+	if cookie-eaten is true:
+		say "Well, you know looks don't matter now. You're pretty sure you can take either tack. 'Even a guy looking like ME can have confidence' or, well, just having confidence.[paragraph break]Still, probably above average. Yup." instead;
+	else if greater-eaten is true:
+		say "You look like you deserve to look better than you do, which is pretty good." instead;
+	else if off-eaten is true:
+		say "You scowl to yourself that looks don't matter, but you''d rather hang around people who scowl as much as you. Unless they're trying to imitate you." instead;
 
 description of Alec Smart is "[one of]You, Alec Smart, are just sort of average looking. You hope. You guess. But you know people who think they're average are below average, whether or not they know that bit of research.[paragraph break]In any case, looking at yourself tends to make you over-think, and you have enough thinking to do[or]You hope you're un-ugly enough to be a likable everyteen. Others take worse heat for their looks. Not that that makes you feel better[stopping]."
 
@@ -538,6 +543,8 @@ check requesting the score:
 		say "It's probably pretty good, but you're too cool for numbery nonsense." instead;
 	if off-eaten is true:
 		say "Oh man. You don't need yet another number assigned to your performance." instead;
+	if greater-eaten is true:
+		say "Whatever your score is, you have intangibles above that." instead;
 	if mrlp is rejected rooms:
 		say "You have [number of unvisited rooms in mrlp] to visit here, and ";
 		if window bay is unvisited:
@@ -1448,17 +1455,28 @@ understand the commands "show" and "present" and "display" as "give".
 
 give-obj-warn is a truth state that varies.
 
+section before giving stubs
+
+[this is largely to redirect giving to non-persons]
+
 before giving to (this is the warn against giving to nonperson rule):
 	if second noun is not a person:
 		if give-obj-warn is false:
 			say "(NOTE: instead of GIVEing to an inanimate object, you may wish to PUT X ON/IN Y instead.)[line break]";
 			now give-obj-warn is true;
 
-before giving to the rogue arch:
+before giving to the rogue arch (this is the arch not mush rule):
 	if mouth mush is in lalaland:
 		say "You've paid your way through. You can just enter the arch." instead;
 	say "The rogue arch hasn't paid any attention to you, so you give [the noun] to the mouth mush instead.";
 	try giving noun to mouth mush instead;
+
+before giving to googly bowl:
+	try giving noun to Faith Goode instead;
+
+before giving to machine:
+	say "(putting [unless noun is plural-named]it[else]those[end if] on the machine instead)";
+	try putting noun on machine instead;
 
 the block giving rule is not listed in any rulebook.
 
@@ -1533,7 +1551,7 @@ check giving burden to:
 			say "'That's my signature. Don't wear it out.'" instead;
 		if weasel-baiter is not talked-thru:
 			say "'Oh no! You obviously need a little help being more social, but you haven't listened to me enough yet. That'll help. Totally.'" instead;
-		say "The weasel makes a big show about how he would normally charge for this sort of thing, but then, signing for you means he'll feel less guilty rejecting an actual charity since he already did something for someone. He makes you sign a disclaimer in term absolving him if you do anything dumb.[paragraph break]Well, the proof is signed now.";
+		say "The weasel makes a big show about how it would normally charge for this sort of thing, but then, signing for you means it'll feel less guilty rejecting an actual charity since it already did something for someone. It makes you sign a disclaimer in term absolving it if you do anything dumb.[paragraph break]Well, the proof is signed now.";
 		now burden-signed is true instead;
 
 section giving items from surface
@@ -1626,6 +1644,9 @@ check giving dreadful penny to:
 		now penny is in lalaland;
 		say "'Most excellent! It's not the profit so much as the trust. Now, you look like you haven't tried the good herb before. No offense. So let's start you with the...' he sniffs, 'aromatic stuff. It's poor-y pot, but it'll do. Seller assumes no liability if user is too wussy to keep smoke in lungs for effective amount of time, yada, yada.' You try to say you weren't intending to smoke it, anyway." instead;
 
+check giving quiz pop to: [couldn't figure where to put this]
+	say "No. It seems...unusual. And you might need one last thought burst before you're done." instead;
+
 section giving items from west
 
 check giving the fish to:
@@ -1708,6 +1729,12 @@ check giving relief light to:
 		the rule succeeds;
 
 check giving Reasoning Circular to:
+	if second noun is a bro:
+		say "He's not searching for that. He's searching for something real." instead;
+	if second noun is dutch or second noun is turk or second noun is child:
+		say "Oh, he's long since mastered THAT." instead;
+	if second noun is Stool Toad:
+		say "'BASIC TRAINING! I completed that long ago. Some of my colleagues haven't, yet.'" instead;
 	if second noun is Officer Petty:
 		now Officer Petty is in lalaland;
 		now the Reasoning Circular is in lalaland;
@@ -2136,6 +2163,14 @@ after explaining dots: [just below, the dots explanation asks a question, if you
 table of explanations [toe]
 exp-thing	exp-text	exp-anno
 dots	"These aren't a pun, but it's something mathy people see a lot of, and motivational speakers tend to abuse it. If you'd like the solution to the four lines to draw to connect all the points, and even other smart-aleck answers, say yes." [note a non-person must come first or Inform thinks it's a thing]
+the chess board	"Despite being a really good chess player, this always fooled me. I started with a queen in the corner as a kid and got run around, but then as an adult I recognized the virtue of going for an easy solution and seeing why it didn't work. Restricting the center 16 squares helped a lot--by sheer number, that's 21/23 each queen touches, not 25/27. Also, I didn't understand symmetry arguments e.g. it's useful to see if we can have a queen 2 from any corner, or one 3 from a corner. It's important not to think of this as 'laziness' if we can start building general principles or eliminate enough cases."
+the match sticks	"I've always enjoyed match stick problems and how some just don't seem likely. While the general trick if not too many are moved is to shift the original picture onto the new one, somehow, there are creative ones with many shifts."
+Nim	"Nim was always the toughest to prove, and my 8th-grade self wiped out in Beyond Zork and I had to watch the trees for hints. Once I learned about Strong Induction, the proof made sense. Though I was still impressed anyone would come up with it."
+Towers of Hanoi	"ToH is a basic computer science problem, and I remember someone I respected raving how hard it was, and being disappointed how easy the recursive solution was: N to peg X = n-1 to peg Y, bottom to peg X, n-1 to peg Z. That said, it's just awful in practice."
+river boat	"I remember being fooled by the river boat as a kid and then realizing the moves were forced. I was glad to find some variations and even make a decent one in my experimental game Turn Around for the Apollo 18 tribute. It's not big on story, but I like the puzzles and tricks."
+necklace	"The seven-link necklace really only has three possibilities: center, next to center, and next to edge, the edge being clearly silly. That said, I felt clever being able to work out the two-link problem on my own way back when, so I put it here."
+Rubik's Cube	"The Rubik's Cube is always something I was supposed to be good at. My sister three years older than me bought a solving book I figured I'd be old enough to look at in three years. I never did. Not til I was an adult did I see the methods, and I was surprised how piecemeal and orderly it was. I also remember being very very jealous of Will Smith solving it in an episode of Fresh Prince of Bel Air."
+logic puzzles	"I remember marking up books of logic puzzles but thinking they could never ever be practical. I remember having a grease pen over clear plastic so the books could be reused, but I also remember the patterns geting a bit tedious. It wasn't until someone showed me a sample LSAT years later that I thought, really, these are the same thing. Or it's the same process of elimination. Suddenly lawyers seemed less intimidating."
 Alec Smart	"A smart alec is someone who always has a clever quip."
 Guy Sweet	"Guy Sweet is more of a candy-[a-word] than a sweet guy, but 'sweet guy' is such a terrible compliment as-is. To yourself or others." [smart street]
 Game Shell	"A shell game is where an operator and possibly an assistant rig a game so that mugs think it's an easy win, but they can't. The most popular one is when they hide a bean under a hollowed shell and shift them around."	"The game shell is a shell game of its own. No matter how much you solve, you won't impress Guy Sweet, and you won't--well--figure the real puzzles you want to, beyond logic etc."
@@ -2282,9 +2317,20 @@ Nonsense No	"No-nonsense means, well, not taking any silliness." [xyzzy snark]
 Captain Obvious	"Captain Obvious is someone who always states what's readily apparent. Captain has a sarcastic meaning, here."
 Comedy of Errors	"A comedy of errors is so much going wrong it's funny. Errors of comedy would be so much wrong there's nothing to laugh at."
 Spelling Disaster	"Disaster spelling is, well, consonants clumped together. Spelling disaster is leading to bad news."
+Games Confidence	"Confidence games are where someone gains someone else's trust to rip them off. It can be as simple as a shell game or as complex as an investment scheme. Of course, Alec has confidence with logic games but not much else." [start of game]
+Thought for food	"Food for thought is something to think about."
+Tray S	"Stray. In other words, it strayed from Meal Square."
+Tray T	"A tea tray. To go with food."
+Tray X	"It is an ex-tray."
+Bum Beach	"A beach bum is someone who wanders on the beach. Maybe he lives there in a shack too."
+Trust Brain	"A brain trust is a group of people that help make a decision. A trust-brain, though not an English phrase, might mean a mind that can't make its own decisions."
+Moral Support	"Moral support is helping someone even if you don't have concrete advice. SUPPORT MORAL is, well, a slogan that pushes people around."
 Total T	"Teetotal means alcohol-free."
-Business Show	"Show business is the act of entertainment, and the business show's is (purportedly) more practical." [?? test this!]
 Go Rum	"A rum go is an unforeseen unusual experience, as opposed to 'GO' anything which indicates general motivation."
+Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
+Black Mark	"A black mark is something indicating bad behavior."
+Steal This Book	"Steal This Book was a countercultural guide by Abbie Hoffman. Book this steal refers to 'booking' suspects for a transgression, e.g. a parking fine or ticket."
+Business Show	"Show business is the act of entertainment, and the business show's is (purportedly) more practical." [?? test this!]
 Complain Cant	"Cant means a tendency towards something, so someone with a complain cant would only say 'can't complain' very ironically." [eternal concepts]
 Received Wisdom	"Received wisdom is generally accepted knowledge which is often not true, such as we only use 10% of our brain. Gustave Flaubert wrote a fun book called The Dictionary of Received Wisdom that makes fun of many examples. For instance, a hamlet is always charming."
 Power People	"People power was a rallying cry in demonstrations against the authoritarianism of, well, power people."
@@ -2740,6 +2786,7 @@ after examining:
 				say "([cur-anno]) [anno-long entry]";
 				increment cur-anno;
 				now anno-num entry is cur-anno;
+	continue the action;
 
 section the table
 
@@ -2899,7 +2946,7 @@ definition: a logic-game (called j) is defeated:
 
 table of quip texts (continued)
 quip	quiptext
-guy-games	"'They're for people who don't like regular fun social games. Sort of like IQ tests. You look like you'd enjoy them more than most. No offense.'"
+guy-games	"'They're for people who don't like regular fun social games. Sort of like IQ tests. You look like you'd enjoy them more than most. No offense. Hey, I'm saying you have [g-c].'"
 guy-stuck	"'Well, yeah, I used to be kind of a dork. And by kind of a dork I mean really a dork. Probably even worse than you. Hey, I'm showing some serious humility here. I mean, starting at the bottom, as a greeter, until I'm an interesting enough person to join the Problems Compound.'"
 guy-advice	"'Hm, well, if I give you too much advice, you won't enjoy solving them. And if I don't give you enough, you'll be kind of mad at me. So I'm doing you a favor, saying just go ahead and PLAY.'"
 guy-flat	"'Well, that way is the Problems Compound. If you can figure out some basic stuff, you'll make it to Pressure Pier. Then--oh, the people you'll meet!'"
@@ -2948,7 +2995,7 @@ instead of doing something with the dots:
 		say "No. You know that puzzle. You forget if you got it when you saw it, but people made you feel awkward for actually knowing it. Best not to dwell." instead;
 
 instead of entering shell:
-	say "'Whoah. Back up there, champ. We need to, like, verify your aptitude. Just PLAY a game here. Any game.'"
+	say "'Whoah. Back up there, champ. We need to, like, verify your [g-c]. Just PLAY a game here. Any game.'"
 
 the games counter is part of the Game Shell. description is "[bug]"
 
@@ -2959,13 +3006,17 @@ section leaving Smart Street
 
 the gesture token is a thing. description is "It's got a thumbs-up and a finger-gun on one side and a fake grin and a sneer on the other. [if player is in smart street]It's the closest to congratulations you'll probably get from Guy Sweet[else if player is not in variety garden]You wonder where it could be useful[else]The Word Weasel seems to crane in and look at the coin[end if]."
 
+to say g-c:
+	now games confidence is in lalaland;
+	say "games confidence";
+
 check going inside when player is in Smart Street:
 	if guy-games is not talked-thru:
 		say "'Hey! You anti-social or something? Have, y'know, meaningful conversation before exploring there!'" instead;
 	if guy-flat is not talked-thru:
 		say "You don't know anything about Broke Flat. It might be really dangerous. Maybe you should ask someone about it. Even if the only someone around is Guy Sweet." instead;
 	if your-game-wins is 0:
-		say "'Dude! We need to, like, make sure you have aptitude before you go in there. Try one of these games, or something!'" instead;
+		say "'Dude! We need to, like, make sure you at least have [g-c] before you go in there. Try one of these games, or something!'" instead;
 	repeat through table of guy taunts:
 		if your-game-wins <= total-wins entry:
 			say "A final salvo from Guy Sweet: [guy-sez entry][paragraph break]";
@@ -2979,6 +3030,7 @@ total-wins	guy-sez
 1	"'Thanks for not wasting my time with these dumb brain teasers too much, but all the same, doing the bare minimum...'"
 2	"'I guess you're prepared and stuff. Or not.'"
 6	"'Nice job and all, but the puzzles are a bit more social in there. You know, talking to other people? Just a tip.'"
+10	"'Smart enough to get that many puzzles, you're smart enough to know how much they don't mean in the real world, eh? Without, like, people skills."
 10	"'You know, if you were more social, you'd be a total showoff. So you need to watch for that, if you get a clue in the Compound.'"
 999	"'Boy! With all you learned about puzzles, you probably DIDN'T have time for common sensical stuff. Maybe you'll find it in there...or not.'"
 
@@ -3068,15 +3120,15 @@ to write-undo (x - text):
 	else:
 		say "[line break]"
 
-section ducksittinging [get to tension surface]
+section ducksitting [skips to tension surface]
 
-ducksittinging is an action out of world.
+ducksitting is an action out of world.
 
 understand the command "duck sitting" as something new.
 
-understand "duck sitting" as ducksittinging.
+understand "duck sitting" as ducksitting.
 
-carry out ducksittinging:
+carry out ducksitting:
 	if player is not in smart street:
 		say "Boy! Knowing then what you know now, you'd have liked to duck sitting in some house and getting to action. But you can't, unless you restart." instead;
 	say "You open the door to Broke Flat slowly, looking inside for people waiting in ambush. Nobody. You skulk around a bit more--hmm, a passage you'd've missed if you just ran through. You think you see your bathroom up ahead. Wait, no, it's another weird warp. ";
@@ -3084,7 +3136,11 @@ carry out ducksittinging:
 	duck-sitting;
 	the rule succeeds;
 
-section notice advance [skips you to the endgame before the BM]
+to duck-sitting:
+	move player to tension surface;
+	now gesture token is in lalaland;
+
+section notice advance [skips you to the endgame before the BM, jerk circle solved]
 
 jumped-at-start is a truth state that varies.
 
@@ -3123,7 +3179,7 @@ understand "figure cut" as figureacuting.
 carry out figureacuting:
 	if player is not in smart street:
 		say "Oh, man! Looking back, you totally see a shortcut you should've at least checked at, back in Smart Street. But it's too late to skip ahead like that now. You may wish to restart the game." instead;
-	say "Guy Sweet yells 'Hey! Where are you going? I mean, you're probably like accelerated in school but if you think you're accelerated at life...' You ignore him. You don't need to be taught a same lesson twice. Well, not this one. You rattle the doorknob just so--and you recognize a few odd passages in Broke Flat--and bam! You fall through an invisible slide to the [jc] ";
+	say "Guy Sweet yells 'Hey! Where are you going? I mean, you're probably like accelerated in school but if you think you're accelerated at life...' You ignore him. You don't need to be taught a same lesson twice. Well, not this one. You rattle the doorknob just so--and you recognize a few odd passages in Broke Flat--and bam! You fall through an invisible slide to the [jc]. ";
 	write-undo "figure";
 	figure-cut;
 	the rule succeeds;
@@ -3154,10 +3210,6 @@ to knock-hard:
 	move player to pressure pier;
 	now gesture token is in lalaland;
 
-to duck-sitting:
-	move player to tension surface;
-	now gesture token is in lalaland;
-
 section chessboard
 
 the chess board is a logic-game in Smart Street. description is "The chessboard has eight queens all of one color lumped into an almost-3x3 square in one corner."
@@ -3172,7 +3224,7 @@ understand "matches" and "matchsticks" as match sticks.
 
 section peg solitaire
 
-Peg Solitaire is a logic-game in Smart Street. description is "It's an intersection of 3x7 rectangles with a hole in the middle. You know, where you jump a peg over another until--hopefully--they're all gone, except for one in the center."
+Peg Solitaire is a logic-game in Smart Street. description is "It's an intersection of 3x7 rectangles with a hole in the middle. You know, where you jump a peg over another until--hopefully--they're all gone, except for one in the center. It makes you think of a lonely girl you should've asked out, for some reason."
 
 understand "pegs" as peg solitaire
 
@@ -3196,7 +3248,7 @@ description of the Towers of Hanoi is "It's that classic old game of moving all 
 
 the rings are part of the towers of hanoi. description of rings is "They're stacked smallest on top, largest on bottom, on the [l-r-hanoi] peg."
 
-the middle pole is part of the towers of hanoi. understand "left/right pole" and "left pole" as middle pole. description is "[bug]"
+the middle pole is part of the towers of hanoi. understand "left/right pole" and "left" and "right" as middle pole when player is in smart street. description is "[bug]"
 
 instead of doing something with the middle pole:
 	say "There's nothing special about the poles. About all you can do is PLAY the towers."
@@ -3348,13 +3400,13 @@ carry out playing a logic-game:
 			now the-game entry is tried;
 			if gesture token is off-stage:
 				now player has gesture token;
-				say "'Oh, hey, and here's a little something to recognize you're good for something, or at something, or something.'[paragraph break]You turn it over after he hands it to you. Each side looks deliberately counterfeited.[paragraph break]'Buck up, bucko! That's a gen-u-ine gesture token! They're pretty rare. At any rate, I bet YOU'VE never seen one.'";
+				say "'Oh, hey, and here's a little something to recognize you're good for something, or at something, or something.'[paragraph break]You turn it over after he hands it to you. Each side looks deliberately counterfeited.[paragraph break]'Buck up, bucko! Show some [g-c]! That's a gen-u-ine gesture token! They're pretty rare. At any rate, I bet YOU'VE never seen one.'";
 			unless max-won of noun is times-won of noun:
 				increment times-won of noun;
 				increment your-game-wins;
 				check-win-chat;
 			the rule succeeds;
-	say "This is a bug. You've played out [noun].";
+	say "This is a bug. You've played out [noun]. Let me know at [my-repo] or [email].";
 	the rule succeeds.
 
 to check-win-chat:
@@ -3386,18 +3438,16 @@ carry out playing:
 		try talking to story fish instead;
 	if noun is torch:
 		say "It is cranking out music nicely on its own. Ok, the music isn't so nice." instead;
-	if noun is assassination character:
+	if noun is assassination character or noun is chase paper:
 		try entering chase paper instead;
 	if noun is Guy Sweet:
 		say "Why not play one of his games instead?" instead;
 	if noun is Alec Smart:
 		say "You are trying to figure how NOT to play yourself." instead;
-	if noun is chase paper:
-		try entering chase paper instead;
 	if noun is a person:
 		say "You don't have the guile to play other people for suckers. You're not sure you want to." instead;
 	if noun is language machine:
-		say "Writing is no game." instead;
+		say "Writing is no game. And the machine doesn't seem equipped for games. Even semantic ones." instead;
 	if noun is insanity terminal:
 		say "It's more a technical console than a gaming console." instead;
 	say "You can only really play something that's explicitly a game." instead;
@@ -3745,7 +3795,7 @@ the picture hole is scenery in vision tunnel. description is "[one of]You peek i
 
 understand "vision" as picture hole when player is in tunnel and flower wall is examined.
 
-understand "vision" as picture hole when player is in tunnel and flower wall is not examined.
+understand "vision" as flower wall when player is in tunnel and flower wall is not examined.
 
 the earth of scum is scenery in Vision Tunnel. "It doesn't smell until you get close to it. It seems to be wriggling, and you're not sure what died in it, or when. You don't want to know."
 
@@ -3845,21 +3895,21 @@ check going in variety garden:
 		now current-brush is off brush;
 		move off brush to variety garden;
 		say "You run into some brush. More precisely, you run near it but just don't feel up to it, as if you don't have the fight to look beyond it. 'Found the off brush, eh?' snickers the Word Weasel." instead;
-	if noun is not east:
+	if noun is not east: [w nw sw]
 		now current-brush is aside brush;
 		move aside brush to variety garden;
 		say "You run into some brush. More precisely, you get close to it but turn to the side to avoid its prickliness. You look for a way around--it's not that dense, so there should be one--but no luck. 'Found the aside brush, eh?' snickers the Word Weasel." instead;
 
 carry out going west in Tension Surface:
 	if variety garden is unvisited:
-		say "A small animal bounds up to you. 'Hi! I'm the Word Weasel, and this is the variety garden!'[paragraph break]'There's not much...'[paragraph break]'Well, you haven't noticed the absence of leaves! It's an absence of pretty much every leaf that was! And so much poor dirt!'";
+		say "A small animal bounds up to you. 'Hi! I'm the Word Weasel, and this is the variety garden!'[paragraph break]'There's not much...'[paragraph break]'Well, you haven't noticed the absence of leaves! It's an absence of pretty much every leaf that was! And so much poor dirt! And all the brush!'";
 
 chapter word weasel
 
-the Word Weasel is a person in Variety Garden. description is "The Word Weasel[one of] looks pretty much like the weasels you imagined from those Brian Jacques novels you're too old for now, so you can't read the last few you wanted to. His[or][']s[stopping] facial expression seems to be going for 'so untrustworthy he's trustworthy.'". "The Word Weasel smirks about here."
+the Word Weasel is a neuter person in Variety Garden. description is "The Word Weasel[one of] looks pretty much like the weasels you imagined from those Brian Jacques novels you're too old for now, so you can't read the last few you wanted to. It[or][']s[stopping] facial expression seems to be going for 'so untrustworthy it's trustworthy.'". "The Word Weasel smirks about here."
 
 check talking to weasel when burden-signed is true:
-	say "He doesn't seem to want to talk any more, and come to think of it, neither do you, really. It's time to get a move on." instead;
+	say "It doesn't seem to want to talk any more, and come to think of it, neither do you, really. It's time to get a move on." instead;
 
 after doing something with the weasel:
 	set the pronoun it to the weasel;
@@ -3912,10 +3962,10 @@ weasel-arch	"'That's...a bit direct, isn't it? Just going from point A to point 
 weasel-arch-2	"'That's...a bit circumspect, isn't it? Throwing in a few fancy words to seem like you care. Oh, all right. I'll sponsor you. Not with money. Just a reference or something.'"
 weasel-sign	"'You haven't shown enough interest in things yet. Just in your own social progress. Ironic, but just like the others who come through here who aren't very social. It's just, you're just not good at it.'"
 weasel-grow	"'I dunno. A muffin meadow, maybe?'"
-weasel-why	"'It's not because I twist words. Oh, no! Well, I do, but I twist them to EXPAND the English language. Plus it shows a deal of self-knowledge to let myself be called that. Yes? Yes. Good.' He laughs hard, and you laugh a bit, and he says that just proves how much more well-adjusted he is than you."
+weasel-why	"'It's not because I twist words. Oh, no! Well, I do, but I twist them to EXPAND the English language. Plus it shows a deal of self-knowledge to let myself be called that. Yes? Yes. Good.' It laughs hard, and you laugh a bit, and it says that just proves how much less well-adjusted you are."
 weasel-more
 weasel-pick-hey
-weasel-freak	"'Yup. It's way in the north. It's guarded well. It has to be. He's all for equality, but that doesn't mean everyone deserves to bask in his cleverness equally.'"
+weasel-freak	"'Yup. It's way in the north. It's guarded well. It has to be. [bg]'s all for equality, but that doesn't mean everyone deserves to bask in [bg]'s cleverness equally.'"
 weasel-baiter	"'Well, if everyone's praising him, that's because he really is great. I mean, there's no personality cult. He gave a great lecture against that. He's just so...well, even when he cuts you down, he's just so full of truth and interestingness. It's obvious, by the energy he puts in to cut people down, how thoughtful he is. No 'everyone is nice' dribble. He doesn't leave Freak Control to spread his wisdom very often.'"
 weasel-pick-oops	"'Good thing I didn't charge you a deposit, eh?'"
 weasel-bye	"'Gosh! You're lucky I didn't charge you for all this cleverness!'"
@@ -3942,7 +3992,7 @@ Pressure Pier is north of Tension Surface. It is in Outer Bounds. "[one of]So, t
 pier-visited is a truth state that varies.
 
  after printing the locale description for Pressure Pier when Pressure Pier is unvisited:
-	now pier-visited is true; [not the best way to do things but I need to reference something in I6 to modify the play-end text, and it's just cleaner to define a boolean in I7]
+	now pier-visited is true; [not the best way to do things but I need to reference something in I6 to modify the play-end text, and it's just cleaner for my i6-illiterate self to define a boolean in I7]
 	unlock-verb "knock"
 
 check going in Pressure Pier:
@@ -4000,7 +4050,9 @@ to say tip-of-moment:
 table of saver reflections
 looknum	reflection
 1	"Well, you do need to be more dynamic in conversations. But that doesn't seem right. You wonder if you're just being lazy or unsocial or antisocial."
-3	"Man. It's frustrating. People have pulled these moves on you. And you're pretty sure they're wrong. You've got no way to go around them."
+3	"Man. It's frustrating. People have pulled these moves on you. And you're pretty sure they're wrong. You've got no way to go around them. You wonder if maybe you need a LITTLE edge."
+6	"Ugh. Surely that can't be the way to be? But people who mastered this, get ahead."
+10	"It seems knowing these makes up for not knowing actual stuff. Maybe you are just jealous others put in the effort to look and be clever with more than just boring facts."
 
 table of saver references
 reference-blurb
@@ -4032,6 +4084,8 @@ reference-blurb
 after examining saver screen when accel-ending:
 	if cookie-eaten is true:
 		say "Well, DUH. It seems so obvious now you've eaten the cookie.";
+	else if greater-eaten is true:
+		say "Yyyuuuppp. It's easy to see why that works, now, and anyone who can't put in the effort to do that...the heck with [']em.";
 	else:
 		say "Geez. You don't want to have to put up with that any more. You'll be more forceful telling people to expletive off in the future, though. That should help.";
 	continue the action;
@@ -4129,7 +4183,8 @@ check going west in pressure pier:
 	if trail paper is in lalaland:
 		do nothing;
 	otherwise:
-		say "The Howdy Boy coughs. '[one of]That's Meal Square. No one to get in a food fight with or anything[or]There's other better places to break the rules than Meal Square[stopping].'" instead;
+		now thought for food is in lalaland;
+		say "The Howdy Boy coughs. 'That's Meal Square. Nice if you've got a thought for food. But better places to break the rules.'" instead;
 
 Meal Square is west of Pressure Pier. Meal Square is in Outer Bounds. "This is a small alcove with Pressure Pier back east. There's not much decoration except a picture of a dozen bakers."
 
@@ -4158,13 +4213,6 @@ instead of doing something with bakers:
 	if action is undrastic:
 		continue the action;
 	say "It's just there for scenery. There's nothing behind it or whatever."
-
-chapter cracker safe
-
-[The cracker safe is a fixed in place container in Meal Square. "This is a safe with walls shaped like crackers. Its 'dial' is circular (crackers come in all sizes and shapes, dontcha know) and appears to be unlabeled."
-
-check opening cracker safe:
-	say "The safe offers no way to open it." instead;]
 
 chapter fast food menu
 
@@ -4197,7 +4245,7 @@ before going when accel-ending:
 		continue the action;
 	if noun is south:
 		if player is in pressure pier:
-			say "[if off-eaten is true]You can't deal with the Word Weasel and Rogue Arch again. Well, actually, you can, but it's a new quasi-fun experience to pretend you can't[else if cookie-eaten is true]You'd like to go back and win an argument with the Word Weasel, but he seems like small potatoes compared to showing the [bad-guy] a thing or two[else]You're too good to need to kiss up to the Word Weasel again[end if]." instead;
+			say "[if off-eaten is true]You can't deal with the Word Weasel and Rogue Arch again. Well, actually, you can, but it's a new quasi-fun experience to pretend you can't[else if cookie-eaten is true]You'd like to go back and win an argument with the Word Weasel, who seems like small potatoes compared to showing the [bad-guy] a thing or two[else]You're too good to need to kiss up to the Word Weasel again[end if]." instead;
 		say "[if off-eaten is true]Go back south? Oh geez. Please, no[else]Much as you'd like to revisit the site of that argument you won so quickly, you wish to move on to greater and bigger ones[end if]." instead;
 	if the room noun of location of player is nowhere:
 		say "Nothing that-a-way." instead;
@@ -4219,7 +4267,7 @@ check eating greater cheese:
 	if off-eaten is true:
 		say "Ugh! You've had enough cheese." instead;
 	if cookie-eaten is true:
-		say "Ugh! You've had enough cheese." instead;
+		say "Cookies and cheese? That's just weird." instead;
 	say "You pause a moment before eating the greater cheese. Perhaps you will not appreciate it fully, or you will appreciate it too much and become someone unrecognizable. Try eating it anyway?";
 	unless the player yes-consents:
 		say "[line break]OK." instead;
@@ -4351,10 +4399,7 @@ to say bro-consider:
 	if bros-left is 1:
 		say "You both agree that you probably would've helped him, too, if you had the time, but life stinks. You exchange an awkward handshake good-bye";
 	else:
-		say "The brothers confer. '[bad-abb] said to let him in...obviously harmless...grumbly...' You tap your foot a bit and sigh. They wave you through and nip off to the side"
-
-to say bad-abb:
-	say "[if allow-swears is true]BM[else]CM[end if]"
+		say "The brothers confer. '[bg] said to let him in...obviously harmless...grumbly...' You tap your foot a bit and sigh. They wave you through and nip off to the side"
 
 to say bro-s:
 	say "[if bros-left is 1]s[end if]";
@@ -4365,7 +4410,10 @@ to say bro-nos:
 chapter condition mint
 
 for writing a paragraph about a supporter in Meal Square:
-	say "Two trays sit here, labeled, semi-helpfully, Tray A and Tray B.";
+	say "Two trays sit here, labeled, semi-helpfully, Tray A and Tray B[one of]. You're not surprised Tray S or X is gone, but Tray T would've been nice[or][stopping].";
+	now Tray S is in lalaland;
+	now Tray X is in lalaland;
+	now Tray T is in lalaland;
 	now all supporters in meal square are mentioned;
 
 a condition mint is an edible thing on Tray A. description is "It's one inch square, with SHARE WITH A FRIEND on it."
@@ -4411,14 +4459,7 @@ chapter gagging lolly
 a gagging lolly is an edible thing on Tray A. description is "Staring at the circular lolly's blend of hideous colors, you also feel less sure of things, which makes you feel open-minded, which makes you feel more sure of things, which makes you feel closed-minded and eventually less sure of things.[paragraph break]Man! That was tough to digest. Just all that thinking was a choking enough sensation."
 
 check taking lolly:
-	say "You haven't walked around with a lolly since you were five years old, and it'd be a bit embarrassing to do so now." instead;
-
-before giving gagging lolly to:
-	if noun is labor child:
-		say "He's so totally outgrown that." instead;
-	if noun is a bro:
-		say "That'd be a vicious cheat, if it worked. Shame on you." instead;
-	say "Alas, [second noun], recognizing the gagging lolly would shut [if second noun is male]him[else]her[end if] up or worse, rejects your gift." instead;
+	say "You haven't walked around with a lolly since you were five years old, and it'd be a bit embarrassing to do so now. Anyway, who would actually take it?" instead;
 
 part Down Ground
 
@@ -4435,6 +4476,10 @@ check going nowhere in Down Ground:
 	say "It's too high a slope north or south." instead;
 
 the warmer bench is a supporter in Down Ground. "The Warmer Bench waits here. It may be fun to lie on.". description is "Originally painted on the bench: PROPERTY OF BUM BEACH. Property Of is replaced by FORECLOSED FROM. You feel the heat coming from it. It makes you sleepy."
+
+after examining warmer bench:
+	now bum beach is in lalaland;
+	continue the action;
 
 check taking bench:
 	say "It's too big. And where would you move it, anyway?[paragraph break]If you want to take it over, just SLEEP." instead;
@@ -4475,6 +4520,10 @@ understand "boo ticket" and "ticket" as boo tickety.
 drop-ticket is a truth state that varies.
 
 the dreadful penny is a thing. description is "It has a relief of the [bad-guy] on the front and back, with 'TRUST A BRAIN' on the back. You hope it's worth more than you think it is."
+
+after examining dreadful penny:
+	now brain trust is in lalaland;
+	continue the action;
 
 your-tix is a number that varies.
 
@@ -4695,12 +4744,6 @@ Soda Club is south of Joint Strip. It is in Outer Bounds. "Maybe if it were past
 check going nowhere in Soda Club:
 	say "There aren't, like, hidden bathrooms, and you wouldn't need to go even if there were. And if there's a secret passage, there's probably a secret code you don't know, too. So, back north it'll be, once you want to leave." instead;
 
-[Chips Cash is a person in Soda Club.
-
-Kinetic Psycho is a person in Soda Club.
-
-A Feel Cop is a person in Soda Club.]
-
 section Liver Lily
 
 Liver Lily is a female person in Soda Club. "[one of]A girl is here. She's--well, pretty attractive. And well-dressed.[or]Liver Lily waits here for intelligent, stimulating conversation.[stopping]"
@@ -4916,8 +4959,9 @@ Cain Reyes is a client. clue-letter of Cain Reyes is "*". description is "The lo
 
 the bottle of Quiz Pop is a thing. "The [j-co] left a bottle of Quiz Pop here.". description is "It's typical ucky brown for pop, though it is fizzing furiously. The label proclaiming it Quiz Pop reveals no nutritional information, which may be for the better. It also provides a warning that it is therapeutic for people who don't always ask the questions they want to, but people who already ask loaded questions are at risk. It's from Mark Black industries."
 
-before giving quiz pop to:
-	say "No. It looks really valuable. You might need one last thought burst before you're done." instead;
+after examining Quiz Pop:
+	now black mark is in lalaland;
+	continue the action;
 
 to say j-co:
 	say "[if allow-swears is true]jerks[else]groaners[end if]"
@@ -4992,10 +5036,10 @@ prompt	response	enabled	permit
 "So, you definitely don't wear colored underwear. Right?"	jerk-undies	0	1
 "So, reread [i]Anne of Green Gables[r] lately?"	jerk-anne	0	1
 "So, you big on violent games? Or not?"	jerk-video	0	1
-"So, Mr. Rogers. Does he conquer the basics?"	jerk-rogers	0	1
+"So, Mr. Rogers. Does he conquer the basics, or what?"	jerk-rogers	0	1
 "So, you wouldn't be ashamed of driving a clunker?"	jerk-car	0	1
 "So, do women's sports really have better fundamentals?"	jerk-wsport	0	1
-"So, what sort of glossy magazines do you read?"	jerk-maga	0	1
+"So, what sort of glossy magazines do you read?"	jerk-zines	0	1
 "(bug the next [j-g])"	jerk-next	0	1
 "So, what about the [bad-guy]?"	jerk-baiter	1	1
 "[later-or-thanks]."	jerk-bye	3	1
@@ -5017,7 +5061,7 @@ Buddy Best	"enjoys light music--worse, sung by MEN"	jerk-light	0
 Buddy Best	"wouldn't mind a sensible, un-flashy car in the future"	jerk-car	0
 Buddy Best	"watches women's sports without ogling or negging"	jerk-wsport	0
 Buddy Best	"enjoys nonviolent video games and not just because they're cheap"	jerk-video	0
-Buddy Best	"prefers fashion magazines to swimsuit editions"	jerk-maga	0
+Buddy Best	"prefers fashion magazines to swimsuit editions"	jerk-zines	0
 Buddy Best	"uses life lessons from Mr. Rogers"	jerk-rogers	0
 
 table of quip texts (continued)
@@ -5034,7 +5078,7 @@ jerk-car	"[innue]."
 jerk-rogers	"[innue]."
 jerk-video	"[innue]."
 jerk-wsport	"[innue]."
-jerk-maga	"[innue]."
+jerk-zines	"[innue]."
 jerk-next	"You move on to [next-c-x of last-jerk]."
 jerk-baiter	"Everyone chimes in. Oh, does the [bad-guy] know his cultural references! And oh, how they respect him for knowing more culture despite the intensity of working up north in Freak Control to keep [bad-guy-2] at bay! They are pretty sure [bad-guy-2] wouldn't allow seven people to assemble in one place so freely."
 jerk-bye	"[last-jerk] turns away and goes back to talking to his buddies."
@@ -5166,6 +5210,11 @@ Rule for supplying a missing noun while entering (this is the yup paper rule):
 check going in chipper wood when p-c is false:
 	if noun is north or noun is south:
 		say "The wood's too thick that way." instead;
+
+after going when player is in chipper wood and assassination character is in chipper wood:
+	say "'Oops, maybe some other time,' the Character's taunt echos.";
+	continue the action;
+
 
 you-y is a number that varies. you-x is a number that varies.
 ac-y is a number that varies. ac-x is a number that varies.
@@ -5318,61 +5367,6 @@ check going when p-c is true (this is the move on paper rule):
 			say "You'd go off the edge of the chase paper." instead;
 	the rule succeeds;
 
-[
-	if you-x is 3 and you-y is 3: [northwest corner trap]
-		if ac-x is 0 and ac-y is 3:
-			if last-p-dir is not north:
-				now ac-y is ac-y + 3;
-			else:
-				now ac-y is ac-y - 3;
-			continue the action;
-		if ac-y is 0 and ac-x is 3:
-			if last-p-dir is not west:
-				now ac-x is ac-x + 3;
-			else:
-				now ac-x is ac-x - 3;
-			continue the action;
-	if you-x is 3 and you-y is 9: [southwest corner]
-		if ac-x is 0 and ac-y is 9:
-			if last-p-dir is not south:
-				now ac-y is ac-y - 3;
-			else:
-				now ac-y is ac-y + 3;
-			continue the action;
-		if ac-x is 3 and ac-y is 12:
-			if last-p-dir is not west:
-				now ac-x is ac-x + 3;
-			else:
-				now ac-x is ac-x - 3;
-			continue the action;
-	if you-x is 9 and you-y is 9: [southeast corner]
-		if ac-x is 9 and ac-y is 12:
-			if last-p-dir is not east:
-				now ac-x is ac-x - 3;
-			else:
-				now ac-x is ac-x + 3;
-			continue the action;
-		if ac-x is 12 and ac-y is 9:
-			if last-p-dir is not south:
-				now ac-y is ac-y - 3;
-			else:
-				now ac-y is ac-y + 3;
-			continue the action;
-	if you-x is 9 and you-y is 3: [northeast corner trap]
-		if ac-x is 9 and ac-y is 0:
-			if last-p-dir is not east:
-				now ac-x is ac-x - 3;
-			else:
-				now ac-x is ac-x + 3;
-			continue the action;
-		if ac-x is 12 and ac-y is 3:
-			if last-p-dir is not north:
-				now ac-y is ac-y + 3;
-			else:
-				now ac-y is ac-y - 3;
-			continue the action;
-]
-
 to move-assassin:
 	[d "[you-x] [you-y] vs [ac-x] [ac-y] [last-p-dir].";]
 	if you-x is 3 and ac-x is 0 and you-y is ac-y:
@@ -5488,7 +5482,7 @@ to see-if-caught:
 	if ac-y is you-y and ac-x is you-x:
 		now p-c is false;
 		print-the-grid;
-		say "'Hey! You actually caught me! That's not supposed to happen. I was supposed to just cower in a corner and beg you not to hurt me. Anyway.'";
+		say "'Hey! You actually caught me! That's not supposed to happen. I was supposed to just cower in a corner and beg you not to hurt me. Anyway. Do report this bug at [email] or [my-repo].'";
 		bye-paper;
 	else if assassin-in-corner and you-near-assassin:
 		now p-c is false;
@@ -5529,12 +5523,6 @@ to decide whether you-near-assassin:
 
 
 p-c is a truth state that varies.
-
-[check going when player is in chipper wood and assassination character is in chipper wood:
-	if noun is west:
-		say "'Come on, you can't catch me? I'm as slow as you are...and not as smart. If you're clever, you'll find a way.'" instead;
-	if noun is east:
-		say "'Maybe you can catch me next time.'" instead;]
 
 the Assassination Character is a person in Chipper Wood. initial appearance is "[if player was in chipper wood]The Assassination Character sticks his tongue out, daring you to catch him.[else][as-char][end if]"
 
@@ -5608,7 +5596,7 @@ check putting fish on bank:
 
 check inserting it into (this is the insert it right rule):
 	if noun is fish and second noun is bank:
-		say "'Certainly not!' says Art Fine. 'Such a vulgar thing, among so many great books?'[paragraph break]Hm. You wonder what he'd think if he actually heard the fish." instead;
+		try putting fish on bank instead;
 	if noun is long string and second noun is yards hole:
 		unless story fish is off-stage:
 			say "[one of]You try your luck again. Nothing. B[or]B[stopping]est go [i]expedition[r] fishing instead." instead;
@@ -6014,9 +6002,6 @@ instead of doing something with blossoms:
 
 the googly bowl is scenery in Classic Cult. "[if fourth-blossom is in lalaland]It looks balanced, beautiful, proper.[else]It looks lopsided--one more flower or whatever in the bowl might fix that.[end if]"
 
-before giving to googly bowl:
-	try giving noun to Faith Goode instead;
-
 check inserting fourth-blossom into googly bowl:
 	say "Faith and Grace take it from you.";
 	try giving fourth-blossom to faith instead;
@@ -6097,6 +6082,10 @@ chapter Mind of Peace
 
 the mind of peace is a thing. description is "Looking into it, you feel calmer. Better about past put-downs or failures, whether or not you have a plan to improve. Yet you also know, if it helped you so easily, it may be better for someone who needs it even more.[paragraph break]I suppose it could also be a Trust Brain. Ba ba boom."
 
+after examining mind of peace:
+	now trust brain is in lalaland;
+	continue the action;
+
 understand "trust brain" and "trust/brain" as mind of peace.
 
 part Scheme Pyramid
@@ -6110,7 +6099,7 @@ The Labor Child is a person in Scheme Pyramid. "[one of]Some overdressed little 
 
 understand "kid/brat" as Labor Child.
 
-description of Labor Child is "He's dressed in abhorrently cute Deal Clothes, the sort that lets pretentious little brats be bossier than adults would let [i]other[r] adults get away with[one of].[paragraph break]As you look closer, he pipes up 'People stare at me thinking it's weird I'm such a success. I stare at them thinking it's sad they're all such failures.' Brat[or][stopping]."
+description of Labor Child is "He's dressed in abhorrently cutesy Deal Clothes, the sort that lets pretentious little brats be bossier than adults would let [i]other[r] adults get away with[one of].[paragraph break]As you look closer, he pipes up 'People stare at me thinking it's weird I'm such a success. I stare at them thinking it's sad they're all such failures.' Brat[or][stopping]."
 
 check talking to labor child:
 	if contract is off-stage:
@@ -6189,6 +6178,7 @@ after examining the finger index (this is the know what jerks are about rule) :
 			now enabled entry is 0;
 		else if response entry is not jerk-bye:
 			now enabled entry is 1;
+	continue the action;
 
 understand "paper" as finger index.
 
@@ -6242,7 +6232,7 @@ Officer Petty is an enforcer in Judgment Pass. "[one of]The officer stares down 
 
 description of Officer Petty is "Officer Petty stares back at you, cracks his knuckles, and rubs a palm. He's bigger, stronger and fitter than you."
 
-the Intuition Counter is scenery in Judgment Pass. "It's labeled with all manner of dire motivational phrases."
+the Intuition Counter is scenery in Judgment Pass. "It's labeled with all manner of dire motivational phrases I'm ashamed to spell out here."
 
 check going east in Judgment Pass:
 	if Officer Petty is in Judgment Pass:
@@ -6376,7 +6366,7 @@ sly-bm	"'Well, the [bad-guy] told me I needed to banter more. He's real good at 
 sly-check	"'My progress. I mean, if it's what I'd like to do and all, I'd better be good at it. Or else he might be forced to label me a Candidate Dummy.'"
 sly-dummy	"'Oh, no! Not an actual dummy. It was sort of a warning shot. Motivation to wise up. I mean he laughed real silvery and all after he said it. Or else. But I guess I took it wrong. Because I'm too worried about it.'"
 sly-geez	"'Well, I figure he's a lot harder on himself. Guess you have to be, to be the main guy dealing with [bad-guy-2]. But he said--if I can just do three things right, someone else would get the label.'"
-sly-didhe	"'That's kind of unfair to him, isn't it? I mean, he's busy running the place. And dealing with [bad-guy-2]. Magic tricks won't help against Spike.'"
+sly-didhe	"'That's kind of unfair to him, isn't it? I mean, he's busy running the place. And dealing with [bad-guy-2]. Magic tricks won't help against that guy.'"
 sly-help	"'Well, I could maybe use part of a costume. Or study tips. Or something that does both. Help me score three different routines.'"
 sly-bye	"'Later.'"
 
@@ -6391,6 +6381,7 @@ after quipping when qbc_litany is litany of Sly Moore:
 		enable the sly-didhe quip;
 		enable the sly-check quip;
 	if current quip is sly-check:
+		now candidate dummy is in lalaland;
 		enable the sly-dummy quip;
 	if current quip is sly-dummy:
 		enable the sly-geez quip;
@@ -6503,7 +6494,7 @@ good-text	bad-text	undo-text
 
 part Speaking Plain
 
-Speaking Plain is north of Jerk Circle. It is in Main Chunk. "Roads go in all four directions here. North seems a bit wider. There's a keep to the west. But the main 'attraction' is [if fright stage is examined]Fright Stage[else]a huge stage[end if] in the center."
+Speaking Plain is north of Jerk Circle. It is in Main Chunk. "Roads go in all four directions here. North seems a bit wider. West leads [if keep is visited]back to Temper Keep[else]indoors[end if]. But the main 'attraction' is [if fright stage is examined]Fright Stage[else]a huge stage[end if] in the center."
 
 The Fright Stage is scenery in Speaking Plain. "It's decorated with all manner of horrible fate for people that, you assume, messed up in life. From homelessness to getting fired visiting a porn store on Christmas Day to just plain envying other people with more stuff or social life, it's a mural of Scared Straight for kids without the guts to do anything jail-worthy."
 
@@ -6554,12 +6545,11 @@ for writing a paragraph about a person (called udyt) in Speaking Plain:
 	now uncle dutch is mentioned;
 	now turk young is mentioned;
 
-
 part Walker Street
 
 Walker Street is east of Speaking Plain. It is in Main Chunk. "A huge mistake grave blocks passage south, but to the north is [if standard bog is visited]the Standard Bog[else]some swamp or something[end if], east is some sort of museum, and you can go inside [gateway-desc]. Or you can go back west to the Speaking Plain."
 
-the mistake grave is scenery in Walker Street. "It's illuminated oddly, as if a red light were flashing behind it, and reads: IN MEMORY OF THE NAMELESS IDIOT WHO WENT ONLY FIVE MILES OVER THE SPEED LIMIT AND DIDN'T HEAR THE JOYRIDERS GOING THIRTY FORTY OR FIFTY OVER THUS RUINING THIS PRIME JOYRIDING ZONE FOR MORE EXCITING PEOPLE. -[bad-abb][line break]"
+the mistake grave is scenery in Walker Street. "It's illuminated oddly, as if a red light were flashing behind it, and reads: IN MEMORY OF THE NAMELESS IDIOT WHO WENT ONLY FIVE MILES OVER THE SPEED LIMIT AND DIDN'T HEAR THE JOYRIDERS GOING THIRTY FORTY OR FIFTY OVER THUS RUINING THIS PRIME JOYRIDING ZONE FOR MORE EXCITING PEOPLE. -[bg][line break]"
 
 check going nowhere in Walker Street:
 	if noun is south:
@@ -6675,10 +6665,6 @@ check going nowhere in standard bog:
 
 The Language Machine is scenery in Standard Bog. "The language machine hums along [if wax is in lalaland]cheerfully[else]balefully[end if], its console spewing out [if wax is in lalaland]poetry, which isn't good, but it's not overblown[else]dolorous, leaden, formulated prose about, well, being stuck in a bog[end if] in its bottom half. In the top half is an LCD [if wax is in lalaland]smile[else]frown[end if]."
 
-before giving to machine:
-	say "(putting [unless noun is plural-named]it[else]those[end if] on the machine instead)";
-	try putting noun on machine instead;
-
 check talking to language machine:
 	say "It processes your words and converts them into an [if wax is in lalaland]amusing poem[else]angsty story[end if]. But it doesn't seem to notice you, being a machine[if wax is in lalaland]. Just as well. You've done what you can[else]. Maybe there's something that can modify how it sees its input." instead;
 
@@ -6721,14 +6707,6 @@ check going nowhere in Court of Contempt:
 Buddy Best is a person in Court of Contempt. "[one of]Oh, look! A potential friend![paragraph break]'Yah. Hi. I'm Buddy Best. You seem real nice. Nice enough not to waste too much of my time.'[paragraph break]Okay, never mind.[or]Buddy Best waits and taps his foot here.[stopping]". description is "Buddy Best has a half-smile on his face, which is totally a delicate balance of happiness and seriousness and not a sign of contempt, so stop saying that."
 
 the Reasoning Circular is a thing. description is "It's full of several pages why you're great if you think you are, unless you're lame, in which case you don't know what great means. There's a long tag stapled to it."
-
-before giving Reasoning Circular to:
-	if noun is dutch or noun is turk or noun is child:
-		say "Oh, he's long since mastered THAT." instead;
-	if noun is Stool Toad:
-		say "'BASIC TRAINING! I completed that long ago. Some of my colleagues haven't, yet.'" instead;
-	if noun is a bro:
-		say "He's not searching for that. He's searching for something real." instead;
 
 instead of doing something with the long tag:
 	if action is undrastic:
@@ -6802,8 +6780,9 @@ check taking the poetic wax:
 		say "'Oh, no! Certainly not! The poetic wax is a valuable intersection of music and art, one [if number of waxblocking people is 1]I still[else]we[end if] must guard from less artful people! No offense.'" instead;
 
 definition: a person (called p) is waxblocking:
-	unless p is in Discussion Block, decide no;
-	if p is art fine or p is harmonic phil, decide yes;
+	if p is art fine or p is harmonic phil:
+		if p is in discussion block:
+			decide yes;
 	decide no;
 
 [MUSIC FACE]
@@ -6893,9 +6872,12 @@ after quipping when qbc_litany is litany of Harmonic Phil:
 
 chapter book bank
 
-the book bank is scenery in Discussion Block. "Just filled with books!"
+the book bank is scenery in Discussion Block. "Just filled with books! And interest!"
 
 book-ord is a number that varies.
+
+check examining book bank for the first time:
+	say "It's just filled with books! And interest!";
 
 check examining book bank:
 	increment book-ord;
@@ -6912,6 +6894,7 @@ check examining book bank:
 	the rule succeeds;
 
 check taking book bank:
+	now Steal This Book is in lalaland;
 	say "You consider trying to Steal This Book, but then you picture the Stool Toad[if Judgment Pass is visited] or Officer Petty[end if] ready to Book This Steal. Even without Art or Phil here to see you." instead;
 
 to say pompous-phrase:
@@ -6966,7 +6949,6 @@ Allan Woody: Ending Hollywood (was a movie)
 Dickey James
 Pascal Blaise
 Armstrong Sperry
-Clark Arthur: Odyssey Space
 Ford Richard The Land of the Lay?
 Wallace Stegner (never read)
 Richter Conrad: The Forest in the Light?
@@ -7041,7 +7023,10 @@ check going north in Questions Field:
 		say "Bye-bye, Questions Field. A question mark pops out from the side and tries to hook you out of Freak Control, but that's a stupid trap. The exclamation mark that tries to bash you? A punch disables it.";
 		continue the action;
 	if off-eaten is true:
-		say "A question mark pops out from the side and tries to hook you, buy you throw your shoulders up in exasperation just so--one arm knocks the question away, and the other deflects an exclamation mark coming from above. Weird. It's more motivation than ever just to get OUT of here, already.";
+		say "A question mark pops out from the side and tries to hook you, but you throw your shoulders up in exasperation just so--one arm knocks the question away, and the other deflects an exclamation mark coming from above. Weird. It's more motivation than ever just to get OUT of here, already.";
+		continue the action;
+	if greater-eaten is true:
+		say "A question mark pops out from the side and tries to hook you, but you reflexively throw an arm and knock it out without even looking. Same for an exclamation mark from above. Yup, YOU were listening when Guy Sweet was talking.";
 		continue the action;
 	if got-pop is false:
 		now qp-hint is true;
@@ -7064,6 +7049,7 @@ definition: a person (called p) is stillblocking:
 
 for writing a paragraph about a person (called bro) in Questions Field:
 	say "[one of]Three brothers block the way ahead to the north. They're imposing, each in his own way. 'Greetings, Traveler. We are the Keeper Brothers: Brother Big, Brother Blood, and Brother Soul. We must guard Freak Control, headquarters of the [bad-guy]. It is the job we are best suited for, and we are lucky the [bad-guy] has given it to us. He said we are free to do something clearly better if we can find it. We have not, yet.'[or][list of stillblocking people] block[if bros-left is 1]s[end if] your way north. '[if bros-left is 1]I'm[else]We're[end if] sorry. It's [if bros-left is 1]my[else]our[end if] job. Until we find a purpose.'[stopping]";
+	now brother's keepers is mentioned;
 	now brother big is mentioned;
 	now brother blood is mentioned;
 	now brother soul is mentioned;
@@ -7155,7 +7141,7 @@ after quipping when qbc_litany is litany of Brother Soul:
 
 section Brother Blood
 
-Brother Blood is a bro in Questions Field. description is "He jitters with rage for a few seconds, then takes a fw breaths, whispers to calm himself down, then starts over again."
+Brother Blood is a bro in Questions Field. description is "He jitters with rage for a few seconds, then takes a few breaths, whispers to calm himself down, then starts over again."
 
 litany of Brother Blood is the table of Brother Blood talk.
 
@@ -7377,7 +7363,7 @@ after quipping when qbc_litany is table of baiter master talk:
 			enable the bm-fear quip;
 		else:
 			d "trib [if bm-tribute is talked-thru]1[else]0[end if]";
-			d "spike [if bm-so-bad2 is talked-thru]1[else]0[end if]";
+			d "hunter/buster [if bm-so-bad2 is talked-thru]1[else]0[end if]";
 	if current quip is bm-fear:
 		if thoughts idol is in lalaland:
 			say "[line break]But Idiot Village has had time to assemble and rescue the hero that dispelled the Thoughts Idol! They overwhelm the Admiral, trash the more sinister surveillance technology in Freak Control, and lead you somewhere new. You protest you're not a leader--you just, well, did a bunch of errands. But they insist they have something to show you.";
@@ -7942,6 +7928,7 @@ biglaff	anyrule
 "visiting the Scheme Pyramid after the jerks take their revenge?"	--
 "listening to all the songs from the song torch (there are [number of rows in table of horrendous songs])? Or just reading the source for them?"	--
 "reading all the books from the book crack (there are [number of rows in table of horrendous books])? Or just reading the source for them?"	--
+"taking the book bank?"	--
 "SLEEPing in the extra directors' cut rooms in ANNO mode?"	--
 "taking the Legend of Stuff after defeating the Thoughts Idol?"	very-good-end rule
 "ENTERing the Return Carriage?"	very-good-end rule
@@ -8431,13 +8418,33 @@ the Go Rum is an undesc in conceptville.
 
 section xyzzy concepts
 
-Captain Obvious is an undesc in conceptville. understand "obvious captain" as captain obvious.
+Captain Obvious is an undesc in conceptville. understand "obvious captain" as captain obvious. [xyzzy]
 
-a thing called Nonsense No is an undesc in conceptville. understand "no nonsense" as nonsense.
+a thing called Nonsense No is an undesc in conceptville. understand "no nonsense" as nonsense. [xyzzy]
 
-Comedy of Errors is an undesc in conceptville. understand "errors of comedy" as comedy of errors.
+Comedy of Errors is an undesc in conceptville. understand "errors of comedy" as comedy of errors. [xyzzy]
 
-Spelling Disaster is an undesc in conceptville. understand "disaster spelling" as spelling disaster.
+Spelling Disaster is an undesc in conceptville. understand "disaster spelling" as spelling disaster. [xyzzy]
+
+a thing called Thought for Food is an undesc in conceptville. understand "food for thought" as thought for food. [west with howdy boy around]
+
+Tray S is an undesc in conceptville. Tray T is an undesc in conceptville. Tray X is an undesc in conceptville. [meal square]
+
+Bum Beach is an undesc in conceptville. [x bench]
+
+Trust Brain is an undesc in conceptville. [x penny]
+
+Moral Support is an undesc in conceptville. understand "support moral" as moral support. [x pigeon]
+
+Black Mark is an undesc in conceptville. understand "mark black" as black mark. [x quiz pop]
+
+Steal This Book is an undesc in conceptville. [take bank]
+
+Brother's Keepers is an undesc in conceptville. understand "brother/brothers keeper/keepers" and "keeper/keepers brother/brothers" as Brother's Keepers. [questions field]
+
+Games confidence is an undesc in conceptville. understand "confidence game/games" and "game confidence" as games confidence. 
+
+Candidate Dummy is an undesc in conceptville. understand "dummy candidate" as Candidate Dummy.
 
 Buster Ball is an undesc in conceptville. understand "ball buster" as buster ball.
 
