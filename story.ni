@@ -226,6 +226,53 @@ when play begins (this is the actual start rule):
 	now right hand status line is "[your-mood]";
 	now started-yet is true;
 
+to say your-mood:
+	if cookie-eaten is true:
+		say "WAY TOO COOL";
+	else if off-eaten is true:
+		say "NO FUNNY STUFF";
+	else if greater-eaten is true:
+		say "PUZZLES? PFF";
+	else if player is in Smart Street:
+		say "Just Starting";
+	else if player is in lounge:
+		say "First Puzzle";
+	else if mrlp is beginning:
+		say "[if player is in surface]T[else]Near t[end if]he Arch";
+	else if mrlp is outer bounds:
+		if trail paper is in lalaland:
+			do nothing;
+		else:
+			if your-tix is 0:
+				say "Find trouble?";
+			else:
+				say "[your-tix]/4 ticketies";
+			the rule succeeds;
+		say "[if player is in pressure pier]By Howdy Boy[else]Find Trouble[end if]";
+	else if mrlp is rejected rooms:
+		say "EXIT[if number of viable directions > 1]S[end if]: ";
+		say "[unless the room north of location of player is nowhere]N [end if]";
+		say "[unless the room south of location of player is nowhere]S [end if]";
+		say "[unless the room east of location of player is nowhere]E [end if]";
+		say "[unless the room west of location of player is nowhere]W [end if]";
+	else if mrlp is Dream:
+		say "Dreaming";
+	else if player is in Freak Control:
+		say "Final Chat";
+	else if player is in jerk circle and silly boris is in jerk circle:
+		say "7[']s a crowd";
+	else if player is in Wood and p-c is true:
+		say "Chasing";
+	else if player is in Belt Below:
+		say "[unless terminal is in Belt Below]Cheats below[else if terminal is examined]Puzzling[else]";
+	else if player is in Bottom Rock:
+		say "Spoilerville";
+	else:
+		say "[the score]/[maximum score][if questions field is visited][bro-sco][end if]";
+
+to say bro-sco:
+	say ", [3 - bros-left] Bro[if bros-left is not 2]s[end if]";
+
 section read what's been done
 
 when play begins (this is the read options file rule):
@@ -325,6 +372,15 @@ section nicety stubs
 section rerouting verb tries
 
 the last-command is indexed text that varies.
+
+understand "man/boy/dude/guy/fellow" as a person when the item described is male and the item described is not Alec Smart.
+understand "woman/girl/lady" as a person when the item described is female.
+
+allow-swears is a truth state that varies.
+
+screen-read is a truth state that varies.
+
+started-yet is a truth state that varies.
 
 parser error flag is a truth state that varies.
 
@@ -727,6 +783,32 @@ check buying:
 	if noun is a logic-game:
 		say "'Nonsense! And deprive the next person who needs help? Besides, you'd get bored of it. Unless you're REALLY lame.'" instead;
 	say "You might need to GIVE someone an item to get something, but BUYing is not necessary." instead;
+
+chapter jumping
+
+jump-from-room is a room that varies. jump-from-room is Smart Street.
+
+jump-to-room is a room that varies. jump-to-room is One Route.
+
+instead of jumping:
+	if player is in round lounge:
+		if player is on person chair:
+			say "You're actually worried you might hit your head on the ceiling. You consider jumping to grab the crack in the hatch and swing it open Indiana Jones style, but...no. You'd need to push it open a bit more first[one of].[paragraph break]NOTE: if you want to jump off, just EXIT or DOWN works[or][stopping]." instead;
+		say "You jump for the hatch, but you don't get close." instead;
+	if player is in tension surface:
+		say "[if mush is in lalaland]You can just enter the arch[else]No, it's too far to jump over the mouth[end if]." instead;
+	if anno-allow is true:
+		if accel-ending:
+			say "That [random badfood in lalaland] you ate was enough of a mental jump. You don't have time for silly details--well, not until you restart the game." instead;
+		say "[one of]You jump farther than you could've imagined[or]You've got the hang of jumping, now[stopping].";
+		if mrlp is Rejected:
+			now jump-to-room is location of player;
+			move player to jump-from-room;
+		else:
+			now jump-from-room is location of player;
+			move player to jump-to-room;
+		the rule succeeds;
+	say "You're not ready to form hasty conclusions."
 
 chapter thinking
 
@@ -2323,6 +2405,7 @@ Tray S	"Stray. In other words, it strayed from Meal Square."
 Tray T	"A tea tray. To go with food."
 Tray X	"It is an ex-tray."
 Bum Beach	"A beach bum is someone who wanders on the beach. Maybe he lives there in a shack too."
+Double Jeopardy	"Double jeopardy is being tried for the same crime twice. Making your jeopardy double is just putting you at twice the risk."
 Trust Brain	"A brain trust is a group of people that help make a decision. A trust-brain, though not an English phrase, might mean a mind that can't make its own decisions."
 Moral Support	"Moral support is helping someone even if you don't have concrete advice. SUPPORT MORAL is, well, a slogan that pushes people around."
 Total T	"Teetotal means alcohol-free."
@@ -2331,6 +2414,10 @@ Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing A
 Black Mark	"A black mark is something indicating bad behavior."
 Steal This Book	"Steal This Book was a countercultural guide by Abbie Hoffman. Book this steal refers to 'booking' suspects for a transgression, e.g. a parking fine or ticket."
 Business Show	"Show business is the act of entertainment, and the business show's is (purportedly) more practical." [?? test this!]
+Crisis Energy	"An energy crisis is when a community doesn't have enough electrical power, or oil, or whatever."
+shot mug	"The shot mug may look shot, or beaten-up, but mug shots--photographs of apprehended suspects--are generally very unflattering. Hence the flattering portrait of the [bad-guy] on the mug."
+Slicker City	"A city slicker is what rural people may call someone more urban."
+Break Jail	"A jailbreak means getting out of jail. Though to break someone is to destroy their spirit."
 Complain Cant	"Cant means a tendency towards something, so someone with a complain cant would only say 'can't complain' very ironically." [eternal concepts]
 Received Wisdom	"Received wisdom is generally accepted knowledge which is often not true, such as we only use 10% of our brain. Gustave Flaubert wrote a fun book called The Dictionary of Received Wisdom that makes fun of many examples. For instance, a hamlet is always charming."
 Power People	"People power was a rallying cry in demonstrations against the authoritarianism of, well, power people."
@@ -2831,7 +2918,6 @@ anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
 
 table of annotations (continued) [toa-views]
 anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
-[0	--	Deal Square	"deal"	"This was one of the more obvious flips, but I already had the Scheme Pyramid and so forth. It tries to encapsulate how I'm a terrible negotiator fast and up close. Or was. I've learned that not feeling forced to say anything is big--and certainly, realizing I don't need something ASAP helps me prepare in advance for negotiations."]
 0	--	Everything Hold	"hold"	"The obvious pun here is that trying to hold everything physically often makes you hold everything in terms of time. So this seemed apt, but if I put anything in this room, I'd put in a lot, and that'd be way too much trouble to implement."
 0	--	Mine Land	"mine"	"I definitely don't want to trivialize the devastating effects of land mines. And from a technical viewpoint, Mine Land would probably have been an empty room. But really, a bunch of people crying 'Mine! Mine!' is destructive in its own way."
 0	--	Robbery Highway	"highway"	"Highway robbery being a clear rip-off, I liked the idea of a location made especially for that."
@@ -7237,7 +7323,7 @@ part Freak Control
 
 Freak Control is north of Questions Field. It is in Main Chunk. "[if accel-ending]There's all sorts of stuff here but really all you want to do is show the [bad-guy] what's what.[else]Well, you made it. There's so much to look at![paragraph break]While there's probably another secret exit than back south, it's surely only available to the [bad-guy]. All the same, you don't want to leave now. You can't.[end if]"
 
-a list bucket is a thing in Freak Control. "[one of]A list bucket lying nearby may help you make sense of the fancy machinery, though you worry might kill yourself trying[or]The list bucket waits here, a handy reference to the gadgetry of Freak Control[stopping]."
+a list bucket is a thing in Freak Control. "[one of]A list bucket lying nearby may help you make sense of the fancy machinery, though you worry you might kill yourself trying[or]The list bucket waits here, a handy reference to the gadgetry of Freak Control[stopping]."
 
 check taking the bucket:
 	say "You would, but the [bad-guy] might turn around and ask if you really needed to steal a bucket, and no, the text isn't going to change if you pick it up, and so forth." instead;
@@ -7255,7 +7341,7 @@ the against rails are plural-named scenery in Freak Control. "You're not sure wh
 
 freaked-out is a truth state that varies.
 
-the shot screen is scenery in Freak Control. "[if cookie-eaten is true]You're torn between wondering if it's not worth watching the jokers being surveyed, or you deserve a good laugh.[else]For a moment, you get a glimpse of [one of]the jerks going about their business[or]the parts of Idiot Village you couldn't explore[or]a secret room in the Soda Club[or]Officer Petty at the 'event,' writing notes furiously[or]the hideout the Stool Toad was too lazy to notice[or]The Logical Psycho back at his home[or]exiles living beyond the Standard Bog[in random order].[end if]"
+the shot screen is scenery in Freak Control. "[if cookie-eaten is true]You're torn between wondering if it's not worth watching the jokers being surveyed, or you deserve a good laugh.[else]For a moment, you get a glimpse of [one of]the jerks going about their business[or]parts of Idiot Village you couldn't explore[or]a 'me-time' room in the Classic Cult[or]a secret room in the Soda Club[or]Officer Petty at the 'event,' writing notes furiously[or]the hideout the Stool Toad was too lazy to notice[or]The Logical Psycho back at his home[or]exiles living beyond the Standard Bog[in random order].[end if]"
 
 every turn when player is in freak control and qbc_litany is not table of baiter master talk (this is the random stuff in FC rule): [?? if player doesn't know names, don't write them]
 	unless accel-ending:
@@ -7273,14 +7359,14 @@ the Language Sign is scenery in Freak Control. "It says, in various languages: O
 
 The Baiter Master is a proper-named person in Freak Control. "The [bad-guy] stands here with his back to you.". description is "You can only see the back of him, well, until you gaze in some reflective panels. He looks up but does not acknowledge you. He doesn't look that nasty, or distinguished, or strong, or whatever. Surprisingly ordinary. He shrugs and resumes his apparent thoughtfulness."
 
-understand "complex" and "messiah" and "complex/messiah" as Baiter Master.
+understand "complex" and "messiah" and "complex messiah" and "bm/cm" as Baiter Master.
 
 litany of Baiter Master is the table of Baiter Master talk.
 
 check talking to Baiter Master:
 	if freaked-out is false:
 		say "[one of]He waves you off without even looking. 'Whoever you are, I'm busy. Too busy for your lame problems. And they must be lame, if you asked so weakly.' You'll need an entirely more aggressive way to get his attention.[or]You just aren't good enough at yelling to do things straight up. Maybe you can upset things somehow.[stopping]" instead;
-	say "'Dude! You need to chill... there are things called manners...' but he does have your attention now. 'So. Someone finally got past those mopey brothers. You want a vision duel? Because we can have a vision duel. I have...an [i]opinion[r] of difference. You don't even have...one right serve.' He takes a slurp from a shot mug (with a too-flattering self-portrait, of course) and perks up.";
+	say "'Dude! You need to chill... there are things called manners...' but he does have your attention now. 'So. Someone finally got past those mopey brothers. You want a vision duel? Because we can have a vision duel. I have...an [i]opinion[r] of difference. You don't even have...one right serve.' He takes a slurp from a shot mug[activation of shot mug] (with a too-flattering self-portrait, of course) and perks up.";
 	if player has legend of stuff:
 		say "He points to the Legend of Stuff. 'Oh. It looks like you took the easy way out. In fact...";
 		say "[bm-stuff-brags][line break]";
@@ -7338,11 +7424,11 @@ quip	quiptext
 bm-help	"'Really? What sort of help?'[paragraph break]You describe what you did for them and how you did it.[paragraph break]'Oh, so a fetch quest, then. You should be above that, shouldn't you? I mean, a fetch quest helps one other person, but clever philosophy--it helps a lot. [bad-guy-2], you know.'"
 bm-fetch	"'Big deal. You probably never considered how lucky you were, how improbable those helpful items were just lying around. Intelligent design? Pah! What a joke! My social ideals fix society and all that sort of thing. Surely you heard what people said? They had something to say.'"
 bm-tosay	"'You have to admit, I have leadership skills.'"
-bm-mug	"'Oh, it's Crisis Energy. For taking urgent action when someone's -- out of line.' You look more closely. 'COMPLIMENTARY FROM [bad-guy-2-c].'"
+bm-mug	"'Oh, it's Crisis Energy[activation of crisis energy]. For taking urgent action when someone's -- out of line.' You look more closely. 'COMPLIMENTARY FROM [bad-guy-2-c].'"
 bm-bad2	"'It's--it's, well, tribute is what it is.'"
 bm-so-bad2	"'Oh, come on, you know the difference.'[wfk][line break]It just slips out. 'Yeah, it's easy, there's not much of it.'"
 bm-tribute	"'There will be. Just--society needs to be stable, first. And it almost was. Until you stepped in.'"
-bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Great. You think you can do better? Do so. I'll be waiting in Questions Field. You'll miss something obvious. Always have, always will.' The Baiter Master storms out.[paragraph break]You're not sure who can help, but maybe...the Goods? Yes. The Jerks? Surprisingly, yes, too. You even call Mark Black on the Quiz Pop's customer service number. Then [bad-guy-2] pretending to be the [bad-guy] and you prank him. It's--there's so much to do, questions you never asked. Mark Black is on his way--but you are unprepared for the military coup--someone named Admiral Vice. 'A danger to Slicker City! We will break him,' he says, gesturing to you.[wfk]"
+bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Great. You think you can do better? Do so. I'll be waiting in Questions Field. You'll miss something obvious. Always have, always will.' The Baiter Master storms out.[paragraph break]You're not sure who can help, but maybe...the Goods? Yes. The Jerks? Surprisingly, yes, too. You even call Mark Black on the Quiz Pop's customer service number. Then [bad-guy-2] pretending to be the [bad-guy] and you prank him. It's--there's so much to do, questions you never asked. Mark Black is on his way--but you are unprepared for the military coup--someone named Admiral Vice. 'A danger to Slicker City[activation of slicker city]! We will break him,' he says, gesturing to you.[wfk]"
 bm-bye	"'You're not going anywhere.' And he's right. But it's not out totally out of fear, now."
 
 after quipping when qbc_litany is table of baiter master talk:
@@ -7370,7 +7456,7 @@ after quipping when qbc_litany is table of baiter master talk:
 			now player has hammer;
 			move player to Airy Station;
 		else:
-			say "[line break]'Where? In the BREAK JAIL!'[paragraph break]You keep a straight face and, later that night, your wits. Could people who yell that loud REALLY be that wrong? You don't sneak out quietly, enough, though, and guards give chase. There's a mist ahead--maybe they'll lose you! But you've done even better. 'The out mist!' they yell. 'People eventually leave there to get back to real life.'";
+			say "[line break]'Where? In the BREAK JAIL[activation of break jail]!'[paragraph break]You keep a straight face and, later that night, your wits. Could people who yell that loud REALLY be that wrong? You don't sneak out quietly, enough, though, and guards give chase. There's a mist ahead--maybe they'll lose you! But you've done even better. 'The out mist!' they yell. 'People eventually leave there to get back to real life.'";
 			move player to Out Mist;
 		terminate the conversation;
 
@@ -7634,7 +7720,7 @@ every turn when mrlp is dream sequence:
 			now slept-through is true;
 			say "As if that wasn't enough, you feel someone jostling you. Wait, no. It's not someone in the dream.";
 			wfak;
-			say "[line break]It's the Stool Toad! You're back on the bench at Down Ground![paragraph break]'A popular place for degenerates. That'll be a boo-tickety for you.'[if your-tix < 4][line break]As you hold the ticket and rub your eyes, the Stool Toad walks back to the Joint Strip. 'It's a darn shame!' he moans. 'Only one sleeping ticket per lazy degenerate, per day! Need some other infractions to reach my quota!' You get the sense he wouldn't sympathize if you told him WHAT you dreamed about.[end if]";
+			say "[line break]It's the Stool Toad! You're back on the bench at Down Ground![paragraph break]'A popular place for degenerates. That'll be a boo-tickety for you.'[if your-tix < 4][line break]As you hold the ticket and rub your eyes, the Stool Toad walks back to the Joint Strip. 'It's a darn shame!' he moans. 'Only one sleeping ticket per lazy degenerate, per day! Plenty of other ways to make their jeopardy double[activation of double jeopardy] so I can reach my quota!' You get the sense he wouldn't sympathize if you told him WHAT you dreamed about.[end if]";
 			now caught-sleeping is true;
 			get-ticketed;
 			if your-tix < 5:
@@ -7764,7 +7850,7 @@ check talking to Cards of the House:
 
 part Madness March
 
-Madness March is west of Eternal Hope Springs. Madness March is in Rejected Rooms. "You hear the distant sound."
+Madness March is west of Eternal Hope Springs. Madness March is in Rejected Rooms. "You hear the distant sound of cheering and groaning about something people have no control over."
 
 part Window Bay
 
@@ -7813,7 +7899,7 @@ shape ship	"What better place to get ship shape than on a shape ship? Again, the
 criminals' harbor	"This pun was too good to pass up. Maybe I should've saved it for the sequel. Maybe I will anyway. It's delightfully seedy."
 maintenance high	"Most people who complain about others being high maintenance usually are emotionally high maintenance themselves. So I imagined a place where people learned WHY they were high maintenance and had it beat into their skulls. If they learned quickly, see, it was right. If not, well, they're taking up teaching time. Where people doled out abuse and projected their own deficiencies on others."
 fight fair	"Of course, none of the fights in Fight Fair are remotely fair, and fights at fairs in general are, well, rigged. It also seemed to be a good way to underscore pitting less popular kids against each other, or against a bully-henchman to grind them down."
-camp concentration	"I felt very, very horrible thinking of this, for obvious reasons, and similarly, I didn't want to put this in the game proper and fought about including it in the Director's Cut. I wasn't looking for anything provocative, but reading an online article, the switcheroo hit me. Because there's some things you clearly can't trivialize or pass off as a joke, or not easily. But I imagined a place where people yelled at you you needed to focus to stop making stupid mistakes, and of course it could be far FAR worse, and perhaps they want you to concentrate on that and also on being a productive member of society at the same time.[paragraph break]The gallows humor here I also saw is that the [bad-guy] never sends you here, because you aren't that bad, and of course he can use that to manipulate you, or say if this is mind control, there was other that was worse.[paragraph break]And while my writerly fee-fees are far from the most important thing, here, I was genuinely unnerved that I saw these links and my abstract-reasoning brain part went ahead with them, poking at the words for irony when there was something far more serious underneath."
+camp concentration	"I felt very, very horrible thinking of this, for obvious reasons, and similarly, I didn't want to put this in the game proper and fought about including it in the Director's Cut. I wasn't looking for anything provocative, but reading an online article, the switcheroo hit me. Because there's some things you clearly can't trivialize or pass off as a joke, or not easily. But I imagined a place where people yelled at you you needed to focus to stop making stupid mistakes, and of course it could be far FAR worse, and perhaps they want you to concentrate on that and also on being a productive member of society at the same time, when at the same time they'd never have such low standards themselves.[paragraph break]The gallows humor here I also saw is that the [bad-guy] never sends you here, because you aren't that bad, and of course he can use that to manipulate you, or say if this is mind control, there was other that was worse.[paragraph break]And while my writerly fee-fees are far from the most important thing, here, I was genuinely unnerved that I saw these links and my abstract-reasoning brain part went ahead with them, poking at the words for irony when there was something far more serious underneath."
 
 alt-view is a truth state that varies.
 
@@ -7857,13 +7943,11 @@ switch-to-bad is a number that varies.
 
 chapter Camp Concentration
 
-Camp Concentration is a room in Just Ideas Now. "This one's impossible to joke about straight-up."
+Camp Concentration is a room in Just Ideas Now. "This one's impossible to joke about straight-up. Just, the perpetrators are all, 'Well, of course it's not THAT bad, so quit moping.' Which isn't a lethal mind game, but it's a mean one."
 
 chapter Expectations Meet
 
 Expectations Meet is a room in Just Ideas Now. "People all discuss what they deserve to have and why they deserve it more than others. Well, most. There's some impressively nuanced false humility here, though you could never call anyone on it."
-
-[Deal Square is a room in Just Ideas Now. "People rush past, performing social tricks and calculus that you can only imagine, reading facial expressions and knowing when to interrupt. Man. You're sure you'd get skinned."]
 
 chapter Perilous Siege
 
@@ -8132,7 +8216,6 @@ Punishment Capitol	5	7		"PUNSH"	"CAPIT"
 Maintenance High	6	7	"MAINT"	"HIGH "
 Hut Ten	7	7	" HUT "	" TEN "
 
-
 book Inform IDE inits
 
 index map with A Round Lounge mapped south of Tension Surface.
@@ -8302,63 +8385,7 @@ Rule for printing a parser error when the latest parser error is the noun did no
 	else:
 		say "The verb was ok, but you referred to something that hasn't come up yet in the game--and may not."
 
-volume real stuff
-
-to say your-mood:
-	if cookie-eaten is true:
-		say "WAY TOO COOL";
-	else if off-eaten is true:
-		say "NO FUNNY STUFF";
-	else if greater-eaten is true:
-		say "PUZZLES? PFF";
-	else if player is in Smart Street:
-		say "Just Starting";
-	else if player is in lounge:
-		say "First Puzzle";
-	else if mrlp is beginning:
-		say "[if player is in surface]T[else]Near t[end if]he Arch";
-	else if mrlp is outer bounds:
-		if trail paper is in lalaland:
-			do nothing;
-		else:
-			if your-tix is 0:
-				say "Find trouble?";
-			else:
-				say "[your-tix]/4 ticketies";
-			the rule succeeds;
-		say "[if player is in pressure pier]By Howdy Boy[else]Find Trouble[end if]";
-	else if mrlp is rejected rooms:
-		say "EXIT[if number of viable directions > 1]S[end if]: ";
-		say "[unless the room north of location of player is nowhere]N [end if]";
-		say "[unless the room south of location of player is nowhere]S [end if]";
-		say "[unless the room east of location of player is nowhere]E [end if]";
-		say "[unless the room west of location of player is nowhere]W [end if]";
-	else if mrlp is Dream:
-		say "Dreaming";
-	else if player is in Freak Control:
-		say "Final Chat";
-	else if player is in jerk circle and silly boris is in jerk circle:
-		say "7[']s a crowd";
-	else if player is in Wood and p-c is true:
-		say "Chasing";
-	else if player is in Belt Below:
-		say "[unless terminal is in Belt Below]Cheats below[else if terminal is examined]Puzzling[else]";
-	else if player is in Bottom Rock:
-		say "Spoilerville";
-	else:
-		say "[the score]/[maximum score][if questions field is visited][bro-sco][end if]";
-
-to say bro-sco:
-	say ", [3 - bros-left] Bro[if bros-left is not 2]s[end if]";
-
-understand "man/boy/dude/guy/fellow" as a person when the item described is male and the item described is not Alec Smart.
-understand "woman/girl/lady" as a person when the item described is female.
-
-allow-swears is a truth state that varies.
-
-screen-read is a truth state that varies.
-
-started-yet is a truth state that varies.
+volume weird stuff
 
 to force-status: (- DrawStatusLine(); -);
 
@@ -8370,30 +8397,6 @@ to debug-freeze: [this is so, in case I want to freeze the game, it doesn't seep
 
 rule for constructing the status line when started-yet is false (this is the status before you move rule) :
 	center "Your bedroom, up too late" at row 1;
-
-jump-from-room is a room that varies. jump-from-room is Smart Street.
-
-jump-to-room is a room that varies. jump-to-room is One Route.
-
-instead of jumping:
-	if player is in round lounge:
-		if player is on person chair:
-			say "You're actually worried you might hit your head on the ceiling. You consider jumping to grab the crack in the hatch and swing it open Indiana Jones style, but...no. You'd need to push it open a bit more first[one of].[paragraph break]NOTE: if you want to jump off, just EXIT or DOWN works[or][stopping]." instead;
-		say "You jump for the hatch, but you don't get close." instead;
-	if player is in tension surface:
-		say "[if mush is in lalaland]You can just enter the arch[else]No, it's too far to jump over the mouth[end if]." instead;
-	if anno-allow is true:
-		if accel-ending:
-			say "That [random badfood in lalaland] you ate was enough of a mental jump. You don't have time for silly details--well, not until you restart the game." instead;
-		say "[one of]You jump farther than you could've imagined[or]You've got the hang of jumping, now[stopping].";
-		if mrlp is Rejected:
-			now jump-to-room is location of player;
-			move player to jump-from-room;
-		else:
-			now jump-from-room is location of player;
-			move player to jump-to-room;
-		the rule succeeds;
-	say "You're not ready to form hasty conclusions."
 
 part meta-rooms
 
@@ -8436,6 +8439,8 @@ Trust Brain is an undesc in conceptville. [x penny]
 
 Moral Support is an undesc in conceptville. understand "support moral" as moral support. [x pigeon]
 
+Double Jeopardy is an undesc in conceptville. understand "jeopardy double" as Double Jeopardy. [x pigeon]
+
 Black Mark is an undesc in conceptville. understand "mark black" as black mark. [x quiz pop]
 
 Steal This Book is an undesc in conceptville. [take bank]
@@ -8445,6 +8450,14 @@ Brother's Keepers is an undesc in conceptville. understand "brother/brothers kee
 Games confidence is an undesc in conceptville. understand "confidence game/games" and "game confidence" as games confidence. 
 
 Candidate Dummy is an undesc in conceptville. understand "dummy candidate" as Candidate Dummy.
+
+Crisis Energy is an undesc in conceptville. understand "energy crisis" as Crisis Energy.
+
+The shot mug is an undesc in conceptville. understand "mug shot" as shot mug.
+
+Slicker City is an undesc in conceptville. understand "city slicker" as Slicker City.
+
+The Break Jail is an undesc in conceptville. understand "jail break" as Break Jail.
 
 Buster Ball is an undesc in conceptville. understand "ball buster" as buster ball.
 
