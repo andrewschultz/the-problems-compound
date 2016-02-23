@@ -6553,7 +6553,7 @@ to say iv-idol:
 		continue the action;
 	say "You stare at the thoughts idol, [if player has crocked half]and as it glares back, you resist the urge to look away. It--it actually blinks first.[else]but it stares back at you. You lose the war of facial expressions[end if]"
 
-the Service Community is a room in Main Chunk. "You just came from the [opposite of last-dir]."
+the Service Community is a room in Main Chunk. "Idiot Village's suburbs stretch every which way! The Thoughs Idol surveys you from a distance. You just came from the [opposite of last-dir]."
 
 idol-progress is a number that varies.
 
@@ -6566,13 +6566,12 @@ check going in service community:
 	if q < 0:
 		now q is q + 8;
 	if q is rotation:
-		choose row idol-progress + 1 in the table of idol text;
-		d "[idol-progress]";
-		say "[good-text entry]";
 		increment idol-progress;
+		choose row idol-progress in the table of idol text;
+		say "[good-text entry][line break]";
 		now last-dir is noun;
 		prevent undo;
-		if idol-progress is 7:
+		if idol-progress is 6:
 			now thoughts idol is in lalaland;
 			move player to idiot village, without printing a room description;
 			move crocked half to lalaland;
@@ -6583,9 +6582,13 @@ check going in service community:
 		if q is 4:
 			say "You feel particularly helpless running back and forth. The idol shakes its head, as if to let you know that just won't do, and it's tired of telling lesser things or people or whatever that.";
 		else:
-			say "[bad-text entry]";
+			choose row idol-progress + 1 in the table of idol text;
+			say "[bad-text entry][line break]";
 		increment idol-fails;
+		now idol-progress is 0;
+		now player is in idiot village;
 		prevent undo;
+		the rule succeeds;
 
 chapter community text
 
@@ -6593,7 +6596,7 @@ rule for deciding whether to allow undo:
 	if undo is prevented:
 		if player is in idiot village:
 			say "[if thoughts idol is in lalaland]No, you did it right. No need to relive past victories[else]You kick yourself for doing something wrong, but ... well, the idol didn't kill you or anything. You can try again.";
-		deny undo;
+			deny undo;
 		if player is in service community:
 			say "You're worried you might've messed up, but no, the Idol would've gotten you, then. Need to keep going on.";
 			deny undo;
@@ -6603,7 +6606,6 @@ good-text	bad-text	undo-text
 "The thoughts idol whizzes around to track you, quicker as you get close, then slower as you get near."	"You look back at the idol after your run. But you can't look at its face. A loud buzz emanates from the idol, and you sink to the ground, covering your ears. Once they stop ringing, you go back to the entrance to Idiot Village."	"You didn't really do much wrong. There's not much to undo."
 "The thoughts idol whirls around some more. Was it just you, or did it go a little more slowly?"	"The idol catches you. A loud buzz, and you cover your ears. That could not have been the way to go."	"You didn't really do much wrong. There's not much to undo."
 "The thoughts idol whizzes around, adjusting speed--but did you hear a little cough?"	"The idol buzzes. You feel frozen, then are frozen."	"You thought you almost had the idol there for a bit, but it's not exactly going to be open to letting you brute-force it into submission."
-"The thoughts idol whizzes around a bit more. You're really making it spin. You wonder if it's had a workout like this in a while."	"You glance at the idol, feel frozen and collapse. The idol almost seems to be mocking you, but fearing you at the same time. Maybe if you think, you can run again."	"There's not too much ground to retrack. No need for would'ves."
 "The thoughts idol seems to twitch back and forth while following you."	"You feel frozen and collapse. The idol's contempt can't hide a legitimate frown. You slipped up, but you got pretty far."	"Halfway there...maybe if you get momentum, you'll nail the pattern down for good."
 "The thoughts idol barely catches its gaze up with you."	"The idol gives that look--you know it--'Smart, but no common sense.' Still--you can give it another shot."	"Would'ves won't help here. You've actually gotten in better shape, walking around just thinking."
 "The thoughts idol warps and seems to wobble a bit but still looks at you."	"You--well, confidence or whatever it was let you down."	"Geez. You were that close. But no chance to stew. You bet you could do it, next time. But you can't say 'Oh, I meant to...'"
@@ -8340,7 +8342,7 @@ index map with bullpen mapped east of Tense Future.
 
 index map with conceptville mapped east of Tense Past.
 
-volume parser errors
+volume parser errors and undo
 
 Rule for deciding whether all includes a helpy thing when taking: it does not.
 
@@ -9007,12 +9009,16 @@ carry out nu-skiping:
 		move player to jerk circle;
 		now player has crocked half;
 		now legend of stuff is in lalaland;
+		now skipped-yet is true;
+		the rule succeeds;
 	if number understood is 102:
 		move-puzzlies-and-jerks;
 		move player to jerk circle;
 		now assassination character is in lalaland;
 		open-bottom;
 		now player has crocked half;
+		now skipped-yet is true;
+		the rule succeeds;
 	if number understood > 10:
 		say "You need a number between 1 and 10 or, if you are testing very specific things, 100-100.[line break][skip-list]" instead;
 	now skipped-yet is true;
