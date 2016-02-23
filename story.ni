@@ -110,6 +110,10 @@ include Property Checking by Emily Short.
 
 section when play begins debugging
 
+[To set the parser trace to (N - a number): (- parser_trace={N}; -).
+
+First when play begins: set the parser trace to 6.]
+
 [when play begins (this is the debugging stuff first thing rule):
 	rulesAll;]
 
@@ -8295,6 +8299,9 @@ Rule for deciding whether all includes a helpy thing when taking: it does not.
 terminal-errors is a number that varies;
 
 rule for printing a parser error when the latest parser error is the didn't understand error:
+	if the turn count is 1: [hack (??) for G on move 1]
+		say "That isn't a recognized verb, or maybe you guessed a preposition wrong. In general, this game tries not to force longer commands. You can type VERB or VERBS to see all the commands and possible prepositions.";
+		the rule succeeds;
 	if the player's command matches the regular expression "^<0-9>":
 		if player is in belt below and terminal is in belt below:
 			say "The terminal wants eight letter answers, not a number.";
