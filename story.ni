@@ -358,7 +358,11 @@ to decide whether the action is undrastic:
 
 chapter misc defs for later
 
-an undesc is a kind of thing. description of an undesc is usually "[bug]"
+a concept is a kind of thing. description of a concept is usually "[bug]"
+
+a concept has text called howto. howto of a concept is "(need text)".
+
+a concept can be explained. a concept is usually not explained.
 
 a drinkable is a kind of thing.
 
@@ -2152,6 +2156,8 @@ carry out explaining:
 			now told-xpoff is true;
 		if anno-allow is false or no-basic-anno is false:
 			say "[exp-text entry][line break]";
+			if noun provides the property explained:
+				now noun is explained;
 		now found-yet is true;
 [	repeat through table of explanations:
 		if noun is exp-thing entry:
@@ -2356,6 +2362,7 @@ Sly Moore	"More sly = slyer = cleverer."
 fourth-blossom	"To blossom fourth is to grow."
 Thoughts Idol	"Idle thoughts, e.g., a wandering mind, are what it purports to oppose."
 Trap Rattle	"A rattle trap is a cheap car."
+Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever."
 Uncle Dutch	"A Dutch Uncle gives useful advice." [speaking plain] [??test XP BUSINESS SHOW]
 Turk Young	"A Young Turk is a brave rebel."
 Fright Stage	"Stage fright is being scared to get out in front of a crowd."
@@ -4442,7 +4449,7 @@ speaking plain	0	"Oh geez. You can't take this. You really can't. All this obvio
 questions field	3	"Well, of COURSE the Brothers didn't leave a thank-you note. Ungrateful chumps. Next time you help someone, you'll demand a deposit of flattery up front, that's for sure."	"You expected no thanks, but you didn't expect to feel bad about getting no thanks. Hmph. Lesson learned!"	"'You had some wisdom to foist on the Brothers, but if they'd REALLY done their job, they'd have stayed. The heck with them! If they couldn't soak up knowledge from BEING around the [bg], they're hopeless."
 questions field	4	"'Kinda jealous of your brother[bro-s], eh? Not jealous enough to DO anything about it.' The brother[bro-nos]s nod at your sterling logic. 'You gonna waste your whole life here? I can't help everyone. I'm not a charity, you know.' More hard hitting truth! Ba-bam!'[wfk]'Go on, now! Go! What's that? I'm even bossier than the [bad-guy]? Excellent! If I can change, so can you! And the guy bossier than the [bad-guy] is ORDERING you to do something useful with your life!'[paragraph break]They follow your orders. You remember being bossed around by someone dumber than you--and now you turned the tables! Pasta fazoo!"	"'Still guarding Freak Control, eh? Well, I think you'll see you don't need to guard it from ME any more. Take the day off! C'mon, you want to. Hey, [bg] might be mad if you don't.' You're surprised he DOES run off."
 questions field	5	"'[qfjs] standing around, eh? Nothing to do? Well, I've been out, y'know, DOING stuff. You might try it. Go along. Go. You wanna block me from seeing the [bad-guy]? I'll remember it once he's out of my way.' You're convincing enough, they rush along."	"You've done your share of standing around, but you're pretty sure you did a bit of thinking. 'Look,' you say, 'I just need to get through and get out of here. I'm not challenging anyone's authority. Just, I really don't want to be here.' [bro-consider]. You're free to continue."	"'Oh, hey, everyone! You're here to guard the [bg] from chumps, right? Well, I'm not one. So you can make way.'"
-freak control	0	"You speak first. 'Don't pretend you can't see me, with all those reflective panels and stuff.'[paragraph break]He turns around, visible surprised.[paragraph break]'Leadership, schmeadership,' you say. You're worried for a moment he might call you out on how dumb that sounds. You're open-minded like that. But when he hesitates, you know the good insults will work even better. 'Really. Leaving the cutter cookie right where I could take it, and plow through, and expose you for the lame chump you are. Pfft. I could do better than that.'[paragraph break]He stutters a half-response.[paragraph break]'Maybe that's why [bad-guy-2] hasn't been dealt with, yet. You say all the right things, but you're not forceful enough. Things'll change once I'm in power.'[wfk]He has no response. You point outside. He goes. Settling in is easy--as a new leader of Freak Control, you glad-hand the important people and assure them you're a bit cleverer than the [bad-guy] was.  Naturally, you keep a list of [bad-guy-2]'s atrocities, and they're pretty easy to rail against, and people respect you for it, and from what you've seen, it's not like they could really get together and do anything, so you're making their lame lives more exciting.[wfk]You settle into a routine, as you read case studies of kids a lot like you used to be. Maybe you'd help one or two, if they had initiative...but until then, you'd like to chill and just let people appreciate the wit they always knew you had.[paragraph break]Really, who can defeat you? Anyone of power or consequence is on your side. Even [bad-guy-2] gives you tribute of a cutter cookie now and then. One day, you drop one in Meal Square... but nobody is brave enough to eat one. Well, for a while."	"You speak first. Well, you sigh REALLY loudly first. 'Just--this is messed up. I want to leave.'[paragraph break]'Of course you do,' says the [bad-guy]. 'I don't blame you. If you're not in power here, it's not fun. It's sort of your fault, but not totally. Hey, you actually showed some personality to get here. Just--show me you're worthy of leaving.' You complain--more excitingly than you've ever complained before. Without flattering or insulting the [bad-guy] too much: fair and balanced. You let him interrupt you, and you even interrupt him--but only to agree with his complaints.[wfk]'You're okay, I guess. You seem to know your place. Here, let me show you the Snipe Gutter. It seems like just the place for you. The [bad-guy] pushes a button and gestures to an opening. It's a slide. You complain a bit, but he holds up his hand. 'You'll have a lot more to complain about if you don't go.' You're impressed by this logic, and you only wish you could've stayed longer to absorb more of it, and maybe you could complain even more interestingly.[wfk]Back home, people notice a difference. You're still upset about things, but you impress people with it now. You notice other kids who just kind of seem vaguely upset, like you were before the Compound, not even bothering with constructive criticism. They're not worth it, but everywhere you go, you're able to fall in with complainers who complain about such a wide variety of things, especially people too dense to realize how much there is to complain about! You've matured, from..."	"'Hey! It's me!' you yell. [bg] turns. 'You know, I probably skipped a lot of dumb stuff to get here. You think you could be a LITTLE impressed?'[wfk]But he isn't. 'You know? You're not the first. Still, so many people just sort of putter around. You're going to be okay in life.' You two have a good laugh about things--you're even able to laugh at yourself, which of course gives you the right to laugh at people who haven't figured things out yet. Humor helps you deal, well, if it doesn't suck. You realize how silly you were before with all your fears, and you try to communicate that to a few creeps who don't want to be social. But they just don't listen. You'd rather hang around more with-it typpes, and from now on, you do."
+freak control	0	"You speak first. 'Don't pretend you can't see me, with all those reflective panels and stuff.'[paragraph break]He turns around, visible surprised.[paragraph break]'Leadership, schmeadership,' you say. You're worried for a moment he might call you out on how dumb that sounds. You're open-minded like that. But when he hesitates, you know the good insults will work even better. 'Really. Leaving the cutter cookie right where I could take it, and plow through, and expose you for the lame chump you are. Pfft. I could do better than that.'[paragraph break]He stutters a half-response.[paragraph break]'Maybe that's why [bad-guy-2] hasn't been dealt with, yet. You say all the right things, but you're not forceful enough. Things'll change once I'm in power.'[wfk]He has no response. You point outside. He goes. Settling in is easy--as a new leader of Freak Control, you glad-hand the important people and assure them you're a bit cleverer than the [bad-guy] was.  Naturally, you keep a list of [bad-guy-2]'s atrocities, and they're pretty easy to rail against, and people respect you for it, and from what you've seen, it's not like they could really get together and do anything, so you're making their lame lives more exciting.[wfk]You settle into a routine, as you read case studies of kids a lot like you used to be. Maybe you'd help one or two, if they had initiative...but until then, you'd like to chill and just let people appreciate the wit they always knew you had.[paragraph break]Really, who can defeat you? Anyone of power or consequence is on your side. Even [bad-guy-2] gives you tribute of a cutter cookie now and then. One day, you drop one in Meal Square... but nobody is brave enough to eat one. Well, for a while."	"You speak first. Well, you sigh REALLY loudly first. 'Just--this is messed up. I want to leave.'[paragraph break]'Of course you do,' says the [bad-guy]. 'I don't blame you. If you're not in power here, it's not fun. It's sort of your fault, but not totally. Hey, you actually showed some personality to get here. Just--show me you're worthy of leaving.' You complain--more excitingly than you've ever complained before. Without flattering or insulting the [bad-guy] too much: fair and balanced. You let him interrupt you, and you even interrupt him--but only to agree with his complaints.[wfk]'You're okay, I guess. You seem to know your place. Here, let me show you the Snipe Gutter. It seems like just the place for you. The [bad-guy] pushes a button and gestures to an opening. It's a slide. You complain a bit, but he holds up his hand. 'You'll have a lot more to complain about if you don't go.' You're impressed by this logic, and you only wish you could've stayed longer to absorb more of it, and maybe you could complain even more interestingly.[wfk]Back home, people notice a difference. You're still upset about things, but you impress people with it now. You notice other kids who just kind of seem vaguely upset, like you were before the Compound, not even bothering with constructive criticism. They're not worth it, but everywhere you go, you're able to fall in with complainers who complain about such a wide variety of things, especially people too dense to realize how much there is to complain about! You've matured, from..."	"'Hey! It's me!' you yell. [bg] turns. 'You know, I probably skipped a lot of dumb stuff to get here. You think you could be a LITTLE impressed?'[wfk]But he isn't. 'You know? You're not the first. Still, so many people just sort of putter around. You're going to be okay in life.' You two have a good laugh about things--you're even able to laugh at yourself, which of course gives you the right to laugh at people who haven't figured things out yet. Humor helps you deal, well, if it doesn't suck. You realize how silly you were before with all your fears, and you try to communicate that to a few creeps who don't want to be social. But they just don't listen. You'd rather hang around more with-it types, and from now on, you do."
 
 after printing the locale description when accel-ending:
 	if location of player is cheat-surveyed:
@@ -7624,6 +7631,8 @@ understand "let ring" as a mistake("Your hair curls at the thought of such passi
 
 understand "master ring" as a mistake("You're RUNNING from the ring master, and you've already spent time mastering the Problems Compound.") when player is in Out Mist.
 
+understand "ring change" and "ring tone" and "ring hollow" as a mistake ("Ooh! Almost.")
+
 understand "ring [text]" and "[text] ring" as a mistake ("Nothing happens to the ring. It sits there as lumpy as before.") when player is in Out Mist.
 
 understand "worm [text]" and "[text] worm" as a mistake ("The worm ring's problem isn't that it's a worm, but rather that it's a ring.") when player is in Out Mist.
@@ -8068,6 +8077,24 @@ final question wording	only if victorious	topic	final response rule	final respon
 "see the SINS the jerks didn't commit"	true	"SINS"	sin-see rule	sinseeing
 "see the SPECIAL ways to see a bit more of the Compound"	true	"SPECIAL"	special-see rule	specialseeing
 "see how to get to each of the BAD END rooms"	true	"BAD/END" or "BAD END"	bad-end-see rule	badendseeing
+"see any reversible CONCEPTS you missed"	true	"CONCEPTS"	concept-see rule	conceptseeing
+
+chapter concept
+
+conceptseeing is an activity.
+
+this is the concept-see rule:
+	say "There are [number of concepts] total concepts. I'll pause.";
+	let curcon be 0;
+	repeat with X running through concepts:
+		unless X is an exp-thing listed in table of explanations:
+			say "[X] needs an explanation. BUG.";
+		else:
+			choose row with exp-thing of X in table of explanations;
+			say "[X]: [exp-text entry] ([howto of X])[line break]";
+		increment curcon;
+		if the remainder after dividing curcon by 10 is 0:
+			wfak;
 
 chapter bad end
 
@@ -8443,55 +8470,59 @@ conceptville is a room in meta-rooms. "You should never see this. If you do, it 
 
 section soda club concepts
 
-the Total T is an undesc in conceptville.
+the Total T is a concept in conceptville.
 
-the Go Rum is an undesc in conceptville.
+the Go Rum is a concept in conceptville.
 
 section xyzzy concepts
 
-Captain Obvious is an undesc in conceptville. understand "obvious captain" as captain obvious. [xyzzy]
+Captain Obvious is a concept in conceptville. understand "obvious captain" as captain obvious. howto is "xyzzy". 
 
-a thing called Nonsense No is an undesc in conceptville. understand "no nonsense" as nonsense. [xyzzy]
+a thing called Nonsense No is a concept in conceptville. understand "no nonsense" as nonsense. howto is "xyzzy".
 
-Comedy of Errors is an undesc in conceptville. understand "errors of comedy" as comedy of errors. [xyzzy]
+Comedy of Errors is a concept in conceptville. understand "errors of comedy" as comedy of errors. howto is "xyzzy". 
 
-Spelling Disaster is an undesc in conceptville. understand "disaster spelling" as spelling disaster. [xyzzy]
+Spelling Disaster is a concept in conceptville. understand "disaster spelling" as spelling disaster. howto is "xyzzy". 
 
-a games mind is an undesc in conceptville. understand "mind games" as games mind. [very start]
+a games mind is a concept in conceptville. understand "mind games" as games mind. howto is "very start".
 
-Games confidence is an undesc in conceptville. understand "confidence game/games" and "game confidence" as games confidence. 
+Games confidence is a concept in conceptville. understand "confidence game/games" and "game confidence" as games confidence. howto is "talk to Guy"
 
-a thing called Thought for Food is an undesc in conceptville. understand "food for thought" as thought for food. [west with howdy boy around]
+a thing called Thought for Food is a concept in conceptville. understand "food for thought" as thought for food. howto is "visit Meal Square with Howdy Boy around"
 
-Tray S is an undesc in conceptville. Tray T is an undesc in conceptville. Tray X is an undesc in conceptville. [meal square]
+Tray S is a concept in conceptville. howto is "enter Meal Square".
 
-Bum Beach is an undesc in conceptville. [x bench]
+Tray T is a concept in conceptville. howto is "enter Meal Square".
 
-Trust Brain is an undesc in conceptville. [x penny]
+Tray X is a concept in conceptville. howto is "enter Meal Square".
 
-Moral Support is an undesc in conceptville. understand "support moral" as moral support. [x pigeon]
+Bum Beach is a concept in conceptville. howto is "examine the bench in Down Ground"
 
-Double Jeopardy is an undesc in conceptville. understand "jeopardy double" as Double Jeopardy. [x pigeon]
+Trust Brain is a concept in conceptville. howto is "examine dreadful penny or mind of peace"
 
-Black Mark is an undesc in conceptville. understand "mark black" as black mark. [x quiz pop]
+Moral Support is a concept in conceptville. understand "support moral" as moral support. howto is "examine pigeon stool"
 
-Steal This Book is an undesc in conceptville. [take bank]
+Double Jeopardy is a concept in conceptville. understand "jeopardy double" as Double Jeopardy. howto is "get ticket for sleeping"
 
-Brother's Keepers is an undesc in conceptville. understand "brother/brothers keeper/keepers" and "keeper/keepers brother/brothers" as Brother's Keepers. [questions field]
+Black Mark is a concept in conceptville. understand "mark black" as black mark. howto is "examine quiz pop"
 
-Candidate Dummy is an undesc in conceptville. understand "dummy candidate" as Candidate Dummy.
+Steal This Book is a concept in conceptville. howto is "take book bank"
 
-Crisis Energy is an undesc in conceptville. understand "energy crisis" as Crisis Energy.
+Brother's Keepers is a concept in conceptville. understand "brother/brothers keeper/keepers" and "keeper/keepers brother/brothers" as Brother's Keepers. howto is "examine the brothers"
 
-The shot mug is an undesc in conceptville. understand "mug shot" as shot mug.
+Candidate Dummy is a concept in conceptville. understand "dummy candidate" as Candidate Dummy. howto is "talk to Sly"
 
-Slicker City is an undesc in conceptville. understand "city slicker" as Slicker City.
+Crisis Energy is a concept in conceptville. understand "energy crisis" as Crisis Energy. howto is "get the [bad-guy]'s attention"
 
-The Break Jail is an undesc in conceptville. understand "jail break" as Break Jail.
+The shot mug is a concept in conceptville. understand "mug shot" as shot mug. howto is "get the [bad-guy]'s attention"
 
-Buster Ball is an undesc in conceptville. understand "ball buster" as buster ball.
+Slicker City is a concept in conceptville. understand "city slicker" as Slicker City. howto is "[bad-guy] dialog"
 
-Hunter Savage is an undesc in conceptville. understand "savage hunter" as hunter savage.
+The Break Jail is a concept in conceptville. understand "jail break" as Break Jail. howto is "lesser-end dialog"
+
+Buster Ball is a concept in conceptville. understand "ball buster" as buster ball. howto is "talking"
+
+Hunter Savage is a concept in conceptville. understand "savage hunter" as hunter savage. howto is "talking"
 
 chapter lalaland
 
@@ -8499,17 +8530,17 @@ section pure eternal concepts
 
 lalaland is a room in meta-rooms. "You should never see this. If you do, it is a [bug]."
 
-Show Business is an undesc in lalaland. understand "business show" as show business.
+Show Business is a concept in lalaland. understand "business show" as show business.
 
-Wisdom Received is an undesc in lalaland. understand "received wisdom" as wisdom received.
+Wisdom Received is a concept in lalaland. understand "received wisdom" as wisdom received.
 
-Something Mean is an undesc in lalaland. understand "mean something" as Something Mean.
+Something Mean is a concept in lalaland. understand "mean something" as Something Mean.
 
-Complain Cant is an undesc in lalaland. understand "cant complain" as Complain Cant.
+Complain Cant is a concept in lalaland. understand "cant complain" as Complain Cant.
 
-People Power is an undesc in lalaland. understand "power people" as People Power.
+People Power is a concept in lalaland. understand "power people" as People Power.
 
-Sitting Duck is an undesc in lalaland. understand "duck sitting" as Sitting Duck.
+Sitting Duck is a concept in lalaland. understand "duck sitting" as Sitting Duck.
 
 volume rule replacements
 
