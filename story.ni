@@ -1950,6 +1950,8 @@ check giving crocked half to:
 
 chapter person based
 
+[these kick in before giving X to Y, but it's a smaller section so I put them here.]
+
 check giving to Brother Big:
 	if noun is poetic wax:
 		say "'I am too clumsy to write poetry.'" instead;
@@ -1959,8 +1961,6 @@ check giving to Brother Big:
 		say "'I need education, not peace. However, that may be perfect for Brother Blood.'" instead;
 	if noun is Relief Light:
 		say "'I need specific relief from my own lack of knowledge. However, that may be perfect for Brother Soul.'" instead;
-	if noun is not Trade of Tricks:
-		say "'Alas, that is not educational enough for me.'" instead;
 
 check giving to Brother Soul:
 	if noun is poetic wax:
@@ -1969,8 +1969,6 @@ check giving to Brother Soul:
 		say "'That would be perfect for Brother Big. But it is not best for me.'" instead;
 	if noun is mind of peace:
 		say "'That would be perfect for Brother Blood. But any peace I have would be temporary. I would still need relief.'" instead;
-	if noun is not relief light:
-		say "'No, I need something to dispel this sad darkness in my soul.'" instead;
 
 check giving to Brother Blood:
 	if noun is poetic wax:
@@ -1979,12 +1977,11 @@ check giving to Brother Blood:
 		say "'That would be perfect for Brother Big. But it is not best for me.'" instead;
 	if noun is relief light:
 		say "'That would be perfect for Brother Soul. But it might only give me temporary relief from my violent worries.'" instead;
-	if noun is not mind of peace:
-		say "'No, I need something to calm me down.'" instead;
 
 chapter big one and default
 
-check giving (this is the big giving organized by room rule) : [this is a catch-all]
+[this is a catch-all]
+check giving (this is the default for giving to people organized by room rule) :
 	if second noun is Guy Sweet: [smart street]
 		if noun is token: [second noun must be Guy Sweet]
 			say "'No, I don't want [if noun is gesture token]it back. I have plenty. You might need it[else]that. Or anything from you, really. I'm here to help YOU[end if].'" instead;
@@ -2004,13 +2001,19 @@ check giving (this is the big giving organized by room rule) : [this is a catch-
 		say "'Thanks, but no thanks. I do okay enough with tips.'" instead;
 	if second noun is Assassination Character:
 		say "'Ha!' he says. 'If I took that, you'd catch me. Nice try!'" instead;
-	if second noun is Officer Petty:
-		say "'NO BRIBERY! Besides, that's not worth anything. But, uh, it's perfectly legal to give me something that might help my career.'" instead;
+	if second noun is Brother Blood:
+		say "'No, I need something to calm me down.'" instead;
+	if second noun is Brother Big:
+		say "'Alas, that is not educational enough for me.'" instead;
+	if second noun is Brother Soul:
+		say "'No, I need something to dispel this sad darkness in my soul.'" instead;
 	if second noun is language machine:
 		if poetic wax is in lalaland:
 			say "[no-pos]." instead;
 		say "The language machine has no arms, so you decide to PUT it ON.";
 		try putting noun on language machine instead;
+	if second noun is Officer Petty:
+		say "'NO BRIBERY! Besides, that's not worth anything. But, uh, it's perfectly legal to give me something that might help my career.'" instead;
 
 check giving (this is the default fall-through giving rule) :
 	if second noun is not a person:
@@ -6408,7 +6411,7 @@ check going nowhere in idiot village (this is the final idol puzzle rule):
 		say "You don't need a victory lap through the Service Community now, fun as it might be." instead;
 	if player has legend of stuff:
 		say "The idol glares at you. Once it makes eye contact, it lowers its eyes to the Legend of Stuff. You feel a bit silly." instead;
-	if player has crocked half:
+	if insanity terminal is in lalaland or player has half: [really just the first but for testing the 2nd works too]
 		if noun is northeast or noun is east:
 			say "You run past the Thoughts Idol. Its eyes follow you.";
 			if noun is northeast:
@@ -6421,7 +6424,9 @@ check going nowhere in idiot village (this is the final idol puzzle rule):
 			now thoughts idol is in Service Community;
 			move player to Service Community;
 			prevent undo;
-			the rule succeeds;
+		else:
+			say "You try that, but it seems like the idol wants a challenge. You're not sure what type, but it's got a 'come at me bro' look on its face. Maybe east or northeast...";
+		the rule succeeds;
 	say "Idiot Village expands in all directions, but of course, nobody was smart enough to provide a map. OR WERE THEY CLEVER ENOUGH NOT TO GIVE INVADERS AN EASY ROUTE IN?[paragraph break]Either way, you don't want to risk getting lost.";
 	do nothing instead;
 
@@ -6459,7 +6464,7 @@ to say sly-s:
 litany of Sly Moore is the table of Sly Moore talk.
 
 every turn when player is in idiot village and sly moore is in idiot village and you-are-conversing is false:
-	say "[one of][sly-s] tries to play a three-shell game, but a bean appears under each one.[or][sly-s] tries and fails to shuffle a deck of cards. Several fall out, and he picks them up and pockets them.[or][sly-s] tries to palm an egg in a handkerchief, but you hear a crunch. 'Well, good thing I hollowed it out first, eh?'[or][sly-s] slaps a bunch of paperclips on some folded paper and unfolds the paper. They go flying. 'They were supposed to connect...'[or][sly-s] performs a riffle shuffle where one side of the deck of cards falls much quicker.[or][sly-s] mumbles 'Number from one to a thousand, ten guesses, five hundred, two fifty, one twenty-five--round up or down, now? Dang, I'm stuck.'[or][sly-s] pulls out a funny flower which doesn't squirt you when he pokes it. He looks at it up close, fiddles with it and--yup. Right in his face.[or][sly-s] reaches to shake your hand, but you see the joy buzzer pretty clearly. He slaps his knee in disappointment...BZZT.[or][sly-s] looks befuddled on pulling only one handkerchief out of his pocket.[or][sly-s] cuts a paper lady in half. 'Oops. Good thing she wasn't real.'[in random order]"
+	say "[one of][sly-s] plays a sample three-shell game, but a bean appears under each one.[or][sly-s] asks you to pick a card but then realizes they're all facing him.[or][sly-s] tries to palm an egg in a handkerchief, but you hear a crunch. 'Well, good thing I hollowed it out first, eh?'[or][sly-s] slaps a bunch of paperclips on some folded paper and unfolds the paper. They go flying. 'They were supposed to connect...'[or][sly-s] performs a riffle shuffle where one side of the deck of cards falls much quicker.[or][sly-s] performs a riffle shuffle that works beautifully until the last few cards fall to the ground.[or][sly-s] mumbles 'Number from one to a thousand, ten guesses, five hundred, two fifty, one twenty-five--round up or down, now? Dang, I'm stuck.'[or][sly-s] pulls out a funny flower which doesn't squirt you when he pokes it. He looks at it up close, fiddles with it and--yup. Right in his face.[or][sly-s] reaches to shake your hand, but you see the joy buzzer pretty clearly. He slaps his knee in disappointment...BZZT.[or][sly-s] looks befuddled on pulling only one handkerchief out of his pocket.[or][sly-s] cuts a paper lady in half. 'Oops. Good thing she wasn't real.'[in random order]"
 
 talked-to-sly is a truth state that varies.
 
@@ -6564,9 +6569,12 @@ idol-progress is a number that varies.
 
 idol-fails is a number that varies.
 
+cur-dir is a direction that varies.
+
 check going in service community:
 	if orientation of noun is -1:
 		say "You need to go in a compass direction.";
+	now cur-dir is noun;
 	let q be orientation of noun - orientation of last-dir;
 	if q < 0:
 		now q is q + 8;
@@ -6584,16 +6592,48 @@ check going in service community:
 		the rule succeeds;
 	else:
 		move thoughts idol to idiot village;
-		if q is 4:
-			say "You feel particularly helpless running back and forth. The idol shakes its head, as if to let you know that just won't do, and it's tired of telling lesser things or people or whatever that.";
-		else:
-			choose row idol-progress + 1 in the table of idol text;
-			say "[bad-text entry][line break]";
+		d "idol-off = [idol-off], cur-dir = [orientation of cur-dir], last-dir = [orientation of last-dir], rotation = [rotation].";
+		choose row idol-off in table of idol smackdowns;
+		say "[smackdown entry][line break]";
+		choose row idol-progress + 1 in the table of idol text;
+		say "[bad-text entry][line break]";
 		increment idol-fails;
 		now idol-progress is 0;
 		now player is in idiot village;
 		prevent undo;
 		the rule succeeds;
+
+to decide which number is idol-off:
+	let temp be rotation - (orientation of cur-dir - orientation of last-dir);
+	if rotation is 3:
+		now temp is 0 - temp;
+	while temp < 0:
+		now temp is temp + 8;
+	while temp > 8:
+		now temp is temp - 8;
+	decide on temp;
+
+to say to-away:
+	say "[if idol-off < 5]away from[else]towards[end if]"
+
+to say rt-idol:
+	say "You zigzag [to-away] the idol, but an audible whirr makes you look up. When you stop, it's already looking where you meant to go. It locks down a stare. You've gotten that before. You feel compelled to head back to Idiot Village under its gaze"
+
+to say zz-idol:
+	say "The short turn [to-away] the idol makes it wheeze a good bit, but it's enough to make you look back. It's just finished turning its head, then. The stare. The embarrassment. Wondering what you were trying to DO, anyway, REALLY"
+
+to say idol-straight-away:
+	say "You try running and running away, but (not so) eventually you have to turn around to see how much you're being watched, and the idol seems to be staring extra hard at you when you look back as if to say you can't run and that only makes it worse"
+
+table of idol smackdowns
+smackdown
+"You feel particularly helpless running back and forth. The idol shakes its head, as if to let you know that just won't do, and it's tired of telling lesser things, or people, or whatever, that." [3, backwards]
+"[zz-idol]." [2]
+"[rt-idol]." [3]
+"[idol-straight-away]." [4]
+"[idol-straight-away]." [5]
+"[rt-idol]." [6]
+"[zz-idol]." [7]
 
 chapter community text
 
@@ -6614,7 +6654,7 @@ good-text	bad-text	undo-text
 "The thoughts idol seems to twitch back and forth while following you."	"You feel frozen and collapse. The idol's contempt can't hide a legitimate frown. You slipped up, but you got pretty far."	"Halfway there...maybe if you get momentum, you'll nail the pattern down for good."
 "The thoughts idol barely catches its gaze up with you."	"The idol gives that look--you know it--'Smart, but no common sense.' Still--you can give it another shot."	"Would'ves won't help here. You've actually gotten in better shape, walking around just thinking."
 "The thoughts idol warps and seems to wobble a bit but still looks at you."	"You--well, confidence or whatever it was let you down."	"Geez. You were that close. But no chance to stew. You bet you could do it, next time. But you can't say 'Oh, I meant to...'"
-"The thoughts idol spins, coughs, and with a final buzz, its eyes spark and go out."	"You must have been close. But no."	"The idol's look reminds you of when you got a really hard math problem right except for adding 1 and 6 to get 8. People laughed at you. It hurt."
+"The thoughts idol spins, coughs, sand with a final buzz, its eyes spark and go out."	"You must have been close. But no."	"The idol's look reminds you of when you got a really hard math problem right except for adding 1 and 6 to get 8. People laughed at you. It hurt."
 
 part Speaking Plain
 
