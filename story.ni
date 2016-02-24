@@ -655,8 +655,6 @@ to leave-dream:
 	now last-dream-loc is location of player;
 	move player to Warmer Bench;
 	now player has all things in bullpen;
-	if player has trick hat:
-		now player wears trick hat;
 
 chapter waiting
 
@@ -1730,9 +1728,9 @@ check giving the trail paper to:
 		say "He might put two and two together and arrest you." instead;
 
 check giving dreadful penny to:
-	if noun is labor child:
+	if second noun is labor child:
 		say "That's small stuff for him. He'd probably rather be doing business." instead;
-	if noun is an enforcer:
+	if second noun is an enforcer:
 		say "'Such blatant bribery! And small thinking, too.'" instead;
 	if second noun is faith or second noun is grace:
 		say "'We need no monetary donations. Big or small. The googly bowl [if fourth-blossom is in lalaland]must be[else]is[end if] healed, and that is most important.'" instead;
@@ -1825,6 +1823,9 @@ check giving relief light to:
 		check-left;
 		the rule succeeds;
 
+instead of giving the long tag to:
+	try giving reasoning circular to second noun;
+
 check giving Reasoning Circular to:
 	if second noun is a bro:
 		say "He's not searching for that. He's searching for something real." instead;
@@ -1842,18 +1843,19 @@ check giving Reasoning Circular to:
 		say "'Whoah! Cosmic!'" instead;
 
 check giving trick hat to:
-	if noun is fool:
+	if second noun is fool:
 		say "Thing is, he KNOWS all the tricks. He just can't use them." instead;
-	if noun is logical psycho or noun is stool toad:
+	if second noun is logical psycho or noun is stool toad:
 		say "He's awful enough with what he's got." instead;
-	if noun is faith goode or noun is grace goode:
+	if second noun is faith goode or noun is grace goode:
 		say "Then they might become a charismatic cult, and that wouldn't be good." instead;
-	if noun is Sly Moore:
-		say "You give Sly Moore the trick hat. He adjusts it ten times until it feels right, which is pretty silly, since it's completely circular. But once he wears it, his eyes open. 'Oh...that's how you...and that's how you...'[paragraph break]All the magic tricks he failed at, before, work now.";
+	if second noun is Sly Moore:
+		say "[if talked-to-sly is false]You introduce yourself, and he introduces himself as Sly Moore. You give him[else]You give Sly Moore[end if] the trick hat. He adjusts it ten times until it feels right, which is pretty silly, since it's completely circular. But once he wears it, his eyes open. 'Oh...that's how you...and that's how you...'[paragraph break]All the magic tricks he failed at, before, work now.";
 		wfak;
 		say "[line break]He hands the hat back to you. 'Let's see if I can do things without the hat. Yep, not hard to remember...there we go.' Sly shakes your hand. 'Thanks so much! Oh, hey, here's a gift for you. From a far-off exotic place. A trap-rattle.'[paragraph break]You accept it without thought. Sly excuses himself to brush up on magic tricks.";
 		wfak;
 		now player has the trap rattle;
+		increment the score;
 		now sly is in lalaland;
 		say "[line break]And once you take a step, thought is hard. Rattle, rattle. Well, it looks like Sly Moore was able to play a trick on you without the trick hat. He'll be okay." instead;
 
@@ -1934,7 +1936,7 @@ check giving fourth-blossom to:
 		the rule succeeds;
 	if second noun is art fine or second noun is harmonic phil:
 		say "He takes a dainty sniff. 'It's nice, but no imagination went into it.'" instead;
-	if noun is a bro:
+	if second noun is a bro:
 		say "He looks momentarily comforted but says, 'No. I need something that will last. And change me.'" instead;
 	say "They don't seem to appreciate that." instead;
 
@@ -1957,7 +1959,8 @@ check giving to Brother Big:
 		say "'I need education, not peace. However, that may be perfect for Brother Blood.'" instead;
 	if noun is Relief Light:
 		say "'I need specific relief from my own lack of knowledge. However, that may be perfect for Brother Soul.'" instead;
-	say "'Alas, that is not educational enough for me.'" instead;
+	if noun is not Trade of Tricks:
+		say "'Alas, that is not educational enough for me.'" instead;
 
 check giving to Brother Soul:
 	if noun is poetic wax:
@@ -2010,7 +2013,7 @@ check giving (this is the big giving organized by room rule) : [this is a catch-
 		try putting noun on language machine instead;
 
 check giving (this is the default fall-through giving rule) :
-	if noun is not a person:
+	if second noun is not a person:
 		say "You should probably GIVE stuff to people. For inanimate objects, try PUT X ON/IN Y." instead;
 	say "As you reach for that, [the second noun] blinks and looks at you. No, you don't see how they'd want THAT." instead;
 
@@ -2413,6 +2416,7 @@ View of Points	"Points of view are opinions."
 
 table of explanations (continued) [this is stuff referred to tangentially]
 exp-thing	exp-text	exp-anno
+turn of phrase	"A turn of phrase is clever wording. A phrase of turn is, well, what's at the command prompt, or, any wording."
 Buster Ball	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure." [the 2 bad guys]
 Hunter Savage	"A savage hunter is, well, someone with no mercy. Yup, I like the 'dirty' tangential bad guy better, too."
 Nonsense No	"No-nonsense means, well, not taking any silliness." [xyzzy snark]
@@ -2437,8 +2441,9 @@ Steal This Book	"Steal This Book was a countercultural guide by Abbie Hoffman. B
 Business Show	"Show business is the act of entertainment, and the business show's is (purportedly) more practical." [?? test this!]
 Crisis Energy	"An energy crisis is when a community doesn't have enough electrical power, or oil, or whatever."
 shot mug	"The shot mug may look shot, or beaten-up, but mug shots--photographs of apprehended suspects--are generally very unflattering. Hence the flattering portrait of the [bad-guy] on the mug."
-Slicker City	"A city slicker is what rural people may call someone more urban."
+Slicker City	"A city slicker is what rural people may call someone more urban. It's also the name of a planned sequel to PC."
 Break Jail	"A jailbreak means getting out of jail. Though to break someone is to destroy their spirit."
+Admiral Vice	"A vice-(anything) is a next-in-line/assistant to an honorary position, but vice is also a personal failing, big or small."
 Complain Cant	"Cant means a tendency towards something, so someone with a complain cant would only say 'can't complain' very ironically." [eternal concepts]
 Received Wisdom	"Received wisdom is generally accepted knowledge which is often not true, such as we only use 10% of our brain. Gustave Flaubert wrote a fun book called The Dictionary of Received Wisdom that makes fun of many examples. For instance, a hamlet is always charming."
 Power People	"People power was a rallying cry in demonstrations against the authoritarianism of, well, power people."
@@ -6800,10 +6805,10 @@ check putting on the language machine:
 		say "[no-pos]." instead;
 	if noun is poetic wax:
 		now wax is in lalaland;
-		now player is wearing trick hat;
+		now player has trick hat;
 		say "The language machine emits a few weird meeps, then the wax seeps into it. The words on the terminal change from well-organized paragraphs to clumps of four in a line. You steel yourself and read a few...";
 		wfak;
-		say "...and they're not that great, but they're uplifting, and if they're still cynical, they have an amusing twist or two. No more FEEL MY ENNUI stuff. If only you could've done that back when you used to write, before you got too grim...well, maybe you still can.[paragraph break]The computer prints out a map for you, of the bog. It has all the pitfalls. You walk to the end to find a bona fide trick hat--like a wizard hat but with clever facial expressions instead of stars and whatnot.[paragraph break]You stick the map back in the computer, since it's really tearing through scratch paper to write poems, and it needs all the paper it can get. It's the least you can do. You won't need to go back, and that hat seems pretty cool. Cool enough to wear immediately.";
+		say "...and they're not that great, but they're uplifting, and if they're still cynical, they have an amusing twist or two. No more FEEL MY ENNUI stuff. If only you could've done that back when you used to write, before you got too grim...well, maybe you still can.[paragraph break]The computer prints out a map for you, of the bog. It has all the pitfalls. You walk to the end to find a bona fide trick hat--like a wizard hat but with clever facial expressions instead of stars and whatnot.[paragraph break]You stick the map back in the computer, since it's really tearing through scratch paper to write poems, and it needs all the paper it can get. It's the least you can do. You won't need to go back, and that hat seems pretty cool. In fact, a bit too cool to wear without a good reason.";
 		increment the score instead;
 	if poetic wax is in lalaland:
 		say "The machine is on a roll. You don't have anything else to give to it, anyway." instead;
@@ -6811,10 +6816,10 @@ check putting on the language machine:
 		say "[one of]The story fish moans about how it moans occasionally, but it's not as bad as that computer. You probably want to do something more positive for or to the computer[or]You don't want to annoy the story fish into moaning again[stopping]." instead;
 	say "The machine whirs defensively as you get close. Hm, maybe something else would work better." instead;
 
-the Trick Hat is a thing. description is "You pull the hat off for a moment. It's covered in snarky facial expressions and all manner of light bulbs and symbols of eureka moments. You think you even see a diagram of a fumblerooski or a fake field goal if you squint right."
+the Trick Hat is a thing. description is "It's covered in snarky facial expressions and all manner of light bulbs and symbols of eureka moments. You think you even see a diagram of a fumblerooski or a fake field goal if you squint right."
 
-check taking off the trick hat:
-	say "Surely not. It [if sly moore is in lalaland]may have another use[else]must be useful for something[end if]." instead;
+check wearing the trick hat:
+	say "It just doesn't feel...YOU. Maybe it'd look better on someone else." instead;
 
 part Court of Contempt
 
@@ -6827,14 +6832,16 @@ Buddy Best is a person in Court of Contempt. "[one of]Oh, look! A potential frie
 
 the Reasoning Circular is a thing. description is "It's full of several pages why you're great if you think you are, unless you're lame, in which case you don't know what great means. There's a long tag stapled to it."
 
-instead of doing something with the long tag:
+before doing something with a long tag:
+	ignore the can't give what you haven't got rule;
 	if action is undrastic:
 		continue the action;
 	if current action is giving:
-		try giving Reasoning Circular to the second noun;
-	say "You don't want to pull it out. Maybe someone else could use it. Someone you want to get rid of.";
+		say "(giving the Reasoning Circular instead)[line break]";
+		try giving Reasoning Circular to the second noun instead;
+	say "You don't need to fiddle with the tag. It's part of the Circular. Plus, it's a ticket to somewhere that might help you get rid of someone." instead;
 
-the long tag is part of the Reasoning Circular. description is "It's stapeld to the Reasoning Circular and reads:[paragraph break]By Order of the [bad-guy]:[paragraph break]The holder of this ticket is entitled, irregardless (I know, I'm being ironic and vernacular) of station or current responsibility, to visit Enough Fair, a whirlwind event of social skills where the bearer learns[paragraph break][2da]1. how to yell at others to stop complaining life's not fair AND still point how it's rigged against you[line break][2da]3. Of course, not trying to be too fair. People who overdo things are the worst![line break][2da]3. Lots more, but if we wrote everything, you wouldn't need to show up. Ha ha."
+the long tag is part of the Reasoning Circular. description is "It's stapled to the Reasoning Circular and reads:[paragraph break]By Order of the [bad-guy]:[paragraph break]The holder of this ticket is entitled, irregardless (I know, I'm being ironic and vernacular) of station or current responsibility, to visit Enough Fair, a whirlwind event of social skills where the bearer learns[paragraph break][2da]1. how to yell at others to stop complaining life's not fair AND still point how it's rigged against you[line break][2da]3. Of course, not trying to be too fair. People who overdo things are the worst![line break][2da]3. Lots more, but if we wrote everything, you wouldn't need to show up. Ha ha."
 
 litany of buddy best is the table of Buddy Best talk.
 
@@ -7484,6 +7491,7 @@ after quipping when qbc_litany is table of baiter master talk:
 			d "trib [if bm-tribute is talked-thru]1[else]0[end if]";
 			d "hunter/buster [if bm-so-bad2 is talked-thru]1[else]0[end if]";
 	if current quip is bm-fear:
+		terminate the conversation;
 		if thoughts idol is in lalaland:
 			say "[line break]But Idiot Village has had time to assemble and rescue the hero that dispelled the Thoughts Idol! They overwhelm the Admiral, trash the more sinister surveillance technology in Freak Control, and lead you somewhere new. You protest you're not a leader--you just, well, did a bunch of errands. But they insist they have something to show you.";
 			now player has hammer;
@@ -7491,7 +7499,6 @@ after quipping when qbc_litany is table of baiter master talk:
 		else:
 			say "[line break]'Where? In the BREAK JAIL[activation of break jail]!'[paragraph break]You keep a straight face and, later that night, your wits. Could people who yell that loud REALLY be that wrong? You don't sneak out quietly, enough, though, and guards give chase. There's a mist ahead--maybe they'll lose you! But you've done even better. 'The out mist!' they yell. 'People eventually leave there to get back to real life.'";
 			move player to Out Mist;
-		terminate the conversation;
 
 chapter freakouting
 
@@ -7614,7 +7621,7 @@ check going in Airy Station:
 
 part Out Mist
 
-Out Mist is a room in Endings. "A worm ring sits in the middle of the wood here. It's cannibalizing itself too much to be whole.[paragraph break]It's silent here and tough to see, but you're pretty sure your pursuers aren't approaching any more."
+Out Mist is a room in Endings. "A worm ring sits in the middle of the wood here. At the moment, it's cannibalizing itself too much to be whole.[paragraph break]It's silent here and tough to see, but you're pretty sure your pursuers aren't approaching any more."
 
 check going nowhere in Out Mist:
 	say "No. This is the first thing you stumbled on, and getting more or less lost both seem equally bad." instead;
@@ -7629,7 +7636,7 @@ to good-end:
 	say "The Whole Worm is bigger than you thought. You hide deeper and deeper. A passage turns down, and then here's a door. Through it you see your bedroom.";
 	go-back-home;
 
-understand "let ring" as a mistake("Your hair curls at the thought of such passivity.") when player is in Out Mist.
+understand "let ring" and "ring let" and "ringlet" as a mistake("Your hair curls at the thought of such passivity.") when player is in Out Mist.
 
 understand "master ring" as a mistake("You're RUNNING from the ring master, and you've already spent time mastering the Problems Compound.") when player is in Out Mist.
 
@@ -8043,7 +8050,7 @@ biglaff	anyrule
 "going west/north/south in the Variety Garden?"	--
 "giving Pusher Penn's 'merchandise' to the Stool Toad or Officer Petty?"	--
 "giving Minimum Bear to anyone except Fritz the On?"	--
-"putting the poetic wax on anything except the language machine?"	--
+"putting the poetic wax on/giving it to anything except the language machine?"	--
 "saying YES or NO in the Drug Gateway?"	--
 "visiting the Scheme Pyramid after the jerks take their revenge?"	--
 "listening to all the songs from the song torch (there are [number of rows in table of horrendous songs])? Or just reading the source for them?"	--
@@ -8407,7 +8414,7 @@ rule for printing a parser error when the latest parser error is the didn't unde
 	reject the player's command;
 
 Rule for printing a parser error when the latest parser error is the i beg your pardon error:
-	say "I'll need a phrase of turn here." instead;
+	say "[activation of turn of phrase]I'll need a phrase of turn here." instead;
 
 Rule for printing a parser error when the latest parser error is the can't see any such thing error:
 	if mrlp is dream sequence:
@@ -8470,6 +8477,10 @@ to say activation of (x - a thing):
 
 conceptville is a room in meta-rooms. "You should never see this. If you do, it is a [bug]." [this is a cheesy hack, as concepts you haven't seen yet are here, and when you see them, they move to lalaland.]
 
+section misc concept(s)
+
+a turn of phrase is a concept in conceptville. understand "phrase of turn" as turn of phrase. howto is "empty command"
+
 section soda club concepts
 
 the Total T is a concept in conceptville.
@@ -8519,6 +8530,8 @@ Crisis Energy is a concept in conceptville. understand "energy crisis" as Crisis
 The shot mug is a concept in conceptville. understand "mug shot" as shot mug. howto is "get the [bad-guy]'s attention"
 
 Slicker City is a concept in conceptville. understand "city slicker" as Slicker City. howto is "[bad-guy] dialog"
+
+Admiral Vice is a concept in conceptville. understand "vice admiral" as admiral vice. howto is "[bad-guy] dialog"
 
 The Break Jail is a concept in conceptville. understand "jail break" as Break Jail. howto is "lesser-end dialog"
 
@@ -8844,7 +8857,7 @@ test big with "n/e/get string/w/s/w/w/put string in hole/n/n/get sound safe/s/s/
 
 test jk with "j/j/j/j/brobye/purloin finger/x finger/talk to jerks/talk to boris"
 
-test final with "n/talk to baiter/1/1/1/1/1/1/1/1/1"
+test final with "n/freak out/1/1/1/1/1/1/1/1/1"
 
 test lastroom with "test startit/test blood/test soul/test big/purloin quiz pop/n/n/drink quiz pop/n/explain me"
 
@@ -8913,7 +8926,7 @@ the force tester wherever rule is listed last in the when play begins rulebook.
 beta-zap-room is a room that varies. beta-zap-room is lalaland.
 
 after printing the locale description when mrlp is endings and location of player is unvisited:
-	say "NOTE TO BETA TESTERS: the EST command lets you toggle whether or not win-tries end the game, so you don't have to keep UNDOing. Whatever you can try is a big help.";
+	say "NOTE TO BETA TESTERS: the EST command lets you toggle whether or not a winning command ends the game, so you don't have to keep UNDOing. Whatever you can try is a big help.";
 
 after printing the locale description when player is in beta-zap-room and beta-zap-room is unvisited (this is the stop the game before I'm embarrassed by implementation rule) :
 	if debug-state is false:
@@ -9006,21 +9019,28 @@ carry out nu-skiping:
 		now lock-in-place is true;
 	if number understood is 101:
 		move-puzzlies-and-jerks;
-		move player to jerk circle;
-		now player has crocked half;
-		now legend of stuff is in lalaland;
+		move player to bottom rock;
 		now skipped-yet is true;
 		the rule succeeds;
 	if number understood is 102:
 		move-puzzlies-and-jerks;
-		move player to jerk circle;
+		move player to idiot village;
 		now assassination character is in lalaland;
 		open-bottom;
 		now player has crocked half;
 		now skipped-yet is true;
 		the rule succeeds;
+	if number understood is 103:
+		move-puzzlies-and-jerks;
+		move player to questions field;
+		now assassination character is in lalaland;
+		open-bottom;
+		now player has crocked half;
+		now thoughts idol is in lalaland;
+		now skipped-yet is true;
+		the rule succeeds;
 	if number understood > 10:
-		say "You need a number between 1 and 10 or, if you are testing very specific things, 100-100.[line break][skip-list]" instead;
+		say "You need a number between 1 and 10 or, if you are testing very specific things, 100-103.[line break][skip-list]" instead;
 	now skipped-yet is true;
 	if number understood is 1:
 		move player to round lounge;
@@ -9064,7 +9084,7 @@ check going when block-pier is true:
 		say "This is testing, so I won't allow you to move to the side." instead;
 
 to say skip-list:
-	say "1: Round Lounge 2: Tension Surface 3: Pressure Pier 4: Jerk Circle 5: All 3 given to Brothers 6: Jerks solved 7: Final chat 8: Out Mist 9: Airy Station[line break]100. Chipper Wood/Assassination Character[line break]"
+	say "1: Round Lounge 2: Tension Surface 3: Pressure Pier 4: Jerk Circle 5: All 3 given to Brothers 6: Jerks solved 7: Final chat 8: Out Mist 9: Airy Station[line break]100. Chipper Wood/Assassination Character 101. Brothers gone, in Bottom Rock 102. Brothers gone, have crocked half in Idiot Village 103. Brothers gone, idol gone[line break]"
 
 chapter ctcing
 
