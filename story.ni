@@ -1737,7 +1737,9 @@ check giving dreadful penny to:
 	if second noun is pusher penn:
 		now player has poory pot;
 		now penny is in lalaland;
-		say "'Most excellent! It's not the profit so much as the trust. Now, you look like you haven't tried the good herb before. No offense. So let's start you with the...' he sniffs, 'aromatic stuff. It's poor-y pot, but it'll do. Seller assumes no liability if user is too wussy to keep smoke in lungs for effective amount of time, yada, yada.' You try to say you weren't intending to smoke it, anyway." instead;
+		say "'Most excellent! It's not the profit so much as the trust. Now, you look like you haven't tried the good herb before. No offense. So let's start you with the...' he sniffs, 'aromatic stuff. It's poor-y pot, but it'll do. Seller assumes no liability if user is too wussy to keep smoke in lungs for effective amount of time, yada, yada.' You try to say you weren't intending to smoke it, anyway.";
+		increment the score;
+		the rule succeeds;
 
 check giving quiz pop to: [couldn't figure where to put this]
 	say "No. It seems...unusual. And you might need one last thought burst before you're done." instead;
@@ -5296,6 +5298,7 @@ to check-jerks-done:
 	say "[line break]The other six jerks, fully chastened by your observations, overhear what you have to say. They pile on [last-jerk], but you mention he's not the only one. A fight's about to break out, until you tell them where you got this information from.[paragraph break]'You better be right about this,' [a random client] says. They rush off. You hear whining in the distance. It's the Labor Child. He protests he was just trying to shame them into doing more practical things!";
 	say "[line break]The (ex-)jerks arrive back, and [a random client] hands you a bottle of Quiz Pop. 'Man, you seem to know what's what, and you helped us see it was okay to be us. Here's some totally sweet contraband.'";
 	now player has quiz pop;
+	increment the score;
 	now all clients are in lalaland;
 	unlock-verb "notice";
 	quit small talk;
