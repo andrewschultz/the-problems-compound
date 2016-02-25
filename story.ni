@@ -5879,10 +5879,14 @@ after quipping when qbc_litany is table of Legend of Stuff talk:
 		say "You close the Legend of Stuff.";
 		quit small talk;
 
+hints-used is a number that varies. hints-used is usually 0.
+
 to set-clue (x - a number): [set-clue numbers are arbitrary but unique]
 	if last-clue is x:
 		say "You cringe [if reused-hint is true]again[else]a bit[end if] because you realize you may not have understood the last picture you saw[one of]. You almost wait for someone authoritative to tell you to stop daydreaming and flaking, but there is none. Whew[or][stopping].";
 		now reused-hint is true;
+	else:
+		increment hints-used;
 	now last-clue is x;
 
 to hint-blue:
@@ -7459,7 +7463,7 @@ check talking to Baiter Master:
 
 to say bm-stuff-brags:
 	repeat through table of bm stuff brags:
-		if idol-fails <= times-failed entry or times-failed entry is -1:
+		if hints-used <= times-failed entry or times-failed entry is -1:
 			say "'[what-to-say entry][if reused-hint is true] And you had to look something up twice, too, I bet. No focus.'[else]'";
 			continue the action;
 
@@ -8396,7 +8400,12 @@ volume parser errors and undo
 
 Rule for deciding whether all includes a helpy thing when taking: it does not.
 
-terminal-errors is a number that varies;
+terminal-errors is a number that varies.
+
+table of terminal frustration
+term-miss	term-text
+5	"Okay. this is getting annoying."
+50	"You will get it, somehow, some way. You hope."
 
 rule for printing a parser error when the latest parser error is the didn't understand error:
 	if the turn count is 1: [hack (??) for G on move 1]
@@ -8436,6 +8445,9 @@ rule for printing a parser error when the latest parser error is the didn't unde
 					say "a screech";
 				say ". It looks like you'll need to try again.";
 				increment terminal-errors;
+				repeat through table of terminal frustration:
+					if terminal-errors is term-miss entry:
+						say "[term-text entry][line break]";
 				the rule succeeds;
 		say "That isn't a recognized verb, or it's too complex a sentence. If you want to answer the terminal's puzzle, type all eight letter answers in a row. No need for spaces.";
 		the rule succeeds;
@@ -8986,6 +8998,52 @@ when play begins (this is the force tester wherever rule):
 		try switching the story transcript on;
 		say "Transcripts can be sent to blurglecruncheon@gmail.com. Any punctuation before the comment is okay, e.g. *TYPO or ;typo or :typo.";
 	continue the action;
+
+chapter gqing
+
+gqing is an action applying to one number.
+
+understand the command "gq" as something new.
+
+understand "gq [number]" as gqing.
+
+understand "gq" as a mistake ("gq (number) forces a variable that would be tedious to increase to what it needs to be.[paragraph break]# of game wins in smart street.[line break]# of idol failures[line break][line break]# of times used the Legend of Stuff for new hints[line break]# of Insanity Terminal failures[line break]-1 twiddles whether you re-saw a hint in the Legend of Stuff.[paragraph break]Some too big answers may give a 'bug' response, which isn't really a bug.")
+
+carry out gqing:
+	if the number understood is -1:
+		if player does not have legend of stuff:
+			say "You need the Legend of Stuff to twiddle whether you looked in it." instead;
+			now reused-hint is whether or not reused-hint is false;
+			say "You have now [if reused-hint is false]not [end if]reused a hint in the Legend of Stuff." instead;
+	let Z be the number understood / 100;
+	let Y be the remainder after dividing Z by 100;
+	if player is in service community or player is in idiot village or Z is 1:
+		say "Bad-guy taunt for idol failure critical values are:";
+		repeat through table of bm idol brags:
+			say "[times-failed entry - 1], [times-failed entry], [times-failed entry + 1] ";
+		say "[line break]" instead;
+	if player is in belt below or Z is 2:
+		say "Bad-guy taunt for terminal failure critical values are:";
+		repeat through table of terminal frustration:
+			say "[term-miss entry - 1], [term-miss entry], [term-miss entry + 1] ";
+		say "[line break]" instead;
+	if player is in smart street or Z is 3:
+		say "Win chat critical values are: ";
+		repeat through table of win chat:
+			say "[win-check entry - 1], [win-check entry], [win-check entry + 1] ";
+		say "[line break]";
+		say "Guy taunt-as-you-leave values are:";
+		repeat through table of win chat:
+			say "[total-wins entry - 1], [total-wins entry], [total-wins entry + 1] ";
+		say "[line break]" instead;
+		now your-game-wins is Y instead;
+	if player has Legend of Stuff:
+		say "Bad-guy taunts for using Legend of Stuff: ";
+		repeat through table of bm stuff brags:
+			say "[times-failed entry - 1], [times-failed entry], [times-failed entry + 1] ";
+		say "[line break]";
+		now hints-used is Y instead;
+	the rule succeeds;
 
 chapter gating
 
