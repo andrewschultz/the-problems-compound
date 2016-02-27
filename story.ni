@@ -2439,6 +2439,8 @@ Double Jeopardy	"Double jeopardy is being tried for the same crime twice. Making
 Trust Brain	"A brain trust is a group of people that help make a decision. A trust-brain, though not an English phrase, might mean a mind that can't make its own decisions."
 Moral Support	"Moral support is helping someone even if you don't have concrete advice. SUPPORT MORAL is, well, a slogan that pushes people around."
 Total T	"Teetotal means alcohol-free."
+Party T	"A tea party is usually non-alcoholic, and people mind their manners. Well, unless it's the political sort, but I won't touch that any further. I probably said too much, already."
+Rummy Gin	"Gin Rummy is a card game, generally not the sort associated with wild binge drinking."
 Go Rum	"A rum go is an unforeseen unusual experience, as opposed to 'GO' anything which indicates general motivation."
 Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
 Black Mark	"A black mark is something indicating bad behavior."
@@ -4864,7 +4866,7 @@ after quipping when qbc_litany is litany of stool toad:
 
 part Soda Club
 
-Soda Club is south of Joint Strip. It is in Outer Bounds. "Maybe if it were past 1 AM, you'd see passages west, south, and east, making this place the Total T instead. But if it were past 1 AM, you'd probably be home and asleep and not here. Or, at least, persuaded to leave a while ago.[paragraph break]The only way out is north."
+Soda Club is south of Joint Strip. It is in Outer Bounds. "Maybe if it were past 1 AM, you'd see passages west, south, and east, making this place the Total T--or maybe even the Party T--instead. But if it were past 1 AM, you'd probably be home and asleep and not here. Or, at least, persuaded to leave a while ago.[paragraph break]The only way out is north."
 
 check going nowhere in Soda Club:
 	say "There aren't, like, hidden bathrooms, and you wouldn't need to go even if there were. And if there's a secret passage, there's probably a secret code you don't know, too. So, back north it'll be, once you want to leave." instead;
@@ -4884,6 +4886,7 @@ instead of doing something with rehearsal dress:
 
 after printing the locale description for Soda Club when Soda Club is unvisited:
 	now Total T is in lalaland;
+	now Party T is in Lalaland;
 	say "The bartender calls you over. 'Psst! Pal! Can you give me a break from Liver Lily over there? She's--she's usually pretty interesting, but when she's wearing that rehearsal dress she tends to repeat what she's already said. By the way, you can call me the Punch Sucker. Cuz it's my favorite drink.'"
 
 description of Liver Lily is "She is waiting for conversation in her rehearsal dress."
@@ -5042,6 +5045,7 @@ to say here-or-not:
 after quipping when qbc_litany is litany of Punch Sucker:
 	if current quip is sucker-drinks:
 		move go rum to lalaland;
+		move rummy gin to lalaland;
 		enable the sucker-but quip;
 		enable the sucker-haha quip;
 		enable the sucker-cooler quip;
@@ -8540,7 +8544,11 @@ section soda club concepts
 
 the Total T is a concept in conceptville.
 
+the Party T is a concept in conceptville.
+
 the Go Rum is a concept in conceptville.
+
+Rummy Gin is a concept in conceptville.
 
 section xyzzy concepts
 
