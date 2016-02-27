@@ -147,12 +147,18 @@ Or not.
 One thing is to give her a drink.
 Another is to keep pestering her.
 >>Meal Square
+?What's the difference between the trays?
+Tray A just has silly foods.
+Tray B, if you eat anything, you betray yourself.
 ?What's the Cutter Cookie for?
 It's for a quick "win."
 You turn into a bit of a jerk, and you are forced through to Freak Control.
 ?What's the Off Cheese for?
 It's for another quick "win."
 You turn into a bit of a grump, and you are forced through to Freak Control.
+?What's the Greater Cheese for?
+It's for yet another quick "win."
+You have such a good opinion of yourself, you are forced through to Freak Control to meet the Baiter Master.
 ?What's the Iron Waffle for?
 Amusement only.
 ?What's the Condition Mint for?
@@ -269,9 +275,9 @@ If you've gotten to Idiot Village, the Business Monkey can grow one for you.
 From giving him the Money Seed.
 >>>SCHEME PYRAMID
 ?Why can't I go north?
-The Labor Child wants a signature on the contract.
-You can get one from the Business Monkey in Idiot Village.
-But you'll need to give him something first.
+The Labor Child wants a signature on the contract. It binds any person.
+You can get someone, or something, to sign it.
+But you'll need to give them something first.
 ?Can I take anything from the Fund Hedge?
 Yes. Just examine it, and you'll get a Money Seed.
 You can give it to the Business Monkey in Idiot Village.
@@ -297,7 +303,7 @@ If you got the Trap Rattle from Sly Moore, that'll do it.
 He's sort of blocking you with the Intuition Counter.
 But he's like to be able to do something.
 An official summons could help him. Do you have anything?
-Visit Buddy Best to get a long tag.
+Visit Buddy Best to get the Reasoning Circular.
 Then give it to Officer Petty so you can go east.
 >>>IDIOT VILLAGE
 ?What do I do with the Business Monkey?
@@ -306,6 +312,8 @@ Possibly very silly business.
 You can give him the Money Seed from the Fund Hedge in the Scheme Pyramid.
 Now you've done business, you can get him to sign something.
 The cold contract.
+?Is the Business Monkey male or female?
+I made it neuter in release 2 on purpose.
 ?What do I do with Sly Moore?
 His magic tricks utterly fail, don't they?
 He could use a boost.
@@ -380,9 +388,10 @@ The poory pot can go in the Spleen Vent.
 >>>Court of Contempt
 ?What can I do with Buddy Best?
 Not much. Just listen to what he has to say, and he'll give you something useful.
-A long tag. A ticket for someone to go somewhere. You can't get there, but you could help someone else.
+The Reasoning Circular. Its long tag is a ticket for someone to go somewhere. You can't get there, but you could help someone else.
 ?Why can't I get back here? Do I need to?
-Buddy Best is busy. He doesn't have time for you.
+Buddy Best is busy. He doesn't want to waste any more time on you.
+Which is nice, because you don't need to waste any more time on him.
 You don't need to go back. You've gotten what you want.
 >>>Walker Street
 ?Is the string useful?
@@ -398,11 +407,11 @@ GIVE WEED TO FRITZ.
 GIVE PENNY TO PENN.
 >>>Discussion Block
 ?Do I need the Poetic Wax? Can I take it?
-Yes and yes.
-But Phil and Art are blocking it.
+Yes, and yes, but not right away.
+Phil and Art are blocking it.
 You need a way to chase both of them.
 They seem opposed to inane art they can't make fun of.
-Since Phil likes music and Art likes books, that may help you guess.
+Since Phil likes music and Art likes books or stories, that may help you guess.
 ?Do I need to do anything with the Song Swan and Book Crack?
 They're there just for fun.
 I wish I could've written more.
@@ -427,7 +436,7 @@ It's useful for someone, or something, who is sick of just writing prose.
 >>>Standard Bog
 ?What is the Language Machine doing?
 It's writing sad stories, looking sad.
-It doesn't seem to 'want' to keep writing stories.
+It doesn't seem to 'want' to keep writing sad stories, but it's a bit stuck.
 What could help it write something else?
 The Poetic Wax from the Discussion Block.
 >>FINAL ROOMS
