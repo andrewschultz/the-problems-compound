@@ -1088,7 +1088,7 @@ check listening (this is the listening to a thing rule):
 	if noun is assassination:
 		say "Now that you appear to be listening, the assassin is quiet." instead;
 	if noun is petty:
-		say "He gives off the occasiona HMPH." instead;
+		say "He gives off the occasional HMPH." instead;
 	if noun is labor child:
 		say "He yacks into an unseen headpiece." instead;
 	if noun is a person:
@@ -1172,7 +1172,7 @@ check removing:
 	if noun is tee:
 		say "You don't need to take it apart." instead;
 	if noun is a person:
-		say "You don't have the authority or stength." instead;
+		say "You don't have the authority or strength." instead;
 	say "REMOVEing isn't really used in this game. Try to TAKE or PUSH something instead."
 
 chapter wearing
@@ -1433,7 +1433,7 @@ carry out gotoing:
 		say "No going back." instead;
 	if mrlp is main chunk:
 		if mrlg is not main chunk and mrlg is not outer bounds:
-			say "No going backwards." instead;
+			say "No going back." instead;
 	move player to noun;
 	the rule succeeds;
 
@@ -1447,7 +1447,7 @@ check examining (this is the don't examine directions rule) :
 	if noun is down:
 		say "The earth is not crumbling. Whew." instead;
 	if noun is a direction:
-		say "You don't need to look in directions. Nothing will phsyically ambush you if you just go that way." instead;
+		say "You don't need to look in directions. Nothing will physically ambush you if you just go that way." instead;
 
 after examining (this is the say it's examined rule):
 	if noun provides the property examined:
@@ -1653,7 +1653,7 @@ section giving items from surface
 
 check giving pick to:
 	if second noun is mouth mush:
-		say "'Thanks, but I floss reguarly.'" instead;
+		say "'Thanks, but I floss regularly.'" instead;
 	if second noun is weasel:
 		say "'No! It's yours now! I'm not strong enough for manual labor, anyway. But you are.' He grins brightly." instead;
 
@@ -1691,7 +1691,7 @@ check giving minimum bear to (this is the fun stuff if you give the bear to some
 			say "You decline Fritz's generous offer, since you're already in enough trouble with the Stool Toad. He winks at you in solidarity." instead;
 		get-ticketed instead;
 	if second noun is howdy boy:
-		say "A momentary expression of rage crosses his face. 'Is this some sort of joke? You'd have to be wacked out to still like that.'" instead;
+		say "A momentary expression of rage crosses his face. 'Is this some sort of joke? You'd have to be whacked out to like that.'" instead;
 	if second noun is lily:
 		say "'Aww. That's so sweet. Or it would've been if I was still eight.'" instead;
 	if second noun is a bro: [note that this *is* possible if you perform other lawbreaking tasks]
@@ -1804,7 +1804,7 @@ check giving the cold contract to the business monkey:
 		say "You already did." instead;
 	if money seed is not in lalaland:
 		say "The monkey looks at it, smiles and shrugs. It seems to trust you, but not enough to sign a contract, yet." instead;
-	say "You feel only momentary guilt at having the business monkey sign such a contract. After all, it binds the [i]person[r] to the terms. And is a monkey a person? Corporations, maybe, but monkeys, certainly not, despite any genetic simiarities! The monkey eagerly pulls a pen from an inside pocket, then signs and returns the contract.";
+	say "You feel only momentary guilt at having the business monkey sign such a contract. After all, it binds the [i]person[r] to the terms. And is a monkey a person? Corporations, maybe, but monkeys, certainly not, despite any genetic similarities! The monkey eagerly pulls a pen from an inside pocket, then signs and returns the contract.";
 	increment the score;
 	now contract-signed is true;
 	the rule succeeds;
@@ -3831,7 +3831,7 @@ check going when player is in Tension Surface (this is the pass-arch rule) :
 			say "[one of]You think you've judged how the arch dances, so you can anticipate and walk in. Timing...there...WOOMP! The mush mouth opens so wide you can't jump over it. 'Oops! I need proof you NEED to get by.'[or]The mouth expands again. You're not falling in there, oh no.[stopping]" instead;
 		say "You take a cautious step. That rogue arch might still bounce around...";
 		wfak;
-		say "Thankfully, nothing happens besides your surroundings changng from plains to water."
+		say "Thankfully, nothing happens besides your surroundings changing from plains to water."
 
 section mouth mush
 
@@ -4301,7 +4301,7 @@ check going north in Pressure Pier:
 
 section trail paper
 
-the trail paper is a thing. description is "It looks pretty official. It's made up of the four boo ticketys, but now they're folded right, it may be just what the Howdy Boy wanted."
+the trail paper is a thing. description is "It looks pretty official. It's made up of the four boo ticketies, but now they're folded right, it may be just what the Howdy Boy wanted."
 
 part Meal Square
 
@@ -4640,7 +4640,7 @@ after printing the name of boo tickety while taking inventory:
 	say " ([your-tix] piece[if your-tix > 1]s[end if])";
 
 the boo tickety is a thing. description is "WHATEVER YOU DID: BOOOOOO is displayed on [if your-tix is 1]it[else]each of them[end if].[paragraph break]You have [your-tix] [if your-tix is 1]piece of a boo tickety
-[else]pieces of boo ticketys[end if]. But [if your-tix is 1]it doesn't[else]they don't[end if] make a full document yet."
+[else]pieces of boo ticketies[end if]. But [if your-tix is 1]it doesn't[else]they don't[end if] make a full document yet."
 
 understand "boo ticket" and "ticket" as boo tickety.
 
@@ -4676,7 +4676,7 @@ to get-ticketed:
 	else if your-tix is 2:
 		say "What luck! The second boo tickety you got fits in with the first. You now have a diagonal-half of, well, something.";
 	else if your-tix is 3:
-		say "You now have almost a full paper from the boo ticketys.";
+		say "You now have almost a full paper from the boo ticketies.";
 	else:
 		say "Uh-oh. You have entirely too many ticketies. This is a BUG. Write me at [email].";
 
@@ -6027,7 +6027,7 @@ part The Belt Below
 There is a room called The Belt Below. It is in Main Chunk. "You're in a cylindrical sort of room where the walls are shaped like a belt--yes, a bit even comes out like a buckle[if insanity terminal is in belt]. [one of]And look, there's a sort of odd faux-retro mainframe-ish computer[or]The Insanity Terminal waits for your answer[stopping][end if]."
 
 check going nowhere in belt below:
-	say "You can only go back up[if terminal is in belt], ormaybe beating the terminal will lead elsewhere[else] or down[end if]." instead;
+	say "You can only go back up[if terminal is in belt], or maybe beating the terminal will lead elsewhere[else] or down[end if]." instead;
 
 The Insanity Terminal is scenery in the Belt Below. description is "[bug]";
 
@@ -6574,7 +6574,7 @@ to say iv-idol:
 		continue the action;
 	say "You stare at the thoughts idol, [if player has crocked half]and as it glares back, you resist the urge to look away. It--it actually blinks first.[else]but it stares back at you. You lose the war of facial expressions[end if]"
 
-the Service Community is a room in Main Chunk. "Idiot Village's suburbs stretch every which way! The Thoughs Idol surveys you from a distance. You just came from the [opposite of last-dir]."
+the Service Community is a room in Main Chunk. "Idiot Village's suburbs stretch every which way! The Thoughts Idol surveys you from a distance. You just came from the [opposite of last-dir]."
 
 idol-progress is a number that varies.
 
@@ -7588,7 +7588,7 @@ Airy Station is a room in Endings. "[one of]A cheering crowd[or]The mentality cr
 
 understand "man hammer" as a mistake ("So, this game isn't badly cartoonish enough for you?") when player is in Airy Station.
 
-understand "ban hammer" as a mistake ("You feel confident you could be an internet forum mod. But--if you banned the hammer, you'd never get back home.") when player is in Airy Station.
+understand "ban hammer" as a mistake ("You do feel confident you could now be an Internet forum mod. But--if you banned the hammer, you'd never get back home.") when player is in Airy Station.
 
 understand "hammer jack" as a mistake ("There's probably someone named Jack in the crowd, but even if he deserved it, it'd take too long to go and ask.") when player is in Airy Station.
 

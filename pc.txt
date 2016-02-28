@@ -412,7 +412,7 @@ Phil and Art are blocking it.
 You need a way to chase both of them.
 They seem opposed to inane art they can't make fun of.
 Since Phil likes music and Art likes books or stories, that may help you guess.
-?Do I need to do anything with the Song Swan and Book Crack?
+?Do I need to do anything with the Song Swan and Book Bank?
 They're there just for fun.
 I wish I could've written more.
 If you have a good title, email me, and I'll give you credit.
@@ -422,13 +422,13 @@ Have you found anything that makes a horrible sound?
 It's in a room you can't get to right away.
 Accountable Hold, behind the Scheme Pyramid.
 It's the Sound Safe.
-You just open it when you're in the Compound, and Phil will run away.
+You just open it when you're in the Discussion Block, and Phil will run away.
 ?What do I do with Art?
 He would probably hate a really bad story.
 What do you know that tells a bad story?
 The fish from the Disposed Well.
 You already have a long string, so you can get the fish with that, then come back.
-TALK TO FISH. It will chase Art.
+TALK TO FISH. It will cause Art to Flee.
 ?Does it matter whom I get rid of first?
 No.
 ?What do I do with the wax?
@@ -455,7 +455,7 @@ The only way to lose is not to play to the end.
 However, your ending (good/best) is locked in once you enter Freak Control.
 >>>Out Mist
 ?What do I do here?
-The Worm Ring is collapsing under its own weight, struggling. It's not at its true weight.
+The Worm Ring is collapsing into itself. It needs to be able to straighten out, to become a WHOLE WORM. That would let you teleport.
 How can you make it lighter?
 HOLLOW RING.
 There are two other ways: CHANGE RING and TONE RING.
@@ -464,7 +464,7 @@ ENTER WHOLE WORM.
 You should be unsurprised to find a wormhole.
 >>>Airy Station
 ?What do I do here?
-Well, you need to enter the Snowflake Special to get home.
+Well, you need to enter the Return Carriage to get home.
 The lock caps are blocking it, and you can't remove them with your hands.
 There's that hammer lying there.
 But what do you do with it?
@@ -473,7 +473,7 @@ HAMMER (something) doesn't work with a generic hammer.
 Call it an AWAY HAMMER.
 Or a HOME HAMMER.
 Or even a DOWN HAMMER.
-Either one opens the Snowflake Special and lets you go home.
+Either one opens the Return Carriage and lets you go home.
 >DREAM SEQUENCE
 >>Tense Present
 ?How do I move about here?
@@ -487,17 +487,18 @@ Not really. Just different worries of the future.
 >>Tense Past
 ?Is there anything special here?
 Well, the first time you sleep through, the Stool Toad gets you.
-But otherwise, not really. Just different worries of the past, things you can't change, and things you now recognize as wrong. The stories appear randomly. I hope they're amusing.
+But otherwise, not really. Just different worries of the past, things you can't change, and things you now recognize as wrong. The stories appear randomly. I hope they're amusing. They aren't meant to be ha-ha funny, but there's stuff we can look back on a bit easier with more wisdom.
 >PENALTY AREAS
 ?Is there anything to do?
 No, you should bounce back to where you were.
 ?How many areas are there?
 There are eight you can access from the game proper.
 Punishment Capitol, Hut Ten, In-Dignity Heap, Shape Ship, Criminals' Harbor, Maintenance High, Fight Fair, and A Beer Pound
-If you make it to Window Bay in the Director's Cut, you'll see them all.
+If you make it to Window Bay in the Director's Cut, you'll be able to see them all through the View of Points.
 >Meta-Questions
 ?How many endings are there?
-Well, there are bad ones where you mess up, but they don't really end it.
+Well, there are bad ones where you mess up, but they don't really end it. There are five final endings, three bad, two good.
+Each food on Tray B gives a badending.
 You can eat the cookie cutter.
 You can eat the off cheese.
 You can eat the greater cheese.
