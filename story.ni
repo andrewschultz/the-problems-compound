@@ -2623,7 +2623,7 @@ carry out verbing:
 	say "[2da]conversations use numbered options, and you often need to end them before using standard verbs. RECAP shows your options.";
 	say "[2da]other standard parser verbs apply, and some may provide alternate solutions, but you should be able to win without them.";
 	say "[2da]Meta-commands listed below.";
-	say "[2da]you can also type ABOUT or CREDITS or HISTORY to see meta-information, and XP/EXPLAIN (any object) gives a brief description. XP with no argument explains the room name.";
+	say "[2da]you can also type ABOUT or CREDITS or HISTORY or TECH to see meta-information, and XP/EXPLAIN (any object) gives a brief description. XP with no argument explains the room name.";
 	say "[2da]EXITS shows the exits. While these should be displayed in the room text, you can see where they lead if you've been there.";
 	say "[2da]HELP/HINT/HINTS/WALKTHROUGH will redirect you to the PDF and HTML hints that come with the game. THINK/SCORE gives very broad, general hinting. WAIT lets you wait.";
 	if cur-anno > 0:
@@ -2686,7 +2686,7 @@ understand "about" as abouting.
 carry out abouting:
 	say "The Problems Compound is meant to be less puzzly than my previous efforts. If you need to see verbs, type VERBS. Though there's no hint command, a walkthrough should be included with the game.";
 	say "[line break]TPC also, well, may suffer from AGT disease. It's intended to be a bit juvenile, but hopefully funny for all that. It was inspired by Hulk Handsome's very fun 2012 IFComp entry, In a Manner of Speaking and leans heavily on my 'researching' a website that you can find in CREDITS.";
-	say "[line break]But more importantly, CREDITS lists my testers first, because they've helped make the game less rocky and found bugs that saved me time when I had (yet again) procrastinated.[paragraph break]Also, if you want, HISTORY will contain details about the game's history.";
+	say "[line break]But more importantly, CREDITS lists my testers first, because they've helped make the game less rocky and found bugs that saved me time when I had (yet again) procrastinated.[paragraph break]Also, if you want, HISTORY will contain details about the game's history, and TECH will describe some technical stuff you may find helpful in your own games.";
 	say "[line break]One other thing. If you find bugs, send them at [email] or visit the repository for the game at [my-repo]. If you can take a transcript of how it happens, use the TRANSCRIPT command and attach the file. Oh, also, I'm on twitter as @ned_yompus.";
 	the rule succeeds;
 
@@ -2699,8 +2699,30 @@ understand the command "history" as something new.
 understand "history" as historying.
 
 carry out historying:
-	say "I originally thought up this game in November of 2013. It had a completely different name, which I like a lot, but it didn't fit. PC went through several other names which sounded good but not good enough. The basic idea behind most room names etc. was unchanged.[paragraph break]I wanted to riff on some facet of language without being as abstract and obscure as Ugly Oafs, or as puzzly as the Stale Tales Slate or Threediopolis. The ideas poured in slowly, often by accident. Sometimes I'd overhear stuff, or I'd read an article or book, and there it was. Other times, I'd see a word I was sure had to work some way.[paragraph break]There were enough ideas that didn't fit my story line that I have a sequel and a name for it too. That name will be reveled in a successful ending.";
+	say "I originally thought up this game in November of 2013. It had a completely different name, which I like a lot, but it didn't fit. PC went through several other names which sounded good but not good enough. The basic idea behind most room names etc. was unchanged.[paragraph break]I wanted to riff on some facet of language without being as abstract and obscure as Ugly Oafs, or as puzzly as the Stale Tales Slate or Threediopolis. The ideas poured in slowly, often by accident. Sometimes I'd overhear stuff, or I'd read an article or book, and there it was. Other times, I'd see a word I was sure had to work some way.[paragraph break]There were enough ideas that didn't fit my story line that [if you-already-won]will go into Slicker City, the sequel[else]I have a sequel and a name for it too. That name will be reveled in a successful ending[end if].";
 	say "Nuts-and-bolts details can be found in the latest release's included notes.";
+	the rule succeeds;
+
+to decide whether you-already-won:
+	let X be the number of rows in the table of vu;
+	choose row x in the table of vu;
+	if found entry is true, decide yes;
+	choose row x - 1 in the table of vu;
+	if found entry is true, decide yes;
+	decide no;
+
+chapter teching
+
+teching is an action out of world.
+
+understand the command "tech" as something new.
+
+understand "tech" as teching.
+
+carry out teching:
+	say "Technical implements for testing The Problems Compound are http://toastball.net/glulx-strings/, which you can save locally to determine the strings in a Glulx file. This can help you proofread or whatever, or even (if you're testing and want a sneak peek) see what should happen next.";
+	say "I also used BitBucket at https://bitbucket.org/ to store The Problems Compound's source and binaries when I needed to keep it private before the comp. I like BitBucket a lot, but I love GitHub's tracking that graphs how much you've done.";
+	say "I also used a list of English words to parse with PERL. It wasn't til too late that I created a script that checked for flipped words and possibilities.";
 	the rule succeeds;
 
 chapter signing
