@@ -11,15 +11,18 @@ MAJOR CHANGES:
 --You now have verbs to jump through the game. They kick you to Pressure Pier, the Jerk Circle (jerks still there) and the Jerk Circle (jerks gone). These magic commands are all in the source file.
 --EXPLAIN now explains the figures of speech for various objects or ideas. It is shortened by XP. No argument tells the meaning of the current room.
 --there are now two hint items in the belt below. Neither is necessary to complete the game or get the better ending.
---solving the Terminal now gets you to *two* hint items in the Note Crib below. They are mutually exclusive, but one hints the main game and one hints the side puzzle.
+--solving the Terminal now gets you to *two* hint items in the Note Crib below. They are mutually exclusive, but one hints the main game and one hints the side puzzle. I won't spoil them here, but they're in the source, and the Note Crib below.
 
 In addition, there's a lot of renaming of rooms, scenery and items.
 --Bar Sinister -> Soda Club
+--Crazy Drive -> Walker Street
 --Interest Compound -> Discussion Block
 --book crack -> book bank
 --purposes cross -> Saver Screen
 --song swan -> song torch
 --a long tag -> Reasoning Circular, with a long tag
+
+I also did a full source code vet which shook out bugs, typos, stylistics, etc. It was a good thing to do, and I tried to do, say, one screenful of text at a time.
 
 Story and robustness.
 --the ending now has Alec have a small revelation.
@@ -28,11 +31,14 @@ Story and robustness.
 --minor explanation of puzzles and solving them in Round Lounge.
 --VERBS now says what verbs you can use, including the unlocked "jump" verbs.
 --THINK now reminds you what you should be doing.
+--TECH is a meta-verb that tells you some of the implements I used.
 
 And there's a lot of extra silliness, too.
+--Up Gum is now a food on Tray A. It is not good for you, even if it feels good.
 --PUT WAX ON (anything)
 --the Variety Garden is now guarded by three types of brush, because VARIETY!
 --lots and lots of scenery in Freak Control!
+--the Insanity Terminal now offers (sort of) hints, which you can turn off if you're hardcore.
 --The bad guy snarks insufferably on how many hints you used, even if you didn't.
 --the Business Show is the name of the display on the Fright Stage.
 --added several rooms to view from Window Bay in the Director's Cut area
@@ -54,8 +60,3 @@ MAJOR
 --Fixed blocker bug in the Soda Club (formerly the Sinister Bar) when Lily calls the Stool Toad on you
 
 --clearer chase paper is optional and also the terminal's puzzle now offers clues
-
-silliness
---GIVE X TO Y
-
-I also did a full source code vet which shook out bugs, typos, stylistics, etc.

@@ -1,0 +1,761 @@
+========win
+win to -win
+wind to d-win
+wine to e-win
+wing to g-win
+wink to k-win
+winn to n-win
+wino to o-win *** word
+wins to s-win
+winy to y-win
+wince to ce-win
+winch to ch-win *** word
+winds to ds-win
+windy to dy-win
+wined to ed-win *** word
+wines to es-win *** word
+winey to ey-win
+winge to ge-win
+wings to gs-win
+wingy to gy-win
+winks to ks-win
+winna to na-win *** word
+winns to ns-win
+winos to os-win *** word
+winze to ze-win
+winced to ced-win
+wincer to cer-win
+winces to ces-win
+wincey to cey-win
+windac to dac-win
+windas to das-win *** word
+winded to ded-win
+winder to der-win
+windle to dle-win
+window to dow-win *** word
+windup to dup-win *** word
+winery to ery-win
+winged to ged-win *** word
+winger to ger-win
+winges to ges-win
+winier to ier-win
+wining to ing-win
+winish to ish-win *** word
+winked to ked-win *** word
+winker to ker-win
+winkle to kle-win
+winned to ned-win *** word
+winner to ner-win
+winnle to nle-win
+winnow to now-win *** word
+winoes to oes-win *** word
+winsey to sey-win *** word
+winter to ter-win
+wintle to tle-win
+wintry to try-win *** word
+winzes to zes-win
+wincers to cers-win
+winceys to ceys-win
+winched to ched-win
+wincher to cher-win *** word
+winches to ches-win
+wincing to cing-win
+windacs to dacs-win
+windage to dage-win
+windbag to dbag-win
+winders to ders-win
+windgun to dgun-win
+windier to dier-win
+windigo to digo-win
+windily to dily-win
+winding to ding-win *** word
+windled to dled-win
+windles to dles-win
+windock to dock-win *** word
+windore to dore-win *** word
+windows to dows-win *** word
+windowy to dowy-win
+windrow to drow-win *** word
+windses to dses-win
+windups to dups-win *** word
+windway to dway-win
+winesap to esap-win
+winesop to esop-win
+wingbow to gbow-win
+wingers to gers-win
+wingier to gier-win
+winging to ging-win *** word
+winglet to glet-win
+wingman to gman-win
+wingmen to gmen-win
+wingtip to gtip-win
+winiest to iest-win
+winkers to kers-win
+winking to king-win *** word
+winkled to kled-win
+winkler to kler-win
+winkles to kles-win
+winless to less-win *** word
+winnard to nard-win *** word
+winners to ners-win
+winning to ning-win
+winnles to nles-win
+winnock to nock-win *** word
+winnows to nows-win *** word
+winseys to seys-win *** word
+winsome to some-win *** word
+winters to ters-win
+wintery to tery-win
+wintled to tled-win
+wintles to tles-win
+winchers to chers-win
+winching to ching-win
+winchman to chman-win
+winchmen to chmen-win
+wincings to cings-win
+windable to dable-win
+windages to dages-win
+windases to dases-win
+windbags to dbags-win
+windbell to dbell-win
+windbill to dbill-win
+windblow to dblow-win
+windburn to dburn-win
+windfall to dfall-win
+windflaw to dflaw-win
+windgall to dgall-win
+windguns to dguns-win
+windiest to diest-win
+windigos to digos-win
+windings to dings-win *** word
+windlass to dlass-win
+windless to dless-win
+windling to dling-win
+windmill to dmill-win
+windocks to docks-win *** word
+windores to dores-win
+windowed to dowed-win *** word
+windpipe to dpipe-win
+windring to dring-win
+windrose to drose-win
+windrows to drows-win *** word
+windsail to dsail-win
+windship to dship-win
+windsock to dsock-win
+windsurf to dsurf-win
+windward to dward-win
+windways to dways-win
+wineless to eless-win
+wineries to eries-win
+winesaps to esaps-win
+wineshop to eshop-win
+wineskin to eskin-win
+winesops to esops-win
+wingback to gback-win
+wingbeat to gbeat-win
+wingbows to gbows-win
+wingding to gding-win
+wingedly to gedly-win
+wingeing to geing-win
+wingiest to giest-win
+wingless to gless-win
+winglets to glets-win
+winglike to glike-win *** word
+wingover to gover-win
+wingspan to gspan-win
+wingsuit to gsuit-win
+wingtips to gtips-win
+winkings to kings-win *** word
+winklers to klers-win
+winkling to kling-win
+winnable to nable-win
+winnards to nards-win *** word
+winnings to nings-win
+winnocks to nocks-win *** word
+winnowed to nowed-win *** word
+winnower to nower-win
+winsomer to somer-win
+wintered to tered-win
+winterer to terer-win
+winterly to terly-win
+wintling to tling-win
+wintrier to trier-win *** word
+wintrily to trily-win
+wincopipe to copipe-win
+windbells to dbells-win
+windbills to dbills-win
+windblast to dblast-win
+windblown to dblown-win
+windblows to dblows-win
+windborne to dborne-win
+windbound to dbound-win
+windbreak to dbreak-win
+windburns to dburns-win
+windburnt to dburnt-win
+windchill to dchill-win
+windfalls to dfalls-win
+windflaws to dflaws-win
+windgalls to dgalls-win
+windhover to dhover-win
+windiness to diness-win
+windingly to dingly-win
+windlings to dlings-win
+windmills to dmills-win
+windowing to dowing-win *** word
+windpipes to dpipes-win
+windproof to dproof-win
+windroses to droses-win
+windrowed to drowed-win
+windrower to drower-win
+windsails to dsails-win
+windshake to dshake-win
+windships to dships-win
+windsocks to dsocks-win
+windstorm to dstorm-win
+windsurfs to dsurfs-win
+windswept to dswept-win
+windthrow to dthrow-win
+windtight to dtight-win
+windwards to dwards-win
+wineberry to eberry-win
+wineglass to eglass-win
+winemaker to emaker-win
+winepress to epress-win
+wineshops to eshops-win
+wineskins to eskins-win
+wingbacks to gbacks-win
+wingbeats to gbeats-win
+wingchair to gchair-win
+wingdings to gdings-win
+wingovers to govers-win
+wingspans to gspans-win
+wingsuits to gsuits-win
+winkingly to kingly-win *** word
+winningly to ningly-win
+winnowers to nowers-win
+winnowing to nowing-win
+winsomely to somely-win
+winsomest to somest-win
+winterers to terers-win
+winterfed to terfed-win
+winterier to terier-win
+wintering to tering-win
+winterise to terise-win
+winterish to terish-win
+winterize to terize-win
+wintriest to triest-win
+winceyette to ceyette-win
+winchester to chester-win
+wincopipes to copipes-win
+windblasts to dblasts-win
+windbreaks to dbreaks-win
+windburned to dburned-win
+windchills to dchills-win
+windfallen to dfallen-win
+windflower to dflower-win
+windgalled to dgalled-win
+windhovers to dhovers-win
+windjammer to djammer-win
+windlassed to dlassed-win
+windlasses to dlasses-win
+windlessly to dlessly-win
+windmilled to dmilled-win
+windowings to dowings-win
+windowless to dowless-win
+windowpane to dowpane-win
+windowsill to dowsill-win
+windrowers to drowers-win
+windrowing to drowing-win
+windscreen to dscreen-win
+windshakes to dshakes-win
+windshield to dshield-win
+windstorms to dstorms-win
+windsucker to dsucker-win
+windsurfed to dsurfed-win
+windsurfer to dsurfer-win
+windthrows to dthrows-win
+winebibber to ebibber-win
+winegrower to egrower-win
+winemakers to emakers-win
+wingchairs to gchairs-win
+wingspread to gspread-win
+winnowings to nowings-win
+winterfeed to terfeed-win
+winteriest to teriest-win
+winterised to terised-win
+winterises to terises-win
+winterized to terized-win
+winterizes to terizes-win
+winterkill to terkill-win
+winterless to terless-win
+wintertide to tertide-win
+wintertime to tertime-win
+wintriness to triness-win
+winceyettes to ceyettes-win
+winchesters to chesters-win
+windbaggery to dbaggery-win
+windbreaker to dbreaker-win
+windburning to dburning-win
+windcheater to dcheater-win
+windflowers to dflowers-win
+windinesses to dinesses-win
+windjammers to djammers-win
+windjamming to djamming-win
+windlassing to dlassing-win
+windlestrae to dlestrae-win
+windlestraw to dlestraw-win
+windmilling to dmilling-win
+windowpanes to dowpanes-win
+windowsills to dowsills-win
+windscreens to dscreens-win
+windshields to dshields-win
+windsuckers to dsuckers-win
+windsurfers to dsurfers-win
+windsurfing to dsurfing-win
+wineberries to eberries-win
+winebibbers to ebibbers-win
+winebibbing to ebibbing-win
+wineglasses to eglasses-win
+winegrowers to egrowers-win
+winepresses to epresses-win
+wingspreads to gspreads-win
+winnability to nability-win
+winningness to ningness-win
+winsomeness to someness-win
+winterberry to terberry-win
+wintercress to tercress-win
+winterfeeds to terfeeds-win
+wintergreen to tergreen-win
+winteriness to teriness-win
+winterising to terising-win
+winterizing to terizing-win
+winterkills to terkills-win
+wintertides to tertides-win
+wintertimes to tertimes-win
+windbreakers to dbreakers-win
+windcheaters to dcheaters-win
+windjammings to djammings-win
+windlessness to dlessness-win
+windlestraes to dlestraes-win
+windlestraws to dlestraws-win
+windsurfings to dsurfings-win
+winebibbings to ebibbings-win
+wineglassful to eglassful-win
+winglessness to glessness-win
+winterbourne to terbourne-win
+wintergreens to tergreens-win
+winterkilled to terkilled-win
+winterliness to terliness-win
+winterweight to terweight-win
+wintrinesses to trinesses-win
+windbaggeries to dbaggeries-win
+wineglassfuls to eglassfuls-win
+winnabilities to nabilities-win
+winningnesses to ningnesses-win
+winsomenesses to somenesses-win
+winterberries to terberries-win
+winterbournes to terbournes-win
+wintercresses to tercresses-win
+winterfeeding to terfeeding-win
+winterinesses to terinesses-win
+winterisation to terisation-win
+winterization to terization-win
+winterkilling to terkilling-win
+windlessnesses to dlessnesses-win
+winglessnesses to glessnesses-win
+winterisations to terisations-win
+winterizations to terizations-win
+winterkillings to terkillings-win
+winterlinesses to terlinesses-win
+====Found 368/44
+========lose
+lose to -lose
+losed to d-lose
+losel to l-lose
+losen to n-lose
+loser to r-lose
+loses to s-lose
+losels to ls-lose
+losers to rs-lose
+====Found 8/0
+========loss
+loss to -loss
+lossy to y-loss
+losses to es-loss *** word
+lossier to ier-loss
+lossiest to iest-loss
+lossless to less-loss *** word
+lossmaker to maker-loss *** word
+lossmakers to makers-loss *** word
+lossmaking to making-loss *** word
+====Found 9/5
+========flat
+flat to -flat
+flats to s-flat
+flatly to ly-flat
+flatty to ty-flat
+flatus to us-flat *** word
+flatbed to bed-flat *** word
+flatcap to cap-flat *** word
+flatcar to car-flat *** word
+flatlet to let-flat *** word
+flatted to ted-flat *** word
+flatten to ten-flat *** word
+flatter to ter-flat
+flattie to tie-flat *** word
+flattop to top-flat *** word
+flatback to back-flat *** word
+flatbeds to beds-flat *** word
+flatboat to boat-flat *** word
+flatcaps to caps-flat *** word
+flatcars to cars-flat *** word
+flatette to ette-flat
+flatfeet to feet-flat *** word
+flatfish to fish-flat *** word
+flatfoot to foot-flat *** word
+flathead to head-flat *** word
+flatiron to iron-flat *** word
+flatland to land-flat *** word
+flatlets to lets-flat *** word
+flatline to line-flat *** word
+flatling to ling-flat *** word
+flatlong to long-flat *** word
+flatmate to mate-flat *** word
+flatness to ness-flat *** word
+flatpack to pack-flat *** word
+flattens to tens-flat *** word
+flatters to ters-flat
+flattery to tery-flat
+flattest to test-flat *** word
+flatties to ties-flat *** word
+flatting to ting-flat *** word
+flattish to tish-flat
+flattops to tops-flat *** word
+flatuous to uous-flat
+flatuses to uses-flat *** word
+flatware to ware-flat *** word
+flatwash to wash-flat *** word
+flatways to ways-flat *** word
+flatwise to wise-flat *** word
+flatwork to work-flat *** word
+flatworm to worm-flat *** word
+flatbacks to backs-flat *** word
+flatboats to boats-flat *** word
+flatbread to bread-flat *** word
+flatettes to ettes-flat
+flatfoots to foots-flat *** word
+flatheads to heads-flat *** word
+flatirons to irons-flat *** word
+flatlands to lands-flat *** word
+flatlined to lined-flat *** word
+flatliner to liner-flat *** word
+flatlines to lines-flat *** word
+flatlings to lings-flat *** word
+flatmates to mates-flat *** word
+flatpacks to packs-flat *** word
+flatshare to share-flat *** word
+flattened to tened-flat
+flattener to tener-flat
+flattered to tered-flat
+flatterer to terer-flat
+flattings to tings-flat *** word
+flatulent to ulent-flat
+flatwares to wares-flat *** word
+flatworks to works-flat *** word
+flatworms to worms-flat *** word
+flatbreads to breads-flat *** word
+flatfishes to fishes-flat *** word
+flatfooted to footed-flat *** word
+flatlander to lander-flat *** word
+flatliners to liners-flat *** word
+flatlining to lining-flat *** word
+flatnesses to nesses-flat *** word
+flatscreen to screen-flat *** word
+flatshares to shares-flat *** word
+flatteners to teners-flat
+flattening to tening-flat
+flatterers to terers-flat
+flatteries to teries-flat
+flattering to tering-flat
+flatterous to terous-flat
+flatulence to ulence-flat
+flatulency to ulency-flat
+flatwashes to washes-flat *** word
+flatfooting to footing-flat *** word
+flatlanders to landers-flat *** word
+flatscreens to screens-flat *** word
+flatterable to terable-flat
+flatulences to ulences-flat
+flatulently to ulently-flat
+flatteringly to teringly-flat
+flatterously to terously-flat
+flatulencies to ulencies-flat
+====Found 100/70
+========flame
+flame to -flame
+flamed to d-flame
+flamen to n-flame
+flamer to r-flame
+flames to s-flame
+flamens to ns-flame
+flamers to rs-flame
+flamelet to let-flame *** word
+flamenco to nco-flame
+flameout to out-flame *** word
+flameless to less-flame *** word
+flamelets to lets-flame *** word
+flamelike to like-flame *** word
+flamencos to ncos-flame
+flameouts to outs-flame *** word
+flameproof to proof-flame *** word
+flameproofs to proofs-flame *** word
+flameproofed to proofed-flame *** word
+flameproofer to proofer-flame *** word
+flamethrower to thrower-flame *** word
+flameproofers to proofers-flame *** word
+flameproofing to proofing-flame *** word
+flamethrowers to throwers-flame *** word
+====Found 23/14
+========flat
+flat to -flat
+flats to s-flat
+flatly to ly-flat
+flatty to ty-flat
+flatus to us-flat *** word
+flatbed to bed-flat *** word
+flatcap to cap-flat *** word
+flatcar to car-flat *** word
+flatlet to let-flat *** word
+flatted to ted-flat *** word
+flatten to ten-flat *** word
+flatter to ter-flat
+flattie to tie-flat *** word
+flattop to top-flat *** word
+flatback to back-flat *** word
+flatbeds to beds-flat *** word
+flatboat to boat-flat *** word
+flatcaps to caps-flat *** word
+flatcars to cars-flat *** word
+flatette to ette-flat
+flatfeet to feet-flat *** word
+flatfish to fish-flat *** word
+flatfoot to foot-flat *** word
+flathead to head-flat *** word
+flatiron to iron-flat *** word
+flatland to land-flat *** word
+flatlets to lets-flat *** word
+flatline to line-flat *** word
+flatling to ling-flat *** word
+flatlong to long-flat *** word
+flatmate to mate-flat *** word
+flatness to ness-flat *** word
+flatpack to pack-flat *** word
+flattens to tens-flat *** word
+flatters to ters-flat
+flattery to tery-flat
+flattest to test-flat *** word
+flatties to ties-flat *** word
+flatting to ting-flat *** word
+flattish to tish-flat
+flattops to tops-flat *** word
+flatuous to uous-flat
+flatuses to uses-flat *** word
+flatware to ware-flat *** word
+flatwash to wash-flat *** word
+flatways to ways-flat *** word
+flatwise to wise-flat *** word
+flatwork to work-flat *** word
+flatworm to worm-flat *** word
+flatbacks to backs-flat *** word
+flatboats to boats-flat *** word
+flatbread to bread-flat *** word
+flatettes to ettes-flat
+flatfoots to foots-flat *** word
+flatheads to heads-flat *** word
+flatirons to irons-flat *** word
+flatlands to lands-flat *** word
+flatlined to lined-flat *** word
+flatliner to liner-flat *** word
+flatlines to lines-flat *** word
+flatlings to lings-flat *** word
+flatmates to mates-flat *** word
+flatpacks to packs-flat *** word
+flatshare to share-flat *** word
+flattened to tened-flat
+flattener to tener-flat
+flattered to tered-flat
+flatterer to terer-flat
+flattings to tings-flat *** word
+flatulent to ulent-flat
+flatwares to wares-flat *** word
+flatworks to works-flat *** word
+flatworms to worms-flat *** word
+flatbreads to breads-flat *** word
+flatfishes to fishes-flat *** word
+flatfooted to footed-flat *** word
+flatlander to lander-flat *** word
+flatliners to liners-flat *** word
+flatlining to lining-flat *** word
+flatnesses to nesses-flat *** word
+flatscreen to screen-flat *** word
+flatshares to shares-flat *** word
+flatteners to teners-flat
+flattening to tening-flat
+flatterers to terers-flat
+flatteries to teries-flat
+flattering to tering-flat
+flatterous to terous-flat
+flatulence to ulence-flat
+flatulency to ulency-flat
+flatwashes to washes-flat *** word
+flatfooting to footing-flat *** word
+flatlanders to landers-flat *** word
+flatscreens to screens-flat *** word
+flatterable to terable-flat
+flatulences to ulences-flat
+flatulently to ulently-flat
+flatteringly to teringly-flat
+flatterously to terously-flat
+flatulencies to ulencies-flat
+====Found 100/70
+========fling
+fling to -fling
+flings to s-fling
+flinger to er-fling *** word
+flingers to ers-fling *** word
+flinging to ing-fling
+====Found 5/2
+========flame
+flame to -flame
+flamed to d-flame
+flamen to n-flame
+flamer to r-flame
+flames to s-flame
+flamens to ns-flame
+flamers to rs-flame
+flamelet to let-flame *** word
+flamenco to nco-flame
+flameout to out-flame *** word
+flameless to less-flame *** word
+flamelets to lets-flame *** word
+flamelike to like-flame *** word
+flamencos to ncos-flame
+flameouts to outs-flame *** word
+flameproof to proof-flame *** word
+flameproofs to proofs-flame *** word
+flameproofed to proofed-flame *** word
+flameproofer to proofer-flame *** word
+flamethrower to thrower-flame *** word
+flameproofers to proofers-flame *** word
+flameproofing to proofing-flame *** word
+flamethrowers to throwers-flame *** word
+====Found 23/14 for flame
+========flat
+flat to -flat
+flats to s-flat
+flatly to ly-flat
+flatty to ty-flat
+flatus to us-flat *** word
+flatbed to bed-flat *** word
+flatcap to cap-flat *** word
+flatcar to car-flat *** word
+flatlet to let-flat *** word
+flatted to ted-flat *** word
+flatten to ten-flat *** word
+flatter to ter-flat
+flattie to tie-flat *** word
+flattop to top-flat *** word
+flatback to back-flat *** word
+flatbeds to beds-flat *** word
+flatboat to boat-flat *** word
+flatcaps to caps-flat *** word
+flatcars to cars-flat *** word
+flatette to ette-flat
+flatfeet to feet-flat *** word
+flatfish to fish-flat *** word
+flatfoot to foot-flat *** word
+flathead to head-flat *** word
+flatiron to iron-flat *** word
+flatland to land-flat *** word
+flatlets to lets-flat *** word
+flatline to line-flat *** word
+flatling to ling-flat *** word
+flatlong to long-flat *** word
+flatmate to mate-flat *** word
+flatness to ness-flat *** word
+flatpack to pack-flat *** word
+flattens to tens-flat *** word
+flatters to ters-flat
+flattery to tery-flat
+flattest to test-flat *** word
+flatties to ties-flat *** word
+flatting to ting-flat *** word
+flattish to tish-flat
+flattops to tops-flat *** word
+flatuous to uous-flat
+flatuses to uses-flat *** word
+flatware to ware-flat *** word
+flatwash to wash-flat *** word
+flatways to ways-flat *** word
+flatwise to wise-flat *** word
+flatwork to work-flat *** word
+flatworm to worm-flat *** word
+flatbacks to backs-flat *** word
+flatboats to boats-flat *** word
+flatbread to bread-flat *** word
+flatettes to ettes-flat
+flatfoots to foots-flat *** word
+flatheads to heads-flat *** word
+flatirons to irons-flat *** word
+flatlands to lands-flat *** word
+flatlined to lined-flat *** word
+flatliner to liner-flat *** word
+flatlines to lines-flat *** word
+flatlings to lings-flat *** word
+flatmates to mates-flat *** word
+flatpacks to packs-flat *** word
+flatshare to share-flat *** word
+flattened to tened-flat
+flattener to tener-flat
+flattered to tered-flat
+flatterer to terer-flat
+flattings to tings-flat *** word
+flatulent to ulent-flat
+flatwares to wares-flat *** word
+flatworks to works-flat *** word
+flatworms to worms-flat *** word
+flatbreads to breads-flat *** word
+flatfishes to fishes-flat *** word
+flatfooted to footed-flat *** word
+flatlander to lander-flat *** word
+flatliners to liners-flat *** word
+flatlining to lining-flat *** word
+flatnesses to nesses-flat *** word
+flatscreen to screen-flat *** word
+flatshares to shares-flat *** word
+flatteners to teners-flat
+flattening to tening-flat
+flatterers to terers-flat
+flatteries to teries-flat
+flattering to tering-flat
+flatterous to terous-flat
+flatulence to ulence-flat
+flatulency to ulency-flat
+flatwashes to washes-flat *** word
+flatfooting to footing-flat *** word
+flatlanders to landers-flat *** word
+flatscreens to screens-flat *** word
+flatterable to terable-flat
+flatulences to ulences-flat
+flatulently to ulently-flat
+flatteringly to teringly-flat
+flatterously to terously-flat
+flatulencies to ulencies-flat
+====Found 100/70 for flat
+========fling
+fling to -fling
+flings to s-fling
+flinger to er-fling *** word
+flingers to ers-fling *** word
+flinging to ing-fling
+====Found 5/2 for fling

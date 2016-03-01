@@ -4206,6 +4206,7 @@ table of saver references
 reference-blurb
 "Misunderstand someone blatantly to see if they react excitingly enough. If so, you may have a new associate!"
 "Use 'fair enough' frequently to cool off someone who actually may have a point."
+"Complain about something you can't say these days, but don't let your audience cut in too much."
 "Pretend to misunderstand everyone even if they're clear. If they don't stick up for themselves, well, they need to learn."
 "Use 'y'know' a lot, especially when berating unnecessary adverbs."
 "Smack [']em down with 'It's called...' two or three times a day."
@@ -7711,7 +7712,13 @@ to good-end:
 
 understand "let ring" and "ring let" and "ringlet" as a mistake("Your hair curls at the thought of such passivity.") when player is in Out Mist.
 
-understand "master ring" as a mistake("You're RUNNING from the ring master, and you've already spent time mastering the Problems Compound.") when player is in Out Mist.
+understand "master/leader ring" and "ring master/leader" as a mistake("You're RUNNING from the [r-m-l], and you've already spent time mastering the Problems Compound.") when player is in Out Mist.
+
+to say r-m-l:
+	let x be word number 1 in the player's command;
+	if word number 1 in the player's command is "ring":
+		now x is word number 2 in the player's command;
+	say "[x]";
 
 understand "ring change" and "ring tone" and "ring hollow" as a mistake ("Ooh! Almost.")
 
