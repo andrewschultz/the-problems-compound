@@ -1,7 +1,18 @@
 if (!@ARGV[0]) { die ("Need a word to flip."); }
-if (@ARGV[1] eq "-d") { $overlook = 1; }
+while ($count <= $#ARGV)
+{
+$a = @ARGV[$count];
 
-@flipAry = split(/,/, lc(@ARGV[0]));
+for ($a)
+{
+ /^-f/ && do { $overlook = 1; $count++; next; };
+ /^-d/ && do { $dicURL = 1; $count++; next; };
+ if ($flipData) { print "Only one flip data allowed. Use comma separators.\n"; exit; } else { $flipData =$a; $count++; print "Flip data = $flipData\n"; next; }
+}
+}
+
+
+@flipAry = split(/,/, lc($flipData));
 
 initWordCheck();
 initDupeRead();
@@ -32,7 +43,7 @@ close(A);
 #initDupeRead = see what's already been done. Separate function or else it will be run several times.
 sub initDupeRead
 {
-open(B, "c:/games/inform/compound.inform/source/flip.txt");
+open(B, "c:/games/inform/compound.inform/source/fliptrack.txt");
 while ($b = <B>)
 {
   $lineNum++;
@@ -56,8 +67,12 @@ sub readOneWord
  { print "$_[0] not done yet.\n"; }
  $flip = $_[0];
 
-open(B, ">>c:/games/inform/compound.inform/source/flip.txt");
+if ($dicURL) { `\"C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe\" http:\/\/idioms.thefreedictionary.com\/$flip`; }
 
+open(B, ">>c:/games/inform/compound.inform/source/flip.txt");
+open(C, ">>c:/games/inform/compound.inform/source/fliptrack.txt");
+
+print C "========$flip\n";
 print B "========$flip\n";
 
 open(A, "c:/writing/dict/brit-1word.txt");
@@ -95,4 +110,13 @@ close(A);
 print B "====Found $found/$wordy for $flip\n";
 print "====Found $found/$wordy for $flip\n";
 close(B);
+}
+
+sub usage
+{
+print<<EOT;
+-d = find idiom at the free dictionary
+-f = force trying and overlook if it's there
+EOT
+exit;
 }

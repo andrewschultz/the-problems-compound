@@ -759,3 +759,438 @@ flinger to er-fling *** word
 flingers to ers-fling *** word
 flinging to ing-fling
 ====Found 5/2 for fling
+========-d
+====Found 0/0 for -d
+========-d
+====Found 0/0 for -d
+========-d
+====Found 0/0 for -d
+========set
+set to -set
+seta to a-set *** word
+sets to s-set
+sett to t-set
+setae to ae-set
+setal to al-set *** word
+seton to on-set *** word
+setts to ts-set
+setup to up-set *** word
+setoff to off-set *** word
+setons to ons-set *** word
+setose to ose-set *** word
+setous to ous-set *** word
+setout to out-set *** word
+settee to tee-set *** word
+setter to ter-set
+settle to tle-set
+setule to ule-set *** word
+setups to ups-set *** word
+setback to back-set *** word
+setline to line-set *** word
+setness to ness-set *** word
+setoffs to offs-set *** word
+setouts to outs-set *** word
+settees to tees-set *** word
+setters to ters-set
+setting to ting-set *** word
+settled to tled-set
+settler to tler-set
+settles to tles-set
+settlor to tlor-set
+setuale to uale-set
+setules to ules-set *** word
+setwall to wall-set *** word
+setbacks to backs-set *** word
+setenant to enant-set
+setiform to iform-set
+setlines to lines-set *** word
+setscrew to screw-set *** word
+settered to tered-set
+settings to tings-set *** word
+settlers to tlers-set
+settling to tling-set
+settlors to tlors-set
+setuales to uales-set
+setulose to ulose-set
+setulous to ulous-set
+setwalls to walls-set *** word
+setaceous to aceous-set
+setenants to enants-set
+setnesses to nesses-set *** word
+setscrews to screws-set *** word
+settering to tering-set
+settlings to tlings-set
+setiferous to iferous-set
+setigerous to igerous-set
+setterwort to terwort-set
+settleable to tleable-set
+settlement to tlement-set
+setaceously to aceously-set
+setterworts to terworts-set
+settledness to tledness-set
+settlements to tlements-set
+settlednesses to tlednesses-set
+====Found 64/28 for set
+========sit
+sit to -sit
+site to e-sit
+sith to h-sit
+sits to s-sit
+sitz to z-sit
+sitar to ar-sit *** word
+sited to ed-sit *** word
+sites to es-sit *** word
+sithe to he-sit *** word
+sitka to ka-sit *** word
+situp to up-sit *** word
+situs to us-sit *** word
+sitars to ars-sit *** word
+sitcom to com-sit
+sithed to hed-sit
+sithee to hee-sit
+sithen to hen-sit *** word
+sithes to hes-sit *** word
+siting to ing-sit
+sitrep to rep-sit *** word
+sittar to tar-sit *** word
+sitten to ten-sit *** word
+sitter to ter-sit
+situla to ula-sit
+situps to ups-sit *** word
+sitcoms to coms-sit *** word
+sitella to ella-sit
+sitfast to fast-sit *** word
+sithens to hens-sit *** word
+sithing to hing-sit *** word
+sitreps to reps-sit *** word
+sittars to tars-sit *** word
+sitters to ters-sit
+sittine to tine-sit *** word
+sitting to ting-sit *** word
+situate to uate-sit
+situlae to ulae-sit
+situses to uses-sit *** word
+sitarist to arist-sit
+sitellas to ellas-sit
+sitfasts to fasts-sit *** word
+sithence to hence-sit *** word
+sitkamer to kamer-sit
+sitology to ology-sit *** word
+sittella to tella-sit
+sittings to tings-sit *** word
+situated to uated-sit
+situates to uates-sit
+sitzmark to zmark-sit
+sitarists to arists-sit
+sitatunga to atunga-sit
+sitiology to iology-sit
+sitkamers to kamers-sit
+sittellas to tellas-sit
+situating to uating-sit
+situation to uation-sit
+situtunga to utunga-sit
+sitzkrieg to zkrieg-sit
+sitzmarks to zmarks-sit
+sitatungas to atungas-sit
+sitologies to ologies-sit *** word
+sitophobia to ophobia-sit
+sitosterol to osterol-sit
+situations to uations-sit
+situtungas to utungas-sit
+sitzkriegs to zkriegs-sit
+sitiologies to iologies-sit
+sitiophobia to iophobia-sit
+sitophobias to ophobias-sit
+sitosterols to osterols-sit
+situational to uational-sit
+sitiophobias to iophobias-sit
+situationism to uationism-sit
+situationally to uationally-sit
+situationisms to uationisms-sit
+====Found 75/28 for sit
+========set
+set to -set
+seta to a-set *** word
+sets to s-set
+sett to t-set
+setae to ae-set
+setal to al-set *** word
+seton to on-set *** word
+setts to ts-set
+setup to up-set *** word
+setoff to off-set *** word
+setons to ons-set *** word
+setose to ose-set *** word
+setous to ous-set *** word
+setout to out-set *** word
+settee to tee-set *** word
+setter to ter-set
+settle to tle-set
+setule to ule-set *** word
+setups to ups-set *** word
+setback to back-set *** word
+setline to line-set *** word
+setness to ness-set *** word
+setoffs to offs-set *** word
+setouts to outs-set *** word
+settees to tees-set *** word
+setters to ters-set
+setting to ting-set *** word
+settled to tled-set
+settler to tler-set
+settles to tles-set
+settlor to tlor-set
+setuale to uale-set
+setules to ules-set *** word
+setwall to wall-set *** word
+setbacks to backs-set *** word
+setenant to enant-set
+setiform to iform-set
+setlines to lines-set *** word
+setscrew to screw-set *** word
+settered to tered-set
+settings to tings-set *** word
+settlers to tlers-set
+settling to tling-set
+settlors to tlors-set
+setuales to uales-set
+setulose to ulose-set
+setulous to ulous-set
+setwalls to walls-set *** word
+setaceous to aceous-set
+setenants to enants-set
+setnesses to nesses-set *** word
+setscrews to screws-set *** word
+settering to tering-set
+settlings to tlings-set
+setiferous to iferous-set
+setigerous to igerous-set
+setterwort to terwort-set
+settleable to tleable-set
+settlement to tlement-set
+setaceously to aceously-set
+setterworts to terworts-set
+settledness to tledness-set
+settlements to tlements-set
+settlednesses to tlednesses-set
+====Found 64/28 for set
+========sit
+sit to -sit
+site to e-sit
+sith to h-sit
+sits to s-sit
+sitz to z-sit
+sitar to ar-sit *** word
+sited to ed-sit *** word
+sites to es-sit *** word
+sithe to he-sit *** word
+sitka to ka-sit *** word
+situp to up-sit *** word
+situs to us-sit *** word
+sitars to ars-sit *** word
+sitcom to com-sit
+sithed to hed-sit
+sithee to hee-sit
+sithen to hen-sit *** word
+sithes to hes-sit *** word
+siting to ing-sit
+sitrep to rep-sit *** word
+sittar to tar-sit *** word
+sitten to ten-sit *** word
+sitter to ter-sit
+situla to ula-sit
+situps to ups-sit *** word
+sitcoms to coms-sit *** word
+sitella to ella-sit
+sitfast to fast-sit *** word
+sithens to hens-sit *** word
+sithing to hing-sit *** word
+sitreps to reps-sit *** word
+sittars to tars-sit *** word
+sitters to ters-sit
+sittine to tine-sit *** word
+sitting to ting-sit *** word
+situate to uate-sit
+situlae to ulae-sit
+situses to uses-sit *** word
+sitarist to arist-sit
+sitellas to ellas-sit
+sitfasts to fasts-sit *** word
+sithence to hence-sit *** word
+sitkamer to kamer-sit
+sitology to ology-sit *** word
+sittella to tella-sit
+sittings to tings-sit *** word
+situated to uated-sit
+situates to uates-sit
+sitzmark to zmark-sit
+sitarists to arists-sit
+sitatunga to atunga-sit
+sitiology to iology-sit
+sitkamers to kamers-sit
+sittellas to tellas-sit
+situating to uating-sit
+situation to uation-sit
+situtunga to utunga-sit
+sitzkrieg to zkrieg-sit
+sitzmarks to zmarks-sit
+sitatungas to atungas-sit
+sitologies to ologies-sit *** word
+sitophobia to ophobia-sit
+sitosterol to osterol-sit
+situations to uations-sit
+situtungas to utungas-sit
+sitzkriegs to zkriegs-sit
+sitiologies to iologies-sit
+sitiophobia to iophobia-sit
+sitophobias to ophobias-sit
+sitosterols to osterols-sit
+situational to uational-sit
+sitiophobias to iophobias-sit
+situationism to uationism-sit
+situationally to uationally-sit
+situationisms to uationisms-sit
+====Found 75/28 for sit
+========set
+set to -set
+seta to a-set *** word
+sets to s-set
+sett to t-set
+setae to ae-set
+setal to al-set *** word
+seton to on-set *** word
+setts to ts-set
+setup to up-set *** word
+setoff to off-set *** word
+setons to ons-set *** word
+setose to ose-set *** word
+setous to ous-set *** word
+setout to out-set *** word
+settee to tee-set *** word
+setter to ter-set
+settle to tle-set
+setule to ule-set *** word
+setups to ups-set *** word
+setback to back-set *** word
+setline to line-set *** word
+setness to ness-set *** word
+setoffs to offs-set *** word
+setouts to outs-set *** word
+settees to tees-set *** word
+setters to ters-set
+setting to ting-set *** word
+settled to tled-set
+settler to tler-set
+settles to tles-set
+settlor to tlor-set
+setuale to uale-set
+setules to ules-set *** word
+setwall to wall-set *** word
+setbacks to backs-set *** word
+setenant to enant-set
+setiform to iform-set
+setlines to lines-set *** word
+setscrew to screw-set *** word
+settered to tered-set
+settings to tings-set *** word
+settlers to tlers-set
+settling to tling-set
+settlors to tlors-set
+setuales to uales-set
+setulose to ulose-set
+setulous to ulous-set
+setwalls to walls-set *** word
+setaceous to aceous-set
+setenants to enants-set
+setnesses to nesses-set *** word
+setscrews to screws-set *** word
+settering to tering-set
+settlings to tlings-set
+setiferous to iferous-set
+setigerous to igerous-set
+setterwort to terwort-set
+settleable to tleable-set
+settlement to tlement-set
+setaceously to aceously-set
+setterworts to terworts-set
+settledness to tledness-set
+settlements to tlements-set
+settlednesses to tlednesses-set
+====Found 64/28 for set
+========sit
+sit to -sit
+site to e-sit
+sith to h-sit
+sits to s-sit
+sitz to z-sit
+sitar to ar-sit *** word
+sited to ed-sit *** word
+sites to es-sit *** word
+sithe to he-sit *** word
+sitka to ka-sit *** word
+situp to up-sit *** word
+situs to us-sit *** word
+sitars to ars-sit *** word
+sitcom to com-sit
+sithed to hed-sit
+sithee to hee-sit
+sithen to hen-sit *** word
+sithes to hes-sit *** word
+siting to ing-sit
+sitrep to rep-sit *** word
+sittar to tar-sit *** word
+sitten to ten-sit *** word
+sitter to ter-sit
+situla to ula-sit
+situps to ups-sit *** word
+sitcoms to coms-sit *** word
+sitella to ella-sit
+sitfast to fast-sit *** word
+sithens to hens-sit *** word
+sithing to hing-sit *** word
+sitreps to reps-sit *** word
+sittars to tars-sit *** word
+sitters to ters-sit
+sittine to tine-sit *** word
+sitting to ting-sit *** word
+situate to uate-sit
+situlae to ulae-sit
+situses to uses-sit *** word
+sitarist to arist-sit
+sitellas to ellas-sit
+sitfasts to fasts-sit *** word
+sithence to hence-sit *** word
+sitkamer to kamer-sit
+sitology to ology-sit *** word
+sittella to tella-sit
+sittings to tings-sit *** word
+situated to uated-sit
+situates to uates-sit
+sitzmark to zmark-sit
+sitarists to arists-sit
+sitatunga to atunga-sit
+sitiology to iology-sit
+sitkamers to kamers-sit
+sittellas to tellas-sit
+situating to uating-sit
+situation to uation-sit
+situtunga to utunga-sit
+sitzkrieg to zkrieg-sit
+sitzmarks to zmarks-sit
+sitatungas to atungas-sit
+sitologies to ologies-sit *** word
+sitophobia to ophobia-sit
+sitosterol to osterol-sit
+situations to uations-sit
+situtungas to utungas-sit
+sitzkriegs to zkriegs-sit
+sitiologies to iologies-sit
+sitiophobia to iophobia-sit
+sitophobias to ophobias-sit
+sitosterols to osterols-sit
+situational to uational-sit
+sitiophobias to iophobias-sit
+situationism to uationism-sit
+situationally to uationally-sit
+situationisms to uationisms-sit
+====Found 75/28 for sit

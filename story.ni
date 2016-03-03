@@ -174,7 +174,7 @@ when play begins (this is the initialize jerks rule):
 
 when play begins (this is the sort ALL the tables rule) :
 	sort the table of dutch-blab in random order;
-	sort the table of painful narratives in random order;
+	sort the table of sleep stories in random order;
 	sort the table of horrendous books in random order;
 	sort the table of horrendous songs in random order;
 	continue the action;
@@ -675,7 +675,7 @@ to move-dream-ahead:
 	else if player is in tense future:
 		now player is in tense past;
 		increase nar-count by 1;
-		if nar-count > number of rows in table of painful narratives:
+		if nar-count > number of rows in table of sleep stories:
 			now nar-count is 1;
 	else if player is in tense past:
 		now player is in tense present;
@@ -7712,7 +7712,7 @@ to good-end:
 
 understand "let ring" and "ring let" and "ringlet" as a mistake("Your hair curls at the thought of such passivity.") when player is in Out Mist.
 
-understand "master/leader ring" and "ring master/leader" as a mistake("You're RUNNING from the [r-m-l], and you've already spent time mastering the Problems Compound.") when player is in Out Mist.
+understand "master ring" and "leader ring" and "ring master" and "ring leader" as a mistake("You're RUNNING from the [r-m-l], and you've already spent time mastering the Problems Compound.") when player is in Out Mist.
 
 to say r-m-l:
 	let x be word number 1 in the player's command;
@@ -7854,20 +7854,22 @@ every turn when mrlp is dream sequence:
 	if last-room-dreamed is location of player:
 		the rule succeeds;
 	now last-room-dreamed is location of player;
-	choose row nar-count in table of painful narratives;
+	choose row nar-count in table of sleep stories;
 	say "[if player is in tense past][b4-nar entry][else if player is in tense present][now-nar entry][else if player is in tense future][af-nar entry][else](BUG)[end if][line break]";
 
-table of painful narratives
+table of sleep stories [painful narratives]
 b4-nar	now-nar	af-nar	ac-nar
-"'Dude, why do you read so much? It's sort of showing off.'"	"You are, for the moment, in English class. People are running circles around you discussing an assigned book. You overhear that YOU should be participating more, with all you used to read."	"You are outside a charity dinner--not allowed in, of course. A grown-up version of the classmate who made fun of you in the past for reading blathers on about how reading books helps children become success stories."	true
+"'Dude, why do you read so much? It's sort of showing off.'"	"You are, for the moment, in English class. People are running circles around you discussing an assigned book. You overhear that YOU should be participating more, with all you used to read."	"You are outside an expensive charity dinner--not allowed in, of course. A grown-up version of the classmate who made fun of you in the past for reading blathers on about how reading books helps children become success stories."	true
 "A teacher chides the class to be 'nice like Alec.' They aren't, at recess."	"Some fake contrarian says that just being nice isn't nearly enough, and it's so formulated."	"You face an onslaught of people who were apparently trying to be nice to you, but NO..."
-"The rest of the class glares at you after you ask one too many 'why' questions."	"Classmates moan endlessly about research papers, and you figure there's probably some law against choosing a subject you'd like."	"A classmate all grown up espouses original dynamic thinking and how schools just don't do enough."
+"The rest of the class glares at your younger self for asking one too many 'why' questions."	"Classmates moan endlessly about research papers, and you figure there's probably some law against choosing a subject you'd like."	"A classmate all grown up espouses original dynamic thinking and how schools just don't do enough."
 "A young version of a now ex-friend berates young you for a small inefficiency in code his father noted."	"The ex-friend, older now, wonders why you stink at big-picture programming for computer class despite writing that immaculate Quick Sort routine."	"The ex-friend is lecturing at a big conference now, about how coding is about flexibility and trading ideas, but there's still a great job market for low-level stuff most people totally fear."
 "You feel slightly sick hearing what a smart young boy you are. Study hard, and the social stuff will work itself out later."	"You hear whispers that Alec may be smart, but he can't be bothered to, you know, work well with other people. People who do the organizational stuff."	"You're stuck listening to a self-help guru tape blathering how what REALLY matters is how well you work with other people, and if brainy types never bothered to get this, the worse for them."
 "Your six-year-old self listens to a 'sophisticated' joke by eleven-year-olds you don't understand."	"Your peers tell a dirty joke they're shocked you don't understand, but they're sure you're learning important stuff."	"A college professor lambastes your lack of curiosity and/or research network when you draw a blank on his/her clever cultural reference."
 "Memories of elementary-school classmates bugging you about what you're writing, only to grow shortly bored with it."	"Memories of fringe-group kids not willing to share their writing with such a math and science square."	"A vision of THAT guy hawking his 'creative' autobiography, which is total rubbish."
 "Remembering the first time you kicked a kickball in the air. The bully waiting under it, saying don't bother to run. Dropping it and hitting you good, your teammates furious you didn't try."	"Smart semi-friends laughing at the bully flunking a grade. Drug problems."	"Advanced-class peers discuss why you're not on the career track you should be. The bully joins in, saying if HE had your chances...they agree."
 "You fail to deal with James Scott and Scott James both laughing at you for reading in third grade."	"You remember Bradley George and George Bradley arguing if you are just lazy or clueless. It's unclear whether they'd rather acknowledge if you're in earshot, or not."	"In the future, you see co-workers Simon Terry and Terry Simon argue over whether you should be fired because you concentrate too much on details or too much on big things."
+"Hearing 'Don't think you're special, son. The sooner you learn that, the better,' back in third grade."	"Hearing you didn't really distinguish yourself with any special skills for the job market."	"Being around people who wondered why you didn't try for anything special, because you could've if you wanted to."
+"'Why would anyone want to write something like THAT?!'"	"'Wow! You're trying to, like, appeal to normal people with this writing, but, um, no.'"	"'Say, why don't you write any more?'"
 
 part tense past
 
