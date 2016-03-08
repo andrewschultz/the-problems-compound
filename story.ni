@@ -7855,11 +7855,17 @@ every turn when mrlp is dream sequence:
 		the rule succeeds;
 	now last-room-dreamed is location of player;
 	choose row nar-count in table of sleep stories;
+	if player is in tense past:
+		now b4-done entry is true;
+	else if player is in tense present:
+		now now-done entry is true;
+	else if player is in tense future:
+		now af-done entry is true;
 	say "[if player is in tense past][b4-nar entry][else if player is in tense present][now-nar entry][else if player is in tense future][af-nar entry][else](BUG)[end if][line break]";
 
 table of sleep stories [painful narratives]
-b4-nar	now-nar	af-nar	ac-nar
-"'Dude, why do you read so much? It's sort of showing off.'"	"You are, for the moment, in English class. People are running circles around you discussing an assigned book. You overhear that YOU should be participating more, with all you used to read."	"You are outside an expensive charity dinner--not allowed in, of course. A grown-up version of the classmate who made fun of you in the past for reading blathers on about how reading books helps children become success stories."	true
+b4-nar	now-nar	af-nar	b4-done	now-done	af-done
+"'Dude, why do you read so much? It's sort of showing off.'"	"You are, for the moment, in English class. People are running circles around you discussing an assigned book. You overhear that YOU should be participating more, with all you used to read."	"You are outside an expensive charity dinner--not allowed in, of course. A grown-up version of the classmate who made fun of you in the past for reading blathers on about how reading books helps children become success stories."	true	true	true
 "A teacher chides the class to be 'nice like Alec.' They aren't, at recess."	"Some fake contrarian says that just being nice isn't nearly enough, and it's so formulated."	"You face an onslaught of people who were apparently trying to be nice to you, but NO..."
 "The rest of the class glares at your younger self for asking one too many 'why' questions."	"Classmates moan endlessly about research papers, and you figure there's probably some law against choosing a subject you'd like."	"A classmate all grown up espouses original dynamic thinking and how schools just don't do enough."
 "A young version of a now ex-friend berates young you for a small inefficiency in code his father noted."	"The ex-friend, older now, wonders why you stink at big-picture programming for computer class despite writing that immaculate Quick Sort routine."	"The ex-friend is lecturing at a big conference now, about how coding is about flexibility and trading ideas, but there's still a great job market for low-level stuff most people totally fear."
@@ -8173,6 +8179,49 @@ final question wording	only if victorious	topic	final response rule	final respon
 "see the SPECIAL ways to see a bit more of the Compound"	true	"SPECIAL"	special-see rule	specialseeing
 "see how to get to each of the BAD END rooms"	true	"BAD/END" or "BAD END"	bad-end-see rule	badendseeing
 "see any reversible CONCEPTS you missed"	true	"CONCEPTS"	concept-see rule	conceptseeing
+"see all the DREAM sequence stories"	true	"DREAM/DREAMS"	dream-see rule	dreamseeing
+
+chapter dream
+
+dreamseeing is an activity.
+
+to decide which number is read-stories:
+	let temp be 0;
+	repeat through table of sleep stories:
+		if b4-done entry is true and af-done entry is true and now-done entry is true:
+			increment temp;
+	decide on temp;
+
+this is the dream-see rule:
+	let alldreams be read-stories;
+	let skip-done be false;
+	let last-row be 0;
+	let mytemp be 0;
+	repeat through table of sleep stories:
+		increment mytemp;
+		unless b4-done entry is true and af-done entry is true and now-done entry is true:
+			now last-row is mytemp;
+	say "There are [number of rows in table of sleep stories] total stories, of which you completed [alldreams].";
+	if alldreams > 0 and alldreams < number of rows in table of sleep stories:
+		say "Do you want to skip over already-read stories?";
+		if the player consents:
+			now skip-done is true;
+	let this-row be 0;
+	repeat through table of sleep stories:
+		increment this-row;
+		unless skip-done is true and b4-done entry is true and af-done entry is true and now-done entry is true:
+			say "1. [b4-nar entry][line break]";
+			say "2. [now-nar entry][line break]";
+			say "3. [af-nar entry][line break]";
+			if this-row is last-row and skip-done is true:
+				say "That's the last one! Thanks for being interested.";
+			else if this-row is number of rows in table of sleep stories and skip-done is false:
+				say "That's the last one! Thanks for being interested.";
+			else:
+				say "Q to quit, or any other key to see another:";
+				let Q be the chosen letter;
+				if Q is 81 or Q is 113:
+					the rule succeeds;
 
 chapter concept
 
