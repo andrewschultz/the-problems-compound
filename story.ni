@@ -60,7 +60,7 @@ Include (-
 			if (i == YES1__WD or YES2__WD or YES3__WD) rtrue;
 			if (i == NO1__WD or NO2__WD or NO3__WD) rfalse;
 		}
-		if ((+ you-are-conversing +) && (i == RECAP__WD))
+		if (((+ qbc_litany +) ~= (+ table of no conversation +)) && (i == RECAP__WD))
 		{
 		  print "(This is a quick yes/no question. After, you can get back to the main conversation.) >";
 		  return;
@@ -571,7 +571,7 @@ to say no-yes:
 	if player is in pot chamber:
 		say "Nancy Reagan would be [if current action is saying no]proud[else]ashamed[end if].";
 		continue the action;
-	if qbc_litany is the table of no conversation:
+	if not-conversing:
 		say "You always feel pushed around being asked a yes-or-no question. Like you can't say what you really want to say, not that you were sure anyway (you don't need to say yes or no here, but you can RECAP to see a list of options).";
 	else:
 		say "[one of]You freeze up. Was that a rhetorical question just now? Where did it come from? [or][stopping]Your nos and yesses never quiiite meant what they hoped to mean. Sometimes it's a relief not to be forced to say an essay, but other times--man, others seem to be better with those short words than you are.";
@@ -1622,6 +1622,12 @@ check giving drinkable to:
 	say "This is a BUG. You shouldn't be able to carry liquor out of the Soda Club." instead;
 
 section giving items in intro
+
+check giving face of loss to:
+	say "You get the sense pity won't get you very far, here." instead;
+
+check giving bad face to:
+	say "[if stared-idol is true]You already gave it to the idol, which seemed to deserve it. Maybe the [bad-guy] deserved it more, but you probably can't[else]You'll pull the bad face out when you need to[end if]." instead;
 
 check giving gesture token to:
 	if second noun is weasel:
@@ -2781,7 +2787,6 @@ check talking to (this is the make sure of small talk rule):
 		say "You can't think of any small talk." instead;
 	if conv-left of noun is 1:
 		say "You don't have anything left to say except hello, good-bye." instead;
-	now you-are-conversing is true;
 	now anything-said-yet is false;
 	now noun is smalltalked;
 
@@ -2799,30 +2804,27 @@ the block asking rule is not listed in any rulebook.
 
 the block answering rule is not listed in any rulebook.
 
-you-are-conversing is a truth state that varies.
-
-to decide whether no-convo-left:
+to decide whether convo-left:
 	let got-one be false;
-	if qbc_litany is the Table of No Conversation:
+	if not-conversing:
 		say "(note--there's a small programming bug I'd like to know about, if possible, at [email], though it shouldn't impact the game.)[paragraph break]";
 		decide yes;
 	repeat through qbc_litany:
+		d "[prompt entry] [enabled entry].";
 		if enabled entry is not 0:
 			decide yes;
 	decide no;
 
-before doing something when you-are-conversing is true:
-	if player is in bottom rock: [skip out as you aren't really 'talking' to the crib]
-		now you-are-conversing is false;
-		continue the action;
+before doing something when qbc_litany is not table of no conversation:
 	if current action is qbc responding with:
 		continue the action;
+	d "[the current action], [qbc_litany].";
 	if current action is thinking or current action is listening:
 		if qbc_litany is table of generic-jerk talk:
 			continue the action;
-	if no-convo-left:
-		say "[bracket]NOTE: it looks like you hit an unexpected conversational dead end. Please let me know how this happened at [email] so I can fix it.[close bracket][paragraph break]";
-		now you-are-conversing is false;
+	unless convo-left:
+		say "[bracket]NOTE: it looks like you hit an unexpected conversational dead end. I'll kick you out so you can continue the game. Please let me know how this happened at [email] so I can fix it.[close bracket][paragraph break]";
+		terminate the conversation;
 		continue the action;
 	if current action is listening:
 		say "Well, you just did, and now it's your turn to respond." instead;
@@ -2830,15 +2832,25 @@ before doing something when you-are-conversing is true:
 		say "Others can throw you off with a well-timed sniff, but not vice versa." instead;
 	if current action is going:
 		if the room noun of location of player is nowhere:
-			say "You can't escape the conversation that way!" instead;
+			say "You can't escape the conversation running nowhere! Well, you can't really escape it running anywhere, either. You're not good at slick exits." instead;
 		if qbc_litany is table of Punch Sucker talk:
 			say "The Punch Sucker, with other customers to serve, is actually glad to be spared hi-bye small talk.";
 			terminate the conversation;
 			continue the action;
+		if qbc_litany is table of Buddy Best talk:
+			say "'What?! No, you don't understand, [i]I[r]'d be blowing off [i]YOU[r]! He throws a magazine at you as he exits, then slams the door to Temper Keep. You pick up the literature--it's called the Reasoning Circular, and it's got a long tag that looks like some sort of ticket.";
+			terminate the conversation;
+			continue the action;			
 		if qbc_litany is table of fritz talk:
 			say "Fritz barely notices you wandering off to end the conversation.";
 			terminate the conversation;
 			continue the action;
+		if qbc_litany is table of officer petty talk:
+			if noun is east:
+				say "Oh no. That can't possibly work." instead;
+			say "'YOUNG MAN! SHOW AN OFFICER SOME RESPECT!' Man, how'd he KNOW?" instead;
+		if qbc_litany is table of stool toad talk:
+			say "'YOUNG MAN! DON'T GO WANDERING OFF!'" instead;
 		say "You don't have the guts to ditch someone in the middle of a conversation, unless they're REALLY busy or REALLY self-absorbed. [note-recap]" instead;
 	if current action is talking to:
 		say "You're already in a conversation." instead;
@@ -2870,10 +2882,6 @@ to say convo-nums:
 		say "only 1";
 	else:
 		say "1-[temp]";
-
-to quit small talk:
-	now you-are-conversing is false;
-	terminate the conversation;
 
 volume annotations
 
@@ -3130,7 +3138,7 @@ after quipping when qbc_litany is table of guy sweet talk:
 	if current quip is guy-mess:
 		enable the guy-bad2 quip;
 	else if current quip is guy-bye:
-		quit small talk;
+		terminate the conversation;
 
 section Game Shell
 
@@ -3919,7 +3927,7 @@ after quipping when qbc_litany is table of arch talk (this is the restore asking
 		enable the mush-mb quip;
 	if current quip is mush-bye:
 		enable the mush-north quip;
-		quit small talk;
+		terminate the conversation;
 	continue the action;
 
 part Vision Tunnel
@@ -4099,7 +4107,7 @@ after quipping when qbc_litany is table of weasel talk:
 	if current quip is weasel-sign and burden-signed is false:
 		enable the weasel-sign quip;
 	if current quip is weasel-bye:
-		quit small talk;
+		terminate the conversation;
 
 table of quip texts (continued)
 quip	quiptext
@@ -4209,6 +4217,8 @@ reference-blurb
 "Complain about something you can't say these days, but don't let your audience cut in too much."
 "Pretend to misunderstand everyone even if they're clear. If they don't stick up for themselves, well, they need to learn."
 "Use 'y'know' a lot, especially when berating unnecessary adverbs."
+"Point out that someone thinks they're a special snowflake, but...give it your own special touch."
+"Blast people for copying you, or for being too weird."
 "Smack [']em down with 'It's called...' two or three times a day."
 "Make your I CAN'T and YOU CAN'T equally forcible."
 "Make people feel like they blew it and they never had it in the first place."
@@ -4285,7 +4295,6 @@ howdy-bye	"'Later. Be good. But not too good. That's just boring.'"
 before quipping when player has trail paper:
 	if player has trail paper and player is in pressure pier:
 		say "Wait a minute! You've got the trail paper! Enough chit-chat!";
-		now you-are-conversing is false;
 		terminate the conversation;
 		try giving trail paper to howdy boy instead;
 
@@ -4298,7 +4307,7 @@ after quipping when qbc_litany is table of howdy boy talks:
 	if current quip is howdy-fun:
 		enable the howdy-ways quip;
 	if current quip is howdy-bye:
-		quit small talk;
+		terminate the conversation;
 
 to superable (q - a quip):
 	choose row with response of q in qbc_litany;
@@ -4679,7 +4688,6 @@ your-tix is a number that varies.
 
 to get-ticketed:
 	increment your-tix;
-	say "[line break]";
 	if your-tix is 5:
 		if player is in soda club:
 			say "'Up to trouble, eh? I thought you might be.' The Stool Toad frog-marches you (ha! Ha!) out of the Soda Club to a rehabilitation area.";
@@ -4725,7 +4733,7 @@ after quipping when qbc_litany is litany of fritz:
 	if current quip is fritz-ok:
 		enable the fritz-pal quip;
 	if current quip is fritz-bye:
-		quit small talk;
+		terminate the conversation;
 
 part Joint Strip
 
@@ -4780,7 +4788,7 @@ description of Minimum Bear is "[if minimum bear is not examined]Aww, isn't that
 
 after taking Minimum Bear:
 	if Minimum Bear is not examined:
-		say "A tag says Minimum Bear. Cute, but not very.";
+		say "As you pick it up, you notice a tag says Minimum Bear. Cute, but not very.";
 		now minimum bear is examined;
 	else:
 		say "You look around nervously as you pick Minimum Bear up. The Stool Toad scoffs slightly.";
@@ -4885,7 +4893,7 @@ after quipping when qbc_litany is litany of stool toad:
 		superable toad-refresh;
 		enable the toad-pomp quip;
 	if current quip is toad-bye:
-		quit small talk;
+		terminate the conversation;
 
 part Soda Club
 
@@ -4997,7 +5005,7 @@ after quipping when qbc_litany is table of lily talk:
 	if current quip is lily-bye:
 		if lily-prac is talked-thru:
 			enable the lily-prac quip;
-		quit small talk;
+		terminate the conversation;
 
 to chase-lily:
 	say "The Punch Sucker sidles over. 'Sorry, champ. Looks like you did something to chase off a good patron. By the moral authority vested in me by the [bad-guy], it is my pleasure and duty to issue a boo-tickety.'";
@@ -5082,7 +5090,7 @@ after quipping when qbc_litany is litany of Punch Sucker:
 		if player has cooler wine:
 			enable the sucker-haha quip;
 	if current quip is sucker-bye:
-		quit small talk;
+		terminate the conversation;
 
 book main chunk
 
@@ -5286,7 +5294,7 @@ after quipping when qbc_litany is table of generic-jerk talk:
 	if current quip is jerk-bye:
 		if finger index is not examined:
 			enable the jerk-hows quip;
-		quit small talk;
+		terminate the conversation;
 		the rule succeeds;
 	enable the cq quip;
 	if current quip is a my-quip listed in table of fingerings:
@@ -5328,7 +5336,7 @@ to check-jerks-done:
 	increment the score;
 	now all clients are in lalaland;
 	unlock-verb "notice";
-	quit small talk;
+	terminate the conversation;
 
 check going north when player is in well:
 	if silly boris is in lalaland:
@@ -5904,7 +5912,7 @@ after quipping when qbc_litany is table of Legend of Stuff talk:
 	now already-clued is true;
 	if current quip is stuff-bye:
 		say "You close the Legend of Stuff.";
-		quit small talk;
+		terminate the conversation;
 
 hints-used is a number that varies. hints-used is usually 0.
 
@@ -6235,7 +6243,7 @@ after quipping when qbc_litany is litany of grace:
 	if current quip is grace-hi:
 		enable the grace-baiter quip;
 	if current quip is grace-bye:
-		quit small talk;
+		terminate the conversation;
 
 chapter Mind of Peace
 
@@ -6428,7 +6436,7 @@ after quipping when qbc_litany is litany of officer petty:
 			enable the petty-break quip;
 			superenable the petty-help quip;
 	if current quip is petty-bye:
-		quit small talk;
+		terminate the conversation;
 
 part Idiot Village
 
@@ -6497,7 +6505,11 @@ to say sly-s:
 
 litany of Sly Moore is the table of Sly Moore talk.
 
-every turn when player is in idiot village and sly moore is in idiot village and you-are-conversing is false:
+to decide whether not-conversing:
+	if qbc_litany is the Table of No Conversation, decide yes;
+	decide no;
+
+every turn when player is in idiot village and sly moore is in idiot village and not-conversing:
 	say "[one of][sly-s] plays a sample three-shell game, but a bean appears under each one.[or][sly-s] asks you to pick a card but then realizes they're all facing him.[or][sly-s] tries to palm an egg in a handkerchief, but you hear a crunch. 'Well, good thing I hollowed it out first, eh?'[or][sly-s] slaps a bunch of paperclips on some folded paper and unfolds the paper. They go flying. 'They were supposed to connect...'[or][sly-s] performs a riffle shuffle where one side of the deck of cards falls much quicker.[or][sly-s] performs a riffle shuffle that works beautifully until the last few cards fall to the ground.[or][sly-s] mumbles 'Number from one to a thousand, ten guesses, five hundred, two fifty, one twenty-five--round up or down, now? Dang, I'm stuck.'[or][sly-s] pulls out a funny flower which doesn't squirt you when he pokes it. He looks at it up close, fiddles with it and--yup. Right in his face.[or][sly-s] reaches to shake your hand, but you see the joy buzzer pretty clearly. He slaps his knee in disappointment...BZZT.[or][sly-s] looks befuddled on pulling only one handkerchief out of his pocket.[or][sly-s] cuts a paper lady in half. 'Oops. Good thing she wasn't real.'[in random order]"
 
 talked-to-sly is a truth state that varies.
@@ -6549,7 +6561,7 @@ after quipping when qbc_litany is litany of Sly Moore:
 	if current quip is sly-bye:
 		if sly-help is talked-thru:
 			enable the sly-help quip;
-		quit small talk;
+		terminate the conversation;
 
 chapter trap rattle
 
@@ -6591,11 +6603,15 @@ to say vague-dir:
 	else: [1 or 7]
 		say "south";
 
+stared-idol is a truth state that varies.
+
 to say iv-idol:
 	if player has Legend of Stuff:
 		say "The idol stares back at you and seems to shake its head slightly. You look down guiltily at the Legend of Stuff.";
 		continue the action;
-	say "You stare at the thoughts idol, [if player has crocked half]and as it glares back, you resist the urge to look away. It--it actually blinks first.[else]but it stares back at you. You lose the war of facial expressions[end if]"
+	say "You stare at the thoughts idol, [if player has bad face]and as it glares back, you resist the urge to look away. It--it actually blinks first.[else]but it stares back at you. You lose the war of facial expressions[end if]";
+	if player has bad face:
+		now stared-idol is true;
 
 the Service Community is a room in Main Chunk. "Idiot Village's suburbs stretch every which way! The Thoughts Idol surveys you from a distance. You just came from the [opposite of last-dir]."
 
@@ -6843,7 +6859,7 @@ after quipping when qbc_litany is litany of pusher penn:
 		say "'Here you go. Some wacker weed. Nothing special, nothing I'd trust with an experienced runner. There's a fella down by the Joint Strip on the monthly discount plan. Didn't pick up his allotment.' You take the baggie.";
 		now player has wacker weed;
 	if current quip is penn-bye:
-		quit small talk;
+		terminate the conversation;
 
 the wacker weed is a smokable. description is "You couldn't tell if it is good or bad, really. But it needs to be delivered. It's in a baggie and everything."
 
@@ -6948,7 +6964,7 @@ after quipping when qbc_litany is table of Buddy Best talk:
 		enable the best-good quip;
 		enable the best-dirty quip;
 	if current quip is best-bye or current quip is best-good or current quip is best-dirty:
-		quit small talk;
+		terminate the conversation;
 		say "Buddy waves his hands to change the subject. 'Well, I don't want to waste any more of your time,' he says, with fake humility not meant to be convincing. You freeze.";
 		wfak;
 		say "[line break]'Negotiator, eh? Standing your ground?' Buddy Best shoves something in your hands as he pushes you out. 'It's, well, stuff I could tell you personally, but I don't want to waste your time. I'm sure you're nice once I get to know you even if you're not as nice as [bg] once you get to know him, but this is real efficient self improvement stuff. I'm sure you're smart enough to understand. [']Cause you probably should've understood it a few years ago.'";
@@ -7030,7 +7046,7 @@ after quipping when qbc_litany is litany of Art Fine:
 	if current quip is art-aes:
 		superable art-tol;
 	if current quip is art-bye:
-		quit small talk;
+		terminate the conversation;
 
 chapter Harmonic Phil
 
@@ -7068,7 +7084,7 @@ after quipping when qbc_litany is litany of Harmonic Phil:
 	if current quip is phil-aes:
 		enable the phil-tol quip;
 	if current quip is phil-bye:
-		quit small talk;
+		terminate the conversation;
 
 chapter book bank
 
@@ -7299,7 +7315,7 @@ after quipping when qbc_litany is litany of Brother Big:
 	if current quip is big-hi:
 		enable the big-baiter quip;
 	if current quip is big-bye:
-		quit small talk;
+		terminate the conversation;
 
 section Brother Soul
 
@@ -7337,7 +7353,7 @@ after quipping when qbc_litany is litany of Brother Soul:
 	if current quip is soul-bye:
 		if soul-what-if is talked-thru:
 			enable the soul-what-if quip;
-		quit small talk;
+		terminate the conversation;
 
 section Brother Blood
 
@@ -7373,7 +7389,7 @@ after quipping when qbc_litany is litany of Brother Blood:
 	if current quip is blood-calm:
 		enable the blood-all quip;
 	if current quip is blood-bye:
-		quit small talk;
+		terminate the conversation;
 
 part Temper Keep
 
@@ -7764,7 +7780,14 @@ to go-back-home:
 	say "Back in your bedroom, you have a thought. The Baiter Master saying you miss obvious things. Another look at [i]The Phantom Tolllbooth[r]: the inside flap. 'Other books you may enjoy.' There will be other obvious things you should've discovered. But it's good you found something right away, back in the normal world. You're confident you'll find more--and that people like the Baiter Master aren't the accelerated life experts you built them up to be.";
 	unlock-verb "anno";
 	print-replay-message;
+	see-if-show-terminal;
 	end the story finally saying "Wisdom Received!";
+
+to see-if-show-terminal:
+	if terminal is in lalaland, continue the action;
+	if got-terminal-almost is true, continue the action;
+	choose row with final response activity of altanswering in the table of final question options;
+	blank out the final question wording entry;
 
 to print-replay-message:
 	let x be number of rows in table of verb-unlocks;
@@ -8170,6 +8193,26 @@ this is the very-good-end rule:
 	if airy station is visited, the rule succeeds;
 	the rule fails;
 
+book altanswering
+
+altanswering is an activity.
+
+[rule for altanswering:]
+		
+this is the alt-answer rule:
+	if terminal is in belt below:
+		say "The correct answer was A BAD FACE. You deserve to know that.";
+	say "Here are the 42 wrong combinations if you don't say 7 is C:";
+	let cur-row be 0;
+	repeat through table of plausible misses:
+		increment cur-row;
+		say "[plaus entry]";
+		if cur-row < number of rows in table of plausible misses:
+			say ",";
+		if the remainder after dividing cur-row by 6 is 0:
+			say "[line break]";
+	the rule succeeds;
+
 book continuing
 
 Table of Final Question Options (continued)
@@ -8180,6 +8223,7 @@ final question wording	only if victorious	topic	final response rule	final respon
 "see how to get to each of the BAD END rooms"	true	"BAD/END" or "BAD END"	bad-end-see rule	badendseeing
 "see any reversible CONCEPTS you missed"	true	"CONCEPTS"	concept-see rule	conceptseeing
 "see all the DREAM sequence stories"	true	"DREAM/DREAMS"	dream-see rule	dreamseeing
+"see the plausible MISSES for the Terminal"	true	"MISSES"	alt-answer rule	altanswering
 
 chapter dream
 
@@ -8495,6 +8539,53 @@ term-miss	term-text
 5	"Okay. this is getting annoying."
 50	"You will get it, somehow, some way. You hope."
 
+table of plausible misses
+plaus
+"acacdbfc"
+"acacdcbc"
+"acacdcfc"
+"acacdfbc"
+"acacebfd"
+"acacecbd"
+"acacecfd"
+"acacefbd"
+"acadeaef"
+"acadfabd"
+"acadfade"
+"acadfafe"
+"adacdbdc"
+"adacdbfc"
+"adacdcbc"
+"adacdcdc"
+"adacdced"
+"adacdcfc"
+"adacdebe"
+"adacdede"
+"adacdefe"
+"adacdfbc"
+"adacdfdc"
+"adacebde"
+"adacecbd"
+"adacecbe"
+"adacecfd"
+"adacecfe"
+"adacedbe"
+"adacedfe"
+"adacefde"
+"adadeaef"
+"adadfafd"
+"adadfafe"
+"adecdbae"
+"adecdcad"
+"adecdfae"
+"aeacbcbe"
+"aeacdcde"
+"bcecfaad"
+"bdecdaae"
+"ccecfaad"
+
+got-terminal-almost is a truth state that varies.
+
 rule for printing a parser error when the latest parser error is the didn't understand error:
 	if the turn count is 1: [hack (??) for G on move 1]
 		say "That isn't a recognized verb, or maybe you guessed a preposition wrong. In general, this game tries not to force longer commands. You can type VERB or VERBS to see all the commands and possible prepositions.";
@@ -8519,9 +8610,17 @@ rule for printing a parser error when the latest parser error is the didn't unde
 					if character number 4 in jj is not "d", increment Q;
 					if character number 5 in jj is not "f", increment Q;
 					if character number 6 in jj is not "a", increment Q;
-					if character number 7 in jj is not "c", increment Q;
 					if character number 8 in jj is not "e", increment Q;
-					if Q > 6:
+					if character number 7 in jj is not "c":
+						let plau be false;
+						repeat through table of plausible misses:
+							if jj matches the regular expression "[plaus entry]":
+								now plau is true;
+								say "The insanity terminal rings some old-fashioned bells, and they don't stop until you look at question 7, which is flashing red. All others have turned green, momentarily. Perhaps, despite the nastiness of the question, you wound up overthinking";
+								now got-terminal-almost is true;
+						if plau is false:
+							say "one of those slow scales that always seem to be ascending. You look down, and it's highlighting question 7. You wonder if you are overthinking that one";
+					else if Q > 6:
 						say "the loudest gong you ever heard";
 					else if Q > 4:
 						say "a loud BZZZT";

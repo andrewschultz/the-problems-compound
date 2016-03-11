@@ -1,5 +1,7 @@
+$okays = 0;
+
 if (@ARGV[0] eq "r") { psol("abadface"); }
-elsif (@ARGV[0] eq "dw") { psol("bcdbaffb"); }
+elsif (@ARGV[0] eq "dw") { $debug = 1; psol("bcdbaffb"); }
 else { psol("@ARGV[0]"); }
 
 #psol("");

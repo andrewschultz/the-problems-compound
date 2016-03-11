@@ -51,6 +51,7 @@ And there's a lot of extra silliness, too.
 --expanded "for your amusement" post-game section
 --expanded profanity-difference post-game section
 --implemented "what act goes to which death room" section
+--let you see all the sleep narratives at game's end without having to look at the source code
 
 ==========================================
 

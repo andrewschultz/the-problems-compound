@@ -1194,3 +1194,44 @@ situationism to uationism-sit
 situationally to uationally-sit
 situationisms to uationisms-sit
 ====Found 75/28 for sit
+========mom
+mom to -mom
+mome to e-mom
+momi to i-mom *** word
+moms to s-mom
+momes to es-mom *** word
+momma to ma-mom *** word
+mommy to my-mom *** word
+momus to us-mom *** word
+moment to ent-mom
+momism to ism-mom *** word
+mommas to mas-mom *** word
+mommet to met-mom *** word
+momser to ser-mom *** word
+momzer to zer-mom
+momenta to enta-mom
+momento to ento-mom
+moments to ents-mom
+momisms to isms-mom *** word
+mommets to mets-mom *** word
+mommies to mies-mom
+momsers to sers-mom *** word
+momuses to uses-mom *** word
+momzers to zers-mom
+momently to ently-mom
+momentos to entos-mom
+momentum to entum-mom
+momzerim to zerim-mom
+momentany to entany-mom
+momentary to entary-mom
+momentoes to entoes-mom
+momentous to entous-mom
+momentums to entums-mom
+momentarily to entarily-mom
+momentously to entously-mom
+momentaneous to entaneous-mom
+momentariness to entariness-mom
+momentousness to entousness-mom
+momentarinesses to entarinesses-mom
+momentousnesses to entousnesses-mom
+====Found 39/13 for mom

@@ -193,7 +193,6 @@ To run a conversation on (t - a table-name):
 	display the QBC options.
 
 To terminate the conversation:
-	now you-are-conversing is false;
 	now the qbc_litany is the Table of No Conversation.
 
 Section 7 - Straightening out the parser
