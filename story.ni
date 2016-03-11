@@ -674,7 +674,7 @@ to move-dream-ahead:
 		now player is in tense future;
 	else if player is in tense future:
 		now player is in tense past;
-		increase nar-count by 1;
+		increment nar-count;
 		if nar-count > number of rows in table of sleep stories:
 			now nar-count is 1;
 	else if player is in tense past:
@@ -2428,6 +2428,7 @@ View of Points	"Points of view are opinions."
 table of explanations (continued) [this is stuff referred to tangentially]
 exp-thing	exp-text	exp-anno
 turn of phrase	"A turn of phrase is clever wording. A phrase of turn is, well, what's at the command prompt, or, any wording."
+wait your turn	"This means not to do anything til someone else goes first. But in this case the game wants you to turn your wait into something else."
 Buster Ball	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure." [the 2 bad guys]
 Hunter Savage	"A savage hunter is, well, someone with no mercy. Yup, I like the 'dirty' tangential bad guy better, too."
 Nonsense No	"No-nonsense means, well, not taking any silliness." [xyzzy snark]
@@ -6453,7 +6454,7 @@ check going nowhere in idiot village (this is the final idol puzzle rule):
 		say "You don't need a victory lap through the Service Community now, fun as it might be." instead;
 	if player has legend of stuff:
 		say "The idol glares at you. Once it makes eye contact, it lowers its eyes to the Legend of Stuff. You feel a bit silly." instead;
-	if insanity terminal is in lalaland or player has half: [really just the first but for testing the 2nd works too]
+	if insanity terminal is in lalaland or player has bad face: [really just the first but for testing the 2nd works too]
 		if noun is northeast or noun is east:
 			say "You run past the Thoughts Idol. Its eyes follow you.";
 			if noun is northeast:
@@ -6704,7 +6705,7 @@ good-text	bad-text	undo-text
 "The thoughts idol seems to twitch back and forth while following you."	"You feel frozen and collapse. The idol's contempt can't hide a legitimate frown. You slipped up, but you got pretty far."	"Halfway there...maybe if you get momentum, you'll nail the pattern down for good."
 "The thoughts idol barely catches its gaze up with you."	"The idol gives that look--you know it--'Smart, but no common sense.' Still--you can give it another shot."	"Would'ves won't help here. You've actually gotten in better shape, walking around just thinking."
 "The thoughts idol warps and seems to wobble a bit but still looks at you."	"You--well, confidence or whatever it was let you down."	"Geez. You were that close. But no chance to stew. You bet you could do it, next time. But you can't say 'Oh, I meant to...'"
-"The thoughts idol spins, coughs, sand with a final buzz, its eyes spark and go out."	"You must have been close. But no."	"The idol's look reminds you of when you got a really hard math problem right except for adding 1 and 6 to get 8. People laughed at you. It hurt."
+"The thoughts idol spins, coughs, and with a final buzz, its eyes spark and go out."	"You must have been close. But no."	"The idol's look reminds you of when you got a really hard math problem right except for adding 1 and 6 to get 8. People laughed at you. It hurt."
 
 part Speaking Plain
 
@@ -8723,6 +8724,8 @@ section misc concept(s)
 
 a turn of phrase is a concept in conceptville. understand "phrase of turn" as turn of phrase. howto is "empty command"
 
+wait your turn is a concept. understand "turn your wait" as wait your turn. howto is "waiting"
+
 section soda club concepts
 
 the Total T is a concept in conceptville.
@@ -9198,9 +9201,13 @@ understand the command "gq" as something new.
 
 understand "gq [number]" as gqing.
 
-understand "gq" as a mistake ("gq (number) forces a variable that would be tedious to increase to what it needs to be.[paragraph break]# of game wins in smart street.[line break]# of idol failures[line break][line break]# of times used the Legend of Stuff for new hints[line break]# of Insanity Terminal failures[line break]-1 twiddles whether you re-saw a hint in the Legend of Stuff.[paragraph break]Some too big answers may give a 'bug' response, which isn't really a bug.")
+understand "gq" as a mistake ("[gq-err]")
+
+to say gq-err:
+	say "gq (number) forces a variable that would be tedious to increase to what it needs to be. The game detects what to changed based on where you are or what you have.[paragraph break]# of game wins in smart street.[line break]# of idol failures[line break][line break]# of times used the Legend of Stuff for new hints[line break]# of Insanity Terminal failures[line break]-1 twiddles whether you re-saw a hint in the Legend of Stuff.[paragraph break]Some too big answers may give a 'bug' response, which isn't really a bug.[paragraph break]Adding 100 to the number = that many idol failures, adding 200 = that many terminal failures, adding 300 = smart street failures, adding 400 = legend of stuff reads.[paragraph break]Sorry for the magic numbers, but coding alternatives were worse."
 
 carry out gqing:
+	say "If this wasn't what you wanted, type GQ for general help.";
 	if the number understood is -1:
 		if player does not have legend of stuff:
 			say "You need the Legend of Stuff to twiddle whether you looked in it." instead;
@@ -9208,6 +9215,9 @@ carry out gqing:
 			say "You have now [if reused-hint is false]not [end if]reused a hint in the Legend of Stuff." instead;
 	let Z be the number understood / 100;
 	let Y be the remainder after dividing Z by 100;
+	if Z > 4 or Z < 0:
+		say "You can only use numbers from -1 to 499 for this test hack.";
+		say "[gq-err] instead.";
 	if player is in service community or player is in idiot village or Z is 1:
 		say "Bad-guy taunt for idol failure critical values are:";
 		repeat through table of bm idol brags:
@@ -9228,7 +9238,7 @@ carry out gqing:
 			say "[total-wins entry - 1], [total-wins entry], [total-wins entry + 1] ";
 		say "[line break]" instead;
 		now your-game-wins is Y instead;
-	if player has Legend of Stuff:
+	if player has Legend of Stuff or Z is 4:
 		say "Bad-guy taunts for using Legend of Stuff: ";
 		repeat through table of bm stuff brags:
 			say "[times-failed entry - 1], [times-failed entry], [times-failed entry + 1] ";
