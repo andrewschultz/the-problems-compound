@@ -629,7 +629,7 @@ check requesting the score:
 		say "You haven't gotten near the [bad-guy]'s hideout yet. So maybe you need to explore a bit more." instead;
 	if qp-hint is true:
 		say "You need some way to get past the question/exclamation mark guard combination. It's like--I don't know. A big ol['] pop quiz or something." instead;
-	if player has crocked half:
+	if player has crocked half and thoughts idol is not in lalaland:
 		say "You haven't found what the crocked half's clue is, either." instead;
 	say "You have currently helped [if bros-left is 3]none[else if bros-left is 0]all[else][3 - bros-left in words][end if] of the Keeper Brothers." instead;
 	say "You've found [number of endfound rooms] bad end[if number of endfound rooms is not 1]s[end if] out of [number of rooms in Bad Ends]: [list of endfound rooms]." instead;
@@ -1126,7 +1126,7 @@ check listening (this is the listening in a place rule):
 			say "[one of]M[or]More m[stopping]usic from the song torch!";
 			try examining song torch instead;
 	if player is in freak control:
-		say "The apparatus emits an occasional work grunt, you suspect., to impress visitors." instead;
+		say "The apparatus emits an occasional work grunt, you suspect, to impress visitors." instead;
 	if player is in out mist:
 		say "You can't hear anyone. That's good." instead;
 	if player is in airy station:
@@ -1148,6 +1148,10 @@ check searching:
 chapter eating
 
 Procedural rule while eating something: ignore the carrying requirements rule.
+
+understand the command "chew" as something new.
+
+understand "chew [something]" as eating.
 
 the can't eat unless edible rule is not listed in any rulebook.
 
@@ -2044,8 +2048,8 @@ carry out exitsing:
 	let got-one be false;
 	if player is in round lounge:
 		say "The hatch above." instead;
-	if player is in idiot village and player has crocked half:
-		say "You can exit to the west, but--you may want to poke around Idiot Village in even some crazy diagonal directions." instead;
+	if player is in idiot village and player has bad face:
+		say "You can exit to the west, and you might've, earlier, but--you may want to poke around Idiot Village in even some crazy diagonal directions." instead;
 	if player is in service community:
 		say "You can go pretty much any which way, but you sense that there's only one right way out." instead;
 	if mrlp is endings:
@@ -2819,6 +2823,12 @@ to decide whether convo-left:
 before doing something when qbc_litany is not table of no conversation:
 	if current action is qbc responding with:
 		continue the action;
+	if qbc_litany is table of legend of stuff talk:
+		if current action is examining legend of stuff:
+			say "You already are!" instead;
+		say "You put the Legend of Stuff away[if noun is legend of stuff or second noun is legend of stuff], perhaps only temporarily[end if].";
+		terminate the conversation;
+		continue the action;
 	d "[the current action], [qbc_litany].";
 	if current action is thinking or current action is listening:
 		if qbc_litany is table of generic-jerk talk:
@@ -3297,30 +3307,24 @@ to duck-sitting:
 	move player to tension surface;
 	now gesture token is in lalaland;
 
-section notice advance [skips you to the endgame before the BM, jerk circle solved]
+section knockharding [get to pressure pier]
 
-jumped-at-start is a truth state that varies.
+knockharding is an action out of world.
 
-noticeadvanceing is an action out of world.
+understand the command "knock hard" as something new.
 
-understand the command "notice advance" as something new.
+understand "knock hard" as knockharding.
 
-understand "notice advance" as noticeadvanceing.
-
-carry out noticeadvanceing:
+carry out knockharding:
 	if player is not in smart street:
-		say "Oh, man! Looking back, you totally see a shortcut you should've at least checked at, back in Smart Street. But it's too late to skip ahead like that now. You may wish to restart the game." instead;
-	say "Guy Sweet yells 'Hey! What could you POSSIBLY... you can't just... someone a lot less lame must've showed you that, no offense...' ";
-	write-undo "notice";
-	notice-advance;
+		say "There's nothing to knock hard at. Or nothing it seems you should knock hard at." instead;
+	say "You stride up to Broke Flat with purpose, You knock, hard, hoping to avoid a hard knock--and you do! You are escorted through a maze of hallways that eventually open up to a wide area with water behind: Pressure Pier. ";
+	write-undo "knock";
+	knock-hard;
 	the rule succeeds;
 
-to notice-advance:
-	move player to questions field;
-	now all clients are in lalaland;
-	send-bros;
-	now the score is 17;
-	now player has quiz pop;
+to knock-hard:
+	move player to pressure pier;
 	now gesture token is in lalaland;
 
 section figure a cut [get to the jerk circle]
@@ -3347,24 +3351,30 @@ to figure-cut:
 	now howdy boy is in lalaland;
 	now gesture token is in lalaland;
 
-section knockharding [get to pressure pier]
+section notice advance [skips you to the endgame before the BM, jerk circle solved]
 
-knockharding is an action out of world.
+jumped-at-start is a truth state that varies.
 
-understand the command "knock hard" as something new.
+noticeadvanceing is an action out of world.
 
-understand "knock hard" as knockharding.
+understand the command "notice advance" as something new.
 
-carry out knockharding:
+understand "notice advance" as noticeadvanceing.
+
+carry out noticeadvanceing:
 	if player is not in smart street:
-		say "There's nothing to knock hard at. Or nothing it seems you should knock hard at." instead;
-	say "You stride up to Broke Flat with purpose, You knock, hard, hoping to avoid a hard knock--and you do! You are escorted through a maze of hallways that eventually open up to a wide area with water behind: Pressure Pier. ";
-	write-undo "knock";
-	knock-hard;
+		say "Oh, man! Looking back, you totally see a shortcut you should've at least checked at, back in Smart Street. But it's too late to skip ahead like that now. You may wish to restart the game." instead;
+	say "Guy Sweet yells 'Hey! What could you POSSIBLY... you can't just... someone a lot less lame must've showed you that, no offense...' ";
+	write-undo "notice";
+	notice-advance;
 	the rule succeeds;
 
-to knock-hard:
-	move player to pressure pier;
+to notice-advance:
+	move player to questions field;
+	now all clients are in lalaland;
+	send-bros;
+	now the score is 17;
+	now player has quiz pop;
 	now gesture token is in lalaland;
 
 section chessboard
@@ -5870,7 +5880,7 @@ check examining the Legend of Stuff:
 		if silly boris is in jerk circle:
 			say "As you flip through the Legend of Stuff, you notice two identical pages, of a stick-figure is asking the second stick-figure the same question twice. The second response is nervier.'" instead;
 		say "The Legend of Stuff has nothing new to offer." instead;
-	say "The Legend of Stuff seems to be in roughly three parts: a red section, a blue section, and a section as big as the other two combined. Which section do you wish to look at?";
+	say "The Legend of Stuff seems to be in roughly three parts: a red section, a blue section, and a section as big as the other two combined. Which section do you wish to look at? Or would you like to look at them all?";
 	try talking to the Legend of Stuff instead;
 
 check taking the note crib:
@@ -7482,7 +7492,7 @@ the Twister Brain is scenery in Freak Control. "Its ridges seem twisted into a s
 
 understand "ridge/ridges" as Twister Brain.
 
-the Witness Eye is scenery in Freak Control. "It's weird, it's circular, but it has enough pointy protrustions, it could be a Witness Star too. You see lots of things going on. Most look innocent, but there's an occasional flash, the screen reddens, and WEIRD or WRONG flashes over for a half-second."
+the Witness Eye is scenery in Freak Control. "It's weird, it's circular, but it has enough pointy protrustions, it could be a Witness Star too. You see lots of things going on. Most look innocent, but there's an occasional flash, the screen reddens, and WEIRD or WRONG flashes over for a half-second[if a random chance of 1 in 5 succeeds]. Hey, wait, that looked like [a random surveyable person] for a second, there[end if]."
 
 understand "witness star" and "star" as Witness Eye.
 
@@ -8316,9 +8326,11 @@ this is the special-see rule:
 	unless assassination character is in lalaland:
 		say "[2da]The assassination character can be faked out.";
 	if assassination character is in lalaland and insanity terminal is not in lalaland:
-		say "[2da]There's a hint device you don't need beneath the Insanity Terminal.";
-	if village-explored is false:
-		say "[2da]You could've asked for help to find your way through Idiot Village.";
+		say "[2da]There are two hint devices beneath the Insanity Terminal.";
+	if service community is unvisited:
+		say "[2da]You could've explored the Service Community east and northeast of Idiot Village.";
+	if idol is not in lalaland:
+		say "[2da]You didn't find a way to defeat the Thoughts Idol.";
 
 chapter sins
 
@@ -8379,8 +8391,7 @@ Include (-
 	print "***";
 	VM_Style(NORMAL_VMSTY);
 	print "^^"; #Ifndef NO_SCORE; print "^"; #Endif;
-	if ( (+ pier-visited +) ) { print "(Note: you can skip to Pressure Pier on retry with KNOCK HARD in Smart Street.)^"; }
-	if ( (+ off-eaten +) || (+ cookie-eaten +) || (+ greater-eaten +)) { print "(Also note: this is not the best ending.)^"; }
+	if ( (+ off-eaten +) || (+ cookie-eaten +) || (+ greater-eaten +)) { print "(Note: this is not the best ending, but you can skip back to Pressure Pier on restart with KNOCK HARD.)^"; }
 	rfalse;
 ];
 
