@@ -2271,7 +2271,7 @@ definition: a thing (called x) is explainable:
 
 understand "explain [text]" as a mistake ("You've come across nothing like that, yet. Or perhaps it is way in the past by now.")
 
-after explaining dots: [just below, the dots explanation asks a question, if you want it spoiled]
+after explaining out puzzle: [just below, the dots explanation asks a question, if you want it spoiled]
 	if the player consents:
 		say "[one of][or]Oh no! Forgot already? [stopping]From the lower right, go up-left two, right 3, down-left 3, up 3. It's part of 'outside the box' thinking. But you can also roll a paper into a cylinder so one line goes through, or you can assume the dots have height and draw three gently sloping lines back and forth.";
 	else:
@@ -2280,8 +2280,7 @@ after explaining dots: [just below, the dots explanation asks a question, if you
 table of explanations [toe]
 exp-thing	exp-text	exp-anno
 face of loss	"Loss of face means humiliation or loss of respect. A face of loss isn't a real term, but it probably means you're just sad."
-a bad face	"It will help you face a bad...something."
-dots	"These aren't a pun, but it's something mathy people see a lot of, and motivational speakers tend to abuse it. If you'd like the solution to the four lines to draw to connect all the points, and even other smart-aleck answers, say yes." [note a non-person must come first or Inform thinks it's a thing]
+out puzzle	"These aren't a pun, but it's something mathy people see a lot of, and motivational speakers tend to abuse it. If you'd like the solution to the four lines to draw to connect all the points, and even other smart-aleck answers, say yes." [note a non-person must come first or Inform thinks it's a thing]
 the chess board	"Despite being a really good chess player, this always fooled me. I started with a queen in the corner as a kid and got run around, but then as an adult I recognized the virtue of going for an easy solution and seeing why it didn't work. Restricting the center 16 squares helped a lot--by sheer number, that's 21/23 each queen touches, not 25/27. Also, I didn't understand symmetry arguments e.g. it's useful to see if we can have a queen 2 from any corner, or one 3 from a corner. It's important not to think of this as 'laziness' if we can start building general principles or eliminate enough cases."
 the match sticks	"I've always enjoyed match stick problems and how some just don't seem likely. While the general trick if not too many are moved is to shift the original picture onto the new one, somehow, there are creative ones with many shifts."
 Nim	"Nim was always the toughest to prove, and my 8th-grade self wiped out in Beyond Zork and I had to watch the trees for hints. Once I learned about Strong Induction, the proof made sense. Though I was still impressed anyone would come up with it."
@@ -2352,6 +2351,7 @@ jerks	"Pick one by name to see details."
 Assassination Character	"Character assassination is the act of tearing someone down." [chipper wood]
 chase paper	"A paper chase is excessive paperwork. In this case, work not strictly needed to reach the Assassination Character."
 Insanity Terminal	"Terminal insanity is having no chance to regain sanity." [the belt below]
+a bad face	"It will help you face a bad...something."
 note crib	"To crib notes is to copy from someone who was at a lecture." [bottom rock]
 legend of stuff	"The Stuff of Legend means a book about great tales of yore, as opposed to the scribble-hint-book you get."
 crocked half	"Half-crocked means drunk."
@@ -2629,6 +2629,8 @@ carry out verbing:
 	say "[2da]GT or GO TO lets you go to a room you've been to.[line break]";
 	say "[2da]GIVE X TO Y[line break]";
 	say "[2da]TALK/T talks to the only other person in the room. TALK TO X is needed if there is more than one.[line break]";
+	if know-babble is true:
+		say "[2da]BROOK BABBLING lets you talk to someone and skip over a conversation's details[if ever-babbled is true]. It can be shortened to BB[end if].[line break]";
 	say "[2da]You shouldn't need any more prepositions than these.";
 	say "[2da]specific items may mention a verb to use in CAPS, e.g 'You can SHOOT the gun AT something.'";
 	say "[2da]conversations use numbered options, and you often need to end them before using standard verbs. RECAP shows your options.";
@@ -3153,11 +3155,13 @@ after quipping when qbc_litany is table of guy sweet talk:
 
 section Game Shell
 
-the Game Shell is scenery in Smart Street. "It's shaped like a carved-out turtle's shell[one of]. Scratched on the side you see nine dots in a square with FOUR LINES THROUGH ALL POINTS scratched out below, then EVERYONE KNOWS THAT.[or][stopping]. Behind the counter, Guy Sweet half-smiles, staring at the games on offer."
+the Game Shell is scenery in Smart Street. "It's shaped like a carved-out turtle's shell[one of]. Scratched on the side you see a puzzle that didn't make it, marked OUT PUZZLE[or], with the out puzzle squiggled on it[stopping]. Behind the counter, Guy Sweet half-smiles, staring at the games on offer."
 
-the dots are part of the game shell. understand "square" and "nine" and "nine dots" as dots when player is in smart street. description is "It's the old puzzle where you have nine dots in a square and four lines and the solution is a diagonal arrow that goes outside the square."
+the out puzzle is part of the game shell. understand "square" and "nine" and "nine dots" as out puzzle when player is in smart street. description is "[one of]It's the old puzzle where you have nine dots in a square and four lines and the solution is a diagonal arrow that goes outside the square. Everyone knows it, and in fact you understand the 'cheat' solutions of wrapping the paper around for one line, or treating the dots as having actual height, but somehow, you never felt you had the gravitas to explain how and why it's been done before, and you don't want to re-over-think why, now[or]Nine dots, four lines. Everyone sort of knows it[stopping]."
 
-instead of doing something with the dots:
+the printed name of out puzzle is "the 'out' puzzle".
+
+instead of doing something with the out puzzle:
 	if current action is not explaining:
 		say "No. You know that puzzle. You forget if you got it when you saw it, but people made you feel awkward for actually knowing it. Best not to dwell." instead;
 
@@ -3376,6 +3380,77 @@ to notice-advance:
 	now the score is 17;
 	now player has quiz pop;
 	now gesture token is in lalaland;
+
+section brookbabbling
+
+brookbabbling is an action applying to nothing.
+
+understand the command "brook babbling" as something new.
+
+understand "brook babbling" as brookbabbling.
+understand "bb" as bbing.
+
+bbing is an action applying to nothing.
+
+carry out bbing:
+	if ever-babbled is false and know-babble is true:
+		say "You use a little slangy shortcut in your own mind. You found it hard to, but hey, why not?";
+	now ever-babbled is true;
+	try brookbabbling instead;
+	
+know-babble is a truth state that varies.
+
+ever-babbled is a truth state that varies.
+
+definition: a person (called pe) is blabbable:
+	if litany of pe is table of no conversation, decide no;
+	if pe is babbled-out, decide no;
+	decide yes;
+
+a person can be babbled-out. a person is usually not babbled-out.
+
+carry out brookbabbling:
+	if player is in freak control:
+		say "The awkward silence is too oppressive. Besides, you don't have the [bad-guy]'s attention yet." instead;
+	if player is in airy station:
+		say "The crowd is certainly babbling, but nothing too in-depth or detailed." instead;
+	if player is in truth home and logical psycho is in truth home:
+		say "You can't really zone the Logical Psycho out." instead;
+		if number of b-out people in location of player > 0:
+	if number of blabbable people is 0:
+			say "You've already chatted up everyone here. If someone seems to be in your way, maybe you need to GIVE them something to make them happy." instead;
+		say "There's no one here to babble with. With whom to babble." instead;
+	if player is in questions field:
+		say "[if bros-left is 1]The remaining Keeper Brother doesn't seem[else]None of the Keeper Brothers seem[end if] up to small talk." instead;
+	if number of blabbable people is 1:
+		babble-out a random blabbable people instead;
+	if number of blabbable people is 2:
+		if player is in discussion block:
+			say "Art and Phil both seem equally tough to talk to." instead;
+		if player is in soda club:
+			say "You talk to the Punch Sucker for a bit.";
+			babble-out punch sucker instead;
+		say "There are too many people to pick out to babble at.";
+	the rule succeeds;
+
+to babble-out (pe - a person):
+	if pe is not a babbler in table of babble summaries:
+		say "BUG! [pe] should have a babble shortcut. I think.";
+	else:
+		choose row with babbler of pe in table of babble summaries;
+		say "[babble-content entry]";
+		now pe is blabbed-out;
+		if there is a babble-reward entry:
+			now player has babble-reward;
+		if ever-babbled is false:
+			say "Well. Now that you, err, abridged the conversation, you feel as though you can abridge how you think of it. Instead of Brook Babbling, well, BB would work.";
+			now ever-babbled is true;
+
+table of babble summaries
+babbler	babble-content	babble-reward
+Guy Sweet	"Guy Sweet blinks at you. 'Whoah! You're, like, more accelerated than most people at this whole social thing. I probably don't want to know what you've gotten wrong, dude. No offense. But here, I guess I have to give you this gesture token. Everyone gets one.'"	gesture token
+Word Weasel	"Something about how you need to get him something to sign. He hands you a pocket pick, which apparently you can pay off by DIGging."	pocket pick
+Punch Sucker	"He reiterates his offer of free Cooler Wine or Haha Brew."
 
 section chessboard
 
@@ -9204,6 +9279,21 @@ when play begins (this is the force tester wherever rule):
 		say "Transcripts can be sent to blurglecruncheon@gmail.com. Any punctuation before the comment is okay, e.g. *TYPO or ;typo or :typo.";
 	continue the action;
 
+chapter swearing
+
+[ * toggle swearing]
+
+swearing is an action out of world.
+
+understand the command "swear" as something new.
+
+understand "swear" as swearing.
+
+carry out swearing:
+	now allow-swears is whether or not allow-swears is false;
+	say "Swearing is [on-off of allow-swears]";
+	the rule succeeds;
+
 chapter gqing
 
 gqing is an action applying to one number.
@@ -9302,6 +9392,8 @@ carry out gating:
 		now player has money seed;
 		now player has fourth-blossom;
 		now player has mind of peace;
+		now player has legend of stuff;
+		now player has crocked half;
 	repeat with Q running through carried things:
 		try giving Q to the noun;
 	try taking the noun; [heck why not?]
