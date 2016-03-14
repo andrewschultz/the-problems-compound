@@ -12,6 +12,8 @@ use the serial comma.
 
 use American dialect.
 
+the release number is 2.
+
 book includes
 
 include Basic Screen Effects by Emily Short.
@@ -1210,6 +1212,10 @@ chapter touching
 understand "tag [thing]" as touching.
 
 check touching:
+	if noun is hammer:
+		say "It doesn't feel unusual, but maybe you can change it." instead;
+	if noun is worm:
+		say "It feels pliable, like you could manipulate it--no, that's too complex a word." instead;
 	if noun is earth of scum:
 		say "Ew. No." instead;
 	if noun is bench:
@@ -2774,7 +2780,11 @@ check exiting:
 	if location of player is only-out:
 		continue the action;
 	if number of viable directions is 0: [see section printing exits for what a viable direction is]
-		say "There's no way to exit.";
+		if player is in out mist:
+			say "You'd only get further lost--or caught. Perhaps you need to figure a way into the worm." instead;
+		if player is in airy station:
+			say "The crowd is really expecting you to enter the Return Carriage." instead;
+		say "There's no way to exit." instead;
 	else if number of viable directions is 1:
 		let Q be a random viable direction;
 		try going Q instead;
@@ -7879,7 +7889,7 @@ check going inside in out mist:
 	try entering worm ring instead;
 
 check entering worm ring:
-	say "There's not enough space for you to fit." instead;
+	say "There's not enough space for you to fit, as is. But it looks and feels pliable. You may need to modify it a bit--somehow." instead;
 
 to good-end:
 	say "The Whole Worm is bigger than you thought. You hide deeper and deeper. A passage turns down, and then here's a door. Through it you see your bedroom.";
@@ -8747,6 +8757,10 @@ plaus
 got-terminal-almost is a truth state that varies.
 
 rule for printing a parser error when the latest parser error is the didn't understand error:
+	if player is in out mist:
+		say "Hmm. You need to do something to the ring, but not that. Some action you haven't done yet. There may be more than one." instead;
+	if player is in airy station:
+		say "Hmm.  You need to change the hammer, somehow. There's probably more than one way to do it." instead;
 	if the turn count is 1: [hack (??) for G on move 1]
 		say "That isn't a recognized verb, or maybe you guessed a preposition wrong. In general, this game tries not to force longer commands. You can type VERB or VERBS to see all the commands and possible prepositions.";
 		the rule succeeds;
@@ -8812,7 +8826,7 @@ rule for printing a parser error when the latest parser error is the didn't unde
 		say "That isn't a recognized verb";
 		if Q > 4:
 			say ", or at [if Q > 10]10+[else][Q][end if] words, it might be too complex an order";
-		say ". You can type VERB or VERBS to see them all.";
+		say ", but you can type VERB or VERBS to see them all.";
 	reject the player's command;
 
 Rule for printing a parser error when the latest parser error is the i beg your pardon error:
@@ -9629,13 +9643,21 @@ widdershins is a direction. turnwise is a direction. the opposite of widdershins
 
 understand the command "monty" as something new.
 
+understand "monty" as a mistake ("[monty-sum]")
+
+to say monty-sum:
+	say "MONTY usage for running a test-command every move:[paragraph break]";
+	repeat through table of monties:
+		say "[2da][test-title entry] can be turned on/off with [topic-as-text entry][line break]";
+	say "[line break]MONTY FULL/ALL and MONTY NONE tracks all these every-move tries, or none of them.[no line break]";
+
 understand "monty [text]" as montying.
 
 monty-full is a truth state that varies.
 
 carry out montying:
 	let found-toggle be false;
-	if the topic understood matches "all":
+	if the topic understood matches "all" or the topic understood matches "full":
 		repeat through table of monties:
 			now on-off entry is true;
 		the rule succeeds;
@@ -9643,24 +9665,23 @@ carry out montying:
 		repeat through table of monties:
 			now on-off entry is false;
 		the rule succeeds;
-	say "[b]Going Widdershins (ungoable direction) :[r]";
 	repeat through table of monties:
 		if the topic understood matches montopic entry:
 			now on-off entry is whether or not on-off entry is true;
 			say "[test-title entry] is now [if on-off entry is true]on[else]off[end if].";
 			now found-toggle is true;
 	if found-toggle is false:
-		say "MONTY didn't find anything to toggle. Here is a list: legend, smell, listen, score, noway, note.";
+		say "That wasn't a recognized flag for MONTY.[paragraph break][monty-sum][line break]";
 	the rule succeeds;
 
 table of monties
-montopic (topic)	on-off	test-title	test-action
-"legend/hint"	false	"LEGEND HINTING"	try-hinting rule
-"s/smell"	false	"SMELLING"	try-smelling rule
-"l/listen"	false	"LISTENING"	try-listening rule
-"sc/score"	false	"SCORING"	try-scoring rule
-"dir/noway"	false	"DEAD ENDING"	try-wid rule
-"donote/note"	false	"DONOTEING"	try-noting rule
+montopic (topic)	on-off	test-title (text)	test-action	topic-as-text (text)
+"legend/hint"	false	"LEGEND HINTING"	try-hinting rule	"legend/hint"
+"s/smell"	false	"SMELLING"	try-smelling rule	"s/smell"
+"l/listen"	false	"LISTENING"	try-listening rule	"l/listen"
+"sc/score"	false	"SCORING"	try-scoring rule	"sc/score"
+"dir/noway"	false	"GOING NOWHERE"	try-wid rule	"dir/noway"
+"donote/note"	false	"DONOTEING"	try-noting rule	"donote/note"
 
 this is the try-noting rule:
 	try donoteing;
