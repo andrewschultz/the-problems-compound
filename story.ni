@@ -175,6 +175,7 @@ when play begins (this is the initialize jerks rule):
 	now next-c of temp-cli is first-cli;
 
 when play begins (this is the sort ALL the tables rule) :
+	sort table of gadget action in random order;
 	sort the table of dutch-blab in random order;
 	sort the table of sleep stories in random order;
 	sort the table of horrendous books in random order;
@@ -289,14 +290,14 @@ when play begins (this is the read options file rule):
 the file of verb-unlocks is called "pcverbs".
 
 table of vu - verb-unlocks [tvu]
-brief (indexed text)	found	expound	descr (indexed text)
-"anno"	false	true	"ANNO to show annotations, or JUMP to jump to a bunch of rejected rooms, as a sort of director's cut."
-"duck"	false	true	"DUCK SITTING to jump to Tension Surface."
-"knock"	false	true	"KNOCK HARD to get to Pressure Pier."
-"figure"	false	true	"FIGURE A CUT to skip past the Howdy Boy to the [jc]."
-"notice"	false	true	"NOTICE ADVANCE to skip to Questions Field, with the brothers and jerks gone."
-"good"	false	false	"You found the good ending!"
-"great"	false	false	"You found the great ending!"
+brief (indexed text)	found	expound	jumpable	descr (indexed text)
+"anno"	false	true	false	"ANNO to show annotations, or JUMP to jump to a bunch of rejected rooms, as a sort of director's cut."
+"duck"	false	true	true	"DUCK SITTING to jump to Tension Surface."
+"knock"	false	true	true	"KNOCK HARD to get to Pressure Pier."
+"figure"	false	true	true	"FIGURE A CUT to skip past the Howdy Boy to the [jc]."
+"notice"	false	true	true	"NOTICE ADVANCE to skip to Questions Field, with the brothers and jerks gone."
+"good"	false	false	false	"You found a good ending!"
+"great"	false	false	false	"You found the great ending!"
 
 to unlock-verb (t - text):
 	let j be indexed text;
@@ -367,6 +368,7 @@ a concept has text called howto. howto of a concept is "(need text)".
 a concept can be explained. a concept is usually not explained.
 
 a drinkable is a kind of thing.
+does the player mean drinking a drinkable: it is very likely.
 
 a smokable is a kind of thing.
 
@@ -550,7 +552,7 @@ check examining alec when accel-ending:
 	else if off-eaten is true:
 		say "You scowl to yourself that looks don't matter, but you''d rather hang around people who scowl as much as you. Unless they're trying to imitate you." instead;
 
-description of Alec Smart is "[one of]You, Alec Smart, are just sort of average looking. You hope. You guess. But you know people who think they're average are below average, whether or not they know that bit of research.[paragraph break]In any case, looking at yourself tends to make you over-think, and you have enough thinking to do[or]You hope you're un-ugly enough to be a likable everyteen. Others take worse heat for their looks. Not that that makes you feel better[stopping]."
+description of Alec Smart is "[one of]You, Alec Smart, are just sort of average looking. You hope. You guess. But you know people who think they're average are below average, whether or not they know that bit of research.[paragraph break]In any case, looking at yourself tends to make you over-think, and you have enough thinking to do[or]You hope you're un-ugly enough to be a likable everyteen. Others take worse heat for their looks. Not that that makes you feel better[stopping]. You are pretty sure you've got a [if player has bad face]bad face[else]face of loss[end if] on."
 
 volume actions
 
@@ -629,7 +631,11 @@ check requesting the score:
 	say "[line break]";
 	if Questions Field is unvisited:
 		say "You haven't gotten near the [bad-guy]'s hideout yet. So maybe you need to explore a bit more." instead;
-	if qp-hint is true:
+	if player is in out mist:
+		say "You need to modify the worm ring somehow." instead;
+	if player is in airy station:
+		say "You need to modify the hammer somehow." instead;
+	if qp-hint is true and quiz pop is not in lalaland:
 		say "You need some way to get past the question/exclamation mark guard combination. It's like--I don't know. A big ol['] pop quiz or something." instead;
 	if player has crocked half and thoughts idol is not in lalaland:
 		say "You haven't found what the crocked half's clue is, either." instead;
@@ -823,7 +829,15 @@ instead of jumping:
 			now jump-from-room is location of player;
 			move player to jump-to-room;
 		the rule succeeds;
-	say "You're not ready to form hasty conclusions."
+	let any-jumps be false;
+	repeat through table of vu:
+		if jumpable entry is true:
+			if any-jumps is false:
+				say "You can make the following jumps [if player is not in smart street] on restart[end if]:[line break]";
+				now any-jumps is true;
+			say "[2da][descr entry][line break]";
+	if any-jumps is false:
+		say "You're not ready to form hasty conclusions."
 
 chapter thinking
 
@@ -885,7 +899,7 @@ carry out do-swearing:
 		say "You reckon that's how people are supposed to cuss in a bar, er, club, but you can't give that word the right oomph." instead;
 	if player is in cult:
 		say "That'd be extra rude in a place like this." instead;
-	if player is in wood and assassination is in wood:
+	if player is in chipper wood and assassination is in chipper wood:
 		say "The assassin smirks[if p-c is true]. 'That won't do any good!'[else].[end if]" instead;
 	if player is in belt and terminal is in belt:
 		say "Sorry, man. I didn't mean for it to be THIS hard." instead;
@@ -957,11 +971,15 @@ the can't pull people rule is not listed in any rulebook.
 check pulling:
 	if noun is a person:
 		say "Physical force will work out poorly." instead;
+	if noun is ring:
+		say "Ring pull, pull ring... no, you need to do something else to the ring." instead;
 	say "[im-im]pull." instead;
 
 check pushing:
 	if noun is a person:
 		say "Physical force will work out poorly." instead;
+	if noun is ring:
+		say "Ring push, push ring... no, you need to do something else to the ring." instead;
 	say "[im-im]push." instead;
 
 chapter taking
@@ -977,6 +995,8 @@ before taking a person:
 
 check taking:
 	if noun is scenery or noun is fixed in place:
+		if noun is in freak control:
+			say "Vandalism, while direct, won't get rid of the guy running all the machines here." instead;
 		say "[im-im]take." instead;
 
 to say im-im:
@@ -1234,6 +1254,14 @@ check taking inventory (this is the adjust sleep rule) :
 	if mrlp is dream sequence:
 		say "You are carrying: (well, mentally anyway)[line break]  [if player is in tense past]Regret of past mistakes[else if player is in tense future]the weight of indecision[else]understanding of future failures but none of their solutions[end if][paragraph break]" instead;
 
+check taking inventory:
+	if player has bad face:
+		say "You're wearing a bad face.";
+		now bad face is mentioned;
+	if player has face of loss:
+		say "You're wearing a face of loss.";
+		now face of loss is mentioned.
+
 chapter kissing
 
 the block kissing rule is not listed in any rulebook.
@@ -1358,6 +1386,7 @@ check drinking:
 		if bros-left > 0:
 			say "You think about swigging the pop, but the questions the Brothers have is for help, not facts." instead;
 		now got-pop is true;
+		now quiz pop is in lalaland;
 		say "Glug, glug. It tastes nasty. But suddenly your mind is whizzing with memories of people who out-talked you, and your realize how they did it and why." instead;
 	if noun is haha brew:
 		say "You take a small sip. The foul sour taste is truly unfunny." instead;
@@ -1504,7 +1533,7 @@ check attacking:
 		say "'Help! Officers!' The Labor Child searches for a hidden button, and you can only assume a hidden alarm has gone off. The Stool Toad and [if judgment pass is visited]Officer Petty[else]another man[end if] block the exit. 'Kid, give [']im the lecture! The one the boss loves!' It's one you don't. The adults give you the lecture about picking on someone smaller than you and mention that you aren't the first but you're the worst. 'Good job! [bg] will be pleased!' the Labor Child says as you're carried away.";
 		ship-off Fight Fair instead;
 	if noun is Baiter:
-		say "Of course, with all those screens, he saw you well before you got close. He whirls and smacks you. Stunned, you offer no resistance as you're sent away to where those who commit high treason go...";
+		say "Of course, with all those screens, he saw you well before you got close. He whirls and smacks you. Stunned, you offer no resistance as guards appear and take you away to where those who commit the worst crimes... 'Dude! If you wanted to talk, just TALK. I mean, you can't be too boring, but don't be all...' You don't hear the rest.";
 		ship-off Punishment Capitol instead;
 	if noun is an enforcer:
 		say "'ATTACKING A LAW ENFORCEMENT OFFICER?' Ouch. You should've known better. And [noun] lets you know that in utterly needless detail, explaining just because you had no chance of beating him up doesn't mean it's not a very serious crime indeed.[paragraph break]It's almost a relief when he has finished shipping you off.";
@@ -1766,7 +1795,7 @@ check giving dreadful penny to:
 		the rule succeeds;
 
 check giving quiz pop to: [couldn't figure where to put this]
-	say "No. It seems...unusual. And you might need one last thought burst before you're done." instead;
+	say "No. The pop seems...unusual. You worked to get it." instead;
 
 section giving items from west
 
@@ -2621,9 +2650,13 @@ verbing is an action out of world.
 
 understand the command "verb" as something new.
 understand the command "verbs" as something new.
+understand the command "command" as something new.
+understand the command "commands" as something new.
 
 understand "verb" as verbing.
 understand "verbs" as verbing.
+understand "command" as verbing.
+understand "commandss" as verbing.
 
 to say 2da:
 	say "[if screen-read is false]--";
@@ -2634,6 +2667,12 @@ carry out verbing:
 		say "THINK or WAIT/Z moves the dream, and you can also LOOK. Your 'inventory' is strictly mental.";
 		say "You can also WAKE[if caught-sleeping is true], which is the only way to get out now the Stool Toad caught you[end if].";
 		the rule succeeds;
+	if player is in freak control:
+		say "There may be a special command or two you need to get the [bad-guy]'s attention." instead;
+	if player is in out mist:
+		say "There may be a special command or three you need to manipulate the worm-ring more, well, enterable." instead;
+	if player is in airy station:
+		say "There may be a special command or three you need to manipulate the hammer into something more powerful." instead;
 	say "[one of]The Problems Compound has tried to avoid guess-the-verb situations and keep the parser simple.[line break][or][stopping]Verbs needed in The Problems Compound include:[paragraph break]";
 	if player is in smart street:
 		say "[2da]PLAY/TRY any of the games in the shell.";
@@ -2669,7 +2708,7 @@ to decide whether verbs-unlocked: [I could probably check "duck sitting" but bes
 	decide no;
 
 to list-debug-cmds:
-	say "DEBUG COMMANDS:[paragraph break][2da]J jumps you to the next bit from the Street, Lounge, Surface or Pier.[line break][2da]MONTY listens and smells and other commands. It may be more for programming[line break][2da]JERK tells you what to do with the jerks.[line break][2da]JGO gets rid of them[line break][2da]BROBYE kicks the Keeper Brothers out.[line break][2da]CTC clears the chase paper so you don't have to do that little dance.";
+	say "[line break]DEBUG COMMANDS: ================[line break][2da]J jumps you to the next bit from the Street, Lounge, Surface or Pier.[line break][2da]MONTY toggles every-move actions like listening and smelling. It may be more for programming testing[line break][2da]JERK tells you what to do with the jerks.[line break][2da]JGO gets rid of them[line break][2da]BROBYE kicks the Keeper Brothers out.[line break][2da]CTC clears the chase paper so you don't have to do that little dance.";
 
 chapter hinting
 
@@ -2784,7 +2823,7 @@ check exiting:
 			say "You'd only get further lost--or caught. Perhaps you need to figure a way into the worm." instead;
 		if player is in airy station:
 			say "The crowd is really expecting you to enter the Return Carriage." instead;
-		say "There's no way to exit." instead;
+		say "There's no way to exit. It looks like you've got a bit of a puzzle to find one." instead;
 	else if number of viable directions is 1:
 		let Q be a random viable direction;
 		try going Q instead;
@@ -3306,6 +3345,7 @@ to write-undo (x - text):
 				ital-say "You may have found a secret command that will skip you across rooms you haven't seen. However, you can UNDO if you'd like.";
 			else:
 				say "[line break]";
+			now found entry is true;
 			continue the action;
 	say "[bug] -- [x] was called as a table element.";
 
@@ -3326,6 +3366,7 @@ carry out ducksitting:
 	the rule succeeds;
 
 to duck-sitting:
+	now jump-level is 1;
 	move player to tension surface;
 	now gesture token is in lalaland;
 
@@ -3346,6 +3387,7 @@ carry out knockharding:
 	the rule succeeds;
 
 to knock-hard:
+	now jump-level is 2;
 	move player to pressure pier;
 	now gesture token is in lalaland;
 
@@ -3368,6 +3410,7 @@ carry out figureacuting:
 	the rule succeeds;
 
 to figure-cut:
+	now jump-level is 3;
 	move player to jerk circle;
 	now trail paper is in lalaland;
 	now howdy boy is in lalaland;
@@ -3375,7 +3418,7 @@ to figure-cut:
 
 section notice advance [skips you to the endgame before the BM, jerk circle solved]
 
-jumped-at-start is a truth state that varies.
+jump-level is a number that varies.
 
 noticeadvanceing is an action out of world.
 
@@ -3392,10 +3435,12 @@ carry out noticeadvanceing:
 	the rule succeeds;
 
 to notice-advance:
+	now jump-level is 4;
 	move player to questions field;
 	now all clients are in lalaland;
 	send-bros;
 	now the score is 17;
+	now last notified score is 17;
 	now player has quiz pop;
 	now gesture token is in lalaland;
 
@@ -4920,8 +4965,12 @@ instead of doing something with the bar:
 
 
 check going south in joint strip:
-	if jumped-at-start is true:
+	if jump-level > 2:
 		say "[one of]'There's something about you, young man. Like you've been shifty before. I can't trust you. So you better use some common sense. Or I'll use it for you!' booms the Stool Toad.[paragraph break]On further reflection, you figure there probably wasn't much in there. Much you need any more, anyway. Also, his last little put-down didn't make any sense. But it still hurt.[or]You don't want to be told off by the Stool Toad again. Whether or not he makes sense the next time.[stopping]" instead;
+	if jump-level > 0 and soda club is unvisited:
+		say "The Stool Toad eyes you suspiciously. 'Don't know what you're up to, but ... it's something too clever for your own good. You--you cheated to get here, somehow.'" instead;
+	if howdy boy is in lalaland:
+		say "You had your 'fun,' or an attempt at it, anyway. You don't want to go [if soda club is visited]back there[else]anywhere too crazy[end if].";
 	if soda club is unvisited:
 		say "You look over your shoulder at the Stool Toad. 'I can't stop you, young man. But you keep your nose clean!' he shouts.";
 
@@ -5269,6 +5318,10 @@ part Jerk Circle
 
 Jerk Circle is north of Pressure Pier. It is in Main Chunk. printed name of Jerk Circle is "[jc]". "[if silly boris is in lalaland]The only evidence the [j-co] were here is that the ground seems slightly trampled[else]Seven [j-co] stand in a circle (okay, a heptagon) here, talking to and about others[end if]. It looks like there's forested area to the west, a narrow valley to the east, and things open up to the north. Nothing's stopping you going back south in this crossroads, either."
 
+check going south in jerk circle (this is the block pier in endgame rule):
+	if bros-left is 0:
+		say "No. You don't need to go back. You're close to what you need to do." instead;
+
 to say jc:
 	say "[if allow-swears is true]Jerk Circle[else]Groan Collective[end if]"
 
@@ -5287,6 +5340,10 @@ Paul Kast is a client. clue-letter of Paul Kast is "K". description is "Dressed 
 Cain Reyes is a client. clue-letter of Cain Reyes is "*". description is "The loudest of the bunch."
 
 the bottle of Quiz Pop is a thing. "The [j-co] left a bottle of Quiz Pop here.". description is "It's typical ucky brown for pop, though it is fizzing furiously. The label proclaiming it Quiz Pop reveals no nutritional information, which may be for the better. It also provides a warning that it is therapeutic for people who don't always ask the questions they want to, but people who already ask loaded questions are at risk. It's from Mark Black industries."
+
+understand "soda" as Quiz Pop
+
+does the player mean drinking Quiz Pop: it is very likely.
 
 after examining Quiz Pop:
 	now black mark is in lalaland;
@@ -5525,7 +5582,7 @@ understand "grid" and "paper grid" as chase paper.
 the chase paper is scenery in Chipper Wood. "Goodness knows how it sticks to the ground, but it does. You can probably GET ON it."
 
 Rule for supplying a missing noun while entering (this is the yup paper rule):
-	if player is in wood and chase paper is in wood:
+	if player is in chipper wood and chase paper is in chipper wood:
 		now the noun is the chase paper;
 	else if player is in smart street:
 		now the noun is broke flat;
@@ -5541,7 +5598,7 @@ check going in chipper wood when p-c is false:
 	if noun is north or noun is south:
 		say "The wood's too thick that way." instead;
 
-after going when player is in chipper wood and assassination character is in chipper wood:
+after going when player was in chipper wood and assassination character is in chipper wood:
 	say "'Oops, maybe some other time,' the Character's taunt echos.";
 	continue the action;
 
@@ -7622,17 +7679,23 @@ part Freak Control
 
 Freak Control is north of Questions Field. It is in Main Chunk. "[if accel-ending]There's all sorts of stuff here but really all you want to do is show the [bad-guy] what's what.[else]Well, you made it. There's so much to look at![paragraph break]While there's probably another secret exit than back south, it's surely only available to the [bad-guy]. All the same, you don't want to leave now. You can't.[end if]"
 
+check going south in Freak Control:
+	say "No. You're too chicken to face the possibility of being called a chicken. Besides, if you run the first time, you'll run again. Fear works that way. You know." instead;
+
 a list bucket is a thing in Freak Control. "[one of]A list bucket lying nearby may help you make sense of the fancy machinery, though you worry you might kill yourself trying[or]The list bucket waits here, a handy reference to the gadgetry of Freak Control[stopping]."
 
 check taking the bucket:
 	say "You would, but the [bad-guy] might turn around and ask if you really needed to steal a bucket, and no, the text isn't going to change if you pick it up, and so forth." instead;
 
-description of list bucket is "[2da]The Language Sign should, um, y'know, make things obvious.[line break][2da]Shot screen: track various areas in the Compound[line break][2da]The Twister Brain: to see what people REALLY mean when they oppose you just a little[line break][2da]the Witness Eye provides tracking of several suspicious individuals[line break][2da]The Incident Miner processes fuller meaning of events the perpetrators wish were harmless.[line break][2da]the Call Curtain is somewhere the [bad-guy] better not have to go behind more than once a day.[line break][2da]the Frenzy Feed magnifies social violations people don't know they're making, or want to hide from others, and lets you feel fully outraged.[paragraph break]All this gadgetry is well and good, but the [bad-guy] probably knows it better than you. You may need some other way to overcome him."
+description of list bucket is "[2da]The Language Sign should, um, y'know, make things obvious.[line break][2da]The Shot Screen: track various areas in the Compound[line break][2da]The Twister Brain: to see what people REALLY mean when they oppose you just a little[line break][2da]The Witness Eye provides tracking of several suspicious individuals[line break][2da]The Incident Miner processes fuller meaning of events the perpetrators wish were harmless.[line break][2da]The Call Curtain is somewhere the [bad-guy] better not have to go behind more than once a day.[line break][2da]The Frenzy Feed magnifies social violations people don't know they're making, or want to hide from others, and lets you feel fully outraged.[paragraph break]All this gadgetry is well and good, but the [bad-guy] probably knows it better than you. You may need some other way to overcome him."
 
 the call curtain is scenery in Freak Control. "It doesn't look particularly malevolent--it seems well washed--but you don't know what's going on behind it."
 
+check opening call curtain:
+	say "It's closer to the [bad-guy] than you. Maybe you'll just have to wonder what's behind it. Maybe that's another small part of the [bad-guy]'s mind games." instead;
+
 check entering call curtain:
-	say "The [bad-guy] wouldn't allow a repeat performance. Or any performance, really."
+	say "The [bad-guy] wouldn't allow a repeat performance. Or any performance, really." instead;
 
 the incident miner is scenery in Freak Control. "The incident miner churns and coughs. You see text like 'not as nice/interesting/worthwhile as he thinks' and 'passive aggressive but doesn't know it' and 'extraordinary lack of self awareness' spin by."
 
@@ -7642,9 +7705,40 @@ freaked-out is a truth state that varies.
 
 the shot screen is scenery in Freak Control. "[if cookie-eaten is true]You're torn between wondering if it's not worth watching the jokers being surveyed, or you deserve a good laugh.[else]For a moment, you get a glimpse of [one of]the jerks going about their business[or]parts of Idiot Village you couldn't explore[or]a 'me-time' room in the Classic Cult[or]a secret room in the Soda Club[or]Officer Petty at the 'event,' writing notes furiously[or]the hideout the Stool Toad was too lazy to notice[or]The Logical Psycho back at his home[or]exiles living beyond the Standard Bog[in random order].[end if]"
 
+control-gadget-row is a number that varies. control-gadget-row is 0.
+
 every turn when player is in freak control and qbc_litany is not table of baiter master talk (this is the random stuff in FC rule): [?? if player doesn't know names, don't write them]
 	unless accel-ending:
-		say "[one of]The Twister Brain spits out a page of data the [bad-guy] speed reads. He mutters 'Pfft. I already sort of knew that. Mostly.'[or]The Witness Eye swivels around with a VVSSHHKK before changing the focus to [a random surveyable person].[or]The Shot Screen blinks a bit before changing its focus.[in random order]"
+		increment control-gadget-row;
+		if control-gadget-row > number of rows in table of gadget action:
+			now control-gadget-row is 0;
+			say "'All this data from all these machines! Of course I have to be decisive and a little abrasive,' the [bad-guy] yells to, well, nobody in particular. 'It's not like I'm on a total power trip.'";
+			the rule succeeds;
+		choose row control-gadget-row in table of gadget action;
+		say "[gad-act entry]";
+
+definition: a thing (called sc) is control-known:
+	if sc is not in freak control, decide no;
+	if sc is examined, decide yes;
+	if list bucket is examined, decide yes;
+	decide no;
+
+definition: a room (called rm) is mainchunk:
+	if rm is freak control, decide no;
+	if rm is belt below, decide no;
+	if rm is bottom rock, decide no;
+	if map region of rm is main chunk, decide yes;
+	decide no;
+
+table of gadget action
+gad-act
+"You think you hear the List Bucket rattle. Wait, no."
+"The Language Sign flashes but you don't think it changed its message. Just reinforced it."
+"The Twister Brain spits out a page of data the [bad-guy] speed reads. He mutters 'Pfft. I already sort of knew that. Mostly. Still, need to keep an eye on [a random surveyable person].'"
+"The Witness Eye swivels around with a VVSSHHKK before changing the focus to [random mainchunk room]."
+"The [bad-guy] gestures at the Incident Miner. 'Some people never learn. Or they just learn wrong.'"
+"The [bad-guy] laughs sardonically at the Frenzy Feed. 'Hah, [a random baiter-aligned person] will love that.'"
+"The Shot Screen blinks a bit before changing its focus."
 
 the Twister Brain is scenery in Freak Control. "Its ridges seem twisted into a smirk."
 
@@ -7654,7 +7748,7 @@ the Witness Eye is scenery in Freak Control. "It's weird, it's circular, but it 
 
 understand "witness star" and "star" as Witness Eye.
 
-the Language Sign is scenery in Freak Control. "It says, in various languages: OUT, FREAK. [one of]You're momentarily impressed, then you feel slightly jealous that the [bad-guy] took the time to research them. You remember getting grilled for trying to learn new languages in elementary school, before you could take language classes. You mentally blame the [bad-guy] for that. Well, it was someone like him. [or]You also take a second or two to pick which language is which line. Got [']em all. Even the ones with the unusual alphabets you meant to figure.[stopping]"
+the Language Sign is scenery in Freak Control. "It says, in various languages: OUT, FREAK. [one of]You're momentarily impressed, then you feel slightly jealous that the [bad-guy] took the time to research them. You remember getting grilled for trying to learn new languages in elementary school, before you could take language classes. You mentally blame the [bad-guy] for that. Well, it was someone like him. [or]You also take a second or two to pick which language in which line says OUT, FREAK. Got [']em all. Even the ones with the unusual alphabets you only half know.[stopping]"
 
 The Baiter Master is a proper-named person in Freak Control. "The [bad-guy] stands here with his back to you.". description is "You can only see the back of him, well, until you gaze in some reflective panels. He looks up but does not acknowledge you. He doesn't look that nasty, or distinguished, or strong, or whatever. Surprisingly ordinary. He shrugs and resumes his apparent thoughtfulness."
 
@@ -7752,11 +7846,11 @@ after quipping when qbc_litany is table of baiter master talk:
 	if current quip is bm-fear:
 		terminate the conversation;
 		if thoughts idol is in lalaland:
-			say "[line break]But Idiot Village has had time to assemble and rescue the hero that dispelled the Thoughts Idol! They overwhelm the Admiral, trash the more sinister surveillance technology in Freak Control, and lead you somewhere new. You protest you're not a leader--you just, well, did a bunch of errands. But they insist they have something to show you.";
+			say "But Idiot Village has had time to assemble and rescue the hero that dispelled the Thoughts Idol! They overwhelm the Admiral, trash the more sinister surveillance technology in Freak Control, and lead you somewhere new. You protest you're not a leader--you just, well, did a bunch of errands. But they insist they have something to show you.";
 			now player has hammer;
 			move player to Airy Station;
 		else:
-			say "[line break]'Where? In the BREAK JAIL[activation of break jail]!'[paragraph break]You keep a straight face and, later that night, your wits. Could people who yell that loud REALLY be that wrong? You don't sneak out quietly, enough, though, and guards give chase. There's a mist ahead--maybe they'll lose you! But you've done even better. 'The out mist!' they yell. 'People eventually leave there to get back to real life.'";
+			say "'Where? In the BREAK JAIL[activation of break jail]!'[paragraph break]You keep a straight face and, later that night, your wits. Could people who yell that loud REALLY be that wrong? You don't sneak out quietly, enough, though, and guards give chase. There's a mist ahead--maybe they'll lose you! But you've done even better. 'The out mist!' they yell. 'People eventually leave there to get back to real life.'";
 			move player to Out Mist;
 
 chapter freakouting
@@ -7880,7 +7974,7 @@ check going in Airy Station:
 
 part Out Mist
 
-Out Mist is a room in Endings. "A worm ring sits in the middle of the wood here. At the moment, it's cannibalizing itself too much to be whole.[paragraph break]It's silent here and tough to see, but you're pretty sure your pursuers aren't approaching any more."
+Out Mist is a room in Endings. "It's very misty here, but you can still see a worm ring nearby. At the moment, it's cannibalizing itself too much to be whole.[paragraph break]It's silent here and tough to see, but you're pretty sure your pursuers aren't approaching any more."
 
 check going nowhere in Out Mist:
 	say "No. This is the first thing you stumbled on, and getting more or less lost both seem equally bad." instead;
@@ -7889,7 +7983,7 @@ check going inside in out mist:
 	try entering worm ring instead;
 
 check entering worm ring:
-	say "There's not enough space for you to fit, as is. But it looks and feels pliable. You may need to modify it a bit--somehow." instead;
+	say "Hm. Enter ring, enterring--it might be simple, but it's not that simple. Because there's not enough space for you to fit, as is. But it looks and feels pliable. You may need to modify it a bit--somehow." instead;
 
 to good-end:
 	say "The Whole Worm is bigger than you thought. You hide deeper and deeper. A passage turns down, and then here's a door. Through it you see your bedroom.";
@@ -7911,7 +8005,15 @@ understand "ring [text]" and "[text] ring" as a mistake ("Nothing happens to the
 
 understand "worm [text]" and "[text] worm" as a mistake ("The worm ring's problem isn't that it's a worm, but rather that it's a ring.") when player is in Out Mist.
 
-the worm ring is scenery in Out Mist. "It's circular and seems to be almost eating itself, Ouroborous-style, though it looks a bit slushy on the inside that you can see. You can't quite enter it, but maybe if it straightened out into a regular worm..."
+understand "worm bait" and "bait worm" as a mistake ("It's an inanimate worm, and -- well -- you might rather try fishing with things to do to a ring.") when player is in Out Mist.
+
+the worm ring is scenery in Out Mist. "It's circular and seems to be almost eating itself, Ouroborous-style, though it looks a bit slushy on the inside that you can see. You can't quite enter it, but maybe if it straightened out into a regular worm...or if you made it less fat, or thick, or dense...so many possibilities, but maybe the right thing (or things) to do will be simple."
+
+check wearing ring:
+	ignore the can't wear what's not held rule;
+	say "Hm, a good try, but it would be wearing to wear it. It's just--not useful as is, and you need to modify it." instead;
+
+Rule for deciding whether all includes worm ring when player is in out mist: it does.
 
 chapter verbs for wood
 
@@ -9016,6 +9118,10 @@ after reading a command:
 			if the player's command matches the regular expression "\.":
 				now period-warn is true;
 				ital-say "extended commands may cause errors in rare cases such as E.N.W.GIVE X TO Y. This shouldn't happen often, but for future reference, it's a part of Inform parsing I never figured out. If you need to move around, GO TO is the preferred verb.";
+	if player is in out mist:
+		if the player's command includes "mist":
+			unless the player's command includes "xp" or the player's command includes "explain":
+				say "The mist doesn't seem as important as the ring." instead;
 	if player is in airy station:
 		if the player's command includes "home hammer":
 			try examining hammer instead;
@@ -9056,7 +9162,6 @@ Include (-
 			u2 = 3 * u - 2;
 			#ENDif; ! TARGET_
 			i = parse-->u2;
-			print "Word " , u , " of " , j , ": " , i, ", before & after^";
 			if (i == 'fuck//' or 'shit//' or 'damn//') { bigSwear = true; }
 			if (i == 'bother//' or 'curses//' or 'drat//' or 'darn//') { smallSwear = true; }
 			if (i == 'yes//' or 'y//') { returnYes = true; }
@@ -9377,7 +9482,9 @@ after printing the locale description when player is in beta-zap-room and beta-z
 
 when play begins (this is the force tester wherever rule):
 	now in-beta is true;
-	if debug-state is false:
+	if transcript is on:
+		say "It looks like you restarted, and the transcript should still be running.";
+	else if debug-state is false:
 		say "Note: I like to make sure beta testers have a transcript working. It's a big help to me. So, after you press a key, you'll be asked to save a file.";
 		wfak;
 		try switching the story transcript on;
@@ -9778,10 +9885,20 @@ understand the command "brobye" as something new.
 understand "brobye" as brobyeing.
 
 carry out brobyeing:
+	if bros-left is 0:
+		say "You already got rid of all the brothers." instead;
 	now brother blood is in lalaland;
 	now brother soul is in lalaland;
 	now brother big is in lalaland;
-	say "The Keeper Brothers are now out of play.";
+	say "The Keeper Brothers are now out of play. This may cause some oddness with in-game stuff, including solving puzzles that lead up to dispersing the Brothers.";
+	if silly boris is in jerk circle:
+		say "Do you wish to get rid of the jerks, too?";
+		if the player consents:
+			now all clients are in lalaland;
+			now player has quiz pop;
+			say "You now have the quiz pop.";
+		else:
+			say "If you want to, you can use JGO to get rid of the jerks, or just JERK to see who's 'guilty' of what.";
 	the rule succeeds;
 
 chapter bro1ing
@@ -9813,18 +9930,21 @@ chapter jerking
 jerking is an action out of world.
 
 understand the command "jerk" as something new.
+understand the command "groan" as something new.
 
 understand "jerk" as jerking.
+understand "groan" as jerking.
 
 carry out jerking:
 	if jerk circle is unvisited:
 		say "You haven't made it to the jerks yet." instead;
-	if finger index is not examined:
-		if accountable hold is visited:
-			say "You missed important data on the [j-co]." instead;
-		say "You haven't found any data on the [j-co] yet." instead;
-	if know-jerks is false:
-		say "You need to talk to the [j-co] to find their names." instead;
+	if finger index is not examined or know-jerks is false:
+		say "You need to have examined the Finger Index or learned the jerks['] names to see the clues. You haven't, but would you like to cheat?";
+	if the player consents:
+		now finger index is examined;
+		now know-jerks is true;
+	else:
+		say "OK, this command will still be here." instead;
 	repeat through table of fingerings:
 		say "[jerky-guy entry] [blackmail entry].";
 	the rule succeeds.
@@ -9935,5 +10055,5 @@ carry out jing:
 	if mrlp is outer bounds:
 		now trail paper is in lalaland;
 		now player is in jerk circle instead;
-	say "Now that you're in the main area, this command won't let you warp further in your beta testing quest. However, BROBYE will disperse the Brothers and JERK will spoil the jerks['] puzzle." instead;
+	say "Now that you're in the main area, this command won't let you warp further in your beta testing quest. However, BROBYE will disperse the Brothers, JGO will spoil the jerks['] puzzle, and JERK(S)/GROAN(S) will clue it." instead;
 	the rule succeeds;
