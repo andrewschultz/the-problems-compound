@@ -1479,7 +1479,7 @@ check attacking:
 		say "Beating that brush would be beating around the brush." instead;
 	if noun is fund hedge:
 		say "'Vandalism is subject to fines and incarceration,' the Labor Child warns you as you take a swing. You [if money seed is off-stage]can probably just take what you need[else]already got the money seed[end if]." instead;
-	if noun is a logic-game:
+	if noun is a logic-game or noun is game shell:
 		say "'Dude! I don't care about the logic games, but they're, like, someone's PROPERTY! And lashing out like that doesn't make you any less, um...' As you wait, you're grabbed from behind. It's some giant toad in a police uniform. Weird. 'There's a place for disrespectful troublemakers like you.'";
 		ship-off Hut Ten instead;
 	if noun is insanity terminal:
@@ -1526,17 +1526,25 @@ check attacking:
 return-room is a room that varies.
 
 to ship-off (X - a room):
-	move player to X;
+	let ZZ be location of player;
+	move player to X, without printing a room description;
 	now X is map-pinged;
 	if X is a room-loc listed in table of ending-places:
 		choose row with room-loc of X in table of ending-places;
-		say "[room-fun entry]";
+		say "You're sent to somewhere called the [room-loc entry]. [room-fun entry]";
 	say "Wait, no, that's not quite how it happened. It was tempting to lash out and step over the line, but you should probably UNDO that...";
-	end the story;
+	wfak;
+	move player to ZZ, without printing a room description;
 
 table of ending-places
 room-loc	room-fun
 Fight Fair	"You are placed against someone slightly stronger, quicker, and savvier than you. He beats you up rather easily, assuring you that just because you're smart doesn't mean you needed to lack any physical prowess."
+Maintenance High	"You're given the lecture about how attempts to rehabilitate you cost society even if they work out pretty quickly."
+Criminals' Harbor	"You're given the lecture about how you'll be performing drudgework until your attempts at cleverness are sucked out of you."
+Punishment Capitol	"You're given the lecture about how just because you did something really wrong doesn't mean you're a big thinker. Then you're told to sit and think deeply about that for a good long while."
+Hut Ten	"The basic training isn't too bad. You seem to do everything right, except for the stuff you do wrong, and a commanding officer gets on your case for that. There's so much to do, and you only make mistakes 5% of the time, maybe, but boy do the people who get it right come down hard on you when you miss. You do the same to others, but it's DIFFERENT when you do. No, really."
+A Beer Pound	"The admissions officer gives you a worksheet to fill out about how and why you can't hold your liquor."
+In-Dignity Heap	"You're given a lecture and assured that they will have to get more abusive but still won't be as effective and eventually you'll build up a tolerance to abuse, and that's better than a tolerance to alcohol."
 
 chapter giving
 
@@ -3393,11 +3401,15 @@ understand "bb" as bbing.
 bbing is an action applying to nothing.
 
 carry out bbing:
-	if ever-babbled is false and know-babble is true:
-		say "You use a little slangy shortcut in your own mind. You found it hard to, but hey, why not?";
-	now ever-babbled is true;
+	unless accel-ending:
+		if ever-babbled is false and know-babble is true:
+			say "You use a little slangy shortcut in your own mind. You found it hard to, but hey, why not?";
+		else if know-babble is false:
+			say "Bbbbb, you think, you aren't going to worry about every single conversational detail.";
+			now know-babble is true;
+		now ever-babbled is true;
 	try brookbabbling instead;
-	
+
 know-babble is a truth state that varies.
 
 ever-babbled is a truth state that varies.
@@ -3405,25 +3417,41 @@ ever-babbled is a truth state that varies.
 definition: a person (called pe) is blabbable:
 	if litany of pe is table of no conversation, decide no;
 	if pe is babbled-out, decide no;
-	decide yes;
+	if pe is in location of player, decide yes;
+	decide no;
 
 a person can be babbled-out. a person is usually not babbled-out.
 
 carry out brookbabbling:
+	if accel-ending:
+		say "You're already saying whatever to whatever anyone's saying." instead;
 	if player is in freak control:
 		say "The awkward silence is too oppressive. Besides, you don't have the [bad-guy]'s attention yet." instead;
+	if player is in speaking plain:
+		say "You don't have much choice but to put up with Dutch and Turk." instead;
+	if player is in temper keep:
+		say "[if sal-sleepy is true]Sal is sleeping and has nothing to say[else]Sal's complaining is harmless but uninformative[end if]." instead;
+	if player is in chipper wood and assassination character is in chipper wood:
+		try talking to assassination character instead;
+	if player is in pyramid and labor child is in pyramid:
+		say "The Labor Child isn't one for small talk, especially around unconsequential people like you. No offense." instead;
 	if player is in airy station:
 		say "The crowd is certainly babbling, but nothing too in-depth or detailed." instead;
 	if player is in truth home and logical psycho is in truth home:
 		say "You can't really zone the Logical Psycho out." instead;
-		if number of b-out people in location of player > 0:
+	d "[list of blabbable people].";
 	if number of blabbable people is 0:
-			say "You've already chatted up everyone here. If someone seems to be in your way, maybe you need to GIVE them something to make them happy." instead;
+		if number of babbled-out people in location of player > 1:
+			say "There's more than one person you babbled with/to. Try to TALK to them individually for a recap." instead;
+		if number of babbled-out people in location of player is 1:
+			recap-babble a random babbled-out person in location of player instead;			
 		say "There's no one here to babble with. With whom to babble." instead;
 	if player is in questions field:
 		say "[if bros-left is 1]The remaining Keeper Brother doesn't seem[else]None of the Keeper Brothers seem[end if] up to small talk." instead;
 	if number of blabbable people is 1:
-		babble-out a random blabbable people instead;
+		let dude be a random blabbable person;
+		d "Babbling [dude].";
+		babble-out dude instead;
 	if number of blabbable people is 2:
 		if player is in discussion block:
 			say "Art and Phil both seem equally tough to talk to." instead;
@@ -3434,23 +3462,68 @@ carry out brookbabbling:
 	the rule succeeds;
 
 to babble-out (pe - a person):
-	if pe is not a babbler in table of babble summaries:
-		say "BUG! [pe] should have a babble shortcut. I think.";
-	else:
-		choose row with babbler of pe in table of babble summaries;
-		say "[babble-content entry]";
-		now pe is blabbed-out;
-		if there is a babble-reward entry:
-			now player has babble-reward;
-		if ever-babbled is false:
-			say "Well. Now that you, err, abridged the conversation, you feel as though you can abridge how you think of it. Instead of Brook Babbling, well, BB would work.";
-			now ever-babbled is true;
+	repeat through table of babble summaries:
+		if babbler entry is pe:
+			if pe is part-talked:
+				say "You already started concentrating on talking, so it's hard to change up.";
+				continue the action;
+			choose row with babbler of pe in table of babble summaries;
+			say "[babble-content entry]";
+			now pe is babbled-out;
+			if there is a babble-reward entry:
+				now player has babble-reward entry;
+			if pe is buddy best:
+				move player to questions field;
+			if ever-babbled is false:
+				say "Well. Now that you, err, abridged the conversation, you feel as though you can abridge how you think of it. Instead of Brook Babbling, well, BB would work.";
+				now ever-babbled is true;
+			the rule succeeds;
+	say "BUG! [pe] should have a babble shortcut. I think.";
+
+to decide whether (pe - a person) is part-talked:
+	let Q be the litany of pe;
+	if Q is table of no conversation:
+		say "OOPS [pe] has a bug with part-talked code. This shouldn't happen but is fixable.";
+		decide no;
+	repeat through Q:
+		if response entry is talked-thru and enabled entry < 2:
+			decide yes;
+	decide no;
 
 table of babble summaries
 babbler	babble-content	babble-reward
 Guy Sweet	"Guy Sweet blinks at you. 'Whoah! You're, like, more accelerated than most people at this whole social thing. I probably don't want to know what you've gotten wrong, dude. No offense. But here, I guess I have to give you this gesture token. Everyone gets one.'"	gesture token
-Word Weasel	"Something about how you need to get him something to sign. He hands you a pocket pick, which apparently you can pay off by DIGging."	pocket pick
-Punch Sucker	"He reiterates his offer of free Cooler Wine or Haha Brew."
+Word Weasel	"Something about how you need to get him something to sign. He hand[one of]s[or]ed[stopping] you a pocket pick, which apparently you can pay off by DIGging."	pocket pick
+Punch Sucker	"[one of]He mentions all the places he's been and all the exciting people he's met, so much more exciting than here[or]Something about how exciting he was, and you could be, maybe. It doesn't feel so warm, in retrospect[stopping]. [sucker-offer]"	--
+Pusher Penn	"He pushes some wacker weed on you."	wacker weed
+Fritz	"Many variants on 'Whoah dude whoah,' mumbling about the friend he lost[if fritz has minimum bear]--and you found[end if]."	--
+Stool Toad	"The usual ordering to keep your nose clean, don't go off the beaten path, or litter, or annoy people, or have illicit substances."
+Sly Moore	"Sly apparently needed something to make him less klutzy."	--
+Officer Petty	"Officer Petty needed theoretical knowledge to back up what he knows about shouting."	--
+Grace Goode	"She mentions how having a flower for the googly bowl would be nice."
+
+to say sucker-offer:
+	if cooler is in lalaland and brew is in lalaland:
+		say "'Oh, and I'm out of free drinks, kid.'";
+	else if cooler is off-stage and brew is off-stage:
+		say "'Want a drink, kid? Nothing too harsh.'";
+		if the player consents:
+			now the player has a random drinkable;
+	else if player has cooler or player has brew:
+		say "'I'd offer you another drink, but drink what you got, kid.'";
+	else:
+		say "'Want the other drink, kid?'";
+		if the player consents:
+			now the player has a random drinkable not in lalaland;
+
+to recap-babble (pe - a person):
+	say "You've already had a chat. Re-summarize?";
+	if the player consents:
+		choose row with babbler of pe in table of babble summaries;
+		say "You forget the details, but it went a little something like this:[paragraph break][babble-content entry][line break]";
+		if there is a babble-reward entry:
+			say "[line break]You also remember you got [the babble-reward entry].";
+
 
 section chessboard
 
@@ -3534,7 +3607,7 @@ the logic puzzles are a plural-named logic-game in Smart Street. description is 
 section general logic game stuff
 
 instead of doing something with a logic-game:
-	if current action is playing or action is undrastic:
+	if current action is playing or action is undrastic or current action is attacking:
 		continue the action;
 	if current action is taking:
 		say "'Dude, no stealing!' says Guy. 'If you want to muck with a game, you can PLAY with it.' Besides, you've seen that puzzle before." instead;
@@ -9170,11 +9243,17 @@ test dream with "gonear bench/sleep/wake/sleep/z/wake/sleep/z/wake/sleep/z/wake"
 
 test street with "talk to guy/1/1/1/1/1/1/play nim/in"
 
+test street-bab with "bb/play nim/in"
+
 test lounge with "get all/put screw in stick/climb chair/hit hatch"
 
 test arch with "w/give token/dig dirt/e/e/dig earth/read burden/w/w/talk to weasel/1/2/2/2/2/2/2/2/2/give burden/e/give burden/n"
 
+test arch-bab with "w/give token/dig dirt/e/e/dig earth/read burden/w/w/bb/give burden/e/give burden/n"
+
 test pier with "e/sleep/z/z/z/e/get bear/s/talk to punch/1/2/2/2/3/n/talk to punch/2/2/talk to lily/1/1/1/1/1/1/1/1/give wine to lily/n/w/give bear to fritz/w/give paper to boy/n"
+
+test pier-bab with "e/sleep/z/z/z/e/get bear/s/bb/talk to sucker/y/bb/give drink to lily/n/w/give bear to fritz/w/give paper to boy/n"
 
 test cutter with "j/j/j/test pier/s/w/eat cookie/y/e/n/n/n/n"
 
@@ -9182,9 +9261,15 @@ test startit with "test street/test lounge/test arch/test pier"
 
 test to-bar with "test street/test lounge/test arch/talk to howdy/1/3/3/3/3/e/get bear/give bear to fritz/e/s"
 
+test to-bar-bab with "test street/test lounge/test arch/bb/e/get bear/give bear to fritz/e/s"
+
 test blood with "n/n/w/talk to buddy/1/1/1/s/s/w/w/n/x hedge/y/s/e/e/e/give tag/e/give seed to monkey/give contract to monkey/w/w/w/w/w/give blossom to faith/e/e/e/n/n/give mind to brother blood/s/s/bro 1"
 
+test blood-bab with "n/n/w/bb/s/s/w/w/n/x hedge/y/s/e/e/e/give tag/e/give seed to monkey/give contract to monkey/w/w/w/w/w/give blossom to faith/e/e/e/n/n/give mind to brother blood/s/s/bro 1"
+
 test soul with "n/e/in/talk to penn/1/2/2/y/2/2/out/w/s/s/e/give weed to fritz/w/n/n/e/in/give penny to penn/out/w/w/put pot in vent/x vent/open vent/e/n/give light to brother soul/s/s/bro 2"
+
+test soul-bab with "n/e/in/bb/out/w/s/s/e/give weed to fritz/w/n/n/e/in/give penny to penn/out/w/w/put pot in vent/x vent/open vent/e/n/give light to brother soul/s/s/bro 2"
 
 test big-old with "n/e/w/s/w/w/put string in hole/n/n/get sound safe/x finger/s/s/e/e/n/e/e/open safe/talk to story fish/get poetic wax/w/n/put wax in machine/wear trick hat/s/talk to charmer snake/w/s/w/w/in/give trap rattle to fool/out/e/e/n/n/give trade to brother big/s/s/bro 3"
 
@@ -9198,11 +9283,17 @@ test lastroom with "test startit/test blood/test soul/test big/purloin quiz pop/
 
 test winit with "test startit/test blood/test soul/test big/purloin quiz pop/n/n/drink quiz pop/test final"
 
+test winbab with "test street-bab/test arch-bab/test pier-bab/test to-bar-bab/test blood-bab/test soul-bab/test big/purloin quiz pop/n/n/drink quiz pop/test final"
+
 test winfast with "gonear freak control/1/1/1/1/1/1/1/1"
 
 test pops with "get pop/n/n/drink pop/n"
 
 test arts-before-after with "gonear compound/x crack/x torch/purloin fish/play it/purloin safe/open it/x crack/x torch"
+
+section shipoffs
+
+test shipoff with "attack game shell/gonear strip/shit/shit/gonear meal square/eat lolly/gonear labor child/attack child/tix 4/purloin brew/gonear soda club/n/gonear stool toad/attack toad/gonear stool toad/purloin weed/give weed to toad"
 
 section bad endings
 
@@ -9278,6 +9369,21 @@ when play begins (this is the force tester wherever rule):
 		try switching the story transcript on;
 		say "Transcripts can be sent to blurglecruncheon@gmail.com. Any punctuation before the comment is okay, e.g. *TYPO or ;typo or :typo.";
 	continue the action;
+
+chapter tixing
+
+tixing is an action applying to a number.
+
+understand the command "tix" as something new.
+
+understand "tix [number]" as tixing.
+
+carry out tixing:
+	if number understood > 4 or number understood < 0:
+		say "Tickets can only be 0-4." instead;
+	now your-tix is the number understood;
+	say "You now have [your-tix] tickets.'";
+	the rule succeeds;
 
 chapter swearing
 
