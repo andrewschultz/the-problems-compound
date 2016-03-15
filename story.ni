@@ -808,6 +808,22 @@ check buying:
 		say "'Nonsense! And deprive the next person who needs help? Besides, you'd get bored of it. Unless you're REALLY lame.'" instead;
 	say "You might need to GIVE someone an item to get something, but BUYing is not necessary." instead;
 
+chapter burning
+
+the block burning rule is not listed in any rulebook.
+
+understand the command "smoke" as something new.
+
+understand "smoke [something]" as burning.
+
+check burning:
+	if noun is a smokable:
+		if player is in temper keep and noun is poory pot:
+			say "Might be better to get the pot into the room's air flow somehow." instead;
+		say "Even if you had something to light it with, which you don't and won't, you know you apparently need to keep the smoke in longer than a real cigarette. Too much. Anyway, the Compound has been trippy enough" instead;
+	say "A fit of pyromania won't exactly set the Compound on fire, especially since you don't have--and won't find--the tools." instead;
+
+
 chapter jumping
 
 jump-from-room is a room that varies. jump-from-room is Smart Street.
@@ -1663,7 +1679,7 @@ check giving smokable to: [poory pot or wacker weed]
 	if second noun is Fritz the On:
 		if noun is poory pot:
 			say "'Whoah! That stuff is too crazy for me,' mutters Fritz.'" instead;
-		say "You look every which way to the Stool Toad, then put your finger to your lips as you hand Fritz the packet. He conceals the stash and hands you a coin back--a dreadful penny. Proper payment for the cheap stuff.";
+		say "You look every which way to the Stool Toad, then put your finger to your lips as you hand Fritz the packet. He conceals the stash and hands you a coin back--a dreadful penny. Proper payment for the cheap stuff. 'Dude! Once I find my lighter I totally won't hog off the high[activation of hoth] from you.'";
 		increment the score;
 		now wacker weed is in lalaland;
 		now player has dreadful penny instead;
@@ -1753,8 +1769,10 @@ check giving minimum bear to (this is the fun stuff if you give the bear to some
 	if second noun is Fritz the On:
 		say "'Dude! Minimum Bear!' he says, snatching it from you. 'I--I gotta give you something to thank you.' And he does. 'Here's a boo tickety I got for, like, not minding right. I've got so many, I won't miss it.'[paragraph break]";
 		now Fritz has minimum bear;
+		if howdy boy is in lalaland:
+			say "Fritz starts mumbling about the generosity of someone coming back to do nice things for the sake of being nice and strts complaining enough about how people who don't do this sort of thing that you wish you hadn't." instead;
 		if your-tix >= 4:
-			say "Before you can decline Fritz's offer because you have too many already, he begins mumbling something about a revolution of the oppressed. It's enough to alert the Stool Toad." instead;
+			say "Before you can decline Fritz's offer because you have too many already, he begins mumbling something about a revolution of the oppressed. It's enough to alert the Stool Toad.";
 		if your-tix is 3:
 			say "'Whoah, dude! You have almost as many ticketies as me!' Fritz blurts, before you can shush him.";
 		get-ticketed "giving Fritz his dumb bear he keeps losing";
@@ -2391,6 +2409,7 @@ picture of a dozen bakers	"A baker's dozen is thirteen, thus counting for the il
 warmer bench	"A bench warmer is someone who doesn't get into the action, especially in a sports game." [down ground]
 Fritz the On	"On the fritz means on the blink."
 sleeper cell	"A group of people who blen into a community until they can commit an act of terrorism."
+hoth	"High on the hog means living wealthily. To hog the high would be if Fritz didn't share his, um, stuff."
 dreadful penny	"A penny dreadful is a trashy novel."
 Stool Toad	"A toadstool is a mushroom." [joint strip]
 Pigeon Stool	"A stool pigeon is someone who tattles."
@@ -2817,7 +2836,7 @@ carry out teching:
 	say "Technical implements for testing The Problems Compound are http://toastball.net/glulx-strings/, which you can save locally to determine the strings in a Glulx file. This can help you proofread or whatever, or even (if you're testing and want a sneak peek) see what should happen next.";
 	say "I also used BitBucket at https://bitbucket.org/ to store The Problems Compound's source and binaries when I needed to keep it private before the comp. I like BitBucket a lot, but I love GitHub's tracking that graphs how much you've done.";
 	say "I also used a list of English words to parse with PERL. It wasn't til too late that I created a script that checked for flipped words and possibilities.";
-	say "The most helpful website was www.thefreedictionary.com with its idioms search/subdomain idioms.thefreedictionary.com. Various compound word lists gave me ideas, too.";
+	say "The most helpful website was www.thefreedictionary.com with its idioms search/subdomain idioms.thefreedictionary.com. https://en.wiktionary.org/wiki/Category:English_idioms was also handy. Various compound word lists gave me ideas, too.";
 	the rule succeeds;
 
 chapter signing
@@ -4917,7 +4936,7 @@ check eating the iron waffle:
 
 chapter gagging lolly
 
-a gagging lolly is an edible thing on Tray A. description is "Staring at the circular lolly's blend of hideous colors, you also feel less sure of things, which makes you feel open-minded, which makes you feel more sure of things, which makes you feel closed-minded and eventually less sure of things.[paragraph break]Man! That was tough to digest. Just all that thinking was a choking enough sensation."
+a gagging lolly is an edible thing on Tray A. description is "Staring at the circular lolly's hypnotizing swirls of hideous colors, you also feel less sure of things, which makes you feel open-minded, which makes you feel more sure of things, which makes you feel closed-minded and eventually less sure of things.[paragraph break]Man! That was tough to digest. Just all that thinking was a choking enough sensation."
 
 check taking lolly:
 	say "You haven't walked around with a lolly since you were five years old, and it'd be a bit embarrassing to do so now. Anyway, who would actually take it?" instead;
@@ -4973,8 +4992,7 @@ before taking bear when Fritz carries bear:
 after printing the name of boo tickety while taking inventory:
 	say " ([your-tix] piece[if your-tix > 1]s[end if])";
 
-the boo tickety is a thing. description is "WHATEVER YOU DID: BOOOOOO is displayed on [if your-tix is 1]it[else]each of them[end if].[paragraph break]You have [your-tix] [if your-tix is 1]piece of a boo tickety
-[else]pieces of boo ticketies[end if]. But [if your-tix is 1]it doesn't[else]they don't[end if] make a full document yet."
+the boo tickety is a thing. description is "WHATEVER YOU DID: BOOOOOO is displayed on [if your-tix is 1]it[else]each of them[end if].[paragraph break]You have [your-tix] [if your-tix is 1]piece of a boo tickety[else]pieces of boo ticketies[end if]. But [if your-tix is 1]it doesn't[else]they don't[end if] make a full document yet."
 
 understand "boo ticket" and "ticket" as boo tickety.
 
@@ -8580,6 +8598,7 @@ biglaff	anyrule
 "going west/north/south in the Variety Garden?"	--
 "giving Pusher Penn's 'merchandise' to the Stool Toad or Officer Petty?"	--
 "giving Minimum Bear to anyone except Fritz the On?"	--
+"giving Minimum Bear to Fritz with the Howdy Boy gone? Or with four ticketies?"	--
 "putting the poetic wax on/giving it to anything except the language machine?"	--
 "saying YES or NO in the Drug Gateway?"	--
 "visiting the Scheme Pyramid after the jerks take their revenge?"	--
@@ -9188,6 +9207,8 @@ section outer concepts
 Bum Beach is a concept in conceptville. howto is "examine the bench in Down Ground"
 
 Sleeper Cell is a concept in conceptville. howto is "sleep then wait in Down Ground". understand "cell sleeper" as sleeper cell.
+
+hoth is a privately-named concept in conceptville. howto is "give the weed to Fritz". understand "hog on/off the high" and "high on/off the hog" as hoth. printed name is "high off the hog"
 
 Trust Brain is a concept in conceptville. howto is "examine dreadful penny or mind of peace"
 
