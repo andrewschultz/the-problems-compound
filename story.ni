@@ -7861,6 +7861,18 @@ to say bm-idol-brags:
 
 reused-hint is a truth state that varies.
 
+freak-control-turns is a number that varies.
+
+every turn when player is in freak control:
+	increment freak-control-turns;
+
+table of distract time
+control-turns	time-taunt
+1	"'Just running in here quickly, eh? Making a big mess?'"
+5	"'Wondered if you were going to do something.'"
+10	"'Gosh! Was it awkward for you, waiting, too?'"
+15	"'Well, yes, I saw you first thing.'"
+
 table of bm stuff brags
 times-failed	what-to-say
 0	"More precisely, you went to all that trouble and didn't even use it."
@@ -7942,9 +7954,8 @@ understand "freak out" as freakouting.
 
 carry out freakouting:
 	say "You let it all out. You haven't let it all out, since the good old days when James Scott and Scott James, ever fair and balanced, castigated you alternately for being too creepy-silent or being too overemotional. You blame the [bad-guy] for stuff that couldn't possibly be his fault, but it feels good--and it gets his attention.";
-	now freaked-out is true;
-	score-now;
-	try talking to baiter master instead;
+	begin-endgame;
+	the rule succeeds;
 
 chapter powertriping
 
@@ -7956,9 +7967,17 @@ understand "trip power" as freakouting.
 carry out powertriping:
 	say "You wonder if it could be that easy. Of course there has to be a switch somewhere! It might be hard to find, and the [bad-guy] might catch you...no, he is too absorbed in his surveillance. He'd already have picked at you, if he cared.[paragraph break]Ah, there it is. Just shut it down...";
 	wfak;
-	say "[line break]Oops, it's dark! The [bad-guy] yells. 'It'll take FIVE MINUTES to boot up again![paragraph break]Well, you have nothing to do but talk right now.";
+	say "[line break]Oops, it's dark! The [bad-guy] yells. 'It'll take FIVE MINUTES to boot up again![paragraph break]He turns around and glares at you. Or where he knows you are, because he saw you with mirrors and so forth.";
+	begin-endgame;
+	the rule succeeds;
+	
+to begin-endgame:
 	now freaked-out is true;
-	try talking to baiter master instead;
+	score-now;
+	repeat through table of distract time:
+		if there is no control-turns entry or freak-control-turns < control-turns entry:
+			say "[time-taunt entry][line break]";
+	try talking to baiter master;
 
 book endings
 
@@ -9668,7 +9687,7 @@ understand "gq [number]" as gqing.
 understand "gq" as a mistake ("[gq-err]")
 
 to say gq-err:
-	say "gq (number) forces a variable that would be tedious to increase to what it needs to be. The game detects what to changed based on where you are or what you have.[paragraph break]# of game wins in smart street.[line break]# of idol failures[line break][line break]# of times used the Legend of Stuff for new hints[line break]# of Insanity Terminal failures[line break]-1 twiddles whether you re-saw a hint in the Legend of Stuff.[paragraph break]Some too big answers may give a 'bug' response, which isn't really a bug.[paragraph break]Adding 100 to the number = that many idol failures, adding 200 = that many terminal failures, adding 300 = smart street failures, adding 400 = legend of stuff reads.[paragraph break]Sorry for the magic numbers, but coding alternatives were worse."
+	say "gq (number) forces a variable that would be tedious to increase to what it needs to be. The game detects what to changed based on where you are or what you have.[paragraph break]# of game wins in smart street.[line break]# of idol failures[line break][line break]# of times used the Legend of Stuff for new hints[line break]# of Insanity Terminal failures[line break]-1 twiddles whether you re-saw a hint in the Legend of Stuff.[paragraph break]Some too big answers may give a 'bug' response, which isn't really a bug.[paragraph break]Adding 100 to the number = that many idol failures, adding 200 = that many terminal failures, adding 300 = smart street game-wins, adding 400 = turns before talking to BM, adding 500 = legend of stuff reads.[paragraph break]Sorry for the magic numbers, but coding alternatives were worse."
 
 carry out gqing:
 	say "If this wasn't what you wanted, type GQ for general help.";
@@ -9679,18 +9698,20 @@ carry out gqing:
 			say "You have now [if reused-hint is false]not [end if]reused a hint in the Legend of Stuff." instead;
 	let Z be the number understood / 100;
 	let Y be the remainder after dividing Z by 100;
-	if Z > 4 or Z < 0:
-		say "You can only use numbers from -1 to 499 for this test hack.";
+	if Z > 5 or Z < 0:
+		say "You can only use numbers from -1 to 599 for this test hack.";
 		say "[gq-err] instead.";
 	if player is in service community or player is in idiot village or Z is 1:
 		say "Bad-guy taunt for idol failure critical values are:";
 		repeat through table of bm idol brags:
 			say "[times-failed entry - 1], [times-failed entry], [times-failed entry + 1] ";
+		now idol-fails is Y;
 		say "[line break]" instead;
 	if player is in belt below or Z is 2:
 		say "Bad-guy taunt for terminal failure critical values are:";
 		repeat through table of terminal frustration:
 			say "[term-miss entry - 1], [term-miss entry], [term-miss entry + 1] ";
+		now terminal-errors is Y;
 		say "[line break]" instead;
 	if player is in smart street or Z is 3:
 		say "Win chat critical values are: ";
@@ -9700,9 +9721,15 @@ carry out gqing:
 		say "Guy taunt-as-you-leave values are:";
 		repeat through table of win chat:
 			say "[total-wins entry - 1], [total-wins entry], [total-wins entry + 1] ";
+		now your-game-wins is Y;
 		say "[line break]" instead;
-		now your-game-wins is Y instead;
-	if player has Legend of Stuff or Z is 4:
+	if player is in freak control or Z is 4:
+		say "Bad-guy taunts for time taken: ";
+		repeat through table of distract time:
+			say "[control-turns entry - 1], [control-turns entry], [control-turns entry + 1] ";
+		now freak-control-turns is Y;
+		say "[line break]" instead;
+	if player has Legend of Stuff or Z is 5:
 		say "Bad-guy taunts for using Legend of Stuff: ";
 		repeat through table of bm stuff brags:
 			say "[times-failed entry - 1], [times-failed entry], [times-failed entry + 1] ";
