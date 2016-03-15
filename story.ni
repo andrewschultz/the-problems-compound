@@ -733,8 +733,8 @@ check dropping the proof of burden:
 check dropping boo tickety:
 	if drop-ticket is false:
 		now drop-ticket is true;
-		say "As you drop the ticket, you feel a tap on your shoulder. The Stool Toad, again![paragraph break]'Son, I'm going to have to write you up.' And he does. He gives you what you've dropped, plus a new boo tickety.";
-		get-ticketed;
+		say "As you drop the ticket, you feel a tap on your shoulder. The Stool Toad, again![paragraph break]'Son, I'm going to have to write you up.' And he does. [if your-tix is 4]And he notices your status as a repeat offender, mumbling that's a stupid way to push him over the edge![else]He gives you what you've dropped, plus a new boo tickety.[end if]";
+		get-ticketed "dropping a ticket you had";
 		do nothing instead;
 	else:
 		say "Either the Stool Toad will have given up on you, or he'll really get to bust you for a repeat offense. Neither seems to help you." instead;
@@ -1754,10 +1754,11 @@ check giving minimum bear to (this is the fun stuff if you give the bear to some
 		say "'Dude! Minimum Bear!' he says, snatching it from you. 'I--I gotta give you something to thank you.' And he does. 'Here's a boo tickety I got for, like, not minding right. I've got so many, I won't miss it.'[paragraph break]";
 		now Fritz has minimum bear;
 		if your-tix >= 4:
-			say "You decline Fritz's generous offer, since you're already in enough trouble with the Stool Toad. He winks at you in solidarity." instead;
+			say "Before you can decline Fritz's offer because you have too many already, he begins mumbling something about a revolution of the oppressed. It's enough to alert the Stool Toad." instead;
 		if your-tix is 3:
 			say "'Whoah, dude! You have almost as many ticketies as me!' Fritz blurts, before you can shush him.";
-		get-ticketed instead;
+		get-ticketed "giving Fritz his dumb bear he keeps losing";
+		the rule succeeds;
 	if second noun is howdy boy:
 		say "A momentary expression of rage crosses his face. 'Is this some sort of joke? You'd have to be whacked out to like that.'" instead;
 	if second noun is lily:
@@ -1784,9 +1785,10 @@ check giving the trail paper to:
 		now trail paper is in lalaland;
 		choose row with response of howdy-west in table of howdy boy talks;
 		now enabled entry is 0;
-		now howdy boy is in lalaland;
-		say "'Well done. You've acted up enough. Here, I'll shred the evidence. So you don't get caught later. Say, after all that goofing around, you might be hungry. Look around in Meal Square. But be careful.'";
+		howdy-sug;
+		say "'Eh, you've done enough. Here, I'll shred the evidence. So you don't get caught later. Say, after all that goofing around, you might be hungry. Look around in Meal Square. There's some food that'll fix you quick.'";
 		unlock-verb "figure";
+		now howdy boy is in lalaland;
 		the rule succeeds;
 	if second noun is Lily:
 		say "She shrugs and mentions she's been better places." instead;
@@ -4986,14 +4988,50 @@ after examining dreadful penny:
 
 your-tix is a number that varies.
 
-to get-ticketed:
+to howdy-sug:
+	let ff be first-ticket of 1;
+	if ff > 0:
+		choose row ff in table of tickety suggestions;
+		say "The Howdy Boy nods, semi-impressed, but wonders aloud if you considered [ticket-ref entry]. You shake your head.";
+		continue the action;
+	let ff be first-ticket of 2;
+	choose row ff in table of tickety suggestions;
+	say "The Howdy Boy nods, semi-impressed, but wonders aloud if you considered [ticket-ref entry]. You say you did, but really, it didn't seem as fun or expedient as what you did.";
+
+table of tickety suggestions
+ticket-ref	ticket-done
+"dropping a ticket you had"	0
+"giving Fritz his dumb bear he keeps losing"	0
+"going off the path in the Joint Strip"	0
+"taking alcohol out of the Soda Club"	0
+"being too awkward to speak in the Soda Club"	0
+"offering a girl insultingly weak alcohol"	0
+"sleeping too long on the Warmer Bench"	0
+
+to decide which number is first-ticket of (nu - a number):
+	let my-row be 0;
+	repeat through table of tickety suggestions:
+		increment my-row;
+		if ticket-done entry is nu:
+			decide on my-row;
+	decide on 0;
+
+to get-ticketed (ttext - text):
+	if ttext is a ticket-ref listed in table of tickety suggestions:
+		choose row with ticket-ref of ttext in table of tickety suggestions;
+		if your-tix is 4:
+			now ticket-done entry is 2;
+		else:
+			now ticket-done entry is 1;
+	else:
+		say "BUG -- the ticket-ref entry in the table of tickety suggestions needs fixing.";
 	increment your-tix;
 	if your-tix is 5:
 		if player is in soda club:
 			say "'Up to trouble, eh? I thought you might be.' The Stool Toad frog-marches you (ha! Ha!) out of the Soda Club to a rehabilitation area.";
 			ship-off A Beer Pound;
 		else:
-			say "The Stool Toad looks all quiet. 'Son, you've gone too far. It's time to ship you out.' And he does. Even Fritz the On shakes his head sadly as you are marched past to the west.";
+			say "The Stool Toad [if player is not in joint strip] rushes over from the Joint Strip, yelling and getting on, but then [end if]turns all quiet. 'Son, you've gone too far. It's time to ship you out.' And he does. Even Fritz the On shakes his head sadly as you are marched past to the west.";
 			ship-off Shape Ship;
 		decrement your-tix;
 	else if your-tix is 4:
@@ -5074,7 +5112,7 @@ off-the-path is a truth state that varies.
 to say toad-write-up:
 	say "The Stool Toad, so passive with all the suspicious smells around, leaps into action as you seek them out for yourself. He writes you up for jaywalking, all the while muttering that stupid laws prevent him from writing you up for more.";
 	now off-the-path is true;
-	get-ticketed;
+	get-ticketed "going off the path in the Joint Strip";
 
 bar-scen is privately-named scenery in Joint Strip. "It seems unobtrusive, with no obviously tacky paraphernalia or neon signs or whatever."
 
@@ -5143,7 +5181,7 @@ check going north in Soda Club:
 	if player has a drinkable:
 		if toad-got-you is false:
 			say "'HALT! FREEZE! A MINOR WITH ALCOHOL!' booms the Stool Toad. He takes your drink and throws it off to the side. 'THAT'S AN INFRACTION!'[paragraph break]He looks around in his pockets but only finds a diagonal scrap of paper. 'Well, this'll do, for a boo tickety. Remember, you're warned.' You feel sort of rebellious--good rebellious--as he [if your-tix >= 4]counts your infractions on his fingers. Uh oh. Maybe you could've DROPped the booze before leaving[else]goes back to his pigeon stool[end if].";
-			get-ticketed;
+			get-ticketed "taking alcohol out of the Soda Club";
 			if player has haha brew:
 				now haha brew is in lalaland;
 			else:
@@ -5276,7 +5314,7 @@ to say lily-creep:
 			if player has cooler wine:
 				now cooler wine is in lalaland;
 		now lily is in lalaland;
-		get-ticketed;
+		get-ticketed "being too awkward to speak in the Soda Club";
 
 to say lily-sez:
 	say "[bye-lily of 0]She starts off explaining how you are lucky to have met someone as exciting as her. She babbles on about the low quality and alcohol content of drinks in this place. You nod, but she notes you haven't even TRIED to interrupt, and how she used to never interrupt but she's learned there's a balance between not interrupting at all and interrupting too much, and you--you do want more balance in your life? You want to be more enthusiastic about life, don't you?'[no line break]"
@@ -5315,7 +5353,7 @@ after quipping when qbc_litany is table of lily talk:
 to chase-lily:
 	say "The Punch Sucker sidles over. 'Sorry, champ. Looks like you did something to chase off a good patron. By the moral authority vested in me by the [bad-guy], it is my pleasure and duty to issue a boo-tickety.'";
 	now lily is in lalaland;
-	get-ticketed;
+	get-ticketed "offering a sophisticated girl insultingly weak alcohol";
 
 section Punch Sucker
 
@@ -8246,7 +8284,7 @@ every turn when mrlp is dream sequence:
 			say "[line break]It's the Stool Toad! You're back on the bench at Down Ground![paragraph break]'A popular place for degenerates. Future cell sleepers, I bet[activation of sleeper cell]. That'll be a boo-tickety for you.'[if your-tix < 4][line break]As you hold the ticket and rub your eyes, the Stool Toad walks back to the Joint Strip. '. It's a darn shame!' he moans. 'Only one sleeping ticket per lazy degenerate, per day! Plenty of other ways to make their jeopardy double[activation of double jeopardy] so I can reach my quota!' You get the sense he wouldn't sympathize if you told him WHAT you dreamed about.[end if]";
 			now caught-sleeping is true;
 			move player to Down Ground, without printing a room description;
-			get-ticketed;
+			get-ticketed "sleeping too long on the Warmer Bench";
 			say "The Stool Toad leaves you in Down Ground, to think about what you did. Maybe even sleep on it. Ha ha.";
 			the rule succeeds;
 	if player is in Tense Future:
