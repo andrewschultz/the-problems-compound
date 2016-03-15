@@ -218,7 +218,7 @@ when play begins (this is the actual start rule):
 	else:
 		now screen-read is false;
 	if screen-read is false:
-		say "Also, do you wear gla--? Wait, no, that's irrelevant. Let's...let's get on with things.";
+		say "Also, how thick are your glasses, if you have them? How much acne--? Wait, no, that doesn't matter irrelevant. When you're stuck, you're stuck. Let's...let's get on with things.";
 		wfak;
 	say "It's not [i]The Phantom Tollbooth[r]'s fault your umpteenth re-reading fell flat earlier this evening. Perhaps now you're really too old for it to give you a boost, especially since you're in advanced high school classes. Classes where you learn about the Law of Diminishing Returns.[paragraph break]Or how protagonists gain character through conflict--conflict much tougher than class discussions you barely have energy for. It's all so frustrating--you hate small talk, but you still talk small, and there's no way around. You pick the book up--you shouldn't have chucked it on the floor. Back to the bookcase...";
 	wfak;
@@ -2507,6 +2507,8 @@ Thought for food	"Food for thought is something to think about."
 Tray S	"Stray. In other words, it strayed from Meal Square."
 Tray T	"A tea tray. To go with food."
 Tray X	"It is an ex-tray."
+Bowled Over	"Bowled over means unable to deal with things. Over-bold means too confident."
+Growing Pains	"Growing pains are temporary setbacks that help you get going. Pain's growing is just a complaint."
 Bum Beach	"A beach bum is someone who wanders on the beach. Maybe he lives there in a shack too."
 Double Jeopardy	"Double jeopardy is being tried for the same crime twice. Making your jeopardy double is just putting you at twice the risk."
 Trust Brain	"A brain trust is a group of people that help make a decision. A trust-brain, though not an English phrase, might mean a mind that can't make its own decisions."
@@ -2758,11 +2760,11 @@ understand the command "credits" as something new.
 understand "credits" as creditsing.
 
 carry out creditsing:
-	say "I was able to bounce technical and non-technical ideas off several other people. Wade Clarke, Marco Innocenti, Hugo Labrande, Juhana Leinonen, Brian Rushton and Matt Weiner offered testing and general encouragement and insight on what was a VERY short deadline given the game's size. An anonymous tester provided other direction.[paragraph break]Robert DeFord, Harry Giles and Steven Watson had ideas for the white paper and direction, as did the Interactive Fiction Faction, a private Google group. They include Hanon Ondricek, Robert Patten, Miguel Garza, Matt Goh and Joseph Geipel.[paragraph break]Jason Lautzenheiser's work on Genstein's Trizbort app (www.trizbort.com) was invaluable for big-picture planning and for adding in ideas I wasn't ready to code. If you are writing a parser game, I recommend it. (Disclaimer: I am a contributor, too.)[paragraph break]Many websites and resources helped me discover silly phrases. The Director's Cut has details on specific names, but www.thefreedictionary.com was a big help with its idioms search/subdomain idioms.thefreedictionary.com. Various compound word lists gave me ideas, too.";
+	say "I was able to bounce technical and non-technical ideas off several other people. Wade Clarke, Marco Innocenti, Hugo Labrande, Juhana Leinonen, Brian Rushton and Matt Weiner offered testing and general encouragement and insight on what was a VERY short deadline given the game's size. An anonymous tester provided other direction.[paragraph break]Robert DeFord, Harry Giles and Steven Watson had ideas for the white paper and direction, as did the Interactive Fiction Faction, a private Google group. They include Hanon Ondricek, Robert Patten, Miguel Garza, Matt Goh, Jim Warrenfeltz and Joseph Geipel.[paragraph break]Jason Lautzenheiser's work on Genstein's Trizbort app (www.trizbort.com) was invaluable for big-picture planning and for adding in ideas I wasn't ready to code. If you are writing a parser game, I recommend it. (Disclaimer: I am a contributor, too.)[paragraph break]Many websites and resources helped me discover silly phrases.";
 	say "====IN-COMP THANKS:";
-	say "I'd also like to thank non-competitors who alerted me to bugs in the comp version: Olly Kirk, Paul Lee, Michael Martin and Al Golden. Competitors offered both praise and criticism which helped add features and polish to the post-comp release.";
+	say "I'd also like to thank non-competitors who alerted me to flaws/bugs in the comp version: Olly Kirk, Paul Lee, Michael Martin, David Welbourn and Al Golden. Competitors offered both praise and criticism which helped add features and polish to the post-comp release.";
 	say "====POST-COMP THANKS:";
-	say "Thanks to Joey Jones for finding lots of fixables present in the comp and post-comp release.[line break]Thanks to Alex Butterfield and Hugo Labrande for our games of code tennis, which is basically, try and do something every other day, or the other guy scores a point. Hugo worked with me more on a 'related project,' but a lot of things I pinged him with were relevant here.";
+	say "Thanks to Joey Jones (also in the IFF) for finding lots of fixables present in the comp and post-comp release.[line break]Thanks to Alex Butterfield and Hugo Labrande for our games of code tennis, which is basically, try and do something every other day, or the other guy scores a point. Hugo worked with me more on a 'related project,' but a lot of things I pinged him with were relevant here. I recommend code tennis for anyone who needs motivation.";
 	the rule succeeds;
 
 chapter abouting
@@ -2775,7 +2777,7 @@ understand "about" as abouting.
 
 carry out abouting:
 	say "The Problems Compound is meant to be less puzzly than my previous efforts. If you need to see verbs, type VERBS. Though there's no hint command, a walkthrough should be included with the game.";
-	say "[line break]TPC also, well, may suffer from AGT disease. It's intended to be a bit juvenile, but hopefully funny for all that. It was inspired by Hulk Handsome's very fun 2012 IFComp entry, In a Manner of Speaking and leans heavily on my 'researching' a website that you can find in CREDITS.";
+	say "[line break]TPC is a bit, well, AGT-ish. It's not intended to be a technical marvel, but I hope it takes a funny tack on being overwhelmed. It was inspired by Hulk Handsome's very fun 2012 IFComp entry, In a Manner of Speaking and leans heavily on my 'researching' a website that you can find in TECH.";
 	say "[line break]But more importantly, CREDITS lists my testers first, because they've helped make the game less rocky and found bugs that saved me time when I had (yet again) procrastinated.[paragraph break]Also, if you want, HISTORY will contain details about the game's history, and TECH will describe some technical stuff you may find helpful in your own games.";
 	say "[line break]One other thing. If you find bugs, send them at [email] or visit the repository for the game at [my-repo]. If you can take a transcript of how it happens, use the TRANSCRIPT command and attach the file. Oh, also, I'm on twitter as @ned_yompus.";
 	the rule succeeds;
@@ -2813,6 +2815,7 @@ carry out teching:
 	say "Technical implements for testing The Problems Compound are http://toastball.net/glulx-strings/, which you can save locally to determine the strings in a Glulx file. This can help you proofread or whatever, or even (if you're testing and want a sneak peek) see what should happen next.";
 	say "I also used BitBucket at https://bitbucket.org/ to store The Problems Compound's source and binaries when I needed to keep it private before the comp. I like BitBucket a lot, but I love GitHub's tracking that graphs how much you've done.";
 	say "I also used a list of English words to parse with PERL. It wasn't til too late that I created a script that checked for flipped words and possibilities.";
+	say "The most helpful website was www.thefreedictionary.com with its idioms search/subdomain idioms.thefreedictionary.com. Various compound word lists gave me ideas, too.";
 	the rule succeeds;
 
 chapter signing
@@ -4723,10 +4726,14 @@ check eating greater cheese:
 	say "You pause a moment before eating the greater cheese. Perhaps you will not appreciate it fully, or you will appreciate it too much and become someone unrecognizable. Try eating it anyway?";
 	unless the player yes-consents:
 		say "[line break]OK." instead;
-	say "You manage to appreciate the cheese and feel superior to those who don't. You have a new outlook on life!";
+	say "You manage to appreciate the cheese and feel superior to those who don't. You have a new outlook on life! No longer will you feel [b-o]!";
 	now greater cheese is in lalaland;
 	force-swear;
 	now greater-eaten is true instead;
+
+to say b-o:
+	say "bowled over";
+	now bowled over is in lalaland;
 
 section off cheese
 
@@ -4742,10 +4749,10 @@ check eating off cheese:
 		say "You are above eating disgusting cheese. Unless it's tastefully disgusting, like what you just ate." instead;
 	if cookie-eaten is true:
 		say "Ugh! Now that you've eaten the cutter cookie, the off cheese looks even more gross than before. No way. You just want to leave." instead;
-	say "Hmm. It seems edible, but it might be, well, character-building. You might not be the same person after eating it. Try eating it anyway?";
+	say "Hmm. It seems edible--well, eatable. You might not be the same person after eating it. Try eating it anyway?";
 	unless the player yes-consents:
 		say "[line break]OK." instead;
-	say "Ugh. Bleah. It feels and tastes awful--but if you sat through this, you can sit through an awkward conversation. Not that you'll do anything like cause a few.";
+	say "Ugh. Bleah. It feels and tastes awful--but if you sat through this, you can sit through an awkward conversation. Not that you'll do anything like cause a few. Pain's growing... pain's growing...";
 	now off cheese is in lalaland;
 	force-swear;
 	now off-eaten is true instead;
@@ -4767,7 +4774,7 @@ check eating cutter cookie:
 	say "It's so sharp, it'd start you bleeding if you carried it around. Even as you pick the cookie up your thoughts turn resentful, yet you feel justified as never before. Try eating it anyway?";
 	unless the player yes-consents:
 		say "[line break]OK." instead;
-	say "[line break]You have to eat it carefully, because of its spikes, but it gives you...a sharp tongue. Suddenly you're ready to go off on pretty much anyone who's gotten in your way, or even not helped you enough[if allow-swears is false]. You'll show those punks you don't need to swear to kick butt![else].[end if]";
+	say "[line break]You have to eat it carefully, because of its spikes, but it gives you...a sharp tongue. Suddenly you wonder why you spent so much time feeling [b-o]. You're ready to go off on pretty much anyone who's gotten in your way, or even not helped you enough[if allow-swears is false]. You'll show those punks you don't need to swear to kick butt![else].[end if]";
 	now cookie is in lalaland;
 	force-swear;
 	now cookie-eaten is true instead;
@@ -9133,6 +9140,10 @@ Tray S is a concept in conceptville. howto is "enter Meal Square".
 Tray T is a concept in conceptville. howto is "enter Meal Square".
 
 Tray X is a concept in conceptville. howto is "enter Meal Square".
+
+bowled over is a concept in conceptville. howto is "eat greater cheese or cookie"
+
+growing pains is a concept in conceptville. understand "pain/pains growing" as growing pains.. howto is "eat off-cheese"
 
 section outer concepts
 
