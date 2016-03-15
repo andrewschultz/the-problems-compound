@@ -2372,6 +2372,7 @@ iron waffle	"A waffle iron is what you put batter in to make a waffle. But a waf
 picture of a dozen bakers	"A baker's dozen is thirteen, thus counting for the illusion."
 warmer bench	"A bench warmer is someone who doesn't get into the action, especially in a sports game." [down ground]
 Fritz the On	"On the fritz means on the blink."
+sleeper cell	"A group of people who blen into a community until they can commit an act of terrorism."
 dreadful penny	"A penny dreadful is a trashy novel."
 Stool Toad	"A toadstool is a mushroom." [joint strip]
 Pigeon Stool	"A stool pigeon is someone who tattles."
@@ -2458,6 +2459,7 @@ incident miner	"A minor incident is not a big deal, but the incident miner makes
 Twister Brain	"The opposite of a brain twister, where someone derives a conclusion from a fact, the brain has a set conclusion and twists and weights facts to line up with them."
 Witness Eye	"Someone at the scene of the crime."
 against rails	"If someone rails against something, they're upset with it."
+running start	"A running start means you've gotten started quickly."
 worm ring	"A ringworm is a form of parasite." [final final areas]
 Return Carriage	"Carriage Return is going back to the start of a new line in a document with text. And you are sort of going back to the start, too."
 hammer	"The hammer can be three things[ham-desc]."
@@ -2738,7 +2740,7 @@ carry out creditsing:
 	say "====IN-COMP THANKS:";
 	say "I'd also like to thank non-competitors who alerted me to bugs in the comp version: Olly Kirk, Paul Lee, Michael Martin and Al Golden. Competitors offered both praise and criticism which helped add features and polish to the post-comp release.";
 	say "====POST-COMP THANKS:";
-	say "Thanks to Alex Butterfield and Hugo Labrande for our games of code tennis, which is basically, try and do something every other day, or the other guy scores a point. Hugo worked with me more on a 'related project,' but a lot of things I pinged him with were relevant here.";
+	say "Thanks to Joey Jones for finding lots of fixables present in the comp and post-comp release.[line break]Thanks to Alex Butterfield and Hugo Labrande for our games of code tennis, which is basically, try and do something every other day, or the other guy scores a point. Hugo worked with me more on a 'related project,' but a lot of things I pinged him with were relevant here.";
 	the rule succeeds;
 
 chapter abouting
@@ -7680,7 +7682,7 @@ part Freak Control
 Freak Control is north of Questions Field. It is in Main Chunk. "[if accel-ending]There's all sorts of stuff here but really all you want to do is show the [bad-guy] what's what.[else]Well, you made it. There's so much to look at![paragraph break]While there's probably another secret exit than back south, it's surely only available to the [bad-guy]. All the same, you don't want to leave now. You can't.[end if]"
 
 check going south in Freak Control:
-	say "No. You're too chicken to face the possibility of being called a chicken. Besides, if you run the first time, you'll run again. Fear works that way. You know." instead;
+	say "If you start running, you'll never get a running start[activation of running start]. Plus you're too chicken to face the possibility of being called a chicken." instead;
 
 a list bucket is a thing in Freak Control. "[one of]A list bucket lying nearby may help you make sense of the fancy machinery, though you worry you might kill yourself trying[or]The list bucket waits here, a handy reference to the gadgetry of Freak Control[stopping]."
 
@@ -8137,7 +8139,7 @@ every turn when mrlp is dream sequence:
 			now slept-through is true;
 			say "As if that wasn't enough, you feel someone jostling you. Wait, no. It's not someone in the dream.";
 			wfak;
-			say "[line break]It's the Stool Toad! You're back on the bench at Down Ground![paragraph break]'A popular place for degenerates. That'll be a boo-tickety for you.'[if your-tix < 4][line break]As you hold the ticket and rub your eyes, the Stool Toad walks back to the Joint Strip. 'It's a darn shame!' he moans. 'Only one sleeping ticket per lazy degenerate, per day! Plenty of other ways to make their jeopardy double[activation of double jeopardy] so I can reach my quota!' You get the sense he wouldn't sympathize if you told him WHAT you dreamed about.[end if]";
+			say "[line break]It's the Stool Toad! You're back on the bench at Down Ground![paragraph break]'A popular place for degenerates. That'll be a boo-tickety for you.'[if your-tix < 4][line break]As you hold the ticket and rub your eyes, the Stool Toad walks back to the Joint Strip. 'Another future cell sleeper[activation of sleeper cell]. It's a darn shame!' he moans. 'Only one sleeping ticket per lazy degenerate, per day! Plenty of other ways to make their jeopardy double[activation of double jeopardy] so I can reach my quota!' You get the sense he wouldn't sympathize if you told him WHAT you dreamed about.[end if]";
 			now caught-sleeping is true;
 			get-ticketed;
 			if your-tix < 5:
@@ -9035,6 +9037,8 @@ Tray X is a concept in conceptville. howto is "enter Meal Square".
 
 Bum Beach is a concept in conceptville. howto is "examine the bench in Down Ground"
 
+Sleeper Cell is a concept in conceptville. howto is "sleep then wait in Down Ground". understand "cell sleeper" as sleeper cell.
+
 Trust Brain is a concept in conceptville. howto is "examine dreadful penny or mind of peace"
 
 Moral Support is a concept in conceptville. understand "support moral" as moral support. howto is "examine pigeon stool"
@@ -9062,6 +9066,8 @@ The Break Jail is a concept in conceptville. understand "jail break" as Break Ja
 Buster Ball is a concept in conceptville. understand "ball buster" as buster ball. howto is "talking"
 
 Hunter Savage is a concept in conceptville. understand "savage hunter" as hunter savage. howto is "talking"
+
+Running Start is a concept in conceptville. howto is "try going south in Freak Control". understand "start running" as running start.
 
 chapter lalaland
 
