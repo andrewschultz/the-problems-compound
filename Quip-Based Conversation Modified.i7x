@@ -14,9 +14,7 @@ Section 1 - Cancelling ASK, TELL, and ORDERS
 
 Before asking someone about (this is the reject asking for talking rule): clue talking instead.
 Before telling someone about (this is the reject telling for talking rule): clue talking instead.
-Before answering someone that (this is the reject answering for talking rule):
-	clue talking instead.
-
+Before answering someone that (this is the reject answering for talking rule): clue talking instead.
 Before asking someone to try doing something (this is the reject commanding for talking rule): clue talking instead.
 
 The QBC talking cue is some text that varies. The QBC talking cue is usually "[bracket]Use TALK TO to interact with characters.[close bracket]".
@@ -82,6 +80,11 @@ Check talking to (this is the can only talk to talkables rule):
 Check talking to (this is the can only talk to people with things to say rule):
 	if the greeting of the noun is quip_null and the number of filled rows in the litany of the noun is zero:
 		say "[generic ask quip][paragraph break]" instead.
+
+Check talking to (this is the summarize babble rule):
+	if noun is babbled-out:
+		recap-babble noun;
+		the rule succeeds;
 
 Carry out talking to (this is the basic talking to rule):
 	if the greeting of the noun is not quip_null, deliver the greeting of the noun quip;
