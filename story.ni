@@ -380,6 +380,10 @@ volume stubs
 
 section nicety stubs
 
+to say sr-space:
+	if screen-read is true:
+		say " ";
+
 section rerouting verb tries
 
 the last-command is indexed text that varies.
@@ -2731,7 +2735,7 @@ carry out verbing:
 	say "[2da]GIVE X TO Y[line break]";
 	say "[2da]TALK/T talks to the only other person in the room. TALK TO X is needed if there is more than one.[line break]";
 	if know-babble is true:
-		say "[2da]BROOK BABBLING lets you talk to someone and skip over a conversation's details[if ever-babbled is true]. It can be shortened to BB[end if].[line break]";
+		say "[2da]BROOK BABBLING lets you talk to someone and skip over a conversation's details[if ever-babbled is true]. It can be shortened to B[sr-space]B, with or without a space[end if].[line break]";
 	say "[2da]specific items may mention a verb to use in CAPS, e.g 'You can SHOOT the gun AT something,' but otherwise, prepositions aren't necessary.";
 	say "[2da]conversations use numbered options, and you often need to end them before using standard verbs. RECAP shows your options.";
 	say "[2da]other standard parser verbs apply, and some may provide alternate solutions, but you should be able to win without them.";
@@ -3518,6 +3522,7 @@ understand the command "brook babbling" as something new.
 
 understand "brook babbling" as brookbabbling.
 understand "bb" as bbing.
+understand "b b" as bbing.
 
 bbing is an action applying to nothing.
 
@@ -3596,7 +3601,7 @@ to babble-out (pe - a person):
 			if pe is buddy best:
 				move player to questions field;
 			if ever-babbled is false:
-				say "Well. Now that you, err, abridged the conversation, you feel as though you can abridge how you think of it. Instead of Brook Babbling, well, BB would work.";
+				say "Well. Now that you, err, abridged the conversation, you feel as though you can abridge how you think of it. Instead of Brook Babbling, well, B[sr-space]B (with or without a space) would work.";
 				now ever-babbled is true;
 			the rule succeeds;
 	say "BUG! [pe] should have a babble shortcut in the table of babble summaries. I think.";
