@@ -218,7 +218,7 @@ when play begins (this is the actual start rule):
 	else:
 		now screen-read is false;
 	if screen-read is false:
-		say "Also, how thick are your glasses, if you have them? How much acne--? Wait, no, that doesn't matter irrelevant. When you're stuck, you're stuck. Let's...let's get on with things.";
+		say "Also, how thick are your glasses, if you have them? How much acne--? Wait, no, that's irrelevant. When you're stuck, you're stuck. Let's...let's get on with things.";
 		wfak;
 	say "It's not [i]The Phantom Tollbooth[r]'s fault your umpteenth re-reading fell flat earlier this evening. Perhaps now you're really too old for it to give you a boost, especially since you're in advanced high school classes. Classes where you learn about the Law of Diminishing Returns.[paragraph break]Or how protagonists gain character through conflict--conflict much tougher than class discussions you barely have energy for. It's all so frustrating--you hate small talk, but you still talk small, and there's no way around. You pick the book up--you shouldn't have chucked it on the floor. Back to the bookcase...";
 	wfak;
@@ -1295,7 +1295,7 @@ check kissing:
 	if noun is punch sucker:
 		say "If he does like men, you reflect, he could do a lot better than you." instead;
 	if noun is faith or noun is grace:
-		say "You don't know what sort of vows of chastity they took. Plus the other sister might beat you up for your indiscretion. Or just report you to the Stool Toad." instead;
+		say "Whether or not they took extreme vows of celibacy or whatever, well, this isn't that sort of game. Plus the other sister might beat you up for your indiscretion. Or just report you to the Stool Toad." instead;
 	if noun is a bro:
 		say "He needs something to hold, yes, but more like an object." instead;
 	if noun is labor child:
@@ -8155,6 +8155,10 @@ check entering worm ring:
 to good-end:
 	say "The Whole Worm is bigger than you thought. You hide deeper and deeper. A passage turns down, and then here's a door. Through it you see your bedroom.";
 	go-back-home;
+
+understand "like ring" and "ring like" and "ringlike" as a mistake("You sort of like the ring the way it is, but you'd like it much better another way.") when player is in Out Mist.
+
+understand "ear ring" and "ring ear" and "earring" as a mistake("You aren't rebellious enough to pierce, well, anything.") when player is in Out Mist.
 
 understand "let ring" and "ring let" and "ringlet" as a mistake("Your hair curls at the thought of such passivity.") when player is in Out Mist.
 
