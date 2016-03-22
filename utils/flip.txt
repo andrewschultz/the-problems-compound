@@ -1235,3 +1235,57 @@ momentousness to entousness-mom
 momentarinesses to entarinesses-mom
 momentousnesses to entousnesses-mom
 ====Found 39/13 for mom
+========aroma
+aroma to -aroma
+aromas to s-aroma
+aromatic to tic-aroma *** word
+aromatase to tase-aroma
+aromatics to tics-aroma *** word
+aromatise to tise-aroma
+aromatize to tize-aroma
+aromatases to tases-aroma
+aromatised to tised-aroma
+aromatises to tises-aroma
+aromatized to tized-aroma
+aromatizes to tizes-aroma
+aromaticity to ticity-aroma
+aromatising to tising-aroma
+aromatizing to tizing-aroma
+aromatherapy to therapy-aroma *** word
+aromatically to tically-aroma
+aromaticities to ticities-aroma
+aromatisation to tisation-aroma
+aromatization to tization-aroma
+aromatherapies to therapies-aroma *** word
+aromatherapist to therapist-aroma *** word
+aromatisations to tisations-aroma
+aromatizations to tizations-aroma
+aromatherapists to therapists-aroma *** word
+====Found 25/6 for aroma
+========wide
+wide to -wide
+widen to n-wide
+wider to r-wide
+wides to s-wide
+widely to ly-wide
+widens to ns-wide
+widest to st-wide *** word
+widened to ned-wide *** word
+widener to ner-wide
+wideout to out-wide *** word
+wideband to band-wide *** word
+widebody to body-wide *** word
+wideners to ners-wide
+wideness to ness-wide *** word
+widening to ning-wide
+wideouts to outs-wide *** word
+wideawake to awake-wide *** word
+wideawakes to awakes-wide *** word
+widebodies to bodies-wide *** word
+widenesses to nesses-wide *** word
+widershins to rshins-wide
+widescreen to screen-wide *** word
+widespread to spread-wide *** word
+widechapped to chapped-wide *** word
+widemouthed to mouthed-wide *** word
+====Found 25/15 for wide

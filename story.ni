@@ -1268,7 +1268,7 @@ check touching:
 	if noun is assassination character:
 		say "You'll need to [if p-c is true]catch him[else]ENTER the chase paper[end if]." instead;
 	if noun is a person:
-		say "That wouldn't be a fun poke. It might even be a base touch." instead;
+		say "That wouldn't be a fun poke[activation of poke fun]. It might even be a base touch[activation of touch base]." instead;
 	say "You can just TAKE something if you want to." instead;
 
 chapter taking inventory
@@ -2525,6 +2525,8 @@ Nonsense No	"No-nonsense means, well, not taking any silliness." [xyzzy snark]
 Captain Obvious	"Captain Obvious is someone who always states what's readily apparent. Captain has a sarcastic meaning, here."
 Comedy of Errors	"A comedy of errors is so much going wrong it's funny. Errors of comedy would be so much wrong there's nothing to laugh at."
 Spelling Disaster	"Disaster spelling is, well, consonants clumped together. Spelling disaster is leading to bad news."
+touch base	"To touch base is to get back to someone or return their call, especially if it's been a while. Versus a base touch, base being mean, so it's a bit more creepy."
+poke fun	"To poke fun is to make a joke, but poke can mean a lot of things--putter around, meddle, or maybe poke a friend to get their attention."
 Games Mind	"Mind games are messing with people's mind with lies or half-truths. A games mind might be more inclined to abstract puzzles." [start of game]
 Games Confidence	"Confidence games are where someone gains someone else's trust to rip them off. It can be as simple as a shell game or as complex as an investment scheme. Of course, Alec has confidence with logic games but not much else."
 Animal Welfare	"Animal welfare is concern for animals who often can't help themselves. Welfare has a slightly perjorative definition in the US these days, e.g. people on welfare are lazy, or someone giving it is very generous indeed, more than they need to be."
@@ -9258,6 +9260,12 @@ a thing called Nonsense No is a concept in conceptville. understand "no nonsense
 Comedy of Errors is a concept in conceptville. understand "errors of comedy" as comedy of errors. howto is "xyzzy". 
 
 Spelling Disaster is a concept in conceptville. understand "disaster spelling" as spelling disaster. howto is "xyzzy". 
+
+section touch concepts
+
+poke fun is a concept in conceptville. understand "fun poke" as poke fun. howto is "touch someone, or try"
+
+touch base is a concept in conceptville. understand "base touch" as touch base. howto is "touch someone, or try"
 
 section game-warp concepts
 
