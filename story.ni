@@ -2788,16 +2788,8 @@ carry out verbing:
 	say "[2da]specific items may mention a verb to use in CAPS, e.g 'You can SHOOT the gun AT something,' but otherwise, prepositions aren't necessary.";
 	say "[2da]conversations use numbered options, and you often need to end them before using standard verbs. RECAP shows your options.";
 	say "[2da]other standard parser verbs apply, and some may provide alternate solutions, but you should be able to win without them.";
-	say "[equal-line]Meta-commands listed below[equal-line][line break]";
-	say "[2da]you can also type ABOUT or CREDITS or HISTORY or TECH to see meta-information, and XP/EXPLAIN (any object) gives a brief description. XP with no argument explains the room name.";
 	say "[2da]EXITS shows the exits. While these should be displayed in the room text, you can see where they lead if you've been there.";
-	say "[2da]HELP/HINT/HINTS/WALKTHROUGH will redirect you to the PDF and HTML hints that come with the game. THINK/SCORE gives very broad, general hinting. WAIT lets you wait.";
-	if cur-anno > 0:
-		say "[2da]NOTE (number or text) displays a previous note you uncovered." instead;
-	if verbs-unlocked:
-		say "You've also unlocked some verbs:[line break]";
-		repeat through table of vu:
-			if found entry is true, say "[2da][descr entry][line break]";
+	say "[2da]META describes additional commands not critical to winning the game, such as ABOUT[if verbs-unlocked] or verbs you unlocked[end if], but this list is long enough.";
 	if in-beta is true:
 		list-debug-cmds;
 	the rule succeeds;
@@ -2809,6 +2801,29 @@ to decide whether verbs-unlocked: [I could probably check "duck sitting" but bes
 
 to list-debug-cmds:
 	say "[line break]DEBUG COMMANDS: ================[line break][2da]J jumps you to the next bit from the Street, Lounge, Surface or Pier.[line break][2da]MONTY toggles every-move actions like listening and smelling. It may be more for programming testing[line break][2da]ACBYE/CTC/CTP gets rid of the Assassination Character and chase paper.[line break][2da]JERK tells you what to do with the jerks.[line break][2da]JGO gets rid of them[line break][2da]BROBYE kicks the Keeper Brothers out.";
+
+chapter metaing
+
+metaing is an action out of world.
+
+understand the command "meta" as something new.
+
+understand "meta" as metaing.
+
+carry out metaing:
+	say "Meta-commands:";
+	say "[2da]you can also type ABOUT or CREDITS or HISTORY or TECH to see information on the game's history.";
+	say "[2da]XP/EXPLAIN (any object) gives a brief description. XP with no argument explains the room name. XP can also explain a concept[one of], e.g. the games mind Guy Sweet refers to[or][stopping]. This is more for general information than game hinting.";
+	say "[2da]HELP/HINT/HINTS/WALKTHROUGH will redirect you to the PDF and HTML hints that come with the game. THINK/SCORE gives very broad, general hinting. WAIT lets you wait, which is useless, but it's a standard verb.";
+	if cur-anno > 0:
+		say "[2da]NOTE (number or text) displays a previous note you uncovered." instead;
+	if verbs-unlocked:
+		say "You've also unlocked some verbs:[line break]";
+		repeat through table of vu:
+			if found entry is true, say "[2da][descr entry][line break]";
+	else:
+		say "[2da]You haven't unlocked any special verbs, yet, but they're out there.";
+	the rule succeeds;
 
 chapter hinting
 
@@ -2823,7 +2838,7 @@ understand "hints" as a mistake ("[if-stuck]").
 understand "walkthrough" as a mistake ("[if-stuck]").
 
 to say if-stuck:
-	say "If you're stuck, the game should come with a brute-force HTML walkthrough, an Invisiclues-style HTML document, and a PDF document with a map followed by move-by-move walkthrough[if bottom rock is visited]. Also, you can go back to Bottom Rock. If that's flaky, please do report a bug at [email][end if][paragraph break]SCORE gives very broad general hinting.[no line break]";
+	say "If you're stuck, the game should come with a brute-force HTML walkthrough, an Invisiclues-style HTML document, and a PDF document with a map followed by move-by-move walkthrough[if player has legend of stuff]. Also, you can just read the Legend of Stuff. If that's flaky, please do report a bug at [email][end if][paragraph break]SCORE gives very broad general hinting.[no line break]";
 
 chapter creditsing
 
@@ -6539,6 +6554,8 @@ check examining the insanity terminal:
 			do nothing;
 		else:
 			say "OK. You can still see the whole terminal if you want, and this nag won't appear again.";
+		now x-term-yet is true;
+		the rule succeeds;
 	now x-term-yet is true;
 	if jerks-spoiled is true:
 		say "The terminal spits out who's 'guilty' of what, again:[line break]";
@@ -9367,7 +9384,7 @@ Double Jeopardy is a concept in conceptville. understand "jeopardy double" as Do
 
 Black Mark is a concept in conceptville. understand "mark black" as black mark. howto is "examine quiz pop"
 
-Steal This Book is a concept in conceptville. howto is "take book bank"
+Steal This Book is a concept in conceptville. understand "book this steal" as Steal This Book. howto is "take book bank"
 
 Brother's Keepers is a concept in conceptville. understand "brother/brothers keeper/keepers" and "keeper/keepers brother/brothers" as Brother's Keepers. howto is "examine the brothers"
 
