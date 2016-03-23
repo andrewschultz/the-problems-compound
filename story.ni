@@ -2783,6 +2783,8 @@ carry out verbing:
 	say "[2da]TALK/T talks to the only other person in the room. TALK TO X is needed if there is more than one.[line break]";
 	if know-babble is true:
 		say "[2da]BROOK BABBLING lets you talk to someone and skip over a conversation's details[if ever-babbled is true]. It can be shortened to B[sr-space]B, with or without a space[end if].[line break]";
+	if player is in belt below and terminal is in belt below and x-term-yet is true:
+		say "[2da]X 1-8 is a shortcut to read an individual question in the Insanity Terminal's puzzle.";
 	say "[2da]specific items may mention a verb to use in CAPS, e.g 'You can SHOOT the gun AT something,' but otherwise, prepositions aren't necessary.";
 	say "[2da]conversations use numbered options, and you often need to end them before using standard verbs. RECAP shows your options.";
 	say "[2da]other standard parser verbs apply, and some may provide alternate solutions, but you should be able to win without them.";
@@ -2836,7 +2838,7 @@ carry out creditsing:
 	say "====IN-COMP THANKS:";
 	say "I'd also like to thank non-competitors who alerted me to flaws/bugs in the comp version: Olly Kirk, Paul Lee, Michael Martin, David Welbourn and Al Golden. Competitors offered both praise and criticism which helped add features and polish to the post-comp release.";
 	say "====POST-COMP THANKS:";
-	say "Thanks to Joey Jones (also in the IFF) for finding lots of fixables present in the comp and post-comp release.[line break]Thanks to Alex Butterfield and Hugo Labrande for our games of code tennis, which is basically, try and do something every other day, or the other guy scores a point. Hugo worked with me more on a 'related project,' but a lot of things I pinged him with were relevant here. I recommend code tennis for anyone who needs motivation.";
+	say "Thanks to Neil Butters and Joey Jones (also in the IFF) for finding lots of fixables present in the comp and post-comp release.[line break]Thanks to Alex Butterfield and Hugo Labrande for our games of code tennis, which is basically, try and do something every other day, or the other guy scores a point. Hugo worked with me more on a 'related project,' but a lot of things I pinged him with were relevant here. I recommend code tennis for anyone who needs motivation.";
 	the rule succeeds;
 
 chapter abouting
@@ -6520,7 +6522,7 @@ check going nowhere in belt below:
 
 The Insanity Terminal is scenery in the Belt Below. description is "[bug]";
 
-understand "puzzle" as terminal
+understand "puzzle" as terminal when player is in belt below.
 
 after printing the locale description when player is in belt below and belt below is unvisited:
 	say "'ATTENTION RECOVERING NERDLING!' booms the terminal. 'I THE INSANITY TERMINAL HAVE A CHALLENGE FOR YOU! IF YOU SOLVE IT, KNOWLEDGE UNIMAGINABLE WILL BE YOURS AND IT WILL BE ESPECIALLY VALUABLE IF YOU ARE UNIMAGINATIVE.'";
@@ -6528,7 +6530,16 @@ after printing the locale description when player is in belt below and belt belo
 
 jerks-spoiled is a truth state that varies.
 
+x-term-yet is a truth state that varies.
+
 check examining the insanity terminal:
+	if screen-read is true and x-term-yet is false:
+		say "This may be a bit of a text dump with screen readers active. You can say X 1 through X 8 to read an individual question. Would you still like to read the whole thing?";
+		if the player consents:
+			do nothing;
+		else:
+			say "OK. You can still see the whole terminal if you want, and this nag won't appear again.";
+	now x-term-yet is true;
 	if jerks-spoiled is true:
 		say "The terminal spits out who's 'guilty' of what, again:[line break]";
 		repeat through table of fingerings:
@@ -6549,7 +6560,7 @@ check examining the insanity terminal:
 		say "[qline entry][line break]";
 	if ffffffff is false:
 		say "Go FFFFFFFF at any time to disable my editorializing!";
-	say "There's a cursor, and you can probably just type out the right answer on, uh, the cursor before YOU. Convenient!" instead;
+	say "There's a cursor, and you can probably just type out the right answer on, uh, the cursor before YOU[if ever-examined-number is false]. And you can examine an individual question, too, e.g. X 2[end if]. Convenient!" instead;
 
 to say ps:
 	say "[if screen-read is true] [else])[end if]"
@@ -6564,6 +6575,23 @@ qline
 "6. The right answer to this question is a[ps]a b[ps]b c[ps]c d[ps]d e[ps]e f[ps]f"
 "7. At least one of each letter is a correct answer a[ps]false b[ps]false c[ps]true d[ps]false e[ps]false f[ps]false"
 "8. How many questions have vowels as correct answers? a[ps]0 b[ps]1 c[ps]2 d[ps]3 e[ps]4 f[ps]5"
+
+chapter linereading
+
+ever-examined-number is a truth state that varies.
+
+linereading is an action applying to one number.
+
+understand "x [number]" and "examine [number]" as linereading when player is in belt below and terminal is in belt below.
+
+carry out linereading:
+	let ql be number of rows in table of quiz lines;
+	if the number understood < 1 or number understood > ql:
+		say "The Insanity Terminal only has [ql] questions, so pick a number from 1 to [ql]." instead;
+	choose row number understood in table of quiz lines;
+	say "[qline entry][line break]";
+	now ever-examined-number is true;
+	the rule succeeds;
 
 ffffffff is a truth state that varies.
 
