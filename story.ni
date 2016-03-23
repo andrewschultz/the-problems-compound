@@ -307,7 +307,7 @@ to unlock-verb (t - text):
 			if found entry is true:
 				continue the action;
 			if expound entry is true:
-				say "[i][bracket]NOTE: you have just unlocked a new verb![close bracket][r]";
+				say "[i][bracket]NOTE: you have just unlocked a new verb![close bracket][r][paragraph break]";
 				say "On restarting, you may now [descr entry][line break]";
 			now found entry is true;
 			write file of verb-unlocks from table of verb-unlocks;
@@ -754,7 +754,7 @@ check dropping (this is the general dropping rule):
 	if noun is dreadful penny:
 		say "The penny doesn't drop on any puzzle you want to solve." instead;
 	if noun is minimum bear:
-		say "No. It's somebody's. But whose?" instead;
+		say "No. It's just cute enough not to abandon[if your-tix < 4 and litter-clue is true], and dropping it wouldn't feel like LITTERING[end if]. It's somebody's. But whose?" instead;
 	if noun is trail paper:
 		say "No way. You should return that to the Howdy Boy!" instead;
 	if noun is cooler or noun is haha:
@@ -786,7 +786,7 @@ check dropping (this is the general dropping rule):
 		say "It just won't let you. Weird." instead;
 	if noun is crocked half:
 		say "Nah, why litter." instead;
-	say "You don't need to leave anything lying around. In fact, you shouldn't." instead;
+	say "You don't need to leave anything lying around. In fact, you shouldn't[if your-tix < 4 and litter-clue is true], unless you want to annoy authority figures who may not actually care about the environment anyway." instead;
 
 chapter buying
 
@@ -1017,6 +1017,8 @@ before taking a person:
 	say "You're not strong enough for the sort of WWF moves required to move a person." instead;
 
 check taking:
+	if noun is tray a or noun is tray b:
+		say "Man. It's heavy. That might cause a balance strike[activation of strike a balance]." instead;
 	if noun is scenery or noun is fixed in place:
 		if noun is in freak control:
 			say "Vandalism, while direct, won't get rid of the guy running all the machines here." instead;
@@ -1092,7 +1094,7 @@ check smelling (this is the smelling a thing rule):
 	if noun is flower wall:
 		say "Smells nice. Cancels out the [if scum is in tunnel]now-gone scum[else]scum, almost[end if]." instead;
 	if noun is scum:
-		say "It smells bad enough from where you are standing. You don't want a snootful for no good reason." instead;
+		say "It smells bad enough from where you are standing, even though you don't have a very picking nose[activation of nose picking]." instead;
 	if noun is fritz:
 		say "You'd rather not risk it." instead;
 	if noun is bear:
@@ -1114,7 +1116,7 @@ check smelling (this is the smelling a place rule): [see above for people]
 	if player is in temper keep:
 		say "[if sal-sleepy is false]You can understand why Volatile Sal is upset about smells, but you don't understand why he thinks it's other people.[else]Much nicer now with the poory pot in the vent.[end if]" instead;
 	if player is in joint strip:
-		say "It smells a bit odd[if off-the-path is true]. But you can't go off the path with the Stool Toad watching you[else]. You're tempted to check what's off the west/south path[end if]." instead;
+		say "It smells a bit odd[if off-the-path is true]. But you can't go off the path again with the Stool Toad watching you[else]. You're tempted to check what's off the path, to the north or east[end if]." instead;
 	if player is in pressure pier:
 		say "A faint smell of various foods to the west." instead;
 	if player is in meal square:
@@ -1176,7 +1178,7 @@ check listening (this is the listening in a place rule):
 		say "You can't hear anyone. That's good." instead;
 	if player is in airy station:
 		say "The cheering's nice, but--it's a bit old. You wonder if you've done THAT much." instead;
-	say "Nothing crazy or unusual." instead;
+	say "There's a bit of nervous tension, but there always is. You're used to that now, well, almost." instead;
 
 chapter searching
 
@@ -1277,13 +1279,28 @@ check taking inventory (this is the adjust sleep rule) :
 	if mrlp is dream sequence:
 		say "You are carrying: (well, mentally anyway)[line break]  [if player is in tense past]Regret of past mistakes[else if player is in tense future]the weight of indecision[else]understanding of future failures but none of their solutions[end if][paragraph break]" instead;
 
-check taking inventory:
-	if player has bad face:
+the print standard inventory rule is not listed in any rulebook.
+
+check taking inventory (this is the new standard inventory rule):
+	if accel-ending:
+		say "You aren't worried about material possessions. You've got a new you that understands what's what, now." instead;
+	if number of things carried by player is 1:
+		say "You're empty-handed.[line break]";
+	else:
+		say "You are carrying:";
+	repeat with X running through things carried by player:
+		if X is bad face or X is face of loss:
+			do nothing;
+		else:
+			say "  [X][line break]";
+	say "[line break]";
+	if player carries bad face:
 		say "You're wearing a bad face.";
 		now bad face is mentioned;
-	if player has face of loss:
+	else if player carries face of loss:
 		say "You're wearing a face of loss.";
-		now face of loss is mentioned.
+		now face of loss is mentioned;
+
 
 chapter kissing
 
@@ -1722,7 +1739,7 @@ check giving gesture token to:
 check giving burden to:
 	if second noun is mush:
 		if burden-signed is true:
-			say "With a horrible SCHLURP, the mouth mush vacuums the signed burden away from you. You hear digestive noises, then a burp, and an 'Ah!'[paragraph break]'That'll do. Okay, you stupid arch, stay put. And YOU--wait a few seconds before walking through. I'm just as alive as you are.' You're too stunned to step right away, and after the mush bubbles into plain ground, you take a few seconds to make sure the Rogue Arch is motionless.";
+			say "With a horrible SCHLURP, the mouth mush vacuums the signed burden away from you. You hear digestive noises, then a burp, and an 'Ah!'[paragraph break]'That'll do. Okay, you stupid arch, stay put. And YOU--wait a few seconds before walking through. I'm just as alive as you are.' You're too stunned to step right away, and after the mush burbles into plain ground, you take a few seconds to make sure the Rogue Arch is motionless.";
 			now burden is in lalaland;
 			now mouth mush is in lalaland;
 			the rule succeeds;
@@ -2202,8 +2219,8 @@ carry out diging:
 		say "Doing that to a tension surface may release too much pressure. You're pretty good in science, so you worry about these things." instead;
 	if noun is poor dirt:
 		if dirt-dug is true:
-			say "You don't feel a need or desire to dig any more here." instead;
-		say "You start plowing the land. It's exhausting at first, but you suppose it's good practice. The Weasel compliments you on getting a bit of exercise and work experience and how it's win-win that way and you've paid off your debt now.";
+			say "'Enough, man[activation of enough man]!' says the Weasel, leaving you feeling not man enough." instead;
+		say "'Ah, the art of work[activation of work of art]!' the Weasel says as you begin. He throws on a few more aphorisms about exercise and experience and advice that, well, motivate you not to take breaks. 'You've paid off your debt now.'";
 		now dirt-dug is true;
 		the rule succeeds;
 	if noun is mouth mush:
@@ -2530,6 +2547,10 @@ poke fun	"To poke fun is to make a joke, but poke can mean a lot of things--putt
 Games Mind	"Mind games are messing with people's mind with lies or half-truths. A games mind might be more inclined to abstract puzzles." [start of game]
 Games Confidence	"Confidence games are where someone gains someone else's trust to rip them off. It can be as simple as a shell game or as complex as an investment scheme. Of course, Alec has confidence with logic games but not much else."
 Animal Welfare	"Animal welfare is concern for animals who often can't help themselves. Welfare has a slightly perjorative definition in the US these days, e.g. people on welfare are lazy, or someone giving it is very generous indeed, more than they need to be."
+nose picking	"Nose picking is -- not the best habit. A picking nose would be a discerning sense of smell."
+work of art	"A work of art is something nice and beautiful. The art of work is--well, the term can be abused to make work seem more exciting than it is."
+enough man	"Man enough means being able to stand up for yourself. Okay, it's a bit sexist, but people who say it mean to be annoying. 'Enough, man' just means stop it."
+strike a balance	"To strike a balance is to find a satisfactory compromise. A strike can alo mean--well, your balance went on strike, or you'd fall over."
 Thought for food	"Food for thought is something to think about."
 Tray S	"Stray. In other words, it strayed from Meal Square."
 Tray T	"A tea tray. To go with food."
@@ -2540,6 +2561,7 @@ Bum Beach	"A beach bum is someone who wanders on the beach. Maybe he lives there
 Double Jeopardy	"Double jeopardy is being tried for the same crime twice. Making your jeopardy double is just putting you at twice the risk."
 Trust Brain	"A brain trust is a group of people that help make a decision. A trust-brain, though not an English phrase, might mean a mind that can't make its own decisions."
 Moral Support	"Moral support is helping someone even if you don't have concrete advice. SUPPORT MORAL is, well, a slogan that pushes people around."
+bullfrog	"A bullfrog is not quite a toad. And bull means nonsense. The Stool Toad is probably in no danger of being mistaken for Frog or Toad from Arnold Lobel's nice books."
 Total T	"Teetotal means alcohol-free."
 Party T	"A tea party is usually non-alcoholic, and people mind their manners. Well, unless it's the political sort, but I won't touch that any further. I probably said too much, already."
 Rummy Gin	"Gin Rummy is a card game, generally not the sort associated with wild binge drinking."
@@ -3174,7 +3196,7 @@ games are plural-named scenery in Smart Street. description of games is "[bug]";
 instead of doing something with games:
 	if current action is playing:
 		say "You should try PLAYing one at a time." instead;
-	say "There are a whole bunch: [the list of logic-games]. And you can't really do more than PLAY any one of them."
+	say "There are a whole bunch: [the list of logic-games]. You can PLAY them one at a time, but not all at once."
 
 check going nowhere in Smart Street:
 	say "You don't have your bearings. Maybe you can go into the Broke Flat, but that's about it. You certainly can't see your room in any direction." instead;
@@ -3233,7 +3255,7 @@ guy-names	"'I know what you really want to ask. It's not at all about twisting t
 guy-problems	"'Well, it's a place where lots of people more social than you--or even me--pose real-life problems. Tough but fair. Lots of real interesting people. Especially the Baiter Master[if allow-swears is false]. Oops. You don't like swears? Okay. Call him the Complex Messiah[else]. AKA the Complex Messiah[end if]. But not [bg]. Even I haven't earned that right yet. Or even to enter Freak Control. It's guarded by a trap where a question mark hooks you, then an exclamation mark clobbers you.' He pauses, and you are about to speak...[wfk]'YEAH. He's really nice once you get to know him, I've heard, it's just, there's too many people might waste his time, or not deserve him or not appreciate him.' Guy stage-whispers. 'OR ALL THREE.'"
 guy-mess	"'Oh, the [bad-guy]. He certainly knows what's what, and that's that! A bit of time around him, and you too will know a bit--not as much as he did. But he teaches by example! And if he ribs you a little, that's just his way of caring. Remember, it's up to YOU what you make of his lessons! Some people--they just don't get him. Which is ironic. They're usually the type that claim society doesn't get THEM.'"
 guy-bad2	"'[bad-guy-2]. Well, without the [bad-guy]'s snark, [bad-guy-2] would probably be in charge. Then things would get worse. You see, [bad-guy-2] is after our time and money. The [bad-guy] just likes to share a little snark.'"
-guy-bye	"'Whatever, dude.'"
+guy-bye	"'Whatever, dude.' [one of]It's--a bit harsh, you're not sure what you did to deserve that, but probably something[or]It's a bit less grating this time, but still[stopping]."
 
 to say bad-guy:
 	say "[if allow-swears is true]Baiter Master[else]Complex Messiah[end if]"
@@ -3290,8 +3312,8 @@ the out puzzle is part of the game shell. understand "square" and "nine" and "ni
 the printed name of out puzzle is "the 'out' puzzle".
 
 instead of doing something with the out puzzle:
-	if current action is not explaining:
-		say "No. You know that puzzle. You forget if you got it when you saw it, but people made you feel awkward for actually knowing it. Best not to dwell." instead;
+	if current action is not explaining and current action is not examining:
+		say "No. You know the Out Puzzle. You forget if you got it when you saw it, but people made you feel awkward for actually knowing it. Best not to dwell--concentrate on Guy's, instead." instead;
 
 instead of entering shell:
 	say "'Whoah. Back up there, champ. We need to, like, verify your [g-c]. Just PLAY a game here. Any game.'"
@@ -3746,7 +3768,7 @@ instead of doing something with the rings:
 
 section river boat
 
-the river boat is a plural-named logic-game in Smart Street. description is "It's the old wolf, goat and cabbage puzzle. The figures are kind of cute, but it's easy to see how they could get lost."
+the river boat is a plural-named logic-game in Smart Street. description is "It's the old wolf, goat and cabbage puzzle, where you can take only two across the river at a time and the goat can't be left with either. The figures are kind of cute, but it's easy to see how they could get lost."
 
 understand "riverboat" as river boat.
 
@@ -3799,11 +3821,11 @@ gallon jugs	2	"[one of]Just, no. Your unsteady hand means it'll spill something 
 Nim	0	"Guy sets the game up, putting pegs randomly in rows. You beat him several times, while recalling how students two years ahead mocked you for not understanding simple BINARY. Then a year later you almost got beaten up for failing to explain the mathematical induction behind it to people who didn't really care but didn't believe you.[paragraph break]'Wow. That's impressive. How'd you do that? No, don't answer, I was just being polite asking. Anyway, congratulations.'"
 Nim	1	"You beat Guy Sweet a few times and even set things up so he can't win moving first. 'Ah! But can you get the last word in an argument?' he nods significantly."
 Nim	2	"Before you can play again, Guy assures you he knows you're a world class Nim player and such. But really, what good will it do you in a future job, or at parties?"
-Peg Solitaire	0	"You remember about symmetry, about not leaving pegs too isolated. Guy Sweet is impressed. 'Not bad! But I bet you can't do it again!'"
-Peg Solitaire	1	"'Hey! That's not fair! You have a pattern! There's symmetry! That's cheating! I don't know how, but it is!'"
+Peg Solitaire	0	"You remember about symmetry, about not leaving pegs too isolated. Bottom clear, left side clear, right side clear. You remember it's tricky with eleven pegs, but you remember the final clump of five. There. That reverse, and done. Guy Sweet is impressed. 'Not bad! But I bet you can't do it again! And a bit different!'"
+Peg Solitaire	1	"You proceed again. Bottom, right, left. The end goes quicker. 'Hey! That's not fair! You have a pattern! There's symmetry! That's cheating! I don't know how, but it is!'"
 Peg Solitaire	2	"'Hey! No! Don't move the bottom peg up first! Challenge yourself!' It's confusing, but you figure what to push, where, much slower. Guy gives things a shot, bungles it and says, well, he has more important things to think of."
 Peg Solitaire	3	"Guy brushes your hand away. 'I'm not interested any more. I'm sure you practiced hard to get so good, but it's kind of boring for me to watch, y'know? Maybe there's other formations that'll trip you up, but I'm too busy to think of them.'"
-river boat	0	"You know this. You've aced this. Goat over, Wolf over, goat back, cabbage over, goat over. 'Everybody gets that one,' muses Guy, as he pulls out some additional tokens. 'Now, a boat with two entries.'"
+river boat	0	"You know this puzzle. You've aced it. Bring all three things over without the goat or cabbage getting eaten. Goat over, back, Wolf over, goat back, cabbage over, back, goat over. 'Everybody gets that one,' muses Guy, as he pulls out some additional tokens. 'Now, a boat that carries two of five things.'"
 river boat	1	"Despite the extra two things involved, it's really just a matter of counting. Or numbering the pieces. Two and four over, none back, one and three over, two and four back, five over, two and four over."
 river boat	2	"[one of]You yawn as you realize Guy's extension to seven things to cross the river is trivial. Two/four/six over, one/three/five, evens back, seven over, two/four/six over. Guy 'empathizes.'[or]You feel a vague accomplishment solving the old riverboat problem's extensions. All the same, you're sort of over it by now.[stopping]"
 Rubik's Cube	0	"You figured how to get one surface all the same color, but it just got tougher from there. You had the big picture but forgot if you should twist left down up right or right down up left. 'Well, at least you're not one of those weird geniuses with useless skills,' Guy Sweet says, emphasizing GENIUSES a bit too much for your comfort.[paragraph break]There's a bit left...but you've impressed him, you think."
@@ -3820,7 +3842,7 @@ match sticks	2	"'Sorry, dude. I'm all out of matchstick puzzles. And are matchst
 chess board	0	"You remember a cheap trick where you can eliminate the queens from the very center. From there it's pretty easy, since they can't be in the corners. You place one THERE--and the rest logically follow.[paragraph break]'Well, that's not fair. You didn't think. I'm sure you used a cheap trick. Still, I guess you deserve credit. Even if you don't know any other way.'"
 chess board	1	"Under Guy's watchful eye, you can't solve the chessboard the same way again. But maybe if the queens were knight moves away--yes, start at the corners ('Dude! You're already wrong!') and put queens at knight's distance. Then switch one corner queen's row with another, then another pair...trial and error...bam![paragraph break]'Good job, I guess. Not sure if that REALLY counts, either. You were kind of guessing and flailing, there.'[paragraph break]You bite your tongue before asking just what DOES really count--but you can never force a straight answer, there."
 chess board	2	"You just don't need any more goading--whether or not you find another position, Guy will invalidate how or why you got there."
-necklace	0	"You remember the first time you solved it. After all, there were only seven--well, four places to cut the necklace. Three obviously didn't work. Your math teachers were suspicious you solved it a bit too quickly. Of course now everyone knows to cut the third link in, then 1+2+4 gets all numbers up to seven. Guy Sweet replaces the necklace with something longer. 'Yeah? Well, what if you got 2 cuts? How many numbers could you make?'"
+necklace	0	"You remember the first time you solved it. After all, there were only seven--well, four places to cut the necklace. Three obviously didn't work. Your math teachers were suspicious you solved it a bit too quickly. Of course now everyone knows to cut the third link in, then 1+2+4 gets all numbers up to seven. Guy Sweet replaces the necklace with a much longer necklace. 'Yeah? Well, what if you got 2 cuts? How many numbers could you make?'"
 necklace	1	"You get two cuts this time. 7+1=8, leaving a link of 9 chains. Then cut the 7 as before."
 necklace	2	"The third puzzle is just more arithmetic. 17+1=18, so the next big link is 19, and so forth. You see the pattern. You tell Guy you could prove it by mathematical induction, but he cringes in fear. Wow! Micro-revenge! Usually YOU get tweaked for knowing stuff like that."
 logic puzzles	0	"You don't even need the scratch paper Guy offers you. There are only so many possibilities and a lot of clues. 'Well, yeah, even I could do that,' he mutters. 'Try something more advanced?'"
@@ -3832,10 +3854,10 @@ section playing
 
 playing is an action applying to one thing.
 
-understand the command "play/try" as something new.
+understand the command "play/try/solve" as something new.
 
-understand "play [something]" and "try [something]" as playing.
-understand "play" and "try" as playing.
+understand "play [something]" and "solve [something]" and "try [something]" as playing.
+understand "play" and "try" and "solve" as playing.
 
 for supplying a missing noun when examining:
 	now the noun is Alec Smart;
@@ -3848,26 +3870,29 @@ pick-warn is a truth state that varies.
 rule for supplying a missing noun when the current action is playing (this is the play a game any game rule):
 	if location of player is smart street:
 		unless guy sweet is part-talked or guy sweet is babbled-out:
-			say "'What? You gonna just play any old game without chatting a bit first?'" instead;
+			say "[one of]'What? You gonna just play any old game without chatting a bit first?'[or]You'd like to poke around the merchandise, but Guy Sweet is glaring at you, waiting for you to TALK.[stopping]" instead;
 		if pick-warn is false:
 			now pick-warn is true;
 			say "There are a lot of games. To be precise, [number of logic-games in words]. Pick one at random?";
 			unless the player consents:
 				say "[ok-rand]." instead;
 			say "[ok-rand].";
-		repeat through table of logic game wins:
-			if the-game entry is not tried:
-				say "([the the-game entry], why not)[line break]";
-				now noun is the-game entry;
-				the rule succeeds;
-		repeat through table of logic game wins:
-			if the-game entry is not defeated:
-				say "([the the-game entry], why not)[line break]";
-				now noun is the-game entry;
-				the rule succeeds;
-		say "You scrunch your eyes. You've already played and won everything.[paragraph break]'Bored? Me too! How [']bout that?' snarks Guy.";
+		play-random-game;
 		the rule succeeds;
 	now noun is Alec Smart;
+
+to play-random-game:
+	repeat through table of logic game wins:
+		if the-game entry is not tried:
+			say "([the the-game entry], why not)[line break]";
+			now noun is the-game entry;
+			the rule succeeds;
+	repeat through table of logic game wins:
+		if the-game entry is not defeated:
+			say "([the the-game entry], why not)[line break]";
+			now noun is the-game entry;
+			the rule succeeds;
+	say "You scrunch your eyes. You've already played and won everything.[paragraph break]'Bored? Me too! How [']bout that?' snarks Guy.";
 
 carry out playing a logic-game:
 	set the pronoun it to noun;
@@ -3930,7 +3955,14 @@ carry out playing:
 		say "Writing is no game. And the machine doesn't seem equipped for games. Even semantic ones." instead;
 	if noun is insanity terminal:
 		say "It's more a technical console than a gaming console." instead;
-	say "You can only really play something that's explicitly a game." instead;
+	say "You can only really play something that's explicitly a game.";
+	if player is in smart street:
+		say "Play a random game?";
+		if the player consents:
+			play-random-game;
+		else:
+			say "OK.";
+	do nothing instead;
 
 part A Round Lounge
 
@@ -3968,6 +4000,8 @@ check entering the person chair:
 	say "You stand on the chair." instead;
 
 the plan hatch is scenery in Round Lounge. "It's directly above the chair. Written on the [one of][or]plan [stopping]hatch, you see: PLAN: FIND A WAY OUT OF THE ROUND LOUNGE. [hatch-far], but it's slightly ajar."
+
+understand "hatch plan" as a mistake ("It won't just happen like that. You need to find a way to get up through the plan hatch.") when player is in round lounge.
 
 the writing is part of the plan hatch. description is "PLAN: FIND A WAY OUT OF THE ROUND LOUNGE."
 
@@ -4151,7 +4185,7 @@ carry out sitting on:
 
 part Tension Surface
 
-Tension Surface is a room in beginning. it is inside of A Round Lounge. "While there's nothing here other than [if rogue arch is examined]the Rogue Arch[else]an arch[end if] [if mush is in surface]dancing sideways [end if]to the north, you're still worried the land is going to spill out over itself, or something. You can go east or west to relieve the, uh, tension. There's no way south or back down."
+Tension Surface is a room in beginning. it is inside of A Round Lounge. "While there's nothing here other than [if rogue arch is examined]the Rogue Arch[else]an arch[end if] [if mush is in surface]dancing sideways [end if]to the north, you're still worried the land is going to spill out over itself, or something. You can go east or west to relieve the, uh, tension. Any other way, it's crazy, but you feel like you might fall off."
 
 after printing the locale description for Tension Surface when Tension Surface is unvisited:
 	if Round Lounge is visited:
@@ -4189,7 +4223,7 @@ check going when player is in Tension Surface (this is the pass-arch rule) :
 
 section mouth mush
 
-the mouth mush is a person in Tension Surface. "[if mush is examined]The mouth mush[else]Some mush[end if] bubbles in front of the [r-a], conjuring up condescending facial expressions."
+the mouth mush is a person in Tension Surface. "[if mush is examined]The mouth mush[else]Some mush[end if] burbles in front of the [r-a], conjuring up condescending facial expressions."
 
 description of mouth mush is "It almost seems to whistle innocently as you examine it closely."
 
@@ -4212,6 +4246,8 @@ after doing something with the arch:
 check talking to Rogue Arch:
 	if mouth mush is in lalaland:
 		say "The Arch is silent." instead;
+	if conv-left of noun is 1:
+		say "The arch has nothing to say, and you look down to the mush, but you've had your chat with it, too." instead;
 	say "'Psst! Down here!' says the [m-m].";
 	try talking to mouth mush instead;
 
@@ -4260,18 +4296,21 @@ Vision Tunnel is east of Tension Surface. Vision Tunnel is in Beginning. "The fl
 
 the flower wall is scenery in the Vision Tunnel. "All manner of flowers, real and fake, are sewed together. The only break is [if flower wall is examined]that picture hole[else][pic-hole][end if]."
 
+after doing something with flower wall:
+	set the pronoun them to flower wall;
+
 to say pic-hole:
 	say "[if picture hole is examined]the picture hole you looked through[else]a small hole, call it a picture hole, because it looks like there's some sort of picture in there[end if]"
 
 check taking flower wall:
-	say "The flowers seem delicately interconnected. If you take one, you fear the whole structure might collapse. And you fear loneliness, too." instead;
+	say "The flowers seem delicately interconnected. If you take one, you fear the whole structure might collapse. Then you might feel more lonely than ever." instead;
 
 understand "flowers" as flower wall.
 
 check going nowhere in vision tunnel:
 	say "You barge into the flower wall and feel less alone with all that nature around you. This isn't practical, but it feels nice." instead;
 
-the picture hole is scenery in vision tunnel. description is "[one of]You peek into the picture hole in the flower wall and see far more than you'd ever suspected. A whole story takes shape. [or][stopping]You recognize [one of]a stick figure[or]yourself, again[stopping] finding a ticket in a book, climbing a chair to reach a hatch, digging by a bunch of flowers, depositing a document in the ground--and then being blocked by three stick figures--blue, red and tall."
+the picture hole is scenery in vision tunnel. description is "[one of]You peek into the picture hole in the flower wall, and it looks like a bunch of swirls until you stare at it right. A whole story takes shape. [or][stopping]You recognize [one of]a stick figure[or]yourself, again[stopping] finding a ticket in a book, climbing a chair to reach a hatch, digging by a bunch of flowers, depositing a document in the ground--and then being blocked by three stick figures--blue, red and tall.[paragraph break][one of]You blink, and the picture degenerates back into swirls. But you can always look again, if you want[or]The picture scrambles again once you blink[stopping]."
 
 understand "vision" as picture hole when player is in tunnel and flower wall is examined.
 
@@ -4476,16 +4515,16 @@ pier-visited is a truth state that varies.
 	unlock-verb "knock"
 
 check going in Pressure Pier:
-	if noun is west and trail paper is not in lalaland:
-		say "'You're not authorized yet!' yells the Howdy Boy." instead;
 	if noun is outside or noun is south:
-		say "You can't see any way back." instead;
+		say "Swimming seems inadvisable. The water goes on a ways." instead;
 	if room noun of Pressure Pier is nowhere:
 		say "You consider going that way, but you'd feel embarrassed walking into a wall or whatever, with or without people watching." instead;
 
-water-scen is privately-named scenery in Pressure Pier. "It doesn't look dangerous or polluted or anything. You can probably just go east to see more of it."
+water-scen is privately-named scenery in Pressure Pier. "You notice the water: out of fish[activation of fish out of water]. It stretches quite a ways."
 
 understand "water" as water-scen when player is in Pressure Pier.
+
+understand "swim" and "swim [text]" as a mistake("You're not a terrible swimmer, but you also remember hearing about undertows and that sort of thing. You'd hate to die like that.")
 
 stall-scen is privately-named scenery in Pressure Pier. "It's a pretty large stall. But you won't be able to see what's in it [']til you go west."
 
@@ -4494,14 +4533,14 @@ instead of doing something with stall-scen:
 		continue the action;
 	if current action is entering:
 		try going west instead;
-	say "You can probably just go east to see more of the water."
+	say "You can probably just go west to enter Meal Square."
 
 understand "stall" as stall-scen when player is in Pressure Pier.
 
 instead of doing something with water-scen:
 	if action is procedural:
 		continue the action;
-	say "You can probably just go east to see more of the water."
+	say "The water goes on a ways."
 
 the Saver Screen is scenery in Pressure Pier. "It labels seemingly contradictory things to want and to be: to be clever enough to cut down too-clever weirdos. To have enough interests you can almost empathize with obsessed nerds, but not quite. To know enough pop culture you can poke fun at people who care too much about it. To be nice enough adults are sure you'll go far, but not be some useless dweeb.[paragraph break]There's also something about how if you don't know how to balance those things and have to ask others, or if this triggers some oversensitivity, well, REALLY. And there's even a tip of the moment![paragraph break][tip-of-moment]"
 
@@ -4585,7 +4624,7 @@ section Howdy Boy
 
 The Howdy Boy is a person in Pressure Pier. "[one of]A smiling fellow walks up to you and shakes your hand. 'I'm the Howdy Boy! Here to introduce new people to the Problems Compound! Smart or dumb, social or lame, well, someone needs to!' You shake hands, equally afraid you were too hard or soft. His enthusiasm quickly tails off, leaving you feeling it was your fault.[or]The Howdy Boy stands here, [if player has trail paper]and on seeing your trail paper, snaps his fingers and makes a 'gimme' gesture[else]looking disinterested now he's greeted you[end if].[stopping]"
 
-description of Howdy Boy is "Brightly dressed, with a just a bit too big smile."
+description of Howdy Boy is "Brightly dressed, smiling a bit too wide."
 
 check talking to howdy boy:
 	if trail paper is in lalaland:
@@ -4626,6 +4665,8 @@ after quipping when qbc_litany is table of howdy boy talks:
 	if current quip is howdy-howdy:
 		enable the howdy-boy quip;
 		enable the howdy-int quip;
+	if current quip is howdy-ways:
+		now litter-clue is true;
 	if current quip is howdy-north:
 		enable the howdy-fun quip;
 	if current quip is howdy-fun:
@@ -4667,7 +4708,7 @@ check going west in pressure pier:
 	otherwise:
 		if meal square is unvisited:
 			now thought for food is in lalaland;
-			say "The Howdy Boy coughs. 'That's Meal Square. Nice if you've got a thought for food. But better places to break the rules.' Nevertheless, he lets you go.";
+			say "The Howdy Boy coughs. 'That's Meal Square. Nice if you've got a thought for food[activation of thought for food]. But better places to break the rules.' Nevertheless, he lets you go.";
 
 Meal Square is west of Pressure Pier. Meal Square is in Outer Bounds. "This is a small alcove with Pressure Pier back east. There's not much decoration except a picture of a dozen bakers."
 
@@ -4687,7 +4728,7 @@ check eating when player is in Meal Square and accel-ending:
 check going nowhere in meal square:
 	say "No way out except east." instead;
 
-the picture of a dozen bakers is scenery in Meal Square. "It's a weird optical illusion--sometimes you count twelve, but if you look right, they warp a bit, and there's on extra. What's up with that?"
+the picture of a dozen bakers is scenery in Meal Square. "It's a weird optical illusion--sometimes you count twelve, but if you look right, they warp a bit, and there's one extra. What's up with that?"
 
 after doing something with bakers:
 	set the pronoun them to bakers;
@@ -4733,7 +4774,7 @@ before going when accel-ending:
 	if the room noun of location of player is nowhere:
 		say "Nothing that-a-way." instead;
 	if the room noun of the location of player is visited:
-		say "You look [noun]. Pfft. Why would you want to go back? You're more focused after having an invigorating meal.";
+		say "You look [noun]. Pfft. Why would you want to go back? You're more focused after having an invigorating meal." instead;
 	else:
 		say "[if off-eaten is true]You really don't want to get lost among whatever weird people are [noun]. You're not up to it. You just want to talk to anyone who can get you out of here.[else]Pfft. Nothing important enough that way! Maybe before you'd eaten, you'd have spent time wandering about, but not now. North to Freak Control![end if]" instead;
 
@@ -4844,12 +4885,12 @@ after printing the locale description when accel-ending:
 		if there is no accel-off entry:
 			say "[bug]. There should be text for the off-cheese and [location of player].";
 		else:
-			say "[accel-off entry]";
+			say "[accel-off entry][line break]";
 	if greater-eaten is true:
 		if there is no accel-greater entry:
 			say "[bug]. There should be text for the greater-cheese and [location of player].";
 		else:
-			say "[accel-off entry]";
+			say "[accel-greater entry]";
 	if cookie-eaten is true:
 		if there is no accel-cookie entry:
 			say "[bug]. There should be text for the cookie and [location of player].";
@@ -5030,7 +5071,7 @@ ticket-ref	ticket-done
 "going off the path in the Joint Strip"	0
 "taking alcohol out of the Soda Club"	0
 "being too awkward to speak in the Soda Club"	0
-"offering a girl insultingly weak alcohol"	0
+"offering a sophisticated girl insultingly weak alcohol"	0
 "sleeping too long on the Warmer Bench"	0
 
 to decide which number is first-ticket of (nu - a number):
@@ -5249,10 +5290,13 @@ toad-refresh	"'Y'mean you don't remember[one of][or], again[stopping]? [bad-toad
 toad-pomp	--
 toad-bm	"'Well, he's a smart fella, but he still looks out for folks like me. Got me this position keeping order here. Said [bad-guy-2] wouldn't pay half as much. Plus the job satisfaction. Making people smarter than me feel dumb. Can't beat that. Asked my opinion on sedition laws the other day, too. Bad idea to start slanging [bad-guy] without proof even if you aren't kinda weird yourself. No offense.'"
 toad-sedition	--
-toad-bye	"'Don't do anything stupid.'"
+toad-bye	"'Don't do anything stupid. But don't go trying to be too clever, either.'"
+
+litter-clue is a truth state that varies.
 
 to say bad-toad:
-	say "Littering. Suppressing evidence of prior misconduct. Acting up in the bar. Minor in possession of alcohol. Aggravated loafing. Seeking out illicit activities. All manner of frog-bull"
+	now litter-clue is true;
+	say "Littering. Suppressing evidence of prior misconduct. Acting up in the bar. Minor in possession of alcohol. Aggravated loafing. Seeking out illicit activities. All manner of frog-bull[activation of bullfrog]"
 
 after quipping when qbc_litany is litany of stool toad:
 	if current quip is toad-hi:
@@ -5384,6 +5428,9 @@ section Punch Sucker
 
 A Punch Sucker is a baiter-aligned person in Soda Club. "The [one of]guy you guess is the bartender[or]Punch Sucker[stopping] bustles around, serving drinks to the customers."
 
+check talking to punch sucker when lily is in lalaland and conv-left of punch sucker > 1:
+	say "The Punch Sucker flashes you a fake smile. 'Still around? Well, I can't make you leave, and I sort of needed a break from her chatter, I guess. Eh, I've dealt with worse.'";
+
 understand "bartender" as punch sucker.
 
 description of Punch Sucker is "He bustles about, talking to the patrons, pouring drinks, flipping glasses and wiping the bar off, with the sort of false cheer you were dumb enough to believe was genuine."
@@ -5424,7 +5471,7 @@ sucker-onrocks	"He pushes a button on an unseen machine. You hear ice cubes ratt
 sucker-but	"'Well, everyone here is a bit smarter and maturer than normal, and anyway, this isn't the high-proof stuff. Plus the Stool Toad, we've paid him off. As long as nobody makes it obvious and walks out with a drink. Then he's pretty awesome. So what the hey.'"
 sucker-haha	"[here-or-not]"
 sucker-cooler	"[here-or-not]"
-sucker-baiter	"'The [bg] lets me stay open for very reasonable shakedown fees. He just, well, he just wants to know about all the patrons in here. Why, he drops in here himself and gets the good stuff. But he's very fair and balanced. He knows it's not how much you drink but how it affects you. Why, he's better at shaming unruly customers than I am!'"
+sucker-baiter	"'The [bg] lets me stay open for very reasonable shakedown fees. Much better than [bad-guy-2], I'm sure. He just, well, he just wants to know about all the patrons in here. Why, he drops in here himself and gets the good stuff. But he's very fair and balanced. He knows it's not how much you drink but how it affects you. Why, he's better at shaming unruly customers than I am!'"
 sucker-bye	"He goes back to mixing and serving drinks."
 
 to say here-or-not:
@@ -8303,6 +8350,9 @@ caught-sleeping is a truth state that varies.
 
 last-room-dreamed is a room that varies.
 
+to say to-js:
+	say "[if joint strip is visited]to the Joint Strip[else]east[end if]";
+
 every turn when mrlp is dream sequence:
 	if player is in tense past:
 		if slept-through is false and toad-waits is true and caught-sleeping is false:
@@ -8310,7 +8360,7 @@ every turn when mrlp is dream sequence:
 			now slept-through is true;
 			say "As if that wasn't enough, you feel someone jostling you. Wait, no. It's not someone in the dream.";
 			wfak;
-			say "[line break]It's the Stool Toad! You're back on the bench at Down Ground![paragraph break]'A popular place for degenerates. Future cell sleepers, I bet[activation of sleeper cell]. That'll be a boo-tickety for you.'[if your-tix < 4][line break]As you hold the ticket and rub your eyes, the Stool Toad walks back to the Joint Strip. '. It's a darn shame!' he moans. 'Only one sleeping ticket per lazy degenerate, per day! Plenty of other ways to make their jeopardy double[activation of double jeopardy] so I can reach my quota!' You get the sense he wouldn't sympathize if you told him WHAT you dreamed about.[end if]";
+			say "[line break]It's the Stool Toad! You're back on the bench at Down Ground![paragraph break]'A popular place for degenerates. Future cell sleepers, I bet[activation of sleeper cell]. That'll be a boo-tickety for you.'[if your-tix < 4][line break]As you hold the ticket and rub your eyes, the Stool Toad walks back [to-js]. 'It's a darn shame!' he moans. 'Only one sleeping ticket per lazy degenerate, per day! Plenty of other ways to make their jeopardy double[activation of double jeopardy] so I can reach my quota!' You get the sense he wouldn't sympathize if you told him WHAT you dreamed about.[end if]";
 			now caught-sleeping is true;
 			move player to Down Ground, without printing a room description;
 			get-ticketed "sleeping too long on the Warmer Bench";
@@ -8600,6 +8650,7 @@ biglaff	anyrule
 "an empty command?"	--
 "XYZZY? Four times?"	--
 "attacking anyone? Or the torch?"	--
+"DIGging twice in Variety Garden?"	--
 "DROPping the dreadful penny, reasoning circluar or other things?"	--
 "giving the condition mint to various people, like Volatile Sal or Buddy Best?"
 "cussing when you asked for no profanity?"	--
@@ -9189,15 +9240,21 @@ section surface concepts
 
 Animal Welfare is a concept in conceptville. understand "welfare animal" as animal welfare. howto is "get the Weasel to sign the Burden"
 
+nose picking is a concept in conceptville. understand "picking nose" as nose picking. howto is "smell the mush in Tension Surface"
+
+work of art is a concept in conceptville. understand "art of work" as work of art. howto is "dig once with the pick in Variety Garden"
+
+enough man is a concept in conceptville. understand "man enough" as enough man. howto is "dig twice with the pick in Variety Garden"
+
 section soda club concepts
 
-the Total T is a concept in conceptville.
+the Total T is a concept in conceptville. howto is "visit the Soda Club"
 
-the Party T is a concept in conceptville.
+the Party T is a concept in conceptville. howto is "visit the Soda Club"
 
-the Go Rum is a concept in conceptville.
+the Go Rum is a concept in conceptville. howto is "ask the Punch Sucker about drinks"
 
-Rummy Gin is a concept in conceptville.
+Rummy Gin is a concept in conceptville. howto is "ask the Punch Sucker about drinks"
 
 section food concepts
 
@@ -9213,13 +9270,19 @@ bowled over is a concept in conceptville. howto is "eat greater cheese or cookie
 
 growing pains is a concept in conceptville. understand "pain/pains growing" as growing pains.. howto is "eat off-cheese"
 
+strike a balance is a concept in conceptville. howto is "try to take Tray A or Tray B"
+
 section outer concepts
+
+fish out of water is a concept in conceptville. understand "water out of fish" as fish out of water. howto is "examine the water in Pressure Pier"
 
 Bum Beach is a concept in conceptville. howto is "examine the bench in Down Ground"
 
 Sleeper Cell is a concept in conceptville. howto is "sleep then wait in Down Ground". understand "cell sleeper" as sleeper cell.
 
 hoth is a privately-named concept in conceptville. howto is "give the weed to Fritz". understand "hog on/off the high" and "high on/off the hog" as hoth. printed name is "high off the hog"
+
+bullfrog is a concept in conceptville. howto is "ask the Stool Toad how to get in trouble"
 
 Trust Brain is a concept in conceptville. howto is "examine dreadful penny or mind of peace"
 
@@ -10026,7 +10089,7 @@ carry out montying:
 		the rule succeeds;
 	repeat through table of monties:
 		if the topic understood matches montopic entry:
-			now on-off entry is whether or not on-off entry is true;
+			now on-off entry is whether or not on-off entry is false;
 			say "[test-title entry] is now [if on-off entry is true]on[else]off[end if].";
 			now found-toggle is true;
 	if found-toggle is false:
@@ -10036,6 +10099,7 @@ carry out montying:
 table of monties
 montopic (topic)	on-off	test-title (text)	test-action	topic-as-text (text)
 "legend/hint"	false	"LEGEND HINTING"	try-hinting rule	"legend/hint"
+"i/inventory"	false	"INVENTORY"	try-inventory rule	"i/inventory"
 "s/smell"	false	"SMELLING"	try-smelling rule	"s/smell"
 "l/listen"	false	"LISTENING"	try-listening rule	"l/listen"
 "sc/score"	false	"SCORING"	try-scoring rule	"sc/score"
@@ -10052,6 +10116,9 @@ this is the try-hinting rule:
 	hint-red;
 	hint-blue;
 	hint-big;
+
+this is the try-inventory rule:
+	try taking inventory;
 
 this is the try-smelling rule:
 	try smelling;

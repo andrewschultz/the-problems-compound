@@ -14,7 +14,7 @@ MAJOR CHANGES:
 --solving the Terminal now gets you to *two* hint items in the Note Crib below. They are mutually exclusive, but one hints the main game and one hints the side puzzle. I won't spoil them here, but they're in the source, and the Note Crib below.
 
 In addition, there's a lot of renaming of rooms, scenery and items.
---Bar Sinister -> Soda Club
+--Sinister Bar -> Soda Club
 --Crazy Drive -> Walker Street
 --Interest Compound -> Discussion Block
 --book crack -> book bank
@@ -52,12 +52,3 @@ And there's a lot of extra silliness, too.
 --expanded profanity-difference post-game section
 --implemented "what act goes to which death room" section
 --let you see all the sleep narratives at game's end without having to look at the source code
-
-==========================================
-
-STILL TO FIX BEFORE RELEASE
-
-MAJOR
---Fixed blocker bug in the Soda Club (formerly the Sinister Bar) when Lily calls the Stool Toad on you
-
---clearer chase paper is optional and also the terminal's puzzle now offers clues
