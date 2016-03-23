@@ -2783,7 +2783,7 @@ to decide whether verbs-unlocked: [I could probably check "duck sitting" but bes
 	decide no;
 
 to list-debug-cmds:
-	say "[line break]DEBUG COMMANDS: ================[line break][2da]J jumps you to the next bit from the Street, Lounge, Surface or Pier.[line break][2da]MONTY toggles every-move actions like listening and smelling. It may be more for programming testing[line break][2da]JERK tells you what to do with the jerks.[line break][2da]JGO gets rid of them[line break][2da]BROBYE kicks the Keeper Brothers out.[line break][2da]CTC/CTP clears the chase paper so you don't have to do that little dance.";
+	say "[line break]DEBUG COMMANDS: ================[line break][2da]J jumps you to the next bit from the Street, Lounge, Surface or Pier.[line break][2da]MONTY toggles every-move actions like listening and smelling. It may be more for programming testing[line break][2da]ACBYE gets rid of the Assassination Character.[line break][2da]JERK tells you what to do with the jerks.[line break][2da]JGO gets rid of them[line break][2da]BROBYE kicks the Keeper Brothers out.[line break][2da]CTC/CTP clears the chase paper so you don't have to do that little dance.";
 
 chapter hinting
 
@@ -6080,12 +6080,15 @@ to see-if-caught:
 
 to bye-paper:
 	say "[line break]As he begins rolling up the chase paper, he asks if you're one of those odd brainy types who might know how to fill up a chessboard with 31 tiles. Well, you take the opposite corners off...[paragraph break]";
-		wfak;
-		say "You show him the solution, and he starts yelling about how nobody could have figured that out for themselves unless they really have nothing to do with their time. As he runs off, he raves about how the hint below won't really help you with anything you couldn't figure out yourself, and besides there's another worse puzzle below only weird people would enjoy, and...[paragraph break]Hey, wait, you sort of enjoy weird puzzles. Not sure if you're up for it right now, but eh, something to do if you bog down up here.";
-		now assassination character is in lalaland;
-		now chase paper is in lalaland;
-		now belt below is below chipper wood;
-		now chipper wood is above belt below;
+	wfak;
+	say "You show him the solution, and he starts yelling about how nobody could have figured that out for themselves unless they really have nothing to do with their time. As he runs off, he raves about how the hint below won't really help you with anything you couldn't figure out yourself, and besides there's another worse puzzle below only weird people would enjoy, and...[paragraph break]Hey, wait, you sort of enjoy weird puzzles. Not sure if you're up for it right now, but eh, something to do if you bog down up here.";
+	open-below;
+		
+to open-below:
+	now assassination character is in lalaland;
+	now chase paper is in lalaland;
+	now belt below is below chipper wood;
+	now chipper wood is above belt below;
 
 to decide whether assassin-in-corner:
 	if ac-x is 0 and ac-y is 12:
@@ -10240,6 +10243,24 @@ carry out bro1ing:
 	now a random bro is in lalaland;
 	say "[list of stillblocking people] still in Questions Field.";
 	say "This is a test command only.";
+	the rule succeeds;
+
+chapter acbyeing
+
+[* this lets testers bypass the Assassination Character]
+
+acbyeing is an action out of world.
+
+understand the command "acbye" as something new.
+
+understand "acbye" as acbyeing.
+
+carry out acbyeing:
+	if assassination character is in lalaland:
+		say "The assassination character is already gone!";
+	else:
+		say "I've sent the assassination character to the great beyond. This is not reversible except with UNDO or RESTART.";
+		open-below instead;
 	the rule succeeds;
 
 chapter jerking
