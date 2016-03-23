@@ -178,6 +178,13 @@ when play begins (this is the sort ALL the tables rule) :
 	sort table of gadget action in random order;
 	sort the table of dutch-blab in random order;
 	sort the table of sleep stories in random order;
+	repeat through table of sleep stories:
+		if there is no b4-done entry:
+			now b4-done entry is false;
+		if there is no now-done entry:
+			now now-done entry is false;
+		if there is no af-done entry:
+			now af-done entry is false;
 	sort the table of horrendous books in random order;
 	sort the table of horrendous songs in random order;
 	continue the action;
@@ -841,6 +848,8 @@ instead of jumping:
 		say "You jump for the hatch, but you don't get close." instead;
 	if player is in tension surface:
 		say "[if mush is in lalaland]You can just enter the arch[else]No, it's too far to jump over the mouth[end if]." instead;
+	if player is in disposed well:
+		try entering yards hole instead;
 	if anno-allow is true:
 		if accel-ending:
 			say "That [random badfood in lalaland] you ate was enough of a mental jump. You don't have time for silly details--well, not until you restart the game." instead;
@@ -856,7 +865,7 @@ instead of jumping:
 	repeat through table of vu:
 		if jumpable entry is true:
 			if any-jumps is false:
-				say "You can make the following jumps [if player is not in smart street] on restart[end if]:[line break]";
+				say "You can make the following jumps[if player is not in smart street] on restart[end if]:[line break]";
 				now any-jumps is true;
 			say "[2da][descr entry][line break]";
 	if any-jumps is false:
@@ -1004,6 +1013,8 @@ check pushing:
 	if noun is ring:
 		say "Ring push, push ring... no, you need to do something else to the ring." instead;
 	say "[im-im]push." instead;
+
+understand the command "clear" as something new.
 
 chapter taking
 
@@ -1206,14 +1217,16 @@ check eating:
 	if noun is lolly:
 		say "You gag on it. What did you expect?";
 		ship-off Maintenance High instead;
-	if noun is condition mint:
-		now mint is in lalaland;
-		say "You feel healed." instead;
 	if noun is iron waffle:
 		say "No, it's iron." instead;
 	if noun is a person:
 		say "This isn't that sort of game." instead;
 	say "Even if you were terribly hungry...no." instead;
+
+the block tasting rule is not listed in any rulebook.
+
+check tasting:
+	try eating the noun instead;
 
 chapter removing
 
@@ -1357,8 +1370,16 @@ check asking it about:
 
 chapter turning
 
-before turning a person:
-	say "You are worried enough about changing yourself. No time to try to change other people." instead;
+before turning:
+	if noun is worm ring:
+		say "If you turned it, you still wouldn't be able to get inside it. You'll need to do something else to the worm--well, the ring." instead;
+	if noun is a person:
+		say "You are worried enough about changing yourself. No time to try to change other people[tnn]." instead;
+	else:
+		say "Weird. It feels like [the noun] tries to turn you[activation of u-turn][tnn]."
+
+to say tnn:
+	say "[one of] (TURN is not needed in The Problems Compound)[or][stopping]";
 
 understand the command "screw" as something new.
 
@@ -2542,6 +2563,7 @@ Nonsense No	"No-nonsense means, well, not taking any silliness." [xyzzy snark]
 Captain Obvious	"Captain Obvious is someone who always states what's readily apparent. Captain has a sarcastic meaning, here."
 Comedy of Errors	"A comedy of errors is so much going wrong it's funny. Errors of comedy would be so much wrong there's nothing to laugh at."
 Spelling Disaster	"Disaster spelling is, well, consonants clumped together. Spelling disaster is leading to bad news."
+u-turn	"A u-turn is when a car swivels in a huge circle to reverse direction. So if something tries to turn you, it bounces back."
 touch base	"To touch base is to get back to someone or return their call, especially if it's been a while. Versus a base touch, base being mean, so it's a bit more creepy."
 poke fun	"To poke fun is to make a joke, but poke can mean a lot of things--putter around, meddle, or maybe poke a friend to get their attention."
 Games Mind	"Mind games are messing with people's mind with lies or half-truths. A games mind might be more inclined to abstract puzzles." [start of game]
@@ -4718,6 +4740,8 @@ Tray A is a supporter in Meal Square. description is "It's just a tray, really. 
 
 Tray B is a supporter in Meal Square. description is "[if accel-ending]You still see [list of things on tray a] on Tray B, but you're pretty full[else]You're both scared and intrigued by Tray B, which reads, in small print NOT FOR THE UNSOPHISTICATED. Three unappetizing looking foods lie on it, labeled: [a list of things on tray b][end if]."
 
+the examine supporters rule is not listed in any rulebook.
+
 check examining a supporter when accel-ending:
 	say "You've already seen the food there and made your choice." instead;
 
@@ -4949,7 +4973,7 @@ for writing a paragraph about a supporter in Meal Square:
 a condition mint is an edible thing on Tray A. description is "It's one inch square, with SHARE WITH A FRIEND on it."
 
 check eating the condition mint:
-	say "No, it's for someone else." instead;
+	say "No, it's the sort you gift to someone else[if player does not have mint], but you can take it, to give it to someone else[end if]." instead;
 
 definition: a client (called cli) is befriended:
 	choose row with jerky-guy of cli in table of fingerings;
@@ -6161,15 +6185,18 @@ instead of doing something with scen-church:
 	if action is undrastic:
 		continue the action;
 	if current action is entering:
-		try going inside instead;
+		try going west instead;
 	say "You can't do much except enter or examine the church."
 
 check going nowhere in well:
 	if noun is down:
-		say "You have no way back up." instead;
+		say "The well is too dangerous. You don't see any way back up." instead;
 	say "The wood is too thick to the south." instead;
 
-the nine yards hole is scenery in Disposed Well. "It looks rather deep, too narrow to climb, [if story fish is off-stage]but maybe you could find something in it[else]and you doubt there's anything else in there[end if]."
+the nine yards hole is scenery in Disposed Well. "It looks too deep to reach into, and too narrow to climb, [if story fish is off-stage]but maybe with the right tools you could fish in the darkness below and find something[else]and you doubt there's anything else in there[end if]."
+
+check entering the yards hole:
+	try going down instead;
 
 understand "disposed/well" as the yards hole.
 
@@ -6214,6 +6241,9 @@ before talking to story fish:
 part Truth Home
 
 Truth Home is inside of Disposed Well. It is in Main Chunk. It is only-out. "Nothing feels wrong here, but it feels incredibly uncomfortable. It's also a small home, with the only exit back out."
+
+check going nowhere in truth home:
+	say "The only way out is, well, out." instead;
 
 for writing a paragraph about a person (called arg) in Truth Home:
 	say "[one of]A large guy berates a much smaller guy here. 'Proof fool! Proof fool! You need some emotion in your life! You just don't want to admit you're jealous of the jumps I can make! Me, the Logical Psycho!'[or]The Logical Psycho continues to berate the Proof Fool.[stopping]";
@@ -6652,15 +6682,15 @@ prompt	response	enabled	permit
 "Hi. I'm -- well, I'm looking for something. Uh, not religion."	grace-hi	1	1
 "What's wrong with the googly bowl?"	grace-googly	0	1
 "But if I restore your cult, won't you just indoctrinate people?"	grace-restore	0	1
-"Why doesn't the [bad-guy] approve?"	grace-baiter	0	1
+"Why did the [bad-guy] break the Googly Bowl?"	grace-baiter	0	1
 "[later-or-thanks]."	grace-bye	3	1
 
 table of quip texts (continued)
 quip	quiptext
-grace-hi	"'That is no matter,' they reply in unison. 'You are welcome here. Whether or not you are the one to repair our Googly Bowl.'"
+grace-hi	"'That is no matter,' they reply in unison. 'You are welcome here. Whether or not you are the one to repair our Googly Bowl. The [bad-guy] ordered it broken, and it was so.'"
 grace-googly	"'It only contains three of the four vital elements it needs to create transcendent happiness, or at least provide relaxing aromas, so it is useless. The metaphysics would take too long to explain, but trust us.'"
-grace-restore	"'Nonsense. We are not very charismatic. Nowhere near as charismatic as the [bad-guy]. Really, we just sit around and enjoy classic movies or cult movies without making too many snarky comments. But that's out of favor, thanks to the [bad-guy].'"
-grace-baiter	"'Well, he thinks it's a pretty weenie way to be smart, or enjoy things. Something about how people should try to make their lives almost as exciting as his, but not as exciting--that'd be like sacrilege against intellect or something. How being nice is nice and all, but...'"
+grace-restore	"'That is not our intention. We are not very charismatic. Nowhere near as charismatic as the [bad-guy]. Really, we just sit around and enjoy classic movies or cult movies without making too many snarky comments. But that's out of favor, thanks to the [bad-guy].'"
+grace-baiter	"'Well, he thinks this whole boring-nice thing is not the way to go. And if we could be boring-nice, we could be without the googly-bowl. Something too about how people should try to make their lives almost as exciting as his, but not as exciting--that'd be like sacrilege against intellect or something. How being nice is nice and all, but...'"
 grace-bye	"'Fare well in your journeys.'"
 
 after quipping when qbc_litany is litany of grace:
@@ -8647,11 +8677,11 @@ rule for amusing a victorious player:
 		if there is an anyrule entry:
 			follow the anyrule entry;
 		if the rule succeeded:
-			say "[2da][biglaff entry][line break]";
+			say "[2da][biglaff entry]";
 		else:
 			now missed-one is true;
 	if missed-one is true:
-		say "NOTE: both 'good' endings are mutually exclusive, so you missed a bit. But you can NOTICE ADVANCE to get back past the jerks and try the other, if you haven't seen it yet."
+		say "[paragraph break]NOTE: both 'good' endings are mutually exclusive, so you missed a bit. But you can NOTICE ADVANCE to get back past the jerks and try the other, if you haven't seen it yet."
 
 table of amusingness
 biglaff	anyrule
@@ -9235,7 +9265,9 @@ section misc concept(s)
 
 a turn of phrase is a concept in conceptville. understand "phrase of turn" as turn of phrase. howto is "empty command"
 
-wait your turn is a concept. understand "turn your wait" as wait your turn. howto is "waiting"
+wait your turn is a concept in conceptville. understand "turn your wait" as wait your turn. howto is "wait"
+
+a u-turn is a concept in conceptville. understand "u turn" as u-turn. howto is "turn an inanimate object"
 
 section intro concepts
 
@@ -9694,7 +9726,9 @@ test bestprep with "s/s/w/ctc/d/a bad face/d/get crocked half/u/u/e/e/e/ne/s/nw/
 
 test bestprep2 with "s/s/w/ctc/d/a bad face/d/get crocked half/u/u/e/e/e/e/nw/s/ne/w/se/n/sw/w/w/n/n"
 
-test winbest with "test startit/test blood/test soul/test big/purloin quiz pop/n/n/drink quiz pop/test bestprep/test final/away hammer"
+test winbest with "test startit/test blood/test soul/test big/purloin quiz pop/n/n/test bestprep/drink quiz pop/test final/away hammer"
+
+test winbest2 with "test startit/test blood/test soul/test big/purloin quiz pop/n/n/test bestprep2/drink quiz pop/test final/away hammer"
 
 test winfast with "gonear freak control/1/1/1/1/1/1/1/1"
 
