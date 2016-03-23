@@ -1283,16 +1283,16 @@ the print standard inventory rule is not listed in any rulebook.
 
 check taking inventory (this is the new standard inventory rule):
 	if accel-ending:
-		say "You aren't worried about material possessions. You've got a new you that understands what's what, now." instead;
+		say "You have a new outlook on life, and you're ready to show it. No more silly off face[activation of face off], either." instead;
 	if number of things carried by player is 1:
 		say "You're empty-handed.[line break]";
 	else:
 		say "You are carrying:";
-	repeat with X running through things carried by player:
-		if X is bad face or X is face of loss:
-			do nothing;
-		else:
-			say "  [X][line break]";
+		repeat with X running through things carried by player:
+			if X is bad face or X is face of loss:
+				do nothing;
+			else:
+				say "  [X][line break]";
 	say "[line break]";
 	if player carries bad face:
 		say "You're wearing a bad face.";
@@ -2555,6 +2555,7 @@ Thought for food	"Food for thought is something to think about."
 Tray S	"Stray. In other words, it strayed from Meal Square."
 Tray T	"A tea tray. To go with food."
 Tray X	"It is an ex-tray."
+face off	"An off face probably doesn't look right, but a face off is when you challenge someone, like the game forces you to in the accelerated Tray B endings."
 Bowled Over	"Bowled over means unable to deal with things. Over-bold means too confident."
 Growing Pains	"Growing pains are temporary setbacks that help you get going. Pain's growing is just a complaint."
 Bum Beach	"A beach bum is someone who wanders on the beach. Maybe he lives there in a shack too."
@@ -2783,7 +2784,7 @@ to decide whether verbs-unlocked: [I could probably check "duck sitting" but bes
 	decide no;
 
 to list-debug-cmds:
-	say "[line break]DEBUG COMMANDS: ================[line break][2da]J jumps you to the next bit from the Street, Lounge, Surface or Pier.[line break][2da]MONTY toggles every-move actions like listening and smelling. It may be more for programming testing[line break][2da]ACBYE gets rid of the Assassination Character.[line break][2da]JERK tells you what to do with the jerks.[line break][2da]JGO gets rid of them[line break][2da]BROBYE kicks the Keeper Brothers out.[line break][2da]CTC/CTP clears the chase paper so you don't have to do that little dance.";
+	say "[line break]DEBUG COMMANDS: ================[line break][2da]J jumps you to the next bit from the Street, Lounge, Surface or Pier.[line break][2da]MONTY toggles every-move actions like listening and smelling. It may be more for programming testing[line break][2da]ACBYE/CTC/CTP gets rid of the Assassination Character and chase paper.[line break][2da]JERK tells you what to do with the jerks.[line break][2da]JGO gets rid of them[line break][2da]BROBYE kicks the Keeper Brothers out.";
 
 chapter hinting
 
@@ -3529,6 +3530,7 @@ carry out noticeadvanceing:
 	the rule succeeds;
 
 to notice-advance:
+	move-puzzlies;
 	now jump-level is 4;
 	move player to questions field;
 	now all clients are in lalaland;
@@ -4821,7 +4823,7 @@ check eating off cheese:
 	say "Hmm. It seems edible--well, eatable. You might not be the same person after eating it. Try eating it anyway?";
 	unless the player yes-consents:
 		say "[line break]OK." instead;
-	say "Ugh. Bleah. It feels and tastes awful--but if you sat through this, you can sit through an awkward conversation. Not that you'll do anything like cause a few. Pain's growing... pain's growing...";
+	say "Ugh. Bleah. It feels and tastes awful--but if you sat through this, you can sit through an awkward conversation. Not that you'll be over-bold[activation of bowled over] and cause a few. [activation of growing pains]Pain's growing... pain's growing...";
 	now off cheese is in lalaland;
 	force-swear;
 	now off-eaten is true instead;
@@ -7060,7 +7062,7 @@ check going in service community:
 		say "[good-text entry][line break]";
 		now last-dir is noun;
 		prevent undo;
-		if idol-progress is 6:
+		if idol-progress is 7:
 			now thoughts idol is in lalaland;
 			move player to idiot village, without printing a room description;
 			move crocked half to lalaland;
@@ -7130,7 +7132,7 @@ good-text	bad-text	undo-text
 "The thoughts idol seems to twitch back and forth while following you."	"You feel frozen and collapse. The idol's contempt can't hide a legitimate frown. You slipped up, but you got pretty far."	"Halfway there...maybe if you get momentum, you'll nail the pattern down for good."
 "The thoughts idol barely catches its gaze up with you."	"The idol gives that look--you know it--'Smart, but no common sense.' Still--you can give it another shot."	"Would'ves won't help here. You've actually gotten in better shape, walking around just thinking."
 "The thoughts idol warps and seems to wobble a bit but still looks at you."	"You--well, confidence or whatever it was let you down."	"Geez. You were that close. But no chance to stew. You bet you could do it, next time. But you can't say 'Oh, I meant to...'"
-"The thoughts idol spins, coughs, and with a final buzz, its eyes spark and go out."	"You must have been close. But no."	"The idol's look reminds you of when you got a really hard math problem right except for adding 1 and 6 to get 8. People laughed at you. It hurt."
+"The thoughts idol spins, coughs, and with a final buzz, it flips into the air and lands on its head! its eyes spark and go out, and it cracks down the middle. All of Idiot Village comes out to cheer your victory!"	"You must have been close. But no."	"The idol's look reminds you of when you got a really hard math problem right except for adding 1 and 6 to get 8. People laughed at you. It hurt."
 
 part Speaking Plain
 
@@ -7690,7 +7692,10 @@ definition: a person (called p) is stillblocking:
 	decide no;
 
 for writing a paragraph about a person (called bro) in Questions Field:
-	say "[one of]Three brothers block the way ahead to the north. They're imposing, each in his own way. 'Greetings, Traveler. We are the Keeper Brothers: Brother Big, Brother Blood, and Brother Soul. We must guard Freak Control, headquarters of the [bad-guy]. It is the job we are best suited for, and we are lucky the [bad-guy] has given it to us. He said we are free to do something clearly better if we can find it. We have not, yet.'[or][list of stillblocking people] block[if bros-left is 1]s[end if] your way north. '[if bros-left is 1]I'm[else]We're[end if] sorry. It's [if bros-left is 1]my[else]our[end if] job. Until we find a purpose.'[stopping]";
+	if jump-level < 4:
+		say "[one of]Three brothers block the way ahead to the north. They're imposing, each in his own way. 'Greetings, Traveler. We are the Keeper Brothers: Brother Big, Brother Blood, and Brother Soul. We must guard Freak Control, headquarters of the [bad-guy]. It is the job we are best suited for, and we are lucky the [bad-guy] has given it to us. He said we are free to do something clearly better if we can find it. We have not, yet.'[or][list of stillblocking people] block[if bros-left is 1]s[end if] your way north. '[if bros-left is 1]I'm[else]We're[end if] sorry. It's [if bros-left is 1]my[else]our[end if] job. Until we find a purpose.'[stopping]";
+	else:
+		say "You've also disposed of the brothers with the NOTICE ADVANCE command.";
 	now brother's keepers is mentioned;
 	now brother big is mentioned;
 	now brother blood is mentioned;
@@ -8121,12 +8126,14 @@ understand "worm round" as a mistake("You consider worming around, but you're no
 
 understand "hammer [text]" and "[text] hammer" as a mistake ("You look at the hammer, hoping it will change, but nothing happens. Maybe another word.") when player is in Airy Station.
 
+understand "hammer away" and "hammer home" and "hammer lock" as a mistake ("Wrong way round.") when player is in Airy Station.
+
 the hammer is a thing in Airy Station. description of hammer is "It's a nondescript hammer. You feel a power, though, as you carry it--as if you were able to change it, if you knew how to describe it."
 
 after printing the name of the hammer when taking inventory:
 	say " (much plainer than it should be)";
 
-instead of doing something with hammer:
+before doing something with hammer:
 	let q be right-adj;
 	if q is -1:
 		say "That should have worked. But it didn't. You must be close, though." instead;
@@ -8267,15 +8274,16 @@ to go-back-home:
 		say "Yay! This worked. I am blocking the ending so you can try again.";
 		continue the action;
 	score-now;
-	say "The door leads to your closet and vanishes when you walk through. You're hungry after all that running around. Downstairs you find some old cereal you got sick of--but now you realize it could be Procrastination Cereal, Moping Cereal, or anything else--a small joke you'll be able to use for a while. Especially since it's hardly killer cereal--not even close.";
+	say "The door leads to your closet and vanishes when you walk through. You're hungry after all that running around. Downstairs you find some old cereal you got sick of--certainly not killer cereal (ha ha) but now you realize it could be Procrastination Cereal, Moping Cereal, or even something goofy like Monogamy Cereal--that little reverse will feel fresh for a while.";
 	wfak;
 	say "You laugh at your own joke, which brings your parents out, complaining your late night moping is worse than ever. You promise them it'll get better.";
 	wfak;
-	say "Back in your bedroom, you have a thought. The Baiter Master saying you miss obvious things. Another look at [i]The Phantom Tolllbooth[r]: the inside flap. 'Other books you may enjoy.' There will be other obvious things you should've discovered. But it's good you found something right away, back in the normal world. You're confident you'll find more--and that people like the Baiter Master aren't the accelerated life experts you built them up to be.";
+	say "Back in your bedroom, you have a thought. The Baiter Master saying you miss obvious things. Another look at [i]The Phantom Tolllbooth[r]: the inside flap. 'Other books you may enjoy.' There will be other obvious things you should've discovered. But it's good you found something right away, back in the normal world. You're confident you'll find more--and that people like the Baiter Master or his allies aren't the accelerated life experts you built them up to be.";
 	unlock-verb "anno";
 	print-replay-message;
 	see-if-show-terminal;
 	end the story finally saying "Wisdom Received!";
+	the rule succeeds;
 
 to see-if-show-terminal:
 	if terminal is in lalaland, continue the action;
@@ -9269,11 +9277,13 @@ Tray T is a concept in conceptville. howto is "enter Meal Square".
 
 Tray X is a concept in conceptville. howto is "enter Meal Square".
 
-bowled over is a concept in conceptville. howto is "eat greater cheese or cookie"
+bowled over is a concept in conceptville. howto is "eat Tray B food"
 
 growing pains is a concept in conceptville. understand "pain/pains growing" as growing pains.. howto is "eat off-cheese"
 
 strike a balance is a concept in conceptville. howto is "try to take Tray A or Tray B"
+
+face off is a concept in conceptville. howto is "take inventory after eating Tray B food"
 
 section outer concepts
 
@@ -9401,12 +9411,10 @@ after reading a command:
 			unless the player's command includes "xp" or the player's command includes "explain":
 				say "The mist doesn't seem as important as the ring." instead;
 	if player is in airy station:
-		if the player's command includes "home hammer":
-			try examining hammer instead;
-		if the player's command includes "away hammer":
-			try examining hammer instead;
-		if the player's command includes "lock hammer":
-			try examining hammer instead;
+		if the player's command includes "home hammer" or the player's command includes "away hammer" or the player's command includes "lock hammer":
+			try examining hammer;
+			consider the shutdown rules;
+			the rule succeeds;
 
 volume swear deciding
 
@@ -9681,6 +9689,12 @@ test lastroom with "test startit/test blood/test soul/test big/purloin quiz pop/
 test winit with "test startit/test blood/test soul/test big/purloin quiz pop/n/n/drink quiz pop/test final"
 
 test winbab with "test street-bab/test lounge/test arch-bab/test pier-bab/test blood-bab/test soul-bab/test big/purloin quiz pop/n/n/drink quiz pop/test final"
+
+test bestprep with "s/s/w/ctc/d/a bad face/d/get crocked half/u/u/e/e/e/ne/s/nw/e/sw/n/se/w/w/w/n/n"
+
+test bestprep2 with "s/s/w/ctc/d/a bad face/d/get crocked half/u/u/e/e/e/e/nw/s/ne/w/se/n/sw/w/w/n/n"
+
+test winbest with "test startit/test blood/test soul/test big/purloin quiz pop/n/n/drink quiz pop/test bestprep/test final/away hammer"
 
 test winfast with "gonear freak control/1/1/1/1/1/1/1/1"
 
@@ -9994,8 +10008,7 @@ carry out nu-skiping:
 		move player to round lounge;
 		now player has gesture token;
 	else if number understood is 2:
-		move player to tension surface;
-		now player has gesture token;
+		duck-sitting;
 	else if number understood is 3:
 		knock-hard;
 	else if number understood is 4:
@@ -10012,7 +10025,8 @@ carry out nu-skiping:
 			now block-pier is true;
 			now block-other is true;
 	else if number understood is 7:
-		duck-sitting;
+		now all clients are in lalaland;
+		now player has quiz pop;
 	else if number understood is 8:
 		move player to freak control;
 	else if number understood is 9:
@@ -10032,31 +10046,7 @@ check going when block-pier is true:
 		say "This is testing, so I won't allow you to move to the side." instead;
 
 to say skip-list:
-	say "1: Round Lounge 2: Tension Surface 3: Pressure Pier 4: Jerk Circle 5: All 3 given to Brothers 6: Jerks solved 7: Final chat 8: Out Mist 9: Airy Station[line break]100. Chipper Wood/Assassination Character 101. Brothers gone, in Bottom Rock 102. Brothers gone, have crocked half in Idiot Village 103. Brothers gone, idol gone[line break]"
-
-chapter ctcing
-
-[* ctc = clear the chase/ctp = clear the paper]
-
-ctcing is an action out of world.
-
-understand the command "ctc" as something new.
-understand the command "ctp" as something new.
-
-understand "ctc" as ctcing.
-understand "ctp" as ctcing.
-
-carry out ctcing:
-	if assassination is in lalaland:
-		say "He's already gone." instead;
-	if p-c is true:
-		now p-c is false;
-	say "Ok, bye-bye AC.";
-	now belt below is below chipper wood;
-	now chipper wood is above belt below;
-	now assassination character is in lalaland;
-	now chase paper is in lalaland;
-	the rule succeeds;
+	say "1: Round Lounge 2: Tension Surface 3: Pressure Pier 4: Go to Jerk Circle 5: Brothers gone, Jerks not 6: Notice Advance (3 jerks solved) 7: Jerks Solved 8: Final Chat 9: Airy Station[line break]100. Chipper Wood/Assassination Character 101. Brothers gone, in Bottom Rock 102. Brothers gone, have crocked half in Idiot Village 103. Brothers gone, idol gone[line break]"
 
 chapter montying
 
@@ -10108,6 +10098,10 @@ montopic (topic)	on-off	test-title (text)	test-action	topic-as-text (text)
 "sc/score"	false	"SCORING"	try-scoring rule	"sc/score"
 "dir/noway"	false	"GOING NOWHERE"	try-wid rule	"dir/noway"
 "donote/note"	false	"DONOTEING"	try-noting rule	"donote/note"
+"mood"	false	"MOOD tracking"	try-mood rule	"mood"
+
+this is the try-mood rule:
+	say "Your mood is [your-mood].";
 
 this is the try-noting rule:
 	try donoteing;
@@ -10252,7 +10246,11 @@ chapter acbyeing
 acbyeing is an action out of world.
 
 understand the command "acbye" as something new.
+understand the command "ctc" as something new.
+understand the command "ctp" as something new.
 
+understand "ctc" as acbyeing.
+understand "ctp" as acbyeing.
 understand "acbye" as acbyeing.
 
 carry out acbyeing:
