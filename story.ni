@@ -8209,7 +8209,7 @@ the hammer is a thing in Airy Station. description of hammer is "It's a nondescr
 after printing the name of the hammer when taking inventory:
 	say " (much plainer than it should be)";
 
-before doing something with hammer:
+instead of doing something with hammer:
 	let q be right-adj;
 	if q is -1:
 		say "That should have worked. But it didn't. You must be close, though." instead;
@@ -8804,7 +8804,8 @@ final question wording	only if victorious	topic	final response rule	final respon
 "see the SINS the jerks didn't commit"	true	"SINS"	sin-see rule	sinseeing
 "see the SPECIAL ways to see a bit more of the Compound"	true	"SPECIAL"	special-see rule	specialseeing
 "see how to get to each of the BAD END rooms"	true	"BAD/END" or "BAD END"	bad-end-see rule	badendseeing
-"see any reversible CONCEPTS you missed"	true	"CONCEPTS"	concept-see rule	conceptseeing
+"see any reversible CONCEPTS you missed, or ALL"	true	"CONCEPTS"	concept-see rule	conceptseeing
+--	true	"ALL"	concept-all rule	conceptseeing
 "see all the DREAM sequence stories"	true	"DREAM/DREAMS"	dream-see rule	dreamseeing
 "see the plausible MISSES for the Terminal"	true	"MISSES"	alt-answer rule	altanswering
 
@@ -8854,6 +8855,13 @@ chapter concept
 
 conceptseeing is an activity.
 
+see-all-concepts is a truth state that varies.
+
+this is the concept-all rule:
+	now see-all-concepts is true;
+	consider the concept-see rule;
+	now see-all-concepts is false;
+
 this is the concept-see rule:
 	say "There are [number of concepts] total concepts. I'll pause.";
 	let curcon be 0;
@@ -8862,7 +8870,8 @@ this is the concept-see rule:
 			say "[X] needs an explanation. BUG.";
 		else:
 			choose row with exp-thing of X in table of explanations;
-			say "[X]: [exp-text entry] ([howto of X])[line break]";
+			if X is not in lalaland or see-all-concepts is true:
+				say "[b][X][r]: [exp-text entry] ([howto of X])[line break]";
 		increment curcon;
 		if the remainder after dividing curcon by 10 is 0:
 			wfak;
