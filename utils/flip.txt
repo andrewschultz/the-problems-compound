@@ -2171,3 +2171,132 @@ pantisocratical to tisocratical-pan
 pantisocratists to tisocratists-pan
 pantopragmatics to topragmatics-pan
 ====Found 539/178 for pan
+========hammer
+hammer to -hammer
+hammers to s-hammer
+hammered to ed-hammer *** word
+hammerer to er-hammer *** word
+hammerers to ers-hammer *** word
+hammering to ing-hammer
+hammerkop to kop-hammer *** word
+hammerman to man-hammer *** word
+hammermen to men-hammer *** word
+hammertoe to toe-hammer *** word
+hammerhead to head-hammer *** word
+hammerings to ings-hammer
+hammerkops to kops-hammer *** word
+hammerless to less-hammer *** word
+hammerlock to lock-hammer *** word
+hammertoes to toes-hammer *** word
+hammercloth to cloth-hammer *** word
+hammerheads to heads-hammer *** word
+hammerlocks to locks-hammer *** word
+hammerstone to stone-hammer *** word
+hammercloths to cloths-hammer *** word
+hammerheaded to headed-hammer *** word
+hammerstones to stones-hammer *** word
+====Found 23/19 for hammer
+========caps
+caps to -caps
+capsid to id-caps *** word
+capsids to ids-caps *** word
+capsize to ize-caps
+capstan to tan-caps *** word
+capsule to ule-caps *** word
+capsicin to icin-caps
+capsicum to icum-caps
+capsidal to idal-caps
+capsizal to izal-caps
+capsized to ized-caps
+capsizes to izes-caps
+capsomer to omer-caps *** word
+capstans to tans-caps *** word
+capstone to tone-caps *** word
+capsular to ular-caps
+capsuled to uled-caps
+capsules to ules-caps *** word
+capsaicin to aicin-caps
+capsicins to icins-caps
+capsicums to icums-caps
+capsizals to izals-caps
+capsizing to izing-caps
+capsomere to omere-caps
+capsomers to omers-caps *** word
+capstones to tones-caps *** word
+capsulary to ulary-caps
+capsulate to ulate-caps
+capsuling to uling-caps
+capsulise to ulise-caps
+capsulize to ulize-caps
+capsaicins to aicins-caps
+capsizable to izable-caps
+capsomeres to omeres-caps
+capsulated to ulated-caps
+capsulised to ulised-caps
+capsulises to ulises-caps
+capsulized to ulized-caps
+capsulizes to ulizes-caps
+capsulation to ulation-caps
+capsulising to ulising-caps
+capsulizing to ulizing-caps
+capsulations to ulations-caps
+====Found 43/10 for caps
+========lock
+lock to -lock
+locks to s-lock
+locked to ed-lock *** word
+locker to er-lock *** word
+locket to et-lock *** word
+lockup to up-lock *** word
+lockage to age-lock *** word
+lockbox to box-lock *** word
+lockers to ers-lock *** word
+lockets to ets-lock
+lockful to ful-lock
+locking to ing-lock
+lockjaw to jaw-lock *** word
+lockman to man-lock *** word
+lockmen to men-lock *** word
+locknut to nut-lock *** word
+lockout to out-lock *** word
+lockram to ram-lock *** word
+lockset to set-lock *** word
+lockups to ups-lock *** word
+lockable to able-lock *** word
+lockages to ages-lock *** word
+lockaway to away-lock *** word
+lockdown to down-lock *** word
+lockfast to fast-lock *** word
+lockfuls to fuls-lock
+lockings to ings-lock
+lockjaws to jaws-lock *** word
+locknuts to nuts-lock *** word
+lockouts to outs-lock *** word
+lockpick to pick-lock *** word
+lockrams to rams-lock *** word
+locksets to sets-lock *** word
+locksman to sman-lock
+locksmen to smen-lock
+lockstep to step-lock *** word
+lockaways to aways-lock *** word
+lockboxes to boxes-lock *** word
+lockdowns to downs-lock *** word
+lockhouse to house-lock *** word
+lockmaker to maker-lock *** word
+lockpicks to picks-lock *** word
+locksmith to smith-lock *** word
+locksteps to steps-lock *** word
+lockhouses to houses-lock *** word
+lockkeeper to keeper-lock *** word
+lockmakers to makers-lock *** word
+locksmiths to smiths-lock *** word
+lockstitch to stitch-lock *** word
+lockkeepers to keepers-lock *** word
+locksmithery to smithery-lock *** word
+locksmithing to smithing-lock *** word
+lockstitched to stitched-lock *** word
+lockstitches to stitches-lock *** word
+locksmithings to smithings-lock
+lockstitching to stitching-lock *** word
+locksmitheries to smitheries-lock *** word
+====Found 57/47 for lock

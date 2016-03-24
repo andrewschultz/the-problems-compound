@@ -8228,17 +8228,21 @@ understand "man hammer" as a mistake ("So, this game isn't badly cartoonish enou
 
 understand "ban hammer" as a mistake ("You do feel confident you could now be an Internet forum mod. But--if you banned the hammer, you'd never get back home.") when player is in Airy Station.
 
+understand "time hammer" and "hammer time" as a mistake ("A voice says 'STOP!' Your pants momentarily feel baggy. Maybe it doesn't quite need to be that sort of hammer.") when player is in Airy Station
+
+understand "toe hammer" and "hammer toe" as a mistake ("The mentality crowd might enjoy that sort of comic relief, but you wouldn't.") when player is in Airy Station
+
 understand "hammer jack" as a mistake ("There's probably someone named Jack in the crowd, but even if he deserved it, it'd take too long to go and ask.") when player is in Airy Station.
 
 understand "hammer ninny" as a mistake("This is a nonviolent mistake, and besides, everyone here has been slandered as an idiot, not a ninny.") when player is in Airy Station.
 
 understand "hammer sledge" as a mistake("If there were a sledge, you wouldn't want to destroy it. Trust me, I know what I'm doing. And you will, soon, too.") when player is in Airy Station.
 
-understand "worm round" as a mistake("You consider worming around, but you're not very good at flattery, and there's nobody to flatter. Not that it's worth being good at flattery.") when player is in Airy Station.
-
 understand "hammer [text]" and "[text] hammer" as a mistake ("You look at the hammer, hoping it will change, but nothing happens. Maybe another word.") when player is in Airy Station.
 
 understand "hammer away" and "hammer home" and "hammer lock" as a mistake ("Wrong way round.") when player is in Airy Station.
+
+understand "lock [text]" and "[text] lock" and "[text] caps" and "caps [text]" as a mistake ("The lock caps remain solid. Maybe you could augment the hammer, though.") when player is in Airy Station.
 
 the hammer is a thing in Airy Station. description of hammer is "It's a nondescript hammer. You feel a power, though, as you carry it--as if you were able to change it, if you knew how to describe it."
 
@@ -8326,6 +8330,8 @@ check entering worm ring:
 to good-end:
 	say "The Whole Worm is bigger than you thought. You hide deeper and deeper. A passage turns down, and then here's a door. Through it you see your bedroom.";
 	go-back-home;
+
+understand "round worm" and "worm round" as a mistake("You consider worming around, but you're not very good at flattery, and there's nobody to flatter. Not that it's worth being good at flattery.") when player is in Out Mist.
 
 understand "like ring" and "ring like" and "ringlike" as a mistake("You sort of like the ring the way it is, but you'd like it much better another way.") when player is in Out Mist.
 
