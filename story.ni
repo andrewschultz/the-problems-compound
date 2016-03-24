@@ -2801,7 +2801,7 @@ to decide whether verbs-unlocked: [I could probably check "duck sitting" but bes
 	decide no;
 
 to list-debug-cmds:
-	say "[line break]DEBUG COMMANDS: ================[line break][2da]J jumps you to the next bit from the Street, Lounge, Surface or Pier.[line break][2da]MONTY toggles every-move actions like listening and smelling. It may be more for programming testing[line break][2da]ACBYE/CTC/CTP gets rid of the Assassination Character and chase paper.[line break][2da]JERK tells you what to do with the jerks.[line break][2da]JGO gets rid of them[line break][2da]BROBYE kicks the Keeper Brothers out.";
+	say "[line break]DEBUG COMMANDS: ================[line break][2da]J jumps you to the next bit from the Street, Lounge, Surface or Pier.[line break][2da]MONTY toggles every-move actions like listening and smelling. It may be more for programming testing[line break][2da]ACBYE/CTC/CTP gets rid of the Assassination Character and chase paper.[line break][2da]JERK tells you what to do with the jerks.[line break][2da]JGO gets rid of them[line break][2da]BROBYE kicks the Keeper Brothers out.[2da]VIC gives regular victory, VICX gives extra good victory";
 
 chapter metaing
 
@@ -10270,6 +10270,7 @@ carry out montying:
 
 table of monties
 montopic (topic)	on-off	test-title (text)	test-action	topic-as-text (text)
+"exits"	false	"LISTING EXITS"	try-exits rule	"exits"
 "legend/hint"	false	"LEGEND HINTING"	try-hinting rule	"legend/hint"
 "i/inventory"	false	"INVENTORY"	try-inventory rule	"i/inventory"
 "s/smell"	false	"SMELLING"	try-smelling rule	"s/smell"
@@ -10279,14 +10280,8 @@ montopic (topic)	on-off	test-title (text)	test-action	topic-as-text (text)
 "donote/note"	false	"DONOTEING"	try-noting rule	"donote/note"
 "mood"	false	"MOOD tracking"	try-mood rule	"mood"
 
-this is the try-mood rule:
-	say "Your mood is [your-mood].";
-
-this is the try-noting rule:
-	try donoteing;
-
-this is the try-wid rule:
-	try going widdershins;
+this is the try-exits rule:
+	try exitsing;
 
 this is the try-hinting rule:
 	hint-red;
@@ -10305,11 +10300,24 @@ this is the try-listening rule:
 this is the try-scoring rule:
 	try requesting the score;
 
+this is the try-wid rule:
+	try going widdershins;
+
+this is the try-noting rule:
+	try donoteing;
+
+this is the try-mood rule:
+	say "Your mood (upper right status) is [your-mood].";
+
 every turn (this is the full monty test rule) :
+	let test-output-yet be false;
 	repeat through table of monties:
 		if on-off entry is true:
+			now test-output-yet is true;
 			say "========[test-title entry]:[line break]";
 			follow the test-action entry;
+	if test-output-yet is true:
+		say "========END TESTS[line break]";
 
 chapter nobooing
 
@@ -10550,6 +10558,34 @@ after printing the locale description when location of player is unvisited:
 	if amap-on is true:
 		try maping;
 	continue the action;
+
+chapter vicing
+
+vicing is an action out of world.
+
+understand the command "vic" as something new.
+
+understand "vic" as vicing.
+
+carry out vicing:
+	move the player to out mist, without printing a room description;
+	end the story finally saying "LISTS CHECK (GOOD ENDING)";
+	consider the shutdown rules;
+	the rule succeeds;
+
+chapter vicxing
+
+vicxing is an action out of world.
+
+understand the command "vicx" as something new.
+
+understand "vicx" as vicxing.
+
+carry out vicxing:
+	move the player to airy station, without printing a room description;
+	end the story finally saying "LISTS CHECK (VERY GOOD ENDING)";
+	consider the shutdown rules;
+	the rule succeeds;
 
 chapter jing
 

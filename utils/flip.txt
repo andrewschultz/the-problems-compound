@@ -2300,3 +2300,172 @@ locksmithings to smithings-lock
 lockstitching to stitching-lock *** word
 locksmitheries to smitheries-lock *** word
 ====Found 57/47 for lock
+========hazel
+hazel to -hazel
+hazels to s-hazel
+hazelly to ly-hazel
+hazelhen to hen-hazel *** word
+hazelnut to nut-hazel *** word
+hazelhens to hens-hazel *** word
+hazelnuts to nuts-hazel *** word
+====Found 7/4 for hazel
+========nut
+nut to -nut
+nuts to s-nut
+nutso to so-nut *** word
+nutsy to sy-nut
+nutty to ty-nut
+nutant to ant-nut *** word
+nutate to ate-nut *** word
+nutlet to let-nut *** word
+nutmeg to meg-nut *** word
+nutria to ria-nut *** word
+nutted to ted-nut *** word
+nutter to ter-nut
+nutated to ated-nut
+nutates to ates-nut *** word
+nutcase to case-nut *** word
+nutgall to gall-nut *** word
+nutlets to lets-nut *** word
+nutlike to like-nut *** word
+nutmeal to meal-nut *** word
+nutmeat to meat-nut *** word
+nutmegs to megs-nut *** word
+nutpick to pick-nut *** word
+nutrias to rias-nut *** word
+nutsier to sier-nut
+nutters to ters-nut
+nuttery to tery-nut
+nuttier to tier-nut *** word
+nuttily to tily-nut
+nutting to ting-nut *** word
+nutwood to wood-nut *** word
+nutarian to arian-nut
+nutating to ating-nut
+nutation to ation-nut
+nutbrown to brown-nut *** word
+nutcases to cases-nut *** word
+nutgalls to galls-nut *** word
+nutgrass to grass-nut *** word
+nuthatch to hatch-nut *** word
+nuthouse to house-nut *** word
+nutmeals to meals-nut *** word
+nutmeats to meats-nut *** word
+nutmeggy to meggy-nut
+nutpicks to picks-nut *** word
+nutrient to rient-nut
+nutsedge to sedge-nut *** word
+nutshell to shell-nut *** word
+nutsiest to siest-nut
+nuttiest to tiest-nut
+nuttings to tings-nut *** word
+nutwoods to woods-nut *** word
+nutarians to arians-nut
+nutations to ations-nut
+nutbutter to butter-nut *** word
+nuthouses to houses-nut *** word
+nutjobber to jobber-nut *** word
+nutmegged to megged-nut
+nutpecker to pecker-nut *** word
+nutrients to rients-nut
+nutriment to riment-nut
+nutrition to rition-nut
+nutritive to ritive-nut
+nutsedges to sedges-nut *** word
+nutshells to shells-nut *** word
+nutteries to teries-nut
+nuttiness to tiness-nut
+nutational to ational-nut
+nutbutters to butters-nut *** word
+nutcracker to cracker-nut *** word
+nutgrasses to grasses-nut *** word
+nuthatches to hatches-nut *** word
+nutjobbers to jobbers-nut *** word
+nutmegging to megging-nut
+nutpeckers to peckers-nut *** word
+nutriments to riments-nut
+nutritions to ritions-nut
+nutritious to ritious-nut
+nutritives to ritives-nut
+nutcrackers to crackers-nut *** word
+nutrimental to rimental-nut
+nutritional to ritional-nut
+nutritively to ritively-nut
+nuttinesses to tinesses-nut
+nutritionary to ritionary-nut
+nutritionist to ritionist-nut
+nutritiously to ritiously-nut
+nutraceutical to raceutical-nut
+nutritionally to ritionally-nut
+nutritionists to ritionists-nut
+nutraceuticals to raceuticals-nut
+nutritiousness to ritiousness-nut
+====Found 90/46 for nut
+========iron
+iron to -iron
+irone to e-iron
+irons to s-iron
+irony to y-iron
+ironed to ed-iron *** word
+ironer to er-iron *** word
+irones to es-iron *** word
+ironic to ic-iron
+ironers to ers-iron *** word
+ironier to ier-iron
+ironies to ies-iron
+ironing to ing-iron
+ironise to ise-iron
+ironist to ist-iron
+ironize to ize-iron
+ironman to man-iron *** word
+ironmen to men-iron *** word
+ironbark to bark-iron *** word
+ironclad to clad-iron *** word
+ironical to ical-iron
+ironiest to iest-iron
+ironings to ings-iron
+ironised to ised-iron
+ironises to ises-iron
+ironists to ists-iron
+ironized to ized-iron
+ironizes to izes-iron
+ironless to less-iron *** word
+ironlike to like-iron *** word
+ironness to ness-iron *** word
+ironside to side-iron *** word
+ironware to ware-iron *** word
+ironweed to weed-iron *** word
+ironwood to wood-iron *** word
+ironwork to work-iron *** word
+ironbarks to barks-iron *** word
+ironbound to bound-iron *** word
+ironclads to clads-iron *** word
+ironising to ising-iron
+ironizing to izing-iron
+ironsides to sides-iron *** word
+ironsmith to smith-iron *** word
+ironstone to stone-iron *** word
+ironwares to wares-iron *** word
+ironweeds to weeds-iron *** word
+ironwoman to woman-iron *** word
+ironwomen to women-iron *** word
+ironwoods to woods-iron *** word
+ironworks to works-iron *** word
+ironfisted to fisted-iron *** word
+ironhanded to handed-iron *** word
+ironically to ically-iron
+ironmaster to master-iron *** word
+ironmonger to monger-iron *** word
+ironnesses to nesses-iron *** word
+ironsmiths to smiths-iron *** word
+ironstones to stones-iron *** word
+ironworker to worker-iron *** word
+ironhearted to hearted-iron *** word
+ironmasters to masters-iron *** word
+ironmongers to mongers-iron *** word
+ironmongery to mongery-iron *** word
+ironworkers to workers-iron *** word
+ironicalness to icalness-iron
+ironmongeries to mongeries-iron *** word
+ironicalnesses to icalnesses-iron
+====Found 66/42 for iron
