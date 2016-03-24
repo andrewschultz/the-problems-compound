@@ -2450,8 +2450,6 @@ iron waffle	"A waffle iron is what you put batter in to make a waffle. But a waf
 picture of a dozen bakers	"A baker's dozen is thirteen, thus counting for the illusion."
 warmer bench	"A bench warmer is someone who doesn't get into the action, especially in a sports game." [down ground]
 Fritz the On	"On the fritz means on the blink."
-sleeper cell	"A group of people who blen into a community until they can commit an act of terrorism."
-hoth	"High on the hog means living wealthily. To hog the high would be if Fritz didn't share his, um, stuff."
 dreadful penny	"A penny dreadful is a trashy novel."
 Stool Toad	"A toadstool is a mushroom." [joint strip]
 Pigeon Stool	"A stool pigeon is someone who tattles."
@@ -2503,7 +2501,6 @@ Sly Moore	"More sly = slyer = cleverer."
 fourth-blossom	"To blossom fourth is to grow."
 Thoughts Idol	"Idle thoughts, e.g., a wandering mind, are what it purports to oppose."
 Trap Rattle	"A rattle trap is a cheap car."
-Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever."
 Uncle Dutch	"A Dutch Uncle gives useful advice." [speaking plain] [??test XP BUSINESS SHOW]
 Turk Young	"A Young Turk is a brave rebel."
 Fright Stage	"Stage fright is being scared to get out in front of a crowd."
@@ -2538,7 +2535,6 @@ incident miner	"A minor incident is not a big deal, but the incident miner makes
 Twister Brain	"The opposite of a brain twister, where someone derives a conclusion from a fact, the brain has a set conclusion and twists and weights facts to line up with them."
 Witness Eye	"Someone at the scene of the crime."
 against rails	"If someone rails against something, they're upset with it."
-running start	"A running start means you've gotten started quickly."
 worm ring	"A ringworm is a form of parasite." [final final areas]
 Return Carriage	"Carriage Return is going back to the start of a new line in a document with text. And you are sort of going back to the start, too."
 hammer	"The hammer can be three things[ham-desc]."
@@ -2553,7 +2549,7 @@ Flames Fan	"To fan the flames is to keep things going. The Flames Fan just watch
 Cards of the House	"The house of cards is something that falls down easily."
 View of Points	"Points of view are opinions."
 
-table of explanations (continued) [this is stuff referred to tangentially]
+table of explanations (continued) [this is stuff referred to tangentially, concepts but not actually objects in the game]
 exp-thing	exp-text	exp-anno
 turn of phrase	"A turn of phrase is clever wording. A phrase of turn is, well, what's at the command prompt, or, any wording."
 wait your turn	"This means not to do anything til someone else goes first. But in this case the game wants you to turn your wait into something else."
@@ -2572,6 +2568,7 @@ Animal Welfare	"Animal welfare is concern for animals who often can't help thems
 nose picking	"Nose picking is -- not the best habit. A picking nose would be a discerning sense of smell."
 work of art	"A work of art is something nice and beautiful. The art of work is--well, the term can be abused to make work seem more exciting than it is."
 enough man	"Man enough means being able to stand up for yourself. Okay, it's a bit sexist, but people who say it mean to be annoying. 'Enough, man' just means stop it."
+fish out of water	"A fish out of water is someone or something out of place."
 strike a balance	"To strike a balance is to find a satisfactory compromise. A strike can alo mean--well, your balance went on strike, or you'd fall over."
 Thought for food	"Food for thought is something to think about."
 Tray S	"Stray. In other words, it strayed from Meal Square."
@@ -2581,6 +2578,8 @@ face off	"An off face probably doesn't look right, but a face off is when you ch
 Bowled Over	"Bowled over means unable to deal with things. Over-bold means too confident."
 Growing Pains	"Growing pains are temporary setbacks that help you get going. Pain's growing is just a complaint."
 Bum Beach	"A beach bum is someone who wanders on the beach. Maybe he lives there in a shack too."
+sleeper cell	"A group of people who blen into a community until they can commit an act of terrorism."
+hoth	"High on the hog means living wealthily. To hog the high would be if Fritz didn't share his, um, stuff."
 Double Jeopardy	"Double jeopardy is being tried for the same crime twice. Making your jeopardy double is just putting you at twice the risk."
 Trust Brain	"A brain trust is a group of people that help make a decision. A trust-brain, though not an English phrase, might mean a mind that can't make its own decisions."
 Moral Support	"Moral support is helping someone even if you don't have concrete advice. SUPPORT MORAL is, well, a slogan that pushes people around."
@@ -2592,15 +2591,17 @@ Go Rum	"A rum go is an unforeseen unusual experience, as opposed to 'GO' anythin
 Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
 Black Mark	"A black mark is something indicating bad behavior."
 Steal This Book	"Steal This Book was a countercultural guide by Abbie Hoffman. Book this steal refers to 'booking' suspects for a transgression, e.g. a parking fine or ticket."
-Business Show	"Show business is the act of entertainment, and the business show's is (purportedly) more practical." [?? test this!]
+Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever."
+Show Business	"Show business is the act of entertainment, and the business show's is (purportedly) more practical." [?? test this!]
 Crisis Energy	"An energy crisis is when a community doesn't have enough electrical power, or oil, or whatever."
 shot mug	"The shot mug may look shot, or beaten-up, but mug shots--photographs of apprehended suspects--are generally very unflattering. Hence the flattering portrait of the [bad-guy] on the mug."
 Slicker City	"A city slicker is what rural people may call someone more urban. It's also the name of a planned sequel to PC."
+running start	"A running start means you've gotten started quickly."
 Break Jail	"A jailbreak means getting out of jail. Though to break someone is to destroy their spirit."
 Admiral Vice	"A vice-(anything) is a next-in-line/assistant to an honorary position, but vice is also a personal failing, big or small."
 Complain Cant	"Cant means a tendency towards something, so someone with a complain cant would only say 'can't complain' very ironically." [eternal concepts]
 Received Wisdom	"Received wisdom is generally accepted knowledge which is often not true, such as we only use 10% of our brain. Gustave Flaubert wrote a fun book called The Dictionary of Received Wisdom that makes fun of many examples. For instance, a hamlet is always charming."
-Power People	"People power was a rallying cry in demonstrations against the authoritarianism of, well, power people."
+People Power	"People power was a rallying cry in demonstrations against the authoritarianism of, well, power people."
 Something Mean	"Mean something = talk or act with purpose. Something mean = well, nastiness."
 Sitting Duck	"A sitting duck is someone just waiting to be taking advantage of. But if you duck sitting, you aren't waiting."
 Hard Knock	"A hard knock is physical wear and tear, or being hit hard, versus just knocking at a door."
@@ -9438,7 +9439,7 @@ lalaland is a room in meta-rooms. "You should never see this. If you do, it is a
 
 Show Business is a concept in lalaland. understand "business show" as show business.
 
-Wisdom Received is a concept in lalaland. understand "received wisdom" as wisdom received.
+Received Wisdom is a concept in lalaland. understand "wisdom received" as received wisdom.
 
 Something Mean is a concept in lalaland. understand "mean something" as Something Mean.
 

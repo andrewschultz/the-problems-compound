@@ -1289,3 +1289,69 @@ widespread to spread-wide *** word
 widechapped to chapped-wide *** word
 widemouthed to mouthed-wide *** word
 ====Found 25/15 for wide
+========guard
+guard to -guard
+guards to s-guard
+guarded to ed-guard *** word
+guardee to ee-guard *** word
+guarder to er-guard *** word
+guardage to age-guard *** word
+guardant to ant-guard *** word
+guarddog to dog-guard *** word
+guardees to ees-guard
+guarders to ers-guard *** word
+guardian to ian-guard
+guarding to ing-guard
+guardable to able-guard *** word
+guardages to ages-guard *** word
+guardants to ants-guard *** word
+guarddogs to dogs-guard *** word
+guardedly to edly-guard
+guardians to ians-guard
+guardless to less-guard *** word
+guardlike to like-guard *** word
+guardrail to rail-guard *** word
+guardroom to room-guard *** word
+guardship to ship-guard *** word
+guardsman to sman-guard
+guardsmen to smen-guard
+guardhouse to house-guard *** word
+guardrails to rails-guard *** word
+guardrooms to rooms-guard *** word
+guardships to ships-guard *** word
+guardedness to edness-guard
+guardhouses to houses-guard *** word
+guardianship to ianship-guard
+guardednesses to ednesses-guard
+guardianships to ianships-guard
+====Found 34/21 for guard
+========bump
+bump to -bump
+bumph to h-bump
+bumps to s-bump
+bumpy to y-bump
+bumped to ed-bump *** word
+bumper to er-bump *** word
+bumphs to hs-bump
+bumpers to ers-bump *** word
+bumpier to ier-bump
+bumpily to ily-bump
+bumping to ing-bump
+bumpkin to kin-bump *** word
+bumpered to ered-bump *** word
+bumpiest to iest-bump
+bumpings to ings-bump
+bumpkins to kins-bump *** word
+bumpering to ering-bump *** word
+bumpiness to iness-bump
+bumpkinly to kinly-bump
+bumpology to ology-bump *** word
+bumptious to tious-bump
+bumpkinish to kinish-bump
+bumpinesses to inesses-bump
+bumpologies to ologies-bump *** word
+bumpsadaisy to sadaisy-bump
+bumptiously to tiously-bump
+bumptiousness to tiousness-bump
+bumptiousnesses to tiousnesses-bump
+====Found 28/9 for bump

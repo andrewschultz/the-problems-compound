@@ -29,26 +29,30 @@ Story and robustness.
 --some people now refer to the bad guy by initials.
 --"you just have to get to know him" about the bad guy is a refrain
 --minor explanation of puzzles and solving them in Round Lounge.
---VERBS now says what verbs you can use, including the unlocked "jump" verbs.
---THINK now reminds you what you should be doing.
---TECH is a meta-verb that tells you some of the implements I used.
+--VERBS now says what verbs you can use, and it's divided further into...
+  --META, which tells meta-verbs including the unlocked "jump" verbs.
+  --THINK now reminds you what you should be doing.
+  --TECH is a meta-verb that tells you some of the implements I used.
 
 And there's a lot of extra silliness, too.
 --Up Gum is now a food on Tray A. It is not good for you, even if it feels good.
 --PUT WAX ON (anything)
 --the Variety Garden is now guarded by three types of brush, because VARIETY!
 --lots and lots of scenery in Freak Control!
---the Insanity Terminal now offers (sort of) hints, which you can turn off if you're hardcore.
+--the Insanity Terminal now offers (sort of) hints, which you can turn off if you're hardcore. It also lets you X 6 (for line #6) and allows alternate answers based on if #7 is right
 --The bad guy snarks insufferably on how many hints you used, even if you didn't.
 --the Business Show is the name of the display on the Fright Stage.
 --added several rooms to view from Window Bay in the Director's Cut area
 --"deaths" are more organized with new location A Beer Pound for sins in the Soda Club
 --the game cuts you down differently for swearing
---With the above two modifications, 64 total rooms now all fit on the new Trizbort/PDF "full" maps. The regular game only added 3 rooms: Service Community and two separate endings
+--With the above two modifications, 64 total rooms now all fit on the new Trizbort/PDF "full" maps. The regular game only added 3 rooms: Service Community and the rooms for the two separate endings
 --the 7 jerks now have 13 different "secret sins" chosen randomly at game's start
 --the Saver Screen has lots of tips (24) to be like the bad guy but recognizes ordinary boring people only follow one or two
 --the "bad guy beyond" is no longer Spike Price. He has a new name, based on if you want profanity.
---expanded "for your amusement" post-game section
---expanded profanity-difference post-game section
---implemented "what act goes to which death room" section
---let you see all the sleep narratives at game's end without having to look at the source code
+--ending lists tweak
+  --expanded "for your amusement" post-game section
+  --let you see all the jerks' "sins"
+  --expanded profanity-difference post-game section
+  --implemented "what act goes to which death room" section
+  --let you see all the sleep narratives at game's end without having to look at the source code
+  --lets you see "also-good" guesses for the Insanity Terminal
