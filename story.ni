@@ -882,7 +882,7 @@ instead of thinking:
 		say "Hmm. You remember the finger index and the seven jerks.";
 		say "[finger-say]" instead;
 	if think-score is false:
-		say "NOTE: THINK will redirect to SCORE in the future.";
+		say "NOTE: THINK will redirect to SCORE in the future, unless you really only have one specific task remaining.";
 		now think-score is true;
 	say "[one of]You take a thought-second. Then you take another, but you reflect it wasn't as good. OR WAS IT? So you just[or]You[stopping] think about what you've accomplished..." instead;
 	try requesting the score instead;
@@ -2777,7 +2777,7 @@ carry out verbing:
 	if player is in smart street:
 		say "[2da]PLAY/TRY any of the games in the shell.";
 	say "[2da]directions (N, S, E, W, IN, OUT, ENTER something, and occasionally U and D)[line break]";
-	say "[2da]OPEN X (no second noun needed)[line break]";
+	say "[2da]OPEN X (no WITH second noun needed)[line break]";
 	say "[2da]PUT X ON/IN Y or ATTACH X TO Y. These are usually functionally equivalent.[line break]";
 	say "[2da]GT or GO TO lets you go to a room you've been to.[line break]";
 	say "[2da]GIVE X TO Y[line break]";
@@ -7153,7 +7153,7 @@ to say iv-idol:
 	if player has bad face:
 		now stared-idol is true;
 
-the Service Community is a room in Main Chunk. "Idiot Village's suburbs stretch every which way! The Thoughts Idol surveys you from a distance. You just came from the [opposite of last-dir]."
+the Service Community is a room in Main Chunk. "Idiot Village's suburbs stretch every which way, including diagonal directions! The Thoughts Idol surveys you from a distance. You just came from the [opposite of last-dir]."
 
 idol-progress is a number that varies.
 
@@ -10091,73 +10091,26 @@ understand "skip [number]" as nu-skiping.
 
 nu-skiping is an action applying to one number.
 
-skipped-yet is a truth state that varies.
+list-skiping is an action out of world.
 
-lock-in-place is a truth state that varies.
+understand "skip 0" and "skip" as list-skiping.
+
+carry out list-skiping:
+	try nu-skiping 0;
 
 carry out nu-skiping:
+	let all-skips be number of rows in table of skip-moves;
 	if player is not in Smart Street:
-		say "You already skipped. Doing so again is too messy to keep track of. You may wish to restart and try again.";
+		say "You should be in Smart Street before you skip. Otherwise things get too messy. You may wish to restart and try again.";
 		the rule succeeds;
 	if number understood is 0:
 		say "[skip-list]" instead;
-	if number understood is 100:
-		move player to chipper wood;
-		now lock-in-place is true;
-	if number understood is 101:
-		move-puzzlies-and-jerks;
-		move player to bottom rock;
-		now skipped-yet is true;
-		the rule succeeds;
-	if number understood is 102:
-		move-puzzlies-and-jerks;
-		move player to idiot village;
-		now assassination character is in lalaland;
-		open-bottom;
-		now player has crocked half;
-		now skipped-yet is true;
-		the rule succeeds;
-	if number understood is 103:
-		move-puzzlies-and-jerks;
-		move player to questions field;
-		now assassination character is in lalaland;
-		open-bottom;
-		now player has crocked half;
-		now thoughts idol is in lalaland;
-		now skipped-yet is true;
-		the rule succeeds;
-	if number understood > 10:
-		say "You need a number between 1 and 10 or, if you are testing very specific things, 100-103.[line break][skip-list]" instead;
-	now skipped-yet is true;
-	if number understood is 1:
-		move player to round lounge;
-		now player has gesture token;
-	else if number understood is 2:
-		duck-sitting;
-	else if number understood is 3:
-		knock-hard;
-	else if number understood is 4:
-		figure-cut;
-	else if number understood is 5:
-		move-puzzlies-and-jerks;
-		move player to jerk circle;
-		send-bros;
-		if in-beta is true:
-			now block-pier is true;
-	else if number understood is 6: [notice advance]
-		notice-advance;
-		if in-beta is true:
-			now block-pier is true;
-			now block-other is true;
-	else if number understood is 7:
-		now all clients are in lalaland;
-		now player has quiz pop;
-	else if number understood is 8:
-		move player to freak control;
-	else if number understood is 9:
-		move player to Out Mist;
-	else if number understood is 10:
-		move player to airy station;
+	if number understood < 1 or number understood > all-skips:
+		say "You need to choose a number between 1 and [all-skips], or 0 to see a list." instead;
+	choose row number understood in table of skip-moves;
+	consider the skip-rule entry;
+	if corruption entry is true:
+		say "Note that any bugs you may find after making this jump may be a testing artifact and not a problem with the game. That's probably because this is a command to test something specific. I'll verify if the bug would happen in an actual game, if it pops up.";
 	the rule succeeds;
 
 block-other is a truth state that varies;
@@ -10171,7 +10124,102 @@ check going when block-pier is true:
 		say "This is testing, so I won't allow you to move to the side." instead;
 
 to say skip-list:
-	say "1: Round Lounge 2: Tension Surface 3: Pressure Pier 4: Go to Jerk Circle 5: Brothers gone, Jerks not 6: Notice Advance (3 jerks solved) 7: Jerks Solved 8: Final Chat 9: Airy Station[line break]100. Chipper Wood/Assassination Character 101. Brothers gone, in Bottom Rock 102. Brothers gone, have crocked half in Idiot Village 103. Brothers gone, idol gone[line break]"
+	let count be 0;
+	repeat through table of skip-moves:
+		increment count;
+		say "[count]. [skip-descr entry][line break]";
+		
+table of skip-moves
+skip-descr	skip-rule	corruption
+"Round Lounge"	go-lounge rule	false
+"Tension Surface"	go-surface rule	false
+"Pressure Pier"	go-pier rule	false
+"Jerk Circle"	go-jerks rule	false
+"Brothers gone, visit jerks"	go-field-bro rule	false
+"Brothers and jerks gone"	notice-advance rule	false
+"Jerks solved, brothers not"	jerks-not-bros rule	true
+"Jump to Freak Control"	freak-control rule	false
+"Jump to Good End"	to-good-end rule	false
+"Jump to Great End"	to-very-good-end rule	false
+"Face the Assassination Character"	face-ac rule	false
+"Face the Insanity Terminal"	face-term rule	true
+"Face the Idol"	face-idol rule	true
+"Defeat the Idol"	defeat-idol rule	true
+
+this is the go-lounge rule:
+	move player to round lounge;
+	now player has gesture token;
+	the rule succeeds;
+
+this is the go-surface rule:
+	duck-sitting;
+	the rule succeeds;
+
+this is the go-pier rule:
+	knock-hard;
+	the rule succeeds;
+
+this is the go-jerks rule:
+	figure-cut;
+	the rule succeeds;
+
+this is the go-field-bro rule:
+	move-puzzlies-and-jerks;
+	move player to jerk circle;
+	send-bros;
+	if in-beta is true:
+		now block-pier is true;
+	the rule succeeds;
+
+this is the notice-advance rule:
+	notice-advance;
+	if in-beta is true:
+		now block-pier is true;
+		now block-other is true;
+	the rule succeeds;
+
+this is the jerks-not-bros rule:
+	now all clients are in lalaland;
+	now player has quiz pop;
+	the rule succeeds;
+
+this is the freak-control rule:
+	now player is in freak control;
+	the rule succeeds;
+
+this is the to-good-end rule:
+	now player is in out mist;
+	the rule succeeds;
+	
+this is the to-very-good-end rule:
+	now player is in airy station;
+	the rule succeeds;
+
+this is the face-ac rule:
+	move player to chipper wood;
+	the rule succeeds;
+
+this is the face-term rule:
+	move-puzzlies-and-jerks;
+	move player to bottom rock;
+	the rule succeeds;
+
+this is the face-idol rule:
+	move-puzzlies-and-jerks;
+	move player to idiot village;
+	now assassination character is in lalaland;
+	open-bottom;
+	now player has crocked half;
+	the rule succeeds;
+
+this is the defeat-idol rule:
+	move-puzzlies-and-jerks;
+	move player to questions field;
+	now assassination character is in lalaland;
+	open-bottom;
+	now player has crocked half;
+	now thoughts idol is in lalaland;
+	the rule succeeds;
 
 chapter montying
 
@@ -10399,8 +10447,10 @@ understand "jerk" as jerking.
 understand "groan" as jerking.
 
 carry out jerking:
+	if silly boris is in lalaland:
+		say "The jerks are already gone instead. You'll need to RESTART if you want them back." instead;
 	if jerk circle is unvisited:
-		say "You haven't made it to the jerks yet." instead;
+		say "You haven't made it to the jerks yet. ";
 	if finger index is not examined or know-jerks is false:
 		say "You need to have examined the Finger Index or learned the jerks['] names to see the clues. You haven't, but would you like to cheat?";
 	if the player consents:
