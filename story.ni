@@ -3921,6 +3921,9 @@ rule for supplying a missing noun when the current action is playing (this is th
 			say "[ok-rand].";
 		play-random-game;
 		the rule succeeds;
+	if player is in chipper wood and chase paper is in chipper wood:
+		now noun is chase paper;
+		continue the action;
 	now noun is Alec Smart;
 
 to play-random-game:
@@ -5890,7 +5893,16 @@ to print-the-chase:
 
 to print-the-grid:
 	if screen-read is true:
-		say "The assassin is at [ac-x], [ac-y] on the grid from 0, 0 southeast to 12, 12. You are at [you-x], [you-y].";
+		say "You're at [you-x], [you-y] and the assassin is at [ac-x], [ac-y], ";
+		if you-y > ac-y:
+			say "north";
+		if you-y < ac-y:
+			say "south";
+		if you-x < ac-x:
+			say "east";
+		if you-x > ac-x:
+			say "west";
+		say " of you[one of], with 0, 0 being in the northwest[or][stopping].";
 		how-to-leave;
 		continue the action;
 	say "[fixed letter spacing]";
@@ -5935,28 +5947,28 @@ check going when p-c is true (this is the move on paper rule):
 			move-assassin;
 			see-if-caught;
 		else:
-			say "You'd go off the edge of the chase paper." instead;
+			edge-warn you-x - 3 and you-y instead;
 	if noun is east:
 		if you-x <= 9:
 			now you-x is you-x + 3;
 			move-assassin;
 			see-if-caught;
 		else:
-			say "You'd go off the edge of the chase paper." instead;
+			edge-warn you-x + 3 and you-y instead;
 	if noun is north:
 		if you-y >= 3:
 			now you-y is you-y - 3;
 			move-assassin;
 			see-if-caught;
 		else:
-			say "You'd go off the edge of the chase paper." instead;
+			edge-warn you-x and you-y - 3 instead;
 	if noun is south:
 		if you-y <= 9:
 			now you-y is you-y + 3;
 			move-assassin;
 			see-if-caught;
 		else:
-			say "You'd go off the edge of the chase paper." instead;
+			edge-warn you-x and you-y + 3 instead;
 	if noun is northwest:
 		if you-y >= 2 and you-x >= 2:
 			diag-check;
@@ -5965,7 +5977,7 @@ check going when p-c is true (this is the move on paper rule):
 			move-assassin;
 			see-if-caught;
 		else:
-			say "You'd go off the edge of the chase paper." instead;
+			edge-warn you-x - 2 and you-y - 2 instead;
 	if noun is northeast:
 		if you-y >= 2 and you-x <= 10:
 			now diag-yet is true;
@@ -5974,7 +5986,7 @@ check going when p-c is true (this is the move on paper rule):
 			move-assassin;
 			see-if-caught;
 		else:
-			say "You'd go off the edge of the chase paper." instead;
+			edge-warn you-x + 2 and you-y - 2 instead;
 	if noun is southwest:
 		if you-y <= 10 and you-x >= 2:
 			now diag-yet is true;
@@ -5983,7 +5995,7 @@ check going when p-c is true (this is the move on paper rule):
 			move-assassin;
 			see-if-caught;
 		else:
-			say "You'd go off the edge of the chase paper." instead;
+			edge-warn you-x - 2 and you-y + 2 instead;
 	if noun is southeast:
 		if you-y <= 10 and you-x <= 10:
 			now diag-yet is true;
@@ -5992,8 +6004,32 @@ check going when p-c is true (this is the move on paper rule):
 			move-assassin;
 			see-if-caught;
 		else:
-			say "You'd go off the edge of the chase paper." instead;
+			edge-warn you-x + 2 and you-y + 2 instead;
 	the rule succeeds;
+
+to edge-warn (xs - a number) and (ys - a number):
+	say "You'd go off the ";
+	if ys > 12:
+		say "south";
+	if ys < 0:
+		say "north";
+	if xs > 12:
+		say "east";
+	if xs < 0:
+		say "west";
+	say " of the chase paper";
+	if you-x is 0 or you-y is 0 or you-x is 12 or you-y is 12:
+		say ", and you're already on the ";
+		if you-y is 12:
+			say "south";
+		if you-y is 0:
+			say "north";
+		if you-x is 0:
+			say "west";
+		if you-x is 12:
+			say "east";
+		say " edge";
+	say ".";
 
 to move-assassin:
 	[d "[you-x] [you-y] vs [ac-x] [ac-y] [last-p-dir].";]
