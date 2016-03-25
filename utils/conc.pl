@@ -16,6 +16,7 @@ for $x (keys %any)
 #  print "Looking at $x:\n";
   if (!$expl{$x}) { print "$x needs explanation.\n"; $fails++; }
   if (!$conc{$x}) { print "$x needs concept definition.\n"; $fails++; }
+  if (!$activ{$x}) { print "$x needs activation.\n"; $fails++; }
 }
 
 print "Concepts test for $_[0]: ";
@@ -44,11 +45,27 @@ while ($a = <A>)
 {
   if ($a =~ /^table of explanations.*concepts/) { $inTable = 1; <A>; next; }
   if ($a !~ /[a-z]/i) { $inTable = 0; next; }
-  chomp($a);
+  chomp($a); $a = lc($a);
+  if ($a =~ /is a concept in lalaland/)
+  {
+    $a =~ s/ is a concept in lalaland.*//g;
+	$conc{$a} = 1;
+	$activ{$a} = 1;
+	$any{$a} = 1;
+  }
+  $b = $a;
+  while ($b =~ /\[activation of/)
+  {
+    $b =~ s/.*?\[activation of //; $c = $b;
+	$c =~ s/\].*//g;
+	$activ{$c} = 1; $any{$c} = 1;
+  }
   if ($inTable == 1) { $b = $a; $b =~ s/\t.*//g; $b = wordtrim($b); $expl{$b} = $any{$b} = 1; next; }
   if ($a =~ /is a (privately-named |)?concept/)
   {
-    $b = $a; $b =~ s/ is a (privately-named |)?concept.*//g; $b = wordtrim($b); $conc{$b} = $any{$b} = 1; next;
+    $b = $a; $b =~ s/ is a (privately-named |)?concept.*//g; $b = wordtrim($b); $conc{$b} = $any{$b} = 1;
+	if ($a =~ /\[ac\]/) { $activ{$b} = 1; } # [ac] says it's activated somewhere else
+	next;
   }
 }
 

@@ -290,19 +290,21 @@ to say bro-sco:
 section read what's been done
 
 when play begins (this is the read options file rule):
-	say "Trying to read.";
 	if file of verb-unlocks exists:
 		read file of verb-unlocks into table of verb-unlocks;
+	repeat through table of verb-unlocks:
+		if there is a conc entry and found entry is true:
+			now conc entry is in lalaland;
 
 the file of verb-unlocks is called "pcverbs".
 
 table of vu - verb-unlocks [tvu]
-brief (indexed text)	found	expound	jumpable	descr (indexed text)
+brief (indexed text)	found	expound	jumpable	descr (indexed text)	conc
 "anno"	false	true	false	"ANNO to show annotations, or JUMP to jump to a bunch of rejected rooms, as a sort of director's cut."
-"duck"	false	true	true	"DUCK SITTING to jump to Tension Surface."
-"knock"	false	true	true	"KNOCK HARD to get to Pressure Pier."
-"figure"	false	true	true	"FIGURE A CUT to skip past the Howdy Boy to the [jc]."
-"notice"	false	true	true	"NOTICE ADVANCE to skip to Questions Field, with the brothers and jerks gone."
+"duck"	false	true	true	"DUCK SITTING to jump to Tension Surface."	sitting duck
+"knock"	false	true	true	"KNOCK HARD to get to Pressure Pier."	hard knock
+"figure"	false	true	true	"FIGURE A CUT to skip past the Howdy Boy to the [jc]."	cut a figure
+"notice"	false	true	true	"NOTICE ADVANCE to skip to Questions Field, with the brothers and jerks gone."	advance notice
 "good"	false	false	false	"You found a good ending!"
 "great"	false	false	false	"You found the great ending!"
 
@@ -311,6 +313,8 @@ to unlock-verb (t - text):
 	repeat through table of verb-unlocks:
 		now j is "[brief entry]";
 		if j matches the regular expression "[t]":
+			if there is a conc entry:
+				now conc entry is in lalaland;
 			if found entry is true:
 				continue the action;
 			if expound entry is true:
@@ -683,7 +687,7 @@ check waiting (this is the caught napping rule):
 		move-dream-ahead instead;
 	if player is in down ground and slept-through is false:
 		say "[one of]You attempt to loiter in this seedy area in order to get in trouble or something, but no dice.[or]Still, nobody comes to break up your loitering.[or]You reflect if you want to get zapped for loitering, maybe you need to do better than just hang around.[or]Hm, you wonder what is even lazier than standing around.[stopping]" instead;
-	say "Turn your wait." instead;
+	say "[activation of wait your turn]Turn your wait." instead;
 
 every turn when player is in tense past and tense present is not visited:
 	say "Torpor. You can't do much besides LOOK or WAIT or THINK.";
@@ -2553,6 +2557,7 @@ table of explanations (continued) [this is stuff referred to tangentially, conce
 exp-thing	exp-text	exp-anno
 turn of phrase	"A turn of phrase is clever wording. A phrase of turn is, well, what's at the command prompt, or, any wording."
 wait your turn	"This means not to do anything til someone else goes first. But in this case the game wants you to turn your wait into something else."
+abuse testing	"Abuse testing means trying to break things with stuff a tester wouldn't usually try, or that they know has broken their own game. Testing abuse is--well, most abuse can feel a bit testing, or trying."
 Buster Ball	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure." [the 2 bad guys]
 Hunter Savage	"A savage hunter is, well, someone with no mercy. Yup, I like the 'dirty' tangential bad guy better, too."
 Nonsense No	"No-nonsense means, well, not taking any silliness." [xyzzy snark]
@@ -2850,11 +2855,14 @@ understand the command "credits" as something new.
 understand "credits" as creditsing.
 
 carry out creditsing:
-	say "I was able to bounce technical and non-technical ideas off several other people. Wade Clarke, Marco Innocenti, Hugo Labrande, Juhana Leinonen, Brian Rushton and Matt Weiner offered testing and general encouragement and insight on what was a VERY short deadline given the game's size. An anonymous tester provided other direction.[paragraph break]Robert DeFord, Harry Giles and Steven Watson had ideas for the white paper and direction, as did the Interactive Fiction Faction, a private Google group. They include Hanon Ondricek, Robert Patten, Miguel Garza, Matt Goh, Jim Warrenfeltz and Joseph Geipel.[paragraph break]Jason Lautzenheiser's work on Genstein's Trizbort app (www.trizbort.com) was invaluable for big-picture planning and for adding in ideas I wasn't ready to code. If you are writing a parser game, I recommend it. (Disclaimer: I am a contributor, too.)[paragraph break]Many websites and resources helped me discover silly phrases.";
-	say "====IN-COMP THANKS:";
+	say "I was able to bounce technical and non-technical ideas off several other people. Wade Clarke, Marco Innocenti, Hugo Labrande, Juhana Leinonen, Brian Rushton and Matt Weiner offered testing and general encouragement and insight on what was a VERY short deadline given the game's size. An anonymous tester provided other direction.[paragraph break]";
+	say "Jason Lautzenheiser's work on Genstein's Trizbort app (www.trizbort.com) was invaluable for big-picture planning and for adding in ideas I wasn't ready to code. If you are writing a parser game, I recommend it. (Disclaimer: I am a contributor, too.)[paragraph break]";
+	say "====IN-COMP THANKS:[line break]";
 	say "I'd also like to thank non-competitors who alerted me to flaws/bugs in the comp version: Olly Kirk, Paul Lee, Michael Martin, David Welbourn and Al Golden. Competitors offered both praise and criticism which helped add features and polish to the post-comp release.";
-	say "====POST-COMP THANKS:";
-	say "Thanks to Neil Butters and Joey Jones (also in the IFF) for finding lots of fixables present in the comp and post-comp release.[line break]Thanks to Alex Butterfield and Hugo Labrande for our games of code tennis, which is basically, try and do something every other day, or the other guy scores a point. Hugo worked with me more on a 'related project,' but a lot of things I pinged him with were relevant here. I recommend code tennis for anyone who needs motivation.";
+	say "[line break]====POST-COMP THANKS:[line break]";
+	say "Thanks to Neil Butters and Joey Jones for finding lots of fixables present in the comp and post-comp release.[line break]Thanks to Alex Butterfield and Hugo Labrande for our games of code tennis, which is basically, try and do something every other day, or the other guy scores a point. Hugo worked with me more on a 'related project,' but a lot of things I pinged him with were relevant here. I recommend code tennis for anyone who needs motivation.";
+	say "[line break]====GENERAL HELP:[line break]";
+	say "Many people gave valuable help along the way with ideas big and small. Robert DeFord, Harry Giles and Steven Watson had ideas for the white paper and direction, as did the Interactive Fiction Faction, a private Google group. They include Hanon Ondricek, Robert Patten, Miguel Garza, Matt Goh, Jim Warrenfeltz and Joseph Geipel.[paragraph break][paragraph break]Many websites and resources helped me discover silly phrases. TECH has this.";
 	the rule succeeds;
 
 chapter abouting
@@ -2868,7 +2876,7 @@ understand "about" as abouting.
 carry out abouting:
 	say "The Problems Compound is meant to be less puzzly than my previous efforts. If you need to see verbs, type VERBS. Though there's no hint command, a walkthrough should be included with the game.";
 	say "[line break]TPC is a bit, well, AGT-ish. It's not intended to be a technical marvel, but I hope it takes a funny tack on being overwhelmed. It was inspired by Hulk Handsome's very fun 2012 IFComp entry, In a Manner of Speaking and leans heavily on my 'researching' a website that you can find in TECH.";
-	say "[line break]But more importantly, CREDITS lists my testers first, because they've helped make the game less rocky and found bugs that saved me time when I had (yet again) procrastinated.[paragraph break]Also, if you want, HISTORY will contain details about the game's history, and TECH will describe some technical stuff you may find helpful in your own games.";
+	say "[line break]But more importantly, CREDITS lists my testers first, because they put up with some [activation of abuse testing]testing abuse (bugs, vagaries) etc. whether or not they were abuse-testing. They helped make the game less rocky and found bugs that saved me time when I had (yet again) procrastinated.[paragraph break]Also, if you want, HISTORY will contain details about the game's history, and TECH will describe some technical stuff you may find helpful in your own games.";
 	say "[line break]One other thing. If you find bugs, send them at [email] or visit the repository for the game at [my-repo]. If you can take a transcript of how it happens, use the TRANSCRIPT command and attach the file. Oh, also, I'm on twitter as @ned_yompus.";
 	the rule succeeds;
 
@@ -3226,7 +3234,7 @@ Smart Street is a room in Beginning. "This isn't a busy street[one of], but ther
 
 after looking in Smart Street when Guy Sweet is not in Smart Street:
 	move Guy Sweet to Smart Street;
-	say "A loud, hearty voice from the shell. 'Howdy! I'm Guy Sweet! You look like a fella with a games mind! Why not come over to the Game Shell and have a TALK?'"
+	say "A loud, hearty voice from the shell. 'Howdy! I'm Guy Sweet! You look like a fella with a [activation of games mind]games mind! Why not come over to the Game Shell and have a TALK?'"
 
 the player is in Smart Street.
 
@@ -3302,14 +3310,10 @@ to say bad-guy:
 	say "[if allow-swears is true]Baiter Master[else]Complex Messiah[end if]"
 
 to say bad-guy-2:
-	say "[if allow-swears is true]Buster Ball[else]Hunter Savage[end if]";
-	now buster ball is in lalaland;
-	now hunter savage is in lalaland;
+	say "[if allow-swears is true][activation of buster ball]Buster Ball[else][activation of hunter savage]Hunter Savage[end if]";
 
 to say bad-guy-2-c:
-	say "[if allow-swears is true]BUSTER BALL[else]HUNTER SAVAGE[end if]";
-	now buster ball is in lalaland;
-	now hunter savage is in lalaland;
+	say "[if allow-swears is true][activation of buster ball]BUSTER BALL[else][activation of hunter savage]HUNTER SAVAGE[end if]";
 
 to say bg:
 	say "[if allow-swears is true]BM[else]CM[end if]"
@@ -3369,8 +3373,7 @@ section leaving Smart Street
 the gesture token is a thing. description is "It's got a thumbs-up and a finger-gun on one side and a fake grin and a sneer on the other. [if player is in smart street]It's the closest to congratulations you'll probably get from Guy Sweet[else if player is not in variety garden]You wonder where it could be useful[else]The Word Weasel seems to crane in and look at the coin[end if]."
 
 to say g-c:
-	now games confidence is in lalaland;
-	say "games confidence";
+	say "[activation of games confidence]games confidence";
 
 check going inside when player is in Smart Street:
 	if guy-games is not talked-thru and guy sweet is not babbled-out:
@@ -3481,6 +3484,7 @@ to write-undo (x - text):
 			else:
 				say "[line break]";
 			now found entry is true;
+			now conc entry is in lalaland;
 			continue the action;
 	say "[bug] -- [x] was called as a table element.";
 
@@ -4985,10 +4989,7 @@ to say bro-nos:
 chapter condition mint
 
 for writing a paragraph about a supporter in Meal Square:
-	say "Two trays sit here, labeled, semi-helpfully, Tray A and Tray B[one of]. You're not surprised Tray S or X is gone, but Tray T would've been nice[or][stopping].";
-	now Tray S is in lalaland;
-	now Tray X is in lalaland;
-	now Tray T is in lalaland;
+	say "Two trays sit here, labeled, semi-helpfully, Tray A and Tray B[one of]. You're not surprised [activation of tray s]Tray S or [activation of tray x]X is gone, but [activation of tray t]Tray T would've been nice[or][stopping].";
 	now all supporters in meal square are mentioned;
 
 a condition mint is an edible thing on Tray A. description is "It's one inch square, with SHARE WITH A FRIEND on it."
@@ -5050,7 +5051,7 @@ check going nowhere in Down Ground:
 		say "Paths up to the east or west. So hard to decide which." instead;
 	say "It's too high a slope north or south." instead;
 
-the warmer bench is a supporter in Down Ground. "The Warmer Bench waits here. It may be fun to lie on.". description is "Originally painted on the bench: PROPERTY OF BUM BEACH. Property Of is replaced by FORECLOSED FROM. You feel the heat coming from it. It makes you sleepy."
+the warmer bench is a supporter in Down Ground. "The Warmer Bench waits here. It may be fun to lie on.". description is "Originally painted on the bench: PROPERTY OF [activation of bum beach]BUM BEACH. Property Of is replaced by FORECLOSED FROM. You feel the heat coming from it. It makes you sleepy."
 
 after examining warmer bench:
 	now bum beach is in lalaland;
@@ -5093,7 +5094,7 @@ understand "boo ticket" and "ticket" as boo tickety.
 
 drop-ticket is a truth state that varies.
 
-the dreadful penny is a thing. description is "It has a relief of the [bad-guy] on the front and back, with 'TRUST A BRAIN' on the back. You hope it's worth more than you think it is."
+the dreadful penny is a thing. description is "It has a relief of the [bad-guy] on the front and back, with '[activation of trust brain]TRUST A BRAIN' on the back. You hope it's worth more than you think it is."
 
 after examining dreadful penny:
 	now brain trust is in lalaland;
@@ -5279,7 +5280,7 @@ to say tix-adv:
 
 description of the Stool Toad is "Green, bloated and, oh yes, poisonous. He reminds you of a security guard at your high school whose every other sentence was 'YOUNG MAN!'"
 
-the pigeon stool is scenery in Joint Strip. "It's shaped like a curled up pigeon, though its head might be a bit too big and flat. It's kind of snazzy, and you'd actually sort of like one. You read the words SUPPORT MORAL on it and feel immediately depressed."
+the pigeon stool is scenery in Joint Strip. "It's shaped like a curled up pigeon, though its head might be a bit too big and flat. It's kind of snazzy, and you'd actually sort of like one. You read the words [activation of moral support]SUPPORT MORAL on it and feel immediately depressed."
 
 does the player mean doing something with the stool toad when player is in joint strip: it is unlikely. [more likely to use stool as a noun and all that]
 
@@ -5356,7 +5357,7 @@ after quipping when qbc_litany is litany of stool toad:
 
 part Soda Club
 
-Soda Club is south of Joint Strip. It is in Outer Bounds. "Maybe if it were past 1 AM, you'd see passages west, south, and east, making this place the Total T--or maybe even the Party T--instead. But if it were past 1 AM, you'd probably be home and asleep and not here. Or, at least, persuaded to leave a while ago.[paragraph break]The only way out is north."
+Soda Club is south of Joint Strip. It is in Outer Bounds. "Maybe if it were past 1 AM, you'd see passages west, south, and east, making this place the [activation of total t]Total T--or maybe even the [activation of party t]Party T--instead. But if it were past 1 AM, you'd probably be home and asleep and not here. Or, at least, persuaded to leave a while ago.[paragraph break]The only way out is north."
 
 check going nowhere in Soda Club:
 	say "There aren't, like, hidden bathrooms, and you wouldn't need to go even if there were. And if there's a secret passage, there's probably a secret code you don't know, too. So, back north it'll be, once you want to leave." instead;
@@ -5375,8 +5376,6 @@ instead of doing something with rehearsal dress:
 	say "In this game, you can pretty much only examine the dress."
 
 after printing the locale description for Soda Club when Soda Club is unvisited:
-	now Total T is in lalaland;
-	now Party T is in Lalaland;
 	say "The bartender calls you over. 'Psst! Pal! Can you give me a break from Liver Lily over there? She's--she's usually pretty interesting, but when she's wearing that rehearsal dress she tends to repeat what she's already said. By the way, you can call me the Punch Sucker. Cuz it's my favorite drink.'"
 
 description of Liver Lily is "She is waiting for conversation in her rehearsal dress."
@@ -5512,7 +5511,7 @@ after printing the name of haha brew when taking inventory:
 
 table of quip texts (continued)
 quip	quiptext
-sucker-drinks	"'Well, you wouldn't be ready for the Rummy Gin or Go Rum. If we served it after-hours, of course. If we served it after-hours. But we have Haha Brew and Cooler Wine. Both so watered down, the Stool Toad won't nab you long as you drink it here.'"
+sucker-drinks	"'Well, you wouldn't be ready for the [activation of rummy gin]Rummy Gin or [activation of go rum]Go Rum. If we served it after-hours, of course. If we served it after-hours. But we have Haha Brew and Cooler Wine. Both so watered down, the Stool Toad won't nab you long as you drink it here.'"
 sucker-alco	"'Haha. No.'"
 sucker-onrocks	"He pushes a button on an unseen machine. You hear ice cubes rattle. He holds up a glass, swirls it, and nods meaningfully before putting it away."
 sucker-but	"'Well, everyone here is a bit smarter and maturer than normal, and anyway, this isn't the high-proof stuff. Plus the Stool Toad, we've paid him off. As long as nobody makes it obvious and walks out with a drink. Then he's pretty awesome. So what the hey.'"
@@ -5537,8 +5536,6 @@ to say here-or-not:
 
 after quipping when qbc_litany is litany of Punch Sucker:
 	if current quip is sucker-drinks:
-		move go rum to lalaland;
-		move rummy gin to lalaland;
 		enable the sucker-but quip;
 		enable the sucker-haha quip;
 		enable the sucker-cooler quip;
@@ -5583,7 +5580,7 @@ Paul Kast is a client. clue-letter of Paul Kast is "K". description is "Dressed 
 
 Cain Reyes is a client. clue-letter of Cain Reyes is "*". description is "The loudest of the bunch."
 
-the bottle of Quiz Pop is a thing. "The [j-co] left a bottle of Quiz Pop here.". description is "It's typical ucky brown for pop, though it is fizzing furiously. The label proclaiming it Quiz Pop reveals no nutritional information, which may be for the better. It also provides a warning that it is therapeutic for people who don't always ask the questions they want to, but people who already ask loaded questions are at risk. It's from Mark Black industries."
+the bottle of Quiz Pop is a thing. "The [j-co] left a bottle of Quiz Pop here.". description is "It's typical ucky brown for pop, though it is fizzing furiously. The label proclaiming it Quiz Pop reveals no nutritional information, which may be for the better. It also provides a warning that it is therapeutic for people who don't always ask the questions they want to, but people who already ask loaded questions are at risk. It's from [activation of black mark]Mark Black industries."
 
 understand "soda" as Quiz Pop
 
@@ -6787,11 +6784,7 @@ after quipping when qbc_litany is litany of grace:
 
 chapter Mind of Peace
 
-the mind of peace is a thing. description is "Looking into it, you feel calmer. Better about past put-downs or failures, whether or not you have a plan to improve. Yet you also know, if it helped you so easily, it may be better for someone who needs it even more.[paragraph break]I suppose it could also be a Trust Brain. Ba ba boom."
-
-after examining mind of peace:
-	now trust brain is in lalaland;
-	continue the action;
+the mind of peace is a thing. description is "Looking into it, you feel calmer. Better about past put-downs or failures, whether or not you have a plan to improve. Yet you also know, if it helped you so easily, it may be better for someone who needs it even more.[paragraph break]I suppose it could also be a [activation of trust brain]Trust Brain. Ba ba boom."
 
 understand "trust brain" and "trust/brain" as mind of peace.
 
@@ -7076,7 +7069,7 @@ quip	quiptext
 sly-magic	"'Not so good. I keep following instructions, but everything goes wrong. Not even the [bad-guy] could help me.'"
 sly-idiot	"Well, I feel dumb if I learn anything, cuz I probably should've. But I feel dumb if I don't, too."
 sly-bm	"'Well, the [bad-guy] told me I needed to banter more. He's real good at banter. He even borrowed my magic book and assured me it was easy enough for him, and he even has the whole Problems Compound to run. Too busy to explain, but hey, teaching yourself works best.'"
-sly-check	"'My progress. I mean, if it's what I'd like to do and all, I'd better be good at it. Or else he might be forced to label me a Candidate Dummy.'"
+sly-check	"'My progress. I mean, if it's what I'd like to do and all, I'd better be good at it. Or else he might be forced to label me a [activation of candidate dummy]Candidate Dummy.'"
 sly-dummy	"'Oh, no! Not an actual dummy. It was sort of a warning shot. Motivation to wise up. I mean he laughed real silvery and all after he said it. Or else. But I guess I took it wrong. Because I'm too worried about it.'"
 sly-geez	"'Well, I figure he's a lot harder on himself. Guess you have to be, to be the main guy dealing with [bad-guy-2]. But he said--if I can just do three things right, someone else would get the label.'"
 sly-didhe	"'That's kind of unfair to him, isn't it? I mean, he's busy running the place. And dealing with [bad-guy-2]. Magic tricks won't help against that guy.'"
@@ -7651,7 +7644,7 @@ check examining book bank:
 
 check taking book bank:
 	now Steal This Book is in lalaland;
-	say "You consider trying to Steal This Book, but then you picture the Stool Toad[if Judgment Pass is visited] or Officer Petty[end if] ready to Book This Steal. Even without Art or Phil here to see you." instead;
+	say "You consider trying to Steal This Book, but then you picture the Stool Toad[if Judgment Pass is visited] or Officer Petty[end if] ready to [activation of steal this book]Book This Steal. Even without Art or Phil here to see you." instead;
 
 to say pompous-phrase:
 	say "[one of]Indeed[or]True art[or]Simple, yet complex[or]Quite so[or]Immaculate[or]Ah[or]Fascinating[or]Food for thought[in random order]"
@@ -7805,10 +7798,9 @@ definition: a person (called p) is stillblocking:
 
 for writing a paragraph about a person (called bro) in Questions Field:
 	if jump-level < 4:
-		say "[one of]Three brothers block the way ahead to the north. They're imposing, each in his own way. 'Greetings, Traveler. We are the Keeper Brothers: Brother Big, Brother Blood, and Brother Soul. We must guard Freak Control, headquarters of the [bad-guy]. It is the job we are best suited for, and we are lucky the [bad-guy] has given it to us. He said we are free to do something clearly better if we can find it. We have not, yet.'[or][list of stillblocking people] block[if bros-left is 1]s[end if] your way north. '[if bros-left is 1]I'm[else]We're[end if] sorry. It's [if bros-left is 1]my[else]our[end if] job. Until we find a purpose.'[stopping]";
+		say "[one of]Three brothers block the way ahead to the north. They're imposing, each in his own way. 'Greetings, Traveler. We are the [activation of brother's keepers]Keeper Brothers: Brother Big, Brother Blood, and Brother Soul. We must guard Freak Control, headquarters of the [bad-guy]. It is the job we are best suited for, and we are lucky the [bad-guy] has given it to us. He said we are free to do something clearly better if we can find it. We have not, yet.'[or][list of stillblocking people] block[if bros-left is 1]s[end if] your way north. '[if bros-left is 1]I'm[else]We're[end if] sorry. It's [if bros-left is 1]my[else]our[end if] job. Until we find a purpose.'[stopping]";
 	else:
 		say "You've also disposed of the brothers with the NOTICE ADVANCE command.";
-	now brother's keepers is mentioned;
 	now brother big is mentioned;
 	now brother blood is mentioned;
 	now brother soul is mentioned;
@@ -8150,7 +8142,7 @@ bm-mug	"'Oh, it's Crisis Energy[activation of crisis energy]. For taking urgent 
 bm-bad2	"'It's--it's, well, tribute is what it is.'"
 bm-so-bad2	"'Oh, come on, you know the difference.'[wfk][line break]It just slips out. 'Yeah, it's easy, there's not much of it.'"
 bm-tribute	"'There will be. Just--society needs to be stable, first. And it almost was. Until you stepped in.'"
-bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Great. You think you can do better? Do so. I'll be waiting in Questions Field. You'll miss something obvious. Always have, always will.' The Baiter Master storms out.[paragraph break]You're not sure who can help, but maybe...the Goods? Yes. The Jerks? Surprisingly, yes, too. You even call Mark Black on the Quiz Pop's customer service number. Then [bad-guy-2] pretending to be the [bad-guy] and you prank him. It's--there's so much to do, questions you never asked. Mark Black is on his way--but you are unprepared for the military coup--someone named Admiral Vice. 'A danger to Slicker City[activation of slicker city]! We will break him,' he says, gesturing to you.[wfk]"
+bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Great. You think you can do better? Do so. I'll be waiting in Questions Field. You'll miss something obvious. Always have, always will.' The Baiter Master storms out.[paragraph break]You're not sure who can help, but maybe...the Goods? Yes. The Jerks? Surprisingly, yes, too. You even call Mark Black on the Quiz Pop's customer service number. Then [bad-guy-2] pretending to be the [bad-guy] and you prank him. It's--there's so much to do, questions you never asked. Mark Black is on his way--but you are unprepared for the military coup--someone named [activation of admiral vice]Admiral Vice. 'A danger to Slicker City[activation of slicker city]! We will break him,' he says, gesturing to you.[wfk]"
 bm-bye	"'You're not going anywhere.' And he's right. But it's not out totally out of fear, now."
 
 after quipping when qbc_litany is table of baiter master talk:
@@ -9366,6 +9358,8 @@ wait your turn is a concept in conceptville. understand "turn your wait" as wait
 
 a u-turn is a concept in conceptville. understand "u turn" as u-turn. howto is "turn an inanimate object"
 
+abuse testing is a concept in conceptville. understand "testing abuse" as abuse testing. howto is "credits"
+
 section intro concepts
 
 a games mind is a concept in conceptville. understand "mind games" as games mind. howto is "very start".
@@ -9474,13 +9468,13 @@ touch base is a concept in conceptville. understand "base touch" as touch base. 
 
 section game-warp concepts
 
-Sitting Duck is a concept in conceptville. understand "duck sitting" as Sitting Duck.
+Sitting Duck is a concept in conceptville. understand "duck sitting" as Sitting Duck. [ac]
 
-Hard Knock is a concept in conceptville. understand "hard knock" as Hard Knock.
+Hard Knock is a concept in conceptville. understand "hard knock" as Hard Knock. [ac]
 
-Cut a Figure is a concept in conceptville. understand "cut a figure" as cut a figure.
+Cut a Figure is a concept in conceptville. understand "cut a figure" as cut a figure. [ac]
 
-Advance Notice is a concept in conceptville. understand "advance notice" as Advance Notice.
+Advance Notice is a concept in conceptville. understand "advance notice" as Advance Notice. [ac]
 
 chapter lalaland
 
