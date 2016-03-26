@@ -3720,6 +3720,8 @@ to babble-out (pe - a person):
 			if ever-babbled is false:
 				say "Well. Now that you, err, abridged the conversation, you feel as though you can abridge how you think of it. Instead of Brook Babbling, well, B[sr-space]B (with or without a space) would work.";
 				now ever-babbled is true;
+			if pe is sly moore:
+				now talked-to-sly is true;
 			the rule succeeds;
 	say "BUG! [pe] should have a babble shortcut in the table of babble summaries. I think.";
 
@@ -3743,7 +3745,7 @@ Punch Sucker	"He mentions all the places he's been and all the exciting people h
 Liver Lily	"She--well, she seems to be making sense, but you feel obliged to agree with her without thinking in order to show her you're thoughtful. You notice she doesn't have a drink."	"She doesn't seem up for small talk, but she grabs an imaginary drink and swirls it."
 Buddy Best	"Buddy Best begins talking a mile a minute about Big Things, and it's impressive all right, and you're not sure how much you should interrupt to say so. You don't at all, and eventually he gets bored of you staring at him and hands you something called a Reasoning Circular and boots you back east."	"BUG. This should not happen."	Reasoning Circular
 Pusher Penn	"He drones on about exciting business opportunities and pushes some wacker weed on you to help you, apparently, get a taste of cutting-edge business."	"[if wacker weed is in lalaland]'Business, eh?'[else]He rubs his hand and makes a 'come here' gesture.[end if][penn-ask]"	wacker weed
-Sly Moore	"Sly haltingly asks if you found anything that could help him be less klutzy? He needs it a bit more than you. Um, a lot."	"Uh, not found anything yet? No worries, I'd do even worse."	--
+Sly Moore	"[sly-s] haltingly asks if you found anything that could help him be less klutzy? He needs it a bit more than you. Um, a lot."	"'Uh, not found anything yet for my klutziness? No worries, I'd do even worse.'"	--
 Officer Petty	"Officer Petty boomingly proclaims a need for theoretical knowledge to augment his robust practical knowledge."	"'NOT FOUND ANYTHING YET? DIDN'T THINK SO. STILL, I CAN HOPE. I COULD USE SOME HIGHBROW FINESSE, I ADMIT IT.'"	--
 Grace Goode	"She mentions how having a flower for the googly bowl [if fourth-blossom is in lalaland]is so[else]would be[end if] nice."	"[if fourth-blossom is in lalaland]'Thank you for returning the flower to the bowl.'[else]'Have you found a flower for the googly bowl?'[end if]"
 
@@ -6275,7 +6277,7 @@ Disposed Well is west of Chipper Wood. It is in Main Chunk. "A crumbling well is
 
 scen-home is privately-named scenery in disposed well. "[if truth home is visited]There's no evidence of the Logical Psycho's ramblings from outside[else]It looks safe enough to go into[end if]."
 
-understand "home" and "house" as scen-home.
+understand "home" and "house" as scen-home when player is in Well.
 
 instead of doing something with scen-home:
 	if action is undrastic:
@@ -9834,87 +9836,112 @@ when play begins (this is the test for talkers rule):
 
 chapter test macros
 
-test allanno with "anno/y/jump/w/w/w/e/n/e/e/w/w/w/e/n/e/w/w/n/e/w/w/n/x view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view"
+section 1 smart street
 
-test dream with "gonear bench/sleep/wake/sleep/z/wake/sleep/z/wake/sleep/z/wake"
+test 1 with "talk to guy/1/1/1/1/1/1/play nim/in"
 
-test street with "talk to guy/1/1/1/1/1/1/play nim/in"
+test 1b with "bb/play nim/in"
 
-test street-bab with "bb/play nim/in"
+section 2 lounge quests
 
-test lounge with "get all/put screw in stick/climb chair/hit hatch"
+test 2 with "get all/put screw in stick/climb chair/hit hatch"
 
-test arch with "w/give token/dig dirt/e/e/dig earth/read burden/w/w/talk to weasel/1/2/2/2/2/2/2/2/2/give burden/e/give burden/n"
+section 3 surface quests
 
-test arch-bab with "w/give token/dig dirt/e/e/dig earth/read burden/w/w/bb/give burden/e/give burden/n"
+test 3 with "w/give token/dig dirt/e/e/dig earth/read burden/w/w/talk to weasel/1/2/2/2/2/2/2/2/2/give burden/e/give burden/n"
 
-test pier with "e/sleep/z/z/z/e/get bear/s/talk to punch/1/2/2/2/3/n/talk to punch/2/2/talk to lily/1/1/1/1/1/1/1/1/give wine to lily/n/w/give bear to fritz/w/give paper to boy/n"
+test 3b with "w/give token/dig dirt/e/e/dig earth/read burden/w/w/bb/give burden/e/give burden/n"
 
-test pier-bab with "e/sleep/z/z/z/e/get bear/s/bb/y/bb/give drink to lily/n/w/give bear to fritz/w/give paper to boy/drop ticket/n"
+section 4 pier quests
 
-test cutter with "j/j/j/test pier/s/w/eat cookie/y/e/n/n/n/n"
+test 4-convo-trap with "test street/test lounge/test arch/bb/e/get bear/give bear to fritz/e/s"
 
-test startit with "test street/test lounge/test arch/test pier"
+test 4 with "e/sleep/z/z/z/e/get bear/s/talk to punch/1/2/2/2/3/n/talk to punch/2/2/talk to lily/1/1/1/1/1/1/1/1/give wine to lily/n/w/give bear to fritz/w/give paper to boy/n"
 
-test to-bar with "test street/test lounge/test arch/talk to howdy/1/3/3/3/3/e/get bear/give bear to fritz/e/s"
+test 4b with "e/sleep/z/z/z/e/get bear/s/bb/y/bb/give drink to lily/n/w/give bear to fritz/w/give paper to boy/drop ticket/n"
 
-test to-bar-bab with "test street/test lounge/test arch/bb/e/get bear/give bear to fritz/e/s"
+test 4-dream with "gonear bench/sleep/wake/sleep/z/wake/sleep/z/wake/sleep/z/wake"
 
-test blood with "n/n/w/talk to buddy/1/1/1/s/s/w/w/n/x hedge/y/s/e/e/e/give tag/e/give seed to monkey/give contract to monkey/w/w/w/w/w/give blossom to faith/e/e/e/n/n/give mind to brother blood/s/s/bro 1"
+test 4-to-bar with "test street/test lounge/test arch/talk to howdy/1/3/3/3/3/e/get bear/give bear to fritz/e/s"
 
-test blood-bab with "n/n/w/bb/s/s/w/w/n/x hedge/y/s/e/e/e/give tag/e/give seed to monkey/give contract to monkey/w/w/w/w/w/give blossom to faith/e/e/e/n/n/give mind to brother blood/s/s/bro 1"
+test 4f-alltick with "gonear pier/e/sleep/z/z/z/tick/drop ticket/tick/e/e/e/e/e/tick/s/talk to lily/2/talk to lily/2/bb/y/abstract lily to soda club/bb/give drink to lily/bb/y/n"
 
-test soul with "n/e/in/talk to penn/1/2/2/y/2/2/out/w/s/s/e/give weed to fritz/w/n/n/e/in/give penny to penn/out/w/w/put pot in vent/x vent/open vent/e/n/give light to brother soul/s/s/bro 2"
+test 4f-allbad with "attack shell/attack guy/gonear pier/e/e/s/attack lily/tix 3/bb/y/talk to lily/2/talk to lily/2/n/n/shit/shit/purloin weed/give weed to toad/w/w/sleep/z/z/z/w/eat lolly/purloin weed/e"
 
-test soul-bab with "n/e/in/bb/out/w/s/s/e/give weed to fritz/w/n/n/e/in/give penny to penn/out/w/w/put pot in vent/x vent/open vent/e/n/give light to brother soul/s/s/bro 2"
+section 5 main quests
 
-test big-old with "n/e/w/s/w/w/put string in hole/n/n/get sound safe/x finger/s/s/e/e/n/e/e/open safe/talk to story fish/get poetic wax/w/n/put wax in machine/wear trick hat/s/talk to charmer snake/w/s/w/w/in/give trap rattle to fool/out/e/e/n/n/give trade to brother big/s/s/bro 3"
+test 5 with "test 5-big/test 5-blood/test 5-soul"
 
-test big with "n/e/get string/w/s/w/w/put string in hole/n/n/get sound safe/s/s/e/e/n/e/e/open safe/talk to story fish/get poetic wax/w/n/put wax in machine/wear trick hat/s/w/s/e/e/give hat to sly/w/w/w/w/in/give trap rattle to fool/out/e/e/n/n/give trade to brother big/s/s/bro 3"
+test 5-big with "n/e/get string/w/s/w/w/put string in hole/n/n/get sound safe/s/s/e/e/n/e/e/open safe/talk to story fish/get poetic wax/w/n/put wax in machine/wear trick hat/s/w/s/e/e/give hat to sly/w/w/w/w/in/give trap rattle to fool/out/e/e/n/n/give trade to brother big/s/s/bro 3"
 
-test jk with "j/j/j/j/brobye/purloin finger/x finger/talk to jerks/talk to boris"
+test 5-blood with "n/n/w/talk to buddy/1/1/1/s/s/w/w/n/x hedge/y/s/e/e/e/give tag/e/give seed to monkey/give contract to monkey/w/w/w/w/w/give blossom to faith/e/e/e/n/n/give mind to brother blood/s/s/bro 1"
 
-test final with "n/freak out/1/1/1/1/1/1/1/1/1"
+test 5-soul with "n/e/in/talk to penn/1/2/2/y/2/2/out/w/s/s/e/give weed to fritz/w/n/n/e/in/give penny to penn/out/w/w/put pot in vent/x vent/open vent/e/n/give light to brother soul/s/s/bro 2"
 
-test lastroom with "test startit/test blood/test soul/test big/purloin quiz pop/n/n/drink quiz pop/n/explain me"
+test 5b with "test 5-big/test 5b-blood/test 5b-soul"
 
-test winit with "test startit/test blood/test soul/test big/purloin quiz pop/n/n/drink quiz pop/test final"
+test 5b-blood with "n/n/w/bb/s/s/w/w/n/x hedge/y/s/e/e/e/give tag/e/give seed to monkey/give contract to monkey/w/w/w/w/w/give blossom to faith/e/e/e/n/n/give mind to brother blood/s/s/bro 1"
 
-test winfig with "figure a cut/test blood/test soul/test big/purloin quiz pop/n/n/drink quiz pop/test final/away hammer"
+test 5b-soul with "n/e/in/bb/out/w/s/s/e/give weed to fritz/w/n/n/e/in/give penny to penn/out/w/w/put pot in vent/x vent/open vent/e/n/give light to brother soul/s/s/bro 2"
 
-test winnot with "notice advance/purloin quiz pop/n/n/drink quiz pop/test final/away hammer"
+test 5-jk with "j/j/j/j/brobye/purloin finger/x finger/talk to jerks/talk to boris"
 
-test winbab with "test street-bab/test lounge/test arch-bab/test pier-bab/test blood-bab/test soul-bab/test big/purloin quiz pop/n/n/drink quiz pop/test final"
+section 6 final stuff
 
-test bestprep with "s/s/w/ctc/d/a bad face/d/get crocked half/u/u/e/e/e/ne/s/nw/e/sw/n/se/w/w/w/n/n"
+test 6-final with "n/freak out/1/1/1/1/1/1/1/1/1"
 
-test bestprep2 with "s/s/w/ctc/d/a bad face/d/get crocked half/u/u/e/e/e/e/nw/s/ne/w/se/n/sw/w/w/n/n"
+test 6-lastroom with "test startit/test blood/test soul/test big/purloin quiz pop/n/n/drink quiz pop/n/explain me"
 
-test winbest with "test startit/test blood/test soul/test big/purloin quiz pop/n/n/test bestprep/drink quiz pop/test final/away hammer"
+section best ending stuff
 
-test winbest2 with "test startit/test blood/test soul/test big/purloin quiz pop/n/n/test bestprep2/drink quiz pop/test final/away hammer"
+test bestprep with "gonear jerk circle/w/ctc/d/a bad face/d/get crocked half/u/u/e/e/e/ne/s/nw/e/sw/n/se/w/w/w/n/n"
+
+test bestprep2 with "gonear jerk circle/w/ctc/d/a bad face/d/get crocked half/u/u/e/e/e/e/nw/s/ne/w/se/n/sw/w/w/n/n"
+
+section bugs
+
+test bugs-arts-x-before-after with "gonear compound/x crack/x torch/purloin fish/play it/purloin safe/open it/x crack/x torch"
+
+section cheats
+
+test cheat-pop with "purloin quiz pop/gonear questions field/drink quiz pop"
+
+section features
+
+test feat-anno with "anno/y/jump/w/w/w/e/n/e/e/w/w/w/e/n/e/w/w/n/e/w/w/n/x view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view/switch view"
+
+test feat-allwin with "gonear out mist/est/change ring/tone ring/hollow ring/gonear airy/away hammer/home hammer/lock hammer"
+
+test feat-deaths with "attack game shell/gonear strip/shit/shit/gonear meal square/eat lolly/gonear labor child/attack child/tix 4/purloin brew/gonear soda club/n/gonear stool toad/attack toad/gonear stool toad/purloin weed/give weed to toad"
+
+section losses
+
+test lose-cc with "gonear meal square/get cookie/e/n/score/n/n/n"
+
+test lose-oc with "j/j/j/j/s/w/get off cheese/e/n/score/n/n/n"
+
+test lose-gc with "j/j/j/j/s/w/get greater cheese/e/n/score/n/n/n"
+
+section warp
+
+test warp-jerks with "test 1/test 2/test 3/test 4"
+
+
+section wins
+
+test win with "test 1/test 2/test 3/test 4/test 5/test cheat-pop/test 6-final/change ring"
+
+test winb with "test 1b/test 2/test 3b/test 4b/test 5b/test cheat-pop/test 6-final/change ring"
+
+test winbest with "test 1/test 2/test 3/test 4/test 5/purloin quiz pop/n/n/test bestprep/drink quiz pop/test 6-final/away hammer"
+
+test winbest2 with "test 1/test 2/test 3/test 4/test 5/purloin quiz pop/n/n/test bestprep2/drink quiz pop/test 6-final/away hammer"
 
 test winfast with "gonear freak control/1/1/1/1/1/1/1/1"
 
-test pops with "purloin pop/gonear questions field/drink pop"
+test winfigure with "figure a cut/test blood/test soul/test big/purloin quiz pop/n/n/drink quiz pop/test 6-final/away hammer"
 
-test arts-before-after with "gonear compound/x crack/x torch/purloin fish/play it/purloin safe/open it/x crack/x torch"
-
-test all-tick with "gonear pier/e/sleep/z/z/z/tick/drop ticket/tick/e/e/e/e/e/tick/s/talk to lily/2/talk to lily/2/bb/y/abstract lily to soda club/bb/give drink to lily/bb/y/n"
-
-test all-bad with "attack shell/attack guy/gonear pier/e/e/s/attack lily/tix 3/bb/y/talk to lily/2/talk to lily/2/n/n/shit/shit/purloin weed/give weed to toad/w/w/sleep/z/z/z/w/eat lolly/purloin weed/e"
-
-section shipoffs
-
-test shipoff with "attack game shell/gonear strip/shit/shit/gonear meal square/eat lolly/gonear labor child/attack child/tix 4/purloin brew/gonear soda club/n/gonear stool toad/attack toad/gonear stool toad/purloin weed/give weed to toad"
-
-section bad endings
-
-test cookie with "gonear meal square/get cookie/e/n/score/n/n/n"
-
-test off-c with "j/j/j/j/s/w/get off cheese/e/n/score/n/n/n"
-
-test greater-c with "j/j/j/j/s/w/get greater cheese/e/n/score/n/n/n"
+test winnotice with "notice advance/purloin quiz pop/n/n/drink quiz pop/test 6-final/away hammer"
 
 chapter broing
 
