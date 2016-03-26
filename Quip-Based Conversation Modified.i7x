@@ -83,8 +83,7 @@ Check talking to (this is the can only talk to people with things to say rule):
 
 Check talking to (this is the summarize babble rule):
 	if noun is babbled-out:
-		recap-babble noun;
-		the rule succeeds;
+		recap-babble noun instead;
 
 Carry out talking to (this is the basic talking to rule):
 	if the greeting of the noun is not quip_null, deliver the greeting of the noun quip;
@@ -104,7 +103,7 @@ To display the QBC options:
 		if the enabled entry > 0:
 			increase qbc_index by 1;
 			if response entry is permissible:
-				say "[bracket][qbc_index][close bracket] [prompt entry][line break]";
+				say "[if screen-read is false][bracket][end if][qbc_index][if screen-read is false][close bracket][else]:[end if] [prompt entry][line break]";
 			else:
 				say "[i][bracket][qbc_index][close bracket] [prompt entry][r][line break]";
 	if qbc_index is not 0, now the number understood is 0;
