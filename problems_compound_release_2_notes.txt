@@ -18,7 +18,7 @@ In addition, there's a lot of renaming of rooms, scenery and items.
 --Crazy Drive -> Walker Street
 --Interest Compound -> Discussion Block
 --book crack -> book bank
---purposes cross -> Saver Screen
+--purposes cross -> Basher Bible
 --song swan -> song torch
 --a long tag -> Reasoning Circular, with a long tag
 
@@ -47,7 +47,7 @@ And there's a lot of extra silliness, too.
 --the game cuts you down differently for swearing
 --With the above two modifications, 64 total rooms now all fit on the new Trizbort/PDF "full" maps. The regular game only added 3 rooms: Service Community and the rooms for the two separate endings
 --the 7 jerks now have 13 different "secret sins" chosen randomly at game's start
---the Saver Screen has lots of tips (24) to be like the bad guy but recognizes ordinary boring people only follow one or two
+--the Basher Bible has lots of tips (28) to be like the bad guy but recognizes ordinary boring people only follow one or two
 --the "bad guy beyond" is no longer Spike Price. He has a new name, based on if you want profanity.
 --ending lists tweak
   --expanded "for your amusement" post-game section

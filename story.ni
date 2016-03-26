@@ -4684,6 +4684,7 @@ reference-blurb
 "Blast people for copying you, or for being too weird."
 "Smack [']em down with 'It's called...' two or three times a day."
 "Make your I CAN'T and YOU CAN'T equally forcible."
+"If someone asks a potentially stupid question, ask them the embarrassing question WHY."
 "Make people feel like they blew it and they never had it in the first place."
 "Say people need to put first thing first, then laugh at every other thing they say."
 "If you can make people feel their weirdness is forcing you to lie to them, good for you!"
