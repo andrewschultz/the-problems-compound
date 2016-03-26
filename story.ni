@@ -285,7 +285,8 @@ to say your-mood:
 		say "[the score]/[maximum score][if questions field is visited][bro-sco][end if]";
 
 to say bro-sco:
-	say ", [3 - bros-left] Bro[if bros-left is not 2]s[end if]";
+	if bros-left > 0:
+		say ", [3 - bros-left] Bro[if bros-left is not 2]s[end if]";
 
 section read what's been done
 
@@ -1317,8 +1318,14 @@ check taking inventory (this is the adjust sleep rule) :
 rule for deciding the concealed possessions of the player:
 	if the particular possession is bad face, decide yes;
 	if the particular possession is face of loss, decide yes;
-	d "[the particular possession].";
 	decide no;
+	
+the print standard inventory rule is not listed in any rulebook.
+
+carry out taking inventory:
+	issue library message taking inventory action number 2;
+	say ":[line break]";
+	list the contents of the player, with newlines, indented, including contents, not listing concealed items, giving inventory information, with extra indentation.
 
 check taking inventory (this is the new standard inventory rule):
 	if accel-ending:
@@ -2108,7 +2115,7 @@ section giving items from below
 
 check giving legend of stuff to:
 	if second noun is a bro:
-		say "
+		say "They'd hear it for sure, if they read that while they were supposed to be working." instead;
 	say "The Legend of Stuff feels stuck to you." instead;
 
 check giving crocked half to:
@@ -2468,7 +2475,7 @@ Poor Dirt	"Dirt poor means especially not rich."
 picture hole	"Seeing the whole picture means you see everything."
 earth of scum	"Scum of the earth is the worst possible person."
 Howdy Boy	"Boy Howdy is a colloquial expression of surprise." [pressure pier]
-Saver Screen	"A screen saver is often an amusing little graphic, animated or otherwise, on a computer that's been idle."
+Basher Bible	"A bible basher is someone who quotes scripture too much. The reverse means a compendium of ways to try and gain power over people and put them down."
 boo tickety	"Tickety-boo means okay, all right, etc."
 trail paper	"A paper trail is evidence in white-collar crimes. People often have to piece it together."
 Howdy Boy	"Boy Howdy is a colloquial expression of surprise."
@@ -2563,7 +2570,7 @@ Baiter Master	"[if allow-swears is true]Masturbater is someone who--pleasures hi
 list bucket	"A bucket list has things to do before you die."
 Language Sign	"Sign language is how people communicate with the deaf."
 call curtain	"A curtain call is when someone comes back out after lots of applause."
-shot screen	"A screenshot is a still frame from a video."
+shot screen	"A screenshot is a graphical capture of what's on your computer screen at the moment."
 incident miner	"A minor incident is not a big deal, but the incident miner makes a big deal of small things."
 Twister Brain	"The opposite of a brain twister, where someone derives a conclusion from a fact, the brain has a set conclusion and twists and weights facts to line up with them."
 Witness Eye	"Someone at the scene of the crime."
@@ -4599,7 +4606,7 @@ Outer Bounds is a region.
 
 part Pressure Pier
 
-Pressure Pier is north of Tension Surface. It is in Outer Bounds. "[one of]So, this is Pressure Pier. Off south is water--no way back to the Tension Surface[or]Water south, passage north[stopping]. You smell food to the west, and the land sinks a bit to the east. Ahead north, things open up further behind [one of]something labeled[or]the[stopping] Saver Screen."
+Pressure Pier is north of Tension Surface. It is in Outer Bounds. "[one of]So, this is Pressure Pier. Off south is water--no way back to the Tension Surface[or]Water south, passage north[stopping]. You smell food to the west, and the land sinks a bit to the east. Ahead north, things open up further behind [one of]something labeled[or]the[stopping] Basher Bible."
 
 pier-visited is a truth state that varies.
 
@@ -4635,38 +4642,38 @@ instead of doing something with water-scen:
 		continue the action;
 	say "The water goes on a ways."
 
-the Saver Screen is scenery in Pressure Pier. "It labels seemingly contradictory things to want and to be: to be clever enough to cut down too-clever weirdos. To have enough interests you can almost empathize with obsessed nerds, but not quite. To know enough pop culture you can poke fun at people who care too much about it. To be nice enough adults are sure you'll go far, but not be some useless dweeb.[paragraph break]There's also something about how if you don't know how to balance those things and have to ask others, or if this triggers some oversensitivity, well, REALLY. And there's even a tip of the moment![paragraph break][tip-of-moment]"
+the Basher Bible is scenery in Pressure Pier. "It labels seemingly contradictory things to want and to be: to be clever enough to cut down too-clever weirdos. To have enough interests you can almost empathize with obsessed nerds, but not quite. To know enough pop culture you can poke fun at people who care too much about it. To be nice enough adults are sure you'll go far, but not be some useless dweeb.[paragraph break]There's also something about how if you don't know how to balance those things and have to ask others, or if this triggers some oversensitivity, well, REALLY. And there's even a tip of the moment![paragraph break][tip-of-moment]"
 
-saver-row is a number that varies. saver-row is usually 0.
+bible-row is a number that varies. bible-row is usually 0.
 
-saver-cycled is a truth state that varies. saver-cycled is usually false.
+bible-cycled is a truth state that varies. bible-cycled is usually false.
 
 to say tip-of-moment:
-	increment saver-row;
-	if saver-row > number of rows in table of saver references:
-		now saver-row is 1;
-		now saver-cycled is true;
-	choose row saver-row in the table of saver references;
+	increment bible-row;
+	if bible-row > number of rows in table of Bible references:
+		now bible-row is 1;
+		now bible-cycled is true;
+	choose row bible-row in the table of Bible references;
 	say "[italic type][reference-blurb entry][line break]";
-	if saver-row is number of rows in table of saver references:
+	if bible-row is number of rows in table of Bible references:
 		say "[r]LAST HINT. You'd better have learned something, but remember, you can push around people who don't matter by saying they aren't persistent enough or they are a bit obsessed. Often within five minutes of each other. Because it's important to see both sides.";
-	else if saver-row is 1:
+	else if bible-row is 1:
 		say "Of course, just internalizing this tip won't make you quite the guy the [bad-guy] is. Everyone can be right about some random thing. You need a variety of moves. To be a complete person![r]";
 	else:
 		say "[r]";
 	unless accel-ending:
-		if saver-cycled is false and saver-row is a looknum listed in table of saver reflections:
-			choose row with looknum of saver-row in table of saver reflections;
+		if bible-cycled is false and bible-row is a looknum listed in table of Bible reflections:
+			choose row with looknum of bible-row in table of Bible reflections;
 			say "[reflection entry]";
 
-table of saver reflections
+table of Bible reflections
 looknum	reflection
 1	"Well, you do need to be more dynamic in conversations. But that doesn't seem right. You wonder if you're just being lazy or unsocial or antisocial."
 3	"Man. It's frustrating. People have pulled these moves on you. And you're pretty sure they're wrong. You've got no way to go around them. You wonder if maybe you need a LITTLE edge."
 6	"Ugh. Surely that can't be the way to be? But people who mastered this, get ahead."
 10	"It seems knowing these makes up for not knowing actual stuff. Maybe you are just jealous others put in the effort to look and be clever with more than just boring facts."
 
-table of saver references
+table of Bible references
 reference-blurb
 "Misunderstand someone blatantly to see if they react excitingly enough. If so, you may have a new associate!"
 "Use 'fair enough' frequently to cool off someone who actually may have a point."
@@ -4696,7 +4703,7 @@ reference-blurb
 "Understand how flattery and the golden rule interact, unless someone is fishing for approval."
 "Pick out someone creepy with a valid criticism and go ad hominem."
 
-after examining saver screen when accel-ending:
+after examining Basher Bible when accel-ending:
 	if cookie-eaten is true:
 		say "Well, DUH. It seems so obvious now you've eaten the cookie.";
 	else if greater-eaten is true:
@@ -4705,13 +4712,13 @@ after examining saver screen when accel-ending:
 		say "Geez. You don't want to have to put up with that any more. You'll be more forceful telling people to expletive off in the future, though. That should help.";
 	continue the action;
 
-instead of doing something with Saver Screen:
+instead of doing something with Basher Bible:
 	if action is procedural:
 		continue the action;
 	say "It's mostly there for looking at and absorbing its philosophy, whatever that may be."
 
-check taking the Saver Screen:
-	say "That'd be too much of a burden." instead;
+check taking the Basher Bible:
+	say "It's too heavy, both physically and emotionally." instead;
 
 section Howdy Boy
 
@@ -7425,7 +7432,7 @@ check talking to Pusher Penn (this is the drugs trump Penn chats rule):
 		say "Pusher Penn shoos you away. You've done enough business with him." instead;
 
 to give-weed:
-	say "'Here you go. Some wacker weed. Nothing special, nothing I'd trust with an experienced runner. There's a fella down by the Joint Strip on the monthly discount plan. Didn't pick up his allotment.' You take the baggie.[line break]";
+	say "'Here you go. Some wacker weed. Nothing special, nothing I'd trust with an experienced runner. There's a fella down by the Joint Strip on the monthly deep discount plan. Didn't pick up his allotment. Forget his name, too. Always mumbling.' You take the baggie.[line break]";
 	now player has wacker weed;
 
 after quipping when qbc_litany is litany of pusher penn:
