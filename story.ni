@@ -645,12 +645,21 @@ check requesting the score:
 		else:
 			say "you've seen [number of visited rooms in just ideas now] rooms in the view of points.";
 		the rule succeeds;
-	if mrlp is Beginning:
-		say "You don't need to worry about score yet. You're still poking around." instead;
+	if player is in smart street:
+		say "You don't need to worry about score yet. You've just got here." instead;
+	if player is in round lounge:
+		say "Score isn't as important as finding a way out. So you could say you've got 0 for 1 right now." instead;
+	if mrlp is beginning:
+		say "You've got more places to visit, but not enough to really keep score of what you're doing yet." instead;
+	if mrlp is Dream Sequence:
+		say "This is one of those nightmares where your score may be negative, if that's possible." instead;
 	if mrlp is outer:
-		if your-tix > 0:
-			say "You have [your-tix] of the 4 boo-ticketies you need." instead;
-		say "You don't feel you've made it anywhere, yet." instead;
+		if howdy boy is not in lalaland:
+			if your-tix is 4:
+				say "The trail paper is probably what the Howdy Boy wants." instead;
+			if your-tix > 0:
+				say "You have [your-tix] of the 4 boo-ticketies you need." instead;
+			say "You need to go looking for trouble. I mean, not too much, but enough to show you're not square." instead;
 	say "You have scored [score] of [maximum score] points";
 	if number of map-pinged rooms > 1:
 		say ", and you've also been to [number of map-pinged rooms] or [number of rooms in bad ends] rooms";
@@ -666,8 +675,11 @@ check requesting the score:
 		say "You need some way to get past the question/exclamation mark guard combination. It's like--I don't know. A big ol['] pop quiz or something." instead;
 	if player has crocked half and thoughts idol is not in lalaland:
 		say "You haven't found what the crocked half's clue is, either." instead;
-	say "You have currently helped [if bros-left is 3]none[else if bros-left is 0]all[else][3 - bros-left in words][end if] of the Keeper Brothers." instead;
-	say "You've found [number of endfound rooms] bad end[if number of endfound rooms is not 1]s[end if] out of [number of rooms in Bad Ends]: [list of endfound rooms]." instead;
+	if player is in freak control:
+		say "[if qbc_litany is table of no conversation]You need to get the [bad-guy]'s attention somehow[else]Don't worry. There's no way to 'lose' this conversation[end if].";
+	say "You have currently helped [if bros-left is 3]none[else if bros-left is 0]all[else][3 - bros-left in words][end if] of the Keeper Brothers[if idol is in lalaland], and you've rid Idiot Village of the Thoughts Idol, too![else].[end if]";
+	if number of endfound rooms > 0:
+		say "Also, if you're keeping track of that sort of thing, you've found [number of endfound rooms] bad end[if number of endfound rooms is not 1]s[end if] out of [number of rooms in Bad Ends]: [list of endfound rooms]." instead;
 
 chapter waking verb
 
@@ -2476,6 +2488,7 @@ picture hole	"Seeing the whole picture means you see everything."
 earth of scum	"Scum of the earth is the worst possible person."
 Howdy Boy	"Boy Howdy is a colloquial expression of surprise." [pressure pier]
 Basher Bible	"A bible basher is someone who quotes scripture too much. The reverse means a compendium of ways to try and gain power over people and put them down."
+spoon table	"A tablespoon is a small measure of something, usually for a recipe."
 boo tickety	"Tickety-boo means okay, all right, etc."
 trail paper	"A paper trail is evidence in white-collar crimes. People often have to piece it together."
 Howdy Boy	"Boy Howdy is a colloquial expression of surprise."
@@ -2636,8 +2649,10 @@ Coals to Newcastle	"Coals to Newcastle means a pointless action. In this case, t
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever."
 Show Business	"Show business is the act of entertainment, and the business show's is (purportedly) more practical." [?? test this!]
 Crisis Energy	"An energy crisis is when a community doesn't have enough electrical power, or oil, or whatever."
+Beyond Belief	"Beyond belief means something you can't possibly believe in, but belief beyond means more faith than you thought you could have."
 shot mug	"The shot mug may look shot, or beaten-up, but mug shots--photographs of apprehended suspects--are generally very unflattering. Hence the flattering portrait of the [bad-guy] on the mug."
 Slicker City	"A city slicker is what rural people may call someone more urban. It's also the name of a planned sequel to PC."
+Wire Fraud	"Wire fraud is a financial crime designed to cheat people out of money."
 running start	"A running start means you've gotten started quickly."
 Break Jail	"A jailbreak means getting out of jail. Though to break someone is to destroy their spirit."
 Admiral Vice	"A vice-(anything) is a next-in-line/assistant to an honorary position, but vice is also a personal failing, big or small."
@@ -4608,7 +4623,7 @@ Outer Bounds is a region.
 
 part Pressure Pier
 
-Pressure Pier is north of Tension Surface. It is in Outer Bounds. "[one of]So, this is Pressure Pier. Off south is water--no way back to the Tension Surface[or]Water south, passage north[stopping]. You smell food to the west, and the land sinks a bit to the east. Ahead north, things open up further behind [one of]something labeled[or]the[stopping] Basher Bible."
+Pressure Pier is north of Tension Surface. It is in Outer Bounds. "[one of]So, this is Pressure Pier. Off south is water--no way back to the Tension Surface[or]Water south, passage north[stopping]. You smell food to the west, and the land sinks a bit to the east. [one of]There's a spoon table to your left, and when you take a closer look, you notice there's a book on it, called the Basher Bible[or]The Basher Bible still rests on the spoon table[stopping]."
 
 pier-visited is a truth state that varies.
 
@@ -4644,7 +4659,11 @@ instead of doing something with water-scen:
 		continue the action;
 	say "The water goes on a ways."
 
-the Basher Bible is scenery in Pressure Pier. "It labels seemingly contradictory things to want and to be: to be clever enough to cut down too-clever weirdos. To have enough interests you can almost empathize with obsessed nerds, but not quite. To know enough pop culture you can poke fun at people who care too much about it. To be nice enough adults are sure you'll go far, but not be some useless dweeb.[paragraph break]There's also something about how if you don't know how to balance those things and have to ask others, or if this triggers some oversensitivity, well, REALLY. And there's even a tip of the moment![paragraph break][tip-of-moment]"
+the Basher Bible is scenery in Pressure Pier. "[one of]The Basher Bible is It labels seemingly contradictory things to want and to be: to be clever enough to cut down too-clever weirdos. To have enough interests you can almost empathize with obsessed nerds, but not quite. To know enough pop culture you can poke fun at people who care too much about it. To be nice enough adults are sure you'll go far, but not be some useless dweeb.[paragraph break]There's also something about how if you don't know how to balance those things and have to ask others, or if this triggers some oversensitivity, well, REALLY. And there's even a tip of the moment! You read it:[paragraph break][or]You read another passage from the Basher Bible: [stopping][tip-of-moment]"
+
+the spoon table is scenery in Pressure Pier. "Many kinds of spoon: greasy, tea, wooden and silver, and that thick one must be a fed spoon. They are welded together to form a table one person can eat at, well--with a few holes. The Basher Bible appears entangled with the top spoons, so you can't pull it off."
+
+understand "spoons" and "spoons table" as spoon table.
 
 bible-row is a number that varies. bible-row is usually 0.
 
@@ -4677,6 +4696,7 @@ looknum	reflection
 
 table of Bible references
 reference-blurb
+"Explain to someone you're only attacking their behavior, but if they're too attached to that, maybe they need to change more than they think they did."
 "Misunderstand someone blatantly to see if they react excitingly enough. If so, you may have a new associate!"
 "Use 'fair enough' frequently to cool off someone who actually may have a point."
 "Complain about something you can't say these days, but don't let your audience cut in too much."
@@ -4715,13 +4735,23 @@ after examining Basher Bible when accel-ending:
 		say "Geez. You don't want to have to put up with that any more. You'll be more forceful telling people to expletive off in the future, though. That should help.";
 	continue the action;
 
+instead of doing something with spoon table:
+	if action is procedural:
+		continue the action;
+	if current action is taking:
+		say "The spoons are dug in, and they're stuck together. You table the idea.";
+	if current action is attacking:
+		say "It sort of makes you want to lash out, but somehow it makes you feel guilty for WANTING to attack it.";
+	say "It's mostly there for looking at and absorbing its philosophy, whatever that may be."
+
 instead of doing something with Basher Bible:
 	if action is procedural:
 		continue the action;
+	if current action is taking:
+		say "It's more or less impossible to take, both physically (its cover is woven or glued to the spoons) and emotionally.";
+	if current action is attacking:
+		say "It sort of makes you want to lash out, but somehow it makes you feel guilty for WANTING to attack it.";
 	say "It's mostly there for looking at and absorbing its philosophy, whatever that may be."
-
-check taking the Basher Bible:
-	say "It's too heavy, both physically and emotionally." instead;
 
 section Howdy Boy
 
@@ -5096,7 +5126,7 @@ part Down Ground
 Down Ground is east of Pressure Pier. It is in Outer Bounds. "[one of]Walking east of Pressure Pier, the land dips a bit. You pass by a bench that seems to radiate heat. A closer look reveals that, yes, it is a Warmer Bench.[or]The Warmer Bench waits here. It may be useful to lie on, or not[stopping]. Even choosing between eventually exiting to the east or west is oppressive."
 
 after printing the locale description for down ground when down ground is unvisited:
-	say "You're reminded of the day you didn't get a permission slip signed to go to the roller coaster park at science class's year end. You wondered if you really deserved it, since you didn't do as well as you felt you could've.";
+	say "You're reminded of the day you didn't get a permission slip signed to go to the roller coaster park at science class's year end. You wondered if you really deserved it, since you didn't do as well as you felt you could've.[line break]";
 
 check going nowhere in Down Ground:
 	if noun is down:
@@ -7605,7 +7635,7 @@ definition: a person (called p) is waxblocking:
 [MUSIC FACE]
 
 check going to Discussion Block for the first time:
-	say "Two guys greet you as you walk in. 'I'm Art Fine. This is Harmonic Phil. Welcome to the Discussion Block! All discussion is welcome here, but some is more welcome than others.' They squabble briefly over whether music or books is superior, ask you whom you agree with and what you especially like, and shrug when you have nothing to say";
+	say "Two guys greet you as you walk in. 'I'm Art Fine. This is Harmonic Phil. Welcome to the Discussion Block! All discussion is welcome here, but some is more welcome than others.' They squabble briefly over whether music or books is superior, ask you whom you agree with and what you especially like, and shrug when you have nothing to say.";
 	wfak;
 
 chapter Art Fine
@@ -7867,7 +7897,7 @@ definition: a person (called p) is stillblocking:
 
 for writing a paragraph about a person (called bro) in Questions Field:
 	if jump-level < 4:
-		say "[one of]Three brothers block the way ahead to the north. They're imposing, each in his own way. 'Greetings, Traveler. We are the [activation of brother's keepers]Keeper Brothers: Brother Big, Brother Blood, and Brother Soul. We must guard Freak Control, headquarters of the [bad-guy]. It is the job we are best suited for, and we are lucky the [bad-guy] has given it to us. He said we are free to do something clearly better if we can find it. We have not, yet.'[or][list of stillblocking people] block[if bros-left is 1]s[end if] your way north. '[if bros-left is 1]I'm[else]We're[end if] sorry. It's [if bros-left is 1]my[else]our[end if] job. Until we find a purpose.'[stopping]";
+		say "[one of]Three brothers block the way ahead to the north. They're imposing, each in his own way. 'Greetings, Traveler. We are the [activation of brother's keepers]Keeper Brothers: Brother Big, Brother Blood, and Brother Soul. We must guard Freak Control, headquarters of the [bad-guy]. It is the job we are best suited for, and we are lucky the [bad-guy] has given it to us. He said we are free to do something clearly better if we can find it. We have not, yet.'[or][list of stillblocking people] block[if bros-left is 1]s[end if] your way north. '[if bros-left is 1]I'm[else]We're[end if] sorry. It's [if bros-left is 1]my[else]our[end if] job. Until [if bros-left is 1]I[else]we[end if] find a purpose.'[stopping]";
 	else:
 		say "You've also disposed of the brothers with the NOTICE ADVANCE command.";
 	now brother big is mentioned;
@@ -8192,7 +8222,7 @@ times-failed	win-say	nowin-say
 
 table of bm - Baiter Master talk
 prompt	response	enabled	permit
-"I've gained...belief beyond."	bm-help	1	1
+"I've gained...[activation of beyond belief]belief beyond."	bm-help	1	1
 "What's in the shot mug?"	bm-mug	1	1
 "A gift from [bad-guy-2]? WHAT?!"	bm-bad2	0	1
 "Well, I took the time to go fetch stuff."	bm-fetch	0	1
@@ -8209,9 +8239,9 @@ bm-fetch	"'Big deal. You probably never considered how lucky you were, how impro
 bm-tosay	"'You have to admit, I have leadership skills.'"
 bm-mug	"'Oh, it's Crisis Energy[activation of crisis energy]. For taking urgent action when someone's -- out of line.' You look more closely. 'COMPLIMENTARY FROM [bad-guy-2-c].'"
 bm-bad2	"'It's--it's, well, tribute is what it is.'"
-bm-so-bad2	"'Oh, come on, you know the difference.'[wfk][line break]It just slips out. 'Yeah, it's easy, there's not much of it.'"
-bm-tribute	"'There will be. Just--society needs to be stable, first. And it almost was. Until you stepped in.'"
-bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Great. You think you can do better? Do so. I'll be waiting in Questions Field. You'll miss something obvious. Always have, always will.' The Baiter Master storms out.[paragraph break]You're not sure who can help, but maybe...the Goods? Yes. The Jerks? Surprisingly, yes, too. You even call Mark Black on the Quiz Pop's customer service number. Then [bad-guy-2] pretending to be the [bad-guy] and you prank him. It's--there's so much to do, questions you never asked. Mark Black is on his way--but you are unprepared for the military coup--someone named [activation of admiral vice]Admiral Vice. 'A danger to Slicker City[activation of slicker city]! We will break him,' he says, gesturing to you.[wfk]"
+bm-so-bad2	"'Oh, come on, you know the difference.'[wfk][line break]Your reply just slips out. 'Yeah, it's easy, there's not much of it.' Maybe you shouldn't have...but nothing happens..."
+bm-tribute	"'There will be. Just--first things first. Stability. We almost got there, until you stepped in.'"
+bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Great. You think you can do better? Do so. I'll be waiting in Questions Field. You'll miss something obvious. Always have, always will.' The Baiter Master storms out, and he must have had a remote, because you're locked in![wfk][paragraph break]You search frantically. There must be some way to communicate...and you dig around until you find the [activation of wire fraud]Fraud Wire! Meant to 'remind' citizens they aren't as nice as they think they are, it now encourages them to get mad. The Goods get their cult to help. The Jerks even chip in, too. You get brave and call Mark Black on the Quiz Pop's customer service number. Then, for kicks, [bad-guy-2] pretending to be the [bad-guy] and you prank him. It's--there's so much to do, questions you never asked. Mark Black is on his way--but so are the [bad-guy]'s allies![wfk][line break]'Get him, [activation of admiral vice]Admiral Vice!'[paragraph break]'A danger not just to the Problems Compound but to Slicker City[activation of slicker city]! We will break him,' he says, gesturing to you.[wfk]"
 bm-bye	"'You're not going anywhere.' And he's right. But it's not out totally out of fear, now."
 
 after quipping when qbc_litany is table of baiter master talk:
@@ -8272,10 +8302,14 @@ carry out powertriping:
 to begin-endgame:
 	now freaked-out is true;
 	score-now;
-	repeat through table of distract time:
-		if there is no control-turns entry or freak-control-turns < control-turns entry:
-			say "[time-taunt entry][line break]";
+	master-welcome-taunt;
 	try talking to baiter master;
+
+to master-welcome-taunt:
+	repeat through table of distract time:
+		if there is no control-turns entry or freak-control-turns <= control-turns entry:
+			say "[time-taunt entry][line break]";
+			the rule succeeds;
 
 book endings
 
@@ -9511,9 +9545,13 @@ section endgame concepts
 
 Crisis Energy is a concept in conceptville. understand "energy crisis" as Crisis Energy. howto is "get the [bad-guy]'s attention"
 
+Beyond Belief is a concept in conceptville. understand "belief beyond" as Beyond Belief. howto is "get the [bad-guy]'s attention"
+
 The shot mug is a concept in conceptville. understand "mug shot" as shot mug. howto is "get the [bad-guy]'s attention"
 
 Slicker City is a concept in conceptville. understand "city slicker" as Slicker City. howto is "[bad-guy] dialog"
+
+Wire Fraud is a concept in conceptville. understand "fraud wire" as Wire Fraud. howto is "[bad-guy] dialog"
 
 Admiral Vice is a concept in conceptville. understand "vice admiral" as admiral vice. howto is "[bad-guy] dialog"
 
@@ -9870,7 +9908,7 @@ test 4f-allbad with "attack shell/attack guy/gonear pier/e/e/s/attack lily/tix 3
 
 section 5 main quests
 
-test 5 with "test 5-big/test 5-blood/test 5-soul"
+test 5 with "test 5-blood/test 5-soul/test 5-big"
 
 test 5-big with "n/e/get string/w/s/w/w/put string in hole/n/n/get sound safe/s/s/e/e/n/e/e/open safe/talk to story fish/get poetic wax/w/n/put wax in machine/wear trick hat/s/w/s/e/e/give hat to sly/w/w/w/w/in/give trap rattle to fool/out/e/e/n/n/give trade to brother big/s/s/bro 3"
 
@@ -9878,7 +9916,7 @@ test 5-blood with "n/n/w/talk to buddy/1/1/1/s/s/w/w/n/x hedge/y/s/e/e/e/give ta
 
 test 5-soul with "n/e/in/talk to penn/1/2/2/y/2/2/out/w/s/s/e/give weed to fritz/w/n/n/e/in/give penny to penn/out/w/w/put pot in vent/x vent/open vent/e/n/give light to brother soul/s/s/bro 2"
 
-test 5b with "test 5-big/test 5b-blood/test 5b-soul"
+test 5b with "test 5b-blood/test 5b-soul/test 5-big"
 
 test 5b-blood with "n/n/w/bb/s/s/w/w/n/x hedge/y/s/e/e/e/give tag/e/give seed to monkey/give contract to monkey/w/w/w/w/w/give blossom to faith/e/e/e/n/n/give mind to brother blood/s/s/bro 1"
 
@@ -9925,7 +9963,6 @@ test lose-gc with "j/j/j/j/s/w/get greater cheese/e/n/score/n/n/n"
 section warp
 
 test warp-jerks with "test 1/test 2/test 3/test 4"
-
 
 section wins
 
