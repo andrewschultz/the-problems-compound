@@ -490,8 +490,14 @@ definition: a direction (called myd) is viable:
 	if player is in tension surface:
 		if myd is outside:
 			decide no;
-	if player is in pressure pier:
+	if player is in pressure pier: [outer bounds]
 		if myd is south:
+			decide no;
+	if player is in joint strip:
+		if myd is south and howdy boy is in lalaland:
+			decide no;
+	if player is in questions field :
+		if myd is west and circular is not off-stage:
 			decide no;
 	if player is in scheme pyramid and contract-signed is false:
 		if myd is north:
@@ -1677,10 +1683,11 @@ to ship-off (X - a room):
 	say "Wait, no, that's not quite how it happened. It was tempting to lash out and step over the line, let's undo that so you can try again...";
 	wfak;
 	move player to ZZ, without printing a room description;
+	say "[b][ZZ][r][line break]"
 
 table of ending-places
 room-loc	room-fun
-Fight Fair	"You are placed against someone slightly stronger, quicker, and savvier than you. He beats you up rather easily, assuring you that just because you're smart doesn't mean you needed to lack any physical prowess. Your opponent then goes to face someone stronger than him."
+Fight Fair	"You are placed against someone slightly stronger, quicker, and savvier than you. He beats you up rather easily, assuring you that just because you're smart doesn't mean you needed to lack any physical prowess. Your opponent then goes to face someone stronger than him.[paragraph break]Everyone quietly nurses his [activation of sore loser]loser sore at night before repeating the next day. And the next."
 Maintenance High	"You're given the lecture about how attempts to rehabilitate you cost society even if they work out pretty quickly."
 Criminals' Harbor	"You're given the lecture about how you'll be performing drudgework until your attempts at obvious crime are sucked out of you."
 Punishment Capitol	"You're given the lecture about how just because you did something really wrong doesn't mean you're a big thinker. Then you're told to sit and think deeply about that for a good long while."
@@ -1943,7 +1950,7 @@ check giving trade of tricks to:
 	if second noun is Brother Big:
 		now brother big is in lalaland;
 		now trade of tricks is in lalaland;
-		say "'Wow! All these things I never learned before! Was it really--did people really--yes, they did.' You read through with him, [if trade of tricks is examined]re-[end if]appreciating all the things you'd fallen for and won't again.[paragraph break]'I won't be suckered again.'";
+		say "'Wow! All these things I never learned before! Was it really--did people really--yes, they did.' You read through with him, [if trade of tricks is examined]re-[end if]appreciating all the things you'd fallen for and won't again.[paragraph break]'I won't be suckered again. Well, not as badly, or as often.'";
 		check-left;
 		the rule succeeds;
 
@@ -2220,17 +2227,25 @@ understand "ex" and "exits" as exitsing.
 carry out exitsing:
 	let got-one be false;
 	if player is in round lounge:
-		say "The hatch above." instead;
-	if player is in idiot village and player has bad face:
+		say "The hatch above. Well, once you figure how." instead;
+	if player is in idiot village and player has bad face and idol is in idiot village:
 		say "You can exit to the west, and you might've, earlier, but--you may want to poke around Idiot Village in even some crazy diagonal directions." instead;
 	if player is in service community:
 		say "You can go pretty much any which way, but you sense that there's only one right way out." instead;
+	if mrlp is dream sequence:
+		say "There is no escape. You can WAKE, or you can THINK or WAIT to see where the dream goes." instead;
+	if player is in freak control:
+		say "There's no backing out. You'll want to find a way to take down the [bad-guy]." instead;
 	if mrlp is endings:
 		say "It looks like you have a small puzzle on how to get out of here." instead;
 	repeat with G running through directions:
 		if G is viable:
 			now got-one is true;
-			say "Going [G], there is [if room G of location of player is visited][the room G of location of player][else]somewhere you haven't been[end if].";
+			if G is inside or G is outside:
+				say "You can go [if G is inside]in[else]out[end if] to";
+			else:
+				say "To the [G] is";
+			say " [if room G of location of player is visited][the room G of location of player][else]somewhere you haven't been[end if].";
 	if got-one is false:
 		say "There are no directional exits. You may need a trick or a specific command to get out.";
 	the rule succeeds;
@@ -2656,6 +2671,7 @@ Wire Fraud	"Wire fraud is a financial crime designed to cheat people out of mone
 running start	"A running start means you've gotten started quickly."
 Break Jail	"A jailbreak means getting out of jail. Though to break someone is to destroy their spirit."
 Admiral Vice	"A vice-(anything) is a next-in-line/assistant to an honorary position, but vice is also a personal failing, big or small."
+Sore Loser	"A sore loser is someone who is not gracious enough to admit defeat. A loser sore is often what you get when you lose a fight, especially one someone else started."
 Complain Cant	"Cant means a tendency towards something, so someone with a complain cant would only say 'can't complain' very ironically." [eternal concepts]
 Received Wisdom	"Received wisdom is generally accepted knowledge which is often not true, such as we only use 10% of our brain. Gustave Flaubert wrote a fun book called The Dictionary of Received Wisdom that makes fun of many examples. For instance, a hamlet is always charming."
 People Power	"People power was a rallying cry in demonstrations against the authoritarianism of, well, power people."
@@ -5285,7 +5301,6 @@ instead of doing something with the bar:
 	if action is undrastic:
 		continue the action;
 	say "You can't do much with the bar other than enter it."
-
 
 check going south in joint strip:
 	if jump-level > 2:
@@ -9000,7 +9015,10 @@ this is the concept-all rule:
 	now see-all-concepts is false;
 
 this is the concept-see rule:
-	say "There are [number of concepts] total concepts. I'll pause.";
+	if number of concepts in conceptville is 0 and see-all-concepts is false:
+		say "You found all the concepts. Very well done, indeed.";
+		the rule succeeds;
+	say "There are [if see-all-concepts is true][number of concepts] total concepts[else][number of concepts in conceptville] concepts you missed[end if]. I'll pause after every ten, and you can decide whether to continue.";
 	let curcon be 0;
 	repeat with X running through concepts:
 		unless X is an exp-thing listed in table of explanations:
@@ -9577,13 +9595,17 @@ touch base is a concept in conceptville. understand "base touch" as touch base. 
 
 section game-warp concepts
 
-Sitting Duck is a concept in conceptville. understand "duck sitting" as Sitting Duck. [ac]
+Sitting Duck is a concept in conceptville. understand "duck sitting" as Sitting Duck. howto is "get to Tension Surface" [ac]
 
-Hard Knock is a concept in conceptville. understand "hard knock" as Hard Knock. [ac]
+Hard Knock is a concept in conceptville. understand "hard knock" as Hard Knock. howto is "get to Pressure Pier" [ac]
 
-Cut a Figure is a concept in conceptville. understand "cut a figure" as cut a figure. [ac]
+Cut a Figure is a concept in conceptville. understand "cut a figure" as cut a figure. howto is "get to Jerk Circle" [ac]
 
-Advance Notice is a concept in conceptville. understand "advance notice" as Advance Notice. [ac]
+Advance Notice is a concept in conceptville. understand "advance notice" as Advance Notice. howto is "help all three Brothers" [ac]
+
+section death concepts
+
+Sore Loser is a concept in conceptville. understand "loser sore" as sore loser. howto is "visit Fight Fair (attack random person)"
 
 chapter lalaland
 
@@ -10410,6 +10432,7 @@ montopic (topic)	on-off	test-title (text)	test-action	topic-as-text (text)
 "dir/noway"	false	"GOING NOWHERE"	try-wid rule	"dir/noway"
 "donote/note"	false	"DONOTEING"	try-noting rule	"donote/note"
 "mood"	false	"MOOD tracking"	try-mood rule	"mood"
+"think"	false	"THINK tracking"	try-think rule	"think"
 
 this is the try-exits rule:
 	try exitsing;
@@ -10439,6 +10462,9 @@ this is the try-noting rule:
 
 this is the try-mood rule:
 	say "Your mood (upper right status) is [your-mood].";
+
+this is the try-think rule:
+	try thinking;
 
 every turn (this is the full monty test rule) :
 	let test-output-yet be false;
