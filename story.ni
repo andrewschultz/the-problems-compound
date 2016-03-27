@@ -708,6 +708,12 @@ to leave-dream:
 	now last-dream-loc is location of player;
 	move player to Warmer Bench;
 	now player has all things in bullpen;
+	if face of loss is in bullpen: [this is a bad hack but it sort of needs to be done]
+		now player has face of loss;
+	if bad face is in bullpen:
+		now player has bad face;
+	if lifted face is in bullpen:
+		now player has lifted face;
 
 chapter waiting
 
@@ -1333,17 +1339,18 @@ check taking inventory (this is the adjust sleep rule) :
 	if mrlp is dream sequence:
 		say "You are carrying: (well, mentally anyway)[line break]  [if player is in tense past]Regret of past mistakes[else if player is in tense future]the weight of indecision[else]understanding of future failures but none of their solutions[end if][paragraph break]" instead;
 
-rule for deciding the concealed possessions of the player:
-	if the particular possession is bad face, decide yes;
-	if the particular possession is face of loss, decide yes;
-	decide no;
-	
 the print standard inventory rule is not listed in any rulebook.
 
 carry out taking inventory:
-	issue library message taking inventory action number 2;
-	say ":[line break]";
-	list the contents of the player, with newlines, indented, including contents, not listing concealed items, giving inventory information, with extra indentation.
+	now all things carried by the player are marked for listing;
+	now face of loss is not marked for listing;
+	now bad face is not marked for listing;
+	if number of marked for listing things is 0:
+		say "You're not carrying anything.";
+	else:
+		issue library message taking inventory action number 2;
+		say ":[line break]";
+		list the contents of the player, with newlines, indented, including contents, listing marked items only, giving inventory information, with extra indentation.
 
 check taking inventory (this is the new standard inventory rule):
 	if accel-ending:
@@ -2106,6 +2113,7 @@ check giving the trap rattle to: [you can't get the trap rattle until you've got
 		say "[line break]When you wake up, the fool has written a small, but fully bound book. He stuffs it in the Trick Hat, shakes it up, and out emerges a xerox copy! He hands it to you and shakes your hand. THE TRADE OF TRICKS, it's called. Then he retreats to his private quarters.";
 		now proof fool is in lalaland;
 		now psycho is in lalaland;
+		now trap rattle is in lalaland;
 		now player has trade of tricks;
 		increment the score instead;
 	if second noun is dutch or second noun is turk:
@@ -2569,6 +2577,7 @@ Sly Moore	"More sly = slyer = cleverer."
 fourth-blossom	"To blossom fourth is to grow."
 Thoughts Idol	"Idle thoughts, e.g., a wandering mind, are what it purports to oppose."
 Trap Rattle	"A rattle trap is a cheap car."
+lifted face	"Facelifted means you had surgery done on your face, though Alec's lifted more naturally."
 Uncle Dutch	"A Dutch Uncle gives useful advice." [speaking plain] [??test XP BUSINESS SHOW]
 Turk Young	"A Young Turk is a brave rebel."
 Fright Stage	"Stage fright is being scared to get out in front of a crowd."
@@ -3297,6 +3306,8 @@ chapter the player's possessions to start
 a face of loss is a thing. The player carries a face of loss. description of face of loss is "There are no mirrors, so you can't see it, but it's hard to change."
 
 a bad face is a thing. description is "You can't see it, but you can [i]feel[r] it has a bit more gravitas and confidence."
+
+a lifted face is a thing. description is "You're feeling pretty good about yourself. Not too good, but you just feel your mouth muscles are a little perkier than normal."
 
 part Smart Street
 
@@ -6384,7 +6395,8 @@ before talking to story fish:
 	if player is not in Discussion Block:
 		say "The fish opens a sleepy eye. 'Eh? Anyone here? Nope, nobody artsy.'" instead;
 	if art fine is in Discussion Block:
-		say "The fish eyes you sleepily but then sees the bookshelf, then Art Fine. 'Ah! Good sir! May I begin!' The fish's story is much funnier this time, and a bit shorter, too, because Art barely lasts five minutes before he runs away screaming. You pat the fish on the head and put it in the bookshelf.[paragraph break]";
+		say "The fish eyes you sleepily but then sees the bookshelf, then Art Fine. 'Ah! Good sir! May I begin!' The fish's story is much funnier this time, and a bit shorter, too, because Art barely lasts five minutes before he runs away screaming. You pat the fish on the head and put it in the tie it to the Book Bank with the Long String--there, you even hid the string, so it looks extra neat.[paragraph break]";
+		now long string is in lalaland;
 		now art fine is in lalaland;
 		now story fish is in Discussion Block;
 		say "[if harmonic phil is in Discussion Block]Harmonic Phil snickers. 'Well, Art was smart and all, but he was getting kind of boring anyway. And he didn't know a THING about music.'[else]Well, that's Phil AND Art gone.[end if]";
@@ -6434,7 +6446,7 @@ check talking to proof fool:
 to say weird-hyp:
 	say "The Psycho's voice is weirdly hypnotic and rhythmic, for all its bluster. How to cut into it? You could never win an argument."
 
-The Trade of Tricks is a proper-named thing. description is "[one of]You got laughed at enough for reading, much less re-reading, in middle school, so you learned to cut that nonsense out--especially books you just liked. Because it was easier to get caught if you were absorbed in a book. But this--you can't help yourself. You earned this book. You feel like the lessons may not sink in for a few days, but all the same--man! You learned a lot! And you feel like sharing.[or]You pick up a few more tricks re-reading. But you realize others may need the book even more than you.[stopping]"
+a thing called The Trade of Tricks is a proper-named thing. description is "[one of]You got laughed at enough for reading, much less re-reading, in middle school, so you learned to cut that nonsense out--especially books you just liked. Because it was easier to get caught if you were absorbed in a book. But this--you can't help yourself. You earned this book. You feel like the lessons may not sink in for a few days, but all the same--man! You learned a lot! And you feel like sharing.[or]You pick up a few more tricks re-reading. But you realize others may need the book even more than you.[stopping]"
 
 part Bottom Rock
 
@@ -7277,6 +7289,8 @@ check going in service community:
 		now last-dir is noun;
 		prevent undo;
 		if idol-progress is 7:
+			now bad face is in lalaland;
+			now player has lifted face;
 			now thoughts idol is in lalaland;
 			move player to idiot village, without printing a room description;
 			move crocked half to lalaland;
@@ -7505,7 +7519,7 @@ after quipping when qbc_litany is litany of pusher penn:
 	if current quip is penn-bye:
 		terminate the conversation;
 
-the wacker weed is a smokable. description is "You couldn't tell if it is good or bad, really. But it needs to be delivered. It's in a baggie and everything."
+some wacker weed is a smokable. description is "You couldn't tell if it is good or bad, really. But it needs to be delivered. It's in a baggie and everything."
 
 understand "baggie" as wacker weed.
 
