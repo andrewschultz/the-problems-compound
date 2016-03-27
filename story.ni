@@ -225,7 +225,7 @@ when play begins (this is the actual start rule):
 	else:
 		now screen-read is false;
 	if screen-read is false:
-		say "Also, how thick are your glasses, if you have them? How much acne--? Wait, no, that's irrelevant. When you're stuck, you're stuck. Let's...let's get on with things.";
+		say "Also, how thick are your glasses, if you have them? How much acne--? Wait, no, that's irrelevant. Not that people aren't mean about looks, but when you're stuck, you're stuck. Let's...let's get on with things.[paragraph break]";
 		wfak;
 	say "It's not [i]The Phantom Tollbooth[r]'s fault your umpteenth re-reading fell flat earlier this evening. Perhaps now you're really too old for it to give you a boost, especially since you're in advanced high school classes. Classes where you learn about the Law of Diminishing Returns.[paragraph break]Or how protagonists gain character through conflict--conflict much tougher than class discussions you barely have energy for. It's all so frustrating--you hate small talk, but you still talk small, and there's no way around. You pick the book up--you shouldn't have chucked it on the floor. Back to the bookcase...";
 	wfak;
@@ -542,6 +542,12 @@ carry out peing:
 	the rule succeeds;
 
 section procedurality
+
+to decide whether the action is jumpy:
+	if figureacuting, yes;
+	if knockharding, yes;
+	if ducksitting, yes;
+	if noticeadvanceing, yes;
 
 to decide whether the action is procedural: [aip]
 	if examining, yes;
@@ -927,7 +933,7 @@ instead of thinking:
 	if think-score is false:
 		say "NOTE: THINK will redirect to SCORE in the future, unless you really only have one specific task remaining.";
 		now think-score is true;
-	say "[one of]You take a thought-second. Then you take another, but you reflect it wasn't as good. OR WAS IT? So you just[or]You[stopping] think about what you've accomplished..." instead;
+	say "[one of]You take a thought-second. Then you take another, but you reflect it wasn't as good. OR WAS IT? So you just[or]You[stopping] think about what you've accomplished...";
 	try requesting the score instead;
 
 pot-not-weed is a truth state that varies.
@@ -1560,7 +1566,7 @@ understand "gt [any thing]" as gotothinging.
 a thing can be unchaseable. a thing is usually not unchaseable.
 
 carry out gotothinging:
-	let mrlg be map region of noun;
+	let mrlg be map region of location of noun;
 	if noun is off-stage or mrlg is nothing or mrlg is meta-rooms:
 		say "[if noun is a person]They aren't[else]that isn't[end if] around right now." instead;
 	if noun is unchaseable:
@@ -1678,7 +1684,7 @@ check attacking:
 		say "'Help! Officers!' The Labor Child searches for a hidden button, and you can only assume a hidden alarm has gone off. The Stool Toad and [if judgment pass is visited]Officer Petty[else]another man[end if] block the exit. 'Kid, give [']im the lecture! The one the boss loves!' It's one you don't. The adults give you the lecture about picking on someone smaller than you and mention that you aren't the first but you're the worst. 'Good job! [bg] will be pleased!' the Labor Child says as you're carried away.";
 		ship-off Fight Fair instead;
 	if player is in Freak Control and noun is scenery:
-		say "'Dude. REALLY? There's a bunch of them left,' says the [bad-guy] as you pound away. 'No damage d9ne? No. But it's the intent that matters. I don't know how you got in here but you'll be going somewhere far away.'";
+		say "'Dude. REALLY? It's not like I don't have spares,' says the [bad-guy] as you pound away. 'No damage done? No. But it's the intent that matters. I don't know how you got in here but you'll be going somewhere far away.'";
 		ship-off Criminals' Harbor instead;
 	if noun is Baiter:
 		say "Of course, with all those screens, he saw you well before you got close. He whirls and smacks you. Stunned, you offer no resistance as guards appear and take you away to where those who commit the worst crimes... 'Dude! If you wanted to talk, just TALK. I mean, you can't be too boring, but don't be all...' You don't hear the rest.";
@@ -1717,10 +1723,10 @@ to ship-off (X - a room):
 		say "[room-fun entry][paragraph break]";
 	else:
 		say "BUG! [X] isn't listed but should be.";
-	say "Wait, no, that's not quite how it happened. It was tempting to lash out and step over the line, let's undo that so you can try again...";
+	say "Wait, no, that's not quite how it happened. It was tempting to lash out and step over the line, but it was just a thought. Let's undo that so you can try again...";
 	wfak;
 	move player to ZZ, without printing a room description;
-	say "[b][ZZ][r][line break]"
+	say "[b]Back at [ZZ][r][line break]"
 
 table of ending-places
 room-loc	room-fun
@@ -2874,18 +2880,31 @@ to say 2da:
 to say equal-line:
 	say "[if screen-read is false]==========[end if]";
 
-carry out verbing:
+this is the special-verb rule:
 	if mrlp is Dream Sequence:
-		say "There aren't too many verbs in the Dream Sequence.";
-		say "THINK or WAIT/Z moves the dream, and you can also LOOK. Your 'inventory' is strictly mental.";
-		say "You can also WAKE[if caught-sleeping is true], which is the only way to get out now the Stool Toad caught you[end if].";
+		if in-meta is false:
+			say "There aren't too many verbs in the Dream Sequence.";
+			say "THINK or WAIT/Z moves the dream, and you can also LOOK. Your 'inventory' is strictly mental.";
+			say "You can also WAKE[if caught-sleeping is true], which is the only way to get out now the Stool Toad caught you[end if].";
 		the rule succeeds;
 	if player is in freak control:
-		say "There may be a special command or two you need to get the [bad-guy]'s attention." instead;
+		if in-meta is false:
+			say "There may be a special command or two you need to get the [bad-guy]'s attention.";
+		the rule succeeds;
 	if player is in out mist:
-		say "There may be a special command or three you need to manipulate the worm-ring more, well, enterable." instead;
+		if in-meta is false:
+			say "There may be a special command or three you need to manipulate the worm-ring more, well, enterable.";
+		the rule succeeds;
 	if player is in airy station:
-		say "There may be a special command or three you need to manipulate the hammer into something more powerful." instead;
+		if in-meta is false:
+			say "There may be a special command or three you need to manipulate the hammer into something more powerful.";
+		the rule succeeds;
+	the rule fails;
+
+carry out verbing:
+	consider the special-verb rule;
+	if the rule succeeded:
+		say "This is a slightly restricted area, so you don't need extra verbs." instead;
 	say "[one of]The Problems Compound has tried to avoid guess-the-verb situations and keep the parser simple.[line break][or][stopping]Verbs needed in The Problems Compound include:[paragraph break]";
 	if player is in smart street:
 		say "[2da]PLAY/TRY any of the games in the shell.";
@@ -2926,10 +2945,21 @@ understand the command "meta" as something new.
 
 understand "meta" as metaing.
 
+in-meta is a truth state that varies.
+
 carry out metaing:
+	now in-meta is true;
+	consider the special-verb rule;
+	now in-meta is false;
+	if the rule succeeded:
+		say "This is a slightly restricted area, so if you're stuck, meta-verbs won't help. See them anyway?";
+		if the player consents:
+			do nothing;
+		else:
+			say "OK." instead;
 	say "Meta-commands:";
 	say "[2da]you can also type ABOUT or CREDITS or HISTORY or TECH to see information on the game's history.";
-	say "[2da]XP/EXPLAIN (any object) gives a brief description. XP with no argument explains the room name. XP can also explain a concept[one of], e.g. the games mind Guy Sweet refers to[or][stopping]. This is more for general information than game hinting.";
+	say "[2da]XP/EXPLAIN (any object) gives a brief description. XP with no argument explains the room name. XP can also explain a concept[one of], e.g. when Guy Sweet says 'you have a Games Mind,' you can XP GAMES MIND of XP MIND GAMES[or][stopping]. This is more for general information than game hinting.";
 	say "[2da]HELP/HINT/HINTS/WALKTHROUGH will redirect you to the PDF and HTML hints that come with the game. THINK/SCORE gives very broad, general hinting. WAIT lets you wait, which is useless, but it's a standard verb.";
 	if cur-anno > 0:
 		say "[2da]NOTE (number or text) displays a previous note you uncovered." instead;
@@ -3130,6 +3160,10 @@ before doing something when qbc_litany is not table of no conversation:
 		say "[bracket]NOTE: it looks like you hit an unexpected conversational dead end. I'll kick you out so you can continue the game. Please let me know how this happened at [email] so I can fix it.[close bracket][paragraph break]";
 		terminate the conversation;
 		continue the action;
+	if action is jumpy:
+		if qbc_litany is table of guy sweet talk:
+			say "Whoah! You could totally do that. But not while you're talking. You'll need to say goodbye to Guy first." instead;
+		say "You suddenly realize you could've gotten started quicker, but you're in a conversation now." instead;
 	if current action is listening:
 		say "Well, you just did, and now it's your turn to respond." instead;
 	if current action is smelling:
@@ -3602,7 +3636,7 @@ to write-undo (x - text):
 
 section ducksitting [skips to tension surface]
 
-ducksitting is an action out of world.
+ducksitting is an action applying to nothing.
 
 understand the command "duck sitting" as something new.
 
@@ -3610,7 +3644,7 @@ understand "duck sitting" as ducksitting.
 
 carry out ducksitting:
 	if player is not in smart street:
-		say "Boy! Knowing then what you know now, you'd have liked to duck sitting in some house and getting to action. But you can't, unless you restart." instead;
+		say "Boy! Knowing then what you know now, you'd have liked to duck sitting in [if player is in round lounge]this[else]some[end if] lounge and getting to action back in Smart Street. (NOTE: you need to RESTART to use this)." instead;
 	say "You open the door to Broke Flat slowly, looking inside for people waiting in ambush. Nobody. You skulk around a bit more--hmm, a passage you'd've missed if you just ran through. You think you see your bathroom up ahead. Wait, no, it's another weird warp. ";
 	write-undo "duck";
 	duck-sitting;
@@ -3619,19 +3653,23 @@ carry out ducksitting:
 to duck-sitting:
 	now jump-level is 1;
 	move player to tension surface;
-	now gesture token is in lalaland;
+	now player has gesture token;
 
 section knockharding [get to pressure pier]
 
-knockharding is an action out of world.
+knockharding is an action applying to nothing.
 
 understand the command "knock hard" as something new.
 
 understand "knock hard" as knockharding.
 
 carry out knockharding:
+	if player is in questions field:
+		say "That would've gotten you into Broke Flat and beyond, but it won't do much to get into Freak Control." instead;
+	if player is in joint strip:
+		say "There's no secret knock or password. Either you can get in the Soda Club, or you can't." instead;
 	if player is not in smart street:
-		say "There's nothing to knock hard at. Or nothing it seems you should knock hard at." instead;
+		say "There's nothing to knock hard at. Or nothing it seems you should knock hard at. Not like Broke Flat back in Smart Street[if pressure pier is unvisited]--you'd need to RESTART to try that[end if]." instead;
 	say "You stride up to Broke Flat with purpose, You knock, hard, hoping to avoid a hard knock--and you do! You are escorted through a maze of hallways that eventually open up to a wide area with water behind: Pressure Pier. ";
 	write-undo "knock";
 	knock-hard;
@@ -3644,7 +3682,7 @@ to knock-hard:
 
 section figure a cut [get to the jerk circle]
 
-figureacuting is an action out of world.
+figureacuting is an action applying to nothing.
 
 understand the command "figure a cut" as something new.
 understand the command "figure cut" as something new.
@@ -3652,9 +3690,15 @@ understand the command "figure cut" as something new.
 understand "figure a cut" as figureacuting.
 understand "figure cut" as figureacuting.
 
+to say jump-reject:
+	say "Oh, man! Looking back, you totally see a shortcut you should've at least checked at, back in Smart Street. But it's too late to skip ahead like that now. Maybe if you somehow restart things and wind up back at Smart Street, you could";
+
+to say jump-reject-2:
+	say "[jump-reject][if jerk circle is visited]. But, eh, you already made it to the [jc][else]. You'll need to RESTART to jump ahead to the Jerk Circle this way";
+
 carry out figureacuting:
 	if player is not in smart street:
-		say "Oh, man! Looking back, you totally see a shortcut you should've at least checked at, back in Smart Street. But it's too late to skip ahead like that now. You may wish to restart the game." instead;
+		say "[jump-reject-2]." instead;
 	say "Guy Sweet yells 'Hey! Where are you going? I mean, you're probably like accelerated in school but if you think you're accelerated at life...' You ignore him. You don't need to be taught a same lesson twice. Well, not this one. You rattle the doorknob just so--and you recognize a few odd passages in Broke Flat--and bam! You fall through an invisible slide to the [jc]. ";
 	write-undo "figure";
 	figure-cut;
@@ -3678,7 +3722,7 @@ section notice advance [skips you to the endgame before the BM, jerk circle solv
 
 jump-level is a number that varies.
 
-noticeadvanceing is an action out of world.
+noticeadvanceing is an action applying to nothing.
 
 understand the command "notice advance" as something new.
 
@@ -10047,6 +10091,14 @@ test winb with "test 1b/test 2/test 3b/test 4b/test 5b/test cheat-pop/test 6-fin
 test winbest with "test 1/test 2/test 3/test 4/test 5/purloin quiz pop/n/n/test bestprep/drink quiz pop/test 6-final/away hammer"
 
 test winbest2 with "test 1/test 2/test 3/test 4/test 5/purloin quiz pop/n/n/test bestprep2/drink quiz pop/test 6-final/away hammer"
+
+test wjds with "duck sitting/y/test 3/test 4/test 5/test cheat-pop/test 6-final/change ring"
+
+test wjfc with "figure a cut/test 5/test cheat-pop/test 6-final/change ring"
+
+test wjkh with "knock hard/y/test 4/test 5/test cheat-pop/test 6-final/change ring"
+
+test wjna with "notice advance/test cheat-pop/test 6-final/change ring"
 
 test winfast with "gonear freak control/1/1/1/1/1/1/1/1"
 
