@@ -281,6 +281,10 @@ to say your-mood:
 		say "[unless terminal is in Belt Below]Cheats below[else if terminal is examined]Puzzling[else]";
 	else if player is in Bottom Rock:
 		say "Spoilerville";
+	else if player is in Airy Station:
+		say "Big Send Off";
+	else if player is in out mist:
+		say "ESCAPE";
 	else:
 		say "[the score]/[maximum score][if questions field is visited][bro-sco][end if]";
 
@@ -1142,6 +1146,9 @@ chapter smelling
 
 the block smelling rule is not listed in any rulebook.
 
+before smelling when accel-ending:
+	say "You give a disdainful sniff." instead;
+
 check smelling (this is the smelling a thing rule):
 	if noun is the player:
 		say "That never works. People who smell bad are used to their own smells, but if you're caught sniffing yourself, whew." instead;
@@ -1161,6 +1168,10 @@ check smelling (this is the smelling a thing rule):
 		say "It smells like some cheap air freshener you bought once." instead;
 	if noun is wacker weed:
 		say "It doesn't smell dangerous to brain cells, but it is." instead;
+	if noun is tray a:
+		say "Smells as nice as junk food can." instead;
+	if noun is tray b:
+		say "It doesn't smell terrible, but it reminds you of an expensive restaurant you didn't enjoy and your parents never let you forget that." instead;
 	if noun is fish:
 		say "The story fish is thankfully not organic enough to stink, or boy, WOULD it." instead;
 	if noun is a person:
@@ -1179,6 +1190,18 @@ check smelling (this is the smelling a place rule): [see above for people]
 		say "A faint smell of various foods to the west." instead;
 	if player is in meal square:
 		say "So many foods mix here, it's hard to pick anything individually. Overall, smells pretty nice, though." instead;
+	if player is in soda club:
+		say "Faint cologne and perfume. Enough to make you cringe, but you've heard bars can smell worse. Though you know nothing about fragrances. I mean, you use deodorant and all, but..." instead;
+	if player is in classic cult:
+		say "Nice and floral. Almost too nice. Is this part of how they sucker people in?" instead;
+	if player is in court of contempt:
+		say "Buddy Best sniffs back, louder." instead;
+	if player is in speaking plain:
+		say "The advice you're hearing thankfully only stinks metaphorically." instead;
+	if player is in freak control:
+		say "Unusually sterile." instead;
+	if player is in discussion block:
+		say "You try to sniff and have Big Opinions about art, but it's too hard." instead;
 	say "Nothing really smells too bad. You worry for a second it's because nothing smells worse than you." instead;
 
 chapter looking
@@ -1187,15 +1210,20 @@ chapter listening
 
 the block listening rule is not listed in any rulebook.
 
+before listening when accel-ending:
+	say "You've had enough of meekly listening to others. You'll be listening to yourself from now on." instead;
+
 check listening (this is the listening to a thing rule):
 	if noun is fritz:
 		say "Fritz mumbles to himself[if fritz has bear] a bit more happily now he has minimum bear[else] nervously[end if]." instead;
+	if noun is stool toad:
+		say "The Stool Toad gives a few tch-tch-tches under his breath." instead;
 	if noun is assassination:
 		say "Now that you appear to be listening, the assassin is quiet." instead;
 	if noun is petty:
-		say "He gives off the occasional HMPH." instead;
+		say "Officer Petty gives off the occasional HMPH." instead;
 	if noun is labor child:
-		say "He yacks into an unseen headpiece." instead;
+		say "The Labor Child yacks into an unseen headpiece." instead;
 	if noun is a person:
 		say "Maybe you should TALK TO them instead." instead;
 
@@ -1217,9 +1245,11 @@ check listening (this is the listening in a place rule):
 	if player is in surface and mush is in surface:
 		say "The arch makes a slight tapping noise as it dances from side to side." instead;
 	if player is in Soda Club:
-		say "Under some [one of]popular[or]alternative[or]classical[in random order] tune you really should know, you think you hear some really hearty arguments about really dumb stuff." instead;
+		say "Under some [one of]punk[or]New Wave[or]Disco[or]oldies[or]popular[or]alternative[or]classical[in random order] tune you really should know, you think you hear some really hearty arguments about really dumb stuff." instead;
 	if player is in pyramid:
 		try listening to labor child instead;
+	if player is in joint strip:
+		try listening to stool toad instead;
 	if player is in judgment and petty is in judgment:
 		try listening to petty instead;
 	if player is in speaking plain and dutch is in speaking plain:
@@ -1233,7 +1263,7 @@ check listening (this is the listening in a place rule):
 	if player is in freak control:
 		say "The apparatus emits an occasional work grunt, you suspect, to impress visitors." instead;
 	if player is in out mist:
-		say "You can't hear anyone. That's good." instead;
+		say "You can't hear anyone chasing you. That's good." instead;
 	if player is in airy station:
 		say "The cheering's nice, but--it's a bit old. You wonder if you've done THAT much." instead;
 	say "There's a bit of nervous tension, but there always is. You're used to that now, well, almost." instead;
@@ -2668,6 +2698,7 @@ Rummy Gin	"Gin Rummy is a card game, generally not the sort associated with wild
 Go Rum	"A rum go is an unforeseen unusual experience, as opposed to 'GO' anything which indicates general motivation."
 Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
 Black Mark	"A black mark is something indicating bad behavior."
+Determined Bound	"Bound and determined means you're set on doing something. A determined bound is set to prevent you from doing something."
 Steal This Book	"Steal This Book was a countercultural guide by Abbie Hoffman. Book this steal refers to 'booking' suspects for a transgression, e.g. a parking fine or ticket."
 Coals to Newcastle	"Coals to Newcastle means a pointless action. In this case, there are no dark rooms, so you don't need a torch. Reducing a new castle to coals is, of course, pointless, too."
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever."
@@ -5673,6 +5704,9 @@ part Jerk Circle
 
 Jerk Circle is north of Pressure Pier. It is in Main Chunk. printed name of Jerk Circle is "[jc]". "[if silly boris is in lalaland]The only evidence the [j-co] were here is that the ground seems slightly trampled[else]Seven [j-co] stand in a circle (okay, a heptagon) here, talking to and about others[end if]. It looks like there's forested area to the west, a narrow valley to the east, and things open up to the north. Nothing's stopping you going back south in this crossroads, either."
 
+check going nowhere in jerk circle:
+	say "You can go in any compass direction, but not that way." instead;
+
 check going south in jerk circle (this is the block pier in endgame rule):
 	if bros-left is 0:
 		say "No. You don't need to go back. You're close to what you need to do." instead;
@@ -6526,6 +6560,7 @@ already-clued is a truth state that varies.
 last-clue is a number that varies;
 
 after quipping when qbc_litany is table of Legend of Stuff talk:
+	d "OK, hinting here.";
 	now red-big-clued-this-turn is false;
 	if current quip is stuff-blood or current quip is stuff-all:
 		hint-red;
@@ -6577,6 +6612,7 @@ red-big-clued-this-turn is a truth state that varies.
 
 this is the red-big-together rule:
 	if red-big-clued-this-turn is true: [this is so that you don't see the same clue twice where big and blood's clues merge]
+		d "Already clued, skipping.";
 		the rule succeeds;
 	now red-big-clued-this-turn is true;
 	if questions field is unvisited:
@@ -6613,7 +6649,7 @@ to hint-red:
 		say "You see yourself giving a flower to two women in clerical robes.";
 		set-clue 12;
 	else if player has mind of peace:
-		say "Give the mind of peace to Brother Blood.";
+		say "You see yourself giving something lumpy and spherical to a man in red.";
 		set-clue 13;
 	say "[line break]";
 
@@ -7423,8 +7459,8 @@ the mistake grave is scenery in Walker Street. "It's illuminated oddly, as if a 
 
 check going nowhere in Walker Street:
 	if noun is south:
-		say "I'm afraid the Mistake Grave is a determined bound." instead;
-	say "If there were a red light here, it would flash . Just north, east, in and west." instead;
+		say "I'm afraid the Mistake Grave is a [activation of bound determined]determined bound." instead;
+	say "If there were a red light here, it would flash to say how wrong you were. Just north, east, in and west." instead;
 
 understand "pot/chamber" and "pot chamber" as drug gateway when player is in Walker Street
 
@@ -9565,6 +9601,8 @@ Double Jeopardy is a concept in conceptville. understand "jeopardy double" as Do
 
 Black Mark is a concept in conceptville. understand "mark black" as black mark. howto is "examine quiz pop"
 
+Determined Bound is a concept in conceptville. understand "bound and determined" as determined bound. howto is "go south in Walker Street"
+
 Steal This Book is a concept in conceptville. understand "book this steal" as Steal This Book. howto is "take book bank"
 
 Coals to Newcastle is a concept in conceptville. understand "new castle to coals" as Coals to Newcastle. howto is "take song torch"
@@ -10439,11 +10477,15 @@ table of monties
 montopic (topic)	on-off	test-title (text)	test-action	topic-as-text (text)
 "exits"	false	"LISTING EXITS"	try-exits rule	"exits"
 "legend/hint"	false	"LEGEND HINTING"	try-hinting rule	"legend/hint"
+"red"	false	"LEGEND HINTING RED"	try-red rule	"red"
+"blue"	false	"LEGEND HINTING BLUE"	try-blue rule	"blue"
+"big"	false	"LEGEND HINTING BIG"	try-big rule	"big"
 "i/inventory"	false	"INVENTORY"	try-inventory rule	"i/inventory"
 "s/smell"	false	"SMELLING"	try-smelling rule	"s/smell"
 "l/listen"	false	"LISTENING"	try-listening rule	"l/listen"
 "sc/score"	false	"SCORING"	try-scoring rule	"sc/score"
 "dir/noway"	false	"GOING NOWHERE"	try-wid rule	"dir/noway"
+"dirs"	false	"GOING BASIC DIRS"	try-dirs rule	"dirs"
 "donote/note"	false	"DONOTEING"	try-noting rule	"donote/note"
 "mood"	false	"MOOD tracking"	try-mood rule	"mood"
 "think"	false	"THINK tracking"	try-think rule	"think"
@@ -10454,6 +10496,15 @@ this is the try-exits rule:
 this is the try-hinting rule:
 	hint-red;
 	hint-blue;
+	hint-big;
+	
+this is the try-red rule:
+	hint-red;
+
+this is the try-blue rule:
+	hint-blue;
+
+this is the try-big rule:
 	hint-big;
 
 this is the try-inventory rule:
@@ -10470,6 +10521,26 @@ this is the try-scoring rule:
 
 this is the try-wid rule:
 	try going widdershins;
+	
+tracked-room is a room that varies.
+
+this is the try-dirs rule:
+	let tracked-room be location of player;
+	shift-player inside;
+	shift-player outside;
+	shift-player east;
+	shift-player west;
+	shift-player south;
+	shift-player north;
+	if location of player is not tracked-room:
+		say "Player did not wind up in [tracked-room], moving back there.";
+		move player to tracked-room, without printing a room description;
+
+to shift-player (Q - a direction):
+	try going q;
+	if location of player is not tracked-room:
+		move player to tracked-room, without printing a room description;
+	say "Tried to move [Q] above.";
 
 this is the try-noting rule:
 	try donoteing;
@@ -10481,6 +10552,8 @@ this is the try-think rule:
 	try thinking;
 
 every turn (this is the full monty test rule) :
+	now red-big-clued-this-turn is false;
+	now already-clued is false;
 	let test-output-yet be false;
 	repeat through table of monties:
 		if on-off entry is true:
