@@ -852,7 +852,11 @@ check dropping (this is the general dropping rule):
 		say "It just won't let you. Weird." instead;
 	if noun is crocked half:
 		say "Nah, why litter." instead;
-	say "You don't need to leave anything lying around. In fact, you shouldn't[if your-tix < 4 and litter-clue is true], unless you want to annoy authority figures who may not actually care about the environment anyway." instead;
+	if noun is rattle:
+		if player is in truth home:
+			say "It'd make a bit of noise that way, but not enough." instead;
+		say "You'd like to ditch the rattle, but you wonder if it might annoy someone else even more." instead;
+	say "You don't need to leave anything lying around. In fact, you shouldn't[if your-tix < 4 and litter-clue is true], unless you want to annoy authority figures who may not actually care about the environment anyway[end if]." instead;
 
 chapter buying
 
@@ -1041,7 +1045,7 @@ check sleeping:
 		say "You don't want to join Sal." instead;
 	if player is in truth home and psycho is in truth home:
 		say "Tough with all that noise." instead;
-	if Down Ground is unvisited or jump-level > 2:
+	if Down Ground is unvisited and jump-level < 2:
 		say "You're nowhere near tired. You're curious what could be ahead." instead;
 	if player is in Bottom Rock:
 		say "The crib's too small for sleeping." instead;
@@ -2112,13 +2116,13 @@ check giving trick hat to:
 	if second noun is Sly Moore:
 		say "[if talked-to-sly is false]You introduce yourself, and he introduces himself as Sly Moore. You give him[else]You give Sly Moore[end if] the trick hat. He adjusts it ten times until it feels right, which is pretty silly, since it's completely circular. But once he wears it, his eyes open. 'Oh...that's how you...and that's how you...'[paragraph break]All the magic tricks he failed at, before, work now.";
 		wfak;
-		say "[line break]He hands the hat back to you. 'Let's see if I can do things without the hat. Yep, not hard to remember...there we go.' Sly shakes your hand. 'Thanks so much! Oh, hey, here's a gift for you. From a far-off exotic place. A trap-rattle.'[paragraph break]You accept it without thought. Sly excuses himself to brush up on magic tricks.";
+		say "[line break]'Can...can I keep the hat?' You nod. It was sort of tough to carry, and it didn't really suit you. Sly shakes your hand. 'Thanks so much! Oh, hey, here's a gift for you. From a far-off exotic place. A trap-rattle.'[paragraph break]You accept it without thought. Sly tries a trick with the hat (got it,) then without it (almost, but much better,) then excuses himself to brush up on magic tricks.";
 		wfak;
 		now player has the trap rattle;
 		now trick hat is in lalaland;
 		increment the score;
 		now sly is in lalaland;
-		say "[line break]And once you take a step, thought is hard. Rattle, rattle. Well, it looks like Sly Moore was able to play a trick on you without the trick hat. He'll be okay." instead;
+		say "[line break]And once you take a step, thought is hard. Rattle, rattle. But you can't give it back, now. Still, maybe it'll be more useful for you than Sly." instead;
 
 check giving wax to:
 	ignore the can't give what you haven't got rule;
@@ -2623,6 +2627,7 @@ Off Cheese	"To cheese someone off is to annoy them."
 gagging lolly	"Lollygagging is waiting around."
 condition mint	"Mint condition is brand new."
 iron waffle	"A waffle iron is what you put batter in to make a waffle. But a waffle is also what you use when you don't know what to say. An iron waffle, then, would be something to say when you don't know what to say--but it is hard to take down."
+up gum	"To gum up is to slow down a process, often to a halt."
 picture of a dozen bakers	"A baker's dozen is thirteen, thus counting for the illusion."
 warmer bench	"A bench warmer is someone who doesn't get into the action, especially in a sports game." [down ground]
 Fritz the On	"On the fritz means on the blink."
@@ -2747,9 +2752,9 @@ Animal Welfare	"Animal welfare is concern for animals who often can't help thems
 nose picking	"Nose picking is -- not the best habit. A picking nose would be a discerning sense of smell."
 work of art	"A work of art is something nice and beautiful. The art of work is--well, the term can be abused to make work seem more exciting than it is."
 enough man	"Man enough means being able to stand up for yourself. Okay, it's a bit sexist, but people who say it mean to be annoying. 'Enough, man' just means stop it."
+brush up	"To brush up is to refresh your memory of something."
 fish out of water	"A fish out of water is someone or something out of place."
 strike a balance	"To strike a balance is to find a satisfactory compromise. A strike can alo mean--well, your balance went on strike, or you'd fall over."
-up gum	"To gum up is to slow down a process, often to a halt."
 pig out	"To pig out is to eat everything you see. The reverse is an admonishment to leave."
 Thought for food	"Food for thought is something to think about."
 Tray S	"Stray. In other words, it strayed from Meal Square."
@@ -2788,6 +2793,7 @@ Sore Loser	"A sore loser is someone who is not gracious enough to admit defeat. 
 Complain Cant	"Cant means a tendency towards something, so someone with a complain cant would only say 'can't complain' very ironically." [eternal concepts]
 Received Wisdom	"Received wisdom is generally accepted knowledge which is often not true, such as we only use 10% of our brain. Gustave Flaubert wrote a fun book called The Dictionary of Received Wisdom that makes fun of many examples. For instance, a hamlet is always charming."
 People Power	"People power was a rallying cry in demonstrations against the authoritarianism of, well, power people."
+Snipe Gutter	"A guttersnipe is someone of the lowest class, brought up in squalor. To snipe is to take cheap shots, and if you're in the gutter, so much the worse."
 Something Mean	"Mean something = talk or act with purpose. Something mean = well, nastiness."
 Sitting Duck	"A sitting duck is someone just waiting to be taking advantage of. But if you duck sitting, you aren't waiting."
 Hard Knock	"A hard knock is physical wear and tear, or being hit hard, versus just knocking at a door."
@@ -3168,6 +3174,8 @@ check going:
 	if noun is down and the room down of location of player is nowhere:
 		say "You don't often need to go down." instead;
 	if noun is up and the room up of location of player is nowhere:
+		if location of player is variety garden:
+			say "Even if you had wings, you'd probably fly into [activation of brush up]up brush that'd remind you you don't REALLY know how to use them." instead;
 		say "You don't often need to go up." instead;
 	if noun is outside:
 		if number of viable directions is 1:
@@ -6052,7 +6060,7 @@ for writing a paragraph about a client (called jrk) in Jerk Circle:
 	else if finger is not examined:
 		say "The seven [j-co] are too intimidating now. Even two people conversing, that's tough to break in the middle of, much less seven.";
 	else:
-		say "[one of]The jerks, again. Wait a minute. Seven jerks, talking about being cool, seven 'clients' for the Labor Child. Could it be...? You ask if they know about the Labor Child. Once it's established you hate him, they're relieved.[or]The [j-co] continue to talk about what's cool and what's not.[stopping]";
+		say "[one of]The jerks, again. Wait a minute. Seven jerks, talking about being cool, seven 'clients' for the Labor Child. Could it be...? You ask if they know about the Labor Child. Once it's established you hate him, they're relieved.[or]The [j-co] continue to talk about what's cool and what's not. Now that you've established a common enemy, you may want a chat. Or not.[stopping]";
 	now all clients are mentioned;
 
 to say jerk-list:
@@ -6094,6 +6102,7 @@ prompt	response	enabled	permit
 "So, you wouldn't be ashamed of driving a clunker?"	jerk-car	0	1
 "So, do women's sports really have better fundamentals?"	jerk-wsport	0	1
 "So, what sort of glossy magazines do you read?"	jerk-zines	0	1
+"So, any classic shows you miss? Or not so classic?"	jerk-cartoon	0	1
 "(bug the next [j-g])"	jerk-next	0	1
 "So, what about the [bad-guy]?"	jerk-baiter	1	1
 "[later-or-thanks]."	jerk-bye	3	1
@@ -6117,6 +6126,7 @@ Buddy Best	"watches women's sports without ogling or negging"	jerk-wsport	0
 Buddy Best	"enjoys nonviolent video games and not just because they're cheap"	jerk-video	0
 Buddy Best	"prefers fashion magazines to swimsuit editions"	jerk-zines	0
 Buddy Best	"uses life lessons from Mr. Rogers"	jerk-rogers	0
+Buddy Best	"has a DVD of an old cartoon he 'used to' like"	jerk-cartoon	0
 
 table of quip texts (continued)
 quip	quiptext
@@ -6133,6 +6143,7 @@ jerk-rogers	"[innue]."
 jerk-video	"[innue]."
 jerk-wsport	"[innue]."
 jerk-zines	"[innue]."
+jerk-cartoon	"[innue]."
 jerk-next	"You move on to [next-c-x of last-jerk]."
 jerk-baiter	"Everyone chimes in. Oh, does the [bad-guy] know his cultural references! And oh, how they respect him for knowing more culture despite the intensity of working up north in Freak Control to keep [bad-guy-2] at bay! They are pretty sure [bad-guy-2] wouldn't allow seven people to assemble in one place so freely."
 jerk-bye	"[last-jerk] turns away and goes back to talking to his buddies."
@@ -6759,7 +6770,7 @@ check playing the rattle:
 		say "The Logical Psycho looks worried for a second, but goes on. Hm. You interrupted one of his rants, but not at the right time. Maybe someone who understood them better, but just didn't have the guts to speak back, could use the rattle. Who could that be, now." instead;
 	if number of people in location of player > 1:
 		say "You don't know if it's worth deliberately annoying anyone here." instead;
-	say "Rattle, rattle." instead;
+	say "Rattle, rattle. It gives you a headache. Maybe if you were more Type A, it'd drive you totally up the wall." instead;
 
 description is "When he's not trying to wave off the Logical Psycho's arguments, he's grabbing his head with his hands."
 
@@ -6814,7 +6825,7 @@ check taking legend of stuff when Thoughts Idol is in lalaland:
 check examining the Legend of Stuff:
 	if bros-left is 0:
 		if silly boris is in jerk circle:
-			say "As you flip through the Legend of Stuff, you notice two identical pages, of a stick-figure is asking the second stick-figure the same question twice. The second response is nervier.'" instead;
+			say "As you flip through the Legend of Stuff, you notice two identical pages, of a stick-figure is asking the second stick-figure the same question twice. The second response is nervier." instead;
 		say "The Legend of Stuff has nothing new to offer." instead;
 	say "The Legend of Stuff seems to be in roughly three parts: a red section, a blue section, and a section as big as the other two combined. Which section do you wish to look at? Or would you like to look at them all?";
 	try talking to the Legend of Stuff instead;
@@ -6842,7 +6853,7 @@ stuff-blood	"You stare at the red section."
 stuff-soul	"You stare at the blue section."
 stuff-big	"You stare at the big section."
 stuff-all	"You stare at all the sections."
-stuff-bye	"Nah, you don't want any hints just now."
+stuff-bye	"Enough studying. Time for action!"
 
 already-clued is a truth state that varies.
 
@@ -7304,7 +7315,7 @@ check going north in scheme pyramid:
 				say "'Bargaining [one of][or]still [stopping]won't work on me,' the Labor Child pouts." instead;
 		the rule succeeds;
 	if accountable hold is unvisited:
-		say "'Take the safe if you want--they sent me the wrong model. Taking advantage of a kid!'";
+		say "'Take the safe if you want--they sent me the wrong model. Much too small and crackable. Taking advantage of a kid like that! Well, my lawyers showed them!'";
 
 check talking to the labor child:
 	if player has cold contract:
@@ -7347,8 +7358,9 @@ check examining finger index when finger index is not examined:
 to say finger-say:
 	let temp be 0;
 	repeat through the table of fingerings:
-		increment temp;
-		say "[temp]. [clue-letter of jerky-guy entry] [blackmail entry][line break]";
+		if jerky-guy entry is not buddy best:
+			increment temp;
+			say "[temp]. [clue-letter of jerky-guy entry] [blackmail entry][line break]";
 	say "[line break]Collect hush fees every Monday. Repeating accusations breaks the guilty parties. Insanity Terminal has backup data";
 	now finger index is examined;
 
@@ -7370,7 +7382,7 @@ check opening sound safe:
 	if harmonic phil is in lalaland:
 		say "You don't need to, again." instead;
 	if player is not in Discussion Block:
-		say "You crack it open, but it makes such a terrible noise you have to close it again. You wouldn't want to open it again unless you were around someone you really wanted to spite." instead;
+		say "You crack it open, but it makes such a terrible noise you have to close it again. You wouldn't want to open it again unless you were around someone you really wanted to spite[if player does not have safe], and thing is, it felt a lot lighter than you thought it would as you opened it[end if]." instead;
 	say "The Sound Safe makes a brutal noise in the Discussion Block, made worse by the special acoustics. Harmonic Phil covers his ears. 'I can't even blather about how this is so bad it's good!' he yells, running off.[paragraph break]You put the safe down by the song torch.";
 	now sound safe is in Discussion Block;
 	now harmonic phil is in lalaland;
@@ -7772,6 +7784,10 @@ for writing a paragraph about a person (called udyt) in Speaking Plain:
 part Walker Street
 
 Walker Street is east of Speaking Plain. It is in Main Chunk. "A huge mistake grave blocks passage south, but to the north is [if standard bog is visited]the Standard Bog[else]some swamp or something[end if], east is some sort of museum, and you can go inside [gateway-desc]. Or you can go back west to the Speaking Plain."
+
+check going inside in walker street:
+	if poory pot is in lalaland:
+		say "[one of]As you walk in, Pusher Penn asks if you enjoyed your 'payment.' But you manage to give a version of the truth that seems even more preposterous than if you'd actually sampled the stuff. 'THE THANKS I GET!' he booms. 'DON'T COME BACK.'[or]Pusher Penn really, really doesn't want to see you. But you don't want or need to see him.[stopping]" instead;
 
 the mistake grave is scenery in Walker Street. "It's illuminated oddly, as if a red light were flashing behind it, and reads: IN MEMORY OF THE NAMELESS IDIOT WHO WENT ONLY FIVE MILES OVER THE SPEED LIMIT AND DIDN'T HEAR THE JOYRIDERS GOING THIRTY FORTY OR FIFTY OVER THUS RUINING THIS PRIME JOYRIDING ZONE FOR MORE EXCITING PEOPLE. -[bg]."
 
@@ -8457,7 +8473,7 @@ The Spleen Vent is scenery in Temper Keep. "Carved into the vent is the phrase S
 
 check opening vent:
 	if sal-sleepy is false:
-		say "Not with Sal all anxious you aren't. He'd probably yell 'VANDALISM' or whatever." instead;
+		say "Not with Sal all anxious you aren't. He'd probably yell 'VANDALISM' or whatever. But you could fit something in there." instead;
 	if relief light is off-stage:
 		now player has relief light;
 		say "You open it and swing your arm around. Ah, there's something--the light source. It's got RELIEF scratched into it. You take it." instead;
@@ -9923,6 +9939,8 @@ nose picking is a concept in conceptville. understand "picking nose" as nose pic
 work of art is a concept in conceptville. understand "art of work" as work of art. howto is "dig once with the pick in Variety Garden"
 
 enough man is a concept in conceptville. understand "man enough" as enough man. howto is "dig twice with the pick in Variety Garden"
+
+brush up is a concept in conceptville. understand "up brush" as brush up. howto is "go up in Variety Garden"
 
 section soda club concepts
 
