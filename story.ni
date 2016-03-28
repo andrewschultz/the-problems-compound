@@ -3073,7 +3073,7 @@ carry out creditsing:
 	say "====IN-COMP THANKS:[line break]";
 	say "I'd also like to thank non-competitors who alerted me to flaws/bugs in the comp version: Olly Kirk, Paul Lee, Michael Martin, David Welbourn and Al Golden. Competitors offered both praise and criticism which helped add features and polish to the post-comp release.";
 	say "[line break]====POST-COMP THANKS:[line break]";
-	say "Thanks to Neil Butters and Joey Jones for finding lots of fixables present in the comp and post-comp release.[line break]Thanks to Alex Butterfield and Hugo Labrande for our games of code tennis, which is basically, try and do something every other day, or the other guy scores a point. Hugo worked with me more on a 'related project,' but a lot of things I pinged him with were relevant here. I recommend code tennis for anyone who needs motivation.";
+	say "Thanks to Neil Butters and Joey Jones for finding lots of fixables present in the comp and post-comp release. Wade and Juhana came back for more.[line break]Thanks to Alex Butterfield and Hugo Labrande for our games of code tennis, which is basically, try and do something every other day, or the other guy scores a point. Hugo worked with me more on a 'related project,' but a lot of things I pinged him with were relevant here. I recommend code tennis for anyone who needs motivation.";
 	say "[line break]====GENERAL HELP:[line break]";
 	say "Many people gave valuable help along the way with ideas big and small. Robert DeFord, Harry Giles and Steven Watson had ideas for the white paper and direction, as did the Interactive Fiction Faction, a private Google group. They include Hanon Ondricek, Robert Patten, Miguel Garza, Matt Goh, Jim Warrenfeltz and Joseph Geipel.[paragraph break][paragraph break]Many websites and resources helped me discover silly phrases. TECH has this.";
 	the rule succeeds;
@@ -3088,8 +3088,8 @@ understand "about" as abouting.
 
 carry out abouting:
 	say "The Problems Compound is meant to be less puzzly than my previous efforts. If you need to see verbs, type VERBS. Though there's no hint command, a walkthrough should be included with the game.";
-	say "[line break]TPC is a bit, well, AGT-ish. It's not intended to be a technical marvel, but I hope it takes a funny tack on being overwhelmed. It was inspired by Hulk Handsome's very fun 2012 IFComp entry, In a Manner of Speaking and leans heavily on my 'researching' a website that you can find in TECH.";
-	say "[line break]But more importantly, CREDITS lists my testers first, because they put up with some [activation of abuse testing]testing abuse (bugs, vagaries) etc. whether or not they were abuse-testing. They helped make the game less rocky and found bugs that saved me time when I had (yet again) procrastinated.[paragraph break]Also, if you want, HISTORY will contain details about the game's history, and TECH will describe some technical stuff you may find helpful in your own games.";
+	say "[line break]TPC is not intended to be esoteric or profound, but I hope it takes a funny tack on being overwhelmed and not quite able to deal with some social stuff, yet. The general atmosphere of silliness was inspired by Hulk Handsome's very fun 2012 IFComp entry, [i]In a Manner of Speaking[r], and leans heavily on my 'researching' a website that you can find in TECH. Actually, Yakov Smirnoff's 'reversal' jokes, while much gentler than this game, probably inspired me in some way to look at...this sort of thing.";
+	say "[line break]As for more direct help, CREDITS lists my testers first, because they put up with some [activation of abuse testing]testing abuse (bugs, vagaries) etc. whether or not they were abuse-testing. They helped make the game less rocky and found bugs that saved me time when I had (yet again) procrastinated.[paragraph break]Also, if you want, HISTORY will contain details about the game's history, and TECH will describe some technical stuff you may find helpful in your own games.";
 	say "[line break]One other thing. If you find bugs, send them at [email] or visit the repository for the game at [my-repo]. If you can take a transcript of how it happens, use the TRANSCRIPT command and attach the file. Oh, also, I'm on twitter as @ned_yompus.";
 	the rule succeeds;
 
@@ -5144,6 +5144,20 @@ Tray A is a supporter in Meal Square. description is "It's just a tray, really. 
 
 Tray B is a supporter in Meal Square. description is "[if accel-ending]You still see [list of things on tray a] on Tray B, but you're pretty full[else]You're both scared and intrigued by Tray B, which reads, in small print SIDE EFFECTS GALORE. NOT FOR THE UNSOPHISTICATED. Three unappetizing looking foods lie on it, labeled: [a list of things on tray b][end if]."
 
+understand "eat [things]" as a mistake ("[pig-out].") when player is in meal square.
+
+to say pig-out:
+	say "A booming voice yells, '[activation of pig out]OUT, PIG!' Looks like you should concentrate on one food or tray at a time"
+
+This is the pig rule:
+	if the number of entries in the multiple object list is greater than 1:
+		let q be entry 1 of the multiple object list;
+		if q is tray a or q is tray b or q is on tray a or q is on tray b: [this could be better, but it does the job]
+			say "[pig-out].";
+			stop the action.
+
+The pig rule is listed before the generate action rule in the turn sequence rules.
+
 does the player mean doing something with tray a: it is likely.
 
 the examine supporters rule is not listed in any rulebook.
@@ -5283,13 +5297,12 @@ check eating cutter cookie:
 	now cookie is in lalaland;
 	bad-food-process;
 	now cookie-eaten is true instead;
-	reject the player's command;
 
 to bad-food-process:
 	if allow-swears is false:
 		say "Also, you realize how lame it was to be stuffy about swears. You have stuff to swear ABOUT now, see?";
 		now allow-swears is true;
-	ital-say "This is an irreversible action. You may wish to UNDO and SAVE before trying to eat.";
+	ital-say "This is an irreversible action. You may wish to UNDO and SAVE before trying to eat again, though Alec may find himself too good for that, now";
 
 table of accel-text
 accel-place	alt-num	accel-cookie	accel-off	accel-greater
@@ -10117,10 +10130,6 @@ after reading a command:
 			if the player's command matches the regular expression "\.":
 				now period-warn is true;
 				ital-say "extended commands may cause errors in rare cases such as E.N.W.GIVE X TO Y. This shouldn't happen often, but for future reference, it's a part of Inform parsing I never figured out. If you need to move around, GO TO is the preferred verb.";
-	if player is in meal square:
-		if the player's command matches the regular expression "\ball\b":
-			say "A booming voice yells, '[activation of pig out]OUT, PIG!' Looks like you should just take one food at a time.";
-			reject the player's command;
 	if player is in out mist:
 		if the player's command includes "mist":
 			unless the player's command includes "xp" or the player's command includes "explain":
