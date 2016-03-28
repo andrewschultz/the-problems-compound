@@ -29,6 +29,7 @@ Story and robustness.
 --some people now refer to the bad guy by initials.
 --"you just have to get to know him" about the bad guy is a refrain
 --minor explanation of puzzles and solving them in Round Lounge.
+--there's now a command to abridge conversation
 --VERBS now says what verbs you can use, and it's divided further into...
   --META, which tells meta-verbs including the unlocked "jump" verbs.
   --THINK now reminds you what you should be doing.
@@ -36,6 +37,7 @@ Story and robustness.
 
 And there's a lot of extra silliness, too.
 --Up Gum is now a food on Tray A. It is not good for you, even if it feels good.
+--PLAY a game at the start is now random
 --PUT WAX ON (anything)
 --the Variety Garden is now guarded by three types of brush, because VARIETY!
 --lots and lots of scenery in Freak Control!

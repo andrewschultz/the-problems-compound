@@ -215,6 +215,10 @@ when play begins (this is the actual start rule):
 	else if qq is 1:
 		say "You hear someone sniff. 'Oh, good, someone at least willing to TRY the heavy-hitting stuff.'[paragraph break]";
 		now allow-swears is true;
+	else if qq is 3:
+		now allow-swears is true;
+	else if qq is 4:
+		now allow-swears is false;
 	else:
 		say "You hear a far-off voice: 'Great. No freakin['] profanity. Sorry, FLIPPIN[']. In case they're extra sensitive.'";
 		now allow-swears is false;
@@ -345,7 +349,7 @@ to decide whether (t - text) is skip-verified:
 		if brief entry matches the regular expression "[t]":
 			if found entry is false:
 				say "You don't seem to have unlocked that verb yet. Are you sure you wish to go ahead?";
-				unless the player consents:
+				unless the player yes-consents:
 					say "OK. You can try this again, if you want. There's no penalty.";
 					decide no;
 				say "Okay. You can undo if you change your mind.";
@@ -429,7 +433,7 @@ Rule for printing a parser error when the latest parser error is the only unders
 	let nw be number of words in the player's command;
 	if nw > 6:
 		now nw is 6;
-	say "That command seemed like it was longer than it needed to be. You may wish to cut a word or two down. Push 1 to retry [word number 1 in the player's command in upper case][if nw > 1] or up to [nw] to retry the first [nw] words, or any other key to try something else.";
+	say "That command seemed like it was longer than it needed to be. You may wish to cut a word or two down. Push 1 to retry [word number 1 in the player's command in upper case][if nw > 1], or a higher number to re-try only the first [nw] words of your command[end if]. Or just push any other key to try another command.";
 	let Q be the chosen letter;
 	d "[Q] vs 49 vs [48 + nw], [nw].";
 	if Q >= 49 and Q <= 48 + nw: [since it's ascii, 49 = the number 1]
@@ -612,8 +616,14 @@ instead of saying yes:
 yes-yet is a truth state that varies.
 
 to say no-yes:
+	let ono be true;
+	if current action is saying yes:
+		now ono is false;
+	if accel-ending:
+		say "[if ono is true]You reject several pointless actions you were never going to do anyway. It feels good[else]Yeah. You feel more confident, now[end if].";
+		continue the action;
 	if player is in pot chamber:
-		say "Nancy Reagan would be [if current action is saying no]proud[else]ashamed[end if].";
+		say "Nancy Reagan would be [if ono is true]proud[else]ashamed[end if].";
 		continue the action;
 	if not-conversing:
 		say "You always feel pushed around being asked a yes-or-no question. Like you can't say what you really want to say, not that you were sure anyway (you don't need to say yes or no here, but you can RECAP to see a list of options).";
@@ -1731,8 +1741,8 @@ to ship-off (X - a room):
 table of ending-places
 room-loc	room-fun
 Fight Fair	"You are placed against someone slightly stronger, quicker, and savvier than you. He beats you up rather easily, assuring you that just because you're smart doesn't mean you needed to lack any physical prowess. Your opponent then goes to face someone stronger than him.[paragraph break]Everyone quietly nurses his [activation of sore loser]loser sore at night before repeating the next day. And the next."
-Maintenance High	"You're given the lecture about how attempts to rehabilitate you cost society even if they work out pretty quickly."
-Criminals' Harbor	"You're given the lecture about how you'll be performing drudgework until your attempts at obvious crime are sucked out of you."
+Maintenance High	"You're given the lecture about how attempts to rehabilitate you cost society even if they work out pretty quickly. Did I say the lecture? I meant, many different lectures. Which are equally painful whether they're familiar or unfamiliar."
+Criminals' Harbor	"You're given the lecture about how you'll be performing drudgework until your attempts at obvious crime are sucked out of you. Your overseer keeps babbling about how it's equally bad if you get sick of his lectures or used to them. You're going down a bad road, etc., so forth."
 Punishment Capitol	"You're given the lecture about how just because you did something really wrong doesn't mean you're a big thinker. Then you're told to sit and think deeply about that for a good long while."
 Hut Ten	"The basic training isn't too bad. You seem to do everything right, except for the stuff you do wrong, and a commanding officer gets on your case for that. There's so much to do, and you only make mistakes 5% of the time, maybe, but boy do the people who get it right come down hard on you when you miss. You do the same to others, but it's DIFFERENT when you do. No, really."
 A Beer Pound	"The admissions officer gives you a worksheet to fill out about how and why you can't hold your liquor."
@@ -2389,6 +2399,29 @@ understand the command "xp [any thing]" as something new.
 understand "explain [any explainable thing]" as explaining.
 understand "xp [any explainable thing]" as explaining.
 
+understand the command "explain [any room]" as something new.
+understand the command "xp [any room]" as something new.
+
+rmexplaining is an action applying to one thing.
+
+understand "explain [any xpable room]" as explaining.
+understand "xp [any xpable room]" as explaining.
+
+definition: a room (called mr) is xpable:
+	if mr is visited, decide yes;
+	let rmr be map region of mr;
+	if mr is freak control and questions field is visited:
+		decide yes;
+	if mr is round lounge:
+		if jump-level > 0:
+			decide yes;
+	if rmr is beginning:
+		if jump-level > 2:
+			decide yes;
+	if rmr is outer bounds:
+		if jump-level > 2:
+			decide yes;
+
 expl-hint is a truth state that varies.
 
 told-xpoff is a truth state that varies;
@@ -2401,14 +2434,26 @@ carry out explaining:
 	let found-yet be false;
 	if noun is not explainable and noun is not a room:
 		say "That doesn't need any special explanation. I think/hope." instead;
-	if noun is an exp-thing listed in the table of explanations:
-		if anno-allow is true and told-xpoff is false:
-			now told-xpoff is true;
-		if anno-allow is false or no-basic-anno is false:
-			say "[exp-text entry][line break]";
-			if noun provides the property explained:
-				now noun is explained;
-		now found-yet is true;
+	let myt be table of explanations;
+	if noun is a room:
+		now myt is table of room explanations;
+		repeat through table of room explanations:
+			if  noun is room-to-exp entry:
+				say "[exp-text entry][line break]";
+				now found-yet is true;
+				if noun provides the property explained:
+					now noun is explained;
+	else:
+		d "not room.";
+		repeat through table of explanations:
+			if noun is exp-thing entry:
+				if anno-allow is true and told-xpoff is false:
+					now told-xpoff is true;
+				if anno-allow is false or no-basic-anno is false:
+					say "[exp-text entry][line break]";
+					if noun provides the property explained:
+						now noun is explained;
+				now found-yet is true;
 [	repeat through table of explanations:
 		if noun is exp-thing entry:
 			if anno-allow is true and told-xpoff is false:
@@ -2419,7 +2464,9 @@ carry out explaining:
 	if found-yet is false:
 		say "There should be an explanation, but there isn't.";
 		the rule succeeds;
-	choose row with exp-thing of noun in table of explanations;
+	if noun is a room:
+		the rule succeeds; [?? this avoids a crash]
+	choose row with exp-thing of noun in myt;
 	if there is an exp-anno entry:
 		if anno-allow is false:
 			if expl-hint is false:
@@ -2504,7 +2551,7 @@ definition: a thing (called x) is explainable:
 understand "explain [text]" as a mistake ("You've come across nothing like that, yet. Or perhaps it is way in the past by now.")
 
 after explaining out puzzle: [just below, the dots explanation asks a question, if you want it spoiled]
-	if the player consents:
+	if the player yes-consents:
 		say "[one of][or]Oh no! Forgot already? [stopping]From the lower right, go up-left two, right 3, down-left 3, up 3. It's part of 'outside the box' thinking. But you can also roll a paper into a cylinder so one line goes through, or you can assume the dots have height and draw three gently sloping lines back and forth.";
 	else:
 		say "Okay."
@@ -2685,6 +2732,7 @@ work of art	"A work of art is something nice and beautiful. The art of work is--
 enough man	"Man enough means being able to stand up for yourself. Okay, it's a bit sexist, but people who say it mean to be annoying. 'Enough, man' just means stop it."
 fish out of water	"A fish out of water is someone or something out of place."
 strike a balance	"To strike a balance is to find a satisfactory compromise. A strike can alo mean--well, your balance went on strike, or you'd fall over."
+up gum	"To gum up is to slow down a process, often to a halt."
 pig out	"To pig out is to eat everything you see. The reverse is an admonishment to leave."
 Thought for food	"Food for thought is something to think about."
 Tray S	"Stray. In other words, it strayed from Meal Square."
@@ -2730,8 +2778,8 @@ Cut a Figure	"To cut a figure is to make a strong impression."
 Advance Notice	"Advance notice is letting someone know ahead of time."
 
 table of room explanations [tore]
-room-to-exp	exp-text
-Smart Street	"Street Smart means knowing your way around tricky people and situations. Alec is not, to start."
+room-to-exp	exp-text	exp-anno
+Smart Street	"Street Smart means knowing your way around tricky people and situations. Alec is not, to start."	"Alec also, of course, feels uncomfortable on Smart Street even though it's his last name."
 A Round Lounge	"To lounge around is to sit and do nothing--the opposite of what you want to do here."
 Tension Surface	"Surface Tension is a scientific phenomenon where water can stay over the top of a glass."
 Vision Tunnel	"Tunnel vision is only being able to see certain things--particularly what's just in front of you--due to mental or physical blocks."
@@ -2740,7 +2788,7 @@ Pressure Pier	"Peer pressure is when others in your social circle try to get you
 Meal Square	"A square meal is a full meal."
 Down Ground	"Ground down means worn out."
 Joint Strip	"A strip joint is a gentlemen's club. Under 18 are not let in, and it's not just because of alcohol."
-Soda Club	"Club soda is tonic water e.g. water with bubbles and no flavoring."
+Soda Club	"Club soda is tonic water e.g. water with bubbles and no flavoring."	"This was the Sinister Bar in the first release."
 Jerk Circle	"A collective groan is when everyone groans at once. A circle jerk is people getting together and stroking each other's egos. Or, well, something else."
 Chipper Wood	"A wood chipper puts in logs and spits out small wood chips." [west-ish]
 Disposed Well	"To be well disposed is to be agreeable."
@@ -2955,7 +3003,7 @@ carry out metaing:
 	now in-meta is false;
 	if the rule succeeded:
 		say "This is a slightly restricted area, so if you're stuck, meta-verbs won't help. See them anyway?";
-		if the player consents:
+		if the player yes-consents:
 			do nothing;
 		else:
 			say "OK." instead;
@@ -3194,6 +3242,8 @@ before doing something when qbc_litany is not table of no conversation:
 		say "You don't have the guts to ditch someone in the middle of a conversation, unless they're REALLY busy or REALLY self-absorbed. [note-recap]" instead;
 	if current action is talking to:
 		say "You're already in a conversation." instead;
+	if current action is attacking:
+		say "You've been baited into fights before, but there's been nothing TOO bad here." instead;
 	if current action is taking inventory:
 		continue the action;
 	if current action is giving the mind of peace to:
@@ -3243,7 +3293,7 @@ carry out annoing:
 	unless anno-check is true or "anno" is skip-verified:
 		say "This is the command for annotations, which are usually only for after you win the game. While it has no spoilers, and it can be toggled, it may be a distraction. Are you sure you want to activate annotations?";
 		now anno-check is true;
-		unless the player consents:
+		unless the player yes-consents:
 			say "OK. This warning won't appear again." instead;
 	now anno-allow is whether or not anno-allow is false;
 	now ever-anno is true;
@@ -3633,7 +3683,7 @@ to write-undo (x - text):
 	repeat through table of vu:
 		if brief entry matches the regular expression "[x]":
 			if found entry is false:
-				ital-say "You may have found a secret command that will skip you across rooms you haven't seen. However, you can UNDO if you'd like.";
+				ital-say "You may have found a secret command that will skip you across rooms you haven't seen. However, you can UNDO or RESTART if you'd like.";
 			else:
 				say "[line break]";
 			now found entry is true;
@@ -3900,7 +3950,7 @@ to say weasel-babble:
 		say "'Chop chop! Dig dig. Like you promised. Like you made me make you promise.'";
 	else if player has proof of burden:
 		say "'Cut the small talk. You just want me to sign that proof, don't you?'";
-		if the player consents:
+		if the player yes-consents:
 			say "'Geez, twist my arm! Ain't I a welfare animal[activation of animal welfare]?'";
 			now burden-signed is true;
 		else:
@@ -3913,7 +3963,7 @@ to say penn-ask:
 		say "You haven't moved the product yet.";
 	else:
 		say "Give him the dreadful penny?";
-		if the player consents:
+		if the player yes-consents:
 			try giving the penny to Pusher Penn;
 		else:
 			say "You wonder who else will take it."
@@ -3925,7 +3975,7 @@ to say sucker-offer:
 		say "You decline the offer of a free drink. You're on the edge enough.";
 	else if cooler is off-stage and brew is off-stage:
 		say "'Want a drink, kid? Nothing too harsh.'";
-		if the player consents:
+		if the player yes-consents:
 			let Z be a random drinkable;
 			now the player has Z;
 			say "The Punch Sucker hands you [the Z].";
@@ -3933,14 +3983,14 @@ to say sucker-offer:
 		say "'I'd offer you another drink, but drink what you got, kid.'";
 	else:
 		say "'Want the other drink, kid?'";
-		if the player consents:
+		if the player yes-consents:
 			let Z be a random drinkable not in lalaland;
 			now the player has Z;
 			say "The Punch Sucker hands you [the Z].";
 
 to recap-babble (pe - a person):
 	say "You've already had a chat. Re-summarize?";
-	if the player consents:
+	if the player yes-consents:
 		choose row with babbler of pe in table of babble summaries;
 		if there is no babble-recap entry:
 			say "BUG [babbler entry] needs a babble recap!";
@@ -4113,7 +4163,7 @@ rule for supplying a missing noun when the current action is playing (this is th
 		if pick-warn is false:
 			now pick-warn is true;
 			say "There are a lot of games. To be precise, [number of logic-games in words]. Let the game pick one?";
-			unless the player consents:
+			unless the player yes-consents:
 				say "[ok-rand]." instead;
 			say "[ok-rand].";
 		if number of sortof-won logic-games is 0:
@@ -4227,7 +4277,7 @@ carry out playing:
 		if number of sortof-won logic-games is 0:
 			say "You look for any game to play, but--you've solved them all, several different ways." instead;
 		say "Play a random game?";
-		if the player consents:
+		if the player yes-consents:
 			try playing random-open-game;
 		else:
 			say "OK.";
@@ -4811,7 +4861,7 @@ instead of doing something with water-scen:
 		continue the action;
 	say "The water goes on a ways."
 
-the Basher Bible is scenery in Pressure Pier. "[one of]The Basher Bible is It labels seemingly contradictory things to want and to be: to be clever enough to cut down too-clever weirdos. To have enough interests you can almost empathize with obsessed nerds, but not quite. To know enough pop culture you can poke fun at people who care too much about it. To be nice enough adults are sure you'll go far, but not be some useless dweeb.[paragraph break]There's also something about how if you don't know how to balance those things and have to ask others, or if this triggers some oversensitivity, well, REALLY. And there's even a tip of the moment! You read it:[paragraph break][or]You read another passage from the Basher Bible: [stopping][tip-of-moment]"
+the Basher Bible is scenery in Pressure Pier. "[one of]The Basher Bible labels seemingly contradictory things to want and to be: to be clever enough to cut down too-clever weirdos. To have enough interests you can almost empathize with obsessed nerds, but not quite. To know enough pop culture you can poke fun at people who care too much about it. To be nice enough adults are sure you'll go far, but not be some useless dweeb.[paragraph break]There's also something about how if you don't know how to balance those things and have to ask others, or if this triggers some oversensitivity, well, REALLY. And there's even a tip of the moment! You read it:[paragraph break][or]You read another passage from the Basher Bible: [stopping][tip-of-moment]"
 
 the spoon table is scenery in Pressure Pier. "Many kinds of spoon: greasy, tea, wooden and silver, and that thick one must be a fed spoon. They are welded together to form a table one person can eat at, well--with a few holes. The Basher Bible appears entangled with the top spoons, so you can't pull it off."
 
@@ -4884,7 +4934,7 @@ after examining Basher Bible when accel-ending:
 	else if greater-eaten is true:
 		say "Yyyuuuppp. It's easy to see why that works, now, and anyone who can't put in the effort to do that...the heck with [']em.";
 	else:
-		say "Geez. You don't want to have to put up with that any more. You'll be more forceful telling people to expletive off in the future, though. That should help.";
+		say "Geez. You don't want to have to put up with that any more. I mean, you'll probably have to do a [i]few[r] things like that, just to survive. Anyway, you'll be more forceful telling people to expletive off in the future, though. That should help.";
 	continue the action;
 
 instead of doing something with spoon table:
@@ -4893,8 +4943,8 @@ instead of doing something with spoon table:
 	if current action is taking:
 		say "The spoons are dug in, and they're stuck together. You table the idea.";
 	if current action is attacking:
-		say "It sort of makes you want to lash out, but somehow it makes you feel guilty for WANTING to attack it.";
-	say "It's mostly there for looking at and absorbing its philosophy, whatever that may be."
+		say "The table is too sturdy.";
+	say "It's mostly there for holding up the Basher Bible."
 
 instead of doing something with Basher Bible:
 	if action is procedural:
@@ -4902,7 +4952,7 @@ instead of doing something with Basher Bible:
 	if current action is taking:
 		say "It's more or less impossible to take, both physically (its cover is woven or glued to the spoons) and emotionally.";
 	if current action is attacking:
-		say "It sort of makes you want to lash out, but somehow it makes you feel guilty for WANTING to attack it.";
+		say "[if accel-ending]No. Attacking it won't destroy its philosophy, or help you learn it better[else]It sort of makes you want to lash out, but somehow it makes you feel guilty for WANTING to attack it[end if].";
 	say "It's mostly there for looking at and absorbing its philosophy, whatever that may be."
 
 section Howdy Boy
@@ -4997,9 +5047,11 @@ check going west in pressure pier:
 
 Meal Square is west of Pressure Pier. Meal Square is in Outer Bounds. "This is a small alcove with Pressure Pier back east. There's not much decoration except a picture of a dozen bakers."
 
-Tray A is a supporter in Meal Square. description is "It's just a tray, really. Nothing special. A few foods rest on tray A: [list of things on tray a]."
+Tray A is a supporter in Meal Square. description is "It's just a tray, really. Nothing special. A few foods rest on tray A: [the list of things on tray a]."
 
 Tray B is a supporter in Meal Square. description is "[if accel-ending]You still see [list of things on tray a] on Tray B, but you're pretty full[else]You're both scared and intrigued by Tray B, which reads, in small print SIDE EFFECTS GALORE. NOT FOR THE UNSOPHISTICATED. Three unappetizing looking foods lie on it, labeled: [a list of things on tray b][end if]."
+
+does the player mean doing something with tray a: it is likely.
 
 the examine supporters rule is not listed in any rulebook.
 
@@ -5070,7 +5122,9 @@ before going when accel-ending:
 		continue the action;
 	if noun is south:
 		if player is in pressure pier:
-			say "[if off-eaten is true]You can't deal with the Word Weasel and Rogue Arch again. Well, actually, you can, but it's a new quasi-fun experience to pretend you can't[else if cookie-eaten is true]You'd like to go back and win an argument with the Word Weasel, who seems like small potatoes compared to showing the [bad-guy] a thing or two[else]You're too good to need to kiss up to the Word Weasel again[end if]." instead;
+			if variety garden is unvisited:
+				say "You don't know or care what's back there. Maybe people slower than you found out, but eh." instead;
+			say "[if off-eaten is true]You can't deal with the Word Weasel and Rogue Arch again. Well, actually, you can, but it's a new quasi-fun experience to pretend you can't[else if cookie-eaten is true]You'd like to go back and win an argument with the Word Weasel, but that's small potatoes compared to showing the [bad-guy] a thing or two[else]You're too good to need to kiss up to the Word Weasel again[end if]." instead;
 		say "[if off-eaten is true]Go back south? Oh geez. Please, no[else]Much as you'd like to revisit the site of that argument you won so quickly, you wish to move on to greater and bigger ones[end if]." instead;
 	if the room noun of location of player is nowhere:
 		say "Nothing that-a-way." instead;
@@ -5153,6 +5207,7 @@ to force-swear:
 	if allow-swears is false:
 		say "Also, you realize how lame it was to be stuffy about swears. You have stuff to swear ABOUT now, see?";
 		now allow-swears is true;
+	ital-say "This is an irreversible action. You may wish to UNDO and SAVE before trying to eat."
 
 table of accel-text
 accel-place	alt-num	accel-cookie	accel-off	accel-greater
@@ -5163,7 +5218,7 @@ speaking plain	0	"Oh geez. You can't take this. You really can't. All this obvio
 questions field	3	"Well, of COURSE the Brothers didn't leave a thank-you note. Ungrateful chumps. Next time you help someone, you'll demand a deposit of flattery up front, that's for sure."	"You expected no thanks, but you didn't expect to feel bad about getting no thanks. Hmph. Lesson learned!"	"'You had some wisdom to foist on the Brothers, but if they'd REALLY done their job, they'd have stayed. The heck with them! If they couldn't soak up knowledge from BEING around the [bg], they're hopeless."
 questions field	4	"'Kinda jealous of your brother[bro-s], eh? Not jealous enough to DO anything about it.' The brother[bro-nos]s nod at your sterling logic. 'You gonna waste your whole life here? I can't help everyone. I'm not a charity, you know.' More hard hitting truth! Ba-bam!'[wfk]'Go on, now! Go! What's that? I'm even bossier than the [bad-guy]? Excellent! If I can change, so can you! And the guy bossier than the [bad-guy] is ORDERING you to do something useful with your life!'[paragraph break]They follow your orders. You remember being bossed around by someone dumber than you--and now you turned the tables! Pasta fazoo!"	"'Still guarding Freak Control, eh? Well, I think you'll see you don't need to guard it from ME any more. Take the day off! C'mon, you want to. Hey, [bg] might be mad if you don't.' You're surprised he DOES run off."
 questions field	5	"'[qfjs] standing around, eh? Nothing to do? Well, I've been out, y'know, DOING stuff. You might try it. Go along. Go. You wanna block me from seeing the [bad-guy]? I'll remember it once he's out of my way.' You're convincing enough, they rush along."	"You've done your share of standing around, but you're pretty sure you did a bit of thinking. 'Look,' you say, 'I just need to get through and get out of here. I'm not challenging anyone's authority. Just, I really don't want to be here.' [bro-consider]. You're free to continue."	"'So, yeah, you're here to guard the [bg] from chumps, right? Well, I'm not one. So you can make way.' And they do. Even though they're all bigger than you. Sweet!"
-freak control	0	"You speak first. 'Don't pretend you can't see me, with all those reflective panels and stuff.'[paragraph break]He turns around, visibly surprised.[paragraph break]'Leadership, schmeadership,' you say. You're worried for a moment he might call you out on how dumb that sounds. You're open-minded like that. But when he hesitates, you know the good insults will work even better. 'Really. Leaving the cutter cookie right where I could take it, and plow through, and expose you for the lame chump you are. Pfft. I could do better than that.'[paragraph break]He stutters a half-response.[paragraph break]'Maybe that's why [bad-guy-2] hasn't been dealt with, yet. You say all the right things, but you're not forceful enough. Things'll change once I'm in power.'[wfk]He has no response. You point outside. He goes. Settling in is easy--as a new leader of Freak Control, you glad-hand the important people and assure them you're a bit cleverer than the [bad-guy] was.  Naturally, you keep a list of [bad-guy-2]'s atrocities, and they're pretty easy to rail against, and people respect you for it, and from what you've seen, it's not like they could really get together and do anything, so you're making their lame lives more exciting.[wfk]You settle into a routine, as you read case studies of kids a lot like you used to be. Maybe you'd help one or two, if they had initiative...but until then, you'd like to chill and just let people appreciate the wit they always knew you had.[paragraph break]Really, who can defeat you? Anyone of power or consequence is on your side. Even [bad-guy-2] gives you tribute of a cutter cookie now and then. One day, you drop one in Meal Square... but nobody is brave enough to eat one. Well, for a while."	"You speak first. Well, you sigh REALLY loudly first. 'Just--this is messed up. I want to leave.'[paragraph break]'Of course you do,' says the [bad-guy]. 'I don't blame you. If you're not in power here, it's not fun. It's sort of your fault, but not totally. Hey, you actually showed some personality to get here. Just--show me you're worthy of leaving.' You complain--more excitingly than you've ever complained before. Without flattering or insulting the [bad-guy] too much: fair and balanced. You let him interrupt you, and you even interrupt him--but only to agree with his complaints.[wfk]'You're okay, I guess. You seem to know your place. Here, let me show you the Snipe Gutter. It seems like just the place for you. The [bad-guy] pushes a button and gestures to an opening. It's a slide. You complain a bit, but he holds up his hand. 'You'll have a lot more to complain about if you don't go.' You're impressed by this logic, and you only wish you could've stayed longer to absorb more of it, and maybe you could complain even more interestingly.[wfk]Back home, people notice a difference. You're still upset about things, but you impress people with it now. You notice other kids who just kind of seem vaguely upset, like you were before the Compound, not even bothering with constructive criticism. They're not worth it, but everywhere you go, you're able to fall in with complainers who complain about such a wide variety of things, especially people too dense to realize how much there is to complain about! You've matured, from..."	"'Hey! It's me!' you yell. [bg] turns. 'You know, I probably skipped a lot of dumb stuff to get here. You think you could be a LITTLE impressed?'[paragraph break][wfk]But he isn't. 'You know? You're not the first. Still, so many people just sort of putter around. You're going to be okay in life.' You two have a good laugh about things--you're even able to laugh at yourself, which of course gives you the right to laugh at people who haven't figured things out yet. Humor helps you deal, well, if it doesn't suck. You realize how silly you were before with all your fears, and you try to communicate that to a few creeps who don't want to be social. But they just don't listen. You'd rather hang around more with-it types, and from now on, you do."
+freak control	0	"You speak first. 'Don't pretend you can't see me, with all those reflective panels and stuff.'[paragraph break]He turns around, visibly surprised.[paragraph break]'Leadership, schmeadership,' you say. You're worried for a moment he might call you out on how dumb that sounds. You're open-minded like that. But when he hesitates, you know the good insults will work even better. 'Really. Leaving the cutter cookie right where I could take it, and plow through, and expose you for the lame chump you are. Pfft. I could do better than that.'[paragraph break]He stutters a half-response.[paragraph break]'Maybe that's why [bad-guy-2] hasn't been dealt with, yet. You say all the right things, but you're not forceful enough. Things'll change once I'm in power.'[wfk]He has no response. You point outside. He goes. Settling in is easy--as a new leader of Freak Control, you glad-hand the important people and assure them you're a bit cleverer than the [bad-guy] was.  Naturally, you keep a list of [bad-guy-2]'s atrocities, and they're pretty easy to rail against, and people respect you for it, and from what you've seen, it's not like they could really get together and do anything, so you're making their lame lives more exciting.[wfk]You settle into a routine, as you read case studies of kids a lot like you used to be. Maybe you'd help one or two, if they had initiative...but until then, you'd like to chill and just let people appreciate the wit they always knew you had.[paragraph break]Really, who can defeat you? Anyone of power or consequence is on your side. Even [bad-guy-2] gives you tribute of a cutter cookie now and then. One day, you drop one in Meal Square... but nobody is brave enough to eat one. Well, for a while."	"You speak first. Well, you sigh REALLY loudly first. 'Just--this is messed up. I want to leave.'[paragraph break]'Of course you do,' says the [bad-guy]. 'I don't blame you. If you're not in power here, it's not fun. It's sort of your fault, but not totally. Hey, you actually showed some personality to get here. Just--show me you're worthy of leaving.' You complain--more excitingly than you've ever complained before. Without flattering or insulting the [bad-guy] too much: fair and balanced. You let him interrupt you, and you even interrupt him--but only to agree with his complaints.[wfk]'You're okay, I guess. You seem to know your place. Here, have a trip to the Snipe Gutter in Slicker City. Seems like just the place for you. The [bad-guy] pushes a button and gestures to an opening. It's a slide. You complain a bit, but he holds up his hand. 'You'll have a lot more to complain about if you don't go.' You're impressed by this logic, and you only wish you could've stayed longer to absorb more of it, and maybe you could complain even more interestingly. You learn the culture in the [activation of snipe gutter]Snipe Gutter for a bit, outlasting some veterans, then one day you just get sick of the clueless newbies who don't know what they're doing.[wfk]Back home, people notice a difference. You're still upset about things, but you impress people with it now. You notice other kids who just kind of seem vaguely upset, like you were before the Compound, not even bothering with constructive criticism. They're not worth it, but everywhere you go, you're able to fall in with complainers who complain about such a wide variety of things, especially people too dense to realize how much there is to complain about! You've matured, from..."	"'Hey! It's me!' you yell. [bg] turns. 'You know, I probably skipped a lot of dumb stuff to get here. You think you could be a LITTLE impressed?'[paragraph break][wfk]But he isn't. 'You know? You're not the first. Still, so many people just sort of putter around. You're going to be okay in life.' You two have a good laugh about things--you're even able to laugh at yourself, which of course gives you the right to laugh at people who haven't figured things out yet. Humor helps you deal, well, if it doesn't suck. You realize how silly you were before with all your fears, and you try to communicate that to a few creeps who don't want to be social. But they just don't listen. You'd rather hang around more with-it types, and from now on, you do."
 
 after printing the locale description when accel-ending:
 	if location of player is cheat-surveyed:
@@ -5244,6 +5299,8 @@ for writing a paragraph about a supporter in Meal Square:
 
 a condition mint is an edible thing on Tray A. description is "It's one inch square, with SHARE WITH A FRIEND on it."
 
+indefinite article of condition mint is "a".
+
 check eating the condition mint:
 	say "No, it's the sort you gift to someone else[if player does not have mint], but you can take it, to give it to someone else[end if]." instead;
 
@@ -5255,7 +5312,9 @@ definition: a client (called cli) is befriended:
 
 chapter up gum
 
-some up gum is an edible thing on Tray A. description is "You know it's UP GUM since that's what's carved into the top surface."
+the up gum is an edible thing on Tray A. description is "You know it's UP GUM since that's what's carved into the top surface."
+
+indefinite article of up gum is "some".
 
 understand "get up" as gumtaking when player is in meal square.
 
@@ -5263,14 +5322,14 @@ gumtaking is an action applying to nothing.
 
 carry out gumtaking:
 	say "This is slightly ambiguous. It may mean taking the gum, or it may mean you want to exit. Do you wish to eat the gum?";
-	if the player consents:
+	if the player yes-consents:
 		try eating gum instead;
 	else:
 		try going east instead;
 
 check taking some up gum:
 	say "You tend to just put gum in your pocket and forget about it. If you want to chew it, you should probably do so now. Have a chew?";
-	if the player consents:
+	if the player yes-consents:
 		try eating some up gum instead;
 	else:
 		say "OK." instead;
@@ -5289,6 +5348,8 @@ chapter iron waffle
 
 an iron waffle is an edible thing on Tray A. description is "Just staring at it, you imagine ways to brush off people who get up in your grill with dumb questions. You try and forge them into a set of rules, but you feel, well, rusty."
 
+indefinite article of iron waffle is "an".
+
 check taking the iron waffle:
 	say "Much too heavy. You don't see anything you could do with it." instead;
 
@@ -5298,6 +5359,8 @@ check eating the iron waffle:
 chapter gagging lolly
 
 a gagging lolly is an edible thing on Tray A. description is "Staring at the circular lolly's hypnotizing swirls of hideous colors, you also feel less sure of things, which makes you feel open-minded, which makes you feel more sure of things, which makes you feel closed-minded and eventually less sure of things.[paragraph break]Man! That was tough to digest. Just all that thinking was a choking enough sensation."
+
+indefinite article of gagging lolly is "a".
 
 check taking lolly:
 	say "You haven't walked around with a lolly since you were five years old, and it'd be a bit embarrassing to do so now. Anyway, who would actually take it?" instead;
@@ -5997,7 +6060,7 @@ check going when player is in jerk circle:
 	if room noun of jerk circle is not nowhere and silly boris is in jerk circle:
 		if jerks-scared > 0:
 			say "You have a sense the [j-co] may be a bit vulnerable. Stay and take them?";
-			if the player consents:
+			if the player yes-consents:
 				say "OK." instead;
 			say "The jerks begin talking more confidently as you leave.";
 
@@ -6864,7 +6927,7 @@ check examining the insanity terminal:
 	if x-term-yet is false:
 		if screen-read is true:
 			say "This may be a bit of a text dump with screen readers active. You can say X 1 through X 8, or even just type the number, to read an individual question. Would you still like to read the whole thing?";
-			if the player consents:
+			if the player yes-consents:
 				do nothing;
 			else:
 				say "OK. You can still see the whole terminal if you want, and this nag won't appear again.";
@@ -6878,7 +6941,7 @@ check examining the insanity terminal:
 		the rule succeeds;
 	if know-jerks is true:
 		say "You look at the Insanity Terminal. It's big on logic puzzles, like the one you're struggling with, with the [j-co]. Maybe you could program it. Give it a shot?";
-		if the player consents:
+		if the player yes-consents:
 			repeat through table of fingerings:
 				say "[jerky-guy entry]: [blackmail entry][line break]";
 			now jerks-spoiled is true;
@@ -8290,7 +8353,7 @@ Freak Control is north of Questions Field. It is in Main Chunk. "[if accel-endin
 check going south in Freak Control:
 	say "If you start running, you'll never get a running start[activation of running start]. Plus you're too chicken to face the possibility of being called a chicken." instead;
 
-a list bucket is a thing in Freak Control. "[one of]A list bucket lying nearby may help you make sense of the fancy machinery, though you worry you might kill yourself trying[or]The list bucket waits here, a handy reference to the gadgetry of Freak Control[stopping]."
+a list bucket is a thing in Freak Control. "[if accel-ending]A list bucket might help you see what machines do what, if you had the time, which you don't[else][one of]A list bucket lying nearby may help you make sense of the fancy machinery, though you worry you might kill yourself trying[or]The list bucket waits here, a handy reference to the gadgetry of Freak Control[stopping][end if]."
 
 check taking the bucket:
 	say "You would, but the [bad-guy] might turn around and ask if you really needed to steal a bucket, and no, the text isn't going to change if you pick it up, and so forth." instead;
@@ -8946,7 +9009,7 @@ check examining the view of points:
 		view-point;
 	else:
 		say "You've seen [the-view-room] already, but have another look?";
-		if the player consents:
+		if the player yes-consents:
 			view-point;
 	the rule succeeds;
 
@@ -8998,7 +9061,7 @@ before switching on the view of points:
 	increment current-idea-room;
 	if the-view-room is camp concentration and the-view-room is unvisited:
 		say "Oh dear. This final one's really bad. I felt awful thinking of the name. Because there's some stuff it's hard to provide a humorous twist to. You might want to skip it. I left it off the Trizbort map for a reason. See it anyway?";
-		if the player consents:
+		if the player yes-consents:
 			do nothing;
 		else:
 			increment current-idea-room;
@@ -9171,7 +9234,7 @@ this is the dream-see rule:
 	say "There are [number of rows in table of sleep stories] total stories, of which you completed [alldreams].";
 	if alldreams > 0 and alldreams < number of rows in table of sleep stories:
 		say "Do you want to skip over already-read stories?";
-		if the player consents:
+		if the player yes-consents:
 			now skip-done is true;
 	let this-row be 0;
 	repeat through table of sleep stories:
@@ -9314,7 +9377,7 @@ Include (-
 	print "***";
 	VM_Style(NORMAL_VMSTY);
 	print "^^"; #Ifndef NO_SCORE; print "^"; #Endif;
-	if ( (+ off-eaten +) || (+ cookie-eaten +) || (+ greater-eaten +)) { print "(Note: this is not the best ending, but you can skip back to Pressure Pier on restart with KNOCK HARD.)^"; }
+	if ( (+ off-eaten +) || (+ cookie-eaten +) || (+ greater-eaten +)) { print "(Note: this is one of the existential failure endings you get from eating a Tray B food. You may skip back to Pressure Pier on restart with KNOCK HARD.)^"; }
 	rfalse;
 ];
 
@@ -9608,7 +9671,7 @@ Rule for printing a parser error when the latest parser error is the can't see a
 	if the player's command includes "with":
 		say "It looks like WITH may be superfluous here. Try and drop it?";
 		now the last-command is the player's command;
-		if the player consents:
+		if the player yes-consents:
 			replace the regular expression "with .*" in the last-command with "";
 			say "After: [the last-command].";
 			now the parser error flag is true;
@@ -9622,7 +9685,7 @@ Rule for printing a parser error when the latest parser error is the nothing to 
 	if current action is dropping:
 		say "You don't need to drop anything in the game, much less all your possessions.";
 	else:
-		say "Sorry, but right now ALL doesn't encompass anything. But don't worry, everything you need should be visible." instead.
+		say "Sorry, but right now ALL doesn't encompass anything you need to take. Though, don't worry, this game doesn't require you to mess with a ton of stuff in any one location." instead.
 
 Rule for printing a parser error when the latest parser error is the noun did not make sense in that context error:
 	if current action is explaining:
@@ -9804,15 +9867,19 @@ section pure eternal concepts
 
 lalaland is a room in meta-rooms. "You should never see this. If you do, it is a [bug]."
 
+[?? these -could- be moved to somewhere else if we're clever and can save ALL wins]
+
 Show Business is a concept in lalaland. understand "business show" as show business.
 
-Received Wisdom is a concept in lalaland. understand "wisdom received" as received wisdom.
+Received Wisdom is a concept in lalaland. understand "wisdom received" as received wisdom. howto is "win the game either way"
 
-Something Mean is a concept in lalaland. understand "mean something" as Something Mean.
+Something Mean is a concept in lalaland. understand "mean something" as Something Mean. howto is "eat the cutter cookie and 'win'"
 
-Complain Cant is a concept in lalaland. understand "cant complain" as Complain Cant.
+Complain Cant is a concept in lalaland. understand "cant complain" as Complain Cant. howto is "eat the off cheese and 'win'"
 
-People Power is a concept in lalaland. understand "power people" as People Power.
+People Power is a concept in lalaland. understand "power people" as People Power. howto is "eat the greater cheese and 'win'"
+
+Snipe Gutter is a concept in lalaland. understand "guttersnipe" as Snipe Gutter. howto is "eat the off cheese and 'win'"
 
 volume rule replacements
 
@@ -9900,20 +9967,21 @@ Include (-
 			}
 			if (returnYes)
 			{
-				if (bigSwear) { print "'Dude! CHILL!' a voice says."; }
-				if (smallSwear) { print "'You hear snickering at your half-body-parted swear attempts."; }
-				rtrue;
+				if (bigSwear) { print "'Dude! CHILL! We GET IT!' a voice says.^"; }
+				if (smallSwear) { print "'You hear snickering at your half-body-parted swear attempts. 'Let's give @@39im the rough stuff!'^"; }
+				return 3;
 			}
 			if (returnNo)
 			{
-				if (bigSwear) { print "'Don't play mind games with us!' a voice booms. 'Just for that, you're in for it.'"; rtrue; }
-				if (smallSwear) { print "'You sure can't! What a lame try.' a voice booms."; }
-				rfalse;
+				if (bigSwear) { print "'Don't play mind games with us!' a voice booms. 'Just for that, you're in for it.'^"; return 3; }
+				if (smallSwear) { print "'You sure can't! What a lame try.' a voice booms.^"; }
+				return 4;
 			}
 			if (bigSwear || smallSwear)
 			{
-			  print "'Waffling, but we get the point.'";
-			  rtrue;
+			  if (bigSwear) { print "'A simple yes or no would've done, but we get the point,' you hear."; }
+			  else { print "'Oh, you'll have to deal with worse than that!' you hear.^"; }
+			  return 3;
 			}
 		}
 		times++;
@@ -10787,7 +10855,7 @@ carry out brobyeing:
 	say "The Keeper Brothers are now out of play. This may cause some oddness with in-game stuff, including solving puzzles that lead up to dispersing the Brothers.";
 	if silly boris is in jerk circle:
 		say "Do you wish to get rid of the jerks, too?";
-		if the player consents:
+		if the player yes-consents:
 			now all clients are in lalaland;
 			now player has quiz pop;
 			say "You now have the quiz pop.";
@@ -10858,7 +10926,7 @@ carry out jerking:
 		say "You haven't made it to the jerks yet. ";
 	if finger index is not examined or know-jerks is false:
 		say "You need to have examined the Finger Index or learned the jerks['] names to see the clues. You haven't, but would you like to cheat?";
-	if the player consents:
+	if the player yes-consents:
 		now finger index is examined;
 		now know-jerks is true;
 	else:
