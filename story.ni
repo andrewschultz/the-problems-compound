@@ -1035,13 +1035,25 @@ check sleeping:
 		the rule succeeds;
 	if mrlp is rejected rooms:
 		say "Oh no, this extra material isn't THAT boring, is it?" instead;
-	if mrlp is Main Chunk:
-		say "There are too many energetic people around here." instead;
-	if Down Ground is unvisited:
+	if player is in classic cult:
+		say "It's relaxing here, but not that relaxing." instead;
+	if player is in temper keep and sal-sleepy is true:
+		say "You don't want to join Sal." instead;
+	if player is in truth home and psycho is in truth home:
+		say "Tough with all that noise." instead;
+	if Down Ground is unvisited or jump-level > 2:
 		say "You're nowhere near tired. You're curious what could be ahead." instead;
 	if player is in Bottom Rock:
 		say "The crib's too small for sleeping." instead;
-	say "This doesn't look like the place to retreat for a nap." instead;
+	if player is in freak control:
+		say "But the excitement is close!" instead;
+	if player is in service community:
+		say "Not with the idol staring you down!" instead;
+	if player is in out mist:
+		say "Maybe sleep and your bedroom are just ahead." instead;
+	if player is in airy station:
+		say "Too much adulation is tiring, but not that tiring." instead;		
+	say "This doesn't look like the place to retreat for a nap. In fact, not many places do." instead;
 
 to go-to-dream:
 	now all carried things are in bullpen;
@@ -1277,6 +1289,10 @@ check listening (this is the listening in a place rule):
 			say "[one of]M[or]More m[stopping]usic from the song torch!";
 			try examining song torch instead;
 	if player is in freak control:
+		if noun is baiter:
+			say "He says nothing." instead;
+		if noun is list bucket:
+			say "It's probably better to examine it[if list bucket is examined], as you already did[end if]." instead;
 		say "The apparatus emits an occasional work grunt, you suspect, to impress visitors." instead;
 	if player is in out mist:
 		say "You can't hear anyone chasing you. That's good." instead;
@@ -1886,6 +1902,8 @@ check giving pick to:
 section giving items from outskirts
 
 check giving the condition mint to:
+	if second noun is fritz:
+		say "Fritz's breath could use a little sprucing up, but the mint would be a little TOO little." instead;
 	if second noun is volatile sal:
 		say "'Hm, if you had one like three feet cubed, it'd make the room smell nicer. But you don't.' He pushes you away before you can ask if he means three on each side or three total." instead;
 	if second noun is buddy best:
@@ -2402,8 +2420,6 @@ understand "xp [any explainable thing]" as explaining.
 understand the command "explain [any room]" as something new.
 understand the command "xp [any room]" as something new.
 
-rmexplaining is an action applying to one thing.
-
 understand "explain [any xpable room]" as explaining.
 understand "xp [any xpable room]" as explaining.
 
@@ -2534,6 +2550,7 @@ definition: a thing (called x) is explainable:
 	if x is in lalaland, decide yes;
 	if x is part of towers of hanoi or x is part of broke flat or x is part of games counter or x is games counter or x is games, decide no;
 	if x is t-surf, decide no;
+	if x is stool toad and down ground is visited, decide yes; [he does show up before you get to Joint Strip]
 	if x is in pressure pier:
 		if x is water-scen or x is stall-scen, decide no;
 	if x is in disposed well:
@@ -2790,7 +2807,7 @@ Down Ground	"Ground down means worn out."
 Joint Strip	"A strip joint is a gentlemen's club. Under 18 are not let in, and it's not just because of alcohol."
 Soda Club	"Club soda is tonic water e.g. water with bubbles and no flavoring."	"This was the Sinister Bar in the first release."
 Jerk Circle	"A collective groan is when everyone groans at once. A circle jerk is people getting together and stroking each other's egos. Or, well, something else."
-Chipper Wood	"A wood chipper puts in logs and spits out small wood chips." [west-ish]
+Chipper Wood	"A wood chipper puts in logs and spits out small wood chips. It's hard to be chipper (happy) if you get stuck in one." [west-ish]
 Disposed Well	"To be well disposed is to be agreeable."
 Truth Home	"A home truth is an unpleasant fact about oneself."
 Bottom Rock	"Rock bottom is the very bottom, usually emotionally more than physically. But in this case, you may be on a bit of a high after solving the terminal's puzzle."
@@ -2965,7 +2982,7 @@ carry out verbing:
 	say "[2da]GIVE X TO Y[line break]";
 	say "[2da]TALK/T talks to the only other person in the room. TALK TO X is needed if there is more than one.[line break]";
 	if know-babble is true:
-		say "[2da]BROOK BABBLING lets you talk to someone and skip over a conversation's details[if ever-babbled is true]. It can be shortened to B[sr-space]B, with or without a space[end if].[line break]";
+		say "[2da]BROOK BABBLING lets you talk to someone and skip over a conversation's details[if ever-babbled is true]. It can be shortened to B[sr-space]B, with or without a space[end if]. You can even specify a person if there's more than one to talk to, e.g. BROOK HIM or BB HER.[line break]";
 	if player is in belt below and terminal is in belt below and x-term-yet is true:
 		say "[2da]X 1-8 is a shortcut to read an individual question in the Insanity Terminal's puzzle.";
 	say "[2da]specific items may mention a verb to use in CAPS, e.g 'You can SHOOT the gun AT something,' but otherwise, prepositions aren't necessary.";
@@ -3127,6 +3144,8 @@ volume new rule (re-)definitions
 
 the can't exit when not inside anything rule is not listed in any rulebook.
 
+the can't go that way rule is not listed in any rulebook.
+
 check exiting:
 	if p-c is true:
 		now p-c is false;
@@ -3144,6 +3163,25 @@ check exiting:
 		try going Q instead;
 	else:
 		say "There's more than one direction to exit: [list of viable directions]." instead;
+
+check going:
+	if noun is down and the room down of location of player is nowhere:
+		say "You don't often need to go down." instead;
+	if noun is up and the room up of location of player is nowhere:
+		say "You don't often need to go up." instead;
+	if noun is outside:
+		if number of viable directions is 1:
+			let Q be a random viable direction;
+			if Q is not outside:
+				try going Q instead;
+		else:
+			say "There's no way to go outside." instead;
+	if noun is inside:
+		if the room inside of location of player is nowhere:
+			say "There's either nowhere, or more than one place." instead;
+	if the room noun of location of player is nowhere:
+		say "You can't go that way." instead;
+
 
 volume dialogues
 
@@ -3214,10 +3252,14 @@ before doing something when qbc_litany is not table of no conversation:
 		if qbc_litany is table of guy sweet talk:
 			say "Whoah! You could totally do that. But not while you're talking. You'll need to say goodbye to Guy first." instead;
 		say "You suddenly realize you could've gotten started quicker, but you're in a conversation now." instead;
+	if current action is sleeping:
+		say "That'd be a bit insulting. People have yawned around you before, but...you can't do it back to them." instead;
 	if current action is listening:
 		say "Well, you just did, and now it's your turn to respond." instead;
 	if current action is smelling:
 		say "Others can throw you off with a well-timed sniff, but not vice versa." instead;
+	if current action is saying yes or current action is saying no:
+		say "You don't need to say yes or no unless you're directly asked a yes/no question." instead;
 	if current action is going:
 		if the room noun of location of player is nowhere:
 			say "You can't escape the conversation running nowhere! Well, you can't really escape it running anywhere, either. You're not good at slick exits." instead;
@@ -3425,6 +3467,12 @@ a face of loss is a thing. The player carries a face of loss. description of fac
 a bad face is a thing. description is "You can't see it, but you can [i]feel[r] it has a bit more gravitas and confidence."
 
 a lifted face is a thing. description is "You're feeling pretty good about yourself. Not too good, but you just feel your mouth muscles are a little perkier than normal."
+
+rule for deciding whether all includes a face of loss: it does not.
+
+rule for deciding whether all includes a bad face: it does not.
+
+rule for deciding whether all includes a lifted face: it does not.
 
 part Smart Street
 
@@ -3774,7 +3822,6 @@ to disable-ticketies:
 	now off-the-path is true;
 	now your-tix is 4;
 	now caught-sleeping is true;
-	open-babble;
 
 to figure-cut:
 	now jump-level is 3;
@@ -3850,44 +3897,78 @@ definition: a person (called pe) is blabbable:
 
 a person can be babbled-out. a person is usually not babbled-out.
 
-carry out brookbabbling:
-	if accel-ending:
-		say "You're already saying whatever to whatever anyone's saying." instead;
-	if player is in freak control:
-		say "The awkward silence is too oppressive. Besides, you don't have the [bad-guy]'s attention yet." instead;
-	if player is in speaking plain:
-		say "You don't have much choice but to put up with Dutch and Turk." instead;
-	if player is in temper keep:
-		say "[if sal-sleepy is true]Sal is sleeping and has nothing to say[else]Sal's complaining is harmless but uninformative[end if]." instead;
+brooktrying is an action applying to one thing.
+
+understand "brook [a person]" as brooktrying.
+understand "bb [a person]" as brooktrying.
+understand "b [a person]" as brooktrying.
+understand "b b [a person]" as brooktrying.
+
+carry out brooktrying:
+	if noun is not a person:
+		say "You can only zone out a person's conversation." instead;
+	if noun is the player:
+		say "Impossible to shut out your own thoughts." instead;
+	consider the babble-shush rule;
+	if the rule succeeded:
+		continue the action;
 	if player is in chipper wood and assassination character is in chipper wood:
 		try talking to assassination character instead;
-	if player is in pyramid and labor child is in pyramid:
-		say "The Labor Child isn't one for small talk, especially around unconsequential people like you. No offense." instead;
-	if player is in airy station:
-		say "The crowd is certainly babbling, but nothing too in-depth or detailed." instead;
-	if player is in truth home and logical psycho is in truth home:
-		say "You can't really zone the Logical Psycho out." instead;
+	if noun is babbled-out:
+		recap-babble noun instead;
+	if noun is blabbable:
+		babble-out noun instead;
+
+carry out brookbabbling:
+	consider the babble-shush rule;
+	if the rule succeeded:
+		continue the action;
+	if player is in chipper wood and assassination character is in chipper wood:
+		try talking to assassination character instead;
 	d "[list of blabbable people].";
 	if number of blabbable people is 0:
 		if number of babbled-out people in location of player > 1:
 			say "There's more than one person you babbled with/to. Try to TALK to them individually for a recap." instead;
 		if number of babbled-out people in location of player is 1:
-			recap-babble a random babbled-out person in location of player instead;			
+			recap-babble a random babbled-out person in location of player;
+			the rule succeeds;
 		say "There's no one here to babble with. With whom to babble." instead;
-	if player is in questions field:
-		say "[if bros-left is 1]The remaining Keeper Brother doesn't seem[else]None of the Keeper Brothers seem[end if] up to small talk." instead;
 	if number of blabbable people is 1:
 		let dude be a random blabbable person;
 		d "Babbling [dude].";
 		babble-out dude instead;
-	if number of blabbable people is 2:
+	if number of blabbable people > 1:
 		if player is in discussion block:
-			say "Art and Phil both seem equally tough to talk to." instead;
+			say "Art and Phil both seem equally tough to talk to. You can B/BB/BROOK ART or PHIL, though." instead;
 		if player is in soda club:
 			say "You talk to the Punch Sucker for a bit.";
 			babble-out punch sucker instead;
-		say "There are too many people to pick out to babble at.";
+		say "There are too many people to pick out to babble at. You can B/BB/BROOK any one individual.";
 	the rule succeeds;
+
+this is the babble-shush rule:
+	if accel-ending:
+		say "You're already saying whatever to whatever anyone's saying.";
+		the rule succeeds;
+	if player is in freak control:
+		say "The awkward silence is too oppressive. Besides, you don't have the [bad-guy]'s attention yet.";
+		the rule succeeds;
+	if player is in speaking plain:
+		say "You don't have much choice but to put up with Dutch and Turk.";
+		the rule succeeds;
+	if player is in temper keep:
+		say "[if sal-sleepy is true]Sal is sleeping and has nothing to say[else]Sal's complaining is harmless but uninformative[end if].";
+		the rule succeeds;
+	if player is in pyramid and labor child is in pyramid:
+		say "The Labor Child isn't one for small talk, especially around unconsequential people like you. No offense.";
+		the rule succeeds;
+	if player is in airy station:
+		say "The crowd is certainly babbling, but nothing too in-depth or detailed.";
+		the rule succeeds;
+	if player is in truth home and logical psycho is in truth home:
+		say "You can't really zone the Logical Psycho out.";
+		the rule succeeds;
+	the rule fails.
 
 to babble-out (pe - a person):
 	repeat through table of babble summaries:
@@ -4627,7 +4708,7 @@ check taking flower wall:
 understand "flowers" as flower wall.
 
 check going nowhere in vision tunnel:
-	say "You barge into the flower wall and feel less alone with all that nature around you. This isn't practical, but it feels nice." instead;
+	say "You barge into the flower wall and feel less alone with all that nature around you. This isn't practical, but it feels much nicer than running into walls has a right to." instead;
 
 the picture hole is scenery in vision tunnel. description is "[one of]You peek into the picture hole in the flower wall, and it looks like a bunch of swirls until you stare at it right. A whole story takes shape. [or][stopping]You recognize [one of]a stick figure[or]yourself, again[stopping] finding a ticket in a book, climbing a chair to reach a hatch, digging by a bunch of flowers, depositing a document in the ground--and then being blocked by three stick figures--blue, red and tall.[paragraph break][one of]You blink, and the picture degenerates back into swirls. But you can always look again, if you want[or]The picture scrambles again once you blink[stopping]."
 
@@ -4733,7 +4814,7 @@ check going in variety garden:
 		now current-brush is off brush;
 		move off brush to variety garden;
 		say "You run into some brush. More precisely, you run near it but just don't feel up to it, as if you don't have the fight to look beyond it. 'Found the off brush, eh?' snickers the Word Weasel." instead;
-	if noun is not east: [w nw sw]
+	if noun is not east: [w nw sw in]
 		now current-brush is aside brush;
 		move aside brush to variety garden;
 		say "You run into some brush. More precisely, you get close to it but turn to the side to avoid its prickliness. You look for a way around--it's not that dense, so there should be one--but no luck. 'Found the aside brush, eh?' snickers the Word Weasel." instead;
@@ -4836,6 +4917,8 @@ pier-visited is a truth state that varies.
 check going in Pressure Pier:
 	if noun is outside or noun is south:
 		say "Swimming seems inadvisable. The water goes on a ways." instead;
+	if noun is inside:
+		try going west instead;
 	if room noun of Pressure Pier is nowhere:
 		say "You consider going that way, but you'd feel embarrassed walking into a wall or whatever, with or without people watching." instead;
 
@@ -5065,6 +5148,8 @@ check eating when player is in Meal Square and accel-ending:
 	say "Ug. You're full. Move on." instead;
 
 check going nowhere in meal square:
+	if noun is outside:
+		try going east instead;
 	say "No way out except east." instead;
 
 the picture of a dozen bakers is scenery in Meal Square. "It's a weird optical illusion--sometimes you count twelve, but if you look right, they warp a bit, and there's one extra. What's up with that?"
@@ -5075,7 +5160,7 @@ after doing something with bakers:
 instead of doing something with bakers:
 	if action is undrastic:
 		continue the action;
-	say "It's just there for scenery. There's nothing behind it or whatever."
+	say "It's just there for scenery. There's nothing behind it or whatever. Though, looking at it some more, you kind of get it in the cosmic sense."
 
 section take all foods reject
 
@@ -5375,6 +5460,8 @@ after printing the locale description for down ground when down ground is unvisi
 check going nowhere in Down Ground:
 	if noun is down:
 		say "You're down enough." instead;
+	if noun is inside or noun is outside:
+		say "There are two ways in or out: east or west." instead;
 	if noun is up:
 		say "Paths up to the east or west. So hard to decide which." instead;
 	say "It's too high a slope north or south." instead;
@@ -5549,6 +5636,10 @@ check going nowhere in Joint Strip:
 		say "You don't want to attract the Stool Toad's attention, now that you've gotten enough ticketies." instead;
 	if off-the-path is true:
 		say "The repeat offense will get you shipped off." instead;
+	if noun is inside:
+		try going south instead;
+	if noun is outside:
+		say "You already are." instead;
 	say "[one of]The Stool Toad booms 'Where you going, son? There's degenerates hiding that way! That's a warning!' You consider asking him why he doesn't go hunt them down, but you don't have the guts.[or]The Stool Toad blathers something about a final warning, because he sees you trying to sneak off.[or][toad-write-up][stopping]";
 	the rule succeeds;
 
@@ -5691,6 +5782,8 @@ part Soda Club
 Soda Club is south of Joint Strip. It is in Outer Bounds. "Maybe if it were past 1 AM, you'd see passages west, south, and east, making this place the [activation of total t]Total T--or maybe even the [activation of party t]Party T--instead. But if it were past 1 AM, you'd probably be home and asleep and not here. Or, at least, persuaded to leave a while ago.[paragraph break]The only way out is north."
 
 check going nowhere in Soda Club:
+	if noun is outside:
+		try going north instead;
 	say "There aren't, like, hidden bathrooms, and you wouldn't need to go even if there were. And if there's a secret passage, there's probably a secret code you don't know, too. So, back north it'll be, once you want to leave." instead;
 
 section Liver Lily
@@ -6173,6 +6266,8 @@ Rule for supplying a missing noun while entering (this is the yup paper rule):
 check going in chipper wood when p-c is false:
 	if noun is north or noun is south:
 		say "The wood's too thick that way." instead;
+	if noun is inside or noun is outside:
+		say "You can go east or west." instead;
 
 after going when player was in chipper wood and assassination character is in chipper wood:
 	say "'Oops, maybe some other time,' the Character's taunt echos.";
@@ -6551,6 +6646,9 @@ understand "ac" and "char" and "ass" and "assassin" and "assassin character" as 
 part Disposed Well
 
 Disposed Well is west of Chipper Wood. It is in Main Chunk. "A crumbling well is here. You may go west to some sort of church or back east to the Chipper Wood. To the north, [if boris is in lalaland]the Scheme Pyramid has been boarded up[else if pyramid is visited]the Scheme Pyramid[else]a business[end if]. There's also a small home you could go inside."
+
+check going outside from disposed well:
+	say "You already are outside." instead;
 
 scen-home is privately-named scenery in disposed well. "[if truth home is visited]There's no evidence of the Logical Psycho's ramblings from outside[else]It looks safe enough to go into[end if]."
 
@@ -7040,6 +7138,8 @@ part Classic Cult
 Classic Cult is west of Disposed Well. It is in Main Chunk. "Light OMs can be heard all over. The lighting, the decor--it's too much like a classic cult, which means it's fooling nobody, which is why you're not surprised there are only two people here, and there are no exits except back out.[paragraph break]A googly bowl rests here, [if fourth-blossom is in lalaland]full of blossoms[else]three-quarters full of blossoms[end if]."
 
 check going nowhere in Classic Cult:
+	if noun is outside:
+		try going east instead;
 	say "If it were an effective or popular cult, oh, the secret doors it would have! But it isn't, so it doesn't." instead;
 
 for writing a paragraph about a person (called fgg) in Classic Cult:
@@ -7141,6 +7241,10 @@ part Scheme Pyramid
 Scheme Pyramid is north of Disposed Well. It is in Main Chunk. "A gaudy, pointy-ceilinged room with exits north and south. Everything twinkles and shines. [one of]An odd hedge[or]The Fund Hedge[stopping] drips with all forms of currency, but you [if money seed is off-stage]are probably only allowed to take the cheapest[else]already got something[end if]."
 
 check going nowhere in scheme pyramid:
+	if noun is outside:
+		try going south instead;
+	if noun is inside:
+		try going north instead;
 	say "This room is north-south. Maybe once the brat turns ten, he'll have a bigger office, but right now, it's only got the two exits." instead;
 
 The Labor Child is a baiter-aligned person in Scheme Pyramid. "[one of]Some overdressed little brat walks up to you and shakes your hand. 'Are you here to work for me? You look like you have initiative. Not as much as me. The Labor Child. If you think you have business savvy, get a seed from the Fund Hedge.'[or]The Labor Child paces about here, formulating his next business idea.[stopping]"
@@ -7216,6 +7320,11 @@ part Accountable Hold
 
 Accountable Hold is a room in Main Chunk. It is north of Scheme Pyramid. "Surprisingly barren, this room functions as a brilliant metaphor (or whatever) for the shameful lack of accountability in the business world today.".
 
+check going nowhere in accountable hold:
+	if noun is outside:
+		try going south instead;
+	say "You can only go outside, to the south." instead;
+
 chapter finger index
 
 The finger index is a thing. "[if finger index is not examined]The paper lying where the safe was is some sort of index. You can see CONFIDENTIAL written on it.[else]The finger index on the floor provides all sorts of gossip.[end if]"
@@ -7276,6 +7385,12 @@ part Judgment Pass
 
 Judgment Pass is east of Jerk Circle. It is in Main Chunk. "[if officer petty is in Judgment Pass][one of]A huge counter with INTUITION in block letters is, well, blocking you. Well, not fully, but by the time you snuck around the edge, the official--and fit--looking officer behind it will get in your way.[or]The intuition counter still mostly blocks your way.[stopping][else]With Officer Petty out of the way, the Intuition Counter is now just an inconvenience.[end if]"
 
+check going nowhere in judgment pass:
+	if noun is inside or noun is outside:
+		say "The only passage is east-west." instead;
+	if noun is north or noun is south:
+		say "That's blocked. You should try to go east or west." instead;
+	
 Officer Petty is an enforcer in Judgment Pass. "[one of]The officer stares down at the intuition counter for a moment. 'NOPE,' he yells. 'Sure as my name's Officer Petty, no good reason for you to go to Idiot Village.'[or]Officer Petty regards you with contempt.[stopping]"
 
 description of Officer Petty is "Officer Petty stares back at you, cracks his knuckles, and rubs a palm. He's bigger, stronger and fitter than you."
@@ -7350,6 +7465,8 @@ check going nowhere in idiot village (this is the final idol puzzle rule):
 		else:
 			say "You try that, but it seems like the idol wants a challenge. You're not sure what type, but it's got a 'come at me bro' look on its face. Maybe east or northeast...";
 		the rule succeeds;
+	if noun is outside:
+		try going west instead;
 	say "Idiot Village expands in all directions, but of course, nobody was smart enough to provide a map. OR WERE THEY CLEVER ENOUGH NOT TO GIVE INVADERS AN EASY ROUTE IN?[paragraph break]Either way, you don't want to risk getting lost.";
 	do nothing instead;
 
@@ -7496,6 +7613,10 @@ to say iv-idol:
 
 the Service Community is a room in Main Chunk. "Idiot Village's suburbs stretch every which way, including diagonal directions! The Thoughts Idol surveys you from a distance. You just came from the [opposite of last-dir]."
 
+check going in service community:
+	if noun is inside or noun is outside:
+		say "That has no meaning here." instead;
+
 idol-progress is a number that varies.
 
 idol-fails is a number that varies.
@@ -7593,6 +7714,12 @@ part Speaking Plain
 
 Speaking Plain is north of Jerk Circle. It is in Main Chunk. "Roads go in all four directions here. North seems a bit wider. West leads [if keep is visited]back to Temper Keep[else]indoors[end if]. But the main 'attraction' is [if fright stage is examined]Fright Stage[else]a huge stage[end if] in the center."
 
+check going nowhere in speaking plain:
+	if noun is inside:
+		try going west instead;
+	if noun is outside:
+		say "You already are." instead;
+	
 The Fright Stage is scenery in Speaking Plain. "It's decorated with all manner of horrible fate for people that, you assume, messed up in life. From homelessness to getting fired visiting a porn store on Christmas Day to just plain envying other people with more stuff or social life, it's a mural of Scared Straight for kids without the guts to do anything jail-worthy."
 
 understand "business/show" and "business show" as Fright Stage.
@@ -7651,7 +7778,8 @@ the mistake grave is scenery in Walker Street. "It's illuminated oddly, as if a 
 check going nowhere in Walker Street:
 	if noun is south:
 		say "I'm afraid the Mistake Grave is a [activation of determined bound]determined bound." instead;
-	say "If there were a red light here, it would flash to say how wrong you were. Just north, east, in and west." instead;
+	if noun is outside:
+		say "If there were a red light here, it would flash to say how vague you were. Just north, east, in and west." instead;
 
 understand "pot/chamber" and "pot chamber" as drug gateway when player is in Walker Street
 
@@ -7760,6 +7888,10 @@ part Standard Bog
 Standard Bog is north of Walker Street. It is in Main Chunk. "This is a pretty standard bog. It's really slimy and probably has lots of quicksand traps you can't see until it's too late, and... [one of]well, the machine off to the side is not so standard. It seems to be mumbling, trying different ways to express itself. Yes, to use language. A language machine.[or]the Language Machine, still [if wax is in lalaland]burbling poems[else]grinding out dreary sentences[end if].[stopping]"
 
 check going nowhere in standard bog:
+	if noun is inside or noun is down:
+		say "You don't want to get...bogged down." instead;
+	if noun is outside:
+		try going south instead;
 	say "With all those potential quicksand traps, it's really only safe to go back south." instead;
 
 The Language Machine is scenery in Standard Bog. "The language machine hums along [if wax is in lalaland]cheerfully[else]balefully[end if], its console spewing out [if wax is in lalaland]poetry, which isn't good, but it's not overblown[else]dolorous, leaden, formulated prose about, well, being stuck in a bog[end if] in its bottom half. In the top half is an LCD [if wax is in lalaland]smile[else]frown[end if]."
@@ -7803,6 +7935,8 @@ part Court of Contempt
 Court of Contempt is west of Questions Field. It is in Main Chunk. "Boy, it's stuffy in here! You can't actually hear anyone sniffling, but you can, well, feel it. You can escape back east."
 
 check going nowhere in Court of Contempt:
+	if noun is outside:
+		try going east instead;
 	say "'So, you the sort of person who runs into walls a lot? Not that there's anything wrong with that.' Yup. Looks like back east's the only way out." instead;
 
 Buddy Best is a baiter-aligned person in Court of Contempt. "[one of]But wait! Someone here looks excited to see you! Not happy, but excited.[paragraph break]'Yah. Hi. I'm Buddy Best. You seem real nice. Nice enough not to waste too much of my time.'[paragraph break]Okay, never mind.[or]Buddy Best waits and taps his foot here.[stopping]". description is "Buddy Best has a half-smile on his face, which is totally a delicate balance of happiness and seriousness and not a sign of contempt, so stop saying that."
@@ -7862,7 +7996,12 @@ after quipping when qbc_litany is table of Buddy Best talk:
 
 part Discussion Block
 
-Discussion Block is east of Walker Street. It is in Main Chunk. "On one wall, a book bank is embedded--like a bookshelf, only tougher to extract the books. On another, a song torch."
+Discussion Block is east of Walker Street. It is in Main Chunk. "On one wall, a book bank is embedded--like a bookshelf, only tougher to extract the books. On another, a song torch. You can only go back west."
+
+check going nowhere in discussion block:
+	if noun is outside:
+		try going west;
+	say "Discussion Block also blocks you from going any way other than back west." instead;
 
 the poetic wax is in Discussion Block. "Poetic Wax--a whole ball of it--lies here behind [if number of waxblocking people is 0]where Art and Phil used to be[else][list of waxblocking people][end if]."
 
@@ -8113,8 +8252,13 @@ check going south in questions field when got-pop is true:
 to say c-house:
 	say "[if contempt is visited]the Court of Contempt[else]a courthouse[end if]";
 
-check going east in Questions Field:
-	say "The path grows tangled and too intimidating. You might get lost." instead;
+check going nowhere in questions field:
+	if noun is inside:
+		say "There are two ways to go inside: north and west." instead;
+	if noun is outside:
+		say "You already are." instead;
+	if noun is east:
+		say "The path grows tangled and too intimidating. You might get lost." instead;
 
 qp-hint is a truth state that varies.
 
@@ -8348,7 +8492,12 @@ The relief light is a thing. description of relief light is "It glows comforting
 
 part Freak Control
 
-Freak Control is north of Questions Field. It is in Main Chunk. "[if accel-ending]There's all sorts of stuff here but really all you want to do is show the [bad-guy] what's what.[else]Well, you made it. There's so much to look at![paragraph break]While there's probably another secret exit than back south, it's surely only available to the [bad-guy]. All the same, you don't want to leave now. You can't.[end if]"
+Freak Control is north of Questions Field. It is in Main Chunk. "[if accel-ending]There's all sorts of stuff here but really all you want to do is show the [bad-guy] what's what.[else][one of]Well, you made it. There's so much to look at[or]You're still dazed by all the machinery here[stopping]![paragraph break]While there's probably another secret exit than back south, it's surely only available to the [bad-guy]. All the same, you don't want to leave now. You can't.[end if]"
+
+check going nowhere in freak control:
+	if noun is outside:
+		try going south instead;
+	say "You'd probably get lost, and caught, exploring." instead;
 
 check going south in Freak Control:
 	say "If you start running, you'll never get a running start[activation of running start]. Plus you're too chicken to face the possibility of being called a chicken." instead;
@@ -8655,6 +8804,9 @@ every turn when player is in Airy Station:
 check entering Return Carriage:
 	say "You approach the whitespace around the return carriage, then try a new line of entry, but you have to admit failure and retreat to backspace. Those caps locks--you can't find a way to control [']em." instead;
 
+check opening Return Carriage:
+	say "You need to get the locks off, somehow." instead;
+
 check attacking lock caps:
 	say "Your plain old hammer doesn't do much." instead;
 
@@ -8677,6 +8829,22 @@ check going in Airy Station:
 part Out Mist
 
 Out Mist is a room in Endings. "It's very misty here, but you can still see a worm ring nearby. At the moment, it's cannibalizing itself too much to be whole.[paragraph break]It's silent here and tough to see, but you're pretty sure your pursuers aren't approaching any more."
+
+mist-turns is a number that varies.
+
+every turn when player is in out mist:
+	increment mist-turns;
+	if the remainder after dividing mist-turns by 4 is 0:
+		if worm is not examined:
+			now mist-turns is 0;
+			say "You may [one of][or]still [stopping]need to take a closer look at the worm." instead;
+	if mist-turns is 4:
+		say "You just want to generally, well, do something to the right. Hmm, but what." instead;
+	if mist-turns is 8:
+		say "Something about the ring seems dishonest, wrong." instead;
+	if mist-turns is 12:
+		now mist-turns is 0;
+		say "If you had a cell phone, maybe someone would call you with an idea." instead;
 
 check going nowhere in Out Mist:
 	say "No. This is the first thing you stumbled on, and getting more or less lost both seem equally bad." instead;
@@ -8711,11 +8879,16 @@ understand "ring change" and "ring tone" and "ring hollow" as a mistake ("Ooh! A
 
 understand "ring [text]" and "[text] ring" as a mistake ("Nothing happens to the ring. It sits there as lumpy as before.") when player is in Out Mist.
 
+understand "hole [text]" and "[text] hole" as a mistake ("Concentrate on the ring, not the hole.") when player is in Out Mist.
+
 understand "worm [text]" and "[text] worm" as a mistake ("The worm ring's problem isn't that it's a worm, but rather that it's a ring.") when player is in Out Mist.
 
 understand "worm bait" and "bait worm" as a mistake ("It's an inanimate worm, and -- well -- you might rather try fishing with things to do to a ring.") when player is in Out Mist.
 
-the worm ring is scenery in Out Mist. "It's circular and seems to be almost eating itself, Ouroborous-style, though it looks a bit slushy on the inside that you can see. You can't quite enter it, but maybe if it straightened out into a regular worm...or if you made it less fat, or thick, or dense...so many possibilities, but maybe the right thing (or things) to do will be simple."
+the worm ring is scenery in Out Mist. "It's circular and seems to be almost eating itself, Ouroborous-style, though it looks a bit slushy on the inside that you can see. You can't quite enter it, but maybe if it straightened out into a regular worm...or if you made it less fat, or thick, or dense, or maybe wide, with the hole being too samall...so many possibilities, but maybe the right thing (or things) to do will be simple."
+
+check opening worm ring:
+	say "It's not in the right state to open." instead;
 
 check wearing ring:
 	ignore the can't wear what's not held rule;
@@ -10157,7 +10330,7 @@ chapter test macros
 
 section 1 smart street
 
-test 1 with "talk to guy/1/1/1/1/1/1/play nim/in"
+test 1 with "talk to guy/1/1/1/1/1/1/1/1/play nim/in"
 
 test 1b with "bb/play nim/in"
 
@@ -10704,6 +10877,7 @@ montopic (topic)	on-off	test-title (text)	test-action	topic-as-text (text)
 "donote/note"	false	"DONOTEING"	try-noting rule	"donote/note"
 "mood"	false	"MOOD tracking"	try-mood rule	"mood"
 "think"	false	"THINK tracking"	try-think rule	"think"
+"sleep"	false	"SLEEP tracking"	try-sleep rule	"sleep"
 
 this is the try-exits rule:
 	try exitsing;
@@ -10740,22 +10914,19 @@ this is the try-wid rule:
 tracked-room is a room that varies.
 
 this is the try-dirs rule:
-	let tracked-room be location of player;
+	now tracked-room is location of player;
+	say "[tracked-room] = base room.";
 	shift-player inside;
 	shift-player outside;
 	shift-player east;
 	shift-player west;
 	shift-player south;
 	shift-player north;
-	if location of player is not tracked-room:
-		say "Player did not wind up in [tracked-room], moving back there.";
-		move player to tracked-room, without printing a room description;
 
 to shift-player (Q - a direction):
+	say "Going [Q] from [location of the player]:";
 	try going q;
-	if location of player is not tracked-room:
-		move player to tracked-room, without printing a room description;
-	say "Tried to move [Q] above.";
+	move player to tracked-room, without printing a room description;
 
 this is the try-noting rule:
 	try donoteing;
@@ -10766,6 +10937,10 @@ this is the try-mood rule:
 this is the try-think rule:
 	try thinking;
 
+this is the try-sleep rule:
+	if player is not in down ground: [cheating a bit. Sleeping throws it off]
+		try sleeping;
+	
 every turn (this is the full monty test rule) :
 	now red-big-clued-this-turn is false;
 	now already-clued is false;
@@ -10904,6 +11079,9 @@ carry out acbyeing:
 		say "The assassination character is already gone!";
 	else:
 		say "I've sent the assassination character to the great beyond. This is not reversible except with UNDO or RESTART.";
+		if p-c is true:
+			say "Also, stopping your current game.";
+			now p-c is false;
 		open-below instead;
 	the rule succeeds;
 

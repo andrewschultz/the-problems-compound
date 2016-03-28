@@ -83,7 +83,9 @@ Check talking to (this is the can only talk to people with things to say rule):
 
 Check talking to (this is the summarize babble rule):
 	if noun is babbled-out:
-		recap-babble noun instead;
+		d "[noun] babbled out.";
+		recap-babble noun;
+		the rule succeeds;
 
 Carry out talking to (this is the basic talking to rule):
 	if the greeting of the noun is not quip_null, deliver the greeting of the noun quip;
