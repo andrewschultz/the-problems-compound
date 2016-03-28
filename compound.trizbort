@@ -22,7 +22,7 @@
 			<objects>Officer Petty|Intuition Counter</objects>
 		</room>
 		<room id="35" name="Freak Control" subtitle="" x="160" y="-416" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="This is the final area! It contains crazy scenery.&#xD;&#xA;List Bucket&#xD;&#xA;Call Curtain&#xD;&#xA;Incident Miner&#xD;&#xA;Language Sign&#xD;&#xA;Shot Screen&#xD;&#xA;Twister Brain&#xD;&#xA;Witness Eye/Star" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects>Complex Messiah/|  Baiter Master</objects>
+			<objects>Complex Messiah/|  Baiter Master|List Bucket</objects>
 		</room>
 		<room id="38" name="Jerk Circle/Groan Collective" subtitle="" x="160" y="-32" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Dash" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects>7 jerks|</objects>
@@ -31,7 +31,7 @@
 			<objects>Turk Young|Uncle Dutch|Fright Stage</objects>
 		</room>
 		<room id="40" name="Discussion Block" subtitle="" x="480" y="-160" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects>Art Fine|Harmonic Phil</objects>
+			<objects>Art Fine|Harmonic Phil|Poetic Wax</objects>
 		</room>
 		<room id="41" name="Pressure Pier" subtitle="" x="160" y="96" w="96" h="64" region="Outer Bounds" handDrawn="no" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="yes" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Dash" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects>Howdy Boy|Basher Bible</objects>
@@ -132,7 +132,7 @@
 		<room id="52" name="Soda Club" subtitle="" x="480" y="224" w="96" h="64" region="Outer Bounds" handDrawn="no" allcornersequal="yes" ellipse="no" roundedCorners="yes" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects>Liver Lily|The Punch Sucker</objects>
 		</room>
-		<room id="57" name="Pot Chamber" subtitle="" x="480" y="-288" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+		<room id="57" name="Pot Chamber" subtitle="" x="480" y="-288" w="96" h="64" region="Main Area" handDrawn="no" allcornersequal="yes" ellipse="no" roundedCorners="yes" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects>Pusher Penn|Wacker Weed|Poor-y Pot</objects>
 		</room>
 		<line id="58" startText="in" endText="out">
