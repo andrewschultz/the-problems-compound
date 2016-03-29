@@ -3317,10 +3317,13 @@ before doing something when qbc_litany is not table of no conversation:
 		if second noun is brother big:
 			terminate the conversation;
 			continue the action;
+	if qbc_litany is table of jt:
+		if current action is whoing or current action is shorting:
+			continue the action;
 	say "You get distracted, but you've never had the power to break a conversation off. [note-recap]" instead;
 
 to say note-recap:
-	say "(NOTE: to see dialog options, type RECAP[if qbc_litany is table of jt], SHORT to shorten your questions for readability, or type WHO to recall the jerks['] names. Currently you can choose [convo-nums])[line break]";
+	say "(NOTE: to see dialog options, type RECAP[if qbc_litany is table of jt], SHORT to shorten your questions for readability, THINK to recall the Finger Index, or type WHO to recall the jerks['] names. Currently you can choose [convo-nums])[line break]";
 
 to say convo-nums:
 	let temp be 0;
@@ -6113,10 +6116,17 @@ whoing is an action applying to nothing.
 
 understand the command "who" as something new.
 
-understand "who" as whoing when finger index is examined and silly boris is not in lalaland.
+understand "who" as whoing when jerk-who-short is true and silly boris is not in lalaland.
 
 carry out whoing:
-	say "The jerks['] names are [list of clients in jerk circle].";
+	if qbc_litany is table of jt:
+		say "The jerks, in conversational order, are:";
+		let cur-jerk be last-jerk;
+		repeat with X running from 1 to number of clients:
+			say " [cur-jerk][if X is number of clients].[else],[end if]";
+			now cur-jerk is next-c-x of cur-jerk;
+	else:
+		say "The jerks['] names are [list of clients in jerk circle].";
 	the rule succeeds;
 
 chapter shorting
@@ -6125,12 +6135,12 @@ shorting is an action out of world.
 
 understand the command "short" as something new.
 
-understand "short" as shorting.
+understand "short" as shorting when jerk-who-short is true and silly boris is not in lalaland.
 
 short-jerk is a truth state that varies.
 
 carry out shorting:
-	now short-jerk is whether or not short-jerk is true;
+	now short-jerk is whether or not short-jerk is false;
 	say "Short jerk dialogue is now [on-off of short-jerk].";
 	the rule succeeds;
 
@@ -6164,7 +6174,7 @@ prompt	response	enabled	permit
 "[if short-jerk is false]So, do women's sports really have better fundamentals[else]SPORTSWOMEN[end if]?"	jerk-wsport	0	1
 "[if short-jerk is false]So, what sort of glossy magazines do you read[else]MAGAZINES[end if]?"	jerk-zines	0	1
 "[if short-jerk is false]So, any classic shows you miss? Or not so classic[else]EMBARRASSING CARTOONS[end if]?"	jerk-cartoon	0	1
-"(bug the next [j-g])"	jerk-next	0	1
+"(bug the next [j-g], [next-c of last-jerk])"	jerk-next	0	1
 "So, what about the [bad-guy]?"	jerk-baiter	1	1
 "[later-or-thanks]."	jerk-bye	3	1
 
