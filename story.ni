@@ -5689,11 +5689,11 @@ instead of doing something with the bar:
 check going south in joint strip:
 	if jump-level > 2:
 		say "[one of]'There's something about you, young man. Like you've been shifty before. I can't trust you. So you better use some common sense. Or I'll use it for you!' booms the Stool Toad.[paragraph break]On further reflection, you figure there probably wasn't much in there. Much you need any more, anyway. Also, his last little put-down didn't make any sense. But it still hurt.[or]You don't want to be told off by the Stool Toad again. Whether or not he makes sense the next time.[stopping]" instead;
-	if jump-level > 0 and soda club is unvisited:
-		say "The Stool Toad eyes you suspiciously. 'Don't know what you're up to, but ... it's something too clever for your own good. You--you cheated to get here, somehow.'" instead;
 	if howdy boy is in lalaland:
 		say "You had your 'fun,' or an attempt at it, anyway. You don't want to go [if soda club is visited]back there[else]anywhere too crazy[end if].";
-	if soda club is unvisited:
+	if jump-level > 0 and soda club is unvisited:
+		say "The Stool Toad eyes you suspiciously. 'Don't know what you're up to, but ... it's something too clever for your own good. You--you cheated to get here, somehow.'";
+	else if soda club is unvisited:
 		say "You look over your shoulder at the Stool Toad. 'I can't stop you, young man. But you keep your nose clean!' he shouts.";
 
 check going nowhere in Joint Strip:
@@ -7798,6 +7798,8 @@ check going in service community:
 		if idol-progress < best-idol-progress:
 			say "Rats. You did better and lasted longer before. Maybe you can repeat that and do a little better next time.";
 		else:
+			if idol-progress > best-idol-progress and best-idol-progress > 0:
+				say "It stinks you got caught, but you had your best run yet. Maybe next time.";
 			now best-idol-progress is idol-progress;
 		increment idol-fails;
 		now idol-progress is 0;
@@ -7851,7 +7853,7 @@ rule for deciding whether to allow undo:
 table of idol text
 good-text	bad-text	undo-text
 "The thoughts idol whizzes around to track you, quicker as you get close, slower as you get near, and quicker as you go away. Was it you, or did the humming seem just a bit more staticky than when you entered the Service Community? Well, you're safe so far."	"You look back at the idol after your run. But you can't look at its face. A loud buzz emanates from the idol, and you sink to the ground, covering your ears. Once they stop ringing, you go back to the entrance to Idiot Village."	"You didn't really do much wrong. There's not much to undo."
-"The thoughts idol whirls around some more. Was it just you, or did it go a little more slowly?"	"The idol catches you. A loud buzz, and you cover your ears. That could not have been the way to go."	"You didn't really do much wrong. There's not much to undo."
+"The thoughts idol whirls around some more. Was it just you, or did it go a little more slowly and sound a little creakier?"	"The idol catches you. A loud buzz, and you cover your ears. That could not have been the way to go."	"You didn't really do much wrong. There's not much to undo."
 "The thoughts idol whizzes around, adjusting speed--but did you hear a little cough?"	"The idol buzzes. You feel frozen, then are frozen."	"You thought you almost had the idol there for a bit, but it's not exactly going to be open to letting you brute-force it into submission."
 "The thoughts idol seems to twitch back and forth while following you."	"You feel frozen and collapse. The idol's contempt can't hide a legitimate frown. You slipped up, but you got pretty far."	"Halfway there...maybe if you get momentum, you'll nail the pattern down for good."
 "The thoughts idol barely catches its gaze up with you."	"The idol gives that look--you know it--'Smart, but no common sense.' Still--you can give it another shot."	"Would'ves won't help here. You've actually gotten in better shape, walking around just thinking."
@@ -9152,6 +9154,8 @@ to go-back-home:
 	unlock-verb "anno";
 	print-replay-message;
 	see-if-show-terminal;
+	if bros-left > 0:
+		d "[b]Uh oh. A test to clear the brothers from questions field may not have worked. [list of people in questions field] remain. Please check.[r]";
 	end the story finally saying "Wisdom Received!";
 	the rule succeeds;
 
@@ -10687,12 +10691,6 @@ test wjfc with "figure a cut/test 5/test cheat-pop/test 6-final/change ring"
 test wjkh with "knock hard/y/test 4/test 5/test cheat-pop/test 6-final/change ring"
 
 test wjna with "notice advance/test cheat-pop/test 6-final/change ring"
-
-test winfast with "gonear freak control/1/1/1/1/1/1/1/1"
-
-test winfigure with "figure a cut/test blood/test soul/test big/purloin quiz pop/n/n/drink quiz pop/test 6-final/away hammer"
-
-test winnotice with "notice advance/purloin quiz pop/n/n/drink quiz pop/test 6-final/away hammer"
 
 chapter broing
 
