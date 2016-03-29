@@ -91,6 +91,8 @@ Carry out talking to (this is the basic talking to rule):
 	if the greeting of the noun is not quip_null, deliver the greeting of the noun quip;
 	if the number of filled rows in the litany of the noun is not zero:
 		now the qbc_litany is the litany of the noun;
+		if noun is generic-jerk:
+			say "([last-jerk])[line break]";
 		display the QBC options.
 
 [This is for when we have a Reactable Quips-style followup in the middle of a conversation.]

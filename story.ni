@@ -40,6 +40,8 @@ a quip can be permissible. a quip is usually not permissible.
 
 a quip can be talked-thru. a quip is usually not talked-thru.
 
+a quip can be jerky. a quip is usually not jerky.
+
 Include (- Switches z; -) after "ICL Commands" in "Output.i6t".
 
 section yes no stub
@@ -156,6 +158,7 @@ when play begins (this is the initialize jerks rule):
 		increment temp;
 		choose row temp in table of fingerings;
 		now jerky-guy entry is Q;
+		now my-quip entry is jerky;
 		now Q is specified;
 		d "[jerky-guy entry] = [blackmail entry].";
 	sort table of fingerings in random order;
@@ -278,7 +281,10 @@ to say your-mood:
 	else if player is in Freak Control:
 		say "Final Chat";
 	else if player is in jerk circle and silly boris is in jerk circle:
-		say "7[']s a crowd";
+		if qbc_litany is table of jt:
+			say "[last-jerk]";
+		else:
+			say "7[']s a crowd";
 	else if player is in Wood and p-c is true:
 		say "Chasing";
 	else if player is in Belt Below:
@@ -3311,7 +3317,7 @@ before doing something when qbc_litany is not table of no conversation:
 	say "You get distracted, but you've never had the power to break a conversation off. [note-recap]" instead;
 
 to say note-recap:
-	say "(NOTE: to see dialog options, type RECAP. Currently you can choose [convo-nums])[line break]";
+	say "(NOTE: to see dialog options, type RECAP[if qbc_litany is table of jt], or type WHO to recall the jerks['] names. Currently you can choose [convo-nums])[line break]";
 
 to say convo-nums:
 	let temp be 0;
@@ -6059,11 +6065,11 @@ understand "jerk" as a client when player is in jerk circle and know-jerks is tr
 
 understand "circle/heptagon" as jerks.
 
-before talking to a client:
+before talking to a client (this is the ask jerks generally first rule):
 	if know-jerks is false:
 		say "You feel a bit over-familiar. Maybe if you talk to all the jerks, you'll get a formal introduction." instead;
 
-before talking to jerks:
+before talking to jerks (this is the ask jerks generally to get their names rule):
 	if finger is not examined:
 		say "You don't have any reason to want to deal with that many jerks. At least not now." instead;
 	if know-jerks is true:
@@ -6089,7 +6095,7 @@ to say jerk-list:
 
 last-jerk is a person that varies.
 
-before talking to a client:
+before talking to a client (this is the successfully talk to a client rule) :
 	say "Notes in hand, you realize you can THINK about what you saw on the finger index at any time. You also may want to LISTEN to see if everyone is getting demoralized after you move on to the next jerk. You can, of course, UNDO that, too, and I won't judge.";
 	now last-jerk is noun;
 	try talking to generic-jerk instead;
@@ -6246,7 +6252,7 @@ to reset-the-table:
 			say "[line break]The [j-co]['] conversation ratchets back up to full volume. You must've made the wrong accusation.";
 	increment wrongalong;
 	if wrongalong is 10:
-		say "[line break]You remember[one of][or], again,[stopping] the finger index's advice. If you push someone twice, and you're right, it may make them lash out.";
+		say "[line break]You remember[one of][or], again,[stopping] the finger index's advice. If you push someone twice, and you're right, it may make them lash out. So you must've been wrong, there. But it can be awkward repeating yourself!";
 		now wrongalong is 0;
 	reset-fingerings;
 
@@ -6254,7 +6260,7 @@ to check-jerks-done:
 	d "RIGHT!";
 	say "[last-jerk] snickers noncommitally.";
 	repeat through table of fingerings:
-		if suspect entry is 0:
+		if suspect entry is 0 and my-quip entry is jerky:
 			continue the action;
 	say "[line break]The other six jerks, fully chastened by your observations, overhear what you have to say. They pile on [last-jerk], but you mention he's not the only one. A fight's about to break out, until you tell them where you got this information from.[paragraph break]'You better be right about this,' [a random client] says. They rush off. You hear whining in the distance. It's the Labor Child. He protests he was just trying to shame them into doing more practical things!";
 	say "[line break]The (ex-)jerks arrive back, and [a random client] hands you a bottle of Quiz Pop. 'Man, you seem to know what's what, and you helped us see it was okay to be us. Here's some totally sweet contraband.'";
@@ -7365,7 +7371,7 @@ after examining the finger index (this is the know what jerks are about rule) :
 	repeat through table of generic-jerk talk:
 		if response entry is jerk-hows:
 			now enabled entry is 0;
-		else if response entry is not jerk-bye:
+		else if response entry is jerky or response entry is jerk-next:
 			now enabled entry is 1;
 	continue the action;
 
@@ -7382,7 +7388,7 @@ to say finger-say:
 		if jerky-guy entry is not buddy best:
 			increment temp;
 			say "[temp]. [clue-letter of jerky-guy entry] [blackmail entry][line break]";
-	say "[line break]Collect hush fees every Monday. Repeating accusations breaks the guilty parties. Insanity Terminal has backup data";
+	say "[line break]Collect hush fees every Monday. Repeating accusations breaks the guilty parties. Insanity Terminal has backup data.";
 	now finger index is examined;
 
 check taking the finger index:
@@ -8771,23 +8777,27 @@ part Airy Station
 Airy Station is a room in Endings. "[one of]A cheering crowd[or]The mentality crowd[stopping] surrounds you on all sides! They're going pretty crazy over their new-found freedom, and how you got it for them."
 
 to say hammer-clue:
+	now no-break is true;
 	consider the hammer clue rule;
 
 hammer-turns is a number that varies.
 
-every turn when player is in airy station:
+every turn when player is in airy station (this is the hammer clue rule):
 	increment hammer-turns;
 	if the remainder after dividing hammer-turns by 4 is 0:
 		if hammer is not examined:
 			now mist-turns is 0;
-			say "You may [one of][or]still [stopping]need to take a closer look at the hammer." instead;
+			say "[if no-break is true][paragraph break][end if]You may [one of][or]still [stopping]need to take a closer look at the hammer[if no-break is true].[no line break][else].[end if]";
+			now no-break is false;
+			the rule succeeds;
 	if hammer-turns is 4:
-		say "If you had another hammer, maybe you could click them together and go home." instead;
-	if mist-turns is 8:
-		say "You're chipping off things the hammer can't be." instead;
-	if mist-turns is 12:
+		say "[if no-break is true][paragraph break][end if]If you had another hammer, maybe you could click them together and go home[if no-break is true].[no line break][else].[end if]";
+	else if mist-turns is 8:
+		say "[if no-break is true][paragraph break][end if]You're chipping off things the hammer can't be[if no-break is true].[no line break][else].[end if]";
+	else if mist-turns is 12:
 		now mist-turns is 0;
-		say "You imagine the hammer putting the caps in a wrestling hold." instead;
+		say "[if no-break is true][paragraph break][end if]You imagine the hammer putting the caps in a wrestling hold[if no-break is true].[no line break][else].[end if]";
+	now no-break is false;
 
 understand "man hammer" and "hammer man" as a mistake ("So, this game isn't badly cartoonish enough for you?[hammer-clue]") when player is in Airy Station.
 
@@ -8856,14 +8866,6 @@ the Return Carriage is a thing. description is  "The Return Carriage awaits, but
 
 the lock caps are part of the return carriage. description is "They don't look too menacing, but then you look closer, and you feel like you're being shouted at. Hm."
 
-airy-wait is a number that varies.
-
-every turn when player is in Airy Station:
-	increment airy-wait;
-	if airy-wait is 5:
-		say "You jiggle the hammer in your hand, nervously. There has to be a way to use it, or change it. Maybe more than one.";
-		now airy-wait is 0;
-
 check entering Return Carriage:
 	say "You approach the whitespace around the return carriage, then try a new line of entry, but you have to admit failure and retreat to backspace. Those caps locks--you can't find a way to control [']em." instead;
 
@@ -8900,14 +8902,17 @@ every turn when player is in out mist (this is the ring clue rule):
 	if the remainder after dividing mist-turns by 4 is 0:
 		if worm is not examined:
 			now mist-turns is 0;
-			say "You may [one of][or]still [stopping]need to take a closer look at the worm." instead;
+			say "[if no-break is true][paragraph break][end if]You may [one of][or]still [stopping]need to take a closer look at the worm[if no-break is true].[no line break][else].[end if]";
+			now no-break is false;
+			the rule succeeds;
 	if mist-turns is 4:
-		say "You just want to generally, well, do something to the right. Hmm, but what." instead;
-	if mist-turns is 8:
-		say "Something about the ring seems dishonest, wrong." instead;
-	if mist-turns is 12:
+		say "[if no-break is true][paragraph break][end if]You just want to generally, well, do something to the right. Hmm, but what[if no-break is true].[no line break][else].[end if]";
+	else if mist-turns is 8:
+		say "[if no-break is true][paragraph break][end if]Something about the ring seems dishonest, wrong[if no-break is true].[no line break][else].[end if]";
+	else if mist-turns is 12:
 		now mist-turns is 0;
-		say "If you had a cell phone, maybe someone would call you with an idea." instead;
+		say "[if no-break is true][paragraph break][end if]If you had a cell phone, maybe someone would call you with an idea[if no-break is true].[no line break][else].[end if]";
+	now no-break is false;
 
 check going nowhere in Out Mist:
 	say "No. This is the first thing you stumbled on, and getting more or less lost both seem equally bad." instead;
@@ -8922,7 +8927,10 @@ to good-end:
 	say "The Whole Worm is bigger than you thought. You hide deeper and deeper. A passage turns down, and then here's a door. Through it you see your bedroom.";
 	go-back-home;
 
-to say ring-clue:	
+no-break is a truth state that varies.
+
+to say ring-clue:
+	now no-break is true;
 	consider the ring clue rule;
 
 understand "round worm" and "worm round" as a mistake("You consider worming around, but you're not very good at flattery, and there's nobody to flatter. Not that it's worth being good at flattery.") when player is in Out Mist.
@@ -9455,9 +9463,9 @@ Table of Final Question Options (continued)
 final question wording	only if victorious	topic	final response rule	final response activity
 "see where minor SWEARS change"	true	"SWEARS"	swear-see rule	swearseeing
 "see the SINS the jerks didn't commit"	true	"SINS"	sin-see rule	sinseeing
-"see the ALTERNATIVE endings and commands"	true	"ALTERNATIVE"	alternative-see rule	altseeing
-"see how to get to each of the BAD END rooms"	true	"BAD/END" or "BAD END"	bad-end-see rule	badendseeing
-"see any reversible CONCEPTS you missed, or ALL"	true	"CONCEPTS"	concept-see rule	conceptseeing
+"see the (ALT)ERNATIVE endings and commands"	true	"ALT/ALTERNATIVE"	alternative-see rule	altseeing
+"see how to get to each of the BAD END rooms"	true	"BAD/END/BADEND" or "BAD END"	bad-end-see rule	badendseeing
+"see any reversible (CONC)EPTS you missed, or ALL"	true	"CONCEPTS/CONC"	concept-see rule	conceptseeing
 --	true	"ALL"	concept-all rule	conceptseeing
 "see all the DREAM sequence stories"	true	"DREAM/DREAMS"	dream-see rule	dreamseeing
 "see the plausible MISSES for the Terminal"	true	"MISSES"	alt-answer rule	altanswering
@@ -10508,6 +10516,10 @@ test feat-anno with "anno/y/jump/w/w/w/e/n/e/e/w/w/w/e/n/e/w/w/n/e/w/w/n/x view/
 test feat-allwin with "gonear out mist/est/change ring/tone ring/hollow ring/gonear airy/away hammer/home hammer/lock hammer"
 
 test feat-deaths with "attack game shell/gonear strip/shit/shit/gonear meal square/eat lolly/gonear labor child/attack child/tix 4/purloin brew/gonear soda club/n/gonear stool toad/attack toad/gonear stool toad/purloin weed/give weed to toad"
+
+section jerk tests
+
+test jerky with "gonear jerks/talk to jerks/g/gonear safe/get safe/x index/s/s/e/e/talk to jerks/talk to jerks"
 
 section losses
 
