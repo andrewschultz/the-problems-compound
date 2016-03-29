@@ -2993,6 +2993,9 @@ carry out verbing:
 	say "[2da]GT or GO TO lets you go to a room you've been to.[line break]";
 	say "[2da]GIVE X TO Y[line break]";
 	say "[2da]TALK/T talks to the only other person in the room. TALK TO X is needed if there is more than one.[line break]";
+	if jerk-who-short is true and silly boris is not in lalaland:
+		say "[2da]WHO tells the jerks['] names.";
+		say "[2da]SHORT cuts down the conversation topics.";
 	if know-babble is true:
 		say "[2da]BROOK BABBLING lets you talk to someone and skip over a conversation's details[if ever-babbled is true]. It can be shortened to B[sr-space]B, with or without a space[end if]. You can even specify a person if there's more than one to talk to, e.g. BROOK HIM or BB HER.[line break]";
 	if player is in belt below and terminal is in belt below and x-term-yet is true:
@@ -3317,7 +3320,7 @@ before doing something when qbc_litany is not table of no conversation:
 	say "You get distracted, but you've never had the power to break a conversation off. [note-recap]" instead;
 
 to say note-recap:
-	say "(NOTE: to see dialog options, type RECAP[if qbc_litany is table of jt], or type WHO to recall the jerks['] names. Currently you can choose [convo-nums])[line break]";
+	say "(NOTE: to see dialog options, type RECAP[if qbc_litany is table of jt], SHORT to shorten your questions for readability, or type WHO to recall the jerks['] names. Currently you can choose [convo-nums])[line break]";
 
 to say convo-nums:
 	let temp be 0;
@@ -6095,10 +6098,41 @@ to say jerk-list:
 
 last-jerk is a person that varies.
 
+jerk-who-short is a truth state that varies.
+
 before talking to a client (this is the successfully talk to a client rule) :
 	say "Notes in hand, you realize you can THINK about what you saw on the finger index at any time. You also may want to LISTEN to see if everyone is getting demoralized after you move on to the next jerk. You can, of course, UNDO that, too, and I won't judge.";
+	say "Also, you can type WHO to remember their names in-conversation, or SHORT to shorten your questions.";
+	now jerk-who-short is true;
 	now last-jerk is noun;
 	try talking to generic-jerk instead;
+
+chapter whoing
+
+whoing is an action applying to nothing.
+
+understand the command "who" as something new.
+
+understand "who" as whoing when finger index is examined and silly boris is not in lalaland.
+
+carry out whoing:
+	say "The jerks['] names are [list of clients in jerk circle].";
+	the rule succeeds;
+
+chapter shorting
+
+shorting is an action out of world.
+
+understand the command "short" as something new.
+
+understand "short" as shorting.
+
+short-jerk is a truth state that varies.
+
+carry out shorting:
+	now short-jerk is whether or not short-jerk is true;
+	say "Short jerk dialogue is now [on-off of short-jerk].";
+	the rule succeeds;
 
 chapter generic jerk
 
@@ -6117,19 +6151,19 @@ litany of generic-jerk is the table of generic-jerk talk.
 table of jt - generic-jerk talk
 prompt	response	enabled	permit
 "So, um--how's things, I guess?"	jerk-hows	1	1
-"So, I hear you like all the vegetables, even gross ones."	jerk-veg	0	1
-"So, that clean comedian so popular last year? Still like him, eh?"	jerk-comedian	0	1
-"So, I hear you like light music. Not just by pretty women."	jerk-light	0	1
-"So, you're a little better at chess than is practical for smart kids."	jerk-chess	0	1
-"So, hear you secretly like that lousy pro sports team."	jerk-pro	0	1
-"So, you definitely don't wear colored underwear. Right?"	jerk-undies	0	1
-"So, reread [i]Anne of Green Gables[r] lately?"	jerk-anne	0	1
-"So, you big on violent games? Or not?"	jerk-video	0	1
-"So, Mr. Rogers. Does he conquer the basics, or what?"	jerk-rogers	0	1
-"So, you wouldn't be ashamed of driving a clunker?"	jerk-car	0	1
-"So, do women's sports really have better fundamentals?"	jerk-wsport	0	1
-"So, what sort of glossy magazines do you read?"	jerk-zines	0	1
-"So, any classic shows you miss? Or not so classic?"	jerk-cartoon	0	1
+"[if short-jerk is false]So, I hear you like all the vegetables, even gross ones[else]VEGGIES[end if]."	jerk-veg	0	1
+"[if short-jerk is false]So, that clean comedian so popular last year? Still like him, eh[else]CLEAN JOKES[end if]?"	jerk-comedian	0	1
+"[if short-jerk is false]So, I hear you like light music. Not just by pretty women[else]LIGHT MUSIC[end if]."	jerk-light	0	1
+"[if short-jerk is false]So, you're a little better at chess than is practical for smart kids[else]CHESS[end if]."	jerk-chess	0	1
+"[if short-jerk is false]So, hear you secretly like that lousy pro sports team[else]YOUR TEAM STINKS[end if]."	jerk-pro	0	1
+"[if short-jerk is false]So, you definitely don't wear colored underwear. Right[else]COLORED UNDIES[end if]?"	jerk-undies	0	1
+"[if short-jerk is false]So, reread [i]Anne of Green Gables[r] lately[else]GIRL BOOK EWW[end if]?"	jerk-anne	0	1
+"[if short-jerk is false]So, you big on violent games? Or not[else]LAMER OR GAMER[end if]?"	jerk-video	0	1
+"[if short-jerk is false]So, Mr. Rogers. Does he conquer the basics, or what[else]MISTER ROGERS[end if]?"	jerk-rogers	0	1
+"[if short-jerk is false]So, you wouldn't be ashamed of driving a clunker[else]LAME CAR[end if]?"	jerk-car	0	1
+"[if short-jerk is false]So, do women's sports really have better fundamentals[else]SPORTSWOMEN[end if]?"	jerk-wsport	0	1
+"[if short-jerk is false]So, what sort of glossy magazines do you read[else]MAGAZINES[end if]?"	jerk-zines	0	1
+"[if short-jerk is false]So, any classic shows you miss? Or not so classic[else]EMBARRASSING CARTOONS[end if]?"	jerk-cartoon	0	1
 "(bug the next [j-g])"	jerk-next	0	1
 "So, what about the [bad-guy]?"	jerk-baiter	1	1
 "[later-or-thanks]."	jerk-bye	3	1

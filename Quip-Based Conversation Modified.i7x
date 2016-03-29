@@ -91,8 +91,6 @@ Carry out talking to (this is the basic talking to rule):
 	if the greeting of the noun is not quip_null, deliver the greeting of the noun quip;
 	if the number of filled rows in the litany of the noun is not zero:
 		now the qbc_litany is the litany of the noun;
-		if noun is generic-jerk:
-			say "([last-jerk])[line break]";
 		display the QBC options.
 
 [This is for when we have a Reactable Quips-style followup in the middle of a conversation.]
@@ -103,6 +101,8 @@ To display the QBC options:
 	if the story has ended, stop;
 	if RQ is active, stop;
 	let qbc_index be 0;
+	if noun is generic-jerk:
+		say "([last-jerk])[line break]";
 	repeat through qbc_litany:
 		if the enabled entry > 0:
 			increase qbc_index by 1;
@@ -161,7 +161,7 @@ Carry out QBC recap (this is the perform QBC recap rule):
 			increase qbc_index by 1;
 			if qbc_index is 1, say "[RQ options prologue][paragraph break]";
 			if response entry is permissible:
-				say "[bracket][qbc_index][close bracket] [prompt entry][line break]";
+				say "[if screen-read is false][bracket][end if][qbc_index][if screen-read is false][close bracket][end if] [prompt entry][line break]";
 			else:
 				say "[i][bracket][qbc_index][close bracket] [prompt entry][r][line break]";
 	[This "can't happen" but there's no reason to not check.]
