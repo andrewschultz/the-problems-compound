@@ -386,6 +386,8 @@ a thing can be abstract. a thing is usually not abstract.
 
 a client is a kind of person. a client is usually male. a client can be specified. a client is usually not specified. a client has text called clue-letter.
 
+a client can be minted. a client is usually not minted.
+
 an enforcer is a kind of person.
 
 to decide whether the action is undrastic:
@@ -639,6 +641,23 @@ to say no-yes:
 		now yes-yet is true;
 		say "[bracket]NOTE: you don't need to answer rhetorical questions, and I tried to avoid them, but characters may ask you a few.[close bracket][line break]";
 
+chapter cutting
+
+the block cutting rule is not listed in any rulebook.
+
+before cutting:
+	if noun is worm:
+		say "Its outside shell is too hard. Maybe work at it from the inside, or metaphorically." instead;
+	if noun is caps:
+		say "You need to transform the hammer so it can break the lock caps." instead;
+	if noun is wax:
+		say "You're not terribly musical. Well, you're not down with funky music." instead;
+	if noun is a person:
+		say "You don't have any sharp objects, and cutting someone down verbally is out." instead;
+	if noun is scenery and player is in freak control:
+		try attacking noun instead;
+	say "You have nothing with which to [activation of cut a deal]deal a cut." instead;
+
 chapter throwing at
 
 the futile to throw things at inanimate objects rule is not listed in any rulebook.
@@ -697,12 +716,12 @@ check requesting the score:
 		say ", and you've also been to [number of map-pinged rooms] or [number of rooms in bad ends] rooms";
 	say ".";
 	say "[line break]";
-	if Questions Field is unvisited:
-		say "You haven't gotten near the [bad-guy]'s hideout yet. So maybe you need to explore a bit more." instead;
 	if player is in out mist:
 		say "You need to modify the worm ring somehow." instead;
 	if player is in airy station:
 		say "You need to modify the hammer somehow." instead;
+	if Questions Field is unvisited:
+		say "You haven't gotten near the [bad-guy]'s hideout yet. So maybe you need to explore a bit more." instead;
 	if qp-hint is true and quiz pop is not in lalaland:
 		say "You need some way to get past the question/exclamation mark guard combination. It's like--I don't know. A big ol['] pop quiz or something." instead;
 	if player has crocked half and thoughts idol is not in lalaland:
@@ -1744,6 +1763,8 @@ check attacking:
 		say "[if wax is in lalaland]After you were so nice to it? That's rough, man[else]No, it needs compassion, here[end if]." instead;
 	if noun is jerks:
 		say "You've been suckered into lashing out before, but these guys--well, you've faced more annoying, truth be told." instead;
+	if noun is ring:
+		say "BONG! You didn't expect anything so musical. Or so robust, or full. But it probably needs you to act on it more subtly." instead;
 	if mrlp is endings:
 		say "You don't need violence right now[if player is in station]. Well, maybe the right sort against the caps[end if]." instead;
 	say "Lashing out against inanimate objects won't help, here. In fact, you may be lucky this one's unimportant enough you didn't get arrested." instead;
@@ -1930,10 +1951,11 @@ check giving the condition mint to:
 		say "Your offer is declined. Perhaps you need to find someone who has just finished a meal." instead;
 	if finger index is not examined:
 		say "The [j-co] seem nasty enough, you don't want to share even a mint with any of them. Maybe if you found some way to empathize with them." instead;
-	choose row with jerky-guy of noun in table of fingerings;
+	choose row with jerky-guy of second noun in table of fingerings;
 	if suspect entry is 1:
-		say "[noun] is a bit too nervous around you, as you already figured his secret." instead;
-	say "[noun] accepts your offer gratefully, and you discuss the list with him. 'Oh dear,' he says, 'I must be [clue-letter].'[paragraph break]You assure him his secret is safe with you.";
+		say "[second noun] is a bit too nervous around you, as you already figured his secret." instead;
+	say "[second noun] accepts your offer gratefully, and you discuss the list with him. 'Oh dear,' he says, 'I must be [clue-letter of second noun].'[paragraph break]You assure him his secret is safe with you.";
+	now second noun is minted;
 	now suspect entry is 2;
 	the rule succeeds;
 
@@ -2220,6 +2242,8 @@ check giving legend of stuff to:
 	say "The Legend of Stuff feels stuck to you." instead;
 
 check giving crocked half to:
+	if second noun is idol:
+		say "The idol seems to shake a bit as you wave the crocked half at it." instead;
 	say "[if thoughts idol is in lalaland]It's completely useless now[else]Probably even more useless for them than you[end if]." instead;
 
 chapter person based
@@ -2743,6 +2767,7 @@ exp-thing	exp-text	exp-anno
 turn of phrase	"A turn of phrase is clever wording. A phrase of turn is, well, what's at the command prompt, or, any wording."
 wait your turn	"This means not to do anything til someone else goes first. But in this case the game wants you to turn your wait into something else."
 abuse testing	"Abuse testing means trying to break things with stuff a tester wouldn't usually try, or that they know has broken their own game. Testing abuse is--well, most abuse can feel a bit testing, or trying."
+cut a deal	"To cut a deal is to make a business arrangement, often favorably. To deal a cut is just to knife someone."
 Buster Ball	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure." [the 2 bad guys]
 Hunter Savage	"A savage hunter is, well, someone with no mercy. Yup, I like the 'dirty' tangential bad guy better, too."
 Nonsense No	"No-nonsense means, well, not taking any silliness." [xyzzy snark]
@@ -3257,7 +3282,6 @@ before doing something when qbc_litany is not table of no conversation:
 		say "You put the Legend of Stuff away[if noun is legend of stuff or second noun is legend of stuff], perhaps only temporarily[end if].";
 		terminate the conversation;
 		continue the action;
-	d "[the current action], [qbc_litany].";
 	if current action is thinking or current action is listening:
 		if qbc_litany is table of generic-jerk talk:
 			continue the action;
@@ -3318,12 +3342,15 @@ before doing something when qbc_litany is not table of no conversation:
 			terminate the conversation;
 			continue the action;
 	if qbc_litany is table of jt:
-		if current action is whoing or current action is shorting:
+		if current action is glibing or current action is shorting or current action is whoing:
 			continue the action;
 	say "You get distracted, but you've never had the power to break a conversation off. [note-recap]" instead;
 
 to say note-recap:
-	say "(NOTE: to see dialog options, type RECAP[if qbc_litany is table of jt], SHORT to shorten your questions for readability, THINK to recall the Finger Index, or type WHO to recall the jerks['] names. Currently you can choose [convo-nums])[line break]";
+	say "(NOTE: to see dialog options, type RECAP[if qbc_litany is table of jt], SHORT to shorten your questions for readability, THINK to recall the Finger Index, SKIP to [nl-skip]skip to the next jerk after accusing, or type WHO to recall the jerks['] names. Currently you can choose [convo-nums])[line break]";
+
+to say nl-skip:
+	say "[if skip-after-accuse is true]no longer [end if]";
 
 to say convo-nums:
 	let temp be 0;
@@ -3757,7 +3784,8 @@ to write-undo (x - text):
 			else:
 				say "[line break]";
 			now found entry is true;
-			jump-ship conc entry;
+			if there is a conc entry:
+				jump-ship conc entry;
 			continue the action;
 	say "[bug] -- [x] was called as a table element.";
 
@@ -6104,11 +6132,26 @@ last-jerk is a person that varies.
 jerk-who-short is a truth state that varies.
 
 before talking to a client (this is the successfully talk to a client rule) :
-	say "Notes in hand, you realize you can THINK about what you saw on the finger index at any time. You also may want to LISTEN to see if everyone is getting demoralized after you move on to the next jerk. You can, of course, UNDO that, too, and I won't judge.";
-	say "Also, you can type WHO to remember their names in-conversation, or SHORT to shorten your questions.";
+	if noun is minted:
+		say "You already know [noun]'s secret. You should talk to someone else." instead;
+	say "Notes in hand, you realize you can THINK to recall finger index at any time. You also may want to LISTEN to see if everyone is getting demoralized after you move on to the next [j-g]. You can, of course, UNDO that, too, and I won't judge.";
+	say "Also, you can type WHO to remember their names in-conversation, or SHORT to toggle shortening your questions, or GLIB to toggle glibly skipping to the next jerk after accusing.";
 	now jerk-who-short is true;
 	now last-jerk is noun;
 	try talking to generic-jerk instead;
+
+chapter skiping
+
+glibing is an action applying to nothing.
+
+understand the command "glib" as something new.
+
+understand "glib" as glibing.
+
+carry out glibing:
+	now skip-after-accuse is whether or not skip-after-accuse is false;
+	say "Skipping to next jerk after accusing them is now [on-off of skip-after-accuse].";
+	the rule succeeds;
 
 chapter whoing
 
@@ -6123,7 +6166,7 @@ carry out whoing:
 		say "The jerks, in conversational order, are:";
 		let cur-jerk be last-jerk;
 		repeat with X running from 1 to number of clients:
-			say " [cur-jerk][if X is number of clients].[else],[end if]";
+			say " [if cur-jerk is minted][i][cur-jerk] (gave mint)[r][else][cur-jerk][end if][if X is number of clients].[else],[end if]";
 			now cur-jerk is next-c-x of cur-jerk;
 	else:
 		say "The jerks['] names are [list of clients in jerk circle].";
@@ -6174,7 +6217,7 @@ prompt	response	enabled	permit
 "[if short-jerk is false]So, do women's sports really have better fundamentals[else]SPORTSWOMEN[end if]?"	jerk-wsport	0	1
 "[if short-jerk is false]So, what sort of glossy magazines do you read[else]MAGAZINES[end if]?"	jerk-zines	0	1
 "[if short-jerk is false]So, any classic shows you miss? Or not so classic[else]EMBARRASSING CARTOONS[end if]?"	jerk-cartoon	0	1
-"(bug the next [j-g], [next-c of last-jerk])"	jerk-next	0	1
+"(bug the next [j-g], [next-c-x of last-jerk])"	jerk-next	0	1
 "So, what about the [bad-guy]?"	jerk-baiter	1	1
 "[later-or-thanks]."	jerk-bye	3	1
 
@@ -6221,7 +6264,7 @@ jerk-bye	"[last-jerk] turns away and goes back to talking to his buddies."
 
 to decide which client is next-c-x of (cli - a client):
 	let G be next-c of cli;
-	while G is befriended:
+	while G is befriended or G is minted:
 		let G be next-c of G;
 		if G is cli:
 			say "(oops, bug, should not have cycled back, report to [email]) ";
@@ -6288,9 +6331,12 @@ after quipping when qbc_litany is table of generic-jerk talk:
 
 wrongalong is a number that varies. wrongalong is 8.
 
+to say snickerin:
+	say "[last-jerk] snickers noncommitally[one of], and you can't tell if you were right or wrong. You never were good at judging, but maybe if you get enough accusations right, you can LISTEN and everyone will be a little quieter[or][stopping]"
+
 to reset-the-table:
 	d "WRONG!";
-	say "[last-jerk] snickers noncommitally.[line break]";
+	say ".[line break]";
 	if jerk-close-listen is true:
 		if jerks-scared >= 2:
 			say "[line break]The [j-co]['] conversation ratchets back up to full volume. You must've made the wrong accusation.";
@@ -6300,13 +6346,18 @@ to reset-the-table:
 		now wrongalong is 0;
 	reset-fingerings;
 
+skip-after-accuse is a truth state that varies.
+
 to check-jerks-done:
 	d "RIGHT!";
-	say "[last-jerk] snickers noncommitally.";
+	say "[snickerin].";
 	repeat through table of fingerings:
 		if suspect entry is 0 and my-quip entry is jerky:
+			if skip-after-accuse is true:
+				now last-jerk is next-c-x of last-jerk;
+				say "[line break]You move on to [last-jerk].";
 			continue the action;
-	say "[line break]The other six jerks, fully chastened by your observations, overhear what you have to say. They pile on [last-jerk], but you mention he's not the only one. A fight's about to break out, until you tell them where you got this information from.[paragraph break]'You better be right about this,' [a random client] says. They rush off. You hear whining in the distance. It's the Labor Child. He protests he was just trying to shame them into doing more practical things!";
+	say "[line break]The other six jerks, fully chastened by your observations, overhear what you have to say. They pile on [last-jerk], but you mention he's not the only one. A fight's about to break out, until you tell them where you got this information from.[paragraph break]'You better be right about this,' [a random not minted client] says. They rush off. You hear whining in the distance. It's the Labor Child. He protests he was just trying to shame them into doing more practical things. They aren't buying it!";
 	say "[line break]The (ex-)jerks arrive back, and [a random client] hands you a bottle of Quiz Pop. 'Man, you seem to know what's what, and you helped us see it was okay to be us. Here's some totally sweet contraband.'";
 	now player has quiz pop;
 	increment the score;
@@ -7431,7 +7482,7 @@ to say finger-say:
 	repeat through the table of fingerings:
 		if jerky-guy entry is not buddy best:
 			increment temp;
-			say "[temp]. [clue-letter of jerky-guy entry] [blackmail entry][line break]";
+			say "[2da][clue-letter of jerky-guy entry] [blackmail entry][if jerky-guy entry is minted] ([jerky-guy entry])[end if][line break]";
 	say "[line break]Collect hush fees every Monday. Repeating accusations breaks the guilty parties. Insanity Terminal has backup data.";
 	now finger index is examined;
 
@@ -7534,7 +7585,7 @@ check going nowhere in idiot village (this is the final idol puzzle rule):
 		say "The idol glares at you. Once it makes eye contact, it lowers its eyes to the Legend of Stuff. You feel a bit silly." instead;
 	if insanity terminal is in lalaland or player has bad face: [really just the first but for testing the 2nd works too]
 		if noun is northeast or noun is east:
-			say "You run past the Thoughts Idol. Its eyes follow you.";
+			say "You run past the Thoughts Idol. Its eyes follow you. You hear an efficient hum, then a voice in your head: 'Trying to be a star[one of][or] again[stopping]?'";
 			if noun is northeast:
 				now rotation is 3;
 				now last-dir is northeast;
@@ -7669,6 +7720,14 @@ orientation of northwest is 7.
 
 the thoughts idol is scenery in Idiot Village. "[if player is in idiot village][iv-idol][else]If you look back at the Thoughts Idol now, it may distract you. You know it's [vague-dir]. Gotta keep running, somehow, somewhere[end if]"
 
+check entering idol:
+	if terminal is in lalaland and player does not have legend of stuff:
+		say "That'd probably make for a really gruesome end, if you could, which you can't. But you're possessed by the temptation to tease it, to make it so you're almost willing to, just to annoy it." instead;
+	say "No way. You can't even get near it." instead;
+
+before talking to idol:
+	say "Even if you had something to say, it would probably stare you down quickly." instead;
+	
 to say vague-dir:
 	let J be orientation of last-dir * 2;
 	now J is J + rotation;
@@ -7706,6 +7765,8 @@ idol-fails is a number that varies.
 
 cur-dir is a direction that varies.
 
+best-idol-progress is a number that varies.
+
 check going in service community:
 	if orientation of noun is -1:
 		say "You need to go in a compass direction.";
@@ -7734,6 +7795,10 @@ check going in service community:
 		say "[smackdown entry][line break]";
 		choose row idol-progress + 1 in the table of idol text;
 		say "[bad-text entry][line break]";
+		if idol-progress < best-idol-progress:
+			say "Rats. You did better and lasted longer before. Maybe you can repeat that and do a little better next time.";
+		else:
+			now best-idol-progress is idol-progress;
 		increment idol-fails;
 		now idol-progress is 0;
 		now player is in idiot village;
@@ -7785,7 +7850,7 @@ rule for deciding whether to allow undo:
 
 table of idol text
 good-text	bad-text	undo-text
-"The thoughts idol whizzes around to track you, quicker as you get close, then slower as you get near."	"You look back at the idol after your run. But you can't look at its face. A loud buzz emanates from the idol, and you sink to the ground, covering your ears. Once they stop ringing, you go back to the entrance to Idiot Village."	"You didn't really do much wrong. There's not much to undo."
+"The thoughts idol whizzes around to track you, quicker as you get close, slower as you get near, and quicker as you go away. Was it you, or did the humming seem just a bit more staticky than when you entered the Service Community? Well, you're safe so far."	"You look back at the idol after your run. But you can't look at its face. A loud buzz emanates from the idol, and you sink to the ground, covering your ears. Once they stop ringing, you go back to the entrance to Idiot Village."	"You didn't really do much wrong. There's not much to undo."
 "The thoughts idol whirls around some more. Was it just you, or did it go a little more slowly?"	"The idol catches you. A loud buzz, and you cover your ears. That could not have been the way to go."	"You didn't really do much wrong. There's not much to undo."
 "The thoughts idol whizzes around, adjusting speed--but did you hear a little cough?"	"The idol buzzes. You feel frozen, then are frozen."	"You thought you almost had the idol there for a bit, but it's not exactly going to be open to letting you brute-force it into submission."
 "The thoughts idol seems to twitch back and forth while following you."	"You feel frozen and collapse. The idol's contempt can't hide a legitimate frown. You slipped up, but you got pretty far."	"Halfway there...maybe if you get momentum, you'll nail the pattern down for good."
@@ -8653,7 +8718,7 @@ the Twister Brain is scenery in Freak Control. "The way it's creased, it's just 
 
 understand "ridge/ridges" as Twister Brain.
 
-the Witness Eye is scenery in Freak Control. "It's weird, it's circular, but it has enough pointy protrustions, it could be a Witness Star too. You see lots of things going on. Most look innocent, but there's an occasional flash, the screen reddens, and WEIRD or WRONG flashes over for a half-second[if a random chance of 1 in 5 succeeds]. Hey, wait, that looked like [a random surveyable person] for a second, there[end if]."
+the Witness Eye is scenery in Freak Control. "It's weird, it's circular, but it has enough pointy protrusions, it could be a Witness Star too. You see lots of things going on. Most look innocent, but there's an occasional flash, the screen reddens, and WEIRD or WRONG flashes over for a half-second[if a random chance of 1 in 5 succeeds]. Hey, wait, that looked like [a random surveyable person] for a second, there[end if]."
 
 understand "witness star" and "star" as Witness Eye.
 
@@ -8849,6 +8914,8 @@ understand "head hammer" and "hammer head" as a mistake ("You don't need to beat
 
 understand "ban hammer" as a mistake ("You do feel confident you could now be an Internet forum mod and curb some silliness . But--if you banned the hammer, you'd never get back home.[hammer-clue]") when player is in Airy Station.
 
+understand "blow hammer" and "hammer blow" as a mistake ("The hammer is small enough to put in your mouth, but, no. This isn't that kind of game.") when player is in Airy Station
+
 understand "time hammer" and "hammer time" as a mistake ("A voice says 'STOP!' Your pants momentarily feel baggy. Maybe it doesn't quite need to be that sort of hammer.[hammer-clue]") when player is in Airy Station
 
 understand "toe hammer" and "hammer toe" as a mistake ("The mentality crowd might enjoy that sort of comic relief, but you wouldn't.[hammer-clue]") when player is in Airy Station
@@ -8939,6 +9006,9 @@ part Out Mist
 
 Out Mist is a room in Endings. "It's very misty here, but you can still see a worm ring nearby. At the moment, it's cannibalizing itself too much to be whole.[paragraph break]It's silent here and tough to see, but you're pretty sure your pursuers aren't approaching any more."
 
+before talking to the ring:
+	say "You manage a sleepy almost-hello, but no reply." instead;
+
 mist-turns is a number that varies.
 
 every turn when player is in out mist (this is the ring clue rule):
@@ -8950,12 +9020,12 @@ every turn when player is in out mist (this is the ring clue rule):
 			now no-break is false;
 			the rule succeeds;
 	if mist-turns is 4:
-		say "[if no-break is true][paragraph break][end if]You just want to generally, well, do something to the right. Hmm, but what[if no-break is true].[no line break][else].[end if]";
+		say "[if no-break is true][paragraph break][end if]You just want to generally, well, do something to the ring. Make it different from what it is. Hmm, but what? Maybe you don't need to be too specific[if no-break is true].[no line break][else].[end if]";
 	else if mist-turns is 8:
 		say "[if no-break is true][paragraph break][end if]Something about the ring seems dishonest, wrong[if no-break is true].[no line break][else].[end if]";
 	else if mist-turns is 12:
 		now mist-turns is 0;
-		say "[if no-break is true][paragraph break][end if]If you had a cell phone, maybe someone would call you with an idea[if no-break is true].[no line break][else].[end if]";
+		say "[if no-break is true][paragraph break][end if]If you had a cell phone, maybe someone would call you with an idea. Whether it was on vibrate, or it was more audible[if no-break is true].[no line break][else].[end if]";
 	now no-break is false;
 
 check going nowhere in Out Mist:
@@ -8977,7 +9047,13 @@ to say ring-clue:
 	now no-break is true;
 	consider the ring clue rule;
 
-understand "round worm" and "worm round" as a mistake("You consider worming around, but you're not very good at flattery, and there's nobody to flatter. Not that it's worth being good at flattery.") when player is in Out Mist.
+understand the command "answer" as something new.
+
+understand "ring ring" as a mistake ("You hear in your head the sound from an old rotary phone. It's so different these days when someone calls you up.[ring-clue]") when player is in Out Mist.
+
+understand "answer ring" and "ring answer" as a mistake ("The ring seems to be straining to be different. But it can't make a difference on its own.[ring-clue]") when player is in Out Mist.
+
+understand "round worm" and "worm round" as a mistake ("You consider worming around, but you're not very good at flattery, and there's nobody to flatter. Not that it's worth being good at flattery.") when player is in Out Mist.
 
 understand "like ring" and "ring like" and "ringlike" as a mistake("You sort of like the ring the way it is, but you'd like it much better another way.[ring-clue]") when player is in Out Mist.
 
@@ -8995,18 +9071,31 @@ to say r-m-l:
 
 understand "ring change" and "ring tone" and "ring hollow" as a mistake ("Ooh! Almost.")
 
-understand "ring [text]" and "[text] ring" as a mistake ("Nothing happens to the ring. It sits there as lumpy as before.[ring-clue]") when player is in Out Mist.
+understand "ring right" and "right ring" as a mistake ("That has the right ring, but maybe not quite the right note, or melody.[ring-clue]") when player is in Out Mist.
+
+understand "ring clear" and "clear ring" as a mistake ("You can't move the ring away, but you can make it feel less solid on the inside.[ring-clue]") when player is in Out Mist.
+
+understand "ring [text]" and "[text] ring" as a mistake ("Nothing happens to the ring. It sits there as lumpy and round and impenetrable as before, not quite spacy enough to enter, not quite straight enough to follow anywhere.[ring-clue]") when player is in Out Mist.
+
+understand "wring [text]" and "[text] wring" as a mistake ("It's too big for that. That's not quite how to manipulate the ring.[ring-clue]") when player is in Out Mist.
+
+understand "ring true" and "true ring" as a mistake ("You know your Tolkein, but somehow, you think, showing up its falsehood might be the way to go.[ring-clue]") when player is in Out Mist.
 
 understand "hole [text]" and "[text] hole" as a mistake ("Concentrate on the ring, not the hole.") when player is in Out Mist.
 
 understand "worm [text]" and "[text] worm" as a mistake ("The worm ring's problem isn't that it's a worm, but rather that it's a ring.") when player is in Out Mist.
 
+understand "whole worm" and "worm whole" as a mistake ("It pretty much is a whole worm, and maybe there's a wormhole in there, but you'll have to fix the ring shape somehow to get in there.[ring-clue]") when player is in Out Mist.
+
 understand "worm bait" and "bait worm" as a mistake ("It's an inanimate worm, and -- well -- you might rather try fishing with things to do to a ring.") when player is in Out Mist.
 
-the worm ring is scenery in Out Mist. "It's circular and seems to be almost eating itself, Ouroborous-style, though it looks a bit slushy on the inside that you can see. You can't quite enter it, but maybe if it straightened out into a regular worm...or if you made it less fat, or thick, or dense, or maybe wide, with the hole being too samall...so many possibilities, but maybe the right thing (or things) to do will be simple."
+the worm ring is scenery in Out Mist. "It's circular and seems to be almost eating itself, Ouroborous-style, though it looks a bit slushy on the inside that you can see. You can't quite enter it, but maybe if it straightened out into a regular worm...or if you made it less fat, or thick, or dense, or maybe wide, with the hole being too small...so many possibilities, but maybe the right thing (or things) to do will be simple."
 
 check opening worm ring:
 	say "It's not in the right state to open." instead;
+
+check closing worm ring:
+	say "It's already closed off to you. How to make space inside it?" instead;
 
 check wearing ring:
 	ignore the can't wear what's not held rule;
@@ -9912,9 +10001,11 @@ got-terminal-almost is a truth state that varies.
 
 rule for printing a parser error when the latest parser error is the didn't understand error:
 	if player is in out mist:
-		say "Hmm. You need to do something to the ring, but not that. Some action you haven't done yet. There may be more than one." instead;
+		say "Hmm. You need to do something to the ring, but not that. Some action you haven't done yet. There may be more than one[if remainder after dividing mist-turns by 4 is 3].[no line break][else].[end if]";
+		consider the ring clue rule instead;
 	if player is in airy station:
-		say "Hmm.  You need to change the hammer, somehow. There's probably more than one way to do it." instead;
+		say "Hmm.  You need to change the hammer, somehow. There's probably more than one way to do it.";
+		consider the hammer clue rule instead;
 	if the turn count is 1: [hack (??) for G on move 1]
 		say "That isn't a recognized verb, or maybe you guessed a preposition wrong. In general, this game tries not to force longer commands. You can type VERB or VERBS to see all the commands and possible prepositions.";
 		the rule succeeds;
@@ -10056,6 +10147,8 @@ wait your turn is a concept in conceptville. understand "turn your wait" as wait
 a u-turn is a concept in conceptville. understand "u turn" as u-turn. howto is "turn an inanimate object"
 
 abuse testing is a concept in conceptville. understand "testing abuse" as abuse testing. howto is "credits"
+
+cut a deal is a concept in conceptville. understand "deal a cut" as cut a deal. howto is "cut any inanimate thing before Freak Control"
 
 section intro concepts
 
@@ -10563,7 +10656,7 @@ test feat-deaths with "attack game shell/gonear strip/shit/shit/gonear meal squa
 
 section jerk tests
 
-test jerky with "gonear jerks/talk to jerks/g/gonear safe/get safe/x index/s/s/e/e/talk to jerks/talk to jerks"
+test jerky with "gonear jerks/talk to jerks/g/gonear safe/get safe/x index/s/s/e/e/talk to jerks/purloin mint/give mint to wash white/talk to boris"
 
 section losses
 
@@ -11263,13 +11356,14 @@ carry out jerking:
 		say "You haven't made it to the jerks yet. ";
 	if finger index is not examined or know-jerks is false:
 		say "You need to have examined the Finger Index or learned the jerks['] names to see the clues. You haven't, but would you like to cheat?";
-	if the player yes-consents:
-		now finger index is examined;
-		now know-jerks is true;
-	else:
-		say "OK, this command will still be here." instead;
+		if the player yes-consents:
+			now finger index is examined;
+			now know-jerks is true;
+		else:
+			say "OK, this command will still be here." instead;
 	repeat through table of fingerings:
-		say "[jerky-guy entry] [blackmail entry].";
+		if jerky-guy entry is not buddy best:
+			say "[jerky-guy entry] [blackmail entry].";
 	the rule succeeds.
 
 chapter jgoing
