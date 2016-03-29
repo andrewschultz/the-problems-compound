@@ -7397,7 +7397,7 @@ after taking Sound Safe:
 	now finger index is in Accountable Hold;
 	the rule succeeds;
 
-description of Sound Safe is "[if sound safe is in Discussion Block]It's, well, not very sound. While it's closed, you can OPEN it at will. You're not even sure how to lock it[else]It sits, closed, and you probably want to keep it that way[end if]."
+description of Sound Safe is "[if sound safe is in Discussion Block]It's, well, not very sound. While it's closed, you can OPEN it at will. You're not even sure how to lock it[else if safe is in accountable hold]It sits, closed, and you probably want to keep it that way while it's here[else if player has safe]It's much lighter than expected, and you can probably OPEN it[end if]."
 
 check opening sound safe:
 	if harmonic phil is in lalaland:
@@ -8770,30 +8770,53 @@ part Airy Station
 
 Airy Station is a room in Endings. "[one of]A cheering crowd[or]The mentality crowd[stopping] surrounds you on all sides! They're going pretty crazy over their new-found freedom, and how you got it for them."
 
-understand "man hammer" as a mistake ("So, this game isn't badly cartoonish enough for you?") when player is in Airy Station.
+to say hammer-clue:
+	consider the hammer clue rule;
 
-understand "ban hammer" as a mistake ("You do feel confident you could now be an Internet forum mod. But--if you banned the hammer, you'd never get back home.") when player is in Airy Station.
+hammer-turns is a number that varies.
 
-understand "time hammer" and "hammer time" as a mistake ("A voice says 'STOP!' Your pants momentarily feel baggy. Maybe it doesn't quite need to be that sort of hammer.") when player is in Airy Station
+every turn when player is in airy station:
+	increment hammer-turns;
+	if the remainder after dividing hammer-turns by 4 is 0:
+		if hammer is not examined:
+			now mist-turns is 0;
+			say "You may [one of][or]still [stopping]need to take a closer look at the hammer." instead;
+	if hammer-turns is 4:
+		say "If you had another hammer, maybe you could click them together and go home." instead;
+	if mist-turns is 8:
+		say "You're chipping off things the hammer can't be." instead;
+	if mist-turns is 12:
+		now mist-turns is 0;
+		say "You imagine the hammer putting the caps in a wrestling hold." instead;
 
-understand "toe hammer" and "hammer toe" as a mistake ("The mentality crowd might enjoy that sort of comic relief, but you wouldn't.") when player is in Airy Station
+understand "man hammer" and "hammer man" as a mistake ("So, this game isn't badly cartoonish enough for you?[hammer-clue]") when player is in Airy Station.
 
-understand "hammer jack" as a mistake ("There's probably someone named Jack in the crowd, but even if he deserved it, it'd take too long to go and ask.") when player is in Airy Station.
+understand "head hammer" and "hammer head" as a mistake ("You don't need to beat yourself up, or have a vicious predator beat you up, to change the hammer into what you need to.[hammer-clue]");
 
-understand "hammer ninny" as a mistake("This is a nonviolent mistake, and besides, everyone here has been slandered as an idiot, not a ninny.") when player is in Airy Station.
+understand "ban hammer" as a mistake ("You do feel confident you could now be an Internet forum mod and curb some silliness . But--if you banned the hammer, you'd never get back home.[hammer-clue]") when player is in Airy Station.
 
-understand "hammer sledge" as a mistake("If there were a sledge, you wouldn't want to destroy it. Trust me, I know what I'm doing. And you will, soon, too.") when player is in Airy Station.
+understand "time hammer" and "hammer time" as a mistake ("A voice says 'STOP!' Your pants momentarily feel baggy. Maybe it doesn't quite need to be that sort of hammer.[hammer-clue]") when player is in Airy Station
 
-understand "hammer [text]" and "[text] hammer" as a mistake ("You look at the hammer, hoping it will change, but nothing happens. Maybe another word.") when player is in Airy Station.
+understand "toe hammer" and "hammer toe" as a mistake ("The mentality crowd might enjoy that sort of comic relief, but you wouldn't.[hammer-clue]") when player is in Airy Station
+
+understand "hammer jack" as a mistake ("There's probably someone named Jack in the crowd, but even if he deserved it, it'd take too long to go and ask.[hammer-clue]") when player is in Airy Station.
+
+understand "hammer ninny" as a mistake("This is a nonviolent mistake, and besides, everyone here has been slandered as an idiot, not a ninny.[hammer-clue]") when player is in Airy Station.
+
+understand "hammer sledge" as a mistake("If there were a sledge, you wouldn't want to destroy it. Trust me, I know what I'm doing. And you will, soon, too.[hammer-clue]") when player is in Airy Station.
+
+understand "hammer [text]" and "[text] hammer" as a mistake ("You look at the hammer, hoping it will change, but nothing happens. Maybe another word.[hammer-clue]") when player is in Airy Station.
 
 understand "hammer away" and "hammer home" and "hammer lock" as a mistake ("Wrong way round.") when player is in Airy Station.
 
-understand "lock [text]" and "[text] lock" and "[text] caps" and "caps [text]" as a mistake ("The lock caps remain solid. Maybe you could augment the hammer, though.") when player is in Airy Station.
+understand "lock [text]" and "[text] lock" and "[text] caps" and "caps [text]" as a mistake ("The lock caps remain solid. Maybe you could augment the hammer, though.[hammer-clue]") when player is in Airy Station.
 
 the hammer is a thing in Airy Station. description of hammer is "It's a nondescript hammer. You feel a power, though, as you carry it--as if you were able to change it, if you knew how to describe it."
 
 after printing the name of the hammer when taking inventory:
 	say " (much plainer than it should be)";
+
+end-index is a number that varies.
 
 instead of doing something with hammer:
 	let q be right-adj;
@@ -8801,6 +8824,7 @@ instead of doing something with hammer:
 		say "That should have worked. But it didn't. You must be close, though." instead;
 	if q is 0:
 		continue the action;
+	now end-index is q;
 	if q is 1:
 		say "The hammer glows a bit. You feel it pulling you towards the lock caps. Its claw end grabs one after another, strangling them until they pop off.";
 		best-end;
@@ -8810,6 +8834,8 @@ instead of doing something with hammer:
 	if q is 3:
 		say "The hammer glows a bit. You feel it swinging side to side, and before it touches the lock caps, they crack open and fall to the ground.";
 		best-end;
+	if q > 3:
+		say "Oops. Bug. This should never happen. But it won't stop you winning the game.";
 
 to best-end:
 	say "The door to the Return Carriage creaks open. You wave to the crowd as you enter the Return Carriage. You think of all the people you helped, the smart-alecks you didn't let get you down. The clues won't be as obvious back home, but you see some people are full of hot air, and you can overcome them, and that's a relief.";
@@ -8869,7 +8895,7 @@ Out Mist is a room in Endings. "It's very misty here, but you can still see a wo
 
 mist-turns is a number that varies.
 
-every turn when player is in out mist:
+every turn when player is in out mist (this is the ring clue rule):
 	increment mist-turns;
 	if the remainder after dividing mist-turns by 4 is 0:
 		if worm is not examined:
@@ -8896,13 +8922,16 @@ to good-end:
 	say "The Whole Worm is bigger than you thought. You hide deeper and deeper. A passage turns down, and then here's a door. Through it you see your bedroom.";
 	go-back-home;
 
+to say ring-clue:	
+	consider the ring clue rule;
+
 understand "round worm" and "worm round" as a mistake("You consider worming around, but you're not very good at flattery, and there's nobody to flatter. Not that it's worth being good at flattery.") when player is in Out Mist.
 
-understand "like ring" and "ring like" and "ringlike" as a mistake("You sort of like the ring the way it is, but you'd like it much better another way.") when player is in Out Mist.
+understand "like ring" and "ring like" and "ringlike" as a mistake("You sort of like the ring the way it is, but you'd like it much better another way.[ring-clue]") when player is in Out Mist.
 
-understand "ear ring" and "ring ear" and "earring" as a mistake("You aren't rebellious enough to pierce, well, anything.") when player is in Out Mist.
+understand "ear ring" and "ring ear" and "earring" as a mistake("You aren't rebellious enough to pierce, well, anything.[ring-clue]") when player is in Out Mist.
 
-understand "let ring" and "ring let" and "ringlet" as a mistake("Your hair curls at the thought of such passivity.") when player is in Out Mist.
+understand "let ring" and "ring let" and "ringlet" as a mistake("Your hair curls at the thought of such passivity.[ring-clue]") when player is in Out Mist.
 
 understand "master ring" and "leader ring" and "ring master" and "ring leader" as a mistake("You're RUNNING from the [r-m-l], and you've already spent time mastering the Problems Compound.") when player is in Out Mist.
 
@@ -8914,7 +8943,7 @@ to say r-m-l:
 
 understand "ring change" and "ring tone" and "ring hollow" as a mistake ("Ooh! Almost.")
 
-understand "ring [text]" and "[text] ring" as a mistake ("Nothing happens to the ring. It sits there as lumpy as before.") when player is in Out Mist.
+understand "ring [text]" and "[text] ring" as a mistake ("Nothing happens to the ring. It sits there as lumpy as before.[ring-clue]") when player is in Out Mist.
 
 understand "hole [text]" and "[text] hole" as a mistake ("Concentrate on the ring, not the hole.") when player is in Out Mist.
 
@@ -8951,7 +8980,19 @@ carry out worming:
 	say "You scoop out the innards of the worm. The moment they're outside the worm, it extends a bit more. Then it twitches and straightens.";
 	wfak;
 	say "It's a whole worm. What luck! You enter it, hoping things are still a bit flip flopped...";
+	now end-index is right-act;
 	good-end;
+
+to decide which number is right-act:
+	if the player's command matches the regular expression "\bcaps\b":
+		decide on -1;
+	if the player's command matches the regular expression "\bchange\b":
+		decide on 1;
+	if the player's command matches the regular expression "\bhollow\b":
+		decide on 2;
+	if the player's command matches the regular expression "\btone\b":
+		decide on 3;
+	decide on 0;
 
 part merged ending
 
@@ -9414,7 +9455,7 @@ Table of Final Question Options (continued)
 final question wording	only if victorious	topic	final response rule	final response activity
 "see where minor SWEARS change"	true	"SWEARS"	swear-see rule	swearseeing
 "see the SINS the jerks didn't commit"	true	"SINS"	sin-see rule	sinseeing
-"see the SPECIAL ways to see a bit more of the Compound"	true	"SPECIAL"	special-see rule	specialseeing
+"see the ALTERNATIVE endings and commands"	true	"ALTERNATIVE"	alternative-see rule	altseeing
 "see how to get to each of the BAD END rooms"	true	"BAD/END" or "BAD END"	bad-end-see rule	badendseeing
 "see any reversible CONCEPTS you missed, or ALL"	true	"CONCEPTS"	concept-see rule	conceptseeing
 --	true	"ALL"	concept-all rule	conceptseeing
@@ -9516,9 +9557,9 @@ Shape Ship	"Get your fifth ticket outside A Beer Pound"
 
 chapter special
 
-specialseeing is an activity.
+altseeing is an activity.
 
-this is the special-see rule:
+this is the alternative-see rule:
 	unless assassination character is in lalaland:
 		say "[2da]The assassination character can be faked out.";
 	if assassination character is in lalaland and insanity terminal is not in lalaland:
@@ -9527,6 +9568,29 @@ this is the special-see rule:
 		say "[2da]You could've explored the Service Community east and northeast of Idiot Village.";
 	if idol is not in lalaland:
 		say "[2da]You didn't find a way to defeat the Thoughts Idol.";
+	if out mist is visited:
+		say "[2da]The other two ways to transform the ring were [other-ring-change] RING.";
+	if airy station is visited:
+		say "[2da]The other two things the hammer could've been were [other-hammer-change] HAMMER.";
+
+to say other-hammer-change:
+	if end-index is 1:
+		say "HOME/AWAY";
+	else if end-index is 2:
+		say "LOCK/AWAY";
+	else if end-index is 3:
+		say "HOME/LOCK";
+
+to say other-ring-change:
+	if end-index is 1:
+		say "HOLLOW/TONE";
+	else if end-index is 2:
+		say "CHANGE/TONE";
+	else if end-index is 3:
+		say "CHANGE/HOLLOW";
+
+[lock home away
+change hollow tone]
 
 chapter sins
 
