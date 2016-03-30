@@ -989,6 +989,10 @@ carry out waving:
 
 chapter swearing
 
+understand the commands "cuss" and "curse" and "swear" as something new.
+understand "cuss" and "curse" and "swear" as swearing obscenely when allow-swears is true.
+understand "cuss" and "curse" and "swear" as swearing mildly when allow-swears is false.
+
 big-swear is a truth state that varies.
 
 instead of swearing mildly:
@@ -2805,6 +2809,7 @@ Total T	"Teetotal means alcohol-free."
 Party T	"A tea party is usually non-alcoholic, and people mind their manners. Well, unless it's the political sort, but I won't touch that any further. I probably said too much, already."
 Rummy Gin	"Gin Rummy is a card game, generally not the sort associated with wild binge drinking."
 Go Rum	"A rum go is an unforeseen unusual experience, as opposed to 'GO' anything which indicates general motivation."
+Hip Rose	"Rose hips are ingredients found in tea, which is too non-alcoholic for the Soda Club. Hip is, of course, cool or desirable or with-it."
 Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
 Black Mark	"A black mark is something indicating bad behavior."
 Determined Bound	"Bound and determined means you're set on doing something. A determined bound is set to prevent you from doing something."
@@ -5869,7 +5874,7 @@ instead of doing something with rehearsal dress:
 	say "In this game, you can pretty much only examine the dress."
 
 after printing the locale description for Soda Club when Soda Club is unvisited:
-	say "The bartender calls you over. 'Psst! Pal! Can you give me a break from Liver Lily over there? She's--she's usually pretty interesting, but when she's wearing that rehearsal dress she tends to repeat what she's already said. By the way, you can call me the Punch Sucker. Cuz it's my favorite drink.'"
+	say "The bartender calls you over. 'Psst! Pal! Can you give me a break from Liver Lily over there? She's--she's usually pretty interesting, but when she's wearing that rehearsal dress she tends to repeat what she's already said. She's no [activation of rose hip]Hip Rose, but Rose is probably out of your league anyway. By the way, you can call me the Punch Sucker. Cuz it's my favorite drink.'"
 
 description of Liver Lily is "She is waiting for conversation in her rehearsal dress."
 
@@ -6167,7 +6172,7 @@ carry out whoing:
 		let cur-jerk be last-jerk;
 		repeat with X running from 1 to number of clients:
 			say " [if cur-jerk is minted][i][cur-jerk] (gave mint)[r][else][cur-jerk][end if][if X is number of clients].[else],[end if]";
-			now cur-jerk is next-c-x of cur-jerk;
+			now cur-jerk is next-c of cur-jerk;
 	else:
 		say "The jerks['] names are [list of clients in jerk circle].";
 	the rule succeeds;
@@ -8421,7 +8426,7 @@ to say bro-i-we:
 
 check going north in Questions Field:
 	if bros-left > 0:
-		say "[random bro in Questions Field] wags a finger dolefully. [one of]'[bro-i-we] can't let you by to see the [bad-guy]. What was his joke?' He pauses. '[bro-i-we] had ONE JOB!'[or]'[bro-i-we] have one job.'[stopping][paragraph break]'He wasn't being cruel. He's nice once you get to know him, we hear. But if he had to be nice to too many people, it'd get diluted.'" instead;
+		say "[random bro in Questions Field] wags a finger dolefully. [one of]'[bro-i-we] can't let you by to see the [bad-guy]. What was his joke?' He pauses. '[bro-i-we] had ONE JOB!'[or]'[bro-i-we] have one job.'[stopping][line break]'He wasn't being cruel. He's nice once you get to know him, we hear. But if he had to be nice to too many people, it'd get diluted.'" instead;
 	if cookie-eaten is true:
 		say "Bye-bye, Questions Field. A question mark pops out from the side and tries to hook you out of Freak Control, but that's a stupid trap. The exclamation mark that tries to bash you? A punch disables it.";
 		continue the action;
@@ -9549,8 +9554,8 @@ biglaff	anyrule
 "putting the poetic wax on/giving it to anything except the language machine?"	--
 "saying YES or NO in the Drug Gateway?"	--
 "visiting the Scheme Pyramid after the jerks take their revenge?"	--
-"listening to all the songs from the song torch (there are [number of rows in table of horrendous songs])? Or just reading the source for them?"	--
-"reading all the books from the book crack (there are [number of rows in table of horrendous books])? Or just reading the source for them?"	--
+"listening to all the songs from the song torch (there are [number of rows in table of horrendous songs])? Or just searching the source for them?"	--
+"reading all the books from the book crack (there are [number of rows in table of horrendous books])? Or just searching the source for them?"	--
 "taking the book bank?"	--
 "SLEEPing in the extra directors' cut rooms in ANNO mode?"	--
 "taking the Legend of Stuff after defeating the Thoughts Idol?"	very-good-end rule
@@ -10186,6 +10191,8 @@ the Go Rum is a concept in conceptville. howto is "ask the Punch Sucker about dr
 
 Rummy Gin is a concept in conceptville. howto is "ask the Punch Sucker about drinks"
 
+Hip Rose is a concept in conceptville. understand "rose hip/hips" as Hip Rose. howto is "visit the Soda Club".
+
 section food concepts
 
 a thing called Thought for Food is a concept in conceptville. understand "food for thought" as thought for food. howto is "visit Meal Square with Howdy Boy around"
@@ -10598,7 +10605,7 @@ test 3b with "w/give token/dig dirt/e/e/dig earth/read burden/w/w/bb/give burden
 
 section 4 pier quests
 
-test 4-convo-trap with "test street/test lounge/test arch/bb/e/get bear/give bear to fritz/e/s"
+test 4-convo-trap with "test street/test lounge/test arch/bb/e/e/get bear/w/talk to fritz/e/s/i/1/1/1/1/1/1/give bear to fritz/e/s/talk to lily/n"
 
 test 4 with "e/sleep/z/z/z/e/get bear/s/talk to punch/1/2/2/2/3/n/talk to punch/2/2/talk to lily/1/1/1/1/1/1/1/1/give wine to lily/n/w/give bear to fritz/w/give paper to boy/n"
 
