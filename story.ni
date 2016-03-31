@@ -326,7 +326,7 @@ the file of verb-unlocks is called "pcverbs".
 table of vu - verb-unlocks [tvu]
 brief (indexed text)	found	expound	jumpable	descr (indexed text)	conc
 "anno"	false	true	false	"ANNO to show annotations, or JUMP to jump to a bunch of rejected rooms, as a sort of director's cut."	0 [I hate magic numbers but Inform doesn't allow items etc.]
-"duck"	false	true	true	"DUCK SITTING to jump to Tension Surface."	1
+"duck"	false	true	true	"DUCK SITTING to skip to Tension Surface."	1
 "knock"	false	true	true	"KNOCK HARD to get to Pressure Pier."	2
 "figure"	false	true	true	"FIGURE A CUT to skip past the Howdy Boy to the [jc]."	3
 "notice"	false	true	true	"NOTICE ADVANCE to skip to Questions Field, with the brothers and jerks gone."	4
@@ -350,7 +350,7 @@ to unlock-verb (t - text):
 			continue the action;
 	say "BUG! I tried to add a verb for [t] but failed. Let me know at [email] as this should not have happened.";
 
-to decide whether (t - text) is skip-verified:
+to decide whether (t - text) is unlock-verified:
 	repeat through table of verb-unlocks:
 		if brief entry matches the regular expression "[t]":
 			if found entry is false:
@@ -2795,6 +2795,8 @@ Thought for food	"Food for thought is something to think about."
 Tray S	"Stray. In other words, it strayed from Meal Square."
 Tray T	"A tea tray. To go with food."
 Tray X	"It is an ex-tray."
+Snap Decision	"A decision made reflexively, versus a conscious decision to snap e.g. just quit holding back."
+Spur of the Moment	"Spur of the moment means you're finally pushed to do something. If you wonder if it's the moment of the spur , you're probably thinking too hard for it to be the spur of the moment."
 face off	"An off face probably doesn't look right, but a face off is when you challenge someone, like the game forces you to in the accelerated Tray B endings."
 Bowled Over	"Bowled over means unable to deal with things. Over-bold means too confident."
 Growing Pains	"Growing pains are temporary setbacks that help you get going. Pain's growing is just a complaint."
@@ -2919,7 +2921,7 @@ understand "xpoff" as xpoffing when ever-anno is true.
 no-basic-anno is a truth state that varies.
 
 carry out xpoffing:
-	unless anno-check is true or "anno" is skip-verified:
+	unless anno-check is true or "anno" is unlock-verified:
 		say "You may've stumbled on a command you shouldn't be aware of yet. This is meant to be used in conjunction with the ANNO command. So I'm going to reject it until you specifically ANNO." instead;
 	now told-xpoff is true;
 	now no-basic-anno is whether or not no-basic-anno is true;
@@ -3347,7 +3349,7 @@ before doing something when qbc_litany is not table of no conversation:
 			terminate the conversation;
 			continue the action;
 	if qbc_litany is table of jt:
-		if current action is glibing or current action is shorting or current action is whoing:
+		if current action is skiping or current action is shorting or current action is whoing:
 			continue the action;
 	say "You get distracted, but you've never had the power to break a conversation off. [note-recap]" instead;
 
@@ -3384,7 +3386,7 @@ understand the command "anno" as something new.
 understand "anno" as annoing.
 
 carry out annoing:
-	unless anno-check is true or "anno" is skip-verified:
+	unless anno-check is true or "anno" is unlock-verified:
 		say "This is the command for annotations, which are usually only for after you win the game. While it has no spoilers, and it can be toggled, it may be a distraction. Are you sure you want to activate annotations?";
 		now anno-check is true;
 		unless the player yes-consents:
@@ -3785,7 +3787,7 @@ to write-undo (x - text):
 	repeat through table of vu:
 		if brief entry matches the regular expression "[x]":
 			if found entry is false:
-				ital-say "You may have found a secret command that will skip you across rooms you haven't seen. However, you can UNDO or RESTART if you'd like.";
+				ital-say "You may have found a secret command that will jump you across rooms you haven't seen. However, you can UNDO or RESTART if you'd like.";
 			else:
 				say "[line break]";
 			now found entry is true;
@@ -5287,9 +5289,10 @@ check eating greater cheese:
 		say "Ugh! You've had enough cheese." instead;
 	if cookie-eaten is true:
 		say "Cookies and cheese? That's just weird." instead;
-	say "You pause a moment before eating the greater cheese. Perhaps you will not appreciate it fully, or you will appreciate it too much and become someone unrecognizable. Try eating it anyway?";
-	unless the player yes-consents:
-		say "[line break]OK." instead;
+	say "You pause a moment before eating the greater cheese. Perhaps you will not appreciate it fully, or you will appreciate it too much and become someone unrecognizable. "
+	consider the tray b eating rule;
+	if the rule failed:
+		the rule succeeds;
 	say "You manage to appreciate the cheese and feel superior to those who don't. You have a new outlook on life! No longer will you feel [b-o]!";
 	now greater cheese is in lalaland;
 	bad-food-process;
@@ -5313,9 +5316,10 @@ check eating off cheese:
 		say "You are above eating disgusting cheese. Unless it's tastefully disgusting, like what you just ate." instead;
 	if cookie-eaten is true:
 		say "Ugh! Now that you've eaten the cutter cookie, the off cheese looks even more gross than before. No way. You just want to leave." instead;
-	say "Hmm. It seems edible--well, eatable. You might not be the same person after eating it. Try eating it anyway?";
-	unless the player yes-consents:
-		say "[line break]OK." instead;
+	say "Hmm. It seems edible--well, eatable. You might not be the same person after eating it. ";
+	consider the tray b eating rule;
+	if the rule failed:
+		the rule succeeds;
 	say "Ugh. Bleah. It feels and tastes awful--but if you sat through this, you can sit through an awkward conversation. Not that you'll be over-bold[activation of bowled over] and cause a few. [activation of growing pains]Pain's growing... pain's growing...";
 	now off cheese is in lalaland;
 	bad-food-process;
@@ -5330,12 +5334,31 @@ cookie-eaten is a truth state that varies.
 check taking cutter cookie:
 	try eating cutter cookie instead;
 
+this is the tray b eating rule:
+	say "Try eating it anyway?";
+	if the player yes-consents:
+		say "Your [activation of snap decision]decision: SNAP!";
+		the rule succeeds;
+	else:
+		say "It's not the [activation of spur of the moment]moment of the spur. Well, not yet.";
+		the rule fails;
+
+[activation of snap decision]
+snap decision-"something someone makes impulsively, without judgement"
+spur of the moment-"spontaneously, perhaps too spontaneously"
+
+snap decision is a concept in conceptville. howto is "eat a tray B food and accept"
+spur of the moment is a concept in conceptville. howto is "eat a tray B food and decline"
+
 check eating cutter cookie:
 	if off-eaten is true:
 		say "Ugh. You're not in the mood for something sweet like cookies. You're good and jaded." instead;
 	if greater-eaten is true:
 		say "Pfft. Anyone can appreciate cookies. Cookies aren't sophisticated." instead;
-	say "It's so sharp, it'd start you bleeding if you carried it around. Even as you pick the cookie up your thoughts turn resentful, yet you feel justified as never before. Try eating it anyway?";
+	say "It's so sharp, it'd start you bleeding if you carried it around. Even as you pick the cookie up your thoughts turn resentful, yet you feel justified as never before. ";
+	consider the tray b eating rule;
+	if the rule failed:
+		the rule succeeds;
 	unless the player yes-consents:
 		say "[line break]OK." instead;
 	say "[line break]You have to eat it carefully, because of its spikes, but it gives you...a sharp tongue. Suddenly you wonder why you spent so much time feeling [b-o]. You're ready to go off on pretty much anyone who's gotten in your way, or even not helped you enough[if allow-swears is false]. You'll show those punks you don't need to swear to kick butt![else].[end if]";
@@ -5874,7 +5897,7 @@ instead of doing something with rehearsal dress:
 	say "In this game, you can pretty much only examine the dress."
 
 after printing the locale description for Soda Club when Soda Club is unvisited:
-	say "The bartender calls you over. 'Psst! Pal! Can you give me a break from Liver Lily over there? She's--she's usually pretty interesting, but when she's wearing that rehearsal dress she tends to repeat what she's already said. She's no [activation of rose hip]Hip Rose, but Rose is probably out of your league anyway. By the way, you can call me the Punch Sucker. Cuz it's my favorite drink.'"
+	say "The bartender calls you over. 'Psst! Pal! Can you give me a break from Liver Lily over there? She's--she's usually pretty interesting, but when she's wearing that rehearsal dress she tends to repeat what she's already said. She's no [activation of hip rose]Hip Rose, but Rose is probably out of your league anyway. By the way, you can call me the Punch Sucker. Cuz it's my favorite drink.'"
 
 description of Liver Lily is "She is waiting for conversation in her rehearsal dress."
 
@@ -6140,20 +6163,20 @@ before talking to a client (this is the successfully talk to a client rule) :
 	if noun is minted:
 		say "You already know [noun]'s secret. You should talk to someone else." instead;
 	say "Notes in hand, you realize you can THINK to recall finger index at any time. You also may want to LISTEN to see if everyone is getting demoralized after you move on to the next [j-g]. You can, of course, UNDO that, too, and I won't judge.";
-	say "Also, you can type WHO to remember their names in-conversation, or SHORT to toggle shortening your questions, or GLIB to toggle glibly skipping to the next jerk after accusing.";
+	say "Also, you can type WHO to remember their names in-conversation, or SHORT to toggle shortening your questions, or SKIP to skip to the next jerk after accusing him.";
 	now jerk-who-short is true;
 	now last-jerk is noun;
 	try talking to generic-jerk instead;
 
 chapter skiping
 
-glibing is an action applying to nothing.
+skiping is an action applying to nothing.
 
-understand the command "glib" as something new.
+understand the command "skip" as something new.
 
-understand "glib" as glibing.
+understand "skip" as skiping.
 
-carry out glibing:
+carry out skiping:
 	now skip-after-accuse is whether or not skip-after-accuse is false;
 	say "Skipping to next jerk after accusing them is now [on-off of skip-after-accuse].";
 	the rule succeeds;
@@ -10197,6 +10220,10 @@ section food concepts
 
 a thing called Thought for Food is a concept in conceptville. understand "food for thought" as thought for food. howto is "visit Meal Square with Howdy Boy around"
 
+snap decision is a concept in conceptville. understand "decision snap" as snap decision. howto is "say yes to eating a Tray B food".
+
+the spur of the moment is a concept in conceptville. understand "moment of the spur" as spur of the moment. howto is "say no to eating a Tray B food".
+
 Tray S is a concept in conceptville. howto is "enter Meal Square".
 
 Tray T is a concept in conceptville. howto is "enter Meal Square".
@@ -10205,7 +10232,7 @@ Tray X is a concept in conceptville. howto is "enter Meal Square".
 
 bowled over is a concept in conceptville. howto is "eat Tray B food"
 
-growing pains is a concept in conceptville. understand "pain/pains growing" as growing pains.. howto is "eat off-cheese"
+growing pains is a concept in conceptville. understand "pain/pains growing" as growing pains. howto is "eat off-cheese"
 
 strike a balance is a concept in conceptville. howto is "try to take Tray A or Tray B"
 
@@ -10937,34 +10964,36 @@ carry out gating:
 	try taking the noun; [heck why not?]
 	the rule succeeds.
 
-chapter skiping
+chapter testjumping
 
-chapter nu-skiping
+chapter nu-testjumping
 
-understand the command "skip" as something new.
+understand the command "testjump" as something new.
+understand the command "tj" as something new.
 
-understand "skip [number]" as nu-skiping.
+understand "testjump [number]" as nu-testjumping.
+understand "tj [number]" as nu-testjumping.
 
-nu-skiping is an action applying to one number.
+nu-testjumping is an action applying to one number.
 
-list-skiping is an action out of world.
+list-testjumping is an action out of world.
 
-understand "skip 0" and "skip" as list-skiping.
+understand "testjump 0" and "testjump" as list-testjumping.
 
-carry out list-skiping:
-	try nu-skiping 0;
+carry out list-testjumping:
+	try nu-testjumping 0;
 
-carry out nu-skiping:
-	let all-skips be number of rows in table of skip-moves;
+carry out nu-testjumping:
+	let all-jumps be number of rows in table of tj-moves;
 	if player is not in Smart Street:
-		say "You should be in Smart Street before you skip. Otherwise things get too messy. You may wish to restart and try again.";
+		say "You should be in Smart Street before you jump. Otherwise things get too messy. You may wish to restart and try again.";
 		the rule succeeds;
 	if number understood is 0:
-		say "[skip-list]" instead;
-	if number understood < 1 or number understood > all-skips:
-		say "You need to choose a number between 1 and [all-skips], or 0 to see a list." instead;
-	choose row number understood in table of skip-moves;
-	consider the skip-rule entry;
+		say "[tj-list]" instead;
+	if number understood < 1 or number understood > all-jumps:
+		say "You need to choose a number between 1 and [all-jumps], or 0 to see a list." instead;
+	choose row number understood in table of tj-moves;
+	consider the tj-rule entry;
 	if corruption entry is true:
 		say "Note that any bugs you may find after making this jump may be a testing artifact and not a problem with the game. That's probably because this is a command to test something specific. I'll verify if the bug would happen in an actual game, if it pops up.";
 	the rule succeeds;
@@ -10979,14 +11008,14 @@ check going when block-pier is true:
 	if noun is west or noun is east:
 		say "This is testing, so I won't allow you to move to the side." instead;
 
-to say skip-list:
+to say tj-list:
 	let count be 0;
-	repeat through table of skip-moves:
+	repeat through table of tj-moves:
 		increment count;
-		say "[count]. [skip-descr entry][line break]";
+		say "[count]. [tj-descr entry][line break]";
 		
-table of skip-moves
-skip-descr	skip-rule	corruption
+table of tj-moves
+tj-descr	tj-rule	corruption
 "Round Lounge"	go-lounge rule	false
 "Tension Surface"	go-surface rule	false
 "Pressure Pier"	go-pier rule	false
