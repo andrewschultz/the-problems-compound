@@ -1104,29 +1104,36 @@ the can't push people rule is not listed in any rulebook.
 the can't pull scenery rule is not listed in any rulebook.
 the can't pull people rule is not listed in any rulebook.
 
+a thing can be push-to-pull. a thing is usually push-to-pull.
+
+Alec Smart is not push-to-pull.
+
+pulledfirst is a truth state that varies.
+
 check pulling:
-	if noun is a person:
-		say "Physical force will work out poorly." instead;
-	if noun is vent:
-		try opening vent instead;
 	if noun is alec smart:
 		say "You've been pulling yourself apart mentally enough." instead;
-	if noun is ring:
-		say "Ring pull, pull ring... no, you need to do something else to the ring." instead;
-	say "[im-im]pull." instead;
+	if noun is push-to-pull:
+		now pulledfirst is true;
+		try pushing noun instead;
+	say "[im-im]pull." instead; [this shouldn't happen]
 
 check pushing:
-	if noun is a person:
-		say "Physical force will work out poorly." instead;
-	if noun is vent:
-		try opening vent instead;
 	if noun is alec smart:
 		say "Pushy people do say you don't push yourself enough." instead;
 	if noun is ring:
-		say "Ring push, push ring... no, you need to do something else to the ring." instead;
-	say "[im-im]push." instead;
+		say "Ring [push-pull], [push-pull] ring... no, you need to do something else to the ring.";
+	else if noun is a person:
+		say "Physical force will work out poorly.";
+	else if noun is vent:
+		try opening vent;
+	else:
+		say "[im-im][push-pull].";
+	now pulledfirst is false;
+	the rule succeeds;
 
-understand the command "clear" as something new.
+to say push-pull:
+	say "[if pulledfirst is true]pull[else]push[end if]";
 
 chapter taking
 
@@ -5361,9 +5368,9 @@ check eating cutter cookie:
 
 to bad-food-process:
 	if allow-swears is false:
-		say "Also, you realize how lame it was to be stuffy about swears. You have stuff to swear ABOUT now, see?";
+		say "Also, you realize how lame it was to be stuffy about swears. You have stuff to swear ABOUT now, see? You didn't used to have it, or any emotional depth, but now, heck yeah! (Okay, you still need some practice.) You realize Hunter Savage was just a pseudonym, and you're pretty sure the Complex Messiah had a coler name, too.";
 		now allow-swears is true;
-	ital-say "This is an irreversible action. You may wish to UNDO and SAVE before trying to eat again, though Alec may find himself too good for that, now";
+	ital-say "This has caused an irreversible personality change in Alec. You may wish to UNDO and SAVE before trying to eat again, though Alec may find himself too good for that, now";
 
 table of accel-text
 accel-place	alt-num	accel-cookie	accel-off	accel-greater
@@ -9096,6 +9103,8 @@ to say r-m-l:
 understand "ring change" and "ring tone" and "ring hollow" as a mistake ("Ooh! Almost.")
 
 understand "ring right" and "right ring" as a mistake ("That has the right ring, but maybe not quite the right note, or melody.[ring-clue]") when player is in Out Mist.
+
+understand the command "clear" as something new.
 
 understand "ring clear" and "clear ring" as a mistake ("You can't move the ring away, but you can make it feel less solid on the inside.[ring-clue]") when player is in Out Mist.
 
