@@ -308,38 +308,81 @@ when play begins (this is the read options file rule):
 	if file of verb-unlocks exists:
 		read file of verb-unlocks into table of verb-unlocks;
 	repeat through table of verb-unlocks:
-		if there is a conc entry and found entry is true:
-			jump-ship conc entry;
+		if brief entry is a brief listed in table of verbmatches:
+			if found entry is true:
+				prep-action "[brief entry]";
 
-to jump-ship (nu - a number): [horrible magic numbers but yeah]
-	if nu is 1:
-		now sitting duck is in lalaland;
-	if nu is 2:
-		now hard knock is in lalaland;
-	if nu is 3:
-		now cut a figure is in lalaland;
-	if nu is 4:
-		now advance notice is in lalaland;
+to prep-action (inte - indexed text):
+	choose row with brief of inte in table of verbmatches;
+	if there is a what-to-do entry:
+		consider the what-to-do entry;
+
 
 the file of verb-unlocks is called "pcverbs".
 
 table of vu - verb-unlocks [tvu]
-brief (indexed text)	found	expound	jumpable	descr (indexed text)	conc
-"anno"	false	true	false	"ANNO to show annotations, or JUMP to jump to a bunch of rejected rooms, as a sort of director's cut."	0 [I hate magic numbers but Inform doesn't allow items etc.]
-"duck"	false	true	true	"DUCK SITTING to skip to Tension Surface."	1
-"knock"	false	true	true	"KNOCK HARD to get to Pressure Pier."	2
-"figure"	false	true	true	"FIGURE A CUT to skip past the Howdy Boy to the [jc]."	3
-"notice"	false	true	true	"NOTICE ADVANCE to skip to Questions Field, with the brothers and jerks gone."	4
-"good"	false	false	false	"You found a good ending!"	0
-"great"	false	false	false	"You found the great ending!"	0
+brief (indexed text)	found	expound	jumpable	descr (indexed text)
+"anno"	false	true	false	"ANNO to show annotations, or JUMP to jump to a bunch of rejected rooms, as a sort of director's cut."
+"duck"	false	true	true	"DUCK SITTING to skip to Tension Surface."
+"knock"	false	true	true	"KNOCK HARD to get to Pressure Pier."
+"figure"	false	true	true	"FIGURE A CUT to skip past the Howdy Boy to the [jc]."
+"notice"	false	true	true	"NOTICE ADVANCE to skip to Questions Field, with the brothers and jerks gone."
+"cookie"	false	false	false	"Eating the cookie unlocked a few concepts."
+"greater"	false	false	false	"Eating the cookie unlocked a few concepts."
+"off"	false	false	false	"Eating the cookie unlocked a few concepts."
+"good"	false	false	false	"You found a good ending!"
+"great"	false	false	false	"You found the great ending!"	[this must be last right now]
+
+table of verbmatches
+brief (indexed text)	what-to-do (rule)
+"anno"	--
+"duck"	ducksit rule
+"knock"	knockhard rule
+"figure"	figurecut rule
+"notice"	advnot rule
+"cookie"	cookie-ate rule
+"greater"	greater-ate rule
+"off"	off-ate rule
+"good"	wis-rec rule
+"great"	wis-rec rule
+
+this is the ducksit rule:
+	move sitting duck to lalaland;
+
+this is the knockhard rule:
+	move hard knock to lalaland;
+
+this is the figurecut rule:
+	move cut a figure to lalaland;
+
+this is the advnot rule:
+	move advance notice to lalaland;
+
+this is the cookie-ate rule:
+	move Snap Decision to lalaland;
+	move Something Mean to lalaland;
+
+this is the off-ate rule:
+	move Snipe Gutter to lalaland;
+	move Snap Decision to lalaland;
+	move Complain Cant to lalaland;
+
+this is the greater-ate rule:
+	move Snap Decision to lalaland;
+	move People Power to lalaland;
+
+this is the wis-rec rule:
+	move received wisdom to lalaland;
+
+[I hate magic numbers but Inform doesn't allow items etc.]
 
 to unlock-verb (t - text):
 	let j be indexed text;
 	repeat through table of verb-unlocks:
 		now j is "[brief entry]";
 		if j matches the regular expression "[t]":
-			if there is a conc entry:
-				jump-ship conc entry;
+			if brief entry is a brief listed in table of verbmatches:
+				prep-action brief entry;
 			if found entry is true:
 				continue the action;
 			if expound entry is true:
@@ -1085,7 +1128,7 @@ check sleeping:
 	if player is in out mist:
 		say "Maybe sleep and your bedroom are just ahead." instead;
 	if player is in airy station:
-		say "Too much adulation is tiring, but not that tiring." instead;		
+		say "Too much adulation is tiring, but not that tiring." instead;
 	say "This doesn't look like the place to retreat for a nap. In fact, not many places do." instead;
 
 to go-to-dream:
@@ -2913,8 +2956,9 @@ Everything Hold	"To hold everything is to do nothing and wait."
 Shoulder Square	"Square Shoulders means strong."
 
 to say ham-desc:
-	let x be number of rows in table of verb-unlocks;
-	choose row x in table of verb-unlocks;
+	let grt be indexed text;
+	now grt is "great";
+	choose row with brief of grt in table of verb-unlocks;
 	say "[if found entry is true]: AWAY HAMMER = hammer away = keep trying, HOME HAMMER = hammer home = to make a point forcefully, LOCK HAMMER = hammer lock = a wrestling hold[else] I can't spoil yet[end if]";
 
 chapter xpoffing
@@ -3052,7 +3096,7 @@ carry out verbing:
 
 to decide whether verbs-unlocked: [I could probably check "duck sitting" but best to be thorough]
 	repeat through table of vu:
-		if found entry is true, decide yes;
+		if found entry is true and expound entry is true, decide yes;
 	decide no;
 
 to list-debug-cmds:
@@ -3325,7 +3369,7 @@ before doing something when qbc_litany is not table of no conversation:
 		if qbc_litany is table of Buddy Best talk:
 			say "'What?! No, you don't understand, [i]I[r]'d be blowing off [i]YOU[r]! He throws a magazine at you as he exits, then slams the door to Temper Keep. You pick up the literature--it's called the Reasoning Circular, and it's got a long tag that looks like some sort of ticket.";
 			terminate the conversation;
-			continue the action;			
+			continue the action;
 		if qbc_litany is table of fritz talk:
 			say "Fritz barely notices you wandering off to end the conversation.";
 			terminate the conversation;
@@ -3798,8 +3842,8 @@ to write-undo (x - text):
 			else:
 				say "[line break]";
 			now found entry is true;
-			if there is a conc entry:
-				jump-ship conc entry;
+			if brief entry is a brief listed in table of verbmatches:
+				prep-action brief entry;
 			continue the action;
 	say "[bug] -- [x] was called as a table element.";
 
@@ -3814,7 +3858,7 @@ understand "duck sitting" as ducksitting.
 carry out ducksitting:
 	if player is not in smart street:
 		say "Boy! Knowing then what you know now, you'd have liked to duck sitting in [if player is in round lounge]this[else]some[end if] lounge and getting to action back in Smart Street. (NOTE: you need to RESTART to use this)." instead;
-	say "You open the door to Broke Flat slowly, looking inside for people waiting in ambush. Nobody. You skulk around a bit more--hmm, a passage you'd've missed if you just ran through. You think you see your bathroom up ahead. Wait, no, it's another weird warp. ";
+	say "[activation of sitting duck]You open the door to Broke Flat slowly, looking inside for people waiting in ambush. Nobody. You skulk around a bit more--hmm, a passage you'd've missed if you just ran through. You think you see your bathroom up ahead. Wait, no, it's another weird warp. ";
 	write-undo "duck";
 	duck-sitting;
 	the rule succeeds;
@@ -3845,7 +3889,7 @@ carry out knockharding:
 		say "There's no secret knock or password. Either you can get in the Soda Club, or you can't." instead;
 	if player is not in smart street:
 		say "There's nothing to knock hard at. Or nothing it seems you should knock hard at. Not like Broke Flat back in Smart Street[if pressure pier is unvisited]--you'd need to RESTART to try that[end if]." instead;
-	say "You stride up to Broke Flat with purpose, You knock, hard, hoping to avoid a hard knock--and you do! You are escorted through a maze of hallways that eventually open up to a wide area with water behind: Pressure Pier. ";
+	say "[activation of hard knock]You stride up to Broke Flat with purpose, You knock, hard, hoping to avoid a hard knock--and you do! You are escorted through a maze of hallways that eventually open up to a wide area with water behind: Pressure Pier. ";
 	write-undo "knock";
 	knock-hard;
 	the rule succeeds;
@@ -3875,7 +3919,7 @@ to say jump-reject-2:
 carry out figureacuting:
 	if player is not in smart street:
 		say "[jump-reject-2]." instead;
-	say "Guy Sweet yells 'Hey! Where are you going? I mean, you're probably like accelerated in school but if you think you're accelerated at life...' You ignore him. You don't need to be taught a same lesson twice. Well, not this one. You rattle the doorknob just so--and you recognize a few odd passages in Broke Flat--and bam! You fall through an invisible slide to the [jc]. ";
+	say "[activation of cut a figure]Guy Sweet yells 'Hey! Where are you going? I mean, you're probably like accelerated in school but if you think you're accelerated at life...' You ignore him. You don't need to be taught a same lesson twice. Well, not this one. You rattle the doorknob just so--and you recognize a few odd passages in Broke Flat--and bam! You fall through an invisible slide to the [jc]. ";
 	write-undo "figure";
 	figure-cut;
 	the rule succeeds;
@@ -3909,7 +3953,7 @@ understand "notice advance" as noticeadvanceing.
 carry out noticeadvanceing:
 	if player is not in smart street:
 		say "Oh, man! Looking back, you totally see a shortcut you should've at least checked at, back in Smart Street. But it's too late to skip ahead like that now. You may wish to restart the game." instead;
-	say "Guy Sweet yells 'Hey! What could you POSSIBLY... you can't just... someone a lot less lame must've showed you that, no offense...' ";
+	say "[activation of advance notice]Guy Sweet yells 'Hey! What could you POSSIBLY... you can't just... someone a lot less lame must've showed you that, no offense...' ";
 	write-undo "notice";
 	notice-advance;
 	the rule succeeds;
@@ -5382,7 +5426,7 @@ speaking plain	0	"Oh geez. You can't take this. You really can't. All this obvio
 questions field	3	"Well, of COURSE the Brothers didn't leave a thank-you note. Ungrateful chumps. Next time you help someone, you'll demand a deposit of flattery up front, that's for sure."	"You expected no thanks, but you didn't expect to feel bad about getting no thanks. Hmph. Lesson learned!"	"'You had some wisdom to foist on the Brothers, but if they'd REALLY done their job, they'd have stayed. The heck with them! If they couldn't soak up knowledge from BEING around the [bg], they're hopeless."
 questions field	4	"'Kinda jealous of your brother[bro-s], eh? Not jealous enough to DO anything about it.' The brother[bro-nos]s nod at your sterling logic. 'You gonna waste your whole life here? I can't help everyone. I'm not a charity, you know.' More hard hitting truth! Ba-bam!'[wfk]'Go on, now! Go! What's that? I'm even bossier than the [bad-guy]? Excellent! If I can change, so can you! And the guy bossier than the [bad-guy] is ORDERING you to do something useful with your life!'[paragraph break]They follow your orders. You remember being bossed around by someone dumber than you--and now you turned the tables! Pasta fazoo!"	"'Still guarding Freak Control, eh? Well, I think you'll see you don't need to guard it from ME any more. Take the day off! C'mon, you want to. Hey, [bg] might be mad if you don't.' You're surprised he DOES run off."
 questions field	5	"'[qfjs] standing around, eh? Nothing to do? Well, I've been out, y'know, DOING stuff. You might try it. Go along. Go. You wanna block me from seeing the [bad-guy]? I'll remember it once he's out of my way.' You're convincing enough, they rush along."	"You've done your share of standing around, but you're pretty sure you did a bit of thinking. 'Look,' you say, 'I just need to get through and get out of here. I'm not challenging anyone's authority. Just, I really don't want to be here.' [bro-consider]. You're free to continue."	"'So, yeah, you're here to guard the [bg] from chumps, right? Well, I'm not one. So you can make way.' And they do. Even though they're all bigger than you. Sweet!"
-freak control	0	"You speak first. 'Don't pretend you can't see me, with all those reflective panels and stuff.'[paragraph break]He turns around, visibly surprised.[paragraph break]'Leadership, schmeadership,' you say. You're worried for a moment he might call you out on how dumb that sounds. You're open-minded like that. But when he hesitates, you know the good insults will work even better. 'Really. Leaving the cutter cookie right where I could take it, and plow through, and expose you for the lame chump you are. Pfft. I could do better than that.'[paragraph break]He stutters a half-response.[paragraph break]'Maybe that's why [bad-guy-2] hasn't been dealt with, yet. You say all the right things, but you're not forceful enough. Things'll change once I'm in power.'[wfk]He has no response. You point outside. He goes. Settling in is easy--as a new leader of Freak Control, you glad-hand the important people and assure them you're a bit cleverer than the [bad-guy] was.  Naturally, you keep a list of [bad-guy-2]'s atrocities, and they're pretty easy to rail against, and people respect you for it, and from what you've seen, it's not like they could really get together and do anything, so you're making their lame lives more exciting.[wfk]You settle into a routine, as you read case studies of kids a lot like you used to be. Maybe you'd help one or two, if they had initiative...but until then, you'd like to chill and just let people appreciate the wit they always knew you had.[paragraph break]Really, who can defeat you? Anyone of power or consequence is on your side. Even [bad-guy-2] gives you tribute of a cutter cookie now and then. One day, you drop one in Meal Square... but nobody is brave enough to eat one. Well, for a while."	"You speak first. Well, you sigh REALLY loudly first. 'Just--this is messed up. I want to leave.'[paragraph break]'Of course you do,' says the [bad-guy]. 'I don't blame you. If you're not in power here, it's not fun. It's sort of your fault, but not totally. Hey, you actually showed some personality to get here. Just--show me you're worthy of leaving.' You complain--more excitingly than you've ever complained before. Without flattering or insulting the [bad-guy] too much: fair and balanced. You let him interrupt you, and you even interrupt him--but only to agree with his complaints.[wfk]'You're okay, I guess. You seem to know your place. Here, have a trip to the Snipe Gutter in Slicker City. Seems like just the place for you. The [bad-guy] pushes a button and gestures to an opening. It's a slide. You complain a bit, but he holds up his hand. 'You'll have a lot more to complain about if you don't go.' You're impressed by this logic, and you only wish you could've stayed longer to absorb more of it, and maybe you could complain even more interestingly. You learn the culture in the [activation of snipe gutter]Snipe Gutter for a bit, outlasting some veterans, then one day you just get sick of the clueless newbies who don't know what they're doing.[wfk]Back home, people notice a difference. You're still upset about things, but you impress people with it now. You notice other kids who just kind of seem vaguely upset, like you were before the Compound, not even bothering with constructive criticism. They're not worth it, but everywhere you go, you're able to fall in with complainers who complain about such a wide variety of things, especially people too dense to realize how much there is to complain about! You've matured, from..."	"'Hey! It's me!' you yell. [bg] turns. 'You know, I probably skipped a lot of dumb stuff to get here. You think you could be a LITTLE impressed?'[paragraph break][wfk]But he isn't. 'You know? You're not the first. Still, so many people just sort of putter around. You're going to be okay in life.' You two have a good laugh about things--you're even able to laugh at yourself, which of course gives you the right to laugh at people who haven't figured things out yet. Humor helps you deal, well, if it doesn't suck. You realize how silly you were before with all your fears, and you try to communicate that to a few creeps who don't want to be social. But they just don't listen. You'd rather hang around more with-it types, and from now on, you do."
+freak control	0	"You speak first. 'Don't pretend you can't see me, with all those reflective panels and stuff.'[paragraph break]He turns around, visibly surprised.[paragraph break]'Leadership, schmeadership,' you say. You're worried for a moment he might call you out on how dumb that sounds. You're open-minded like that. But when he hesitates, you know the good insults will work even better. 'Really. Leaving the cutter cookie right where I could take it, and plow through, and expose you for the lame chump you are. Pfft. I could do better than that.'[paragraph break]He stutters a half-response.[paragraph break]'Maybe that's why [bad-guy-2] hasn't been dealt with, yet. You say all the right things, but you're not forceful enough. Things'll change once I'm in power.'[wfk]He has no response. You point outside. He goes. Settling in is easy--as a new leader of Freak Control, you glad-hand the important people and assure them you're a bit cleverer than the [bad-guy] was.  Naturally, you keep a list of [bad-guy-2]'s atrocities, and they're pretty easy to rail against, and people respect you for it, and from what you've seen, it's not like they could really get together and do anything, so you're making their lame lives more exciting.[wfk]You settle into a routine, as you read case studies of kids a lot like you used to be. Maybe you'd help one or two, if they had initiative...but until then, you'd like to chill and just let people appreciate the wit they always knew you had.[paragraph break]Really, who can defeat you? Anyone of power or consequence is on your side. Even [bad-guy-2] gives you tribute of a cutter cookie now and then. One day, you drop one in Meal Square... but nobody is brave enough to eat one. Well, for a while."	"You speak first. Well, you sigh REALLY loudly first. 'Just--this is messed up. I want to leave.'[paragraph break]'Of course you do,' says the [bad-guy]. 'I don't blame you. If you're not in power here, it's not fun. It's sort of your fault, but not totally. Hey, you actually showed some personality to get here. Just--show me you're worthy of leaving.' You complain--more excitingly than you've ever complained before. Without flattering or insulting the [bad-guy] too much: fair and balanced. You let him interrupt you, and you even interrupt him--but only to agree with his complaints.[wfk]'You're okay, I guess. You seem to know your place. Here, have a trip to the [activation of snipe gutter]Snipe Gutter in Slicker City. Seems like just the place for you. The [bad-guy] pushes a button and gestures to an opening. It's a slide. You complain a bit, but he holds up his hand. 'You'll have a lot more to complain about if you don't go.' You're impressed by this logic, and you only wish you could've stayed longer to absorb more of it, and maybe you could complain even more interestingly. You learn the culture in the Snipe Gutter for a bit, outlasting some veterans, then one day you just get sick of the clueless newbies who don't know what they're doing.[wfk]Back home, people notice a difference. You're still upset about things, but you impress people with it now. You notice other kids who just kind of seem vaguely upset, like you were before the Compound, not even bothering with constructive criticism. They're not worth it, but everywhere you go, you're able to fall in with complainers who complain about such a wide variety of things, especially people too dense to realize how much there is to complain about! You've matured, from..."	"'Hey! It's me!' you yell. [bg] turns. 'You know, I probably skipped a lot of dumb stuff to get here. You think you could be a LITTLE impressed?'[paragraph break][wfk]But he isn't. 'You know? You're not the first. Still, so many people just sort of putter around. You're going to be okay in life.' You two have a good laugh about things--you're even able to laugh at yourself, which of course gives you the right to laugh at people who haven't figured things out yet. Humor helps you deal, well, if it doesn't suck. You realize how silly you were before with all your fears, and you try to communicate that to a few creeps who don't want to be social. But they just don't listen. You'd rather hang around more with-it types, and from now on, you do."
 
 say-old-you is a truth state that varies.
 
@@ -5440,17 +5484,24 @@ after printing the locale description when accel-ending:
 		now brother blood is in lalaland;
 		now brother big is in lalaland;
 	if player is in freak control:
+		if cookie-eaten is true:
+			unlock-verb "cookie";
+		else if greater-eaten is true:
+			unlock-verb "greater";
+		else if off-eaten is true:
+			unlock-verb "off";
 		end the story saying "[final-fail-quip]";
+		the rule succeeds;
 	now location of player is cheat-surveyed;
 	continue the action;
 
 to say final-fail-quip:
 	if greater-eaten is true:
-		say "People Power? Power People![no line break]";
+		say "[activation of people power]People Power? Power People![no line break]";
 	else if off-eaten is true:
-		say "Can't Complain? Complain Cant![no line break]";
+		say "[activation of complain cant]Can't Complain? Complain Cant![no line break]";
 	else if cookie-eaten is true:
-		say "Mean Something? Something Mean![no line break]";
+		say "[activation of something mean]Mean Something? Something Mean![no line break]";
 
 to say qfjs:
 	say "[if questions field is unvisited]Just[else]Still[end if]"
@@ -6751,7 +6802,7 @@ to bye-paper:
 	wfak;
 	say "You show him the solution, and he starts yelling about how nobody could have figured that out for themselves unless they really have nothing to do with their time. As he runs off, he raves about how the hint below won't really help you with anything you couldn't figure out yourself, and besides there's another worse puzzle below only weird people would enjoy, and...[paragraph break]Hey, wait, you sort of enjoy weird puzzles. Not sure if you're up for it right now, but eh, something to do if you bog down up here.";
 	open-below;
-		
+
 to open-below:
 	now assassination character is in lalaland;
 	now chase paper is in lalaland;
@@ -7552,7 +7603,7 @@ check going nowhere in judgment pass:
 		say "The only passage is east-west." instead;
 	if noun is north or noun is south:
 		say "That's blocked. You should try to go east or west." instead;
-	
+
 Officer Petty is an enforcer in Judgment Pass. "[one of]The officer stares down at the intuition counter for a moment. 'NOPE,' he yells. 'Sure as my name's Officer Petty, no good reason for you to go to Idiot Village.'[or]Officer Petty regards you with contempt.[stopping]"
 
 description of Officer Petty is "Officer Petty stares back at you, cracks his knuckles, and rubs a palm. He's bigger, stronger and fitter than you."
@@ -7755,7 +7806,7 @@ check entering idol:
 
 before talking to idol:
 	say "Even if you had something to say, it would probably stare you down quickly." instead;
-	
+
 to say vague-dir:
 	let J be orientation of last-dir * 2;
 	now J is J + rotation;
@@ -7897,7 +7948,7 @@ check going nowhere in speaking plain:
 		try going west instead;
 	if noun is outside:
 		say "You already are." instead;
-	
+
 The Fright Stage is scenery in Speaking Plain. "It's decorated with all manner of horrible fate for people that, you assume, messed up in life. From homelessness to getting fired visiting a porn store on Christmas Day to just plain envying other people with more stuff or social life, it's a mural of Scared Straight for kids without the guts to do anything jail-worthy."
 
 understand "business/show" and "business show" as Fright Stage.
@@ -7943,7 +7994,7 @@ banter
 "Uncle Dutch and Turk discuss the etiquette of whether you should call the [bad-guy] [bg] or not. Well, YOU never should, and Turk isn't ready yet, but what a big day it will be in the near future when he is allowed!"
 
 for writing a paragraph about a person (called udyt) in Speaking Plain:
-	say "[one of]As you approach the stage, the man and the teen on it boom: 'Approach the Fright Stage with care! Uncle Dutch and Turk Young bring it hard and keep it real with the BUSINESS SHOW! With thanks to the [bad-guy] for not arresting us yet and who will one day let us call him [bg]!'[or]Uncle Dutch and Turk Young continue their practical philosophy lessons on the Fright Stage.[stopping]";
+	say "[one of]As you approach the stage, the man and the teen on it boom: 'Approach the Fright Stage with care! Uncle Dutch and Turk Young bring it hard and keep it real with the [activation of show business]BUSINESS SHOW! With thanks to the [bad-guy] for not arresting us yet and who will one day let us call him [bg]!'[or]Uncle Dutch and Turk Young continue their practical philosophy lessons on the Fright Stage.[stopping]";
 	now uncle dutch is mentioned;
 	now turk young is mentioned;
 
@@ -8626,7 +8677,7 @@ to say op-jump:
 		say "even smells nice, too";
 	else:
 		say "does smell nicer here after your operations"
-	
+
 check putting pot on sal:
 	try giving poory pot to sal instead;
 
@@ -8895,7 +8946,7 @@ carry out powertriping:
 	say "[line break]Oops, it's dark! The [bad-guy] yells. 'It'll take FIVE MINUTES to boot up again![paragraph break]He turns around and glares at you. Or where he knows you are, because he saw you with mirrors and so forth.";
 	begin-endgame;
 	the rule succeeds;
-	
+
 to begin-endgame:
 	now freaked-out is true;
 	score-now;
@@ -9192,7 +9243,7 @@ to go-back-home:
 	see-if-show-terminal;
 	if bros-left > 0:
 		d "[b]Uh oh. A test to clear the brothers from questions field may not have worked. [list of people in questions field] remain. Please check.[r]";
-	end the story finally saying "Wisdom Received!";
+	end the story finally saying "[activation of received wisdom]Wisdom Received!";
 	the rule succeeds;
 
 to see-if-show-terminal:
@@ -9620,7 +9671,7 @@ book altanswering
 altanswering is an activity.
 
 [rule for altanswering:]
-		
+
 this is the alt-answer rule:
 	now missseen is true;
 	if terminal is in belt below:
@@ -10329,6 +10380,8 @@ Determined Bound is a concept in conceptville. understand "bound and determined"
 
 Steal This Book is a concept in conceptville. understand "book this steal" as Steal This Book. howto is "take book bank"
 
+Show Business is a concept in conceptville. understand "business show" as show business.
+
 Coals to Newcastle is a concept in conceptville. understand "new castle to coals" as Coals to Newcastle. howto is "take song torch"
 
 Brother's Keepers is a concept in conceptville. understand "brother/brothers keeper/keepers" and "keeper/keepers brother/brothers" as Brother's Keepers. howto is "examine the brothers"
@@ -10355,13 +10408,13 @@ Running Start is a concept in conceptville. howto is "try going south in Freak C
 
 section xyzzy concepts
 
-Captain Obvious is a concept in conceptville. understand "obvious captain" as captain obvious. howto is "xyzzy". 
+Captain Obvious is a concept in conceptville. understand "obvious captain" as captain obvious. howto is "xyzzy".
 
 a thing called Nonsense No is a concept in conceptville. understand "no nonsense" as nonsense. howto is "xyzzy".
 
-Comedy of Errors is a concept in conceptville. understand "errors of comedy" as comedy of errors. howto is "xyzzy". 
+Comedy of Errors is a concept in conceptville. understand "errors of comedy" as comedy of errors. howto is "xyzzy".
 
-Spelling Disaster is a concept in conceptville. understand "disaster spelling" as spelling disaster. howto is "xyzzy". 
+Spelling Disaster is a concept in conceptville. understand "disaster spelling" as spelling disaster. howto is "xyzzy".
 
 section touch concepts
 
@@ -10371,13 +10424,13 @@ touch base is a concept in conceptville. understand "base touch" as touch base. 
 
 section game-warp concepts
 
-Sitting Duck is a concept in conceptville. understand "duck sitting" as Sitting Duck. howto is "get to Tension Surface" [ac]
+Sitting Duck is a concept in conceptville. understand "duck sitting" as Sitting Duck. howto is "get to Tension Surface"
 
-Hard Knock is a concept in conceptville. understand "hard knock" as Hard Knock. howto is "get to Pressure Pier" [ac]
+Hard Knock is a concept in conceptville. understand "hard knock" as Hard Knock. howto is "get to Pressure Pier"
 
-Cut a Figure is a concept in conceptville. understand "cut a figure" as cut a figure. howto is "get to Jerk Circle" [ac]
+Cut a Figure is a concept in conceptville. understand "cut a figure" as cut a figure. howto is "get to Jerk Circle"
 
-Advance Notice is a concept in conceptville. understand "advance notice" as Advance Notice. howto is "help all three Brothers" [ac]
+Advance Notice is a concept in conceptville. understand "advance notice" as Advance Notice. howto is "help all three Brothers"
 
 section death concepts
 
@@ -10385,23 +10438,21 @@ Sore Loser is a concept in conceptville. understand "loser sore" as sore loser. 
 
 chapter lalaland
 
-section pure eternal concepts
+section endgame concepts
 
 lalaland is a room in meta-rooms. "You should never see this. If you do, it is a [bug]."
 
 [?? these -could- be moved to somewhere else if we're clever and can save ALL wins]
 
-Show Business is a concept in lalaland. understand "business show" as show business.
+Received Wisdom is a concept in conceptville. understand "wisdom received" as received wisdom. howto is "win the game either way"
 
-Received Wisdom is a concept in lalaland. understand "wisdom received" as received wisdom. howto is "win the game either way"
+Something Mean is a concept in conceptville. understand "mean something" as Something Mean. howto is "eat the cutter cookie and 'win'"
 
-Something Mean is a concept in lalaland. understand "mean something" as Something Mean. howto is "eat the cutter cookie and 'win'"
+Complain Cant is a concept in conceptville. understand "cant complain" as Complain Cant. howto is "eat the off cheese and 'win'"
 
-Complain Cant is a concept in lalaland. understand "cant complain" as Complain Cant. howto is "eat the off cheese and 'win'"
+People Power is a concept in conceptville. understand "power people" as People Power. howto is "eat the greater cheese and 'win'"
 
-People Power is a concept in lalaland. understand "power people" as People Power. howto is "eat the greater cheese and 'win'"
-
-Snipe Gutter is a concept in lalaland. understand "guttersnipe" as Snipe Gutter. howto is "eat the off cheese and 'win'"
+Snipe Gutter is a concept in conceptville. understand "guttersnipe" as Snipe Gutter. howto is "eat the off cheese and 'win'"
 
 volume rule replacements
 
@@ -11076,7 +11127,7 @@ to say tj-list:
 	repeat through table of tj-moves:
 		increment count;
 		say "[count]. [tj-descr entry][line break]";
-		
+
 table of tj-moves
 tj-descr	tj-rule	corruption
 "Round Lounge"	go-lounge rule	false
@@ -11138,7 +11189,7 @@ this is the freak-control rule:
 this is the to-good-end rule:
 	now player is in out mist;
 	the rule succeeds;
-	
+
 this is the to-very-good-end rule:
 	now player is in airy station;
 	the rule succeeds;
@@ -11235,7 +11286,7 @@ this is the try-hinting rule:
 	hint-red;
 	hint-blue;
 	hint-big;
-	
+
 this is the try-red rule:
 	hint-red;
 
@@ -11259,7 +11310,7 @@ this is the try-scoring rule:
 
 this is the try-wid rule:
 	try going widdershins;
-	
+
 tracked-room is a room that varies.
 
 this is the try-dirs rule:
@@ -11289,7 +11340,7 @@ this is the try-think rule:
 this is the try-sleep rule:
 	if player is not in down ground: [cheating a bit. Sleeping throws it off]
 		try sleeping;
-	
+
 every turn (this is the full monty test rule) :
 	now red-big-clued-this-turn is false;
 	now already-clued is false;
@@ -11586,7 +11637,7 @@ to see-babble (pe - a person):
 	repeat through table of babble summaries:
 		if pe is babbler entry:
 			say "[i][pe] has a babble summary[r].";
-			continue the action;		
+			continue the action;
 	say "[b][pe] needs a babble summary[r].";
 
 carry out bcing:
