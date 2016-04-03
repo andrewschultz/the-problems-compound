@@ -5289,7 +5289,7 @@ check eating greater cheese:
 		say "Ugh! You've had enough cheese." instead;
 	if cookie-eaten is true:
 		say "Cookies and cheese? That's just weird." instead;
-	say "You pause a moment before eating the greater cheese. Perhaps you will not appreciate it fully, or you will appreciate it too much and become someone unrecognizable. "
+	say "You pause a moment before eating the greater cheese. Perhaps you will not appreciate it fully, or you will appreciate it too much and become someone unrecognizable. ";
 	consider the tray b eating rule;
 	if the rule failed:
 		the rule succeeds;
@@ -5342,13 +5342,6 @@ this is the tray b eating rule:
 	else:
 		say "It's not the [activation of spur of the moment]moment of the spur. Well, not yet.";
 		the rule fails;
-
-[activation of snap decision]
-snap decision-"something someone makes impulsively, without judgement"
-spur of the moment-"spontaneously, perhaps too spontaneously"
-
-snap decision is a concept in conceptville. howto is "eat a tray B food and accept"
-spur of the moment is a concept in conceptville. howto is "eat a tray B food and decline"
 
 check eating cutter cookie:
 	if off-eaten is true:
@@ -8315,7 +8308,7 @@ check examining book bank:
 	choose row book-ord in the table of horrendous books;
 	if Art Fine is in lalaland:
 		say "Oh, dear. [i][workname entry][r] by [authname entry]. Looks depressing." instead;
-	say "'Ah, yes,' drones Art Fine. '[i][workname entry][r]. A most [one of]iconic[or]transformative[or]edifying[or]scintillating[or]zeitgeisty[in random order] read, providing you are a good reader. [authname entry]. A [one of]stirring treatise[or]vigorous discussion[or]tour de force[or]stunning perspective[at random] on [booksubj entry]. And more. [pompous-phrase]! More sensible than some jingle!'";
+	say "'Ah, yes,' drones Art Fine. '[i][workname entry][r]. A most [one of]about-everything-and-nothing-y[or]simple yet complex[or]iconic[or]transformative[or]edifying[or]scintillating[or]complex yet simple[or]zeitgeisty[in random order] read, providing you are a good reader. [authname entry]. A [one of]stirring treatise[or]vigorous discussion[or]tour de force[or]stunning perspective[at random] on [booksubj entry]. And more. [pompous-phrase]! More sensible than some jingle!'";
 	the rule succeeds;
 
 check taking book bank:
@@ -8350,6 +8343,7 @@ workname	authname	booksubj
 "Writing On"	"King Stephen"	"how society represses real writers from writing real books"
 "The Islands of an Outcast"	"Joseph Conrad"	"a gentle fellow, shunned by modern society, who forges an idyllic utopia"
 "The Divorce: GREAT"	"Lewis S. Clive"	"how blatant infidelity is really about seeing all the world has to offer and making the most of things--well, if you're worth cheating with. It surpasses even [i]The Boy and His Horse[r] and [i]The Love of Allegory[r]"
+"The Parson Country"	"Herbert George"	"just how impractical and rubbish religion is, even when its trappings make people do good things"
 "Odyssey Space"	"Clark Arthur"	"a modern retelling of Ulysses dealing harshly with technocrats"
 "The Cancer of Tropic"	"Miller Arthur"	"one ascetic's skin disease and the surprising poetry that lies therein"
 "And Dominion Shall Have No Death"	"Thomas Dylan"	"a New World Order of smart poetic people that properly keeps the rabble scared of death and all that"
@@ -9169,7 +9163,12 @@ part merged ending
 
 end-stress-test is a truth state that varies.
 
+to say bi of (ts - a truth state):
+	say "[if ts is true][i][else][b][end if]"
+
 to go-back-home:
+	choose row with final response activity of amusing a victorious player in table of final question options;
+	now final question wording entry is "see some suggestions for [bi of amuseseen]AMUSING[r] things to do";
 	if end-stress-test is true:
 		say "Yay! This worked. I am blocking the ending so you can try again.";
 		continue the action;
@@ -9543,13 +9542,18 @@ volume amusing and continuing
 book amusing
 
 rule for amusing a victorious player:
+	now amuseseen is true;
 	let missed-one be false;
+	let item-count be 10;
 	say "Have you tried:";
 	repeat through table of amusingness:
 		if there is an anyrule entry:
 			follow the anyrule entry;
 		if the rule succeeded:
 			say "[2da][biglaff entry]";
+			if item-count is 10:
+				now item-count is 0;
+				wfak;
 		else:
 			now missed-one is true;
 	if missed-one is true:
@@ -9609,6 +9613,7 @@ altanswering is an activity.
 [rule for altanswering:]
 		
 this is the alt-answer rule:
+	now missseen is true;
 	if terminal is in belt below:
 		say "The correct answer was A BAD FACE. You deserve to know that.";
 	say "Here are the 42 wrong combinations if you don't say 7 is C:";
@@ -9626,14 +9631,57 @@ book continuing
 
 Table of Final Question Options (continued)
 final question wording	only if victorious	topic	final response rule	final response activity
-"see where minor SWEARS change"	true	"SWEARS"	swear-see rule	swearseeing
-"see the SINS the jerks didn't commit"	true	"SINS"	sin-see rule	sinseeing
-"see the (ALT)ERNATIVE endings and commands"	true	"ALT/ALTERNATIVE"	alternative-see rule	altseeing
-"see how to get to each of the BAD END rooms"	true	"BAD/END/BADEND" or "BAD END"	bad-end-see rule	badendseeing
-"see any reversible (CONC)EPTS you missed, or ALL"	true	"CONCEPTS/CONC"	concept-see rule	conceptseeing
+"see where minor [bi of swearseen]SWEARS[r] change"	true	"SWEARS"	swear-see rule	swearseeing
+"see the [bi of sinseen]SINS[r] the jerks didn't commit"	true	"SINS"	sin-see rule	sinseeing
+"see the [bi of altseen](ALT)ERNATIVE[r] endings and commands"	true	"ALT/ALTERNATIVE"	alternative-see rule	altseeing
+"see how to get to each of the [bi of badendseen]BAD END[r] rooms"	true	"BAD/END/BADEND" or "BAD END"	bad-end-see rule	badendseeing
+"see any reversible [bi of conceptseen](CONC)EPTS[r] you missed, or [bi of conceptseen]ALL[r]"	true	"CONCEPTS/CONC"	concept-see rule	conceptseeing
 --	true	"ALL"	concept-all rule	conceptseeing
-"see all the DREAM sequence stories"	true	"DREAM/DREAMS"	dream-see rule	dreamseeing
-"see the plausible MISSES for the Terminal"	true	"MISSES"	alt-answer rule	altanswering
+"see all the [bi of dreamseen]DREAM[r] sequence stories"	true	"DREAM/DREAMS"	dream-see rule	dreamseeing
+"see the plausible [bi of missseen]MISSES[r] for the Terminal"	true	"MISSES"	alt-answer rule	altanswering
+
+amuseseen is a truth state that varies.
+swearseen is a truth state that varies.
+sinseen is a truth state that varies.
+altseen is a truth state that varies.
+badendseen is a truth state that varies.
+conceptseen is a truth state that varies.
+dreamseen is a truth state that varies.
+missseen is a truth state that varies.
+
+the print the modified final question rule is listed before the print the final prompt rule in before handling the final question.
+
+the print the final question rule is not listed in any rulebook.
+
+This is the print the modified final question rule:
+	let named options count be 0;
+	repeat through the Table of Final Question Options:
+		if the only if victorious entry is false or the story has ended finally:
+			if there is a final response rule entry
+				or the final response activity entry [activity] is not empty:
+				if there is a final question wording entry, increase named options count by 1;
+	if the named options count is less than 1, abide by the immediately quit rule;
+	say "Here are things you can do now that the game is over.";
+	let pure-metas be 0;
+	repeat through the Table of Final Question Options:
+		if the only if victorious entry is false or the story has ended finally:
+			if there is a final response rule entry
+				or the final response activity entry [activity] is not empty:
+				if there is a final question wording entry:
+					if there is a final response activity entry:
+						say "[2da][final question wording entry][line break]";
+					else:
+						increment pure-metas;
+	say "You can also ";
+	repeat through the Table of Final Question Options:
+		if the only if victorious entry is false or the story has ended finally:
+			if there is a final response rule entry
+				or the final response activity entry [activity] is not empty:
+				if there is a final question wording entry:
+					unless there is a final response activity entry:
+						decrement pure-metas;
+						say "[if pure-metas is 0]or [end if][final question wording entry][if pure-metas is 0].[else], [end if]";
+	say "[line break]";
 
 chapter dream
 
@@ -9647,6 +9695,7 @@ to decide which number is read-stories:
 	decide on temp;
 
 this is the dream-see rule:
+	now dreamseen is true;
 	let alldreams be read-stories;
 	let skip-done be false;
 	let last-row be 0;
@@ -9689,6 +9738,7 @@ this is the concept-all rule:
 	now see-all-concepts is false;
 
 this is the concept-see rule:
+	now conceptseen is true;
 	if number of concepts in conceptville is 0 and see-all-concepts is false:
 		say "You found all the concepts. Very well done, indeed.";
 		the rule succeeds;
@@ -9710,6 +9760,7 @@ chapter bad end
 badendseeing is an activity.
 
 this is the bad-end-see rule:
+	now badendseen is true;
 	repeat with X running through rooms in bad ends:
 		if X is not a badroom listed in table of bad end listing:
 			say "[2da][X] needs a bad-end listing.";
@@ -9733,6 +9784,7 @@ chapter special
 altseeing is an activity.
 
 this is the alternative-see rule:
+	now altseen is true;
 	unless assassination character is in lalaland:
 		say "[2da]The assassination character can be faked out.";
 	if assassination character is in lalaland and insanity terminal is not in lalaland:
@@ -9770,6 +9822,7 @@ chapter sins
 sinseeing is an activity.
 
 this is the sin-see rule:
+	now sinseen is true;
 	say "None of the jerks was so square that he...[line break]";
 	repeat through table of fingerings:
 		if jerky-guy entry is Buddy Best:
@@ -9781,6 +9834,7 @@ chapter swearing
 swearseeing is an activity.
 
 this is the swear-see rule:
+	now swearseen is true;
 	say "[2da]The Baiter Master is the Complex Messiah.";
 	say "[2da]Buster Ball is Hunter Savage.";
 	say "[2da]The Jerk Circle is the Groan Collective.";
