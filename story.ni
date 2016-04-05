@@ -3101,7 +3101,7 @@ to decide whether verbs-unlocked: [I could probably check "duck sitting" but bes
 	decide no;
 
 to list-debug-cmds:
-	say "[line break]DEBUG COMMANDS: ================[line break][2da]J jumps you to the next bit from the Street, Lounge, Surface or Pier.[line break][2da]MONTY toggles every-move actions like listening and smelling. It may be more for programming testing[line break][2da]ACBYE/CTC/CTP gets rid of the Assassination Character and chase paper.[line break][2da]JERK tells you what to do with the jerks.[line break][2da]JGO gets rid of them[line break][2da]BROBYE kicks the Keeper Brothers out.[2da]VIC gives regular victory, VICX gives extra good victory[line break]";
+	say "[line break]DEBUG COMMANDS: ================[line break][2da]J jumps you to the next bit from the Street, Lounge, Surface or Pier.[line break][2da]MONTY toggles every-move actions like listening and smelling. It may be more for programming testing[line break][2da]ACBYE/CTC/CTP gets rid of the Assassination Character and chase paper.[line break][2da]JERK tells you what to do with the jerks.[line break][2da]JGO gets rid of them[line break][2da]BROBYE kicks the Keeper Brothers out.[2da]VIC gives regular victory, VICX gives extra good victory[line break][2da]JC shows the cheat code for the jerks[line break]";
 
 chapter metaing
 
@@ -6364,11 +6364,11 @@ prompt	response	enabled	permit
 "So, um--how's things, I guess?"	jerk-hows	1	1
 "[if short-jerk is false]So, I hear you like all the vegetables, even gross ones[else]VEGGIES[end if]."	jerk-veg	0	1
 "[if short-jerk is false]So, that clean comedian so popular last year? Still like him, eh[else]CLEAN JOKES[end if]?"	jerk-comedian	0	1
-"[if short-jerk is false]So, I hear you like light music. Not just by pretty women[else]LIGHT MUSIC[end if]."	jerk-light	0	1
-"[if short-jerk is false]So, you're a little better at chess than is practical for smart kids[else]CHESS[end if]."	jerk-chess	0	1
 "[if short-jerk is false]So, hear you secretly like that lousy pro sports team[else]YOUR TEAM STINKS[end if]."	jerk-pro	0	1
+"[if short-jerk is false]So, you're a little better at chess than is practical for smart kids[else]CHESS[end if]."	jerk-chess	0	1
 "[if short-jerk is false]So, you definitely don't wear colored underwear. Right[else]COLORED UNDIES[end if]?"	jerk-undies	0	1
 "[if short-jerk is false]So, reread [i]Anne of Green Gables[r] lately[else]GIRL BOOK EWW[end if]?"	jerk-anne	0	1
+"[if short-jerk is false]So, I hear you like light music. Not just by pretty women[else]LIGHT MUSIC[end if]."	jerk-light	0	1
 "[if short-jerk is false]So, you big on violent games? Or not[else]LAMER OR GAMER[end if]?"	jerk-video	0	1
 "[if short-jerk is false]So, Mr. Rogers. Does he conquer the basics, or what[else]MISTER ROGERS[end if]?"	jerk-rogers	0	1
 "[if short-jerk is false]So, you wouldn't be ashamed of driving a clunker[else]LAME CAR[end if]?"	jerk-car	0	1
@@ -6384,7 +6384,7 @@ to say j-g:
 
 a client has a client called next-c.
 
-table of fingerings
+table of fin - fingerings
 jerky-guy	blackmail	my-quip	suspect
 Buddy Best	"dislikes no vegetables at all"	jerk-veg	0
 Buddy Best	"still likes that so-last-year comedian who doesn't swear"	jerk-comedian	0
@@ -6405,11 +6405,11 @@ quip	quiptext
 jerk-hows	"[last-jerk] regards you stonily. 'I'm talking with my friends here! Unless you have something REALLY important to say...'"
 jerk-veg	"[innue]."
 jerk-comedian	"[innue]."
-jerk-light	"[innue]."
-jerk-chess	"[innue]."
 jerk-pro	"[innue]."
+jerk-chess	"[innue]."
 jerk-undies	"[innue]."
 jerk-anne	"[innue]."
+jerk-light	"[innue]."
 jerk-car	"[innue]."
 jerk-rogers	"[innue]."
 jerk-video	"[innue]."
@@ -7645,7 +7645,7 @@ to say finger-say:
 		if jerky-guy entry is not buddy best:
 			increment temp;
 			say "[2da][clue-letter of jerky-guy entry] [blackmail entry][if jerky-guy entry is minted] ([jerky-guy entry])[end if][line break]";
-	say "[line break]Collect hush fees every Monday. Repeating accusations breaks the guilty parties. Insanity Terminal has backup data.";
+	say "[line break]Collect hush fees every Monday. Repeating accusations breaks the guilty parties. Insanity Terminal has backup data";
 	now finger index is examined;
 
 check taking the finger index:
@@ -10993,6 +10993,20 @@ when play begins (this is the force tester wherever rule):
 		say "Transcripts can be sent to blurglecruncheon@gmail.com. Any punctuation before the comment is okay, e.g. *TYPO or ;typo or :typo.";
 	continue the action;
 
+chapter jcing
+
+[ * this tells the cheat code for beating the jerks]
+
+jcing is an action out of world.
+
+understand the command "jc" as something new.
+
+understand "jc" as jcing when jerk-who-short is true and silly boris is not in lalaland.
+
+carry out jcing:
+	say "Starting with [last-jerk], the jerks['] magic number is [magic-jerk-number].";
+	the rule succeeds;
+
 chapter tixing
 
 [ * this sets the number of tickets you have ]
@@ -11737,18 +11751,46 @@ carry out bcing:
 			see-babble X;
 	the rule succeeds;
 
-chapter jcing
+chapter jfixing
 
-[ * this tells the cheat code for beating the jerks]
+jfixing is an action out of world.
 
-jcing is an action out of world.
+understand the command "jfix" as something new.
 
-understand the command "jc" as something new.
+understand "jfix" as jfixing.
 
-understand "jc" as jcing when jerk-who-short is true and silly boris is not in lalaland.
-
-carry out jcing:
-	say "Starting with [last-jerk], the jerks['] magic number is [magic-jerk-number].";
+carry out jfixing:
+	repeat through table of fingerings:
+		now jerky-guy entry is buddy best;
+	choose row with my-quip of jerk-veg in table of fingerings;
+	now jerky-guy entry is dandy jim;
+	now next-c of cain reyes is dandy jim;
+	choose row with my-quip of jerk-comedian in table of fingerings;
+	now jerky-guy entry is silly boris;
+	now next-c of dandy jim is silly boris;
+	choose row with my-quip of jerk-pro in table of fingerings;
+	now jerky-guy entry is wash white;
+	now next-c of silly boris is wash white;
+	choose row with my-quip of jerk-chess in table of fingerings;
+	now jerky-guy entry is warner dyer;
+	now next-c of wash white is warner dyer;
+	choose row with my-quip of jerk-undies in table of fingerings;
+	now jerky-guy entry is warm luke;
+	now next-c of warner dyer is warm luke;
+	choose row with my-quip of jerk-anne in table of fingerings;
+	now jerky-guy entry is paul kast;
+	now next-c of warm luke is paul kast;
+	choose row with my-quip of jerk-light in table of fingerings;
+	now jerky-guy entry is cain reyes;
+	now next-c of paul kast is cain reyes;
+	say "Talk to Dandy Jim, then 1-2-3-4-5-6-7 should work.";
+	repeat through table of jt:
+		if response entry is jerk-hows or response entry is jerk-baiter or response entry is jerk-next or response entry is jerk-bye:
+			do nothing;
+		else if response entry is jerk-veg or response entry is jerk-comedian or response entry is jerk-pro or response entry is jerk-chess or response entry is jerk-undies or response entry is jerk-anne or response entry is jerk-light:
+			now enabled entry is 1;
+		else:
+			now enabled entry is 0;
 	the rule succeeds;
 
 chapter plowing
