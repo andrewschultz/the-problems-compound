@@ -3405,7 +3405,7 @@ before doing something when qbc_litany is not table of no conversation:
 	say "You get distracted, but you've never had the power to break a conversation off. [note-recap]" instead;
 
 to say note-recap:
-	say "(NOTE: to see dialog options, type RECAP[if qbc_litany is table of jt], SHORT to shorten your questions for readability, THINK to recall the Finger Index, SKIP to [nl-skip]skip to the next jerk after accusing, or type WHO to recall the jerks['] names. Currently you can choose [convo-nums])[line break]";
+	say "(NOTE: to see dialog options, type RECAP[if qbc_litany is table of jt], SHORT to shorten your questions for readability, THINK to recall the Finger Index, SKIP to [nl-skip]move on immediately from a jerk you accused, 1234567 to order your accusations from the last jerk talked to, or WHO to recall the jerks['] names. Currently you can choose [convo-nums])[line break]";
 
 to say nl-skip:
 	say "[if skip-after-accuse is true]no longer [end if]";
@@ -6251,6 +6251,54 @@ carry out whoing:
 		say "The jerks['] names are [list of clients in jerk circle].";
 	the rule succeeds;
 
+chapter numjerking
+
+numjerking is an action applying to one number
+
+understand "[number]" as numjerking when jerk-who-short is true and silly boris is not in lalaland and player is in jerk circle.
+
+carry out numjerking:
+	let z be number understood;
+	if z < 1000000:
+		say "You need to guess all seven jerks." instead;
+	if z > 9999999:
+		say "That's too many numbers. You only need seven." instead;
+	let y be z;
+	while y > 0:
+		let q be remainder after dividing y by 10;
+		if q < 1 or q > 7:
+			say "All digits must be between 1 and 7 inclusive." instead;
+		now y is y / 10;
+	let xyz be magic-jerk-number;
+	if number understood is xyz:
+		say "Yep! That did it!";
+	else:
+		say "The jerks remain silent.";
+		d "Should've answered [xyz].";
+
+to decide which number is magic-jerk-number:
+	let myret be 0;
+	let c2 be 0;
+	let count1 be 0;
+	let count2 be 0;
+	repeat with count running from 1 to 7:
+		choose row with jerky-guy of last-jerk in table of fingerings;
+		now myret is myret * 10;
+		let temp be quippos of my-quip entry;
+		increase myret by temp;
+		say "[last-jerk]: [temp].";
+		now last-jerk is next-c of last-jerk;
+	decide on myret;
+
+to decide which number is quippos of (mq - a quip):
+	let count be 0;
+	repeat through table of jt:
+		if enabled entry is 1:
+			increment count;
+		if response entry is mq:
+			decide on count;
+	decide on 0;
+
 chapter shorting
 
 shorting is an action out of world.
@@ -6431,7 +6479,7 @@ to check-jerks-done:
 	d "RIGHT!";
 	say "[snickerin].";
 	repeat through table of fingerings:
-		if suspect entry is 0 and my-quip entry is jerky:
+		if suspect entry is 0 and my-quip entry is jerky and jerky-guy entry is not minted:
 			if skip-after-accuse is true:
 				now last-jerk is next-c-x of last-jerk;
 				say "[line break]You move on to [last-jerk].";
@@ -10793,6 +10841,7 @@ test bestprep2 with "gonear jerk circle/w/ctc/d/a bad face/d/get crocked half/u/
 section bugs
 
 test bugs-arts-x-before-after with "gonear compound/x crack/x torch/purloin fish/play it/purloin safe/open it/x crack/x torch"
+			[say "[jerky-guy entry], [c2].";]
 
 section cheats
 
@@ -10808,7 +10857,7 @@ test feat-deaths with "attack game shell/gonear strip/shit/shit/gonear meal squa
 
 section jerk tests
 
-test jerky with "gonear jerks/talk to jerks/g/gonear safe/get safe/x index/s/s/e/e/talk to jerks/purloin mint/give mint to wash white/talk to boris"
+test jerky with "gonear jerks/talk to jerks/g/gonear safe/get safe/x index/s/s/e/e/talk to jerks/purloin mint/give mint to wash white/talk to boris/10/1234567"
 
 section losses
 
@@ -11653,6 +11702,26 @@ carry out bcing:
 			see-babble X;
 	the rule succeeds;
 
+chapter plowing
+
+plowing is an action applying to one thing.
+
+understand the command "plow" as something new.
+
+understand "plow [person]" as plowing.
+
+carry out plowing:
+	if litany of noun is table of no conversation:
+		say "They're not talkable right now!";
+	else:
+		repeat through litany of noun:
+			if enabled entry < 2:
+				now enabled entry is 0;
+		try talking to noun;
+		say "REJECT MESSAGE:[line break]";
+		try talking to noun;
+	the rule succeeds.
+	
 chapter jing
 
 [* this jumps the tester ahead one stage]
