@@ -308,7 +308,7 @@ when play begins (this is the read options file rule):
 	if file of verb-unlocks exists:
 		read file of verb-unlocks into table of verb-unlocks;
 	repeat through table of verb-unlocks:
-		if brief entry is a brief listed in table of verbmatches:
+		if brief entry is a brief listed in table of verb-unlocks:
 			if found entry is true:
 				prep-action "[brief entry]";
 
@@ -2010,6 +2010,7 @@ check giving the condition mint to:
 		say "[second noun] is a bit too nervous around you, as you already figured his secret." instead;
 	say "[second noun] accepts your offer gratefully, and you discuss the list with him. 'Oh dear,' he says, 'I must be [clue-letter of second noun].'[paragraph break]You assure him his secret is safe with you.";
 	now second noun is minted;
+	now mint is in lalaland;
 	now suspect entry is 2;
 	the rule succeeds;
 
@@ -6264,30 +6265,60 @@ carry out numjerking:
 	if z > 9999999:
 		say "That's too many numbers. You only need seven." instead;
 	let y be z;
+	let dyet be { false, false, false, false, false, false, false };
 	while y > 0:
 		let q be remainder after dividing y by 10;
 		if q < 1 or q > 7:
 			say "All digits must be between 1 and 7 inclusive." instead;
+		if entry q in dyet is true:
+			say "You duplicated a number in your guess. All digits must be unique." instead;
+		now entry q in dyet is true;
 		now y is y / 10;
+	if number understood is mint-guessed-wrong:
+		say "You guessed the wrong answer for [random minted client]. It should be [mint-guess]." instead;
 	let xyz be magic-jerk-number;
 	if number understood is xyz:
-		say "Yep! That did it!";
+		say "As you check off with each jerk, they become more and more agitated until they realize someone knows their secrets! What more could they know?";
+		zap-the-jerks;
 	else:
-		say "The jerks remain silent.";
+		say "The jerks remain unmoved after your carousing.";
 		d "Should've answered [xyz].";
+
+to decide which number is mint-guess:
+	let MJ be a random minted client;
+	choose row with jerky-guy of MJ in table of fingerings;
+	decide on quippos of my-quip entry;
+
+to decide whether (myguess - a number) is mint-guessed-wrong:
+	let ones be 0;
+	if mint is not in lalaland:
+		decide no;
+	let mydiv be 1000000;
+	let temp-jerk be last-jerk;
+	repeat with count running from 1 to 7:
+		if temp-jerk is minted:
+			now ones is myguess / mydiv;
+			choose row with jerky-guy of temp-jerk in table of fingerings;
+			now ones is the remainder after dividing ones by 10;
+			[say "[temp-jerk]: ones = [myguess] / [mydiv] = [ones], should be [quippos of my-quip entry].";]
+			if ones is quippos of my-quip entry:
+				decide no;
+			else:
+				decide yes;
+		now mydiv is mydiv / 10;
+		now temp-jerk is next-c of temp-jerk;
+	say "BUG. No jerk was marked as eating the mint, but I still tried to look for one.";
+	decide no;
 
 to decide which number is magic-jerk-number:
 	let myret be 0;
-	let c2 be 0;
-	let count1 be 0;
-	let count2 be 0;
+	let temp-jerk be last-jerk;
 	repeat with count running from 1 to 7:
-		choose row with jerky-guy of last-jerk in table of fingerings;
+		choose row with jerky-guy of temp-jerk in table of fingerings;
 		now myret is myret * 10;
 		let temp be quippos of my-quip entry;
 		increase myret by temp;
-		say "[last-jerk]: [temp].";
-		now last-jerk is next-c of last-jerk;
+		now temp-jerk is next-c of temp-jerk;
 	decide on myret;
 
 to decide which number is quippos of (mq - a quip):
@@ -6484,13 +6515,17 @@ to check-jerks-done:
 				now last-jerk is next-c-x of last-jerk;
 				say "[line break]You move on to [last-jerk].";
 			continue the action;
-	say "[line break]The other six jerks, fully chastened by your observations, overhear what you have to say. They pile on [last-jerk], but you mention he's not the only one. A fight's about to break out, until you tell them where you got this information from.[paragraph break]'You better be right about this,' [a random not minted client] says. They rush off. You hear whining in the distance. It's the Labor Child. He protests he was just trying to shame them into doing more practical things. They aren't buying it!";
+	say "[line break]The other six jerks, fully chastened by your observations, overhear what you have to say. They pile on [last-jerk], but you mention he's not the only one.[paragraph break]";
+	zap-the-jerks;
+	terminate the conversation;
+
+to zap-the-jerks:
+	say "A fight's about to break out, until you tell them where you got this information from.[paragraph break]'You better be right about this,' [a random not minted client] says. They rush off. You hear whining in the distance. It's the Labor Child. He protests he was just trying to shame them into doing more practical things. They aren't buying it!";
 	say "[line break]The (ex-)jerks arrive back, and [a random client] hands you a bottle of Quiz Pop. 'Man, you seem to know what's what, and you helped us see it was okay to be us. Here's some totally sweet contraband.'";
 	now player has quiz pop;
 	increment the score;
 	now all clients are in lalaland;
 	unlock-verb "notice";
-	terminate the conversation;
 
 check going north when player is in well:
 	if silly boris is in lalaland:
@@ -11702,7 +11737,23 @@ carry out bcing:
 			see-babble X;
 	the rule succeeds;
 
+chapter jcing
+
+[ * this tells the cheat code for beating the jerks]
+
+jcing is an action out of world.
+
+understand the command "jc" as something new.
+
+understand "jc" as jcing when jerk-who-short is true and silly boris is not in lalaland.
+
+carry out jcing:
+	say "Starting with [last-jerk], the jerks['] magic number is [magic-jerk-number].";
+	the rule succeeds;
+
 chapter plowing
+
+[ * this plows through a convo and leaves nothing to say. Obviously this can cause a game breaking bug so I'm not revealing it to testers.]
 
 plowing is an action applying to one thing.
 
