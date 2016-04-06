@@ -313,10 +313,12 @@ when play begins (this is the read options file rule):
 				prep-action "[brief entry]";
 
 to prep-action (inte - indexed text):
-	choose row with brief of inte in table of verbmatches;
-	if there is a what-to-do entry:
-		consider the what-to-do entry;
-
+	if inte is a brief listed in table of verbmatches:
+		choose row with brief of inte in table of verbmatches;
+		if there is a what-to-do entry:
+			consider the what-to-do entry;
+	else:
+		say "BUG. [inte] should be in table of verbmatches. Please report to [email].";
 
 the file of verb-unlocks is called "pcverbs".
 
@@ -381,8 +383,7 @@ to unlock-verb (t - text):
 	repeat through table of verb-unlocks:
 		now j is "[brief entry]";
 		if j matches the regular expression "[t]":
-			if brief entry is a brief listed in table of verbmatches:
-				prep-action brief entry;
+			prep-action j;
 			if found entry is true:
 				continue the action;
 			if expound entry is true:
@@ -6233,6 +6234,32 @@ carry out skiping:
 	say "Skipping to next jerk after accusing them is now [on-off of skip-after-accuse].";
 	the rule succeeds;
 
+section force skip on - not for release
+
+skiponing is an action applying to nothing.
+
+understand the command "skip on" as something new.
+
+understand "skip on" as skiponing.
+
+carry out skiponing:
+	say "Skipping to next jerk [if skip-after-accuse is true]was already[else]is now[end if] on.";
+	now skip-after-accuse is true;
+	the rule succeeds;
+
+section force skip off - not for release
+
+skipoffing is an action applying to nothing.
+
+understand the command "skip off" as something new.
+
+understand "skip off" as skiponing.
+
+carry out skipoffing:
+	say "Skipping to next jerk [if skip-after-accuse is false]was already[else]is now[end if] off.";
+	now skip-after-accuse is false;
+	the rule succeeds;
+
 chapter whoing
 
 whoing is an action applying to nothing.
@@ -6254,9 +6281,11 @@ carry out whoing:
 
 chapter numjerking
 
-numjerking is an action applying to one number
+understand the command "guess" as something new.
 
-understand "[number]" as numjerking when jerk-who-short is true and silly boris is not in lalaland and player is in jerk circle.
+numjerking is an action applying to one number.
+
+understand "guess [number]" as numjerking when jerk-who-short is true and silly boris is not in lalaland and player is in jerk circle.
 
 carry out numjerking:
 	let z be number understood;
@@ -6266,8 +6295,9 @@ carry out numjerking:
 		say "That's too many numbers. You only need seven." instead;
 	let y be z;
 	let dyet be { false, false, false, false, false, false, false };
+	let q be 0;
 	while y > 0:
-		let q be remainder after dividing y by 10;
+		now q is remainder after dividing y by 10;
 		if q < 1 or q > 7:
 			say "All digits must be between 1 and 7 inclusive." instead;
 		if entry q in dyet is true:
@@ -6275,7 +6305,7 @@ carry out numjerking:
 		now entry q in dyet is true;
 		now y is y / 10;
 	if number understood is mint-guessed-wrong:
-		say "You guessed the wrong answer for [random minted client]. It should be [mint-guess]." instead;
+		say "You guessed the wrong answer for [random minted client] (#[mint-away] in the sequence). You tried [onesguess], but it should be [mint-guess]." instead;
 	let xyz be magic-jerk-number;
 	if number understood is xyz:
 		say "As you check off with each jerk, they become more and more agitated until they realize someone knows their secrets! What more could they know?";
@@ -6283,6 +6313,16 @@ carry out numjerking:
 	else:
 		say "The jerks remain unmoved after your carousing.";
 		d "Should've answered [xyz].";
+
+onesguess is a number that varies.
+
+to decide which number is mint-away:
+	let temp-jerk be last-jerk;
+	let count be 1;
+	while temp-jerk is not minted:
+		increment count;
+		now temp-jerk is next-c of temp-jerk;
+	decide on count;
 
 to decide which number is mint-guess:
 	let MJ be a random minted client;
@@ -6304,6 +6344,7 @@ to decide whether (myguess - a number) is mint-guessed-wrong:
 			if ones is quippos of my-quip entry:
 				decide no;
 			else:
+				now onesguess is ones;
 				decide yes;
 		now mydiv is mydiv / 10;
 		now temp-jerk is next-c of temp-jerk;
@@ -6521,7 +6562,7 @@ to check-jerks-done:
 
 to zap-the-jerks:
 	say "A fight's about to break out, until you tell them where you got this information from.[paragraph break]'You better be right about this,' [a random not minted client] says. They rush off. You hear whining in the distance. It's the Labor Child. He protests he was just trying to shame them into doing more practical things. They aren't buying it!";
-	say "[line break]The (ex-)jerks arrive back, and [a random client] hands you a bottle of Quiz Pop. 'Man, you seem to know what's what, and you helped us see it was okay to be us. Here's some totally sweet contraband.'";
+	say "[line break]The (ex-)jerks arrive back, and [a random client] hands you a bottle of Quiz Pop. 'Man, you seem to know what's what, and you helped us see it was okay to be us. Here's some totally sweet contraband.'[paragraph break]Hmm. Interesting. Quiz Pop.";
 	now player has quiz pop;
 	increment the score;
 	now all clients are in lalaland;
@@ -10575,6 +10616,10 @@ after reading a command:
 			if the player's command matches the regular expression "\.":
 				now period-warn is true;
 				ital-say "extended commands may cause errors in rare cases such as E.N.W.GIVE X TO Y. This shouldn't happen often, but for future reference, it's a part of Inform parsing I never figured out. If you need to move around, GO TO is the preferred verb.";
+	if player is in jerk circle and jerk-who-short is true and boris is in jerk circle and qbc_litany is table of no conversation:
+		if the player's command matches the regular expression "^<0-9>+":
+			change the text of the player's command to "guess [the player's command]";
+			d "[the player's command]";
 	if player is in out mist:
 		if the player's command includes "mist":
 			unless the player's command includes "xp" or the player's command includes "explain":
@@ -10893,7 +10938,123 @@ test feat-deaths with "attack game shell/gonear strip/shit/shit/gonear meal squa
 
 section jerk tests
 
-test jerky with "gonear jerks/talk to jerks/g/gonear safe/get safe/x index/s/s/e/e/talk to jerks/purloin mint/give mint to wash white/talk to boris/10/1234567"
+test j-1 with "purloin mint/gonear accountable hold/get safe/x index/gonear jerk circle/talk to jerks/talk to boris/10"
+
+test jerk-wrong with "1111111/1234576/1023456/1823456"
+
+test jerk-q with "gonear jerks/talk to jerks/g/gonear safe/get safe/x index/s/s/e/e/talk to jerks/purloin mint/give mint to wash white/test jq"
+
+test jq with "jfix/talk to dandy jim/10/1234567"
+
+section errors
+
+test j-err-mintgive with "give mint to jim/talk to jim"
+
+section quick stuff
+
+test j-q-jim with "talk to jim/10/1234567/jr q-jim"
+
+test j-q-boris with "talk to boris/10/2345671/jr q-boris"
+
+test j-q-wash with "talk to jim/10/3456712/jr q-wash"
+
+test j-q-warner with "talk to jim/10/4567123/jr q-warner"
+
+test j-q-warm with "talk to jim/10/5671234/jr q-warm"
+
+test j-q-paul with "talk to jim/10/6712345/jr q-paul"
+
+test j-q-cain with "talk to jim/10/7123456/jr q-cain"
+
+section jerk quick with mint
+
+test j-qm-boris with "give mint to boris/talk to jim/talk to boris/1234567/jrm"
+
+test j-qm-wash with "skip on/give mint to wash/talk to jim/talk to boris/1234567/jrm"
+
+test j-qm-warner with "skip on/give mint to warner/talk to jim/talk to boris/1234567/jrm"
+
+test j-qm-warm with "skip on/give mint to warm/talk to jim/talk to boris/1234567/jrm"
+
+test j-qm-paul with "skip on/give mint to paul/talk to jim/talk to boris/1234567/jrm"
+
+test j-qm-cain with "skip on/give mint to cain/talk to jim/talk to boris/1234567/jrm"
+
+section jerk mint
+
+test j-m-boris with "skip on/give mint to boris/talk to jim/1/3/4/5/6/7/jrm"
+
+test j-m-wash with "skip on/give mint to wash/talk to jim/talk to boris/1/2/4/5/6/7/jrm"
+
+test j-m-warner with "skip on/give mint to warner/talk to jim/talk to boris/1/2/3/5/6/7/jrm"
+
+test j-m-warm with "skip on/give mint to warm/talk to jim/talk to boris/1/2/3/4/6/7/jrm"
+
+test j-m-paul with "skip on/give mint to paul/talk to jim/talk to boris/1/2/3/4/5/7/jrm"
+
+test j-m-cain with "skip on/give mint to cain/talk to jim/talk to boris/1/2/3/4/5/6/jrm"
+
+section jerk plain
+
+test j-jim with "skip on/talk to jim/1/2/3/4/5/6/7/jrm"
+
+test j-boris with "skip on/talk to boris/2/3/4/5/6/7/1/jrm"
+
+test j-wash with "skip on/talk to wash/3/4/5/6/7/1/2/jrm"
+
+test j-warner with "skip on/talk to warner/4/5/6/7/1/2/3/jrm"
+
+test j-warm with "skip on/talk to warm/5/6/7/1/2/3/4/jrm"
+
+test j-paul with "skip on/talk to paul/6/7/1/2/3/4/5/jrm"
+
+test j-cain with "skip on/talk to cain/7/1/2/3/4/5/6/jrm"
+
+section jerk long mint
+
+test j-l-m-boris with "skip off/give mint to boris/talk to jim/1/8/3/8/4/8/5/8/6/8/7/8/jrm"
+
+test j-l-m-wash with "skip off/give mint to wash/talk to jim/talk to boris/1/8/2/8/4/8/5/8/6/8/7/8/jrm"
+
+test j-l-m-warner with "skip off/give mint to warner/talk to jim/talk to boris/1/8/2/8/3/8/5/8/6/8/7/8/jrm"
+
+test j-l-m-warm with "skip off/give mint to warm/talk to jim/talk to boris/1/8/2/8/3/8/4/8/6/8/7/8/jrm"
+
+test j-l-m-paul with "skip off/give mint to paul/talk to jim/talk to boris/1/8/2/8/3/8/4/8/5/8/7/8/jrm"
+
+test j-l-m-cain with "skip off/give mint to cain/talk to jim/talk to boris/1/8/2/8/3/8/4/8/5/8/6/8/jrm"
+
+section jerk long
+
+test j-l-jim with "skip off/talk to jim/1/8/2/8/3/8/4/8/5/8/6/8/7/8/jrm"
+
+test j-l-boris with "skip off/talk to boris/2/8/3/8/4/8/5/8/6/8/7/8/1/8/jrm"
+
+test j-l-wash with "skip off/talk to wash/3/8/4/8/5/8/6/8/7/8/1/8/2/8/jrm"
+
+test j-l-warner with "skip off/talk to warner/4/8/5/8/6/8/7/8/1/8/2/8/3/8/jrm"
+
+test j-l-warm with "skip off/talk to warm/5/8/6/8/7/8/1/8/2/8/3/8/4/8/jrm"
+
+test j-l-paul with "skip off/talk to paul/6/8/7/8/1/8/2/8/3/8/4/8/5/8/jrm"
+
+test j-l-cain with "skip off/talk to cain/7/8/1/8/2/8/3/8/4/8/5/8/6/8/jrm"
+
+section jall
+
+test j-q-all with "jfix/test j-q-jim/test j-q-boris/test j-q-wash/test j-q-warner/test j-q-warm/test j-q-paul/test j-q-cain"
+
+test j-qm-all with "jfix/test j-qm-jim/test j-qm-boris/test j-qm-wash/test j-qm-warner/test j-qm-warm/test j-qm-paul/test j-qm-cain"
+
+test j-m-all with "jfix/test j-m-jim/test j-m-boris/test j-m-wash/test j-m-warner/test j-m-warm/test j-m-paul/test j-m-cain"
+
+test j-all with "jfix/test j-jim/test j-boris/test j-wash/test j-warner/test j-warm/test j-paul/test j-cain"
+
+test j-l-m-all with "jfix/test j-l-m-jim/test j-l-m-boris/test j-l-m-wash/test j-l-m-warner/test j-l-m-warm/test j-l-m-paul/test j-l-m-cain"
+
+test j-l-all with "jfix/test j-l-jim/test j-l-boris/test j-l-wash/test j-l-warner/test j-l-warm/test j-l-paul/test j-l-cain"
+
+test j-exhaust with "test j-1/test j-q-all/test j-qm-all/test j-m-all/test j-all/test j-l-m-all/test j-l-all"
 
 section losses
 
@@ -11789,8 +11950,10 @@ carry out jfixing:
 		if response entry is jerk-hows or response entry is jerk-baiter or response entry is jerk-next or response entry is jerk-bye:
 			do nothing;
 		else if response entry is jerk-veg or response entry is jerk-comedian or response entry is jerk-pro or response entry is jerk-chess or response entry is jerk-undies or response entry is jerk-anne or response entry is jerk-light:
+			d "[response entry] ([prompt entry]) is forced on.";
 			now enabled entry is 1;
 		else:
+			d "[response entry] ([prompt entry]) is forced off.";
 			now enabled entry is 0;
 	the rule succeeds;
 
@@ -11824,7 +11987,7 @@ jrming is an action out of world.
 
 understand the command "jrm" as something new.
 
-understand "jrm [topic]" as jrtming.
+understand "jrm [text]" as jrtming.
 
 understand "jrm" as jrming.
 
@@ -11844,11 +12007,9 @@ jrting is an action applying to one topic.
 
 jring is an action out of world.
 
-understand the command "jrm" as something new.
-
-understand "jr [topic]" as jrting.
-
 understand the command "jr" as something new.
+
+understand "jr [text]" as jrting.
 
 understand "jr" as jring.
 
@@ -11858,6 +12019,20 @@ carry out jrting:
 
 carry out jring:
 	now all clients are in jerk circle;
+	the rule succeeds;
+
+chapter xinding
+
+[this flags the finger index as examined]
+
+xinding is an action out of world.
+
+understand the command "xind" as something new.
+
+understand "xind" as xinding.
+
+carry out xinding:
+	now finger index is examined;
 	the rule succeeds;
 
 chapter jing
