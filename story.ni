@@ -2737,7 +2737,7 @@ Quiz Pop	"A pop quiz is when a teacher gives an unannounced quiz on materials."
 jerks	"Pick one by name to see details."
 Assassination Character	"Character assassination is the act of tearing someone down." [chipper wood]
 chase paper	"A paper chase is excessive paperwork. In this case, work not strictly needed to reach the Assassination Character."
-Insanity Terminal	"Terminal insanity is having no chance to regain sanity." [the belt below]
+Insanity Terminal	"Terminal insanity is having no chance to regain sanity[if terminal is in lalaland]. As for the puzzle: it is inspired by Jim Propp's Self-Referential Aptitude Test, which is well worth a look, but a good deal more complex[end if]." [the belt below]
 a bad face	"It will help you face a bad...something."
 note crib	"To crib notes is to copy from someone who was at a lecture." [bottom rock]
 legend of stuff	"The Stuff of Legend means a book about great tales of yore, as opposed to the scribble-hint-book you get."
@@ -7418,6 +7418,7 @@ carry out abadfaceing:
 		say "You hear a great rumbling as you put on -- well, a bad face -- and the Insanity Terminal cracks in half to reveal a tunnel further below. You feel like you could face a bad...well, you're not sure. But something bad.";
 		now player has a bad face;
 		now face of loss is in lalaland;
+		ital-say "I got the idea for this puzzle from something else. XP TERMINAL to see it.";
 		the rule succeeds;
 	else:
 		say "You already solved the puzzle. If any more of [if bottom rock is visited]Bottom Rock[else]the floor[end if] collapsed, you might not have a way back up." instead;
@@ -11814,7 +11815,51 @@ carry out plowing:
 		say "REJECT MESSAGE:[line break]";
 		try talking to noun;
 	the rule succeeds.
-	
+
+chapter jring
+
+jrtming is an action applying to one topic.
+
+jrming is an action out of world.
+
+understand the command "jrm" as something new.
+
+understand "jrm [topic]" as jrtming.
+
+understand "jrm" as jrming.
+
+carry out jrtming:
+	say "Test [topic understood] [if boris is not in jerk circle]passed[else]failed[end if].";
+	try jrming instead;
+
+carry out jrming:
+	now all clients are in jerk circle;
+	now all clients are not minted;
+	now player has condition mint;
+	the rule succeeds;
+
+chapter jring
+
+jrting is an action applying to one topic.
+
+jring is an action out of world.
+
+understand the command "jrm" as something new.
+
+understand "jr [topic]" as jrting.
+
+understand the command "jr" as something new.
+
+understand "jr" as jring.
+
+carry out jrting:
+	say "Test [topic understood] [if boris is not in jerk circle]passed[else]failed[end if].";
+	try jring instead;
+
+carry out jring:
+	now all clients are in jerk circle;
+	the rule succeeds;
+
 chapter jing
 
 [* this jumps the tester ahead one stage]

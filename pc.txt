@@ -166,6 +166,7 @@ Amusement only.
 ?What's the Condition Mint for?
 Later on, you can give it to someone to help with a puzzle.
 Any one of the jerks.
+They will tell you their secret. That allows you to identify them and, by extension, others more easily.
 ?What's the gagging lolly for?
 A stupid cheap insta-death.
 And a stupid cheap joke or two.
@@ -187,8 +188,9 @@ Each one seems to know about the other.
 They're mostly complimentary, but there's a derogatory shot or two.
 This changes with each play.
 The key is to note who's who from the finger index .
-If you get seven in a row, they get in a big fight and leave.
-This is a logic puzzle, but not a tough one.
+If you figure seven in a row, they get in a big fight and leave.
+This is a logic puzzle, but not a tough one, I hope. Basically letter Q means someone with a Q in their name.
+You can solve it by matching letters to a person, or matching people to a letter. Let's match people to a letter, first.
 Note that J is Dandy Jim--the only person with J in his name.
 M is Warm Luke or Jim, but it can't be Jim, since he's already J. So M is Warm Luke.
 Similarly, K is Warm Luke or Paul Kast, e.g. Paul Kast.
@@ -196,9 +198,22 @@ D is Dandy Jim or Warner Dyer, so that's Warner Dyer.
 T is Paul Kast or Wash White, e.g. Wash White.
 L is Warm Luke, Paul Kast or Silly Boris. Silly Boris it is.
 * is Cain Reyes, by elimination.
+Now let's match letters to a person.
+For instance, Cain Reyes doesn't match up with any of the letters, so he's the wild card.
+Then Silly Boris can only be L.
+Wash White can only be T.
+Warner Dyer can only be D.
+Paul Kast can only be T.
+Warm Luke can only be M.
+That leaves Dandy Jim as J.
+?Is there a way to do things without talking so much?
+You can use SKIP to avoid moving to the next guy, or just type in the numbers corresponding to the names.
+You can also type 1234567, where you start with the person last talked to, and 1 = the 1st conversational accusation, etc. But it gives fewer clues than talking.
 ?Is there any way to cheat a bit?
 You can give the condition mint to any jerk.
-L seems like the best, because there are three candidates.
+It turns out that it doesn't speed things up radically, but it helps a bit.
+It also lets you skip over accusing one person in conversation.
+Giving it to Paul crosses out the most possibilities. Also, giving it to Warm Luke helps. I think Paul's a bit more helpful, as the above logic notes you can figure out Luke pretty quickly.
 ?What is the Quiz Pop for?
 It's for the final showdown.
 You need to drink it in the Questions Field, to get by the final security device.
@@ -233,10 +248,13 @@ So 31 1x2 tiles would cover 31 white and black squares, and you never can.
 >>>>The Belt Below
 ?What is the puzzle on the Insanity Terminal?
 It's a puzzle inspired by Jim Propp's Self Referential Aptitude Test.
-If you know that answer, you may have a clue. But if not, there's a logical way through.
+You need to guess all eight answers, A-F, right.
+One answer is meant to be forced, but the others must be derived from it, and how they interconnect.
+If you've seen the SRAT, you may have a clue. But if not, there's a logical way through.
+I'd also recommend the SRAT if you enjoyed the Insanity Terminal at all.
 ?How do I solve the puzzle?
 Well, look for the weak links first.
-Question 7 must be C. That means each letter must appear once in each answer.
+Question 7 must be C. That means each letter must appear once in each answer. Note that if you try to answer with 7 not C, the terminal clues you.
 Now note 2 cannot be A as there are 8 questions and 6 answers. 4 cannot be A as that contradicts 3. If 5 is A, then 1 is F and that creates problems. We must have A, B, C, D, E and F, and then 5 answers that duplicate these, or 11 answers total. 7 is already C, and 8 can't be A or B since there is one A and one E. So 3 is A. That means 1 is A.
 Now 2 can only be b or c. If it is d, then 3 letters appear twice and 3 appear once, meaning we need at least 9 questions. But if 2 is C, then 4 is C--otherwise we have 2 C's, 3 A's and 3 slots for 4 letters. So 2 is B. This also means that there is another A in here somewhere, and there is one each of D, E and F.
 That means 8 must be E, 3 A's and one E = 4 vowels. This leaves ADF for 4/5/6.
@@ -246,7 +264,7 @@ A BAD FACE.
 >>>>BOTTOM ROCK
 ?What do I do with the note crib? Which item should I take?
 It houses two spoiler devices.
-The Legend of Stuff tells you how to get through the game, but not the optional puzzle.
+The Legend of Stuff tells you how to get through the game but blocks the optional puzzle.
 You can examine the red, the blue or the big area. Or all of them.
 Each corresponds to a brother in Questions Field.
 So you can see what you need to do next.
