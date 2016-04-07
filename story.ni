@@ -11974,7 +11974,6 @@ carry out plowing:
 		repeat through litany of noun:
 			if enabled entry < 2:
 				now enabled entry is 0;
-		try talking to noun;
 		say "REJECT MESSAGE:[line break]";
 		try talking to noun;
 	the rule succeeds.
