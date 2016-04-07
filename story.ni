@@ -1012,7 +1012,7 @@ instead of thinking:
 		move-dream-ahead instead;
 	if finger index is examined and silly boris is in jerk circle:
 		say "Hmm. You remember the finger index and the seven jerks.";
-		say "[finger-say]" instead;
+		say "[finger-say]." instead;
 	if think-score is false:
 		say "NOTE: THINK will redirect to SCORE in the future, unless you really only have one specific task remaining.";
 		now think-score is true;
@@ -3305,7 +3305,15 @@ check talking to (this is the make sure of small talk rule):
 	if litany of noun is table of no conversation:
 		say "You can't think of any small talk." instead;
 	if conv-left of noun is 1:
-		say "You don't have anything left to say except hello, good-bye." instead;
+		say "You don't have anything left to say except hello, good-bye. But here's a summary: ";
+		choose row with babbler of noun in table of npc talk summaries;
+		if there is a convo-recap entry:
+			say "[convo-recap entry][line break]";
+		else:
+			say "[babble-recap entry][line break]";
+		if there is a babble-reward entry:
+			say "[line break]You also got a [babble-reward entry], which you [if babble-reward entry is in lalaland]dealt with, yay[else]need to figure what to do with[end if].";
+		the rule succeeds;
 	now anything-said-yet is false;
 
 anything-said-yet is a truth state that varies.
@@ -4081,12 +4089,12 @@ this is the babble-shush rule:
 	the rule fails.
 
 to babble-out (pe - a person):
-	repeat through table of babble summaries:
+	repeat through table of npc talk summaries:
 		if babbler entry is pe:
 			if pe is part-talked:
 				say "You already started talking in-depth-ish with [the pe], so it's hard to change up.";
 				continue the action;
-			choose row with babbler of pe in table of babble summaries;
+			choose row with babbler of pe in table of npc talk summaries;
 			say "[babble-content entry][line break]";
 			now pe is babbled-out;
 			if there is a babble-reward entry:
@@ -4099,7 +4107,7 @@ to babble-out (pe - a person):
 			if pe is sly moore:
 				now talked-to-sly is true;
 			the rule succeeds;
-	say "BUG! [pe] should have a babble shortcut in the table of babble summaries. I think.";
+	say "BUG! [pe] should have a babble shortcut in the table of npc talk summaries. I think.";
 
 to decide whether (pe - a person) is part-talked:
 	let Q be the litany of pe;
@@ -4111,28 +4119,28 @@ to decide whether (pe - a person) is part-talked:
 			decide yes;
 	decide no;
 
-table of babble summaries
-babbler	babble-content	babble-recap	babble-reward
-Guy Sweet	"Guy Sweet blinks at you. 'Whoah! You're, like, more accelerated than most people at this whole social thing. I probably don't want to know what you've gotten wrong, dude. No offense. But here, I guess I have to give you this gesture token. Everyone gets one.'"	"Guy seemed impressed you took initiative."	gesture token
-Word Weasel	"Something about how he's willing to give you his signature, which is very valuable indeed helping you move on in the world. He hand[one of]s[or]ed[stopping] you a pocket pick, which apparently you can pay off by DIGging."	"[weasel-babble]"	pocket pick
+table of npc talk summaries
+babbler	babble-content	babble-recap	convo-recap	babble-reward
+Word Weasel	"Something about how he's willing to give you his signature, which is very valuable indeed helping you move on in the world. He hand[one of]s[or]ed[stopping] you a pocket pick, which apparently you can pay off by DIGging."	"[weasel-babble]"	--	pocket pick
+Guy Sweet	"Guy Sweet blinks at you. 'Whoah! You're, like, more accelerated than most people at this whole social thing. Here, play a game, any game. It's sort of an aptitude test thing.'"	"Guy seemed impressed you took initiative and weren't intimidated[if gesture token is off-stage], but he's still waiting for you to play a game[else], and he even gave you that gesture token, too[end if]."	"Guy talked about the [bad-guy] and how you'd have to be very clever to meet him, and when you did, you'd better not waste his time."
 Mouth Mush	"The mouth mush harangues you about needing certification to go through the arch to the north. This isn't a big area, so it can't be far."	"The mouth mush wanted some sort of document."
-Fritz	"Many variants on 'Whoah dude whoah,' mumbling about the friend he lost[if fritz has minimum bear]--and you found[end if]."	"He was pretty incoherent, mumbling about a lost friend[if fritz has minimum bear] that you found[end if]."	--
-Stool Toad	"The usual ordering to keep your nose clean, don't go off the beaten path, or litter, or annoy people, or have illicit substances."	"Ugh. You have had enough of officious adults telling you you seem like a good kid so that's EXTRA reason how you better keep clean."
-Punch Sucker	"He mentions all the places he's been and all the exciting people he's met, so much more exciting than here, no offense, you'll be exciting one day. Why, a bit of alcohol might help! [sucker-offer]"	"Something about how exciting he was, and you could be, maybe. It doesn't feel so warm, in retrospect. [sucker-offer]"	--
-Liver Lily	"She--well, she seems to be making sense, but you feel obliged to agree with her without thinking in order to show her you're thoughtful. You notice she doesn't have a drink."	"She doesn't seem up for small talk, but she grabs an imaginary drink and swirls it."
-Howdy Boy	"The usual greetings, as he exhorts you to be good--not too good, though. Maybe if you have some proof you're not totally boring and squeaky clean, you'll be bare-knuckle enough for the Compound proper. [if your-tix is 0]You'll--well, you'll know what, once you start picking up demerits[else]Probably the boo ticketies[end if]."	"The Howdy Boy wanted some sort of document."
-Buddy Best	"Buddy Best begins talking a mile a minute about Big Things, and it's impressive all right, and you're not sure how much you should interrupt to say so. You don't at all, and eventually he gets bored of you staring at him and hands you something called a Reasoning Circular and boots you back east."	"BUG. This should not happen."	Reasoning Circular
-Pusher Penn	"He drones on about exciting business opportunities and pushes some wacker weed on you to help you, apparently, get a taste of cutting-edge business."	"[if wacker weed is in lalaland]'Business, eh?'[else]He rubs his hand and makes a 'come here' gesture.[end if][penn-ask]"	wacker weed
-Art Fine	"Art goes to town on the superiority of unwritten art to written art. You guess it's persuasive, but you wonder if Phil would've been even more persuasive."	"Musings about unwritten vs. written art."
-Harmonic Phil	"Phil goes to town on the superiority of unwritten art to written art. You guess it's persuasive, but you wonder if Art would've been even more persuasive."	"Musings about written vs. unwritten art."
-Sly Moore	"[sly-s] haltingly asks if you found anything that could help him be less klutzy? He needs it a bit more than you. Um, a lot."	"'Uh, not found anything yet for my klutziness? No worries, I'd do even worse.'"	--
-Officer Petty	"Officer Petty boomingly proclaims a need for theoretical knowledge to augment his robust practical knowledge."	"'NOT FOUND ANYTHING YET? DIDN'T THINK SO. STILL, I CAN HOPE. I COULD USE SOME HIGHBROW FINESSE, I ADMIT IT.'"	--
-Grace Goode	"She mentions how having a flower for the googly bowl [if fourth-blossom is in lalaland]is so[else]would be[end if] nice."	"[if fourth-blossom is in lalaland]'Thank you for returning the flower to the bowl.'[else]'Have you found a flower for the googly bowl?'[end if]"
-generic-jerk	"Each [j-g] seems to be hiding something for all his bluster."	"Each [j-g] put up a good face but there was something wrong about all the bragging."
-Brother Big	"He muttes about how he's not very clever and he'd like to change that."	"He asked for something to make him cleverer."
-Brother Soul	"He frowns and pines for something to cheer him up."	"He asked for something to cheer him up."
-Brother Blood	"He moans about how he thinks more violent thoughts than he should, and he wants to change that, and not just to look or seem better."	"He seemed upset at how upset he was about things."
-Baiter Master	"[bug] -- you should be forced to see all the conversation."
+Fritz	"Many variants on 'Whoah dude whoah,' mumbling about the friend he lost[if fritz has minimum bear]--and you found[end if]."	"He was pretty incoherent, mumbling about a lost friend[if fritz has minimum bear] that you found[end if]."	--	--
+Stool Toad	"The usual ordering to keep your nose clean, don't go off the beaten path, or litter, or annoy people, or have illicit substances."	"Ugh. You have had enough of officious adults telling you you seem like a good kid so that's EXTRA reason how you better keep clean."	"You sat through a disturbingly long lecture about what you'd better not do, and you felt guilty at both what you heard before and what you didn't."
+Punch Sucker	"He mentions all the places he's been and all the exciting people he's met, so much more exciting than here, no offense, you'll be exciting one day. Why, a bit of alcohol might help! [sucker-offer]"	"Something about how exciting he was, and you could be, maybe. It doesn't feel so warm, in retrospect. [sucker-offer]"	"The Punch Sucker certainly had a lot to say,  but you get the feeling it was just minimal banter. [sucker-offer]"	--
+Liver Lily	"She--well, she seems to be making sense, but you feel obliged to agree with her without thinking in order to show her you're thoughtful. You notice she doesn't have a drink."	"She doesn't seem up for small talk, but she grabs an imaginary drink and swirls it."	"It was pretty head-spinning, but then, maybe it was just all bluster. She seems disinterested in you."
+Howdy Boy	"The usual greetings, as he exhorts you to be good--not too good, though. Maybe if you have some proof you're not totally boring and squeaky clean, you'll be bare-knuckle enough for the Compound proper. [if your-tix is 0]You'll--well, you'll know what, once you start picking up demerits[else]Probably the boo ticketies[end if]."	"The Howdy Boy wanted some sort of document[if your-tix is 4], maybe like that trail paper you've got[else if your-tix > 0], and your ticketies don't quite make one yet[end if]."
+Buddy Best	"Buddy Best begins talking a mile a minute about Big Things, and it's impressive all right, and you're not sure how much you should interrupt to say so. You don't at all, and eventually he gets bored of you staring at him and hands you something called a Reasoning Circular and boots you back east."	"BUG. This should not happen."	--	Reasoning Circular
+Pusher Penn	"He drones on about exciting business opportunities and pushes some wacker weed on you to help you, apparently, get a taste of cutting-edge business."	"[if wacker weed is in lalaland]'Business, eh?'[else]He rubs his hand and makes a 'come here' gesture.[end if][penn-ask]"	"[if wacker weed is in lalaland]Pusher Penn wanted you to run an errand, and you did. He seems pretty disinterested in you now[else if player has wacker weed]You still need to find whom to give the weed to[else]You get the feeling Pusher Penn is all business[end if]."	wacker weed
+Art Fine	"Art goes to town on the superiority of unwritten art to written art. You guess it's persuasive, but you wonder if Phil would've been even more persuasive."	"He was pretty convincing about spontaneous art versus art restricted by the written word."
+Harmonic Phil	"Phil goes to town on the superiority of unwritten art to written art. You guess it's persuasive, but you wonder if Art would've been even more persuasive."	"He was pretty convincing about intellectual art versus art that might appeal to less clever people."
+Sly Moore	"[sly-s] haltingly asks if you found anything that could help him be less klutzy? He needs it a bit more than you. Um, a lot."	"'Uh, not found anything yet for my klutziness? No worries, I'd do even worse.'"	"He wanted something to help him be less klutzy."	--
+Officer Petty	"Officer Petty boomingly proclaims a need for theoretical knowledge to augment his robust practical knowledge."	"'NOT FOUND ANYTHING YET? DIDN'T THINK SO. STILL, I CAN HOPE. I COULD USE SOME HIGHBROW FINESSE, I ADMIT IT.'"	"Officer Petty needed something to expand his skills beyond shouting and intimidation."	--
+Grace Goode	"She mentions how having a flower for the googly bowl [if fourth-blossom is in lalaland]is so[else]would be[end if] nice."	"[if fourth-blossom is in lalaland]'Thank you for returning the flower to the bowl.'[else]'Have you found a flower for the googly bowl?'[end if]"	"[if fourth-blossom is in lalaland]There's no need for words now that the flower is back in the googly bowl[else]She was hoping for a flower for the googly bowl[end if]."
+generic-jerk	"Each [j-g] seems to be hiding something for all his bluster."	"Each [j-g] put up a good face but there was something wrong about all the bragging."	--
+Brother Big	"Brother Big mutters about how he's not very clever and he'd like to change that."	"Brother Big asked for something to make him cleverer."	--
+Brother Soul	"Brother Soul frowns and pines for something to cheer him up."	"Brother Soul asked for something to cheer him up."	--
+Brother Blood	"Brother Blood moans about how he thinks more violent thoughts than he should, and he wants to change that, and not just to look or seem better."	"Brother Blood seemed upset at how upset he was about things."	--
+Baiter Master	"[bug] -- you should be forced to see all the conversation."	"[bug] -- you should be forced to see all the conversation."	--
 
 to say weasel-babble:
 	if burden-signed is true:
@@ -4182,7 +4190,7 @@ to say sucker-offer:
 to recap-babble (pe - a person):
 	say "You've already had a chat. Re-summarize?";
 	if the player yes-consents:
-		choose row with babbler of pe in table of babble summaries;
+		choose row with babbler of pe in table of npc talk summaries;
 		if there is no babble-recap entry:
 			say "BUG [babbler entry] needs a babble recap!";
 		else:
@@ -6253,7 +6261,7 @@ skipoffing is an action applying to nothing.
 
 understand the command "skip off" as something new.
 
-understand "skip off" as skiponing.
+understand "skip off" as skipoffing.
 
 carry out skipoffing:
 	say "Skipping to next jerk [if skip-after-accuse is false]was already[else]is now[end if] off.";
@@ -6535,7 +6543,7 @@ to say snickerin:
 
 to reset-the-table:
 	d "WRONG!";
-	say ".[line break]";
+	say "[snickerin].";
 	if jerk-close-listen is true:
 		if jerks-scared >= 2:
 			say "[line break]The [j-co]['] conversation ratchets back up to full volume. You must've made the wrong accusation.";
@@ -6551,7 +6559,9 @@ to check-jerks-done:
 	d "RIGHT!";
 	say "[snickerin].";
 	repeat through table of fingerings:
-		if suspect entry is 0 and my-quip entry is jerky and jerky-guy entry is not minted:
+		if debug-state is true:
+			say "[jerky-guy entry] ([my-quip entry][if my-quip entry is jerky]: JERKY[end if]): [suspect entry] [if jerky-guy entry is minted]MINT[end if].";
+		if suspect entry is 0 and my-quip entry is jerky and jerky-guy entry is not minted and jerky-guy entry is not buddy best:
 			if skip-after-accuse is true:
 				now last-jerk is next-c-x of last-jerk;
 				say "[line break]You move on to [last-jerk].";
@@ -10944,11 +10954,11 @@ test jerk-wrong with "1111111/1234576/1023456/1823456"
 
 test jerk-q with "gonear jerks/talk to jerks/g/gonear safe/get safe/x index/s/s/e/e/talk to jerks/purloin mint/give mint to wash white/test jq"
 
-test jq with "jfix/talk to dandy jim/10/1234567"
+test jq with "test j-1/jfix/talk to dandy jim/10/1234567"
 
 section errors
 
-test j-err-mintgive with "give mint to jim/talk to jim"
+test j-err-mintgive with "give mint to jim/talk to jim/jrm"
 
 section quick stuff
 
@@ -10956,97 +10966,97 @@ test j-q-jim with "talk to jim/10/1234567/jr q-jim"
 
 test j-q-boris with "talk to boris/10/2345671/jr q-boris"
 
-test j-q-wash with "talk to jim/10/3456712/jr q-wash"
+test j-q-wash with "talk to wash/10/3456712/jr q-wash"
 
-test j-q-warner with "talk to jim/10/4567123/jr q-warner"
+test j-q-warner with "talk to warner/10/4567123/jr q-warner"
 
-test j-q-warm with "talk to jim/10/5671234/jr q-warm"
+test j-q-warm with "talk to warm/10/5671234/jr q-warm"
 
-test j-q-paul with "talk to jim/10/6712345/jr q-paul"
+test j-q-paul with "talk to paul/10/6712345/jr q-paul"
 
-test j-q-cain with "talk to jim/10/7123456/jr q-cain"
+test j-q-cain with "talk to cain/10/7123456/jr q-cain"
 
 section jerk quick with mint
 
-test j-qm-boris with "give mint to boris/talk to jim/talk to boris/1234567/jrm"
+test j-qm-boris with "skip on/give mint to boris/talk to jim/10/1234567/jrm j-qm-boris"
 
-test j-qm-wash with "skip on/give mint to wash/talk to jim/talk to boris/1234567/jrm"
+test j-qm-wash with "skip on/give mint to wash/talk to jim/10/1234567/jrm j-qm-wash"
 
-test j-qm-warner with "skip on/give mint to warner/talk to jim/talk to boris/1234567/jrm"
+test j-qm-warner with "skip on/give mint to warner/talk to jim/10/1234567/jrm j-qm-warner"
 
-test j-qm-warm with "skip on/give mint to warm/talk to jim/talk to boris/1234567/jrm"
+test j-qm-warm with "skip on/give mint to warm/talk to jim/10/1234567/jrm j-qm-warm"
 
-test j-qm-paul with "skip on/give mint to paul/talk to jim/talk to boris/1234567/jrm"
+test j-qm-paul with "skip on/give mint to paul/talk to jim/10/1234567/jrm j-qm-paul"
 
-test j-qm-cain with "skip on/give mint to cain/talk to jim/talk to boris/1234567/jrm"
+test j-qm-cain with "skip on/give mint to cain/talk to jim/10/1234567/jrm j-qm-cain"
 
 section jerk mint
 
-test j-m-boris with "skip on/give mint to boris/talk to jim/1/3/4/5/6/7/jrm"
+test j-m-boris with "skip on/give mint to boris/talk to jim/1/3/4/5/6/7/jrm j-m-boris"
 
-test j-m-wash with "skip on/give mint to wash/talk to jim/talk to boris/1/2/4/5/6/7/jrm"
+test j-m-wash with "skip on/give mint to wash/talk to jim/1/2/4/5/6/7/jrm j-m-wash"
 
-test j-m-warner with "skip on/give mint to warner/talk to jim/talk to boris/1/2/3/5/6/7/jrm"
+test j-m-warner with "skip on/give mint to warner/talk to jim/1/2/3/5/6/7/jrm j-m-warner"
 
-test j-m-warm with "skip on/give mint to warm/talk to jim/talk to boris/1/2/3/4/6/7/jrm"
+test j-m-warm with "skip on/give mint to warm/talk to jim/1/2/3/4/6/7/jrm j-m-warm"
 
-test j-m-paul with "skip on/give mint to paul/talk to jim/talk to boris/1/2/3/4/5/7/jrm"
+test j-m-paul with "skip on/give mint to paul/talk to jim/1/2/3/4/5/7/jrm j-m-paul"
 
-test j-m-cain with "skip on/give mint to cain/talk to jim/talk to boris/1/2/3/4/5/6/jrm"
+test j-m-cain with "skip on/give mint to cain/talk to jim/1/2/3/4/5/6/jrm j-m-cain"
 
 section jerk plain
 
-test j-jim with "skip on/talk to jim/1/2/3/4/5/6/7/jrm"
+test j-jim with "skip on/talk to jim/1/2/3/4/5/6/7/jrm j-jim"
 
-test j-boris with "skip on/talk to boris/2/3/4/5/6/7/1/jrm"
+test j-boris with "skip on/talk to boris/2/3/4/5/6/7/1/jrm j-boris"
 
-test j-wash with "skip on/talk to wash/3/4/5/6/7/1/2/jrm"
+test j-wash with "skip on/talk to wash/3/4/5/6/7/1/2/jrm j-wash"
 
-test j-warner with "skip on/talk to warner/4/5/6/7/1/2/3/jrm"
+test j-warner with "skip on/talk to warner/4/5/6/7/1/2/3/jrm j-warner"
 
-test j-warm with "skip on/talk to warm/5/6/7/1/2/3/4/jrm"
+test j-warm with "skip on/talk to warm/5/6/7/1/2/3/4/jrm j-warm"
 
-test j-paul with "skip on/talk to paul/6/7/1/2/3/4/5/jrm"
+test j-paul with "skip on/talk to paul/6/7/1/2/3/4/5/jrm j-paul"
 
-test j-cain with "skip on/talk to cain/7/1/2/3/4/5/6/jrm"
+test j-cain with "skip on/talk to cain/7/1/2/3/4/5/6/jrm j-cain"
 
 section jerk long mint
 
-test j-l-m-boris with "skip off/give mint to boris/talk to jim/1/8/3/8/4/8/5/8/6/8/7/8/jrm"
+test j-l-m-boris with "skip off/give mint to boris/talk to jim/1/8/3/8/4/8/5/8/6/8/7/8/jrm j-l-m-boris"
 
-test j-l-m-wash with "skip off/give mint to wash/talk to jim/talk to boris/1/8/2/8/4/8/5/8/6/8/7/8/jrm"
+test j-l-m-wash with "skip off/give mint to wash/talk to jim/1/8/2/8/4/8/5/8/6/8/7/8/jrm j-l-m-wash"
 
-test j-l-m-warner with "skip off/give mint to warner/talk to jim/talk to boris/1/8/2/8/3/8/5/8/6/8/7/8/jrm"
+test j-l-m-warner with "skip off/give mint to warner/talk to jim/1/8/2/8/3/8/5/8/6/8/7/8/jrm j-l-m-warner"
 
-test j-l-m-warm with "skip off/give mint to warm/talk to jim/talk to boris/1/8/2/8/3/8/4/8/6/8/7/8/jrm"
+test j-l-m-warm with "skip off/give mint to warm/talk to jim/1/8/2/8/3/8/4/8/6/8/7/8/jrm j-l-m-warm"
 
-test j-l-m-paul with "skip off/give mint to paul/talk to jim/talk to boris/1/8/2/8/3/8/4/8/5/8/7/8/jrm"
+test j-l-m-paul with "skip off/give mint to paul/talk to jim/1/8/2/8/3/8/4/8/5/8/7/8/jrm j-l-m-paul"
 
-test j-l-m-cain with "skip off/give mint to cain/talk to jim/talk to boris/1/8/2/8/3/8/4/8/5/8/6/8/jrm"
+test j-l-m-cain with "skip off/give mint to cain/talk to jim/1/8/2/8/3/8/4/8/5/8/6/8/jrm j-l-m-cain"
 
 section jerk long
 
-test j-l-jim with "skip off/talk to jim/1/8/2/8/3/8/4/8/5/8/6/8/7/8/jrm"
+test j-l-jim with "skip off/talk to jim/1/8/2/8/3/8/4/8/5/8/6/8/7/jrm j-l-jim"
 
-test j-l-boris with "skip off/talk to boris/2/8/3/8/4/8/5/8/6/8/7/8/1/8/jrm"
+test j-l-boris with "skip off/talk to boris/2/8/3/8/4/8/5/8/6/8/7/8/1/jrm j-l-boris"
 
-test j-l-wash with "skip off/talk to wash/3/8/4/8/5/8/6/8/7/8/1/8/2/8/jrm"
+test j-l-wash with "skip off/talk to wash/3/8/4/8/5/8/6/8/7/8/1/8/2/jrm j-l-wash"
 
-test j-l-warner with "skip off/talk to warner/4/8/5/8/6/8/7/8/1/8/2/8/3/8/jrm"
+test j-l-warner with "skip off/talk to warner/4/8/5/8/6/8/7/8/1/8/2/8/3/jrm j-l-warner"
 
-test j-l-warm with "skip off/talk to warm/5/8/6/8/7/8/1/8/2/8/3/8/4/8/jrm"
+test j-l-warm with "skip off/talk to warm/5/8/6/8/7/8/1/8/2/8/3/8/4/jrm j-l-warm"
 
-test j-l-paul with "skip off/talk to paul/6/8/7/8/1/8/2/8/3/8/4/8/5/8/jrm"
+test j-l-paul with "skip off/talk to paul/6/8/7/8/1/8/2/8/3/8/4/8/5/jrm j-l-paul"
 
-test j-l-cain with "skip off/talk to cain/7/8/1/8/2/8/3/8/4/8/5/8/6/8/jrm"
+test j-l-cain with "skip off/talk to cain/7/8/1/8/2/8/3/8/4/8/5/8/6/jrm j-l-cain"
 
 section jall
 
 test j-q-all with "jfix/test j-q-jim/test j-q-boris/test j-q-wash/test j-q-warner/test j-q-warm/test j-q-paul/test j-q-cain"
 
-test j-qm-all with "jfix/test j-qm-jim/test j-qm-boris/test j-qm-wash/test j-qm-warner/test j-qm-warm/test j-qm-paul/test j-qm-cain"
+test j-qm-all with "jfix/test j-qm-boris/test j-qm-wash/test j-qm-warner/test j-qm-warm/test j-qm-paul/test j-qm-cain"
 
-test j-m-all with "jfix/test j-m-jim/test j-m-boris/test j-m-wash/test j-m-warner/test j-m-warm/test j-m-paul/test j-m-cain"
+test j-m-all with "jfix/test j-m-boris/test j-m-wash/test j-m-warner/test j-m-warm/test j-m-paul/test j-m-cain"
 
 test j-all with "jfix/test j-jim/test j-boris/test j-wash/test j-warner/test j-warm/test j-paul/test j-cain"
 
@@ -11894,7 +11904,7 @@ understand the command "bc" as something new.
 understand "bc" as bcing.
 
 to see-babble (pe - a person):
-	repeat through table of babble summaries:
+	repeat through table of npc talk summaries:
 		if pe is babbler entry:
 			say "[i][pe] has a babble summary[r].";
 			continue the action;
@@ -11906,7 +11916,7 @@ carry out bcing:
 			say "[X] has no conversation table.";
 	repeat with X running through people:
 		unless litany of X is table of no conversation:
-			[if X is a babbler listed in table of babble summaries:
+			[if X is a babbler listed in table of npc talk summaries:
 				say "[i][X] has a babble summary[r].";
 			else:
 				say "[b][X] has no babble summary[r].";]
@@ -11922,8 +11932,16 @@ understand the command "jfix" as something new.
 understand "jfix" as jfixing.
 
 carry out jfixing:
+	if finger index is not examined:
+		say "NOTE: you didn't examine the finger index, so I did that. This is a bit out of order for the game, but it shouldn't make a difference.";
+	now finger index is examined;
+	re-fix;
+	say "Talk to Dandy Jim, then 1-2-3-4-5-6-7 should work.";
+
+to re-fix:
 	repeat through table of fingerings:
 		now jerky-guy entry is buddy best;
+		now suspect entry is 0;
 	choose row with my-quip of jerk-veg in table of fingerings;
 	now jerky-guy entry is dandy jim;
 	now next-c of cain reyes is dandy jim;
@@ -11945,15 +11963,14 @@ carry out jfixing:
 	choose row with my-quip of jerk-light in table of fingerings;
 	now jerky-guy entry is cain reyes;
 	now next-c of paul kast is cain reyes;
-	say "Talk to Dandy Jim, then 1-2-3-4-5-6-7 should work.";
 	repeat through table of jt:
 		if response entry is jerk-hows or response entry is jerk-baiter or response entry is jerk-next or response entry is jerk-bye:
 			do nothing;
 		else if response entry is jerk-veg or response entry is jerk-comedian or response entry is jerk-pro or response entry is jerk-chess or response entry is jerk-undies or response entry is jerk-anne or response entry is jerk-light:
-			d "[response entry] ([prompt entry]) is forced on.";
 			now enabled entry is 1;
+			now response entry is jerky;
 		else:
-			d "[response entry] ([prompt entry]) is forced off.";
+			now response entry is not jerky;
 			now enabled entry is 0;
 	the rule succeeds;
 
@@ -11978,7 +11995,11 @@ carry out plowing:
 		try talking to noun;
 	the rule succeeds.
 
-chapter jring
+chapter jrming
+
+total-tests is a number that varies.
+
+tests-failed is a number that varies.
 
 jrtming is an action applying to one topic.
 
@@ -11990,8 +12011,21 @@ understand "jrm [text]" as jrtming.
 
 understand "jrm" as jrming.
 
+to check-boris:
+	if qbc_litany is not table of no conversation:
+		end the story saying "TEST WENT AWRY";
+		continue the action;
+	increment total-tests;
+	if boris is in jerk circle:
+		increment tests-failed;
+	re-fix;
+
+to say test-prog:
+	say "[tests-failed] of [total-tests] failed";
+
 carry out jrtming:
-	say "Test [topic understood] [if boris is not in jerk circle]passed[else]failed[end if].";
+	check-boris;
+	say "Test [topic understood] [if boris is not in jerk circle]passed[else]failed[end if], [test-prog].";
 	try jrming instead;
 
 carry out jrming:
@@ -12013,11 +12047,25 @@ understand "jr [text]" as jrting.
 understand "jr" as jring.
 
 carry out jrting:
-	say "Test [topic understood] [if boris is not in jerk circle]passed[else]failed[end if].";
+	check-boris;
+	say "Test [topic understood] [if boris is not in jerk circle]passed[else]failed[end if], [test-prog].";
 	try jring instead;
 
 carry out jring:
 	now all clients are in jerk circle;
+	the rule succeeds;
+
+chapter fining
+
+fining is an action out of world.
+
+understand the command "fin" as something new.
+
+understand "fin" as fining.
+
+carry out fining:
+	repeat through table of fingerings:
+		say "[jerky-guy entry]: [blackmail entry]: [my-quip entry]: [suspect entry].";
 	the rule succeeds;
 
 chapter xinding
