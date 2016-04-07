@@ -9,17 +9,22 @@ sub printResults
 {
 my $fails = 0;
 my $totals = 0;
+my $errMsg = "";
 
 for $x (keys %any)
 {
   $totals++;
 #  print "Looking at $x:\n";
-  if (!$expl{$x}) { print "$x needs explanation.\n"; $fails++; }
-  if (!$conc{$x}) { print "$x needs concept definition.\n"; $fails++; }
-  if (!$activ{$x}) { print "$x needs activation.\n"; $fails++; }
+  if (!$expl{$x}) { $errMsg .= "$x needs explanation.\n"; $fails++; }
+  if (!$conc{$x}) { $errMsg .= "$x needs concept definition.\n"; $fails++; }
+  if (!$activ{$x}) { $errMsg .= "$x needs activation.\n"; $fails++; }
 }
 
-print "Concepts test for $_[0]: ";
+print "$errMsg";
+
+if (!$errMsg) { $errMsg = "All okay!"; } else { $errMsg =~ s/\n/<br>/g; $errMsg =~ s/<br>$//g; }
+
+print "TESTRUN:concepts-$_[0],$fails,$totals,$errMsg\n";
 
 if ($fails) { print "Test failed, $fails failures of $totals.\n"; }
 else { print "Test succeeded! All $totals passed."; }

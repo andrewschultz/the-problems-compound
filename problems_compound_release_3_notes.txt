@@ -1,0 +1,23 @@
+The Problems Compound release 3 notes
+
+by Andrew Schultz
+
+============================================================
+
+This is the third release of The Problems Compound. The first release was for IFComp 2015, on September 28, and the second was on March 31, 2016.
+
+(Write in people who helped here)
+
+This is largely a maintenance release without many new features. It addresses some bugs discovered and features unimplemented in release 2. The source code is now above 650,000 bytes, and...well, I think I'm ready to move on.
+
+The milestones for release 3 can be seen at https://github.com/andrewschultz/the-problems-compound/milestones/v3%20coding%20tweaks, but that's not everything.
+
+I managed to make more automated tests for the jerks, which spurred many of the changes.
+
+--mint now works as planned (BUG in R2)
+--SKIP replaces GLIB as a verb. TESTJUMP is now the testing verb.
+--the final question rule is now organized by (my stuff) (their stuff) and BOLD choices haven't been chosen yet, while italic have.
+--walkthrough and InvisiClues touched up to address new alternate jerk solutions.
+--the jerks' puzzle now lets you type, say, 1234567, and it clues you if one number is wrong and you gave the wrong guy a mint. Unfortunately, the jerk-ordering is still arbitrary.
+--some concepts were revealed on start before, but now, a tracking file sees if they should be revealed.
+--push and pull now map to open. This isn't huge, technically, but I'll use it going forward.
