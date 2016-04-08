@@ -328,7 +328,7 @@ brief (indexed text)	found	expound	jumpable	descr (indexed text)
 "duck"	false	true	true	"DUCK SITTING to skip to Tension Surface."
 "knock"	false	true	true	"KNOCK HARD to get to Pressure Pier."
 "figure"	false	true	true	"FIGURE A CUT to skip past the Howdy Boy to the [jc]."
-"notice"	false	true	true	"NOTICE ADVANCE to skip to Questions Field, with the brothers and jerks gone."
+"notice"	false	true	true	"NOTICE ADVANCE to skip to Questions Field, with the brothers and [j-co] gone."
 "cookie"	false	false	false	"Eating the cookie unlocked a few concepts."
 "greater"	false	false	false	"Eating the cookie unlocked a few concepts."
 "off"	false	false	false	"Eating the cookie unlocked a few concepts."
@@ -1011,7 +1011,7 @@ instead of thinking:
 	if mrlp is dream sequence:
 		move-dream-ahead instead;
 	if finger index is examined and silly boris is in jerk circle:
-		say "Hmm. You remember the finger index and the seven jerks.";
+		say "Hmm. You remember the finger index and the seven [j-co].";
 		say "[finger-say]." instead;
 	if think-score is false:
 		say "NOTE: THINK will redirect to SCORE in the future, unless you really only have one specific task remaining.";
@@ -1105,7 +1105,7 @@ check sleeping:
 		go-to-dream;
 		the rule succeeds;
 	if player is in Down Ground:
-		say "You feel especially apathetic here. Yes, it's a good place to drift off.";
+		say "You feel especially apathetic here. Yes, it's a good place to drift off[if slept-through is true], with no chance of another [activation of dream ticket]ticket dream[end if].";
 		if last-dream-loc is visited:
 			say "[line break]You slip back into the old dream.";
 		go-to-dream;
@@ -1344,7 +1344,7 @@ jerk-close-listen is a truth state that varies.
 check listening (this is the listening in a place rule):
 	if qbc_litany is table of generic-jerk talk:
 		now jerk-close-listen is true;
-		say "You listen in a bit closer, so if your accusations disquieted the jerks enough, you'll know." instead;
+		say "You listen in a bit closer, so if your accusations disquieted the [j-co] enough, you'll know." instead;
 	if player is in chipper wood:
 		if assassination is in chipper wood:
 			try listening to assassination instead;
@@ -1353,7 +1353,7 @@ check listening (this is the listening in a place rule):
 	if player is in idiot village:
 		say "You hear a faint duh-duh-duh. But wait a minute. Maybe it's there to ward off people who think they're a little too smart, and Idiot Village is not so stupid." instead;
 	if player is in jerk circle:
-		say "[if boris is in lalaland]Mercifully silent[else]The jerks gabble away about what is cool and what is not, and how they do not participate in any of the second[end if]." instead;
+		say "[if boris is in lalaland]Mercifully silent[else]The [j-co] gabble away about what is cool and what is not, and how they do not participate in any of the second[end if]." instead;
 	if player is in surface and mush is in surface:
 		say "The arch makes a slight tapping noise as it dances from side to side." instead;
 	if player is in Soda Club:
@@ -1811,8 +1811,8 @@ check attacking:
 		if noun is female:
 			say "Attacking people unprovoked is uncool, but attacking females is doubly uncool. You may not feel big and strong, but with that recent growth spurt, you're bigger than you used to be. The Stool Toad's quick on the scene, and while his knight-in-shining-armor act goes way overboard, to the point [noun] says that's enough--well, that doesn't change what you did.";
 			ship-off Criminals' Harbor instead;
-		say "You begin to lash out, but [the noun] says 'Hey! What's your problem?' [if joint strip is
-		 visited]the Stool Toad[else]A big scary important looking man[end if] blusters over. 'WHOSE FAULT? QUIT HORSING AROUND!' You have no defense. 'THERE'S ONLY ONE PLACE TO REFORM VIOLENT TYPES LIKE YOU.' You--you should've KNOWN better than to lash out, but...";
+		say "You begin to lash out, but [the noun] says 'Hey! What's your problem?' [if down ground is
+		 visited]the Stool Toad[else]A big scary important greenish looking half-man[end if] blusters over. 'YOU! THE NEW KID!' You flinch. 'SUDDEN MOVEMENTS, EH? THERE'S ONLY ONE PLACE TO REFORM VIOLENT TYPES LIKE YOU.' You--you should've KNOWN better than to lash out, but...";
 		ship-off Fight Fair instead;
 	if noun is language machine:
 		say "[if wax is in lalaland]After you were so nice to it? That's rough, man[else]No, it needs compassion, here[end if]." instead;
@@ -1822,7 +1822,7 @@ check attacking:
 		say "BONG! You didn't expect anything so musical. Or so robust, or full. But it probably needs you to act on it more subtly." instead;
 	if mrlp is endings:
 		say "You don't need violence right now[if player is in station]. Well, maybe the right sort against the caps[end if]." instead;
-	say "Lashing out against inanimate objects won't help, here. In fact, you may be lucky this one's unimportant enough you didn't get arrested." instead;
+	say "Best not to make a [activation of force of habit]habit of force. Especially not against people. Fortunately, you didn't get arrested this time." instead;
 
 return-room is a room that varies.
 
@@ -2101,7 +2101,7 @@ check giving mind of peace to:
 	if second noun is Brother Blood:
 		now mind of peace is in lalaland;
 		now brother blood is in lalaland;
-		say "Brother Blood takes the mind and gazes at it from all different angles. He smiles. 'Yeah...yeah. Some people are just jerks. Nothing you can do to brush [']em off but brush [']em off. I mean, I knew that, but I KNOW it now.'[paragraph break]'Thank you!' he says, squeezing your arm a bit too hard. 'Oops, sorry, let's try that again.' The other arm works better. 'I'm--I'm not just good for snarling and yelling at people and pushing them around, like the [bad-guy] said. I'm more than that. So I guess I need to go find myself or something.'";
+		say "Brother Blood takes the mind and gazes at it from all different angles. He smiles. 'Yeah...yeah. Some people are just mean. Nothing you can do to brush [']em off but brush [']em off. I mean, I knew that, but I KNOW it now.'[paragraph break]'Thank you!' he says, squeezing your arm a bit too hard. 'Oops, sorry, let's try that again.' The other arm works better. 'I'm--I'm not just good for snarling and yelling at people and pushing them around, like the [bad-guy] said. I'm more than that. So I guess I need to go find myself or something.'";
 		check-left;
 		the rule succeeds;
 
@@ -2824,6 +2824,7 @@ turn of phrase	"A turn of phrase is clever wording. A phrase of turn is, well, w
 wait your turn	"This means not to do anything til someone else goes first. But in this case the game wants you to turn your wait into something else."
 abuse testing	"Abuse testing means trying to break things with stuff a tester wouldn't usually try, or that they know has broken their own game. Testing abuse is--well, most abuse can feel a bit testing, or trying."
 cut a deal	"To cut a deal is to make a business arrangement, often favorably. To deal a cut is just to knife someone."
+Force of Habit	"Force of habit is what causes you to do something with minimal thinking, for better or worse."
 Buster Ball	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure." [the 2 bad guys]
 Hunter Savage	"A savage hunter is, well, someone with no mercy. Yup, I like the 'dirty' tangential bad guy better, too."
 Nonsense No	"No-nonsense means, well, not taking any silliness." [xyzzy snark]
@@ -2854,6 +2855,7 @@ Bowled Over	"Bowled over means unable to deal with things. Over-bold means too c
 Growing Pains	"Growing pains are temporary setbacks that help you get going. Pain's growing is just a complaint."
 Bum Beach	"A beach bum is someone who wanders on the beach. Maybe he lives there in a shack too."
 sleeper cell	"A group of people who blen into a community until they can commit an act of terrorism."
+Dream Ticket	"A pair of candidates who, running together, have extremely broad appeal they wouldn't have alone. In Alec's dreams, he's often ganged up on by two people or groups who triangulate him rather differently."
 hoth	"High on the hog means living wealthily. To hog the high would be if Fritz didn't share his, um, stuff."
 Double Jeopardy	"Double jeopardy is being tried for the same crime twice. Making your jeopardy double is just putting you at twice the risk."
 Trust Brain	"A brain trust is a group of people that help make a decision. A trust-brain, though not an English phrase, might mean a mind that can't make its own decisions."
@@ -3079,7 +3081,7 @@ carry out verbing:
 	say "[2da]GIVE X TO Y[line break]";
 	say "[2da]TALK/T talks to the only other person in the room. TALK TO X is needed if there is more than one.[line break]";
 	if jerk-who-short is true and silly boris is not in lalaland:
-		say "[2da]WHO tells the jerks['] names.";
+		say "[2da]WHO tells the [j-co]['] names.";
 		say "[2da]SHORT cuts down the conversation topics.";
 	if know-babble is true:
 		say "[2da]BROOK BABBLING lets you talk to someone and skip over a conversation's details[if ever-babbled is true]. It can be shortened to B[sr-space]B, with or without a space[end if]. You can even specify a person if there's more than one to talk to, e.g. BROOK HIM or BB HER.[line break]";
@@ -3102,7 +3104,7 @@ to decide whether verbs-unlocked: [I could probably check "duck sitting" but bes
 	decide no;
 
 to list-debug-cmds:
-	say "[line break]DEBUG COMMANDS: ================[line break][2da]J jumps you to the next bit from the Street, Lounge, Surface or Pier.[line break][2da]MONTY toggles every-move actions like listening and smelling. It may be more for programming testing[line break][2da]ACBYE/CTC/CTP gets rid of the Assassination Character and chase paper.[line break][2da]JERK tells you what to do with the jerks.[line break][2da]JGO gets rid of them[line break][2da]BROBYE kicks the Keeper Brothers out.[2da]VIC gives regular victory, VICX gives extra good victory[line break][2da]JC shows the cheat code for the jerks[line break]";
+	say "[line break]DEBUG COMMANDS: ================[line break][2da]J jumps you to the next bit from the Street, Lounge, Surface or Pier.[line break][2da]MONTY toggles every-move actions like listening and smelling. It may be more for programming testing[line break][2da]ACBYE/CTC/CTP gets rid of the Assassination Character and chase paper.[line break][2da]JERK tells you what to do with the [j-co].[line break][2da]JGO gets rid of them[line break][2da]BROBYE kicks the Keeper Brothers out.[2da]VIC gives regular victory, VICX gives extra good victory[line break][2da]JC shows the cheat code for the [j-co][line break]";
 
 chapter metaing
 
@@ -3415,7 +3417,7 @@ before doing something when qbc_litany is not table of no conversation:
 	say "You get distracted, but you've never had the power to break a conversation off. [note-recap]" instead;
 
 to say note-recap:
-	say "(NOTE: to see dialog options, type RECAP[if qbc_litany is table of jt], SHORT to shorten your questions for readability, THINK to recall the Finger Index, SKIP to [nl-skip]move on immediately from a jerk you accused, 1234567 to order your accusations from the last jerk talked to, or WHO to recall the jerks['] names. Currently you can choose [convo-nums])[line break]";
+	say "(NOTE: to see dialog options, type RECAP[if qbc_litany is table of jt], SHORT to shorten your questions for readability, THINK to recall the Finger Index, SKIP to [nl-skip]move on immediately from a jerk you accused, 1234567 to order your accusations from the last jerk talked to, or WHO to recall the [j-co]['] names. Currently you can choose [convo-nums])[line break]";
 
 to say nl-skip:
 	say "[if skip-after-accuse is true]no longer [end if]";
@@ -3947,6 +3949,57 @@ to figure-cut:
 	move player to jerk circle;
 	now trail paper is in lalaland;
 	now howdy boy is in lalaland;
+	now gesture token is in lalaland;
+	open-babble;
+
+chapter secretsopening
+
+secretsopening is an action applying to nothing.
+
+secrets-open is a truth state that varies.
+
+understand the command "secrets open" as something new.
+
+understand "secrets open" and "secrets open" as secretsopening.
+
+to say periodly:
+	if in-parser-error is true:
+		say ".[no line break]";
+		now in-parser-error is false;
+	else:
+		say ".";
+
+carry out secretsopening:
+	if boris is in lalaland:
+		say "You already figured the [j-co]['] secrets, but after that episode, you realize that other people's secrets may be there, if you know where to look. That leaves potential for abuse but also it's good to know everyone else isn't ten times as impervious as you to misfortune. Wait, no, not strictly good. But you feel less odd." instead;
+	if secrets-open is true:
+		say "You've already made certain secrets open[if finger index is in accountable hold], and you can read them in full on the Finger Index back in Accountable Hold[else], though you haven't uncovered any specific ones, yet[end if]." instead;
+	say "[activation of open secrets][if finger index is examined]You take some time to think about the names on the Finger Index. And you remember pieces of conversation from the [j-co]. One guy was too hesitant, or too eager, to dismiss this or that, or he knew too much about this subject, or played too dumb about that subject. Oh goodness. You've missed or dismissed those clues before in other situations. And you're a bit embarrassed the Labor Child figured things out so young. But--well, there were clues. You see that now[else]Nothing happens. But you just feel you're more open to what people may be saying, or doing, and putting clues together so you're not in the dark about certain things[end if][periodly]";
+	now secrets-open is true;
+	the rule succeeds;
+
+chapter fancypassinging
+
+fancypassing is an action applying to nothing.
+
+understand the command "fancy passing" as something new.
+
+understand "fancy passing" as fancypassing.
+
+carry out fancypassing:
+	if player is not in smart street:
+		say "You daydream about how nice it would be to just be able to move ahead and be almost done. You daydream long enough that--why stop with doing so here? Do so back in Smart Street. Yes. That would be neat. if you could RESTART and jump." instead;
+	say "[activation of passing fancy]You don't know how you know, but you know there's a hidden compartment in the Game Shell that will drop you by Freak Control and leave any guardians speechless and impressed enough that they'll listen to you instead of the [bad-guy]. Guy Sweet whines 'Cheater!' as you enter. Yuo're surprised how well the conversation with the Keeper Brothers goes. You never really had that sort of confidence before.";
+	write-undo "fancy passing";
+	fancy-pass;
+	the rule succeeds;
+
+to fancy-pass:
+	move-puzzlies;
+	disable-ticketies;
+	now jump-level is 4;
+	move player to questions field;
+	now the score is 16;
 	now gesture token is in lalaland;
 	open-babble;
 
@@ -5431,7 +5484,7 @@ accel-place	alt-num	accel-cookie	accel-off	accel-greater
 meal square	-1	"Pfft. None of the foods look close to as good as the cookie you ate. Time to get going."	"Ugh. The sight of the remaining food turns your stomach. You just want to get going."	"You're sure you're meant for better things than pigging out and getting fat on food that probably doesn't taste that great, anyway."
 pressure pier	0	"You take a moment to sneer at the [if howdy boy is in lalaland]memory of the [end if]Howdy Boy. 'Is this your JOB? Man, that's SAD. The stupid stuff you want people to do to show you they're cool? Little league stuff. I mean, thanks for the start and all, but SERIOUSLY.' He gapes, shocked, then flees before your wrath.[paragraph break]Man! You've never won an argument before. And you didn't expect to win that conclusively. Oh, wait, yes you did."	"You give an exasperated sigh. 'I'm not here because I want to be. I got suckered into it. Do you think I could...?'[paragraph break]'You know, some people don't even ASK. Or if they do, it's all unforceful. You're okay. You can go through.' [if howdy boy is in lalaland]You blame the Howdy Boy for not being around to listen to your whining[else]The Howdy Boy bows slightly--you don't care if it's sarcastic or not--and you walk past. You turn around, but he's not there[end if]."	"[if howdy boy is in lalaland]You're sad the Howdy Boy is gone. You'd be giving HIM advice, now.[else]'Oh, hey! Still here? I'm moving ahead in life!' you say to the Howdy Boy, who runs off in embarrassment.[end if]"
 jerk circle	1	"'Hey, move it, I'm on a quest here!' They look shocked. You proceed to berate them for, is this all they ever do? Is it their purpose in life? Do they have anyone better to talk to? If so, what a waste. If not, sad.[paragraph break]Before this terrifying onslaught of hard-hitting language and lucid, back-to-basics logic, the [j-co] recognize how minor-league they are. They run off to chat or commiserate elsewhere.[paragraph break]Bam! Seven at one blow!"	"'Hey, what you all talking about?' you ask. 'Gossip, eh?' You try to join in, but--they seem a bit jealous of how good your grumbling is, and they excuse themselves."	"'Oh! Hey! You all talking about something interesting? I won't disturb you. Which way is the [bg]?' They look shocked you...USED HIS INITIALS. They point north. 'I KNOW,' you boom. They scatter."
-lalaland	2	"Oh, boy. Looking back, you didn't need all that reasoning to get past them. You could've probably just acted a little exasperated, said you were SURE someone could help, and wham! Well, it's good to have all this space, but you need to be going north."	"You sniff at the memory of the [j-co] you helped. They weren't properly grateful, and they weren't even good at being jerks. Maybe you should've gone into business with the Labor Child. You'd figure how to backstab him later. Still, you learned a lot from that. Perhaps you can find ways to keep tabs on people, probe their weaknesses. Makes up for earlier memories of your own."	"You look back at the silliness and all you did to get around the jerks when really you could've just shown them what was what the way you are now. You're--BETTER than those logic puzzles."
+lalaland	2	"Oh, boy. Looking back, you didn't need all that reasoning to get past them. You could've probably just acted a little exasperated, said you were SURE someone could help, and wham! Well, it's good to have all this space, but you need to be going north."	"You sniff at the memory of the [j-co] you helped. They weren't properly grateful, and they weren't even good at being [j-co]. Maybe you should've gone into business with the Labor Child. You'd figure how to backstab him later. Still, you learned a lot from that. Perhaps you can find ways to keep tabs on people, probe their weaknesses. Makes up for earlier memories of your own."	"You look back at the silliness and all you did to get around the [j-co] when really you could've just shown them what was what the way you are now. You're--BETTER than those logic puzzles."
 speaking plain	0	"Oh geez. You can't take this. You really can't. All this obvious improvement stuff. You lash out, do they think people REALLY don't know this? Do they think hearing it again will help? Uncle Dutch and Turk Young revile you as a purveyor of negative energy. No, they won't go on with all this cynicism around. But you will be moving on soon enough. They go away for a break for a bit."	"'FRAUDS!!!' you yell at Uncle Dutch and Turk Young. 'ANYONE CAN SPOUT PLATITUDES!' You break it down sumpin['] sumpin['] real contrarian on them, twisting their generalities. A crowd gathers around. They applaud your snark! You yell at them that applause is all well and good, but there's DOING. They ooh and ahh further. After a brief speech about the dork you used to be, and if you can get better, anyone can, you wave away the performers, then the crowd that followed them."	"You give a pre-emptive 'Oh, I KNOW,' before Turk and Dutch can say any more. 'But you're doing a pretty good job. I mean, almost as good as I could if I weren't destined for better things. Just--take a break to hone your act. Not that it's THAT stale...' They look at each other, nod, and walk away."
 questions field	3	"Well, of COURSE the Brothers didn't leave a thank-you note. Ungrateful chumps. Next time you help someone, you'll demand a deposit of flattery up front, that's for sure."	"You expected no thanks, but you didn't expect to feel bad about getting no thanks. Hmph. Lesson learned!"	"'You had some wisdom to foist on the Brothers, but if they'd REALLY done their job, they'd have stayed. The heck with them! If they couldn't soak up knowledge from BEING around the [bg], they're hopeless."
 questions field	4	"'Kinda jealous of your brother[bro-s], eh? Not jealous enough to DO anything about it.' The brother[bro-nos]s nod at your sterling logic. 'You gonna waste your whole life here? I can't help everyone. I'm not a charity, you know.' More hard hitting truth! Ba-bam!'[wfk]'Go on, now! Go! What's that? I'm even bossier than the [bad-guy]? Excellent! If I can change, so can you! And the guy bossier than the [bad-guy] is ORDERING you to do something useful with your life!'[paragraph break]They follow your orders. You remember being bossed around by someone dumber than you--and now you turned the tables! Pasta fazoo!"	"'Still guarding Freak Control, eh? Well, I think you'll see you don't need to guard it from ME any more. Take the day off! C'mon, you want to. Hey, [bg] might be mad if you don't.' You're surprised he DOES run off."
@@ -5614,6 +5667,7 @@ Down Ground is east of Pressure Pier. It is in Outer Bounds. "[one of]Walking ea
 
 after printing the locale description for down ground when down ground is unvisited:
 	say "You're reminded of the day you didn't get a permission slip signed to go to the roller coaster park at science class's year end. You wondered if you really deserved it, since you didn't do as well as you felt you could've.[line break]";
+	say "As you finish this thought, a large human-sized toad strolls in from the east. 'So! A new juvenile, eh? Gonna be on the straight and narrow? Or wind up like Fritz the On, here? Eh? EH?' Before you can answer, he turns back.[paragraph break]Fritz the On mutters something about that oppressive Stool Toad."
 
 check going nowhere in Down Ground:
 	if noun is down:
@@ -5645,9 +5699,6 @@ check entering bench:
 		say "OK." instead;
 
 section Fritz the On
-
-after printing the locale description for down ground when down ground is unvisited:
-	say "A large human-sized toad strolls in from the east. 'So! A new juvenile, eh? Gonna be on the straight and narrow? Or wind up like Fritz the On, here? Eh? EH?' Before you can answer, he turns back.[paragraph break]Fritz the On mutters something about that oppressive Stool Toad."
 
 Fritz the On is a surveyable person in Down Ground. "[one of]A fellow a bit older, but likely not wiser, than you sits cross-legged next to the Warmer Bench.[or]Fritz the On still mumbles, sitting cross-legged.[stopping]"
 
@@ -6190,11 +6241,11 @@ understand "circle/heptagon" as jerks.
 
 before talking to a client (this is the ask jerks generally first rule):
 	if know-jerks is false:
-		say "You feel a bit over-familiar. Maybe if you talk to all the jerks, you'll get a formal introduction." instead;
+		say "You feel a bit over-familiar. Maybe if you talk to all the [j-co], you'll get a formal introduction." instead;
 
 before talking to jerks (this is the ask jerks generally to get their names rule):
 	if finger is not examined:
-		say "You don't have any reason to want to deal with that many jerks. At least not now." instead;
+		say "You don't have any reason to want to deal with that many [j-co]. At least not now." instead;
 	if know-jerks is true:
 		say "You should really pick an individual jerk to talk to, now you know their names." instead;
 	say "You give a vague 'Hi, guys,' and are assailed by the [j-co] saying, geez, we have names, you know, and all that sort of thing. They are: [jerk-list].";
@@ -6210,7 +6261,7 @@ for writing a paragraph about a client (called jrk) in Jerk Circle:
 	else if finger is not examined:
 		say "The seven [j-co] are too intimidating now. Even two people conversing, that's tough to break in the middle of, much less seven.";
 	else:
-		say "[one of]The jerks, again. Wait a minute. Seven jerks, talking about being cool, seven 'clients' for the Labor Child. Could it be...? You ask if they know about the Labor Child. Once it's established you hate him, they're relieved.[or]The [j-co] continue to talk about what's cool and what's not. Now that you've established a common enemy, you may want a chat. Or not.[stopping]";
+		say "[one of]The [j-co], again. Wait a minute. Seven [j-co], talking about being cool, seven 'clients' for the Labor Child. Could it be...? You ask if they know about the Labor Child. Once it's established you hate him, they're relieved.[or]The [j-co] continue to talk about what's cool and what's not. Now that you've established a common enemy, you may want a chat. Or not.[stopping]";
 	now all clients are mentioned;
 
 to say jerk-list:
@@ -6278,13 +6329,13 @@ understand "who" as whoing when jerk-who-short is true and silly boris is not in
 
 carry out whoing:
 	if qbc_litany is table of jt:
-		say "The jerks, in conversational order, are:";
+		say "The [j-co], in conversational order, are:";
 		let cur-jerk be last-jerk;
 		repeat with X running from 1 to number of clients:
 			say " [if cur-jerk is minted][i][cur-jerk] (gave mint)[r][else][cur-jerk][end if][if X is number of clients].[else],[end if]";
 			now cur-jerk is next-c of cur-jerk;
 	else:
-		say "The jerks['] names are [list of clients in jerk circle].";
+		say "The [j-co]['] names are [list of clients in jerk circle].";
 	the rule succeeds;
 
 chapter numjerking
@@ -6298,7 +6349,7 @@ understand "guess [number]" as numjerking when jerk-who-short is true and silly 
 carry out numjerking:
 	let z be number understood;
 	if z < 1000000:
-		say "You need to guess all seven jerks." instead;
+		say "You need to guess all seven [j-co]." instead;
 	if z > 9999999:
 		say "That's too many numbers. You only need seven." instead;
 	let y be z;
@@ -6319,7 +6370,7 @@ carry out numjerking:
 		say "As you check off with each jerk, they become more and more agitated until they realize someone knows their secrets! What more could they know?";
 		zap-the-jerks;
 	else:
-		say "The jerks remain unmoved after your carousing.";
+		say "The [j-co] remain unmoved after your carousing.";
 		d "Should've answered [xyz].";
 
 onesguess is a number that varies.
@@ -6424,6 +6475,7 @@ prompt	response	enabled	permit
 "[if short-jerk is false]So, do women's sports really have better fundamentals[else]SPORTSWOMEN[end if]?"	jerk-wsport	0	1
 "[if short-jerk is false]So, what sort of glossy magazines do you read[else]MAGAZINES[end if]?"	jerk-zines	0	1
 "[if short-jerk is false]So, any classic shows you miss? Or not so classic[else]EMBARRASSING CARTOONS[end if]?"	jerk-cartoon	0	1
+"[if short-jerk is false]So, you like dogs even if they're not super tough[else]WIMPY SMALL DOGS[end if]"	jerk-dogs	0	1
 "(bug the next [j-g], [next-c-x of last-jerk])"	jerk-next	0	1
 "So, what about the [bad-guy]?"	jerk-baiter	1	1
 "[later-or-thanks]."	jerk-bye	3	1
@@ -6448,6 +6500,7 @@ Buddy Best	"enjoys nonviolent video games and not just because they're cheap"	je
 Buddy Best	"prefers fashion magazines to swimsuit editions"	jerk-zines	0
 Buddy Best	"uses life lessons from Mr. Rogers"	jerk-rogers	0
 Buddy Best	"has a DVD of an old cartoon he 'used to' like"	jerk-cartoon	0
+Buddy Best	"feels safer around smaller dogs and thinks they look nicer too"	jerk-dogs	0
 
 table of quip texts (continued)
 quip	quiptext
@@ -6465,6 +6518,7 @@ jerk-video	"[innue]."
 jerk-wsport	"[innue]."
 jerk-zines	"[innue]."
 jerk-cartoon	"[innue]."
+jerk-dogs	"[innue]."
 jerk-next	"You move on to [next-c-x of last-jerk]."
 jerk-baiter	"Everyone chimes in. Oh, does the [bad-guy] know his cultural references! And oh, how they respect him for knowing more culture despite the intensity of working up north in Freak Control to keep [bad-guy-2] at bay! They are pretty sure [bad-guy-2] wouldn't allow seven people to assemble in one place so freely."
 jerk-bye	"[last-jerk] turns away and goes back to talking to his buddies."
@@ -6487,7 +6541,7 @@ check going when player is in jerk circle:
 			say "You have a sense the [j-co] may be a bit vulnerable. Stay and take them?";
 			if the player yes-consents:
 				say "OK." instead;
-			say "The jerks begin talking more confidently as you leave.";
+			say "The [j-co] begin talking more confidently as you leave.";
 
 to reset-fingerings:
 	repeat through table of fingerings:
@@ -6502,6 +6556,11 @@ to decide what number is jerks-scared:
 		now temp is temp - 2;
 	decide on temp;
 
+before talking to generic-jerk when secrets-open is true:
+	say "After listening to the [j-co] for a bit, it's extra apparent who's who on the Labor Child's list. You gather them around and tell them what's up.[line break]";
+	zap-the-jerks;
+	the rule succeeds;
+	
 after quipping when qbc_litany is table of generic-jerk talk:
 	let cq be current quip;
 	if current quip is jerk-hows:
@@ -6566,7 +6625,7 @@ to check-jerks-done:
 				now last-jerk is next-c-x of last-jerk;
 				say "[line break]You move on to [last-jerk].";
 			continue the action;
-	say "[line break]The other six jerks, fully chastened by your observations, overhear what you have to say. They pile on [last-jerk], but you mention he's not the only one.[paragraph break]";
+	say "[line break]The other six [j-co], fully chastened by your observations, overhear what you have to say. They pile on [last-jerk], but you mention he's not the only one.[paragraph break]";
 	zap-the-jerks;
 	terminate the conversation;
 
@@ -6580,7 +6639,7 @@ to zap-the-jerks:
 
 check going north when player is in well:
 	if silly boris is in lalaland:
-		say "[one of]Before you enter, you hear the Labor Child squealing how this all can't be legal and he knows people. Various jerks express interest at this confidential document or that and relief they never stooped that low. It looks like they are uncovering other of the Labor Child's 'business interests,' and they don't need you. Nothing violent is happening, and you enjoy some schadenfreude at the Labor Child's expense before deciding to move on.[or]No, you don't need or want to help the jerks. The Labor Child's in for it enough.[stopping]" instead;
+		say "[one of]Before you enter, you hear the Labor Child squealing how this all can't be legal and he knows people. Various [j-co] express interest at this confidential document or that and relief they never stooped that low. It looks like they are uncovering other of the Labor Child's 'business interests,' and they don't need you. Nothing violent is happening, and you enjoy some schadenfreude at the Labor Child's expense before deciding to move on.[or]No, you don't need or want to help the [j-co]. The Labor Child's in for it enough.[stopping]" instead;
 
 chapter jerk talking
 
@@ -7463,7 +7522,7 @@ understand "abadface" as abadfaceing when player is in Belt Below.
 
 carry out abadfaceing:
 	if jerks-spoiled is true:
-		say "[one of]The Insanity Terminal emits an ultrasound squeal that brings you to your knees. It's probably mad you made it solve the jerks for you and doesn't believe you solved its harder puzzle on your own. Or rather, its calculations lead it to suspect cheating[or]Nah. You don't want the Terminal to squeal at you again (note: on winning, you'll get a code where you can solve the terminal the right way and see what's below)[stopping]." instead;
+		say "[one of]The Insanity Terminal emits an ultrasound squeal that brings you to your knees. It's probably mad you made it solve the [j-co] for you and doesn't believe you solved its harder puzzle on your own. Or rather, its calculations lead it to suspect cheating[or]Nah. You don't want the Terminal to squeal at you again (note: on winning, you'll get a code where you can solve the terminal the right way and see what's below)[stopping]." instead;
 	if Insanity Terminal is in Belt Below:
 		open-bottom;
 		say "You hear a great rumbling as you put on -- well, a bad face -- and the Insanity Terminal cracks in half to reveal a tunnel further below. You feel like you could face a bad...well, you're not sure. But something bad.";
@@ -7690,13 +7749,15 @@ description of finger index is "FINGER INDEX (CONFIDENTIAL):[paragraph break][fi
 
 check examining finger index when finger index is not examined:
 	say "It looks like a list of customers--wait, no, it's a list of embarrassing secrets. The little brat!";
+	if secrets-open is true:
+		say "[line break]And suddenly you realize who the people are on the sheet. You maybe couldn't overhear the conversation, but you heard snatches of names and so forth. You know what this document is for, and you can deduce who's who. So you do.";
 
 to say finger-say:
 	let temp be 0;
 	repeat through the table of fingerings:
 		if jerky-guy entry is not buddy best:
 			increment temp;
-			say "[2da][clue-letter of jerky-guy entry] [blackmail entry][if jerky-guy entry is minted] ([jerky-guy entry])[end if][line break]";
+			say "[2da][clue-letter of jerky-guy entry][if secrets-open is true] ([jerky-guy entry])[end if] [blackmail entry][if jerky-guy entry is minted] ([jerky-guy entry])[end if][line break]";
 	say "[line break]Collect hush fees every Monday. Repeating accusations breaks the guilty parties. Insanity Terminal has backup data";
 	now finger index is examined;
 
@@ -8894,7 +8955,7 @@ the against rails are plural-named scenery in Freak Control. "You're not sure wh
 
 freaked-out is a truth state that varies.
 
-the shot screen is scenery in Freak Control. "[if cookie-eaten is true]You're torn between wondering if it's not worth watching the jokers being surveyed, or you deserve a good laugh.[else]For a moment, you get a glimpse of [one of]the jerks going about their business[or]parts of Idiot Village you couldn't explore[or]a 'me-time' room in the Classic Cult[or]a secret room in the Soda Club[or]Officer Petty at the 'event,' writing notes furiously[or]the hideout the Stool Toad was too lazy to notice[or]The Logical Psycho back at his home[or]exiles living beyond the Standard Bog[in random order].[end if]"
+the shot screen is scenery in Freak Control. "[if cookie-eaten is true]You're torn between wondering if it's not worth watching the jokers being surveyed, or you deserve a good laugh.[else]For a moment, you get a glimpse of [one of]the [j-co] going about their business[or]parts of Idiot Village you couldn't explore[or]a 'me-time' room in the Classic Cult[or]a secret room in the Soda Club[or]Officer Petty at the 'event,' writing notes furiously[or]the hideout the Stool Toad was too lazy to notice[or]The Logical Psycho back at his home[or]exiles living beyond the Standard Bog[in random order].[end if]"
 
 control-gadget-row is a number that varies. control-gadget-row is 0.
 
@@ -9024,7 +9085,7 @@ bm-mug	"'Oh, it's Crisis Energy[activation of crisis energy]. For taking urgent 
 bm-bad2	"'It's--it's, well, tribute is what it is.'"
 bm-so-bad2	"'Oh, come on, you know the difference.'[wfk][line break]Your reply just slips out. 'Yeah, it's easy, there's not much of it.' Maybe you shouldn't have...but nothing happens..."
 bm-tribute	"'There will be. Just--first things first. Stability. We almost got there, until you stepped in.'"
-bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Great. You think you can do better? Do so. I'll be waiting in Questions Field. You'll miss something obvious. Always have, always will.' The Baiter Master storms out, and he must have had a remote, because you're locked in![wfk][paragraph break]You search frantically. There must be some way to communicate...and you dig around until you find the [activation of wire fraud]Fraud Wire! Meant to 'remind' citizens they aren't as nice as they think they are, it now encourages them to get mad. The Goods get their cult to help. The Jerks even chip in, too. You get brave and call Mark Black on the Quiz Pop's customer service number. Then, for kicks, [bad-guy-2] pretending to be the [bad-guy] and you prank him. It's--there's so much to do, questions you never asked. Mark Black is on his way--but so are the [bad-guy]'s allies![wfk][line break]'Get him, [activation of admiral vice]Admiral Vice!'[paragraph break]'A danger not just to the Problems Compound but to Slicker City[activation of slicker city]! We will break him,' he says, gesturing to you.[wfk]"
+bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Great. You think you can do better? Do so. I'll be waiting in Questions Field. You'll miss something obvious. Always have, always will.' The Baiter Master storms out, and he must have had a remote, because you're locked in![wfk][paragraph break]You search frantically. There must be some way to communicate...and you dig around until you find the [activation of wire fraud]Fraud Wire! Meant to 'remind' citizens they aren't as nice as they think they are, it now encourages them to get mad. The Goods get their cult to help. The [j-co] even chip in, too. You get brave and call Mark Black on the Quiz Pop's customer service number. Then, for kicks, [bad-guy-2] pretending to be the [bad-guy] and you prank him. It's--there's so much to do, questions you never asked. Mark Black is on his way--but so are the [bad-guy]'s allies![wfk][line break]'Get him, [activation of admiral vice]Admiral Vice!'[paragraph break]'A danger not just to the Problems Compound but to Slicker City[activation of slicker city]! We will break him,' he says, gesturing to you.[wfk]"
 bm-bye	"'You're not going anywhere.' And he's right. But it's not out totally out of fear, now."
 
 after quipping when qbc_litany is table of baiter master talk:
@@ -9467,7 +9528,7 @@ every turn when mrlp is dream sequence:
 			now slept-through is true;
 			say "As if that wasn't enough, you feel someone jostling you. Wait, no. It's not someone in the dream.";
 			wfak;
-			say "[line break]It's the Stool Toad! You're back on the bench at Down Ground![paragraph break]'A popular place for degenerates. Future cell sleepers, I bet[activation of sleeper cell]. That'll be a boo-tickety for you.'[if your-tix < 4][line break]As you hold the ticket and rub your eyes, the Stool Toad walks back [to-js]. 'It's a darn shame!' he moans. 'Only one sleeping ticket per lazy degenerate, per day! Plenty of other ways to make their jeopardy double[activation of double jeopardy] so I can reach my quota!' You get the sense he wouldn't sympathize if you told him WHAT you dreamed about.[end if]";
+			say "[line break]It's the Stool Toad! You're back on the bench at Down Ground![paragraph break]'A popular place for degenerates. Future cell sleepers, I bet[activation of sleeper cell]. That'll be a boo-tickety for you.'[if your-tix < 4][line break]As you hold the ticket and rub your eyes, the Stool Toad walks back [to-js]. 'It's a darn shame!' he moans. 'Only one of these per day! Plenty of other ways to make their jeopardy double[activation of double jeopardy] so I can reach my quota!' You get the sense he wouldn't sympathize if you told him WHAT you dreamed about.[end if]";
 			now caught-sleeping is true;
 			move player to Down Ground, without printing a room description;
 			get-ticketed "sleeping too long on the Warmer Bench";
@@ -9752,7 +9813,7 @@ rule for amusing a victorious player:
 		else:
 			now missed-one is true;
 	if missed-one is true:
-		say "[paragraph break]NOTE: both 'good' endings are mutually exclusive, so you missed a bit. But you can NOTICE ADVANCE to get back past the jerks and try the other, if you haven't seen it yet."
+		say "[paragraph break]NOTE: both 'good' endings are mutually exclusive, so you missed a bit. But you can NOTICE ADVANCE to get back past the [j-co] and try the other, if you haven't seen it yet."
 
 table of amusingness
 biglaff	anyrule
@@ -9764,7 +9825,7 @@ biglaff	anyrule
 "attacking anyone? Or the torch?"	--
 "DIGging twice in Variety Garden?"	--
 "DROPping the dreadful penny, reasoning circluar or other things?"	--
-"giving the condition mint to various people, like Volatile Sal or Buddy Best?"
+"giving the condition mint to various non-jerks, like Volatile Sal or Buddy Best?"
 "cussing when you asked for no profanity?"	--
 "cussing in front of certain people, especially authority figures (twice for a 'bad' ending)?"	--
 "kissing the Language Machine?"	--
@@ -9775,7 +9836,7 @@ biglaff	anyrule
 "giving Minimum Bear to Fritz with the Howdy Boy gone? Or with four ticketies?"	--
 "putting the poetic wax on/giving it to anything except the language machine?"	--
 "saying YES or NO in the Drug Gateway?"	--
-"visiting the Scheme Pyramid after the jerks take their revenge?"	--
+"visiting the Scheme Pyramid after the [j-co] take their revenge?"	--
 "listening to all the songs from the song torch (there are [number of rows in table of horrendous songs])? Or just searching the source for them?"	--
 "reading all the books from the book crack (there are [number of rows in table of horrendous books])? Or just searching the source for them?"	--
 "taking the book bank?"	--
@@ -9827,7 +9888,7 @@ book continuing
 Table of Final Question Options (continued)
 final question wording	only if victorious	topic	final response rule	final response activity
 "see where minor [bi of swearseen]SWEARS[r] change"	true	"SWEARS"	swear-see rule	swearseeing
-"see the [bi of sinseen]SINS[r] the jerks didn't commit"	true	"SINS"	sin-see rule	sinseeing
+"see the [bi of sinseen]SINS[r] the [j-co] didn't commit"	true	"SINS"	sin-see rule	sinseeing
 "see the [bi of altseen](ALT)ERNATIVE[r] endings and commands"	true	"ALT/ALTERNATIVE"	alternative-see rule	altseeing
 "see how to get to each of the [bi of badendseen]BAD END[r] rooms"	true	"BAD/END/BADEND" or "BAD END"	bad-end-see rule	badendseeing
 "see any reversible [bi of conceptseen](CONC)EPTS[r] you missed, or [bi of conceptseen]ALL[r]"	true	"CONCEPTS/CONC"	concept-see rule	conceptseeing
@@ -10018,11 +10079,11 @@ sinseeing is an activity.
 
 this is the sin-see rule:
 	now sinseen is true;
-	say "None of the jerks was so square that he...[line break]";
+	say "None of the [j-co] was so square that he...[line break]";
 	repeat through table of fingerings:
 		if jerky-guy entry is Buddy Best:
 			say " ... [blackmail entry][line break]";
-	say "Not that there's anything wrong with any of the above. Or there would be, if the jerks were guilty. Um, interested. But you knew that. And, uh, I know that, too. Really!"
+	say "Not that there's anything wrong with any of the above. Or there would be, if the [j-co] were guilty. Um, interested. But you knew that. And, uh, I know that, too. Really!"
 
 chapter swearing
 
@@ -10280,6 +10341,8 @@ plaus
 
 got-terminal-almost is a truth state that varies.
 
+in-parser-error is a truth state that varies.
+
 rule for printing a parser error when the latest parser error is the didn't understand error:
 	if player is in out mist:
 		say "Hmm. You need to do something to the ring, but not that. Some action you haven't done yet. There may be more than one[if remainder after dividing mist-turns by 4 is 3].[no line break][else].[end if]";
@@ -10287,6 +10350,12 @@ rule for printing a parser error when the latest parser error is the didn't unde
 	if player is in airy station:
 		say "Hmm.  You need to change the hammer, somehow. There's probably more than one way to do it.";
 		consider the hammer clue rule instead;
+	if word number 1 in the player's command is "secrets":
+		if number of words in the player's command is 2:
+			if word number 2 in the player's command is "open":
+				now in-parser-error is true;
+				try secretsopening;
+				the rule succeeds;
 	if the turn count is 1: [hack (??) for G on move 1]
 		say "That isn't a recognized verb, or maybe you guessed a preposition wrong. In general, this game tries not to force longer commands. You can type VERB or VERBS to see all the commands and possible prepositions.";
 		the rule succeeds;
@@ -10431,6 +10500,8 @@ abuse testing is a concept in conceptville. understand "testing abuse" as abuse 
 
 cut a deal is a concept in conceptville. understand "deal a cut" as cut a deal. howto is "cut any inanimate thing before Freak Control"
 
+Force of Habit is a concept in conceptville. howto is "attack something inanimate you don't get arrested for.". understand "habit of force" as force of habit.
+
 section intro concepts
 
 a games mind is a concept in conceptville. understand "mind games" as games mind. howto is "very start".
@@ -10496,6 +10567,8 @@ fish out of water is a concept in conceptville. understand "water out of fish" a
 Bum Beach is a concept in conceptville. howto is "examine the bench in Down Ground"
 
 Sleeper Cell is a concept in conceptville. howto is "sleep then wait in Down Ground". understand "cell sleeper" as sleeper cell.
+
+Dream Ticket is a concept in conceptville. howto is "sleep after you got a tickety". understand "ticket dream" as dream ticket.
 
 hoth is a privately-named concept in conceptville. howto is "give the weed to Fritz". understand "hog on/off the high" and "high on/off the hog" as hoth. printed name is "high off the hog"
 
@@ -10565,7 +10638,11 @@ Hard Knock is a concept in conceptville. understand "hard knock" as Hard Knock. 
 
 Cut a Figure is a concept in conceptville. understand "cut a figure" as cut a figure. howto is "get to Jerk Circle"
 
-Advance Notice is a concept in conceptville. understand "advance notice" as Advance Notice. howto is "help all three Brothers"
+Passing Fancy is a concept in conceptville. understand "fancy passing" as Passing Fancy. howto is "help all three Keeper Brothers"
+
+Open Secrets is a concept in conceptville. understand "secrets open" as Open Secrets. howto is "solve the [j-co] puzzle for the first time"
+
+Advance Notice is a concept in conceptville. understand "advance notice" as Advance Notice. howto is "enter Freak Control"
 
 section death concepts
 
@@ -10626,6 +10703,8 @@ after reading a command:
 			if the player's command matches the regular expression "\.":
 				now period-warn is true;
 				ital-say "extended commands may cause errors in rare cases such as E.N.W.GIVE X TO Y. This shouldn't happen often, but for future reference, it's a part of Inform parsing I never figured out. If you need to move around, GO TO is the preferred verb.";
+	if word number 1 in the player's command is "secrets":
+		replace the regular expression "secrets," in the player's command with "secrets";
 	if player is in jerk circle and jerk-who-short is true and boris is in jerk circle and qbc_litany is table of no conversation:
 		if the player's command matches the regular expression "^<0-9>+":
 			change the text of the player's command to "guess [the player's command]";
@@ -11176,7 +11255,7 @@ understand the command "jc" as something new.
 understand "jc" as jcing when jerk-who-short is true and silly boris is not in lalaland.
 
 carry out jcing:
-	say "Starting with [last-jerk], the jerks['] magic number is [magic-jerk-number].";
+	say "Starting with [last-jerk], the [j-co]['] magic number is [magic-jerk-number].";
 	the rule succeeds;
 
 chapter tixing
@@ -11404,8 +11483,8 @@ tj-descr	tj-rule	corruption
 "Tension Surface"	go-surface rule	false
 "Pressure Pier"	go-pier rule	false
 "Jerk Circle"	go-jerks rule	false
-"Brothers gone, visit jerks"	go-field-bro rule	false
-"Brothers and jerks gone"	notice-advance rule	false
+"Brothers gone, visit [j-co]"	go-field-bro rule	false
+"Brothers and [j-co] gone"	notice-advance rule	false
 "Jerks solved, brothers not"	jerks-not-bros rule	true
 "Jump to Freak Control"	freak-control rule	false
 "Jump to Good End"	to-good-end rule	false
@@ -11699,13 +11778,13 @@ carry out brobyeing:
 	now brother big is in lalaland;
 	say "The Keeper Brothers are now out of play. This may cause some oddness with in-game stuff, including solving puzzles that lead up to dispersing the Brothers.";
 	if silly boris is in jerk circle:
-		say "Do you wish to get rid of the jerks, too?";
+		say "Do you wish to get rid of the [j-co], too?";
 		if the player yes-consents:
 			now all clients are in lalaland;
 			now player has quiz pop;
 			say "You now have the quiz pop.";
 		else:
-			say "If you want to, you can use JGO to get rid of the jerks, or just JERK to see who's 'guilty' of what.";
+			say "If you want to, you can use JGO to get rid of the [j-co], or just JERK to see who's 'guilty' of what.";
 	the rule succeeds;
 
 chapter bro1ing
@@ -11769,11 +11848,11 @@ understand "groan" as jerking.
 
 carry out jerking:
 	if silly boris is in lalaland:
-		say "The jerks are already gone instead. You'll need to RESTART if you want them back." instead;
+		say "The [j-co] are already gone instead. You'll need to RESTART if you want them back." instead;
 	if jerk circle is unvisited:
-		say "You haven't made it to the jerks yet. ";
+		say "You haven't made it to the [j-co] yet. ";
 	if finger index is not examined or know-jerks is false:
-		say "You need to have examined the Finger Index or learned the jerks['] names to see the clues. You haven't, but would you like to cheat?";
+		say "You need to have examined the Finger Index or learned the [j-co]['] names to see the clues. You haven't, but would you like to cheat?";
 		if the player yes-consents:
 			now finger index is examined;
 			now know-jerks is true;
@@ -11799,7 +11878,7 @@ carry out jgoing:
 		say "Jerks are already gone." instead;
 	now all clients are in lalaland;
 	now player has quiz pop;
-	say "Bye bye jerks! Oh, you have the quiz pop, too.";
+	say "Bye bye [j-co]! Oh, you have the quiz pop, too.";
 	the rule succeeds;
 
 chapter soffing
@@ -12105,5 +12184,5 @@ carry out jing:
 	if mrlp is outer bounds:
 		now trail paper is in lalaland;
 		now player is in jerk circle instead;
-	say "Now that you're in the main area, this command won't let you warp further in your beta testing quest. However, BROBYE will disperse the Brothers, JGO will spoil the jerks['] puzzle, and JERK(S)/GROAN(S) will clue it." instead;
+	say "Now that you're in the main area, this command won't let you warp further in your beta testing quest. However, BROBYE will disperse the Brothers, JGO will spoil the [j-co]['] puzzle, and JERK(S)/GROAN(S) will clue it." instead;
 	the rule succeeds;
