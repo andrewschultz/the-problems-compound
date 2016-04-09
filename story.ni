@@ -328,6 +328,8 @@ brief (indexed text)	found	expound	jumpable	descr (indexed text)
 "duck"	false	true	true	"DUCK SITTING to skip to Tension Surface."
 "knock"	false	true	true	"KNOCK HARD to get to Pressure Pier."
 "figure"	false	true	true	"FIGURE A CUT to skip past the Howdy Boy to the [jc]."
+"fancy"	false	true	true	"FANCY PASSING to skip to the Questions Field with the brothers gone."
+"beaten"	false	true	true	"TRACK BEATEN to reveal the [j-co] puzzle spoilers on examining the Finger Index."
 "notice"	false	true	true	"NOTICE ADVANCE to skip to Questions Field, with the brothers and [j-co] gone."
 "cookie"	false	false	false	"Eating the cookie unlocked a few concepts."
 "greater"	false	false	false	"Eating the cookie unlocked a few concepts."
@@ -335,12 +337,16 @@ brief (indexed text)	found	expound	jumpable	descr (indexed text)
 "good"	false	false	false	"You found a good ending!"
 "great"	false	false	false	"You found the great ending!"	[this must be last right now]
 
+[rules are necessary since sometimes we may want to toggle more than one concept]
+
 table of verbmatches
 brief (indexed text)	what-to-do (rule)
 "anno"	--
 "duck"	ducksit rule
 "knock"	knockhard rule
 "figure"	figurecut rule
+"fancy"	fancypass rule
+"beaten"	trackbeaten rule
 "notice"	advnot rule
 "cookie"	cookie-ate rule
 "greater"	greater-ate rule
@@ -356,6 +362,12 @@ this is the knockhard rule:
 
 this is the figurecut rule:
 	move cut a figure to lalaland;
+
+this is the fancypass rule:
+	move passing fancy to lalaland;
+
+this is the trackbeaten rule:
+	move beaten track to lalaland;
 
 this is the advnot rule:
 	move advance notice to lalaland;
@@ -376,8 +388,6 @@ this is the greater-ate rule:
 this is the wis-rec rule:
 	move received wisdom to lalaland;
 
-[I hate magic numbers but Inform doesn't allow items etc.]
-
 to unlock-verb (t - text):
 	let j be indexed text;
 	repeat through table of verb-unlocks:
@@ -387,8 +397,11 @@ to unlock-verb (t - text):
 			if found entry is true:
 				continue the action;
 			if expound entry is true:
-				say "[i][bracket]NOTE: you have just unlocked a new verb![close bracket][r][paragraph break]";
-				say "On restarting, you may now [descr entry][line break]";
+				if brief entry is "notice":
+					ital-say "you've also unlocked NOTICE ADVANCE, to clear both the jerks and brothers on restart.";
+				else:
+					ital-say "NOTE: you have just unlocked a new verb!";
+					say "On restarting, you may now [descr entry][line break]";
 			now found entry is true;
 			write file of verb-unlocks from table of verb-unlocks;
 			continue the action;
@@ -1593,7 +1606,7 @@ show-give is a truth state that varies.
 
 check showing it to:
 	if show-give is false:
-		say "[i][bracket]NOTE: showing/displaying/presenting and giving are functionally equivalent in this game.[close bracket][r][paragraph break]";
+		ital-say "NOTE: showing/displaying/presenting and giving are functionally equivalent in this game.";
 		now show-give is true;
 	try giving noun to second noun instead;
 
@@ -1842,7 +1855,7 @@ to ship-off (X - a room):
 
 table of ending-places
 room-loc	room-fun
-Fight Fair	"You are placed against someone slightly stronger, quicker, and savvier than you. He beats you up rather easily, assuring you that just because you're smart doesn't mean you needed to lack any physical prowess. Your opponent then goes to face someone stronger than him.[paragraph break]Everyone quietly nurses his [activation of sore loser]loser sore at night before repeating the next day. And the next."
+Fight Fair	"The fellow in charge, the [activation of boss fight]Fight Boss, places you against someone slightly stronger, quicker, and savvier than you. He beats you up rather easily, assuring you that just because you're smart doesn't mean you needed to lack any physical prowess. Your opponent then goes to face someone stronger than him.[paragraph break]Everyone quietly nurses his [activation of sore loser]loser sore at night before repeating the next day. And the next."
 Maintenance High	"You're given the lecture about how attempts to rehabilitate you cost society even if they work out pretty quickly. Did I say the lecture? I meant, many different lectures. Which are equally painful whether they're familiar or unfamiliar."
 Criminals' Harbor	"You're given the lecture about how you'll be performing drudgework until your attempts at obvious crime are sucked out of you. Your overseer keeps babbling about how it's equally bad if you get sick of his lectures or used to them. You're going down a bad road, etc., so forth."
 Punishment Capitol	"You're given the lecture about how just because you did something really wrong doesn't mean you're a big thinker. Then you're told to sit and think deeply about that for a good long while."
@@ -2571,7 +2584,7 @@ carry out explaining:
 		say "There should be an explanation, but there isn't.";
 		the rule succeeds;
 	if noun is a room:
-		the rule succeeds; [?? this avoids a crash]
+		the rule succeeds; [?? this avoids a crash. Look into why.]
 	choose row with exp-thing of noun in myt;
 	if there is an exp-anno entry:
 		if anno-allow is false:
@@ -2882,6 +2895,7 @@ running start	"A running start means you've gotten started quickly."
 Break Jail	"A jailbreak means getting out of jail. Though to break someone is to destroy their spirit."
 Admiral Vice	"A vice-(anything) is a next-in-line/assistant to an honorary position, but vice is also a personal failing, big or small."
 Sore Loser	"A sore loser is someone who is not gracious enough to admit defeat. A loser sore is often what you get when you lose a fight, especially one someone else started."
+Boss Fight	"A boss fight is a confrontation with an important adversary in a more traditional game, while the Fight Boss has you do stuff worse than level grinding."
 Complain Cant	"Cant means a tendency towards something, so someone with a complain cant would only say 'can't complain' very ironically." [eternal concepts]
 Received Wisdom	"Received wisdom is generally accepted knowledge which is often not true, such as how we only use 10% of our brain. Gustave Flaubert wrote a fun book called The Dictionary of Received Wisdom that makes fun of many such examples. For instance, a hamlet is always charming."
 People Power	"People power was a rallying cry in demonstrations against the authoritarianism of, well, power people."
@@ -2890,6 +2904,8 @@ Something Mean	"Mean something = talk or act with purpose. Something mean = well
 Sitting Duck	"A sitting duck is someone just waiting to be taking advantage of. But if you duck sitting, you aren't waiting."
 Hard Knock	"A hard knock is physical wear and tear, or being hit hard, versus just knocking at a door."
 Cut a Figure	"To cut a figure is to make a strong impression."
+beaten track	"The beaten track is an experience most everyone's had. To track the beaten, in this case, is to figure who is diverging from 'proper' behavior, where."
+passing fancy	"A passing fancy is something that distracts you and is fun for a bit but you forget about it. To fancy passing means to want to go quickly, or fancy passing may just be something in sports."
 Advance Notice	"Advance notice is letting someone know ahead of time."
 
 table of room explanations [tore]
@@ -3091,9 +3107,9 @@ carry out verbing:
 	say "[2da]conversations use numbered options, and you often need to end them before using standard verbs. RECAP shows your options.";
 	say "[2da]other standard parser verbs apply, and some may provide alternate solutions, but you should be able to win without them.";
 	say "[2da]EXITS shows the exits. While these should be displayed in the room text, you can see where they lead if you've been there.";
-	say "[2da]META describes additional commands not critical to winning the game, such as ABOUT[if verbs-unlocked] or verbs you unlocked[end if], but this list is long enough.";
+	say "[2da]META describes additional commands not critical to winning the game[if verbs-unlocked], and V[if screen-read is true] [end if]X gives verbs you unlocked[end if], but this list is long enough.";
 	if in-beta is true:
-		say "See debug commands too?";
+		say "Beta testers have debug commands. See debug commands too?";
 		if the player yes-consents:
 			list-debug-cmds;
 	the rule succeeds;
@@ -3105,6 +3121,30 @@ to decide whether verbs-unlocked: [I could probably check "duck sitting" but bes
 
 to list-debug-cmds:
 	say "[line break]DEBUG COMMANDS: ================[line break][2da]J jumps you to the next bit from the Street, Lounge, Surface or Pier.[line break][2da]MONTY toggles every-move actions like listening and smelling. It may be more for programming testing[line break][2da]ACBYE/CTC/CTP gets rid of the Assassination Character and chase paper.[line break][2da]JERK tells you what to do with the [j-co].[line break][2da]JGO gets rid of them[line break][2da]BROBYE kicks the Keeper Brothers out.[2da]VIC gives regular victory, VICX gives extra good victory[line break][2da]JC shows the cheat code for the [j-co][line break]";
+
+chapter vxing
+
+vxing is an action out of world.
+
+understand the command "vx" as something new.
+understand the command "v x" as something new.
+
+understand "vx" as vxing.
+understand "v x" as vxing.
+
+carry out vxing:
+	unless verbs-unlocked:
+		say "You haven't unlocked any jump verbs yet." instead;
+	say "This is a list of extra jump verbs. They're not valid past Smart Street, though hopefully the rejects are interesting.";
+	repeat through table of vu:
+		if found entry is true:
+			if brief entry is "track":
+				say "[2da]TRACK BEATEN doesn't jump physically, but it does let you solve the jerks' puzzle.";
+	repeat through table of vu:
+		if found entry is true:
+			if brief entry is not "track":
+				if say "[2da][descr entry][line break]";
+	the rule succeeds;
 
 chapter metaing
 
@@ -3132,12 +3172,6 @@ carry out metaing:
 	say "[2da]HELP/HINT/HINTS/WALKTHROUGH will redirect you to the PDF and HTML hints that come with the game. THINK/SCORE gives very broad, general hinting. WAIT lets you wait, which is useless, but it's a standard verb.";
 	if cur-anno > 0:
 		say "[2da]NOTE (number or text) displays a previous note you uncovered." instead;
-	if verbs-unlocked:
-		say "You've also unlocked some verbs:[line break]";
-		repeat through table of vu:
-			if found entry is true, say "[2da][descr entry][line break]";
-	else:
-		say "[2da]You haven't unlocked any special verbs, yet, but they're out there.";
 	the rule succeeds;
 
 chapter hinting
@@ -3952,15 +3986,15 @@ to figure-cut:
 	now gesture token is in lalaland;
 	open-babble;
 
-chapter secretsopening
+chapter trackbeatening
 
-secretsopening is an action applying to nothing.
+trackbeatening is an action applying to nothing.
 
 secrets-open is a truth state that varies.
 
-understand the command "secrets open" as something new.
+understand the command "track beaten" as something new.
 
-understand "secrets open" and "secrets open" as secretsopening.
+understand "track beaten" and "track the beaten" as trackbeatening.
 
 to say periodly:
 	if in-parser-error is true:
@@ -3969,12 +4003,12 @@ to say periodly:
 	else:
 		say ".";
 
-carry out secretsopening:
+carry out trackbeatening:
 	if boris is in lalaland:
 		say "You already figured the [j-co]['] secrets, but after that episode, you realize that other people's secrets may be there, if you know where to look. That leaves potential for abuse but also it's good to know everyone else isn't ten times as impervious as you to misfortune. Wait, no, not strictly good. But you feel less odd." instead;
 	if secrets-open is true:
-		say "You've already made certain secrets open[if finger index is in accountable hold], and you can read them in full on the Finger Index back in Accountable Hold[else], though you haven't uncovered any specific ones, yet[end if]." instead;
-	say "[activation of open secrets][if finger index is examined]You take some time to think about the names on the Finger Index. And you remember pieces of conversation from the [j-co]. One guy was too hesitant, or too eager, to dismiss this or that, or he knew too much about this subject, or played too dumb about that subject. Oh goodness. You've missed or dismissed those clues before in other situations. And you're a bit embarrassed the Labor Child figured things out so young. But--well, there were clues. You see that now[else]Nothing happens. But you just feel you're more open to what people may be saying, or doing, and putting clues together so you're not in the dark about certain things[end if][periodly]";
+		say "You've already made a commitment to track the beaten[if finger index is in accountable hold], and you can re-read everyone in full on the Finger Index back in Accountable Hold[else], though you haven't uncovered any specific unfortunates, yet[end if]." instead;
+	say "[activation of beaten track][if finger index is examined]You take some time to track the possible names on the Finger Index. And you remember pieces of conversation from the [j-co]. One guy was too hesitant, or too eager, to dismiss this or that, or he knew too much about this subject, or played too dumb about that subject. Oh goodness. You've missed or dismissed those clues before in other situations. And you're a bit embarrassed the Labor Child figured things out so young. But--well, there were clues. You see that now[else]Nothing happens. But you just feel you're more open to what people may be saying, or doing, and putting clues together so you're not in the dark about certain things[end if][periodly]";
 	now secrets-open is true;
 	the rule succeeds;
 
@@ -4713,7 +4747,7 @@ ignore-wait is a truth state that varies.
 to wfak:
 	if ignore-wait is false:
 		if waited-yet is false:
-			say "[i][bracket]NOTE: when the prompt does not appear, it means to push any key to continue[close bracket][r]";
+			ital-say "NOTE: when the prompt does not appear, it means to push any key to continue.";
 			now waited-yet is true;
 			wait for any key;
 			say "[paragraph break]";
@@ -6635,6 +6669,7 @@ to zap-the-jerks:
 	now player has quiz pop;
 	increment the score;
 	now all clients are in lalaland;
+	unlock-verb "track";
 	unlock-verb "notice";
 
 check going north when player is in well:
@@ -8456,11 +8491,9 @@ definition: a person (called p) is waxblocking:
 			decide yes;
 	decide no;
 
-[MUSIC FACE]
-
 check going to Discussion Block for the first time:
 	if jump-level < 4:
-		say "Two guys greet you as you walk in. 'I'm Art Fine. This is Harmonic Phil. Welcome to the Discussion Block! All discussion is welcome here, but some is more welcome than others.' They squabble briefly over whether music or books is superior, ask you whom you agree with and what you especially like, and shrug when you have nothing to say.";
+		say "Two guys greet you as you walk in. 'I'm [one of]Art Fine. This is Harmonic Phil[or]Harmonic Phil. This is Art Fine[at random]. Welcome to the Discussion Block! All discussion is welcome here, but some is more welcome than others.' They squabble briefly over whether music or books is superior, ask you whom you agree with and what you especially like, and shrug when you have nothing to say.";
 		wfak;
 
 chapter Art Fine
@@ -8670,8 +8703,6 @@ workname	singername	songsubj
 "My Mind on Georgia"	"Charles Ray"	"cutting reflections on why certain places hate progress"
 "Lies Little"	"Mac Fleetwood"	"how it's fun to cheat on someone dumb enough to tell the truth too much"
 
-[the music face?]
-
 part Questions Field
 
 Questions Field is north of Speaking Plain. It is in Main Chunk. "North is what can only be the [bad-guy]'s lair: Freak Control. You can go back south to the Speaking Plain, [if reasoning circular is not off-stage]though Buddy Best probably won't welcome you back west[else]and also you can go west to [c-house][end if]."
@@ -8747,6 +8778,8 @@ to check-left:
 		say "[random bro in Questions Field] says, 'Well. Guess one of us had to be last. But...think you could help me, too?' You're pretty sure you can.";
 	if bros-left is 0:
 		say "Oh, man! The way north is free now! As the final brother leaves, he turns to say 'Beware...trap...question mark...exclamation mark...'";
+	unlock-verb "fancy";
+	unlock-verb "notice";
 	increment the score;
 
 litany of Brother Big is the table of Brother Big talk.
@@ -10354,7 +10387,7 @@ rule for printing a parser error when the latest parser error is the didn't unde
 		if number of words in the player's command is 2:
 			if word number 2 in the player's command is "open":
 				now in-parser-error is true;
-				try secretsopening;
+				try trackbeatening;
 				the rule succeeds;
 	if the turn count is 1: [hack (??) for G on move 1]
 		say "That isn't a recognized verb, or maybe you guessed a preposition wrong. In general, this game tries not to force longer commands. You can type VERB or VERBS to see all the commands and possible prepositions.";
@@ -10640,13 +10673,15 @@ Cut a Figure is a concept in conceptville. understand "cut a figure" as cut a fi
 
 Passing Fancy is a concept in conceptville. understand "fancy passing" as Passing Fancy. howto is "help all three Keeper Brothers"
 
-Open Secrets is a concept in conceptville. understand "secrets open" as Open Secrets. howto is "solve the [j-co] puzzle for the first time"
+Beaten Track is a concept in conceptville. understand "track beaten" as Beaten Track. howto is "solve the [j-co] puzzle for the first time"
 
 Advance Notice is a concept in conceptville. understand "advance notice" as Advance Notice. howto is "enter Freak Control"
 
 section death concepts
 
 Sore Loser is a concept in conceptville. understand "loser sore" as sore loser. howto is "visit Fight Fair (attack random person)"
+
+Boss Fight is a concept in conceptville. understand "fight boss" as boss fight. howto is "visit Fight Fair (attack random person)"
 
 chapter lalaland
 

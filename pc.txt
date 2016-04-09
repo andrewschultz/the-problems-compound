@@ -527,9 +527,11 @@ Or you can beat the bad guy and the Thoughts Idol.
 ?I'd like a walkthrough. Is there a walkthrough?
 Yes. It should be included with the game as a short HTML file.
 ?What meta-commands are there to jump ahead?
+The first one simply lets you solve the jerks. TRACK BEATEN.
 DUCK SITTING jumps to the Tension Surface
 KNOCK HARD gets you to Pressure Pier.
 FIGURE A CUT gets you past the Howdy Boy.
+FANCY PASSING removes the Brothers from play.
 NOTICE ADVANCE skips all the way to disposing of the jerks and helping the Brothers and leaves you at the Questions Field, but you still need to take down the Assassination Character and Thoughts Idol for the best ending.
 >>Director's Cut
 ?Is there any objective?
