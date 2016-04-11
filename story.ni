@@ -12135,7 +12135,10 @@ to check-boris:
 	re-fix;
 
 to say test-prog:
-	say "[tests-failed] of [total-tests] failed";
+	if tests-failed is 0:
+		say "ALL [total-tests] TESTS SUCCEEDED SO FAR";
+	else:
+		say "[tests-failed] of [total-tests] failed";
 
 carry out jrtming:
 	check-boris;

@@ -22,12 +22,21 @@ $a = @ARGV[$count];
 for ($a)
 {
  /^-f$/ && do { $overlook = 1; $count++; next; };
+ /^-2$/ && do { $override = 1; $count++; next; };
  /^-d$/ && do { $dicURL = 1; $count++; next; };
  /^-o$/ && do { print "Opening $output.\n"; `$output`; exit; };
  /^-oo$/ && do { print "Opening $track.\n"; `$track`; exit; };
  /^-np$/ && do { $dicURLPrint = 0; $count++; next; };
  /^-\?$/ && do { usage(); exit; };
- if ($flipData) { print "Only one flip data allowed. Use comma separators.\n"; exit; } else { if ($a =~ /^[,a-z]+$/) { $flipData =$a; $count++; print "Flip data = $flipData\n"; next; } }
+ if ($flipData) { print "Only one flip data allowed. Use comma separators.\n"; exit; }
+ else
+ {
+   if ($a =~ /^[,a-z]+$/)
+   {
+     if (length($a) == 1) { print ("Length must be at least 2.\n"); exit; }
+     if ((length($a) == 2) && (!$override)) { print ("-2 flag must be used for 2-letter word.\n"); exit; }
+	 $flipData =$a; $count++; print "Flip data = $flipData\n"; next; }
+    }
  print "Bad flag, $a.\n"; usage();
 }
 }
