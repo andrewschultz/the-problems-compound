@@ -617,6 +617,9 @@ to decide whether the action is jumpy:
 	if knockharding, yes;
 	if ducksitting, yes;
 	if noticeadvanceing, yes;
+	if fancypassing, yes;
+	if trackbeatening, yes;
+	no;
 
 to decide whether the action is procedural: [aip]
 	if examining, yes;
@@ -1091,7 +1094,7 @@ carry out do-swearing:
 		say "'Repeat offender? Cutting up for the fun of it? Off you go!'";
 		ship-off in-dignity heap instead;
 	if player is in freak control:
-		say "That gets the [bad-guy]'s attention. 'DUDE!' he says. 'REALLY, dude! Some respect for authority? I mean, don't respect stupid authority but I *** need to *** concentrate, here. My job's not *** easy and anyone who just swears frivolously to grab attention--well, they don't GET IT, y'know? Besides, you sounded lame when you said that.' As you're pulled away by guards you hadn't seen before, the 'OUT, FREAK' sign catches your eye. Perhaps there was another way to annoy him, without letting him be so self-righteous.";
+		say "That gets the [bad-guy]'s attention. 'DUDE!' he says. 'REALLY, dude! Some respect for authority? I mean, don't respect stupid authority but I *** need to *** concentrate, here. My job's not *** easy and anyone who just swears frivolously to grab attention--well, they don't GET IT, y'know? Besides, you sounded lame when you said that.' As you're pulled away by guards you hadn't seen before, the '[activation of freak out]OUT, FREAK' sign catches your eye. Perhaps there was another way to annoy him, without letting him be so self-righteous.";
 		ship-off in-dignity heap instead;
 	if big-swear is false:
 		say "That's a wishy-washy swear--it wouldn't seem to do you any good if you [if allow-swears is true]dis[else]en[end if]abled profanity in this game." instead;
@@ -2545,6 +2548,11 @@ expl-hint is a truth state that varies.
 
 told-xpoff is a truth state that varies;
 
+check explaining when player is in freak control (this is the don't explain when you can clue in FC rule) :
+	if noun is power trip or noun is freak out:
+		if qbc_litany is table of no conversation:
+			say "You don't need to ask for explanations, here. You need to do something." instead;
+
 carry out explaining:
 	if debug-state is true:
 		now all rooms are visited;
@@ -2847,6 +2855,7 @@ Spelling Disaster	"Disaster spelling is, well, consonants clumped together. Spel
 u-turn	"A u-turn is when a car swivels in a huge circle to reverse direction. So if something tries to turn you, it bounces back."
 touch base	"To touch base is to get back to someone or return their call, especially if it's been a while. Versus a base touch, base being mean, so it's a bit more creepy."
 poke fun	"To poke fun is to make a joke, but poke can mean a lot of things--putter around, meddle, or maybe poke a friend to get their attention."
+Compound Problems	"Compound problems are problems that aren't simple or can't be dealt with simply, or that build together to leave someone totally overwhelmed."
 Games Mind	"Mind games are messing with people's mind with lies or half-truths. A games mind might be more inclined to abstract puzzles." [start of game]
 Games Confidence	"Confidence games are where someone gains someone else's trust to rip them off. It can be as simple as a shell game or as complex as an investment scheme. Of course, Alec has confidence with logic games but not much else."
 Animal Welfare	"Animal welfare is concern for animals who often can't help themselves. Welfare has a slightly perjorative definition in the US these days, e.g. people on welfare are lazy, or someone giving it is very generous indeed, more than they need to be."
@@ -2886,6 +2895,8 @@ Steal This Book	"Steal This Book was a countercultural guide by Abbie Hoffman. B
 Coals to Newcastle	"Coals to Newcastle means a pointless action. In this case, there are no dark rooms, so you don't need a torch. Reducing a new castle to coals is, of course, pointless, too."
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever."
 Show Business	"Show business is the act of entertainment, and the business show's is (purportedly) more practical." [?? test this!]
+Power Trip	"A power trip is when someone is so overcome with their own power, they do mean things to show it off."
+Freak Out	"To freak out is to make a much bigger emotional display than seems really necessary."
 Crisis Energy	"An energy crisis is when a community doesn't have enough electrical power, or oil, or whatever."
 Beyond Belief	"Beyond belief means something you can't possibly believe in, but belief beyond means more faith than you thought you could have."
 shot mug	"The shot mug may look shot, or beaten-up, but mug shots--photographs of apprehended suspects--are generally very unflattering. Hence the flattering portrait of the [bad-guy] on the mug."
@@ -3083,6 +3094,9 @@ this is the special-verb rule:
 		the rule succeeds;
 	the rule fails;
 
+to say sr-sp:
+	say "[if screen-read is true] [end if]";
+
 carry out verbing:
 	consider the special-verb rule;
 	if the rule succeeded:
@@ -3107,7 +3121,7 @@ carry out verbing:
 	say "[2da]conversations use numbered options, and you often need to end them before using standard verbs. RECAP shows your options.";
 	say "[2da]other standard parser verbs apply, and some may provide alternate solutions, but you should be able to win without them.";
 	say "[2da]EXITS shows the exits. While these should be displayed in the room text, you can see where they lead if you've been there.";
-	say "[2da]META describes additional commands not critical to winning the game[if verbs-unlocked], and V[if screen-read is true] [end if]X gives verbs you unlocked[end if], but this list is long enough.";
+	say "[2da]META describes additional commands not critical to winning the game[if verbs-unlocked], and V[sr-sp]X gives verbs you unlocked[end if], but this list is long enough.";
 	if in-beta is true:
 		say "Beta testers have debug commands. See debug commands too?";
 		if the player yes-consents:
@@ -3143,7 +3157,7 @@ carry out vxing:
 	repeat through table of vu:
 		if found entry is true:
 			if brief entry is not "track":
-				if say "[2da][descr entry][line break]";
+				say "[2da][descr entry][line break]";
 	the rule succeeds;
 
 chapter metaing
@@ -3550,7 +3564,7 @@ anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
 0	--	Bottom Rock	"bottom"	"I forget when the idea of giving you a powerful item if you got abstract puzzles came to me. But I wanted it to be powerful and cleverly named. I wasn't sure where I could put a crib, because I couldn't implement a bedroom, but then I realized it could be just dropped anywhere, to show the Problems Compound is not for babies--or maybe to insinuate that hints are for babies. I mean, for the [bad-guy] to insinuate, not me. I use them a lot, too."
 0	--	Judgment Pass	"pass"	"This seemed as good a generic place-you-need-a-puzzle-to-get-by as any. Especially since I wanted solutions to focus around outsmarting instead of violence or pushing someone out of the way." [east-ish]
 0	--	Idiot Village	"village"	"Of course, the people here aren't total idiots, even if they are very silly. But I liked the idea of turning 'village idiot' on its head, as well as having a caste of 'outs' who maybe weren't stupid but let themselves be treated that way."
-0	--	Service Community	"community"	"I liked the idea of an underclass that needs to rebel, and Idiot Village was good enough for getting the game out there. But then while playing Kingdom of Loathing, which has inspired a lot of my 'jokes,' the Community Service path's name kept pinging me."
+0	--	Service Community	"community"	"I liked the idea of an underclass that needs to rebel, and Idiot Village was good enough for getting the game out there. But then while playing Kingdom of Loathing, which has 'inspired' a lot of my 'jokes,' the Community Service path's name kept pinging me."
 0	--	Speaking Plain	"plain"	"The people here do go in for plain speaking, but that doesn't mean it's good speaking. In general, Alec is assaulted by a bunch of people who want to convince him they're wasting their time speaking to him than the other way around. They act like advertisements, to me." [north-ish]
 0	--	Temper Keep	"keep"	"This is one of those ideas that came relatively late, but once it did, I had a few adjectives and verbs that tipped me off to a quick puzzle that should be in there."
 0	--	Questions Field	"field"	"This was originally the Way of Right, which was sort of close to Freak Control, but then close to release I was searching for other names and this popped up. I liked it better--the three Brothers are asking questions, first of you and then of why they're there and how they could leave--and it seemed less generic. So it stayed."
@@ -3633,7 +3647,7 @@ Smart Street is a room in Beginning. "This isn't a busy street[one of], but ther
 
 after looking in Smart Street when Guy Sweet is not in Smart Street:
 	move Guy Sweet to Smart Street;
-	say "A loud, hearty voice from the shell. 'Howdy! I'm Guy Sweet! You look like a fella with a [activation of games mind]games mind! Why not come over to the Game Shell and have a TALK?'"
+	say "[activation of compound problems]A loud, hearty voice from the shell. 'Howdy! I'm Guy Sweet! You look like a fella with a [activation of games mind]games mind! Why not come over to the Game Shell and have a TALK?'"
 
 the player is in Smart Street.
 
@@ -4012,7 +4026,7 @@ carry out trackbeatening:
 	now secrets-open is true;
 	the rule succeeds;
 
-chapter fancypassinging
+chapter fancypassing
 
 fancypassing is an action applying to nothing.
 
@@ -8997,7 +9011,7 @@ every turn when player is in freak control and qbc_litany is not table of baiter
 		increment control-gadget-row;
 		if control-gadget-row > number of rows in table of gadget action:
 			now control-gadget-row is 0;
-			say "'All this data from all these machines! Of course I have to be decisive and a little abrasive,' the [bad-guy] yells to, well, nobody in particular. 'It's not like I'm on a total power trip.'";
+			say "'All this data from all these machines! Of course I have to be decisive and a little abrasive,' the [bad-guy] yells to, well, nobody in particular. 'It's not like I'm on a total [activation of power trip]power trip.'";
 			the rule succeeds;
 		choose row control-gadget-row in table of gadget action;
 		say "[gad-act entry][line break]";
@@ -9018,6 +9032,12 @@ definition: a room (called rm) is mainchunk:
 table of gadget action
 gad-act
 "You think you hear the List Bucket rattle. Wait, no."
+"The [bad-guy] mutters something about needing to pound Ezra for not appreciating his poetry."
+"The [bad-guy] mutters he'd get six girls before Henry King got one."
+"The [bad-guy] snorts at Bud's taste."
+"'Geez, it's a pain to factor BENNY. I'm not, like, MEAN to him.'"
+"'See, Farrah,' the [bad-guy] mutters to no girl in particular."
+"The [bad-guy] mutters he's sure Dean Howard is nice and well-meaning all, but he babbles on and on about a scream or something being utterly unforgiveable. Hmm."
 "The Language Sign flashes but you don't think it changed its message. Just reinforced it."
 "The Twister Brain spits out a page of data the [bad-guy] speed reads. He mutters 'Pfft. I already sort of knew that. Mostly. Still, need to keep an eye on [the random surveyable person].'"
 "The Witness Eye swivels around with a VVSSHHKK before changing the focus to [random mainchunk room]."
@@ -9033,7 +9053,7 @@ the Witness Eye is scenery in Freak Control. "It's weird, it's circular, but it 
 
 understand "witness star" and "star" as Witness Eye.
 
-the Language Sign is scenery in Freak Control. "It says, in various languages: OUT, FREAK. [one of]You're momentarily impressed, then you feel slightly jealous that the [bad-guy] took the time to research them. You remember getting grilled for trying to learn new languages in elementary school, before you could take language classes. You mentally blame the [bad-guy] for that. Well, it was someone like him. [or]You also take a second or two to pick which language in which line says OUT, FREAK. Got [']em all. Even the ones with the unusual alphabets you only half know.[stopping]"
+the Language Sign is scenery in Freak Control. "It says, in various languages: [activation of freak out]OUT, FREAK. [one of]You're momentarily impressed, then you feel slightly jealous that the [bad-guy] took the time to research them. You remember getting grilled for trying to learn new languages in elementary school, before you could take language classes. You mentally blame the [bad-guy] for that. Well, it was someone like him. [or]You also take a second or two to pick which language in which line says OUT, FREAK. Got [']em all. Even the ones with the unusual alphabets you only half know.[stopping]"
 
 The Baiter Master is a proper-named person in Freak Control. "The [bad-guy] stands here with his back to you.". description is "You can only see the back of him, well, until you gaze in some reflective panels. He looks up but does not acknowledge you. He doesn't look that nasty, or distinguished, or strong, or whatever. Surprisingly ordinary. He shrugs and resumes his apparent thoughtfulness."
 
@@ -10537,6 +10557,8 @@ Force of Habit is a concept in conceptville. howto is "attack something inanimat
 
 section intro concepts
 
+compound problems is a concept in conceptville. understand "problems compound" and "compound problem" as compound problems. howto is "very start"
+
 a games mind is a concept in conceptville. understand "mind games" as games mind. howto is "very start".
 
 Games confidence is a concept in conceptville. understand "confidence game/games" and "game confidence" as games confidence. howto is "talk to Guy"
@@ -10631,6 +10653,10 @@ Candidate Dummy is a concept in conceptville. understand "dummy candidate" as Ca
 
 section endgame concepts
 
+Freak Out is a concept in conceptville. understand "out freak" as freak out. howto is "read the Language sign"
+
+Power Trip is a concept in conceptville. understand "trip power" as power trip. howto is "wait for the [bad-guy] to go through his actions"
+
 Crisis Energy is a concept in conceptville. understand "energy crisis" as Crisis Energy. howto is "get the [bad-guy]'s attention"
 
 Beyond Belief is a concept in conceptville. understand "belief beyond" as Beyond Belief. howto is "get the [bad-guy]'s attention"
@@ -10688,8 +10714,6 @@ chapter lalaland
 section endgame concepts
 
 lalaland is a room in meta-rooms. "You should never see this. If you do, it is a [bug]."
-
-[?? these -could- be moved to somewhere else if we're clever and can save ALL wins]
 
 Received Wisdom is a concept in conceptville. understand "wisdom received" as received wisdom. howto is "win the game either way"
 
@@ -10819,7 +10843,7 @@ Include (-
 
 -)
 
-volume testing bits
+volume testing I can't quite NFR
 
 book ticking-debug
 
@@ -11351,6 +11375,8 @@ carry out swearing:
 
 chapter gqing
 
+[* gq = go quick, tells you what a number should skip to, so we don't have to go through a conversation etc.]
+
 gqing is an action applying to one number.
 
 understand the command "gq" as something new.
@@ -11412,6 +11438,8 @@ carry out gqing:
 
 chapter gating
 
+[* this is "give all to" which gives everything to a certain NPC ]
+
 gating is an action applying to one thing.
 
 understand the command "gat" as something new.
@@ -11464,7 +11492,7 @@ carry out gating:
 
 chapter testjumping
 
-chapter nu-testjumping
+[* testjump lets the tester make specific jumps. nu-testjump is the action, but list-testjumping = if we type 0, for a list]
 
 understand the command "testjump" as something new.
 understand the command "tj" as something new.
@@ -12038,6 +12066,8 @@ carry out bcing:
 	the rule succeeds;
 
 chapter jfixing
+
+[ * this fixes the jerks with dandy jim 1-2-3-4-5-6-7]
 
 jfixing is an action out of world.
 

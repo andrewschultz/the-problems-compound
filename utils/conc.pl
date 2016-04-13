@@ -1,6 +1,7 @@
 
-readConcept("Compound");
-readConcept("Slicker-City");
+if (@ARGV[0] eq "") { readConcept("Compound"); readConcept("Slicker-City"); }
+elsif (@ARGV[0] eq "pc") { readConcept("Compound"); }
+elsif (@ARGV[0] eq "sc") { readConcept("Slicker-City"); }
 
 #######################################
 #prints the results
@@ -24,7 +25,7 @@ print "$errMsg";
 
 if (!$errMsg) { $errMsg = "All okay!"; } else { $errMsg =~ s/\n/<br>/g; $errMsg =~ s/<br>$//g; }
 
-print "TESTRUN:concepts-$_[0],$fails,$totals,$errMsg\n";
+print "TEST RESULTS:concepts-$_[0],$fails,$totals,$errMsg\n";
 
 if ($fails) { print "Test failed, $fails failures of $totals.\n"; }
 else { print "Test succeeded! All $totals passed."; }

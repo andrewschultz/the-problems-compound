@@ -21,3 +21,5 @@ I managed to make more automated tests for the jerks, which spurred many of the 
 --the jerks' puzzle now lets you type, say, 1234567, and it clues you if one number is wrong and you gave the wrong guy a mint. Unfortunately, the jerk-ordering is still arbitrary.
 --some concepts were revealed on start before, but now, a tracking file sees if they should be revealed.
 --push and pull now map to open. This isn't huge, technically, but I'll use it going forward.
+--a few extra silly concepts added
+--the bad guy now has individual people he randomly insults outside of those you meet

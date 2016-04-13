@@ -77,7 +77,7 @@ open(B, "c:/games/inform/compound.inform/source/fliptrack.txt");
 while ($b = <B>)
 {
   $lineNum++;
-  if (($b =~ /==/) && ($b !~ /=Found/)) { $b =~ s/^=*//g; chomp($b); $isDone{$b} = $lineNum; }
+  if (($b =~ /==/) && ($b !~ /=Found/)) { $b =~ s/^=*//g; chomp($b); if (!$isDone{$b}) { $isDone{$b} = $lineNum; } else { print "Warning $b at $lineNum and $isDone{$b}.\n"; } }
 }
 
 close(B);
@@ -91,12 +91,12 @@ sub readOneWord
   $found = 0;
   $wordy = 0;
 
-  if ((!$overlook) && ($isDone{$_[0]}))
- { print "$_[0] repeated, line $isDone{$_[0]} in flip.txt.\n"; return; }
+  if ($isDone{$_[0]})
+ { if ($overlook) { print "Redoing $_[0], found in line $isDone{$_[0]} in flip.txt.\n"; } else { print "$_[0] repeated, line $isDone{$_[0]} in flip.txt.\n"; return; } }
  else
  { print "$_[0] not done yet.\n"; }
  $flip = $_[0];
- for $q (sort keys %isDone) { if ($_[0] =~ /$q/) { print "$_[0] contains already-done word $q\n"; } }
+ for $q (sort keys %isDone) { if (($_[0] =~ /$q/) && ($_[0] ne $q)) { print "$_[0] contains already-done word $q\n"; } }
 
 if ($dicURL) { `\"C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe\" http:\/\/idioms.thefreedictionary.com\/$flip`; }
 
@@ -114,7 +114,7 @@ open(A, "c:/writing/dict/brit-1word.txt");
 while ($a = <A>)
 {
   chomp($a); $a = lc($a);
-  if ($a =~ /^$flip/i)
+  if (($a =~ /^$flip/i) || ($a =~ /$flip$/i))
   {
     $b = $a; $b =~ s/^($flip)(.*)/$2-$1/gi;
 	$c = $a; $c =~ s/^$flip//gi;
