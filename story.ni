@@ -2514,6 +2514,9 @@ chapter explaining
 
 explaining is an action applying to one visible thing.
 
+does the player mean explaining a concept: it is likely.
+does the player mean explaining something in location of player: it is very likely.
+
 understand the command "explain" as something new.
 understand the command "xp" as something new.
 
@@ -2592,8 +2595,9 @@ carry out explaining:
 		say "There should be an explanation, but there isn't.";
 		the rule succeeds;
 	if noun is a room:
-		the rule succeeds; [?? this avoids a crash. Look into why.]
-	choose row with exp-thing of noun in myt;
+		choose row with room-to-exp of noun in myt;
+	else:
+		choose row with exp-thing of noun in myt;
 	if there is an exp-anno entry:
 		if anno-allow is false:
 			if expl-hint is false:
@@ -2815,7 +2819,7 @@ Brother Soul	"A soul brother is one who has very similar opinions to you."
 Buddy Best	"A best buddy is your favorite friend." [court of contempt]
 the Reasoning Circular	"Circular Reasoning is, for instance, I'm smart because I'm clever because I'm smart."
 a long tag	"To tag along is to follow behind."
-Baiter Master	"[if allow-swears is true]Masturbater is someone who--pleasures himself[else]Messiah Complex means someone believes they're the chosen one[end if]." [freak control] [?? break this up]
+Baiter Master	"[if allow-swears is true]Masturbater is someone who--pleasures himself, and it's sort of humblebragging, because the Baiter Master is also great at winning arguments by tactics like, well, playing dumb[else]Messiah Complex means someone believes they're the chosen one, but Complex Messiah could mean they'll save you, but it's not that easy[end if]." [freak control]
 list bucket	"A bucket list has things to do before you die."
 Language Sign	"Sign language is how people communicate with the deaf."
 call curtain	"A curtain call is when someone comes back out after lots of applause."
@@ -2894,7 +2898,7 @@ Determined Bound	"Bound and determined means you're set on doing something. A de
 Steal This Book	"Steal This Book was a countercultural guide by Abbie Hoffman. Book this steal refers to 'booking' suspects for a transgression, e.g. a parking fine or ticket."
 Coals to Newcastle	"Coals to Newcastle means a pointless action. In this case, there are no dark rooms, so you don't need a torch. Reducing a new castle to coals is, of course, pointless, too."
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever."
-Show Business	"Show business is the act of entertainment, and the business show's is (purportedly) more practical." [?? test this!]
+Show Business	"Show business is the act of entertainment, and the business show's is (purportedly) more practical."
 Power Trip	"A power trip is when someone is so overcome with their own power, they do mean things to show it off."
 Freak Out	"To freak out is to make a much bigger emotional display than seems really necessary."
 Crisis Energy	"An energy crisis is when a community doesn't have enough electrical power, or oil, or whatever."
@@ -8196,7 +8200,9 @@ check going nowhere in speaking plain:
 
 The Fright Stage is scenery in Speaking Plain. "It's decorated with all manner of horrible fate for people that, you assume, messed up in life. From homelessness to getting fired visiting a porn store on Christmas Day to just plain envying other people with more stuff or social life, it's a mural of Scared Straight for kids without the guts to do anything jail-worthy."
 
-understand "business/show" and "business show" as Fright Stage.
+does the player mean explaining the fright stage: it is unlikely.
+
+understand "business/show" and "business show" as Fright Stage when player is in Speaking Plain.
 
 Turk Young is a baiter-aligned person in Speaking Plain. description is "He seems a little trimmer, a little better dressed, and a little taller than you. And of course a lot more confident. Even when he's letting Uncle Dutch speak, his furious nods indicate control. He is clearly a fellow who is Going Places, and the Fright Stage is an apprenticeship."
 
@@ -9029,6 +9035,18 @@ definition: a room (called rm) is mainchunk:
 	if map region of rm is main chunk, decide yes;
 	decide no;
 
+to say odd-machine of (x - a thing):
+	if x is control-known:
+		say "The [x]";
+	else:
+		say "Some machine";
+
+to say odd-machine-l of (x - a thing):
+	if x is control-known:
+		say "The [x]";
+	else:
+		say "some machine";
+
 table of gadget action
 gad-act
 "You think you hear the List Bucket rattle. Wait, no."
@@ -9039,11 +9057,11 @@ gad-act
 "'See, Farrah,' the [bad-guy] mutters to no girl in particular."
 "The [bad-guy] mutters he's sure Dean Howard is nice and well-meaning all, but he babbles on and on about a scream or something being utterly unforgiveable. Hmm."
 "The Language Sign flashes but you don't think it changed its message. Just reinforced it."
-"The Twister Brain spits out a page of data the [bad-guy] speed reads. He mutters 'Pfft. I already sort of knew that. Mostly. Still, need to keep an eye on [the random surveyable person].'"
-"The Witness Eye swivels around with a VVSSHHKK before changing the focus to [random mainchunk room]."
-"The [bad-guy] gestures at the Incident Miner. '[one of]Yup. It's always when they're being a little too nice, you gotta watch out[or]Some people never learn. Or they just learn wrong[or]Just because that wasn't clever doesn't mean it wasn't sneaky[or]They say THAT's no big deal, I say my snark's no big deal, they still feel ripped off. Sheesh[at random].'"
-"The [bad-guy] laughs sardonically at the Frenzy Feed. 'Hah, gonna love complaining about that with [random baiter-aligned person].'"
-"The Shot Screen blinks a bit before changing its focus."
+"[odd-machine of Twister Brain] spits out a page of data the [bad-guy] speed reads. He mutters 'Pfft. I already sort of knew that. Mostly. Still, need to keep an eye on [the random surveyable person].'"
+"[odd-machine of Witness Eye] swivels around with a VVSSHHKK before changing the focus to [random mainchunk room]."
+"The [bad-guy] gestures at [odd-machine-l of Incident Miner]. '[one of]Yup. It's always when they're being a little too nice, you gotta watch out[or]Some people never learn. Or they just learn wrong[or]Just because that wasn't clever doesn't mean it wasn't sneaky[or]They say THAT's no big deal, I say my snark's no big deal, they still feel ripped off. Sheesh[at random].'"
+"The [bad-guy] laughs sardonically at [odd-machine-l of frenzy feed]. 'Hah, gonna love complaining about that with [random baiter-aligned person].'"
+"[odd-machine of shot screen] blinks a bit before changing its focus."
 
 the Twister Brain is scenery in Freak Control. "The way it's creased, it's just a contemptuous smirk. Or maybe you're just seeing things."
 
