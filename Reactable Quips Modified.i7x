@@ -160,7 +160,7 @@ Section 5 - Text overrides
 
 The generic ask quip is some text that varies. The generic ask quip is usually "You can't think of anything to say on that topic.".
 The generic tell quip is some text that varies. The generic tell quip is usually "You can't think of anything to say on that topic.".
-The RQ options prologue is some text that varies. The RQ options prologue is usually "The available options are:".
+The RQ options prologue is some text that varies. The RQ options prologue is usually "The available options[if qbc_litany is table of jt] for [cur-jerk][end if] are:".
 The RQ reaction demand is some text that varies. The RQ reaction demand is usually "[bracket]I need some kind of reaction from you to continue the scene.  Enter a number, or say REPEAT to reacquaint yourself with your options.[close bracket]".
 The RQ no options is some text that varies. The RQ no options is usually "[bracket]No responses are currently available.[close bracket]".
 The RQ out of range rules are a number based rulebook.

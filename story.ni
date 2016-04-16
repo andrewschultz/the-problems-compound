@@ -447,11 +447,6 @@ a client can be minted. a client is usually not minted.
 
 an enforcer is a kind of person.
 
-to decide whether the action is undrastic:
-	if examining, decide yes;
-	if explaining, decide yes;
-	decide no;
-
 chapter misc defs for later
 
 a concept is a kind of thing. description of a concept is usually "[bug]"
@@ -475,11 +470,15 @@ volume stubs
 
 section nicety stubs
 
+[* screen reading space]
+
 to say sr-space:
 	if screen-read is true:
 		say " ";
 
 section rerouting verb tries
+
+[* to make sure that the player is clued as to what they're doing wrong, too many words etc.]
 
 the last-command is indexed text that varies.
 
@@ -526,7 +525,7 @@ Rule for reading a command when the parser error flag is true:
 
 section debug stubs
 
-[these 3 must be in release section since release code uses them trivially at points. Beta = for beta testers, Debug-state is my own debugging, stop-on-bug is for me in case something bad happens.]
+[* these 3 must be in release section since release code uses them trivially at points. Beta = for beta testers, Debug-state is my own debugging, stop-on-bug is for me in case something bad happens.]
 
 in-beta is a truth state that varies.
 
@@ -550,6 +549,8 @@ to say my-repo:
 	say "http://github.com/andrewschultz/the-problems-compound"
 
 section printing exits
+
+[* this is a heckish thing where we don't want to clue exits we programmatically need to "allow" like you can't go back to the Court of Contempt]
 
 print-exits is a truth state that varies.
 
@@ -601,6 +602,8 @@ section peing
 
 peing is an action out of world.
 
+[* toggle displaying exits ]
+
 understand the command "pe" as something new.
 
 understand "pe" as peing.
@@ -611,6 +614,8 @@ carry out peing:
 	the rule succeeds;
 
 section procedurality
+
+[* this decides whether or not we should exclude from "instead of doing anything." Jumpiness = beginning warps, to avoid talking to Guy, and procedural stuff is stuff that has generic responses we should accept to break up conversation ]
 
 to decide whether the action is jumpy:
 	if figureacuting, yes;
@@ -631,7 +636,14 @@ to decide whether the action is procedural: [aip]
 	if listening, yes;
 	no;
 
-section shorthand
+to decide whether the action is undrastic:
+	if examining, decide yes;
+	if explaining, decide yes;
+	decide no;
+
+section shorthand regions
+
+[* to save space on variables later ]
 
 to decide what region is imr of (x - a thing):
 	if x is off-stage:
@@ -642,6 +654,8 @@ to decide what region is mrlp:
 	decide on map region of location of player.
 
 section formatting
+
+[ * standard i, r and b]
 
 to say r:
 	say "[roman type]";
@@ -2794,7 +2808,7 @@ fourth-blossom	"To blossom fourth is to grow."
 Thoughts Idol	"Idle thoughts, e.g., a wandering mind, are what it purports to oppose."
 Trap Rattle	"A rattle trap is a cheap car."
 lifted face	"Facelifted means you had surgery done on your face, though Alec's lifted more naturally."
-Uncle Dutch	"A Dutch Uncle gives useful advice." [speaking plain] [??test XP BUSINESS SHOW]
+Uncle Dutch	"A Dutch Uncle gives useful advice." [speaking plain]
 Turk Young	"A Young Turk is a brave rebel."
 Fright Stage	"Stage fright is being scared to get out in front of a crowd."
 Volatile Sal	"Sal volatile is given to wake up unconscious people with its smell." [temper keep]
@@ -6612,7 +6626,7 @@ before talking to generic-jerk when secrets-open is true:
 	say "After listening to the [j-co] for a bit, it's extra apparent who's who on the Labor Child's list. You gather them around and tell them what's up.[line break]";
 	zap-the-jerks;
 	the rule succeeds;
-	
+
 after quipping when qbc_litany is table of generic-jerk talk:
 	let cq be current quip;
 	if current quip is jerk-hows:
@@ -9012,7 +9026,7 @@ the shot screen is scenery in Freak Control. "[if cookie-eaten is true]You're to
 
 control-gadget-row is a number that varies. control-gadget-row is 0.
 
-every turn when player is in freak control and qbc_litany is not table of baiter master talk (this is the random stuff in FC rule): [?? if player doesn't know names, don't write them]
+every turn when player is in freak control and qbc_litany is not table of baiter master talk (this is the random stuff in FC rule):
 	unless accel-ending:
 		increment control-gadget-row;
 		if control-gadget-row > number of rows in table of gadget action:
@@ -10427,7 +10441,7 @@ rule for printing a parser error when the latest parser error is the didn't unde
 				now in-parser-error is true;
 				try trackbeatening;
 				the rule succeeds;
-	if the turn count is 1: [hack (??) for G on move 1]
+	if the turn count is 1: [rather cringy hack for G on move 1]
 		say "That isn't a recognized verb, or maybe you guessed a preposition wrong. In general, this game tries not to force longer commands. You can type VERB or VERBS to see all the commands and possible prepositions.";
 		the rule succeeds;
 	if the player's command matches the regular expression "^<0-9>":
@@ -10864,6 +10878,8 @@ Include (-
 volume testing I can't quite NFR
 
 book ticking-debug
+
+[* this is a stub if we want to see where something fails, instead of d 1, d 2 etc. we just tick-up ]
 
 my-tick is a number that varies.
 
@@ -11964,6 +11980,8 @@ carry out jgoing:
 
 chapter soffing
 
+[* ship the tester off to each room in order]
+
 soffing is an action out of world.
 
 understand the command "soff" as something new.
@@ -12009,6 +12027,8 @@ carry out esting:
 
 chapter amaping
 
+[* toggles automapping every turn]
+
 amaping is an action out of world.
 
 understand the command "amap" as something new.
@@ -12029,6 +12049,8 @@ after printing the locale description when location of player is unvisited:
 
 chapter vicing
 
+[* forces victory ]
+
 vicing is an action out of world.
 
 understand the command "vic" as something new.
@@ -12043,6 +12065,8 @@ carry out vicing:
 
 chapter vicxing
 
+[* forces very good ending]
+
 vicxing is an action out of world.
 
 understand the command "vicx" as something new.
@@ -12056,6 +12080,8 @@ carry out vicxing:
 	the rule succeeds;
 
 chapter bcing
+
+[* see who has a babble summary]
 
 bcing is an action out of world.
 
@@ -12159,6 +12185,8 @@ carry out plowing:
 
 chapter jrming
 
+[* jrm sends you back to the jerks. jrtm checks to see if the test succeeded. You also get the mint back. ]
+
 total-tests is a number that varies.
 
 tests-failed is a number that varies.
@@ -12201,6 +12229,8 @@ carry out jrming:
 
 chapter jring
 
+[* removes you to the jerk circle without changing the jerks eg mint is still used ]
+
 jrting is an action applying to one topic.
 
 jring is an action out of world.
@@ -12222,6 +12252,8 @@ carry out jring:
 
 chapter fining
 
+[* spoils the finger index's contents]
+
 fining is an action out of world.
 
 understand the command "fin" as something new.
@@ -12235,7 +12267,7 @@ carry out fining:
 
 chapter xinding
 
-[this flags the finger index as examined]
+[* this flags the finger index as examined]
 
 xinding is an action out of world.
 
