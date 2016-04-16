@@ -151,6 +151,7 @@ when play begins (this is the maximize wins rule):
 
 when play begins (this is the initialize jerks rule):
 	let temp be 0;
+	now the RQ options prologue is "The available options[if qbc_litany is table of jt] for [last-jerk][end if] are:";
 	now all clients are in Jerk Circle;
 	sort table of fingerings in random order;
 	while number of not specified clients > 0:
@@ -208,9 +209,7 @@ when play begins (this is the initialize bad room viewing rule):
 		now point-view of RM is room-index;
 	now idea-rooms is room-index;
 
-when play begins (this is the actual start rule):
-	force-status;
-	say "The Problems Compound may contain minor profanity/innuendo that is not critical to the story. Type Y or YES if this is okay. Typing N or NO will provide alternate text.";
+to choose-swearing:
 	let qq be swear-decide;
 	if qq is 2:
 		say "You hear someone moan 'Great, another indecisive type! We'll go easy with the tough language. I guess.'[paragraph break]";
@@ -225,6 +224,11 @@ when play begins (this is the actual start rule):
 	else:
 		say "You hear a far-off voice: 'Great. No freakin['] profanity. Sorry, FLIPPIN[']. In case they're extra sensitive.'";
 		now allow-swears is false;
+
+when play begins (this is the actual start rule):
+	force-status;
+	say "The Problems Compound may contain minor profanity/innuendo that is not critical to the story. Type Y or YES if this is okay. Typing N or NO will provide alternate text.";
+	choose-swearing;
 	wfak;
 	say "Also, The Problems Compound has minimal support for screen readers. In particular, it makes one puzzle less nightmarish. Are you using a screen reader?";
 	if the player no-consents:
@@ -245,7 +249,43 @@ when play begins (this is the actual start rule):
 	say "[paragraph break]The end of the hallway keeps getting farther away. You start to run, which makes it worse. You close your eyes until, exhausted, you catch your breath. The hallway's gone.";
 	set the pronoun him to Guy Sweet;
 	now right hand status line is "[your-mood]";
+	now left hand status line is "[lhs]";
 	now started-yet is true;
+
+to say lhs:
+	say "[location of player]";
+	if print-exits is false:
+		continue the action;
+	say ":";
+	if player is in service community:
+		say " NW NE SE SW N S E W";
+	else if number of viable directions is 0:
+		say " NO EXITS";
+	else:
+		if up is viable:
+			say " U";
+		if down is viable:
+			say " D";
+		if north is viable:
+			say " N";
+		if south is viable:
+			say " S";
+		if east is viable:
+			say " E";
+		if west is viable:
+			say " W";
+		if northwest is viable:
+			say " NW";
+		if northeast is viable:
+			say " NE";
+		if southwest is viable:
+			say " SW";
+		if southeast is viable:
+			say " SE";
+		if inside is viable:
+			say " IN";
+		if outside is viable:
+			say " OUT";
 
 to say your-mood:
 	if cookie-eaten is true:
@@ -576,15 +616,19 @@ definition: a direction (called myd) is viable:
 	if player is in scheme pyramid and contract-signed is false:
 		if myd is north:
 			decide no;
+	if player is in idiot village:
+		if player has bad face and idol is not in lalaland:
+			if myd is east or myd is northeast:
+				decide yes;
+	if player is in service community:
+		if noun is inside or noun is outside or noun is up or noun is down:
+			decide no;
+		decide yes;
 	if the room myd of the location of the player is nowhere:
 		decide no;
 	decide yes;
 
 exits-mentioned is a truth state that varies.
-
-every turn:
-	if print-exits is true:
-		now exits-mentioned is false;
 
 [after printing the locale description (this is the print exits rule) :
 [	if number of viable directions is 0 and mrlp is not Dream Sequence:
@@ -610,7 +654,7 @@ understand "pe" as peing.
 
 carry out peing:
 	now print-exits is whether or not print-exits is false;
-	say "The Problems Compound now [if print-exits is true]displays[else]does not display[end if] exits when you look or move to another room.";
+	say "The Problems Compound now [if print-exits is true]displays[else]does not display[end if] exits in the header[if screen-read is true]. EXITS may be a better option if you are using a screen reader, though[end if].";
 	the rule succeeds;
 
 section procedurality
@@ -2423,7 +2467,7 @@ carry out exitsing:
 	if player is in idiot village and player has bad face and idol is in idiot village:
 		say "You can exit to the west, and you might've, earlier, but--you may want to poke around Idiot Village in even some crazy diagonal directions." instead;
 	if player is in service community:
-		say "You can go pretty much any which way, but you sense that there's only one right way out." instead;
+		say "You can go pretty much any which way, including diagonally, but you sense that there's only one right way out." instead;
 	if mrlp is dream sequence:
 		say "There is no escape. You can WAKE, or you can THINK or WAIT to see where the dream goes." instead;
 	if player is in freak control:
@@ -3138,7 +3182,7 @@ carry out verbing:
 	say "[2da]specific items may mention a verb to use in CAPS, e.g 'You can SHOOT the gun AT something,' but otherwise, prepositions aren't necessary.";
 	say "[2da]conversations use numbered options, and you often need to end them before using standard verbs. RECAP shows your options.";
 	say "[2da]other standard parser verbs apply, and some may provide alternate solutions, but you should be able to win without them.";
-	say "[2da]EXITS shows the exits. While these should be displayed in the room text, you can see where they lead if you've been there.";
+	say "[2da]EXITS shows the exits. While these should be displayed in the room text, you can see where they lead if you've been there. PE also toggles showing them in the header.";
 	say "[2da]META describes additional commands not critical to winning the game[if verbs-unlocked], and V[sr-sp]X gives verbs you unlocked[end if], but this list is long enough.";
 	if in-beta is true:
 		say "Beta testers have debug commands. See debug commands too?";
@@ -7938,8 +7982,11 @@ check going nowhere in idiot village (this is the final idol puzzle rule):
 			now thoughts idol is in Service Community;
 			move player to Service Community;
 			prevent undo;
-		else:
-			say "You try that, but it seems like the idol wants a challenge. You're not sure what type, but it's got a 'come at me bro' look on its face. Maybe east or northeast...";
+		else if noun is inside:
+			say "You have two ways inside: east or northeast." instead;
+		else if noun is outside:
+			try going west instead;
+		say "You try that, but it seems like the idol wants a challenge. You're not sure what type, but it's got a 'come at me bro' look on its face. Maybe east or northeast...";
 		the rule succeeds;
 	if noun is outside:
 		try going west instead;
@@ -8097,10 +8144,6 @@ to say iv-idol:
 
 the Service Community is a room in Main Chunk. "Idiot Village's suburbs stretch every which way, including diagonal directions! The Thoughts Idol surveys you from a distance. You just came from the [opposite of last-dir]."
 
-check going in service community:
-	if noun is inside or noun is outside:
-		say "That has no meaning here." instead;
-
 idol-progress is a number that varies.
 
 idol-fails is a number that varies.
@@ -8111,7 +8154,15 @@ best-idol-progress is a number that varies.
 
 check going in service community:
 	if orientation of noun is -1:
-		say "You need to go in a compass direction.";
+		if noun is up or noun is down:
+			say "There's nothing to climb or descend in the Service Community. 'Just' the eight basic compass directions." instead;
+		if noun is inside:
+			say "You don't have time to visit anyone. There are too many homes to choose from!" instead;
+		if noun is outside:
+			say "You don't want to just QUIT. Run any which way. Give it a shot." instead;
+		say "That has no meaning here.";
+		the rule succeeds;
+		say "You need to go in a compass direction." instead;
 	now cur-dir is noun;
 	let q be orientation of noun - orientation of last-dir;
 	if q < 0:
@@ -11668,7 +11719,7 @@ this is the defeat-idol rule:
 
 chapter montying
 
-[* this turns testing stuff on and off. It will be more detailed later.]
+[* this turns testing stuff on and off. The table has information on all the tests.]
 
 montying is an action applying to one topic.
 
@@ -12277,6 +12328,21 @@ understand "xind" as xinding.
 
 carry out xinding:
 	now finger index is examined;
+	the rule succeeds;
+
+
+chapter cswearing
+
+[ * this lets someone re-try the Choose Swearing routine. ]
+
+cswearing is an action out of world.
+
+understand the command "cswear" as something new.
+
+understand "cswear" as cswearing.
+
+carry out cswearing:
+	choose-swearing;
 	the rule succeeds;
 
 chapter jing
