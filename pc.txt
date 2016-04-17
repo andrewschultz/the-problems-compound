@@ -17,7 +17,7 @@ No. You only need to solve one.
 ?What does Guy Sweet have to say?
 A lot of bluster, really.
 He'll let you know about the main bad guy and about some other characters.
-He also seems--well, subservient to the other characters, and a bit mean to you. Sort of an authorial warning.
+He also seems--well, subservient to the other characters, and a bit mean to you. Sort of an authorial warning that you don't want to be like this.
 And he'll let you know about the broke flat. So you have some information before you enter.
 He's no help at all with the puzzles. You understand them better than he does.
 ?Hey! I'm sort of interested in the puzzles. Alec knows them, but I don't.
@@ -25,16 +25,18 @@ Most of them are easily Google-able.
 Some of them, I actually didn't know, or felt I should know, when I was a teen.
 Some of the extensions I made were purposefully trivial, but others I found interesting.
 Like rotating Peg Solitaire was harder than I expected it to be.
-And it's always a pain to do the last bit of the Rubik's Cube.
+And it's always a pain to do the last bit of the Rubik's Cube. But I found it interesting to see how to do the start.
 ?No! I want details.
-Okay, for Peg Solitaire, clear out the bottom 3x3. Then leave the top 4x3, with the center open. Then memorize the end.
-For Towers of Hanoi, the first move is to the opposite peg if there're odd towers, to the same if even.
-For the necklace, you cut things so you have lengths of 1, 2 and 4.
+Well, I can't give details for the matchsticks, but if you just try and shift the original into what you want, it helps. You may have to rotate sometimes. Even eliminating what can't work helps.
+The logic puzzles--well, you can play <a href="http://ifdb.tads.org/viewgame?id=n50qfej14uyuyurp">Who's Knockin' on the Wall?</a> for fun as long as you want. It's a clever randomization. Or you can go to <a href="www.logic-puzzles.org/">Logic-puzzles.org.</a>
+Now, for Peg Solitaire, clear out the bottom 3x3. Move down, right, up. Then leave the top 4x3 (center open,) with a 2x3 on one side, then clear the 2x3 on the other side. Then memorize the end, which is a bit tricky. You want a 2x3 rectangle with the center square out.
+For Towers of Hanoi, the first move is to the opposite peg if there're odd towers, to the same if even. So move 1, move 2 to the open, move 1 to 2. Move 3 to the empty, move 2-1 to 3. Move 4 to empty, 3-2-1 to 4. Then switch the bottom one once you get there and repeat. Yeah, it's a bit tedious, but it's a common recursion problem in computer science.
+For the necklace, you cut things so you have lengths of 1, 2 and 4. Then 1, 2, 4, 1, 10 works. Then 1, 2, 4, 1, 10, 1, 20, and so forth.
 For the 8 queens, I have a post at <a href="http://drdanstreetmentioner.blogspot.com/2015/09/the-8-queens-problem-revisited.html">my blog</a> with the details.
 "Everybody but everybody" knows the 5-, 3- and 4-gallon jug puzzle. But I found it interesting to try different sizes.
 Matchstick puzzles are all over the Internet, and really, if you remember you only need to move so many, there are only so many possibilities. Try and see which you CAN'T move, or which are effectively symmetrical.
-Nim--well, strong induction on the total number of Nim pieces is the way to go. How someone would see that proof is another matter. I remember being utterly confused seeing the explanation in Beyond Zork. Not as bad as Cardano's method, but still--wow.
-The riverboat is a classic problem. I remember trying to expand it and noting it was a bit trivial. So the extensions capture that.
+Nim--well, strong induction on the total number of Nim pieces and their binary representations is the way to go. I had to stare at it a bit to rule it out. How someone would see that proof is another matter. I remember being utterly confused seeing the explanation in Beyond Zork. Not as bad as Cardano's method, but still--wow.
+The riverboat (wolf/goat/cabbage, fox/goose/beans) is a classic problem. I remember trying to expand it and noting it was a bit trivial. So the extensions capture that.
 >>A Round Lounge
 ?What are the screw and stick good for?
 The stick has a hole in it.

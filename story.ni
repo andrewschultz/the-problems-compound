@@ -336,7 +336,12 @@ to say your-mood:
 	else if player is in out mist:
 		say "ESCAPE";
 	else:
-		say "[the score]/[maximum score][if questions field is visited][bro-sco][end if]";
+		say "[the score]/[maxmax][if questions field is visited][bro-sco][end if]";
+
+to say maxmax:
+	say "[maximum score]";
+	if maximum score < maximum-maximum:
+		say "-[maximum-maximum]";
 
 to say bro-sco:
 	if bros-left > 0:
@@ -796,7 +801,19 @@ chapter score
 to decide what number is abc:
 	decide on the number of people in lalaland;
 
-the maximum score is 19.
+the maximum score is 18.
+
+maximum-maximum is a number that varies. maximum-maximum is 21.
+
+opt-yet is a truth state that varies.
+
+to inc-max:
+	increment maximum score;
+	if opt-yet is false:
+		ital-say "You just found an optional point that may help get the very best ending. There are [maximum-maximum - maximum score] left.";
+		now opt-yet is true;
+	else if maximum score < maximum-maximum:
+		ital-say "That's another optional point. Good going.";
 
 check requesting the score:
 	if greater-eaten is true:
@@ -829,7 +846,7 @@ check requesting the score:
 			if your-tix > 0:
 				say "You have [your-tix] of the 4 boo-ticketies you need." instead;
 			say "You need to go looking for trouble. I mean, not too much, but enough to show you're not square." instead;
-	say "You have scored [score] of [maximum score] points";
+	say "You have scored [score] points and need [maximum score] to win[if maximum score < maximum-maximum], or [maximum-maximum] for the best ending[end if].";
 	if number of map-pinged rooms > 1:
 		say ", and you've also been to [number of map-pinged rooms] or [number of rooms in bad ends] rooms";
 	say ".";
@@ -3331,6 +3348,7 @@ understand "tech" as teching.
 carry out teching:
 	say "Technical implements for testing The Problems Compound are http://toastball.net/glulx-strings/, which you can save locally to determine the strings in a Glulx file. This can help you proofread or whatever, or even (if you're testing and want a sneak peek) see what should happen next.";
 	say "I also used BitBucket at https://bitbucket.org/ to store The Problems Compound's source and binaries when I needed to keep it private before the comp. I like BitBucket a lot, but I love GitHub's tracking that graphs how much you've done.";
+	say "Zarf's Python scripts for unit testing were also super handy post-comp. I wish I'd tried them beforehand.";
 	say "I also used a list of English words to parse with PERL. It wasn't til too late that I created a script that checked for flipped words and possibilities.";
 	say "The most helpful website was www.thefreedictionary.com with its idioms search/subdomain idioms.thefreedictionary.com. https://en.wiktionary.org/wiki/Category:English_idioms was also handy. Various compound word lists gave me ideas, too.";
 	the rule succeeds;
@@ -7112,6 +7130,7 @@ to open-below:
 	now chase paper is in lalaland;
 	now belt below is below chipper wood;
 	now chipper wood is above belt below;
+	inc-max;
 
 to decide whether assassin-in-corner:
 	if ac-x is 0 and ac-y is 12:
@@ -7639,6 +7658,7 @@ carry out abadfaceing:
 		say "You hear a great rumbling as you put on -- well, a bad face -- and the Insanity Terminal cracks in half to reveal a tunnel further below. You feel like you could face a bad...well, you're not sure. But something bad.";
 		now player has a bad face;
 		now face of loss is in lalaland;
+		inc-max;
 		ital-say "I got the idea for this puzzle from something else. XP TERMINAL to see it.";
 		the rule succeeds;
 	else:
@@ -8179,7 +8199,7 @@ check going in service community:
 			now thoughts idol is in lalaland;
 			move player to idiot village, without printing a room description;
 			move crocked half to lalaland;
-			increment the score;
+			inc-max;
 		the rule succeeds;
 	else:
 		move thoughts idol to idiot village;
