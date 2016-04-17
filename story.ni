@@ -374,7 +374,7 @@ brief (indexed text)	found	expound	jumpable	descr (indexed text)
 "knock"	false	true	true	"KNOCK HARD to get to Pressure Pier."
 "figure"	false	true	true	"FIGURE A CUT to skip past the Howdy Boy to the [jc]."
 "fancy"	false	true	true	"FANCY PASSING to skip to the Questions Field with the brothers gone."
-"beaten"	false	true	true	"TRACK BEATEN to reveal the [j-co] puzzle spoilers on examining the Finger Index."
+"track"	false	true	true	"TRACK BEATEN to reveal the [j-co] puzzle spoilers on examining the Finger Index."
 "notice"	false	true	true	"NOTICE ADVANCE to skip to Questions Field, with the brothers and [j-co] gone."
 "cookie"	false	false	false	"Eating the cookie unlocked a few concepts."
 "greater"	false	false	false	"Eating the cookie unlocked a few concepts."
@@ -391,7 +391,7 @@ brief (indexed text)	what-to-do (rule)
 "knock"	knockhard rule
 "figure"	figurecut rule
 "fancy"	fancypass rule
-"beaten"	trackbeaten rule
+"track"	trackbeaten rule
 "notice"	advnot rule
 "cookie"	cookie-ate rule
 "greater"	greater-ate rule
@@ -445,7 +445,7 @@ to unlock-verb (t - text):
 				if brief entry is "notice":
 					ital-say "you've also unlocked NOTICE ADVANCE, to clear both the jerks and brothers on restart.";
 				else:
-					ital-say "NOTE: you have just unlocked a new verb!";
+					ital-say "you have just unlocked a new verb!";
 					say "On restarting, you may now [descr entry][line break]";
 			now found entry is true;
 			write file of verb-unlocks from table of verb-unlocks;
@@ -4894,6 +4894,7 @@ Tension Surface is a room in beginning. it is inside of A Round Lounge. "While t
 after printing the locale description for Tension Surface when Tension Surface is unvisited:
 	if Round Lounge is visited:
 		say "Well. You start to feel good about figuring the way out of Round Lounge, then you realize that, logically, there was only one. You remember the times you heard you had no common sense, and you realize...you didn't really show THEM, whoever THEY are. 'Not enough common sense.'";
+	unlock-verb "duck";
 	continue the action;
 
 t-surf is privately-named scenery in tension surface. understand "surface" as t-surf. printed name of t-surf is "the surface". "It feels like it could burst at any minute. The longer it doesn't, the sillier you feel for worrying in the first place."
@@ -9616,7 +9617,7 @@ to go-back-home:
 	wfak;
 	say "You laugh at your own joke, which brings your parents out, complaining your late night moping is worse than ever. You promise them it'll get better.";
 	wfak;
-	say "Back in your bedroom, you have a thought. The Baiter Master saying you miss obvious things. Another look at [i]The Phantom Tolllbooth[r]: the inside flap. 'Other books you may enjoy.' There will be other obvious things you should've discovered. But it's good you found something right away, back in the normal world. You're confident you'll find more--and that people like the Baiter Master or his allies aren't the accelerated life experts you built them up to be.";
+	say "Back in your bedroom, you have a thought. The Baiter Master saying you miss obvious things. Another look at [i]The Phantom Tolllbooth[r]: the inside flap. 'Other books you may enjoy.' There will be other obvious things you should've discovered. But it's good you found something right away, back in the normal world. You're confident you'll find more--and that even when people like the Baiter Master or his allies are factually right, or loud, or confident, they aren't accelerated life experts. Or they're experts at the wrong sort of persuasion, and you've finally countered that a bit.";
 	unlock-verb "anno";
 	print-replay-message;
 	see-if-show-terminal;
