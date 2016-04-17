@@ -2091,10 +2091,14 @@ check giving the condition mint to:
 		try inserting mint into machine instead;
 	if second noun is grace goode:
 		say "Refreshing mints belong in a bowl and all, but the googly bowl [if fourth-blossom is in lalaland]already has[else]needs[end if] something a bit more." instead;
+	if second noun is labor child:
+		say "He's too big to get excited over candy. Especially cheap candy like that." instead;
 	if second noun is a bro:
 		say "'Mmm. That might help me feel a bit better. But not for long enough. I...well, save it for someone who'd appreciate its taste.'" instead;
+	if second noun is baiter-aligned:
+		say "They won't accept forgiveness, and they won't admit to shame." instead;
 	if second noun is not a client:
-		say "Your offer is declined. Perhaps you need to find someone who has just finished a meal." instead;
+		say "Your offer is declined. [if mint is examined]They don't seem to have any silly shame that can be absolved easily[else]Maybe looking at the mint will help decide why[end if]." instead;
 	if finger index is not examined:
 		say "The [j-co] seem nasty enough, you don't want to share even a mint with any of them. Maybe if you found some way to empathize with them." instead;
 	choose row with jerky-guy of second noun in table of fingerings;
@@ -2973,6 +2977,7 @@ Determined Bound	"Bound and determined means you're set on doing something. A de
 Steal This Book	"Steal This Book was a countercultural guide by Abbie Hoffman. Book this steal refers to 'booking' suspects for a transgression, e.g. a parking fine or ticket."
 Coals to Newcastle	"Coals to Newcastle means a pointless action. In this case, there are no dark rooms, so you don't need a torch. Reducing a new castle to coals is, of course, pointless, too."
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever."
+Dutch Treat	"A Dutch treat is where everyone pays his own way. This is viewed, according to idioms.freedictionary.com, as insulting to the Dutch. It certainly isn't flattering."
 Show Business	"Show business is the act of entertainment, and the business show's is (purportedly) more practical."
 Power Trip	"A power trip is when someone is so overcome with their own power, they do mean things to show it off."
 Freak Out	"To freak out is to make a much bigger emotional display than seems really necessary."
@@ -5372,7 +5377,7 @@ howdy-west	"'Meal Square. But you can't get up to much trouble there.'"
 howdy-baiter	"'I'm sure he'd like to welcome you individually, but he's just too busy fending off [bad-guy-2]. And thinking up his own philosophies. And making sure nobody weirds out too much, from his big observation room in Freak Control. So he delegates the greeting to me, while making sure nobody acts out the wrong way. Don't get me wrong. He's a geek/dork/nerd and loves the rest of us. Just, those who give it a bad name...'"
 howdy-bye	"'Later. Be good. But not too good. That's just boring.'"
 
-before quipping when player has trail paper:
+before talking to howdy boy when player has trail paper:
 	if player has trail paper and player is in pressure pier:
 		say "Wait a minute! You've got the trail paper! Enough chit-chat!";
 		terminate the conversation;
@@ -5715,7 +5720,7 @@ for writing a paragraph about a supporter in Meal Square:
 	say "Two trays sit here, labeled, semi-helpfully, Tray A and Tray B[one of]. You're not surprised [activation of tray s]Tray S or [activation of tray x]X is gone, but [activation of tray t]Tray T would've been nice[or][stopping].";
 	now all supporters in meal square are mentioned;
 
-a condition mint is an edible thing on Tray A. description is "It's one inch square, with SHARE WITH A FRIEND on it."
+a condition mint is an edible thing on Tray A. description is "It's one inch square, with [activation of shame no]SHAME? NO! [activation of forgive]GIVE, FOR... on it. Maybe there's be more, but it [i]is[r] a small mint"
 
 indefinite article of condition mint is "a".
 
@@ -5855,14 +5860,17 @@ after examining dreadful penny:
 your-tix is a number that varies.
 
 to howdy-sug:
-	let ff be first-ticket of 1;
+	let ff be first-ticket of 0;
 	if ff > 0:
 		choose row ff in table of tickety suggestions;
 		say "The Howdy Boy nods, semi-impressed, but wonders aloud if you considered [ticket-ref entry]. You shake your head.";
 		continue the action;
 	let ff be first-ticket of 2;
-	choose row ff in table of tickety suggestions;
-	say "The Howdy Boy nods, semi-impressed, but wonders aloud if you considered [ticket-ref entry]. You say you did, but really, it didn't seem as fun or expedient as what you did.";
+	if ff > 0:
+		choose row ff in table of tickety suggestions;
+		say "The Howdy Boy nods, semi-impressed, but wonders aloud if you considered [ticket-ref entry]. You say you did, but really, it didn't seem as fun or expedient as what you did.";
+		continue the action;
+	say "The Howdy Boy whistles. 'Wow! Somehow, you managed to do seven things when you only needed to do four. That's probably due to a BUG, but impressive, nonetheless.'"
 
 table of tickety suggestions
 ticket-ref	ticket-done
@@ -6477,6 +6485,8 @@ understand "guess [number]" as numjerking when jerk-who-short is true and silly 
 carry out numjerking:
 	let z be number understood;
 	if z < 1000000:
+		if z > 100000 and mint is in lalaland:
+			say "You gave the mint to [random minted client], but you still need to guess him. That would be digit #[mint-away], which should be [mint-guess]." instead;
 		say "You need to guess all seven [j-co]." instead;
 	if z > 9999999:
 		say "That's too many numbers. You only need seven." instead;
@@ -6661,7 +6671,10 @@ to decide which client is next-c-x of (cli - a client):
 	decide on G;
 
 to say innue:
-	say "You mutter an accusation that could destroy [last-jerk]'s social life"
+	if current quip is mint-quip:
+		say "No, [random minted client] told you that's his secret. Maybe try something else";
+	else:
+		say "You mutter an accusation that could destroy [last-jerk]'s social life"
 
 check going when player is in jerk circle:
 	if room noun of jerk circle is not nowhere and silly boris is in jerk circle:
@@ -6689,8 +6702,20 @@ before talking to generic-jerk when secrets-open is true:
 	zap-the-jerks;
 	the rule succeeds;
 
+to decide which quip is mint-quip:
+	if number of minted clients is 0:
+		decide on best-bye;
+	let Q be a random minted client;
+	repeat through table of fin:
+		if jerky-guy entry is Q:
+			decide on my-quip entry;
+	say "((BUG) mint-quip returned nothing, please let me know)";
+	decide on best-bye;
+
 after quipping when qbc_litany is table of generic-jerk talk:
 	let cq be current quip;
+	if cq is mint-quip:
+		continue the action;
 	if current quip is jerk-hows:
 		continue the action;
 	if current quip is jerk-next:
@@ -8276,6 +8301,8 @@ good-text	bad-text	undo-text
 part Speaking Plain
 
 Speaking Plain is north of Jerk Circle. It is in Main Chunk. "Roads go in all four directions here. North seems a bit wider. West leads [if keep is visited]back to Temper Keep[else]indoors[end if]. But the main 'attraction' is [if fright stage is examined]Fright Stage[else]a huge stage[end if] in the center."
+
+understand "treat dutch" as a mistake ("[activation of dutch treat]You get the feeling that Uncle Dutch could say, no, I'll pay for everything, blackmailing you into declining his offer and, in fact, playing even more than you intended to. And of course he wouldn't go anywhere cheap.") when player is in speaking plain and dutch is in speaking plain.
 
 check going nowhere in speaking plain:
 	if noun is inside:
@@ -10646,57 +10673,57 @@ conceptville is a room in meta-rooms. "You should never see this. If you do, it 
 
 section misc concept(s)
 
-a turn of phrase is a concept in conceptville. understand "phrase of turn" as turn of phrase. howto is "empty command"
+a turn of phrase is a concept in conceptville. understand "phrase of turn" as turn of phrase. howto is "empty command".
 
-wait your turn is a concept in conceptville. understand "turn your wait" as wait your turn. howto is "wait"
+wait your turn is a concept in conceptville. understand "turn your wait" as wait your turn. howto is "wait".
 
-a u-turn is a concept in conceptville. understand "u turn" as u-turn. howto is "turn an inanimate object"
+a u-turn is a concept in conceptville. understand "u turn" as u-turn. howto is "turn an inanimate object".
 
-abuse testing is a concept in conceptville. understand "testing abuse" as abuse testing. howto is "credits"
+abuse testing is a concept in conceptville. understand "testing abuse" as abuse testing. howto is "credits".
 
-cut a deal is a concept in conceptville. understand "deal a cut" as cut a deal. howto is "cut any inanimate thing before Freak Control"
+cut a deal is a concept in conceptville. understand "deal a cut" as cut a deal. howto is "cut any inanimate thing before Freak Control".
 
-Force of Habit is a concept in conceptville. howto is "attack something inanimate you don't get arrested for.". understand "habit of force" as force of habit.
+Force of Habit is a concept in conceptville. understand "habit of force" as force of habit. howto is "attack something inanimate you don't get arrested for.".
 
 section intro concepts
 
-compound problems is a concept in conceptville. understand "problems compound" and "compound problem" as compound problems. howto is "very start"
+compound problems is a concept in conceptville. understand "problems compound" and "compound problem" as compound problems. howto is "very start".
 
 a games mind is a concept in conceptville. understand "mind games" as games mind. howto is "very start".
 
-Games confidence is a concept in conceptville. understand "confidence game/games" and "game confidence" as games confidence. howto is "talk to Guy"
+Games confidence is a concept in conceptville. understand "confidence game/games" and "game confidence" as games confidence. howto is "talk to Guy".
 
-Buster Ball is a concept in conceptville. understand "ball buster" as buster ball. howto is "talking"
+Buster Ball is a concept in conceptville. understand "ball buster" as buster ball. howto is "talking".
 
-Hunter Savage is a concept in conceptville. understand "savage hunter" as hunter savage. howto is "talking"
+Hunter Savage is a concept in conceptville. understand "savage hunter" as hunter savage. howto is "talking".
 
 section surface concepts
 
-Animal Welfare is a concept in conceptville. understand "welfare animal" as animal welfare. howto is "get the Weasel to sign the Burden"
+Animal Welfare is a concept in conceptville. understand "welfare animal" as animal welfare. howto is "get the Weasel to sign the Burden".
 
-nose picking is a concept in conceptville. understand "picking nose" as nose picking. howto is "smell the mush in Tension Surface"
+nose picking is a concept in conceptville. understand "picking nose" as nose picking. howto is "smell the mush in Tension Surface".
 
-work of art is a concept in conceptville. understand "art of work" as work of art. howto is "dig once with the pick in Variety Garden"
+work of art is a concept in conceptville. understand "art of work" as work of art. howto is "dig once with the pick in Variety Garden".
 
-enough man is a concept in conceptville. understand "man enough" as enough man. howto is "dig twice with the pick in Variety Garden"
+enough man is a concept in conceptville. understand "man enough" as enough man. howto is "dig twice with the pick in Variety Garden".
 
-brush up is a concept in conceptville. understand "up brush" as brush up. howto is "go up in Variety Garden"
+brush up is a concept in conceptville. understand "up brush" as brush up. howto is "go up in Variety Garden".
 
 section soda club concepts
 
-the Total T is a concept in conceptville. howto is "visit the Soda Club"
+the Total T is a concept in conceptville. howto is "visit the Soda Club".
 
-the Party T is a concept in conceptville. howto is "visit the Soda Club"
+the Party T is a concept in conceptville. howto is "visit the Soda Club".
 
-the Go Rum is a concept in conceptville. howto is "ask the Punch Sucker about drinks"
+the Go Rum is a concept in conceptville. howto is "ask the Punch Sucker about drinks".
 
-Rummy Gin is a concept in conceptville. howto is "ask the Punch Sucker about drinks"
+Rummy Gin is a concept in conceptville. howto is "ask the Punch Sucker about drinks".
 
 Hip Rose is a concept in conceptville. understand "rose hip/hips" as Hip Rose. howto is "visit the Soda Club".
 
 section food concepts
 
-a thing called Thought for Food is a concept in conceptville. understand "food for thought" as thought for food. howto is "visit Meal Square with Howdy Boy around"
+a thing called Thought for Food is a concept in conceptville. understand "food for thought" as thought for food. howto is "visit Meal Square with Howdy Boy around".
 
 snap decision is a concept in conceptville. understand "decision snap" as snap decision. howto is "say yes to eating a Tray B food".
 
@@ -10708,73 +10735,79 @@ Tray T is a concept in conceptville. howto is "enter Meal Square".
 
 Tray X is a concept in conceptville. howto is "enter Meal Square".
 
-bowled over is a concept in conceptville. howto is "eat Tray B food"
+bowled over is a concept in conceptville. howto is "eat Tray B food".
 
-growing pains is a concept in conceptville. understand "pain/pains growing" as growing pains. howto is "eat off-cheese"
+growing pains is a concept in conceptville. understand "pain/pains growing" as growing pains. howto is "eat off-cheese".
 
-strike a balance is a concept in conceptville. howto is "try to take Tray A or Tray B"
+strike a balance is a concept in conceptville. howto is "try to take Tray A or Tray B".
 
-face off is a concept in conceptville. howto is "take inventory after eating Tray B food"
+face off is a concept in conceptville. howto is "take inventory after eating Tray B food".
 
-pig out is a concept in conceptville. understand "out pig" as pig out. howto is "TAKE ALL in Meal Square"
+pig out is a concept in conceptville. understand "out pig" as pig out. howto is "TAKE ALL in Meal Square".
+
+Shame No is a concept in conceptville. understand "no shame" as Shame No. howto is "examine the condition mint".
+
+Forgive is a concept in conceptville. understand "give for" as Forgive. howto is "examine the condition mint".
 
 section outer concepts
 
-fish out of water is a concept in conceptville. understand "water out of fish" as fish out of water. howto is "examine the water in Pressure Pier"
+fish out of water is a concept in conceptville. understand "water out of fish" as fish out of water. howto is "examine the water in Pressure Pier".
 
-Bum Beach is a concept in conceptville. howto is "examine the bench in Down Ground"
+Bum Beach is a concept in conceptville. understand "beach bum" as Bum Beach. howto is "examine the bench in Down Ground".
 
-Sleeper Cell is a concept in conceptville. howto is "sleep then wait in Down Ground". understand "cell sleeper" as sleeper cell.
+Sleeper Cell is a concept in conceptville. understand "cell sleeper" as sleeper cell. howto is "sleep then wait in Down Ground".
 
-Dream Ticket is a concept in conceptville. howto is "sleep after you got a tickety". understand "ticket dream" as dream ticket.
+Dream Ticket is a concept in conceptville. understand "ticket dream" as dream ticket. howto is "sleep after you got a tickety".
 
-hoth is a privately-named concept in conceptville. howto is "give the weed to Fritz". understand "hog on/off the high" and "high on/off the hog" as hoth. printed name is "high off the hog"
+hoth is a privately-named concept in conceptville. printed name is "high off the hog". understand "hog on/off the high" and "high on/off the hog" as hoth. howto is "give the weed to Fritz".
 
-bullfrog is a concept in conceptville. howto is "ask the Stool Toad how to get in trouble"
+bullfrog is a concept in conceptville. understand "frog bull" and "bull frog" as bullfrog. howto is "ask the Stool Toad how to get in trouble".
 
-Trust Brain is a concept in conceptville. howto is "examine dreadful penny or mind of peace"
+Trust Brain is a concept in conceptville. understand "brain trust" as trust brain. howto is "examine dreadful penny or mind of peace".
 
-Moral Support is a concept in conceptville. understand "support moral" as moral support. howto is "examine pigeon stool"
+Moral Support is a concept in conceptville. understand "support moral" as moral support. howto is "examine pigeon stool".
 
 section main chunk concepts
 
-Double Jeopardy is a concept in conceptville. understand "jeopardy double" as Double Jeopardy. howto is "get ticket for sleeping"
+Double Jeopardy is a concept in conceptville. understand "jeopardy double" as Double Jeopardy. howto is "get ticket for sleeping".
 
-Black Mark is a concept in conceptville. understand "mark black" as black mark. howto is "examine quiz pop"
+Black Mark is a concept in conceptville. understand "mark black" as black mark. howto is "examine quiz pop".
 
-Determined Bound is a concept in conceptville. understand "bound and determined" as determined bound. howto is "go south in Walker Street"
+Determined Bound is a concept in conceptville. understand "bound and determined" as determined bound. howto is "go south in Walker Street".
 
-Steal This Book is a concept in conceptville. understand "book this steal" as Steal This Book. howto is "take book bank"
+Steal This Book is a concept in conceptville. understand "book this steal" as Steal This Book. howto is "take book bank".
 
-Show Business is a concept in conceptville. understand "business show" as show business.
+Dutch Treat is a concept in conceptville. understand "treat dutch" as dutch treat. howto is "type TREAT DUTCH around Uncle Dutch.".
 
-Coals to Newcastle is a concept in conceptville. understand "new castle to coals" as Coals to Newcastle. howto is "take song torch"
+Show Business is a concept in conceptville. understand "business show" as show business. howto is "Go to the Speaking Plain without eating a Tray B food.".
 
-Brother's Keepers is a concept in conceptville. understand "brother/brothers keeper/keepers" and "keeper/keepers brother/brothers" as Brother's Keepers. howto is "examine the brothers"
+Coals to Newcastle is a concept in conceptville. understand "new castle to coals" and "newcastle to coals" as Coals to Newcastle. howto is "take song torch".
 
-Candidate Dummy is a concept in conceptville. understand "dummy candidate" as Candidate Dummy. howto is "talk to Sly"
+Brother's Keepers is a concept in conceptville. understand "brother/brothers keeper/keepers" and "keeper/keepers brother/brothers" as Brother's Keepers. howto is "examine the brothers".
+
+Candidate Dummy is a concept in conceptville. understand "dummy candidate" as Candidate Dummy. howto is "talk to Sly".
 
 section endgame concepts
 
-Freak Out is a concept in conceptville. understand "out freak" as freak out. howto is "read the Language sign"
+Freak Out is a concept in conceptville. understand "out freak" as freak out. howto is "read the Language sign".
 
-Power Trip is a concept in conceptville. understand "trip power" as power trip. howto is "wait for the [bad-guy] to go through his actions"
+Power Trip is a concept in conceptville. understand "trip power" as power trip. howto is "wait for the [bad-guy] to go through his actions".
 
-Crisis Energy is a concept in conceptville. understand "energy crisis" as Crisis Energy. howto is "get the [bad-guy]'s attention"
+Crisis Energy is a concept in conceptville. understand "energy crisis" as Crisis Energy. howto is "get the [bad-guy]'s attention".
 
-Beyond Belief is a concept in conceptville. understand "belief beyond" as Beyond Belief. howto is "get the [bad-guy]'s attention"
+Beyond Belief is a concept in conceptville. understand "belief beyond" as Beyond Belief. howto is "get the [bad-guy]'s attention".
 
-The shot mug is a concept in conceptville. understand "mug shot" as shot mug. howto is "get the [bad-guy]'s attention"
+The shot mug is a concept in conceptville. understand "mug shot" as shot mug. howto is "get the [bad-guy]'s attention".
 
-Slicker City is a concept in conceptville. understand "city slicker" as Slicker City. howto is "[bad-guy] dialog"
+Slicker City is a concept in conceptville. understand "city slicker" as Slicker City. howto is "[bad-guy] dialog".
 
-Wire Fraud is a concept in conceptville. understand "fraud wire" as Wire Fraud. howto is "[bad-guy] dialog"
+Wire Fraud is a concept in conceptville. understand "fraud wire" as Wire Fraud. howto is "[bad-guy] dialog".
 
-Admiral Vice is a concept in conceptville. understand "vice admiral" as admiral vice. howto is "[bad-guy] dialog"
+Admiral Vice is a concept in conceptville. understand "vice admiral" as admiral vice. howto is "[bad-guy] dialog".
 
-The Break Jail is a concept in conceptville. understand "jail break" as Break Jail. howto is "lesser-end dialog"
+The Break Jail is a concept in conceptville. understand "jail break" as Break Jail. howto is "lesser-end dialog".
 
-Running Start is a concept in conceptville. howto is "try going south in Freak Control". understand "start running" as running start.
+Running Start is a concept in conceptville. understand "start running" as running start. howto is "try going south in Freak Control".
 
 section xyzzy concepts
 
@@ -10788,29 +10821,29 @@ Spelling Disaster is a concept in conceptville. understand "disaster spelling" a
 
 section touch concepts
 
-poke fun is a concept in conceptville. understand "fun poke" as poke fun. howto is "touch someone, or try"
+poke fun is a concept in conceptville. understand "fun poke" as poke fun. howto is "touch someone, or try".
 
-touch base is a concept in conceptville. understand "base touch" as touch base. howto is "touch someone, or try"
+touch base is a concept in conceptville. understand "base touch" as touch base. howto is "touch someone, or try".
 
 section game-warp concepts
 
-Sitting Duck is a concept in conceptville. understand "duck sitting" as Sitting Duck. howto is "get to Tension Surface"
+Sitting Duck is a concept in conceptville. understand "duck sitting" as Sitting Duck. howto is "get to Tension Surface".
 
-Hard Knock is a concept in conceptville. understand "hard knock" as Hard Knock. howto is "get to Pressure Pier"
+Hard Knock is a concept in conceptville. understand "hard knock" as Hard Knock. howto is "get to Pressure Pier".
 
-Cut a Figure is a concept in conceptville. understand "cut a figure" as cut a figure. howto is "get to Jerk Circle"
+Cut a Figure is a concept in conceptville. understand "cut a figure" as cut a figure. howto is "get to Jerk Circle".
 
-Passing Fancy is a concept in conceptville. understand "fancy passing" as Passing Fancy. howto is "help all three Keeper Brothers"
+Passing Fancy is a concept in conceptville. understand "fancy passing" as Passing Fancy. howto is "help all three Keeper Brothers".
 
-Beaten Track is a concept in conceptville. understand "track beaten" as Beaten Track. howto is "solve the [j-co] puzzle for the first time"
+Beaten Track is a concept in conceptville. understand "track beaten" as Beaten Track. howto is "solve the [j-co] puzzle for the first time".
 
-Advance Notice is a concept in conceptville. understand "advance notice" as Advance Notice. howto is "enter Freak Control"
+Advance Notice is a concept in conceptville. understand "advance notice" as Advance Notice. howto is "enter Freak Control".
 
 section death concepts
 
-Sore Loser is a concept in conceptville. understand "loser sore" as sore loser. howto is "visit Fight Fair (attack random person)"
+Sore Loser is a concept in conceptville. understand "loser sore" as sore loser. howto is "visit Fight Fair (attack random person)".
 
-Boss Fight is a concept in conceptville. understand "fight boss" as boss fight. howto is "visit Fight Fair (attack random person)"
+Boss Fight is a concept in conceptville. understand "fight boss" as boss fight. howto is "visit Fight Fair (attack random person)".
 
 chapter lalaland
 
@@ -10818,15 +10851,15 @@ section endgame concepts
 
 lalaland is a room in meta-rooms. "You should never see this. If you do, it is a [bug]."
 
-Received Wisdom is a concept in conceptville. understand "wisdom received" as received wisdom. howto is "win the game either way"
+Received Wisdom is a concept in conceptville. understand "wisdom received" as received wisdom. howto is "win the game either way".
 
-Something Mean is a concept in conceptville. understand "mean something" as Something Mean. howto is "eat the cutter cookie and 'win'"
+Something Mean is a concept in conceptville. understand "mean something" as Something Mean. howto is "eat the cutter cookie and 'win'".
 
-Complain Cant is a concept in conceptville. understand "cant complain" as Complain Cant. howto is "eat the off cheese and 'win'"
+Complain Cant is a concept in conceptville. understand "cant complain" as Complain Cant. howto is "eat the off cheese and 'win'".
 
-People Power is a concept in conceptville. understand "power people" as People Power. howto is "eat the greater cheese and 'win'"
+People Power is a concept in conceptville. understand "power people" as People Power. howto is "eat the greater cheese and 'win'".
 
-Snipe Gutter is a concept in conceptville. understand "guttersnipe" as Snipe Gutter. howto is "eat the off cheese and 'win'"
+Snipe Gutter is a concept in conceptville. understand "guttersnipe" as Snipe Gutter. howto is "eat the off cheese and 'win'".
 
 volume rule replacements
 
@@ -11198,6 +11231,8 @@ test jerk-wrong with "1111111/1234576/1023456/1823456"
 test jerk-q with "gonear jerks/talk to jerks/g/gonear safe/get safe/x index/s/s/e/e/talk to jerks/purloin mint/give mint to wash white/test jq"
 
 test jq with "test j-1/jfix/talk to dandy jim/10/1234567"
+
+test jmint with "test j-1/jfix/talk to dandy jim/10/give mint to boris/talk to dandy jim/2"
 
 section errors
 
@@ -12195,7 +12230,7 @@ carry out jfixing:
 		say "NOTE: you didn't examine the finger index, so I did that. This is a bit out of order for the game, but it shouldn't make a difference.";
 	now finger index is examined;
 	re-fix;
-	say "Talk to Dandy Jim, then 1-2-3-4-5-6-7 should work.";
+	say "Talk to Dandy Jim, then exit the conversation with 10. Now 1-2-3-4-5-6-7 should work.";
 
 to re-fix:
 	repeat through table of fingerings:

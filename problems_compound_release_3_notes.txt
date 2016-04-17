@@ -23,3 +23,6 @@ I managed to make more automated tests for the jerks, which spurred many of the 
 --push and pull now map to open. This isn't huge, technically, but I'll use it going forward.
 --a few extra silly concepts added
 --the bad guy now has individual people he randomly insults outside of those you meet
+--flexible maximum in score e.g. 0/(18-21)
+--fixed "can't go that way" in Service Community (up/down gave something weird)
+--PE now toggles exits in the header
