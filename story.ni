@@ -2997,6 +2997,12 @@ Candidate Dummy	"A dummy candidate is one who is there to give the illusion of d
 Dutch Treat	"A Dutch treat is where everyone pays his own way. This is viewed, according to idioms.freedictionary.com, as insulting to the Dutch. It certainly isn't flattering."
 Show Business	"Show business is the act of entertainment, and the business show's is (purportedly) more practical."
 Terminal Illness	"A terminal illness is one which is bound to be fatal. Illness can also mean full of insults, e.g. very 'ill,' as kids these days say. And said, even in my day!"
+Ezra Pound	"Ezra Pound was an influential Modernist poet."
+King Henry	"King Henry VIII of England had six wives."
+benefactor	"A benefactor is someone who provides support, emotional or financial."
+pharisee	"A pharisee is someone who gives the trappings of morality but is not."
+taste buds	"Taste buds are what you use to experience the sensation of taste."
+Howard Dean	"Howard Dean was a candidate for the 2004 US Democratic Party nomination. After placing 3rd in the Iowa caucuses, he had an infamous 'Dean Scream' at a rally with supporters, which sounded worse than it was, because he was close to a microphone that picked it up. Which made him the butt of many jokes for a week. The media realised that everyone was yelling a week later, but the story was too ingrained by then."
 Power Trip	"A power trip is when someone is so overcome with their own power, they do mean things to show it off."
 Freak Out	"To freak out is to make a much bigger emotional display than seems really necessary."
 Crisis Energy	"An energy crisis is when a community doesn't have enough electrical power, or oil, or whatever."
@@ -3698,7 +3704,7 @@ anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
 0	--	Rage Road	"rage"	"This flip made me giggle immediately, but it was one of those things where I could do better. The flipped meaning wasn't skewed enough. So when I stumbled on Chipper Wood, I decided to change it. That said, even though road rage is serious, coworkers and I riff on it when we're carrying lots of stuff and want pedestrians out of our way.[paragraph break]I also had ideas for a diner called Pizza Road."
 0	--	Chicken Free Range	"range"	"The Chicken Free Range is, well, free of everyone. It was replaced by the Speaking Plain and Chipper Wood. As much as I like the idea of rotating two of three names, the problem is that you have six possibilities now, which gets confusing. Plus, free-range chicken may be a bit obscure, though I like the connotation of chicken-free range as 'THOU SHALT NOT FEAR.'"
 0	--	Humor Gallows	"gallows"	"This was originally part of the main map, but the joke wasn't universal enough. I like the idea of killing jokes from something that should be funny, the reverse of gallows humor--which draws humor from tragedy or near tragedy. As well as the variety of ways jokes can be killed."
-0	--	Tuff Butt Fair	"fair"	"This was one of the first locations I found, and I took it, and I put it in the game. Tough butt/tough but is a good pun, and I have a personal test that if I can picture pundits calling a person 'tough but fair,' that person is a loudmouthed critical jerk. The only problem is, 'fair but tough' isn't really a fair flip. It was replaced by the Interest Compound, which became the Discussion Block, and Judgment Pass.[paragraph break]I originally thought of a lot of contemporary sounding people I could put in here, but they got rejected. Even Francis Pope (who'd be a rather nasty opposite of the Pontiff, whom I respect.) I wanted to keep it abstract and not Talk About Important People. However, for a truly atrocious inside joke, I was tempted to put in a bully named Nelson Graham who beat other kids up for playing games over three years old--or for even TRYING to make their own programming language. I decided agai--oops."
+0	--	Tuff Butt Fair	"fair"	"This was one of the first locations I found, and I took it, and I put it in the game. Tough butt/tough but is a good pun, and I have a personal test that if I can picture pundits calling a person 'tough but fair,' that person is a loudmouthed critical jerk. The only problem is, 'fair but tough' isn't really a fair flip. It was replaced by the Interest Compound, which became the Discussion Block, and Judgment Pass.[paragraph break]I originally thought of a lot of contemporary sounding people I could put in here, but they got rejected. Even Francis Pope (who'd be a rather nasty opposite of the Pontiff, whom I respect.) I wanted to keep it abstract and not real people in the game, except when the [bad-guy] does at the end, for humor value. However, for a truly atrocious inside joke, I was tempted to put in a bully named Nelson Graham who beat other kids up for playing games over three years old--or for even TRYING to make their own programming language. I decided agai--oops."
 0	--	Ill Falls	"falls"	"This was simply a good pun that might have afforded a play on Ill, which often means beautiful and ugly at the same time."
 0	--	Eternal Hope Springs	"springs"	"This was the original place you'd sleep. Then I put the warmer bench, but then I discovered the Joint Strip as perfectly seedy. Since, like Chicken Free Range, this had three substansive words in its name, it didn't quite fit the room aesthetic. But I still liked the name, and it probably catalyzed other ideas before becoming obsolete."
 0	--	Brains Beat	"beat"	"I like the image of brainy people walking a beat, talking bout stuff, making someone (figuratively, of course) want to beat their brains in. Them being themselves or the others. Intellectual Conversation in general drives me up the wall."
@@ -9183,12 +9189,12 @@ to say odd-machine-l of (x - a thing):
 table of gadget action
 gad-act
 "You think you hear the List Bucket rattle. Wait, no."
-"The [bad-guy] mutters something about needing to pound Ezra for not appreciating his poetry."
-"The [bad-guy] mutters he'd get six girls before Henry King got one."
-"The [bad-guy] snorts at Bud's taste."
-"'Geez, it's a pain to factor BENNY. I'm not, like, MEAN to him.'"
-"'See, Farrah,' the [bad-guy] mutters to no girl in particular."
-"The [bad-guy] mutters he's sure Dean Howard is nice and well-meaning all, but he babbles on and on about a scream or something being utterly unforgiveable. Hmm."
+"The [bad-guy] mutters something about needing to [activation of Ezra Pound]pound Ezra for not appreciating his edgy, advanced, experimental poetry."
+"The [bad-guy] mutters he'd get six girls before [activation of King Henry]Henry King got one."
+"The [bad-guy] snorts at [activation of taste buds]Bud's taste."
+"'Geez, it's a pain to [activation of benefactor]factor BENNY. I'm not, like, MEAN to him.'"
+"'[activation of pharisee]See, Farrah,' the [bad-guy] mutters to no girl in particular."
+"The [bad-guy] mutters he's sure [activation of Howard Dean]Dean Howard is nice and well-meaning all, but he babbles on and on about a scream or something being utterly unforgiveable. Hmm."
 "The Language Sign flashes but you don't think it changed its message. Just reinforced it."
 "[odd-machine of Twister Brain] spits out a page of data the [bad-guy] speed reads. He mutters 'Pfft. I already sort of knew that. Mostly. Still, need to keep an eye on [the random surveyable person].'"
 "[odd-machine of Witness Eye] swivels around with a VVSSHHKK before changing the focus to [random mainchunk room]."
@@ -10811,6 +10817,18 @@ Candidate Dummy is a concept in conceptville. understand "dummy candidate" as Ca
 Terminal Illness is a concept in conceptville. understand "illness terminal" as terminal illness. howto is "defeat the Insanity Terminal".
 
 section endgame concepts
+
+Ezra Pound is a concept in conceptville. understand "pound ezra" as ezra pound. howto is "wait and observe in Freak Control".
+
+King Henry is a concept in conceptville. understand "henry king" as king henry. howto is "wait and observe in Freak Control".
+
+benefactor is a concept in conceptville. understand "factor benny" and "benny factor" as benefactor. howto is "wait and observe in Freak Control".
+
+pharisee is a concept in conceptville. understand "see farrah" and "farrah see" as pharisee. howto is "wait and observe in Freak Control".
+
+taste buds is a concept in conceptville. understand "bud's/buds taste" as taste buds. howto is "wait and observe in Freak Control".
+
+Howard Dean is a concept in conceptville. understand "dean howard" as howard dean. howto is "wait and observe in Freak Control".
 
 Freak Out is a concept in conceptville. understand "out freak" as freak out. howto is "read the Language sign".
 
