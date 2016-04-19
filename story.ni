@@ -1991,6 +1991,19 @@ book check/before giving
 
 [#16 on github]
 
+chapter big stuff
+
+the can't give to yourself rule is not listed in any rulebook.
+
+instead of giving to alec smart:
+	d "[noun].";
+	if player does not have noun:
+		try taking noun;
+	say "You check your possessions. Yup, still got [if noun is plural-named]those[else]that[end if].";
+
+before giving when accel-ending:
+	say "You're not feeling charitable at all. You just want to get through with things, here." instead;
+
 chapter what if sal is asleep
 
 before giving to sal when sal-sleepy is true:
@@ -2000,7 +2013,7 @@ chapter item based [these see us giving specific items to specific characters. T
 
 check giving smokable to: [poory pot or wacker weed]
 	if second noun is stool toad:
-		say "The Stool Toad jumps a whole foot in the air. 'How DARE you--on my turf--by me! OFFICER PETTY!' [if judgment pass is visited]Officer Petty[else]A man with a less fancy uniform[end if] rushes in and handcuffs you away and takes you to the...";
+		say "The Stool Toad jumps a whole foot in the air. 'How DARE you--on my turf--by me! OFFICER PETTY!' [if judgment pass is visited]Officer Petty[else]A man with a less fancy uniform[end if] rushes in and handcuffs you. You hear them talking about hitting the bar after work as a subordinate takes you to the...";
 		ship-off Criminals' Harbor instead;
 	if second noun is Officer Petty:
 		say "Officer Petty begins a quick cuff em and stuff em routine while remarking how that stuff impairs your judgement, and you seemed kind of weird anyway. He summons the Stool Toad for backup, not that he's needed, but just to make your perp walk a little more humiliating.";
@@ -2079,6 +2092,8 @@ check giving pick to:
 section giving items from outskirts
 
 check giving the condition mint to:
+	if second noun is baiter master:
+		say "You could picture him giving you something worthless and making you do something. You could also him getting mad and making you apologize for offering something so flimsy." instead;
 	if second noun is fritz:
 		say "Fritz's breath could use a little sprucing up, but the mint would be a little TOO little." instead;
 	if second noun is volatile sal:
@@ -2981,6 +2996,7 @@ Coals to Newcastle	"Coals to Newcastle means a pointless action. In this case, t
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever."
 Dutch Treat	"A Dutch treat is where everyone pays his own way. This is viewed, according to idioms.freedictionary.com, as insulting to the Dutch. It certainly isn't flattering."
 Show Business	"Show business is the act of entertainment, and the business show's is (purportedly) more practical."
+Terminal Illness	"A terminal illness is one which is bound to be fatal. Illness can also mean full of insults, e.g. very 'ill,' as kids these days say. And said, even in my day!"
 Power Trip	"A power trip is when someone is so overcome with their own power, they do mean things to show it off."
 Freak Out	"To freak out is to make a much bigger emotional display than seems really necessary."
 Crisis Energy	"An energy crisis is when a community doesn't have enough electrical power, or oil, or whatever."
@@ -7678,12 +7694,14 @@ understand the command "a bad face" as something new.
 understand "a bad face" as abadfaceing when player is in Belt Below.
 understand "abadface" as abadfaceing when player is in Belt Below.
 
+does the player mean explaining the Terminal Illness: it is unlikely.
+
 carry out abadfaceing:
 	if jerks-spoiled is true:
 		say "[one of]The Insanity Terminal emits an ultrasound squeal that brings you to your knees. It's probably mad you made it solve the [j-co] for you and doesn't believe you solved its harder puzzle on your own. Or rather, its calculations lead it to suspect cheating[or]Nah. You don't want the Terminal to squeal at you again (note: on winning, you'll get a code where you can solve the terminal the right way and see what's below)[stopping]." instead;
 	if Insanity Terminal is in Belt Below:
 		open-bottom;
-		say "You hear a great rumbling as you put on -- well, a bad face -- and the Insanity Terminal cracks in half to reveal a tunnel further below. You feel like you could face a bad...well, you're not sure. But something bad.";
+		say "You hear a great rumbling as you put on -- well, a bad face -- and the Insanity Terminal coughs and sputters (I guess it was an [activation of terminal illness]Illness Terminal, too! That would explain its--well, as close to a mood as a computer can get) before cracking in half to reveal a tunnel further below. You feel like you could face a bad...well, you're not sure. But something bad.";
 		now player has a bad face;
 		now face of loss is in lalaland;
 		inc-max;
@@ -10789,6 +10807,8 @@ Coals to Newcastle is a concept in conceptville. understand "new castle to coals
 Brother's Keepers is a concept in conceptville. understand "brother/brothers keeper/keepers" and "keeper/keepers brother/brothers" as Brother's Keepers. howto is "examine the brothers".
 
 Candidate Dummy is a concept in conceptville. understand "dummy candidate" as Candidate Dummy. howto is "talk to Sly".
+
+Terminal Illness is a concept in conceptville. understand "illness terminal" as terminal illness. howto is "defeat the Insanity Terminal".
 
 section endgame concepts
 
