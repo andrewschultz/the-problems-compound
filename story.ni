@@ -2966,6 +2966,7 @@ strike a balance	"To strike a balance is to find a satisfactory compromise. A st
 pig out	"To pig out is to eat everything you see. The reverse is an admonishment to leave."
 Shame No	"No shame means a person isn't embarrassed by anything to the point where it's dangerous. Shame? No! is more, there's a healthier way to look at things than through shame."
 Forgive	"Forgive is a clue as to whom to give the mint to, but the person must be forgivable."
+apple pie order	"Apple-Pie Order means very well organized."
 Thought for food	"Food for thought is something to think about."
 Tray S	"Stray. In other words, it strayed from Meal Square."
 Tray T	"A tea tray. To go with food."
@@ -2989,6 +2990,7 @@ Rummy Gin	"Gin Rummy is a card game, generally not the sort associated with wild
 Go Rum	"A rum go is an unforeseen unusual experience, as opposed to 'GO' anything which indicates general motivation."
 Hip Rose	"Rose hips are ingredients found in tea, which is too non-alcoholic for the Soda Club. Hip is, of course, cool or desirable or with-it."
 Punch Sucker	"A sucker punch is an unexpected hit."
+Wine-U-Gen	"Genuine is, well, real and true. Both Ally Stout and his drinks are superficial, as wine is generally not made by machine."
 Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
 Black Mark	"A black mark is something indicating bad behavior."
 Determined Bound	"Bound and determined means you're set on doing something. A determined bound is set to prevent you from doing something."
@@ -5464,6 +5466,13 @@ Tray A is a supporter in Meal Square. description is "It's just a tray, really. 
 
 Tray B is a supporter in Meal Square. description is "[if accel-ending]You still see [list of things on tray a] on Tray B, but you're pretty full[else]You're both scared and intrigued by Tray B, which reads, in small print SIDE EFFECTS GALORE. NOT FOR THE UNSOPHISTICATED. Three unappetizing looking foods lie on it, labeled: [a list of things on tray b][end if]."
 
+examining tray b is pielooking. examining tray a is pielooking.
+
+after pielooking:
+	if tray a is examined and tray b is examined and apple pie order is not in lalaland:
+		say "Wow, that's a lot of food! You won't even need to [activation of apple pie order]order apple pie as dessert.";
+	continue the action;
+
 understand "eat [things]" as a mistake ("[pig-out].") when player is in meal square.
 
 to say pig-out:
@@ -6316,7 +6325,7 @@ ally-but	"'Well, everyone here is a bit smarter and maturer than normal, and any
 ally-haha	"[here-or-not]"
 ally-cooler	"[here-or-not]"
 ally-baiter	"'The [bg] lets me stay open for very reasonable shakedown fees. Much better than [bad-guy-2], I'm sure. He just, well, he just wants to know about all the patrons in here. Why, he drops in here himself and gets the good stuff. But he's very fair and balanced. He knows it's not how much you drink but how it affects you. Why, he's better at shaming unruly customers than I am!'"
-ally-bye	"He goes back to mixing and serving drinks."
+ally-bye	"He goes back to mixing and serving drinks, to talking to some other customers about other customers[one of]. You wonder if you're an other other customer, or if you're even that important[or][stopping]."
 
 to say here-or-not:
 	if player has cooler or player has haha brew:
@@ -6326,10 +6335,11 @@ to say here-or-not:
 		if your-tix is 4:
 			say "You pause for a second. You've got quite a record, already. You don't need a fifth tickety. No, you'd better play it cool.[no line break]";
 			continue the action;
-		say "'Coming right up!'[no line break]";
 		if current quip is ally-haha:
+			say "'Ah good. If you're laughing that hard at the name, you'd get kicked out like the Punch Sucker.'";
 			now player has haha brew;
 		else:
+			say "'Let me crank up the [activation of wine-u-gen]Wine-U-Gen...'";
 			now player has cooler wine;
 
 after quipping when qbc_litany is litany of Ally Stout:
@@ -10746,13 +10756,15 @@ the Total T is a concept in conceptville. howto is "visit the Soda Club".
 
 the Party T is a concept in conceptville. howto is "visit the Soda Club".
 
+Hip Rose is a concept in conceptville. understand "rose hip/hips" as Hip Rose. howto is "visit the Soda Club".
+
+Punch Sucker is a concept in conceptville. understand "punch sucker" as punch sucker. howto is "visit the Soda Club".
+
 the Go Rum is a concept in conceptville. howto is "ask Ally Stout about drinks".
 
 Rummy Gin is a concept in conceptville. howto is "ask Ally Stout about drinks".
 
-Hip Rose is a concept in conceptville. understand "rose hip/hips" as Hip Rose. howto is "visit the Soda Club".
-
-Punch Sucker is a concept in conceptville. understand "punch sucker" as punch sucker. howto is "visit the Soda Club".
+Wine-U-Gen is a concept in conceptville. understand "wine u gen" and "wineugen" as Wine-U-Gen. howto is "order the Cooler Wine"
 
 section food concepts
 
@@ -10781,6 +10793,8 @@ pig out is a concept in conceptville. understand "out pig" as pig out. howto is 
 Shame No is a concept in conceptville. understand "no shame" as Shame No. howto is "examine the condition mint".
 
 Forgive is a concept in conceptville. understand "give for" as Forgive. howto is "examine the condition mint".
+
+apple pie order is a concept in conceptville. understand "apple-pie order" and "order apple pie" as apple pie order. howto is "fill this in here." [search for xadd]
 
 section outer concepts
 

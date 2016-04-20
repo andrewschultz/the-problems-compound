@@ -130,7 +130,10 @@ Carry out QBC responding with (this is the perform talking rule):
 					the rule fails;
 				else:
 					if the enabled entry is 3 and anything-said-yet is false:
-						say "You mumble something about not really having anything to say, and sorry, and sorry for wasting time with an unnecessary apology.[paragraph break]";
+						if qbc_litany is table of ast:
+							say "'Well, that's okay. I guess some people have to be introverts,' Ally Stout says, smiling a bit too widely. No, you're just jealous you can't smile like that.";
+						else:
+							say "You mumble something about not really having anything to say, and sorry, and sorry for wasting time with an unnecessary apology.[paragraph break]";
 					deliver the response entry quip;
 				if the enabled entry is 1:
 					if qbc_litany is not table of generic-jerk talk:

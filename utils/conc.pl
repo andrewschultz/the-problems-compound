@@ -1,16 +1,19 @@
+use Win32::Clipboard;
+
+$clip = Win32::Clipboard::new();
 
 if (@ARGV[0] eq "") { readConcept("Compound"); readConcept("Slicker-City"); }
 elsif (@ARGV[0] eq "pc") { readConcept("Compound"); }
 elsif (@ARGV[0] eq "sc") { readConcept("Slicker-City"); }
-else { foreach $x (@ARGV[0]) { crankOutCode($x); } exit; }
+else { print "Note that this assumes the idiom written properly e.g. show business vs business show."; foreach $x (@ARGV[0]) { crankOutCode($x); } exit; }
 
 sub crankOutCode
 {
   $temp = $_[0]; $temp =~ s/-/ /g;
-  $bkwd = join(" ", reverse(split(/,/, $temp)));
-  print "\[activation of $temp\]\n";
-  print "$temp is a concept in conceptville. understand \"$bkwd\" as $temp. howto is \"fill this in here.\" \[search for xadd\]\n";
-  print "$temp(tab)\"$temp is when you .\"\n";
+  $bkwd = join(" ", reverse(split(/ /, $temp)));
+  if ($a) { $a .= "\n"; }
+  $a .= "\[activation of $temp\]\n$temp is a concept in conceptville. understand \"$bkwd\" as $temp. howto is \"fill this in here.\" \[search for xadd\]\n$temp\t\"$temp is when you .\"\n";
+  $clip->Set($a);
 }
 
 #######################################
