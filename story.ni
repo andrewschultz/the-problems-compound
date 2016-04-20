@@ -2461,7 +2461,7 @@ check giving (this is the default for giving to people organized by room rule) :
 		say "Fritz rambles about material possessions bringing you down for a bit. [if fritz has minimum bear]You've given him enough[else]That can't be what he wants[end if]." instead;
 	if second noun is Stool Toad: [joint strip]
 		say "'NO BRIBERY! Plus, that looks worthless. No offense.'" instead;
-	if second noun is sucker:
+	if second noun is Ally Stout:
 		say "'Thanks, but no thanks. I do okay enough with tips.'" instead;
 	if second noun is Assassination Character:
 		say "'Ha!' he says. 'If I took that, you'd catch me. Nice try!'" instead;
@@ -2844,7 +2844,7 @@ haha brew	"Brouhaha is a commotion or noise." [soda club]
 cooler wine	"A wine cooler is very low in alcohol content."
 Liver lily	"Lily-liver means coward."
 Rehearsal Dress	"A dress rehearsal is the final staging of the play before the audience sees it."
-Ally Stout	"A sucker punch is hitting someone when they aren't looking."
+Ally Stout	"A stout ally is someone who is on your side no matter what. Ally is, I'm afraid, a bit of a fake."
 fly bar	"A barfly is someone who goes around to bars and gets drunk."
 Dandy Jim	"Jim Dandy is something excellent." [jerk circle]
 Silly Boris	"Bore us silly."
@@ -2937,7 +2937,7 @@ Flames Fan	"To fan the flames is to keep things going. The Flames Fan just watch
 Cards of the House	"The house of cards is something that falls down easily."
 View of Points	"Points of view are opinions."
 
-table of explanations (continued) [this is stuff referred to tangentially, concepts but not actually objects in the game]
+table of explanations (continued) [this is stuff referred to tangentially, concepts but not actually objects in the game] [xadd]
 exp-thing	exp-text	exp-anno
 turn of phrase	"A turn of phrase is clever wording. A phrase of turn is, well, what's at the command prompt, or, any wording."
 wait your turn	"This means not to do anything til someone else goes first. But in this case the game wants you to turn your wait into something else."
@@ -2988,6 +2988,7 @@ Party T	"A tea party is usually non-alcoholic, and people mind their manners. We
 Rummy Gin	"Gin Rummy is a card game, generally not the sort associated with wild binge drinking."
 Go Rum	"A rum go is an unforeseen unusual experience, as opposed to 'GO' anything which indicates general motivation."
 Hip Rose	"Rose hips are ingredients found in tea, which is too non-alcoholic for the Soda Club. Hip is, of course, cool or desirable or with-it."
+Punch Sucker	"A sucker punch is an unexpected hit."
 Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
 Black Mark	"A black mark is something indicating bad behavior."
 Determined Bound	"Bound and determined means you're set on doing something. A determined bound is set to prevent you from doing something."
@@ -4336,7 +4337,7 @@ Guy Sweet	"Guy Sweet blinks at you. 'Whoah! You're, like, more accelerated than 
 Mouth Mush	"The mouth mush harangues you about needing certification to go through the arch to the north. This isn't a big area, so it can't be far."	"The mouth mush wanted some sort of document."
 Fritz	"Many variants on 'Whoah dude whoah,' mumbling about the friend he lost[if fritz has minimum bear]--and you found[end if]."	"He was pretty incoherent, mumbling about a lost friend[if fritz has minimum bear] that you found[end if]."	--	--
 Stool Toad	"The usual ordering to keep your nose clean, don't go off the beaten path, or litter, or annoy people, or have illicit substances."	"Ugh. You have had enough of officious adults telling you you seem like a good kid so that's EXTRA reason how you better keep clean."	"You sat through a disturbingly long lecture about what you'd better not do, and you felt guilty at both what you heard before and what you didn't."
-Ally Stout	"He mentions all the places he's been and all the exciting people he's met, so much more exciting than here, no offense, you'll be exciting one day. Why, a bit of alcohol might help! [sucker-offer]"	"Something about how exciting he was, and you could be, maybe. It doesn't feel so warm, in retrospect. [sucker-offer]"	"Ally Stout certainly had a lot to say,  but you get the feeling it was just minimal banter. [sucker-offer]"	--
+Ally Stout	"He mentions all the places he's been and all the exciting people he's met, so much more exciting than here, no offense, you'll be exciting one day. Why, a bit of alcohol might help! [ally-offer]"	"Something about how exciting he was, and you could be, maybe. It doesn't feel so warm, in retrospect. [ally-offer]"	"Ally Stout certainly had a lot to say,  but you get the feeling it was just minimal banter. [ally-offer]"	--
 Liver Lily	"She--well, she seems to be making sense, but you feel obliged to agree with her without thinking in order to show her you're thoughtful. You notice she doesn't have a drink."	"She doesn't seem up for small talk, but she grabs an imaginary drink and swirls it."	"It was pretty head-spinning, but then, maybe it was just all bluster. She seems disinterested in you."
 Howdy Boy	"The usual greetings, as he exhorts you to be good--not too good, though. Maybe if you have some proof you're not totally boring and squeaky clean, you'll be bare-knuckle enough for the Compound proper. [if your-tix is 0]You'll--well, you'll know what, once you start picking up demerits[else]Probably the boo ticketies[end if]."	"The Howdy Boy wanted some sort of document[if your-tix is 4], maybe like that trail paper you've got[else if your-tix > 0], and your ticketies don't quite make one yet[end if]."
 Buddy Best	"Buddy Best begins talking a mile a minute about Big Things, and it's impressive all right, and you're not sure how much you should interrupt to say so. You don't at all, and eventually he gets bored of you staring at him and hands you something called a Reasoning Circular and boots you back east."	"BUG. This should not happen."	--	Reasoning Circular
@@ -4377,7 +4378,7 @@ to say penn-ask:
 		else:
 			say "You wonder who else will take it."
 
-to say sucker-offer:
+to say ally-offer:
 	if cooler is in lalaland and brew is in lalaland:
 		say "'Oh, and I'm out of free drinks, kid.'";
 	else if your-tix is 4:
@@ -5150,7 +5151,7 @@ check going in variety garden:
 
 carry out going west in Tension Surface:
 	if variety garden is unvisited:
-		say "A small animal bounds up to you. 'Hi! I'm the Word Weasel, and this is the variety garden!'[paragraph break]'There's not much...'[paragraph break]'Well, you haven't noticed the absence of leaves! It's an absence of pretty much every leaf that was! And so much poor dirt! And all the brush!'";
+		say "A small animal bounds up to you. 'Hi! I'm the Word Weasel! Now that you know my name, you're on your guard, so I won't be able to sucker you in any way. This is my Variety Garden!'[paragraph break]'There's not much...'[paragraph break]'Well, you haven't noticed the absence of leaves! It's an absence of pretty much every leaf that was! And so much poor dirt! And all the brush!'";
 
 chapter word weasel
 
@@ -6102,10 +6103,10 @@ check going north in Soda Club:
 
 to activate-drink-check:
 	if cooler wine is not in lalaland:
-		choose row with response of sucker-cooler in table of Ally Stout talk;
+		choose row with response of ally-cooler in table of Ally Stout talk;
 		now enabled entry is 1;
 	if haha brew is not in lalaland:
-		choose row with response of sucker-haha in table of Ally Stout talk;
+		choose row with response of ally-haha in table of Ally Stout talk;
 		now enabled entry is 1;
 
 litany of stool toad is the table of stool toad talk.
@@ -6158,7 +6159,7 @@ check going nowhere in Soda Club:
 
 section Liver Lily
 
-Liver Lily is a female person in Soda Club. "[one of]A girl is here. She's--well, pretty attractive. And well-dressed.[or]Liver Lily waits here for intelligent, stimulating conversation.[stopping]"
+Liver Lily is a female person in Soda Club. "[one of]Well, that must be Liver Lily over there.[or]Liver Lily waits here for intelligent, stimulating conversation.[stopping]"
 
 Liver Lily wears the rehearsal dress.
 
@@ -6170,7 +6171,10 @@ instead of doing something with rehearsal dress:
 	say "In this game, you can pretty much only examine the dress."
 
 after printing the locale description for Soda Club when Soda Club is unvisited:
-	say "The bartender calls you over. 'Psst! Pal! Can you give me a break from Liver Lily over there? She's--she's usually pretty interesting, but when she's wearing that rehearsal dress she tends to repeat what she's already said. She's no [activation of hip rose]Hip Rose, but Rose is probably out of your league anyway. By the way, you can call me Ally Stout. Cuz it's my favorite drink.'"
+	say "The bartender calls you over. 'Say, pal! You look new here! And less illun['] than the [activation of punch sucker]Punch Sucker.'[paragraph break]'The Punch Sucker?'[paragraph break]'Yeah. We're kinda obliged to give everyone free alcohol, and we can't kick him out until he complains about only getting the cheap stuff. But hey.";
+	wfak;
+	say "'Can you give me a break from Liver Lily over there? She's--she's usually pretty interesting, but when she's wearing that rehearsal dress she tends to repeat what she's already said. She's no [activation of hip rose]Hip Rose, but Rose is probably out of your league anyway. By the way, I'm Ally Stout.'"
+
 
 description of Liver Lily is "She is waiting for conversation in her rehearsal dress."
 
@@ -6279,14 +6283,14 @@ litany of Ally Stout is the table of Ally Stout talk.
 
 table of ast - Ally Stout talk
 prompt	response	enabled	permit
-"What've you got, for drinks? Um, non-alcoholic?"	sucker-drinks	1	1
-"Got any booze?"	sucker-alco	1	0
-"What does On the Rocks mean, anyway? It SOUNDS way cool!"	sucker-onrocks	1	1
-"But I'm not 21! Not even close!"	sucker-but	0	1
-"I'll have the Haha Brew."	sucker-haha	0	1
-"I'll have the Cooler Wine."	sucker-cooler	0	1
-"What do you think of the [bad-guy]?"	sucker-baiter	1	1
-"[later-or-thanks]."	sucker-bye	3	1
+"What've you got, for drinks? Um, non-alcoholic?"	ally-drinks	1	1
+"Got any booze?"	ally-alco	1	0
+"What does On the Rocks mean, anyway? It SOUNDS way cool!"	ally-onrocks	1	1
+"But I'm not 21! Not even close!"	ally-but	0	1
+"I'll have the Haha Brew."	ally-haha	0	1
+"I'll have the Cooler Wine."	ally-cooler	0	1
+"What do you think of the [bad-guy]?"	ally-baiter	1	1
+"[later-or-thanks]."	ally-bye	3	1
 
 the cooler wine is a drinkable. description is "My goodness! It's almost fluorescent."
 
@@ -6305,14 +6309,14 @@ after printing the name of haha brew when taking inventory:
 
 table of quip texts (continued)
 quip	quiptext
-sucker-drinks	"'Well, you wouldn't be ready for the [activation of rummy gin]Rummy Gin or [activation of go rum]Go Rum. If we served it after-hours, of course. If we served it after-hours. But we have Haha Brew and Cooler Wine. Both so watered down, the Stool Toad won't nab you long as you drink it here.'"
-sucker-alco	"'Haha. No.'"
-sucker-onrocks	"He pushes a button on an unseen machine. You hear ice cubes rattle. He holds up a glass, swirls it, and nods meaningfully before putting it away."
-sucker-but	"'Well, everyone here is a bit smarter and maturer than normal, and anyway, this isn't the high-proof stuff. Plus the Stool Toad, we've paid him off. As long as nobody makes it obvious and walks out with a drink. Then he's pretty awesome. So what the hey.'"
-sucker-haha	"[here-or-not]"
-sucker-cooler	"[here-or-not]"
-sucker-baiter	"'The [bg] lets me stay open for very reasonable shakedown fees. Much better than [bad-guy-2], I'm sure. He just, well, he just wants to know about all the patrons in here. Why, he drops in here himself and gets the good stuff. But he's very fair and balanced. He knows it's not how much you drink but how it affects you. Why, he's better at shaming unruly customers than I am!'"
-sucker-bye	"He goes back to mixing and serving drinks."
+ally-drinks	"'Well, you wouldn't be ready for the [activation of rummy gin]Rummy Gin or [activation of go rum]Go Rum. If we served it after-hours, of course. If we served it after-hours. But we have Haha Brew and Cooler Wine. Both so watered down, the Stool Toad won't nab you long as you drink it here.'"
+ally-alco	"'Haha. No.'"
+ally-onrocks	"He pushes a button on an unseen machine. You hear ice cubes rattle. He holds up a glass, swirls it, and nods meaningfully before putting it away."
+ally-but	"'Well, everyone here is a bit smarter and maturer than normal, and anyway, this isn't the high-proof stuff. Plus the Stool Toad, we've paid him off. As long as nobody makes it obvious and walks out with a drink. Then he's pretty awesome. So what the hey.'"
+ally-haha	"[here-or-not]"
+ally-cooler	"[here-or-not]"
+ally-baiter	"'The [bg] lets me stay open for very reasonable shakedown fees. Much better than [bad-guy-2], I'm sure. He just, well, he just wants to know about all the patrons in here. Why, he drops in here himself and gets the good stuff. But he's very fair and balanced. He knows it's not how much you drink but how it affects you. Why, he's better at shaming unruly customers than I am!'"
+ally-bye	"He goes back to mixing and serving drinks."
 
 to say here-or-not:
 	if player has cooler or player has haha brew:
@@ -6323,26 +6327,26 @@ to say here-or-not:
 			say "You pause for a second. You've got quite a record, already. You don't need a fifth tickety. No, you'd better play it cool.[no line break]";
 			continue the action;
 		say "'Coming right up!'[no line break]";
-		if current quip is sucker-haha:
+		if current quip is ally-haha:
 			now player has haha brew;
 		else:
 			now player has cooler wine;
 
 after quipping when qbc_litany is litany of Ally Stout:
-	if current quip is sucker-drinks:
-		enable the sucker-but quip;
-		enable the sucker-haha quip;
-		enable the sucker-cooler quip;
-	if current quip is sucker-alco:
+	if current quip is ally-drinks:
+		enable the ally-but quip;
+		enable the ally-haha quip;
+		enable the ally-cooler quip;
+	if current quip is ally-alco:
 		if player has cooler wine:
-			enable the sucker-haha quip;
-	if current quip is sucker-cooler:
+			enable the ally-haha quip;
+	if current quip is ally-cooler:
 		if player has haha brew:
-			enable the sucker-cooler quip;
-	if current quip is sucker-haha:
+			enable the ally-cooler quip;
+	if current quip is ally-haha:
 		if player has cooler wine:
-			enable the sucker-haha quip;
-	if current quip is sucker-bye:
+			enable the ally-haha quip;
+	if current quip is ally-bye:
 		terminate the conversation;
 
 book main chunk
@@ -10747,6 +10751,8 @@ the Go Rum is a concept in conceptville. howto is "ask Ally Stout about drinks".
 Rummy Gin is a concept in conceptville. howto is "ask Ally Stout about drinks".
 
 Hip Rose is a concept in conceptville. understand "rose hip/hips" as Hip Rose. howto is "visit the Soda Club".
+
+Punch Sucker is a concept in conceptville. understand "punch sucker" as punch sucker. howto is "visit the Soda Club".
 
 section food concepts
 

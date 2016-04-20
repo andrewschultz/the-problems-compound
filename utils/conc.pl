@@ -2,6 +2,16 @@
 if (@ARGV[0] eq "") { readConcept("Compound"); readConcept("Slicker-City"); }
 elsif (@ARGV[0] eq "pc") { readConcept("Compound"); }
 elsif (@ARGV[0] eq "sc") { readConcept("Slicker-City"); }
+else { foreach $x (@ARGV[0]) { crankOutCode($x); } exit; }
+
+sub crankOutCode
+{
+  $temp = $_[0]; $temp =~ s/-/ /g;
+  $bkwd = join(" ", reverse(split(/,/, $temp)));
+  print "\[activation of $temp\]\n";
+  print "$temp is a concept in conceptville. understand \"$bkwd\" as $temp. howto is \"fill this in here.\" \[search for xadd\]\n";
+  print "$temp(tab)\"$temp is when you .\"\n";
+}
 
 #######################################
 #prints the results
