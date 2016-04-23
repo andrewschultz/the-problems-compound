@@ -21,9 +21,10 @@ I managed to make more automated tests for the jerks, which spurred many of the 
 --the jerks' puzzle now lets you type, say, 1234567, and it clues you if one number is wrong and you gave the wrong guy a mint. The jerk-ordering is still arbitrary, but the game tells you that.
 --some concepts were revealed on start before, but now, a tracking file sees if they should be revealed.
 --push and pull now map to open. This isn't huge, technically, but I'll use it going forward.
---a few extra silly concepts added. Up to 89, from 56 in release 2. Game text added here and there.
+--a few extra silly concepts added. Up to 91, from 66 in release 2. Game text added here and there.
 --the bad guy now has individual people he randomly insults outside of those in the game proper.
---flexible maximum in score e.g. 0/(18-21)
---fixed "can't go that way" in Service Community (up/down gave something weird)
---PE now toggles exits in the header
---the bartender is renamed to Ally Stout. The Punch Sucker is now a customer mentioned peripherally
+--flexible maximum in score e.g. 0/(18-21) so the player knows if they're close, or they need to do more.
+--fixed "can't go that way" in Service Community (up/down gave something weird).
+--PE now toggles exits in the header.
+--the bartender is renamed to Ally Stout. The Punch Sucker is now a customer mentioned peripherally.
+--new song (RIP Prince) and books (14 and 49)

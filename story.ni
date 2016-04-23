@@ -8870,6 +8870,7 @@ workname	singername	songsubj
 "Work Fire"	"Perry Keady"	"having everyday up and at em for the things you deserve to do (if you're smart) or better do to survive (if you're dumb)"
 "Bound Homeward"	"Simon Paul"	"someone who wants to get out more but his stupid artsy worries get in the way"
 "My Mind in Carolina"	"Taylor James"	"getting away from one's backward past and entering sophistication"
+"Off, Get"	"Nelson Rogers Prince"	"people without enough social nous to have a sexual partner and why they deserve no fun"
 "Gold of Heart"	"Young Neil"	"someone who understands finding someone with money is important, but only to support a blocked artist like himself."
 "Knife the Mack"	"Darin Bobby"	"harsh punishment for some dude with no game trying to impress women out of his league"
 "Girl Island"	"John Elton"	"the first really cool song about men finding paradise among REAL women"
