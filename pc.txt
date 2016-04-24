@@ -96,9 +96,9 @@ Also, once you get the pocket pick, you need to DIG there. Because you're paying
 ?Can the Word Weasel do anything else for me?
 Yes. He can sign the Proof of Burden, if you found it.
 GIVE PROOF TO WEASEL.
->Getting past the Howdy Boy
+>Getting past Terry Sally
 >>Pressure Pier
-?The Howdy Boy won't let me past!
+?Terry Sally won't let me past!
 He's exerting ... peer pressure. Thank you, thank you, I'm here all game.
 To not be a total square.
 You need to talk to him.
@@ -113,7 +113,7 @@ One piece for sleeping on the bench and getting caught.
 One piece if you wander off the track in Joint Strip.
 You can also get a tickety for dropping the tickety: littering and suppressing evidence!
 If you get five, that is too many, and you get a "special" end scene.
-?The Howdy Boy won't let me visit Meal Square to the west!
+?Terry Sally won't let me visit Meal Square to the west!
 You have to prove your worth. See above.
 ?Is the Basher Bible significant?
 Not for solving the game.
@@ -137,7 +137,7 @@ Someone lost it. You can find who, by trial and error. Or by talking to people.
 Someone has missed a friend he's reluctant to talk about.
 It's for Fritz the On.
 >>Soda Club
-?What do I do with the Punch Sucker?
+?What do I do with Ally Stout?
 He will supply you with two drinks, one at a time.
 They are functionally equivalent.
 ?What do I do with the drinks?
@@ -156,13 +156,16 @@ Tray A just has silly foods.
 Tray B, if you eat anything, you betray yourself.
 ?What's the Cutter Cookie for?
 It's for a quick "win."
-You turn into a bit of a jerk, and you are forced through to Freak Control.
+You turn into a bit of a jerk, and you are forced through to Freak Control where you take over from the Baiter Master.
 ?What's the Off Cheese for?
 It's for another quick "win."
-You turn into a bit of a grump, and you are forced through to Freak Control.
+You turn into a bit of a grump, and you are forced through to Freak Control where the Baiter Master commiserates with you.
 ?What's the Greater Cheese for?
 It's for yet another quick "win."
-You have such a good opinion of yourself, you are forced through to Freak Control to meet the Baiter Master.
+You have such a good opinion of yourself, you are forced through to Freak Control to meet and join the Baiter Master.
+?What's the Points Brownie for?
+It's for yet another quick "win."
+You manage to "appreciate" annoying people enough to kiss up to them, and you are forced through to Freak Control to kiss up to the Baiter Master.
 ?What's the Iron Waffle for?
 Amusement only.
 ?What's the Condition Mint for?
@@ -524,6 +527,7 @@ Each food on Tray B gives a badending.
 You can eat the cookie cutter.
 You can eat the off cheese.
 You can eat the greater cheese.
+You can eat the points brownie.
 You can just beat the Complex Messiah/Baiter Master and not the Thoughts Idol.
 Or you can beat the bad guy and the Thoughts Idol.
 ?I'd like a walkthrough. Is there a walkthrough?
@@ -532,7 +536,7 @@ Yes. It should be included with the game as a short HTML file.
 The first one simply lets you solve the jerks. TRACK BEATEN.
 DUCK SITTING jumps to the Tension Surface
 KNOCK HARD gets you to Pressure Pier.
-FIGURE A CUT gets you past the Howdy Boy.
+FIGURE A CUT gets you past Terry Sally.
 FANCY PASSING removes the Brothers from play.
 NOTICE ADVANCE skips all the way to disposing of the jerks and helping the Brothers and leaves you at the Questions Field, but you still need to take down the Assassination Character and Thoughts Idol for the best ending.
 >>Director's Cut

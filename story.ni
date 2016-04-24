@@ -309,7 +309,7 @@ to say your-mood:
 			else:
 				say "[your-tix]/4 ticketies";
 			the rule succeeds;
-		say "[if player is in pressure pier]By Howdy Boy[else]Find Trouble[end if]";
+		say "[if player is in pressure pier]By Terry Sally[else]Find Trouble[end if]";
 	else if mrlp is rejected rooms:
 		say "EXIT[if number of viable directions > 1]S[end if]: ";
 		say "[unless the room north of location of player is nowhere]N [end if]";
@@ -372,7 +372,7 @@ brief (indexed text)	found	expound	jumpable	descr (indexed text)
 "anno"	false	true	false	"ANNO to show annotations, or JUMP to jump to a bunch of rejected rooms, as a sort of director's cut."
 "duck"	false	true	true	"DUCK SITTING to skip to Tension Surface."
 "knock"	false	true	true	"KNOCK HARD to get to Pressure Pier."
-"figure"	false	true	true	"FIGURE A CUT to skip past the Howdy Boy to the [jc]."
+"figure"	false	true	true	"FIGURE A CUT to skip past Terry Sally to the [jc]."
 "fancy"	false	true	true	"FANCY PASSING to skip to the Questions Field with the brothers gone."
 "track"	false	true	true	"TRACK BEATEN to reveal the [j-co] puzzle spoilers on examining the Finger Index."
 "notice"	false	true	true	"NOTICE ADVANCE to skip to Questions Field, with the brothers and [j-co] gone."
@@ -614,7 +614,7 @@ definition: a direction (called myd) is viable:
 		if myd is south:
 			decide no;
 	if player is in joint strip:
-		if myd is south and howdy boy is in lalaland:
+		if myd is south and Terry Sally is in lalaland:
 			decide no;
 	if player is in questions field :
 		if myd is west and circular is not off-stage:
@@ -841,9 +841,9 @@ check requesting the score:
 	if mrlp is Dream Sequence:
 		say "This is one of those nightmares where your score may be negative, if that's possible." instead;
 	if mrlp is outer:
-		if howdy boy is not in lalaland:
+		if Terry Sally is not in lalaland:
 			if your-tix is 4:
-				say "The trail paper is probably what the Howdy Boy wants." instead;
+				say "The trail paper is probably what Terry Sally wants." instead;
 			if your-tix > 0:
 				say "You have [your-tix] of the 4 boo-ticketies you need." instead;
 			say "You need to go looking for trouble. I mean, not too much, but enough to show you're not square." instead;
@@ -983,7 +983,7 @@ check dropping (this is the general dropping rule):
 	if noun is minimum bear:
 		say "No. It's just cute enough not to abandon[if your-tix < 4 and litter-clue is true], and dropping it wouldn't feel like LITTERING[end if]. It's somebody's. But whose?" instead;
 	if noun is trail paper:
-		say "No way. You should return that to the Howdy Boy!" instead;
+		say "No way. You should return that to Terry Sally!" instead;
 	if noun is cooler or noun is haha:
 		if your-tix >= 4:
 			say "Now you're living on the edge with four ticketies, you're confident you can get away with dropping a drink to avoid getting busted by the Stool Toad.";
@@ -2132,7 +2132,7 @@ check giving minimum bear to (this is the fun stuff if you give the bear to some
 	if second noun is Fritz the On:
 		say "'Dude! Minimum Bear!' he says, snatching it from you. 'I--I gotta give you something to thank you.' And he does. 'Here's a boo tickety I got for, like, not minding right. I've got so many, I won't miss it.'[paragraph break]";
 		now Fritz has minimum bear;
-		if howdy boy is in lalaland:
+		if Terry Sally is in lalaland:
 			say "Fritz starts mumbling about the generosity of someone coming back to do nice things for the sake of being nice and strts complaining enough about how people who don't do this sort of thing that you wish you hadn't." instead;
 		if your-tix >= 4:
 			say "Before you can decline Fritz's offer because you have too many already, he begins mumbling something about a revolution of the oppressed. It's enough to alert the Stool Toad.";
@@ -2140,7 +2140,7 @@ check giving minimum bear to (this is the fun stuff if you give the bear to some
 			say "'Whoah, dude! You have almost as many ticketies as me!' Fritz blurts, before you can shush him.";
 		get-ticketed "giving Fritz his dumb bear he keeps losing";
 		the rule succeeds;
-	if second noun is howdy boy:
+	if second noun is Terry Sally:
 		say "A momentary expression of rage crosses his face. 'Is this some sort of joke? You'd have to be whacked out to like that.'" instead;
 	if second noun is lily:
 		say "'Aww. That's so sweet. Or it would've been if I was still eight.'" instead;
@@ -2150,7 +2150,7 @@ check giving minimum bear to (this is the fun stuff if you give the bear to some
 check giving tickety to:
 	if second noun is Fritz:
 		say "'No way, dude. I already have too many[unless fritz has minimum bear]. But I can give you one if you like[else]. Keep the one I gave you[end if].'" instead;
-	if second noun is howdy boy:
+	if second noun is Terry Sally:
 		say "'Not bad. But you still need [4 - your-tix in words] more.'" instead;
 	if second noun is Lily:
 		say "She is not impressed by your attempts to be a Bad Boy." instead;
@@ -2162,14 +2162,14 @@ check giving tickety to:
 check giving the trail paper to:
 	if second noun is Fritz:
 		say "'That's not the kind of trips I go in for, dude.'" instead;
-	if second noun is howdy boy:
+	if second noun is Terry Sally:
 		now trail paper is in lalaland;
-		choose row with response of howdy-west in table of howdy boy talks;
+		choose row with response of terry-west in table of Terry Sally talks;
 		now enabled entry is 0;
-		howdy-sug;
+		terry-sug;
 		say "'Eh, you've done enough. Here, I'll shred the evidence. So you don't get caught later. Say, after all that goofing around, you might be hungry. Look around in Meal Square. There's some food that'll fix you quick.'";
 		unlock-verb "figure";
-		now howdy boy is in lalaland;
+		now Terry Sally is in lalaland;
 		the rule succeeds;
 	if second noun is Lily:
 		say "She shrugs and mentions she's been better places." instead;
@@ -2819,12 +2819,11 @@ Flower Wall	"A wallflower is someone who doesn't participate socially." [vision 
 Poor Dirt	"Dirt poor means especially not rich."
 picture hole	"Seeing the whole picture means you see everything."
 earth of scum	"Scum of the earth is the worst possible person."
-Howdy Boy	"Boy Howdy is a colloquial expression of surprise." [pressure pier]
+Terry Sally	"Terry Sally has two possible translations: salutary or solitary. He is sort of in between salutary (greeting) and solitary (alone) which fits in with how he probably doesn't get to see many people, but he's social when he does." [pressure pier]
 Basher Bible	"A bible basher is someone who quotes scripture too much. The reverse means a compendium of ways to try and gain power over people and put them down."
 spoon table	"A tablespoon is a small measure of something, usually for a recipe."
 boo tickety	"Tickety-boo means okay, all right, etc."
 trail paper	"A paper trail is evidence in white-collar crimes. People often have to piece it together."
-Howdy Boy	"Boy Howdy is a colloquial expression of surprise."
 Tray A	"Just a tray, contrasted with Tray B." [meal square]
 Tray B	"Eating anything on it may betray who you really are."
 cutter cookie	"Cookie-cutter means predictable and formulaic."
@@ -2963,6 +2962,7 @@ work of art	"A work of art is something nice and beautiful. The art of work is--
 enough man	"Man enough means being able to stand up for yourself. Okay, it's a bit sexist, but people who say it mean to be annoying. 'Enough, man' just means stop it."
 brush up	"To brush up is to refresh your memory of something."
 fish out of water	"A fish out of water is someone or something out of place."
+Boy Howdy	"Boy Howdy is a colloquial expression of surprise."
 strike a balance	"To strike a balance is to find a satisfactory compromise. A strike can alo mean--well, your balance went on strike, or you'd fall over."
 pig out	"To pig out is to eat everything you see. The reverse is an admonishment to leave."
 Shame No	"No shame means a person isn't embarrassed by anything to the point where it's dangerous. Shame? No! is more, there's a healthier way to look at things than through shame."
@@ -3659,7 +3659,7 @@ anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
 0	--	Tension Surface	"compound"	"I thought of making this the title of the game. But it was probably better to have it clue you to the room names. Anyway, It'd be hard to believe such a big world was part of a compound." [start intro]
 0	--	Variety Garden	"garden"	"The title was totally silly until release 2, when I added varieties of brush. Basically, the garden has a lot of variety, but not really quality. Originally there was a Stream of Consciousness and Train of Thought, but these were placeholders. The Word Weasel didn't come until later, but I always liked that phrase. I went through a bunch of vegetables before I found an animal would do just as well."
 0	--	Vision Tunnel	"tunnel"	"I'm pleased with the flip here from 'tunnel vision' as the vision tunnel opens you up to the different ways to see things."
-0	--	Pressure Pier	"pier"	"This shuffled around a bit until I found someone who was adequate for pressuring you, as opposed to just talking you down. That was the Howdy Boy. And, in fact, he was just 'there' in Sense Common for a while. Early I took a 'best/worst remaining pun' approach to the map, but as I started writing code and sending the game to testers, I realized how it could make more sense." [start outskirts]
+0	--	Pressure Pier	"pier"	"This shuffled around a bit until I found someone who was adequate for pressuring you, as opposed to just talking you down. That was Terry Sally. And, in fact, he was just 'there' in Sense Common for a while. Early I took a 'best/worst remaining pun' approach to the map, but as I started writing code and sending the game to testers, I realized how it could make more sense." [start outskirts]
 0	--	Meal Square	"square"	"This was the Tactics Stall for a while, until I had enough food items for a separate area, and then I didn't have enough time to implement tactical items. I needed a place to put them. 'Sink kitchen' didn't quite work, but eventually I found this. The baker's dozen was my first scenery implemented, and I'm quite pleased at the bad pun. Also, the Gagging Lolly was the first silly-death thing I implemented."
 0	--	Down Ground	"jump"	"Some locations didn't make the cut, but they helped me figure out better ones.  However, Down Ground was one of the first and most reliable. It was behind Rejection Retreat, which--well--didn't fit the bill.[paragraph break]You can now JUMP to or from random areas that didn't quite make it. Actually, you could've once you turned on annotation mode. But now you know you can."
 0	--	Joint Strip	"strip"	"Sometimes the names just fall into your lap. It's pretty horrible and silly either way, isn't it? I don't smoke pot myself, but I can't resist minor drug humor, and between Reefer Madness and Cheech and Chong, there is a lot of fertile ground out there."
@@ -3998,9 +3998,9 @@ to move-puzzlies:
 	move money seed to lalaland;
 	move cold contract to lalaland;
 	move trade of tricks to lalaland;
-	move howdy boy to lalaland;
+	move Terry Sally to lalaland;
 	move wacker weed to lalaland;
-	move howdy boy to lalaland;
+	move Terry Sally to lalaland;
 	move trail paper to lalaland;
 	move boo tickety to lalaland;
 	move fourth-blossom to lalaland;
@@ -4110,7 +4110,7 @@ to figure-cut:
 	disable-ticketies;
 	move player to jerk circle;
 	now trail paper is in lalaland;
-	now howdy boy is in lalaland;
+	now Terry Sally is in lalaland;
 	now gesture token is in lalaland;
 	open-babble;
 
@@ -4343,7 +4343,7 @@ Fritz	"Many variants on 'Whoah dude whoah,' mumbling about the friend he lost[if
 Stool Toad	"The usual ordering to keep your nose clean, don't go off the beaten path, or litter, or annoy people, or have illicit substances."	"Ugh. You have had enough of officious adults telling you you seem like a good kid so that's EXTRA reason how you better keep clean."	"You sat through a disturbingly long lecture about what you'd better not do, and you felt guilty at both what you heard before and what you didn't."
 Ally Stout	"He mentions all the places he's been and all the exciting people he's met, so much more exciting than here, no offense, you'll be exciting one day. Why, a bit of alcohol might help! [ally-offer]"	"Something about how exciting he was, and you could be, maybe. It doesn't feel so warm, in retrospect. [ally-offer]"	"Ally Stout certainly had a lot to say,  but you get the feeling it was just minimal banter. [ally-offer]"	--
 Liver Lily	"She--well, she seems to be making sense, but you feel obliged to agree with her without thinking in order to show her you're thoughtful. You notice she doesn't have a drink."	"She doesn't seem up for small talk, but she grabs an imaginary drink and swirls it."	"It was pretty head-spinning, but then, maybe it was just all bluster. She seems disinterested in you."
-Howdy Boy	"The usual greetings, as he exhorts you to be good--not too good, though. Maybe if you have some proof you're not totally boring and squeaky clean, you'll be bare-knuckle enough for the Compound proper. [if your-tix is 0]You'll--well, you'll know what, once you start picking up demerits[else]Probably the boo ticketies[end if]."	"The Howdy Boy wanted some sort of document[if your-tix is 4], maybe like that trail paper you've got[else if your-tix > 0], and your ticketies don't quite make one yet[end if]."
+Terry Sally	"The usual greetings, as he exhorts you to be good--not too good, though. Maybe if you have some proof you're not totally boring and squeaky clean, you'll be bare-knuckle enough for the Compound proper. [if your-tix is 0]You'll--well, you'll know what, once you start picking up demerits[else]Probably the boo ticketies[end if]."	"Terry Sally wanted some sort of document[if your-tix is 4], maybe like that trail paper you've got[else if your-tix > 0], and your ticketies don't quite make one yet[end if]."
 Buddy Best	"Buddy Best begins talking a mile a minute about Big Things, and it's impressive all right, and you're not sure how much you should interrupt to say so. You don't at all, and eventually he gets bored of you staring at him and hands you something called a Reasoning Circular and boots you back east."	"BUG. This should not happen."	--	Reasoning Circular
 Pusher Penn	"He drones on about exciting business opportunities and pushes some wacker weed on you to help you, apparently, get a taste of cutting-edge business."	"[if wacker weed is in lalaland]'Business, eh?'[else]He rubs his hand and makes a 'come here' gesture.[end if][penn-ask]"	"[if wacker weed is in lalaland]Pusher Penn wanted you to run an errand, and you did. He seems pretty disinterested in you now[else if player has wacker weed]You still need to find whom to give the weed to[else]You get the feeling Pusher Penn is all business[end if]."	wacker weed
 Art Fine	"Art goes to town on the superiority of unwritten art to written art. You guess it's persuasive, but you wonder if Phil would've been even more persuasive."	"He was pretty convincing about spontaneous art versus art restricted by the written word."
@@ -5372,58 +5372,58 @@ instead of doing something with Basher Bible:
 		say "[if accel-ending]No. Attacking it won't destroy its philosophy, or help you learn it better[else]It sort of makes you want to lash out, but somehow it makes you feel guilty for WANTING to attack it[end if].";
 	say "It's mostly there for looking at and absorbing its philosophy, whatever that may be."
 
-section Howdy Boy
+section Terry Sally
 
-The Howdy Boy is a person in Pressure Pier. "[one of]A smiling fellow walks up to you and shakes your hand. 'I'm the Howdy Boy! Here to introduce new people to the Problems Compound! Smart or dumb, social or lame, well, someone needs to!' You shake hands, equally afraid you were too hard or soft. His enthusiasm quickly tails off, leaving you feeling it was your fault.[or]The Howdy Boy stands here, [if player has trail paper]and on seeing your trail paper, snaps his fingers and makes a 'gimme' gesture[else]looking disinterested now he's greeted you[end if].[stopping]"
+Terry Sally is a person in Pressure Pier. "[one of]A smiling fellow walks up to you and shakes your hand. 'I'm Terry Sally! The official [activation of boy howdy]Howdy Boy! Here to introduce new people to the Problems Compound! Smart or dumb, social or lame, well, someone needs to!' You shake hands, equally afraid you were too hard or soft. His enthusiasm quickly tails off, leaving you feeling it was your fault.[or]Terry Sally stands here, [if player has trail paper]and on seeing your trail paper, snaps his fingers and makes a 'gimme' gesture[else]looking disinterested now he's greeted you[end if].[stopping]"
 
-description of Howdy Boy is "Brightly dressed, smiling a bit too wide."
+description of Terry Sally is "Brightly dressed, smiling a bit too wide."
 
-check talking to howdy boy:
+check talking to Terry Sally:
 	if trail paper is in lalaland:
 		say "'You don't need anyone to greet you any more. [if jerk circle is unvisited]Go on! See what's north[else]You've already visited what's beyond[end if][if meal square is not visited]. Oh, and check out to the west, too[end if].'" instead;
 
-the litany of Howdy Boy is table of howdy boy talks.
+the litany of Terry Sally is table of Terry Sally talks.
 
-table of hb - howdy boy talks
+table of ts - Terry Sally talks
 prompt	response	enabled	permit
-"So, um. Hi. I mean Howdy. Or heya."	howdy-howdy	1	1
-"Boy howdy! This sure is an interesting place!"	howdy-boy	0	0
-"For such an interesting guy, you sure have nothing better to do than stand here and block people going north."	howdy-int	0	0
-"Can you let me north? Please?"	howdy-north	0	1
-"So. What's fun to do here?"	howdy-fun	1	1
-"What's to the west?"	howdy-west	1	1
-"Tell me about the [bad-guy]."	howdy-baiter	1	1
-"[later-or-thanks]."	howdy-bye	3	1
+"So, um. Hi. I mean Howdy. Or heya."	terry-howdy	1	1
+"Boy howdy! This sure is an interesting place!"	terry-boy	0	0
+"For such an interesting guy, you sure have nothing better to do than stand here and block people going north."	terry-int	0	0
+"Can you let me north? Please?"	terry-north	0	1
+"So. What's fun to do here?"	terry-fun	1	1
+"What's to the west?"	terry-west	1	1
+"Tell me about the [bad-guy]."	terry-baiter	1	1
+"[later-or-thanks]."	terry-bye	3	1
 
 table of quip texts (continued)
 quip	quiptext
-howdy-howdy	"'Um...yeah. I've heard that one. If you knew that, you shouldn't have said howdy, and if you didn't, that's kinda clueless. Anyway.'"
-howdy-boy
-howdy-int
-howdy-fun	"'Well, there's solving boring puzzles. But that's a bit too square. No offense, but that's probably how you wound up here. What if you--well, bend the rules a bit? Nothing too stupid, but annoy authority. Convince me--and yourself, of course--you're not just some boring square.'"
-howdy-ways	"'Well, there's public laziness. Annoying other bar patrons. Possession of alcohol. Littering and/or obfuscating your own transgressions record.'"
-howdy-north	"'Well, it gets a bit seedier there. Rougher. I'm sure you're nice and all, even if you're not actually nice TO anyone, but it might be better not to be totally nice. Tell you what. You find me a trail paper, I let you by. It's made up of--oh, what do you call em? For not being a total kiss-up? Anyway, don't do anything too dumb. But you'll want to annoy authorities a bit.'"
-howdy-west	"'Meal Square. But you can't get up to much trouble there.'"
-howdy-baiter	"'I'm sure he'd like to welcome you individually, but he's just too busy fending off [bad-guy-2]. And thinking up his own philosophies. And making sure nobody weirds out too much, from his big observation room in Freak Control. So he delegates the greeting to me, while making sure nobody acts out the wrong way. Don't get me wrong. He's a geek/dork/nerd and loves the rest of us. Just, those who give it a bad name...'"
-howdy-bye	"'Later. Be good. But not too good. That's just boring.'"
+terry-howdy	"'Um...yeah. I've heard that one. If you knew that, you shouldn't have said howdy, and if you didn't, that's kinda clueless. Anyway.'"
+terry-boy
+terry-int
+terry-fun	"'Well, there's solving boring puzzles. But that's a bit too square. No offense, but that's probably how you wound up here. What if you--well, bend the rules a bit? Nothing too stupid, but annoy authority. Convince me--and yourself, of course--you're not just some boring square.'"
+terry-ways	"'Well, there's public laziness. Annoying other bar patrons. Possession of alcohol. Littering and/or obfuscating your own transgressions record.'"
+terry-north	"'Well, it gets a bit seedier there. Rougher. I'm sure you're nice and all, even if you're not actually nice TO anyone, but it might be better not to be totally nice. Tell you what. You find me a trail paper, I let you by. It's made up of--oh, what do you call em? For not being a total kiss-up? Anyway, don't do anything too dumb. But you'll want to annoy authorities a bit.'"
+terry-west	"'Meal Square. But you can't get up to much trouble there.'"
+terry-baiter	"'I'm sure he'd like to welcome you individually, but he's just too busy fending off [bad-guy-2]. And thinking up his own philosophies. And making sure nobody weirds out too much, from his big observation room in Freak Control. So he delegates the greeting to me, while making sure nobody acts out the wrong way. Don't get me wrong. He's a geek/dork/nerd and loves the rest of us. Just, those who give it a bad name...'"
+terry-bye	"'Later. Be good. But not too good. That's just boring.'"
 
-before talking to howdy boy when player has trail paper:
+before talking to Terry Sally when player has trail paper:
 	if player has trail paper and player is in pressure pier:
 		say "Wait a minute! You've got the trail paper! Enough chit-chat!";
 		terminate the conversation;
-		try giving trail paper to howdy boy instead;
+		try giving trail paper to Terry Sally instead;
 
-after quipping when qbc_litany is table of howdy boy talks:
-	if current quip is howdy-howdy:
-		enable the howdy-boy quip;
-		enable the howdy-int quip;
-	if current quip is howdy-ways:
+after quipping when qbc_litany is table of Terry Sally talks:
+	if current quip is terry-howdy:
+		enable the terry-boy quip;
+		enable the terry-int quip;
+	if current quip is terry-ways:
 		now litter-clue is true;
-	if current quip is howdy-north:
-		enable the howdy-fun quip;
-	if current quip is howdy-fun:
-		enable the howdy-ways quip;
-	if current quip is howdy-bye:
+	if current quip is terry-north:
+		enable the terry-fun quip;
+	if current quip is terry-fun:
+		enable the terry-ways quip;
+	if current quip is terry-bye:
 		terminate the conversation;
 
 to superable (q - a quip):
@@ -5431,26 +5431,26 @@ to superable (q - a quip):
 	now enabled entry is 2;
 
 check going north in Pressure Pier:
-	if howdy boy is in lalaland:
+	if Terry Sally is in lalaland:
 		continue the action;
 	if trail paper is in lalaland:
-		say "The Howdy Boy gestures you through. 'Well, you started good. Here's luck to finding more lessons, further on[if meal square is not visited]. Oh, and maybe stop off west Meal Square, if you want[end if].'";
+		say "Terry Sally gestures you through. 'Well, you started good. Here's luck to finding more lessons, further on[if meal square is not visited]. Oh, and maybe stop off west Meal Square, if you want[end if].'";
 		continue the action;
 	if player has trail paper:
-		say "The Howdy Boy snaps his fingers and points at your trail paper.";
-		try giving trail paper to howdy boy;
+		say "Terry Sally snaps his fingers and points at your trail paper.";
+		try giving trail paper to Terry Sally;
 		if trail paper is in lalaland:
 			continue the action;
 		the rule succeeds;
-	choose row with response of howdy-north in table of howdy boy talks;
+	choose row with response of terry-north in table of Terry Sally talks;
 	now enabled entry is 2;
-	if howdy-howdy is not talked-thru:
-		say "The Howdy Boy bars you with his arm. He's not bigger than you, but he is louder. 'Hey! Whoah! I took the time to greet you, and you're going to bull right on through? Nope!'" instead;
+	if terry-howdy is not talked-thru:
+		say "Terry Sally bars you with his arm. He's not bigger than you, but he is louder. 'Hey! Whoah! I took the time to greet you, and you're going to bull right on through? Nope!'" instead;
 	say "'Nope. Not yet. Yay for showing initiative, but I need a bit more evidence you're not all goody-goody.'" instead;
 
 section trail paper
 
-the trail paper is a thing. description is "It looks pretty official. It's made up of the four boo ticketies, but now they're folded right, it may be just what the Howdy Boy wanted."
+the trail paper is a thing. description is "It looks pretty official. It's made up of the four boo ticketies, but now they're folded right, it may be just what Terry Sally wanted."
 
 part Meal Square
 
@@ -5460,7 +5460,7 @@ check going west in pressure pier:
 	otherwise:
 		if meal square is unvisited:
 			now thought for food is in lalaland;
-			say "The Howdy Boy coughs. 'That's Meal Square. Nice if you've got a thought for food[activation of thought for food]. But better places to break the rules.' Nevertheless, he lets you go.";
+			say "Terry Sally coughs. 'That's Meal Square. Nice if you've got a thought for food[activation of thought for food]. But better places to break the rules.' Nevertheless, he lets you go.";
 
 Meal Square is west of Pressure Pier. Meal Square is in Outer Bounds. "This is a small alcove with Pressure Pier back east. There's not much decoration except a picture of a dozen bakers."
 
@@ -5681,7 +5681,7 @@ to bad-food-process (as - a truth state):
 table of accel-text
 accel-place	alt-num	accel-cookie	accel-off	accel-greater	accel-brownie
 meal square	-1	"Pfft. None of the foods look close to as good as the cookie you ate. Time to get going."	"Ugh. The sight of the remaining food turns your stomach. You just want to get going."	"You're sure you're meant for better things than pigging out and getting fat on food that probably doesn't taste that great, anyway."	"This is a neat place, and it'd be wonderful if there were people to eat with here, but there aren't, so maybe you just need to find people to be social to. Um, with."
-pressure pier	0	"You take a moment to sneer at the [if howdy boy is in lalaland]memory of the [end if]Howdy Boy. 'Is this your JOB? Man, that's SAD. The stupid stuff you want people to do to show you they're cool? Little league stuff. I mean, thanks for the start and all, but SERIOUSLY.' He gapes, shocked, then flees before your wrath.[paragraph break]Man! You've never won an argument before. And you didn't expect to win that conclusively. Oh, wait, yes you did."	"You give an exasperated sigh. 'I'm not here because I want to be. I got suckered into it. Do you think I could...?'[paragraph break]'You know, some people don't even ASK. Or if they do, it's all unforceful. You're okay. You can go through.' [if howdy boy is in lalaland]You blame the Howdy Boy for not being around to listen to your whining[else]The Howdy Boy bows slightly--you don't care if it's sarcastic or not--and you walk past. You turn around, but he's not there[end if]."	"[if howdy boy is in lalaland]You're sad the Howdy Boy is gone. You'd be giving HIM advice, now.[else]'Oh, hey! Still here? I'm moving ahead in life!' you say to the Howdy Boy, who runs off in embarrassment.[end if]"	"[if howdy boy is in lalaland]You were going to compliment him on what a good job he was doing vetting people, but dang it, he's gone[else]'Wow! You're doing a really good job of, like, guarding stuff. You totally deserve a break!'[paragraph break]'Gosh! You think so too?'[paragraph break]'Well, if the [bad-guy] does...'[paragraph break]'No, you're right. Hey, I thought you were just another of, well, them, but you're all right. More than all right. Go on through.' The Howdy Boy walks east[where-howdy][end if]."
+pressure pier	0	"You take a moment to sneer at the [if Terry Sally is in lalaland]memory of the [end if]Terry Sally. 'Is this your JOB? Man, that's SAD. The stupid stuff you want people to do to show you they're cool? Little league stuff. I mean, thanks for the start and all, but SERIOUSLY.' He gapes, shocked, then flees before your wrath.[paragraph break]Man! You've never won an argument before. And you didn't expect to win that conclusively. Oh, wait, yes you did."	"You give an exasperated sigh. 'I'm not here because I want to be. I got suckered into it. Do you think I could...?'[paragraph break]'You know, some people don't even ASK. Or if they do, it's all unforceful. You're okay. You can go through.' [if Terry Sally is in lalaland]You blame Terry Sally for not being around to listen to your whining[else]Terry Sally bows slightly--you don't care if it's sarcastic or not--and you walk past. You turn around, but he's not there[end if]."	"[if Terry Sally is in lalaland]You're sad Terry Sally is gone. You'd be giving HIM advice, now.[else]'Oh, hey! Still here? I'm moving ahead in life!' you say to Terry Sally, who runs off in embarrassment.[end if]"	"[if Terry Sally is in lalaland]You were going to compliment him on what a good job he was doing vetting people, but dang it, he's gone[else]'Wow! You're doing a really good job of, like, guarding stuff. You totally deserve a break!'[paragraph break]'Gosh! You think so too?'[paragraph break]'Well, if the [bad-guy] does...'[paragraph break]'No, you're right. Hey, I thought you were just another of, well, them, but you're all right. More than all right. Go on through.' Terry Sally walks east[where-howdy][end if]."
 jerk circle	1	"'Hey, move it, I'm on a quest here!' They look shocked. You proceed to berate them for, is this all they ever do? Is it their purpose in life? Do they have anyone better to talk to? If so, what a waste. If not, sad.[paragraph break]Before this terrifying onslaught of hard-hitting language and lucid, back-to-basics logic, the [j-co] recognize how minor-league they are. They run off to chat or commiserate elsewhere.[paragraph break]Bam! Seven at one blow!"	"'Hey, what you all talking about?' you ask. 'Gossip, eh?' You try to join in, but--they seem a bit jealous of how good your grumbling is, and they excuse themselves."	"'Oh! Hey! You all talking about something interesting? I won't disturb you. Which way is the [bg]?' They look shocked you...USED HIS INITIALS. They point north. 'I KNOW,' you boom. They scatter."
 lalaland	2	"Oh, boy. Looking back, you didn't need all that reasoning to get past them. You could've probably just acted a little exasperated, said you were SURE someone could help, and wham! Well, it's good to have all this space, but you need to be going north."	"You sniff at the memory of the [j-co] you helped. They weren't properly grateful, and they weren't even good at being [j-co]. Maybe you should've gone into business with the Labor Child. You'd figure how to backstab him later. Still, you learned a lot from that. Perhaps you can find ways to keep tabs on people, probe their weaknesses. Makes up for earlier memories of your own."	"You look back at the silliness and all you did to get around the [j-co] when really you could've just shown them what was what the way you are now. You're--BETTER than those logic puzzles."
 speaking plain	0	"Oh geez. You can't take this. You really can't. All this obvious improvement stuff. You lash out, do they think people REALLY don't know this? Do they think hearing it again will help? Uncle Dutch and Turk Young revile you as a purveyor of negative energy. No, they won't go on with all this cynicism around. But you will be moving on soon enough. They go away for a break for a bit."	"'FRAUDS!!!' you yell at Uncle Dutch and Turk Young. 'ANYONE CAN SPOUT PLATITUDES!' You break it down sumpin['] sumpin['] real contrarian on them, twisting their generalities. A crowd gathers around. They applaud your snark! You yell at them that applause is all well and good, but there's DOING. They ooh and ahh further. After a brief speech about the dork you used to be, and if you can get better, anyone can, you wave away the performers, then the crowd that followed them."	"You give a pre-emptive 'Oh, I KNOW,' before Turk and Dutch can say any more. 'But you're doing a pretty good job. I mean, almost as good as I could if I weren't destined for better things. Just--take a break to hone your act. Not that it's THAT stale...' They look at each other, nod, and walk away."
@@ -5741,9 +5741,9 @@ after printing the locale description when accel-ending:
 		else:
 			say "[accel-brownie entry][line break]";
 	if player is in pressure pier: [cleanup]
-		if howdy boy is not in lalaland:
+		if Terry Sally is not in lalaland:
 			check-fast-track;
-		now howdy boy is in lalaland;
+		now Terry Sally is in lalaland;
 	if player is in jerk circle:
 		if silly boris is not in lalaland:
 			check-fast-track;
@@ -5940,18 +5940,18 @@ after examining dreadful penny:
 
 your-tix is a number that varies.
 
-to howdy-sug:
+to terry-sug:
 	let ff be first-ticket of 0;
 	if ff > 0:
 		choose row ff in table of tickety suggestions;
-		say "The Howdy Boy nods, semi-impressed, but wonders aloud if you considered [ticket-ref entry]. You shake your head.";
+		say "Terry Sally nods, semi-impressed, but wonders aloud if you considered [ticket-ref entry]. You shake your head.";
 		continue the action;
 	let ff be first-ticket of 2;
 	if ff > 0:
 		choose row ff in table of tickety suggestions;
-		say "The Howdy Boy nods, semi-impressed, but wonders aloud if you considered [ticket-ref entry]. You say you did, but really, it didn't seem as fun or expedient as what you did.";
+		say "Terry Sally nods, semi-impressed, but wonders aloud if you considered [ticket-ref entry]. You say you did, but really, it didn't seem as fun or expedient as what you did.";
 		continue the action;
-	say "The Howdy Boy whistles. 'Wow! Somehow, you managed to do seven things when you only needed to do four. That's probably due to a BUG, but impressive, nonetheless.'"
+	say "Terry Sally whistles. 'Wow! Somehow, you managed to do seven things when you only needed to do four. That's probably due to a BUG, but impressive, nonetheless.'"
 
 table of tickety suggestions
 ticket-ref	ticket-done
@@ -6046,7 +6046,7 @@ instead of doing something with the bar:
 check going south in joint strip:
 	if jump-level > 2:
 		say "[one of]'There's something about you, young man. Like you've been shifty before. I can't trust you. So you better use some common sense. Or I'll use it for you!' booms the Stool Toad.[paragraph break]On further reflection, you figure there probably wasn't much in there. Much you need any more, anyway. Also, his last little put-down didn't make any sense. But it still hurt.[or]You don't want to be told off by the Stool Toad again. Whether or not he makes sense the next time.[stopping]" instead;
-	if howdy boy is in lalaland:
+	if Terry Sally is in lalaland:
 		say "You had your 'fun,' or an attempt at it, anyway. You don't want to go [if soda club is visited]back there[else]anywhere too crazy[end if].";
 	if jump-level > 0 and soda club is unvisited:
 		say "The Stool Toad eyes you suspiciously. 'Don't know what you're up to, but ... it's something too clever for your own good. You--you cheated to get here, somehow.'";
@@ -8853,6 +8853,7 @@ workname	authname	booksubj
 "Odyssey Space"	"Clark Arthur"	"a modern retelling of Ulysses dealing harshly with technocrats"
 "The Cancer of Tropic"	"Miller Arthur"	"one ascetic's skin disease and the surprising poetry that lies therein"
 "And Dominion Shall Have No Death"	"Thomas Dylan"	"a New World Order of smart poetic people that properly keeps the rabble scared of death and all that"
+"Arnold Matthew"	"Beached Over"	"totally gnarly fun with surf and sun, away from brooding losers"
 "Prejudice and Pride"	"Austin Jayne"	"someone learning, with humor and pathos, how and why his instincts about lesser people who think they're equal to him is right"
 "The Stone in the Sword"	"White Theodore"	"a kid learning to be king by doing all the things fantasy novels don't describe--like pushing people around, politics, and so forth"
 "The World Beyond the Wood"	"Morris William"	"a muddled fellow moving on from silly fantasy novels to real-life gritty ones you can have louder arguments over"
@@ -9255,7 +9256,7 @@ gad-act
 "The [bad-guy] snorts at [activation of taste buds]Bud's taste."
 "'Geez, it's a pain to [activation of benefactor]factor BENNY. I'm not, like, MEAN to him.'"
 "'[activation of pharisee]See, Farrah,' the [bad-guy] mutters to no girl in particular."
-"The [bad-guy] mutters he's sure [activation of Howard Dean]Dean Howard is nice and well-meaning all, but he babbles on and on about a scream or something being utterly unforgiveable. Hmm."
+"The [bad-guy] mutters he's sure [activation of Howard Dean]Dean Howard is nice and well-meaning all, but that scream. Really. Just...unforgiveable. And even if it were, well, he probably still deserves to be REMINDED. For character building purposes."
 "The Language Sign flashes but you don't think it changed its message. Just reinforced it."
 "[odd-machine of Twister Brain] spits out a page of data the [bad-guy] speed reads. He mutters 'Pfft. I already sort of knew that. Mostly. Still, need to keep an eye on [the random surveyable person].'"
 "[odd-machine of Witness Eye] swivels around with a VVSSHHKK before changing the focus to [random mainchunk room]."
@@ -10104,7 +10105,7 @@ biglaff	anyrule
 "going west/north/south in the Variety Garden?"	--
 "giving Pusher Penn's 'merchandise' to the Stool Toad or Officer Petty?"	--
 "giving Minimum Bear to anyone except Fritz the On?"	--
-"giving Minimum Bear to Fritz with the Howdy Boy gone? Or with four ticketies?"	--
+"giving Minimum Bear to Fritz with Terry Sally gone? Or with four ticketies?"	--
 "putting the poetic wax on/giving it to anything except the language machine?"	--
 "saying YES or NO in the Drug Gateway?"	--
 "visiting the Scheme Pyramid after the [j-co] take their revenge?"	--
@@ -10815,7 +10816,7 @@ Wine-U-Gen is a concept in conceptville. understand "wine u gen" and "wineugen" 
 
 section food concepts
 
-a thing called Thought for Food is a concept in conceptville. understand "food for thought" as thought for food. howto is "visit Meal Square with Howdy Boy around".
+a thing called Thought for Food is a concept in conceptville. understand "food for thought" as thought for food. howto is "visit Meal Square with Terry Sally around".
 
 snap decision is a concept in conceptville. understand "decision snap" as snap decision. howto is "say yes to eating a Tray B food".
 
@@ -10846,6 +10847,8 @@ apple pie order is a concept in conceptville. understand "apple-pie order" and "
 section outer concepts
 
 fish out of water is a concept in conceptville. understand "water out of fish" as fish out of water. howto is "examine the water in Pressure Pier".
+
+Boy Howdy is a concept in conceptville. understand "howdy boy" as Boy Howdy. howto is "get to Pressure Pier".
 
 Bum Beach is a concept in conceptville. understand "beach bum" as Bum Beach. howto is "examine the bench in Down Ground".
 
@@ -11590,8 +11593,8 @@ carry out tixreseting:
 	try tixing last-tix;
 
 carry out tixing:
-	if howdy boy is in lalaland:
-		say "You may need to restart and KNOCK HARD to retry getting tickets, with the Howdy Boy gone.";
+	if Terry Sally is in lalaland:
+		say "You may need to restart and KNOCK HARD to retry getting tickets, with Terry Sally gone.";
 	if number understood > 4 or number understood < 0:
 		say "The number of tickets you have can only be 0-4." instead;
 	now your-tix is the number understood;
@@ -11710,7 +11713,7 @@ carry out gating:
 		gat-ruin-check;
 		now player has pick;
 		now player has burden;
-	else if howdy boy is not in lalaland:
+	else if Terry Sally is not in lalaland:
 		gat-ruin-check;
 		now player has fritz;
 		if player is in soda club:

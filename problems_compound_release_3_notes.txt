@@ -8,23 +8,25 @@ This is the third release of The Problems Compound. The first release was for IF
 
 (Write in people who helped here)
 
-This is largely a maintenance release without many flashy new features. It addresses some bugs discovered and in release 2, as well as some user-friendliness issues. The source code is now above 650,000 bytes, and...well, I think I'm ready to move on.
+This is largely a maintenance release without many flashy new features, though Alec has a new food on Tray B to eat. It addresses some bugs discovered and in release 2, as well as some user-friendliness issues. The source code is now above 650,000 bytes, and...well, I think I'm ready to move on.
 
 The milestones for release 3 can be seen at https://github.com/andrewschultz/the-problems-compound/milestones/v3%20coding%20tweaks, but that's not everything.
 
 I managed to make more automated tests for the jerks, which spurred many of the changes.
 
 --mint now works as planned (BUG in R2)
+--Alec now has a new bad food on Tray B which makes him "happy," but not really.
 --SKIP replaces GLIB as a verb. TESTJUMP (not seen in the release) is now the testing verb.
 --the final question rule is now organized by (my stuff) (their stuff) and BOLD choices haven't been chosen yet, while italic have.
 --walkthrough and InvisiClues touched up to address new alternate jerk solutions.
 --the jerks' puzzle now lets you type, say, 1234567, and it clues you if one number is wrong and you gave the wrong guy a mint. The jerk-ordering is still arbitrary, but the game tells you that.
 --some concepts were revealed on start before, but now, a tracking file sees if they should be revealed.
 --push and pull now map to open. This isn't huge, technically, but I'll use it going forward.
---a few extra silly concepts added. Up to 91, from 66 in release 2. Game text added here and there.
---the bad guy now has individual people he randomly insults outside of those in the game proper.
+--a few extra silly concepts added. Up to 92, from 66 in release 2. Game text added here and there.
+--the bad guy now has individual people he randomly insults outside of those in the game proper. They're a bit topical, but they're in the general knowledge realm. If nothing else, you can Google them.
 --flexible maximum in score e.g. 0/(18-21) so the player knows if they're close, or they need to do more.
 --fixed "can't go that way" in Service Community (up/down gave something weird).
 --PE now toggles exits in the header.
 --the bartender is renamed to Ally Stout. The Punch Sucker is now a customer mentioned peripherally.
---new song (RIP Prince) and books (14 and 49)
+--the Howdy Boy is now Terry Sally, which is kind of between two words.
+--new song (RIP Prince) and books (14 and 50 total).
