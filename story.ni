@@ -376,9 +376,10 @@ brief (indexed text)	found	expound	jumpable	descr (indexed text)
 "fancy"	false	true	true	"FANCY PASSING to skip to the Questions Field with the brothers gone."
 "track"	false	true	true	"TRACK BEATEN to reveal the [j-co] puzzle spoilers on examining the Finger Index."
 "notice"	false	true	true	"NOTICE ADVANCE to skip to Questions Field, with the brothers and [j-co] gone."
-"cookie"	false	false	false	"Eating the cookie unlocked a few concepts."
-"greater"	false	false	false	"Eating the cookie unlocked a few concepts."
-"off"	false	false	false	"Eating the cookie unlocked a few concepts."
+"cookie"	false	false	false	"Eating the cookie on tray B unlocked a few concepts."
+"greater"	false	false	false	"Eating the greater cheese on tray B unlocked a few concepts."
+"off"	false	false	false	"Eating the off cheese on tray B unlocked a few concepts."
+"brownie"	false	false	false	"Eating the brownie on tray B unlocked a few concepts."
 "good"	false	false	false	"You found a good ending!"
 "great"	false	false	false	"You found the great ending!"	[this must be last right now]
 
@@ -3021,6 +3022,7 @@ Boss Fight	"A boss fight is a confrontation with an important adversary in a mor
 Complain Cant	"Cant means a tendency towards something, so someone with a complain cant would only say 'can't complain' very ironically." [eternal concepts]
 Received Wisdom	"Received wisdom is generally accepted knowledge which is often not true, such as how we only use 10% of our brain. Gustave Flaubert wrote a fun book called The Dictionary of Received Wisdom that makes fun of many such examples. For instance, a hamlet is always charming."
 People Power	"People power was a rallying cry in demonstrations against the authoritarianism of, well, power people."
+Much Flatter	"If your world is much flatter, it isn't very exciting. But to flatter much is to over-compliment people, which makes things [i]seem[r] exciting for a bit."
 Snipe Gutter	"A guttersnipe is someone of the lowest class, brought up in squalor. To snipe is to take cheap shots, and if you're in the gutter, so much the worse."
 Something Mean	"Mean something = talk or act with purpose. Something mean = well, nastiness."
 Sitting Duck	"A sitting duck is someone just waiting to be taking advantage of. But if you duck sitting, you aren't waiting."
@@ -5528,11 +5530,11 @@ to decide which thing is yourfood:
 	decide on Alec Smart;
 
 to decide whether accel-ending:
-	if greater-eaten is true or off-eaten is true or cookie-eaten is true, decide yes;
+	if greater-eaten is true or off-eaten is true or cookie-eaten is true or brownie-eaten is true, decide yes;
 	decide no;
 
-to say co-ch:
-	say "[if off-eaten is true]off cheese[else if greater-eaten is true]greater cheese[else]cutter cookie[end if]"
+to say b-food:
+	say "[if off-eaten is true]off cheese[else if greater-eaten is true]greater cheese[else if cookie-eaten is true]cutter cookie[else]points brownie[end if]"
 
 before going when accel-ending:
 	if player is in meal square:
@@ -5540,9 +5542,9 @@ before going when accel-ending:
 			say "The heck with this dump.";
 			continue the action;
 		else:
-			say "You do feel like [if off-eaten is true]banging[else if greater-eaten is true]busting through[else]bouncing off[end if] the walls now you've eaten the [co-ch], but not literally. But when you get bored, there's back east." instead;
+			say "You do feel like [if off-eaten is true]banging[else if greater-eaten is true]busting through[else if brownie-eaten is true]not flowering[else]bouncing off[end if] the walls now you've eaten the [b-food], but not literally. But when you get bored, there's back east." instead;
 	if noun is north:
-		say "[if off-eaten is true]Maybe up ahead will be less lame[else]Time to leave [location of player] in the dust[end if].";
+		say "[if off-eaten is true]Maybe up ahead will be less lame.[else if brownie-eaten is true][location of player] was fun but there's probably even more fun ahead![else]Time to leave [location of player] in the dust.[end if]";
 		continue the action;
 	if noun is south:
 		if player is in pressure pier:
@@ -5577,7 +5579,7 @@ check eating greater cheese:
 		the rule succeeds;
 	say "You manage to appreciate the cheese and feel superior to those who don't. You have a new outlook on life! No longer will you feel [b-o]!";
 	now greater cheese is in lalaland;
-	bad-food-process;
+	bad-food-process true;
 	now greater-eaten is true instead;
 
 to say b-o:
@@ -5604,7 +5606,7 @@ check eating off cheese:
 		the rule succeeds;
 	say "Ugh. Bleah. It feels and tastes awful--but if you sat through this, you can sit through an awkward conversation. Not that you'll be over-bold[activation of bowled over] and cause a few. [activation of growing pains]Pain's growing... pain's growing...";
 	now off cheese is in lalaland;
-	bad-food-process;
+	bad-food-process true;
 	now off-eaten is true instead;
 
 section cutter cookie
@@ -5626,6 +5628,8 @@ this is the tray b eating rule:
 		the rule fails;
 
 check eating cutter cookie:
+	if brownie-eaten is true:
+		say "Aw man! You're sure the cookie tastes good, but maybe leave it for the next person. You're already in a great mood. No need to get greedy." instead;
 	if off-eaten is true:
 		say "Ugh. You're not in the mood for something sweet like cookies. You're good and jaded." instead;
 	if greater-eaten is true:
@@ -5638,19 +5642,46 @@ check eating cutter cookie:
 		say "[line break]OK." instead;
 	say "[line break]You have to eat it carefully, because of its spikes, but it gives you...a sharp tongue. Suddenly you wonder why you spent so much time feeling [b-o]. You're ready to go off on pretty much anyone who's gotten in your way, or even not helped you enough[if allow-swears is false]. You'll show those punks you don't need to swear to kick butt![else].[end if]";
 	now cookie is in lalaland;
-	bad-food-process;
+	bad-food-process true;
 	now cookie-eaten is true instead;
 
-to bad-food-process:
-	if allow-swears is false:
-		say "Also, you realize how lame it was to be stuffy about swears. You have stuff to swear ABOUT now, see? You didn't used to have it, or any emotional depth, but now, heck yeah! (Okay, you still need some practice.) You realize Hunter Savage was just a pseudonym, and you're pretty sure the Complex Messiah had a coler name, too.";
-		now allow-swears is true;
-	ital-say "This has caused an irreversible personality change in Alec. You may wish to UNDO and SAVE before trying to eat again, though Alec may find himself too good for that, now";
+section points brownie
+
+a points brownie is a badfood on Tray B. description is "[if greater-eaten is true or cookie-eaten is true]The sort of chocolatey treat that fattens people with no willpower[else if off-eaten is true]The sort of sugary treat people used to try to bribe you with. With which they tried to bribe you. Ugh. You hate following grammar rules[else]It's not shaped like a square but rather a star. It has points[end if]."
+
+brownie-eaten is a truth state that varies.
+
+check eating points brownie:
+	if off-eaten is true:
+		say "Bleah. You'd have gobbled it up as a grade school kiddie. But not now. Plus it's shaped weird." instead;
+	if cookie-eaten is true:
+		say "If someone cooked it into such a weird shape, it probably tastes weird, too. PASS." instead;
+	if greater-eaten is true:
+		say "You've already done better than a brownie. Sure, brownies are nice, but EVERYONE likes brownies. It won't do for you." instead;
+	say "You remember your first few weeks['] allowances and eating too much chocolate with them and being on a crazy sugar high. This--well, it's not a LOT, but it reminds you of that, like there might be some risk here. ";
+	consider the tray b eating rule;
+	if the rule failed:
+		the rule succeeds;
+	unless the player yes-consents:
+		say "[line break]OK." instead;
+	say "[line break]You have to eat it carefully, because of its spikes, but it gives you...a sharp tongue. Suddenly you wonder why you spent so much time feeling [b-o]. You're ready to go off on pretty much anyone who's gotten in your way, or even not helped you enough[if allow-swears is false]. You'll show those punks you don't need to swear to kick butt![else].[end if]";
+	now points brownie is in lalaland;
+	bad-food-process false;
+	now brownie-eaten is true instead;
+	
+section general tray b eating stuff
+
+to bad-food-process (as - a truth state):
+	if as is true:
+		if allow-swears is false:
+			say "Also, you realize how lame it was to be stuffy about swears. You have stuff to swear ABOUT now, see? You didn't used to have it, or any emotional depth, but now, heck yeah! (Okay, you still need some practice.) You realize Hunter Savage was just a pseudonym, and you're pretty sure the Complex Messiah had a coler name, too.";
+			now allow-swears is true;
+	ital-say "This has caused an irreversible personality change in Alec. You may wish to UNDO and SAVE before trying to eat again to restore Normal Alec, even if that's not what he wants right now.";
 
 table of accel-text
-accel-place	alt-num	accel-cookie	accel-off	accel-greater
-meal square	-1	"Pfft. None of the foods look close to as good as the cookie you ate. Time to get going."	"Ugh. The sight of the remaining food turns your stomach. You just want to get going."	"You're sure you're meant for better things than pigging out and getting fat on food that probably doesn't taste that great, anyway."
-pressure pier	0	"You take a moment to sneer at the [if howdy boy is in lalaland]memory of the [end if]Howdy Boy. 'Is this your JOB? Man, that's SAD. The stupid stuff you want people to do to show you they're cool? Little league stuff. I mean, thanks for the start and all, but SERIOUSLY.' He gapes, shocked, then flees before your wrath.[paragraph break]Man! You've never won an argument before. And you didn't expect to win that conclusively. Oh, wait, yes you did."	"You give an exasperated sigh. 'I'm not here because I want to be. I got suckered into it. Do you think I could...?'[paragraph break]'You know, some people don't even ASK. Or if they do, it's all unforceful. You're okay. You can go through.' [if howdy boy is in lalaland]You blame the Howdy Boy for not being around to listen to your whining[else]The Howdy Boy bows slightly--you don't care if it's sarcastic or not--and you walk past. You turn around, but he's not there[end if]."	"[if howdy boy is in lalaland]You're sad the Howdy Boy is gone. You'd be giving HIM advice, now.[else]'Oh, hey! Still here? I'm moving ahead in life!' you say to the Howdy Boy, who runs off in embarrassment.[end if]"
+accel-place	alt-num	accel-cookie	accel-off	accel-greater	accel-brownie
+meal square	-1	"Pfft. None of the foods look close to as good as the cookie you ate. Time to get going."	"Ugh. The sight of the remaining food turns your stomach. You just want to get going."	"You're sure you're meant for better things than pigging out and getting fat on food that probably doesn't taste that great, anyway."	"This is a neat place, and it'd be wonderful if there were people to eat with here, but there aren't, so maybe you just need to find people to be social to. Um, with."
+pressure pier	0	"You take a moment to sneer at the [if howdy boy is in lalaland]memory of the [end if]Howdy Boy. 'Is this your JOB? Man, that's SAD. The stupid stuff you want people to do to show you they're cool? Little league stuff. I mean, thanks for the start and all, but SERIOUSLY.' He gapes, shocked, then flees before your wrath.[paragraph break]Man! You've never won an argument before. And you didn't expect to win that conclusively. Oh, wait, yes you did."	"You give an exasperated sigh. 'I'm not here because I want to be. I got suckered into it. Do you think I could...?'[paragraph break]'You know, some people don't even ASK. Or if they do, it's all unforceful. You're okay. You can go through.' [if howdy boy is in lalaland]You blame the Howdy Boy for not being around to listen to your whining[else]The Howdy Boy bows slightly--you don't care if it's sarcastic or not--and you walk past. You turn around, but he's not there[end if]."	"[if howdy boy is in lalaland]You're sad the Howdy Boy is gone. You'd be giving HIM advice, now.[else]'Oh, hey! Still here? I'm moving ahead in life!' you say to the Howdy Boy, who runs off in embarrassment.[end if]"	"[if howdy boy is in lalaland]You were going to compliment him on what a good job he was doing vetting people, but dang it, he's gone[else]'Wow! You're doing a really good job of, like, guarding stuff. You totally deserve a break!'[paragraph break]'Gosh! You think so too?'[paragraph break]'Well, if the [bad-guy] does...'[paragraph break]'No, you're right. Hey, I thought you were just another of, well, them, but you're all right. More than all right. Go on through.' The Howdy Boy walks east[where-howdy][end if]."
 jerk circle	1	"'Hey, move it, I'm on a quest here!' They look shocked. You proceed to berate them for, is this all they ever do? Is it their purpose in life? Do they have anyone better to talk to? If so, what a waste. If not, sad.[paragraph break]Before this terrifying onslaught of hard-hitting language and lucid, back-to-basics logic, the [j-co] recognize how minor-league they are. They run off to chat or commiserate elsewhere.[paragraph break]Bam! Seven at one blow!"	"'Hey, what you all talking about?' you ask. 'Gossip, eh?' You try to join in, but--they seem a bit jealous of how good your grumbling is, and they excuse themselves."	"'Oh! Hey! You all talking about something interesting? I won't disturb you. Which way is the [bg]?' They look shocked you...USED HIS INITIALS. They point north. 'I KNOW,' you boom. They scatter."
 lalaland	2	"Oh, boy. Looking back, you didn't need all that reasoning to get past them. You could've probably just acted a little exasperated, said you were SURE someone could help, and wham! Well, it's good to have all this space, but you need to be going north."	"You sniff at the memory of the [j-co] you helped. They weren't properly grateful, and they weren't even good at being [j-co]. Maybe you should've gone into business with the Labor Child. You'd figure how to backstab him later. Still, you learned a lot from that. Perhaps you can find ways to keep tabs on people, probe their weaknesses. Makes up for earlier memories of your own."	"You look back at the silliness and all you did to get around the [j-co] when really you could've just shown them what was what the way you are now. You're--BETTER than those logic puzzles."
 speaking plain	0	"Oh geez. You can't take this. You really can't. All this obvious improvement stuff. You lash out, do they think people REALLY don't know this? Do they think hearing it again will help? Uncle Dutch and Turk Young revile you as a purveyor of negative energy. No, they won't go on with all this cynicism around. But you will be moving on soon enough. They go away for a break for a bit."	"'FRAUDS!!!' you yell at Uncle Dutch and Turk Young. 'ANYONE CAN SPOUT PLATITUDES!' You break it down sumpin['] sumpin['] real contrarian on them, twisting their generalities. A crowd gathers around. They applaud your snark! You yell at them that applause is all well and good, but there's DOING. They ooh and ahh further. After a brief speech about the dork you used to be, and if you can get better, anyone can, you wave away the performers, then the crowd that followed them."	"You give a pre-emptive 'Oh, I KNOW,' before Turk and Dutch can say any more. 'But you're doing a pretty good job. I mean, almost as good as I could if I weren't destined for better things. Just--take a break to hone your act. Not that it's THAT stale...' They look at each other, nod, and walk away."
@@ -5659,11 +5690,17 @@ questions field	4	"'Kinda jealous of your brother[bro-s], eh? Not jealous enough
 questions field	5	"'[qfjs] standing around, eh? Nothing to do? Well, I've been out, y'know, DOING stuff. You might try it. Go along. Go. You wanna block me from seeing the [bad-guy]? I'll remember it once he's out of my way.' You're convincing enough, they rush along."	"You've done your share of standing around, but you're pretty sure you did a bit of thinking. 'Look,' you say, 'I just need to get through and get out of here. I'm not challenging anyone's authority. Just, I really don't want to be here.' [bro-consider]. You're free to continue."	"'So, yeah, you're here to guard the [bg] from chumps, right? Well, I'm not one. So you can make way.' And they do. Even though they're all bigger than you. Sweet!"
 freak control	0	"You speak first. 'Don't pretend you can't see me, with all those reflective panels and stuff.'[paragraph break]He turns around, visibly surprised.[paragraph break]'Leadership, schmeadership,' you say. You're worried for a moment he might call you out on how dumb that sounds. You're open-minded like that. But when he hesitates, you know the good insults will work even better. 'Really. Leaving the cutter cookie right where I could take it, and plow through, and expose you for the lame chump you are. Pfft. I could do better than that.'[paragraph break]He stutters a half-response.[paragraph break]'Maybe that's why [bad-guy-2] hasn't been dealt with, yet. You say all the right things, but you're not forceful enough. Things'll change once I'm in power.'[wfk]He has no response. You point outside. He goes. Settling in is easy--as a new leader of Freak Control, you glad-hand the important people and assure them you're a bit cleverer than the [bad-guy] was.  Naturally, you keep a list of [bad-guy-2]'s atrocities, and they're pretty easy to rail against, and people respect you for it, and from what you've seen, it's not like they could really get together and do anything, so you're making their lame lives more exciting.[wfk]You settle into a routine, as you read case studies of kids a lot like you used to be. Maybe you'd help one or two, if they had initiative...but until then, you'd like to chill and just let people appreciate the wit they always knew you had.[paragraph break]Really, who can defeat you? Anyone of power or consequence is on your side. Even [bad-guy-2] gives you tribute of a cutter cookie now and then. One day, you drop one in Meal Square... but nobody is brave enough to eat one. Well, for a while."	"You speak first. Well, you sigh REALLY loudly first. 'Just--this is messed up. I want to leave.'[paragraph break]'Of course you do,' says the [bad-guy]. 'I don't blame you. If you're not in power here, it's not fun. It's sort of your fault, but not totally. Hey, you actually showed some personality to get here. Just--show me you're worthy of leaving.' You complain--more excitingly than you've ever complained before. Without flattering or insulting the [bad-guy] too much: fair and balanced. You let him interrupt you, and you even interrupt him--but only to agree with his complaints.[wfk]'You're okay, I guess. You seem to know your place. Here, have a trip to the [activation of snipe gutter]Snipe Gutter in Slicker City. Seems like just the place for you. The [bad-guy] pushes a button and gestures to an opening. It's a slide. You complain a bit, but he holds up his hand. 'You'll have a lot more to complain about if you don't go.' You're impressed by this logic, and you only wish you could've stayed longer to absorb more of it, and maybe you could complain even more interestingly. You learn the culture in the Snipe Gutter for a bit, outlasting some veterans, then one day you just get sick of the clueless newbies who don't know what they're doing.[wfk]Back home, people notice a difference. You're still upset about things, but you impress people with it now. You notice other kids who just kind of seem vaguely upset, like you were before the Compound, not even bothering with constructive criticism. They're not worth it, but everywhere you go, you're able to fall in with complainers who complain about such a wide variety of things, especially people too dense to realize how much there is to complain about! You've matured, from..."	"'Hey! It's me!' you yell. [bg] turns. 'You know, I probably skipped a lot of dumb stuff to get here. You think you could be a LITTLE impressed?'[paragraph break][wfk]But he isn't. 'You know? You're not the first. Still, so many people just sort of putter around. You're going to be okay in life.' You two have a good laugh about things--you're even able to laugh at yourself, which of course gives you the right to laugh at people who haven't figured things out yet. Humor helps you deal, well, if it doesn't suck. You realize how silly you were before with all your fears, and you try to communicate that to a few creeps who don't want to be social. But they just don't listen. You'd rather hang around more with-it types, and from now on, you do."
 
+to say where-howdy:
+	say "[if soda club is visited], probably to the Soda Club[else if down ground is visited], maybe for a nap on the Warmer Bench[else]off east where you don't want to disturb his break";
+
 say-old-you is a truth state that varies.
 
 to check-fast-track:
 	if say-old-you is false:
-		say "Yup. You're not messing around. Chumps need to get out of your WAY. Maybe the Old You, before you ate the [random badfood in lalaland], would've gotten bogged down in a silly puzzle or fetch quest or something, thinking some nonsense like it's the journey that mattered. But the new you--nope, Nope, NOPE.";
+		if brownie is in lalaland:
+			say "Wow! It's pretty cool being around people a little more socially acceptable than you. You're learning so fast!";
+		else:
+			say "Yup. You're not messing around. Chumps need to get out of your WAY. Maybe the Old You, before you ate the [random badfood in lalaland], would've gotten bogged down in a silly puzzle or fetch quest or something, thinking some nonsense like it's the journey that mattered. But the new you--nope, Nope, NOPE.";
 		now say-old-you is true;
 
 after printing the locale description when accel-ending:
@@ -5698,6 +5735,11 @@ after printing the locale description when accel-ending:
 			say "[bug]. There should be text for the cookie and [location of player].";
 		else:
 			say "[accel-cookie entry][line break]";
+	if cookie-eaten is true:
+		if there is no accel-brownie entry:
+			say "[bug]. There should be text for the brownie and [location of player].";
+		else:
+			say "[accel-brownie entry][line break]";
 	if player is in pressure pier: [cleanup]
 		if howdy boy is not in lalaland:
 			check-fast-track;
@@ -5721,6 +5763,8 @@ after printing the locale description when accel-ending:
 			unlock-verb "greater";
 		else if off-eaten is true:
 			unlock-verb "off";
+		else if brownie-eaten is true:
+			unlock-verb "brownie";
 		end the story saying "[final-fail-quip]";
 		the rule succeeds;
 	now location of player is cheat-surveyed;
@@ -5733,6 +5777,8 @@ to say final-fail-quip:
 		say "[activation of complain cant]Can't Complain? Complain Cant![no line break]";
 	else if cookie-eaten is true:
 		say "[activation of something mean]Mean Something? Something Mean![no line break]";
+	else if brownie-eaten is true:
+		say "[activation of much flatter]Much Flatter? Flatter Much![no line break]";
 
 to say qfjs:
 	say "[if questions field is unvisited]Just[else]Still[end if]"
@@ -10913,15 +10959,17 @@ section endgame concepts
 
 lalaland is a room in meta-rooms. "You should never see this. If you do, it is a [bug]."
 
-Received Wisdom is a concept in conceptville. understand "wisdom received" as received wisdom. howto is "win the game either way".
-
 Something Mean is a concept in conceptville. understand "mean something" as Something Mean. howto is "eat the cutter cookie and 'win'".
 
 Complain Cant is a concept in conceptville. understand "cant complain" as Complain Cant. howto is "eat the off cheese and 'win'".
 
 People Power is a concept in conceptville. understand "power people" as People Power. howto is "eat the greater cheese and 'win'".
 
+Much Flatter is a concept in conceptville. understand "flatter much" as Much Flatter. howto is "eat the points brownie and 'win'".
+
 Snipe Gutter is a concept in conceptville. understand "guttersnipe" as Snipe Gutter. howto is "eat the off cheese and 'win'".
+
+Received Wisdom is a concept in conceptville. understand "wisdom received" as received wisdom. howto is "get past Freak Control and get either good ending".
 
 volume rule replacements
 
