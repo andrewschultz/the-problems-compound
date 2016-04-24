@@ -5668,7 +5668,7 @@ check eating points brownie:
 	now points brownie is in lalaland;
 	bad-food-process false;
 	now brownie-eaten is true instead;
-	
+
 section general tray b eating stuff
 
 to bad-food-process (as - a truth state):
@@ -8853,7 +8853,8 @@ workname	authname	booksubj
 "Odyssey Space"	"Clark Arthur"	"a modern retelling of Ulysses dealing harshly with technocrats"
 "The Cancer of Tropic"	"Miller Arthur"	"one ascetic's skin disease and the surprising poetry that lies therein"
 "And Dominion Shall Have No Death"	"Thomas Dylan"	"a New World Order of smart poetic people that properly keeps the rabble scared of death and all that"
-"Arnold Matthew"	"Beached Over"	"totally gnarly fun with surf and sun, away from brooding losers"
+"Beached Over"	"Arnold Matthew"	"totally gnarly fun with surf and sun, away from brooding losers"
+"Let Her, Scarlet"	"Hawthorne Nathaniel"	"a woman everyone thought was exciting who turned out to be boring, and how people were fooled, but it worked out OK for them"
 "Prejudice and Pride"	"Austin Jayne"	"someone learning, with humor and pathos, how and why his instincts about lesser people who think they're equal to him is right"
 "The Stone in the Sword"	"White Theodore"	"a kid learning to be king by doing all the things fantasy novels don't describe--like pushing people around, politics, and so forth"
 "The World Beyond the Wood"	"Morris William"	"a muddled fellow moving on from silly fantasy novels to real-life gritty ones you can have louder arguments over"
