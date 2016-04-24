@@ -22,6 +22,7 @@ $a = @ARGV[$count];
 for ($a)
 {
  /^-f$/ && do { $overlook = 1; $count++; next; };
+ /^-t$/ && do { runFileTest(); exit; };
  /^-2$/ && do { $override = 1; $count++; next; };
  /^-d$/ && do { $dicURL = 1; $count++; next; };
  /^-o$/ && do { print "Opening $output.\n"; `$output`; exit; };
@@ -144,6 +145,28 @@ close(A);
 print B "====Found $found/$wordy for $flip\n";
 print "====Found $found/$wordy for $flip\n";
 close(B);
+}
+
+sub runFileTest
+{
+  my $errs = 0;
+  open(A, "$output");
+  while ($a = <A>)
+  {
+    if ($a =~ /^=/) { $errs++; }
+  }
+  close(A);
+  if (!$errs) { print ("Output is looked through!\n"); } else { print ("$errs still to look through.\n"); }
+  print "TEST RESULTS:Alec reversal to read,0,$errs,0,<a href=\"file:///$output\">here</a>\n";
+  $errs = 0;
+  open(A, "$track");
+  while ($a = <A>)
+  {
+    if ($a =~ /firefox/) { $errs++; }
+  }
+  close(A);
+  if (!$errs) { print ("Output is looked through!\n"); } else { print ("$errs still to look through.\n"); }
+  print "TEST RESULTS:Alec links to read,0,$errs,0,<a href=\"file:///$track\">here</a>\n";
 }
 
 sub usage
