@@ -2995,6 +2995,7 @@ Wine-U-Gen	"Genuine is, well, real and true. Both Ally Stout and his drinks are 
 Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
 Black Mark	"A black mark is something indicating bad behavior."
 Determined Bound	"Bound and determined means you're set on doing something. A determined bound is set to prevent you from doing something."
+Fish for a Compliment	"To fish for a compliment is to try to manipulate someone into saying something nice."
 Steal This Book	"Steal This Book was a countercultural guide by Abbie Hoffman. Book this steal refers to 'booking' suspects for a transgression, e.g. a parking fine or ticket."
 Coals to Newcastle	"Coals to Newcastle means a pointless action. In this case, there are no dark rooms, so you don't need a torch. Reducing a new castle to coals is, of course, pointless, too."
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever."
@@ -7361,7 +7362,7 @@ before talking to story fish:
 	if player is in standard bog:
 		say "'Eh? I--I would tell my story, but the computer wouldn't appreciate it. Manufactured stuff. Mine is ORIGINAL.'" instead;
 	if player is not in Discussion Block:
-		say "The fish opens a sleepy eye. 'Eh? Anyone here? Nope, nobody artsy.'" instead;
+		say "The fish opens a sleepy eye. 'Eh? Anyone with a [activation of fish for a compliment]compliment for a fish? Nope, nobody artsy enough.'" instead;
 	if art fine is in Discussion Block:
 		say "The fish eyes you sleepily but then sees the bookshelf, then Art Fine. 'Ah! Good sir! May I begin!' The fish's story is much funnier this time, and a bit shorter, too, because Art barely lasts five minutes before he runs away screaming. You pat the fish on the head and put it in the tie it to the Book Bank with the Long String--there, you even hid the string, so it looks extra neat.[paragraph break]";
 		now long string is in lalaland;
@@ -10773,7 +10774,7 @@ abuse testing is a concept in conceptville. understand "testing abuse" as abuse 
 
 cut a deal is a concept in conceptville. understand "deal a cut" as cut a deal. howto is "cut any inanimate thing before Freak Control".
 
-Force of Habit is a concept in conceptville. understand "habit of force" as force of habit. howto is "attack something inanimate you don't get arrested for.".
+Force of Habit is a concept in conceptville. understand "habit of force" as force of habit. howto is "attack something inanimate you don't get arrested for".
 
 section intro concepts
 
@@ -10873,11 +10874,13 @@ Black Mark is a concept in conceptville. understand "mark black" as black mark. 
 
 Determined Bound is a concept in conceptville. understand "bound and determined" as determined bound. howto is "go south in Walker Street".
 
+Fish for a Compliment is a concept in conceptville. understand "compliment for a fish" as fish for a compliment. howto is "talk to the story fish with nobody else around"..
+
 Steal This Book is a concept in conceptville. understand "book this steal" as Steal This Book. howto is "take book bank".
 
-Dutch Treat is a concept in conceptville. understand "treat dutch" as dutch treat. howto is "type TREAT DUTCH around Uncle Dutch.".
+Dutch Treat is a concept in conceptville. understand "treat dutch" as dutch treat. howto is "type TREAT DUTCH around Uncle Dutch".
 
-Show Business is a concept in conceptville. understand "business show" as show business. howto is "Go to the Speaking Plain without eating a Tray B food.".
+Show Business is a concept in conceptville. understand "business show" as show business. howto is "Go to the Speaking Plain without eating a Tray B food".
 
 Coals to Newcastle is a concept in conceptville. understand "new castle to coals" and "newcastle to coals" as Coals to Newcastle. howto is "take song torch".
 
