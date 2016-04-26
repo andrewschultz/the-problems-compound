@@ -1715,6 +1715,18 @@ check singing:
 		say "You sense singing may be overdoing it for the cult here." instead;
 	say "You never were the artsy type. And the songs you want to sing are always out of fashion." instead;
 
+chapter examining
+
+to say my-outlook:
+	say "The outlook seems [if score < 5]confusing[else if score < 12]promising[else if player is in freak control]tense[else if freak control is visited]quite good, if you can just figure the last thing[else]very good indeed--you must be close[end if]"
+
+check examining a direction:
+	if noun is up:
+		say "There's no [activation of clouds of suspicion]suspicion of clouds, but you still feel someone's out to get you." instead;
+	if noun is out:
+		say "[my-outlook]." instead;
+	say "You generally don't need to look in directions. If a location is specified, you can go that way." instead;
+
 chapter drinking
 
 the block drinking rule is not listed in any rulebook.
@@ -2942,6 +2954,7 @@ exp-thing	exp-text	exp-anno
 turn of phrase	"A turn of phrase is clever wording. A phrase of turn is, well, what's at the command prompt, or, any wording."
 wait your turn	"This means not to do anything til someone else goes first. But in this case the game wants you to turn your wait into something else."
 abuse testing	"Abuse testing means trying to break things with stuff a tester wouldn't usually try, or that they know has broken their own game. Testing abuse is--well, most abuse can feel a bit testing, or trying."
+clouds of suspicion	"Clouds of suspicion are a simile for mistrust."
 cut a deal	"To cut a deal is to make a business arrangement, often favorably. To deal a cut is just to knife someone."
 Force of Habit	"Force of habit is what causes you to do something with minimal thinking, for better or worse."
 Buster Ball	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure." [the 2 bad guys]
@@ -2995,7 +3008,9 @@ Wine-U-Gen	"Genuine is, well, real and true. Both Ally Stout and his drinks are 
 Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
 Black Mark	"A black mark is something indicating bad behavior."
 Determined Bound	"Bound and determined means you're set on doing something. A determined bound is set to prevent you from doing something."
+Play Dumb	"To play dumb is to pretend you don't know something you do, to avoid criticism or to catch someone off-guard. Of course, Phil and Art, after saying this, treat you like you're kind of dumb. Or you can't even ask the name of the play."
 Fish for a Compliment	"To fish for a compliment is to try to manipulate someone into saying something nice."
+Elevator Music	"elevator music is soft, boring, inoffensive music that plays in elevators. Phil and Art want the play to be a bit more exciting."
 Steal This Book	"Steal This Book was a countercultural guide by Abbie Hoffman. Book this steal refers to 'booking' suspects for a transgression, e.g. a parking fine or ticket."
 Coals to Newcastle	"Coals to Newcastle means a pointless action. In this case, there are no dark rooms, so you don't need a torch. Reducing a new castle to coals is, of course, pointless, too."
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever."
@@ -8713,7 +8728,7 @@ definition: a person (called p) is waxblocking:
 
 check going to Discussion Block for the first time:
 	if jump-level < 4:
-		say "Two guys greet you as you walk in. 'I'm [one of]Art Fine. This is Harmonic Phil[or]Harmonic Phil. This is Art Fine[at random]. Welcome to the Discussion Block! All discussion is welcome here, but some is more welcome than others.' They squabble briefly over whether music or books is superior, ask you whom you agree with and what you especially like, and shrug when you have nothing to say.";
+		say "'[activation of play dumb]Dumb play! Dumb play!' / 'Could've used a [activation of elevator music]music elevator.'[wfk][paragraph break]Two guys arguing, but not seriously, turn to you. One says 'Oh! Hi! I'm [one of]Art Fine. This is Harmonic Phil[or]Harmonic Phil. This is Art Fine[at random]. What did you think of it?' You didn't hear WHAT play it was, so you shrug. They squabble briefly over whether music or books is superior, and shake their heads shrug when you have nothing to say and aren't authoritative about it.";
 		wfak;
 
 chapter Art Fine
@@ -10772,6 +10787,8 @@ a u-turn is a concept in conceptville. understand "u turn" as u-turn. howto is "
 
 abuse testing is a concept in conceptville. understand "testing abuse" as abuse testing. howto is "credits".
 
+clouds of suspicion is a concept in conceptville. understand "suspicion of clouds/cloud" and "cloud of suspicion" as clouds of suspicion. howto is "X U". [search for xadd]
+
 cut a deal is a concept in conceptville. understand "deal a cut" as cut a deal. howto is "cut any inanimate thing before Freak Control".
 
 Force of Habit is a concept in conceptville. understand "habit of force" as force of habit. howto is "attack something inanimate you don't get arrested for".
@@ -10875,6 +10892,10 @@ Black Mark is a concept in conceptville. understand "mark black" as black mark. 
 Determined Bound is a concept in conceptville. understand "bound and determined" as determined bound. howto is "go south in Walker Street".
 
 Fish for a Compliment is a concept in conceptville. understand "compliment for a fish" as fish for a compliment. howto is "talk to the story fish with nobody else around"..
+
+Play Dumb is a concept in conceptville. understand "dumb play" as play dumb. howto is "fill this in here." [search for xadd]
+
+Elevator Music is a concept in conceptville. understand "music elevator" as elevator music. howto is "go to the Discussion Block for the first time." [search for xadd]
 
 Steal This Book is a concept in conceptville. understand "book this steal" as Steal This Book. howto is "take book bank".
 
