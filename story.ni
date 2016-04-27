@@ -2976,6 +2976,7 @@ enough man	"Man enough means being able to stand up for yourself. Okay, it's a b
 brush up	"To brush up is to refresh your memory of something."
 fish out of water	"A fish out of water is someone or something out of place."
 Boy Howdy	"Boy Howdy is a colloquial expression of surprise."
+Grammar Police	"Grammar police are people who argue trivial grammar points when something is clear, or there's a much bigger cogent argument. In the Stool Toad's case, he deliberately uses bad grammar for emphasis, like on a 'hard-boiled' cop show."
 strike a balance	"To strike a balance is to find a satisfactory compromise. A strike can alo mean--well, your balance went on strike, or you'd fall over."
 pig out	"To pig out is to eat everything you see. The reverse is an admonishment to leave."
 Shame No	"No shame means a person isn't embarrassed by anything to the point where it's dangerous. Shame? No! is more, there's a healthier way to look at things than through shame."
@@ -5898,7 +5899,7 @@ Down Ground is east of Pressure Pier. It is in Outer Bounds. "[one of]Walking ea
 
 after printing the locale description for down ground when down ground is unvisited:
 	say "You're reminded of the day you didn't get a permission slip signed to go to the roller coaster park at science class's year end. You wondered if you really deserved it, since you didn't do as well as you felt you could've.[line break]";
-	say "As you finish this thought, a large human-sized toad strolls in from the east. 'So! A new juvenile, eh? Gonna be on the straight and narrow? Or wind up like Fritz the On, here? Eh? EH?' Before you can answer, he turns back.[paragraph break]Fritz the On mutters something about that oppressive Stool Toad."
+	say "As you finish this thought, a large human-sized toad strolls in from the east. 'So! A new juvenile, eh? You best don't never SLIP. It ain't hard to avoid winding up like Fritz the On, here.' His [activation of grammar police]police grammar leaves you unable to say anything until he disappears back east.[paragraph break]Fritz the On mutters something about that oppressive Stool Toad."
 
 check going nowhere in Down Ground:
 	if noun is down:
@@ -10869,6 +10870,8 @@ section outer concepts
 fish out of water is a concept in conceptville. understand "water out of fish" as fish out of water. howto is "examine the water in Pressure Pier".
 
 Boy Howdy is a concept in conceptville. understand "howdy boy" as Boy Howdy. howto is "get to Pressure Pier".
+
+Grammar Police is a concept in conceptville. understand "police grammar" as grammar police. howto is "go east to Down Ground".
 
 Bum Beach is a concept in conceptville. understand "beach bum" as Bum Beach. howto is "examine the bench in Down Ground".
 
