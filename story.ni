@@ -1159,8 +1159,8 @@ carry out do-swearing:
 		say "You reckon that's how people are supposed to cuss in a bar, er, club, but you can't give that word the right oomph." instead;
 	if player is in cult:
 		say "That'd be extra rude in a place like this." instead;
-	if player is in chipper wood and assassination is in chipper wood:
-		say "The assassin smirks[if p-c is true]. 'That won't do any good!'[else].[end if]" instead;
+	if player is in chipper wood and Cute Percy is in chipper wood:
+		say "Percy smirks[if p-c is true]. 'That won't do any good!'[else].[end if]" instead;
 	if player is in belt and terminal is in belt:
 		say "Sorry, man. I didn't mean for it to be THIS hard." instead;
 	if player is in joint strip:
@@ -1422,8 +1422,8 @@ check listening (this is the listening to a thing rule):
 		say "Fritz mumbles to himself[if fritz has bear] a bit more happily now he has minimum bear[else] nervously[end if]." instead;
 	if noun is stool toad:
 		say "The Stool Toad gives a few tch-tch-tches under his breath." instead;
-	if noun is assassination:
-		say "Now that you appear to be listening, the assassin is quiet." instead;
+	if noun is Cute Percy:
+		say "Now that you appear to be listening, Percy is quiet." instead;
 	if noun is petty:
 		say "Officer Petty gives off the occasional HMPH." instead;
 	if noun is labor child:
@@ -1438,8 +1438,8 @@ check listening (this is the listening in a place rule):
 		now jerk-close-listen is true;
 		say "You listen in a bit closer, so if your accusations disquieted the [j-co] enough, you'll know." instead;
 	if player is in chipper wood:
-		if assassination is in chipper wood:
-			try listening to assassination instead;
+		if Cute Percy is in chipper wood:
+			try listening to Cute Percy instead;
 	if player is in cult:
 		say "That stereotypical 'OM' noise which fools nobody any more. The Goodes pretty clearly haven't taken any marketing clues from any big televangelist, and they seem happy just helping people feel at ease." instead;
 	if player is in idiot village:
@@ -1565,7 +1565,7 @@ check touching:
 		say "Mm. Nice. Warm. But not burning-hot." instead;
 	if noun is Alec:
 		say "You took a year longer than most to find out what that meant. You're still embarrassed by that." instead;
-	if noun is assassination character:
+	if noun is Cute Percy:
 		say "You'll need to [if p-c is true]catch him[else]ENTER the chase paper[end if]." instead;
 	if noun is a person:
 		say "That wouldn't be a fun poke[activation of poke fun]. It might even be a base touch[activation of touch base]." instead;
@@ -2345,7 +2345,7 @@ check giving wax to:
 		say "'I'm not some neat freak. But geez, that stuff's just gross.'" instead;
 	if second noun is Ally Stout:
 		say "'The Stool Toad would LOVE to find a health violation. Put that away.'" instead;
-	if second noun is assassination character:
+	if second noun is Cute Percy:
 		say "You can't get near enough to him." instead;
 	if second noun is Labor Child:
 		say "He squirms. The [i]thought[r] of getting something like that over his practical, getting-ahead clothes!" instead;
@@ -2476,7 +2476,7 @@ check giving (this is the default for giving to people organized by room rule) :
 		say "'NO BRIBERY! Plus, that looks worthless. No offense.'" instead;
 	if second noun is Ally Stout:
 		say "'Thanks, but no thanks. I do okay enough with tips.'" instead;
-	if second noun is Assassination Character:
+	if second noun is Cute Percy:
 		say "'Ha!' he says. 'If I took that, you'd catch me. Nice try!'" instead;
 	if second noun is Brother Blood:
 		say "'No, I need something to calm me down.'" instead;
@@ -2867,8 +2867,8 @@ Paul Kast	"To cast a pall is to give an air of unhappiness."
 Cain Reyes	"To raise Cain is to be loud."
 Quiz Pop	"A pop quiz is when a teacher gives an unannounced quiz on materials."
 jerks	"Pick one by name to see details."
-Assassination Character	"Character assassination is the act of tearing someone down." [chipper wood]
-chase paper	"A paper chase is excessive paperwork. In this case, work not strictly needed to reach the Assassination Character."
+Cute Percy	"To persecute someone is to make them suffer for who they are." [chipper wood]
+chase paper	"A paper chase is excessive paperwork. In this case, work not strictly needed to reach Cute Percy."
 Insanity Terminal	"Terminal insanity is having no chance to regain sanity[if terminal is in lalaland]. As for the puzzle: it is inspired by Jim Propp's Self-Referential Aptitude Test, which is well worth a look, but a good deal more complex[end if]." [the belt below]
 a bad face	"It will help you face a bad...something."
 note crib	"To crib notes is to copy from someone who was at a lecture." [bottom rock]
@@ -3265,7 +3265,7 @@ to decide whether verbs-unlocked: [I could probably check "duck sitting" but bes
 	decide no;
 
 to list-debug-cmds:
-	say "[line break]DEBUG COMMANDS: ================[line break][2da]J jumps you to the next bit from the Street, Lounge, Surface or Pier.[line break][2da]MONTY toggles every-move actions like listening and smelling. It may be more for programming testing[line break][2da]ACBYE/CTC/CTP gets rid of the Assassination Character and chase paper.[line break][2da]JERK tells you what to do with the [j-co].[line break][2da]JGO gets rid of them[line break][2da]BROBYE kicks the Keeper Brothers out.[2da]VIC gives regular victory, VICX gives extra good victory[line break][2da]JC shows the cheat code for the [j-co][line break]";
+	say "[line break]DEBUG COMMANDS: ================[line break][2da]J jumps you to the next bit from the Street, Lounge, Surface or Pier.[line break][2da]MONTY toggles every-move actions like listening and smelling. It may be more for programming testing[line break][2da]ACBYE/CTC/CTP gets rid of Cute Percy and chase paper.[line break][2da]JERK tells you what to do with the [j-co].[line break][2da]JGO gets rid of them[line break][2da]BROBYE kicks the Keeper Brothers out.[2da]VIC gives regular victory, VICX gives extra good victory[line break][2da]JC shows the cheat code for the [j-co][line break]";
 
 chapter vxing
 
@@ -4263,8 +4263,8 @@ carry out brooktrying:
 	consider the babble-shush rule;
 	if the rule succeeded:
 		continue the action;
-	if player is in chipper wood and assassination character is in chipper wood:
-		try talking to assassination character instead;
+	if player is in chipper wood and Cute Percy is in chipper wood:
+		try talking to Cute Percy instead;
 	if noun is babbled-out:
 		recap-babble noun instead;
 	if noun is blabbable:
@@ -4274,8 +4274,8 @@ carry out brookbabbling:
 	consider the babble-shush rule;
 	if the rule succeeded:
 		continue the action;
-	if player is in chipper wood and assassination character is in chipper wood:
-		try talking to assassination character instead;
+	if player is in chipper wood and Cute Percy is in chipper wood:
+		try talking to Cute Percy instead;
 	d "[list of blabbable people].";
 	if number of blabbable people is 0:
 		if number of babbled-out people in location of player > 1:
@@ -4673,7 +4673,7 @@ win-check	achieved	guy-banter
 15	false	"'Hey, you've shown some heavy-duty, I guess! Uh, yeah, I'm totally yawning because my brain is tired, not because I am.'"
 99	false	"'Gee. That's the end. Impressive. If you had the social skills to match, why, it'd be YOU defending us against [bad-guy-2], not the [bad-guy].'"
 
-does the player mean playing assassination character: it is likely.
+does the player mean playing Cute Percy: it is likely.
 
 carry out playing:
 	if noun is nothing and player is in smart street:
@@ -4688,7 +4688,7 @@ carry out playing:
 		try talking to story fish instead;
 	if noun is torch:
 		say "It is cranking out music nicely on its own. Ok, the music isn't so nice." instead;
-	if noun is assassination character or noun is chase paper:
+	if noun is Cute Percy or noun is chase paper:
 		try entering chase paper instead;
 	if noun is Guy Sweet:
 		say "Why not play one of his games instead?" instead;
@@ -6931,8 +6931,8 @@ check going in chipper wood when p-c is false:
 	if noun is inside or noun is outside:
 		say "You can go east or west." instead;
 
-after going when player was in chipper wood and assassination character is in chipper wood:
-	say "'Oops, maybe some other time,' the Character's taunt echos.";
+after going when player was in chipper wood and Cute Percy is in chipper wood:
+	say "'Oops, maybe some other time,' Percy's taunt echos.";
 	continue the action;
 
 
@@ -6982,7 +6982,7 @@ to print-the-chase:
 
 to print-the-grid:
 	if screen-read is true:
-		say "You're at [you-x], [you-y] and the assassin is at [ac-x], [ac-y], ";
+		say "You're at [you-x], [you-y] and Percy is at [ac-x], [ac-y], ";
 		if you-y > ac-y:
 			say "north";
 		if you-y < ac-y:
@@ -7026,35 +7026,35 @@ last-p-dir is a direction that varies.
 to diag-check:
 	if diag-yet is false:
 		now diag-yet is true;
-		say "You--well, walking diagonally is about as fast as walking on the paths, but the Pythagorean theorem and all means you don't quite make it to the next grid point before the Character does. Hmm.";
+		say "You--well, walking diagonally is about as fast as walking on the paths, but the Pythagorean theorem and all means you don't quite make it to the next grid point before Percy does. Hmm.";
 
 check going when p-c is true (this is the move on paper rule):
 	now last-p-dir is noun;
 	if noun is west:
 		if you-x >= 3:
 			now you-x is you-x - 3;
-			move-assassin;
+			move-Percy;
 			see-if-caught;
 		else:
 			edge-warn you-x - 3 and you-y instead;
 	if noun is east:
 		if you-x <= 9:
 			now you-x is you-x + 3;
-			move-assassin;
+			move-Percy;
 			see-if-caught;
 		else:
 			edge-warn you-x + 3 and you-y instead;
 	if noun is north:
 		if you-y >= 3:
 			now you-y is you-y - 3;
-			move-assassin;
+			move-Percy;
 			see-if-caught;
 		else:
 			edge-warn you-x and you-y - 3 instead;
 	if noun is south:
 		if you-y <= 9:
 			now you-y is you-y + 3;
-			move-assassin;
+			move-Percy;
 			see-if-caught;
 		else:
 			edge-warn you-x and you-y + 3 instead;
@@ -7063,7 +7063,7 @@ check going when p-c is true (this is the move on paper rule):
 			diag-check;
 			now you-y is you-y - 2;
 			now you-x is you-x - 2;
-			move-assassin;
+			move-Percy;
 			see-if-caught;
 		else:
 			edge-warn you-x - 2 and you-y - 2 instead;
@@ -7072,7 +7072,7 @@ check going when p-c is true (this is the move on paper rule):
 			now diag-yet is true;
 			now you-y is you-y - 2;
 			now you-x is you-x + 2;
-			move-assassin;
+			move-Percy;
 			see-if-caught;
 		else:
 			edge-warn you-x + 2 and you-y - 2 instead;
@@ -7081,7 +7081,7 @@ check going when p-c is true (this is the move on paper rule):
 			now diag-yet is true;
 			now you-y is you-y + 2;
 			now you-x is you-x - 2;
-			move-assassin;
+			move-Percy;
 			see-if-caught;
 		else:
 			edge-warn you-x - 2 and you-y + 2 instead;
@@ -7090,7 +7090,7 @@ check going when p-c is true (this is the move on paper rule):
 			now diag-yet is true;
 			now you-y is you-y + 2;
 			now you-x is you-x + 2;
-			move-assassin;
+			move-Percy;
 			see-if-caught;
 		else:
 			edge-warn you-x + 2 and you-y + 2 instead;
@@ -7120,7 +7120,7 @@ to edge-warn (xs - a number) and (ys - a number):
 		say " edge";
 	say ".";
 
-to move-assassin:
+to move-Percy:
 	[d "[you-x] [you-y] vs [ac-x] [ac-y] [last-p-dir].";]
 	if you-x is 3 and ac-x is 0 and you-y is ac-y:
 		if last-p-dir is south:
@@ -7237,13 +7237,13 @@ to see-if-caught:
 		print-the-grid;
 		say "'Hey! You actually caught me! That's not supposed to happen. I was supposed to just cower in a corner and beg you not to hurt me. Anyway. Do report this bug at [email] or [my-repo].'";
 		bye-paper;
-	else if assassin-in-corner and you-near-assassin:
+	else if Percy-in-corner and you-near-Percy:
 		now p-c is false;
 		print-the-grid;
-		say "You've backed the assassin into a corner![paragraph break]'Okay! Okay! Don't get violent or anything!' He accuses you of not being able to take a joke.";
+		say "You've backed Percy into a corner![paragraph break]'Okay! Okay! Don't get violent or anything!' He accuses you of not being able to take a joke.";
 		bye-paper;
 	else:
-		if assassin-in-corner and corner-yet is false:
+		if Percy-in-corner and corner-yet is false:
 			say "He does love to run for the corner. If you could just get one up-and-over from him, you bet you could freeze him.";
 			now corner-yet is true;
 
@@ -7254,13 +7254,13 @@ to bye-paper:
 	open-below;
 
 to open-below:
-	now assassination character is in lalaland;
+	now Cute Percy is in lalaland;
 	now chase paper is in lalaland;
 	now belt below is below chipper wood;
 	now chipper wood is above belt below;
 	inc-max;
 
-to decide whether assassin-in-corner:
+to decide whether Percy-in-corner:
 	if ac-x is 0 and ac-y is 12:
 		decide yes;
 	if ac-x is 12 and ac-y is 0:
@@ -7271,7 +7271,7 @@ to decide whether assassin-in-corner:
 		decide yes;
 	decide no;
 
-to decide whether you-near-assassin:
+to decide whether you-near-Percy:
 	unless ac-x - you-x is 3 or ac-x - you-x is -3:
 		decide no;
 	unless ac-y - you-y is 3 or ac-y - you-y is -3:
@@ -7281,11 +7281,11 @@ to decide whether you-near-assassin:
 
 p-c is a truth state that varies.
 
-the Assassination Character is a baiter-aligned person in Chipper Wood. initial appearance is "[if player was in chipper wood]The Assassination Character sticks his tongue out, daring you to catch him.[else][as-char][end if]"
+Cute Percy is a baiter-aligned person in Chipper Wood. initial appearance is "[if player was in chipper wood]Cute Percy sticks his tongue out, daring you to catch him.[else][as-char][end if]"
 
-description of Assassination Character is "He's--he's actually shorter and fatter than you, and that makes you sort of jealous he's better at insults than you, too. Then you think maybe he had to be, and you wonder how people treated hi... 'Geez! Quit starin['], you freak!'"
+description of Cute Percy is "He's--he's actually shorter and fatter than you, and that makes you sort of jealous he's better at insults than you, too. Then you think maybe he had to be, and you wonder how people treated hi... 'Geez! Quit starin['], you freak!'"
 
-check talking to assassination character:
+check talking to Cute Percy:
 	if p-c is true:
 		say "You aren't going to win a taunting war. You wonder if getting under the paper chase is really worth it. He said it wasn't NECESSARY. But he also said there might be a big help." instead;
 	else:
@@ -7300,11 +7300,11 @@ to say wfk:
 	say "[line break]";
 
 to say as-char:
-	say "[one of]You hear a rustle from behind. Someone slaps you on the left side of your neck--you look there but see no-one. Then you look right. Ah, there. You STILL hate when people do that.[paragraph break]'Hey. It's me, the Assassination Character. You can call me AC for short (aren't I swell? The [bg], err, [bad-guy], won't let me. I mean, you)--what're you? AS? No, not as catchy. Don't worry, I could make plenty of names for you.' He tries a few, guessing your middle name is Sheldon or Steve, and you rush at him, and he snickers.[wfk]'Temper, temper. Well, if you're not a lazy quitter, there's a cheat below.'[wfk]'Cheat?'[paragraph break]'Oop! Interested, eh? Guess you're not perfectly honest. Just ENTER the chase paper and give it a try. UNLESS YOU'RE CHICKEN.'[paragraph break]You wonder why you wouldn't fall through the chase paper if there was nothing under there, but the AC probably has an annoying response for that.[no line break][or]The Assassination Character springs out of nowhere again, asking whether you are too chicken to get on the chase paper or maybe you want to be lazy and cheat but you're scared you'll fail.[no line break][stopping]"
+	say "[one of]You hear a rustle from behind. Someone slaps you on the left side of your neck--you look there but see no-one. Then you look right. Ah, there. You STILL hate when people do that.[paragraph break]'Hey. It's me, Cute Percy. You can call me AC for short (aren't I swell? The [bg], err, [bad-guy], won't let me. I mean, you)--what're you? AS? No, not as catchy. Don't worry, I could make plenty of names for you.' He tries a few, guessing your middle name is Sheldon or Steve, and you rush at him, and he snickers.[wfk]'Temper, temper. Well, if you're not a lazy quitter, there's a cheat below.'[wfk]'Cheat?'[paragraph break]'Oop! Interested, eh? Guess you're not perfectly honest. Just ENTER the chase paper and give it a try. UNLESS YOU'RE CHICKEN.'[paragraph break]You wonder why you wouldn't fall through the chase paper if there was nothing under there, but the AC probably has an annoying response for that.[no line break][or]Cute Percy springs out of nowhere again, asking whether you are too chicken to get on the chase paper or maybe you want to be lazy and cheat but you're scared you'll fail.[no line break][stopping]"
 
 does the player mean entering the chase paper: it is likely.
 
-understand "ac" and "char" and "ass" and "assassin" and "assassin character" as the Assassination Character.
+understand "ac" and "char" and "ass" and "assassin" and "assassin character" as Cute Percy.
 
 part Disposed Well
 
@@ -9753,7 +9753,7 @@ to print-replay-message:
 		if T1 is false:
 			say "Thanks for replaying to find the good-but-not-great ending!";
 		else if T2 is false:
-			say "A better ending is [if T1 is true]still [end if]out there! [if assassination character is not in lalaland]There's something below the Assassination Character[else if Insanity Terminal is not in lalaland]The Insanity Terminal hides a clue[else]The Thoughts Idol still remains to torture Idiot Village[end if].";
+			say "A better ending is [if T1 is true]still [end if]out there! [if Cute Percy is not in lalaland]There's something below Cute Percy[else if Insanity Terminal is not in lalaland]The Insanity Terminal hides a clue[else]The Thoughts Idol still remains to torture Idiot Village[end if].";
 	else:
 		unlock-verb "great";
 		if T1 is true:
@@ -10332,9 +10332,9 @@ altseeing is an activity.
 
 this is the alternative-see rule:
 	now altseen is true;
-	unless assassination character is in lalaland:
-		say "[2da]The assassination character can be faked out.";
-	if assassination character is in lalaland and insanity terminal is not in lalaland:
+	unless Cute Percy is in lalaland:
+		say "[2da]Cute Percy can be faked out.";
+	if Cute Percy is in lalaland and insanity terminal is not in lalaland:
 		say "[2da]There are two hint devices beneath the Insanity Terminal.";
 	if service community is unvisited:
 		say "[2da]You could've explored the Service Community east and northeast of Idiot Village.";
@@ -11260,7 +11260,7 @@ to decide whether (Q - a person) is talkative:
 	if Q is Alec Smart, decide no;
 	if Q is Business Monkey, decide no;
 	if Q is Volatile Sal, decide no;
-	if Q is Assassination character, decide no;
+	if Q is Cute Percy, decide no;
 	if Q is Proof Fool, decide no;
 	if Q is Francis Pope, decide no;
 	if Q is Flames Fan, decide no;
@@ -11836,7 +11836,7 @@ tj-descr	tj-rule	corruption
 "Jump to Freak Control"	freak-control rule	false
 "Jump to Good End"	to-good-end rule	false
 "Jump to Great End"	to-very-good-end rule	false
-"Face the Assassination Character"	face-ac rule	false
+"Face Cute Percy"	face-ac rule	false
 "Face the Insanity Terminal"	face-term rule	true
 "Face the Idol"	face-idol rule	true
 "Defeat the Idol"	defeat-idol rule	true
@@ -11902,7 +11902,7 @@ this is the face-term rule:
 this is the face-idol rule:
 	move-puzzlies-and-jerks;
 	move player to idiot village;
-	now assassination character is in lalaland;
+	now Cute Percy is in lalaland;
 	open-bottom;
 	now player has crocked half;
 	the rule succeeds;
@@ -11910,7 +11910,7 @@ this is the face-idol rule:
 this is the defeat-idol rule:
 	move-puzzlies-and-jerks;
 	move player to questions field;
-	now assassination character is in lalaland;
+	now Cute Percy is in lalaland;
 	open-bottom;
 	now player has crocked half;
 	now thoughts idol is in lalaland;
@@ -12158,7 +12158,7 @@ carry out bro1ing:
 
 chapter acbyeing
 
-[* this lets testers bypass the Assassination Character]
+[* this lets testers bypass Cute Percy]
 
 acbyeing is an action out of world.
 
@@ -12171,10 +12171,10 @@ understand "ctp" as acbyeing.
 understand "acbye" as acbyeing.
 
 carry out acbyeing:
-	if assassination character is in lalaland:
-		say "The assassination character is already gone!";
+	if Cute Percy is in lalaland:
+		say "Cute Percy is already gone!";
 	else:
-		say "I've sent the assassination character to the great beyond. This is not reversible except with UNDO or RESTART.";
+		say "I've sent Cute Percy to the great beyond. This is not reversible except with UNDO or RESTART.";
 		if p-c is true:
 			say "Also, stopping your current game.";
 			now p-c is false;
