@@ -2042,7 +2042,7 @@ check giving smokable to: [poory pot or wacker weed]
 	if second noun is Fritz the On:
 		if noun is poory pot:
 			say "'Whoah! That stuff is too crazy for me,' mutters Fritz.'" instead;
-		say "You look every which way to the Stool Toad, then put your finger to your lips as you hand Fritz the packet. He conceals the stash and hands you a coin back--a dreadful penny. Proper payment for the cheap stuff. 'Dude! Once I find my lighter I totally won't hog off the high[activation of hoth] from you.'";
+		say "You look every which way to the Stool Toad, then put your finger to your lips as you hand Fritz the packet. He conceals the stash and hands you a coin back--a dreadful penny. Proper payment for the cheap stuff. 'Dude! Once I find my lighter I totally won't hog off the high[activation of hoth] from you. Can't wait for my [activation of puff piece]peace puff...nothing beats a peace puff for feeling good!'";
 		increment the score;
 		now wacker weed is in lalaland;
 		now player has dreadful penny instead;
@@ -2994,6 +2994,7 @@ Bum Beach	"A beach bum is someone who wanders on the beach. Maybe he lives there
 sleeper cell	"A group of people who blen into a community until they can commit an act of terrorism."
 Dream Ticket	"A pair of candidates who, running together, have extremely broad appeal they wouldn't have alone. In Alec's dreams, he's often ganged up on by two people or groups who triangulate him rather differently."
 hoth	"High on the hog means living wealthily. To hog the high would be if Fritz didn't share his, um, stuff."
+puff piece	"A puff piece is a fawning newspaper article that makes someone out to be better than they really are. A peace puff from smoking marijuana is (we can assume) less socially motivated."
 Double Jeopardy	"Double jeopardy is being tried for the same crime twice. Making your jeopardy double is just putting you at twice the risk."
 Trust Brain	"A brain trust is a group of people that help make a decision. A trust-brain, though not an English phrase, might mean a mind that can't make its own decisions."
 Moral Support	"Moral support is helping someone even if you don't have concrete advice. SUPPORT MORAL is, well, a slogan that pushes people around."
@@ -10876,6 +10877,8 @@ Sleeper Cell is a concept in conceptville. understand "cell sleeper" as sleeper 
 Dream Ticket is a concept in conceptville. understand "ticket dream" as dream ticket. howto is "sleep after you got a tickety".
 
 hoth is a privately-named concept in conceptville. printed name is "high off the hog". understand "hog on/off the high" and "high on/off the hog" as hoth. howto is "give the weed to Fritz".
+
+Puff Piece is a concept in conceptville. understand "peace/piece puff" and "puff peace" as puff piece. howto is "give the weed to Fritz".
 
 bullfrog is a concept in conceptville. understand "frog bull" and "bull frog" as bullfrog. howto is "ask the Stool Toad how to get in trouble".
 
