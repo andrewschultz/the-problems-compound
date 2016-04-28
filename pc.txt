@@ -225,15 +225,15 @@ You need to drink it in the Questions Field, to get by the final security device
 But only once you have gotten rid of the Keeper Brothers.
 >>WEST AREA
 >>>Chipper Wood and below
-?What's the Assassination Character for?
+?What's Cute Percy for?
 He doesn't actually hurt you, but he's rather mean.
 Apparently, if you don't want to figure things out, and you're just a big puzzle-nerd, there's one below.
 So hopefully it's clear that this is optional.
 Of course, he taunts you if you don't want to solve things.
 ?What's the chase paper for?
 GET ON the chase paper.
-Catching the Character is a puzzle. It's not necessary for the game, but it gives you a pretty easy cheat.
-?How do I catch the Character?
+Catching Percy is a puzzle. It's not necessary for the game, but it gives you a pretty easy cheat.
+?How do I catch Percy?
 You notice he always seems one square ahead of you if you chase him straight up, staying on the grid.
 You may also notice the diagonal directions send you (2,2) across the grid, while straight lines are (3,0).
 So maybe diagonal directions can help. But which diagonal directions, and how?
@@ -538,7 +538,7 @@ DUCK SITTING jumps to the Tension Surface
 KNOCK HARD gets you to Pressure Pier.
 FIGURE A CUT gets you past Terry Sally.
 FANCY PASSING removes the Brothers from play.
-NOTICE ADVANCE skips all the way to disposing of the jerks and helping the Brothers and leaves you at the Questions Field, but you still need to take down the Assassination Character and Thoughts Idol for the best ending.
+NOTICE ADVANCE skips all the way to disposing of the jerks and helping the Brothers and leaves you at the Questions Field, but you still need to take down Cute Percy and Thoughts Idol for the best ending.
 >>Director's Cut
 ?Is there any objective?
 Not really, other than seeing all the footnotes.

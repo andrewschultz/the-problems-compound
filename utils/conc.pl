@@ -62,7 +62,9 @@ open(A, $source) || do { print "No source file $source.\n"; return; };
 
 while ($a = <A>)
 {
-  if ($a =~ /^table of explanations.*concepts/) { $inTable = 1; <A>; next; }
+  $line++;
+  if ($a =~ /section misc concept\(s\)/) { $concepts = $line; }
+  if ($a =~ /^table of explanations.*concepts/) { $xadd = $line; $inTable = 1; <A>; next; }
   if ($a !~ /[a-z]/i) { $inTable = 0; next; }
   chomp($a); $a = lc($a);
   if ($a =~ /is a concept in lalaland/)

@@ -2546,6 +2546,12 @@ understand "xyzzy" as xyzzying.
 understand "plugh" as xyzzying.
 
 carry out xyzzying:
+	if player is in freak control:
+		say "[one of]Freak Control metamorphs into a basketball court, and try as you might, you can't stop the [bad-guy] from calling fouls constantly in his favor. You feel compelled to play well past when it's not fun, and even when it's not fun for the [bad-guy] to complain any more. It's a real hiding. Oh. The score?[paragraph break]105-69.[paragraph break]Wait, none of that happened. But you need more than just one word, here. Try two.[or]You don't want to risk a scenario where the [bad-guy] get a 105 on a test and you get a 69. That'd be wack.[stopping]" instead;
+	if player is in out mist:
+		say "The ring glows briefly." instead;
+	if player is in airy station:
+		say "The hammer glows briefly." instead;
 	say "A hollow voice booms '[one of]Disaster spelling[activation of spelling disaster][or]Obvious, Captain[activation of captain obvious][or]Nonsense? No[activation of nonsense no][or]Errors of comedy[activation of comedy of errors][cycling]!'";
 	the rule succeeds;
 
@@ -2996,6 +3002,7 @@ sleeper cell	"A group of people who blen into a community until they can commit 
 Dream Ticket	"A pair of candidates who, running together, have extremely broad appeal they wouldn't have alone. In Alec's dreams, he's often ganged up on by two people or groups who triangulate him rather differently."
 hoth	"High on the hog means living wealthily. To hog the high would be if Fritz didn't share his, um, stuff."
 puff piece	"A puff piece is a fawning newspaper article that makes someone out to be better than they really are. A peace puff from smoking marijuana is (we can assume) less socially motivated."
+character assassination	"Character assassination is an attempt to tarnish someone's good reputation."
 Double Jeopardy	"Double jeopardy is being tried for the same crime twice. Making your jeopardy double is just putting you at twice the risk."
 Trust Brain	"A brain trust is a group of people that help make a decision. A trust-brain, though not an English phrase, might mean a mind that can't make its own decisions."
 Moral Support	"Moral support is helping someone even if you don't have concrete advice. SUPPORT MORAL is, well, a slogan that pushes people around."
@@ -3019,12 +3026,14 @@ Candidate Dummy	"A dummy candidate is one who is there to give the illusion of d
 Dutch Treat	"A Dutch treat is where everyone pays his own way. This is viewed, according to idioms.freedictionary.com, as insulting to the Dutch. It certainly isn't flattering."
 Show Business	"Show business is the act of entertainment, and the business show's is (purportedly) more practical."
 Terminal Illness	"A terminal illness is one which is bound to be fatal. Illness can also mean full of insults, e.g. very 'ill,' as kids these days say. And said, even in my day!"
+scuzz bucket	"A scuzz, or scum, bucket is a person who is just plain dirty or disgusting. The [bad-guy] is not obviously physically like this."
 Ezra Pound	"Ezra Pound was an influential Modernist poet."
 King Henry	"King Henry VIII of England had six wives."
 benefactor	"A benefactor is someone who provides support, emotional or financial."
 pharisee	"A pharisee is someone who gives the trappings of morality but is not."
 taste buds	"Taste buds are what you use to experience the sensation of taste."
 Howard Dean	"Howard Dean was a candidate for the 2004 US Democratic Party nomination. After placing 3rd in the Iowa caucuses, he had an infamous 'Dean Scream' at a rally with supporters, which sounded worse than it was, because he was close to a microphone that picked it up. Which made him the butt of many jokes for a week. The media realised that everyone was yelling a week later, but the story was too ingrained by then."
+Tucker Max	"Tucker Max was alleged to have spanwed the 'fratire' genre, which features cynical 'tell it like it is' writing full of sex and hedonism and self-centeredness. It's the reading equivalent of sitting next to a guy bragging at a bar for a long time. An intelligent guy, sure, but that just lets him bang on longer. Imagine PG Wodehouse's Bertie Wooster without any heart."
 Power Trip	"A power trip is when someone is so overcome with their own power, they do mean things to show it off."
 Freak Out	"To freak out is to make a much bigger emotional display than seems really necessary."
 Crisis Energy	"An energy crisis is when a community doesn't have enough electrical power, or oil, or whatever."
@@ -6384,7 +6393,7 @@ table of quip texts (continued)
 quip	quiptext
 ally-drinks	"'Well, you wouldn't be ready for the [activation of rummy gin]Rummy Gin or [activation of go rum]Go Rum. If we served it after-hours, of course. If we served it after-hours. But we have Haha Brew and Cooler Wine. Both so watered down, the Stool Toad won't nab you long as you drink it here.'"
 ally-alco	"'Haha. No.'"
-ally-onrocks	"He pushes a button on an unseen machine. You hear ice cubes rattle. He holds up a glass, swirls it, and nods meaningfully before putting it away."
+ally-onrocks	"He pushes a button on an unseen machine. You hear ice cubes rattle. He holds up a glass, swirls it, and nods meaningfully before putting it away. Duh, now. Maybe you should've asked what Beechwood Aged or something meant, instead."
 ally-but	"'Well, everyone here is a bit smarter and maturer than normal, and anyway, this isn't the high-proof stuff. Plus the Stool Toad, we've paid him off. As long as nobody makes it obvious and walks out with a drink. Then he's pretty awesome. So what the hey.'"
 ally-haha	"[here-or-not]"
 ally-cooler	"[here-or-not]"
@@ -7198,7 +7207,7 @@ to move-Percy:
 		else:
 			north-or-south-rand;
 	else:
-		say "BUG! Assassin did not move.";
+		say "BUG! Percy did not move.";
 	do nothing;
 
 to east-or-west-rand:
@@ -7300,11 +7309,11 @@ to say wfk:
 	say "[line break]";
 
 to say as-char:
-	say "[one of]You hear a rustle from behind. Someone slaps you on the left side of your neck--you look there but see no-one. Then you look right. Ah, there. You STILL hate when people do that.[paragraph break]'Hey. It's me, Cute Percy. You can call me AC for short (aren't I swell? The [bg], err, [bad-guy], won't let me. I mean, you)--what're you? AS? No, not as catchy. Don't worry, I could make plenty of names for you.' He tries a few, guessing your middle name is Sheldon or Steve, and you rush at him, and he snickers.[wfk]'Temper, temper. Well, if you're not a lazy quitter, there's a cheat below.'[wfk]'Cheat?'[paragraph break]'Oop! Interested, eh? Guess you're not perfectly honest. Just ENTER the chase paper and give it a try. UNLESS YOU'RE CHICKEN.'[paragraph break]You wonder why you wouldn't fall through the chase paper if there was nothing under there, but the AC probably has an annoying response for that.[no line break][or]Cute Percy springs out of nowhere again, asking whether you are too chicken to get on the chase paper or maybe you want to be lazy and cheat but you're scared you'll fail.[no line break][stopping]"
+	say "[one of]You hear a rustle from behind. Someone slaps you on the left side of your neck--you look there but see no-one. Then you look right. Ah, there. You STILL hate when people do that.[paragraph break]'Hey. It's me, Cute Percy. The [activation of character assassination]assassination character, cuz the [bg], err, [bad-guy], says 'You're killing me!' at my little jokes and puzzles. AC for short. What're you? AS? No, not as catchy. Don't worry, I could make plenty of names for you.' He tries a few, guessing your middle name is Sheldon or Steve, and you rush at him, and he snickers.[wfk]'Temper, temper. Well, if you're not a lazy quitter, there's a cheat below.'[wfk]'Cheat?'[paragraph break]'Oop! Interested, eh? Guess you're not perfectly honest. Just ENTER the chase paper and give it a try. UNLESS YOU'RE CHICKEN.'[paragraph break]You wonder why you wouldn't fall through the chase paper if there was nothing under there, but the AC probably has an annoying response for that.[no line break][or]Cute Percy springs out of nowhere again, asking whether you are too chicken to get on the chase paper or maybe you want to be lazy and cheat but you're scared you'll fail.[no line break][stopping]"
 
 does the player mean entering the chase paper: it is likely.
 
-understand "ac" and "char" and "ass" and "assassin" and "assassin character" as Cute Percy.
+understand "cp/ac/char/ass/character/assassin" and "assassin/assassination character" as Cute Percy.
 
 part Disposed Well
 
@@ -9210,7 +9219,7 @@ a list bucket is a thing in Freak Control. "[if accel-ending]A list bucket might
 check taking the bucket:
 	say "You would, but the [bad-guy] might turn around and ask if you really needed to steal a bucket, and no, the text isn't going to change if you pick it up, and so forth." instead;
 
-description of list bucket is "[2da]The Language Sign should, um, y'know, make things obvious.[line break][2da]The Shot Screen: track various areas in the Compound[line break][2da]The Twister Brain: to see what people REALLY mean when they oppose you just a little[line break][2da]The Witness Eye provides tracking of several suspicious individuals[line break][2da]The Incident Miner processes fuller meaning of events the perpetrators wish were harmless.[line break][2da]The Call Curtain is somewhere the [bad-guy] better not have to go behind more than once a day.[line break][2da]The Frenzy Feed magnifies social violations people don't know they're making, or want to hide from others, and lets you feel fully outraged.[paragraph break]All this gadgetry is well and good, but the [bad-guy] probably knows it better than you. You may need some other way to overcome him."
+description of list bucket is "[one of]It's nice and clean, free of [activation of scuzz bucket]bucket scuzz or scum. Of course it is.[paragraph break][or][stopping][2da]The Language Sign should, um, y'know, make things obvious.[line break][2da]The Shot Screen: track various areas in the Compound[line break][2da]The Twister Brain: to see what people REALLY mean when they oppose you just a little[line break][2da]The Witness Eye provides tracking of several suspicious individuals[line break][2da]The Incident Miner processes fuller meaning of events the perpetrators wish were harmless.[line break][2da]The Call Curtain is somewhere the [bad-guy] better not have to go behind more than once a day.[line break][2da]The Frenzy Feed magnifies social violations people don't know they're making, or want to hide from others, and lets you feel fully outraged.[paragraph break]All this gadgetry is well and good, but the [bad-guy] probably knows it better than you. You may need some other way to overcome him."
 
 the frenzy feed is scenery in Freak Control. "It's whizzing out paper filled with oversized punctuation and question marks, SRSLY, WUT and OMG, and emoticons and so forth. You think you read something about [a random baiter-aligned person] which is more harsh than it needs to be."
 
@@ -9272,6 +9281,7 @@ gad-act
 "You think you hear the List Bucket rattle. Wait, no."
 "The [bad-guy] mutters something about needing to [activation of Ezra Pound]pound Ezra for not appreciating his edgy, advanced, experimental poetry."
 "The [bad-guy] mutters he'd get six girls before [activation of King Henry]Henry King got one."
+"The [bad-guy] snickers at [activation of Tucker Max]Max Tucker's boring diaries that don't have a trace of sex in them."
 "The [bad-guy] snorts at [activation of taste buds]Bud's taste."
 "'Geez, it's a pain to [activation of benefactor]factor BENNY. I'm not, like, MEAN to him.'"
 "'[activation of pharisee]See, Farrah,' the [bad-guy] mutters to no girl in particular."
@@ -10113,6 +10123,7 @@ biglaff	anyrule
 "swearing (and saying yes or no) when the game asks if you want swearing?"	--
 "an empty command?"	--
 "XYZZY? Four times?"	--
+"XYZZY in Freak Control? Twice?"	--
 "attacking anyone? Or the torch?"	--
 "DIGging twice in Variety Garden?"	--
 "DROPping the dreadful penny, reasoning circluar or other things?"	--
@@ -10789,7 +10800,7 @@ a u-turn is a concept in conceptville. understand "u turn" as u-turn. howto is "
 
 abuse testing is a concept in conceptville. understand "testing abuse" as abuse testing. howto is "credits".
 
-clouds of suspicion is a concept in conceptville. understand "suspicion of clouds/cloud" and "cloud of suspicion" as clouds of suspicion. howto is "X U". [search for xadd]
+clouds of suspicion is a concept in conceptville. understand "suspicion of clouds/cloud" and "cloud of suspicion" as clouds of suspicion. howto is "X U".
 
 cut a deal is a concept in conceptville. understand "deal a cut" as cut a deal. howto is "cut any inanimate thing before Freak Control".
 
@@ -10863,7 +10874,7 @@ Shame No is a concept in conceptville. understand "no shame" as Shame No. howto 
 
 Forgive is a concept in conceptville. understand "give for" as Forgive. howto is "examine the condition mint".
 
-apple pie order is a concept in conceptville. understand "apple-pie order" and "order apple pie" as apple pie order. howto is "fill this in here." [search for xadd]
+apple pie order is a concept in conceptville. understand "apple-pie order" and "order apple pie" as apple pie order. howto is "examine both Tray A and Tray B".
 
 section outer concepts
 
@@ -10891,6 +10902,8 @@ Moral Support is a concept in conceptville. understand "support moral" as moral 
 
 section main chunk concepts
 
+character assassination is a concept in conceptville. understand "assassination character" as character assassination. howto is "visit Chipper Wood".
+
 Double Jeopardy is a concept in conceptville. understand "jeopardy double" as Double Jeopardy. howto is "get ticket for sleeping".
 
 Black Mark is a concept in conceptville. understand "mark black" as black mark. howto is "examine quiz pop".
@@ -10899,9 +10912,9 @@ Determined Bound is a concept in conceptville. understand "bound and determined"
 
 Fish for a Compliment is a concept in conceptville. understand "compliment for a fish" as fish for a compliment. howto is "talk to the story fish with nobody else around"..
 
-Play Dumb is a concept in conceptville. understand "dumb play" as play dumb. howto is "fill this in here." [search for xadd]
+Play Dumb is a concept in conceptville. understand "dumb play" as play dumb. howto is "go to the Discussion Block for the first time".
 
-Elevator Music is a concept in conceptville. understand "music elevator" as elevator music. howto is "go to the Discussion Block for the first time." [search for xadd]
+Elevator Music is a concept in conceptville. understand "music elevator" as elevator music. howto is "go to the Discussion Block for the first time".
 
 Steal This Book is a concept in conceptville. understand "book this steal" as Steal This Book. howto is "take book bank".
 
@@ -10921,6 +10934,8 @@ section endgame concepts
 
 Ezra Pound is a concept in conceptville. understand "pound ezra" as ezra pound. howto is "wait and observe in Freak Control".
 
+Tucker Max is a concept in conceptville. understand "max tucker" as Tucker Max. howto is "wait and observe in Freak Control".
+
 King Henry is a concept in conceptville. understand "henry king" as king henry. howto is "wait and observe in Freak Control".
 
 benefactor is a concept in conceptville. understand "factor benny" and "benny factor" as benefactor. howto is "wait and observe in Freak Control".
@@ -10930,6 +10945,8 @@ pharisee is a concept in conceptville. understand "see farrah" and "farrah see" 
 taste buds is a concept in conceptville. understand "bud's/buds taste" as taste buds. howto is "wait and observe in Freak Control".
 
 Howard Dean is a concept in conceptville. understand "dean howard" as howard dean. howto is "wait and observe in Freak Control".
+
+scuzz bucket is a concept in conceptville. understand "scum bucket" and "bucket scuzz/scum" as scuzz bucket. howto is "examine the list bucket".
 
 Freak Out is a concept in conceptville. understand "out freak" as freak out. howto is "read the Language sign".
 
@@ -12569,3 +12586,4 @@ carry out jing:
 		now player is in jerk circle instead;
 	say "Now that you're in the main area, this command won't let you warp further in your beta testing quest. However, BROBYE will disperse the Brothers, JGO will spoil the [j-co]['] puzzle, and JERK(S)/GROAN(S) will clue it." instead;
 	the rule succeeds;
+
