@@ -12,8 +12,9 @@ sub crankOutCode
   $temp = $_[0]; $temp =~ s/-/ /g;
   $bkwd = join(" ", reverse(split(/ /, $temp)));
   if ($a) { $a .= "\n"; }
-  $a .= "\[activation of $temp\]\n$temp is a concept in conceptville. understand \"$bkwd\" as $temp. howto is \"fill this in here.\" \[search for xadd\]\n$temp\t\"$temp is when you .\"\n";
+  $a .= "\[activation of $temp\]\n$temp is a concept in conceptville. understand \"$bkwd\" as $temp. howto is \"fill this in here\". \[search for cv]\n$temp\t\"$temp is when you .\" \[search for xadd\]\n";
   $clip->Set($a);
+  print "To clipboard:\n$a";
 }
 
 #######################################

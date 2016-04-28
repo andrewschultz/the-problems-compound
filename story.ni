@@ -1202,6 +1202,10 @@ check sleeping:
 			say "[line break]You slip back into the old dream.";
 		go-to-dream;
 		the rule succeeds;
+	if mrlp is Beginning and Variety Garden is visited:
+		say "Man! It's almost too comfy here... when you wake up, a weird frog-shaped humanoid is shaking you. 'Boy! Some of [']em never get this far! Coulda died of cold, or laziness-related poverty or -- well, something. But there's a place for you, where you'll LEARN from this.'";
+		ship-off Maintenance High;
+		the rule succeeds;
 	if mrlp is rejected rooms:
 		say "Oh no, this extra material isn't THAT boring, is it?" instead;
 	if player is in classic cult:
@@ -1499,6 +1503,8 @@ understand "chew [something]" as eating.
 the can't eat unless edible rule is not listed in any rulebook.
 
 check eating:
+	if noun is earth of scum:
+		say "[taste-poor]." instead;
 	if noun is lolly:
 		say "You gag on it. What did you expect?";
 		ship-off Maintenance High instead;
@@ -2977,6 +2983,8 @@ Games Mind	"Mind games are messing with people's mind with lies or half-truths. 
 Games Confidence	"Confidence games are where someone gains someone else's trust to rip them off. It can be as simple as a shell game or as complex as an investment scheme. Of course, Alec has confidence with logic games but not much else."
 Animal Welfare	"Animal welfare is concern for animals who often can't help themselves. Welfare has a slightly perjorative definition in the US these days, e.g. people on welfare are lazy, or someone giving it is very generous indeed, more than they need to be."
 nose picking	"Nose picking is -- not the best habit. A picking nose would be a discerning sense of smell."
+poor taste	"Poor taste means potentially offensive or classless."
+dirt nap	"Taking a dirt nap means dying."
 work of art	"A work of art is something nice and beautiful. The art of work is--well, the term can be abused to make work seem more exciting than it is."
 enough man	"Man enough means being able to stand up for yourself. Okay, it's a bit sexist, but people who say it mean to be annoying. 'Enough, man' just means stop it."
 brush up	"To brush up is to refresh your memory of something."
@@ -5154,9 +5162,12 @@ instead of doing something with the absence of leaves:
 
 the poor dirt is scenery in Variety Garden. "[bug]"
 
+to say taste-poor:
+	say "It would [activation of poor taste]taste poor enough to make you [if allow-swears is false]think[else]say[end if] a rude word"
+
 instead of doing something with poor dirt:
 	if the current action is eating:
-		say "It would taste poor." instead;
+		say "[taste-poor]." instead;
 	if the current action is diging:
 		continue the action;
 	if weasel-grow is not talked-thru:
@@ -5253,7 +5264,7 @@ weasel-bye	"'Gosh! You're lucky I didn't charge you for all this cleverness!'"
 check going east when player is in variety garden:
 	if dirt-dug is false:
 		if player has pocket pick:
-			say "'You just going to run away without paying off the pocket pick in full? C'mon, just DIG a bit here.'" instead;
+			say "'This isn't [activation of dirt nap]nap dirt, here. It won't DIG itself while you're gone.'" instead;
 		else:
 			say "'Well, let me know when you're ready to do business.'";
 
@@ -10401,6 +10412,7 @@ this is the swear-see rule:
 	say "[2da]A different reaction to repeatedly playing the logic puzzles[line break]";
 	say "[2da]EXPLAIN Guy Sweet has a slight difference[line break]";
 	say "[2da]Eating a food from Tray B turns swears on, if they were off[line break]";
+	say "[2da]The game warns you might think (off) or say (on) a swear if you try to eat the dirt[line break]";
 	say "Welp, that's not much. I planned to have a lot more, but I just got sidetracked with silly stuff like bug fixing and adding to the story, which hopefully gave you less occasion to use profanity. Sorry about that."
 
 escape mode is a truth state that varies.
@@ -10783,7 +10795,7 @@ chapter bullpen
 
 bullpen is a room in meta-rooms. "You should never see this. If you do, it is a [bug]." [the bullpen is for items that you dropped when you slept]
 
-chapter conceptville
+chapter conceptville [cv]
 
 to say activation of (x - a thing):
 	now x is in lalaland;
@@ -10821,6 +10833,10 @@ Hunter Savage is a concept in conceptville. understand "savage hunter" as hunter
 section surface concepts
 
 Animal Welfare is a concept in conceptville. understand "welfare animal" as animal welfare. howto is "get the Weasel to sign the Burden".
+
+poor taste is a concept in conceptville. understand "taste poor" as poor taste. howto is "try to eat the poor dirt."
+
+dirt nap is a concept in conceptville. understand "nap dirt" as dirt nap. howto is "leave the garden without digging, or sleep when you have the pick".
 
 nose picking is a concept in conceptville. understand "picking nose" as nose picking. howto is "smell the mush in Tension Surface".
 
