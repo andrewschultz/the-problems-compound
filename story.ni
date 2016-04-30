@@ -294,6 +294,8 @@ to say your-mood:
 		say "NO FUNNY STUFF";
 	else if greater-eaten is true:
 		say "PUZZLES? PFF";
+	else if brownie-eaten is true:
+		say "GIVIN['] 110%";
 	else if player is in Smart Street:
 		say "Just Starting";
 	else if player is in lounge:
@@ -8887,6 +8889,7 @@ workname	authname	booksubj
 "Writing On"	"King Stephen"	"how society represses real writers from writing real books"
 "The Islands of an Outcast"	"Joseph Conrad"	"a gentle fellow, shunned by modern society, who forges an idyllic utopia"
 "The Divorce: GREAT"	"Lewis S. Clive"	"how blatant infidelity is really about seeing all the world has to offer and making the most of things--well, if you're worth cheating with. It surpasses even [i]The Boy and His Horse[r] and [i]The Love of Allegory[r]"
+"The Snark of the Hunting"	"Carol Lewis"	"how to gaslight people into thinking what they said was nonsense, especially if it should be"
 "The Parson Country"	"Herbert George"	"just how impractical and rubbish religion is, even when its trappings make people do good things"
 "Odyssey Space"	"Clark Arthur"	"a modern retelling of Ulysses dealing harshly with technocrats"
 "The Cancer of Tropic"	"Miller Arthur"	"one ascetic's skin disease and the surprising poetry that lies therein"

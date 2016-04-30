@@ -93,7 +93,7 @@ sub readOneWord
   $wordy = 0;
 
   if ($isDone{$_[0]})
- { if ($overlook) { print "Redoing $_[0], found in line $isDone{$_[0]} in flip.txt.\n"; } else { print "$_[0] repeated, line $isDone{$_[0]} in flip.txt.\n"; return; } }
+ { if ($overlook) { print "Redoing $_[0], found in line $isDone{$_[0]} in flip.txt.\n"; } else { print "$_[0] repeated, line $isDone{$_[0]} in flip.txt. Use -f to override.\n"; return; } }
  else
  { print "$_[0] not done yet.\n"; }
  $flip = $_[0];
@@ -156,7 +156,7 @@ sub runFileTest
     if ($a =~ /^=/) { $errs++; }
   }
   close(A);
-  if (!$errs) { print ("Output is looked through!\n"); } else { print ("$errs still to look through.\n"); }
+  if (!$errs) { print ("Output is looked through!\n"); } else { print ("$errs word flips still to look through.\n"); }
   print "TEST RESULTS:Alec reversal to read,0,$errs,0,<a href=\"file:///$output\">here</a>\n";
   $errs = 0;
   open(A, "$track");
@@ -165,18 +165,38 @@ sub runFileTest
     if ($a =~ /firefox/) { $errs++; }
   }
   close(A);
-  if (!$errs) { print ("Output is looked through!\n"); } else { print ("$errs still to look through.\n"); }
+  if (!$errs) { print ("Output is looked through!\n"); } else { print ("$errs idiom links still to look through. Less critical now I went through manually.\n"); }
   print "TEST RESULTS:Alec links to read,0,$errs,0,<a href=\"file:///$track\">here</a>\n";
+}
+
+sub trim
+{
+  open(A, "$track");
+  while ($a = <A>)
+  {
+    $lines++;
+    $b = $a; chomp($b); if ($already{$b}) { next; }
+	push(@undup, $a);
+  }
+  close(A);
+  open(A, ">$track");
+  for (@undup) { print A "$_"; }
+  close(A);
+  print "$lines before, " . ($#undup+1) . " after.\n";
 }
 
 sub usage
 {
 print<<EOT;
+-2 = trim duplicates in fliptrack.txt
 -d = find idiom at the free dictionary
+-e = edit the source
 -f = force trying and overlook if it's there
 -np = don't print URL to tracking file (default is on)
 -o = open the output file
 -oo = open the tracking file
+-t = test how much is left to do big-picture (URLs and words)
+-? = this usage here
 EOT
 exit;
 }
