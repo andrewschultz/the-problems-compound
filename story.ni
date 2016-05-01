@@ -3027,6 +3027,7 @@ Hip Rose	"Rose hips are ingredients found in tea, which is too non-alcoholic for
 Punch Sucker	"A sucker punch is an unexpected hit."
 Wine-U-Gen	"Genuine is, well, real and true. Both Ally Stout and his drinks are superficial, as wine is generally not made by machine."
 Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
+venturesome	"Venturesome means willing to go places."
 Black Mark	"A black mark is something indicating bad behavior."
 Determined Bound	"Bound and determined means you're set on doing something. A determined bound is set to prevent you from doing something."
 Play Dumb	"To play dumb is to pretend you don't know something you do, to avoid criticism or to catch someone off-guard. Of course, Phil and Art, after saying this, treat you like you're kind of dumb. Or you can't even ask the name of the play."
@@ -8741,7 +8742,7 @@ check going nowhere in discussion block:
 	if art is in lalaland and phil is in lalaland:
 		say "No sense searching for Art or Phil or Arguments/Creativity Block." instead;
 	if art is in lalaland or phil is in lalaland:
-		say "Searching for Creativity Block, where [if art is in lalaland]Art[else]Phil[end] went, would be counter productive." instead;
+		say "Searching for Creativity Block, where [if art is in lalaland]Art[else]Phil[end if] went, would be counter productive." instead;
 	say "Discussion Block also blocks you from going any way other than back west." instead;
 
 the poetic wax is in Discussion Block. "Poetic Wax--a whole ball of it--lies here behind [if number of waxblocking people is 0]where Art and Phil used to be[else][list of waxblocking people][end if]."
@@ -9198,6 +9199,9 @@ description of Volatile Sal is "[if sal-sleepy is false]Sal paces around, grabbi
 sal-sleepy is a truth state that varies.
 
 The Spleen Vent is scenery in Temper Keep. "Carved into the vent is the phrase SPLEEN VENT. A [if sal-sleepy is true]weird but pleasant aroma[else]bad stench[end if] rises from it[if relief light is off-stage]. It looks like something's glowing behind it, but you'd have to open the vent to find out[end if]."
+
+check entering vent:
+	say "You're too big, but as you imagine being small enough to explore, you muse: boy, [activation of venturesome]you're some vent!" instead;
 
 check opening vent:
 	if sal-sleepy is false:
@@ -10946,6 +10950,8 @@ character assassination is a concept in conceptville. understand "assassination 
 Double Jeopardy is a concept in conceptville. understand "jeopardy double" as Double Jeopardy. howto is "get ticket for sleeping".
 
 Black Mark is a concept in conceptville. understand "mark black" as black mark. howto is "examine quiz pop".
+
+venturesome is a concept in conceptville. understand "you're/youre some vent" and "some vent" as venturesome. howto is "enter the spleen vent".
 
 Determined Bound is a concept in conceptville. understand "bound and determined" as determined bound. howto is "go south in Walker Street".
 

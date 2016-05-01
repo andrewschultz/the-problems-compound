@@ -11,6 +11,8 @@
 
 my $dicURLPrint = 1;
 
+my $autoSort = 1;
+
 my $output = "c:\\games\\inform\\compound.inform\\source\\flip.txt";
 my $track = "c:\\games\\inform\\compound.inform\\source\\fliptrack.txt";
 
@@ -26,6 +28,7 @@ for ($a)
   /^(-e|e)$/ && do { `\"c:\\Program Files (x86)\\Notepad++\\notepad++.exe\" $0 `; exit; };
   /^-ao$/ && do { alfOut(); exit; };
   /^-at$/ && do { alfTrack(); exit; };
+  /^-ct$/ && do { countChunks(); exit; };
   /^-a$/ && do { alfOut(); alfTrack(); exit; };
   /^-i$/ && do { idiomSearch(@ARGV[$count+1]); exit; };
   /^-t$/ && do { runFileTest(); exit; };
@@ -60,6 +63,8 @@ for $q (@flipAry)
 {
 readOneWord($q);
 }
+
+if ($autoSort) { alfOut(); alfTrack(); countChunks(); }
 
 ###########################################
 #initWordCheck = mark all words so we can focus on the good stuff
@@ -96,6 +101,7 @@ close(B);
 #readOneWord reads one word and possible flips
 sub readOneWord
 {
+  my $wordLength = 0;
 
   $found = 0;
   $wordy = 0;
@@ -124,7 +130,7 @@ if ($dicURLPrint) { print C "\"C:\\Program Files (x86)\\Mozilla Firefox\\firefox
 
 close(C);
 
-print B "========$flip\n";
+my $bigLongBit = "";
 
 open(A, "c:/writing/dict/brit-1word.txt");
 
@@ -135,29 +141,26 @@ while ($a = <A>)
   {
     $b = $a; $b =~ s/^($flip)(.*)/$2-$1/gi;
 	$c = $a; $c =~ s/^$flip//gi;
-	if ($b)
-	{
-    print B "$a to $b";
-	if ($word{$c}) { print B " *** word"; $wordy++; }
-	print B "\n";
-    $found++;
-	}
   }
   elsif ($a =~ /$flip$/i)
   {
     $b = $a; $b =~ s/(.*)($flip)$/$2-$1/g;
 	$c = $a; $c =~ s/$flip$//g;
-	if ($b)
-	{
-    print B "$a to $b";
-	if ($word{$c}) { print B " *** word"; $wordy++; }
-	print B "\n";
-    $found++;
-	}
   }
+  else { next; }
+  $wordLength = length($a);
+  $bigLongBit .= "$a to $b";
+  if ($word{$c}) { $bigLongBit .= " *** word"; $wordy++; }
+  if ($oldLength != $wordLength) { $bigLongBit .= " ($wordLength)"; $oldLength = $wordLength; }
+  $bigLongBit .= "\n";
+  $found++;
 }
 
 close(A);
+my $firstLine = "========$flip ($found)\n";
+
+print B $firstLine;
+print B $bigLongBit;
 print B "====Found $found/$wordy for $flip\n";
 print "====Found $found/$wordy for $flip\n";
 close(B);
@@ -166,15 +169,17 @@ close(B);
 sub runFileTest
 {
   my $errs = 0;
+  my $lines = 0;
   open(A, "$output");
   while ($a = <A>)
   {
+    $lines++;
     if ($a =~ /^====Found/) { $errs++; <A>; }
     elsif ($a =~ /^====/) { $errs++; }
   }
   close(A);
   if (!$errs) { print ("Output is looked through!\n"); } else { print ("$errs word flips still to look through.\n"); }
-  print "TEST RESULTS:Alec reversal to read,100,$errs,0,<a href=\"file:///$output\">here</a>\n";
+  print "TEST RESULTS:Alec reversal to read,100,$errs,0,<a href=\"file:///$output\">here</a>, $lines lines\n";
   $errs = 0;
   open(A, "$track");
   while ($a = <A>)
@@ -214,7 +219,7 @@ sub alfOut
     if ($a =~ /^====Found/) { push(@bigAry, $cur); $cur = ""; }
   }
   if ($cur =~ /[a-z]/i) { push(@bigAry, $cur); }
-  print B sort { length $a <=> length $b } @bigAry;
+  print B sort { crs($a) <=> crs($b) } @bigAry;
   close(A);
   close(B);
   if (-s $output != -s "$output-alf") { print "Oops size mismatch\n"; return; }
@@ -248,6 +253,29 @@ sub alfTrack
   `copy $track-alf $track`;
 }
 
+sub countChunks
+{
+  my @sizes;
+  open(A, "$output");
+  while ($a = <A>)
+  {
+    if ($a =~ /==Found/i) { chomp($a); $a =~ s/\/.*//g; $a =~ s/.* //g; push(@sizes, $a); }
+  }
+  close(A);
+  print "Listed chunk sizes: " . join(", ", @sizes) . ".\n";
+  
+  @sizes = ();
+  open(A, "$output");
+  while ($a = <A>)
+  {
+    if ($a =~ /^=/i) { if ($thisChunk) { push(@sizes, $thisChunk); $thisChunk = 0; } }
+	else { $thisChunk++; }
+  }
+  close(A);
+  print "Actual chunk sizes: " . join(", ", @sizes) . ".\n";
+  
+}
+
 sub idiomSearch
 {
   open(A, "$track");
@@ -265,6 +293,13 @@ sub idiomSearch
   open(A, ">$track");
   for (@redo) { print A $_; }
   close(A);
+  alfTrack();
+}
+
+sub crs
+{
+my $total = $_[0] =~ tr/\n/\n/;
+return $total;
 }
 
 sub usage
@@ -273,7 +308,8 @@ print<<EOT;
 -2 = override 2-letter word
 -at = alphabetizes fliptrack.txt up to where you have spare links
 -ao = organizes flip.txt by size
--a = organizes both (-at + -ao)
+-ct = count chunks in outfile
+-a = organizes both (-at + -ao) & counts chunks
 -du = trim duplicates in fliptrack.txt
 -d = find idiom at the free dictionary
 -e = edit the source
