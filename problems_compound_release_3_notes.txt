@@ -29,7 +29,7 @@ The user-friendliness stuff is here.
 --the jerks' puzzle now lets you type, say, 1234567, and it clues you if one number is wrong and you gave the wrong guy a mint. The jerk-ordering is still arbitrary, but the game tells you that.
 --some concepts were revealed on start before, but now, a tracking file sees if they should be revealed.
 --push and pull now map to open. This isn't huge, technically, but I'll use it going forward.
---a few extra silly concepts added. Up to 103, from 66 in release 2. Game text added here and there.
+--a few extra silly concepts added. Up to 104, from 66 in release 2. Game text added here and there.
 --the bad guy now has individual people he randomly insults outside of those in the game proper. They're a bit topical, but they're in the general knowledge realm. If nothing else, you can Google them.
 --flexible maximum in score e.g. 0/(18-21) so the player knows if they're close, or they need to do more.
 --fixed "can't go that way" in Service Community (up/down gave something weird).

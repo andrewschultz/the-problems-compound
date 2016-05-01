@@ -2828,6 +2828,7 @@ Broke Flat	"Flat Broke means out of money."	"This was originally a location unti
 A Round Lounge	"To lounge around is to do nothing--the opposite of what you want."
 Plan Hatch	"To hatch a plan is to figure a way to do something."
 gesture token	"A token gesture is something done as a bare minimum of acknowledgement."
+bad knot	"A bad knot is hard to untangle. You wouldn't say it's not bad to untangle. And 'not bad' can have several connotations, itself, from strong to faint praise. So you can tie yourself up thinking of what it means."
 round screw	"To screw around is to do silly unproductive stuff." [a round lounge]
 round stick	"To stick around is to move nowhere."
 off tee	"To tee off is to yell or punch out at someone."
@@ -2973,6 +2974,7 @@ cut a deal	"To cut a deal is to make a business arrangement, often favorably. To
 Force of Habit	"Force of habit is what causes you to do something with minimal thinking, for better or worse."
 Buster Ball	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure." [the 2 bad guys]
 Hunter Savage	"A savage hunter is, well, someone with no mercy. Yup, I like the 'dirty' tangential bad guy better, too."
+acceptable	"Acceptable means good enough. Though sometimes it might not, if someone is just being diplomatic. Able, Except means you're pretty good but have big flaws. So both can feel like backhand compliments."
 Nonsense No	"No-nonsense means, well, not taking any silliness." [xyzzy snark]
 Captain Obvious	"Captain Obvious is someone who always states what's readily apparent. Captain has a sarcastic meaning, here."
 Comedy of Errors	"A comedy of errors is so much going wrong it's funny. Errors of comedy would be so much wrong there's nothing to laugh at."
@@ -3939,7 +3941,14 @@ instead of doing something with the games counter:
 
 section leaving Smart Street
 
-the gesture token is a thing. description is "It's got a thumbs-up and a finger-gun on one side and a fake grin and a sneer on the other. [if player is in smart street]It's the closest to congratulations you'll probably get from Guy Sweet[else if player is not in variety garden]You wonder where it could be useful[else]The Word Weasel seems to crane in and look at the coin[end if]."
+the gesture token is a thing. description is "It's inscribed with '[activation of acceptable]Able... except...' on one side and a bad knot on the other. [if player is in smart street]It's the closest to congratulations you'll probably get from Guy Sweet[else if player is not in variety garden]You wonder where it could be useful[else]The Word Weasel seems to crane in and look at the coin[end if]."
+
+the bad knot is part of the gesture token.
+
+instead of doing something with bad knot:
+	if action is undrastic:
+		continue the action;
+	say "It's part of the coin and just there to make it less plain."
 
 to say g-c:
 	say "[activation of games confidence]games confidence";
@@ -10832,6 +10841,8 @@ Games confidence is a concept in conceptville. understand "confidence game/games
 Buster Ball is a concept in conceptville. understand "ball buster" as buster ball. howto is "talking".
 
 Hunter Savage is a concept in conceptville. understand "savage hunter" as hunter savage. howto is "talking".
+
+acceptable is a concept in conceptville. understand "able except" and "except able" as acceptable. howto is "examine the gesture token".
 
 section surface concepts
 
