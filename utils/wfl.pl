@@ -30,6 +30,7 @@ for ($a)
   /^-i$/ && do { idiomSearch(@ARGV[$count+1]); exit; };
   /^-t$/ && do { runFileTest(); exit; };
   /^-2$/ && do { $override = 1; $count++; next; };
+  /^(#|-|)[0-9]+$/ && do { $temp = @ARGV[$count]; $temp =~ s/^[#-]//g; idiomSearch($temp); exit; };
   /^-d$/ && do { $dicURL = 1; $count++; next; };
   /^-du$/ && do { trim(); exit; };
   /^-o$/ && do { print "Opening $output.\n"; `$output`; exit; };
@@ -118,10 +119,10 @@ if (!$overlook)
 {
 open(C, ">>$track");
 print C "========$flip\n";
-close(C);
+if ($dicURLPrint) { print C "\"C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe\" http:\/\/idioms.thefreedictionary.com\/$flip\n"; }
 }
 
-if ($dicURLPrint) { print C "\"C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe\" http:\/\/idioms.thefreedictionary.com\/$flip\n"; }
+close(C);
 
 print B "========$flip\n";
 
@@ -149,7 +150,7 @@ while ($a = <A>)
 	if ($b)
 	{
     print B "$a to $b";
-	if ($word{$c}) { print " *** word"; $wordy++; }
+	if ($word{$c}) { print B " *** word"; $wordy++; }
 	print B "\n";
     $found++;
 	}
@@ -257,7 +258,7 @@ sub idiomSearch
   while ($a = <A>)
   {
     if ($a =~ /^=/) { push (@redo, $a); }
-	elsif ($idiomsDone < $toDo) { chomp($a); `$a`; $idiomsDone++; }
+	elsif ($idiomsDone < $toDo) { chomp($a); print "$a\n"; `$a`; $idiomsDone++; }
 	else { push (@redo, $a); }
   }
   close(A);

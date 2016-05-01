@@ -3033,6 +3033,8 @@ Play Dumb	"To play dumb is to pretend you don't know something you do, to avoid 
 Fish for a Compliment	"To fish for a compliment is to try to manipulate someone into saying something nice."
 Elevator Music	"elevator music is soft, boring, inoffensive music that plays in elevators. Phil and Art want the play to be a bit more exciting."
 Steal This Book	"Steal This Book was a countercultural guide by Abbie Hoffman. Book this steal refers to 'booking' suspects for a transgression, e.g. a parking fine or ticket."
+Block Creativity	"To block creativity is to get in the way of someone imagining things."
+Block Arguments	"To block arguments is not to hear an opposing point of view."
 Coals to Newcastle	"Coals to Newcastle means a pointless action. In this case, there are no dark rooms, so you don't need a torch. Reducing a new castle to coals is, of course, pointless, too."
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever."
 Dutch Treat	"A Dutch treat is where everyone pays his own way. This is viewed, according to idioms.freedictionary.com, as insulting to the Dutch. It certainly isn't flattering."
@@ -7412,7 +7414,7 @@ before talking to story fish:
 	if player is not in Discussion Block:
 		say "The fish opens a sleepy eye. 'Eh? Anyone with a [activation of fish for a compliment]compliment for a fish? Nope, nobody artsy enough.'" instead;
 	if art fine is in Discussion Block:
-		say "The fish eyes you sleepily but then sees the bookshelf, then Art Fine. 'Ah! Good sir! May I begin!' The fish's story is much funnier this time, and a bit shorter, too, because Art barely lasts five minutes before he runs away screaming. You pat the fish on the head and put it in the tie it to the Book Bank with the Long String--there, you even hid the string, so it looks extra neat.[paragraph break]";
+		say "The fish eyes you sleepily but then sees the bookshelf, then Art Fine. 'Ah! Good sir! May I begin!' The fish's story is much funnier this time, and a bit shorter, too, because Art barely lasts five minutes before he runs away screaming. '[safety-of]!' You pat the fish on the head and put it in the tie it to the Book Bank with the Long String--there, you even hid the string, so it looks extra neat.[paragraph break]";
 		now long string is in lalaland;
 		now art fine is in lalaland;
 		now story fish is in Discussion Block;
@@ -8072,11 +8074,14 @@ check opening sound safe:
 		say "You don't need to, again." instead;
 	if player is not in Discussion Block:
 		say "You crack it open, but it makes such a terrible noise you have to close it again. You wouldn't want to open it again unless you were around someone you really wanted to spite[if player does not have safe], and thing is, it felt a lot lighter than you thought it would as you opened it[end if]." instead;
-	say "The Sound Safe makes a brutal noise in the Discussion Block, made worse by the special acoustics. Harmonic Phil covers his ears. 'I can't even blather about how this is so bad it's good!' he yells, running off.[paragraph break]You put the safe down by the song torch.";
+	say "The Sound Safe makes a brutal noise in the Discussion Block, made worse by the special acoustics. Harmonic Phil covers his ears. 'I can't even blather about how this is so bad it's good!' he yells, running off. '[safety-of]!'[paragraph break]You put the safe down by the song torch.";
 	now sound safe is in Discussion Block;
 	now harmonic phil is in lalaland;
 	say "[line break][if art fine is in Discussion Block]Art Fine chuckles and nods approval. 'That's what you get for dabbling in art that's not intellectually robust.' Wow. Even before a line like that, you figured Art Fine had to go, too.[else]Well, that's Phil AND Art gone.[end if]";
 	increment the score instead;
+
+to say safety-of:
+	say "[one of]I need the safety of the [activation of block creativity]Creativity Block[or]It's never this rough in the [activation of block arguments]Arguments Block[stopping]"
 
 check taking sound safe:
 	if player is in Discussion Block:
@@ -8733,6 +8738,10 @@ Discussion Block is east of Walker Street. It is in Main Chunk. "On one wall, a 
 check going nowhere in discussion block:
 	if noun is outside:
 		try going west;
+	if art is in lalaland and phil is in lalaland:
+		say "No sense searching for Art or Phil or Arguments/Creativity Block." instead;
+	if art is in lalaland or phil is in lalaland:
+		say "Searching for Creativity Block, where [if art is in lalaland]Art[else]Phil[end] went, would be counter productive." instead;
 	say "Discussion Block also blocks you from going any way other than back west." instead;
 
 the poetic wax is in Discussion Block. "Poetic Wax--a whole ball of it--lies here behind [if number of waxblocking people is 0]where Art and Phil used to be[else][list of waxblocking people][end if]."
@@ -10947,6 +10956,10 @@ Play Dumb is a concept in conceptville. understand "dumb play" as play dumb. how
 Elevator Music is a concept in conceptville. understand "music elevator" as elevator music. howto is "go to the Discussion Block for the first time".
 
 Steal This Book is a concept in conceptville. understand "book this steal" as Steal This Book. howto is "take book bank".
+
+Block Arguments is a concept in conceptville. understand "arguments block" as block arguments. howto is "get rid of one of Art and Phil". [search for cv]
+
+Block Creativity is a concept in conceptville. understand "creativity block" as block creativity. howto is "get rid of one of Art and Phil". [search for cv]
 
 Dutch Treat is a concept in conceptville. understand "treat dutch" as dutch treat. howto is "type TREAT DUTCH around Uncle Dutch".
 
