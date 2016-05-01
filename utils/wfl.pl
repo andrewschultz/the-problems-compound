@@ -31,13 +31,13 @@ for ($a)
   /^-ct$/ && do { countChunks(); exit; };
   /^-a$/ && do { alfOut(); alfTrack(); exit; };
   /^-i$/ && do { idiomSearch(@ARGV[$count+1]); exit; };
-  /^-t$/ && do { runFileTest(); exit; };
+  /^-t$/ && do { runFileTest(); countChunks(); exit; };
   /^-2$/ && do { $override = 1; $count++; next; };
   /^(#|-|)[0-9]+$/ && do { $temp = @ARGV[$count]; $temp =~ s/^[#-]//g; idiomSearch($temp); exit; };
   /^-d$/ && do { $dicURL = 1; $count++; next; };
   /^-du$/ && do { trim(); exit; };
-  /^-o$/ && do { print "Opening $output.\n"; `$output`; exit; };
-  /^-oo$/ && do { print "Opening $track.\n"; `$track`; exit; };
+  /^-?o$/ && do { print "Opening $output.\n"; `$output`; exit; };
+  /^-?oo$/ && do { print "Opening $track.\n"; `$track`; exit; };
   /^-np$/ && do { $dicURLPrint = 0; $count++; next; };
  / ^-\?$/ && do { usage(); exit; };
   if ($flipData) { print "Only one flip data allowed. Use comma separators.\n"; exit; }
@@ -179,7 +179,7 @@ sub runFileTest
   }
   close(A);
   if (!$errs) { print ("Output is looked through!\n"); } else { print ("$errs word flips still to look through.\n"); }
-  print "TEST RESULTS:Alec reversal to read,100,$errs,0,<a href=\"file:///$output\">here</a>, $lines lines\n";
+  print "TEST RESULTS:Alec reversal to read,10,$errs,0,<a href=\"file:///$output\">here</a>, $lines lines\n";
   $errs = 0;
   open(A, "$track");
   while ($a = <A>)
@@ -188,7 +188,7 @@ sub runFileTest
   }
   close(A);
   if (!$errs) { print ("Output is looked through!\n"); } else { print ("$errs idiom links still to look through. Less critical now I went through manually.\n"); }
-  print "TEST RESULTS:Alec links to read,100,$errs,0,<a href=\"file:///$track\">here</a>\n";
+  print "TEST RESULTS:Alec links to read,10,$errs,0,<a href=\"file:///$track\">here</a>\n";
 }
 
 sub trim
@@ -283,16 +283,18 @@ sub idiomSearch
   if ($_[0] =~ /[^0-9]/) { print "Need a number for idiom search.\n"; return; }
   my $toDo = $_[0];
   my $idiomsDone = 0;
+  my $undone = 0;
   while ($a = <A>)
   {
     if ($a =~ /^=/) { push (@redo, $a); }
 	elsif ($idiomsDone < $toDo) { chomp($a); print "$a\n"; `$a`; $idiomsDone++; }
-	else { push (@redo, $a); }
+	else { if ($a =~ /http/) { $undone++; } push (@redo, $a); }
   }
   close(A);
   open(A, ">$track");
   for (@redo) { print A $_; }
   close(A);
+  print "$undone left undone still.\n";
   alfTrack();
 }
 

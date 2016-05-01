@@ -179,7 +179,7 @@ when play begins (this is the initialize jerks rule):
 	now next-c of temp-cli is first-cli;
 
 when play begins (this is the sort ALL the tables rule) :
-	sort table of gadget action in random order;
+	sort table of bad guy worries in random order;
 	sort the table of dutch-blab in random order;
 	sort the table of sleep stories in random order;
 	repeat through table of sleep stories:
@@ -2985,6 +2985,7 @@ poke fun	"To poke fun is to make a joke, but poke can mean a lot of things--putt
 Compound Problems	"Compound problems are problems that aren't simple or can't be dealt with simply, or that build together to leave someone totally overwhelmed."
 Games Mind	"Mind games are messing with people's mind with lies or half-truths. A games mind might be more inclined to abstract puzzles." [start of game]
 Games Confidence	"Confidence games are where someone gains someone else's trust to rip them off. It can be as simple as a shell game or as complex as an investment scheme. Of course, Alec has confidence with logic games but not much else."
+good egg	"A good egg is a nice person. To egg, or egg on, is to bait someone into doing something you want them to."
 Animal Welfare	"Animal welfare is concern for animals who often can't help themselves. Welfare has a slightly perjorative definition in the US these days, e.g. people on welfare are lazy, or someone giving it is very generous indeed, more than they need to be."
 nose picking	"Nose picking is -- not the best habit. A picking nose would be a discerning sense of smell."
 poor taste	"Poor taste means potentially offensive or classless."
@@ -3004,6 +3005,7 @@ Thought for food	"Food for thought is something to think about."
 Tray S	"Stray. In other words, it strayed from Meal Square."
 Tray T	"A tea tray. To go with food."
 Tray X	"It is an ex-tray."
+defeat	"Defeat is, well, a clue you'll lose the game existentially if you eat any of the foods on Tray B."
 Snap Decision	"A decision made reflexively, versus a conscious decision to snap e.g. just quit holding back."
 Spur of the Moment	"Spur of the moment means you're finally pushed to do something. If you wonder if it's the moment of the spur , you're probably thinking too hard for it to be the spur of the moment."
 face off	"An off face probably doesn't look right, but a face off is when you challenge someone, like the game forces you to in the accelerated Tray B endings."
@@ -3046,6 +3048,7 @@ Ezra Pound	"Ezra Pound was an influential Modernist poet."
 King Henry	"King Henry VIII of England had six wives."
 benefactor	"A benefactor is someone who provides support, emotional or financial."
 pharisee	"A pharisee is someone who gives the trappings of morality but is not."
+polygraph	"A polygraph is a lie detector. The [bad-guy] is probably looking for lies that aren't there."
 taste buds	"Taste buds are what you use to experience the sensation of taste."
 Howard Dean	"Howard Dean was a candidate for the 2004 US Democratic Party nomination. After placing 3rd in the Iowa caucuses, he had an infamous 'Dean Scream' at a rally with supporters, which sounded worse than it was, because he was close to a microphone that picked it up. Which made him the butt of many jokes for a week. The media realised that everyone was yelling a week later, but the story was too ingrained by then."
 Tucker Max	"Tucker Max was alleged to have spanwed the 'fratire' genre, which features cynical 'tell it like it is' writing full of sex and hedonism and self-centeredness. It's the reading equivalent of sitting next to a guy bragging at a bar for a long time. An intelligent guy, sure, but that just lets him bang on longer. Imagine PG Wodehouse's Bertie Wooster without any heart."
@@ -3872,7 +3875,7 @@ guy-advice	"'Hm, well, if I give you too much advice, you won't enjoy solving th
 guy-flat	"'Well, that way is the Problems Compound. If you can figure out some basic stuff, you'll make it to Pressure Pier. Then--oh, the people you'll meet!'"
 guy-names	"'I know what you really want to ask. It's not at all about twisting things back around and making them the opposite of what they should mean. It's about SEEING things at every angle. You'll meet people who do. You'll be a bit jealous they can, and that they're that well-adjusted. But if you pay attention, you'll learn. I have. Though I've got a way to go. But I want to learn!'"
 guy-problems	"'Well, it's a place where lots of people more social than you--or even me--pose real-life problems. Tough but fair. Lots of real interesting people. Especially the Baiter Master[if allow-swears is false]. Oops. You don't like swears? Okay. Call him the Complex Messiah[else]. AKA the Complex Messiah[end if]. But not [bg]. Even I haven't earned that right yet. Or even to enter Freak Control. It's guarded by a trap where a question mark hooks you, then an exclamation mark clobbers you.' He pauses, and you are about to speak...[wfk]'YEAH. He's really nice once you get to know him, I've heard, it's just, there's too many people might waste his time, or not deserve him or not appreciate him.' Guy stage-whispers. 'OR ALL THREE.'"
-guy-mess	"'Oh, the [bad-guy]. He certainly knows what's what, and that's that! A bit of time around him, and you too will know a bit--not as much as he did. But he teaches by example! And if he ribs you a little, that's just his way of caring. Remember, it's up to YOU what you make of his lessons! Some people--they just don't get him. Which is ironic. They're usually the type that claim society doesn't get THEM.'"
+guy-mess	"'Oh, the [bad-guy]. He certainly knows what's what, and that's that! A bit of time around him, and you too will know a bit--not as much as he did. But he teaches by example! He can [activation of good egg]egg [i]good[r]. Just his way of caring. Remember, it's up to YOU what you make of his lessons! Some people--they just don't get him. Which is ironic. They're usually the type that claim society doesn't get THEM.'"
 guy-bad2	"'[bad-guy-2]. Well, without the [bad-guy]'s snark, [bad-guy-2] would probably be in charge. Then things would get worse. You see, [bad-guy-2] is after our time and money. The [bad-guy] just likes to share a little snark.'"
 guy-bye	"'Whatever, dude.' [one of]It's--a bit harsh, you're not sure what you did to deserve that, but probably something[or]It's a bit less grating this time, but still[stopping]."
 
@@ -5518,7 +5521,7 @@ Meal Square is west of Pressure Pier. Meal Square is in Outer Bounds. "This is a
 
 Tray A is a supporter in Meal Square. description is "It's just a tray, really. Nothing special. A few foods rest on tray A: [the list of things on tray a]."
 
-Tray B is a supporter in Meal Square. description is "[if accel-ending]You still see [list of things on tray a] on Tray B, but you're pretty full[else]You're both scared and intrigued by Tray B, which reads, in small print SIDE EFFECTS GALORE. NOT FOR THE UNSOPHISTICATED. Three unappetizing looking foods lie on it, labeled: [a list of things on tray b][end if]."
+Tray B is a supporter in Meal Square. description is "[if accel-ending]You still see [list of things on tray a] on Tray B, but you're pretty full[else]You're both scared and intrigued by Tray B, which reads, in large print, [activation of defeat]EAT DEF. Three unappetizing looking foods lie on it, labeled: [a list of things on tray b][end if]."
 
 examining tray b is pielooking. examining tray a is pielooking.
 
@@ -9275,16 +9278,16 @@ freaked-out is a truth state that varies.
 
 the shot screen is scenery in Freak Control. "[if cookie-eaten is true]You're torn between wondering if it's not worth watching the jokers being surveyed, or you deserve a good laugh.[else]For a moment, you get a glimpse of [one of]the [j-co] going about their business[or]parts of Idiot Village you couldn't explore[or]a 'me-time' room in the Classic Cult[or]a secret room in the Soda Club[or]Officer Petty at the 'event,' writing notes furiously[or]the hideout the Stool Toad was too lazy to notice[or]The Logical Psycho back at his home[or]exiles living beyond the Standard Bog[in random order].[end if]"
 
-control-gadget-row is a number that varies. control-gadget-row is 0.
+current-worry is a number that varies. current-worry is 0.
 
 every turn when player is in freak control and qbc_litany is not table of baiter master talk (this is the random stuff in FC rule):
 	unless accel-ending:
-		increment control-gadget-row;
-		if control-gadget-row > number of rows in table of gadget action:
-			now control-gadget-row is 0;
+		increment current-worry;
+		if current-worry > number of rows in table of bad guy worries:
+			now current-worry is 0;
 			say "'All this data from all these machines! Of course I have to be decisive and a little abrasive,' the [bad-guy] yells to, well, nobody in particular. 'It's not like I'm on a total [activation of power trip]power trip.'";
 			the rule succeeds;
-		choose row control-gadget-row in table of gadget action;
+		choose row current-worry in table of bad guy worries;
 		say "[gad-act entry][line break]";
 
 definition: a thing (called sc) is control-known:
@@ -9312,7 +9315,7 @@ to say odd-machine-l of (x - a thing):
 	else:
 		say "some machine";
 
-table of gadget action
+table of bad guy worries
 gad-act
 "You think you hear the List Bucket rattle. Wait, no."
 "The [bad-guy] mutters something about needing to [activation of Ezra Pound]pound Ezra for not appreciating his edgy, advanced, experimental poetry."
@@ -9321,6 +9324,7 @@ gad-act
 "The [bad-guy] snorts at [activation of taste buds]Bud's taste."
 "'Geez, it's a pain to [activation of benefactor]factor BENNY. I'm not, like, MEAN to him.'"
 "'[activation of pharisee]See, Farrah,' the [bad-guy] mutters to no girl in particular."
+"'Yeah, if we [activation of polygraph]graph Polly, she's lying without lying.'"
 "The [bad-guy] mutters he's sure [activation of Howard Dean]Dean Howard is nice and well-meaning all, but that scream. Really. Just...unforgiveable. And even if it were, well, he probably still deserves to be REMINDED. For character building purposes."
 "The Language Sign flashes but you don't think it changed its message. Just reinforced it."
 "[odd-machine of Twister Brain] spits out a page of data the [bad-guy] speed reads. He mutters 'Pfft. I already sort of knew that. Mostly. Still, need to keep an eye on [the random surveyable person].'"
@@ -10851,6 +10855,8 @@ a games mind is a concept in conceptville. understand "mind games" as games mind
 
 Games confidence is a concept in conceptville. understand "confidence game/games" and "game confidence" as games confidence. howto is "talk to Guy".
 
+Good Egg is a concept in conceptville. understand "egg good" as good egg. howto is "talk to Guy".
+
 Buster Ball is a concept in conceptville. understand "ball buster" as buster ball. howto is "talking".
 
 Hunter Savage is a concept in conceptville. understand "savage hunter" as hunter savage. howto is "talking".
@@ -10892,6 +10898,8 @@ Wine-U-Gen is a concept in conceptville. understand "wine u gen" and "wineugen" 
 section food concepts
 
 a thing called Thought for Food is a concept in conceptville. understand "food for thought" as thought for food. howto is "visit Meal Square with Terry Sally around".
+
+defeat is a concept in conceptville. understand "eat def" and "def eat" as defeat. howto is "examine Tray B".
 
 snap decision is a concept in conceptville. understand "decision snap" as snap decision. howto is "say yes to eating a Tray B food".
 
@@ -10963,9 +10971,9 @@ Elevator Music is a concept in conceptville. understand "music elevator" as elev
 
 Steal This Book is a concept in conceptville. understand "book this steal" as Steal This Book. howto is "take book bank".
 
-Block Arguments is a concept in conceptville. understand "arguments block" as block arguments. howto is "get rid of one of Art and Phil". [search for cv]
+Block Arguments is a concept in conceptville. understand "arguments block" as block arguments. howto is "get rid of one of Art and Phil".
 
-Block Creativity is a concept in conceptville. understand "creativity block" as block creativity. howto is "get rid of one of Art and Phil". [search for cv]
+Block Creativity is a concept in conceptville. understand "creativity block" as block creativity. howto is "get rid of one of Art and Phil".
 
 Dutch Treat is a concept in conceptville. understand "treat dutch" as dutch treat. howto is "type TREAT DUTCH around Uncle Dutch".
 
@@ -10990,6 +10998,8 @@ King Henry is a concept in conceptville. understand "henry king" as king henry. 
 benefactor is a concept in conceptville. understand "factor benny" and "benny factor" as benefactor. howto is "wait and observe in Freak Control".
 
 pharisee is a concept in conceptville. understand "see farrah" and "farrah see" as pharisee. howto is "wait and observe in Freak Control".
+
+polygraph is a concept in conceptville. understand "graph polly" and "polly graph"  as polygraph. howto is "wait and observe in Freak Control".
 
 taste buds is a concept in conceptville. understand "bud's/buds taste" as taste buds. howto is "wait and observe in Freak Control".
 
