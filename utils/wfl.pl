@@ -222,7 +222,7 @@ sub alfOut
   print B sort { crs($a) <=> crs($b) } @bigAry;
   close(A);
   close(B);
-  if (-s $output != -s "$output-alf") { print "Oops size mismatch\n"; return; }
+  if (-s $output != -s "$output-alf") { print "Oops size mismatch: " . (-s $output) . " vs " . (-s "$output-alf") . "\n"; return; }
   `copy $output-alf $output`;
 }
 
@@ -240,16 +240,19 @@ sub alfTrack
 	}
     push (@alf, $a);
   }
+  if ($x)
+  {
   @alf = ($x);
   while ($a = <A>)
   {
     $b = <A>;
 	push(@alf, "$a$b");
   }
+  }
   print B sort(@alf);
   close(A);
   close(B);
-  if (-s $track != -s "$track-alf") { print "Oops size mismatch\n"; return; }
+  if (-s $track != -s "$track-alf") { print "Oops size mismatch: " . (-s $track) . " vs " . (-s "$track-alf") . "\n"; return; }
   `copy $track-alf $track`;
 }
 

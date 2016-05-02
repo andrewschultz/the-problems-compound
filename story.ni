@@ -3048,6 +3048,7 @@ Ezra Pound	"Ezra Pound was an influential Modernist poet."
 King Henry	"King Henry VIII of England had six wives."
 benefactor	"A benefactor is someone who provides support, emotional or financial."
 pharisee	"A pharisee is someone who gives the trappings of morality but is not."
+fawn over	"To fawn over is to flatter someone."
 polygraph	"A polygraph is a lie detector. The [bad-guy] is probably looking for lies that aren't there."
 taste buds	"Taste buds are what you use to experience the sensation of taste."
 Howard Dean	"Howard Dean was a candidate for the 2004 US Democratic Party nomination. After placing 3rd in the Iowa caucuses, he had an infamous 'Dean Scream' at a rally with supporters, which sounded worse than it was, because he was close to a microphone that picked it up. Which made him the butt of many jokes for a week. The media realised that everyone was yelling a week later, but the story was too ingrained by then."
@@ -9324,6 +9325,7 @@ gad-act
 "The [bad-guy] snorts at [activation of taste buds]Bud's taste."
 "'Geez, it's a pain to [activation of benefactor]factor BENNY. I'm not, like, MEAN to him.'"
 "'[activation of pharisee]See, Farrah,' the [bad-guy] mutters to no girl in particular."
+"'I'm so [activation of fawn over]OVER Fawn. She never APPRECIATED my appreciation.'"
 "'Yeah, if we [activation of polygraph]graph Polly, she's lying without lying.'"
 "The [bad-guy] mutters he's sure [activation of Howard Dean]Dean Howard is nice and well-meaning all, but that scream. Really. Just...unforgiveable. And even if it were, well, he probably still deserves to be REMINDED. For character building purposes."
 "The Language Sign flashes but you don't think it changed its message. Just reinforced it."
@@ -10998,6 +11000,8 @@ King Henry is a concept in conceptville. understand "henry king" as king henry. 
 benefactor is a concept in conceptville. understand "factor benny" and "benny factor" as benefactor. howto is "wait and observe in Freak Control".
 
 pharisee is a concept in conceptville. understand "see farrah" and "farrah see" as pharisee. howto is "wait and observe in Freak Control".
+
+fawn over is a concept in conceptville. understand "over fawn" as fawn over. howto is "wait and observe in Freak Control".
 
 polygraph is a concept in conceptville. understand "graph polly" and "polly graph"  as polygraph. howto is "wait and observe in Freak Control".
 
