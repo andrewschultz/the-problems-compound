@@ -36,7 +36,7 @@ The user-friendliness stuff is here.
 --new song (RIP Prince) to make 14 horrible songs, up from 13.
 --new books (52, up from 38).
 --XYZZY in Freak Control now gives a horribly silly side story I just couldn't pass up.
---the Bad Guy now has 16 random important administrative matters.
+--the Bad Guy now has 17 random important administrative matters.
 
-# see about sleep stories
-# see about bible references
+#sleep stories still at 15
+#bible references still at 29

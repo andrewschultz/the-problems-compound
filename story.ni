@@ -3053,6 +3053,7 @@ polygraph	"A polygraph is a lie detector. The [bad-guy] is probably looking for 
 taste buds	"Taste buds are what you use to experience the sensation of taste."
 Howard Dean	"Howard Dean was a candidate for the 2004 US Democratic Party nomination. After placing 3rd in the Iowa caucuses, he had an infamous 'Dean Scream' at a rally with supporters, which sounded worse than it was, because he was close to a microphone that picked it up. Which made him the butt of many jokes for a week. The media realised that everyone was yelling a week later, but the story was too ingrained by then."
 Tucker Max	"Tucker Max was alleged to have spanwed the 'fratire' genre, which features cynical 'tell it like it is' writing full of sex and hedonism and self-centeredness. It's the reading equivalent of sitting next to a guy bragging at a bar for a long time. An intelligent guy, sure, but that just lets him bang on longer. Imagine PG Wodehouse's Bertie Wooster without any heart."
+Break Monotony	"To break (the) monotony is to get a change from something boring."
 Power Trip	"A power trip is when someone is so overcome with their own power, they do mean things to show it off."
 Freak Out	"To freak out is to make a much bigger emotional display than seems really necessary."
 Crisis Energy	"An energy crisis is when a community doesn't have enough electrical power, or oil, or whatever."
@@ -9281,12 +9282,15 @@ the shot screen is scenery in Freak Control. "[if cookie-eaten is true]You're to
 
 current-worry is a number that varies. current-worry is 0.
 
+freak-control-turns is a number that varies.
+
 every turn when player is in freak control and qbc_litany is not table of baiter master talk (this is the random stuff in FC rule):
 	unless accel-ending:
+		increment freak-control-turns;
 		increment current-worry;
 		if current-worry > number of rows in table of bad guy worries:
 			now current-worry is 0;
-			say "'All this data from all these machines! Of course I have to be decisive and a little abrasive,' the [bad-guy] yells to, well, nobody in particular. 'It's not like I'm on a total [activation of power trip]power trip.'";
+			say "'All this data from all these machines! I need a little [activation of break monotony]monotony break from this decisiveness and abrasiveness,' the [bad-guy] yells to, well, nobody in particular. 'It's not like I'm on a total [activation of power trip]POWER TRIP.'";
 			the rule succeeds;
 		choose row current-worry in table of bad guy worries;
 		say "[gad-act entry][line break]";
@@ -9323,6 +9327,7 @@ gad-act
 "The [bad-guy] mutters he'd get six girls before [activation of King Henry]Henry King got one."
 "The [bad-guy] snickers at [activation of Tucker Max]Max Tucker's boring diaries that don't have a trace of sex in them."
 "The [bad-guy] snorts at [activation of taste buds]Bud's taste."
+"The [bad-guy] mutters plans about the monthly Control Cruise coming up, a nice support group for people almost tired of being in power."
 "'Geez, it's a pain to [activation of benefactor]factor BENNY. I'm not, like, MEAN to him.'"
 "'[activation of pharisee]See, Farrah,' the [bad-guy] mutters to no girl in particular."
 "'I'm so [activation of fawn over]OVER Fawn. She never APPRECIATED my appreciation.'"
@@ -9375,11 +9380,6 @@ to say bm-idol-brags:
 			continue the action;
 
 reused-hint is a truth state that varies.
-
-freak-control-turns is a number that varies.
-
-every turn when player is in freak control:
-	increment freak-control-turns;
 
 table of distract time
 control-turns	time-taunt
@@ -11012,6 +11012,8 @@ Howard Dean is a concept in conceptville. understand "dean howard" as howard dea
 scuzz bucket is a concept in conceptville. understand "scum bucket" and "bucket scuzz/scum" as scuzz bucket. howto is "examine the list bucket".
 
 Freak Out is a concept in conceptville. understand "out freak" as freak out. howto is "read the Language sign".
+
+Break Monotony is a concept in conceptville. understand "monotony break" as break monotony. howto is "wait for the [bad-guy] to go through his actions".
 
 Power Trip is a concept in conceptville. understand "trip power" as power trip. howto is "wait for the [bad-guy] to go through his actions".
 
