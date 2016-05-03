@@ -2815,6 +2815,7 @@ face of loss	"Loss of face means humiliation or loss of respect. A face of loss 
 out puzzle	"These aren't a pun, but it's something mathy people see a lot of, and motivational speakers tend to abuse it. If you'd like the solution to the four lines to draw to connect all the points, and even other smart-aleck answers, say yes." [note a non-person must come first or Inform thinks it's a thing]
 the chess board	"Despite being a really good chess player, this always fooled me. I started with a queen in the corner as a kid and got run around, but then as an adult I recognized the virtue of going for an easy solution and seeing why it didn't work. Restricting the center 16 squares helped a lot--by sheer number, that's 21/23 each queen touches, not 25/27. Also, I didn't understand symmetry arguments e.g. it's useful to see if we can have a queen 2 from any corner, or one 3 from a corner. It's important not to think of this as 'laziness' if we can start building general principles or eliminate enough cases."
 the match sticks	"I've always enjoyed match stick problems and how some just don't seem likely. While the general trick if not too many are moved is to shift the original picture onto the new one, somehow, there are creative ones with many shifts."
+hangman	"The strategy of hangman always interested me. I enjoyed finding tough words or even seeing how people squabbled over the rules: how many misses, etc. Of course, there is One Best Strategy, well, until you are up against people who know tricky words. I remember feeling guilty writing a PERL script to see what words were remaining when I had one guess left in an online game, but it was educational, for all that."
 Nim	"Nim was always the toughest to prove, and my 8th-grade self wiped out in Beyond Zork and I had to watch the trees for hints. Once I learned about Strong Induction, the proof made sense. Though I was still impressed anyone would come up with it."
 Towers of Hanoi	"ToH is a basic computer science problem, and I remember someone I respected raving how hard it was, and being disappointed how easy the recursive solution was: N to peg X = n-1 to peg Y, bottom to peg X, n-1 to peg Z. That said, it's just awful in practice."
 river boat	"I remember being fooled by the river boat as a kid and then realizing the moves were forced. I was glad to find some variations and even make a decent one in my experimental game Turn Around for the Apollo 18 tribute. It's not big on story, but I like the puzzles and tricks."
@@ -4481,6 +4482,12 @@ the match sticks are a plural-named logic-game in Smart Street. description is "
 
 understand "matches" and "matchsticks" as match sticks.
 
+section hangman
+
+hangman is a logic-game in Smart Street. description is "Well, it's not an actual structure, just a bunch of blanks for you to guess the right letters."
+
+understand "hang man" as hangman.
+
 section peg solitaire
 
 Peg Solitaire is a logic-game in Smart Street. description is "It's an intersection of 3x7 rectangles with a hole in the middle. You know, where you jump a peg over another until--hopefully--they're all gone, except for one in the center. It makes you think of a lonely girl you should've asked out, for some reason."
@@ -4592,10 +4599,14 @@ towers of hanoi	1	"You remember to put the first ring on the right. Guy Sweet st
 towers of hanoi	2	"First ring in the center. It's a bit of a slog but you can still visualize it. You have to put the small ring back on the left."
 towers of hanoi	3	"You remember the horrible recursion problem from programming class which doesn't seem so bad now. With five rings, you certainly have time to plan it. Hanoi (X-1, left to middle), flip X, Hanoi (x-1, middle to right.) Not that the grunt work's actually any fun."
 towers of hanoi	4	"You proceed more out of obligation, maybe hoping Guy Sweet will give you a compliment. 'Boy! If you can do this sort of thing, you might be good at something useful! Well? Are you?' It's a rhetorical question."
-towers of hanoi	5	"Good lord, no. You know it's only 63 moves. And, well, you've already gotten through--1, 3, 7, 15, 31, so, 59. There's some sort of twisted bizarre induction that would keep you going. But no."
+towers of hanoi	5	"Good lord, no. You know it's going to take all of 63 moves. And, well, you've already gotten through--1, 3, 7, 15, 31, so, 59. There's some sort of twisted bizarre induction that would keep you going. But no."
 match sticks	0	"You re-organize, from memory, a few matchsticks to reverse a fish and a martini glass and a triangle.[paragraph break]'What's the matter? These not fun for you? Okay, okay, got some harder ones.'"
 match sticks	1	"You rearrange a few matchsticks to change false equations into real ones. These are puzzles you hadn't seen, but then, there are only so many possibilities. 'Dude! Lame! I saw you pointing at where the matchsticks should go, brute-forcing them. I thought you had, like, intuition and stuff.'"
 match sticks	2	"'Sorry, dude. I'm all out of matchstick puzzles. And are matchstick puzzles really what life's all about? You know, if you were more social I bet you could find more matchstick puzzles. Though there's better things to do in social circles than matchstick puzzles. But hey, whatever.'"
+hangman	0	"Guy gives you a few long words, which you recognize as easy. You try for the E-T-O-A-N three times in a row, but he calls you out for being boring. Good thing you don't remember the next five most popular letters in the alphabet."
+hangman	1	"It's a bit tougher this time. Guy uses a few words with weird letters. You even trip up and guess a letter twice, and Guy insists that counts as something wrong, and you're never going to win that argument. But you pull everything out in the end. You move on to I and D and R and S to start, actually thinking after each move."
+hangman	2	"It gets tenser and tenser as the words get down to six and seven letters. On WAXWING Guy asks you if you know what it means (you don't dare to ask back,) and then HAZING almost gets you. Guy keeps asking if you're actually good at, well, using these words? You finally slip on JINXED, where Guy claims you really should've done better after getting off to such a good start."
+hangman	3	"Guy shrugs. 'Look, I finally beat you, and I don't want to have to play [']til I can beat you again. No offense but it got kind of tedious even when you changed from that E-T-O-A-N stuff. Maybe you can go figure the algorithm or something to make some tough words, or maybe you can, y'know, use the words better in conversation.'"
 chess board	0	"You remember a cheap trick where you can eliminate the queens from the very center. From there it's pretty easy, since they can't be in the corners. You place one THERE--and the rest logically follow.[paragraph break]'Well, that's not fair. You didn't think. I'm sure you used a cheap trick. Still, I guess you deserve credit. Even if you don't know any other way.'"
 chess board	1	"Under Guy's watchful eye, you can't solve the chessboard the same way again. But maybe if the queens were knight moves away--yes, start at the corners ('Dude! You're already wrong!') and put queens at knight's distance. Then switch one corner queen's row with another, then another pair...trial and error...bam![paragraph break]'Good job, I guess. Not sure if that REALLY counts, either. You were kind of guessing and flailing, there.'[paragraph break]You bite your tongue before asking just what DOES really count--but you can never force a straight answer, there."
 chess board	2	"You just don't need any more goading--whether or not you find another position, Guy will invalidate how or why you got there."
@@ -8915,6 +8926,7 @@ workname	authname	booksubj
 "The Divorce: GREAT"	"Lewis S. Clive"	"how blatant infidelity is really about seeing all the world has to offer and making the most of things--well, if you're worth cheating with. It surpasses even [i]The Boy and His Horse[r] and [i]The Love of Allegory[r]"
 "The Snark of the Hunting"	"Carol Lewis"	"how to gaslight people into thinking what they said was nonsense, especially if it should be"
 "The Parson Country"	"Herbert George"	"just how impractical and rubbish religion is, even when its trappings make people do good things"
+"Fear of the Valley"	"Doyle Arthur"	"A story about a would-be sleuth who knows all sorts of useless facts but misses the obvious that anyone with gumption would've checked on."
 "Odyssey Space"	"Clark Arthur"	"a modern retelling of Ulysses dealing harshly with technocrats"
 "The Cancer of Tropic"	"Miller Arthur"	"one ascetic's skin disease and the surprising poetry that lies therein"
 "And Dominion Shall Have No Death"	"Thomas Dylan"	"a New World Order of smart poetic people that properly keeps the rabble scared of death and all that"
