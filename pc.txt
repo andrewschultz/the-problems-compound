@@ -37,6 +37,7 @@ For the 8 queens, I have a post at <a href="http://drdanstreetmentioner.blogspot
 Matchstick puzzles are all over the Internet, and really, if you remember you only need to move so many, there are only so many possibilities. Try and see which you CAN'T move, or which are effectively symmetrical.
 Nim--well, strong induction on the total number of Nim pieces and their binary representations is the way to go. I had to stare at it a bit to rule it out. How someone would see that proof is another matter. I remember being utterly confused seeing the explanation in Beyond Zork. Not as bad as Cardano's method, but still--wow.
 The riverboat (wolf/goat/cabbage, fox/goose/beans) is a classic problem. I remember trying to expand it and noting it was a bit trivial. So the extensions capture that.
+Hangman would seem to need the most popular letters: ETAON. But then, once people know of them, they may look for words with rare letters in. So there's a <a href="http://blog.wolfram.com/2010/08/13/25-best-hangman-words/">Nash Equilibrium</a> of sorts for the best words to choose based on number of letters. Still, the popular letters are good to start with, because of course a word needs vowels.
 >>A Round Lounge
 ?What are the screw and stick good for?
 The stick has a hole in it.
