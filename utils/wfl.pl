@@ -278,7 +278,7 @@ sub countChunks
     if ($a =~ /==Found/i) { chomp($a); $a =~ s/\/.*//g; $a =~ s/.* //g; push(@sizes, $a); }
   }
   close(A);
-  print "Listed chunk sizes: " . join(", ", @sizes) . ".\n";
+  if ($#sizes > -1) { print "Listed chunk sizes: " . join(", ", @sizes) . ".\n"; }
   
   @sizes = ();
   open(A, "$output");
@@ -288,7 +288,7 @@ sub countChunks
 	else { $thisChunk++; }
   }
   close(A);
-  print "Actual chunk sizes: " . join(", ", @sizes) . ".\n";
+  if ($#sizes > -1) { print "Actual chunk sizes: " . join(", ", @sizes) . ".\n"; }
   
 }
 
@@ -342,3 +342,5 @@ print<<EOT;
 EOT
 exit;
 }
+
+#SUB is something to try

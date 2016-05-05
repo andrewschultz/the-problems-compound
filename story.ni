@@ -8925,6 +8925,7 @@ workname	authname	booksubj
 "Writing On"	"King Stephen"	"how society represses real writers from writing real books"
 "The Islands of an Outcast"	"Joseph Conrad"	"a gentle fellow, shunned by modern society, who forges an idyllic utopia"
 "The Divorce: GREAT"	"Lewis S. Clive"	"how blatant infidelity is really about seeing all the world has to offer and making the most of things--well, if you're worth cheating with. It surpasses even [i]The Boy and His Horse[r] and [i]The Love of Allegory[r]"
+"The Goer Movie"	"Percy Walker"	"how one man used motivational movies--or just movies with lots of rich stuff--to learn to fit in with people who matter"
 "The Snark of the Hunting"	"Carol Lewis"	"how to gaslight people into thinking what they said was nonsense, especially if it should be"
 "The Parson Country"	"Herbert George"	"just how impractical and rubbish religion is, even when its trappings make people do good things"
 "Fear of the Valley"	"Doyle Arthur"	"A story about a would-be sleuth who knows all sorts of useless facts but misses the obvious that anyone with gumption would've checked on."
@@ -8989,6 +8990,7 @@ section all the songs
 table of hs - horrendous songs
 workname	singername	songsubj
 "Stop Believing, Don't"	"Perry Steven"	"people who already tried enough and should stop embarrassing themselves"
+"King of the Mountain Hall"	"Grieg Freidrich"	"something transcendent or other"
 "Train Downtown"	"Stewart Rodd"	"a man rightfully too busy advancing his career prospects to spend time with his woman"
 "Life is WHAT"	"Harrison George"	"a man too clever for all the constant love-is-life babble"
 "Out Movin[']"	"Joel Billey"	"someone who finds value in a more stressful life"
