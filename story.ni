@@ -3052,6 +3052,7 @@ pharisee	"A pharisee is someone who gives the trappings of morality but is not."
 fawn over	"To fawn over is to flatter someone."
 polygraph	"A polygraph is a lie detector. The [bad-guy] is probably looking for lies that aren't there."
 taste buds	"Taste buds are what you use to experience the sensation of taste."
+Plaintiff	"A plaintiff is the party bringing the charge in a court case."
 Howard Dean	"Howard Dean was a candidate for the 2004 US Democratic Party nomination. After placing 3rd in the Iowa caucuses, he had an infamous 'Dean Scream' at a rally with supporters, which sounded worse than it was, because he was close to a microphone that picked it up. Which made him the butt of many jokes for a week. The media realised that everyone was yelling a week later, but the story was too ingrained by then."
 Tucker Max	"Tucker Max was alleged to have spanwed the 'fratire' genre, which features cynical 'tell it like it is' writing full of sex and hedonism and self-centeredness. It's the reading equivalent of sitting next to a guy bragging at a bar for a long time. An intelligent guy, sure, but that just lets him bang on longer. Imagine PG Wodehouse's Bertie Wooster without any heart."
 Break Monotony	"To break (the) monotony is to get a change from something boring."
@@ -9340,6 +9341,7 @@ gad-act
 "The [bad-guy] snickers at [activation of Tucker Max]Max Tucker's boring diaries that don't have a trace of sex in them."
 "The [bad-guy] snorts at [activation of taste buds]Bud's taste."
 "The [bad-guy] mutters plans about the monthly Control Cruise coming up, a nice support group for people almost tired of being in power."
+"'[activation of plaintiff]Tiff? Plain,' the [bad-guy] quips. 'So defensive about it, too.'"
 "'Geez, it's a pain to [activation of benefactor]factor BENNY. I'm not, like, MEAN to him.'"
 "'[activation of pharisee]See, Farrah,' the [bad-guy] mutters to no girl in particular."
 "'I'm so [activation of fawn over]OVER Fawn. She never APPRECIATED my appreciation.'"
@@ -11018,6 +11020,8 @@ fawn over is a concept in conceptville. understand "over fawn" as fawn over. how
 polygraph is a concept in conceptville. understand "graph polly" and "polly graph"  as polygraph. howto is "wait and observe in Freak Control".
 
 taste buds is a concept in conceptville. understand "bud's/buds taste" as taste buds. howto is "wait and observe in Freak Control".
+
+plaintiff is a concept in conceptville. understand "tiff plain" and "plain tiff" as plaintiff. howto is "wait and observe in Freak Control".
 
 Howard Dean is a concept in conceptville. understand "dean howard" as howard dean. howto is "wait and observe in Freak Control".
 
