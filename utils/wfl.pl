@@ -16,6 +16,14 @@ my $autoSort = 1;
 my $output = "c:\\games\\inform\\compound.inform\\source\\flip.txt";
 my $track = "c:\\games\\inform\\compound.inform\\source\\fliptrack.txt";
 
+my $chrome = "C:\\Users\\Andrew\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe";
+my $ffox = "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe";
+my $opera = "C:\\Program Files (x86)\\Opera\\launcher.exe";
+
+my $webapp = $chrome;
+
+my $wa = "alf";
+
 if (!@ARGV[0]) { die ("Need a word to flip."); }
 
 while ($count <= $#ARGV)
@@ -30,7 +38,11 @@ for ($a)
   /^-at$/ && do { alfTrack(); exit; };
   /^-ct$/ && do { countChunks(); exit; };
   /^-a$/ && do { alfOut(); alfTrack(); exit; };
+  /^-ff$/ && do { $webapp = $ffox; $count++; next; };
+  /^-gc$/ && do { $webapp = $chrome; $count++; next; };
+  /^-op$/ && do { $webapp = $opera; $count++; next; };
   /^-i$/ && do { idiomSearch(@ARGV[$count+1]); exit; };
+  /^-l$/ && do { $wa = "word"; $count++; next; exit; };
   /^-t$/ && do { runFileTest(); countChunks(); exit; };
   /^-2$/ && do { $override = 1; $count++; next; };
   /^(#|-|)[0-9]+$/ && do { $temp = @ARGV[$count]; $temp =~ s/^[#-]//g; idiomSearch($temp); exit; };
@@ -71,7 +83,7 @@ if ($autoSort) { alfOut(); alfTrack(); countChunks(); }
 sub initWordCheck
 {
 
-open(A, "c:/writing/dict/brit-1word.txt");
+open(A, "c:/writing/dict/brit-1$wa.txt");
 
 while ($a = <A>)
 {
@@ -117,7 +129,7 @@ sub readOneWord
    if (($q =~ /$_[0]/) && ($_[0] ne $q)) { print "$q contained by already-done word $_[0]\n"; }
   }
 
-if ($dicURL) { `\"C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe\" http:\/\/idioms.thefreedictionary.com\/$flip`; }
+if ($dicURL) { `\"$webapp\" http:\/\/idioms.thefreedictionary.com\/$flip`; }
 
 open(B, ">>$output");
 
@@ -125,14 +137,14 @@ if (!$overlook)
 {
 open(C, ">>$track");
 print C "========$flip\n";
-if ($dicURLPrint) { print C "\"C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe\" http:\/\/idioms.thefreedictionary.com\/$flip\n"; }
+if ($dicURLPrint) { print C "\"$webapp\" http:\/\/idioms.thefreedictionary.com\/$flip\n"; }
 }
 
 close(C);
 
 my $bigLongBit = "";
 
-open(A, "c:/writing/dict/brit-1word.txt");
+open(A, "c:/writing/dict/brit-1$wa.txt");
 
 while ($a = <A>)
 {
@@ -151,7 +163,7 @@ while ($a = <A>)
   $wordLength = length($a);
   $bigLongBit .= "$a to $b";
   if ($word{$c}) { $bigLongBit .= " *** word"; $wordy++; }
-  if ($oldLength != $wordLength) { $bigLongBit .= " ($wordLength)"; $oldLength = $wordLength; }
+  if (($oldLength != $wordLength) && ($wa eq "word")) { $bigLongBit .= " ($wordLength)"; $oldLength = $wordLength; }
   $bigLongBit .= "\n";
   $found++;
 }
@@ -174,8 +186,9 @@ sub runFileTest
   while ($a = <A>)
   {
     $lines++;
-    if ($a =~ /^====Found/) { $errs++; <A>; }
-    elsif ($a =~ /^====/) { $errs++; }
+    if ($a =~ /^====Found/) { $errs++; <A>; $curLines = 0; }
+    elsif (($a =~ /^====/) && ($curLines)) { $errs++; $curLines = 0; }
+	else { $curLines++; }
   }
   close(A);
   if (!$errs) { print ("Output is looked through!\n"); } else { print ("$errs word flips still to look through.\n"); }
@@ -322,6 +335,8 @@ print<<EOT;
 -np = don't print URL to tracking file (default is on)
 -o = open the output file
 -oo = open the tracking file
+-ff, -gc, -op picks web browser
+-l = sort words by length (brit-1word) vs by alphabetical
 -t = test how much is left to do big-picture (URLs and words)
 -? = this usage here
 EOT
