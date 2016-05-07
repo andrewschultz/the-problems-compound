@@ -36,8 +36,8 @@ There's random stuff, too:
 --a few extra silly concepts added. Up to 113, from 66 in release 2. Game text added here and there.
 --the bad guy now has individual people he randomly insults outside of those in the game proper. They're a bit topical, but they're in the general knowledge realm. If nothing else, you can Google them. He's up to 18 random important administrative matters.
 --flexible maximum in score e.g. 0/(18-21) so the player knows if they're close, or they need to do more.
---new song (RIP Prince) to make 14 horrible songs, up from 13.
---new books (53, up from 38).
+--new songs (15, up from 13).
+--new books (54, up from 38).
 --XYZZY in Freak Control now gives a horribly silly side story I just couldn't pass up.
 
 #sleep stories still at 15

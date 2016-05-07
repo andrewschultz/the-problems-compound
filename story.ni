@@ -2987,6 +2987,7 @@ Compound Problems	"Compound problems are problems that aren't simple or can't be
 Games Mind	"Mind games are messing with people's mind with lies or half-truths. A games mind might be more inclined to abstract puzzles." [start of game]
 Games Confidence	"Confidence games are where someone gains someone else's trust to rip them off. It can be as simple as a shell game or as complex as an investment scheme. Of course, Alec has confidence with logic games but not much else."
 good egg	"A good egg is a nice person. To egg, or egg on, is to bait someone into doing something you want them to."
+beat off	"To beat off is to, well, pleasure oneself. People who are off-beat are often accused of this, among other things, in high school."
 Animal Welfare	"Animal welfare is concern for animals who often can't help themselves. Welfare has a slightly perjorative definition in the US these days, e.g. people on welfare are lazy, or someone giving it is very generous indeed, more than they need to be."
 nose picking	"Nose picking is -- not the best habit. A picking nose would be a discerning sense of smell."
 poor taste	"Poor taste means potentially offensive or classless."
@@ -3879,7 +3880,7 @@ guy-advice	"'Hm, well, if I give you too much advice, you won't enjoy solving th
 guy-flat	"'Well, that way is the Problems Compound. If you can figure out some basic stuff, you'll make it to Pressure Pier. Then--oh, the people you'll meet!'"
 guy-names	"'I know what you really want to ask. It's not at all about twisting things back around and making them the opposite of what they should mean. It's about SEEING things at every angle. You'll meet people who do. You'll be a bit jealous they can, and that they're that well-adjusted. But if you pay attention, you'll learn. I have. Though I've got a way to go. But I want to learn!'"
 guy-problems	"'Well, it's a place where lots of people more social than you--or even me--pose real-life problems. Tough but fair. Lots of real interesting people. Especially the Baiter Master[if allow-swears is false]. Oops. You don't like swears? Okay. Call him the Complex Messiah[else]. AKA the Complex Messiah[end if]. But not [bg]. Even I haven't earned that right yet. Or even to enter Freak Control. It's guarded by a trap where a question mark hooks you, then an exclamation mark clobbers you.' He pauses, and you are about to speak...[wfk]'YEAH. He's really nice once you get to know him, I've heard, it's just, there's too many people might waste his time, or not deserve him or not appreciate him.' Guy stage-whispers. 'OR ALL THREE.'"
-guy-mess	"'Oh, the [bad-guy]. He certainly knows what's what, and that's that! A bit of time around him, and you too will know a bit--not as much as he did. But he teaches by example! He can [activation of good egg]egg [i]good[r]. Just his way of caring. Remember, it's up to YOU what you make of his lessons! Some people--they just don't get him. Which is ironic. They're usually the type that claim society doesn't get THEM.'"
+guy-mess	"'Oh, the [bad-guy]. He certainly knows what's what, and that's that! A bit of time around him, and you too will know a bit--not as much as he did. But he teaches by example! He can [activation of good egg]egg [i]good[r]. Just his way of caring. Remember, it's up to YOU what you make of his lessons! Some people--they just don't get him. Which is ironic. They're usually the type that claim society doesn't get THEM.' Guy whispers. '[activation of beat off]OFF-BEAT types.'"
 guy-bad2	"'[bad-guy-2]. Well, without the [bad-guy]'s snark, [bad-guy-2] would probably be in charge. Then things would get worse. You see, [bad-guy-2] is after our time and money. The [bad-guy] just likes to share a little snark.'"
 guy-bye	"'Whatever, dude.' [one of]It's--a bit harsh, you're not sure what you did to deserve that, but probably something[or]It's a bit less grating this time, but still[stopping]."
 
@@ -10874,6 +10875,8 @@ a games mind is a concept in conceptville. understand "mind games" as games mind
 Games confidence is a concept in conceptville. understand "confidence game/games" and "game confidence" as games confidence. howto is "talk to Guy".
 
 Good Egg is a concept in conceptville. understand "egg good" as good egg. howto is "talk to Guy".
+
+Beat Off is a concept in conceptville. understand "off beat" and "off-beat" as beat off. howto is "talk to Guy".
 
 Buster Ball is a concept in conceptville. understand "ball buster" as buster ball. howto is "talking".
 

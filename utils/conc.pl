@@ -2,10 +2,32 @@ use Win32::Clipboard;
 
 $clip = Win32::Clipboard::new();
 
-if (@ARGV[0] eq "") { readConcept("Compound"); readConcept("Slicker-City"); }
-elsif (@ARGV[0] eq "pc") { readConcept("Compound"); }
-elsif (@ARGV[0] eq "sc") { readConcept("Slicker-City"); }
-else { print "Note that this assumes the idiom written properly e.g. show business vs business show."; foreach $x (@ARGV[0]) { crankOutCode($x); } exit; }
+@dirs = ("Compound", "Slicker-City");
+
+$printErrCode = 0;
+$printErrors = 1;
+
+while ($count <= $#ARGV)
+{
+  $a = @ARGV[$count];
+  for ($a)
+  {
+    /^-pc$/ && do { @dirs = ("Compound"); $count++; next; };
+    /^-sc$/ && do { @dirs = ("Slicker-City"); $count++; next; };
+	/^-as$/ && do { @dirs = ("Slicker-City", "Compound"); $count++; next; };
+	/^-?c$/ && do { $printErrCode = 1; $printErrors = 0; $count++; next; };
+	/^-?e$/ && do { $printErrCode = 0; $printErrors = 1; $count++; next; };
+	/^-?(ec|ce)$/ && do { $printErrCode = 1; $printErrors = 1; $count++; next; };
+	/^[a-z][a-z-]+$/ && do
+	{
+	  print "Note that this assumes the idiom written properly e.g. show business vs business show.";
+	  @cranks = split(/,/, @ARGV[0]); foreach $mycon (@cranks) { crankOutCode($mycon); } exit;
+	};
+	usage();
+  }
+}
+
+for $thisproj (@dirs) { readConcept($thisproj); }
 
 sub crankOutCode
 {
@@ -29,13 +51,14 @@ my $errMsg = "";
 for $x (keys %any)
 {
   $totals++;
-#  print "Looking at $x:\n";
-  if (!$expl{$x}) { $errMsg .= "$x needs explanation.\n"; $fails++; }
-  if (!$conc{$x}) { $errMsg .= "$x needs concept definition.\n"; $fails++; }
-  if (!$activ{$x}) { $errMsg .= "$x needs activation.\n"; $fails++; }
+  #print "Looking at $x:\n";
+  if (!$expl{$x}) { $errMsg .= "$x needs explanation.\n"; $explErr .= "$x\t\"$x is when you (fill in here).\"\n"; $fails++; }
+  if (!$conc{$x}) { $y = join(" ", reverse(split(/ /, $x))); $errMsg .= "$x needs concept definition.\n"; $concErr .= "$x is a concept in conceptville. Understand \"$y\" as $x. howto of is \"(fill in here\)\".\n"; $fails++; }
+  if (!$activ{$x}) { $errMsg .= "$x needs activation.\n"; $activErr .= "\[activation of $x\]\n"; $fails++; }
 }
 
-print "$errMsg";
+if ($printErrors && $errMsg) { print "$errMsg"; print "Run with -c to get code.\n"; }
+elsif ($printErrCode && $errMsg) { $clip->Set("ACTIVATIONS:\n$activErr\nEXPLANATIONS:\n$explErr\nCONCEPTS:\n$concErr\n"); print "Errors found. Suggested code sent to clipboard.\n"; }
 
 if (!$errMsg) { $errMsg = "All okay!"; } else { $errMsg =~ s/\n/<br>/g; $errMsg =~ s/<br>$//g; }
 
@@ -104,4 +127,15 @@ sub wordtrim
   $temp =~ s/^a thing called //g;
   $temp =~ s/^a //g;
   return $temp;
+}
+
+sub usage
+{
+print<<EOT;
+-c = print error code
+-pc = PC only
+-sc = SC only
+-as = PC and SC (default)
+EOT
+exit;
 }
