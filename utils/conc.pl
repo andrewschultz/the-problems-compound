@@ -53,7 +53,7 @@ for $x (keys %any)
   $totals++;
   #print "Looking at $x:\n";
   if (!$expl{$x}) { $errMsg .= "$x needs explanation.\n"; $explErr .= "$x\t\"$x is when you (fill in here).\"\n"; $fails++; }
-  if (!$conc{$x}) { $y = join(" ", reverse(split(/ /, $x))); $errMsg .= "$x needs concept definition.\n"; $concErr .= "$x is a concept in conceptville. Understand \"$y\" as $x. howto of is \"(fill in here\)\".\n"; $fails++; }
+  if (!$conc{$x}) { $y = join(" ", reverse(split(/ /, $x))); $errMsg .= "$x needs concept definition.\n"; $concErr .= "$x is a concept in conceptville. Understand \"$y\" as $x. howto is \"(fill in here\)\".\n"; $fails++; }
   if (!$activ{$x}) { $errMsg .= "$x needs activation.\n"; $activErr .= "\[activation of $x\]\n"; $fails++; }
 }
 

@@ -33,8 +33,8 @@ The user-friendliness stuff is here.
 
 There's random stuff, too:
 -you can now play Hangman with Guy Sweet
---a few extra silly concepts added. Up to 113, from 66 in release 2. Game text added here and there.
---the bad guy now has individual people he randomly insults outside of those in the game proper. They're a bit topical, but they're in the general knowledge realm. If nothing else, you can Google them. He's up to 18 random important administrative matters.
+--a few extra silly concepts added. Up to 119, from 66 in release 2. Game text added here and there.
+--the bad guy now has individual people he randomly insults outside of those in the game proper. They're a bit topical, but they're in the general knowledge realm. If nothing else, you can Google them. He's up to 20 random important administrative and philosophical matters.
 --flexible maximum in score e.g. 0/(18-21) so the player knows if they're close, or they need to do more.
 --new songs (15, up from 13).
 --new books (54, up from 38).

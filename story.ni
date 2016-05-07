@@ -2315,7 +2315,7 @@ check giving Reasoning Circular to:
 	if second noun is Officer Petty:
 		now Officer Petty is in lalaland;
 		now the Reasoning Circular is in lalaland;
-		say "A tear starts to form in Officer Petty's eye. 'Really? I...well, this definitely isn't bribery! I've always been good at yelling at people who get simple stuff wrong, but I always felt there was more. I could have more complex reasons to put people down. Wow! Now I can be clever and still play the Maybe I Didn't Go to a Fancy School card. Thank...' He looks at the Reasoning Circular again. 'Wait, wait. Maybe you wouldn't have gotten anything out of this invitation anyway. So it's not so generous.' Officer Petty beams at his newfound profundity before shuffling off.";
+		say "A tear starts to form in Officer Petty's eye. 'Really? I...well, this definitely isn't bribery! I've cultivated a nice [activation of scofflaw]law-scoff at people who get simple stuff wrong, but I always felt there was more. I could have more complex reasons to put people down. I really CAN follow a [activation of career threatening]Threatening Career! I CAN be clever and still play the Maybe I Didn't Go to a Fancy School card. Thank...' He looks at the Reasoning Circular again. 'Wait, wait. Maybe you wouldn't have gotten anything out of this invitation anyway. So it's not so generous.' Officer Petty beams at his newfound profundity before shuffling off.";
 		increment the score;
 		the rule succeeds;
 	if second noun is Fritz:
@@ -3018,7 +3018,6 @@ sleeper cell	"A group of people who blen into a community until they can commit 
 Dream Ticket	"A pair of candidates who, running together, have extremely broad appeal they wouldn't have alone. In Alec's dreams, he's often ganged up on by two people or groups who triangulate him rather differently."
 hoth	"High on the hog means living wealthily. To hog the high would be if Fritz didn't share his, um, stuff."
 puff piece	"A puff piece is a fawning newspaper article that makes someone out to be better than they really are. A peace puff from smoking marijuana is (we can assume) less socially motivated."
-character assassination	"Character assassination is an attempt to tarnish someone's good reputation."
 Double Jeopardy	"Double jeopardy is being tried for the same crime twice. Making your jeopardy double is just putting you at twice the risk."
 Trust Brain	"A brain trust is a group of people that help make a decision. A trust-brain, though not an English phrase, might mean a mind that can't make its own decisions."
 Moral Support	"Moral support is helping someone even if you don't have concrete advice. SUPPORT MORAL is, well, a slogan that pushes people around."
@@ -3030,7 +3029,9 @@ Go Rum	"A rum go is an unforeseen unusual experience, as opposed to 'GO' anythin
 Hip Rose	"Rose hips are ingredients found in tea, which is too non-alcoholic for the Soda Club. Hip is, of course, cool or desirable or with-it."
 Punch Sucker	"A sucker punch is an unexpected hit."
 Wine-U-Gen	"Genuine is, well, real and true. Both Ally Stout and his drinks are superficial, as wine is generally not made by machine."
-Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
+character assassination	"Character assassination is an attempt to tarnish someone's good reputation."
+career threatening	"Something career threatening may risk not only your job but your ability to get other equal or better jobs. A threatening career is--well, a bit of a racket."
+scofflaw	"A scofflaw is someone who breaks minor rules. Perhaps they jaywalk or litter."
 venturesome	"Venturesome means willing to go places."
 Black Mark	"A black mark is something indicating bad behavior."
 Determined Bound	"Bound and determined means you're set on doing something. A determined bound is set to prevent you from doing something."
@@ -3044,6 +3045,7 @@ Coals to Newcastle	"Coals to Newcastle means a pointless action. In this case, t
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever."
 Dutch Treat	"A Dutch treat is where everyone pays his own way. This is viewed, according to idioms.freedictionary.com, as insulting to the Dutch. It certainly isn't flattering."
 Show Business	"Show business is the act of entertainment, and the business show's is (purportedly) more practical."
+Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
 Terminal Illness	"A terminal illness is one which is bound to be fatal. Illness can also mean full of insults, e.g. very 'ill,' as kids these days say. And said, even in my day!"
 scuzz bucket	"A scuzz, or scum, bucket is a person who is just plain dirty or disgusting. The [bad-guy] is not obviously physically like this."
 Ezra Pound	"Ezra Pound was an influential Modernist poet."
@@ -3051,9 +3053,12 @@ King Henry	"King Henry VIII of England had six wives."
 benefactor	"A benefactor is someone who provides support, emotional or financial."
 pharisee	"A pharisee is someone who gives the trappings of morality but is not."
 fawn over	"To fawn over is to flatter someone."
+disorder	"Disorder means a mess, while an order is telling someone what to do and a dis is an insult. Basically, the [bad-guy] is saying, insulting people for being disorganized helps them get organized. Well, it never helped me."
 polygraph	"A polygraph is a lie detector. The [bad-guy] is probably looking for lies that aren't there."
 taste buds	"Taste buds are what you use to experience the sensation of taste."
 Plaintiff	"A plaintiff is the party bringing the charge in a court case."
+laughingstock	"A laughingstock is someone everyone laughs at. But stock laughing is canned laughter, reflexive laughter at a joke you heard before, or maybe even a laugh track."
+generate d	"Degenerate means without moral values. D is short for defense."
 Howard Dean	"Howard Dean was a candidate for the 2004 US Democratic Party nomination. After placing 3rd in the Iowa caucuses, he had an infamous 'Dean Scream' at a rally with supporters, which sounded worse than it was, because he was close to a microphone that picked it up. Which made him the butt of many jokes for a week. The media realised that everyone was yelling a week later, but the story was too ingrained by then."
 Tucker Max	"Tucker Max was alleged to have spanwed the 'fratire' genre, which features cynical 'tell it like it is' writing full of sex and hedonism and self-centeredness. It's the reading equivalent of sitting next to a guy bragging at a bar for a long time. An intelligent guy, sure, but that just lets him bang on longer. Imagine PG Wodehouse's Bertie Wooster without any heart."
 Break Monotony	"To break (the) monotony is to get a change from something boring."
@@ -9336,17 +9341,19 @@ to say odd-machine-l of (x - a thing):
 	else:
 		say "some machine";
 
-table of bad guy worries
+table of bad guy worries [administrative]
 gad-act
 "You think you hear the List Bucket rattle. Wait, no."
 "The [bad-guy] mutters something about needing to [activation of Ezra Pound]pound Ezra for not appreciating his edgy, advanced, experimental poetry."
 "The [bad-guy] mutters he'd get six girls before [activation of King Henry]Henry King got one."
-"The [bad-guy] snickers at [activation of Tucker Max]Max Tucker's boring diaries that don't have a trace of sex in them."
+"The [bad-guy] snickers at [activation of Tucker Max]Max Tucker's boring diaries that are well-written and all but don't have a trace of sex in them."
 "The [bad-guy] snorts at [activation of taste buds]Bud's taste."
 "The [bad-guy] mutters plans about the monthly Control Cruise coming up, a nice support group for people almost tired of being in power."
+"'We need to [activation of generate d]generate D, here, against [bad-guy-2]!'"
 "'[activation of plaintiff]Tiff? Plain,' the [bad-guy] quips. 'So defensive about it, too.'"
 "'Geez, it's a pain to [activation of benefactor]factor BENNY. I'm not, like, MEAN to him.'"
 "'[activation of pharisee]See, Farrah,' the [bad-guy] mutters to no girl in particular."
+"'[random surveyable person] just needs a good [activation of disorder]Order Dis to put [']em line. Or two. Or three.'"
 "'I'm so [activation of fawn over]OVER Fawn. She never APPRECIATED my appreciation.'"
 "'Yeah, if we [activation of polygraph]graph Polly, she's lying without lying.'"
 "The [bad-guy] mutters he's sure [activation of Howard Dean]Dean Howard is nice and well-meaning all, but that scream. Really. Just...unforgiveable. And even if it were, well, he probably still deserves to be REMINDED. For character building purposes."
@@ -9438,7 +9445,7 @@ prompt	response	enabled	permit
 
 table of quip texts (continued)
 quip	quiptext
-bm-help	"'Really? What sort of help?'[paragraph break]You describe what you did for them and how you did it.[paragraph break]'Oh, so a fetch quest, then. You should be above that, shouldn't you? I mean, a fetch quest helps one other person, but clever philosophy--it helps a lot. [bad-guy-2], you know.'"
+bm-help	"'Really? What sort of help?'[paragraph break]You describe what you did for them and how you did it.[paragraph break]'Oh, so a fetch quest, then. You should be above that, shouldn't you? I mean, a fetch quest helps one other person, but clever philosophy--it helps a lot. [bad-guy-2] is OUT there, you know.' And he laughs, but wait--it's [activation of laughingstock]stock laughing you've heard before."
 bm-fetch	"'Big deal. You probably never considered how lucky you were, how improbable those helpful items were just lying around. Intelligent design? Pah! What a joke! My social ideals fix society and all that sort of thing. Surely you heard what people said? They had something to say.'"
 bm-tosay	"'You have to admit, I have leadership skills.'"
 bm-mug	"'Oh, it's Crisis Energy[activation of crisis energy]. For taking urgent action when someone's -- out of line.' You look more closely. 'COMPLIMENTARY FROM [bad-guy-2-c].'"
@@ -10972,63 +10979,76 @@ Trust Brain is a concept in conceptville. understand "brain trust" as trust brai
 
 Moral Support is a concept in conceptville. understand "support moral" as moral support. howto is "examine pigeon stool".
 
-section main chunk concepts
-
-character assassination is a concept in conceptville. understand "assassination character" as character assassination. howto is "visit Chipper Wood".
-
 Double Jeopardy is a concept in conceptville. understand "jeopardy double" as Double Jeopardy. howto is "get ticket for sleeping".
 
-Black Mark is a concept in conceptville. understand "mark black" as black mark. howto is "examine quiz pop".
+section main chunk concepts [left to right, then down to up]
 
-venturesome is a concept in conceptville. understand "you're/youre some vent" and "some vent" as venturesome. howto is "enter the spleen vent".
+Fish for a Compliment is a concept in conceptville. understand "compliment for a fish" as fish for a compliment. howto is "talk to the story fish with nobody else around". [disposed well]
 
-Determined Bound is a concept in conceptville. understand "bound and determined" as determined bound. howto is "go south in Walker Street".
+character assassination is a concept in conceptville. understand "assassination character" as character assassination. howto is "visit Chipper Wood". [chipper wood]
 
-Fish for a Compliment is a concept in conceptville. understand "compliment for a fish" as fish for a compliment. howto is "talk to the story fish with nobody else around"..
+Black Mark is a concept in conceptville. understand "mark black" as black mark. howto is "examine quiz pop". [jerk circle]
 
-Play Dumb is a concept in conceptville. understand "dumb play" as play dumb. howto is "go to the Discussion Block for the first time".
+career threatening is a concept in conceptville. Understand "threatening career" as career threatening. howto is "give Officer Petty the Reasoning Circular". [judgment pass]
+
+scofflaw is a concept in conceptville. Understand "scoff law" and "lawscoff/law-scoff/scoff-law" and "law scoff" as scofflaw. howto is "give Officer Petty the Reasoning Circular".
+
+Candidate Dummy is a concept in conceptville. understand "dummy candidate" as Candidate Dummy. howto is "talk to Sly". [idiot village]
+
+venturesome is a concept in conceptville. understand "you're/youre some vent" and "some vent" as venturesome. howto is "enter the spleen vent". [temper keep]
+
+Dutch Treat is a concept in conceptville. understand "treat dutch" as dutch treat. howto is "type TREAT DUTCH around Uncle Dutch". [speaking plain]
+
+Show Business is a concept in conceptville. understand "business show" as show business. howto is "Go to the Speaking Plain without eating a Tray B food".
+
+Determined Bound is a concept in conceptville. understand "bound and determined" as determined bound. howto is "go south in Walker Street". [walker street]
+
+Play Dumb is a concept in conceptville. understand "dumb play" as play dumb. howto is "go to the Discussion Block for the first time". [discussion block]
 
 Elevator Music is a concept in conceptville. understand "music elevator" as elevator music. howto is "go to the Discussion Block for the first time".
 
 Steal This Book is a concept in conceptville. understand "book this steal" as Steal This Book. howto is "take book bank".
 
-Block Arguments is a concept in conceptville. understand "arguments block" as block arguments. howto is "get rid of one of Art and Phil".
-
 Block Creativity is a concept in conceptville. understand "creativity block" as block creativity. howto is "get rid of one of Art and Phil".
 
-Dutch Treat is a concept in conceptville. understand "treat dutch" as dutch treat. howto is "type TREAT DUTCH around Uncle Dutch".
-
-Show Business is a concept in conceptville. understand "business show" as show business. howto is "Go to the Speaking Plain without eating a Tray B food".
+Block Arguments is a concept in conceptville. understand "arguments block" as block arguments. howto is "get rid of both of Art and Phil".
 
 Coals to Newcastle is a concept in conceptville. understand "new castle to coals" and "newcastle to coals" as Coals to Newcastle. howto is "take song torch".
 
-Brother's Keepers is a concept in conceptville. understand "brother/brothers keeper/keepers" and "keeper/keepers brother/brothers" as Brother's Keepers. howto is "examine the brothers".
+Brother's Keepers is a concept in conceptville. understand "brother/brothers keeper/keepers" and "keeper/keepers brother/brothers" as Brother's Keepers. howto is "examine the brothers". [questions field]
 
-Candidate Dummy is a concept in conceptville. understand "dummy candidate" as Candidate Dummy. howto is "talk to Sly".
-
-Terminal Illness is a concept in conceptville. understand "illness terminal" as terminal illness. howto is "defeat the Insanity Terminal".
+Terminal Illness is a concept in conceptville. understand "illness terminal" as terminal illness. howto is "defeat the Insanity Terminal". [below ground]
 
 section endgame concepts
 
-Ezra Pound is a concept in conceptville. understand "pound ezra" as ezra pound. howto is "wait and observe in Freak Control".
+to say fr-ran:
+	say "wait and listen to the [bad-guy] in Freak Control"
 
-Tucker Max is a concept in conceptville. understand "max tucker" as Tucker Max. howto is "wait and observe in Freak Control".
+Ezra Pound is a concept in conceptville. understand "pound ezra" as ezra pound. howto is "[fr-ran]". [freak control]
 
-King Henry is a concept in conceptville. understand "henry king" as king henry. howto is "wait and observe in Freak Control".
+Tucker Max is a concept in conceptville. understand "max tucker" as Tucker Max. howto is "[fr-ran]".
 
-benefactor is a concept in conceptville. understand "factor benny" and "benny factor" as benefactor. howto is "wait and observe in Freak Control".
+King Henry is a concept in conceptville. understand "henry king" as king henry. howto is "[fr-ran]".
 
-pharisee is a concept in conceptville. understand "see farrah" and "farrah see" as pharisee. howto is "wait and observe in Freak Control".
+benefactor is a concept in conceptville. understand "factor benny" and "benny factor" as benefactor. howto is "[fr-ran]".
 
-fawn over is a concept in conceptville. understand "over fawn" as fawn over. howto is "wait and observe in Freak Control".
+pharisee is a concept in conceptville. understand "see farrah" and "farrah see" as pharisee. howto is "[fr-ran]".
 
-polygraph is a concept in conceptville. understand "graph polly" and "polly graph"  as polygraph. howto is "wait and observe in Freak Control".
+fawn over is a concept in conceptville. understand "over fawn" as fawn over. howto is "[fr-ran]".
 
-taste buds is a concept in conceptville. understand "bud's/buds taste" as taste buds. howto is "wait and observe in Freak Control".
+disorder is a concept in conceptville. understand "order dis" and "dis order" as disorder. howto is "[fr-ran]".
 
-plaintiff is a concept in conceptville. understand "tiff plain" and "plain tiff" as plaintiff. howto is "wait and observe in Freak Control".
+polygraph is a concept in conceptville. understand "graph polly" and "polly graph"  as polygraph. howto is "[fr-ran]".
 
-Howard Dean is a concept in conceptville. understand "dean howard" as howard dean. howto is "wait and observe in Freak Control".
+taste buds is a concept in conceptville. understand "bud's/buds taste" as taste buds. howto is "[fr-ran]".
+
+generate d is a concept in conceptville. Understand "d generate" as generate d. howto is "[fr-ran]".
+
+plaintiff is a concept in conceptville. understand "tiff plain" and "plain tiff" as plaintiff. howto is "[fr-ran]".
+
+Howard Dean is a concept in conceptville. understand "dean howard" as howard dean. howto is "[fr-ran]".
+
+laughingstock is a concept in conceptville. Understand "laughing stock" and "stock laughing" as laughingstock. howto is "talk to the [bad-guy]".
 
 scuzz bucket is a concept in conceptville. understand "scum bucket" and "bucket scuzz/scum" as scuzz bucket. howto is "examine the list bucket".
 
@@ -11050,7 +11070,7 @@ Wire Fraud is a concept in conceptville. understand "fraud wire" as Wire Fraud. 
 
 Admiral Vice is a concept in conceptville. understand "vice admiral" as admiral vice. howto is "[bad-guy] dialog".
 
-The Break Jail is a concept in conceptville. understand "jail break" as Break Jail. howto is "lesser-end dialog".
+The Break Jail is a concept in conceptville. understand "jail break" as Break Jail. howto is "defeat the [bad-guy] without rescuing Idiot Village".
 
 Running Start is a concept in conceptville. understand "start running" as running start. howto is "try going south in Freak Control".
 
