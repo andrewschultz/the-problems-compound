@@ -440,6 +440,7 @@ this is the off-ate rule:
 this is the brownie-ate rule:
 	move favor curry to lalaland;
 	move daze salad to lalaland;
+	move train gravy to lalaland;
 	move much flatter to lalaland;
 
 this is the greater-ate rule:
@@ -1440,7 +1441,7 @@ before listening when accel-ending:
 
 check listening (this is the listening to a thing rule):
 	if noun is fritz:
-		say "Fritz mumbles to himself[if fritz has bear] a bit more happily now he has minimum bear[else] nervously[end if]." instead;
+		say "Fritz mumbles to himself [if fritz has wacker weed]about buying a fancy [activation of clip joint]joint clip to not waste ANY leaves[else if jerk circle is visited]about being [activation of high and dry]dry and high[else if fritz has bear]a bit more happily now he has minimum bear[else]nervously[end if]." instead;
 	if noun is stool toad:
 		say "The Stool Toad gives a few tch-tch-tches under his breath." instead;
 	if noun is Cute Percy:
@@ -1466,7 +1467,7 @@ check listening (this is the listening in a place rule):
 	if player is in idiot village:
 		say "You hear a faint duh-duh-duh. But wait a minute. Maybe it's there to ward off people who think they're a little too smart, and Idiot Village is not so stupid." instead;
 	if player is in jerk circle:
-		say "[if boris is in lalaland]Mercifully silent[else]The [j-co] gabble away about what is cool and what is not, and how they do not participate in any of the second[end if]." instead;
+		say "[if boris is in lalaland]Mercifully silent[else]'[activation of dirty word]Word! Dirty! [activation of clean break]Break CLEAN!'  the [j-co] gabble away. They're trying a bit too hard to show they're not lame[end if]." instead;
 	if player is in surface and mush is in surface:
 		say "The arch makes a slight tapping noise as it dances from side to side." instead;
 	if player is in Soda Club:
@@ -1490,7 +1491,7 @@ check listening (this is the listening in a place rule):
 			say "He says nothing." instead;
 		if noun is list bucket:
 			say "It's probably better to examine it[if list bucket is examined], as you already did[end if]." instead;
-		say "The apparatus emits an occasional work grunt, you suspect, to impress visitors." instead;
+		say "Each machines emits its own individualized [activation of grunt work]work grunt, you suspect, to impress visitors." instead;
 	if player is in out mist:
 		say "You can't hear anyone chasing you. That's good." instead;
 	if player is in airy station:
@@ -1902,6 +1903,9 @@ check attacking:
 		say "Beating that brush would be beating around the brush." instead;
 	if noun is fund hedge:
 		say "'Vandalism is subject to fines and incarceration,' the Labor Child warns you as you take a swing. You [if money seed is off-stage]can probably just take what you need[else]already got the money seed[end if]." instead;
+	if noun is ally stout:
+		say "'[activation of hit the bottle]Bottle the hit!' Ally yells. The Stool Toad rushes in to subdue and gaffle you. 'Doesn't look like he'd be rowdy. Or that it'd do much good. Still...off he goes.'";
+		ship-off A Beer Pound instead;
 	if noun is a logic-game or noun is game shell:
 		say "'Dude! I don't care about the logic games, but they're, like, someone's PROPERTY! And lashing out like that doesn't make you any less, um...' As you wait, you're grabbed from behind. It's some giant toad in a police uniform. Weird. 'There's a place for disrespectful troublemakers like you.'";
 		ship-off Hut Ten instead;
@@ -1945,7 +1949,9 @@ check attacking:
 		ship-off Fight Fair instead;
 	if noun is language machine:
 		say "[if wax is in lalaland]After you were so nice to it? That's rough, man[else]No, it needs compassion, here[end if]." instead;
-	if noun is jerks:
+	if noun is jerks or noun is a client:
+		if allow-swears is true:
+			say "It'd take fifteen minutes to [activation of jerk off]off a jerk, and with seven, you'd be exhausted, and it wouldn't be fun." instead;
 		say "You've been suckered into lashing out before, but these guys--well, you've faced more annoying, truth be told." instead;
 	if noun is ring:
 		say "BONG! You didn't expect anything so musical. Or so robust, or full. But it probably needs you to act on it more subtly." instead;
@@ -3096,6 +3102,7 @@ scuzz bucket	"A scuzz, or scum, bucket is a person who is just plain dirty or di
 shot mug	"The shot mug may look shot, or beaten-up, but mug shots--photographs of apprehended suspects--are generally very unflattering. Hence the flattering portrait of the [bad-guy] on the mug."
 Slicker City	"A city slicker is what rural people may call someone more urban. It's also the name of a planned sequel to PC."
 taste buds	"Taste buds are what you use to experience the sensation of taste."
+train gravy	"A gravy train is a method for getting rich."
 Tucker Max	"Tucker Max was alleged to have spanwed the 'fratire' genre, which features cynical 'tell it like it is' writing full of sex and hedonism and self-centeredness. It's the reading equivalent of sitting next to a guy bragging at a bar for a long time. An intelligent guy, sure, but that just lets him bang on longer. Imagine PG Wodehouse's Bertie Wooster without any heart."
 Wire Fraud	"Wire fraud is a financial crime designed to cheat people out of money."
 Captain Obvious	"Captain Obvious is someone who always states what's readily apparent. Captain has a sarcastic meaning, here." [xyzzy snark]
@@ -5807,7 +5814,7 @@ speaking plain	0	"Oh geez. You can't take this. You really can't. All this obvio
 questions field	3	"Well, of COURSE the Brothers didn't leave a thank-you note. Ungrateful chumps. Next time you help someone, you'll demand a deposit of flattery up front, that's for sure."	"You expected no thanks, but you didn't expect to feel bad about getting no thanks. Hmph. Lesson learned!"	"'You had some wisdom to foist on the Brothers, but if they'd REALLY done their job, they'd have stayed. The heck with them! If they couldn't soak up knowledge from BEING around the [bg], they're hopeless."	"Well! You did something for the brothers, but just in case, you want to make sure the [bad-guy] isn't upset with you for stealing his employees away. You never thought of that before. Maybe if he's mad, you can make it up to him."
 questions field	4	"'Kinda jealous of your brother[bro-s], eh? Not jealous enough to DO anything about it.' The brother[bro-nos]s nod at your sterling logic. 'You gonna waste your whole life here? I can't help everyone. I'm not a charity, you know.' More hard hitting truth! Ba-bam!'[wfk]'Go on, now! Go! What's that? I'm even bossier than the [bad-guy]? Excellent! If I can change, so can you! And the guy bossier than the [bad-guy] is ORDERING you to do something useful with your life!'[paragraph break]They follow your orders. You remember being bossed around by someone dumber than you--and now you turned the tables! Pasta fazoo!"	"'Still guarding Freak Control, eh? Well, I think you'll see you don't need to guard it from ME any more. Take the day off! C'mon, you want to. Hey, [bg] might be mad if you don't.' You're surprised he DOES run off."	"'Hey! Sorry to separate you from the rest of your family. But--well, mind if I go by? I mean, if you let someone in who just wants to help, maybe you'll, like, get rewarded.' The [if bros-left is 1]remaining brother shrugs and leaves[else]two reamining brothers look at each other, shrug, say 'He DID say...' and walk off[end if]. Man! You just had to ask nicely!"
 questions field	5	"'[qfjs] standing around, eh? Nothing to do? Well, I've been out, y'know, DOING stuff. You might try it. Go along. Go. You wanna block me from seeing the [bad-guy]? I'll remember it once he's out of my way.' You're convincing enough, they rush along."	"You've done your share of standing around, but you're pretty sure you did a bit of thinking. 'Look,' you say, 'I just need to get through and get out of here. I'm not challenging anyone's authority. Just, I really don't want to be here.' [bro-consider]. You're free to continue."	"'So, yeah, you're here to guard the [bg] from chumps, right? Well, I'm not one. So you can make way.' And they do. Even though they're all bigger than you. Sweet!"	"'Hey, there! Any chance I can see the [bad-guy]? He seems like someone I should meet,' you say. The brother[bro-s] seem[bro-nos] confused. Usually, anyone trying to get in has a complaint.[paragraph break]'Stay there a minute.' You do. When [he-they-bro] come[bro-nos] back out, you're nodded through. You turn to wave and give a thumbs-up, but nobody's there. Gee, all you had to do was ask nicely!"
-freak control	0	"You speak first. 'Don't pretend you can't see me, with all those reflective panels and stuff.'[paragraph break]He turns around, visibly surprised.[paragraph break]'Leadership, schmeadership,' you say. You're worried for a moment he might call you out on how dumb that sounds. You're open-minded like that. But when he hesitates, you know the good insults will work even better. 'Really. Leaving the cutter cookie right where I could take it, and plow through, and expose you for the lame chump you are. Pfft. I could do better than that.'[paragraph break]He stutters a half-response.[paragraph break]'Maybe that's why [bad-guy-2] hasn't been dealt with, yet. You say all the right things, but you're not forceful enough. Things'll change once I'm in power.'[wfk]He has no response. You point outside. He goes. Settling in is easy--as a new leader of Freak Control, you glad-hand the important people and assure them you're a bit cleverer than the [bad-guy] was.  Naturally, you keep a list of [bad-guy-2]'s atrocities, and they're pretty easy to rail against, and people respect you for it, and from what you've seen, it's not like they could really get together and do anything, so you're making their lame lives more exciting.[wfk]You settle into a routine, as you read case studies of kids a lot like you used to be. Maybe you'd help one or two, if they had initiative...but until then, you'd like to chill and just let people appreciate the wit they always knew you had.[paragraph break]Really, who can defeat you? Anyone of power or consequence is on your side. Even [bad-guy-2] gives you tribute of a cutter cookie now and then. One day, you drop one in Meal Square... but nobody is brave enough to eat one. Well, for a while."	"You speak first. Well, you sigh REALLY loudly first. 'Just--this is messed up. I want to leave.'[paragraph break]'Of course you do,' says the [bad-guy]. 'I don't blame you. If you're not in power here, it's not fun. It's sort of your fault, but not totally. Hey, you actually showed some personality to get here. Just--show me you're worthy of leaving.' You complain--more excitingly than you've ever complained before. Without flattering or insulting the [bad-guy] too much: fair and balanced. You let him interrupt you, and you even interrupt him--but only to agree with his complaints.[wfk]'You're okay, I guess. You seem to know your place. Here, have a trip to the [activation of snipe gutter]Snipe Gutter in Slicker City. Seems like just the place for you. The [bad-guy] pushes a button and gestures to an opening. It's a slide. You complain a bit, but he holds up his hand. 'You'll have a lot more to complain about if you don't go.' You're impressed by this logic, and you only wish you could've stayed longer to absorb more of it, and maybe you could complain even more interestingly. You learn the culture in the Snipe Gutter for a bit, outlasting some veterans, then one day you just get sick of the clueless newbies who don't know what they're doing.[wfk]Back home, people notice a difference. You're still upset about things, but you impress people with it now. You notice other kids who just kind of seem vaguely upset, like you were before the Compound, not even bothering with constructive criticism. They're not worth it, but everywhere you go, you're able to fall in with complainers who complain about such a wide variety of things, especially people too dense to realize how much there is to complain about! You've matured, from..."	"'Hey! It's me!' you yell. [bg] turns. 'You know, I probably skipped a lot of dumb stuff to get here. You think you could be a LITTLE impressed?'[paragraph break][wfk]But he isn't. 'You know? You're not the first. Still, so many people just sort of putter around. You're going to be okay in life.' You two have a good laugh about things--you're even able to laugh at yourself, which of course gives you the right to laugh at people who haven't figured things out yet. Humor helps you deal, well, if it doesn't suck. You realize how silly you were before with all your fears, and you try to communicate that to a few creeps who don't want to be social. But they just don't listen. You'd rather hang around more with-it types, and from now on, you do."	"You speak a bit loudly. 'Hey, man! I heard you could teach me stuff, and I was jealous at first, but I'm ready to learn now.'[paragraph break]'Dude! Everyone says that. It's easy to say. But you better DO it.' You nod vigorously. 'Great,' he continues. 'We could use more attitudes like yours. Tell me what you've been up to. Oh, yes, the points brownie. Say, there's more where that came from. There's some [activation of daze salad]daze salad here. It's, well, you'll be impressed. But first, well, I'm getting a bit tired of Guy Sweet. I think you'd do a bit better than him. Do well enough, and we'll maybe discuss another promotion over some of my sophisticated special cooking.'[wfk][line break]'What's that?'[wfk][line break]'[activation of favor curry]Favor curry.'[paragraph break]Your mouth waters at the thought, but the daze salad you're eating right now already makes you feel things are going to be a lot better. You listen as the [bad-guy] describes your first task: tell Guy Sweet he's nice and all but he deserves a break. You're going to do it. And everyone's going to be happy when you do."
+freak control	0	"You speak first. 'Don't pretend you can't see me, with all those reflective panels and stuff.'[paragraph break]He turns around, visibly surprised.[paragraph break]'Leadership, schmeadership,' you say. You're worried for a moment he might call you out on how dumb that sounds. You're open-minded like that. But when he hesitates, you know the good insults will work even better. 'Really. Leaving the cutter cookie right where I could take it, and plow through, and expose you for the lame chump you are. Pfft. I could do better than that.'[paragraph break]He stutters a half-response.[paragraph break]'Maybe that's why [bad-guy-2] hasn't been dealt with, yet. You say all the right things, but you're not forceful enough. Things'll change once I'm in power.'[wfk]He has no response. You point outside. He goes. Settling in is easy--as a new leader of Freak Control, you glad-hand the important people and assure them you're a bit cleverer than the [bad-guy] was.  Naturally, you keep a list of [bad-guy-2]'s atrocities, and they're pretty easy to rail against, and people respect you for it, and from what you've seen, it's not like they could really get together and do anything, so you're making their lame lives more exciting.[wfk]You settle into a routine, as you read case studies of kids a lot like you used to be. Maybe you'd help one or two, if they had initiative...but until then, you'd like to chill and just let people appreciate the wit they always knew you had.[paragraph break]Really, who can defeat you? Anyone of power or consequence is on your side. Even [bad-guy-2] gives you tribute of a cutter cookie now and then. One day, you drop one in Meal Square... but nobody is brave enough to eat one. Well, for a while."	"You speak first. Well, you sigh REALLY loudly first. 'Just--this is messed up. I want to leave.'[paragraph break]'Of course you do,' says the [bad-guy]. 'I don't blame you. If you're not in power here, it's not fun. It's sort of your fault, but not totally. Hey, you actually showed some personality to get here. Just--show me you're worthy of leaving.' You complain--more excitingly than you've ever complained before. Without flattering or insulting the [bad-guy] too much: fair and balanced. You let him interrupt you, and you even interrupt him--but only to agree with his complaints.[wfk]'You're okay, I guess. You seem to know your place. Here, have a trip to the [activation of snipe gutter]Snipe Gutter in Slicker City. Seems like just the place for you. The [bad-guy] pushes a button and gestures to an opening. It's a slide. You complain a bit, but he holds up his hand. 'You'll have a lot more to complain about if you don't go.' You're impressed by this logic, and you only wish you could've stayed longer to absorb more of it, and maybe you could complain even more interestingly. You learn the culture in the Snipe Gutter for a bit, outlasting some veterans, then one day you just get sick of the clueless newbies who don't know what they're doing.[wfk]Back home, people notice a difference. You're still upset about things, but you impress people with it now. You notice other kids who just kind of seem vaguely upset, like you were before the Compound, not even bothering with constructive criticism. They're not worth it, but everywhere you go, you're able to fall in with complainers who complain about such a wide variety of things, especially people too dense to realize how much there is to complain about! You've matured, from..."	"'Hey! It's me!' you yell. [bg] turns. 'You know, I probably skipped a lot of dumb stuff to get here. You think you could be a LITTLE impressed?'[paragraph break][wfk]But he isn't. 'You know? You're not the first. Still, so many people just sort of putter around. You're going to be okay in life.' You two have a good laugh about things--you're even able to laugh at yourself, which of course gives you the right to laugh at people who haven't figured things out yet. Humor helps you deal, well, if it doesn't suck. You realize how silly you were before with all your fears, and you try to communicate that to a few creeps who don't want to be social. But they just don't listen. You'd rather hang around more with-it types, and from now on, you do."	"You speak a bit loudly. 'Hey, man! I heard you could teach me stuff, and I was jealous at first, but I'm...er...[activation of see if i care]care if I see how you do it?'[paragraph break]'Dude! Everyone says that. Do you mean it?' You nod vigorously. 'Great,' he continues. 'We could use more attitudes like yours. Tell me what you've been up to. Oh, yes, the points brownie. Say, there's more where that came from. But I can't just GIVE you it. You'll need some [activation of train gravy]train gravy to toughen up, then maybe you can appreciate my special [activation of daze salad]daze salad more fully. It's, well, you'll be impressed. But first, well, I'm getting a bit tired of Guy Sweet. I think you'd do a bit better than him. Do well enough, and we'll maybe discuss another promotion over some of my sophisticated special cooking.'[wfk][line break]'What's that?'[wfk][line break]'[activation of favor curry]Favor curry.'[paragraph break]Your mouth waters at the thought, but the daze salad you're eating right now already makes you feel things are going to be a lot better. You listen as the [bad-guy] describes your first task: tell Guy Sweet he's nice and all but he deserves a break. You're going to do it. And everyone's going to be happy when you do."
 
 to say he-they-bro:
 	if bros-left > 1:
@@ -6351,7 +6358,7 @@ instead of doing something with rehearsal dress:
 	say "In this game, you can pretty much only examine the dress."
 
 after printing the locale description for Soda Club when Soda Club is unvisited:
-	say "The bartender calls you over. 'Say, pal! You look new here! And less illun['] than the [activation of punch sucker]Punch Sucker.'[paragraph break]'The Punch Sucker?'[paragraph break]'Yeah. We're kinda obliged to give everyone free alcohol, and we can't kick him out until he complains about only getting the cheap stuff. But hey.";
+	say "The bartender calls you over. 'Say, pal! You look new here! And less illun['] than the [activation of punch sucker]Punch Sucker.'";
 	wfak;
 	say "'Can you give me a break from Liver Lily over there? She's--she's usually pretty interesting, but when she's wearing that rehearsal dress she tends to repeat what she's already said. She's no [activation of hip rose]Hip Rose, but Rose is probably out of your league anyway. By the way, I'm Ally Stout.'"
 
@@ -6463,6 +6470,7 @@ litany of Ally Stout is the table of Ally Stout talk.
 
 table of ast - Ally Stout talk
 prompt	response	enabled	permit
+"The Punch Sucker? Should I know more?"	ally-punch	1	1
 "What've you got, for drinks? Um, non-alcoholic?"	ally-drinks	1	1
 "Got any booze?"	ally-alco	1	0
 "What does On the Rocks mean, anyway? It SOUNDS way cool!"	ally-onrocks	1	1
@@ -6489,7 +6497,8 @@ after printing the name of haha brew when taking inventory:
 
 table of quip texts (continued)
 quip	quiptext
-ally-drinks	"'Well, you wouldn't be ready for the [activation of rummy gin]Rummy Gin or [activation of go rum]Go Rum. If we served it after-hours, of course. If we served it after-hours. But we have Haha Brew and Cooler Wine. Both so watered down, the Stool Toad won't nab you long as you drink it here.'"
+ally-punch	"Whatever we give him, it goes down badly. [activation of punch out]Out Punch, he starts a fight. [activation of punch line]Line Punch, the stupid jokes he tells! [activation of punch ticket]Ticket Punch, he whines he's entitled, or worse, he isn't. And that night he snuck some [activation of punch drunk]drunk punch..."
+ally-drinks	"'Well, you wouldn't be ready for the [activation of rummy gin]Rummy Gin or [activation of go rum]Go Rum. If we served it after-hours, of course. If we served it after-hours. And water's...troubled, in such an exciting place. But we have Haha Brew and Cooler Wine. Both so watered down, the Stool Toad won't nab you long as you drink it here.'"
 ally-alco	"'Haha. No.'"
 ally-onrocks	"He pushes a button on an unseen machine. You hear ice cubes rattle. He holds up a glass, swirls it, and nods meaningfully before putting it away. Duh, now. Maybe you should've asked what Beechwood Aged or something meant, instead."
 ally-but	"'Well, everyone here is a bit smarter and maturer than normal, and anyway, this isn't the high-proof stuff. Plus the Stool Toad, we've paid him off. As long as nobody makes it obvious and walks out with a drink. Then he's pretty awesome. So what the hey.'"
@@ -6507,7 +6516,7 @@ to say here-or-not:
 			say "You pause for a second. You've got quite a record, already. You don't need a fifth tickety. No, you'd better play it cool.[no line break]";
 			continue the action;
 		if current quip is ally-haha:
-			say "'Ah good. If you're laughing that hard at the name, you'd get kicked out like the Punch Sucker.'";
+			say "'Ah good. If you're laughing that hard at the name, you'd get kicked out like the Punch Sucker. Maybe you'll even be refined enough for [activation of brew a plot]a plot brew some day.'";
 			now player has haha brew;
 		else:
 			say "'Let me crank up the [activation of wine-u-gen]Wine-U-Gen...'";
@@ -7997,7 +8006,7 @@ quip	quiptext
 grace-hi	"'That is no matter,' they reply in unison. 'You are welcome here. Whether or not you are the one to repair our Googly Bowl. The [bad-guy] ordered it broken, and it was so.'"
 grace-googly	"'It only contains three of the four vital elements it needs to create transcendent happiness, or at least provide relaxing aromas, so it is useless. The metaphysics would take too long to explain, but trust us.'"
 grace-restore	"'That is not our intention. We are not very charismatic. Nowhere near as charismatic as the [bad-guy]. Really, we just sit around and enjoy classic movies or cult movies without making too many snarky comments. But that's out of favor, thanks to the [bad-guy].'"
-grace-baiter	"'Well, he thinks this whole boring-nice thing is not the way to go. And if we could be boring-nice, we could be without the googly-bowl. Something too about how people should try to make their lives almost as exciting as his, but not as exciting--that'd be like sacrilege against intellect or something. How being nice is nice and all, but...'"
+grace-baiter	"'Well, he thinks this whole boring-nice thing is not the way to go. And if we could be boring-nice, we could be without the googly-bowl now. [activation of grace period]PERIOD, Grace. Something too about how people should try to make their lives almost as exciting as his, but not as exciting--that'd be like sacrilege against intellect or something. How being nice is nice and all, but...'"
 grace-bye	"'Fare well in your journeys.'"
 
 after quipping when qbc_litany is litany of grace:
@@ -8027,7 +8036,7 @@ check going nowhere in scheme pyramid:
 		try going north instead;
 	say "This room is north-south. Maybe once the brat turns ten, he'll have a bigger office, but right now, it's only got the two exits." instead;
 
-The Labor Child is a baiter-aligned person in Scheme Pyramid. "[one of]Some overdressed little brat walks up to you and shakes your hand. 'Are you here to work for me? You look like you have initiative. Not as much as me. The Labor Child. If you think you have business savvy, get a seed from the Fund Hedge.'[or]The Labor Child paces about here, formulating his next business idea.[stopping]"
+The Labor Child is a baiter-aligned person in Scheme Pyramid. "[one of]Some overdressed little brat walks up to you and shakes your hand. 'Are you here to work for me? I hope you have [activation of labor of love]love of labor. Not as much as me. The Labor Child. If you think you have business savvy, get a seed from the Fund Hedge.'[or]The Labor Child paces about here[one of]plotting revenge against the [activation of baby boomer]Boomer Baby who humiliated him in pre-school[or], formulating his next business idea[one of], muttering he's outgrown his [activation of brat army]brat army[or][stopping][stopping].[stopping]"
 
 understand "kid/brat" as Labor Child.
 
@@ -8572,6 +8581,10 @@ banter
 "Uncle Dutch mentions he's not trying to scare people, but if they are scared, that's his problem. All the same, he mentions one truly scary person he had to deal with the other week."
 "Uncle Dutch takes a moment to commend Turk Young's youthful enthusiasm, with which Turk Young takes a moment to commend Uncle Dutch's wisdom."
 "Uncle Dutch mentions things you'd better learn unless you're stupid. Turk Young mentions things you'd better already know if you're smart."
+"'Should I rant about that?' asks Uncle Dutch. '[activation of cry uncle]Uncle, CRY!' says Turk Young."
+"'A voice says, [activation of dutch act]ACT, DUTCH, even though I might kill myself helping people...'"
+"'That's some [activation of dutch reckoning]reckoning, Dutch! More than I thought possible!'"
+"'I'm equally hard on squares who don't drink and punks who drink too much.' / 'That's [activation of dutch courage]COURAGE, Dutch!'"
 "Uncle Dutch and Turk discuss the right amount to be scared to be at your most productive, but if you achieve that, you'd better not feel you have nothing to be scared of."
 "Uncle Dutch complains about lazy kids these days, and Turk Young complains about adults who are have given up on life. They both wind up agreeing initiative in general is a good thing."
 "Uncle Dutch reminds Turk to focus on school, but to remember it's more than school. Turk agrees. 'One day I'll have a job where I can tell people to focus on their job and make it more than a job!'"
@@ -8666,7 +8679,7 @@ check talking to Pusher Penn (this is the drugs trump Penn chats rule):
 		say "Pusher Penn shoos you away. You've done enough business with him." instead;
 
 to give-weed:
-	say "'Here you go. Some wacker weed. Nothing special, nothing I'd trust with an experienced runner. There's a fella down by the Joint Strip on the monthly deep discount plan. Didn't pick up his allotment. Forget his name, too. Always mumbling.' You take the baggie.[line break]";
+	say "'Here you go. Some wacker weed. There's a fella down by the Joint Strip on the monthly deep discount plan. Didn't pick up his allotment. Forget his name, too. Always mumbling. Maybe shouldn't a given him that [activation of weed out]out-weed.' You take the baggie.[line break]";
 	now player has wacker weed;
 
 after quipping when qbc_litany is litany of pusher penn:
@@ -9158,15 +9171,17 @@ prompt	response	enabled	permit
 "That's sad. I wouldn't take that. Well, in theory, at least."	big-theory	0	1
 "[if big-go is talked-thru]So, anything that'd give you an excuse to move on[else]Any way I could give you a reason to take a vacation[end if]?"	big-go	0	1
 "What do you really think of the [bad-guy]?"	big-baiter	0	1
+"What about Brother Foster?"	big-foster	0	1
 "[later-or-thanks]."	big-bye	3	1
 
 table of quip texts (continued)
 quip	quiptext
-big-hi	"'Not really. But it is my duty. The [bad-guy] dictates it.'"
-big-duty	"'Well, he kind of explained to me I was kind of stupid. Which I am. But he sort of made me laugh when he said it. And nobody ever did that. And he needs to prod me less to laugh now, specially now I've been rescued from Idiot Village a while. He always has smart stuff to say.'"
+big-hi	"'Not really. But it is my duty. The [bad-guy] and [bfa] dictated it.'"
+big-duty	"'Well, they explained it was what I was best at. I asked what else and they laughed. Until I had to laugh. I forget why. But apparently I'm not good at laughing at myself. As good as he is. At himself, or me. But he always has smart stuff to say.'"
 big-theory	"'It's helping me, though. I'm just not smart enough to figure out why.'"
 big-go	"'Well, if you could help me feel smart. I mean, you seem smart, but I dunno if you could help me feel smart. It's like I'd like a book, not boring like a dictionary or too fluffy. But one that just helps me, you know?'"
 big-baiter	"'I figure I'll appreciate him more once or if I ever get smarter. He'd help me, but he's too busy.'"
+big-foster	"'[bro-fo]. I'm sure he had a clever reason for my own good.'"
 big-bye	"'Good-bye.'"
 
 after quipping when qbc_litany is litany of Brother Big:
@@ -9195,15 +9210,17 @@ prompt	response	enabled	permit
 "Maybe there's a quick fix?"	soul-fix	0	1
 "How's him being self-absorbed better than the same from you?"	soul-how	0	1
 "What if I found something to help your malaise or ennui or whatever?"	soul-what-if	0	1
+"What about Brother Foster?"	soul-foster	0	1
 "[later-or-thanks]."	soul-bye	3	1
 
 table of quip texts (continued)
 quip	quiptext
-soul-why	"'Well, it all started when the [bad-guy] proved to me he had more soul than me, and he enjoyed life more, too. He said he'd give me weekly lessons and all I had to do was guard Freak Control to the north.'"
+soul-why	"'Well, it all started when [bfa] took me to the [bad-guy] to show what REAL soul was, and how he enjoyed life more, too. He said he'd give me weekly lessons and all I had to do was guard Freak Control to the north.'"
 soul-live	"'The [bad-guy] made it pretty clear that's what I should do, in an ideal world, and it'd help me, but it might not help the people I got out and saw. It'd be selfish. Well, he helped me get out of Idiot Village, and apparently the rest's up to me.'"
 soul-fix	"'Oh, if there was, I would've found it. And if I haven't, well, that's my own fault. For being more self-absorbed than I should be. It's totally different from the [bad-guy] being self-absorbed.'"
 soul-how	"'Well, when he's self-absorbed, it's really thinking about others, because they have fun hearing him talk about himself. Me, not so much. The only quick fixes are probably illegal and unhealthy. Woe is me!'"
 soul-what-if	"'Oh, it would be nice. But it would be too much to ask. Something to relieve the darkness and burden. I could never find it myself, though.'"
+soul-foster	"'[bro-fo]. It made me upset.'"
 soul-bye	"'Best of luck. It's nothing personal, blocking you, you know. It's not like I'm blocking you on Facebook or something.'"
 
 after quipping when qbc_litany is litany of Brother Soul:
@@ -9233,16 +9250,38 @@ prompt	response	enabled	permit
 "The really smart people, they can be really manipulative. I been there."	blood-manip	0	1
 "Anything that might help you calm down?"	blood-calm	0	1
 "Well, hey, you got through all my questions without getting mad at me. That's a start."	blood-all	0	1
+"What about Brother Foster?"	blood-foster	0	1
 "[later-or-thanks]."	blood-bye	3	1
 
 table of quip texts (continued)
 quip	quiptext
-blood-hi	"'Yeah. Well, it started the first time I met the [bad-guy]. He cracked a few self-depreciating jokes then gave me a few to laugh at. But I got all mad. Took a swing. He said he bet he wasn't the first I lashed out at. He was right.'"
+blood-hi	"'Yeah. Well, it started the first time Brother Foster introduced us to the [bad-guy]. He cracked a few self-depreciating jokes then gave me a few to laugh at. But I got all mad. Took a swing. He said he bet he wasn't the first I lashed out at. He was right.'"
 blood-maybe	"'Maybe not, but it's ENOUGH me, you know? And the [bad-guy] said maybe some inactivity might help me. Only lash out at people who deserve it. Like trespassers trying to bug him. If I hung around smart people, I might get angry at them. So I'm sort of more useful here.'"
 blood-manip	"'Yeah. The [bad-guy] says [bad-guy-2] can be even more manipulative. Makes me all agitated about what happens if I ever lose this post.'"
 blood-calm	"'Well, the [bad-guy] joked that even a stupid spiritual healing stone might not help me. If those things worked at all. Which they can't. I better not believe it since he took me away from Idiot Village.'"
+blood-foster	"'[bro-fo]. It made me mad.'"
 blood-all	"'Yeah. Not like they were really challenging or edgy, though. I mean, it feels nice to talk and stuff but the [bad-guy] said questions like yours weren't real nitty-gritty. No offense.'"
 blood-bye	"'Later. You, um, yeah, seem okay.'"
+
+to say bfa:
+	say "[activation of brother foster]Brother Foster"
+	if foster-yet is false:
+		now foster-yet is true;
+		choose row with response of blood-foster in table of b3;
+		now enabled entry is 1;
+		choose row with response of soul-foster in table of b2;
+		now enabled entry is 1;
+		choose row with response of big-foster in table of b1;
+		now enabled entry is 1;
+
+to say bro-fo:
+	say "He left us in Idiot Village after meeting the [bad-guy]. Cause we were getting jealous of him, and all he could do, and we--he--didn't need that"
+		choose row with response of blood-foster in table of b3;
+		now enabled entry is 0;
+		choose row with response of soul-foster in table of b2;
+		now enabled entry is 0;
+		choose row with response of big-foster in table of b1;
+		now enabled entry is 0;
 
 after quipping when qbc_litany is litany of Brother Blood:
 	if current quip is blood-hi:
@@ -9423,6 +9462,7 @@ gad-act
 "The [bad-guy] snorts at [activation of taste buds]Bud's taste."
 "The [bad-guy] mutters plans about the monthly [activation of cruise control]Control Cruise coming up, a nice support group for people almost tired of being in power."
 "'Ally, Inform!' the [bad-guy] says to nobody in particular."
+"'[activation of busy work]Work...busy...work...busy,' says the [bad-guy], pacing back and forth."
 "'[activation of infomania]Mania Info. Always good to have more. Well, until I get bored of it.'"
 "'We need to [activation of generate d]generate D, here, against [bad-guy-2]!'"
 "'[activation of plaintiff]Tiff? Plain,' the [bad-guy] quips. 'So defensive about it, too.'"
@@ -10273,6 +10313,7 @@ biglaff	anyrule
 "attacking anyone? Or the torch?"	--
 "DIGging twice in Variety Garden?"	--
 "DROPping the dreadful penny, reasoning circluar or other things?"	--
+"going east when Officer Petty is still in Judgment Pass?"	--
 "giving the condition mint to various non-jerks, like Volatile Sal or Buddy Best?"
 "cussing when you asked for no profanity?"	--
 "cussing in front of certain people, especially authority figures (twice for a 'bad' ending)?"	--
@@ -10477,11 +10518,11 @@ this is the bad-end-see rule:
 
 table of bad end listing
 badroom	howto
-A Beer Pound	"Get your fifth ticket in A Beer Pound"
+A Beer Pound	"Get your fifth ticket in A Beer Pound, or attack Ally Stout"
 Criminals' Harbor	"Give a smokable to an officer, attack a woman, or attack machines in Freak Control"
 In-Dignity Heap	"Careless swearing around the [bad-guy], Officer Petty or the Stool Toad"
 Fight Fair	"Attacking other people"
-Hut Ten	"Vandalizing things like the Insanity Terminal, Game Shell, Thoughts Idol,  or a logic game"
+Hut Ten	"Vandalizing things like the Insanity Terminal, Game Shell, Thoughts Idol, or a logic game"
 Maintenance High	"Choke on the gagging lolly"
 Punishment Capitol	"Attacking the [bad-guy], Officer Petty, or the Stool Toad"
 Shape Ship	"Get your fifth ticket outside A Beer Pound"
@@ -10544,7 +10585,7 @@ this is the swear-see rule:
 	now swearseen is true;
 	say "[2da]The Baiter Master is the Complex Messiah.";
 	say "[2da]Buster Ball is Hunter Savage.";
-	say "[2da]The Jerk Circle is the Groan Collective. Also, you feel a bit more foreboding, and everyone sheds a jerk-tear.";
+	say "[2da]The Jerk Circle is the Groan Collective. Also, you feel a bit more foreboding, and everyone sheds a jerk-tear, and if you attack them, you get a 'special' flip.";
 	say "[2da]The Business Monkey's efforts are half-brained or [if allow-swears is true]ass[else]posterior[end if]ed.";
 	say "[2da]If you actually swear, obscenely or mildly (BOTHER)--there's a small inner dialogue for swearing with swears off[line break]";
 	say "[2da]A different reaction to repeatedly playing the logic puzzles[line break]";
@@ -11104,6 +11145,8 @@ Black Mark is a concept in conceptville. understand "mark black" as black mark. 
 
 Jerk Around is a concept in conceptville. Understand "around jerk" as jerk around. howto is "enter the main area with profanity on".
 
+Jerk Off is a concept in conceptville. undertstand "off jerk" as jerk off. howto is "attack a jerk in swearing-on mode".
+
 Tear-Jerk is a concept in conceptville. Understand "jerk-tear" and "tear jerk" and "jerk tear" as Tear-Jerk. howto is "solve the [j-co]['] puzzle".
 
 section judgment pass concepts
@@ -11159,6 +11202,9 @@ section endgame concepts
 to say fr-ran:
 	say "wait and listen to the [bad-guy] in Freak Control"
 
+to say fr-pb:
+	say "visit Freak Control after eating the Points Brownie"
+
 Admiral Vice is a concept in conceptville. understand "vice admiral" as admiral vice. howto is "[bad-guy] dialog".
 
 beholder of the eye is a concept in conceptville. Understand "eye the of beholder" as beholder of the eye. howto is "examine the Witness Eye".
@@ -11175,13 +11221,13 @@ Crisis Energy is a concept in conceptville. understand "energy crisis" as Crisis
 
 Cruise Control is a concept in conceptville. Understand "control cruise" as cruise control. howto is "[fr-ran]".
 
-daze salad is a concept in conceptville. understand "salad days/daze" as daze salad. howto is "visit Freak Control after eating the Points Brownie".
+daze salad is a concept in conceptville. understand "salad days/daze" as daze salad. howto is "[fr-pb]".
 
 disorder is a concept in conceptville. understand "order dis" and "dis order" as disorder. howto is "[fr-ran]".
 
 Ezra Pound is a concept in conceptville. understand "pound ezra" as ezra pound. howto is "[fr-ran]". [freak control]
 
-favor curry is a concept in conceptville. understand "curry favor" as daze salad. howto is "visit Freak Control after eating the Points Brownie".
+favor curry is a concept in conceptville. understand "curry favor" as daze salad. howto is "[fr-pb]".
 
 fawn over is a concept in conceptville. understand "over fawn" as fawn over. howto is "[fr-ran]".
 
@@ -11216,6 +11262,8 @@ The shot mug is a concept in conceptville. understand "mug shot" as shot mug. ho
 Slicker City is a concept in conceptville. understand "city slicker" as Slicker City. howto is "[bad-guy] dialog".
 
 taste buds is a concept in conceptville. understand "bud's/buds taste" as taste buds. howto is "[fr-ran]".
+
+train gravy is a concept in conceptville. understand "gravy train" as taste buds. howto is "[fr-pb]".
 
 Tucker Max is a concept in conceptville. understand "max tucker" as Tucker Max. howto is "[fr-ran]".
 
