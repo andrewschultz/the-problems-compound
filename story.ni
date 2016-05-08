@@ -1910,6 +1910,8 @@ check attacking:
 	if player is in Freak Control and noun is scenery:
 		say "'Dude. REALLY? It's not like I don't have spares,' says the [bad-guy] as you pound away. 'No damage done? No. But it's the intent that matters. I don't know how you got in here but you'll be going somewhere far away.'";
 		ship-off Criminals' Harbor instead;
+	if noun is Percy:
+		say "You can't get close to him. '[activation of play it cool]Cool it! Play!' he mocks you." instead;
 	if noun is Baiter:
 		say "Of course, with all those screens, he saw you well before you got close. He whirls and smacks you. Stunned, you offer no resistance as guards appear and take you away to where those who commit the worst crimes... 'Dude! If you wanted to talk, just TALK. I mean, you can't be too boring, but don't be all...' You don't hear the rest.";
 		ship-off Punishment Capitol instead;
@@ -2969,12 +2971,13 @@ View of Points	"Points of view are opinions."
 
 table of explanations (continued) [this is stuff referred to tangentially, concepts but not actually objects in the game] [xadd]
 exp-thing	exp-text	exp-anno
-turn of phrase	"A turn of phrase is clever wording. A phrase of turn is, well, what's at the command prompt, or, any wording."
-wait your turn	"This means not to do anything til someone else goes first. But in this case the game wants you to turn your wait into something else."
 abuse testing	"Abuse testing means trying to break things with stuff a tester wouldn't usually try, or that they know has broken their own game. Testing abuse is--well, most abuse can feel a bit testing, or trying."
 clouds of suspicion	"Clouds of suspicion are a simile for mistrust."
 cut a deal	"To cut a deal is to make a business arrangement, often favorably. To deal a cut is just to knife someone."
 Force of Habit	"Force of habit is what causes you to do something with minimal thinking, for better or worse."
+turn of phrase	"A turn of phrase is clever wording. A phrase of turn is, well, what's at the command prompt, or, any wording."
+a u-turn	"A u-turn is when a car swivels in a huge circle to reverse direction. So if something tries to turn you, it bounces back."
+wait your turn	"This means not to do anything til someone else goes first. But in this case the game wants you to turn your wait into something else."
 wave a flag	"To wave a flag is to give up. To flag something is to note it as particularly productive or unproductive."
 Buster Ball	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure." [the 2 bad guys]
 Hunter Savage	"A savage hunter is, well, someone with no mercy. Yup, I like the 'dirty' tangential bad guy better, too."
@@ -2983,7 +2986,6 @@ Nonsense No	"No-nonsense means, well, not taking any silliness." [xyzzy snark]
 Captain Obvious	"Captain Obvious is someone who always states what's readily apparent. Captain has a sarcastic meaning, here."
 Comedy of Errors	"A comedy of errors is so much going wrong it's funny. Errors of comedy would be so much wrong there's nothing to laugh at."
 Spelling Disaster	"Disaster spelling is, well, consonants clumped together. Spelling disaster is leading to bad news."
-u-turn	"A u-turn is when a car swivels in a huge circle to reverse direction. So if something tries to turn you, it bounces back."
 touch base	"To touch base is to get back to someone or return their call, especially if it's been a while. Versus a base touch, base being mean, so it's a bit more creepy."
 poke fun	"To poke fun is to make a joke, but poke can mean a lot of things--putter around, meddle, or maybe poke a friend to get their attention."
 Compound Problems	"Compound problems are problems that aren't simple or can't be dealt with simply, or that build together to leave someone totally overwhelmed."
@@ -3034,7 +3036,9 @@ Go Rum	"A rum go is an unforeseen unusual experience, as opposed to 'GO' anythin
 Hip Rose	"Rose hips are ingredients found in tea, which is too non-alcoholic for the Soda Club. Hip is, of course, cool or desirable or with-it."
 Punch Sucker	"A sucker punch is an unexpected hit."
 Wine-U-Gen	"Genuine is, well, real and true. Both Ally Stout and his drinks are superficial, as wine is generally not made by machine."
-character assassination	"Character assassination is an attempt to tarnish someone's good reputation."
+Character Assassination	"Character assassination is an attempt to tarnish someone's good reputation."
+Play it Cool	"To play it cool is not to lose your temper. Of course, Percy's chase may make you want to lose your temper."
+Sweetheart Deal	"A sweetheart deal is something that works very well for both sides, often obtained unethically. Telling someone to deal often means they have to settle for being ripped off."
 career threatening	"Something career threatening may risk not only your job but your ability to get other equal or better jobs. A threatening career is--well, a bit of a racket."
 scofflaw	"A scofflaw is someone who breaks minor rules. Perhaps they jaywalk or litter."
 venturesome	"Venturesome means willing to go places."
@@ -7008,9 +7012,8 @@ check going in chipper wood when p-c is false:
 		say "You can go east or west." instead;
 
 after going when player was in chipper wood and Cute Percy is in chipper wood:
-	say "'Oops, maybe some other time,' Percy's taunt echos.";
+	say "'Not clever enough to catch me? [activation of sweetheart deal]Deal, sweetheart!' Percy's taunt echos.";
 	continue the action;
-
 
 you-y is a number that varies. you-x is a number that varies.
 ac-y is a number that varies. ac-x is a number that varies.
@@ -8756,7 +8759,7 @@ best-bye	"'Not very curious of you there. I'm an interesting fella, yet you...'"
 
 check going west in Questions Field:
 	if Reasoning Circular is not off-stage:
-		say "Buddy Best has seen enough of you. Hmm, come to think of it, you've seen enough of Buddy Best. You're surprised he even gave you the Reasoning Circular." instead;
+		say "As you're about to enter, a voice from a hidden loudspeaker booms 'Get better? Better GET!'[paragraph break]Buddy Best has seen enough of you. Hmm, come to think of it, you've seen enough of Buddy Best. You're surprised he even gave you the Reasoning Circular, and you proably couldn't explain why you [if player has circular]haven't used it yet[else]gave it to Officer Petty[end if], anyway." instead;
 
 after quipping when qbc_litany is table of Buddy Best talk:
 	if current quip is best-law:
@@ -8768,7 +8771,7 @@ after quipping when qbc_litany is table of Buddy Best talk:
 		terminate the conversation;
 		say "Buddy waves his hands to change the subject. 'Well, I don't want to waste any more of your time,' he says, with fake humility not meant to be convincing. You freeze.";
 		wfak;
-		say "[line break]'Negotiator, eh? Standing your ground?' Buddy Best shoves something in your hands as he pushes you out. 'It's, well, stuff I could tell you personally, but I don't want to waste your time. I'm sure you're nice once I get to know you even if you're not as nice as [bg] once you get to know him, but this is real efficient self improvement stuff. I'm sure you're smart enough to understand. [']Cause you probably should've understood it a few years ago.'";
+		say "[line break]'Negotiator, eh? Standing your ground? I'm sure you're nice once I get to know you even if you're not as nice as [bg] once you get to know him, but this is real efficient self improvement stuff. I'm sure you're smart enough to understand. [']Cause you probably should've understood it a few years ago. Here, I don't want to waste any more of your time.' Buddy Best hands you something as he pushes you out.";
 		wfak;
 		say "[line break]Well, it's something. Which is more than you expected. Generally, obnoxious fast-talkers wound up taking something from YOU after a short, loud, fast dialog. You're not sorry you had no chance to say good-bye.";
 		now player has the Reasoning Circular;
@@ -10897,12 +10900,6 @@ conceptville is a room in meta-rooms. "You should never see this. If you do, it 
 
 section misc concept(s)
 
-a turn of phrase is a concept in conceptville. understand "phrase of turn" as turn of phrase. howto is "empty command".
-
-wait your turn is a concept in conceptville. understand "turn your wait" as wait your turn. howto is "wait".
-
-a u-turn is a concept in conceptville. understand "u turn" as u-turn. howto is "turn an inanimate object".
-
 abuse testing is a concept in conceptville. understand "testing abuse" as abuse testing. howto is "credits".
 
 clouds of suspicion is a concept in conceptville. understand "suspicion of clouds/cloud" and "cloud of suspicion" as clouds of suspicion. howto is "X U".
@@ -10910,6 +10907,12 @@ clouds of suspicion is a concept in conceptville. understand "suspicion of cloud
 cut a deal is a concept in conceptville. understand "deal a cut" as cut a deal. howto is "cut any inanimate thing before Freak Control".
 
 Force of Habit is a concept in conceptville. understand "habit of force" as force of habit. howto is "attack something inanimate you don't get arrested for".
+
+turn of phrase is a concept in conceptville. understand "phrase of turn" as turn of phrase. howto is "empty command".
+
+a u-turn is a concept in conceptville. understand "u turn" as u-turn. howto is "turn an inanimate object".
+
+wait your turn is a concept in conceptville. understand "turn your wait" as wait your turn. howto is "wait".
 
 wave a flag is a concept in conceptville. Understand "flag a wave" and "flag wave" as wave a flag. howto is "wave". [?? wave flag]
 
@@ -11035,6 +11038,10 @@ Fish for a Compliment is a concept in conceptville. understand "compliment for a
 Well Done is a concept in conceptville. Understand "done well" as well done. howto is "try entering the Disposed Well".
 
 character assassination is a concept in conceptville. understand "assassination character" as character assassination. howto is "visit Chipper Wood". [chipper wood]
+
+Play it Cool is a concept in conceptville. understand "cool it play" as play it cool. howto is "attack Cute Percy".
+
+Sweetheart deal is a concept in conceptville. Understand "deal sweetheart" as sweetheart deal. howto is "run from Chipper Wood before catching Cute Percy".
 
 Black Mark is a concept in conceptville. understand "mark black" as black mark. howto is "examine quiz pop". [jerk circle]
 

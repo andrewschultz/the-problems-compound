@@ -91,17 +91,17 @@ sub checkOrder
     if ($a =~ /xadd/) { <A>; $expls = 1; next; }
     if ($a =~ /\[cv\]/) { <A>; $concs = 1; next; }
 	if ($expls) { chomp($a); $a =~ s/\t.*//g; push (@ex, $a); next; }
-	if (($concs) && ($a =~ /concept.in/)) { chomp($a); $a =~ s/is a .*concept.*//g; push (@co, $a); next; }
+	if (($concs) && ($a =~ /concept.in/)) { chomp($a); $a =~ s/ is a .*concept.*//g; push (@co, $a); next; }
   }
-  
+
   for (0..$#ex)
   {
-    print "$_: @ex[$_] vs @co[$_]\n";
+    #print lc(@ex[$_]) . " =? " . lc(@co[$_]) . "\n";
     if (lc(@ex[$_]) ne lc(@co[$_]))
 	{
-	  #print "$_: @ex[$_] vs @co[$_]\n";
 	  $ordFail++;
-	}
+      print "$_ ($ordFail): @ex[$_] vs @co[$_]\n";
+	} else { }
   }
   if ($ordFail) { print "$ordFail failed, but it's probably less.\n"; } else { print "Ordering all matched.\n"; }
 }
