@@ -2992,133 +2992,133 @@ turn of phrase	"A turn of phrase is clever wording. A phrase of turn is, well, w
 a u-turn	"A u-turn is when a car swivels in a huge circle to reverse direction. So if something tries to turn you, it bounces back."
 wait your turn	"This means not to do anything til someone else goes first. But in this case the game wants you to turn your wait into something else."
 wave a flag	"To wave a flag is to give up. To flag something is to note it as particularly productive or unproductive."
-Buster Ball	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure." [the 2 bad guys]
-Hunter Savage	"A savage hunter is, well, someone with no mercy. Yup, I like the 'dirty' tangential bad guy better, too."
-acceptable	"Acceptable means good enough. Though sometimes it might not, if someone is just being diplomatic. Able, Except means you're pretty good but have big flaws. So both can feel like backhand compliments."
-Nonsense No	"No-nonsense means, well, not taking any silliness." [xyzzy snark]
-Captain Obvious	"Captain Obvious is someone who always states what's readily apparent. Captain has a sarcastic meaning, here."
-Comedy of Errors	"A comedy of errors is so much going wrong it's funny. Errors of comedy would be so much wrong there's nothing to laugh at."
-Spelling Disaster	"Disaster spelling is, well, consonants clumped together. Spelling disaster is leading to bad news."
-touch base	"To touch base is to get back to someone or return their call, especially if it's been a while. Versus a base touch, base being mean, so it's a bit more creepy."
-poke fun	"To poke fun is to make a joke, but poke can mean a lot of things--putter around, meddle, or maybe poke a friend to get their attention."
-Compound Problems	"Compound problems are problems that aren't simple or can't be dealt with simply, or that build together to leave someone totally overwhelmed."
-Games Mind	"Mind games are messing with people's mind with lies or half-truths. A games mind might be more inclined to abstract puzzles." [start of game]
+Compound Problems	"Compound problems are problems that aren't simple or can't be dealt with simply, or that build together to leave someone totally overwhelmed." [begin smart street stuff]
+a Games Mind	"Mind games are messing with people's mind with lies or half-truths. A games mind might be more inclined to abstract puzzles." [start of game]
 Games Confidence	"Confidence games are where someone gains someone else's trust to rip them off. It can be as simple as a shell game or as complex as an investment scheme. Of course, Alec has confidence with logic games but not much else."
 good egg	"A good egg is a nice person. To egg, or egg on, is to bait someone into doing something you want them to."
 beat off	"To beat off is to, well, pleasure oneself. People who are off-beat are often accused of this, among other things, in high school."
+Buster Ball	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure."
+Hunter Savage	"A savage hunter is, well, someone with no mercy. Yup, I like the 'dirty' tangential bad guy better, too."
+acceptable	"Acceptable means good enough. Though sometimes it might not, if someone is just being diplomatic. Able, Except means you're pretty good but have big flaws. So both can feel like backhand compliments."
 Animal Welfare	"Animal welfare is concern for animals who often can't help themselves. Welfare has a slightly perjorative definition in the US these days, e.g. people on welfare are lazy, or someone giving it is very generous indeed, more than they need to be."
-nose picking	"Nose picking is -- not the best habit. A picking nose would be a discerning sense of smell."
 poor taste	"Poor taste means potentially offensive or classless."
 dirt nap	"Taking a dirt nap means dying."
 work of art	"A work of art is something nice and beautiful. The art of work is--well, the term can be abused to make work seem more exciting than it is."
 enough man	"Man enough means being able to stand up for yourself. Okay, it's a bit sexist, but people who say it mean to be annoying. 'Enough, man' just means stop it."
 brush up	"To brush up is to refresh your memory of something."
-fish out of water	"A fish out of water is someone or something out of place."
-Boy Howdy	"Boy Howdy is a colloquial expression of surprise."
-Grammar Police	"Grammar police are people who argue trivial grammar points when something is clear, or there's a much bigger cogent argument. In the Stool Toad's case, he deliberately uses bad grammar for emphasis, like on a 'hard-boiled' cop show."
-strike a balance	"To strike a balance is to find a satisfactory compromise. A strike can alo mean--well, your balance went on strike, or you'd fall over."
+nose picking	"Nose picking is -- not the best habit. A picking nose would be a discerning sense of smell." [tension surface]
+apple pie order	"Apple-Pie Order means very well organized." [start of meal square stuff]
+Bowled Over	"Bowled over means unable to deal with things. Over-bold means too confident."
+defeat	"Defeat is, well, a clue you'll lose the game existentially if you eat any of the foods on Tray B."
+face off	"An off face probably doesn't look right, but a face off is when you challenge someone, like the game forces you to in the accelerated Tray B endings."
+Forgive	"Forgive is a clue as to whom to give the mint to, but the person must be forgivable."
+Growing Pains	"Growing pains are temporary setbacks that help you get going. Pain's growing is just a complaint."
+loaf around	"To loaf around is to wait with no real purpose."
 pig out	"To pig out is to eat everything you see. The reverse is an admonishment to leave."
 Shame No	"No shame means a person isn't embarrassed by anything to the point where it's dangerous. Shame? No! is more, there's a healthier way to look at things than through shame."
-Forgive	"Forgive is a clue as to whom to give the mint to, but the person must be forgivable."
-apple pie order	"Apple-Pie Order means very well organized."
+Snap Decision	"A decision made reflexively, versus a conscious decision to snap e.g. just quit holding back."
+Spur of the Moment	"Spur of the moment means you're finally pushed to do something. If you wonder if it's the moment of the spur , you're probably thinking too hard for it to be the spur of the moment."
+strike a balance	"To strike a balance is to find a satisfactory compromise. A strike can alo mean--well, your balance went on strike, or you'd fall over."
 Thought for food	"Food for thought is something to think about."
 Tray S	"Stray. In other words, it strayed from Meal Square."
 Tray T	"A tea tray. To go with food."
 Tray X	"It is an ex-tray."
-loaf around	"To loaf around is to wait with no real purpose."
-defeat	"Defeat is, well, a clue you'll lose the game existentially if you eat any of the foods on Tray B."
-Snap Decision	"A decision made reflexively, versus a conscious decision to snap e.g. just quit holding back."
-Spur of the Moment	"Spur of the moment means you're finally pushed to do something. If you wonder if it's the moment of the spur , you're probably thinking too hard for it to be the spur of the moment."
-face off	"An off face probably doesn't look right, but a face off is when you challenge someone, like the game forces you to in the accelerated Tray B endings."
-Bowled Over	"Bowled over means unable to deal with things. Over-bold means too confident."
-Growing Pains	"Growing pains are temporary setbacks that help you get going. Pain's growing is just a complaint."
+fish out of water	"A fish out of water is someone or something out of place."
+Boy Howdy	"Boy Howdy is a colloquial expression of surprise." [start of pressure pier]
+Grammar Police	"Grammar police are people who argue trivial grammar points when something is clear, or there's a much bigger cogent argument. In the Stool Toad's case, he deliberately uses bad grammar for emphasis, like on a 'hard-boiled' cop show."
 Bum Beach	"A beach bum is someone who wanders on the beach. Maybe he lives there in a shack too."
 sleeper cell	"A group of people who blen into a community until they can commit an act of terrorism."
 Dream Ticket	"A pair of candidates who, running together, have extremely broad appeal they wouldn't have alone. In Alec's dreams, he's often ganged up on by two people or groups who triangulate him rather differently."
 hoth	"High on the hog means living wealthily. To hog the high would be if Fritz didn't share his, um, stuff."
 joint role	"A joint role is something done together. Rolling a joint is the act of creating a marijuana cigarette."
 puff piece	"A puff piece is a fawning newspaper article that makes someone out to be better than they really are. A peace puff from smoking marijuana is (we can assume) less socially motivated."
+bullfrog	"A bullfrog is not quite a toad. And bull means nonsense. The Stool Toad is probably in no danger of being mistaken for Frog or Toad from Arnold Lobel's nice books." [start of joint strip]
 Double Jeopardy	"Double jeopardy is being tried for the same crime twice. Making your jeopardy double is just putting you at twice the risk."
-Trust Brain	"A brain trust is a group of people that help make a decision. A trust-brain, though not an English phrase, might mean a mind that can't make its own decisions."
 Moral Support	"Moral support is helping someone even if you don't have concrete advice. SUPPORT MORAL is, well, a slogan that pushes people around."
-bullfrog	"A bullfrog is not quite a toad. And bull means nonsense. The Stool Toad is probably in no danger of being mistaken for Frog or Toad from Arnold Lobel's nice books."
-Total T	"Teetotal means alcohol-free."
-Party T	"A tea party is usually non-alcoholic, and people mind their manners. Well, unless it's the political sort, but I won't touch that any further. I probably said too much, already."
-Rummy Gin	"Gin Rummy is a card game, generally not the sort associated with wild binge drinking."
-Go Rum	"A rum go is an unforeseen unusual experience, as opposed to 'GO' anything which indicates general motivation."
+Trust Brain	"A brain trust is a group of people that help make a decision. A trust-brain, though not an English phrase, might mean a mind that can't make its own decisions."
+Go Rum	"A rum go is an unforeseen unusual experience, as opposed to 'GO' anything which indicates general motivation." [start of soda club]
 Hip Rose	"Rose hips are ingredients found in tea, which is too non-alcoholic for the Soda Club. Hip is, of course, cool or desirable or with-it."
+Party T	"A tea party is usually non-alcoholic, and people mind their manners. Well, unless it's the political sort, but I won't touch that any further. I probably said too much, already."
 Punch Sucker	"A sucker punch is an unexpected hit."
+Rummy Gin	"Gin Rummy is a card game, generally not the sort associated with wild binge drinking."
+Total T	"Teetotal means alcohol-free."
 Wine-U-Gen	"Genuine is, well, real and true. Both Ally Stout and his drinks are superficial, as wine is generally not made by machine."
-Character Assassination	"Character assassination is an attempt to tarnish someone's good reputation."
+Fish for a Compliment	"To fish for a compliment is to try to manipulate someone into saying something nice." [start of disposed well]
+Well Done	"Well done means good job, but 'done' is also a synonym for dead, because you'd fall down the well if you tried to enter it."
+Character Assassination	"Character assassination is an attempt to tarnish someone's good reputation." [start of chipper wood]
 Play it Cool	"To play it cool is not to lose your temper. Of course, Percy's chase may make you want to lose your temper."
 Sweetheart Deal	"A sweetheart deal is something that works very well for both sides, often obtained unethically. Telling someone to deal often means they have to settle for being ripped off."
-career threatening	"Something career threatening may risk not only your job but your ability to get other equal or better jobs. A threatening career is--well, a bit of a racket."
-scofflaw	"A scofflaw is someone who breaks minor rules. Perhaps they jaywalk or litter."
-venturesome	"Venturesome means willing to go places."
-Black Mark	"A black mark is something indicating bad behavior."
+Black Mark	"A black mark is something indicating bad behavior." [start of jerk circle]
 jerk around	"To jerk someone around is to pester them physically or mentally."
 tear-jerk	"The jerks['] tears may seem a bit fake, and a tear-jerker is something that tries to manipulate you into crying."
-Determined Bound	"Bound and determined means you're set on doing something. A determined bound is set to prevent you from doing something."
-Play Dumb	"To play dumb is to pretend you don't know something you do, to avoid criticism or to catch someone off-guard. Of course, Phil and Art, after saying this, treat you like you're kind of dumb. Or you can't even ask the name of the play."
-Fish for a Compliment	"To fish for a compliment is to try to manipulate someone into saying something nice."
-Well Done	"Well done means good job, but 'done' is also a synonym for dead, because you'd fall down the well if you tried to enter it."
-Elevator Music	"elevator music is soft, boring, inoffensive music that plays in elevators. Phil and Art want the play to be a bit more exciting."
-Steal This Book	"Steal This Book was a countercultural guide by Abbie Hoffman. Book this steal refers to 'booking' suspects for a transgression, e.g. a parking fine or ticket."
-Block Creativity	"To block creativity is to get in the way of someone imagining things."
-Block Arguments	"To block arguments is not to hear an opposing point of view."
-Coals to Newcastle	"Coals to Newcastle means a pointless action. In this case, there are no dark rooms, so you don't need a torch. Reducing a new castle to coals is, of course, pointless, too."
-Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever."
-Dutch Treat	"A Dutch treat is where everyone pays his own way. This is viewed, according to idioms.freedictionary.com, as insulting to the Dutch. It certainly isn't flattering."
+career threatening	"Something career threatening may risk not only your job but your ability to get other equal or better jobs. A threatening career is--well, a bit of a racket." [start of judgment pass]
+scofflaw	"A scofflaw is someone who breaks minor rules. Perhaps they jaywalk or litter."
+Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever." [start of idiot village]
+venturesome	"Venturesome means willing to go places." [start of temper keep]
+Dutch Treat	"A Dutch treat is where everyone pays his own way. This is viewed, according to idioms.freedictionary.com, as insulting to the Dutch. It certainly isn't flattering." [start of speaking plain]
 Show Business	"Show business is the act of entertainment, and the business show's is (purportedly) more practical."
 Stand the Pace	"If you can't stand the pace, it's too fast for you. Turk and Dutch pace the stand because they need a break."
-Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
-Terminal Illness	"A terminal illness is one which is bound to be fatal. Illness can also mean full of insults, e.g. very 'ill,' as kids these days say. And said, even in my day!"
-scuzz bucket	"A scuzz, or scum, bucket is a person who is just plain dirty or disgusting. The [bad-guy] is not obviously physically like this."
-Ezra Pound	"Ezra Pound was an influential Modernist poet."
-King Henry	"King Henry VIII of England had six wives."
-cruise control	"Cruise control is when you set a car to go at a certain speed. A person on cruise control is going through life and not trying anything new."
-benefactor	"A benefactor is someone who provides support, emotional or financial."
-pharisee	"A pharisee is someone who gives the trappings of morality but is not."
-fawn over	"To fawn over is to flatter someone."
-disorder	"Disorder means a mess, while an order is telling someone what to do and a dis is an insult. Basically, the [bad-guy] is saying, insulting people for being disorganized helps them get organized. Well, it never helped me."
-polygraph	"A polygraph is a lie detector. The [bad-guy] is probably looking for lies that aren't there."
-taste buds	"Taste buds are what you use to experience the sensation of taste."
-Plaintiff	"A plaintiff is the party bringing the charge in a court case."
-laughingstock	"A laughingstock is someone everyone laughs at. But stock laughing is canned laughter, reflexive laughter at a joke you heard before, or maybe even a laugh track."
-generate d	"Degenerate means without moral values. D is short for defense."
-infomania	"Infomania is always wanting new info. The [bad-guy] pretends he doesn't want it, but it's just fun to have. Mania info is, in this case, malicious gossip about people different the wrong way."
-off the record	"Off the Record means something said privately, often negative. Record the Off means to bring something wrong or different into the open."
+Determined Bound	"Bound and determined means you're set on doing something. A determined bound is set to prevent you from doing something." [start of walker street]
+Block Arguments	"To block arguments is not to hear an opposing point of view."
+Block Creativity	"To block creativity is to get in the way of someone imagining things."
+Coals to Newcastle	"Coals to Newcastle means a pointless action. In this case, there are no dark rooms, so you don't need a torch. Reducing a new castle to coals is, of course, pointless, too."
+Elevator Music	"elevator music is soft, boring, inoffensive music that plays in elevators. Phil and Art want the play to be a bit more exciting."
+Play Dumb	"To play dumb is to pretend you don't know something you do, to avoid criticism or to catch someone off-guard. Of course, Phil and Art, after saying this, treat you like you're kind of dumb. Or you can't even ask the name of the play."
+Steal This Book	"Steal This Book was a countercultural guide by Abbie Hoffman. Book this steal refers to 'booking' suspects for a transgression, e.g. a parking fine or ticket."
+Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off." [start of questions field]
+Terminal Illness	"A terminal illness is one which is bound to be fatal. Illness can also mean full of insults, e.g. very 'ill,' as kids these days say. And said, even in my day!" [start of belt below]
+Admiral Vice	"A vice-(anything) is a next-in-line/assistant to an honorary position, but vice is also a personal failing, big or small."
 beholder of the eye	"'Beauty is in the eye of the beholder' is a cliche meaning we see the nice things we want. Here Alec is worried he's seeing oppresion that gives him an excuse to fear."
-Howard Dean	"Howard Dean was a candidate for the 2004 US Democratic Party nomination. After placing 3rd in the Iowa caucuses, he had an infamous 'Dean Scream' at a rally with supporters, which sounded worse than it was, because he was close to a microphone that picked it up. Which made him the butt of many jokes for a week. The media realised that everyone was yelling a week later, but the story was too ingrained by then."
-Tucker Max	"Tucker Max was alleged to have spanwed the 'fratire' genre, which features cynical 'tell it like it is' writing full of sex and hedonism and self-centeredness. It's the reading equivalent of sitting next to a guy bragging at a bar for a long time. An intelligent guy, sure, but that just lets him bang on longer. Imagine PG Wodehouse's Bertie Wooster without any heart."
-Break Monotony	"To break (the) monotony is to get a change from something boring."
-Power Trip	"A power trip is when someone is so overcome with their own power, they do mean things to show it off."
-Freak Out	"To freak out is to make a much bigger emotional display than seems really necessary."
-Crisis Energy	"An energy crisis is when a community doesn't have enough electrical power, or oil, or whatever."
+benefactor	"A benefactor is someone who provides support, emotional or financial."
 Beyond Belief	"Beyond belief means something you can't possibly believe in, but belief beyond means more faith than you thought you could have."
+Break Jail	"A jailbreak means getting out of jail. Though to break someone is to destroy their spirit."
+Break Monotony	"To break (the) monotony is to get a change from something boring."
+Crisis Energy	"An energy crisis is when a community doesn't have enough electrical power, or oil, or whatever."
+cruise control	"Cruise control is when you set a car to go at a certain speed. A person on cruise control is going through life and not trying anything new."
+daze salad	"Salad days are a time when things are going well."
+disorder	"Disorder means a mess, while an order is telling someone what to do and a dis is an insult. Basically, the [bad-guy] is saying, insulting people for being disorganized helps them get organized. Well, it never helped me."
+Ezra Pound	"Ezra Pound was an influential Modernist poet."
+favor curry	"To curry favor is to try to get on someone's good side."
+fawn over	"To fawn over is to flatter someone."
+Freak Out	"To freak out is to make a much bigger emotional display than seems really necessary."
+generate d	"Degenerate means without moral values. D is short for defense."
+Howard Dean	"Howard Dean was a candidate for the 2004 US Democratic Party nomination. After placing 3rd in the Iowa caucuses, he had an infamous 'Dean Scream' at a rally with supporters, which sounded worse than it was, because he was close to a microphone that picked it up. Which made him the butt of many jokes for a week. The media realised that everyone was yelling a week later, but the story was too ingrained by then."
+infomania	"Infomania is always wanting new info. The [bad-guy] pretends he doesn't want it, but it's just fun to have. Mania info is, in this case, malicious gossip about people different the wrong way."
+King Henry	"King Henry VIII of England had six wives."
+laughingstock	"A laughingstock is someone everyone laughs at. But stock laughing is canned laughter, reflexive laughter at a joke you heard before, or maybe even a laugh track."
+off the record	"Off the Record means something said privately, often negative. Record the Off means to bring something wrong or different into the open."
+pharisee	"A pharisee is someone who gives the trappings of morality but is not."
+Plaintiff	"A plaintiff is the party bringing the charge in a court case."
+polygraph	"A polygraph is a lie detector. The [bad-guy] is probably looking for lies that aren't there."
+Power Trip	"A power trip is when someone is so overcome with their own power, they do mean things to show it off."
+running start	"A running start means you've gotten started quickly."
+scuzz bucket	"A scuzz, or scum, bucket is a person who is just plain dirty or disgusting. The [bad-guy] is not obviously physically like this."
 shot mug	"The shot mug may look shot, or beaten-up, but mug shots--photographs of apprehended suspects--are generally very unflattering. Hence the flattering portrait of the [bad-guy] on the mug."
 Slicker City	"A city slicker is what rural people may call someone more urban. It's also the name of a planned sequel to PC."
+taste buds	"Taste buds are what you use to experience the sensation of taste."
+Tucker Max	"Tucker Max was alleged to have spanwed the 'fratire' genre, which features cynical 'tell it like it is' writing full of sex and hedonism and self-centeredness. It's the reading equivalent of sitting next to a guy bragging at a bar for a long time. An intelligent guy, sure, but that just lets him bang on longer. Imagine PG Wodehouse's Bertie Wooster without any heart."
 Wire Fraud	"Wire fraud is a financial crime designed to cheat people out of money."
-Break Jail	"A jailbreak means getting out of jail. Though to break someone is to destroy their spirit."
-Admiral Vice	"A vice-(anything) is a next-in-line/assistant to an honorary position, but vice is also a personal failing, big or small."
-running start	"A running start means you've gotten started quickly."
-daze salad	"Salad days are a time when things are going well."
-favor curry	"To curry favor is to try to get on someone's good side."
-Sore Loser	"A sore loser is someone who is not gracious enough to admit defeat. A loser sore is often what you get when you lose a fight, especially one someone else started."
+Captain Obvious	"Captain Obvious is someone who always states what's readily apparent. Captain has a sarcastic meaning, here." [xyzzy snark]
+Nonsense No	"No-nonsense means, well, not taking any silliness."
+Comedy of Errors	"A comedy of errors is so much going wrong it's funny. Errors of comedy would be so much wrong there's nothing to laugh at."
+Spelling Disaster	"Disaster spelling is, well, consonants clumped together. Spelling disaster is leading to bad news."
+poke fun	"To poke fun is to make a joke, but poke can mean a lot of things--putter around, meddle, or maybe poke a friend to get their attention." [touch commands]
+touch base	"To touch base is to get back to someone or return their call, especially if it's been a while. Versus a base touch, base being mean, so it's a bit more creepy."
+Advance Notice	"Advance notice is letting someone know ahead of time." [start of advancements]
+beaten track	"The beaten track is an experience most everyone's had. To track the beaten, in this case, is to figure who is diverging from 'proper' behavior, where."
+Cut a Figure	"To cut a figure is to make a strong impression."
+Hard Knock	"A hard knock is physical wear and tear, or being hit hard, versus just knocking at a door."
+passing fancy	"A passing fancy is something that distracts you and is fun for a bit but you forget about it. To fancy passing means to want to go quickly, or fancy passing may just be something in sports."
+Sitting Duck	"A sitting duck is someone just waiting to be taking advantage of. But if you duck sitting, you aren't waiting."
+Sore Loser	"A sore loser is someone who is not gracious enough to admit defeat. A loser sore is often what you get when you lose a fight, especially one someone else started." [start of fight fair]
 Boss Fight	"A boss fight is a confrontation with an important adversary in a more traditional game, while the Fight Boss has you do stuff worse than level grinding."
-Scholarship	"A scholarship is a money grant given towards education. The Ship Scholar, contrarily, says nothing is free."
+Scholarship	"A scholarship is a money grant given towards education. The Ship Scholar, contrarily, says nothing is free." [start of shape ship]
 Complain Cant	"Cant means a tendency towards something, so someone with a complain cant would only say 'can't complain' very ironically." [eternal concepts]
-Received Wisdom	"Received wisdom is generally accepted knowledge which is often not true, such as how we only use 10% of our brain. Gustave Flaubert wrote a fun book called The Dictionary of Received Wisdom that makes fun of many such examples. For instance, a hamlet is always charming."
-People Power	"People power was a rallying cry in demonstrations against the authoritarianism of, well, power people."
 Much Flatter	"If your world is much flatter, it isn't very exciting. But to flatter much is to over-compliment people, which makes things [i]seem[r] exciting for a bit."
+People Power	"People power was a rallying cry in demonstrations against the authoritarianism of, well, power people."
+Received Wisdom	"Received wisdom is generally accepted knowledge which is often not true, such as how we only use 10% of our brain. Gustave Flaubert wrote a fun book called The Dictionary of Received Wisdom that makes fun of many such examples. For instance, a hamlet is always charming."
 Snipe Gutter	"A guttersnipe is someone of the lowest class, brought up in squalor. To snipe is to take cheap shots, and if you're in the gutter, so much the worse."
 Something Mean	"Mean something = talk or act with purpose. Something mean = well, nastiness."
-Sitting Duck	"A sitting duck is someone just waiting to be taking advantage of. But if you duck sitting, you aren't waiting."
-Hard Knock	"A hard knock is physical wear and tear, or being hit hard, versus just knocking at a door."
-Cut a Figure	"To cut a figure is to make a strong impression."
-beaten track	"The beaten track is an experience most everyone's had. To track the beaten, in this case, is to figure who is diverging from 'proper' behavior, where."
-passing fancy	"A passing fancy is something that distracts you and is fun for a bit but you forget about it. To fancy passing means to want to go quickly, or fancy passing may just be something in sports."
-Advance Notice	"Advance notice is letting someone know ahead of time."
 
 table of room explanations [tore]
 room-to-exp	exp-text	exp-anno
@@ -10977,7 +10977,9 @@ Hunter Savage is a concept in conceptville. understand "savage hunter" as hunter
 
 acceptable is a concept in conceptville. understand "able except" and "except able" as acceptable. howto is "examine the gesture token".
 
-section surface concepts
+chapter surface concepts
+
+section variety garden concepts
 
 Animal Welfare is a concept in conceptville. understand "welfare animal" as animal welfare. howto is "get the Weasel to sign the Burden". [variety garden]
 
@@ -10991,35 +10993,39 @@ enough man is a concept in conceptville. understand "man enough" as enough man. 
 
 brush up is a concept in conceptville. understand "up brush" as brush up. howto is "go up in Variety Garden".
 
-nose picking is a concept in conceptville. understand "picking nose" as nose picking. howto is "smell the mush in Tension Surface". [tension surface]
+section tension surface concepts
 
-section soda club concepts
+nose picking is a concept in conceptville. understand "picking nose" as nose picking. howto is "smell the mush in Tension Surface".
 
-the Total T is a concept in conceptville. howto is "visit the Soda Club".
+chapter outer concepts
 
-the Party T is a concept in conceptville. howto is "visit the Soda Club".
+section meal square concepts
 
-Hip Rose is a concept in conceptville. understand "rose hip/hips" as Hip Rose. howto is "visit the Soda Club".
+apple pie order is a concept in conceptville. understand "apple-pie order" and "order apple pie" as apple pie order. howto is "examine both Tray A and Tray B".
 
-Punch Sucker is a concept in conceptville. understand "punch sucker" as punch sucker. howto is "visit the Soda Club".
-
-the Go Rum is a concept in conceptville. howto is "ask Ally Stout about drinks".
-
-Rummy Gin is a concept in conceptville. howto is "ask Ally Stout about drinks".
-
-Wine-U-Gen is a concept in conceptville. understand "wine u gen" and "wineugen" as Wine-U-Gen. howto is "order the Cooler Wine"
-
-section food concepts
-
-a thing called Thought for Food is a concept in conceptville. understand "food for thought" as thought for food. howto is "visit Meal Square with Terry Sally around".
-
-Loaf Around is a concept in conceptville. Understand "around loaf" as loaf around. howto is "wait in Meal Square".
+bowled over is a concept in conceptville. howto is "eat Tray B food".
 
 defeat is a concept in conceptville. understand "eat def" and "def eat" as defeat. howto is "examine Tray B".
 
+face off is a concept in conceptville. howto is "take inventory after eating Tray B food".
+
+Forgive is a concept in conceptville. understand "give for" as Forgive. howto is "examine the condition mint".
+
+growing pains is a concept in conceptville. understand "pain/pains growing" as growing pains. howto is "eat off-cheese".
+
+Loaf Around is a concept in conceptville. Understand "around loaf" as loaf around. howto is "wait in Meal Square".
+
+pig out is a concept in conceptville. understand "out pig" as pig out. howto is "TAKE ALL in Meal Square".
+
+Shame No is a concept in conceptville. understand "no shame" as Shame No. howto is "examine the condition mint".
+
 snap decision is a concept in conceptville. understand "decision snap" as snap decision. howto is "say yes to eating a Tray B food".
 
-the spur of the moment is a concept in conceptville. understand "moment of the spur" as spur of the moment. howto is "say no to eating a Tray B food".
+Spur of the Moment is a concept in conceptville. understand "moment of the spur" as spur of the moment. howto is "say no to eating a Tray B food".
+
+strike a balance is a concept in conceptville. howto is "try to take Tray A or Tray B".
+
+a thing called Thought for Food is a concept in conceptville. understand "food for thought" as thought for food. howto is "visit Meal Square with Terry Sally around".
 
 Tray S is a concept in conceptville. howto is "enter Meal Square".
 
@@ -11027,23 +11033,7 @@ Tray T is a concept in conceptville. howto is "enter Meal Square".
 
 Tray X is a concept in conceptville. howto is "enter Meal Square".
 
-bowled over is a concept in conceptville. howto is "eat Tray B food".
-
-growing pains is a concept in conceptville. understand "pain/pains growing" as growing pains. howto is "eat off-cheese".
-
-strike a balance is a concept in conceptville. howto is "try to take Tray A or Tray B".
-
-face off is a concept in conceptville. howto is "take inventory after eating Tray B food".
-
-pig out is a concept in conceptville. understand "out pig" as pig out. howto is "TAKE ALL in Meal Square".
-
-Shame No is a concept in conceptville. understand "no shame" as Shame No. howto is "examine the condition mint".
-
-Forgive is a concept in conceptville. understand "give for" as Forgive. howto is "examine the condition mint".
-
-apple pie order is a concept in conceptville. understand "apple-pie order" and "order apple pie" as apple pie order. howto is "examine both Tray A and Tray B".
-
-section outer concepts
+section pressure pier concepts
 
 fish out of water is a concept in conceptville. understand "water out of fish" as fish out of water. howto is "examine the water in Pressure Pier".
 
@@ -11066,39 +11056,71 @@ joint role is a concept in conceptville. Understand "role/roll joint" and "role/
 
 Puff Piece is a concept in conceptville. understand "peace/piece puff" and "puff peace" as puff piece. howto is "[w-fr]".
 
+section joint strip concepts
+
 bullfrog is a concept in conceptville. understand "frog bull" and "bull frog" as bullfrog. howto is "ask the Stool Toad how to get in trouble".
-
-Trust Brain is a concept in conceptville. understand "brain trust" as trust brain. howto is "examine dreadful penny or mind of peace".
-
-Moral Support is a concept in conceptville. understand "support moral" as moral support. howto is "examine pigeon stool".
 
 Double Jeopardy is a concept in conceptville. understand "jeopardy double" as Double Jeopardy. howto is "get ticket for sleeping".
 
-section main chunk concepts [left to right, then below]
+Moral Support is a concept in conceptville. understand "support moral" as moral support. howto is "examine pigeon stool".
 
-Fish for a Compliment is a concept in conceptville. understand "compliment for a fish" as fish for a compliment. howto is "talk to the story fish with nobody else around". [disposed well]
+Trust Brain is a concept in conceptville. understand "brain trust" as trust brain. howto is "examine dreadful penny or mind of peace".
+
+section soda club concepts
+
+the Go Rum is a concept in conceptville. howto is "ask Ally Stout about drinks".
+
+Hip Rose is a concept in conceptville. understand "rose hip/hips" as Hip Rose. howto is "visit the Soda Club".
+
+the Party T is a concept in conceptville. howto is "visit the Soda Club".
+
+Punch Sucker is a concept in conceptville. understand "punch sucker" as punch sucker. howto is "visit the Soda Club".
+
+Rummy Gin is a concept in conceptville. howto is "ask Ally Stout about drinks".
+
+the Total T is a concept in conceptville. howto is "visit the Soda Club".
+
+Wine-U-Gen is a concept in conceptville. understand "wine u gen" and "wineugen" as Wine-U-Gen. howto is "order the Cooler Wine"
+
+chapter main chunk concepts [left to right, then below]
+
+section disposed well concepts
+
+Fish for a Compliment is a concept in conceptville. understand "compliment for a fish" as fish for a compliment. howto is "talk to the story fish with nobody else around".
 
 Well Done is a concept in conceptville. Understand "done well" as well done. howto is "try entering the Disposed Well".
 
-character assassination is a concept in conceptville. understand "assassination character" as character assassination. howto is "visit Chipper Wood". [chipper wood]
+section chipper wood concepts
+
+character assassination is a concept in conceptville. understand "assassination character" as character assassination. howto is "visit Chipper Wood".
 
 Play it Cool is a concept in conceptville. understand "cool it play" as play it cool. howto is "attack Cute Percy".
 
 Sweetheart deal is a concept in conceptville. Understand "deal sweetheart" as sweetheart deal. howto is "run from Chipper Wood before catching Cute Percy".
 
-Black Mark is a concept in conceptville. understand "mark black" as black mark. howto is "examine quiz pop". [jerk circle]
+section jerk circle concepts
+
+Black Mark is a concept in conceptville. understand "mark black" as black mark. howto is "examine quiz pop".
 
 Jerk Around is a concept in conceptville. Understand "around jerk" as jerk around. howto is "enter the main area with profanity on".
 
 Tear-Jerk is a concept in conceptville. Understand "jerk-tear" and "tear jerk" and "jerk tear" as Tear-Jerk. howto is "solve the [j-co]['] puzzle".
 
+section judgment pass concepts
+
 career threatening is a concept in conceptville. Understand "threatening career" as career threatening. howto is "give Officer Petty the Reasoning Circular". [judgment pass]
 
 scofflaw is a concept in conceptville. Understand "scoff law" and "lawscoff/law-scoff/scoff-law" and "law scoff" as scofflaw. howto is "give Officer Petty the Reasoning Circular".
 
+section idiot village concepts
+
 Candidate Dummy is a concept in conceptville. understand "dummy candidate" as Candidate Dummy. howto is "talk to Sly". [idiot village]
 
+section temper keep concepts
+
 venturesome is a concept in conceptville. understand "you're/youre some vent" and "some vent" as venturesome. howto is "enter the spleen vent". [temper keep]
+
+section speaking plain concepts
 
 Dutch Treat is a concept in conceptville. understand "treat dutch" as dutch treat. howto is "type TREAT DUTCH around Uncle Dutch". [speaking plain]
 
@@ -11106,90 +11128,100 @@ Show Business is a concept in conceptville. understand "business show" as show b
 
 Stand the Pace is a concept in conceptville. Understand "pace the stand" as stand the pace. howto is "sit through all of the Business Show in Speaking Plain".
 
+section walker street concepts
+
 Determined Bound is a concept in conceptville. understand "bound and determined" as determined bound. howto is "go south in Walker Street". [walker street]
 
-Play Dumb is a concept in conceptville. understand "dumb play" as play dumb. howto is "go to the Discussion Block for the first time". [discussion block]
-
-Elevator Music is a concept in conceptville. understand "music elevator" as elevator music. howto is "go to the Discussion Block for the first time".
-
-Steal This Book is a concept in conceptville. understand "book this steal" as Steal This Book. howto is "take book bank".
-
-Block Creativity is a concept in conceptville. understand "creativity block" as block creativity. howto is "get rid of one of Art and Phil".
+section discussion block concepts
 
 Block Arguments is a concept in conceptville. understand "arguments block" as block arguments. howto is "get rid of both of Art and Phil".
 
+Block Creativity is a concept in conceptville. understand "creativity block" as block creativity. howto is "get rid of one of Art and Phil".
+
 Coals to Newcastle is a concept in conceptville. understand "new castle to coals" and "newcastle to coals" as Coals to Newcastle. howto is "take song torch".
 
-Brother's Keepers is a concept in conceptville. understand "brother/brothers keeper/keepers" and "keeper/keepers brother/brothers" as Brother's Keepers. howto is "examine the brothers". [questions field]
+Elevator Music is a concept in conceptville. understand "music elevator" as elevator music. howto is "go to the Discussion Block for the first time".
 
-Terminal Illness is a concept in conceptville. understand "illness terminal" as terminal illness. howto is "defeat the Insanity Terminal". [below ground]
+Play Dumb is a concept in conceptville. understand "dumb play" as play dumb. howto is "go to the Discussion Block for the first time".
+
+Steal This Book is a concept in conceptville. understand "book this steal" as Steal This Book. howto is "take book bank".
+
+section questions field concepts
+
+Brother's Keepers is a concept in conceptville. understand "brother/brothers keeper/keepers" and "keeper/keepers brother/brothers" as Brother's Keepers. howto is "examine the brothers".
+
+section belt below concepts
+
+Terminal Illness is a concept in conceptville. understand "illness terminal" as terminal illness. howto is "defeat the Insanity Terminal".
 
 section endgame concepts
 
 to say fr-ran:
 	say "wait and listen to the [bad-guy] in Freak Control"
 
-Ezra Pound is a concept in conceptville. understand "pound ezra" as ezra pound. howto is "[fr-ran]". [freak control]
-
-Tucker Max is a concept in conceptville. understand "max tucker" as Tucker Max. howto is "[fr-ran]".
-
-King Henry is a concept in conceptville. understand "henry king" as king henry. howto is "[fr-ran]".
-
-Cruise Control is a concept in conceptville. Understand "control cruise" as cruise control. howto is "[fr-ran]".
-
-benefactor is a concept in conceptville. understand "factor benny" and "benny factor" as benefactor. howto is "[fr-ran]".
-
-pharisee is a concept in conceptville. understand "see farrah" and "farrah see" as pharisee. howto is "[fr-ran]".
-
-fawn over is a concept in conceptville. understand "over fawn" as fawn over. howto is "[fr-ran]".
-
-disorder is a concept in conceptville. understand "order dis" and "dis order" as disorder. howto is "[fr-ran]".
-
-polygraph is a concept in conceptville. understand "graph polly" and "polly graph"  as polygraph. howto is "[fr-ran]".
-
-taste buds is a concept in conceptville. understand "bud's/buds taste" as taste buds. howto is "[fr-ran]".
-
-generate d is a concept in conceptville. Understand "d generate" as generate d. howto is "[fr-ran]".
-
-plaintiff is a concept in conceptville. understand "tiff plain" and "plain tiff" as plaintiff. howto is "[fr-ran]".
-
-Infomania is a concept in conceptville. Understand "infomania" as infomania. howto is "[fr-ran]".
-
-Off the Record is a concept in conceptville. Understand "record the off" as off the record. howto is "[fr-ran]".
+Admiral Vice is a concept in conceptville. understand "vice admiral" as admiral vice. howto is "[bad-guy] dialog".
 
 beholder of the eye is a concept in conceptville. Understand "eye the of beholder" as beholder of the eye. howto is "examine the Witness Eye".
 
-Howard Dean is a concept in conceptville. understand "dean howard" as howard dean. howto is "[fr-ran]".
+benefactor is a concept in conceptville. understand "factor benny" and "benny factor" as benefactor. howto is "[fr-ran]".
 
-laughingstock is a concept in conceptville. Understand "laughing stock" and "stock laughing" as laughingstock. howto is "talk to the [bad-guy]".
+Beyond Belief is a concept in conceptville. understand "belief beyond" as Beyond Belief. howto is "get the [bad-guy]'s attention".
 
-scuzz bucket is a concept in conceptville. understand "scum bucket" and "bucket scuzz/scum" as scuzz bucket. howto is "examine the list bucket".
-
-Freak Out is a concept in conceptville. understand "out freak" as freak out. howto is "read the Language sign".
+The Break Jail is a concept in conceptville. understand "jail break" as Break Jail. howto is "defeat the [bad-guy] without rescuing Idiot Village".
 
 Break Monotony is a concept in conceptville. understand "monotony break" as break monotony. howto is "wait for the [bad-guy] to go through his actions".
 
-Power Trip is a concept in conceptville. understand "trip power" as power trip. howto is "wait for the [bad-guy] to go through his actions".
-
 Crisis Energy is a concept in conceptville. understand "energy crisis" as Crisis Energy. howto is "get the [bad-guy]'s attention".
 
-Beyond Belief is a concept in conceptville. understand "belief beyond" as Beyond Belief. howto is "get the [bad-guy]'s attention".
+Cruise Control is a concept in conceptville. Understand "control cruise" as cruise control. howto is "[fr-ran]".
+
+daze salad is a concept in conceptville. understand "salad days/daze" as daze salad. howto is "visit Freak Control after eating the Points Brownie".
+
+disorder is a concept in conceptville. understand "order dis" and "dis order" as disorder. howto is "[fr-ran]".
+
+Ezra Pound is a concept in conceptville. understand "pound ezra" as ezra pound. howto is "[fr-ran]". [freak control]
+
+favor curry is a concept in conceptville. understand "curry favor" as daze salad. howto is "visit Freak Control after eating the Points Brownie".
+
+fawn over is a concept in conceptville. understand "over fawn" as fawn over. howto is "[fr-ran]".
+
+Freak Out is a concept in conceptville. understand "out freak" as freak out. howto is "read the Language sign".
+
+generate d is a concept in conceptville. Understand "d generate" as generate d. howto is "[fr-ran]".
+
+Howard Dean is a concept in conceptville. understand "dean howard" as howard dean. howto is "[fr-ran]".
+
+Infomania is a concept in conceptville. Understand "infomania" as infomania. howto is "[fr-ran]".
+
+King Henry is a concept in conceptville. understand "henry king" as king henry. howto is "[fr-ran]".
+
+laughingstock is a concept in conceptville. Understand "laughing stock" and "stock laughing" as laughingstock. howto is "talk to the [bad-guy]".
+
+Off the Record is a concept in conceptville. Understand "record the off" as off the record. howto is "[fr-ran]".
+
+pharisee is a concept in conceptville. understand "see farrah" and "farrah see" as pharisee. howto is "[fr-ran]".
+
+plaintiff is a concept in conceptville. understand "tiff plain" and "plain tiff" as plaintiff. howto is "[fr-ran]".
+
+polygraph is a concept in conceptville. understand "graph polly" and "polly graph"  as polygraph. howto is "[fr-ran]".
+
+Power Trip is a concept in conceptville. understand "trip power" as power trip. howto is "wait for the [bad-guy] to go through his actions".
+
+Running Start is a concept in conceptville. understand "start running" as running start. howto is "try going south in Freak Control".
+
+scuzz bucket is a concept in conceptville. understand "scum bucket" and "bucket scuzz/scum" as scuzz bucket. howto is "examine the list bucket".
 
 The shot mug is a concept in conceptville. understand "mug shot" as shot mug. howto is "get the [bad-guy]'s attention".
 
 Slicker City is a concept in conceptville. understand "city slicker" as Slicker City. howto is "[bad-guy] dialog".
 
+taste buds is a concept in conceptville. understand "bud's/buds taste" as taste buds. howto is "[fr-ran]".
+
+Tucker Max is a concept in conceptville. understand "max tucker" as Tucker Max. howto is "[fr-ran]".
+
 Wire Fraud is a concept in conceptville. understand "fraud wire" as Wire Fraud. howto is "[bad-guy] dialog".
 
-Admiral Vice is a concept in conceptville. understand "vice admiral" as admiral vice. howto is "[bad-guy] dialog".
-
-The Break Jail is a concept in conceptville. understand "jail break" as Break Jail. howto is "defeat the [bad-guy] without rescuing Idiot Village".
-
-Running Start is a concept in conceptville. understand "start running" as running start. howto is "try going south in Freak Control".
-
-daze salad is a concept in conceptville. understand "salad days/daze" as daze salad. howto is "visit Freak Control after eating the Points Brownie".
-
-favor curry is a concept in conceptville. understand "curry favor" as daze salad. howto is "visit Freak Control after eating the Points Brownie".
+chapter general command concepts
 
 section xyzzy concepts
 
@@ -11209,19 +11241,19 @@ touch base is a concept in conceptville. understand "base touch" as touch base. 
 
 section game-warp concepts
 
-Sitting Duck is a concept in conceptville. understand "duck sitting" as Sitting Duck. howto is "get to Tension Surface".
-
-Hard Knock is a concept in conceptville. understand "hard knock" as Hard Knock. howto is "get to Pressure Pier".
-
-Cut a Figure is a concept in conceptville. understand "cut a figure" as cut a figure. howto is "get to Jerk Circle".
-
-Passing Fancy is a concept in conceptville. understand "fancy passing" as Passing Fancy. howto is "help all three Keeper Brothers".
+Advance Notice is a concept in conceptville. understand "advance notice" as Advance Notice. howto is "enter Freak Control".
 
 Beaten Track is a concept in conceptville. understand "track beaten" as Beaten Track. howto is "solve the [j-co] puzzle for the first time".
 
-Advance Notice is a concept in conceptville. understand "advance notice" as Advance Notice. howto is "enter Freak Control".
+Cut a Figure is a concept in conceptville. understand "cut a figure" as cut a figure. howto is "get to Jerk Circle".
 
-section death concepts
+Hard Knock is a concept in conceptville. understand "hard knock" as Hard Knock. howto is "get to Pressure Pier".
+
+Passing Fancy is a concept in conceptville. understand "fancy passing" as Passing Fancy. howto is "help all three Keeper Brothers".
+
+Sitting Duck is a concept in conceptville. understand "duck sitting" as Sitting Duck. howto is "get to Tension Surface".
+
+section fake death concepts
 
 Sore Loser is a concept in conceptville. understand "loser sore" as sore loser. howto is "visit Fight Fair (attack random person)".
 
@@ -11229,23 +11261,23 @@ Boss Fight is a concept in conceptville. understand "fight boss" as boss fight. 
 
 Scholarship is a concept in conceptville. Understand "scholarship" as scholarship. howto is "get sent to the Shape Ship".
 
-chapter lalaland
+chapter lalaland concepts
 
 section endgame concepts
 
 lalaland is a room in meta-rooms. "You should never see this. If you do, it is a [bug]."
 
-Something Mean is a concept in conceptville. understand "mean something" as Something Mean. howto is "eat the cutter cookie and 'win'".
-
 Complain Cant is a concept in conceptville. understand "cant complain" as Complain Cant. howto is "eat the off cheese and 'win'".
-
-People Power is a concept in conceptville. understand "power people" as People Power. howto is "eat the greater cheese and 'win'".
 
 Much Flatter is a concept in conceptville. understand "flatter much" as Much Flatter. howto is "eat the points brownie and 'win'".
 
-Snipe Gutter is a concept in conceptville. understand "guttersnipe" as Snipe Gutter. howto is "eat the off cheese and 'win'".
+People Power is a concept in conceptville. understand "power people" as People Power. howto is "eat the greater cheese and 'win'".
 
 Received Wisdom is a concept in conceptville. understand "wisdom received" as received wisdom. howto is "get past Freak Control and get either good ending".
+
+Snipe Gutter is a concept in conceptville. understand "guttersnipe" as Snipe Gutter. howto is "eat the off cheese and 'win'".
+
+Something Mean is a concept in conceptville. understand "mean something" as Something Mean. howto is "eat the cutter cookie and 'win'".
 
 [end concepts]
 

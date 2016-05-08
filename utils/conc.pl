@@ -13,6 +13,7 @@ while ($count <= $#ARGV)
   for ($a)
   {
     /^-o$/ && do { $order = 1; $count++; next; };
+    /^-t$/ && do { $printTest = 1; $count++; next; };
     /^-pc$/ && do { @dirs = ("Compound"); $count++; next; };
     /^-sc$/ && do { @dirs = ("Slicker-City"); $count++; next; };
 	/^-as$/ && do { @dirs = ("Slicker-City", "Compound"); $count++; next; };
@@ -90,8 +91,8 @@ sub checkOrder
 	if (($concs) && ($a =~ /end concepts/)) { $concs = 0; next; }
     if ($a =~ /xadd/) { <A>; $expls = 1; next; }
     if ($a =~ /\[cv\]/) { <A>; $concs = 1; next; }
-	if ($expls) { chomp($a); $a =~ s/\t.*//g; push (@ex, $a); next; }
-	if (($concs) && ($a =~ /concept.in/)) { chomp($a); $a =~ s/ is a .*concept.*//g; push (@co, $a); next; }
+	if ($expls) { chomp($a); $a =~ s/\t.*//g; $a =~ s/^(a |the )//gi; push (@ex, $a); next; }
+	if (($concs) && ($a =~ /concept.in/)) { chomp($a); $a =~ s/ is a .*concept.*//g; $a =~ s/^(a thing called |the |a )//gi; push (@co, $a); next; }
   }
 
   for (0..$#ex)
@@ -100,10 +101,13 @@ sub checkOrder
     if (lc(@ex[$_]) ne lc(@co[$_]))
 	{
 	  $ordFail++;
-      print "$_ ($ordFail): @ex[$_] vs @co[$_]\n";
+      print "$_ ($ordFail): @ex[$_] vs @co[$_]";
+	  for $match (0..$#co) { if (lc(@ex[$_]) eq lc(@co[$match])) { print " (#$match)"; if ($match - $lastMatch == 1) { print " (in order)"; } $lastMatch = $match; } }
+	  print "\n";
 	} else { }
   }
-  if ($ordFail) { print "$ordFail failed, but it's probably less.\n"; } else { print "Ordering all matched.\n"; }
+  if ($ordFail) { print "$ordFail failed, but it's probably less.\n"; } else { print "Ordering all matched for $_[0].\n"; }
+  if ($printTest) { print "TEST RESULTS:$_[0] ordering,0,$ordFail,0,run conc.pl -o\n"; }
 }
 ########################################
 #reads in concepts
