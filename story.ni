@@ -1132,11 +1132,11 @@ pot-not-weed is a truth state that varies.
 
 chapter waving
 
-understand the command "wave" as something new.
+the block waving hands rule is not listed in any rulebook.
 
-understand "waving" as waving.
+understand the command "wave [something]" as something new.
 
-carry out waving:
+carry out waving hands:
 	say "You [activation of wave a flag]flag a wave as ineffective--yours never achieved the gravitas others['] seemed to have.";
 	the rule succeeds;
 
@@ -5587,7 +5587,7 @@ outpigging is an action applying to two things.
 
 understand "eat [things]" as outpigging when player is in meal square.
 
-Definition: a thing is matched if it is listed in the multiple object list. 
+Definition: a thing is matched if it is listed in the multiple object list.
 
 carry out outpigging:
 	let L be the list of matched things;
@@ -10957,7 +10957,7 @@ a u-turn is a concept in conceptville. understand "u turn" as u-turn. howto is "
 
 wait your turn is a concept in conceptville. understand "turn your wait" as wait your turn. howto is "wait".
 
-wave a flag is a concept in conceptville. Understand "flag a wave" and "flag wave" as wave a flag. howto is "wave". [?? wave flag]
+wave a flag is a concept in conceptville. Understand "flag a wave" as wave a flag. howto is "wave".
 
 section intro concepts
 
