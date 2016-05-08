@@ -27,7 +27,7 @@ while ($count <= $#ARGV)
   }
 }
 
-for $thisproj (@dirs) { readConcept($thisproj); }
+for $thisproj (@dirs) { if ($order) { checkOrder($thisProj); } else { readConcept($thisproj); } }
 
 sub crankOutCode
 {
@@ -136,6 +136,7 @@ print<<EOT;
 -pc = PC only
 -sc = SC only
 -as = PC and SC (default)
+-o = check order
 EOT
 exit;
 }

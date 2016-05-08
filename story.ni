@@ -905,6 +905,8 @@ check waiting (this is the caught napping rule):
 		move-dream-ahead instead;
 	if player is in down ground and slept-through is false:
 		say "[one of]You attempt to loiter in this seedy area in order to get in trouble or something, but no dice.[or]Still, nobody comes to break up your loitering.[or]You reflect if you want to get zapped for loitering, maybe you need to do better than just hang around.[or]Hm, you wonder what is even lazier than standing around.[stopping]" instead;
+	if player is in Meal Square:
+		say "You wait, but [activation of loaf around]a round loaf fails to appear." instead;
 	say "[activation of wait your turn]Turn your wait." instead;
 
 every turn when player is in tense past and tense present is not visited:
@@ -1122,7 +1124,7 @@ understand the command "wave" as something new.
 understand "waving" as waving.
 
 carry out waving:
-	say "Your awkward wave never managed the gravitas others['] awkward waves have. Yours accepts awkwardness, but theirs foists it on others.";
+	say "You [activation of wave a flag]flag a wave as ineffective--yours never achieved the gravitas others['] seemed to have.";
 	the rule succeeds;
 
 chapter swearing
@@ -1961,7 +1963,7 @@ Punishment Capitol	"You're given the lecture about how just because you did some
 Hut Ten	"The basic training isn't too bad. You seem to do everything right, except for the stuff you do wrong, and a commanding officer gets on your case for that. There's so much to do, and you only make mistakes 5% of the time, maybe, but boy do the people who get it right come down hard on you when you miss. You do the same to others, but it's DIFFERENT when you do. No, really."
 A Beer Pound	"The admissions officer gives you a worksheet to fill out about how and why you can't hold your liquor."
 In-Dignity Heap	"You're given a lecture and assured that they will have to get more abusive but still won't be as effective and eventually you'll build up a tolerance to abuse, and that's better than a tolerance to alcohol."
-Shape Ship	"Here, you spend months toiling pointlessly with others who acquired too many boo ticketies. You actually strike up a few good friendships, and you all vow to take more fun silly risks when you get back home.[paragraph break]As the days pass, the whens change to ifs."
+Shape Ship	"Here, you spend months toiling pointlessly with others who acquired too many boo ticketies. Some fellow called the [activation of scholarship]Ship Scholar booms out instructions, telling you self-awareness doesn't come for FREE, you know. You actually strike up a few good friendships, and you all vow to take more fun silly risks when you get back home.[paragraph break]But as the days pass, the whens change to ifs."
 
 chapter giving
 
@@ -2050,7 +2052,7 @@ check giving smokable to: [poory pot or wacker weed]
 	if second noun is Fritz the On:
 		if noun is poory pot:
 			say "'Whoah! That stuff is too crazy for me,' mutters Fritz.'" instead;
-		say "You look every which way to the Stool Toad, then put your finger to your lips as you hand Fritz the packet. He conceals the stash and hands you a coin back--a dreadful penny. Proper payment for the cheap stuff. 'Dude! Once I find my lighter I totally won't hog off the high[activation of hoth] from you. Can't wait for my [activation of puff piece]peace puff...nothing beats a peace puff for feeling good!'";
+		say "You look every which way to the Stool Toad, then put your finger to your lips as you hand Fritz the packet. He conceals the stash and hands you a coin back--a dreadful penny. Proper payment for the cheap stuff. 'Dude! Once I find my lighter I totally won't hog off the high[activation of hoth] from you. Can't wait for my [activation of puff piece]peace puff...nothing beats a peace puff for feeling good!' You're not sure you want a [activation of joint role]joint role, but Fritz's gratitude seems genuine.";
 		increment the score;
 		now wacker weed is in lalaland;
 		now player has dreadful penny instead;
@@ -2973,6 +2975,7 @@ abuse testing	"Abuse testing means trying to break things with stuff a tester wo
 clouds of suspicion	"Clouds of suspicion are a simile for mistrust."
 cut a deal	"To cut a deal is to make a business arrangement, often favorably. To deal a cut is just to knife someone."
 Force of Habit	"Force of habit is what causes you to do something with minimal thinking, for better or worse."
+wave a flag	"To wave a flag is to give up. To flag something is to note it as particularly productive or unproductive."
 Buster Ball	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure." [the 2 bad guys]
 Hunter Savage	"A savage hunter is, well, someone with no mercy. Yup, I like the 'dirty' tangential bad guy better, too."
 acceptable	"Acceptable means good enough. Though sometimes it might not, if someone is just being diplomatic. Able, Except means you're pretty good but have big flaws. So both can feel like backhand compliments."
@@ -3007,6 +3010,7 @@ Thought for food	"Food for thought is something to think about."
 Tray S	"Stray. In other words, it strayed from Meal Square."
 Tray T	"A tea tray. To go with food."
 Tray X	"It is an ex-tray."
+loaf around	"To loaf around is to wait with no real purpose."
 defeat	"Defeat is, well, a clue you'll lose the game existentially if you eat any of the foods on Tray B."
 Snap Decision	"A decision made reflexively, versus a conscious decision to snap e.g. just quit holding back."
 Spur of the Moment	"Spur of the moment means you're finally pushed to do something. If you wonder if it's the moment of the spur , you're probably thinking too hard for it to be the spur of the moment."
@@ -3017,6 +3021,7 @@ Bum Beach	"A beach bum is someone who wanders on the beach. Maybe he lives there
 sleeper cell	"A group of people who blen into a community until they can commit an act of terrorism."
 Dream Ticket	"A pair of candidates who, running together, have extremely broad appeal they wouldn't have alone. In Alec's dreams, he's often ganged up on by two people or groups who triangulate him rather differently."
 hoth	"High on the hog means living wealthily. To hog the high would be if Fritz didn't share his, um, stuff."
+joint role	"A joint role is something done together. Rolling a joint is the act of creating a marijuana cigarette."
 puff piece	"A puff piece is a fawning newspaper article that makes someone out to be better than they really are. A peace puff from smoking marijuana is (we can assume) less socially motivated."
 Double Jeopardy	"Double jeopardy is being tried for the same crime twice. Making your jeopardy double is just putting you at twice the risk."
 Trust Brain	"A brain trust is a group of people that help make a decision. A trust-brain, though not an English phrase, might mean a mind that can't make its own decisions."
@@ -3034,9 +3039,12 @@ career threatening	"Something career threatening may risk not only your job but 
 scofflaw	"A scofflaw is someone who breaks minor rules. Perhaps they jaywalk or litter."
 venturesome	"Venturesome means willing to go places."
 Black Mark	"A black mark is something indicating bad behavior."
+jerk around	"To jerk someone around is to pester them physically or mentally."
+tear-jerk	"The jerks['] tears may seem a bit fake, and a tear-jerker is something that tries to manipulate you into crying."
 Determined Bound	"Bound and determined means you're set on doing something. A determined bound is set to prevent you from doing something."
 Play Dumb	"To play dumb is to pretend you don't know something you do, to avoid criticism or to catch someone off-guard. Of course, Phil and Art, after saying this, treat you like you're kind of dumb. Or you can't even ask the name of the play."
 Fish for a Compliment	"To fish for a compliment is to try to manipulate someone into saying something nice."
+Well Done	"Well done means good job, but 'done' is also a synonym for dead, because you'd fall down the well if you tried to enter it."
 Elevator Music	"elevator music is soft, boring, inoffensive music that plays in elevators. Phil and Art want the play to be a bit more exciting."
 Steal This Book	"Steal This Book was a countercultural guide by Abbie Hoffman. Book this steal refers to 'booking' suspects for a transgression, e.g. a parking fine or ticket."
 Block Creativity	"To block creativity is to get in the way of someone imagining things."
@@ -3045,11 +3053,13 @@ Coals to Newcastle	"Coals to Newcastle means a pointless action. In this case, t
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever."
 Dutch Treat	"A Dutch treat is where everyone pays his own way. This is viewed, according to idioms.freedictionary.com, as insulting to the Dutch. It certainly isn't flattering."
 Show Business	"Show business is the act of entertainment, and the business show's is (purportedly) more practical."
+Stand the Pace	"If you can't stand the pace, it's too fast for you. Turk and Dutch pace the stand because they need a break."
 Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
 Terminal Illness	"A terminal illness is one which is bound to be fatal. Illness can also mean full of insults, e.g. very 'ill,' as kids these days say. And said, even in my day!"
 scuzz bucket	"A scuzz, or scum, bucket is a person who is just plain dirty or disgusting. The [bad-guy] is not obviously physically like this."
 Ezra Pound	"Ezra Pound was an influential Modernist poet."
 King Henry	"King Henry VIII of England had six wives."
+cruise control	"Cruise control is when you set a car to go at a certain speed. A person on cruise control is going through life and not trying anything new."
 benefactor	"A benefactor is someone who provides support, emotional or financial."
 pharisee	"A pharisee is someone who gives the trappings of morality but is not."
 fawn over	"To fawn over is to flatter someone."
@@ -3059,6 +3069,9 @@ taste buds	"Taste buds are what you use to experience the sensation of taste."
 Plaintiff	"A plaintiff is the party bringing the charge in a court case."
 laughingstock	"A laughingstock is someone everyone laughs at. But stock laughing is canned laughter, reflexive laughter at a joke you heard before, or maybe even a laugh track."
 generate d	"Degenerate means without moral values. D is short for defense."
+infomania	"Infomania is always wanting new info. The [bad-guy] pretends he doesn't want it, but it's just fun to have. Mania info is, in this case, malicious gossip about people different the wrong way."
+off the record	"Off the Record means something said privately, often negative. Record the Off means to bring something wrong or different into the open."
+beholder of the eye	"'Beauty is in the eye of the beholder' is a cliche meaning we see the nice things we want. Here Alec is worried he's seeing oppresion that gives him an excuse to fear."
 Howard Dean	"Howard Dean was a candidate for the 2004 US Democratic Party nomination. After placing 3rd in the Iowa caucuses, he had an infamous 'Dean Scream' at a rally with supporters, which sounded worse than it was, because he was close to a microphone that picked it up. Which made him the butt of many jokes for a week. The media realised that everyone was yelling a week later, but the story was too ingrained by then."
 Tucker Max	"Tucker Max was alleged to have spanwed the 'fratire' genre, which features cynical 'tell it like it is' writing full of sex and hedonism and self-centeredness. It's the reading equivalent of sitting next to a guy bragging at a bar for a long time. An intelligent guy, sure, but that just lets him bang on longer. Imagine PG Wodehouse's Bertie Wooster without any heart."
 Break Monotony	"To break (the) monotony is to get a change from something boring."
@@ -3074,6 +3087,7 @@ Break Jail	"A jailbreak means getting out of jail. Though to break someone is to
 Admiral Vice	"A vice-(anything) is a next-in-line/assistant to an honorary position, but vice is also a personal failing, big or small."
 Sore Loser	"A sore loser is someone who is not gracious enough to admit defeat. A loser sore is often what you get when you lose a fight, especially one someone else started."
 Boss Fight	"A boss fight is a confrontation with an important adversary in a more traditional game, while the Fight Boss has you do stuff worse than level grinding."
+Scholarship	"A scholarship is a money grant given towards education. The Ship Scholar, contrarily, says nothing is free."
 Complain Cant	"Cant means a tendency towards something, so someone with a complain cant would only say 'can't complain' very ironically." [eternal concepts]
 Received Wisdom	"Received wisdom is generally accepted knowledge which is often not true, such as how we only use 10% of our brain. Gustave Flaubert wrote a fun book called The Dictionary of Received Wisdom that makes fun of many such examples. For instance, a hamlet is always charming."
 People Power	"People power was a rallying cry in demonstrations against the authoritarianism of, well, power people."
@@ -3885,7 +3899,7 @@ guy-advice	"'Hm, well, if I give you too much advice, you won't enjoy solving th
 guy-flat	"'Well, that way is the Problems Compound. If you can figure out some basic stuff, you'll make it to Pressure Pier. Then--oh, the people you'll meet!'"
 guy-names	"'I know what you really want to ask. It's not at all about twisting things back around and making them the opposite of what they should mean. It's about SEEING things at every angle. You'll meet people who do. You'll be a bit jealous they can, and that they're that well-adjusted. But if you pay attention, you'll learn. I have. Though I've got a way to go. But I want to learn!'"
 guy-problems	"'Well, it's a place where lots of people more social than you--or even me--pose real-life problems. Tough but fair. Lots of real interesting people. Especially the Baiter Master[if allow-swears is false]. Oops. You don't like swears? Okay. Call him the Complex Messiah[else]. AKA the Complex Messiah[end if]. But not [bg]. Even I haven't earned that right yet. Or even to enter Freak Control. It's guarded by a trap where a question mark hooks you, then an exclamation mark clobbers you.' He pauses, and you are about to speak...[wfk]'YEAH. He's really nice once you get to know him, I've heard, it's just, there's too many people might waste his time, or not deserve him or not appreciate him.' Guy stage-whispers. 'OR ALL THREE.'"
-guy-mess	"'Oh, the [bad-guy]. He certainly knows what's what, and that's that! A bit of time around him, and you too will know a bit--not as much as he did. But he teaches by example! He can [activation of good egg]egg [i]good[r]. Just his way of caring. Remember, it's up to YOU what you make of his lessons! Some people--they just don't get him. Which is ironic. They're usually the type that claim society doesn't get THEM.' Guy whispers. '[activation of beat off]OFF-BEAT types.'"
+guy-mess	"'Oh, the [bad-guy]. He certainly knows what's what, and that's that! A bit of time around him, and you too will know a bit--not as much as he did. But he teaches by example! He can [activation of good egg]egg [i]good[r]. Just his way of caring. Remember, it's up to YOU what you make of his lessons! Some people--they just don't get him. Which is ironic. They're usually the type that claim society doesn't get THEM[if allow-swears is true].' Guy whispers. '[activation of beat off]OFF-BEAT types[end if].'"
 guy-bad2	"'[bad-guy-2]. Well, without the [bad-guy]'s snark, [bad-guy-2] would probably be in charge. Then things would get worse. You see, [bad-guy-2] is after our time and money. The [bad-guy] just likes to share a little snark.'"
 guy-bye	"'Whatever, dude.' [one of]It's--a bit harsh, you're not sure what you did to deserve that, but probably something[or]It's a bit less grating this time, but still[stopping]."
 
@@ -6488,6 +6502,11 @@ part Jerk Circle
 
 Jerk Circle is north of Pressure Pier. It is in Main Chunk. printed name of Jerk Circle is "[jc]". "[if silly boris is in lalaland]The only evidence the [j-co] were here is that the ground seems slightly trampled[else]Seven [j-co] stand in a circle (okay, a heptagon) here, talking to and about others[end if]. It looks like there's forested area to the west, a narrow valley to the east, and things open up to the north. Nothing's stopping you going back south in this crossroads, either."
 
+after printing the locale description for jerk circle when jerk circle is unvisited:
+	if allow-swears is true:
+		say "Man. You just feel oppressed just being [activation of jerk around]AROUND jerks.";
+	continue the action;
+
 check going nowhere in jerk circle:
 	say "You can go in any compass direction, but not that way." instead;
 
@@ -6944,7 +6963,7 @@ to check-jerks-done:
 
 to zap-the-jerks:
 	say "A fight's about to break out, until you tell them where you got this information from.[paragraph break]'You better be right about this,' [a random not minted client] says. They rush off. You hear whining in the distance. It's the Labor Child. He protests he was just trying to shame them into doing more practical things. They aren't buying it!";
-	say "[line break]The (ex-)jerks arrive back, and [a random client] hands you a bottle of Quiz Pop. 'Man, you seem to know what's what, and you helped us see it was okay to be us. Here's some totally sweet contraband.'[paragraph break]Hmm. Interesting. Quiz Pop.";
+	say "[line break]The (ex-)jerks arrive back, and [a random client] wipes away a [activation of tear-jerk]jerk-tear before handing you a bottle of Quiz Pop. 'Man, you seem to know what's what, and you helped us see it was okay to be us. Here's some totally sweet contraband.'[paragraph break]Hmm. Interesting. Quiz Pop.";
 	now player has quiz pop;
 	increment the score;
 	now all clients are in lalaland;
@@ -7398,7 +7417,7 @@ instead of doing something with scen-church:
 
 check going nowhere in well:
 	if noun is down:
-		say "The well is too dangerous. You don't see any way back up." instead;
+		say "If you entered the well, it could probably be renamed the [activation of well done]Done Well, because you wouldn't be [i]climbing[r] down." instead;
 	say "The wood is too thick to the south." instead;
 
 the nine yards hole is scenery in Disposed Well. "It looks too deep to reach into, and too narrow to climb, [if story fish is off-stage]but maybe with the right tools you could fish in the darkness below and find something[else]and you doubt there's anything else in there[end if]."
@@ -8475,7 +8494,7 @@ check going nowhere in speaking plain:
 	if noun is outside:
 		say "You already are." instead;
 
-The Fright Stage is scenery in Speaking Plain. "It's decorated with all manner of horrible fate for people that, you assume, messed up in life. From homelessness to getting fired visiting a porn store on Christmas Day to just plain envying other people with more stuff or social life, it's a mural of Scared Straight for kids without the guts to do anything jail-worthy."
+The Fright Stage is scenery in Speaking Plain. "It's decorated with all manner of horrible fate for people that, you assume, messed up in life. From homelessness to getting fired to visiting a porn store on Christmas Day to just plain envying other people with more stuff or social life, it's a mural of Scared Straight for kids without the guts to do anything jail-worthy."
 
 does the player mean explaining the fright stage: it is unlikely.
 
@@ -8505,7 +8524,7 @@ every turn when Alec Smart is in Speaking Plain and Speaking Plain was visited a
 	increment dutch-blab;
 	if dutch-blab > number of rows in table of dutch-blab:
 		now dutch-blab is 1;
-		say "'THUS ENDS THE BUSINESS SHOW.' Uncle Dutch and Turk Young shout in unison before applauding each other. They then look to you and sigh when you fail to applaud. 'Does not provide minimal encouragement to others or appreciate clever generalities. He'll be a failure for sure,' notes Uncle Dutch. 'I've had teachers like that. But they still had to give me A's!' beams Turk Young.[paragraph break][one of]You look back on all their advice and realize none of it could even conceivably help you with what you need to do, here. At least they're not stopping you from going anywhere.[or]They're going to start up again in a bit. But it can't be that bad the next time through.[stopping]";
+		say "'THUS ENDS THE BUSINESS SHOW.' Uncle Dutch and Turk Young shout in unison before applauding each other. They then look to you and sigh when you fail to applaud. 'Does not provide minimal encouragement to others or appreciate clever generalities. He'll be a failure for sure,' notes Uncle Dutch. 'I've had teachers like that. But they still had to give me A's!' beams Turk Young. They [activation of stand the pace]pace the stand for a bit.[paragraph break][one of]You look back on all their advice and realize none of it could even conceivably help you with what you need to do, here. At least they're not stopping you from going anywhere.[or]They're going to start up again soon. But it can't be that bad the next time through.[stopping]";
 	else:
 		choose row dutch-blab in table of dutch-blab;
 		say "[banter entry][line break]";
@@ -8522,7 +8541,7 @@ banter
 "Uncle Dutch and Turk discuss the etiquette of whether you should call the [bad-guy] [bg] or not. Well, YOU never should, and Turk isn't ready yet, but what a big day it will be in the near future when he is allowed!"
 
 for writing a paragraph about a person (called udyt) in Speaking Plain:
-	say "[one of]As you approach the stage, the man and the teen on it boom: 'Approach the Fright Stage with care! Uncle Dutch and Turk Young bring it hard and keep it real with the [activation of show business]BUSINESS SHOW! With thanks to the [bad-guy] for not arresting us yet and who will one day let us call him [bg]!'[or]Uncle Dutch and Turk Young continue their practical philosophy lessons on the Fright Stage.[stopping]";
+	say "[one of]As you approach the stage, the man and the teen on it boom: 'Approach the Fright Stage with care! Uncle Dutch and Turk Young bring it hard and keep it real with the [activation of show business]BUSINESS SHOW! With thanks to the [bad-guy] for not arresting us yet and who will one day let us call him [bg]!'[or]Uncle Dutch and Turk Young continue spouting practical philosophy lessons.[stopping]";
 	now uncle dutch is mentioned;
 	now turk young is mentioned;
 
@@ -9348,9 +9367,12 @@ gad-act
 "The [bad-guy] mutters he'd get six girls before [activation of King Henry]Henry King got one."
 "The [bad-guy] snickers at [activation of Tucker Max]Max Tucker's boring diaries that are well-written and all but don't have a trace of sex in them."
 "The [bad-guy] snorts at [activation of taste buds]Bud's taste."
-"The [bad-guy] mutters plans about the monthly Control Cruise coming up, a nice support group for people almost tired of being in power."
+"The [bad-guy] mutters plans about the monthly [activation of cruise control]Control Cruise coming up, a nice support group for people almost tired of being in power."
+"'Ally, Inform!' the [bad-guy] says to nobody in particular."
+"'[activation of infomania]Mania Info. Always good to have more. Well, until I get bored of it.'"
 "'We need to [activation of generate d]generate D, here, against [bad-guy-2]!'"
 "'[activation of plaintiff]Tiff? Plain,' the [bad-guy] quips. 'So defensive about it, too.'"
+"'Record the off. Always, [activation of off the record]record the off!'"
 "'Geez, it's a pain to [activation of benefactor]factor BENNY. I'm not, like, MEAN to him.'"
 "'[activation of pharisee]See, Farrah,' the [bad-guy] mutters to no girl in particular."
 "'[random surveyable person] just needs a good [activation of disorder]Order Dis to put [']em line. Or two. Or three.'"
@@ -9369,6 +9391,10 @@ the Twister Brain is scenery in Freak Control. "The way it's creased, it's just 
 understand "ridge/ridges" as Twister Brain.
 
 the Witness Eye is scenery in Freak Control. "It's weird, it's circular, but it has enough pointy protrusions, it could be a Witness Star too. You see lots of things going on. Most look innocent, but there's an occasional flash, the screen reddens, and WEIRD or WRONG flashes over for a half-second[if a random chance of 1 in 5 succeeds]. Hey, wait, that looked like [a random surveyable person] for a second, there[end if]."
+
+after examining the Witness Eye for the first time:
+	say "It seems a bit harsh. But then again, the [activation of beholder of the eye]beholder of the eye sees what they want to, and--well, you realize you might be biased.";
+	continue the action;
 
 understand "witness star" and "star" as Witness Eye.
 
@@ -10461,13 +10487,14 @@ this is the swear-see rule:
 	now swearseen is true;
 	say "[2da]The Baiter Master is the Complex Messiah.";
 	say "[2da]Buster Ball is Hunter Savage.";
-	say "[2da]The Jerk Circle is the Groan Collective.";
+	say "[2da]The Jerk Circle is the Groan Collective. Also, you feel a bit more foreboding, and everyone sheds a jerk-tear.";
 	say "[2da]The Business Monkey's efforts are half-brained or [if allow-swears is true]ass[else]posterior[end if]ed.";
 	say "[2da]If you actually swear, obscenely or mildly (BOTHER)--there's a small inner dialogue for swearing with swears off[line break]";
 	say "[2da]A different reaction to repeatedly playing the logic puzzles[line break]";
 	say "[2da]EXPLAIN Guy Sweet has a slight difference[line break]";
 	say "[2da]Eating a food from Tray B turns swears on, if they were off[line break]";
 	say "[2da]The game warns you might think (off) or say (on) a swear if you try to eat the dirt[line break]";
+	say "[2da]Guy Sweet warns of off-beat types.";
 	say "Welp, that's not much. I planned to have a lot more, but I just got sidetracked with silly stuff like bug fixing and adding to the story, which hopefully gave you less occasion to use profanity. Sorry about that."
 
 escape mode is a truth state that varies.
@@ -10873,6 +10900,8 @@ cut a deal is a concept in conceptville. understand "deal a cut" as cut a deal. 
 
 Force of Habit is a concept in conceptville. understand "habit of force" as force of habit. howto is "attack something inanimate you don't get arrested for".
 
+wave a flag is a concept in conceptville. Understand "flag a wave" and "flag wave" as wave a flag. howto is "wave". [?? wave flag]
+
 section intro concepts
 
 compound problems is a concept in conceptville. understand "problems compound" and "compound problem" as compound problems. howto is "very start".
@@ -10893,19 +10922,19 @@ acceptable is a concept in conceptville. understand "able except" and "except ab
 
 section surface concepts
 
-Animal Welfare is a concept in conceptville. understand "welfare animal" as animal welfare. howto is "get the Weasel to sign the Burden".
+Animal Welfare is a concept in conceptville. understand "welfare animal" as animal welfare. howto is "get the Weasel to sign the Burden". [variety garden]
 
 poor taste is a concept in conceptville. understand "taste poor" as poor taste. howto is "try to eat the poor dirt."
 
 dirt nap is a concept in conceptville. understand "nap dirt" as dirt nap. howto is "leave the garden without digging, or sleep when you have the pick".
-
-nose picking is a concept in conceptville. understand "picking nose" as nose picking. howto is "smell the mush in Tension Surface".
 
 work of art is a concept in conceptville. understand "art of work" as work of art. howto is "dig once with the pick in Variety Garden".
 
 enough man is a concept in conceptville. understand "man enough" as enough man. howto is "dig twice with the pick in Variety Garden".
 
 brush up is a concept in conceptville. understand "up brush" as brush up. howto is "go up in Variety Garden".
+
+nose picking is a concept in conceptville. understand "picking nose" as nose picking. howto is "smell the mush in Tension Surface". [tension surface]
 
 section soda club concepts
 
@@ -10926,6 +10955,8 @@ Wine-U-Gen is a concept in conceptville. understand "wine u gen" and "wineugen" 
 section food concepts
 
 a thing called Thought for Food is a concept in conceptville. understand "food for thought" as thought for food. howto is "visit Meal Square with Terry Sally around".
+
+Loaf Around is a concept in conceptville. Understand "around loaf" as loaf around. howto is "wait in Meal Square".
 
 defeat is a concept in conceptville. understand "eat def" and "def eat" as defeat. howto is "examine Tray B".
 
@@ -10969,9 +11000,14 @@ Sleeper Cell is a concept in conceptville. understand "cell sleeper" as sleeper 
 
 Dream Ticket is a concept in conceptville. understand "ticket dream" as dream ticket. howto is "sleep after you got a tickety".
 
-hoth is a privately-named concept in conceptville. printed name is "high off the hog". understand "hog on/off the high" and "high on/off the hog" as hoth. howto is "give the weed to Fritz".
+to say w-fr:
+	say "give the weed to Fritz"
 
-Puff Piece is a concept in conceptville. understand "peace/piece puff" and "puff peace" as puff piece. howto is "give the weed to Fritz".
+hoth is a privately-named concept in conceptville. printed name is "high off the hog". understand "hog on/off the high" and "high on/off the hog" as hoth. howto is "[w-fr]".
+
+joint role is a concept in conceptville. Understand "role/roll joint" and "role/roll a joint" as joint role. howto is "[w-fr]".
+
+Puff Piece is a concept in conceptville. understand "peace/piece puff" and "puff peace" as puff piece. howto is "[w-fr]".
 
 bullfrog is a concept in conceptville. understand "frog bull" and "bull frog" as bullfrog. howto is "ask the Stool Toad how to get in trouble".
 
@@ -10981,13 +11017,19 @@ Moral Support is a concept in conceptville. understand "support moral" as moral 
 
 Double Jeopardy is a concept in conceptville. understand "jeopardy double" as Double Jeopardy. howto is "get ticket for sleeping".
 
-section main chunk concepts [left to right, then down to up]
+section main chunk concepts [left to right, then below]
 
 Fish for a Compliment is a concept in conceptville. understand "compliment for a fish" as fish for a compliment. howto is "talk to the story fish with nobody else around". [disposed well]
+
+Well Done is a concept in conceptville. Understand "done well" as well done. howto is "try entering the Disposed Well".
 
 character assassination is a concept in conceptville. understand "assassination character" as character assassination. howto is "visit Chipper Wood". [chipper wood]
 
 Black Mark is a concept in conceptville. understand "mark black" as black mark. howto is "examine quiz pop". [jerk circle]
+
+Jerk Around is a concept in conceptville. Understand "around jerk" as jerk around. howto is "enter the main area with profanity on".
+
+Tear-Jerk is a concept in conceptville. Understand "jerk-tear" and "tear jerk" and "jerk tear" as Tear-Jerk. howto is "solve the [j-co]['] puzzle".
 
 career threatening is a concept in conceptville. Understand "threatening career" as career threatening. howto is "give Officer Petty the Reasoning Circular". [judgment pass]
 
@@ -11000,6 +11042,8 @@ venturesome is a concept in conceptville. understand "you're/youre some vent" an
 Dutch Treat is a concept in conceptville. understand "treat dutch" as dutch treat. howto is "type TREAT DUTCH around Uncle Dutch". [speaking plain]
 
 Show Business is a concept in conceptville. understand "business show" as show business. howto is "Go to the Speaking Plain without eating a Tray B food".
+
+Stand the Pace is a concept in conceptville. Understand "pace the stand" as stand the pace. howto is "sit through all of the Business Show in Speaking Plain".
 
 Determined Bound is a concept in conceptville. understand "bound and determined" as determined bound. howto is "go south in Walker Street". [walker street]
 
@@ -11030,6 +11074,8 @@ Tucker Max is a concept in conceptville. understand "max tucker" as Tucker Max. 
 
 King Henry is a concept in conceptville. understand "henry king" as king henry. howto is "[fr-ran]".
 
+Cruise Control is a concept in conceptville. Understand "control cruise" as cruise control. howto is "[fr-ran]".
+
 benefactor is a concept in conceptville. understand "factor benny" and "benny factor" as benefactor. howto is "[fr-ran]".
 
 pharisee is a concept in conceptville. understand "see farrah" and "farrah see" as pharisee. howto is "[fr-ran]".
@@ -11045,6 +11091,12 @@ taste buds is a concept in conceptville. understand "bud's/buds taste" as taste 
 generate d is a concept in conceptville. Understand "d generate" as generate d. howto is "[fr-ran]".
 
 plaintiff is a concept in conceptville. understand "tiff plain" and "plain tiff" as plaintiff. howto is "[fr-ran]".
+
+Infomania is a concept in conceptville. Understand "infomania" as infomania. howto is "[fr-ran]".
+
+Off the Record is a concept in conceptville. Understand "record the off" as off the record. howto is "[fr-ran]".
+
+beholder of the eye is a concept in conceptville. Understand "eye the of beholder" as beholder of the eye. howto is "examine the Witness Eye".
 
 Howard Dean is a concept in conceptville. understand "dean howard" as howard dean. howto is "[fr-ran]".
 
@@ -11109,6 +11161,8 @@ section death concepts
 Sore Loser is a concept in conceptville. understand "loser sore" as sore loser. howto is "visit Fight Fair (attack random person)".
 
 Boss Fight is a concept in conceptville. understand "fight boss" as boss fight. howto is "visit Fight Fair (attack random person)".
+
+Scholarship is a concept in conceptville. Understand "scholarship" as scholarship. howto is "get sent to the Shape Ship".
 
 chapter lalaland
 
