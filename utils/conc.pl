@@ -12,6 +12,7 @@ while ($count <= $#ARGV)
   $a = @ARGV[$count];
   for ($a)
   {
+    /^-o$/ && do { $order = 1; $count++; next; };
     /^-pc$/ && do { @dirs = ("Compound"); $count++; next; };
     /^-sc$/ && do { @dirs = ("Slicker-City"); $count++; next; };
 	/^-as$/ && do { @dirs = ("Slicker-City", "Compound"); $count++; next; };
@@ -27,7 +28,7 @@ while ($count <= $#ARGV)
   }
 }
 
-for $thisproj (@dirs) { if ($order) { checkOrder($thisProj); } else { readConcept($thisproj); } }
+for $thisproj (@dirs) { if ($order) { checkOrder($thisproj); } else { readConcept($thisproj); } }
 
 sub crankOutCode
 {
@@ -71,6 +72,39 @@ print "\n";
 
 }
 
+sub checkOrder
+{
+  my @ex;
+  my @co;
+  my $expls;
+  my $concs;
+  my $ordFail = 0;
+  
+  my $source = "c:/games/inform/$_[0].inform/source/story.ni";
+
+  open(A, "$source") || die ("Can't open $source.");
+
+  while ($a = <A>)
+  {
+	if (($expls) && ($a !~ /[a-z]/i)) { $expls = 0; next; }
+	if (($concs) && ($a =~ /end concepts/)) { $concs = 0; next; }
+    if ($a =~ /xadd/) { <A>; $expls = 1; next; }
+    if ($a =~ /\[cv\]/) { <A>; $concs = 1; next; }
+	if ($expls) { chomp($a); $a =~ s/\t.*//g; push (@ex, $a); next; }
+	if (($concs) && ($a =~ /concept.in/)) { chomp($a); $a =~ s/is a .*concept.*//g; push (@co, $a); next; }
+  }
+  
+  for (0..$#ex)
+  {
+    print "$_: @ex[$_] vs @co[$_]\n";
+    if (lc(@ex[$_]) ne lc(@co[$_]))
+	{
+	  #print "$_: @ex[$_] vs @co[$_]\n";
+	  $ordFail++;
+	}
+  }
+  if ($ordFail) { print "$ordFail failed, but it's probably less.\n"; } else { print "Ordering all matched.\n"; }
+}
 ########################################
 #reads in concepts
 #

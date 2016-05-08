@@ -9324,14 +9324,26 @@ current-worry is a number that varies. current-worry is 0.
 
 freak-control-turns is a number that varies.
 
+bucket-ping is a truth state that varies.
+
+trip-ping is a truth state that varies.
+
 every turn when player is in freak control and qbc_litany is not table of baiter master talk (this is the random stuff in FC rule):
 	unless accel-ending:
 		increment freak-control-turns;
-		increment current-worry;
-		if current-worry > number of rows in table of bad guy worries:
-			now current-worry is 0;
+		if current-worry is 5 and list bucket is not examined and bucket-ping is false:
+			say "You think you hear the List Bucket rattle. Wait, no.";
+			now bucket-ping is true;
+			the rule succeeds;
+		if current-worry is 10 and trip-ping is false:
+			now trip-ping is true;
 			say "'All this data from all these machines! I need a little [activation of break monotony]monotony break from this decisiveness and abrasiveness,' the [bad-guy] yells to, well, nobody in particular. 'It's not like I'm on a total [activation of power trip]POWER TRIP.'";
 			the rule succeeds;
+		increment current-worry;
+		if current-worry > number of rows in table of bad guy worries:
+			now current-worry is 1;
+			now bucket-ping is false;
+			now trip-ping is false;
 		choose row current-worry in table of bad guy worries;
 		say "[gad-act entry][line break]";
 
@@ -9362,7 +9374,6 @@ to say odd-machine-l of (x - a thing):
 
 table of bad guy worries [administrative]
 gad-act
-"You think you hear the List Bucket rattle. Wait, no."
 "The [bad-guy] mutters something about needing to [activation of Ezra Pound]pound Ezra for not appreciating his edgy, advanced, experimental poetry."
 "The [bad-guy] mutters he'd get six girls before [activation of King Henry]Henry King got one."
 "The [bad-guy] snickers at [activation of Tucker Max]Max Tucker's boring diaries that are well-written and all but don't have a trace of sex in them."
@@ -11181,6 +11192,8 @@ Much Flatter is a concept in conceptville. understand "flatter much" as Much Fla
 Snipe Gutter is a concept in conceptville. understand "guttersnipe" as Snipe Gutter. howto is "eat the off cheese and 'win'".
 
 Received Wisdom is a concept in conceptville. understand "wisdom received" as received wisdom. howto is "get past Freak Control and get either good ending".
+
+[end concepts]
 
 volume rule replacements
 
