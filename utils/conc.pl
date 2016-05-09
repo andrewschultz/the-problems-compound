@@ -50,7 +50,7 @@ my $fails = 0;
 my $totals = 0;
 my $errMsg = "";
 
-for $x (keys %any)
+for $x (sort keys %any)
 {
   $totals++;
   #print "Looking at $x:\n";
@@ -102,11 +102,11 @@ sub checkOrder
 	{
 	  $ordFail++;
       print "$_ ($ordFail): @ex[$_] vs @co[$_]";
-	  for $match (0..$#co) { if (lc(@ex[$_]) eq lc(@co[$match])) { print " (#$match)"; if ($match - $lastMatch == 1) { print " (in order)"; } $lastMatch = $match; } }
+	  for $match (0..$#co) { if (lc(@ex[$_]) eq lc(@co[$match])) { print " (#$match)"; if ($match - $lastMatch == 1) { print " (in order)"; $inOrder++; } $lastMatch = $match; } }
 	  print "\n";
 	} else { }
   }
-  if ($ordFail) { print "$ordFail failed, but it's probably less.\n"; } else { print "Ordering all matched for $_[0].\n"; }
+  if ($ordFail) { print "$ordFail failed"; if ($inOrder) { print ", but $inOrder are nice and consecutive"; } print ".\n      EXPLANATIONS vs CONCEPTS above\n"; } else { print "Ordering all matched for $_[0].\n"; }
   if ($printTest) { print "TEST RESULTS:$_[0] ordering,0,$ordFail,0,run conc.pl -o\n"; }
 }
 ########################################

@@ -12,7 +12,7 @@ use the serial comma.
 
 use American dialect.
 
-the release number is 2.
+the release number is 3.
 
 book includes
 
@@ -1424,6 +1424,8 @@ check smelling (this is the smelling a place rule): [see above for people]
 		say "Buddy Best sniffs back, louder." instead;
 	if player is in speaking plain:
 		say "The advice you're hearing thankfully only stinks metaphorically." instead;
+	if player is in pot chamber:
+		say "You take a whiff, against your better judgement, but it doesn't smell like sewage. Whew." instead;
 	if player is in freak control:
 		say "Unusually sterile." instead;
 	if player is in discussion block:
@@ -1951,7 +1953,7 @@ check attacking:
 		say "[if wax is in lalaland]After you were so nice to it? That's rough, man[else]No, it needs compassion, here[end if]." instead;
 	if noun is jerks or noun is a client:
 		if allow-swears is true:
-			say "It'd take fifteen minutes to [activation of jerk off]off a jerk, and with seven, you'd be exhausted, and it wouldn't be fun." instead;
+			say "It'd take fifteen minutes to [activation of jerk off]off a jerk, and with seven, why, you'd feel indecent afterwards." instead;
 		say "You've been suckered into lashing out before, but these guys--well, you've faced more annoying, truth be told." instead;
 	if noun is ring:
 		say "BONG! You didn't expect anything so musical. Or so robust, or full. But it probably needs you to act on it more subtly." instead;
@@ -3031,37 +3033,56 @@ Tray T	"A tea tray. To go with food."
 Tray X	"It is an ex-tray."
 fish out of water	"A fish out of water is someone or something out of place."
 Boy Howdy	"Boy Howdy is a colloquial expression of surprise." [start of pressure pier]
-Grammar Police	"Grammar police are people who argue trivial grammar points when something is clear, or there's a much bigger cogent argument. In the Stool Toad's case, he deliberately uses bad grammar for emphasis, like on a 'hard-boiled' cop show."
-Bum Beach	"A beach bum is someone who wanders on the beach. Maybe he lives there in a shack too."
-sleeper cell	"A group of people who blen into a community until they can commit an act of terrorism."
+Bum Beach	"A beach bum is someone who wanders on the beach. Maybe he lives there in a shack too." [start of down ground]
+clip joint	"A clip joint is a place that overcharges customers. A joint clip will help Fritz save on purchases so none is wasted."
 Dream Ticket	"A pair of candidates who, running together, have extremely broad appeal they wouldn't have alone. In Alec's dreams, he's often ganged up on by two people or groups who triangulate him rather differently."
+Grammar Police	"Grammar police are people who argue trivial grammar points when something is clear, or there's a much bigger cogent argument. In the Stool Toad's case, he deliberately uses bad grammar for emphasis, like on a 'hard-boiled' cop show."
+high and dry	"High and dry means in a good safe position."
 hoth	"High on the hog means living wealthily. To hog the high would be if Fritz didn't share his, um, stuff."
 joint role	"A joint role is something done together. Rolling a joint is the act of creating a marijuana cigarette."
 puff piece	"A puff piece is a fawning newspaper article that makes someone out to be better than they really are. A peace puff from smoking marijuana is (we can assume) less socially motivated."
+sleeper cell	"A group of people who blen into a community until they can commit an act of terrorism."
 bullfrog	"A bullfrog is not quite a toad. And bull means nonsense. The Stool Toad is probably in no danger of being mistaken for Frog or Toad from Arnold Lobel's nice books." [start of joint strip]
 Double Jeopardy	"Double jeopardy is being tried for the same crime twice. Making your jeopardy double is just putting you at twice the risk."
 Moral Support	"Moral support is helping someone even if you don't have concrete advice. SUPPORT MORAL is, well, a slogan that pushes people around."
 Trust Brain	"A brain trust is a group of people that help make a decision. A trust-brain, though not an English phrase, might mean a mind that can't make its own decisions."
+brew a plot	"To brew a plot is to plan something subversive."
 Go Rum	"A rum go is an unforeseen unusual experience, as opposed to 'GO' anything which indicates general motivation." [start of soda club]
 Hip Rose	"Rose hips are ingredients found in tea, which is too non-alcoholic for the Soda Club. Hip is, of course, cool or desirable or with-it."
+hit the bottle	"To hit the bottle is to drink."
 Party T	"A tea party is usually non-alcoholic, and people mind their manners. Well, unless it's the political sort, but I won't touch that any further. I probably said too much, already."
+punch drunk	"Punch drunk is when you are stunned from physical blows."
+punch line	"The punch line is the final line in a joke."
+punch out	"To punch out someone is to beat them up."
 Punch Sucker	"A sucker punch is an unexpected hit."
+punch ticket	"To get your ticket punched, or punch your ticket, is to get killed."
 Rummy Gin	"Gin Rummy is a card game, generally not the sort associated with wild binge drinking."
 Total T	"Teetotal means alcohol-free."
 Wine-U-Gen	"Genuine is, well, real and true. Both Ally Stout and his drinks are superficial, as wine is generally not made by machine."
+grace period	"A grace period is time given for someone to learn or understand something, or even to return a book late to the library." [start of classic cult]
 Fish for a Compliment	"To fish for a compliment is to try to manipulate someone into saying something nice." [start of disposed well]
 Well Done	"Well done means good job, but 'done' is also a synonym for dead, because you'd fall down the well if you tried to enter it."
 Character Assassination	"Character assassination is an attempt to tarnish someone's good reputation." [start of chipper wood]
 Play it Cool	"To play it cool is not to lose your temper. Of course, Percy's chase may make you want to lose your temper."
 Sweetheart Deal	"A sweetheart deal is something that works very well for both sides, often obtained unethically. Telling someone to deal often means they have to settle for being ripped off."
 Black Mark	"A black mark is something indicating bad behavior." [start of jerk circle]
+clean break	"A clean break from something is leaving quickly and for good. The jerks haven't broken with their 'clean' secrets yet."
+dirty word	"A dirty word is profanity. 'Word' on its own is slang for agreement."
 jerk around	"To jerk someone around is to pester them physically or mentally."
+jerk off	"To jerk off is to gratify oneself carnally."
 tear-jerk	"The jerks['] tears may seem a bit fake, and a tear-jerker is something that tries to manipulate you into crying."
 career threatening	"Something career threatening may risk not only your job but your ability to get other equal or better jobs. A threatening career is--well, a bit of a racket." [start of judgment pass]
 scofflaw	"A scofflaw is someone who breaks minor rules. Perhaps they jaywalk or litter."
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever." [start of idiot village]
+baby boomer	"The Baby Boomers were the generation born just after World War II. Sometimes referred to as 'The Greatest Generation.'" [start of scheme pyramid]
+brat army	"An army brat is the child of a military officer. They would be more likely to move than most children."
+labor of love	"A labor of love is something done for its own sake, not for worldly advancement."
 venturesome	"Venturesome means willing to go places." [start of temper keep]
-Dutch Treat	"A Dutch treat is where everyone pays his own way. This is viewed, according to idioms.freedictionary.com, as insulting to the Dutch. It certainly isn't flattering." [start of speaking plain]
+Cry Uncle	"To cry uncle is to surrender, to give up." [start of speaking plain]
+Dutch Act	"The Dutch Act is suicide[dutch-off]."
+Dutch Courage	"Dutch courage comes from alcoholic refreshment[dutch-off]."
+Dutch Reckoning	"Dutch Reckoning is a bill that's too high[dutch-off]."
+Dutch Treat	"A Dutch treat is where everyone pays his own way[dutch-off]."
 Show Business	"Show business is the act of entertainment, and the business show's is (purportedly) more practical."
 Stand the Pace	"If you can't stand the pace, it's too fast for you. Turk and Dutch pace the stand because they need a break."
 Determined Bound	"Bound and determined means you're set on doing something. A determined bound is set to prevent you from doing something." [start of walker street]
@@ -3071,14 +3092,17 @@ Coals to Newcastle	"Coals to Newcastle means a pointless action. In this case, t
 Elevator Music	"elevator music is soft, boring, inoffensive music that plays in elevators. Phil and Art want the play to be a bit more exciting."
 Play Dumb	"To play dumb is to pretend you don't know something you do, to avoid criticism or to catch someone off-guard. Of course, Phil and Art, after saying this, treat you like you're kind of dumb. Or you can't even ask the name of the play."
 Steal This Book	"Steal This Book was a countercultural guide by Abbie Hoffman. Book this steal refers to 'booking' suspects for a transgression, e.g. a parking fine or ticket."
-Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off." [start of questions field]
+brother foster	"A foster brother is a brother not related by birth." [start of questions field]
+Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
+weed out	"To weed out people is to create a test to show they are inadequate." [start of pot chamber]
 Terminal Illness	"A terminal illness is one which is bound to be fatal. Illness can also mean full of insults, e.g. very 'ill,' as kids these days say. And said, even in my day!" [start of belt below]
-Admiral Vice	"A vice-(anything) is a next-in-line/assistant to an honorary position, but vice is also a personal failing, big or small."
+Admiral Vice	"A vice-(anything) is a next-in-line/assistant to an honorary position, but vice is also a personal failing, big or small." [start of freak control]
 beholder of the eye	"'Beauty is in the eye of the beholder' is a cliche meaning we see the nice things we want. Here Alec is worried he's seeing oppresion that gives him an excuse to fear."
 benefactor	"A benefactor is someone who provides support, emotional or financial."
 Beyond Belief	"Beyond belief means something you can't possibly believe in, but belief beyond means more faith than you thought you could have."
 Break Jail	"A jailbreak means getting out of jail. Though to break someone is to destroy their spirit."
 Break Monotony	"To break (the) monotony is to get a change from something boring."
+busy work	"busy work is often given to someone just to keep them occupied."
 Crisis Energy	"An energy crisis is when a community doesn't have enough electrical power, or oil, or whatever."
 cruise control	"Cruise control is when you set a car to go at a certain speed. A person on cruise control is going through life and not trying anything new."
 daze salad	"Salad days are a time when things are going well."
@@ -3088,6 +3112,7 @@ favor curry	"To curry favor is to try to get on someone's good side."
 fawn over	"To fawn over is to flatter someone."
 Freak Out	"To freak out is to make a much bigger emotional display than seems really necessary."
 generate d	"Degenerate means without moral values. D is short for defense."
+grunt work	"Grunt work is unchallenging work."
 Howard Dean	"Howard Dean was a candidate for the 2004 US Democratic Party nomination. After placing 3rd in the Iowa caucuses, he had an infamous 'Dean Scream' at a rally with supporters, which sounded worse than it was, because he was close to a microphone that picked it up. Which made him the butt of many jokes for a week. The media realised that everyone was yelling a week later, but the story was too ingrained by then."
 infomania	"Infomania is always wanting new info. The [bad-guy] pretends he doesn't want it, but it's just fun to have. Mania info is, in this case, malicious gossip about people different the wrong way."
 King Henry	"King Henry VIII of England had six wives."
@@ -3099,6 +3124,7 @@ polygraph	"A polygraph is a lie detector. The [bad-guy] is probably looking for 
 Power Trip	"A power trip is when someone is so overcome with their own power, they do mean things to show it off."
 running start	"A running start means you've gotten started quickly."
 scuzz bucket	"A scuzz, or scum, bucket is a person who is just plain dirty or disgusting. The [bad-guy] is not obviously physically like this."
+see if i care	"See if I Care is said to show indifference to a bully or nuisance."
 shot mug	"The shot mug may look shot, or beaten-up, but mug shots--photographs of apprehended suspects--are generally very unflattering. Hence the flattering portrait of the [bad-guy] on the mug."
 Slicker City	"A city slicker is what rural people may call someone more urban. It's also the name of a planned sequel to PC."
 taste buds	"Taste buds are what you use to experience the sensation of taste."
@@ -3126,6 +3152,9 @@ People Power	"People power was a rallying cry in demonstrations against the auth
 Received Wisdom	"Received wisdom is generally accepted knowledge which is often not true, such as how we only use 10% of our brain. Gustave Flaubert wrote a fun book called The Dictionary of Received Wisdom that makes fun of many such examples. For instance, a hamlet is always charming."
 Snipe Gutter	"A guttersnipe is someone of the lowest class, brought up in squalor. To snipe is to take cheap shots, and if you're in the gutter, so much the worse."
 Something Mean	"Mean something = talk or act with purpose. Something mean = well, nastiness."
+
+to say dutch-off:
+	say "[one of]. This is viewed, according to idioms.freedictionary.com, as insulting to the Dutch. It certainly isn't flattering[or]. Again, potentially not the politest[stopping]"
 
 table of room explanations [tore]
 room-to-exp	exp-text	exp-anno
@@ -6516,7 +6545,7 @@ to say here-or-not:
 			say "You pause for a second. You've got quite a record, already. You don't need a fifth tickety. No, you'd better play it cool.[no line break]";
 			continue the action;
 		if current quip is ally-haha:
-			say "'Ah good. If you're laughing that hard at the name, you'd get kicked out like the Punch Sucker. Maybe you'll even be refined enough for [activation of brew a plot]a plot brew some day.'";
+			say "'Ah good. If you, like, laughed hard at the name, you'd get kicked out like the Punch Sucker. Maybe you'll even be refined enough for [activation of brew a plot]a plot brew some day.'";
 			now player has haha brew;
 		else:
 			say "'Let me crank up the [activation of wine-u-gen]Wine-U-Gen...'";
@@ -8036,7 +8065,7 @@ check going nowhere in scheme pyramid:
 		try going north instead;
 	say "This room is north-south. Maybe once the brat turns ten, he'll have a bigger office, but right now, it's only got the two exits." instead;
 
-The Labor Child is a baiter-aligned person in Scheme Pyramid. "[one of]Some overdressed little brat walks up to you and shakes your hand. 'Are you here to work for me? I hope you have [activation of labor of love]love of labor. Not as much as me. The Labor Child. If you think you have business savvy, get a seed from the Fund Hedge.'[or]The Labor Child paces about here[one of]plotting revenge against the [activation of baby boomer]Boomer Baby who humiliated him in pre-school[or], formulating his next business idea[one of], muttering he's outgrown his [activation of brat army]brat army[or][stopping][stopping].[stopping]"
+The Labor Child is a baiter-aligned person in Scheme Pyramid. "[one of]Some overdressed little brat walks up to you and shakes your hand. 'Are you here to work for me? I hope you have [activation of labor of love]love of labor. Not as much as me. The Labor Child. If you think you have business savvy, get a seed from the Fund Hedge.'[or]The Labor Child paces about here[one of]plotting revenge against the [activation of baby boomer]Boomer Baby who humiliated him in pre-school[or], formulating his next business idea[one of], muttering he's outgrown his [activation of brat army]brat army. Time to move on[or][stopping][stopping].[stopping]"
 
 understand "kid/brat" as Labor Child.
 
@@ -9263,8 +9292,10 @@ blood-foster	"'[bro-fo]. It made me mad.'"
 blood-all	"'Yeah. Not like they were really challenging or edgy, though. I mean, it feels nice to talk and stuff but the [bad-guy] said questions like yours weren't real nitty-gritty. No offense.'"
 blood-bye	"'Later. You, um, yeah, seem okay.'"
 
+foster-yet is a truth state that varies.
+
 to say bfa:
-	say "[activation of brother foster]Brother Foster"
+	say "[activation of brother foster]Brother Foster";
 	if foster-yet is false:
 		now foster-yet is true;
 		choose row with response of blood-foster in table of b3;
@@ -9275,7 +9306,7 @@ to say bfa:
 		now enabled entry is 1;
 
 to say bro-fo:
-	say "He left us in Idiot Village after meeting the [bad-guy]. Cause we were getting jealous of him, and all he could do, and we--he--didn't need that"
+	say "He left us in Idiot Village after meeting the [bad-guy]. Cause we were getting jealous of him, and all he could do, and we--he--didn't need that";
 		choose row with response of blood-foster in table of b3;
 		now enabled entry is 0;
 		choose row with response of soul-foster in table of b2;
@@ -11022,7 +11053,7 @@ chapter surface concepts
 
 section variety garden concepts
 
-Animal Welfare is a concept in conceptville. understand "welfare animal" as animal welfare. howto is "get the Weasel to sign the Burden". [variety garden]
+Animal Welfare is a concept in conceptville. understand "welfare animal" as animal welfare. howto is "get the Weasel to sign the Burden".
 
 poor taste is a concept in conceptville. understand "taste poor" as poor taste. howto is "try to eat the poor dirt."
 
@@ -11080,22 +11111,28 @@ fish out of water is a concept in conceptville. understand "water out of fish" a
 
 Boy Howdy is a concept in conceptville. understand "howdy boy" as Boy Howdy. howto is "get to Pressure Pier".
 
-Grammar Police is a concept in conceptville. understand "police grammar" as grammar police. howto is "go east to Down Ground".
-
-Bum Beach is a concept in conceptville. understand "beach bum" as Bum Beach. howto is "examine the bench in Down Ground".
-
-Sleeper Cell is a concept in conceptville. understand "cell sleeper" as sleeper cell. howto is "sleep then wait in Down Ground".
-
-Dream Ticket is a concept in conceptville. understand "ticket dream" as dream ticket. howto is "sleep after you got a tickety".
+section down ground concepts
 
 to say w-fr:
 	say "give the weed to Fritz"
+
+Bum Beach is a concept in conceptville. understand "beach bum" as Bum Beach. howto is "examine the bench in Down Ground".
+
+Clip Joint is a concept in conceptville. Understand "joint clip" as clip joint. howto is "listen to Fritz after giving him the weed".
+
+Dream Ticket is a concept in conceptville. understand "ticket dream" as dream ticket. howto is "sleep after you got a tickety".
+
+Grammar Police is a concept in conceptville. understand "police grammar" as grammar police. howto is "go east to Down Ground".
+
+a thing called High and Dry is a concept in conceptville. Understand "dry and high" as high and dry. howto is "listen to Fritz after getting past Pressure Pier but before giving him the weed".
 
 hoth is a privately-named concept in conceptville. printed name is "high off the hog". understand "hog on/off the high" and "high on/off the hog" as hoth. howto is "[w-fr]".
 
 joint role is a concept in conceptville. Understand "role/roll joint" and "role/roll a joint" as joint role. howto is "[w-fr]".
 
 Puff Piece is a concept in conceptville. understand "peace/piece puff" and "puff peace" as puff piece. howto is "[w-fr]".
+
+Sleeper Cell is a concept in conceptville. understand "cell sleeper" as sleeper cell. howto is "sleep then wait in Down Ground".
 
 section joint strip concepts
 
@@ -11109,13 +11146,28 @@ Trust Brain is a concept in conceptville. understand "brain trust" as trust brai
 
 section soda club concepts
 
+to say ask-ally:
+	say "Ask Ally Stout about the Punch Sucker"
+
+brew a plot is a concept in conceptville. Understand "plot a brew" as brew a plot. howto is "order the Haha Brew in the Soda Club".
+
 the Go Rum is a concept in conceptville. howto is "ask Ally Stout about drinks".
 
 Hip Rose is a concept in conceptville. understand "rose hip/hips" as Hip Rose. howto is "visit the Soda Club".
 
+hit the bottle is a concept in conceptville. Understand "bottle the hit" as hit the bottle. howto is "attack Ally Stout".
+
 the Party T is a concept in conceptville. howto is "visit the Soda Club".
 
+punch drunk is a concept in conceptville. Understand "drunk punch" as punch drunk. howto is "[ask-ally]".
+
+punch line is a concept in conceptville. Understand "line punch" as punch line. howto is "[ask-ally]".
+
+punch out is a concept in conceptville. Understand "out punch" as punch out. howto is "[ask-ally]".
+
 Punch Sucker is a concept in conceptville. understand "punch sucker" as punch sucker. howto is "visit the Soda Club".
+
+punch ticket is a concept in conceptville. Understand "ticket punch" as punch ticket. howto is "[ask-ally]".
 
 Rummy Gin is a concept in conceptville. howto is "ask Ally Stout about drinks".
 
@@ -11124,6 +11176,10 @@ the Total T is a concept in conceptville. howto is "visit the Soda Club".
 Wine-U-Gen is a concept in conceptville. understand "wine u gen" and "wineugen" as Wine-U-Gen. howto is "order the Cooler Wine"
 
 chapter main chunk concepts [left to right, then below]
+
+section classic cult concepts
+
+grace period is a concept in conceptville. Understand "period grace" as grace period. howto is "Ask Grace about the [bad-guy]".
 
 section disposed well concepts
 
@@ -11143,29 +11199,52 @@ section jerk circle concepts
 
 Black Mark is a concept in conceptville. understand "mark black" as black mark. howto is "examine quiz pop".
 
+Clean Break is a concept in conceptville. Understand "break clean" as clean break. howto is "go to the [jc]".
+
+Dirty Word is a concept in conceptville. Understand "word dirty" as dirty word. howto is "go to the [jc]".
+
 Jerk Around is a concept in conceptville. Understand "around jerk" as jerk around. howto is "enter the main area with profanity on".
 
-Jerk Off is a concept in conceptville. undertstand "off jerk" as jerk off. howto is "attack a jerk in swearing-on mode".
+Jerk Off is a concept in conceptville. understand "off jerk" as jerk off. howto is "attack a jerk in swearing-on mode".
 
 Tear-Jerk is a concept in conceptville. Understand "jerk-tear" and "tear jerk" and "jerk tear" as Tear-Jerk. howto is "solve the [j-co]['] puzzle".
 
 section judgment pass concepts
 
-career threatening is a concept in conceptville. Understand "threatening career" as career threatening. howto is "give Officer Petty the Reasoning Circular". [judgment pass]
+career threatening is a concept in conceptville. Understand "threatening career" as career threatening. howto is "give Officer Petty the Reasoning Circular".
 
 scofflaw is a concept in conceptville. Understand "scoff law" and "lawscoff/law-scoff/scoff-law" and "law scoff" as scofflaw. howto is "give Officer Petty the Reasoning Circular".
 
 section idiot village concepts
 
-Candidate Dummy is a concept in conceptville. understand "dummy candidate" as Candidate Dummy. howto is "talk to Sly". [idiot village]
+Candidate Dummy is a concept in conceptville. understand "dummy candidate" as Candidate Dummy. howto is "talk to Sly".
+
+section scheme pyramid concepts
+
+Baby Boomer is a concept in conceptville. Understand "boomer baby" as baby boomer. howto is "enter the Scheme Pyramid".
+
+Brat Army is a concept in conceptville. Understand "army brat" as brat army. howto is "enter the scheme pyramid".
+
+Labor of Love is a concept in conceptville. Understand "love of labor" as labor of love. howto is "enter the Scheme Pyramid".
 
 section temper keep concepts
 
-venturesome is a concept in conceptville. understand "you're/youre some vent" and "some vent" as venturesome. howto is "enter the spleen vent". [temper keep]
+venturesome is a concept in conceptville. understand "you're/youre some vent" and "some vent" as venturesome. howto is "enter the spleen vent".
 
 section speaking plain concepts
 
-Dutch Treat is a concept in conceptville. understand "treat dutch" as dutch treat. howto is "type TREAT DUTCH around Uncle Dutch". [speaking plain]
+to say pl-wa:
+	say "put up with the Business Show"
+
+cry uncle is a concept in conceptville. Understand "uncle cry" as cry uncle. howto is "[pl-wa]".
+
+Dutch Act is a concept in conceptville. Understand "act dutch" as dutch act. howto is "[pl-wa]".
+
+Dutch Courage is a concept in conceptville. Understand "courage dutch" as dutch courage. howto is "[pl-wa]".
+
+Dutch Reckoning is a concept in conceptville. Understand "reckoning dutch" as dutch reckoning. howto is "[pl-wa]".
+
+Dutch Treat is a concept in conceptville. understand "treat dutch" as dutch treat. howto is "type TREAT DUTCH around Uncle Dutch".
 
 Show Business is a concept in conceptville. understand "business show" as show business. howto is "Go to the Speaking Plain without eating a Tray B food".
 
@@ -11173,7 +11252,7 @@ Stand the Pace is a concept in conceptville. Understand "pace the stand" as stan
 
 section walker street concepts
 
-Determined Bound is a concept in conceptville. understand "bound and determined" as determined bound. howto is "go south in Walker Street". [walker street]
+Determined Bound is a concept in conceptville. understand "bound and determined" as determined bound. howto is "go south in Walker Street".
 
 section discussion block concepts
 
@@ -11191,7 +11270,13 @@ Steal This Book is a concept in conceptville. understand "book this steal" as St
 
 section questions field concepts
 
+brother foster is a concept in conceptville. Understand "foster brother" as brother foster. howto is "talk to any of the brothers in Questions Field".
+
 Brother's Keepers is a concept in conceptville. understand "brother/brothers keeper/keepers" and "keeper/keepers brother/brothers" as Brother's Keepers. howto is "examine the brothers".
+
+section pot chamber
+
+weed out is a concept in conceptville. Understand "out weed" as weed out. howto is "take Pusher Penn's wacker weed".
 
 section belt below concepts
 
@@ -11217,6 +11302,8 @@ The Break Jail is a concept in conceptville. understand "jail break" as Break Ja
 
 Break Monotony is a concept in conceptville. understand "monotony break" as break monotony. howto is "wait for the [bad-guy] to go through his actions".
 
+busy work is a concept in conceptville. Understand "work busy" as busy work. howto is "[fr-ran]".
+
 Crisis Energy is a concept in conceptville. understand "energy crisis" as Crisis Energy. howto is "get the [bad-guy]'s attention".
 
 Cruise Control is a concept in conceptville. Understand "control cruise" as cruise control. howto is "[fr-ran]".
@@ -11225,7 +11312,7 @@ daze salad is a concept in conceptville. understand "salad days/daze" as daze sa
 
 disorder is a concept in conceptville. understand "order dis" and "dis order" as disorder. howto is "[fr-ran]".
 
-Ezra Pound is a concept in conceptville. understand "pound ezra" as ezra pound. howto is "[fr-ran]". [freak control]
+Ezra Pound is a concept in conceptville. understand "pound ezra" as ezra pound. howto is "[fr-ran]".
 
 favor curry is a concept in conceptville. understand "curry favor" as daze salad. howto is "[fr-pb]".
 
@@ -11234,6 +11321,8 @@ fawn over is a concept in conceptville. understand "over fawn" as fawn over. how
 Freak Out is a concept in conceptville. understand "out freak" as freak out. howto is "read the Language sign".
 
 generate d is a concept in conceptville. Understand "d generate" as generate d. howto is "[fr-ran]".
+
+grunt work is a concept in conceptville. Understand "work grunt" as grunt work. howto is "listen in Freak Control".
 
 Howard Dean is a concept in conceptville. understand "dean howard" as howard dean. howto is "[fr-ran]".
 
@@ -11256,6 +11345,8 @@ Power Trip is a concept in conceptville. understand "trip power" as power trip. 
 Running Start is a concept in conceptville. understand "start running" as running start. howto is "try going south in Freak Control".
 
 scuzz bucket is a concept in conceptville. understand "scum bucket" and "bucket scuzz/scum" as scuzz bucket. howto is "examine the list bucket".
+
+see if i care is a concept in conceptville. Understand "care i if see" as see if i care. howto is "[fr-pb]".
 
 The shot mug is a concept in conceptville. understand "mug shot" as shot mug. howto is "get the [bad-guy]'s attention".
 
