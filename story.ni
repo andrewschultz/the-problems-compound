@@ -3046,8 +3046,9 @@ bullfrog	"A bullfrog is not quite a toad. And bull means nonsense. The Stool Toa
 Double Jeopardy	"Double jeopardy is being tried for the same crime twice. Making your jeopardy double is just putting you at twice the risk."
 Moral Support	"Moral support is helping someone even if you don't have concrete advice. SUPPORT MORAL is, well, a slogan that pushes people around."
 Trust Brain	"A brain trust is a group of people that help make a decision. A trust-brain, though not an English phrase, might mean a mind that can't make its own decisions."
+boot licker	"A boot licker is someone who flatters too much." [start of soda club]
 brew a plot	"To brew a plot is to plan something subversive."
-Go Rum	"A rum go is an unforeseen unusual experience, as opposed to 'GO' anything which indicates general motivation." [start of soda club]
+Go Rum	"A rum go is an unforeseen unusual experience, as opposed to 'GO' anything which indicates general motivation."
 Hip Rose	"Rose hips are ingredients found in tea, which is too non-alcoholic for the Soda Club. Hip is, of course, cool or desirable or with-it."
 hit the bottle	"To hit the bottle is to drink."
 Party T	"A tea party is usually non-alcoholic, and people mind their manners. Well, unless it's the political sort, but I won't touch that any further. I probably said too much, already."
@@ -6387,9 +6388,9 @@ instead of doing something with rehearsal dress:
 	say "In this game, you can pretty much only examine the dress."
 
 after printing the locale description for Soda Club when Soda Club is unvisited:
-	say "The bartender calls you over. 'Say, pal! You look new here! And less illun['] than the [activation of punch sucker]Punch Sucker.'";
+	say "The bartender calls you over. 'Say, pal! You look new here! Just use common sense, and you won't get [activation of boot licker]liquor boot like the [activation of punch sucker]Punch Sucker.'";
 	wfak;
-	say "'Can you give me a break from Liver Lily over there? She's--she's usually pretty interesting, but when she's wearing that rehearsal dress she tends to repeat what she's already said. She's no [activation of hip rose]Hip Rose, but Rose is probably out of your league anyway. By the way, I'm Ally Stout.'"
+	say "'But hey, one thing. Can you give me a break from Liver Lily over there? She's--she's usually pretty interesting, but when she's wearing that rehearsal dress she tends to repeat what she's already said. She's no [activation of hip rose]Hip Rose, but Rose is probably out of your league anyway. By the way, I'm Ally Stout.'"
 
 
 description of Liver Lily is "She is waiting for conversation in her rehearsal dress."
@@ -11148,6 +11149,8 @@ section soda club concepts
 
 to say ask-ally:
 	say "Ask Ally Stout about the Punch Sucker"
+
+boot licker is a concept in conceptville. Understand "licker/liquor boot" and "boot liquor" as boot licker. howto is "visit the Soda Club".
 
 brew a plot is a concept in conceptville. Understand "plot a brew" as brew a plot. howto is "order the Haha Brew in the Soda Club".
 

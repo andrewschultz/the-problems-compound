@@ -14,6 +14,7 @@ while ($count <= $#ARGV)
   {
     /^-o$/ && do { $order = 1; $count++; next; };
     /^-t$/ && do { $printTest = 1; $count++; next; };
+    /^-ps$/ && do { $printSuccess = 1; $count++; next; };
     /^-pc$/ && do { @dirs = ("Compound"); $count++; next; };
     /^-sc$/ && do { @dirs = ("Slicker-City"); $count++; next; };
 	/^-as$/ && do { @dirs = ("Slicker-City", "Compound"); $count++; next; };
@@ -35,10 +36,17 @@ sub crankOutCode
 {
   $temp = $_[0]; $temp =~ s/-/ /g;
   $bkwd = join(" ", reverse(split(/ /, $temp)));
-  if ($a) { $a .= "\n"; }
+  if ($a)
+  {
+    $a .= "\n";
   $a .= "\[activation of $temp\]\n$temp is a concept in conceptville. understand \"$bkwd\" as $temp. howto is \"fill this in here\". \[search string: cv]\n$temp\t\"$temp is when you .\" \[search string: xadd\]\n";
   $clip->Set($a);
   print "To clipboard:\n$a";
+  }
+  else
+  {
+    print "No code to clipboard.\n";
+  }
 }
 
 #######################################
@@ -52,15 +60,17 @@ my $errMsg = "";
 
 for $x (sort keys %any)
 {
+  $thisFailed = 0;
   $totals++;
   #print "Looking at $x:\n";
-  if (!$expl{$x}) { $errMsg .= "$x needs explanation.\n"; $explErr .= "$x\t\"$x is when you (fill in here).\"\n"; $fails++; }
-  if (!$conc{$x}) { $y = join(" ", reverse(split(/ /, $x))); $errMsg .= "$x needs concept definition.\n"; $concErr .= "$x is a concept in conceptville. Understand \"$y\" as $x. howto is \"(fill in here\)\".\n"; $fails++; }
-  if (!$activ{$x}) { $errMsg .= "$x needs activation.\n"; $activErr .= "\[activation of $x\]\n"; $fails++; }
+  if (!$expl{$x}) { $errMsg .= "$x needs explanation.\n"; $explErr .= "$x\t\"$x is when you (fill in here).\"\n"; $fails++; $thisFailed = 1; }
+  if (!$conc{$x}) { $y = join(" ", reverse(split(/ /, $x))); $errMsg .= "$x needs concept definition.\n"; $concErr .= "$x is a concept in conceptville. Understand \"$y\" as $x. howto is \"(fill in here\)\".\n"; $fails++; $thisFailed = 1; }
+  if (!$activ{$x}) { $errMsg .= "$x needs activation.\n"; $activErr .= "\[activation of $x\]\n"; $fails++; $thisFailed = 1; }
+  if (($thisFailed == 0) && ($printSuccess)) { print "$x succeeded.\n"; }
 }
 
 if ($printErrors && $errMsg) { print "$errMsg"; print "Run with -c to get code.\n"; }
-elsif ($printErrCode && $errMsg) { $clip->Set("ACTIVATIONS:\n$activErr\nEXPLANATIONS:\n$explErr\nCONCEPTS:\n$concErr\n"); print "Errors found. Suggested code sent to clipboard.\n"; }
+elsif ($printErrCode && $errMsg) { $clip->Set("ACTIVATIONS:\n$activErr\nEXPLANATIONS:\n$explErr\nCONCEPTS:\n$concErr\n"); print "Errors found. Suggested code sent to clipboard.\n"; } elsif ($printErrCode) { print "No errors. Nothing sent to clipboard.\n"; }
 
 if (!$errMsg) { $errMsg = "All okay!"; } else { $errMsg =~ s/\n/<br>/g; $errMsg =~ s/<br>$//g; }
 
@@ -170,7 +180,11 @@ sub wordtrim
 sub usage
 {
 print<<EOT;
--c = print error code
+-c = print error code not errors
+-e = print errors not error code
+-ce|ec = print both errors and error code
+-t = print test results for nightly build
+-ps = print success
 -pc = PC only
 -sc = SC only
 -as = PC and SC (default)
