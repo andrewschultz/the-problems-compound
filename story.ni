@@ -3021,6 +3021,7 @@ defeat	"Defeat is, well, a clue you'll lose the game existentially if you eat an
 face off	"An off face probably doesn't look right, but a face off is when you challenge someone, like the game forces you to in the accelerated Tray B endings."
 Forgive	"Forgive is a clue as to whom to give the mint to, but the person must be forgivable."
 Growing Pains	"Growing pains are temporary setbacks that help you get going. Pain's growing is just a complaint."
+just deserts	"Just deserts means getting what you deserve. After eating the 'sophisticated' cheese, Alec doesn't deserve to enjoy other foods."
 loaf around	"To loaf around is to wait with no real purpose."
 pig out	"To pig out is to eat everything you see. The reverse is an admonishment to leave."
 Shame No	"No shame means a person isn't embarrassed by anything to the point where it's dangerous. Shame? No! is more, there's a healthier way to look at things than through shame."
@@ -3060,7 +3061,8 @@ punch ticket	"To get your ticket punched, or punch your ticket, is to get killed
 Rummy Gin	"Gin Rummy is a card game, generally not the sort associated with wild binge drinking."
 Total T	"Teetotal means alcohol-free."
 Wine-U-Gen	"Genuine is, well, real and true. Both Ally Stout and his drinks are superficial, as wine is generally not made by machine."
-grace period	"A grace period is time given for someone to learn or understand something, or even to return a book late to the library." [start of classic cult]
+good herb	"The good herb is slang for marijuana." [start of classic cult]
+grace period	"A grace period is time given for someone to learn or understand something, or even to return a book late to the library."
 Fish for a Compliment	"To fish for a compliment is to try to manipulate someone into saying something nice." [start of disposed well]
 Well Done	"Well done means good job, but 'done' is also a synonym for dead, because you'd fall down the well if you tried to enter it."
 Character Assassination	"Character assassination is an attempt to tarnish someone's good reputation." [start of chipper wood]
@@ -3114,10 +3116,11 @@ fawn over	"To fawn over is to flatter someone."
 Freak Out	"To freak out is to make a much bigger emotional display than seems really necessary."
 generate d	"Degenerate means without moral values. D is short for defense."
 grunt work	"Grunt work is unchallenging work."
-Howard Dean	"Howard Dean was a candidate for the 2004 US Democratic Party nomination. After placing 3rd in the Iowa caucuses, he had an infamous 'Dean Scream' at a rally with supporters, which sounded worse than it was, because he was close to a microphone that picked it up. Which made him the butt of many jokes for a week. The media realised that everyone was yelling a week later, but the story was too ingrained by then."
+Howard Dean	"Howard Dean was a candidate for the 2004 US Democratic Party nomination. After placing 3rd in the Iowa caucuses, he had an infamous 'Dean Scream' at a rally with supporters, which sounded worse than it was, because he was close to a microphone that picked it up. Which made him the butt of many jokes for a week. The media realised that everyone was yelling a week later, but the story was too ingrained by then.[paragraph break]DISCLAIMER: the author voted for Dean in the 2004 primary."
 infomania	"Infomania is always wanting new info. The [bad-guy] pretends he doesn't want it, but it's just fun to have. Mania info is, in this case, malicious gossip about people different the wrong way."
 King Henry	"King Henry VIII of England had six wives."
 laughingstock	"A laughingstock is someone everyone laughs at. But stock laughing is canned laughter, reflexive laughter at a joke you heard before, or maybe even a laugh track."
+Leading Question	"A leading question is one designed to provoke a certain answer. The term is usually used in a court of law."
 off the record	"Off the Record means something said privately, often negative. Record the Off means to bring something wrong or different into the open."
 pharisee	"A pharisee is someone who gives the trappings of morality but is not."
 Plaintiff	"A plaintiff is the party bringing the charge in a court case."
@@ -5783,13 +5786,23 @@ this is the tray b eating rule:
 		say "It's not the [activation of spur of the moment]moment of the spur. Well, not yet.";
 		the rule fails;
 
+this is the too cool for dessert rule:
+	if off-eaten is true:
+		say "Ugh. [dj] for babies.";
+		the rule succeeds;
+	if greater-eaten is true:
+		say "Pfft. [dj] not very refined.";
+		the rule succeeds;
+
+to say dj:
+	say "[activation of just deserts]Dessert's just"
+
 check eating cutter cookie:
 	if brownie-eaten is true:
 		say "Aw man! You're sure the cookie tastes good, but maybe leave it for the next person. You're already in a great mood. No need to get greedy." instead;
-	if off-eaten is true:
-		say "Ugh. You're not in the mood for something sweet like cookies. You're good and jaded." instead;
-	if greater-eaten is true:
-		say "Pfft. Anyone can appreciate cookies. Cookies aren't sophisticated." instead;
+	consider the too cool for dessert rule;
+	if the rule succeeded:
+		continue the action;
 	say "It's so sharp, it'd start you bleeding if you carried it around. Even as you pick the cookie up your thoughts turn resentful, yet you feel justified as never before. ";
 	consider the tray b eating rule;
 	if the rule failed:
@@ -5808,12 +5821,11 @@ a points brownie is a badfood on Tray B. description is "[if greater-eaten is tr
 brownie-eaten is a truth state that varies.
 
 check eating points brownie:
-	if off-eaten is true:
-		say "Bleah. You'd have gobbled it up as a grade school kiddie. But not now. Plus it's shaped weird." instead;
 	if cookie-eaten is true:
 		say "If someone cooked it into such a weird shape, it probably tastes weird, too. PASS." instead;
-	if greater-eaten is true:
-		say "You've already done better than a brownie. Sure, brownies are nice, but EVERYONE likes brownies. It won't do for you." instead;
+	consider the too cool for dessert rule;
+	if the rule succeeded:
+		continue the action;
 	say "You remember your first few weeks['] allowances and eating too much chocolate with them and being on a crazy sugar high. This--well, it's not a LOT, but it reminds you of that, like there might be some risk here. ";
 	consider the tray b eating rule;
 	if the rule failed:
@@ -8027,21 +8039,24 @@ table of gg - Grace Goode talk
 prompt	response	enabled	permit
 "Hi. I'm -- well, I'm looking for something. Uh, not religion."	grace-hi	1	1
 "What's wrong with the googly bowl?"	grace-googly	0	1
+"Herb?"	grace-herb	0	1
 "But if I restore your cult, won't you just indoctrinate people?"	grace-restore	0	1
 "Why did the [bad-guy] break the Googly Bowl?"	grace-baiter	0	1
 "[later-or-thanks]."	grace-bye	3	1
 
 table of quip texts (continued)
 quip	quiptext
-grace-hi	"'That is no matter,' they reply in unison. 'You are welcome here. Whether or not you are the one to repair our Googly Bowl. The [bad-guy] ordered it broken, and it was so.'"
+grace-hi	"'That is no matter,' they reply in unison. 'You are welcome here. Whether or not you are the one to repair our Googly Bowl. The [bad-guy] ordered it broken, and our brother [activation of good herb]Herb performed the act.'"
 grace-googly	"'It only contains three of the four vital elements it needs to create transcendent happiness, or at least provide relaxing aromas, so it is useless. The metaphysics would take too long to explain, but trust us.'"
-grace-restore	"'That is not our intention. We are not very charismatic. Nowhere near as charismatic as the [bad-guy]. Really, we just sit around and enjoy classic movies or cult movies without making too many snarky comments. But that's out of favor, thanks to the [bad-guy].'"
+grace-herb	"He says brainwashing is worse than drugs. Each gets in the way of appreciating the [bad-guy], but we are apparently more insidious."
+grace-restore	"'We hope not. We are a bit confused. The [bad-guy] said we were not very charismatic, but all the same, we were using unfair tactics. Really, we just sit around and enjoy classic movies or cult movies without making too many snarky comments. But that's out of favor, thanks to the [bad-guy].'"
 grace-baiter	"'Well, he thinks this whole boring-nice thing is not the way to go. And if we could be boring-nice, we could be without the googly-bowl now. [activation of grace period]PERIOD, Grace. Something too about how people should try to make their lives almost as exciting as his, but not as exciting--that'd be like sacrilege against intellect or something. How being nice is nice and all, but...'"
 grace-bye	"'Fare well in your journeys.'"
 
 after quipping when qbc_litany is litany of grace:
 	if current quip is grace-hi:
 		superable grace-googly;
+		enable the grace-herb quip;
 	if current quip is grace-googly:
 		enable the grace-restore quip;
 	if current quip is grace-hi:
@@ -8686,6 +8701,7 @@ prompt	response	enabled	permit
 "Whoah, I'm, like, all in for DRUGS, BABY!"	penn-drugs	0	0
 "You sell drugs? Isn't that illegal?"	penn-yousell	0	1
 "Free stuff? Wow! Sure!"	penn-free	0	1
+"Herb Goode?"	penn-herb	0	1
 "Changed my mind. I'll help you out with your delivery."	penn-changed	0	1
 "Whoah, MAN, the COPS!"	penn-cops	0	0
 "What do you think of the [bad-guy]?"	penn-baiter	1	1
@@ -8694,9 +8710,10 @@ prompt	response	enabled	permit
 table of quip texts (continued)
 quip	quiptext
 penn-nodrugs	"'Come on. You know the deal. I sell drugs. In person, or with a delivery boy.'"
-penn-yousell	"'Well, the [bad-guy] legalized them, but he gets the markup if they buy from him. And of course he makes fun of the serious druggies, because that's seeing both sides of things. Plus, I think he deals with [bad-guy-2]. No proof, though. Eh, I make a good profit underselling. Say, if you want a little sample, I just need a small favor.'"
+penn-yousell	"'Well, the [bad-guy] legalized them, but he gets the markup if they buy from him. And of course he makes fun of the serious druggies, because that's seeing both sides of things. Plus, I think he deals with [bad-guy-2]. No proof, though. Eh, I make a good profit, underselling. [activation of good herb]Herb Goode's rants don't hurt either. Say, if you want a little sample, I just need a small favor.'"
 penn-drugs	--
 penn-free	"'Ha ha. Well, not quite free. Just a little favor. Make a little delivery. Behind five-oh's back.'"
+penn-herb	"A lot less wishy washy than his sisters. Met [']em? [if classic cult is visited]Yeah[else]No[end if]? People probably start to NOT be like him. Also, I assure my customers I won't rat them to him. For just a small markup."
 penn-cops	--
 penn-changed	"Pusher Penn engages in some are-you-sure-no-are-you-really-sure and then waves you off. 'Enough of this nonsense. I have a business to run."
 penn-baiter	"'Well, we had a confidential conversation, and he says he respects my business initiative, but I better not sell to anyone who matters.'"
@@ -9504,6 +9521,7 @@ gad-act
 "'[random surveyable person] just needs a good [activation of disorder]Order Dis to put [']em line. Or two. Or three.'"
 "'I'm so [activation of fawn over]OVER Fawn. She never APPRECIATED my appreciation.'"
 "'Yeah, if we [activation of polygraph]graph Polly, she's lying without lying.'"
+"'But does [random surveyable person] have any GOOD ways to [activation of leading question]question leading like mine?'"
 "The [bad-guy] mutters he's sure [activation of Howard Dean]Dean Howard is nice and well-meaning all, but that scream. Really. Just...unforgiveable. And even if it were, well, he probably still deserves to be REMINDED. For character building purposes."
 "The Language Sign flashes but you don't think it changed its message. Just reinforced it."
 "[odd-machine of Twister Brain] spits out a page of data the [bad-guy] speed reads. He mutters 'Pfft. I already sort of knew that. Mostly. Still, need to keep an eye on [the random surveyable person].'"
@@ -11086,6 +11104,8 @@ Forgive is a concept in conceptville. understand "give for" as Forgive. howto is
 
 growing pains is a concept in conceptville. understand "pain/pains growing" as growing pains. howto is "eat off-cheese".
 
+just deserts is a concept in conceptville. Understand "deserts just" as just deserts. howto is "try to eat the cookie or brownie after eating the cheese".
+
 Loaf Around is a concept in conceptville. Understand "around loaf" as loaf around. howto is "wait in Meal Square".
 
 pig out is a concept in conceptville. understand "out pig" as pig out. howto is "TAKE ALL in Meal Square".
@@ -11181,6 +11201,8 @@ Wine-U-Gen is a concept in conceptville. understand "wine u gen" and "wineugen" 
 chapter main chunk concepts [left to right, then below]
 
 section classic cult concepts
+
+good herb is a concept in conceptville. Understand "herb good/goode" as good herb. howto is "talk to Pusher Penn or the Goode sisters".
 
 grace period is a concept in conceptville. Understand "period grace" as grace period. howto is "Ask Grace about the [bad-guy]".
 
@@ -11334,6 +11356,8 @@ Infomania is a concept in conceptville. Understand "infomania" as infomania. how
 King Henry is a concept in conceptville. understand "henry king" as king henry. howto is "[fr-ran]".
 
 laughingstock is a concept in conceptville. Understand "laughing stock" and "stock laughing" as laughingstock. howto is "talk to the [bad-guy]".
+
+Leading Question is a concept in conceptville. Understand "question leading" as leading question. howto is "[fr-ran]".
 
 Off the Record is a concept in conceptville. Understand "record the off" as off the record. howto is "[fr-ran]".
 
