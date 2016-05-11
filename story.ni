@@ -191,6 +191,7 @@ when play begins (this is the sort ALL the tables rule) :
 			now af-done entry is false;
 	sort the table of horrendous books in random order;
 	sort the table of horrendous songs in random order;
+	sort the table of jerk-girl-talk in random order;
 	continue the action;
 
 when play begins (this is the initialize missing table element rule) :
@@ -3068,11 +3069,17 @@ Well Done	"Well done means good job, but 'done' is also a synonym for dead, beca
 Character Assassination	"Character assassination is an attempt to tarnish someone's good reputation." [start of chipper wood]
 Play it Cool	"To play it cool is not to lose your temper. Of course, Percy's chase may make you want to lose your temper."
 Sweetheart Deal	"A sweetheart deal is something that works very well for both sides, often obtained unethically. Telling someone to deal often means they have to settle for being ripped off."
+Bandanna	"A bandanna is a scarf you tie around your head. Some people find it rebellious, others not rebellious enough."
 Black Mark	"A black mark is something indicating bad behavior." [start of jerk circle]
 clean break	"A clean break from something is leaving quickly and for good. The jerks haven't broken with their 'clean' secrets yet."
+Cotton Candy	"Cotton candy is stringy sugary stuff, often bundled together in a soft ball. People eat it at circuses and fairs and movies a lot."
 dirty word	"A dirty word is profanity. 'Word' on its own is slang for agreement."
 jerk around	"To jerk someone around is to pester them physically or mentally."
 jerk off	"To jerk off is to gratify oneself carnally."
+Nose Candy	"Nose candy is slang for cocaine."
+Pepper	"Black pepper is the ground-up stuff. Green peppers are not especially spicy. Serrano peppers taste hotter."
+Polygamy	"Polygamy is having more than one mate."
+Sharp Barb	"A sharp barb is a stinging, clever insult."
 tear-jerk	"The jerks['] tears may seem a bit fake, and a tear-jerker is something that tries to manipulate you into crying."
 career threatening	"Something career threatening may risk not only your job but your ability to get other equal or better jobs. A threatening career is--well, a bit of a racket." [start of judgment pass]
 scofflaw	"A scofflaw is someone who breaks minor rules. Perhaps they jaywalk or litter."
@@ -6645,13 +6652,34 @@ before talking to a client (this is the ask jerks generally first rule):
 	if know-jerks is false:
 		say "You feel a bit over-familiar. Maybe if you talk to all the [j-co], you'll get a formal introduction." instead;
 
+jerk-girl-row is a number that varies. jerk-girl-yet is a truth state that varies.
+
 before talking to jerks (this is the ask jerks generally to get their names rule):
 	if finger is not examined:
-		say "You don't have any reason to want to deal with that many [j-co]. At least not now." instead;
+		if allow-swears is false:
+			say "You don't know who would be least unpleasant to talk to first. Even if you did, it'd probably be too much. Maybe if you knew more about them some other way..." instead;
+		increment jerk-girl-row;
+		if jerk-girl-row > number of rows in table of jerk-girl-talk:
+			now jerk-girl-row is 1;
+		choose row jerk-girl-row in table of jerk-girl-talk;
+		say "[girl-neg entry]";
+		if jerk-girl-yet is false:
+			say "[line break]You have a vague suspicion that they don't know as much about girls as they say they do, but if you called them on it, they'd say you didn't, either, so hypocrisy.";
+			now jerk-girl-yet is true;
+		the rule succeeds;
 	if know-jerks is true:
 		say "You should really pick an individual jerk to talk to, now you know their names." instead;
 	say "You give a vague 'Hi, guys,' and are assailed by the [j-co] saying, geez, we have names, you know, and all that sort of thing. They are: [jerk-list].";
 	now know-jerks is true instead;
+
+table of jerk-girl-talk
+girl-neg
+"The [j-co] agree that both [activation of pepper]Pepper Black [i]and[r] Pepper Green are hotter than Pepper Serrano."
+"The [j-co] don't understand what [activation of polygamy]Gamy Polly has to be fussy [i]about[r]."
+"The [j-co] disagree on whether [activation of sharp barb]Barb Sharpe would be worth putting up with her lame gossip."
+"The [j-co] argue over whether [activation of bandanna]Anna Bandt's clothes choices are really rebellious."
+"The [j-co] mention how [activation of cotton candy]Candy Cotton smacks down saccharine pickup lines."
+"The [j-co] despair that [activation of nose candy]Candi knows too little about how to party."
 
 for writing a paragraph about a client (called jrk) in Jerk Circle:
 	if cookie-eaten is true:
@@ -10633,16 +10661,17 @@ swearseeing is an activity.
 
 this is the swear-see rule:
 	now swearseen is true;
-	say "[2da]The Baiter Master is the Complex Messiah.";
-	say "[2da]Buster Ball is Hunter Savage.";
-	say "[2da]The Jerk Circle is the Groan Collective. Also, you feel a bit more foreboding, and everyone sheds a jerk-tear, and if you attack them, you get a 'special' flip.";
+	say "[2da]The Complex Messiah is the Baiter Master.";
+	say "[2da]Hunter Savage is Buster Ball.";
+	say "[2da]The Groan Collective is the Jerk Circle. Also, you feel a bit more foreboding, and everyone sheds a jerk-tear, and if you attack them, you get a 'special' flip.";
 	say "[2da]The Business Monkey's efforts are half-brained or [if allow-swears is true]ass[else]posterior[end if]ed.";
 	say "[2da]If you actually swear, obscenely or mildly (BOTHER)--there's a small inner dialogue for swearing with swears off[line break]";
-	say "[2da]A different reaction to repeatedly playing the logic puzzles[line break]";
+	say "[2da]You get a different reaction to repeatedly playing the logic puzzles[line break]";
 	say "[2da]EXPLAIN Guy Sweet has a slight difference[line break]";
 	say "[2da]Eating a food from Tray B turns swears on, if they were off[line break]";
 	say "[2da]The game warns you might think (off) or say (on) a swear if you try to eat the dirt[line break]";
-	say "[2da]Guy Sweet warns of off-beat types.";
+	say "[2da]Guy Sweet warns of off-beat types, with profanity on.";
+	say "[2da]The jerks discuss girls (rather badly) if you talk to them before reading the Finger Index. There aren't any profanities here, but they're kind of creepy.";
 	say "Welp, that's not much. I planned to have a lot more, but I just got sidetracked with silly stuff like bug fixing and adding to the story, which hopefully gave you less occasion to use profanity. Sorry about that."
 
 escape mode is a truth state that varies.
@@ -11222,15 +11251,30 @@ Sweetheart deal is a concept in conceptville. Understand "deal sweetheart" as sw
 
 section jerk circle concepts
 
+to say j-girl:
+	say "talk to the [j-co] [if allow-swears is false]with swears on [end if]before reading the Finger Index"
+
+Bandanna is a concept in conceptville. Understand "anna bandt/band" and "bandt/band anna" as bandanna. howto is "[j-girl]".
+
 Black Mark is a concept in conceptville. understand "mark black" as black mark. howto is "examine quiz pop".
 
 Clean Break is a concept in conceptville. Understand "break clean" as clean break. howto is "go to the [jc]".
+
+Cotton Candy is a concept in conceptville. Understand "candy cotton" as cotton candy. howto is "[j-girl]".
 
 Dirty Word is a concept in conceptville. Understand "word dirty" as dirty word. howto is "go to the [jc]".
 
 Jerk Around is a concept in conceptville. Understand "around jerk" as jerk around. howto is "enter the main area with profanity on".
 
 Jerk Off is a concept in conceptville. understand "off jerk" as jerk off. howto is "attack a jerk in swearing-on mode".
+
+Nose Candy is a concept in conceptville. Understand "candy/candi nose/knows" as nose candy. howto is "[j-girl]".
+
+Pepper is a concept in conceptville. Understand "pepper black/serrano/green" and "green/black/serrano pepper" as pepper. howto is "[j-girl]".
+
+Polygamy is a concept in conceptville. Understand "gamy polly" and "polly gamy" as polygamy. howto is "[j-girl]".
+
+Sharp Barb is a concept in conceptville. Understand "barb sharp" as sharp barb. howto is "[j-girl]".
 
 Tear-Jerk is a concept in conceptville. Understand "jerk-tear" and "tear jerk" and "jerk tear" as Tear-Jerk. howto is "solve the [j-co]['] puzzle".
 

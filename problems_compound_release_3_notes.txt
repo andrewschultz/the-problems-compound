@@ -33,13 +33,14 @@ The user-friendliness stuff is here.
 
 There's random stuff, too:
 -you can now play Hangman with Guy Sweet
---a few extra silly concepts added. Up to 164, from 66 in release 2. Game text added here and there.
+--a few extra silly concepts added. Up to 170, from 66 in release 2. Game text added here and there.
 --the bad guy now has individual people he randomly insults outside of those in the game proper. They're a bit topical, but they're in the general knowledge realm. If nothing else, you can Google them. He's up to 24 random important administrative and philosophical matters.
 --flexible maximum in score e.g. 0/(18-21) so the player knows if they're close, or they need to do more.
 --new songs (15, up from 13).
 --new books (54, up from 38).
 --XYZZY in Freak Control now gives a horribly silly side story I just couldn't pass up.
 --Uncle Dutch and Turk Young now have 12 bits of wisdom, up from 8.
+--the jerks now have 6 girls they talk about, if swearing is on. They don't actually swear, but...well, they're teenagers. Talking as teenagers do.
 
 #sleep stories still at 15
 #bible references still at 29
