@@ -3074,10 +3074,12 @@ Black Mark	"A black mark is something indicating bad behavior." [start of jerk c
 clean break	"A clean break from something is leaving quickly and for good. The jerks haven't broken with their 'clean' secrets yet."
 Cotton Candy	"Cotton candy is stringy sugary stuff, often bundled together in a soft ball. People eat it at circuses and fairs and movies a lot."
 dirty word	"A dirty word is profanity. 'Word' on its own is slang for agreement."
+hara-kiri	"Hara-kiri is Japanese ritual suicide."
 jerk around	"To jerk someone around is to pester them physically or mentally."
 jerk off	"To jerk off is to gratify oneself carnally."
+mascara	"Mascara is basic make-up for women."
 Nose Candy	"Nose candy is slang for cocaine."
-Pepper	"Black pepper is the ground-up stuff. Green peppers are not especially spicy. Serrano peppers taste hotter."
+Pepper	"Black pepper is the ground-up stuff. Green and bell peppers are not especially spicy. Serrano peppers taste hotter."
 Polygamy	"Polygamy is having more than one mate."
 Sharp Barb	"A sharp barb is a stinging, clever insult."
 tear-jerk	"The jerks['] tears may seem a bit fake, and a tear-jerker is something that tries to manipulate you into crying."
@@ -6674,12 +6676,14 @@ before talking to jerks (this is the ask jerks generally to get their names rule
 
 table of jerk-girl-talk
 girl-neg
-"The [j-co] agree that both [activation of pepper]Pepper Black [i]and[r] Pepper Green are hotter than Pepper Serrano."
+"The [j-co] agree that both [activation of pepper]Pepper Black, Pepper Bell [i]and[r] Pepper Green are hotter than Pepper Serrano."
 "The [j-co] don't understand what [activation of polygamy]Gamy Polly has to be fussy [i]about[r]."
 "The [j-co] disagree on whether [activation of sharp barb]Barb Sharpe would be worth putting up with her lame gossip."
 "The [j-co] argue over whether [activation of bandanna]Anna Bandt's clothes choices are really rebellious."
 "The [j-co] mention how [activation of cotton candy]Candy Cotton smacks down saccharine pickup lines."
 "The [j-co] despair that [activation of nose candy]Candi knows too little about how to party."
+"The [j-co] rave how full of life [activation of hara-kiri]Keri Harrah is."
+"The [j-co] discuss how [activation of mascara]Cara Maas would be pretty if she just TRIED."
 
 for writing a paragraph about a client (called jrk) in Jerk Circle:
 	if cookie-eaten is true:
@@ -11264,13 +11268,17 @@ Cotton Candy is a concept in conceptville. Understand "candy cotton" as cotton c
 
 Dirty Word is a concept in conceptville. Understand "word dirty" as dirty word. howto is "go to the [jc]".
 
+Hara-Kiri is a concept in conceptville. Understand "keri harrah" and "harrah keri" as hara-kiri. howto is "[j-girl]".
+
 Jerk Around is a concept in conceptville. Understand "around jerk" as jerk around. howto is "enter the main area with profanity on".
 
 Jerk Off is a concept in conceptville. understand "off jerk" as jerk off. howto is "attack a jerk in swearing-on mode".
 
+mascara is a concept in conceptville. Understand "cara maas" and "maas cara" as mascara. howto is "[j-girl]".
+
 Nose Candy is a concept in conceptville. Understand "candy/candi nose/knows" as nose candy. howto is "[j-girl]".
 
-Pepper is a concept in conceptville. Understand "pepper black/serrano/green" and "green/black/serrano pepper" as pepper. howto is "[j-girl]".
+Pepper is a concept in conceptville. Understand "pepper bell/black/serrano/green" and "bell/black/green/serrano pepper" as pepper. howto is "[j-girl]".
 
 Polygamy is a concept in conceptville. Understand "gamy polly" and "polly gamy" as polygamy. howto is "[j-girl]".
 
