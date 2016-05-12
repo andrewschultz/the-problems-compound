@@ -126,7 +126,7 @@ sub readOneWord
  for $q (sort keys %isDone)
  {
    if (($_[0] =~ /$q/) && ($_[0] ne $q)) { print "$_[0] contains already-done word $q\n"; }
-   if (($q =~ /$_[0]/) && ($_[0] ne $q)) { print "$q contained by already-done word $_[0]\n"; }
+   if (($q =~ /$_[0]/) && ($_[0] ne $q)) { print "$_[0] contained by already-done word $q\n"; }
   }
 
 if ($dicURL) { `\"$webapp\" http:\/\/idioms.thefreedictionary.com\/$flip`; }
@@ -310,7 +310,15 @@ sub idiomSearch
   open(A, ">$track");
   for (@redo) { print A $_; }
   close(A);
+  if ($undone == 0)
+  {
+    print "All done!\n";
+	if ($idiomsDone < $toDo) { print "I was only able to do $idiomsDone of $toDo.\n"; }
+  }
+  else
+  {
   print "$undone left undone still.\n";
+  }
   alfTrack();
 }
 

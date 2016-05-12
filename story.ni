@@ -3009,13 +3009,14 @@ beat off	"To beat off is to, well, pleasure oneself. People who are off-beat are
 Buster Ball	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure."
 Hunter Savage	"A savage hunter is, well, someone with no mercy. Yup, I like the 'dirty' tangential bad guy better, too."
 acceptable	"Acceptable means good enough. Though sometimes it might not, if someone is just being diplomatic. Able, Except means you're pretty good but have big flaws. So both can feel like backhand compliments."
-Animal Welfare	"Animal welfare is concern for animals who often can't help themselves. Welfare has a slightly perjorative definition in the US these days, e.g. people on welfare are lazy, or someone giving it is very generous indeed, more than they need to be."
-poor taste	"Poor taste means potentially offensive or classless."
+Animal Welfare	"Animal welfare is concern for animals who often can't help themselves. Welfare has a slightly perjorative definition in the US these days, e.g. people on welfare are lazy, or someone giving it is very generous indeed, more than they need to be." [start of variety garden]
+brush up	"To brush up is to refresh your memory of something."
 dirt nap	"Taking a dirt nap means dying."
+poor taste	"Poor taste means potentially offensive or classless."
+sagebrush	"Sagebrush is another form of brush."
 work of art	"A work of art is something nice and beautiful. The art of work is--well, the term can be abused to make work seem more exciting than it is."
 enough man	"Man enough means being able to stand up for yourself. Okay, it's a bit sexist, but people who say it mean to be annoying. 'Enough, man' just means stop it."
-brush up	"To brush up is to refresh your memory of something."
-nose picking	"Nose picking is -- not the best habit. A picking nose would be a discerning sense of smell." [tension surface]
+nose picking	"Nose picking is -- not the best habit. A picking nose would be a discerning sense of smell." [start of tension surface]
 apple pie order	"Apple-Pie Order means very well organized." [start of meal square stuff]
 Bowled Over	"Bowled over means unable to deal with things. Over-bold means too confident."
 defeat	"Defeat is, well, a clue you'll lose the game existentially if you eat any of the foods on Tray B."
@@ -3573,7 +3574,9 @@ check going:
 		say "You don't often need to go down." instead;
 	if noun is up and the room up of location of player is nowhere:
 		if location of player is variety garden:
-			say "Even if you had wings, you'd probably fly into [activation of brush up]up brush that'd remind you you don't REALLY know how to use them." instead;
+			say "Even if you had wings, you'd probably fly into [activation of brush up]up brush that'd remind you you don't REALLY know how to use them.";
+			check-all-brush;
+			the rule succeeds;
 		say "You don't often need to go up." instead;
 	if noun is outside:
 		if number of viable directions is 1:
@@ -3588,6 +3591,11 @@ check going:
 	if the room noun of location of player is nowhere:
 		say "You can't go that way." instead;
 
+to check-all-brush:
+	if sagebrush is in lalaland:
+		continue the action;
+	if off brush is examined and back brush is examined and aside brush is examined:
+		say "Wow! You know so much about brush, you're a [activation of sagebrush]brush sage, now.";
 
 volume dialogues
 
@@ -11113,15 +11121,17 @@ section variety garden concepts
 
 Animal Welfare is a concept in conceptville. understand "welfare animal" as animal welfare. howto is "get the Weasel to sign the Burden".
 
-poor taste is a concept in conceptville. understand "taste poor" as poor taste. howto is "try to eat the poor dirt."
+brush up is a concept in conceptville. understand "up brush" as brush up. howto is "go up in Variety Garden".
 
 dirt nap is a concept in conceptville. understand "nap dirt" as dirt nap. howto is "leave the garden without digging, or sleep when you have the pick".
+
+poor taste is a concept in conceptville. understand "taste poor" as poor taste. howto is "try to eat the poor dirt."
+
+sagebrush is a concept in conceptville. Understand "brush sage" and "sage brush" as sagebrush. howto is "examine all three types of brush in Variety Garden and try going up too".
 
 work of art is a concept in conceptville. understand "art of work" as work of art. howto is "dig once with the pick in Variety Garden".
 
 enough man is a concept in conceptville. understand "man enough" as enough man. howto is "dig twice with the pick in Variety Garden".
-
-brush up is a concept in conceptville. understand "up brush" as brush up. howto is "go up in Variety Garden".
 
 section tension surface concepts
 
