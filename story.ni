@@ -2581,7 +2581,7 @@ understand "plugh" as xyzzying.
 
 carry out xyzzying:
 	if player is in freak control:
-		say "[one of]Freak Control metamorphs into a basketball court, and try as you might, you can't stop the [bad-guy] from calling fouls constantly in his favor. You feel compelled to play well past when it's not fun, and even when it's not fun for the [bad-guy] to complain any more. It's a real hiding. Oh. The score?[paragraph break]105-69.[paragraph break]Wait, none of that happened. But you need more than just one word, here. Try two.[or]You don't want to risk a scenario where the [bad-guy] get a 105 on a test and you get a 69. That'd be wack.[stopping]" instead;
+		say "[one of]Freak Control metamorphs into a basketball court, and try as you might, you can't stop the [bad-guy] from calling fouls constantly in his favor. You feel compelled to play well past when it's not fun, and even when it's not fun for the [bad-guy] to complain any more. To be fair, he DOES let you clean up in garbage time because he's generous and/or bored. Oh. The score?[paragraph break]105-69, of course.[paragraph break]Wait, none of that happened. But you need more than just one word, here. Try two.[or]You don't want to risk a scenario where the [bad-guy] gets a 105 on a test and you get a 69. That'd be wack.[stopping]" instead;
 	if player is in out mist:
 		say "The ring glows briefly." instead;
 	if player is in airy station:
@@ -3062,7 +3062,8 @@ punch ticket	"To get your ticket punched, or punch your ticket, is to get killed
 Rummy Gin	"Gin Rummy is a card game, generally not the sort associated with wild binge drinking."
 Total T	"Teetotal means alcohol-free."
 Wine-U-Gen	"Genuine is, well, real and true. Both Ally Stout and his drinks are superficial, as wine is generally not made by machine."
-good herb	"The good herb is slang for marijuana." [start of classic cult]
+defrock	"To defrock is to remove someone's role as priest." [start of classic cult]
+good herb	"The good herb is slang for marijuana."
 grace period	"A grace period is time given for someone to learn or understand something, or even to return a book late to the library."
 Fish for a Compliment	"To fish for a compliment is to try to manipulate someone into saying something nice." [start of disposed well]
 Well Done	"Well done means good job, but 'done' is also a synonym for dead, because you'd fall down the well if you tried to enter it."
@@ -3077,6 +3078,7 @@ dirty word	"A dirty word is profanity. 'Word' on its own is slang for agreement.
 hara-kiri	"Hara-kiri is Japanese ritual suicide."
 jerk around	"To jerk someone around is to pester them physically or mentally."
 jerk off	"To jerk off is to gratify oneself carnally."
+lovelies	"Lovelies is a term of endearment."
 mascara	"Mascara is basic make-up for women."
 Nose Candy	"Nose candy is slang for cocaine."
 Pepper	"Black pepper is the ground-up stuff. Green and bell peppers are not especially spicy. Serrano peppers taste hotter."
@@ -3095,6 +3097,7 @@ Dutch Act	"The Dutch Act is suicide[dutch-off]."
 Dutch Courage	"Dutch courage comes from alcoholic refreshment[dutch-off]."
 Dutch Reckoning	"Dutch Reckoning is a bill that's too high[dutch-off]."
 Dutch Treat	"A Dutch treat is where everyone pays his own way[dutch-off]."
+fearlessness	"Fearlessness means scared of nothing. Lessness fear is being scared of becoming less."
 Show Business	"Show business is the act of entertainment, and the business show's is (purportedly) more practical."
 Stand the Pace	"If you can't stand the pace, it's too fast for you. Turk and Dutch pace the stand because they need a break."
 Determined Bound	"Bound and determined means you're set on doing something. A determined bound is set to prevent you from doing something." [start of walker street]
@@ -6662,7 +6665,9 @@ before talking to jerks (this is the ask jerks generally to get their names rule
 			say "You don't know who would be least unpleasant to talk to first. Even if you did, it'd probably be too much. Maybe if you knew more about them some other way..." instead;
 		increment jerk-girl-row;
 		if jerk-girl-row > number of rows in table of jerk-girl-talk:
-			now jerk-girl-row is 1;
+			say "'[activation of lovelies]Lies: LOVE!' proclaims [random client in jerk circle]. The others agree. They then resume their...evaluations."
+			now jerk-girl-row is 0;
+			continue the action;
 		choose row jerk-girl-row in table of jerk-girl-talk;
 		say "[girl-neg entry]";
 		if jerk-girl-yet is false:
@@ -8082,7 +8087,7 @@ grace-hi	"'That is no matter,' they reply in unison. 'You are welcome here. Whet
 grace-googly	"'It only contains three of the four vital elements it needs to create transcendent happiness, or at least provide relaxing aromas, so it is useless. The metaphysics would take too long to explain, but trust us.'"
 grace-herb	"He says brainwashing is worse than drugs. Each gets in the way of appreciating the [bad-guy], but we are apparently more insidious."
 grace-restore	"'We hope not. We are a bit confused. The [bad-guy] said we were not very charismatic, but all the same, we were using unfair tactics. Really, we just sit around and enjoy classic movies or cult movies without making too many snarky comments. But that's out of favor, thanks to the [bad-guy].'"
-grace-baiter	"'Well, he thinks this whole boring-nice thing is not the way to go. And if we could be boring-nice, we could be without the googly-bowl now. [activation of grace period]PERIOD, Grace. Something too about how people should try to make their lives almost as exciting as his, but not as exciting--that'd be like sacrilege against intellect or something. How being nice is nice and all, but...'"
+grace-baiter	"'Well, he thinks this whole boring-nice thing is not the way to go. We don't even try to [activation of defrock]rock def. So he said if the googly-bowl worked, which it didn't, we didn't deserve it anyway. [activation of grace period]PERIOD, Grace. Something too about how people should try to make their lives almost as exciting as his, but not as exciting--that'd be like sacrilege against intellect or something. It's all a bit confusing.'"
 grace-bye	"'Fare well in your journeys.'"
 
 after quipping when qbc_litany is litany of grace:
@@ -8660,6 +8665,7 @@ banter
 "Uncle Dutch mentions things you'd better learn unless you're stupid. Turk Young mentions things you'd better already know if you're smart."
 "'Should I rant about that?' asks Uncle Dutch. '[activation of cry uncle]Uncle, CRY!' says Turk Young."
 "'A voice says, [activation of dutch act]ACT, DUTCH, even though I might kill myself helping people...'"
+"Uncle Dutch and Turk praise the motivating power of [activation of fearlessness]lessness-fear to keep yourself important."
 "'That's some [activation of dutch reckoning]reckoning, Dutch! More than I thought possible!'"
 "'I'm equally hard on squares who don't drink and punks who drink too much.' / 'That's [activation of dutch courage]COURAGE, Dutch!'"
 "Uncle Dutch and Turk discuss the right amount to be scared to be at your most productive, but if you achieve that, you'd better not feel you have nothing to be scared of."
@@ -11235,6 +11241,8 @@ chapter main chunk concepts [left to right, then below]
 
 section classic cult concepts
 
+Defrock is a concept in conceptville. Understand "rock def" and "def rock" as defrock. howto is "talk to Grace".
+
 good herb is a concept in conceptville. Understand "herb good/goode" as good herb. howto is "talk to Pusher Penn or the Goode sisters".
 
 grace period is a concept in conceptville. Understand "period grace" as grace period. howto is "Ask Grace about the [bad-guy]".
@@ -11273,6 +11281,8 @@ Hara-Kiri is a concept in conceptville. Understand "keri harrah" and "harrah ker
 Jerk Around is a concept in conceptville. Understand "around jerk" as jerk around. howto is "enter the main area with profanity on".
 
 Jerk Off is a concept in conceptville. understand "off jerk" as jerk off. howto is "attack a jerk in swearing-on mode".
+
+Lovelies is a concept in conceptville. Understand "lies love" and "love lies" as Lovelies. howto is "listen to all the [j-co] have to say, with swearing on".
 
 mascara is a concept in conceptville. Understand "cara maas" and "maas cara" as mascara. howto is "[j-girl]".
 
@@ -11322,6 +11332,8 @@ Dutch Courage is a concept in conceptville. Understand "courage dutch" as dutch 
 Dutch Reckoning is a concept in conceptville. Understand "reckoning dutch" as dutch reckoning. howto is "[pl-wa]".
 
 Dutch Treat is a concept in conceptville. understand "treat dutch" as dutch treat. howto is "type TREAT DUTCH around Uncle Dutch".
+
+Fearlessness is a concept in conceptville. Understand "lessness fear" and "fear lessness" as fearlessness. howto is "[pl-wa]".
 
 Show Business is a concept in conceptville. understand "business show" as show business. howto is "Go to the Speaking Plain without eating a Tray B food".
 
