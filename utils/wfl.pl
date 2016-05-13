@@ -24,7 +24,7 @@ my $webapp = $chrome;
 
 my $wa = "alf";
 
-if (!@ARGV[0]) { die ("Need a word to flip."); }
+if (!@ARGV[0]) { print "Need a word to flip, but here are diagnostics:\n"; countChunks(); countURLs(); exit; }
 
 while ($count <= $#ARGV)
 {
@@ -37,7 +37,7 @@ for ($a)
   /^-ao$/ && do { alfOut(); exit; };
   /^-at$/ && do { alfTrack(); exit; };
   /^-ct$/ && do { countChunks(); exit; };
-  /^-a$/ && do { alfOut(); alfTrack(); exit; };
+  /^-a$/ && do { alfOut(); alfTrack(); print "Sorting went ok for flip.txt and fliptrack.txt.\n"; exit; };
   /^-ff$/ && do { $webapp = $ffox; $count++; next; };
   /^-gc$/ && do { $webapp = $chrome; $count++; next; };
   /^-op$/ && do { $webapp = $opera; $count++; next; };
@@ -51,7 +51,7 @@ for ($a)
   /^-?o$/ && do { print "Opening $output.\n"; `$output`; exit; };
   /^-?oo$/ && do { print "Opening $track.\n"; `$track`; exit; };
   /^-np$/ && do { $dicURLPrint = 0; $count++; next; };
-  /^-\!$/ && do { countChunks(); exit; };
+  /^-\!$/ && do { countChunks(); countURLs(); exit; };
  / ^-\?$/ && do { usage(); exit; };
   if ($flipData) { print "Only one flip data allowed. Use comma separators.\n"; exit; }
   else
@@ -198,7 +198,7 @@ sub runFileTest
   open(A, "$track");
   while ($a = <A>)
   {
-    if ($a =~ /firefox/) { $errs++; }
+    if ($a =~ /idioms.thefreedictionary.com/) { $errs++; }
   }
   close(A);
   if (!$errs) { print ("Output is looked through!\n"); } else { print ("$errs idiom links still to look through. Less critical now I went through manually.\n"); }
@@ -224,15 +224,20 @@ sub trim
 
 sub alfOut
 {
+  my $lastStr;
+  my $foundAny;
   open(A, "$output") || die ("No $output");
   open(B, ">$output-alf");
   my @bigAry;
   while ($a = <A>)
   {
     $cur .= $a;
-    if ($a =~ /^====Found/) { push(@bigAry, $cur); $cur = ""; }
+    if ($a =~ /^=+Found/) { push(@bigAry, $cur); $cur = ""; }
+	if ($a =~ /[a-z]/) { $lastStr = $a; $foundAny = 1; }
   }
+  if (($lastStr !~ /=/) && ($foundAny)) { die "flip.txt is corrupt, bailing sorting routine. This probably means you need ====Found word(2/1) at the end\n"; }
   if ($cur =~ /[a-z]/i) { push(@bigAry, $cur); }
+  #for (@bigAry) { my $x = $_; $x =~ s/\n.*//g; print "$x: " . crs($_) . "\n"; }
   print B sort { crs($a) <=> crs($b) } @bigAry;
   close(A);
   close(B);
@@ -288,6 +293,7 @@ sub countChunks
     if ($a =~ /^=/i) { if ($thisChunk) { push(@sizes, $thisChunk); $thisChunk = 0; } }
 	else { $thisChunk++; }
   }
+  if ($thisChunk) { print "Warning, file ended wrong, should end with ====Found. This will give an extra actual chunk.\n"; push(@sizes, $thisChunk); }
   close(A);
   if ($#sizes > -1) { print "Actual chunk sizes: " . join(", ", @sizes) . ".\n"; }
   
@@ -322,6 +328,24 @@ sub idiomSearch
   print "$undone left undone still.\n";
   }
   alfTrack();
+}
+
+sub countURLs
+{
+  my $urls = 0;
+  open(A, "$track");
+  while ($a = <A>)
+  {
+    if ($a =~ /idioms.thefreedictionary.com/) { $urls++; }
+  }
+  if (!$urls)
+  {
+    print "All URLs checked.\n";
+  }
+  else
+  {
+    print "$urls total URLs to check.\n";
+  }
 }
 
 sub crs

@@ -116,7 +116,7 @@ sub checkOrder
 	  print "\n";
 	} else { }
   }
-  if ($ordFail) { print "$ordFail failed"; if ($inOrder) { print ", but $inOrder are nice and consecutive"; } print ".\n      EXPLANATIONS vs CONCEPTS above\n"; } else { print "Ordering all matched for $_[0].\n"; }
+  if ($ordFail) { print "$ordFail failed"; if ($inOrder) { print ", but $inOrder are nice and consecutive"; } print ".\n      EXPLANATIONS vs CONCEPTS above\n"; } else { print "Ordering (" . ($#ex+1) . ") all matched for $_[0].\n"; }
   if ($printTest) { print "TEST RESULTS:$_[0] ordering,0,$ordFail,0,run conc.pl -o\n"; }
 }
 ########################################

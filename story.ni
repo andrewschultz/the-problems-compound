@@ -9678,7 +9678,7 @@ bm-mug	"'Oh, it's Crisis Energy[activation of crisis energy]. For taking urgent 
 bm-bad2	"'It's--it's, well, tribute is what it is.'"
 bm-so-bad2	"'Oh, come on, you know the difference.'[wfk][line break]Your reply just slips out. 'Yeah, it's easy, there's not much of it.' Maybe you shouldn't have...but nothing happens..."
 bm-tribute	"'There will be. Just--first things first. Stability. We almost got there, until you stepped in.'"
-bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Great. You think you can do better? Do so. I'll be waiting in Questions Field. You'll miss something obvious. Always have, always will.' The Baiter Master storms out, and he must have had a remote, because you're locked in![wfk][paragraph break]You search frantically. There must be some way to communicate...and you dig around until you find the [activation of wire fraud]Fraud Wire! Meant to 'remind' citizens they aren't as nice as they think they are, it now encourages them to get mad. The Goods get their cult to help. The [j-co] even chip in, too. You get brave and call Mark Black on the Quiz Pop's customer service number. Then, for kicks, [bad-guy-2] pretending to be the [bad-guy] and you prank him. It's--there's so much to do, questions you never asked. Mark Black is on his way--but so are the [bad-guy]'s allies![wfk][line break]'Get him, [activation of admiral vice]Admiral Vice!'[paragraph break]'A danger not just to the Problems Compound but to Slicker City[activation of slicker city]! We will break him,' he says, gesturing to you.[wfk]"
+bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Great. You think you can do better? Do so. I'll be waiting in Questions Field. You'll miss something obvious. Always have, always will.' The Baiter Master storms out, and he must have had a remote, because you're locked in![wfk][paragraph break]You search frantically. There must be some way to communicate...and you dig around until you find the [activation of wire fraud]Fraud Wire! Meant to 'remind' citizens they aren't as nice as they think they are, it now encourages them to get mad. The Goods get their cult to help. The [j-co] even chip in, too. You get brave and call Mark Black on the Quiz Pop's customer service number. Then, for kicks, [bad-guy-2] pretending to be the [bad-guy] and you prank him. It's--there's so much to do, questions you never asked. Mark Black is on his way--but so are the [bad-guy]'s allies! You hear Brother Foster say, well, I knew they were flaky, but that's what you GET when you try to give them an important position in life, and [activation of Admiral Vice]Admiral Vice will straighten out him--AND them.[wfk]Yes. That must be Admiral Vice.[paragraph break]'A danger not just to the Problems Compound but to Slicker City[activation of slicker city]! There's only one place for you.'[wfk]"
 bm-bye	"'You're not going anywhere.' And he's right. But it's not out totally out of fear, now."
 
 after quipping when qbc_litany is table of baiter master talk:
@@ -9767,7 +9767,7 @@ every turn when player is in airy station (this is the hammer clue rule):
 	if the remainder after dividing hammer-turns by 4 is 0:
 		if hammer is not examined:
 			now mist-turns is 0;
-			say "[if no-break is true][paragraph break][end if]You may [one of][or]still [stopping]need to take a closer look at the hammer[if no-break is true].[no line break][else].[end if]";
+			say "[if no-break is true][paragraph break][end if]You may [one of][or]still [stopping]need to figure how they hammer can help you get out of here--or past the caps[if no-break is true].[no line break][else].[end if]";
 			now no-break is false;
 			the rule succeeds;
 	if hammer-turns is 4:
@@ -9779,17 +9779,19 @@ every turn when player is in airy station (this is the hammer clue rule):
 		say "[if no-break is true][paragraph break][end if]You imagine the hammer putting the caps in a wrestling hold[if no-break is true].[no line break][else].[end if]";
 	now no-break is false;
 
+understand "hammer hammer" as a mistake ("Too brute force. It needs o be a different sort of hammer.[hammer-clue]") when player is in Airy Station.
+
 understand "man hammer" and "hammer man" as a mistake ("So, this game isn't badly cartoonish enough for you?[hammer-clue]") when player is in Airy Station.
 
-understand "head hammer" and "hammer head" as a mistake ("You don't need to beat yourself up, or have a vicious predator beat you up, to change the hammer into what you need to.[hammer-clue]");
+understand "head hammer" and "hammer head" as a mistake ("You don't need to beat yourself up, or have a vicious predator beat you up, to change the hammer into what you need to.[hammer-clue]") when player is in Airy Station.
 
 understand "ban hammer" as a mistake ("You do feel confident you could now be an Internet forum mod and curb some silliness . But--if you banned the hammer, you'd never get back home.[hammer-clue]") when player is in Airy Station.
 
-understand "blow hammer" and "hammer blow" as a mistake ("The hammer is small enough to put in your mouth, but, no. This isn't that kind of game.") when player is in Airy Station
+understand "blow hammer" and "hammer blow" as a mistake ("The hammer is small enough to put in your mouth, but, no. This isn't that kind of game.") when player is in Airy Station.
 
-understand "time hammer" and "hammer time" as a mistake ("A voice says 'STOP!' Your pants momentarily feel baggy. Maybe it doesn't quite need to be that sort of hammer.[hammer-clue]") when player is in Airy Station
+understand "time hammer" and "hammer time" as a mistake ("A voice says 'STOP!' Your pants momentarily feel baggy. Maybe it doesn't quite need to be that sort of hammer.[hammer-clue]") when player is in Airy Station.
 
-understand "toe hammer" and "hammer toe" as a mistake ("The mentality crowd might enjoy that sort of comic relief, but you wouldn't.[hammer-clue]") when player is in Airy Station
+understand "toe hammer" and "hammer toe" as a mistake ("The mentality crowd might enjoy that sort of comic relief, but you wouldn't.[hammer-clue]") when player is in Airy Station.
 
 understand "hammer jack" as a mistake ("There's probably someone named Jack in the crowd, but even if he deserved it, it'd take too long to go and ask.[hammer-clue]") when player is in Airy Station.
 
@@ -9864,7 +9866,7 @@ instead of doing something with lock caps:
 
 after printing the locale description for Airy Station when Airy Station is unvisited:
 	say "The crowd's adulation shakes you a bit. You worry you'll be stuck in charge of the whole place, and you might get corrupted like the [bad-guy] or whatever. So you make a speech about how someone local should rule--and they eat it up! They praise your humility!";
-	say "An odd vehicle rolls out. 'The Return Carriage!' shots the mentality crowd. 'It's for you! To go back to your world! And do great things there!'";
+	say "[line break]An odd vehicle rolls out. 'The Return Carriage!' shots the mentality crowd. 'It's for you! To go back to your world! And do great things there!'";
 	move return carriage to Airy Station;
 
 check going in Airy Station:
@@ -10946,10 +10948,10 @@ in-parser-error is a truth state that varies.
 
 rule for printing a parser error when the latest parser error is the didn't understand error:
 	if player is in out mist:
-		say "Hmm. You need to do something to the ring, but not that. Some action you haven't done yet. There may be more than one[if remainder after dividing mist-turns by 4 is 3].[no line break][else].[end if]";
+		say "Hmm. You need to do something to the ring, but not that. Some action you haven't done yet. There may be more than one[unless remainder after dividing mist-turns by 4 is 3].[no line break][else].[end if]";
 		consider the ring clue rule instead;
 	if player is in airy station:
-		say "Hmm.  You need to change the hammer, somehow. There's probably more than one way to do it.";
+		say "Hmm.  You need to change the hammer, somehow. There's probably more than one way to do it[unless remainder after dividing hammer-turns by 4 is 3].[no line break][else].[end if]";
 		consider the hammer clue rule instead;
 	if word number 1 in the player's command is "secrets":
 		if number of words in the player's command is 2:
