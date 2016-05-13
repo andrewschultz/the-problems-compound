@@ -14,6 +14,10 @@ use American dialect.
 
 the release number is 3.
 
+section compiler debug
+
+use MAX_SYMBOLS of 24000.
+
 book includes
 
 include Basic Screen Effects by Emily Short.
@@ -3001,19 +3005,19 @@ turn of phrase	"A turn of phrase is clever wording. A phrase of turn is, well, w
 a u-turn	"A u-turn is when a car swivels in a huge circle to reverse direction. So if something tries to turn you, it bounces back."
 wait your turn	"This means not to do anything til someone else goes first. But in this case the game wants you to turn your wait into something else."
 wave a flag	"To wave a flag is to give up. To flag something is to note it as particularly productive or unproductive."
+acceptable	"Acceptable means good enough. Though sometimes it might not, if someone is just being diplomatic. Able, Except means you're pretty good but have big flaws. So both can feel like backhand compliments."
+beat off	"To beat off is to, well, pleasure oneself. People who are off-beat are often accused of this, among other things, in high school."
+Buster Ball	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure."
 Compound Problems	"Compound problems are problems that aren't simple or can't be dealt with simply, or that build together to leave someone totally overwhelmed." [begin smart street stuff]
 a Games Mind	"Mind games are messing with people's mind with lies or half-truths. A games mind might be more inclined to abstract puzzles." [start of game]
 Games Confidence	"Confidence games are where someone gains someone else's trust to rip them off. It can be as simple as a shell game or as complex as an investment scheme. Of course, Alec has confidence with logic games but not much else."
 good egg	"A good egg is a nice person. To egg, or egg on, is to bait someone into doing something you want them to."
-beat off	"To beat off is to, well, pleasure oneself. People who are off-beat are often accused of this, among other things, in high school."
-Buster Ball	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure."
 Hunter Savage	"A savage hunter is, well, someone with no mercy. Yup, I like the 'dirty' tangential bad guy better, too."
-acceptable	"Acceptable means good enough. Though sometimes it might not, if someone is just being diplomatic. Able, Except means you're pretty good but have big flaws. So both can feel like backhand compliments."
 Animal Welfare	"Animal welfare is concern for animals who often can't help themselves. Welfare has a slightly perjorative definition in the US these days, e.g. people on welfare are lazy, or someone giving it is very generous indeed, more than they need to be." [start of variety garden]
 brush up	"To brush up is to refresh your memory of something."
 dirt nap	"Taking a dirt nap means dying."
 poor taste	"Poor taste means potentially offensive or classless."
-sagebrush	"Sagebrush is another form of brush."
+sagebrush	"Sagebrush is another form of brush. It's often found in the desert."
 work of art	"A work of art is something nice and beautiful. The art of work is--well, the term can be abused to make work seem more exciting than it is."
 enough man	"Man enough means being able to stand up for yourself. Okay, it's a bit sexist, but people who say it mean to be annoying. 'Enough, man' just means stop it."
 nose picking	"Nose picking is -- not the best habit. A picking nose would be a discerning sense of smell." [start of tension surface]
@@ -3034,8 +3038,8 @@ Thought for food	"Food for thought is something to think about."
 Tray S	"Stray. In other words, it strayed from Meal Square."
 Tray T	"A tea tray. To go with food."
 Tray X	"It is an ex-tray."
-fish out of water	"A fish out of water is someone or something out of place."
 Boy Howdy	"Boy Howdy is a colloquial expression of surprise." [start of pressure pier]
+fish out of water	"A fish out of water is someone or something out of place."
 Bum Beach	"A beach bum is someone who wanders on the beach. Maybe he lives there in a shack too." [start of down ground]
 clip joint	"A clip joint is a place that overcharges customers. A joint clip will help Fritz save on purchases so none is wasted."
 Dream Ticket	"A pair of candidates who, running together, have extremely broad appeal they wouldn't have alone. In Alec's dreams, he's often ganged up on by two people or groups who triangulate him rather differently."
@@ -3100,6 +3104,7 @@ Dutch Reckoning	"Dutch Reckoning is a bill that's too high[dutch-off]."
 Dutch Treat	"A Dutch treat is where everyone pays his own way[dutch-off]."
 fearlessness	"Fearlessness means scared of nothing. Lessness fear is being scared of becoming less."
 Show Business	"Show business is the act of entertainment, and the business show's is (purportedly) more practical."
+show off	"To show off is to brag about yourself, and the implication is an 'off' show (not as good as it should be) is bad without that."
 Stand the Pace	"If you can't stand the pace, it's too fast for you. Turk and Dutch pace the stand because they need a break."
 Determined Bound	"Bound and determined means you're set on doing something. A determined bound is set to prevent you from doing something." [start of walker street]
 Block Arguments	"To block arguments is not to hear an opposing point of view."
@@ -3110,6 +3115,7 @@ Play Dumb	"To play dumb is to pretend you don't know something you do, to avoid 
 Steal This Book	"Steal This Book was a countercultural guide by Abbie Hoffman. Book this steal refers to 'booking' suspects for a transgression, e.g. a parking fine or ticket."
 brother foster	"A foster brother is a brother not related by birth." [start of questions field]
 Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
+bum a cigarette	"To bum a cigarette is to ask someone for one of theirs. 'A cigarette bum' indicates Penn's disdain for more legal smokables."
 weed out	"To weed out people is to create a test to show they are inadequate." [start of pot chamber]
 Terminal Illness	"A terminal illness is one which is bound to be fatal. Illness can also mean full of insults, e.g. very 'ill,' as kids these days say. And said, even in my day!" [start of belt below]
 Admiral Vice	"A vice-(anything) is a next-in-line/assistant to an honorary position, but vice is also a personal failing, big or small." [start of freak control]
@@ -3149,8 +3155,8 @@ train gravy	"A gravy train is a method for getting rich."
 Tucker Max	"Tucker Max was alleged to have spanwed the 'fratire' genre, which features cynical 'tell it like it is' writing full of sex and hedonism and self-centeredness. It's the reading equivalent of sitting next to a guy bragging at a bar for a long time. An intelligent guy, sure, but that just lets him bang on longer. Imagine PG Wodehouse's Bertie Wooster without any heart."
 Wire Fraud	"Wire fraud is a financial crime designed to cheat people out of money."
 Captain Obvious	"Captain Obvious is someone who always states what's readily apparent. Captain has a sarcastic meaning, here." [xyzzy snark]
-Nonsense No	"No-nonsense means, well, not taking any silliness."
 Comedy of Errors	"A comedy of errors is so much going wrong it's funny. Errors of comedy would be so much wrong there's nothing to laugh at."
+Nonsense No	"No-nonsense means, well, not taking any silliness."
 Spelling Disaster	"Disaster spelling is, well, consonants clumped together. Spelling disaster is leading to bad news."
 poke fun	"To poke fun is to make a joke, but poke can mean a lot of things--putter around, meddle, or maybe poke a friend to get their attention." [touch commands]
 touch base	"To touch base is to get back to someone or return their call, especially if it's been a while. Versus a base touch, base being mean, so it's a bit more creepy."
@@ -3160,9 +3166,9 @@ Cut a Figure	"To cut a figure is to make a strong impression."
 Hard Knock	"A hard knock is physical wear and tear, or being hit hard, versus just knocking at a door."
 passing fancy	"A passing fancy is something that distracts you and is fun for a bit but you forget about it. To fancy passing means to want to go quickly, or fancy passing may just be something in sports."
 Sitting Duck	"A sitting duck is someone just waiting to be taking advantage of. But if you duck sitting, you aren't waiting."
+Boss Fight	"A boss fight is a confrontation with an important adversary in a more traditional game, while the Fight Boss has you do stuff worse than level grinding." [start of shape ship]
+Scholarship	"A scholarship is a money grant given towards education. The Ship Scholar, contrarily, says nothing is free."
 Sore Loser	"A sore loser is someone who is not gracious enough to admit defeat. A loser sore is often what you get when you lose a fight, especially one someone else started." [start of fight fair]
-Boss Fight	"A boss fight is a confrontation with an important adversary in a more traditional game, while the Fight Boss has you do stuff worse than level grinding."
-Scholarship	"A scholarship is a money grant given towards education. The Ship Scholar, contrarily, says nothing is free." [start of shape ship]
 Complain Cant	"Cant means a tendency towards something, so someone with a complain cant would only say 'can't complain' very ironically." [eternal concepts]
 Much Flatter	"If your world is much flatter, it isn't very exciting. But to flatter much is to over-compliment people, which makes things [i]seem[r] exciting for a bit."
 People Power	"People power was a rallying cry in demonstrations against the authoritarianism of, well, power people."
@@ -3595,7 +3601,7 @@ to check-all-brush:
 	if sagebrush is in lalaland:
 		continue the action;
 	if off brush is examined and back brush is examined and aside brush is examined:
-		say "Wow! You know so much about brush, you're a [activation of sagebrush]brush sage, now.";
+		say "Wow! You know so much about brush, you're a [activation of sagebrush]brush sage, now. The knowledge is a bit dry, but it's good to know, all the same.";
 
 volume dialogues
 
@@ -6673,7 +6679,7 @@ before talking to jerks (this is the ask jerks generally to get their names rule
 			say "You don't know who would be least unpleasant to talk to first. Even if you did, it'd probably be too much. Maybe if you knew more about them some other way..." instead;
 		increment jerk-girl-row;
 		if jerk-girl-row > number of rows in table of jerk-girl-talk:
-			say "'[activation of lovelies]Lies: LOVE!' proclaims [random client in jerk circle]. The others agree. They then resume their...evaluations."
+			say "'[activation of lovelies]Lies: LOVE!' proclaims [random client in jerk circle]. The others agree. They then resume their...evaluations.";
 			now jerk-girl-row is 0;
 			continue the action;
 		choose row jerk-girl-row in table of jerk-girl-talk;
@@ -8660,7 +8666,7 @@ every turn when Alec Smart is in Speaking Plain and Speaking Plain was visited a
 	increment dutch-blab;
 	if dutch-blab > number of rows in table of dutch-blab:
 		now dutch-blab is 1;
-		say "'THUS ENDS THE BUSINESS SHOW.' Uncle Dutch and Turk Young shout in unison before applauding each other. They then look to you and sigh when you fail to applaud. 'Does not provide minimal encouragement to others or appreciate clever generalities. He'll be a failure for sure,' notes Uncle Dutch. 'I've had teachers like that. But they still had to give me A's!' beams Turk Young. They [activation of stand the pace]pace the stand for a bit.[paragraph break][one of]You look back on all their advice and realize none of it could even conceivably help you with what you need to do, here. At least they're not stopping you from going anywhere.[or]They're going to start up again soon. But it can't be that bad the next time through.[stopping]";
+		say "'THUS ENDS THE BUSINESS SHOW.' Uncle Dutch and Turk Young shout in unison before applauding each other. They then look to you and sigh when you fail to applaud. 'Despite all our flourishes, he dares insinuate it was an [activation of show off]OFF SHOW,' notes Uncle Dutch. They [activation of stand the pace]pace the stand for a bit.[paragraph break][one of]You look back on all their advice and realize none of it could even conceivably help you with what you need to do, here. At least they're not stopping you from going anywhere.[or]They're going to start up again soon. But it can't be that bad the next time through.[stopping]";
 	else:
 		choose row dutch-blab in table of dutch-blab;
 		say "[banter entry][line break]";
@@ -8673,6 +8679,7 @@ banter
 "Uncle Dutch mentions things you'd better learn unless you're stupid. Turk Young mentions things you'd better already know if you're smart."
 "'Should I rant about that?' asks Uncle Dutch. '[activation of cry uncle]Uncle, CRY!' says Turk Young."
 "'A voice says, [activation of dutch act]ACT, DUTCH, even though I might kill myself helping people...'"
+"'Some attendees claim our encouraging lectures are just fluff. That they are only about getting ahead in the world,' says Uncle Dutch. 'I've had teachers like that,' says Turk Young. 'They never tried more exciting encouragement themselves. But they still had to give me A's. And they're still...teachers.'"
 "Uncle Dutch and Turk praise the motivating power of [activation of fearlessness]lessness-fear to keep yourself important."
 "'That's some [activation of dutch reckoning]reckoning, Dutch! More than I thought possible!'"
 "'I'm equally hard on squares who don't drink and punks who drink too much.' / 'That's [activation of dutch courage]COURAGE, Dutch!'"
@@ -8746,6 +8753,7 @@ prompt	response	enabled	permit
 "Um, hi, what's up?"	penn-nodrugs	1	1
 "Whoah, I'm, like, all in for DRUGS, BABY!"	penn-drugs	0	0
 "You sell drugs? Isn't that illegal?"	penn-yousell	0	1
+"'Wait, isn't it all sort of bad stuff?"	penn-cigarette	0	1
 "Free stuff? Wow! Sure!"	penn-free	0	1
 "Herb Goode?"	penn-herb	0	1
 "Changed my mind. I'll help you out with your delivery."	penn-changed	0	1
@@ -8755,8 +8763,9 @@ prompt	response	enabled	permit
 
 table of quip texts (continued)
 quip	quiptext
-penn-nodrugs	"'Come on. You know the deal. I sell drugs. In person, or with a delivery boy.'"
+penn-nodrugs	"'Come on. You know the deal. I sell smokables. The good stuff--I'm not [activation of bum a cigarette]a [i]cigarette bum[r].'"
 penn-yousell	"'Well, the [bad-guy] legalized them, but he gets the markup if they buy from him. And of course he makes fun of the serious druggies, because that's seeing both sides of things. Plus, I think he deals with [bad-guy-2]. No proof, though. Eh, I make a good profit, underselling. [activation of good herb]Herb Goode's rants don't hurt either. Say, if you want a little sample, I just need a small favor.'"
+penn-cigarette	"'Well, I'm not pro-everything. I helped raise the cigarette tax 1357%, for the public health! Plain old cigarettes are more harmful than weed, because they're less harmful. So don't let me catch you TRYING to smoke in here. What? You never have? Then what's with the sour look? I'll let it slide this time.'"
 penn-drugs	--
 penn-free	"'Ha ha. Well, not quite free. Just a little favor. Make a little delivery. Behind five-oh's back.'"
 penn-herb	"A lot less wishy washy than his sisters. Met [']em? [if classic cult is visited]Yeah[else]No[end if]? People probably start to NOT be like him. Also, I assure my customers I won't rat them to him. For just a small markup."
@@ -8777,6 +8786,7 @@ to give-weed:
 
 after quipping when qbc_litany is litany of pusher penn:
 	if current quip is penn-nodrugs:
+		enable the penn-yousell quip;
 		enable the penn-yousell quip;
 		enable the penn-drugs quip;
 		enable the penn-cops quip;
@@ -11099,6 +11109,12 @@ wave a flag is a concept in conceptville. Understand "flag a wave" as wave a fla
 
 section intro concepts
 
+acceptable is a concept in conceptville. understand "able except" and "except able" as acceptable. howto is "examine the gesture token".
+
+Beat Off is a concept in conceptville. understand "off beat" and "off-beat" as beat off. howto is "talk to Guy".
+
+Buster Ball is a concept in conceptville. understand "ball buster" as buster ball. howto is "talking".
+
 compound problems is a concept in conceptville. understand "problems compound" and "compound problem" as compound problems. howto is "very start".
 
 a games mind is a concept in conceptville. understand "mind games" as games mind. howto is "very start".
@@ -11107,13 +11123,7 @@ Games confidence is a concept in conceptville. understand "confidence game/games
 
 Good Egg is a concept in conceptville. understand "egg good" as good egg. howto is "talk to Guy".
 
-Beat Off is a concept in conceptville. understand "off beat" and "off-beat" as beat off. howto is "talk to Guy".
-
-Buster Ball is a concept in conceptville. understand "ball buster" as buster ball. howto is "talking".
-
 Hunter Savage is a concept in conceptville. understand "savage hunter" as hunter savage. howto is "talking".
-
-acceptable is a concept in conceptville. understand "able except" and "except able" as acceptable. howto is "examine the gesture token".
 
 chapter surface concepts
 
@@ -11177,9 +11187,9 @@ Tray X is a concept in conceptville. howto is "enter Meal Square".
 
 section pressure pier concepts
 
-fish out of water is a concept in conceptville. understand "water out of fish" as fish out of water. howto is "examine the water in Pressure Pier".
-
 Boy Howdy is a concept in conceptville. understand "howdy boy" as Boy Howdy. howto is "get to Pressure Pier".
+
+fish out of water is a concept in conceptville. understand "water out of fish" as fish out of water. howto is "examine the water in Pressure Pier".
 
 section down ground concepts
 
@@ -11331,7 +11341,10 @@ venturesome is a concept in conceptville. understand "you're/youre some vent" an
 section speaking plain concepts
 
 to say pl-wa:
-	say "put up with the Business Show"
+	say "put up with some of the Business Show"
+
+to say pl-all:
+	say "put up with all of the Business Show"
 
 cry uncle is a concept in conceptville. Understand "uncle cry" as cry uncle. howto is "[pl-wa]".
 
@@ -11347,7 +11360,9 @@ Fearlessness is a concept in conceptville. Understand "lessness fear" and "fear 
 
 Show Business is a concept in conceptville. understand "business show" as show business. howto is "Go to the Speaking Plain without eating a Tray B food".
 
-Stand the Pace is a concept in conceptville. Understand "pace the stand" as stand the pace. howto is "sit through all of the Business Show in Speaking Plain".
+show off is a concept in conceptville. Understand "off show" as show off. howto is "listen to all of the Business Show".
+
+Stand the Pace is a concept in conceptville. Understand "pace the stand" as stand the pace. howto is "[pl-all]".
 
 section walker street concepts
 
@@ -11374,6 +11389,8 @@ brother foster is a concept in conceptville. Understand "foster brother" as brot
 Brother's Keepers is a concept in conceptville. understand "brother/brothers keeper/keepers" and "keeper/keepers brother/brothers" as Brother's Keepers. howto is "examine the brothers".
 
 section pot chamber
+
+bum a cigarette is a concept in conceptville. Understand "cigarette a bum" as bum a cigarette. howto is "(fill in here)".
 
 weed out is a concept in conceptville. Understand "out weed" as weed out. howto is "take Pusher Penn's wacker weed".
 
@@ -11467,9 +11484,9 @@ section xyzzy concepts
 
 Captain Obvious is a concept in conceptville. understand "obvious captain" as captain obvious. howto is "xyzzy".
 
-a thing called Nonsense No is a concept in conceptville. understand "no nonsense" as nonsense. howto is "xyzzy".
-
 Comedy of Errors is a concept in conceptville. understand "errors of comedy" as comedy of errors. howto is "xyzzy".
+
+a thing called Nonsense No is a concept in conceptville. understand "no nonsense" as nonsense. howto is "xyzzy".
 
 Spelling Disaster is a concept in conceptville. understand "disaster spelling" as spelling disaster. howto is "xyzzy".
 
@@ -11495,11 +11512,11 @@ Sitting Duck is a concept in conceptville. understand "duck sitting" as Sitting 
 
 section fake death concepts
 
-Sore Loser is a concept in conceptville. understand "loser sore" as sore loser. howto is "visit Fight Fair (attack random person)".
-
 Boss Fight is a concept in conceptville. understand "fight boss" as boss fight. howto is "visit Fight Fair (attack random person)".
 
 Scholarship is a concept in conceptville. Understand "scholarship" as scholarship. howto is "get sent to the Shape Ship".
+
+Sore Loser is a concept in conceptville. understand "loser sore" as sore loser. howto is "visit Fight Fair (attack random person)".
 
 chapter lalaland concepts
 

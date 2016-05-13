@@ -51,6 +51,7 @@ for ($a)
   /^-?o$/ && do { print "Opening $output.\n"; `$output`; exit; };
   /^-?oo$/ && do { print "Opening $track.\n"; `$track`; exit; };
   /^-np$/ && do { $dicURLPrint = 0; $count++; next; };
+  /^-\!$/ && do { countChunks(); exit; };
  / ^-\?$/ && do { usage(); exit; };
   if ($flipData) { print "Only one flip data allowed. Use comma separators.\n"; exit; }
   else
@@ -275,10 +276,10 @@ sub countChunks
   open(A, "$output");
   while ($a = <A>)
   {
-    if ($a =~ /==Found/i) { chomp($a); $a =~ s/\/.*//g; $a =~ s/.* //g; push(@sizes, $a); }
+    if ($a =~ /==Found/i) { chomp($a); $b = $a; $b =~ s/.*for //g; $a =~ s/\/.*//g; $a =~ s/.* //g; push(@sizes, $a); push(@titles, $b); }
   }
   close(A);
-  if ($#sizes > -1) { print "Listed chunk sizes: " . join(", ", @sizes) . ".\n"; }
+  if ($#sizes > -1) { print "Words to finagle: " . join(", ", @titles) . "\n"; print "Listed chunk sizes: " . join(", ", @sizes) . ".\n"; }
   
   @sizes = ();
   open(A, "$output");
@@ -312,8 +313,9 @@ sub idiomSearch
   close(A);
   if ($undone == 0)
   {
-    print "All done!\n";
-	if ($idiomsDone < $toDo) { print "I was only able to do $idiomsDone of $toDo.\n"; }
+    if ($idiomsDone == 0) { print "Nothing to do!\n"; }
+	elsif ($idiomsDone < $toDo) { print "I was only able to do $idiomsDone of $toDo.\n"; }
+    else { "All finished!\n"; }
   }
   else
   {
