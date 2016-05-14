@@ -76,7 +76,7 @@ if (!$errMsg) { $errMsg = "All okay!"; } else { $errMsg =~ s/\n/<br>/g; $errMsg 
 
 print "TEST RESULTS:concepts-$_[0],0,$fails,$totals,$errMsg\n";
 
-if ($fails) { print "Test failed, $fails failures of $totals.\n"; }
+if ($fails) { print "Test failed, $fails failures of $totals."; }
 else { print "Test succeeded! All $totals passed."; }
 
 print "\n";
