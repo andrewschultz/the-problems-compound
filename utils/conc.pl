@@ -62,10 +62,27 @@ for $x (sort keys %any)
 {
   $thisFailed = 0;
   $totals++;
+  $xmod = $x; $xmod =~ s/\*//g;
   #print "Looking at $x:\n";
-  if (!$expl{$x}) { $errMsg .= "$x needs explanation.\n"; $explErr .= "$x\t\"$x is when you (fill in here).\"\n"; $fails++; $thisFailed = 1; }
-  if (!$conc{$x}) { $y = join(" ", reverse(split(/ /, $x))); $errMsg .= "$x needs concept definition.\n"; $concErr .= "$x is a concept in conceptville. Understand \"$y\" as $x. howto is \"(fill in here\)\".\n"; $fails++; $thisFailed = 1; }
-  if (!$activ{$x}) { $errMsg .= "$x needs activation.\n"; $activErr .= "\[activation of $x\]\n"; $fails++; $thisFailed = 1; }
+  if (!$expl{$x}) { $errMsg .= "$xmod needs explanation.\n"; $explErr .= "$xmod\t\"$xmod is when you (fill in here).\"\n"; $fails++; $thisFailed = 1; }
+  if (!$conc{$x})
+  {
+	$errMsg .= "$xmod needs concept definition.\n";
+    if ($x =~ /\*/)
+	{
+    $y1 = join(" ", reverse(split(/\*/, $x)));
+    $y = join(" ", split(/\*/, $x));
+	$concErr .= "$xmod is a concept in conceptville. Understand \"$y\" and \"$y1\" as $xmod. howto is \"(fill in here\)\".\n";
+	}
+	else
+	{
+    $y = join(" ", reverse(split(/ /, $x)));
+	$concErr .= "$xmod is a concept in conceptville. Understand \"$y\" as $xmod. howto is \"(fill in here\)\".\n";
+	}
+	$fails++;
+	$thisFailed = 1;
+  }
+  if (!$activ{$x}) { $errMsg .= "$xmod needs activation.\n"; $activErr .= "\[activation of $xmod\]\n"; $fails++; $thisFailed = 1; }
   if (($thisFailed == 0) && ($printSuccess)) { print "$x succeeded.\n"; }
 }
 
@@ -116,7 +133,7 @@ sub checkOrder
 	  print "\n";
 	} else { }
   }
-  if ($ordFail) { print "$ordFail failed"; if ($inOrder) { print ", but $inOrder are nice and consecutive"; } print ".\n      EXPLANATIONS vs CONCEPTS above\n"; } else { print "Ordering (" . ($#ex+1) . ") all matched for $_[0].\n"; }
+  if ($ordFail) { print "$ordFail failed"; if ($inOrder) { $remain = $ordFail - $inOrder; print ", but $inOrder are nice and consecutive. That means there might really be only $remain changes to make"; } print ".\n      EXPLANATIONS vs CONCEPTS above\n"; } else { print "Ordering (" . ($#ex+1) . ") all matched for $_[0].\n"; }
   if ($printTest) { print "TEST RESULTS:$_[0] ordering,0,$ordFail,0,run conc.pl -o\n"; }
 }
 ########################################

@@ -187,6 +187,7 @@ sub runFileTest
   while ($a = <A>)
   {
     $lines++;
+	if ($a =~ /[a-z]/) { $meaningLines++; }
     if ($a =~ /^====Found/) { $errs++; <A>; $curLines = 0; }
     elsif (($a =~ /^====/) && ($curLines)) { $errs++; $curLines = 0; }
 	else { $curLines++; }
@@ -203,6 +204,8 @@ sub runFileTest
   close(A);
   if (!$errs) { print ("Output is looked through!\n"); } else { print ("$errs idiom links still to look through. Less critical now I went through manually.\n"); }
   print "TEST RESULTS:Alec links to read,10,$errs,0,<a href=\"file:///$track\">here</a>\n";
+  if (!$meaningLines) { print "$output is clear! Well done!"; } else { print "Still $meaningLines words to look through.\n"; }
+  print "TEST RESULTS: Alec flip lines to read,2000,$meaningLines,0,<a href=\"file:///$output\">here</a>\n";
 }
 
 sub trim
