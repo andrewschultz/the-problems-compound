@@ -2999,6 +2999,7 @@ View of Points	"Points of view are opinions."
 table of explanations (continued) [this is stuff referred to tangentially, concepts but not actually objects in the game] [xadd]
 exp-thing	exp-text	exp-anno
 abuse testing	"Abuse testing means trying to break things with stuff a tester wouldn't usually try, or that they know has broken their own game. Testing abuse is--well, most abuse can feel a bit testing, or trying."
+break silence	"To break silence is to start talking again."
 clouds of suspicion	"Clouds of suspicion are a simile for mistrust."
 cut a deal	"To cut a deal is to make a business arrangement, often favorably. To deal a cut is just to knife someone."
 Force of Habit	"Force of habit is what causes you to do something with minimal thinking, for better or worse."
@@ -11037,7 +11038,11 @@ rule for printing a parser error when the latest parser error is the didn't unde
 	reject the player's command;
 
 Rule for printing a parser error when the latest parser error is the i beg your pardon error:
-	say "[activation of turn of phrase]I'll need a phrase of turn here." instead;
+	if qbc_litany is table of no conversation:
+		say "[activation of break silence]Silence break?";
+	else:
+		say "[activation of turn of phrase]I'll need a phrase of turn here.";
+	the rule succeeds;
 
 Rule for printing a parser error when the latest parser error is the can't see any such thing error:
 	if mrlp is dream sequence:
@@ -11103,6 +11108,8 @@ conceptville is a room in meta-rooms. "You should never see this. If you do, it 
 section misc concept(s)
 
 abuse testing is a concept in conceptville. understand "testing abuse" as abuse testing. howto is "credits".
+
+break silence is a concept in conceptville. Understand "silence break" as break silence. howto is "give no command when you are in a conversation".
 
 clouds of suspicion is a concept in conceptville. understand "suspicion of clouds/cloud" and "cloud of suspicion" as clouds of suspicion. howto is "X U".
 

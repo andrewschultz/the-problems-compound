@@ -87,7 +87,15 @@ for $x (sort keys %any)
 }
 
 if ($printErrors && $errMsg) { print "$errMsg"; print "Run with -c to get code.\n"; }
-elsif ($printErrCode && $errMsg) { $clip->Set("ACTIVATIONS:\n$activErr\nEXPLANATIONS:\n$explErr\nCONCEPTS:\n$concErr\n"); print "Errors found. Suggested code sent to clipboard.\n"; } elsif ($printErrCode) { print "No errors. Nothing sent to clipboard.\n"; }
+elsif ($printErrCode && $errMsg)
+{
+  my $bigString;
+  if ($activErr) { $bigString .= "ACTIVATIONS:\n$activErr"; }
+  if ($explErr) { $bigString .= "EXPLANATIONS:\n$explErr"; }
+  if ($concErr) { $bigString .= "CONCEPTS:\n$concErr"; }
+  $clip->Set($bigString);
+  print "Errors found. Suggested code sent to clipboard.\n";
+} elsif ($printErrCode) { print "No errors. Nothing sent to clipboard.\n"; }
 
 if (!$errMsg) { $errMsg = "All okay!"; } else { $errMsg =~ s/\n/<br>/g; $errMsg =~ s/<br>$//g; }
 
