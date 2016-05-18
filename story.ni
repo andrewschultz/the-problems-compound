@@ -3080,6 +3080,7 @@ Sweetheart Deal	"A sweetheart deal is something that works very well for both si
 Bandanna	"A bandanna is a scarf you tie around your head. Some people find it rebellious, others not rebellious enough." [start of jerk circle]
 benevolent	"Benevolent means doing things to help people."
 Black Mark	"A black mark is something indicating bad behavior."
+category	"A category is a logical class to divide someone into. In here, Kate fits into an obvious one, but she doesn't quite live up or down to it."
 clean break	"A clean break from something is leaving quickly and for good. The jerks haven't broken with their 'clean' secrets yet."
 Cotton Candy	"Cotton candy is stringy sugary stuff, often bundled together in a soft ball. People eat it at circuses and fairs and movies a lot."
 dirty word	"A dirty word is profanity. 'Word' on its own is slang for agreement."
@@ -3115,7 +3116,7 @@ Determined Bound	"Bound and determined means you're set on doing something. A de
 Block Arguments	"To block arguments is not to hear an opposing point of view."
 Block Creativity	"To block creativity is to get in the way of someone imagining things."
 Coals to Newcastle	"Coals to Newcastle means a pointless action. In this case, there are no dark rooms, so you don't need a torch. Reducing a new castle to coals is, of course, pointless, too."
-Elevator Music	"elevator music is soft, boring, inoffensive music that plays in elevators. Phil and Art want the play to be a bit more exciting."
+Elevator Music	"Elevator music is soft, boring, inoffensive music that plays in elevators. Phil and Art want the play to be a bit more exciting."
 Play Dumb	"To play dumb is to pretend you don't know something you do, to avoid criticism or to catch someone off-guard. Of course, Phil and Art, after saying this, treat you like you're kind of dumb. Or you can't even ask the name of the play."
 Steal This Book	"Steal This Book was a countercultural guide by Abbie Hoffman. Book this steal refers to 'booking' suspects for a transgression, e.g. a parking fine or ticket."
 brother foster	"A foster brother is a brother not related by birth." [start of questions field]
@@ -3129,7 +3130,7 @@ benefactor	"A benefactor is someone who provides support, emotional or financial
 Beyond Belief	"Beyond belief means something you can't possibly believe in, but belief beyond means more faith than you thought you could have."
 Break Jail	"A jailbreak means getting out of jail. Though to break someone is to destroy their spirit."
 Break Monotony	"To break (the) monotony is to get a change from something boring."
-busy work	"busy work is often given to someone just to keep them occupied."
+busy work	"Busy work is often given to someone just to keep them occupied."
 chowderhead	"A chowderhead is someone who makes silly mistakes."
 Crisis Energy	"An energy crisis is when a community doesn't have enough electrical power, or oil, or whatever."
 cruise control	"Cruise control is when you set a car to go at a certain speed. A person on cruise control is going through life and not trying anything new."
@@ -5391,14 +5392,14 @@ table of quip texts (continued)
 quip	quiptext
 weasel-hi	"'Here to weed out people who don't belong. Ah, good, you didn't laugh at the weed/garden pun. There's hope for you yet! But I just have so much to say--you will listen to it all before asking anything of me, won't you?'"
 weasel-foryou	"'Of course, you're really asking what I can do for you. Well, I like to trade, a bit. No need for chit-chat. Just GIVE me whatever. I have a tool you can use.'"
-weasel-forme
+weasel-forme	--
 weasel-arch	"'That's...a bit direct, isn't it? Just going from point A to point B, no worry about self improvement.'"
 weasel-arch-2	"'That's...a bit circumspect, isn't it? Throwing in a few fancy words to seem like you care. Oh, all right. I'll sponsor you. Not with money. Just a reference or something.'"
 weasel-sign	"'You haven't shown enough interest in things yet. Just in your own social progress. Ironic, but just like the others who come through here who aren't very social. It's just, you're just not good at it.'"
 weasel-grow	"'I dunno. A muffin meadow, maybe?'"
 weasel-why	"'It's not because I twist words. Oh, no! Well, I do, but I twist them to EXPAND the English language. Plus it shows a deal of self-knowledge to let myself be called that. Yes? Yes. Good.' It laughs hard, and you laugh a bit, and it says that just proves how much less well-adjusted you are."
-weasel-more
-weasel-pick-hey
+weasel-more	--
+weasel-pick-hey	--
 weasel-freak	"'Yup. It's way in the north. It's guarded well. It has to be. [bg]'s all for equality, but that doesn't mean everyone deserves to bask in [bg]'s cleverness equally.'"
 weasel-baiter	"'Well, if everyone's praising him, that's because he really is great. I mean, there's no personality cult. He gave a great lecture against that. He's just so...well, even when he cuts you down, he's just so full of truth and interestingness. It's obvious, by the energy he puts in to cut people down, how thoughtful he is. No 'everyone is nice' dribble. He doesn't leave Freak Control to spread his wisdom very often.'"
 weasel-pick-oops	"'Good thing I didn't charge you a deposit, eh?'"
@@ -5579,8 +5580,8 @@ prompt	response	enabled	permit
 table of quip texts (continued)
 quip	quiptext
 terry-howdy	"'Um...yeah. I've heard that one. If you knew that, you shouldn't have said howdy, and if you didn't, that's kinda clueless. Anyway.'"
-terry-boy
-terry-int
+terry-boy	--
+terry-int	--
 terry-fun	"'Well, there's solving boring puzzles. But that's a bit too square. No offense, but that's probably how you wound up here. What if you--well, bend the rules a bit? Nothing too stupid, but annoy authority. Convince me--and yourself, of course--you're not just some boring square.'"
 terry-ways	"'Well, there's public laziness. Annoying other bar patrons. Possession of alcohol. Littering and/or obfuscating your own transgressions record.'"
 terry-north	"'Well, it gets a bit seedier there. Rougher. I'm sure you're nice and all, even if you're not actually nice TO anyone, but it might be better not to be totally nice. Tell you what. You find me a trail paper, I let you by. It's made up of--oh, what do you call em? For not being a total kiss-up? Anyway, don't do anything too dumb. But you'll want to annoy authorities a bit.'"
@@ -6465,14 +6466,14 @@ quip	quiptext
 lily-hi	"'Oh, um, hi. Do you want to hear my exciting opinions on stuff?'"
 lily-sure	"'Perfect!'[paragraph break][lily-sez]"
 lily-guess	"'Well, give it a try!'[paragraph break][lily-sez]"
-lily-no
+lily-no	--
 lily-wait	"You're not sure if you nodded encouragingly enough, but Lily mutters something about your reaction to her controversial opinions being problematic. She mumbles something about not expecting anything in turn for her advice, and nothing personal, but she doesn't need you bringing her down, but you don't seem like a total jerk, so she hopes you find whatever you want, even if it'd be too boring for her. She even explains how you look like you need to interrupt people more. That would make you more exciting! But not, like, right away.[paragraph break]'So, am I making sense?'"
 lily-tune	"[bye-lily of 2]'Well, you say you are, but few people GET in tune. Think about that a moment.'"
 lily-notune	"[bye-lily of 2]'Well, I thought you were better than that. And don't expect an [']At least you were honest.[']'"
 lily-exci	"'Well, if it is, it is, and if it isn't, you have to respect my imagination, my getting a lot out of a little.'"
 lily-prac	"She blathers some general advice, and you're not sure whether it's a good idea to put that into practice before she finishes. She yawns once she's done. 'If you want a refresher, ask me again,' she offers, unconvincingly."
 lily-baiter	"'Well, he's equally snarky to males and females. Is that equality, or is that equality?'"
-lily-bye	"[if anything-said-yet is false][lily-creep][else]'Bye.'[end if]"
+lily-bye	"[if anything-said-yet is false][lily-creep][else]'Bye.'[end if]" [ok]
 
 lily-warn is a truth state that varies.
 
@@ -6705,6 +6706,7 @@ girl-neg
 "The [j-co] appreciate how [activation of mary sue]Sue Merry reliably smacks down anyone who seems too nice."
 "The [j-co] recount [activation of pollyanna]Anna Pauley's greatest hits making fun of overoptimism. She always comes through!"
 "The [j-co] agree that both [activation of pepper]Pepper Black, Pepper Bell [i]and[r] Pepper Green are hotter than Pepper Serrano."
+"The [j-co] praise [activation of category]Gory Kate as less weird than she should be on paper."
 "The [j-co] don't understand what [activation of polygamy]Gamy Polly has to be fussy [i]about[r]."
 "The [j-co] disagree on whether [activation of sharp barb]Barb Sharpe would be worth putting up with her lame gossip."
 "The [j-co] rave about how [activation of benevolent]Evelyn Benn is snarky to people for their own good."
@@ -8782,7 +8784,7 @@ penn-herb	"A lot less wishy washy than his sisters. Met [']em? [if classic cult 
 penn-cops	--
 penn-changed	"Pusher Penn engages in some are-you-sure-no-are-you-really-sure and then waves you off. 'Enough of this nonsense. I have a business to run."
 penn-baiter	"'Well, we had a confidential conversation, and he says he respects my business initiative, but I better not sell to anyone who matters.'"
-penn-bye	"[if player has weed]'Get my delivery done there, now.'[else if poory is not off-stage]'Enjoy the goods!'[else]'Well, if you need to do business, let me know.'[end if]"
+penn-bye	"[if player has weed]'Get my delivery done there, now.'[else if poory is not off-stage]'Enjoy the goods!'[else]'Well, if you need to do business, let me know.'[end if]" [ok]
 
 check talking to Pusher Penn (this is the drugs trump Penn chats rule):
 	if player has wacker weed:
@@ -8999,7 +9001,7 @@ prompt	response	enabled	permit
 table of quip texts (continued)
 quip	quiptext
 art-hi	"'It is. Phil[if phil is off-stage], wherever he is,[end if] and I have worked hard to make it a paragon of good taste!'"
-art-pomp
+art-pomp	--
 art-aes	"'Well, closed-mindedness. I'll never like that in people. But in art? Ah, I can appreciate anything. Even stuff that's so bad it's good. Especially in the presence of other aficionados. Unless it's just drivel. Of course.'"
 art-book	"'This is not a library! However, if you so choose, you may marvel at the titles, record them for your pleasure, and check them out at your nearest library.' Art mumbles something about you not being able to pay the interest back with exciting criticism of your own. You're pretty sure he meant you to hear it."
 art-tol	"'Drivel so dreary, from a mind so banal. I shudder to think. It would make me run screaming.'"
@@ -9139,6 +9141,7 @@ workname	authname	booksubj
 "Farm Animal"	"Blair Irick"	"how particularly common people never understand why they obviously need to be pushed aside, in fable form, no less"
 "The Sleepy Hollow of Legend"	"Irving Washington"	"how people learned and proved that silly old 'national treasures' don't hold any mysteries"
 "Girls With Difficulties"	"Amos Kingsley"	"sensitivity, surprising from a man, and tender insight into female psyche, with not the least bit of flippancy"
+
 [can't quite get to work:
 brooks walter: Freddy and (something) (dang it none of the 26 do anything cool. I mean the books are cool but they all have FREDDY in them which ruins things)
 Allan Woody: Ending Hollywood (was a movie)
@@ -9181,7 +9184,7 @@ workname	singername	songsubj
 "Stop Believing, Don't"	"Perry Steven"	"people who already tried enough and should stop embarrassing themselves"
 "King of the Mountain Hall"	"Grieg Freidrich"	"something transcendent or other"
 "Train Downtown"	"Stewart Rodd"	"a man rightfully too busy advancing his career prospects to spend time with his woman"
-"Life is WHAT"	"Harrison George"	"a man too clever for all the constant love-is-life babble"
+"Life Is WHAT"	"Harrison George"	"a man too clever for all the constant love-is-life babble"
 "Out Movin[']"	"Joel Billey"	"someone who finds value in a more stressful life"
 "The Light of Dying"	"The Machine Against Rage"	"admitting that there are smarter people than you who know what's best and if you care about society, maybe it's time to go, but don't, like, make a messy suicide. Even better than The Name in Killing"
 "Motion? Loco"	"Eva Little"	"being very cool criticising the latest dance craze before everyone else gets sick of it"
@@ -10907,7 +10910,7 @@ terminal-errors is a number that varies.
 
 table of terminal frustration
 term-miss	term-text
-5	"Okay. this is getting annoying."
+5	"Okay. This is getting annoying."
 50	"You will get it, somehow, some way. You hope."
 
 table of plausible misses
@@ -11312,6 +11315,8 @@ Bandanna is a concept in conceptville. Understand "anna bandt/band" and "bandt/b
 benevolent is a concept in conceptville. Understand "evelyn benn" and "benn evelyn" as benevolent. howto is "[j-girl]".
 
 Black Mark is a concept in conceptville. understand "mark black" as black mark. howto is "examine quiz pop".
+
+category is a concept in conceptville. Understand "gory kate" and "kate gory" as category. howto is "[j-girl]".
 
 Clean Break is a concept in conceptville. Understand "break clean" as clean break. howto is "go to the [jc]".
 

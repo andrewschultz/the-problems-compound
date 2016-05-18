@@ -46,7 +46,7 @@ sub crankOutCode
   if ($a)
   {
     $a .= "\n";
-  $a .= "\[activation of $temp\]\n$temp is a concept in conceptville. understand \"$bkwd\" as $temp. howto is \"fill this in here\". \[search string: cv]\n$temp\t\"$temp is when you .\" \[search string: xadd\]\n";
+  $a .= "\[activation of $temp\]\n$temp is a concept in conceptville. understand \"$bkwd\" as $temp. howto is \"\[fill-in-here\]\". \[search string: cv]\n$temp\t\"$temp is when you \[fill-in-here\].\" \[search string: xadd\]\n";
   $clip->Set($a);
   print "To clipboard:\n$a";
   }
@@ -71,7 +71,7 @@ for $x (sort keys %any)
   $totals++;
   $xmod = $x; $xmod =~ s/\*//g;
   #print "Looking at $x:\n";
-  if (!$expl{$x}) { $errMsg .= "$xmod needs explanation.\n"; $explErr .= "$xmod\t\"$xmod is when you (fill in here).\"\n"; $fails++; $thisFailed = 1; }
+  if (!$expl{$x}) { $errMsg .= "$xmod needs explanation.\n"; $explErr .= "$xmod\t\"$xmod is when you [fill-in-here].\"\n"; $fails++; $thisFailed = 1; }
   if (!$conc{$x})
   {
 	$errMsg .= "$xmod needs concept definition.\n";
@@ -79,12 +79,12 @@ for $x (sort keys %any)
 	{
     $y1 = join(" ", reverse(split(/\*/, $x)));
     $y = join(" ", split(/\*/, $x));
-	$concErr .= "$xmod is a concept in conceptville. Understand \"$y\" and \"$y1\" as $xmod. howto is \"(fill in here\)\".\n";
+	$concErr .= "$xmod is a concept in conceptville. Understand \"$y\" and \"$y1\" as $xmod. howto is \"[fill-in-here]\".\n";
 	}
 	else
 	{
     $y = join(" ", reverse(split(/ /, $x)));
-	$concErr .= "$xmod is a concept in conceptville. Understand \"$y\" as $xmod. howto is \"(fill in here\)\".\n";
+	$concErr .= "$xmod is a concept in conceptville. Understand \"$y\" as $xmod. howto is \"[fill-in-here]\".\n";
 	}
 	$fails++;
 	$thisFailed = 1;
@@ -93,11 +93,10 @@ for $x (sort keys %any)
   if (($thisFailed == 0) && ($printSuccess)) { print "$x succeeded.\n"; }
 }
 
-
 if ($errMsg)
 {
   if ($printErrors) { print "$errMsg"; if (!$codeToClipboard) { print "Run with -c to put code to clipboard.\n"; } }
-  my $bigString;
+  my $bigString = "Basic cut-and-paste (fill-in-here throws an error on purpose so I fix it) :\n";
   if ($activErr) { $bigString .= "ACTIVATIONS:\n$activErr"; }
   if ($explErr) { $bigString .= "EXPLANATIONS:\n$explErr"; }
   if ($concErr) { $bigString .= "CONCEPTS:\n$concErr"; }
@@ -110,7 +109,7 @@ if ($errMsg)
   {
     print $bigString;
   }
-  } else { print "No errors. Nothing sent to clipboard.\n"; }
+  } else { print "No errors in $_[0]. Nothing sent to clipboard.\n"; }
 
 if (!$errMsg) { $errMsg = "All okay!"; } else { $errMsg =~ s/\n/<br>/g; $errMsg =~ s/<br>$//g; }
 
