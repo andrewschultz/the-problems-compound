@@ -3150,6 +3150,7 @@ pharisee	"A pharisee is someone who gives the trappings of morality but is not."
 Plaintiff	"A plaintiff is the party bringing the charge in a court case."
 polygraph	"A polygraph is a lie detector. The [bad-guy] is probably looking for lies that aren't there."
 Power Trip	"A power trip is when someone is so overcome with their own power, they do mean things to show it off."
+psychoanalyst	"An analyst is someone who examines data and makes conclusions. Or it could be a psychoanalyst, who interprets a client's concerns and offers solutions.."
 running start	"A running start means you've gotten started quickly."
 salad days	"Salad days are a time when things are going well."
 scuzz bucket	"A scuzz, or scum, bucket is a person who is just plain dirty or disgusting. The [bad-guy] is not obviously physically like this."
@@ -9183,6 +9184,7 @@ workname	singername	songsubj
 "Life is WHAT"	"Harrison George"	"a man too clever for all the constant love-is-life babble"
 "Out Movin[']"	"Joel Billey"	"someone who finds value in a more stressful life"
 "The Light of Dying"	"The Machine Against Rage"	"admitting that there are smarter people than you who know what's best and if you care about society, maybe it's time to go, but don't, like, make a messy suicide. Even better than The Name in Killing"
+"Motion? Loco"	"Eva Little"	"being very cool criticising the latest dance craze before everyone else gets sick of it"
 "Work Fire"	"Perry Keady"	"having everyday up and at em for the things you deserve to do (if you're smart) or better do to survive (if you're dumb)"
 "Bound Homeward"	"Simon Paul"	"someone who wants to get out more but his stupid artsy worries get in the way"
 "My Mind in Carolina"	"Taylor James"	"getting away from one's backward past and entering sophistication"
@@ -9589,6 +9591,7 @@ gad-act
 "'Yeah, if we [activation of polygraph]graph Polly, she's lying without lying.'"
 "'But does [random surveyable person] have any GOOD ways to [activation of leading question]question leading like mine?'"
 "The [bad-guy] mutters he's sure [activation of Howard Dean]Dean Howard is nice and well-meaning all, but that scream. Really. Just...unforgiveable. And even if it were, well, he probably still deserves to be REMINDED. For character building purposes."
+"The [bad-guy] reminds himsef how to [activation of psychoanalyst]list Anna: psycho, even if there's not enough data/proof yet."
 "The Language Sign flashes but you don't think it changed its message. Just reinforced it."
 "[odd-machine of Twister Brain] spits out a page of data the [bad-guy] speed reads. He mutters 'Pfft. I already sort of knew that. Mostly. Still, need to keep an eye on [the random surveyable person].'"
 "[odd-machine of Witness Eye] swivels around with a VVSSHHKK before changing the focus to [random mainchunk room]."
@@ -11483,6 +11486,8 @@ plaintiff is a concept in conceptville. understand "tiff plain" and "plain tiff"
 polygraph is a concept in conceptville. understand "graph polly" and "polly graph"  as polygraph. howto is "[fr-ran]".
 
 Power Trip is a concept in conceptville. understand "trip power" as power trip. howto is "wait for the [bad-guy] to go through his actions".
+
+Psychoanalyst is a concept in conceptville. Understand "list anna" and "anna list" and "analyst" as psychoanalyst. howto is "[fr-ran]".
 
 Running Start is a concept in conceptville. understand "start running" as running start. howto is "try going south in Freak Control".
 

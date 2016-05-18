@@ -72,12 +72,13 @@ for ($a)
 initWordCheck();
 initDupeRead();
 
+$autoSort = 0;
 for $q (@flipAry)
 {
 readOneWord($q);
 }
 
-if ($autoSort) { alfOut(); alfTrack(); countChunks(); }
+if ($shouldSort || $autoSort) { alfOut(); alfTrack(); countChunks(); }
 
 ###########################################
 #initWordCheck = mark all words so we can focus on the good stuff
@@ -123,6 +124,7 @@ sub readOneWord
  { if ($overlook) { print "Redoing $_[0], found in line $isDone{$_[0]} in flip.txt.\n"; } else { print "$_[0] repeated, line $isDone{$_[0]} in flip.txt. Use -f to override.\n"; return; } }
  else
  { print "$_[0] not done yet.\n"; }
+ $shouldSort = 1;
  $flip = $_[0];
  for $q (sort keys %isDone)
  {

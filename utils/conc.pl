@@ -4,23 +4,30 @@ $clip = Win32::Clipboard::new();
 
 @dirs = ("Compound", "Slicker-City");
 
-$printErrCode = 0;
-$printErrors = 1;
+my $codeToClipboard = 0;
+my $printErrCode = 0;
+my $printErrors = 1;
 
 while ($count <= $#ARGV)
 {
   $a = @ARGV[$count];
   for ($a)
   {
-    /^-o$/ && do { $order = 1; $count++; next; };
-    /^-t$/ && do { $printTest = 1; $count++; next; };
-    /^-ps$/ && do { $printSuccess = 1; $count++; next; };
-    /^-pc$/ && do { @dirs = ("Compound"); $count++; next; };
-    /^-sc$/ && do { @dirs = ("Slicker-City"); $count++; next; };
-	/^-as$/ && do { @dirs = ("Slicker-City", "Compound"); $count++; next; };
-	/^-?c$/ && do { $printErrCode = 1; $printErrors = 0; $count++; next; };
-	/^-?e$/ && do { $printErrCode = 0; $printErrors = 1; $count++; next; };
-	/^-?(ec|ce)$/ && do { $printErrCode = 1; $printErrors = 1; $count++; next; };
+    /^-?o$/ && do { $order = 1; $count++; next; };
+    /^-?t$/ && do { $printTest = 1; $count++; next; };
+    /^-?ps$/ && do { $printSuccess = 1; $count++; next; };
+    /^-?pc$/ && do { @dirs = ("Compound"); $count++; next; };
+    /^-?sc$/ && do { @dirs = ("Slicker-City"); $count++; next; };
+	/^-?as$/ && do { @dirs = ("Slicker-City", "Compound"); $count++; next; };
+	/^-?[cve]+$/ && do
+	{
+	  $codeToClipboard = $printErrCode = $printErrors = 0;
+	  if ($a =~ /c/) { $codeToClipboard = 1; }
+	  if ($a =~ /e/) { $printErrCode = 1; }
+	  if ($a =~ /v/) { $printErrors = 1; }
+	  $count++;
+	  next;
+	};
 	/^[a-z][a-z-]+$/ && do
 	{
 	  print "Note that this assumes the idiom written properly e.g. show business vs business show.";
@@ -86,20 +93,37 @@ for $x (sort keys %any)
   if (($thisFailed == 0) && ($printSuccess)) { print "$x succeeded.\n"; }
 }
 
-if ($printErrors && $errMsg) { print "$errMsg"; print "Run with -c to get code.\n"; }
-elsif ($printErrCode && $errMsg)
+
+if ($errMsg)
 {
+  if ($printErrors) { print "$errMsg"; if (!$codeToClipboard) { print "Run with -c to put code to clipboard.\n"; } }
   my $bigString;
   if ($activErr) { $bigString .= "ACTIVATIONS:\n$activErr"; }
   if ($explErr) { $bigString .= "EXPLANATIONS:\n$explErr"; }
   if ($concErr) { $bigString .= "CONCEPTS:\n$concErr"; }
-  $clip->Set($bigString);
-  print "Errors found. Suggested code sent to clipboard.\n";
-} elsif ($printErrCode) { print "No errors. Nothing sent to clipboard.\n"; }
+  if ($codeToClipboard)
+  {
+    $clip->Set($bigString);
+    print "Errors found. Suggested code sent to clipboard.\n";
+  }
+  if ($printErrCode)
+  {
+    print $bigString;
+  }
+  } else { print "No errors. Nothing sent to clipboard.\n"; }
 
 if (!$errMsg) { $errMsg = "All okay!"; } else { $errMsg =~ s/\n/<br>/g; $errMsg =~ s/<br>$//g; }
 
 print "TEST RESULTS:concepts-$_[0],0,$fails,$totals,$errMsg\n";
+
+  for $q (sort keys %auth)
+  {
+    if ($authtab{$q} == 0) { print "$q is an author not in the author table.\n"; $authfail++; next; }
+	elsif ($authtab{$q} < $lastLine) { print "$q is out of order in the author explanations, $authtab{$q} vs $lastLine, $auth{$q}.\n"; }
+	$lastLine = $authtab{$q};	
+  }
+
+print "TEST RESULTS:authors-$_[0],0,$authfail,0,0\n";
 
 if ($fails) { print "Test failed, $fails failures of $totals."; }
 else { print "Test succeeded! All $totals passed."; }
@@ -120,12 +144,22 @@ sub checkOrder
 
   open(A, "$source") || die ("Can't open $source.");
 
+  my $line = 0;
+
   while ($a = <A>)
   {
+    $line++;
+    if (($a =~ /is an author.*conceptville/) && ($a !~ /^\[/)) { $b = $a; $b =~ s/ is.an.auth.*//g; chomp($b); $auth{$b} = $line; next; }
+    if ($inAuthTable)
+    {
+      if ($a !~ /[a-z]/i) { $inAuthTable = 0; next; }
+      $b = $a; chomp($b); $b =~ s/\t.*//g; $authtab{$b} = $line; next;
+    }
+    if ($a =~ /xxauth/) { $inAuthTable = 1; <A>; $line++; next; }
 	if (($expls) && ($a !~ /[a-z]/i)) { $expls = 0; next; }
 	if (($concs) && ($a =~ /end concepts/)) { $concs = 0; next; }
     if ($a =~ /xadd/) { <A>; $expls = 1; next; }
-    if ($a =~ /\[cv\]/) { <A>; $concs = 1; next; }
+    if ($a =~ /\[(xx)?cv\]/) { <A>; $concs = 1; next; }
 	if ($expls) { chomp($a); $a =~ s/\t.*//g; $a =~ s/^(a |the )//gi; push (@ex, $a); next; }
 	if (($concs) && ($a =~ /concept.in/)) { chomp($a); $a =~ s/ is a .*concept.*//g; $a =~ s/^(a thing called |the |a )//gi; push (@co, $a); next; }
   }
@@ -141,8 +175,30 @@ sub checkOrder
 	  print "\n";
 	} else { }
   }
-  if ($ordFail) { print "$ordFail failed"; if ($inOrder) { $remain = $ordFail - $inOrder; print ", but $inOrder are nice and consecutive. That means there might really be only $remain changes to make"; } print ".\n      EXPLANATIONS vs CONCEPTS above\n"; } else { print "Ordering (" . ($#ex+1) . ") all matched for $_[0].\n"; }
+
+  if ($ordFail) { print "$ordFail failed"; if ($inOrder) { $remain = $ordFail - $inOrder; print ", but $inOrder are nice and consecutive. That means there might really be $remain or fewer changes to make"; } print ".\n      EXPLANATIONS vs CONCEPTS above\n"; } else { print "Ordering (" . ($#ex+1) . ") all matched for $_[0].\n"; }
   if ($printTest) { print "TEST RESULTS:$_[0] ordering,0,$ordFail,0,run conc.pl -o\n"; }
+
+  my $authAlf = 0;
+  foreach $q (sort {$auth{$a} <=> $auth{$b}} keys %auth)
+  {
+    if (!$authtab{$q}) { print "$q needs to be in the author table.\n"; next; }
+    if ($q le $lastAuth) { print "$lastAuth/$q is not correctly alphabetized in the defines. Look at line $auth{$q}. $lastAuth is at $auth{$lastAuth}.\n"; push(@authErr, "$q/$auth{$q}"); }
+	$lastAuth = $q;
+	$authAlf++;
+  }
+  
+  foreach $q (sort {$authtab{$a} <=> $authtab{$b}} keys %auth)
+  {
+    if ($q le $lastAuthLine) { print "$lastAuthLine/$q is not correctly alphabetized in the author table. Look at line $authtab{$q}.\n"; push(@authErr, "$q/$authtab{$q}"); }
+	$lastAuthLine = $q;
+	$authAlf++;
+  }
+  if (scalar(keys %auth))
+  {
+    if ($#authErr == -1) { push(@authErr, "ALL OKAY"); }
+    print "TEST RESULTS:$_[0] author checks,0,$authAlf,0," . join("<br />", @authErr) . "\n";
+  }
 }
 ########################################
 #reads in concepts
@@ -160,6 +216,13 @@ open(A, $source) || do { print "No source file $source.\n"; return; };
 while ($a = <A>)
 {
   $line++;
+  if (($a =~ /is an author.*conceptville/) && ($a !~ /^\[/)) { $b = $a; $b =~ s/ is.an.auth.*//g; chomp($b); $auth{$b} = $line; next; }
+  if ($inAuthTable)
+  {
+    if ($a !~ /[a-z]/i) { $inAuthTable = 0; next; }
+    $b = $a; chomp($b); $b =~ s/\t.*//g; $authtab{$b} = $line; next;
+  }
+  if ($a =~ /xxauth/) { $inAuthTable = 1; <A>; $line++; next; }
   if ($a =~ /section misc concept\(s\)/) { $concepts = $line; }
   if ($a =~ /^table of explanations.*concepts/) { $xadd = $line; $inTable = 1; <A>; next; }
   if ($a !~ /[a-z]/i) { $inTable = 0; next; }
@@ -205,15 +268,17 @@ sub wordtrim
 sub usage
 {
 print<<EOT;
--c = print error code not errors
+-c = error code to clipboard
 -e = print errors not error code
--ce|ec = print both errors and error code
--t = print test results for nightly build
--ps = print success
--pc = PC only
--sc = SC only
--as = PC and SC (default)
--o = check order
+-v = verbosely print code
+(any combination is okay too)
+-t = print with test results so nightly build can process it
+(-)ps = print success
+(-)pc = PC only
+(-)sc = SC only
+(-)as = PC and SC (default)
+(-)o = check order
+CURRENT TESTS: conc.pl -pc, conc.pl -t -o -spc, conc.pl -sc, conc.pl -t -o -sc
 EOT
 exit;
 }
