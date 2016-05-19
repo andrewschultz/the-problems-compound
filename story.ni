@@ -9797,6 +9797,8 @@ every turn when player is in airy station (this is the hammer clue rule):
 
 understand "hammer hammer" as a mistake ("Too brute force. It needs o be a different sort of hammer.[hammer-clue]") when player is in Airy Station.
 
+understand "hammer yellow" and "yellow hammer" as a mistake ("You don't need to be around birds, and it'd be hypocritical to cut people down for their fears.") when player is in Airy Station.
+
 understand "man hammer" and "hammer man" as a mistake ("So, this game isn't badly cartoonish enough for you?[hammer-clue]") when player is in Airy Station.
 
 understand "head hammer" and "hammer head" as a mistake ("You don't need to beat yourself up, or have a vicious predator beat you up, to change the hammer into what you need to.[hammer-clue]") when player is in Airy Station.

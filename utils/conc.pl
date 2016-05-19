@@ -115,6 +115,12 @@ if (!$errMsg) { $errMsg = "All okay!"; } else { $errMsg =~ s/\n/<br>/g; $errMsg 
 
 print "TEST RESULTS:concepts-$_[0],0,$fails,$totals,$errMsg\n";
 
+if ($fails) { print "Test failed, $fails failures of $totals."; }
+else { print "Test succeeded! All $totals passed."; }
+
+print "\n";
+  if (!(scalar keys %auth)) { return 0; }
+
   for $q (sort keys %auth)
   {
     if ($authtab{$q} == 0) { print "$q is an author not in the author table.\n"; $authfail++; next; }
@@ -123,11 +129,6 @@ print "TEST RESULTS:concepts-$_[0],0,$fails,$totals,$errMsg\n";
   }
 
 print "TEST RESULTS:authors-$_[0],0,$authfail,0,0\n";
-
-if ($fails) { print "Test failed, $fails failures of $totals."; }
-else { print "Test succeeded! All $totals passed."; }
-
-print "\n";
 
 }
 
@@ -148,7 +149,7 @@ sub checkOrder
   while ($a = <A>)
   {
     $line++;
-    if (($a =~ /is an author.*conceptville/) && ($a !~ /^\[/)) { $b = $a; $b =~ s/ is.an.auth.*//g; chomp($b); $auth{$b} = $line; next; }
+    if (($a =~ /is (an|a female) author\./) && ($a !~ /^\[/)) { $b = $a; $b =~ s/ is (a|an) .*//g; chomp($b); $auth{$b} = $line; next; }
     if ($inAuthTable)
     {
       if ($a !~ /[a-z]/i) { $inAuthTable = 0; next; }
@@ -178,25 +179,30 @@ sub checkOrder
   if ($ordFail) { print "$ordFail failed"; if ($inOrder) { $remain = $ordFail - $inOrder; print ", but $inOrder are nice and consecutive. That means there might really be $remain or fewer changes to make"; } print ".\n      EXPLANATIONS vs CONCEPTS above\n"; } else { print "Ordering (" . ($#ex+1) . ") all matched for $_[0].\n"; }
   if ($printTest) { print "TEST RESULTS:$_[0] ordering,0,$ordFail,0,run conc.pl -o\n"; }
 
-  my $authAlf = 0;
+  if (scalar keys %auth == 0) { return; }
+
+  my $authOops = 0;
   foreach $q (sort {$auth{$a} <=> $auth{$b}} keys %auth)
   {
-    if (!$authtab{$q}) { print "$q needs to be in the author table.\n"; next; }
+    if (!$authtab{$q}) { print "$q needs to be in the author table.\n"; $authOops++; next; }
     if ($q le $lastAuth) { print "$lastAuth/$q is not correctly alphabetized in the defines. Look at line $auth{$q}. $lastAuth is at $auth{$lastAuth}.\n"; push(@authErr, "$q/$auth{$q}"); }
 	$lastAuth = $q;
 	$authAlf++;
   }
   
-  foreach $q (sort {$authtab{$a} <=> $authtab{$b}} keys %auth)
+  $lastAuthLine="";
+  foreach $q (sort {$authtab{$a} <=> $authtab{$b}} keys %authtab)
   {
+    if (!$auth{$q}) { print "$q is in the table but needs to be listed as an author.\n"; $authOops++; next; }
     if ($q le $lastAuthLine) { print "$lastAuthLine/$q is not correctly alphabetized in the author table. Look at line $authtab{$q}.\n"; push(@authErr, "$q/$authtab{$q}"); }
 	$lastAuthLine = $q;
 	$authAlf++;
   }
   if (scalar(keys %auth))
   {
-    if ($#authErr == -1) { push(@authErr, "ALL OKAY"); }
-    print "TEST RESULTS:$_[0] author checks,0,$authAlf,0," . join("<br />", @authErr) . "\n";
+    my $authFail = 0;
+    if (($#authErr == -1) && ($authOops == 0)) { push(@authErr, "ALL OKAY"); } else { $authFail = $#authErr + 1 + $authOops; }
+    print "TEST RESULTS:$_[0] author checks,0,$authFail,$authAlf," . join("<br />", @authErr) . "\n";
   }
 }
 ########################################
@@ -215,7 +221,7 @@ open(A, $source) || do { print "No source file $source.\n"; return; };
 while ($a = <A>)
 {
   $line++;
-  if (($a =~ /is an author.*conceptville/) && ($a !~ /^\[/)) { $b = $a; $b =~ s/ is.an.auth.*//g; chomp($b); $auth{$b} = $line; next; }
+  if (($a =~ /is (an|a female) author\.$/) && ($a !~ /^\[/)) { $b = $a; $b =~ s/ is (an|a) .*//g; chomp($b); $auth{$b} = $line; next; }
   if ($inAuthTable)
   {
     if ($a !~ /[a-z]/i) { $inAuthTable = 0; next; }
