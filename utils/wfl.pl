@@ -78,7 +78,7 @@ for $q (@flipAry)
 readOneWord($q);
 }
 
-if ($shouldSort || $autoSort) { alfOut(); alfTrack(); countChunks(); }
+if ($shouldSort || $autoSort) { alfOut(); alfTrack(); countChunks(); countURLs(); }
 
 ###########################################
 #initWordCheck = mark all words so we can focus on the good stuff
@@ -300,8 +300,7 @@ sub countChunks
   }
   if ($thisChunk) { print "Warning, file ended wrong, should end with ====Found. This will give an extra actual chunk.\n"; push(@sizes, $thisChunk); }
   close(A);
-  if ($#sizes > -1) { print "Actual chunk sizes: " . join(", ", @sizes) . ".\n"; }
-  
+  if ($#sizes > -1) { $totes = eval join '+', @sizes; print "Actual chunk sizes: " . join(", ", @sizes) . ". Total = $totes.\n"; }
 }
 
 sub idiomSearch
@@ -351,6 +350,7 @@ sub countURLs
   {
     print "$urls total URLs to check.\n";
   }
+  close(A);
 }
 
 sub crs

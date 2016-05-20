@@ -2,6 +2,11 @@
 
 the story headline is "A Direction of Sense: changing what's-thats to that's-whats"
 
+[to search through this file, two x's at the start of a comment will delinate major points I revisit.
+  CV = conceptville, where concepts you don't know about are.
+  add = stuff referred to tangentially and its explanations.
+]
+
 volume initialization
 
 Release along with an interpreter.
@@ -16,7 +21,11 @@ the release number is 3.
 
 section compiler debug
 
+[without these numbers beiing increased, the I7 would be translated to I6, but the I6 compiler would complain. That's what happens when a game gets bigger than intended.]
+
 use MAX_SYMBOLS of 24000.
+
+use MAX_STATIC_DATA of 200000.
 
 book includes
 
@@ -544,6 +553,9 @@ to say sr-space:
 	if screen-read is true:
 		say " ";
 
+to say stwid:
+	now allow-swears is whether or not allow-swears is false;
+
 section rerouting verb tries
 
 [* to make sure that the player is clued as to what they're doing wrong, too many words etc.]
@@ -869,7 +881,7 @@ check requesting the score:
 			if your-tix > 0:
 				say "You have [your-tix] of the 4 boo-ticketies you need." instead;
 			say "You need to go looking for trouble. I mean, not too much, but enough to show you're not square." instead;
-	say "You have scored [score] points and need [maximum score] to win[if maximum score < maximum-maximum], or [maximum-maximum] for the best ending[end if].";
+	say "You have scored [score] points and need [maximum score] to win[if maximum score < maximum-maximum], or [maximum-maximum] for the best ending[end if]";
 	if number of map-pinged rooms > 1:
 		say ", and you've also been to [number of map-pinged rooms] or [number of rooms in bad ends] rooms";
 	say ".";
@@ -927,6 +939,8 @@ check waiting (this is the caught napping rule):
 		say "[one of]You attempt to loiter in this seedy area in order to get in trouble or something, but no dice.[or]Still, nobody comes to break up your loitering.[or]You reflect if you want to get zapped for loitering, maybe you need to do better than just hang around.[or]Hm, you wonder what is even lazier than standing around.[stopping]" instead;
 	if player is in Meal Square:
 		say "You wait, but [activation of loaf around]a round loaf fails to appear." instead;
+	if player is in airy station:
+		say "The mentality crowd cheers some more! They're glad you don't want to leave right away, and they know you'll figure what to do with the hammer, eventually." instead;
 	say "[activation of wait your turn]Turn your wait." instead;
 
 every turn when player is in tense past and tense present is not visited:
@@ -1384,6 +1398,8 @@ before smelling when accel-ending:
 check smelling (this is the smelling a thing rule):
 	if noun is the player:
 		say "That never works. People who smell bad are used to their own smells, but if you're caught sniffing yourself, whew." instead;
+	if noun is a client:
+		say "[one of]You can't quite catch it--wait--[activation of liverwurst]liverwurst. But of course[or]Liverwurst, still[stopping][if condition mint is not in lalaland]. Boy, you always need a pill or something after eating that[end if]." instead;
 	if noun is poor dirt:
 		say "The dirt doesn't smell of anything much." instead;
 	if noun is poetic wax:
@@ -1410,8 +1426,10 @@ check smelling (this is the smelling a thing rule):
 		say "You've had people give YOU the smell test, but somehow, even when you passed, you still failed." instead;
 
 check smelling (this is the smelling a place rule): [see above for people]
-	if player is in jerk circle and silly boris is in jerk circle:
-		say "The [j-co] sniff back at you. You detect a greasy aroma, of meals that give indigestion." instead;
+	if player is in jerk circle:
+		if silly boris is in lalaland:
+			say "No more queasy smell." instead;
+		try smelling silly boris instead;
 	if player is in down ground:
 		say "It smells okay here, but maybe that's because you're not too close to Fritz the On." instead;
 	if player is in temper keep:
@@ -2996,7 +3014,7 @@ Flames Fan	"To fan the flames is to keep things going. The Flames Fan just watch
 Cards of the House	"The house of cards is something that falls down easily."
 View of Points	"Points of view are opinions."
 
-table of explanations (continued) [this is stuff referred to tangentially, concepts but not actually objects in the game] [xadd]
+table of explanations (continued) [this is stuff referred to tangentially, concepts but not actually objects in the game] [xxadd]
 exp-thing	exp-text	exp-anno
 abuse testing	"Abuse testing means trying to break things with stuff a tester wouldn't usually try, or that they know has broken their own game. Testing abuse is--well, most abuse can feel a bit testing, or trying."
 break silence	"To break silence is to start talking again."
@@ -3087,6 +3105,7 @@ dirty word	"A dirty word is profanity. 'Word' on its own is slang for agreement.
 hara-kiri	"Hara-kiri is Japanese ritual suicide."
 jerk around	"To jerk someone around is to pester them physically or mentally."
 jerk off	"To jerk off is to gratify oneself carnally."
+Liverwurst	"Liverwurst is a sort of meat which I found tastes nice until it really doesn't, and it's a bit greasy, too. 'Worst liver' may be an exaggeration, but the jerks are not living well."
 lovelies	"Lovelies is a term of endearment."
 Mary Sue	"A Mary Sue is a character who is too unbelievably nice. It comes from the tour de force short story A Trekkie's Tale."
 mascara	"Mascara is basic make-up for women."
@@ -3143,6 +3162,7 @@ generate d	"Degenerate means without moral values. D is short for defense."
 grunt work	"Grunt work is unchallenging work."
 Howard Dean	"Howard Dean was a candidate for the 2004 US Democratic Party nomination. After placing 3rd in the Iowa caucuses, he had an infamous 'Dean Scream' at a rally with supporters, which sounded worse than it was, because he was close to a microphone that picked it up. Which made him the butt of many jokes for a week. The media realised that everyone was yelling a week later, but the story was too ingrained by then.[paragraph break]DISCLAIMER: the author voted for Dean in the 2004 primary."
 infomania	"Infomania is always wanting new info. The [bad-guy] pretends he doesn't want it, but it's just fun to have. Mania info is, in this case, malicious gossip about people different the wrong way."
+Johns Hopkins	"Johns Hopkins is a university with a prestigious medical school and pre-med program."
 King Henry	"King Henry VIII of England had six wives."
 laughingstock	"A laughingstock is someone everyone laughs at. But stock laughing is canned laughter, reflexive laughter at a joke you heard before, or maybe even a laugh track."
 Leading Question	"A leading question is one designed to provoke a certain answer. The term is usually used in a court of law."
@@ -3158,6 +3178,7 @@ scuzz bucket	"A scuzz, or scum, bucket is a person who is just plain dirty or di
 see if i care	"See if I Care is said to show indifference to a bully or nuisance."
 shot mug	"The shot mug may look shot, or beaten-up, but mug shots--photographs of apprehended suspects--are generally very unflattering. Hence the flattering portrait of the [bad-guy] on the mug."
 Slicker City	"A city slicker is what rural people may call someone more urban. It's also the name of a planned sequel to PC."
+stand out	"To stand out is to be different from the rest."
 taste buds	"Taste buds are what you use to experience the sensation of taste."
 train gravy	"A gravy train is a method for getting rich."
 Tucker Max	"Tucker Max was alleged to have spanwed the 'fratire' genre, which features cynical 'tell it like it is' writing full of sex and hedonism and self-centeredness. It's the reading equivalent of sitting next to a guy bragging at a bar for a long time. An intelligent guy, sure, but that just lets him bang on longer. Imagine PG Wodehouse's Bertie Wooster without any heart."
@@ -9589,8 +9610,10 @@ gad-act
 "'Record the off. Always, [activation of off the record]record the off!'"
 "'Geez, it's a pain to [activation of benefactor]factor BENNY. I'm not, like, MEAN to him.'"
 "'[activation of pharisee]See, Farrah,' the [bad-guy] mutters to no girl in particular."
+"The [bad-guy] congratulates himself for installing the super-sanitary doctor-recommended [activation of johns hopkins]Hopkins johns."
 "'[random surveyable person] just needs a good [activation of disorder]Order Dis to put [']em line. Or two. Or three.'"
 "'I'm so [activation of fawn over]OVER Fawn. She never APPRECIATED my appreciation.'"
+"'That's why we need to [activation of stand out]doubt Stan, not just because he's different...'"
 "'Yeah, if we [activation of polygraph]graph Polly, she's lying without lying.'"
 "'But does [random surveyable person] have any GOOD ways to [activation of leading question]question leading like mine?'"
 "The [bad-guy] mutters he's sure [activation of Howard Dean]Dean Howard is nice and well-meaning all, but that scream. Really. Just...unforgiveable. And even if it were, well, he probably still deserves to be REMINDED. For character building purposes."
@@ -9770,7 +9793,7 @@ Endings is a region.
 
 part Airy Station
 
-Airy Station is a room in Endings. "[one of]A cheering crowd[or]The mentality crowd[stopping] surrounds you on all sides! They're going pretty crazy over their new-found freedom, and how you got it for them."
+Airy Station is a room in Endings. "[one of]A cheering crowd surrounds you on all sides! They're going pretty crazy over their new-found freedom, and how you achieved it for them, and how they might not even need you to keep it, even though you're noce to have around[or]The mentality crowd continues to cheer and wave[stopping]."
 
 to say hammer-clue:
 	now no-break is true;
@@ -9783,11 +9806,11 @@ every turn when player is in airy station (this is the hammer clue rule):
 	if the remainder after dividing hammer-turns by 4 is 0:
 		if hammer is not examined:
 			now mist-turns is 0;
-			say "[if no-break is true][paragraph break][end if]You may [one of][or]still [stopping]need to figure how they hammer can help you get out of here--or past the caps[if no-break is true].[no line break][else].[end if]";
+			say "[if no-break is true][paragraph break][end if]You may [one of][or]still [stopping]need to figure how the hammer can help you get out of here--or past the caps[if no-break is true].[no line break][else].[end if]";
 			now no-break is false;
 			the rule succeeds;
 	if hammer-turns is 4:
-		say "[if no-break is true][paragraph break][end if]If you had another hammer, maybe you could click them together and go home[if no-break is true].[no line break][else].[end if]";
+		say "[if no-break is true][paragraph break][end if]If you had another hammer, maybe you could click them together and go back[if no-break is true].[no line break][else].[end if]";
 	else if mist-turns is 8:
 		say "[if no-break is true][paragraph break][end if]You're chipping off things the hammer can't be[if no-break is true].[no line break][else].[end if]";
 	else if mist-turns is 12:
@@ -9805,7 +9828,7 @@ understand "head hammer" and "hammer head" as a mistake ("You don't need to beat
 
 understand "ban hammer" as a mistake ("You do feel confident you could now be an Internet forum mod and curb some silliness . But--if you banned the hammer, you'd never get back home.[hammer-clue]") when player is in Airy Station.
 
-understand "blow hammer" and "hammer blow" as a mistake ("The hammer is small enough to put in your mouth, but, no. This isn't that kind of game.") when player is in Airy Station.
+understand "blow hammer" and "hammer blow" as a mistake ("[if allow-swears is true]The hammer is small enough to put in your mouth, but, no. This isn't that kind of game[else][one of]You blow on the hammer and wipe it off. It looks nice and shiny[or]You already cleaned the hammer a bit[stopping].") when player is in Airy Station.
 
 understand "time hammer" and "hammer time" as a mistake ("A voice says 'STOP!' Your pants momentarily feel baggy. Maybe it doesn't quite need to be that sort of hammer.[hammer-clue]") when player is in Airy Station.
 
@@ -9823,7 +9846,12 @@ understand "hammer away" and "hammer home" and "hammer lock" as a mistake ("Wron
 
 understand "lock [text]" and "[text] lock" and "[text] caps" and "caps [text]" as a mistake ("The lock caps remain solid. Maybe you could augment the hammer, though.[hammer-clue]") when player is in Airy Station.
 
-the hammer is a thing in Airy Station. description of hammer is "It's a nondescript hammer. You feel a power, though, as you carry it--as if you were able to change it, if you knew how to describe it."
+the hammer is a thing in Airy Station. "A hammer stands nearby. It's the sort you use to knock in big spikes on a rail."
+
+check dropping the hammer:
+	say "You already dropped the figurative hammer on the [bad-guy]. Now to do something constructive with the real hammer." instead;
+
+description of hammer is "It's a nondescript hammer. You feel a power, though, as you carry it--as if you were able to change it, if you knew how to describe it."
 
 after printing the name of the hammer when taking inventory:
 	say " (much plainer than it should be)";
@@ -9864,12 +9892,12 @@ to decide which number is right-adj:
 		decide on 3;
 	decide on 0;
 
-the Return Carriage is a thing. description is  "The Return Carriage awaits, but the problem is, you can't find an obvious way to, um, enter."
+the Return Carriage is a thing. "The Return Carriage awaits, but the problem is, you can't find an obvious way to, um, enter.". description is "It's spiffy and sleek. But the lock caps on the return carriage prevent you from entering. Maybe your hammer could help. Maybe not in its present state, but in some other state."
 
-the lock caps are part of the return carriage. description is "They don't look too menacing, but then you look closer, and you feel like you're being shouted at. Hm."
+the lock caps are part of the return carriage. description is "They don't look too menacing, but then you look closer, and you feel like you're being shouted at. Hm. Plus they don't have the usual keyhole."
 
 check entering Return Carriage:
-	say "You approach the whitespace around the return carriage, then try a new line of entry, but you have to admit failure and retreat to backspace. Those caps locks--you can't find a way to control [']em." instead;
+	say "You approach the whitespace around the return carriage, then try a new line of entry, but you have to admit failure and retreat to backspace. Those lock caps--you can't find a way to control [']em." instead;
 
 check opening Return Carriage:
 	say "You need to get the locks off, somehow." instead;
@@ -9884,8 +9912,15 @@ instead of doing something with lock caps:
 
 after printing the locale description for Airy Station when Airy Station is unvisited:
 	say "The crowd's adulation shakes you a bit. You worry you'll be stuck in charge of the whole place, and you might get corrupted like the [bad-guy] or whatever. So you make a speech about how someone local should rule--and they eat it up! They praise your humility!";
-	say "[line break]An odd vehicle rolls out. 'The Return Carriage!' shots the mentality crowd. 'It's for you! To go back to your world! And do great things there!'";
+	say "[line break]An odd vehicle rolls out. 'The Return Carriage!' shouts the mentality crowd. 'It's for you! To go back to your world! And do great things there!' The crowd presses you to take the hammer, and you do.";
+	now player has the hammer;
 	move return carriage to Airy Station;
+
+understand "hammer drop" as dropping when player is in airy station.
+
+rule for supplying a missing noun when dropping:
+	if player is in airy station:
+		now noun is hammer;
 
 check going in Airy Station:
 	if noun is inside:
@@ -10033,7 +10068,11 @@ part merged ending
 end-stress-test is a truth state that varies.
 
 to say bi of (ts - a truth state):
-	say "[if ts is true][i][else][b][end if]"
+	if screen-read is true:
+		if ts is true:
+			say "* ";
+	else:
+		say "[if ts is true][i][else][b][end if]"
 
 to go-back-home:
 	choose row with final response activity of amusing a victorious player in table of final question options;
@@ -10426,7 +10465,7 @@ rule for amusing a victorious player:
 		else:
 			now missed-one is true;
 	if missed-one is true:
-		say "[paragraph break]NOTE: both 'good' endings are mutually exclusive, so you missed a bit. But you can NOTICE ADVANCE to get back past the [j-co] and try the other, if you haven't seen it yet."
+		say "[line break]NOTE: both 'good' endings are mutually exclusive, so you missed a bit. But you can [b]NOTICE ADVANCE[r] to get back past the [j-co] and try the [if airy station is visited]okay[else]better[end if] one, if you haven't seen it yet."
 
 table of amusingness
 biglaff	anyrule
@@ -10459,7 +10498,7 @@ biglaff	anyrule
 "taking the Legend of Stuff after defeating the Thoughts Idol?"	very-good-end rule
 "ENTERing the Return Carriage?"	very-good-end rule
 "(XP/EXPLAIN)ing the lock caps?"	very-good-end rule
-"MAN HAMMER, BAN HAMMER, HAMMER JACK, HAMMER NINNY, HAMMER SLEDGE in Airy Station?"	very-good-end rule
+"DROP HAMMER, MAN HAMMER, BAN HAMMER, HAMMER JACK, HAMMER NINNY, HAMMER SLEDGE or HAMMER BLOW in Airy Station?"	very-good-end rule
 "WORM ROUND in the Out Mist?"	good-end rule
 "LET RING or MASTER RING in the Out Mist?"	good-end rule
 
@@ -10520,9 +10559,23 @@ conceptseen is a truth state that varies.
 dreamseen is a truth state that varies.
 missseen is a truth state that varies.
 
+to decide whether got-all-meta:
+	if amuseseen is false, decide no;
+	if swearseen is false, decide no;
+	if sinseen is false, decide no;
+	if altseen is false, decide no;
+	if badendseen is false, decide no;
+	if conceptseen is false, decide no;
+	if dreamseen is false, decide no;
+	if missseen is false, decide no;
+	decide yes;
+
 the print the modified final question rule is listed before the print the final prompt rule in before handling the final question.
 
 the print the final question rule is not listed in any rulebook.
+
+to say bold-asterisk:
+	say "[if screen-read is true]Asterisked[else]Bolded[end if]";
 
 This is the print the modified final question rule:
 	if accel-ending:
@@ -10535,7 +10588,7 @@ This is the print the modified final question rule:
 				or the final response activity entry [activity] is not empty:
 				if there is a final question wording entry, increase named options count by 1;
 	if the named options count is less than 1, abide by the immediately quit rule;
-	say "Here are things you can do now that the game is over.";
+	say "[if got-all-meta]You can look through any of these again if you want[else]Here is game information you may find interesting or amusing. [bold-asterisk] are not seen yet[end if].";
 	let pure-metas be 0;
 	repeat through the Table of Final Question Options:
 		if the only if victorious entry is false or the story has ended finally:
@@ -10707,16 +10760,19 @@ chapter swearing
 
 swearseeing is an activity.
 
+to say brapos:
+	say "[if allow-swears is true]ass[else]posterior[end if]"
+
 this is the swear-see rule:
 	now swearseen is true;
-	say "[2da]The Complex Messiah is the Baiter Master.";
-	say "[2da]Hunter Savage is Buster Ball.";
-	say "[2da]The Groan Collective is the Jerk Circle. Also, you feel a bit more foreboding, and everyone sheds a jerk-tear, and if you attack them, you get a 'special' flip.";
-	say "[2da]The Business Monkey's efforts are half-brained or [if allow-swears is true]ass[else]posterior[end if]ed.";
+	say "[2da]The [bad-guy] is the [stwid][bad-guy][stwid] instead.";
+	say "[2da][bad-guy-2] is [stwid][bad-guy-2][stwid] instead.";
+	say "[2da]The [jc] is the [stwid][jc][stwid] instead. Also, you feel a bit more foreboding, and everyone sheds a jerk-tear, and if you attack them, you get a 'special' message.";
+	say "[2da]The Business Monkey's [brapos] efforts are [stwid][brapos][stwid] instead.";
 	say "[2da]If you actually swear, obscenely or mildly (BOTHER)--there's a small inner dialogue for swearing with swears off[line break]";
 	say "[2da]You get a different reaction to repeatedly playing the logic puzzles[line break]";
 	say "[2da]EXPLAIN Guy Sweet has a slight difference[line break]";
-	say "[2da]Eating a food from Tray B turns swears on, if they were off[line break]";
+	say "[2da]Eating a food from Tray B forces swears on, if they were off[line break]";
 	say "[2da]The game warns you might think (off) or say (on) a swear if you try to eat the dirt[line break]";
 	say "[2da]Guy Sweet warns of off-beat types, with profanity on.";
 	say "[2da]The jerks discuss girls (rather badly) if you talk to them before reading the Finger Index. There aren't any profanities here, but they're kind of creepy.";
@@ -11106,7 +11162,7 @@ chapter bullpen
 
 bullpen is a room in meta-rooms. "You should never see this. If you do, it is a [bug]." [the bullpen is for items that you dropped when you slept]
 
-chapter conceptville [cv]
+chapter conceptville [xxcv]
 
 to say activation of (x - a thing):
 	now x is in lalaland;
@@ -11332,6 +11388,8 @@ Jerk Around is a concept in conceptville. Understand "around jerk" as jerk aroun
 
 Jerk Off is a concept in conceptville. understand "off jerk" as jerk off. howto is "attack a jerk in swearing-on mode".
 
+Liverwurst is a concept in conceptville. understand "wurst/worst liver" and "liver wurst/worst" and "worstliver/wurstliver" as liverwurst. howto is "smell any of the [j-co], or SMELL in the [jc]"
+
 Lovelies is a concept in conceptville. Understand "lies love" and "love lies" as Lovelies. howto is "listen to all the [j-co] have to say, with swearing on".
 
 Mary Sue is a concept in conceptville. understand "Sue Merry" and "Merry Sue" as Mary Sue. howto is "[j-girl]".
@@ -11478,6 +11536,8 @@ Howard Dean is a concept in conceptville. understand "dean howard" as howard dea
 
 Infomania is a concept in conceptville. Understand "infomania" as infomania. howto is "[fr-ran]".
 
+Johns Hopkins is a concept in conceptville. Understand "hopkins johns" as johns hopkins. howto is "[fr-ran]".
+
 King Henry is a concept in conceptville. understand "henry king" as king henry. howto is "[fr-ran]".
 
 laughingstock is a concept in conceptville. Understand "laughing stock" and "stock laughing" as laughingstock. howto is "talk to the [bad-guy]".
@@ -11507,6 +11567,8 @@ see if i care is a concept in conceptville. Understand "care i if see" as see if
 The shot mug is a concept in conceptville. understand "mug shot" as shot mug. howto is "get the [bad-guy]'s attention".
 
 Slicker City is a concept in conceptville. understand "city slicker" as Slicker City. howto is "[bad-guy] dialog".
+
+Stand out is a concept in conceptville. Understand "doubt stan" and "stan doubt" as stand out. howto is "[fr-ran]".
 
 taste buds is a concept in conceptville. understand "bud's/buds taste" as taste buds. howto is "[fr-ran]".
 
@@ -13142,4 +13204,5 @@ carry out jing:
 		now player is in jerk circle instead;
 	say "Now that you're in the main area, this command won't let you warp further in your beta testing quest. However, BROBYE will disperse the Brothers, JGO will spoil the [j-co]['] puzzle, and JERK(S)/GROAN(S) will clue it." instead;
 	the rule succeeds;
+
 

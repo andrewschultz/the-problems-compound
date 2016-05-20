@@ -28,7 +28,7 @@ while ($count <= $#ARGV)
 	  $count++;
 	  next;
 	};
-	/^[a-z][a-z-]+$/ && do
+	/^[a-z][a-z-]+$/i && do
 	{
 	  print "Note that this assumes the idiom written properly e.g. show business vs business show.";
 	  @cranks = split(/,/, @ARGV[0]); foreach $mycon (@cranks) { crankOutCode($mycon); } exit;
