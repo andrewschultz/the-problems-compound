@@ -3115,6 +3115,7 @@ Pollyanna	"A Pollyanna is someone who is ridiculously optimistic."
 Polygamy	"Polygamy is having more than one mate."
 Sharp Barb	"A sharp barb is a stinging, clever insult."
 tear-jerk	"The jerks['] tears may seem a bit fake, and a tear-jerker is something that tries to manipulate you into crying."
+teriyaki	"Teriyaki is a Japanese sauce, or it can be meat cooked in that sauce over an open grill."
 career threatening	"Something career threatening may risk not only your job but your ability to get other equal or better jobs. A threatening career is--well, a bit of a racket." [start of judgment pass]
 scofflaw	"A scofflaw is someone who breaks minor rules. Perhaps they jaywalk or litter."
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever." [start of idiot village]
@@ -6729,6 +6730,7 @@ girl-neg
 "The [j-co] agree that both [activation of pepper]Pepper Black, Pepper Bell [i]and[r] Pepper Green are hotter than Pepper Serrano."
 "The [j-co] praise [activation of category]Gory Kate as less weird than she should be on paper."
 "The [j-co] don't understand what [activation of polygamy]Gamy Polly has to be fussy [i]about[r]."
+"The [j-co] stage-whisper that [activation of teriyaki]Yacky Terri's conversation is neither spicy nor meaty."
 "The [j-co] disagree on whether [activation of sharp barb]Barb Sharpe would be worth putting up with her lame gossip."
 "The [j-co] rave about how [activation of benevolent]Evelyn Benn is snarky to people for their own good."
 "The [j-co] argue over whether [activation of bandanna]Anna Bandt's clothes choices are really rebellious."
@@ -9911,8 +9913,8 @@ instead of doing something with lock caps:
 	say "They're pretty secure, for locks. You can't see how to start to open them." instead;
 
 after printing the locale description for Airy Station when Airy Station is unvisited:
-	say "The crowd's adulation shakes you a bit. You worry you'll be stuck in charge of the whole place, and you might get corrupted like the [bad-guy] or whatever. So you make a speech about how someone local should rule--and they eat it up! They praise your humility!";
-	say "[line break]An odd vehicle rolls out. 'The Return Carriage!' shouts the mentality crowd. 'It's for you! To go back to your world! And do great things there!' The crowd presses you to take the hammer, and you do.";
+	say "The crowd's adulation shakes you a bit. You worry you'll be stuck in charge of the whole place, and you might get corrupted like the [bad-guy] or whatever. So you make a speech about how someone local should rule--and they eat it up! They praise your humility![wfk]";
+	say "As they do, an odd vehicle rolls out. 'The Return Carriage!' shouts the mentality crowd. Amidst cheerful farewells there's a general undercurrent of 'TAKE THE HAMMER!' So you do.";
 	now player has the hammer;
 	move return carriage to Airy Station;
 
@@ -11408,6 +11410,8 @@ Sharp Barb is a concept in conceptville. Understand "barb sharp" as sharp barb. 
 
 Tear-Jerk is a concept in conceptville. Understand "jerk-tear" and "tear jerk" and "jerk tear" as Tear-Jerk. howto is "solve the [j-co]['] puzzle".
 
+teriyaki is a concept in conceptville. Understand "teriyaki" as teriyaki. howto is "[j-girl]".
+
 section judgment pass concepts
 
 career threatening is a concept in conceptville. Understand "threatening career" as career threatening. howto is "give Officer Petty the Reasoning Circular".
@@ -12202,7 +12206,7 @@ the force tester wherever rule is listed last in the when play begins rulebook.
 beta-zap-room is a room that varies. beta-zap-room is lalaland.
 
 after printing the locale description when mrlp is endings and location of player is unvisited:
-	say "NOTE TO BETA TESTERS: the EST command lets you toggle whether or not a winning command ends the game, so you don't have to keep UNDOing. Whatever you can try is a big help.";
+	say "NOTE TO BETA TESTERS: the EST command lets you toggle whether or not a winning command ends the game, so you don't have to keep UNDOing if you want to try to guess all three wins, here, or just beat the game up. Whatever you can try is a big help.";
 
 after printing the locale description when player is in beta-zap-room and beta-zap-room is unvisited (this is the stop the game before I'm embarrassed by implementation rule) :
 	if debug-state is false:
@@ -12423,7 +12427,7 @@ nu-testjumping is an action applying to one number.
 
 list-testjumping is an action out of world.
 
-understand "testjump 0" and "testjump" as list-testjumping.
+understand "testjump 0" and "testjump" and "tj" and "tj 0" as list-testjumping.
 
 carry out list-testjumping:
 	try nu-testjumping 0;

@@ -93,8 +93,8 @@ for $x (sort keys %any)
   if (($thisFailed == 0) && ($printSuccess)) { print "$x succeeded.\n"; }
 }
 
-if ($errMsg)
-{
+  if ($errMsg)
+  {
   if ($printErrors) { print "$errMsg"; if (!$codeToClipboard) { print "Run with -c to put code to clipboard.\n"; } }
   my $bigString = "Basic cut-and-paste (fill-in-here throws an error on purpose so I fix it) :\n";
   if ($activErr) { $bigString .= "ACTIVATIONS:\n$activErr"; }
@@ -111,24 +111,27 @@ if ($errMsg)
   }
   } else { print "No errors in $_[0]. Nothing sent to clipboard.\n"; }
 
-if (!$errMsg) { $errMsg = "All okay!"; } else { $errMsg =~ s/\n/<br>/g; $errMsg =~ s/<br>$//g; }
+  if (!$errMsg) { $errMsg = "All okay!"; } else { $errMsg =~ s/\n/<br>/g; $errMsg =~ s/<br>$//g; }
 
-print "TEST RESULTS:concepts-$_[0],0,$fails,$totals,$errMsg\n";
+  print "TEST RESULTS:concepts-$_[0],0,$fails,$totals,$errMsg\n";
 
-if ($fails) { print "Test failed, $fails failures of $totals."; }
-else { print "Test succeeded! All $totals passed."; }
+  if ($fails) { print "Test failed, $fails failures of $totals."; }
+  else { print "Test succeeded! All $totals passed."; }
 
-print "\n";
+  print "\n";
   if (!(scalar keys %auth)) { return 0; }
 
+  my $needAlf = 0; my $authfail = 0; my $authsucc = 0;
   for $q (sort keys %auth)
   {
     if ($authtab{$q} == 0) { print "$q is an author not in the author table.\n"; $authfail++; next; }
-	elsif ($authtab{$q} < $lastLine) { print "$q is out of order in the author explanations, $authtab{$q} vs $lastLine, $auth{$q}.\n"; }
+	#elsif ($authtab{$q} < $lastLine) { print "$q is out of order in the author explanations, $authtab{$q} vs $lastLine, $auth{$q}.\n"; $authfail++; $needAlf = 1;}
+	else { $authsucc++; }
 	$lastLine = $authtab{$q};	
   }
+  if ($needAlf) { print "talf.pl may help straighten things out.\n"; }
 
-print "TEST RESULTS:authors-$_[0],0,$authfail,0,0\n";
+print "TEST RESULTS:$_[0] authors matching,0,$authfail,$authsucc,0\n";
 
 }
 
@@ -149,7 +152,7 @@ sub checkOrder
   while ($a = <A>)
   {
     $line++;
-    if (($a =~ /is (an|a female) author\./) && ($a !~ /^\[/)) { $b = $a; $b =~ s/ is (a|an) .*//g; chomp($b); $auth{$b} = $line; next; }
+    if (($a =~ /is (an|a female|a risque) author\./) && ($a !~ /^\[/)) { $b = $a; $b =~ s/ is (a|an) .*//g; chomp($b); $auth{$b} = $line; next; }
     if ($inAuthTable)
     {
       if ($a !~ /[a-z]/i) { $inAuthTable = 0; next; }
@@ -184,7 +187,6 @@ sub checkOrder
   my $authOops = 0;
   foreach $q (sort {$auth{$a} <=> $auth{$b}} keys %auth)
   {
-    if (!$authtab{$q}) { print "$q needs to be in the author table.\n"; $authOops++; next; }
     if ($q le $lastAuth) { print "$lastAuth/$q is not correctly alphabetized in the defines. Look at line $auth{$q}. $lastAuth is at $auth{$lastAuth}.\n"; push(@authErr, "$q/$auth{$q}"); }
 	$lastAuth = $q;
 	$authAlf++;
@@ -193,7 +195,7 @@ sub checkOrder
   $lastAuthLine="";
   foreach $q (sort {$authtab{$a} <=> $authtab{$b}} keys %authtab)
   {
-    if (!$auth{$q}) { print "$q is in the table but needs to be listed as an author.\n"; $authOops++; next; }
+    if (!$auth{$q}) { print "$q is in the table but needs to be listed as an author.\n"; $authOops++; }
     if ($q le $lastAuthLine) { print "$lastAuthLine/$q is not correctly alphabetized in the author table. Look at line $authtab{$q}.\n"; push(@authErr, "$q/$authtab{$q}"); }
 	$lastAuthLine = $q;
 	$authAlf++;
@@ -202,7 +204,8 @@ sub checkOrder
   {
     my $authFail = 0;
     if (($#authErr == -1) && ($authOops == 0)) { push(@authErr, "ALL OKAY"); } else { $authFail = $#authErr + 1 + $authOops; }
-    print "TEST RESULTS:$_[0] author checks,0,$authFail,$authAlf," . join("<br />", @authErr) . "\n";
+    print "TEST RESULTS:$_[0] author order checks,0,$authFail,$authAlf," . join("<br />", @authErr) . "\n";
+	if ($authFail) { print "talf.pl may fix things.\n"; }
   }
 }
 ########################################
@@ -221,7 +224,7 @@ open(A, $source) || do { print "No source file $source.\n"; return; };
 while ($a = <A>)
 {
   $line++;
-  if (($a =~ /is (an|a female) author\.$/) && ($a !~ /^\[/)) { $b = $a; $b =~ s/ is (an|a) .*//g; chomp($b); $auth{$b} = $line; next; }
+  if (($a =~ /is (an|a female|a risque) author\./) && ($a !~ /^\[/)) { $b = $a; $b =~ s/ is (an|a) .*//g; chomp($b); $auth{$b} = $line; next; }
   if ($inAuthTable)
   {
     if ($a !~ /[a-z]/i) { $inAuthTable = 0; next; }

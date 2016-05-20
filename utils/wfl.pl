@@ -116,20 +116,35 @@ close(B);
 sub readOneWord
 {
   my $wordLength = 0;
+  my $t = $_[0];
 
   $found = 0;
   $wordy = 0;
 
   if ($isDone{$_[0]})
- { if ($overlook) { print "Redoing $_[0], found in line $isDone{$_[0]} in flip.txt.\n"; } else { print "$_[0] repeated, line $isDone{$_[0]} in flip.txt. Use -f to override.\n"; return; } }
+ {
+   if ($overlook)
+   {
+     open(Q, "$output");
+	 while ($q = <Q>)
+	 {
+	   if ($q =~ /for $t$/)
+	   { print "$t is not erased from flip.txt, returning.\n"; close(Q); return; }
+	 }
+	 close(Q);
+     print "Redoing $t, found in line $isDone{$t} in flip.txt.\n";
+   }
+   else
+   { print "$t repeated, line $isDone{$t} in fliptrack.txt. Use -f to override.\n"; return; }
+ }
  else
- { print "$_[0] not done yet.\n"; }
+ { print "$t not done yet.\n"; }
  $shouldSort = 1;
- $flip = $_[0];
+ $flip = $t;
  for $q (sort keys %isDone)
  {
-   if (($_[0] =~ /$q/) && ($_[0] ne $q)) { print "$_[0] contains already-done word $q\n"; }
-   if (($q =~ /$_[0]/) && ($_[0] ne $q)) { print "$_[0] contained by already-done word $q\n"; }
+   if (($t =~ /$q/) && ($_[0] ne $q)) { print "$t contains already-done word $q\n"; }
+   if (($q =~ /$t/) && ($_[0] ne $q)) { print "$t contained by already-done word $q\n"; }
   }
 
 if ($dicURL) { `\"$webapp\" http:\/\/idioms.thefreedictionary.com\/$flip`; }
