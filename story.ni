@@ -1763,7 +1763,7 @@ check singing:
 		say "[if phil is in Discussion Block]You don't want to hear Phil's critique of your singing[else]You still can't compete with the song torch[end if]." instead;
 	if player is in cult:
 		say "You sense singing may be overdoing it for the cult here." instead;
-	say "You never were the artsy type. And the songs you want to sing are always out of fashion." instead;
+	say "Once you scrunch up [activation of face the music]the music face needed, you realize never were the artsy type. And the songs you want to sing are always out of fashion." instead;
 
 chapter examining
 
@@ -3109,6 +3109,7 @@ Liverwurst	"Liverwurst is a sort of meat which I found tastes nice until it real
 lovelies	"Lovelies is a term of endearment."
 Mary Sue	"A Mary Sue is a character who is too unbelievably nice. It comes from the tour de force short story A Trekkie's Tale."
 mascara	"Mascara is basic make-up for women."
+mollycoddling	"Mollycoddling is being overprotective of someone."
 Nose Candy	"Nose candy is slang for cocaine."
 Pepper	"Black pepper is the ground-up stuff. Green and bell peppers are not especially spicy. Serrano peppers taste hotter."
 Pollyanna	"A Pollyanna is someone who is ridiculously optimistic."
@@ -3186,6 +3187,7 @@ Tucker Max	"Tucker Max was alleged to have spanwed the 'fratire' genre, which fe
 Wire Fraud	"Wire fraud is a financial crime designed to cheat people out of money."
 Captain Obvious	"Captain Obvious is someone who always states what's readily apparent. Captain has a sarcastic meaning, here." [xyzzy snark]
 Comedy of Errors	"A comedy of errors is so much going wrong it's funny. Errors of comedy would be so much wrong there's nothing to laugh at."
+face the music	"To face the music is to realize you've come up short."
 Nonsense No	"No-nonsense means, well, not taking any silliness."
 Spelling Disaster	"Disaster spelling is, well, consonants clumped together. Spelling disaster is leading to bad news."
 poke fun	"To poke fun is to make a joke, but poke can mean a lot of things--putter around, meddle, or maybe poke a friend to get their attention." [touch commands]
@@ -6732,6 +6734,7 @@ girl-neg
 "The [j-co] don't understand what [activation of polygamy]Gamy Polly has to be fussy [i]about[r]."
 "The [j-co] stage-whisper that [activation of teriyaki]Yacky Terri's conversation is neither spicy nor meaty."
 "The [j-co] disagree on whether [activation of sharp barb]Barb Sharpe would be worth putting up with her lame gossip."
+"The [j-co] harbor fantasies of [activation of mollycoddling]coddling, err, cuddling Molly, who is maybe not as wild as they pretend she is."
 "The [j-co] rave about how [activation of benevolent]Evelyn Benn is snarky to people for their own good."
 "The [j-co] argue over whether [activation of bandanna]Anna Bandt's clothes choices are really rebellious."
 "The [j-co] mention how [activation of cotton candy]Candy Cotton smacks down saccharine pickup lines."
@@ -11398,6 +11401,8 @@ Mary Sue is a concept in conceptville. understand "Sue Merry" and "Merry Sue" as
 
 mascara is a concept in conceptville. Understand "cara maas" and "maas cara" as mascara. howto is "[j-girl]".
 
+Mollycoddling is a concept in conceptville. Understand "coddling molly" as mollycoddling. howto is "[j-girl]".
+
 Nose Candy is a concept in conceptville. Understand "candy/candi nose/knows" as nose candy. howto is "[j-girl]".
 
 Pepper is a concept in conceptville. Understand "pepper bell/black/serrano/green" and "bell/black/green/serrano pepper" as pepper. howto is "[j-girl]".
@@ -11589,6 +11594,8 @@ section xyzzy concepts
 Captain Obvious is a concept in conceptville. understand "obvious captain" as captain obvious. howto is "xyzzy".
 
 Comedy of Errors is a concept in conceptville. understand "errors of comedy" as comedy of errors. howto is "xyzzy".
+
+Face the music is a concept in conceptville. Understand "music the face" as face the music. howto is "sing outside the cult or Discussion Block".
 
 a thing called Nonsense No is a concept in conceptville. understand "no nonsense" as nonsense. howto is "xyzzy".
 

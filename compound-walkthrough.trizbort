@@ -7,35 +7,19 @@
 	</info>
 	<map>
 		<room id="1" name="Talk to Guy, play a game, enter Flat" subtitle="" x="-608" y="-384" w="96" h="64" region="very start" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" isStartRoom="yes" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<room id="2" name="Make tee, hit hatch" subtitle="" x="-736" y="-384" w="96" h="64" region="very start" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<room id="4" name="Tension Surface/ Variety Garden/ Vision Tunnel" subtitle="" x="-736" y="-256" w="96" h="384" region="very start" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+		<room id="2" name="Make tee, hit hatch" subtitle="Round Lounge" x="-864" y="-384" w="96" h="64" region="very start" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="4" name="Pressure Pier/Meal Square/Down Ground/Joint Strip/Soda Club" subtitle="" x="-736" y="-192" w="96" h="256" region="very start" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects at="wsw">Give weasel token|Dig for burden|Give to weasel|Give to mush</objects>
 		</room>
 		<line id="5" flow="oneWay">
 			<dock index="0" id="2" port="s" />
-			<dock index="1" id="4" port="n" />
+			<dock index="1" id="92" port="n" />
 		</line>
 		<room id="6" name="Drop ticket" subtitle="" x="-608" y="-288" w="96" h="64" region="4 of 7" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<room id="7" name="N from bar with drink" subtitle="" x="-608" y="-224" w="96" h="64" region="4 of 7" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<line id="8">
-			<dock index="0" id="4" port="ene" />
-			<dock index="1" id="6" port="w" />
-		</line>
 		<room id="9" name="Buy drink for Lily" subtitle="" x="-608" y="-32" w="96" h="64" region="4 of 7" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<room id="10" name="Get piece from Fritz" subtitle="" x="-608" y="32" w="96" h="64" region="4 of 7" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<room id="11" name="Sleep on the Bench too long" subtitle="" x="-608" y="96" w="96" h="64" region="4 of 7" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<line id="12">
-			<dock index="0" id="4" port="ene" />
-			<dock index="1" id="7" port="w" />
-		</line>
-		<line id="13">
-			<dock index="0" id="9" port="w" />
-			<dock index="1" id="4" port="e" />
-		</line>
-		<line id="15">
-			<dock index="0" id="11" port="w" />
-			<dock index="1" id="4" port="ese" />
-		</line>
 		<room id="16" name="Main Area (4 of 7 previous)" subtitle="" x="-480" y="-256" w="96" h="384" region="NoRegion" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<line id="17">
 			<dock index="0" id="11" port="e" />
@@ -156,25 +140,17 @@
 			<dock index="1" id="30" port="n" />
 		</line>
 		<line id="3" flow="oneWay">
-			<dock index="0" id="1" port="w" />
-			<dock index="1" id="2" port="e" />
+			<dock index="0" id="1" port="wnw" />
+			<dock index="1" id="2" port="ene" />
 		</line>
 		<line id="14">
 			<dock index="0" id="10" port="e" />
 			<dock index="1" id="16" port="wsw" />
 		</line>
-		<line id="20">
-			<dock index="0" id="10" port="w" />
-			<dock index="1" id="4" port="ese" />
-		</line>
 		<room id="70" name="Say hi/bye to Lily twice" subtitle="" x="-608" y="-96" w="96" h="64" region="4 of 7" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<line id="71">
 			<dock index="0" id="70" port="e" />
 			<dock index="1" id="16" port="w" />
-		</line>
-		<line id="72">
-			<dock index="0" id="70" port="w" />
-			<dock index="1" id="4" port="e" />
 		</line>
 		<room id="73" name="Read the Finger Index" subtitle="" x="-96" y="-192" w="96" h="64" region="Post-Bros" handDrawn="no" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<line id="74" flow="oneWay">
@@ -189,10 +165,6 @@
 		<line id="76">
 			<dock index="0" id="68" port="e" />
 			<dock index="1" id="16" port="wnw" />
-		</line>
-		<line id="77">
-			<dock index="0" id="68" port="w" />
-			<dock index="1" id="4" port="ene" />
 		</line>
 		<line id="56" flow="oneWay">
 			<dock index="0" id="54" port="e" />
@@ -235,7 +207,7 @@
 			<dock index="0" id="30" port="e" />
 			<dock index="1" id="88" port="w" />
 		</line>
-		<room id="90" name="Rooms/events are color coded by whom you help: blue = SOUL, red = BLOOD, yellow = BIG, brown = AFTER, grey = best ending" subtitle="" x="-352" y="-384" w="864" h="64" region="NoRegion" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="90" name="Rooms/events are color coded by whom you help: blue = SOUL, red = BLOOD, yellow = BIG, brown = AFTER, light grey = best ending" subtitle="" x="-480" y="-384" w="864" h="64" region="NoRegion" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<line id="26" flow="oneWay">
 			<dock index="0" id="30" port="ne" />
 			<dock index="1" id="85" port="sw" />
@@ -248,10 +220,37 @@
 			<dock index="0" id="24" port="n" />
 			<dock index="1" id="30" port="s" />
 		</line>
-		<line id="86" style="dashed" flow="oneWay" midText="KNOCK HARD">
+		<line id="86" style="dashed" flow="oneWay" midText="FIGURE A CUT">
 			<dock index="0" id="1" port="se" />
 			<dock index="1" id="16" port="nw" />
 		</line>
+		<line id="91" style="dashed" flow="oneWay" midText="KNOCK HARD">
+			<dock index="0" id="1" port="sw" />
+			<dock index="1" id="4" port="ne" />
+		</line>
+		<room id="92" name="Tension Surface/ Variety Garden/ Vision Tunnel" subtitle="" x="-864" y="-288" w="96" h="448" region="very start" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects at="wsw">Give weasel token|Dig for burden|Give to weasel|Give to mush</objects>
+		</room>
+		<line id="93" flow="oneWay">
+			<dock index="0" id="92" port="e" />
+			<dock index="1" id="4" port="w" />
+		</line>
+		<line id="94" flow="oneWay" midText="DUCK SITTING">
+			<dock index="0" id="1" port="w" />
+			<dock index="1" id="92" port="ne" />
+		</line>
+		<room id="95" name="Tray B Food Ends" subtitle="" x="-736" y="96" w="96" h="64" region="very start" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects at="wsw" />
+		</room>
+		<line id="8" flow="oneWay">
+			<dock index="0" id="4" port="e" />
+			<dock index="1" id="70" port="w" />
+		</line>
+		<line id="12" flow="oneWay">
+			<dock index="0" id="4" port="s" />
+			<dock index="1" id="95" port="n" />
+		</line>
+		<room id="13" name="NOTICE ADVANCE/TRACK BEATEN/FANCY PASSING let you skip a lot" subtitle="" x="416" y="-384" w="192" h="64" region="NoRegion" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 	</map>
 	<settings>
 		<colors>

@@ -7,6 +7,7 @@ $clip = Win32::Clipboard::new();
 my $codeToClipboard = 0;
 my $printErrCode = 0;
 my $printErrors = 1;
+my $emptyRows = 0;
 
 while ($count <= $#ARGV)
 {
@@ -156,13 +157,15 @@ sub checkOrder
     if ($inAuthTable)
     {
       if ($a !~ /[a-z]/i) { $inAuthTable = 0; next; }
-      $b = $a; chomp($b); $b =~ s/\t.*//g; $authtab{$b} = $line; next;
+      $b = $a; chomp($b); $b =~ s/\t.*//g; $authtab{$b} = $line;
+	  if ($a !~ /\"/) { print "$b in table but needs entry ($line).\n"; $emptyRows++; }
+	  next;
     }
     if ($a =~ /xxauth/) { $inAuthTable = 1; <A>; $line++; next; }
 	if (($expls) && ($a !~ /[a-z]/i)) { $expls = 0; next; }
 	if (($concs) && ($a =~ /end concepts/)) { $concs = 0; next; }
-    if ($a =~ /xadd/) { <A>; $expls = 1; next; }
-    if ($a =~ /\[(xx)?cv\]/) { <A>; $concs = 1; next; }
+    if ($a =~ /xadd/) { $line++; <A>; $expls = 1; next; }
+    if ($a =~ /\[(xx)?cv\]/) { $line++; <A>; $concs = 1; next; }
 	if ($expls) { chomp($a); $a =~ s/\t.*//g; $a =~ s/^(a |the )//gi; push (@ex, $a); next; }
 	if (($concs) && ($a =~ /concept.in/)) { chomp($a); $a =~ s/ is a .*concept.*//g; $a =~ s/^(a thing called |the |a )//gi; push (@co, $a); next; }
   }
@@ -207,6 +210,7 @@ sub checkOrder
     print "TEST RESULTS:$_[0] author order checks,0,$authFail,$authAlf," . join("<br />", @authErr) . "\n";
 	if ($authFail) { print "talf.pl may fix things.\n"; }
   }
+    print "TEST RESULTS:$_[0] author empty row checks,0,$emptyRows,0,\n";
 }
 ########################################
 #reads in concepts

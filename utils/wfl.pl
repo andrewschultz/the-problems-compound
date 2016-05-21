@@ -78,7 +78,14 @@ for $q (@flipAry)
 readOneWord($q);
 }
 
-if ($shouldSort || $autoSort) { alfOut(); alfTrack(); countChunks(); countURLs(); }
+if ($shouldSort || $autoSort)
+{
+  alfOut();
+  print "$shouldAlphabetize = should alphabetize\n";
+  if ($shouldAlphabetize) { alfTrack(); }
+  countChunks();
+  countURLs();
+}
 
 ###########################################
 #initWordCheck = mark all words so we can focus on the good stuff
@@ -138,7 +145,7 @@ sub readOneWord
    { print "$t repeated, line $isDone{$t} in fliptrack.txt. Use -f to override.\n"; return; }
  }
  else
- { print "$t not done yet.\n"; }
+ { $shouldAlphabetize = 1; print "$t not done yet.\n"; }
  $shouldSort = 1;
  $flip = $t;
  for $q (sort keys %isDone)
@@ -151,7 +158,7 @@ if ($dicURL) { `\"$webapp\" http:\/\/idioms.thefreedictionary.com\/$flip`; }
 
 open(B, ">>$output");
 
-if (!$overlook)
+if ($shouldAlphabetize)
 {
 open(C, ">>$track");
 print C "========$flip\n";
