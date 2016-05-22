@@ -8,7 +8,7 @@ This is the third release of The Problems Compound. The first release was for IF
 
 (Write in people who helped here)
 
-This is largely a maintenance release without many flashy new features, though Alec has a new food on Tray B to eat. It addresses some bugs discovered and in release 2, as well as some user-friendliness issues. The source code is now above 650,000 bytes, and...well, I think I'm ready to move on.
+This is largely a maintenance release without many flashy new features, though Alec has a new food on Tray B to eat. It addresses some bugs discovered and in release 2, as well as some user-friendliness issues. The source code is now above 700,000 bytes, and...well, I think I'm ready to move on, except if I find a nice idea here or there.
 
 The milestones for release 3 can be seen at https://github.com/andrewschultz/the-problems-compound/milestones/v3%20coding%20tweaks, but that's not everything.
 
@@ -31,6 +31,7 @@ The user-friendliness stuff is here.
 --some concepts were revealed on start before, but now, a tracking file sees if they should be revealed.
 --push and pull now map to open. This isn't huge, technically, but I'll use it going forward.
 --fixed "can't go that way" in Service Community (up/down gave something weird).
+--PDF walkthrough tweaked to separate introductory regions (now with jump-verb spoilers too)
 
 There's random stuff, too:
 --you can now play Hangman with Guy Sweet

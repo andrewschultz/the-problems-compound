@@ -94,6 +94,28 @@ for $x (sort keys %any)
   if (($thisFailed == 0) && ($printSuccess)) { print "$x succeeded.\n"; }
 }
 
+  print "TEST RESULTS:concepts-$_[0],0,$fails,$totals,$errMsg\n";
+
+  if ($fails) { print "Test failed, $fails failures of $totals."; }
+  else { print "Test succeeded! All $totals passed."; }
+
+  print "\n";
+  if (!(scalar keys %auth)) { return 0; }
+
+  my $authErr;
+
+  my $needAlf = 0; my $authfail = 0; my $authsucc = 0;
+  for $q (sort keys %auth)
+  {
+    if ($authtab{$q} == 0) { print "$q is an author not in the author table.\n"; $authfail++; $authErr .= "$q\t\"[fix-this]\"\n"; next; }
+	#elsif ($authtab{$q} < $lastLine) { print "$q is out of order in the author explanations, $authtab{$q} vs $lastLine, $auth{$q}.\n"; $authfail++; $needAlf = 1;}
+	else { $authsucc++; }
+	$lastLine = $authtab{$q};	
+  }
+  if ($needAlf) { print "talf.pl may help straighten things out.\n"; }
+
+print "TEST RESULTS:$_[0] authors matching,0,$authfail,$authsucc,0\n";
+
   if ($errMsg)
   {
   if ($printErrors) { print "$errMsg"; if (!$codeToClipboard) { print "Run with -c to put code to clipboard.\n"; } }
@@ -101,6 +123,7 @@ for $x (sort keys %any)
   if ($activErr) { $bigString .= "ACTIVATIONS:\n$activErr"; }
   if ($explErr) { $bigString .= "EXPLANATIONS:\n$explErr"; }
   if ($concErr) { $bigString .= "CONCEPTS:\n$concErr"; }
+  if ($authErr) { $bigString .= "AUTHORS:\n$authErr"; }
   if ($codeToClipboard)
   {
     $clip->Set($bigString);
@@ -113,26 +136,6 @@ for $x (sort keys %any)
   } else { print "No errors in $_[0]. Nothing sent to clipboard.\n"; }
 
   if (!$errMsg) { $errMsg = "All okay!"; } else { $errMsg =~ s/\n/<br>/g; $errMsg =~ s/<br>$//g; }
-
-  print "TEST RESULTS:concepts-$_[0],0,$fails,$totals,$errMsg\n";
-
-  if ($fails) { print "Test failed, $fails failures of $totals."; }
-  else { print "Test succeeded! All $totals passed."; }
-
-  print "\n";
-  if (!(scalar keys %auth)) { return 0; }
-
-  my $needAlf = 0; my $authfail = 0; my $authsucc = 0;
-  for $q (sort keys %auth)
-  {
-    if ($authtab{$q} == 0) { print "$q is an author not in the author table.\n"; $authfail++; next; }
-	#elsif ($authtab{$q} < $lastLine) { print "$q is out of order in the author explanations, $authtab{$q} vs $lastLine, $auth{$q}.\n"; $authfail++; $needAlf = 1;}
-	else { $authsucc++; }
-	$lastLine = $authtab{$q};	
-  }
-  if ($needAlf) { print "talf.pl may help straighten things out.\n"; }
-
-print "TEST RESULTS:$_[0] authors matching,0,$authfail,$authsucc,0\n";
 
 }
 

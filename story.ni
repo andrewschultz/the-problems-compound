@@ -373,7 +373,7 @@ when play begins (this is the read options file rule):
 		if brief entry matches the regular expression "brownie":
 			now found-brownie is true;
 	if found-brownie is false:
-		say "NOTE: you have played an old version of The Problems Compound. It's strongly recommended you find and erase a file called pcverbs, or pcverbs.glkdata, to get the full experience. TPC is perfectly playable without it, but completionists may miss an alternative ending visible only in release 3.";
+		say "NOTE: it looks like you have played an old version of The Problems Compound. It's strongly recommended you find and erase a file called pcverbs, or pcverbs.glkdata, to get the full experience. TPC is perfectly playable without it, but completionists may miss an alternative bad ending visible only in release 3.";
 		wfak;
 	repeat through table of verb-unlocks:
 		if brief entry is a brief listed in table of verb-unlocks:
@@ -391,20 +391,20 @@ to prep-action (inte - indexed text):
 the file of verb-unlocks is called "pcverbs".
 
 table of vu - verb-unlocks [tvu]
-brief (indexed text)	found	expound	jumpable	descr (indexed text)
-"anno"	false	true	false	"ANNO to show annotations, or JUMP to jump to a bunch of rejected rooms, as a sort of director's cut."
-"duck"	false	true	true	"DUCK SITTING to skip to Tension Surface."
-"knock"	false	true	true	"KNOCK HARD to get to Pressure Pier."
-"figure"	false	true	true	"FIGURE A CUT to skip past Terry Sally to the [jc]."
-"fancy"	false	true	true	"FANCY PASSING to skip to the Questions Field with the brothers gone."
-"track"	false	true	true	"TRACK BEATEN to reveal the [j-co] puzzle spoilers on examining the Finger Index."
-"notice"	false	true	true	"NOTICE ADVANCE to skip to Questions Field, with the brothers and [j-co] gone."
-"cookie"	false	false	false	"Eating the cookie on tray B unlocked a few concepts."
-"greater"	false	false	false	"Eating the greater cheese on tray B unlocked a few concepts."
-"off"	false	false	false	"Eating the off cheese on tray B unlocked a few concepts."
-"brownie"	false	false	false	"Eating the brownie on tray B unlocked a few concepts."
-"good"	false	false	false	"You found a good ending!"
-"great"	false	false	false	"You found the great ending!"	[this must be last right now]
+brief (indexed text)	found	expound	jumpable	descr (indexed text)	conc [conc is for backwards compatibility]
+"anno"	false	true	false	"ANNO to show annotations, or JUMP to jump to a bunch of rejected rooms, as a sort of director's cut."	0
+"duck"	false	true	true	"DUCK SITTING to skip to Tension Surface."	0
+"knock"	false	true	true	"KNOCK HARD to get to Pressure Pier."	0
+"figure"	false	true	true	"FIGURE A CUT to skip past Terry Sally to the [jc]."	0
+"fancy"	false	true	true	"FANCY PASSING to skip to the Questions Field with the brothers gone."	0
+"track"	false	true	true	"TRACK BEATEN to reveal the [j-co] puzzle spoilers on examining the Finger Index."	0
+"notice"	false	true	true	"NOTICE ADVANCE to skip to Questions Field, with the brothers and [j-co] gone."	0
+"cookie"	false	false	false	"Eating the cookie on tray B unlocked a few concepts."	0
+"greater"	false	false	false	"Eating the greater cheese on tray B unlocked a few concepts."	0
+"off"	false	false	false	"Eating the off cheese on tray B unlocked a few concepts."	0
+"brownie"	false	false	false	"Eating the brownie on tray B unlocked a few concepts."	0
+"good"	false	false	false	"You found a good ending!"	0
+"great"	false	false	false	"You found the great ending!"	0	[this must be last right now]
 
 [rules are necessary since sometimes we may want to toggle more than one concept]
 
@@ -9142,6 +9142,7 @@ workname	authname	booksubj
 "The Star Shooting"	"Remy George"	"a group of scientists convinced to care about the death of a charismatic celebrity over stuffy boring research"
 "The Islands of an Outcast"	"Joseph Conrad"	"a gentle fellow, shunned by modern society, who forges an idyllic utopia"
 "The Divorce: GREAT"	"Lewis S. Clive"	"how blatant infidelity is really about seeing all the world has to offer and making the most of things--well, if you're worth cheating with. It surpasses even [i]The Boy and His Horse[r] and [i]The Love of Allegory[r]"
+"Honor of Debt"	"Clancy Thomas"	"why overspending for the military is a good thing, or at least a good thing to condemn to seem nice without having to be nice"
 "The Goer Movie"	"Percy Walker"	"how one man used motivational movies--or just movies with lots of rich stuff--to learn to fit in with people who matter"
 "The Snark of the Hunting"	"Carol Lewis"	"how to gaslight people into thinking what they said was nonsense, especially if it should be"
 "The Parson Country"	"Herbert George"	"just how impractical and rubbish religion is, even when its trappings make people do good things"
