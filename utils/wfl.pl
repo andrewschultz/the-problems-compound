@@ -80,8 +80,8 @@ readOneWord($q);
 
 if ($shouldSort || $autoSort)
 {
-  alfOut();
-  print "$shouldAlphabetize = should alphabetize\n";
+  if ($addedSomething) { alfOut(); }
+  #print "$shouldAlphabetize = should alphabetize\n";
   if ($shouldAlphabetize) { alfTrack(); }
   countChunks();
   countURLs();
@@ -196,10 +196,14 @@ while ($a = <A>)
 close(A);
 my $firstLine = "========$flip ($found)\n";
 
+if ($bigLongBit)
+{
 print B $firstLine;
 print B $bigLongBit;
 print B "====Found $found/$wordy for $flip\n";
 print "====Found $found/$wordy for $flip\n";
+$addedSomething = 1;
+}
 close(B);
 }
 

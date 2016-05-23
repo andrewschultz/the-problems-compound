@@ -57,6 +57,14 @@ sub crankOutCode
   }
 }
 
+#debugging routine to dump the hashes
+sub dumpHashes
+{
+  print "EXPL:\n"; for $x (sort keys %expl) { print "$x\n"; }
+  print "ANY:\n"; for $x (sort keys %any) { print "$x\n"; }
+  print "CONC:\n"; for $x (sort keys %conc) { print "$x\n"; }
+}
+
 #######################################
 #prints the results
 #
@@ -66,6 +74,7 @@ my $fails = 0;
 my $totals = 0;
 my $errMsg = "";
 
+#dumpHashes();
 for $x (sort keys %any)
 {
   $thisFailed = 0;
@@ -107,7 +116,7 @@ for $x (sort keys %any)
   my $needAlf = 0; my $authfail = 0; my $authsucc = 0;
   for $q (sort keys %auth)
   {
-    if ($authtab{$q} == 0) { print "$q is an author not in the author table.\n"; $authfail++; $authErr .= "$q\t\"[fix-this]\"\n"; next; }
+    if ($authtab{$q} == 0) { print "$q is an author not in the author table.\n"; $authfail++; $authErr .= "$q\t\"[fix-this]\"\n"; $errMsg = 1; next; }
 	#elsif ($authtab{$q} < $lastLine) { print "$q is out of order in the author explanations, $authtab{$q} vs $lastLine, $auth{$q}.\n"; $authfail++; $needAlf = 1;}
 	else { $authsucc++; }
 	$lastLine = $authtab{$q};	
@@ -169,8 +178,8 @@ sub checkOrder
 	if (($concs) && ($a =~ /end concepts/)) { $concs = 0; next; }
     if ($a =~ /xadd/) { $line++; <A>; $expls = 1; next; }
     if ($a =~ /\[(xx)?cv\]/) { $line++; <A>; $concs = 1; next; }
-	if ($expls) { chomp($a); $a =~ s/\t.*//g; $a =~ s/^(a |the )//gi; push (@ex, $a); next; }
-	if (($concs) && ($a =~ /concept.in/)) { chomp($a); $a =~ s/ is a .*concept.*//g; $a =~ s/^(a thing called |the |a )//gi; push (@co, $a); next; }
+	if ($expls) { chomp($a); $a =~ s/\t.*//g; $a = cutArt($a); push (@ex, $a); next; }
+	if (($concs) && ($a =~ /concept.in/)) { chomp($a); $a =~ s/ is a .*concept.*//g; $a = cutArt($a); push (@co, $a); next; }
   }
 
   for (0..$#ex)
@@ -185,7 +194,20 @@ sub checkOrder
 	} else { }
   }
 
-  if ($ordFail) { print "$ordFail failed"; if ($inOrder) { $remain = $ordFail - $inOrder; print ", but $inOrder are nice and consecutive. That means there might really be $remain or fewer changes to make"; } print ".\n      EXPLANATIONS vs CONCEPTS above\n"; } else { print "Ordering (" . ($#ex+1) . ") all matched for $_[0].\n"; }
+  if ($ordFail)
+  {
+    print "$ordFail failed";
+	if ($inOrder)
+	{
+	  $remain = $ordFail - $inOrder;
+	  print ", but $inOrder are nice and consecutive. That means there might really be $remain or fewer changes to make";
+	}
+	print ".\n      EXPLANATIONS vs CONCEPTS above\n";
+  }
+  else
+  {
+    print "Ordering (" . ($#ex+1) . ") all matched for $_[0].\n";
+  }
   if ($printTest) { print "TEST RESULTS:$_[0] ordering,0,$ordFail,0,run conc.pl -o\n"; }
 
   if (scalar keys %auth == 0) { return; }
@@ -241,10 +263,11 @@ while ($a = <A>)
   if ($a =~ /section misc concept\(s\)/) { $concepts = $line; }
   if ($a =~ /^table of explanations.*concepts/) { $xadd = $line; $inTable = 1; <A>; next; }
   if ($a !~ /[a-z]/i) { $inTable = 0; next; }
-  chomp($a); $a = lc($a);
+  chomp($a); $a = cutArt($a);
   if ($a =~ /is a concept in lalaland/)
   {
     $a =~ s/ is a concept in lalaland.*//g;
+	$a = wordtrim($a);
 	$conc{$a} = 1;
 	$activ{$a} = 1;
 	$any{$a} = 1;
@@ -254,7 +277,7 @@ while ($a = <A>)
   {
     $b =~ s/.*?\[activation of //; $c = $b;
 	$c =~ s/\].*//g;
-	$activ{$c} = 1; $any{$c} = 1;
+	$activ{wordtrim($c)} = 1; $any{wordtrim($c)} = 1;
   }
   if ($inTable == 1) { $b = $a; $b =~ s/\t.*//g; $b = wordtrim($b); $expl{$b} = $any{$b} = 1; next; }
   if ($a =~ /is a (privately-named |)?concept/)
@@ -277,6 +300,18 @@ sub wordtrim
   $temp =~ s/^the //g;
   $temp =~ s/^a thing called //g;
   $temp =~ s/^a //g;
+  return $temp;
+}
+
+#################################
+#cutArt cuts the leading article off
+#
+sub cutArt
+{
+  my $die = 0;
+  my $temp = $_[0];
+  if ($temp =~ /^a for /) { return $_[0]; } #A for effort is a special case
+  $temp =~ s/^(a thing called |a |the )//gi;
   return $temp;
 }
 
