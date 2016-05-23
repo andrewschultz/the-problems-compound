@@ -109,7 +109,8 @@ for $x (sort keys %any)
   else { print "Test succeeded! All $totals passed."; }
 
   print "\n";
-  if (!(scalar keys %auth)) { return 0; }
+  if (scalar keys %auth)
+  {
 
   my $authErr;
 
@@ -123,7 +124,8 @@ for $x (sort keys %any)
   }
   if ($needAlf) { print "talf.pl may help straighten things out.\n"; }
 
-print "TEST RESULTS:$_[0] authors matching,0,$authfail,$authsucc,0\n";
+  print "TEST RESULTS:$_[0] authors matching,0,$authfail,$authsucc,0\n";
+  }
 
   if ($errMsg)
   {
@@ -165,7 +167,7 @@ sub checkOrder
   while ($a = <A>)
   {
     $line++;
-    if (($a =~ /is (an|a female|a risque) author\./) && ($a !~ /^\[/)) { $b = $a; $b =~ s/ is (a|an) .*//g; chomp($b); $auth{$b} = $line; next; }
+    if (($a =~ /is a.* author\. pop/) && ($a !~ /^\[/)) { $b = $a; $b =~ s/ is (a|an) .*//g; chomp($b); $auth{$b} = $line; next; }
     if ($inAuthTable)
     {
       if ($a !~ /[a-z]/i) { $inAuthTable = 0; next; }
@@ -176,8 +178,8 @@ sub checkOrder
     if ($a =~ /xxauth/) { $inAuthTable = 1; <A>; $line++; next; }
 	if (($expls) && ($a !~ /[a-z]/i)) { $expls = 0; next; }
 	if (($concs) && ($a =~ /end concepts/)) { $concs = 0; next; }
-    if ($a =~ /xadd/) { $line++; <A>; $expls = 1; next; }
-    if ($a =~ /\[(xx)?cv\]/) { $line++; <A>; $concs = 1; next; }
+    if ($a =~ /xx(add|auth|slb|bks|bkj)/) { $line++; <A>; $expls = 1; next; }
+    if ($a =~ /\[xxcv\]/) { $line++; <A>; $concs = 1; next; }
 	if ($expls) { chomp($a); $a =~ s/\t.*//g; $a = cutArt($a); push (@ex, $a); next; }
 	if (($concs) && ($a =~ /concept.in/)) { chomp($a); $a =~ s/ is a .*concept.*//g; $a = cutArt($a); push (@co, $a); next; }
   }
@@ -188,10 +190,20 @@ sub checkOrder
     if (lc(@ex[$_]) ne lc(@co[$_]))
 	{
 	  $ordFail++;
+	  if ((!$detail) && ($match - $lastMatch == 1)) { next; }
       print "$_ ($ordFail): @ex[$_] vs @co[$_]";
-	  for $match (0..$#co) { if (lc(@ex[$_]) eq lc(@co[$match])) { print " (#$match)"; if ($match - $lastMatch == 1) { print " (in order)"; $inOrder++; } $lastMatch = $match; } }
+	  for $match (0..$#co)
+	  {
+	    if (lc(@ex[$_]) eq lc(@co[$match]))
+	    {
+		  print " (#$match)";
+		  if ($match - $lastMatch == 1) { print " (in order)"; $inOrder++; }
+		  $lastMatch = $match;
+		}
+	  }
+	  if ($lw ne "") { print " (last working=@ex[$lw])"; }
 	  print "\n";
-	} else { }
+	} else { $lw = $_; }
   }
 
   if ($ordFail)
@@ -254,6 +266,11 @@ while ($a = <A>)
 {
   $line++;
   if (($a =~ /is (an|a female|a risque) author\./) && ($a !~ /^\[/)) { $b = $a; $b =~ s/ is (an|a) .*//g; chomp($b); $auth{$b} = $line; next; }
+  if ($inBookTable)
+  {
+    if ($a !~ /[a-z]/i) { $inBookTable = 0; next; }
+    $b = $a; chomp($b); $b = wordtrim($b); $b =~ s/\t.*//g; $activ{$b} = 1; $any{$b} = 1; next;
+  }
   if ($inAuthTable)
   {
     if ($a !~ /[a-z]/i) { $inAuthTable = 0; next; }
@@ -261,6 +278,7 @@ while ($a = <A>)
   }
   if ($a =~ /xxauth/) { $inAuthTable = 1; <A>; $line++; next; }
   if ($a =~ /section misc concept\(s\)/) { $concepts = $line; }
+  if ($a =~ /^table of (book jungle|life shelf)/) { $xadd = $line; $inBookTable = 1; <A>; next; }
   if ($a =~ /^table of explanations.*concepts/) { $xadd = $line; $inTable = 1; <A>; next; }
   if ($a !~ /[a-z]/i) { $inTable = 0; next; }
   chomp($a); $a = cutArt($a);

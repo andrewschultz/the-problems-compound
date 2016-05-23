@@ -3169,6 +3169,7 @@ King Henry	"King Henry VIII of England had six wives."
 laughingstock	"A laughingstock is someone everyone laughs at. But stock laughing is canned laughter, reflexive laughter at a joke you heard before, or maybe even a laugh track."
 Leading Question	"A leading question is one designed to provoke a certain answer. The term is usually used in a court of law."
 off the record	"Off the Record means something said privately, often negative. Record the Off means to bring something wrong or different into the open."
+oscar wilde	"Oscar Wilde was a wit and playwright known for one-liners that poked fun at the human condition."
 pharisee	"A pharisee is someone who gives the trappings of morality but is not."
 Plaintiff	"A plaintiff is the party bringing the charge in a court case."
 polygraph	"A polygraph is a lie detector. The [bad-guy] is probably looking for lies that aren't there."
@@ -9623,6 +9624,7 @@ gad-act
 "'Yeah, if we [activation of polygraph]graph Polly, she's lying without lying.'"
 "'But does [random surveyable person] have any GOOD ways to [activation of leading question]question leading like mine?'"
 "The [bad-guy] mutters he's sure [activation of Howard Dean]Dean Howard is nice and well-meaning all, but that scream. Really. Just...unforgiveable. And even if it were, well, he probably still deserves to be REMINDED. For character building purposes."
+"'[activation of Oscar Wilde]Wild Oscar? Pff, so full of vapid one-liners.'"
 "The [bad-guy] reminds himsef how to [activation of psychoanalyst]list Anna: psycho, even if there's not enough data/proof yet."
 "The Language Sign flashes but you don't think it changed its message. Just reinforced it."
 "[odd-machine of Twister Brain] spits out a page of data the [bad-guy] speed reads. He mutters 'Pfft. I already sort of knew that. Mostly. Still, need to keep an eye on [the random surveyable person].'"
@@ -11555,6 +11557,8 @@ laughingstock is a concept in conceptville. Understand "laughing stock" and "sto
 Leading Question is a concept in conceptville. Understand "question leading" as leading question. howto is "[fr-ran]".
 
 Off the Record is a concept in conceptville. Understand "record the off" as off the record. howto is "[fr-ran]".
+
+oscar wilde is a concept in conceptville. Understand "wilde/wild oscar" and "oscar wild" as oscar wilde. howto is "[fr-ran]".
 
 pharisee is a concept in conceptville. understand "see farrah" and "farrah see" as pharisee. howto is "[fr-ran]".
 
