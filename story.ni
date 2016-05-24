@@ -3168,6 +3168,7 @@ Johns Hopkins	"Johns Hopkins is a university with a prestigious medical school a
 King Henry	"King Henry VIII of England had six wives."
 laughingstock	"A laughingstock is someone everyone laughs at. But stock laughing is canned laughter, reflexive laughter at a joke you heard before, or maybe even a laugh track."
 Leading Question	"A leading question is one designed to provoke a certain answer. The term is usually used in a court of law."
+narcissist	"A narcissist is someone that puts their own needs too far ahead of others. This can mean hogging attention or shutting other people who rely on them out."
 off the record	"Off the Record means something said privately, often negative. Record the Off means to bring something wrong or different into the open."
 oscar wilde	"Oscar Wilde was a wit and playwright known for one-liners that poked fun at the human condition."
 pharisee	"A pharisee is someone who gives the trappings of morality but is not."
@@ -3186,6 +3187,7 @@ taste buds	"Taste buds are what you use to experience the sensation of taste."
 train gravy	"A gravy train is a method for getting rich."
 Tucker Max	"Tucker Max was alleged to have spanwed the 'fratire' genre, which features cynical 'tell it like it is' writing full of sex and hedonism and self-centeredness. It's the reading equivalent of sitting next to a guy bragging at a bar for a long time. An intelligent guy, sure, but that just lets him bang on longer. Imagine PG Wodehouse's Bertie Wooster without any heart."
 Wire Fraud	"Wire fraud is a financial crime designed to cheat people out of money."
+Zero In	"To zero in is to focus, and you do, on getting out of the Break Jail."
 Captain Obvious	"Captain Obvious is someone who always states what's readily apparent. Captain has a sarcastic meaning, here." [xyzzy snark]
 Comedy of Errors	"A comedy of errors is so much going wrong it's funny. Errors of comedy would be so much wrong there's nothing to laugh at."
 face the music	"To face the music is to realize you've come up short."
@@ -9622,6 +9624,7 @@ gad-act
 "'I'm so [activation of fawn over]OVER Fawn. She never APPRECIATED my appreciation.'"
 "'That's why we need to [activation of stand out]doubt Stan, not just because he's different...'"
 "'Yeah, if we [activation of polygraph]graph Polly, she's lying without lying.'"
+"'Y'know, I have all these machines. People want too much credit for an [activation of narcissist]assist-narc these days.'"
 "'But does [random surveyable person] have any GOOD ways to [activation of leading question]question leading like mine?'"
 "The [bad-guy] mutters he's sure [activation of Howard Dean]Dean Howard is nice and well-meaning all, but that scream. Really. Just...unforgiveable. And even if it were, well, he probably still deserves to be REMINDED. For character building purposes."
 "'[activation of Oscar Wilde]Wild Oscar? Pff, so full of vapid one-liners.'"
@@ -9754,7 +9757,7 @@ after quipping when qbc_litany is table of baiter master talk:
 			now player has hammer;
 			move player to Airy Station;
 		else:
-			say "'Where? In the BREAK JAIL[activation of break jail]!'[paragraph break]You keep a straight face and, later that night, your wits. Could people who yell that loud REALLY be that wrong? You don't sneak out quietly, enough, though, and guards give chase. There's a mist ahead--maybe they'll lose you! But you've done even better. 'The out mist!' they yell. 'People eventually leave there to get back to real life.'";
+			say "'Where? In the BREAK JAIL[activation of break jail]!'[paragraph break]Could people who yell that loud REALLY be that wrong?  You keep a straight face, even as he booms '[activation of zero in]IN, ZERO!' And your plan to sneak out works well enough, you're way ahead of the guards when they give chase. There's a mist ahead--maybe they'll lose you! But you've done even better. 'The out mist!' they yell. 'People eventually leave there to get back to real life.'";
 			move player to Out Mist;
 
 chapter freakouting
@@ -10587,7 +10590,7 @@ to say bold-asterisk:
 
 This is the print the modified final question rule:
 	if accel-ending:
-		say "Alec didn't REALLY make a successful ending, so all you can do is RESTART, RESTORE a saved game, QUIT, or UNDO. But UNDO may not go back far enough--he needs to avoid a Tray B food next time.";
+		say "Alec didn't REALLY make a successful ending, so all you can do is RESTART, RESTORE a saved game, QUIT, or UNDO.";
 		continue the action;
 	let named options count be 0;
 	repeat through the Table of Final Question Options:
@@ -11510,6 +11513,9 @@ to say fr-ran:
 to say fr-pb:
 	say "visit Freak Control after eating the Points Brownie"
 
+to say ok-end:
+	say "defeat the [bad-guy] without rescuing Idiot Village"
+
 Admiral Vice is a concept in conceptville. understand "vice admiral" as admiral vice. howto is "[bad-guy] dialog".
 
 beholder of the eye is a concept in conceptville. Understand "eye the of beholder" as beholder of the eye. howto is "examine the Witness Eye".
@@ -11518,7 +11524,7 @@ benefactor is a concept in conceptville. understand "factor benny" and "benny fa
 
 Beyond Belief is a concept in conceptville. understand "belief beyond" as Beyond Belief. howto is "get the [bad-guy]'s attention".
 
-The Break Jail is a concept in conceptville. understand "jail break" as Break Jail. howto is "defeat the [bad-guy] without rescuing Idiot Village".
+The Break Jail is a concept in conceptville. understand "jail break" as Break Jail. howto is "[ok-end]".
 
 Break Monotony is a concept in conceptville. understand "monotony break" as break monotony. howto is "wait for the [bad-guy] to go through his actions".
 
@@ -11556,6 +11562,8 @@ laughingstock is a concept in conceptville. Understand "laughing stock" and "sto
 
 Leading Question is a concept in conceptville. Understand "question leading" as leading question. howto is "[fr-ran]".
 
+narcissist is a concept in conceptville. Understand "narcissist" as narcissist. howto is "[fr-ran]".
+
 Off the Record is a concept in conceptville. Understand "record the off" as off the record. howto is "[fr-ran]".
 
 oscar wilde is a concept in conceptville. Understand "wilde/wild oscar" and "oscar wild" as oscar wilde. howto is "[fr-ran]".
@@ -11591,6 +11599,8 @@ train gravy is a concept in conceptville. understand "gravy train" as taste buds
 Tucker Max is a concept in conceptville. understand "max tucker" as Tucker Max. howto is "[fr-ran]".
 
 Wire Fraud is a concept in conceptville. understand "fraud wire" as Wire Fraud. howto is "[bad-guy] dialog".
+
+Zero In is a concept in conceptville. understand "in zero" as zero in. howto is "[ok-end]".
 
 chapter general command concepts
 

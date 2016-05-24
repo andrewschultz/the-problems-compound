@@ -351,6 +351,7 @@ sub idiomSearch
   {
     if ($idiomsDone == 0) { print "Nothing to do!\n"; }
 	elsif ($idiomsDone < $toDo) { print "I was only able to do $idiomsDone of $toDo.\n"; }
+	elsif ($undone == 0) { print "Yay! you've cleared the stack of words to check and hit the number left on the head.\n"; }
     else { "All finished!\n"; }
   }
   else

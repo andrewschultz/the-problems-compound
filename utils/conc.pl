@@ -109,22 +109,23 @@ for $x (sort keys %any)
   else { print "Test succeeded! All $totals passed."; }
 
   print "\n";
-  if (scalar keys %auth)
+  my $authErr;
+  my $needAlf = 0; my $authfail = 0; my $authsucc = 0;
+  my $numauth = scalar keys %auth;
+  if ($numauth)
   {
 
-  my $authErr;
 
-  my $needAlf = 0; my $authfail = 0; my $authsucc = 0;
   for $q (sort keys %auth)
   {
-    if ($authtab{$q} == 0) { print "$q is an author not in the author table.\n"; $authfail++; $authErr .= "$q\t\"[fix-this]\"\n"; $errMsg = 1; next; }
+    if ($gotText{$q} == 0) { print "$q needs xp-text.\n"; $authfail++; $authErr .= "$q\t\"[fix-this]\"\n"; $errMsg = 1; next; }
 	#elsif ($authtab{$q} < $lastLine) { print "$q is out of order in the author explanations, $authtab{$q} vs $lastLine, $auth{$q}.\n"; $authfail++; $needAlf = 1;}
 	else { $authsucc++; }
 	$lastLine = $authtab{$q};	
   }
   if ($needAlf) { print "talf.pl may help straighten things out.\n"; }
 
-  print "TEST RESULTS:$_[0] authors matching,0,$authfail,$authsucc,0\n";
+  print "TEST RESULTS:$_[0] authors matching,0,$authfail,$authsucc,0,$numauth\n";
   }
 
   if ($errMsg)
@@ -168,14 +169,6 @@ sub checkOrder
   {
     $line++;
     if (($a =~ /is a.* author\. pop/) && ($a !~ /^\[/)) { $b = $a; $b =~ s/ is (a|an) .*//g; chomp($b); $auth{$b} = $line; next; }
-    if ($inAuthTable)
-    {
-      if ($a !~ /[a-z]/i) { $inAuthTable = 0; next; }
-      $b = $a; chomp($b); $b =~ s/\t.*//g; $authtab{$b} = $line;
-	  if ($a !~ /\"/) { print "$b in table but needs entry ($line).\n"; $emptyRows++; }
-	  next;
-    }
-    if ($a =~ /xxauth/) { $inAuthTable = 1; <A>; $line++; next; }
 	if (($expls) && ($a !~ /[a-z]/i)) { $expls = 0; next; }
 	if (($concs) && ($a =~ /end concepts/)) { $concs = 0; next; }
     if ($a =~ /xx(add|auth|slb|bks|bkj)/) { $line++; <A>; $expls = 1; next; }
@@ -223,23 +216,18 @@ sub checkOrder
   if ($printTest) { print "TEST RESULTS:$_[0] ordering,0,$ordFail,0,run conc.pl -o\n"; }
 
   if (scalar keys %auth == 0) { return; }
+  $gots = scalar keys %gotText;
 
   my $authOops = 0;
   foreach $q (sort {$auth{$a} <=> $auth{$b}} keys %auth)
   {
-    if ($q le $lastAuth) { print "$lastAuth/$q is not correctly alphabetized in the defines. Look at line $auth{$q}. $lastAuth is at $auth{$lastAuth}.\n"; push(@authErr, "$q/$auth{$q}"); }
+    if ($q le $lastAuth) { print "$lastAuth/$q is not correctly alphabetized in the defines. Look at line $auth{$q}. $lastAuth is at $auth{$lastAuth}.\n"; push(@authErr, "$q/$auth{$q}"); $authFail++; }
+	if ($gots) { if ($q !~ / xp-text is /) { print "$q needs xp-text.\n"; push(@authErr, "$q/$auth{$q}"); } }
 	$lastAuth = $q;
 	$authAlf++;
   }
   
   $lastAuthLine="";
-  foreach $q (sort {$authtab{$a} <=> $authtab{$b}} keys %authtab)
-  {
-    if (!$auth{$q}) { print "$q is in the table but needs to be listed as an author.\n"; $authOops++; }
-    if ($q le $lastAuthLine) { print "$lastAuthLine/$q is not correctly alphabetized in the author table. Look at line $authtab{$q}.\n"; push(@authErr, "$q/$authtab{$q}"); }
-	$lastAuthLine = $q;
-	$authAlf++;
-  }
   if (scalar(keys %auth))
   {
     my $authFail = 0;
@@ -265,7 +253,7 @@ open(A, $source) || do { print "No source file $source.\n"; return; };
 while ($a = <A>)
 {
   $line++;
-  if (($a =~ /is (an|a female|a risque) author\./) && ($a !~ /^\[/)) { $b = $a; $b =~ s/ is (an|a) .*//g; chomp($b); $auth{$b} = $line; next; }
+  if (($a =~ /is a.* author\. pop/) && ($a !~ /^\[/)) { $b = $a; $b =~ s/ is (an|a) .*//g; chomp($b); if ($a =~ /xp-text is /) { $gotText{$b} = 1; } $auth{$b} = $line; next; }
   if ($inBookTable)
   {
     if ($a !~ /[a-z]/i) { $inBookTable = 0; next; }
