@@ -7,7 +7,6 @@ $clip = Win32::Clipboard::new();
 my $codeToClipboard = 0;
 my $printErrCode = 0;
 my $printErrors = 1;
-my $emptyRows = 0;
 
 while ($count <= $#ARGV)
 {
@@ -235,7 +234,6 @@ sub checkOrder
     print "TEST RESULTS:$_[0] author order checks,0,$authFail,$authAlf," . join("<br />", @authErr) . "\n";
 	if ($authFail) { print "talf.pl may fix things.\n"; }
   }
-    print "TEST RESULTS:$_[0] author empty row checks,0,$emptyRows,0,\n";
 }
 ########################################
 #reads in concepts

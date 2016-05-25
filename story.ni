@@ -3187,7 +3187,7 @@ taste buds	"Taste buds are what you use to experience the sensation of taste."
 train gravy	"A gravy train is a method for getting rich."
 Tucker Max	"Tucker Max was alleged to have spanwed the 'fratire' genre, which features cynical 'tell it like it is' writing full of sex and hedonism and self-centeredness. It's the reading equivalent of sitting next to a guy bragging at a bar for a long time. An intelligent guy, sure, but that just lets him bang on longer. Imagine PG Wodehouse's Bertie Wooster without any heart."
 Wire Fraud	"Wire fraud is a financial crime designed to cheat people out of money."
-Zero In	"To zero in is to focus, and you do, on getting out of the Break Jail."
+zeroin	"To zero in is to focus, and you do, on getting out of the Break Jail."
 Captain Obvious	"Captain Obvious is someone who always states what's readily apparent. Captain has a sarcastic meaning, here." [xyzzy snark]
 Comedy of Errors	"A comedy of errors is so much going wrong it's funny. Errors of comedy would be so much wrong there's nothing to laugh at."
 face the music	"To face the music is to realize you've come up short."
@@ -9757,7 +9757,7 @@ after quipping when qbc_litany is table of baiter master talk:
 			now player has hammer;
 			move player to Airy Station;
 		else:
-			say "'Where? In the BREAK JAIL[activation of break jail]!'[paragraph break]Could people who yell that loud REALLY be that wrong?  You keep a straight face, even as he booms '[activation of zero in]IN, ZERO!' And your plan to sneak out works well enough, you're way ahead of the guards when they give chase. There's a mist ahead--maybe they'll lose you! But you've done even better. 'The out mist!' they yell. 'People eventually leave there to get back to real life.'";
+			say "'Where? In the BREAK JAIL[activation of break jail]!'[paragraph break]Could people who yell that loud REALLY be that wrong?  You keep a straight face, even as he booms '[activation of zeroin]IN, ZERO!' And your plan to sneak out works well enough, you're way ahead of the guards when they give chase. There's a mist ahead--maybe they'll lose you! But you've done even better. 'The out mist!' they yell. 'People eventually leave there to get back to real life.'";
 			move player to Out Mist;
 
 chapter freakouting
@@ -11600,7 +11600,7 @@ Tucker Max is a concept in conceptville. understand "max tucker" as Tucker Max. 
 
 Wire Fraud is a concept in conceptville. understand "fraud wire" as Wire Fraud. howto is "[bad-guy] dialog".
 
-Zero In is a concept in conceptville. understand "in zero" as zero in. howto is "[ok-end]".
+zeroin is a privately-named concept in conceptville. printed name is "zero in". understand "in zero" and "zero in" as zeroin. howto is "[ok-end]".
 
 chapter general command concepts
 
