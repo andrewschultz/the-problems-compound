@@ -3033,6 +3033,7 @@ a Games Mind	"Mind games are messing with people's mind with lies or half-truths
 Games Confidence	"Confidence games are where someone gains someone else's trust to rip them off. It can be as simple as a shell game or as complex as an investment scheme. Of course, Alec has confidence with logic games but not much else."
 good egg	"A good egg is a nice person. To egg, or egg on, is to bait someone into doing something you want them to."
 Hunter Savage	"A savage hunter is, well, someone with no mercy. Yup, I like the 'dirty' tangential bad guy better, too."
+knockwurst	"Knockwurst is a kind of sausage."
 Animal Welfare	"Animal welfare is concern for animals who often can't help themselves. Welfare has a slightly perjorative definition in the US these days, e.g. people on welfare are lazy, or someone giving it is very generous indeed, more than they need to be." [start of variety garden]
 brush up	"To brush up is to refresh your memory of something."
 dirt nap	"Taking a dirt nap means dying."
@@ -3159,13 +3160,15 @@ chowderhead	"A chowderhead is someone who makes silly mistakes."
 Crisis Energy	"An energy crisis is when a community doesn't have enough electrical power, or oil, or whatever."
 cruise control	"Cruise control is when you set a car to go at a certain speed. A person on cruise control is going through life and not trying anything new."
 disorder	"Disorder means a mess, while an order is telling someone what to do and a dis is an insult. Basically, the [bad-guy] is saying, insulting people for being disorganized helps them get organized. Well, it never helped me."
+dual vision	"Dual vision is seeing two things at once, often due to a blow to the head or alcohol intoxication."
 Ezra Pound	"Ezra Pound was an influential Modernist poet."
 favor curry	"To curry favor is to try to get on someone's good side."
 fawn over	"To fawn over is to flatter someone."
 Freak Out	"To freak out is to make a much bigger emotional display than seems really necessary."
 generate d	"Degenerate means without moral values. D is short for defense."
 grunt work	"Grunt work is unchallenging work."
-Howard Dean	"Howard Dean was a candidate for the 2004 US Democratic Party nomination. After placing 3rd in the Iowa caucuses, he had an infamous 'Dean Scream' at a rally with supporters, which sounded worse than it was, because he was close to a microphone that picked it up. Which made him the butt of many jokes for a week. The media realised that everyone was yelling a week later, but the story was too ingrained by then.[paragraph break]DISCLAIMER: the author voted for Dean in the 2004 primary."
+half right	"Half right is when you are, well, half right. Being half right is often worse than making a ridiculous statement, because it's more believable."
+Howard Dean	"Howard Dean was a candidate for the 2004 US Democratic Party nomination. After placing 3rd in the Iowa caucuses, he had an infamous 'Dean Scream' at a rally with supporters, which sounded worse than it was, because he was close to a microphone that picked it up. Which made him the butt of many jokes for a week. The media realised that everyone was yelling a week later, but the story was too ingrained by then.[paragraph break]DISCLAIMER: the author voted for Dean in the 2004 primary, and seeing/recalling this episode has unlocked how and why some other people acted the way they have over the years."
 infomania	"Infomania is always wanting new info. The [bad-guy] pretends he doesn't want it, but it's just fun to have. Mania info is, in this case, malicious gossip about people different the wrong way."
 Johns Hopkins	"Johns Hopkins is a university with a prestigious medical school and pre-med program."
 King Henry	"King Henry VIII of England had six wives."
@@ -3183,6 +3186,7 @@ running start	"A running start means you've gotten started quickly."
 salad days	"Salad days are a time when things are going well."
 scuzz bucket	"A scuzz, or scum, bucket is a person who is just plain dirty or disgusting. The [bad-guy] is not obviously physically like this."
 see if i care	"See if I Care is said to show indifference to a bully or nuisance."
+see you later	"See you later is a way to say good-bye."
 shot mug	"The shot mug may look shot, or beaten-up, but mug shots--photographs of apprehended suspects--are generally very unflattering. Hence the flattering portrait of the [bad-guy] on the mug."
 Slicker City	"A city slicker is what rural people may call someone more urban. It's also the name of a planned sequel to PC."
 stand out	"To stand out is to be different from the rest."
@@ -4248,6 +4252,8 @@ to open-babble:
 		now know-babble is true;
 
 section knockharding [get to pressure pier]
+
+understand "knock" and "knock [text]" and "[text] knock" as a mistake ("'That's the [activation of knockwurst]worst knock I ever heard!' proclaims Guy Sweet. 'Not that you need to be good at knocking to get through life. Just, y'know, didn't have much meat.') when player is in smart street.
 
 knockharding is an action applying to nothing.
 
@@ -9149,6 +9155,7 @@ workname	authname	booksubj
 "Writing On"	"King Stephen"	"how society represses real writers from writing real books"
 "The Star Shooting"	"Remy George"	"a group of scientists convinced to care about the death of a charismatic celebrity over stuffy boring research"
 "The Islands of an Outcast"	"Joseph Conrad"	"a gentle fellow, shunned by modern society, who forges an idyllic utopia"
+"Stop the Mind"	"Carey V. Gordon"	"how to criticise people who care too much or too little about grammar."
 "The Divorce: GREAT"	"Lewis S. Clive"	"how blatant infidelity is really about seeing all the world has to offer and making the most of things--well, if you're worth cheating with. It surpasses even [i]The Boy and His Horse[r] and [i]The Love of Allegory[r]"
 "Honor of Debt"	"Clancy Thomas"	"why overspending for the military is a good thing, or at least a good thing to condemn to seem nice without having to be nice"
 "The Goer Movie"	"Percy Walker"	"how one man used motivational movies--or just movies with lots of rich stuff--to learn to fit in with people who matter"
@@ -9665,7 +9672,7 @@ litany of Baiter Master is the table of Baiter Master talk.
 check talking to Baiter Master:
 	if freaked-out is false:
 		say "[one of]He waves you off without even looking. 'Whoever you are, I'm busy. Too busy for your lame problems. And they must be lame, if you asked so weakly.' You'll need an entirely more aggressive way to get his attention.[or]You just aren't good enough at yelling to do things straight up. Maybe you can upset things somehow.[stopping]" instead;
-	say "'Dude! You need to chill... there are things called manners...' but he does have your attention now. 'So. Someone finally got past those mopey brothers. You want a vision duel? Because we can have a vision duel. I have...an [i]opinion[r] of difference. You don't even have...one right serve.' He takes a slurp from a shot mug[activation of shot mug] (with a too-flattering self-portrait, of course) and perks up.";
+	say "'Dude! You need to chill... there are things called manners...' but he does have your attention now. 'So. Someone finally got past those mopey brothers. You want a [activation of dual vision]vision duel? Because we can have a vision duel. I have...an [i]opinion[r] of difference. You don't even have...one right serve.' He takes a slurp from a shot mug[activation of shot mug] (with a too-flattering self-portrait, of course) and perks up.";
 	if player has legend of stuff:
 		say "He points to the Legend of Stuff. 'Oh. It looks like you took the easy way out. In fact...";
 		say "[bm-stuff-brags][line break]";
@@ -9734,7 +9741,7 @@ bm-mug	"'Oh, it's Crisis Energy[activation of crisis energy]. For taking urgent 
 bm-bad2	"'It's--it's, well, tribute is what it is.'"
 bm-so-bad2	"'Oh, come on, you know the difference.'[wfk][line break]Your reply just slips out. 'Yeah, it's easy, there's not much of it.' Maybe you shouldn't have...but nothing happens..."
 bm-tribute	"'There will be. Just--first things first. Stability. We almost got there, until you stepped in.'"
-bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Great. You think you can do better? Do so. I'll be waiting in Questions Field. You'll miss something obvious. Always have, always will.' The Baiter Master storms out, and he must have had a remote, because you're locked in![wfk][paragraph break]You search frantically. There must be some way to communicate...and you dig around until you find the [activation of wire fraud]Fraud Wire! Meant to 'remind' citizens they aren't as nice as they think they are, it now encourages them to get mad. The Goods get their cult to help. The [j-co] even chip in, too. You get brave and call Mark Black on the Quiz Pop's customer service number. Then, for kicks, [bad-guy-2] pretending to be the [bad-guy] and you prank him. It's--there's so much to do, questions you never asked. Mark Black is on his way--but so are the [bad-guy]'s allies! You hear Brother Foster say, well, I knew they were flaky, but that's what you GET when you try to give them an important position in life, and [activation of Admiral Vice]Admiral Vice will straighten out him--AND them.[wfk]Yes. That must be Admiral Vice.[paragraph break]'A danger not just to the Problems Compound but to Slicker City[activation of slicker city]! There's only one place for you.'[wfk]"
+bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Great. You think you can do better? Have at it! You don't listen to your [activation of half right]right half...makes you miss obvious things others see immediately. Always have, always will. [activation of see you later]Later, you see...' The Baiter Master storms out, and he must have had a remote, because you're locked in![wfk][paragraph break]You search frantically. There must be some way to communicate...and you dig around until you find the [activation of wire fraud]Fraud Wire! Meant to 'remind' citizens they aren't as nice as they think they are, it now encourages them to get mad. The Goods get their cult to help. The [j-co] even chip in, too. You get brave and call Mark Black on the Quiz Pop's customer service number. Then, for kicks, [bad-guy-2] pretending to be the [bad-guy] and you prank him. It's--there's so much to do, questions you never asked. Mark Black is on his way--but so are the [bad-guy]'s allies! You hear Brother Foster say, well, I knew they were flaky, but that's what you GET when you try to give them an important position in life, and [activation of Admiral Vice]Admiral Vice will straighten out him--AND them.[wfk]Yes. That must be Admiral Vice.[paragraph break]'A danger not just to the Problems Compound but to Slicker City[activation of slicker city]! There's only one place for you.'[wfk]"
 bm-bye	"'You're not going anywhere.' And he's right. But it's not out totally out of fear, now."
 
 after quipping when qbc_litany is table of baiter master talk:
@@ -11224,6 +11231,8 @@ Good Egg is a concept in conceptville. understand "egg good" as good egg. howto 
 
 Hunter Savage is a concept in conceptville. understand "savage hunter" as hunter savage. howto is "talking".
 
+knockwurst is a concept in conceptville. Understand "knock worst" and "worst knock" as knockwurst. howto is "knock any way other than hard in Smart Street".
+
 chapter surface concepts
 
 section variety garden concepts
@@ -11391,7 +11400,7 @@ benevolent is a concept in conceptville. Understand "evelyn benn" and "benn evel
 
 Black Mark is a concept in conceptville. understand "mark black" as black mark. howto is "examine quiz pop".
 
-casually is a concept in conceptville. Understand "julie kaz" and "kaz julie as casually. howto is "[j-girl]".
+casually is a concept in conceptville. Understand "julie kaz" and "kaz julie" as casually. howto is "[j-girl]".
 
 category is a concept in conceptville. Understand "gory kate" and "kate gory" as category. howto is "[j-girl]".
 
@@ -11550,6 +11559,8 @@ Cruise Control is a concept in conceptville. Understand "control cruise" as crui
 
 disorder is a concept in conceptville. understand "order dis" and "dis order" as disorder. howto is "[fr-ran]".
 
+dual vision is a concept in conceptville. Understand "vision duel" and "duel vision" as dual vision. howto is "[fr-ran]".
+
 Ezra Pound is a concept in conceptville. understand "pound ezra" as ezra pound. howto is "[fr-ran]".
 
 favor curry is a concept in conceptville. understand "curry favor" as favor curry. howto is "[fr-pb]".
@@ -11561,6 +11572,8 @@ Freak Out is a concept in conceptville. understand "out freak" as freak out. how
 generate d is a concept in conceptville. Understand "d generate" as generate d. howto is "[fr-ran]".
 
 grunt work is a concept in conceptville. Understand "work grunt" as grunt work. howto is "listen in Freak Control".
+
+half right is a concept in conceptville. Understand "right half" as half right. howto is "[fr-ran]".
 
 Howard Dean is a concept in conceptville. understand "dean howard" as howard dean. howto is "[fr-ran]".
 
@@ -11597,6 +11610,8 @@ salad days is a concept in conceptville. understand "daze salad" and "salad daze
 scuzz bucket is a concept in conceptville. understand "scum bucket" and "bucket scuzz/scum" as scuzz bucket. howto is "examine the list bucket".
 
 see if i care is a concept in conceptville. Understand "care i if see" as see if i care. howto is "[fr-pb]".
+
+see you later is a concept in conceptville. Understand "later you see" as see you later. howto is "[fr-ran]".
 
 The shot mug is a concept in conceptville. understand "mug shot" as shot mug. howto is "get the [bad-guy]'s attention".
 
