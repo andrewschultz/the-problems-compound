@@ -56,7 +56,7 @@ for ($a)
   if ($flipData) { print "Only one flip data allowed. Use comma separators.\n"; exit; }
   else
   {
-    if ($a =~ /^[,a-z]+$/)
+    if ($a =~ /^(\"?)[,a-z]+$/)
     {
       if (length($a) == 1) { print ("Length must be at least 2.\n"); exit; }
       if ((length($a) == 2) && (!$override)) { print ("-2 flag must be used for 2-letter word.\n"); exit; }
@@ -203,7 +203,7 @@ print B $bigLongBit;
 print B "====Found $found/$wordy for $flip\n";
 print "====Found $found/$wordy for $flip\n";
 $addedSomething = 1;
-}
+} else { print "====found nothing for $flip, so I'm adding nothing to the file.\n"; }
 close(B);
 }
 
@@ -326,7 +326,7 @@ sub countChunks
   }
   if ($thisChunk) { print "Warning, file ended wrong, should end with ====Found. This will give an extra actual chunk.\n"; push(@sizes, $thisChunk); }
   close(A);
-  if ($#sizes > -1) { $totes = eval join '+', @sizes; print "Actual chunk sizes: " . join(", ", @sizes) . ". Total = $totes.\n"; }
+  if ($#sizes > -1) { $totes = eval join '+', @sizes; print "Actual chunk sizes: " . join(", ", @sizes) . ". Total = $totes in " . ($#sizes + 1) . ".\n"; }
 }
 
 sub idiomSearch
@@ -350,7 +350,7 @@ sub idiomSearch
   if ($undone == 0)
   {
     if ($idiomsDone == 0) { print "Nothing to do!\n"; }
-	elsif ($idiomsDone < $toDo) { print "I was only able to do $idiomsDone of $toDo.\n"; }
+	elsif ($idiomsDone < $toDo) { print "I was only able to do $idiomsDone of $toDo. But good news is, all ideas are cleared!\n"; }
 	elsif ($undone == 0) { print "Yay! you've cleared the stack of words to check and hit the number left on the head.\n"; }
     else { "All finished!\n"; }
   }

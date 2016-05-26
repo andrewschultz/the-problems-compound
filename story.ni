@@ -3098,6 +3098,7 @@ Sweetheart Deal	"A sweetheart deal is something that works very well for both si
 Bandanna	"A bandanna is a scarf you tie around your head. Some people find it rebellious, others not rebellious enough." [start of jerk circle]
 benevolent	"Benevolent means doing things to help people."
 Black Mark	"A black mark is something indicating bad behavior."
+casually	"Casually means not really in-depth."
 category	"A category is a logical class to divide someone into. In here, Kate fits into an obvious one, but she doesn't quite live up or down to it."
 clean break	"A clean break from something is leaving quickly and for good. The jerks haven't broken with their 'clean' secrets yet."
 Cotton Candy	"Cotton candy is stringy sugary stuff, often bundled together in a soft ball. People eat it at circuses and fairs and movies a lot."
@@ -3111,6 +3112,7 @@ Mary Sue	"A Mary Sue is a character who is too unbelievably nice. It comes from 
 mascara	"Mascara is basic make-up for women."
 mollycoddling	"Mollycoddling is being overprotective of someone."
 Nose Candy	"Nose candy is slang for cocaine."
+Olive	"Black and green olives are the two main different kinds of olives."
 Pepper	"Black pepper is the ground-up stuff. Green and bell peppers are not especially spicy. Serrano peppers taste hotter."
 Pollyanna	"A Pollyanna is someone who is ridiculously optimistic."
 Polygamy	"Polygamy is having more than one mate."
@@ -3146,6 +3148,7 @@ bum a cigarette	"To bum a cigarette is to ask someone for one of theirs. 'A ciga
 weed out	"To weed out people is to create a test to show they are inadequate." [start of pot chamber]
 Terminal Illness	"A terminal illness is one which is bound to be fatal. Illness can also mean full of insults, e.g. very 'ill,' as kids these days say. And said, even in my day!" [start of belt below]
 Admiral Vice	"A vice-(anything) is a next-in-line/assistant to an honorary position, but vice is also a personal failing, big or small." [start of freak control]
+artemis fowl	"Artemis fowl is the intelligent, cocky hero of Eoin Colfer's seven-book series. He's everything the [bad-guy] thinks he is, and more."
 beholder of the eye	"'Beauty is in the eye of the beholder' is a cliche meaning we see the nice things we want. Here Alec is worried he's seeing oppresion that gives him an excuse to fear."
 benefactor	"A benefactor is someone who provides support, emotional or financial."
 Beyond Belief	"Beyond belief means something you can't possibly believe in, but belief beyond means more faith than you thought you could have."
@@ -6733,6 +6736,8 @@ girl-neg
 "The [j-co] appreciate how [activation of mary sue]Sue Merry reliably smacks down anyone who seems too nice."
 "The [j-co] recount [activation of pollyanna]Anna Pauley's greatest hits making fun of overoptimism. She always comes through!"
 "The [j-co] agree that both [activation of pepper]Pepper Black, Pepper Bell [i]and[r] Pepper Green are hotter than Pepper Serrano."
+"The [j-co] argue that [activation of olive]Olive Black or Olive Green being more desirable is NOT a matter of taste."
+"The [j-co] claim to want to get to know [activation of casually]Julie Kaz better."
 "The [j-co] praise [activation of category]Gory Kate as less weird than she should be on paper."
 "The [j-co] don't understand what [activation of polygamy]Gamy Polly has to be fussy [i]about[r]."
 "The [j-co] stage-whisper that [activation of teriyaki]Yacky Terri's conversation is neither spicy nor meaty."
@@ -9619,6 +9624,7 @@ gad-act
 "'Record the off. Always, [activation of off the record]record the off!'"
 "'Geez, it's a pain to [activation of benefactor]factor BENNY. I'm not, like, MEAN to him.'"
 "'[activation of pharisee]See, Farrah,' the [bad-guy] mutters to no girl in particular."
+"'Think you're clever? Foul miss, Artie[activation of Artemis Fowl],' the [bad-guy] chides."
 "The [bad-guy] congratulates himself for installing the super-sanitary doctor-recommended [activation of johns hopkins]Hopkins johns."
 "'[random surveyable person] just needs a good [activation of disorder]Order Dis to put [']em line. Or two. Or three.'"
 "'I'm so [activation of fawn over]OVER Fawn. She never APPRECIATED my appreciation.'"
@@ -11385,6 +11391,8 @@ benevolent is a concept in conceptville. Understand "evelyn benn" and "benn evel
 
 Black Mark is a concept in conceptville. understand "mark black" as black mark. howto is "examine quiz pop".
 
+casually is a concept in conceptville. Understand "julie kaz" and "kaz julie as casually. howto is "[j-girl]".
+
 category is a concept in conceptville. Understand "gory kate" and "kate gory" as category. howto is "[j-girl]".
 
 Clean Break is a concept in conceptville. Understand "break clean" as clean break. howto is "go to the [jc]".
@@ -11410,6 +11418,8 @@ mascara is a concept in conceptville. Understand "cara maas" and "maas cara" as 
 Mollycoddling is a concept in conceptville. Understand "coddling molly" as mollycoddling. howto is "[j-girl]".
 
 Nose Candy is a concept in conceptville. Understand "candy/candi nose/knows" as nose candy. howto is "[j-girl]".
+
+Olive is a concept in conceptville. Understand "olive green/black" and "green/black olive" as olive. howto is "[j-girl]".
 
 Pepper is a concept in conceptville. Understand "pepper bell/black/serrano/green" and "bell/black/green/serrano pepper" as pepper. howto is "[j-girl]".
 
@@ -11517,6 +11527,8 @@ to say ok-end:
 	say "defeat the [bad-guy] without rescuing Idiot Village"
 
 Admiral Vice is a concept in conceptville. understand "vice admiral" as admiral vice. howto is "[bad-guy] dialog".
+
+artemis fowl is a concept in conceptville. Understand "foul miss artie" and "artie miss foul" as artemis fowl. howto is "[fr-ran]".
 
 beholder of the eye is a concept in conceptville. Understand "eye the of beholder" as beholder of the eye. howto is "examine the Witness Eye".
 
