@@ -251,7 +251,7 @@ open(A, $source) || do { print "No source file $source.\n"; return; };
 while ($a = <A>)
 {
   $line++;
-  if (($a =~ /is a.* author\. pop/) && ($a !~ /^\[/)) { $b = $a; $b =~ s/ is (an|a) .*//g; chomp($b); if ($a =~ /xp-text is /) { $gotText{$b} = 1; } $auth{$b} = $line; next; }
+  if (($a =~ /is a.* author\. pop/) && ($a !~ /^\[/)) { $b = $a; $b =~ s/ is (an|a) .*//g; chomp($b); if ($a =~ /xp-text is /) { $gotText{$b} = 1; } elsif ($a =~ /\"/) { print "Probable typo for $b.\n"; } $auth{$b} = $line; next; }
   if ($inBookTable)
   {
     if ($a !~ /[a-z]/i) { $inBookTable = 0; next; }

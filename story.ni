@@ -1250,7 +1250,7 @@ check sleeping:
 		say "It's relaxing here, but not that relaxing." instead;
 	if player is in temper keep and sal-sleepy is true:
 		say "You don't want to join Sal." instead;
-	if player is in truth home and psycho is in truth home:
+	if player is in truth home and Sid Lew is in truth home:
 		say "Tough with all that noise." instead;
 	if Down Ground is unvisited and jump-level < 2:
 		say "You're nowhere near tired. You're curious what could be ahead." instead;
@@ -1506,8 +1506,8 @@ check listening (this is the listening in a place rule):
 		try listening to petty instead;
 	if player is in speaking plain and dutch is in speaking plain:
 		say "Hard NOT to listen to Uncle Dutch." instead;
-	if player is in truth home and psycho is in truth home:
-		say "[one of]'See there, Proof Fool? This guy sits and listens. Right?' Before you can agree, the Logical Psycho continues. Strictly speaking, everything he says is true, but he tends to weight this or that more than he should...[or]The Logical Psycho continues to spew truths, with his own unique weighting of what is important.[stopping]" instead;
+	if player is in truth home and Sid Lew is in truth home:
+		say "[one of]'See there, Lee Bull? This guy sits and listens. Right?' Before you can agree, Sid Lew continues. Strictly speaking, everything he says is true, but he tends to weight this or that more than he should...[or]Sid Lew continues to spew truths, with his own unique weighting of what is important.[stopping]" instead;
 	if player is in Discussion Block:
 		if phil is in Discussion Block:
 			say "[one of]M[or]More m[stopping]usic from the song torch!";
@@ -2090,7 +2090,7 @@ check giving smokable to: [poory pot or wacker weed]
 		ship-off Criminals' Harbor instead;
 	if second noun is volatile sal:
 		say "[if noun is poory pot]Sal might be offended by that. As if he is the one causing the smell. Maybe if you can make it so the poory pot can take over the whole room...[else]Sal would probably tell you he's no druggie.[end if]" instead;
-	if second noun is logical psycho:
+	if second noun is Sid Lew:
 		say "That might mellow him out, but it also might start him lecturing on the idiocy of anti-pot laws. Which you don't want, regardless of his stance." instead;
 	if second noun is faith or second noun is grace:
 		say "That's probably not the sort of incense or decoration they want to use[if fourth-blossom is in lalaland]. You restored the blossom, anyway[else]. The bowl seems more for flowers[end if]." instead;
@@ -2371,9 +2371,9 @@ check giving Reasoning Circular to:
 		say "'Whoah! Cosmic!'" instead;
 
 check giving trick hat to:
-	if second noun is fool:
+	if second noun is Lee Bull:
 		say "Thing is, he KNOWS all the tricks. He just can't use them." instead;
-	if second noun is logical psycho or noun is stool toad:
+	if second noun is Sid Lew or noun is stool toad:
 		say "He's awful enough with what he's got." instead;
 	if second noun is faith goode or noun is grace goode:
 		say "Then they might become a charismatic cult, and that wouldn't be good." instead;
@@ -2390,8 +2390,8 @@ check giving trick hat to:
 
 check giving wax to:
 	ignore the can't give what you haven't got rule;
-	if second noun is proof fool or second noun is logical psycho:
-		say "[one of]The Logical Psycho begins an extremely boring, but loud, discourse on a poet you never heard of and never want to hear of again. The sort of poet who would not want his work read or discussed quietly[or]No, the poetic wax doesn't belong here[stopping]." instead;
+	if second noun is Lee Bull or second noun is Sid Lew:
+		say "[one of]Sid Lew begins an extremely boring, but loud, discourse on a poet you never heard of and never want to hear of again. The sort of poet who would not want his work read or discussed quietly[or]No, the poetic wax doesn't belong here[stopping]." instead;
 	if second noun is grace goode or second noun is faith goode:
 		say "[one of]Faith and Grace begin humming a tune too wonderful to remember to remember. You feel refreshed after hearing it, but you can't remember why[or]You feel greedy, for some reason, giving [second noun] the Poetic Wax. But you don't know why[stopping]." instead;
 	if second noun is Stool Toad:
@@ -2433,18 +2433,18 @@ check giving the trap rattle to: [you can't get the trap rattle until you've got
 		say "'That is too noisy for here.'" instead;
 	if second noun is labor child:
 		say "'That's for BABIES.'" instead;
-	if second noun is logical psycho:
+	if second noun is Sid Lew:
 		say "He recoils in fear for a second, then booms 'WHY WOULD I WANT THAT.' It's not really a question." instead;
-	if second noun is proof fool:
-		say "The Logical Psycho continues his abuse. At first the Proof Fool seems to take it, but then--rattle, rattle. It distracts the Psycho enough, the Proof Fool finds his voice. Animated, he shows up every hole in the Psycho's seductive but wrong arguments. He begins hitting the Psycho on the head with the trap rattle until the Psycho runs out.";
+	if second noun is Lee Bull:
+		say "Sid Lew continues his abuse. At first Lee Bull seems to take it, but then--rattle, rattle. It distracts Sid Lew enough, Lee Bull finds his voice. Animated, he shows up every hole in Sid Lew's seductive but wrong arguments. He begins hitting Sid Lew on the head with the trap rattle until Sid Lew runs out.";
 		wfak;
-		say "[line break]Very impressive! You learned so much from the Fool. He gestures to your trick hat, then his head. You hand it over. The hat, silly.";
+		say "[line break]Very impressive! You learned so much from Lee Bull. He gestures to your trick hat, then his head. You hand it over. The hat, silly.";
 		wfak;
-		say "[line break]The fool begins to write. And write. He hands you the first page--and wow! All the clever life hacks you learn just from the introduction! It's too much, though. You fall asleep as your mind processes it all.";
+		say "[line break]Lee Bull begins to write. And write. He hands you the first page--and wow! All the clever life hacks you learn just from the introduction! It's too much, though. You fall asleep as your mind processes it all.";
 		wfak;
-		say "[line break]When you wake up, the fool has written a small, but fully bound book. He stuffs it in the Trick Hat, shakes it up, and out emerges a xerox copy! He hands it to you and shakes your hand. THE TRADE OF TRICKS, it's called. Then he retreats to his private quarters.";
-		now proof fool is in lalaland;
-		now psycho is in lalaland;
+		say "[line break]When you wake up, Lee Bull has written a small, but fully bound book. He stuffs it in the Trick Hat, shakes it up, and out emerges a xerox copy! He hands it to you and shakes your hand. THE TRADE OF TRICKS, it's called. Then he retreats to his private quarters.";
+		now Lee Bull is in lalaland;
+		now Sid Lew is in lalaland;
 		now trap rattle is in lalaland;
 		now player has trade of tricks;
 		increment the score instead;
@@ -2939,8 +2939,8 @@ a bad face	"It will help you face a bad...something."
 note crib	"To crib notes is to copy from someone who was at a lecture." [bottom rock]
 legend of stuff	"The Stuff of Legend means a book about great tales of yore, as opposed to the scribble-hint-book you get."
 crocked half	"Half-crocked means drunk."
-Logical Psycho	"Psychological, e.g. in the mind." [truth home]
-Proof Fool	"Being fool-proof means you aren't suckered by anything."
+Sid Lew	"Lucid means clear and sensible. Sid Lew relies on tricks to win his conversation." [truth home]
+Lee Bull	"A bully is someone who hurts others physically or emotionally. The opposite of Lee Bull. Sid Lew is referring to 'bull' as his last name as what is to be made fun of. Also, fool-proof means no way to break it, but a Proof Fool could be someone who relies too much on a sure thing before doing anything."
 Trade of Tricks	"Tricks of the Trade are things that outsiders to a specialty probably don't know that are a bit out of the range of common sense."
 fund hedge	"A hedge fund is for super rich people to get even richer." [scheme pyramid]
 money seed	"Seed money helps an investment."
@@ -4191,8 +4191,8 @@ to send-bros:
 to move-puzzlies:
 	if in-beta is true:
 		say "NOTE: if you see someone or something astray, let me know.";
-	move proof fool to lalaland;
-	move logical psycho to lalaland;
+	move Lee Bull to lalaland;
+	move Sid Lew to lalaland;
 	move harmonic phil to lalaland;
 	move art fine to lalaland;
 	move poetic wax to lalaland;
@@ -4253,7 +4253,7 @@ to open-babble:
 
 section knockharding [get to pressure pier]
 
-understand "knock" and "knock [text]" and "[text] knock" as a mistake ("'That's the [activation of knockwurst]worst knock I ever heard!' proclaims Guy Sweet. 'Not that you need to be good at knocking to get through life. Just, y'know, didn't have much meat.') when player is in smart street.
+understand "knock" and "knock [text]" and "[text] knock" as a mistake ("'That's the [activation of knockwurst]worst knock I ever heard!' proclaims Guy Sweet. 'Not that you need to be good at knocking to get through life. Just, y'know, didn't have much meat.") when player is in smart street.
 
 knockharding is an action applying to nothing.
 
@@ -4503,8 +4503,8 @@ this is the babble-shush rule:
 	if player is in airy station:
 		say "The crowd is certainly babbling, but nothing too in-depth or detailed.";
 		the rule succeeds;
-	if player is in truth home and logical psycho is in truth home:
-		say "You can't really zone the Logical Psycho out.";
+	if player is in truth home and Sid Lew is in truth home:
+		say "You can't really zone Sid Lew out.";
 		the rule succeeds;
 	the rule fails.
 
@@ -7580,7 +7580,7 @@ Disposed Well is west of Chipper Wood. It is in Main Chunk. "A crumbling well is
 check going outside from disposed well:
 	say "You already are outside." instead;
 
-scen-home is privately-named scenery in disposed well. "[if truth home is visited]There's no evidence of the Logical Psycho's ramblings from outside[else]It looks safe enough to go into[end if]."
+scen-home is privately-named scenery in disposed well. "[if truth home is visited]There's no evidence of Sid Lew's ramblings from outside[else]It looks safe enough to go into[end if]."
 
 understand "home" and "house" as scen-home when player is in Well.
 
@@ -7641,8 +7641,8 @@ check inserting it into (this is the insert it right rule):
 		say "That'd be a good way to lose stuff." instead;
 
 before talking to story fish:
-	if player is in truth home and psycho is in truth home:
-		say "'NONSENSE!  FACTS, FACTS, FACTS!' roars the Psycho. The fish clams up after the tide of abuse leaves it all at sea." instead;
+	if player is in truth home and Sid Lew is in truth home:
+		say "'NONSENSE!  FACTS, FACTS, FACTS!' roars Sid Lew. The fish clams up after the tide of abuse leaves it all at sea." instead;
 	if player is in standard bog:
 		say "'Eh? I--I would tell my story, but the computer wouldn't appreciate it. Manufactured stuff. Mine is ORIGINAL.'" instead;
 	if player is not in Discussion Block:
@@ -7665,39 +7665,39 @@ check going nowhere in truth home:
 	say "The only way out is, well, out." instead;
 
 for writing a paragraph about a person (called arg) in Truth Home:
-	say "[one of]A large guy berates a much smaller guy here. 'Proof fool! Proof fool! You need some emotion in your life! You just don't want to admit you're jealous of the jumps I can make! Me, the Logical Psycho!'[or]The Logical Psycho continues to berate the Proof Fool.[stopping]";
-	now Proof Fool is mentioned;
-	now Logical Psycho is mentioned;
+	say "[one of]You walk in on a one-sided argument. The louder and bigger of the two getting the most of it. 'Oh, hey,' he says. 'I'm Sid Lew. They call me the Logical Psycho [']cause I'm quick to make one point and move on to something even better. I was worried my energy's wasted on Lee over here. Maybe you, well, Lee over here, he knows boring facts, but not exciting ones. Might even be jealous of my dynamic style. Say, tell this guy, whatshisname, do they call you? C'mon, you've got a chance to SPEAK.'[wfk][line break]'The Proof Fool.'[paragraph break]'Well, with a name like Bull, well, that maybe has meanings, too, am I right? Right!'[or]Sid Lew continues to explain something Lee Bull doesn't want to hear.[stopping]";
+	now Lee Bull is mentioned;
+	now Sid Lew is mentioned;
 
-section Logical Psycho
+section Sid Lew
 
-the Logical Psycho is a baiter-aligned person in Truth Home. description is "He is wearing a t-shirt with an old car on it."
+Sid Lew is a baiter-aligned person in Truth Home. description is "He is wearing a t-shirt with an old car on it."
 
-understand "large" and "large guy" as Psycho when player is in Truth Home.
+understand "logical/psycho" and "logical psycho" as Sid Lew.
 
-check talking to Logical Psycho:
+check talking to Sid Lew:
 	say "'Oh yeah, sure, I bet you have interesting questions. But I've probably heard [']em all before. And I'm giving interesting answers to questions you didn't need to know yet. You might want to just listen.' [weird-hyp]" instead;
 
-section Proof Fool
+section Lee Bull
 
-the Proof Fool is a surveyable person in Truth Home.
+Lee Bull is a surveyable person in Truth Home.
 
-understand "small" and "small guy" as Proof Fool when player is in Truth Home.
+understand "proof fool" and "proof/fool" as Lee Bull when player is in Truth Home.
 
 check playing the rattle:
 	if player is in truth home:
-		say "The Logical Psycho looks worried for a second, but goes on. Hm. You interrupted one of his rants, but not at the right time. Maybe someone who understood them better, but just didn't have the guts to speak back, could use the rattle. Who could that be, now." instead;
+		say "Sid Lew looks worried for a second, but goes on. Hm. You interrupted one of his rants, but not at the right time. Maybe someone who understood them better, but just didn't have the guts to speak back, could use the rattle. Who could that be, now." instead;
 	if number of people in location of player > 1:
 		say "You don't know if it's worth deliberately annoying anyone here." instead;
 	say "Rattle, rattle. It gives you a headache. Maybe if you were more Type A, it'd drive you totally up the wall." instead;
 
-description is "When he's not trying to wave off the Logical Psycho's arguments, he's grabbing his head with his hands."
+description is "When he's not trying to wave off Sid Lew's arguments, he's grabbing his head with his hands."
 
-check talking to proof fool:
-	say "Before the Fool can talk, the Psycho cuts in. 'Quit distracting him! Y'got anything as interesting and profound to say as me? Well, you couldn't say it right, anyhow,' he roars. [weird-hyp]" instead;
+check talking to Lee Bull:
+	say "Before Lee Bull can talk, Sid Lew cuts in. 'Quit distracting him! Y'got anything as interesting and profound to say as me? Well, you couldn't say it right, anyhow,' he roars. 'And if you DO have somewher I'm wrong, well, it's selfish not to let Lee find it himself. He's, like, a truthseeker or something.' [weird-hyp]" instead;
 
 to say weird-hyp:
-	say "The Psycho's voice is weirdly hypnotic and rhythmic, for all its bluster. How to cut into it? You could never win an argument."
+	say "Sid Lew's voice is weirdly hypnotic and rhythmic, for all its bluster. How to cut into it? You could never win an argument."
 
 a thing called The Trade of Tricks is a proper-named thing. description is "[one of]You got laughed at enough for reading, much less re-reading, in middle school, so you learned to cut that nonsense out--especially books you just liked. Because it was easier to get caught if you were absorbed in a book. But this--you can't help yourself. You earned this book. You feel like the lessons may not sink in for a few days, but all the same--man! You learned a lot! And you feel like sharing.[or]You pick up a few more tricks re-reading. But you realize others may need the book even more than you.[stopping]"
 
@@ -9562,7 +9562,7 @@ the against rails are plural-named scenery in Freak Control. "You're not sure wh
 
 freaked-out is a truth state that varies.
 
-the shot screen is scenery in Freak Control. "[if cookie-eaten is true]You're torn between wondering if it's not worth watching the jokers being surveyed, or you deserve a good laugh.[else]For a moment, you get a glimpse of [one of]the [j-co] going about their business[or]parts of Idiot Village you couldn't explore[or]a 'me-time' room in the Classic Cult[or]a secret room in the Soda Club[or]Officer Petty at the 'event,' writing notes furiously[or]the hideout the Stool Toad was too lazy to notice[or]The Logical Psycho back at his home[or]exiles living beyond the Standard Bog[in random order].[end if]"
+the shot screen is scenery in Freak Control. "[if cookie-eaten is true]You're torn between wondering if it's not worth watching the jokers being surveyed, or you deserve a good laugh.[else]For a moment, you get a glimpse of [one of]the [j-co] going about their business[or]parts of Idiot Village you couldn't explore[or]a 'me-time' room in the Classic Cult[or]a secret room in the Soda Club[or]Officer Petty at the 'event,' writing notes furiously[or]the hideout the Stool Toad was too lazy to notice[or]Sid Lew back at his home[or]exiles living beyond the Standard Bog[in random order].[end if]"
 
 current-worry is a number that varies. current-worry is 0.
 
@@ -11947,7 +11947,7 @@ to decide whether (Q - a person) is talkative:
 	if Q is Business Monkey, decide no;
 	if Q is Volatile Sal, decide no;
 	if Q is Cute Percy, decide no;
-	if Q is Proof Fool, decide no;
+	if Q is Lee Bull, decide no;
 	if Q is Francis Pope, decide no;
 	if Q is Flames Fan, decide no;
 	if Q is Turk Young, decide no;
@@ -11955,7 +11955,7 @@ to decide whether (Q - a person) is talkative:
 	if Q is cards of the house, decide no;
 	if Q is Uncle Dutch, decide no;
 	if Q is Faith Goode, decide no;
-	if Q is Logical Psycho, decide no;
+	if Q is Sid Lew, decide no;
 	if Q is a client, decide no;
 	decide yes;
 
@@ -12009,7 +12009,7 @@ section 5 main quests
 
 test 5 with "test 5-blood/test 5-soul/test 5-big"
 
-test 5-big with "n/e/get string/w/s/w/w/put string in hole/n/n/get sound safe/s/s/e/e/n/e/e/open safe/talk to story fish/get poetic wax/w/n/put wax in machine/wear trick hat/s/w/s/e/e/give hat to sly/w/w/w/w/in/give trap rattle to fool/out/e/e/n/n/give trade to brother big/s/s/bro 3"
+test 5-big with "n/e/get string/w/s/w/w/put string in hole/n/n/get sound safe/s/s/e/e/n/e/e/open safe/talk to story fish/get poetic wax/w/n/put wax in machine/wear trick hat/s/w/s/e/e/give hat to sly/w/w/w/w/in/give trap rattle to lee/out/e/e/n/n/give trade to brother big/s/s/bro 3"
 
 test 5-blood with "n/n/w/talk to buddy/1/1/1/s/s/w/w/n/x hedge/y/s/e/e/e/give tag/e/give seed to monkey/give contract to monkey/w/w/w/w/w/give blossom to faith/e/e/e/n/n/give mind to brother blood/s/s/bro 1"
 
