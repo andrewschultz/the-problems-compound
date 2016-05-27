@@ -163,10 +163,14 @@ sub checkOrder
   open(A, "$source") || die ("Can't open $source.");
 
   my $line = 0;
+  my $writeGameObjErrRes = 0;
+  my $objAlf = 0;
+  $objSuc = 0;
 
   while ($a = <A>)
   {
     $line++;
+	if ($a =~ /alfbyroom/) { <A>; $line++; $objAlf = checkGameObjExpl($line); $writeGameObjErrRes = 1; next; }
     if (($a =~ /is a.* author\. pop/) && ($a !~ /^\[/)) { $b = $a; $b =~ s/ is (a|an) .*//g; chomp($b); $auth{$b} = $line; next; }
 	if (($expls) && ($a !~ /[a-z]/i)) { $expls = 0; next; }
 	if (($concs) && ($a =~ /end concepts/)) { $concs = 0; next; }
@@ -214,6 +218,10 @@ sub checkOrder
   }
   if ($printTest) { print "TEST RESULTS:$_[0] ordering,0,$ordFail,0,run conc.pl -o\n"; }
 
+  if ($writeGameObjErrRes)
+  {
+    print "TEST RESULTS:$_[0] explanation alphabetizing,0,$objAlf,$objSuc\n";
+  }
   if (scalar keys %auth == 0) { return; }
   $gots = scalar keys %gotText;
 
@@ -317,6 +325,44 @@ sub cutArt
   if ($temp =~ /^a for /) { return $_[0]; } #A for effort is a special case
   $temp =~ s/^(a thing called |a |the )//gi;
   return $temp;
+}
+
+sub checkGameObjExpl
+{
+  my $compare = "";
+  my $locCount = 0;
+  my $c1;
+  my $c2;
+  my $initLines = $lines;
+  my $gameObjErr = 0;
+
+  while ($a = <A>)
+  {
+    $lines++;
+	if ($a !~ /[a-z]/i) { last; }
+    if ($a =~ /\[start/)
+	{
+	  $curLoc = $a; chomp($curLoc); $curLoc =~ s/.*\[start (of )?//g; $curLoc =~ s/\].*//g;
+	  $locCount = 0;
+	  $compare = $a; next;
+	}
+	if (!$compare) { next; }
+	$c1 = lc($a); $c1 =~ s/^the //i;
+	$c2 = lc($compare); $c2 =~ s/^the //i;
+	$c1 =~ s/\t.*//g;
+	$c2 =~ s/\t.*//g;
+	if ($c2 gt $c1)
+	{
+	  chomp($c1);
+	  chomp($c2);
+	  $gameObjErr++;
+	  $locCount++;
+	  print "$linesToRet($gameObjErr): $c2 should be after $c1 ($curLoc, $locCount).\n";
+	}
+	$compare = $a;
+  }
+  $objSuc = $lines - $initLines - $gameObjErr;
+  return $gameObjErr;
 }
 
 sub usage
