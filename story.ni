@@ -1026,7 +1026,7 @@ check dropping (this is the general dropping rule):
 		if your-tix >= 4:
 			say "Now you're living on the edge with four ticketies, you're confident you can get away with dropping a drink to avoid getting busted by the Stool Toad.";
 			now noun is in lalaland instead;
-		if lily is in lalaland:
+		if Erin is in lalaland:
 			say "You don't want to drink it, and nobody else seems to want it. So you throw it away, instead.";
 			now noun is in lalaland instead;
 	if noun is story fish:
@@ -1658,7 +1658,7 @@ chapter kissing
 the block kissing rule is not listed in any rulebook.
 
 check kissing:
-	if noun is lily:
+	if noun is erin:
 		say "The Stool Toad would probably be on you like a cheap suit." instead;
 	if noun is Ally Stout:
 		say "If he does like men, you reflect, he could do a lot better than you." instead;
@@ -2107,14 +2107,14 @@ check giving smokable to: [poory pot or wacker weed]
 check giving drinkable to:
 	if second noun is Ally Stout:
 		say "He might be insulted if you give it back." instead;
-	if second noun is lily:
-		unless lily-hi is talked-thru or lily is babbled-out:
-			say "Lily ignores your offer. Perhaps if you talked to her first, she might be more receptive." instead;
-		say "Lily looks outraged. 'This?! Are you trying to make me boring like you?! HONESTLY! After all the advice I gave you!' She takes your drink and pours it in your face before running off.";
+	if second noun is Erin:
+		unless erin-hi is talked-thru or Erin is babbled-out:
+			say "Erin ignores your offer. Perhaps if you talked to her first, she might be more receptive." instead;
+		say "Erin looks outraged. 'This?! Are you trying to make me boring like you?! Plus you got that drink for free, so some GIFT! HONESTLY! After I opened my heart to you!' She takes your drink and sloshes it in your face before running off.";
 		wfak;
 		now noun is in lalaland;
 		activate-drink-check;
-		chase-lily instead;
+		chase-erin instead;
 	say "This is a BUG. You shouldn't be able to carry liquor out of the Soda Club." instead;
 
 section giving items in intro
@@ -2211,7 +2211,7 @@ check giving minimum bear to (this is the fun stuff if you give the bear to some
 		the rule succeeds;
 	if second noun is Terry Sally:
 		say "A momentary expression of rage crosses his face. 'Is this some sort of joke? You'd have to be whacked out to like that.'" instead;
-	if second noun is lily:
+	if second noun is erin:
 		say "'Aww. That's so sweet. Or it would've been if I was still eight.'" instead;
 	if second noun is a bro: [note that this *is* possible if you perform other lawbreaking tasks]
 		say "He gazes at it wistfully. 'No, I'm too old. I better be.'" instead;
@@ -2221,7 +2221,7 @@ check giving tickety to:
 		say "'No way, dude. I already have too many[unless fritz has minimum bear]. But I can give you one if you like[else]. Keep the one I gave you[end if].'" instead;
 	if second noun is Terry Sally:
 		say "'Not bad. But you still need [4 - your-tix in words] more.'" instead;
-	if second noun is Lily:
+	if second noun is Erin:
 		say "She is not impressed by your attempts to be a Bad Boy." instead;
 	if second noun is Ally Stout:
 		say "[one of]A sardonic laugh. 'Tough customer, eh? We better not give you the REAL stuff, then!'[or]He ignores you the second time.[stopping]" instead;
@@ -2240,7 +2240,7 @@ check giving the trail paper to:
 		unlock-verb "figure";
 		now Terry Sally is in lalaland;
 		the rule succeeds;
-	if second noun is Lily:
+	if second noun is Erin:
 		say "She shrugs and mentions she's been better places." instead;
 	if second noun is Ally Stout:
 		say "She is unimpressed with your attempt at being a Bad Boy." instead;
@@ -2421,7 +2421,7 @@ check giving wax to:
 	if second noun is turk young or second noun is uncle dutch:
 		say "[one of]As you approach them with a bit of the wax, they boom 'We once knew a worthless old bum. Not then, but he's now and then some. Learned weird stuff instead of getting ahead. So he was so smart he was dumb.'[or]'Roses are Red! Violets are blue! We're both gung ho...but why aren't you?' They're running out.[or]They both make a 'pay up' gesture. Looks like you've had all the artistic inspiration they're willing to give.[stopping]";
 		now no-dutch is true instead;
-	else if second noun is lily:
+	else if second noun is erin:
 		say "That would gross her out. Deservedly, but still. Guys would come to her 'rescue' and probably gaffle you or something." instead;
 
 section giving items from east
@@ -2919,7 +2919,7 @@ Pigeon Stool	"A stool pigeon is someone who tattles."
 Minimum Bear	"Bare minimum is the very least you need to do to get by."
 haha brew	"Brouhaha is a commotion or noise." [soda club]
 cooler wine	"A wine cooler is very low in alcohol content."
-Liver lily	"Lily-liver means coward."
+Erin Sack	"Saccharine means uncomfortably sweet."
 Rehearsal Dress	"A dress rehearsal is the final staging of the play before the audience sees it."
 Ally Stout	"A stout ally is someone who is on your side no matter what. Ally is, I'm afraid, a bit of a fake."
 fly bar	"A barfly is someone who goes around to bars and gets drunk."
@@ -3107,6 +3107,7 @@ dirty word	"A dirty word is profanity. 'Word' on its own is slang for agreement.
 hara-kiri	"Hara-kiri is Japanese ritual suicide."
 jerk around	"To jerk someone around is to pester them physically or mentally."
 jerk off	"To jerk off is to gratify oneself carnally."
+lily liver	"A lily-liver is someone who is afraid to go out and do risky things."
 Liverwurst	"Liverwurst is a sort of meat which I found tastes nice until it really doesn't, and it's a bit greasy, too. 'Worst liver' may be an exaggeration, but the jerks are not living well."
 lovelies	"Lovelies is a term of endearment."
 Mary Sue	"A Mary Sue is a character who is too unbelievably nice. It comes from the tour de force short story A Trekkie's Tale."
@@ -4002,9 +4003,9 @@ to say later-or-thanks:
 	if qbc_litany is table of stool toad talk:
 		say "I'll, uh, try to stay out of [if your-tix > 0]more [end if]trouble";
 		continue the action;
-	if qbc_litany is table of lily talk:
+	if qbc_litany is table of Erin talk:
 		if anything-said-yet is false:
-			say "(shuffles off [if lily-warn is true]even more [end if]embarrassingly and awkwardly)";
+			say "(shuffles off [if erin-warn is true]even more [end if]embarrassingly and awkwardly)";
 			continue the action;
 	if temp > 1:
 		say "Um, later";
@@ -4547,7 +4548,7 @@ Mouth Mush	"The mouth mush harangues you about needing certification to go throu
 Fritz	"Many variants on 'Whoah dude whoah,' mumbling about the friend he lost[if fritz has minimum bear]--and you found[end if]."	"He was pretty incoherent, mumbling about a lost friend[if fritz has minimum bear] that you found[end if]."	--	--
 Stool Toad	"The usual ordering to keep your nose clean, don't go off the beaten path, or litter, or annoy people, or have illicit substances."	"Ugh. You have had enough of officious adults telling you you seem like a good kid so that's EXTRA reason how you better keep clean."	"You sat through a disturbingly long lecture about what you'd better not do, and you felt guilty at both what you heard before and what you didn't."
 Ally Stout	"He mentions all the places he's been and all the exciting people he's met, so much more exciting than here, no offense, you'll be exciting one day. Why, a bit of alcohol might help! [ally-offer]"	"Something about how exciting he was, and you could be, maybe. It doesn't feel so warm, in retrospect. [ally-offer]"	"Ally Stout certainly had a lot to say,  but you get the feeling it was just minimal banter. [ally-offer]"	--
-Liver Lily	"She--well, she seems to be making sense, but you feel obliged to agree with her without thinking in order to show her you're thoughtful. You notice she doesn't have a drink."	"She doesn't seem up for small talk, but she grabs an imaginary drink and swirls it."	"It was pretty head-spinning, but then, maybe it was just all bluster. She seems disinterested in you."
+Erin Sack	"She--well, she seems to be making sense, but you feel obliged to agree with her without thinking in order to show her you're thoughtful. You notice she doesn't have a drink."	"She doesn't seem up for small talk, but she grabs an imaginary drink and swirls it."	"It was pretty head-spinning, but then, maybe it was just all bluster. She seems disinterested in you."
 Terry Sally	"The usual greetings, as he exhorts you to be good--not too good, though. Maybe if you have some proof you're not totally boring and squeaky clean, you'll be bare-knuckle enough for the Compound proper. [if your-tix is 0]You'll--well, you'll know what, once you start picking up demerits[else]Probably the boo ticketies[end if]."	"Terry Sally wanted some sort of document[if your-tix is 4], maybe like that trail paper you've got[else if your-tix > 0], and your ticketies don't quite make one yet[end if]."
 Buddy Best	"Buddy Best begins talking a mile a minute about Big Things, and it's impressive all right, and you're not sure how much you should interrupt to say so. You don't at all, and eventually he gets bored of you staring at him and hands you something called a Reasoning Circular and boots you back east."	"BUG. This should not happen."	--	Reasoning Circular
 Pusher Penn	"He drones on about exciting business opportunities and pushes some wacker weed on you to help you, apparently, get a taste of cutting-edge business."	"[if wacker weed is in lalaland]'Business, eh?'[else]He rubs his hand and makes a 'come here' gesture.[end if][penn-ask]"	"[if wacker weed is in lalaland]Pusher Penn wanted you to run an errand, and you did. He seems pretty disinterested in you now[else if player has wacker weed]You still need to find whom to give the weed to[else]You get the feeling Pusher Penn is all business[end if]."	wacker weed
@@ -5295,7 +5296,7 @@ part Variety Garden
 table of smackdowns
 smak-quip	smak-txt
 weasel-forme	"You imagine the Word Weasel saying that anything you do for it would be doing for you, because it probably knows what's good for you."
-lily-bye	"No, it'd be even more embarrassing not to say anything. Come on, now, Alec."
+erin-bye	"No, it'd be even more embarrassing not to say anything. Come on, now, Alec."
 
 Variety Garden is a room in Beginning. Variety Garden is west of Tension Surface. "Brush guards every way out except back east to the Tension Surface. Poor dirt in all shapes and textures lies here, but plants, not so much. If at all.[paragraph break]There's also an absence of leaves."
 
@@ -6456,11 +6457,11 @@ check going nowhere in Soda Club:
 		try going north instead;
 	say "There aren't, like, hidden bathrooms, and you wouldn't need to go even if there were. And if there's a secret passage, there's probably a secret code you don't know, too. So, back north it'll be, once you want to leave." instead;
 
-section Liver Lily
+section Erin Sack
 
-Liver Lily is a female person in Soda Club. "[one of]Well, that must be Liver Lily over there.[or]Liver Lily waits here for intelligent, stimulating conversation.[stopping]"
+Erin Sack is a female person in Soda Club. "[one of]Well, that must be Erin Sack over there.[or]Erin Sack waits here for intelligent, stimulating conversation.[stopping]"
 
-Liver Lily wears the rehearsal dress.
+Erin Sack wears the rehearsal dress.
 
 description of dress is "It--well, it's one of those things you can't think of anything wrong to say about it. It's neither too tacky or dowdy. Yet it seems, to your unfashionable eye, a bit [i]comme il faut[r]."
 
@@ -6472,51 +6473,51 @@ instead of doing something with rehearsal dress:
 after printing the locale description for Soda Club when Soda Club is unvisited:
 	say "The bartender calls you over. 'Say, pal! You look new here! Just use common sense, and you won't get [activation of boot licker]liquor boot like the [activation of punch sucker]Punch Sucker.'";
 	wfak;
-	say "'But hey, one thing. Can you give me a break from Liver Lily over there? She's--she's usually pretty interesting, but when she's wearing that rehearsal dress she tends to repeat what she's already said. She's no [activation of hip rose]Hip Rose, but Rose is probably out of your league anyway. By the way, I'm Ally Stout.'"
+	say "'But hey, one thing. Can you give me a break from Erin Sack over there? She's--she's usually pretty interesting, but when she's wearing that rehearsal dress she tends to repeat what she's already said. She's no [activation of hip rose]Hip Rose, but Rose is probably out of your league anyway. By the way, I'm Ally Stout.'"
 
 
-description of Liver Lily is "She is waiting for conversation in her rehearsal dress."
+description of Erin Sack is "She is waiting for conversation in her rehearsal dress."
 
-litany of Lily is the table of Lily talk.
+litany of Erin is the table of Erin talk.
 
-table of ll - Lily talk
+table of ll - Erin talk
 prompt	response	enabled	permit
-"Um, er, yeah, hi, I'm Alec."	lily-hi	1	1
-"Sure!"	lily-sure	0	1
-"I guess."	lily-guess	0	1
-"No."	lily-no	0	0
-"..."	lily-wait	0	1
-"Yeah, I'm in tune."	lily-tune	0	1
-"Sorry, I'm not in tune."	lily-notune	0	1
-"So is your life really that exciting, or do you just talk a lot?"	lily-exci	0	1
-"So, where can I get practice interrupting people?"	lily-prac	0	1
-"So, what about the [bad-guy]?"	lily-baiter	0	1
-"[later-or-thanks]."	lily-bye	3	1
+"Um, er, yeah, hi, I'm Alec."	erin-hi	1	1
+"Sure!"	erin-sure	0	1
+"I guess."	erin-guess	0	1
+"No."	erin-no	0	0
+"..."	erin-wait	0	1
+"Yeah, I'm in tune."	erin-tune	0	1
+"Sorry, I'm not in tune."	erin-notune	0	1
+"So is your life really that exciting, or do you just talk a lot?"	erin-exci	0	1
+"So, where can I get practice interrupting people?"	erin-prac	0	1
+"So, what about the [bad-guy]?"	erin-baiter	0	1
+"[later-or-thanks]."	erin-bye	3	1
 
-check talking to lily:
-	if lily-done is true:
-		enable the lily-prac quip;
+check talking to erin:
+	if erin-done is true:
+		enable the erin-prac quip;
 
 table of quip texts (continued)
 quip	quiptext
-lily-hi	"'Oh, um, hi. Do you want to hear my exciting opinions on stuff?'"
-lily-sure	"'Perfect!'[paragraph break][lily-sez]"
-lily-guess	"'Well, give it a try!'[paragraph break][lily-sez]"
-lily-no	--
-lily-wait	"You're not sure if you nodded encouragingly enough, but Lily mutters something about your reaction to her controversial opinions being problematic. She mumbles something about not expecting anything in turn for her advice, and nothing personal, but she doesn't need you bringing her down, but you don't seem like a total jerk, so she hopes you find whatever you want, even if it'd be too boring for her. She even explains how you look like you need to interrupt people more. That would make you more exciting! But not, like, right away.[paragraph break]'So, am I making sense?'"
-lily-tune	"[bye-lily of 2]'Well, you say you are, but few people GET in tune. Think about that a moment.'"
-lily-notune	"[bye-lily of 2]'Well, I thought you were better than that. And don't expect an [']At least you were honest.[']'"
-lily-exci	"'Well, if it is, it is, and if it isn't, you have to respect my imagination, my getting a lot out of a little.'"
-lily-prac	"She blathers some general advice, and you're not sure whether it's a good idea to put that into practice before she finishes. She yawns once she's done. 'If you want a refresher, ask me again,' she offers, unconvincingly."
-lily-baiter	"'Well, he's equally snarky to males and females. Is that equality, or is that equality?'"
-lily-bye	"[if anything-said-yet is false][lily-creep][else]'Bye.'[end if]" [ok]
+erin-hi	"'Oh, um, hi. Do you want to hear my exciting opinions on stuff?'"
+erin-sure	"'Perfect!'[paragraph break][erin-sez]"
+erin-guess	"'Well, give it a try!'[paragraph break][erin-sez]"
+erin-no	--
+erin-wait	"You're not sure if you nodded encouragingly enough, but Erin mutters something about your reaction to her controversial opinions being problematic. She mumbles something about not expecting anything in turn for her advice, and nothing personal, but she doesn't need you bringing her down, but you don't seem like a total jerk, so she hopes you find whatever you want, even if it'd be too boring for her. She even explains how you look like you need to interrupt people more. That would make you more exciting! But not, like, right away.[paragraph break]'So, am I making sense?'"
+erin-tune	"[bye-erin of 2]'Well, you say you are, but few people GET in tune. Think about that a moment.'"
+erin-notune	"[bye-erin of 2]'Well, I thought you were better than that. And don't expect an [']At least you were honest.[']'"
+erin-exci	"'Well, if it is, it is, and if it isn't, you have to respect my imagination, my getting a lot out of a little.'"
+erin-prac	"She blathers some general advice, and you're not sure whether it's a good idea to put that into practice before she finishes. She yawns once she's done. 'If you want a refresher, ask me again,' she offers, unconvincingly."
+erin-baiter	"'Well, he's equally snarky to males and females. Is that equality, or is that equality?'"
+erin-bye	"[if anything-said-yet is false][erin-creep][else]'Bye.'[end if]" [ok]
 
-lily-warn is a truth state that varies.
+erin-warn is a truth state that varies.
 
-to say lily-creep:
-	if lily-warn is false:
+to say erin-creep:
+	if erin-warn is false:
 		say "'If you don't actually say anything next time, I'll be a little creeped out. I might call someone in on you.'[no line break]";
-		now lily-warn is true;
+		now erin-warn is true;
 	else:
 		say "'That's--just creepy,' she says. 'I didn't come to the bar for this.' Ally Stout blows a whistle, and the Stool Toad charges in.[paragraph break]He explains that this is pretty bad, seeing as how you looked like a nice kid, or at least a quiet one, and goes on some irrelevant diatribe against prank callers who just hang up, and also how if this is how you act SOBER...";
 		if player has a drinkable:
@@ -6525,53 +6526,53 @@ to say lily-creep:
 				now haha brew is in lalaland;
 			if player has cooler wine:
 				now cooler wine is in lalaland;
-		now lily is in lalaland;
+		now Erin is in lalaland;
 		get-ticketed "being too awkward to speak in the Soda Club";
 
-to say lily-sez:
-	say "[bye-lily of 0]She starts off explaining how you are lucky to have met someone as exciting as her. She babbles on about the low quality and alcohol content of drinks in this place. You nod, but she notes you haven't even TRIED to interrupt, and how she used to never interrupt but she's learned there's a balance between not interrupting at all and interrupting too much, and you--you do want more balance in your life? You want to be more enthusiastic about life, don't you?'[no line break]"
+to say erin-sez:
+	say "[bye-erin of 0]She starts off explaining how you are lucky to have met someone as exciting as her. She babbles on about the low quality and alcohol content of drinks in this place. You nod, but she notes you haven't even TRIED to interrupt, and how she used to never interrupt but she's learned there's a balance between not interrupting at all and interrupting too much, and you--you do want more balance in your life? You want to be more enthusiastic about life, don't you?'[no line break]"
 
-to say bye-lily of (x - a number):
-	choose row with response of lily-bye in table of lily talk;
+to say bye-erin of (x - a number):
+	choose row with response of erin-bye in table of Erin talk;
 	now enabled entry is x;
 
-lily-done is a truth state that varies.
+erin-done is a truth state that varies.
 
-after quipping when qbc_litany is table of lily talk:
-	if current quip is lily-hi:
-		enable the lily-sure quip;
-		enable the lily-guess quip;
-		enable the lily-no quip;
-	if current quip is lily-sure or current quip is lily-guess:
-		disable the lily-sure quip;
-		disable the lily-guess quip;
-		disable the lily-no quip;
-		enable the the lily-wait quip;
-	if current quip is lily-wait:
-		enable the the lily-tune quip;
-		enable the the lily-notune quip;
-	if current quip is lily-tune or current quip is lily-notune:
-		disable the lily-tune quip;
-		disable the lily-notune quip;
-		enable the lily-prac quip;
-		enable the lily-baiter quip;
-		enable the lily-exci quip;
-		now lily-done is true;
-	if current quip is lily-bye:
-		if lily-prac is talked-thru:
-			enable the lily-prac quip;
+after quipping when qbc_litany is table of Erin talk:
+	if current quip is erin-hi:
+		enable the erin-sure quip;
+		enable the erin-guess quip;
+		enable the erin-no quip;
+	if current quip is erin-sure or current quip is erin-guess:
+		disable the erin-sure quip;
+		disable the erin-guess quip;
+		disable the erin-no quip;
+		enable the the erin-wait quip;
+	if current quip is erin-wait:
+		enable the the erin-tune quip;
+		enable the the erin-notune quip;
+	if current quip is erin-tune or current quip is erin-notune:
+		disable the erin-tune quip;
+		disable the erin-notune quip;
+		enable the erin-prac quip;
+		enable the erin-baiter quip;
+		enable the erin-exci quip;
+		now erin-done is true;
+	if current quip is erin-bye:
+		if erin-prac is talked-thru:
+			enable the erin-prac quip;
 		terminate the conversation;
 
-to chase-lily:
+to chase-erin:
 	say "Ally Stout sidles over. 'Sorry, champ. Looks like you did something to chase off a good patron. By the moral authority vested in me by the [bad-guy], it is my pleasure and duty to issue a boo-tickety.'";
-	now lily is in lalaland;
+	now Erin is in lalaland;
 	get-ticketed "offering a sophisticated girl insultingly weak alcohol";
 
 section Ally Stout
 
 Ally Stout is a baiter-aligned person in Soda Club. "The [one of]guy you guess is the bartender[or]Ally Stout[stopping] bustles around, serving drinks to the customers."
 
-check talking to Ally Stout when lily is in lalaland and conv-left of Ally Stout > 1:
+check talking to Ally Stout when Erin is in lalaland and conv-left of Ally Stout > 1:
 	say "Ally Stout flashes you a fake smile. 'Still around? Well, I can't make you leave, and I sort of needed a break from her chatter, I guess. Eh, I've dealt with worse.'";
 
 understand "bartender" as Ally Stout.
@@ -6741,6 +6742,7 @@ table of jerk-girl-talk
 girl-neg
 "The [j-co] appreciate how [activation of mary sue]Sue Merry reliably smacks down anyone who seems too nice."
 "The [j-co] recount [activation of pollyanna]Anna Pauley's greatest hits making fun of overoptimism. She always comes through!"
+"The [j-co] agree what a [activation of lily liver]LIVER Lily is! She couldn't be exaggerating."
 "The [j-co] agree that both [activation of pepper]Pepper Black, Pepper Bell [i]and[r] Pepper Green are hotter than Pepper Serrano."
 "The [j-co] argue that [activation of olive]Olive Black or Olive Green being more desirable is NOT a matter of taste."
 "The [j-co] claim to want to get to know [activation of casually]Julie Kaz better."
@@ -11416,6 +11418,8 @@ Jerk Around is a concept in conceptville. Understand "around jerk" as jerk aroun
 
 Jerk Off is a concept in conceptville. understand "off jerk" as jerk off. howto is "attack a jerk in swearing-on mode".
 
+lily liver is a concept in conceptville. Understand "liver lily" as lily liver. howto is "[j-girl]".
+
 Liverwurst is a concept in conceptville. understand "wurst/worst liver" and "liver wurst/worst" and "worstliver/wurstliver" as liverwurst. howto is "smell any of the [j-co], or SMELL in the [jc]"
 
 Lovelies is a concept in conceptville. Understand "lies love" and "love lies" as Lovelies. howto is "listen to all the [j-co] have to say, with swearing on".
@@ -11991,19 +11995,19 @@ test 3b with "w/give token/dig dirt/e/e/dig earth/read burden/w/w/bb/give burden
 
 section 4 pier quests
 
-test 4-convo-trap with "test street/test lounge/test arch/bb/e/e/get bear/w/talk to fritz/e/s/i/1/1/1/1/1/1/give bear to fritz/e/s/talk to lily/n"
+test 4-convo-trap with "test street/test lounge/test arch/bb/e/e/get bear/w/talk to fritz/e/s/i/1/1/1/1/1/1/give bear to fritz/e/s/talk to erin/n"
 
-test 4 with "e/sleep/z/z/z/e/get bear/s/talk to punch/1/2/2/2/3/n/talk to punch/2/2/talk to lily/1/1/1/1/1/1/1/1/give wine to lily/n/w/give bear to fritz/w/give paper to boy/n"
+test 4 with "e/sleep/z/z/z/e/get bear/s/talk to punch/1/2/2/2/3/n/talk to punch/2/2/talk to erin/1/1/1/1/1/1/1/1/give wine to erin/n/w/give bear to fritz/w/give paper to boy/n"
 
-test 4b with "e/sleep/z/z/z/e/get bear/s/bb/y/bb/give drink to lily/n/w/give bear to fritz/w/give paper to boy/drop ticket/n"
+test 4b with "e/sleep/z/z/z/e/get bear/s/bb/y/bb/give drink to erin/n/w/give bear to fritz/w/give paper to boy/drop ticket/n"
 
 test 4-dream with "gonear bench/sleep/wake/sleep/z/wake/sleep/z/wake/sleep/z/wake"
 
 test 4-to-bar with "test street/test lounge/test arch/talk to howdy/1/3/3/3/3/e/get bear/give bear to fritz/e/s"
 
-test 4f-alltick with "gonear pier/e/sleep/z/z/z/tick/drop ticket/tick/e/e/e/e/e/tick/s/talk to lily/2/talk to lily/2/bb/y/abstract lily to soda club/bb/give drink to lily/bb/y/n"
+test 4f-alltick with "gonear pier/e/sleep/z/z/z/tick/drop ticket/tick/e/e/e/e/e/tick/s/talk to erin/2/talk to erin/2/bb/y/abstract erin to soda club/bb/give drink to erin/bb/y/n"
 
-test 4f-allbad with "attack shell/attack guy/gonear pier/e/e/s/attack lily/tix 3/bb/y/talk to lily/2/talk to lily/2/n/n/shit/shit/purloin weed/give weed to toad/w/w/sleep/z/z/z/w/eat lolly/purloin weed/e"
+test 4f-allbad with "attack shell/attack guy/gonear pier/e/e/s/attack erin/tix 3/bb/y/talk to erin/2/talk to erin/2/n/n/shit/shit/purloin weed/give weed to toad/w/w/sleep/z/z/z/w/eat lolly/purloin weed/e"
 
 section 5 main quests
 
@@ -12750,11 +12754,11 @@ understand "noboo" as nobooing.
 carry out nobooing:
 	move player to pressure pier;
 	now trail paper is off-stage;
-	now lily is in Soda Club;
-	now lily-warn is false;
+	now Erin is in Soda Club;
+	now erin-warn is false;
 	now toad-got-you is false;
 	now drop-ticket is false;
-	now lily-done is false;
+	now erin-done is false;
 	now minimum bear is in joint strip;
 	now haha brew is off-stage;
 	now cooler wine is off-stage;

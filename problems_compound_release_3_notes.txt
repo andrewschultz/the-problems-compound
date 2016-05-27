@@ -10,7 +10,7 @@ This is the third release of The Problems Compound. The first release was for IF
 
 This is largely a maintenance release without many flashy new features, though Alec has a new food on Tray B to eat. It addresses some bugs discovered and in release 2, as well as some user-friendliness issues. The source code is now above 700,000 bytes, and...well, I think I'm ready to move on, except if I find a nice idea here or there.
 
-The milestones for release 3 can be seen at https://github.com/andrewschultz/the-problems-compound/milestones/v3%20coding%20tweaks, but that's not everything.
+The milestones for release 3 can be seen at https://github.com/andrewschultz/the-problems-compound/milestones/v3%20coding%20tweaks, but that's just the technical stuff.
 
 I managed to make more automated tests for the jerks, which spurred many of the changes.
 
@@ -20,6 +20,8 @@ The major stuff is here.
 --PE now toggles exits in the header.
 --the bartender is renamed to Ally Stout. The Punch Sucker is now a customer mentioned peripherally.
 --the Howdy Boy now has a proper name, Terry Sally, which is kind of between two words. He still has the Howdy Boy title.
+--Liver Lily was demoted to an off-hand reference, making way for Erin Sack.
+--The Proof Fool and Logical Psycho now have proper names: Lee Bull and Sid Lew.
 --two new jump verbs to get by just the jerks or just the brothers.
 --the very good ending is now implemented better.
 
@@ -35,7 +37,7 @@ The user-friendliness stuff is here.
 
 There's random stuff, too:
 --you can now play Hangman with Guy Sweet
---many extra silly concepts added. Up to 201, from 66 in release 2. Many of these are sort of double-counted in the tables below, but this is how many concepts are defined in the source.
+--many extra silly concepts added. Up to 202, from 66 in release 2. Many of these are sort of double-counted in the tables below, but this is how many concepts are defined in the source. It's probably too hard to find them all, but the game lists them at the end. Plus you can search for "table of explanations" in the source to see the goods.
 --game text added here and there. As per usual for a post-release.
 --the bad guy now sounds off on individual people and ideas outside of those in the game proper. Some are a bit topical, but they're in the general knowledge realm. If nothing else, you can Google them. He's up to 30 random important administrative and philosophical matters. Busy fellow!
 --flexible maximum in score e.g. 0/(18-21) so the player knows if they're close, or they need to do more.
@@ -43,7 +45,7 @@ There's random stuff, too:
 --new books (47, up from 38).
 --XYZZY in Freak Control now gives a horribly silly side story I just couldn't pass up.
 --Uncle Dutch and Turk Young now have 14 bits of wisdom, up from 8.
---the jerks now have 16 girls they talk about, if swearing is on, including a final lament. They don't actually swear, but...well, they're teenagers. Talking as teenagers do.
+--the jerks now have 17 girls they talk about, if swearing is on, including a final lament. They don't actually swear, but...well, they're teenagers. Talking as teenagers do.
 --more silly mistakes in either good ending.
 
 #sleep stories still at 15
