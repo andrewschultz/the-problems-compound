@@ -1,0 +1,26 @@
+# reg-pc-triv.txt: testing all sorts of odd stuff
+# For a full description, see <http://eblong.com/zarf/plotex/regtest.html>
+
+** game: /home/andrew/prt/debug-probcomp.ulx
+** interpreter: /home/andrew/prt/glulxe -q
+
+
+* waiting
+
+> z
+Turn your wait.
+
+> xyzzy
+/A hollow voice booms
+
+> xyzzy
+/A hollow voice booms
+
+> xyzzy
+/A hollow voice booms
+
+> xyzzy
+/A hollow voice booms
+
+> 
+I'll need a phrase of turn here.

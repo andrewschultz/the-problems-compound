@@ -1,0 +1,37 @@
+# reg-pc-thru.txt: tests both walkthroughs
+# For a full description, see <http://eblong.com/zarf/plotex/regtest.html>
+
+** game: /home/andrew/prt/debug-probcomp.ulx
+** interpreter: /home/andrew/prt/glulxe -q
+
+* big-main-test
+
+> l
+/Smart Street
+
+> talk to guy
+> 1
+> 1
+> 1
+> 1
+> 1
+> 1
+> 1
+> 1
+
+> play nim
+
+> enter flat
+/Round Lounge
+
+> put screw in stick
+
+> climb chair
+
+> hit hatch
+/Tension Surface
+
+> w
+/Variety Garden
+
+> talk to weasel

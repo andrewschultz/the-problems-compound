@@ -243,14 +243,7 @@ to choose-swearing:
 		say "You hear a far-off voice: 'Great. No freakin['] profanity. Sorry, FLIPPIN[']. In case they're extra sensitive.'";
 		now allow-swears is false;
 
-when play begins (this is the let debug skip stuff rule):
-	if debug-state is true:
-		now allow-swears is true;
-		set the pronoun him to Guy Sweet;
-		now right hand status line is "[your-mood]";
-		now left hand status line is "[lhs]";
-		now started-yet is true;
-		continue the action;
+when play begins (this is the main story introduction and initialization rule):
 	force-status;
 	say "The Problems Compound may contain minor profanity/innuendo that is not critical to the story. Type Y or YES if this is okay. Typing N or NO will provide alternate text.";
 	choose-swearing;
