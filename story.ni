@@ -2828,11 +2828,14 @@ carry out explaining the player:
 				increment count;
 				say "[count]: [Q][if Q is privately-named](privately-named)[end if] ([location of Q]) needs an explanation.";
 			else:
+				if there is an exp-anno corresponding to a room-to-exp of Q in table of room explanations:
+					say "Move anno of [Q] to the table of annotations.";
+					increment count;
 				unless there is an exp-text corresponding to a room-to-exp of Q in table of room explanations:
 					increment count;
 					say "[count]: [Q][if Q is privately-named](privately-named)[end if] ([location of Q]) is in the table but needs an explanation.";
 		if count is 0:
-			say "Yay! No unexplained rooms.";
+			say "Yay! No un/over-explained rooms.";
 		unless the player's command includes "me":
 			the rule succeeds;
 
@@ -2926,98 +2929,98 @@ Flower Wall	"A wallflower is someone who doesn't participate socially."
 picture hole	"Seeing the whole picture means you see everything."
 Poor Dirt	"Dirt poor means especially not rich."
 Basher Bible	"A bible basher is someone who quotes scripture too much. The reverse means a compendium of ways to try and gain power over people and put them down." [start of pressure pier]
-boo tickety	"Tickety-boo means okay, all right, etc."
+boo tickety	"Tickety-boo means okay, all right, etc."	"I like the contrast of being told 'Boo!' with the horrible places you're shipped off to, elsewhere. Also, it makes it clear small mistakes are okay."
 spoon table	"A tablespoon is a small measure of something, usually for a recipe."
 Terry Sally	"Terry Sally has two possible translations: salutary or solitary. He is sort of in between salutary (greeting) and solitary (alone) which fits in with how he probably doesn't get to see many people, but he's social when he does."
 trail paper	"A paper trail is evidence in white-collar crimes. People often have to piece it together."
-condition mint	"Mint condition is brand new." [start of meal square]
-cutter cookie	"Cookie-cutter means predictable and formulaic."
-gagging lolly	"Lollygagging is waiting around."
+condition mint	"Mint condition is brand new."	"The mint was buggy until release 3, but it was one of the first foods that made me realize Meal Square could be an important location." [start of meal square]
+cutter cookie	"Cookie-cutter means predictable and formulaic."	"I wound up getting rid of most of the foods I planned for release 1, but I added the whole 'Alec goes bad' on a whim and it went pretty well."
+gagging lolly	"Lollygagging is waiting around."	"This is one of the worst puns with the silliest deaths."
 greater cheese	"A cheese grater chops up cheese. Also, you do become a bit of a grater if you eat it."
 iron waffle	"A waffle iron is what you put batter in to make a waffle. But a waffle is also what you use when you don't know what to say. An iron waffle, then, would be something to say when you don't know what to say--but it is hard to take down."
-Off Cheese	"To cheese someone off is to annoy them."
-picture of a dozen bakers	"A baker's dozen is thirteen, thus counting for the illusion."
+Off Cheese	"To cheese someone off is to annoy them."	"I was pleased to see Hulk Handsome wrote Cheesed Off, which I think you'll like, too. Thankfully I checked PC into github before Ryan Veeder's Exposition for Good Interactive Fiction, so I think we can say the two of us both had our own takes on the pun."
+picture of a dozen bakers	"A baker's dozen is thirteen, thus counting for the illusion."	"I have no idea what this illusion looks like, but I wanted to put it there."
 Tray A	"Just a tray, contrasted with Tray B."
-Tray B	"Eating anything on it may betray who you really are."
+Tray B	"Eating anything on it may betray who you really are."	"This is another thing that dropped out in release 2 and I couldn't believe it was that simple. People were disappointed I didn't clue that it was such a bad idea to eat the Cutter Cookie."
 up gum	"To gum up is to slow down a process, often to a halt."
 dreadful penny	"A penny dreadful is a trashy novel." [start of down ground]
-Fritz the On	"On the fritz means on the blink."
+Fritz the On	"On the fritz means on the blink."	"I'm proud of finding this preposition at the end. I do like poking fun at thinking you're cosmically in tune but aren't. He's probably the NPC I have the most affection for, whether or not you actually do anything to save him."
 warmer bench	"A bench warmer is someone who doesn't get into the action, especially in a sports game."
 fly bar	"A barfly is someone who goes around to bars and gets drunk." [start of joint strip]
-Minimum Bear	"Bare minimum is the very least you need to do to get by."
-Pigeon Stool	"A stool pigeon is someone who tattles."
-stickweed	"Stickweed is a generic term for wild plants with various odd fruit, like ragweed (thanks, dictionary.com)."
-Stool Toad	"A toadstool is a mushroom."
+Minimum Bear	"Bare minimum is the very least you need to do to get by."	"The old Office Space routine about the bare minimum has stayed with me, especially because I worried about doing the bare minimum to seem I wasn't doing the bare minimum."
+Pigeon Stool	"A stool pigeon is someone who tattles."	"The Stool Toad came first, but there was the question of what he sat on."
+stickweed	"Stickweed is a generic term for wild plants with various odd fruit, like ragweed (thanks, dictionary.com)."	"I can't believe it took me three releases to find this! It's a nice little cheapo, though."
+Stool Toad	"A toadstool is a mushroom."	"The ST has no proper name because he is a shadowy authority figure. Plus, he's very lazy, just sitting there."
 Ally Stout	"A stout ally is someone who is on your side no matter what. Ally is, I'm afraid, a bit of a fake." [start of soda club]
 cooler wine	"A wine cooler is very low in alcohol content."
 Erin Sack	"Saccharine means uncomfortably sweet."
-haha brew	"Brouhaha is a commotion or noise."
+haha brew	"Brouhaha is a commotion or noise."	"Puns make me giggle much more than alcohol ever could."
 Rehearsal Dress	"A dress rehearsal is the final staging of the play before the audience sees it."
 Cain Reyes	"To raise Cain is to be loud." [start of nominal fen]
 Dandy Jim	"Jim Dandy is something excellent."
-jerks	"Pick one by name to see details."
+jerks	"[if allow-swears is false]A collective groan is when everyone groans at once[else]. A circle jerk is people getting together and stroking each other's egos. Or, well, something else[end if]. Pick one of the [j-co] by name to see details."	"Figuring out jerk names that fit the puzzle was an arduous thing, and I had many false starts in the final week before IFComp. The result was probably a few actual bugs slipping through."
 Paul Kast	"To cast a pall is to give an air of unhappiness."
 Quiz Pop	"A pop quiz is when a teacher gives an unannounced quiz on materials."
 Silly Boris	"Bore us silly."
 Warm Luke	"Lukewarm is not really warm."
 Warner Dyer	"A dire warner has a message for you to keep away."
 Wash White	"To whitewash is to wipe clean."
-chase paper	"A paper chase is excessive paperwork. In this case, work not strictly needed to reach Cute Percy." [start of chipper wood]
+chase paper	"A paper chase is excessive paperwork. In this case, work not strictly needed to reach Cute Percy."	"I love puns riffing on bureaucracy, and this was a good one. I'm pleased with this puzzle because it's a simple parity one based on actual physical reality. Too often you can go diagonally 1.4 times as fast as straight. This is neat for Reti's endgame puzzle, but not physically realistic. And I liked having a realistic puzzle in the middle of the abstract murk." [start of chipper wood]
 Cute Percy	"To persecute someone is to make them suffer for who they are[if cute percy is in lalaland]and right per se means literally right, but that's not what matters[end if]."
 bad face	"It will help you face a bad...something." [start of the belt below]
 Insanity Terminal	"Terminal insanity is having no chance to regain sanity[if terminal is in lalaland]. As for the puzzle: it is inspired by Jim Propp's Self-Referential Aptitude Test, which is well worth a look, but a good deal more complex[end if]."
-crocked half	"Half-crocked means drunk." [start of bottom rock]
-legend of stuff	"The Stuff of Legend means a book about great tales of yore, as opposed to the scribble-hint-book you get."
+crocked half	"Half-crocked means drunk."	"This was a bugging doodle for a while until I found something better. You need a lot of placements like that, sometimes." [start of bottom rock]
+legend of stuff	"The Stuff of Legend means a book about great tales of yore, as opposed to the scribble-hint-book you get."	"This was another thing that sounded great but didn't seem to fit in anywhere until I decided to go ahead with the puzzle. It appeared in release 2, taking the functionality of the note crib."
 note crib	"To crib notes is to copy from someone who was at a lecture."
-Lee Bull	"A bully is someone who hurts others physically or emotionally. The opposite of Lee Bull. Sid Lew is referring to 'bull' as his last name as what is to be made fun of. Also, fool-proof means no way to break it, but a Proof Fool could be someone who relies too much on a sure thing before doing anything." [start of truth home]
-Sid Lew	"Lucid means clear and sensible. Sid Lew relies on tricks to win his conversation."
-Trade of Tricks	"Tricks of the Trade are things that outsiders to a specialty probably don't know that are a bit out of the range of common sense."
+Lee Bull	"A bully is someone who hurts others physically or emotionally. The opposite of Lee Bull. Sid Lew is referring to 'bull' as his last name as what is to be made fun of. Also, fool-proof means no way to break it, but a Proof Fool could be someone who relies too much on a sure thing before doing anything."	"I kept the Truth Home names abstract and was pleased when Lee Bull dropped out." [start of truth home]
+Sid Lew	"Lucid means clear and sensible. Sid Lew relies on tricks to win his conversation."	"I figured Sid Lew while trawling for Slicker City author names, and then I said, well, he's good enough to be a character. When I re-vetted PC, I noticed the Truth Home, which was implemented near the end of release 1, still had abstract names. So I got Sid. But that left the Proof Fool needing a name."
+Trade of Tricks	"Tricks of the Trade are things that outsiders to a specialty probably don't know that are a bit out of the range of common sense."	"I've read a lot of tricks-of-trade books but most of them are about how you can sucker other people. I have read very few how not to get suckered books, so I decided to put one in here."
 Cold contract	"To contract a cold is to get sick. Also, the contract is pretty cold-blooded." [start of scheme pyramid]
-Deal Clothes	"To close the deal means to agree to terms."
+Deal Clothes	"To close the deal means to agree to terms."	"I have a special love for the homonyms I found. They required leaps on my part, and I searched them out aggressively."
 fund hedge	"A hedge fund is for super rich people to get even richer."
 Labor Child	"Child labor is about putting children to tough manual labor."
-money seed	"Seed money helps an investment."
+money seed	"Seed money helps an investment. Of course, very few seeds are shaped like a dollar bill."
 Finger Index	"The index finger is the one next to your thumb. Also, to finger someone means to point them out." [start of accountable hold]
 Sound Safe	"Safe, sound means being out of trouble. Also, the safe isn't very sound, as it's easy to open."
-Story Fish	"A fish story is a long winding story." [start of disposed well]
-yards hole	"The whole nine yards means everything."
+Story Fish	"A fish story is a long winding story."	"The story fish was based on Billy Big Mouth Bass and meant to be as funny-if-it's-not-real." [start of disposed well]
+yards hole	"The whole nine yards means everything."	"I have a feeling I missed some idioms, but this one I like because it really can be visualized."
 blossoms	"Now that the blossoms are in place, well, it'd be mean to say a blossom is 'some blah.' Oops." [start of classic cult]
-Faith Goode	"Good faith."
-Googly bowl	"To bowl a googly is to throw someone for a loop."
+Faith Goode	"Good faith."	"Coding Faith and Grace as doing the same thing was something I didn't do in release 1, but then it was a matter of saying if the second noun is Grace, then the second noun is Faith. Or is it the other way around? Well, in either case, if I'd given myself the time, I'd have figured it out."
+Googly bowl	"To bowl a googly is to throw someone for a loop."	"I remember a Jerry Seinfeld American Express commercial where he looks to 'learn the lingo' and winds up saying 'That was a wicked googly!' It's still stuck with me, that and the one where goes over $20 filling up for gas but then flashes his card triumphantly. Oh, and the one where he has 31 cents to buy a stamp and has everything except an extra penny."
 Grace Goode	"Good grace."
 mind of peace	"Peace of mind means being able to think."
 Intuition Counter	"Counterintuition means the opposite of what you'd expect. Wait, that could mean counterintuition could mean something crazy. If something's counterintuitive, it works the opposite way you'd expect it to on first glance." [start of judgment pass]
-Officer Petty	"A petty officer is actually reasonably far up in the hierarchy, the equivalent of a sergeant."
+Officer Petty	"A petty officer is actually reasonably far up in the hierarchy, the equivalent of a sergeant."	"This name made me giggle when I thought of it, and it still does. Perhaps it's too obvious. OP has no first name because he is a Shadow Authority Figure."
 Ability Suit	"Suitability means appropriateness. And the suit is not appropriate for the monkey." [start of idiot village]
 Business Monkey	"Monkey business is general silliness."
 fourth-blossom	"To blossom fourth is to grow."
 lifted face	"Facelifted means you had surgery done on your face, though Alec's lifted more naturally."
 Sly Moore	"More sly = slyer = cleverer."
-Thoughts Idol	"Idle thoughts, e.g., a wandering mind, are what it purports to oppose."
+Thoughts Idol	"Idle thoughts, e.g., a wandering mind, are what it purports to oppose."	"I was disappointed the Compound didn't have enough surveillance, and I wanted to put it in the Village, but I didn't want it to just be there. And I wanted a way to beat it."
 Trap Rattle	"A rattle trap is a cheap car."
-Fright Stage	"Stage fright is being scared to get out in front of a crowd." [start of speaking plain]
+Fright Stage	"Stage fright is being scared to get out in front of a crowd."	"I've never been a fan of scaring someone into action. I often feel that people who say they are don't really want to help someone, or never learned it doesn't work." [start of speaking plain]
 Turk Young	"A Young Turk is a brave rebel."
 Uncle Dutch	"A Dutch Uncle gives useful advice."
 relief light	"Light relief would be a silly joke." [start of temper keep]
 Spleen Vent	"To vent one's spleen is to let our your anger."
-Volatile Sal	"Sal volatile is given to wake up unconscious people with its smell."
-Drug Gateway	"A gateway drug leads you to bigger drugs, but here, the gateway may be blocking you from them." [start of walker street]
+Volatile Sal	"Sal volatile is given to wake up unconscious people with its smell."	"Paul Lee mentioned that Volatile Sal was the person he felt most like out of all the NPC's, and I bet he is not the only one. We've all complained about something without doing anything."
+Drug Gateway	"A gateway drug leads you to bigger drugs, but here, the gateway may be blocking you from them."	"Drug humor can be in iffy taste, and making Alec a mule felt iffy, but he does need to learn there are some rules worth breaking, or things worth trying. Besides, Fritz deserves a bit of help." [start of walker street]
 long string	"To string along someone is to keep them trying or asking for more."
 Mistake Grave	"A grave mistake is a very bad mistake indeed."
 Art Fine	"Why, fine art, of course. Highfalutin['] stuff, not easy to understand." [start of discussion block]
-Book Bank	"A bankbook records numbers and is very un-literary."
+Book Bank	"A bankbook records numbers and is very un-literary."	"This was a book crack, but a bank feels more contrary to literature."
 Harmonic Phil	"Many orchestras bill themselves as philharmonic. I suppose they could be anti-harmonic, but an Auntie character felt a bit stereotyped, and Auntie feels a bit too charged. Also, Phil Gotsche becomes got your fill, but he doesn't ever get his fill of talking."
 Poetic Wax	"To wax poetic is to, well, rhapsodize with poems or song or whatever. It's slightly less gross than wax."
 Song Torch	"A Torch Song is about looking back on a love you can't quite let go of. The Song Torch is more cynical than that, being a bit rougher on its subjects, and, well, actually torching them."
 Poory Pot	"Potpourri, which smells good. Of course, I've read about pipe and cigar snobs who babble on about aromas and such, and apparently there are marijuana snobs too in this progressive time! Perhaps there always were." [start of pot chamber]
 Pusher Penn	"A pen pusher is someone working at a boring job."
 wacker weed	"A weed whacker is the slang for a gardening tool to cut weeds."
-Language Machine	"Machine Language is very low-level, unreadable (without training) code of bits. No English or anything." [start of standard bog]
+Language Machine	"Machine Language is very low-level, unreadable (without training) code of bits. No English or anything."	"Some people objected to the machube as being about parser vs. choice, but I tried largely to stay away from that. I just liked the image of making a machine happy. And in general I feel it's better to find what sort of game you can write that hasn't been written yet, instead of worrying what art can or should be. I hoped the general silliness would make this clear, but in release 2 I tried to touch things up to avoid misunderstandings." [start of standard bog]
 Trick Hat	"A hat trick, in hockey or soccer, is scoring three times."
 Brother Big	"Big Brother is the character from Orwell's 1984." [start of questions field]
 Brother Blood	"A blood brother is someone related by blood or who has sworn an oath of loyalty to someone else."
 Brother Soul	"A soul brother is one who has very similar opinions to you."
-Buddy Best	"A best buddy is your favorite friend." [start of court of contempt]
+Buddy Best	"A best buddy is your favorite friend."	"Buddy Best is probably my favorite bad guy besides the Baiter Master. Of course, his 'gift' is really just a self-promotional item." [start of court of contempt]
 long tag	"To tag along is to follow behind."
 the Reasoning Circular	"Circular Reasoning is, for instance, I'm smart because I'm clever because I'm smart."
 against rails	"If someone rails against something, they're upset with it." [start of freak control]
@@ -3026,14 +3029,14 @@ call curtain	"A curtain call is when someone comes back out after lots of applau
 frenzy feed	"A feed(ing) frenzy is a vicious attack, physical or emotional, by animal predators or people."
 incident miner	"A minor incident is not a big deal, but the incident miner makes a big deal of small things."
 Language Sign	"Sign language is how people communicate with the deaf."
-list bucket	"A bucket list has things to do before you die."
+list bucket	"A bucket list has things to do before you die."	"This was a big engine in pushing changes for release 2. The [bad-guy] was just sort of there in release 1. But I spruced him up, and I needed something plausible that didn't throw you the list of items to look at too directly."
 shot screen	"A screenshot is a graphical capture of what's on your computer screen at the moment."
 Twister Brain	"The opposite of a brain twister, where someone derives a conclusion from a fact, the brain has a set conclusion and twists and weights facts to line up with them."
 Witness Eye	"Someone at the scene of the crime."
-worm ring	"A ringworm is a form of parasite." [start of out mist]
-hammer	"The hammer can be three things[ham-desc]." [start of airy station]
-lock caps	"I THINK YOU KNOW WHAT CAPS LOCK IS, BUT HERE'S A DEMONSTRATION OF WHAT HAPPENS IF YOU LEAVE IT ON."
-Return Carriage	"Carriage Return is going back to the start of a new line in a document with text. And you are sort of going back to the start, too."
+worm ring	"A ringworm is a form of parasite."	"This was originally the wood worm, and it needed to become a whole worm, but I didn't see how to do it. I decided eventually to say it was a whole worm, but you needed to un-bend it, somehow." [start of out mist]
+hammer	"The hammer can be three things[ham-desc]."	"Figuring what the hammer should be was a design puzzle for sure. I got a lot of bad puns from it, but the idea of actually having a puzzle that uses word-flipping seemed like a nice way to end the game." [start of airy station]
+lock caps	"I THINK YOU KNOW WHAT CAPS LOCK IS, BUT HERE'S A DEMONSTRATION OF WHAT HAPPENS IF YOU LEAVE IT ON."	"I love a joke about all caps, and I needed some way to prevent you from getting in the carriage immediately."
+Return Carriage	"Carriage Return is going back to the start of a new line in a document with text. And you are sort of going back to the start, too."	"The Return Carriage was originally the Snowflake Special. That's a good phrase, but it didn't feel right here. The Carriage is obvious, for what it is."
 
 table of explanations (continued) [this is stuff referred to in the director's cut area]
 exp-thing	exp-text	exp-anno
@@ -3269,7 +3272,7 @@ to say dutch-off:
 
 table of room explanations [tore]
 room-to-exp	exp-text	exp-anno
-Smart Street	"Street Smart means knowing your way around tricky people and situations. Alec is not, to start."	"Alec also, of course, feels uncomfortable on Smart Street even though it's his last name."
+Smart Street	"Street Smart means knowing your way around tricky people and situations. Alec is not, to start."
 A Round Lounge	"To lounge around is to sit and do nothing--the opposite of what you want to do here."
 Tension Surface	"Surface Tension is a scientific phenomenon where water can stay over the top of a glass."
 Vision Tunnel	"Tunnel vision is only being able to see certain things--particularly what's just in front of you--due to mental or physical blocks."
@@ -3278,8 +3281,8 @@ Pressure Pier	"Peer pressure is when others in your social circle try to get you
 Meal Square	"A square meal is a full meal."
 Down Ground	"Ground down means worn out."
 Joint Strip	"A strip joint is a gentlemen's club. Under 18 are not let in, and it's not just because of alcohol."
-Soda Club	"Club soda is tonic water e.g. water with bubbles and no flavoring."	"This was the Sinister Bar in the first release."
-Nominal Fen	"A collective groan is when everyone groans at once. A circle jerk is people getting together and stroking each other's egos. Or, well, something else."
+Soda Club	"Club soda is tonic water e.g. water with bubbles and no flavoring."
+Nominal Fen	"Phenomenal means really awesome. But the fen is pretty plain[if boris is in lalaland]. Marshmallow means soft[end if]."
 Chipper Wood	"A wood chipper puts in logs and spits out small wood chips. It's hard to be chipper (happy) if you get stuck in one." [west-ish]
 Disposed Well	"To be well disposed is to be agreeable."
 Truth Home	"A home truth is an unpleasant fact about oneself."
@@ -3896,10 +3899,10 @@ section the table
 
 table of annotations [toa]
 anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
-0	--	Smart Street	"smart"	"This came surprisingly late, but the reverse made total sense. The main point is that Alec may not be street smart, but people often assume he'll wind up somewhere around clever people." [very start]
+0	--	Smart Street	"smart"	"This came surprisingly late, but the reverse made total sense. The main point is that Alec may not be street smart, but people often assume he'll wind up somewhere around clever people. And of course Alec does not feel at home even though it shares a name with him." [very start]
 0	--	A Round Lounge	"lounge"	"This came to me pretty late. I'm never quite sure how to start games. It always seems the best idea comes at the end, and yet on the other hand it's not fully comforting that I know how my story will end. I wanted you to start pretty normally, but move to progressively odder places."
 0	--	Tension Surface	"compound"	"I thought of making this the title of the game. But it was probably better to have it clue you to the room names. Anyway, It'd be hard to believe such a big world was part of a compound." [start intro]
-0	--	Variety Garden	"garden"	"The title was totally silly until release 2, when I added varieties of brush. Basically, the garden has a lot of variety, but not really quality. Originally there was a Stream of Consciousness and Train of Thought, but these were placeholders. The Word Weasel didn't come until later, but I always liked that phrase. I went through a bunch of vegetables before I found an animal would do just as well."
+0	--	Variety Garden	"garden"	"The title was totally silly until release 2, when I added varieties of brush. Basically, the garden has a lot of variety of brush, but not really quality. Originally there was a Stream of Consciousness and Train of Thought, but these were placeholders. The Word Weasel didn't come until later, but I always liked that phrase. I went through a bunch of vegetables before I found an animal would do just as well."
 0	--	Vision Tunnel	"tunnel"	"I'm pleased with the flip here from 'tunnel vision' as the vision tunnel opens you up to the different ways to see things."
 0	--	Pressure Pier	"pier"	"This shuffled around a bit until I found someone who was adequate for pressuring you, as opposed to just talking you down. That was Terry Sally. And, in fact, he was just 'there' in Sense Common for a while. Early I took a 'best/worst remaining pun' approach to the map, but as I started writing code and sending the game to testers, I realized how it could make more sense." [start outskirts]
 0	--	Meal Square	"square"	"This was the Tactics Stall for a while, until I had enough food items for a separate area, and then I didn't have enough time to implement tactical items. I needed a place to put them. 'Sink kitchen' didn't quite work, but eventually I found this. The baker's dozen was my first scenery implemented, and I'm quite pleased at the bad pun. Also, the Gagging Lolly was the first silly-death thing I implemented."
@@ -3909,14 +3912,14 @@ anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
 0	--	Tense Past	"past"	"These three rooms fell pretty quickly once I heard 'past tense.' Dreams have often been a source of helplessness for me, with one 'favorite' flavor being me as my younger self knowing what I know now, knowing I'd get cut down for using that knowledge. That snafu has grown amusing over the years, but it wasn't as a teen." [sleepytime rooms]
 0	--	Tense Present	"present"	"Of course we've all had dreams about stuff we can't do now, or issues that keep coming up. I'd like to think that my bad dreams, once I confronted them, let me exaggerate things for humor in everday conversation. Still, it's been a developing process."
 0	--	Tense Future	"future"	"We all worry about the future and what it will be, and we get it wrong, but that doesn't make it any less scary. I included this once I saw that dreams and fears could be traced into three segments: how you messed up, how you are messing up, and how you won't be able to stop messing up."
-0	--	Nominal Fen	"circle"	"The Nominal Fen was the Jerk Circle for a long time until the start of release 3. Then I realized I hadn't used the Mellow Marsh, which was great for after the jerks left. But what about before? I plowed through various types of terrain. Fen stuck, and nominal worked well especially because I couldn't quite describe a fen. Also, the idea of Jerk Circle made me laugh until I realized it might be a bit too icky to see too much, so I decided to break it off. Even with the Groan Collective as an adequate non-risque replacement. This way, the locations make (relative) sense even with the jerks gone. Of course, when you know the 'other' name is Jerk Circle, there are still connotations. But the image of one person starting to groan encouraging others is very apt. Once I saw how the NPCs could interact, I felt even more amused." [main area]
+0	--	Nominal Fen	"fen"	"The Nominal Fen was the Jerk Circle for a long time until the end of release 3, when I started cleaning up names. Then I realized I hadn't used the Mellow Marsh, which was great for after the jerks left. But what about before? I plowed through various types of terrain. Fen stuck, and nominal worked well especially because I couldn't quite describe a fen. Also, the idea of Jerk Circle made me laugh until I realized it might be a bit too icky to see too much, so I decided to break it off. Even with the Groan Collective as an adequate non-risque replacement. This way, the locations make (relative) sense even with the jerks gone. Of course, when you know the 'other' name is Jerk Circle, there are still connotations. But the image of one person starting to groan encouraging others is very apt. Once I saw how the NPCs could interact, I felt even more amused." [main area]
 0	--	Chipper Wood	"wood"	"I got the idea for this when reminded of a certain Coen Brothers movie. The contrast of violence and happiness in the title made me realize it was a better choice than Rage Road." [west-a-ways first]
 0	--	Disposed Well	"well"	"This was originally the preserved well, and the Belt Below was below it. There was going to be a Barrel of the Bottom that opened, but it seemed too far-fetched. So I just went with a well where you couldn't quite reach something."
 0	--	Classic Cult	"cult"	"Of course, a cult never calls itself a cult these days. It just--emphasizes things society doesn't. Which is seductive, since we all should do it on our own. But whether the thinking is New or Old, it remains. It can be dogma, even if people say it all exciting.[paragraph break]Plus I cringe when someone replies 'That's classic!' to a joke that's a bit too well-worn or even mean-spirited. Oh, a cult classic is a movie with a small but fervent following."
-0	--	Truth Home	"home"	"Of course, the truth home has lots of truth--it's just all misused. And I liked the idea of a name that sounds a bit superior but isn't."
-0	--	Scheme Pyramid	"pyramid"	"I find pyramid schemes endlessly funny in theory, though their cost is real and sad. They're worse than lotteries."
+0	--	Truth Home	"home"	"Of course, the truth home has lots of truth--it's just all misused. And I liked the idea of a name that sounds a bit superior but isn't. Sid and Lee felt like they should have abstract names until I realized they were the last two that didn't, and hey, why not give them a try? I put their original names in Slicker City but then realized that they were too good just to be random authors in a list of 200."
+0	--	Scheme Pyramid	"pyramid"	"I find pyramid schemes endlessly funny in theory, though their cost is real and sad. They're worse than lotteries. I'd originally intended to have more people here, but it didn't work out that way."
 0	--	Accountable Hold	"hold"	"I'm critical of Big Business and people who think they've done a lot more than they have because they have a good network they don't give much back to. In particular, if someone talks about accountability, it's a sad but safe bet that in a minute they will start blaming less powerful people for things out of their control. There's a certain confidence you need for business, but too often it turns into bluster."
-0	--	The Belt Below	"belt"	"I wanted a seedy underbelly. And I got one. I didn't know what it was for, and certainly, it didn't all come together in the initial release. But the room name spurred me to make a puzzle that FELT unfair."
+0	--	The Belt Below	"belt"	"I wanted a seedy underbelly. And I got one. I didn't know what it was for, and certainly, it didn't all come together in the initial release. But the room name spurred me to make a puzzle that FELT unfair. In subsequent releases, I cleaned it up a bit"
 0	--	Bottom Rock	"bottom"	"I forget when the idea of giving you a powerful item if you got abstract puzzles came to me. But I wanted it to be powerful and cleverly named. I wasn't sure where I could put a crib, because I couldn't implement a bedroom, but then I realized it could be just dropped anywhere, to show the Problems Compound is not for babies--or maybe to insinuate that hints are for babies. I mean, for the [bad-guy] to insinuate, not me. I use them a lot, too."
 0	--	Judgment Pass	"pass"	"This seemed as good a generic place-you-need-a-puzzle-to-get-by as any. Especially since I wanted solutions to focus around outsmarting instead of violence or pushing someone out of the way." [east-ish]
 0	--	Idiot Village	"village"	"Of course, the people here aren't total idiots, even if they are very silly. But I liked the idea of turning 'village idiot' on its head, as well as having a caste of 'outs' who maybe weren't stupid but let themselves be treated that way."
@@ -3925,7 +3928,7 @@ anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
 0	--	Temper Keep	"keep"	"This is one of those ideas that came relatively late, but once it did, I had a few adjectives and verbs that tipped me off to a quick puzzle that should be in there."
 0	--	Questions Field	"field"	"This was originally the Way of Right, which was sort of close to Freak Control, but then close to release I was searching for other names and this popped up. I liked it better--the three Brothers are asking questions, first of you and then of why they're there and how they could leave--and it seemed less generic. So it stayed."
 0	--	Court of Contempt	"court"	"As someone unimpressed and/or intimidated by all the yelling that went on in law-firm shows when I was younger, any sort of court always seemed fearful to me. What would I be doing there? I was shocked when I got my first traffic ticket and went in to protest that it was relatively quiet and orderly. But the image and fears still remain, funnier now."
-0	--	Walker Street	"drive"	"Walker Street was Crazy Drive in release 1. But I found the joke of somewhere plain or boring too much to resist, especially after finding 'Walker Street' as a stray annotation to delete in my Trizbort map file. Oh, a streetwalker is, well, someone who trades favors for money. Yes, THAT sort of favor."
+0	--	Walker Street	"walker"	"Walker Street was Crazy Drive in release 1. But I found the joke of somewhere plain or boring too much to resist, especially after finding 'Walker Street' as a stray annotation to delete in my Trizbort map file. Oh, a streetwalker is, well, someone who trades favors for money. Yes, THAT sort of favor."
 0	--	Discussion Block	"block"	"This was the Interest Compound in release 1, but that was too close to the title. The discussions, of course, block any real discussion. The books and songs are purposely bad, but you can't SAY that."
 0	--	Standard Bog	"bog"	"This was something entirely different until the end. Something different enough, it might go in a sequel."
 0	--	Pot Chamber	"chamber"	"Some room names made me smile with their subtlety. Others, with their utter lack. Since this combines two awkward conversation subjects, guess which it was?"
@@ -13389,5 +13392,6 @@ carry out jing:
 		now player is in Nominal Fen instead;
 	say "Now that you're in the main area, this command won't let you warp further in your beta testing quest. However, BROBYE will disperse the Brothers, JGO will spoil the [j-co]['] puzzle, and JERK(S)/GROAN(S) will clue it." instead;
 	the rule succeeds;
+
 
 

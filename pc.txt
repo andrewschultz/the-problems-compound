@@ -171,7 +171,7 @@ You manage to "appreciate" annoying people enough to kiss up to them, and you ar
 Amusement only.
 ?What's the Condition Mint for?
 Later on, you can give it to someone to help with a puzzle.
-Any one of the jerks.
+Any one of the jerks/groaners.
 They will tell you their secret. That allows you to identify them and, by extension, others more easily.
 ?What's the gagging lolly for?
 A stupid cheap insta-death.
@@ -182,8 +182,8 @@ Or a baker's dozen.
 Commonly known as 13.
 See what I did there?
 >THE MAIN BIT
->>The Jerk Circle/Groan Collective
-?What are the jerks doing there? Do I need to get rid of them quickly?
+>>The Nominal Fen
+?What are the jerks/groaners doing there? Do I need to get rid of them quickly?
 You'll need to get rid of them eventually.
 They're having a conversation.
 You can't get in a word edgewise, though, until you have information on them.
@@ -216,7 +216,7 @@ That leaves Dandy Jim as J.
 You can use SKIP to avoid moving to the next guy, or just type in the numbers corresponding to the names.
 You can also type 1234567, where you start with the person last talked to, and 1 = the 1st conversational accusation, etc. But it gives fewer clues than talking.
 ?Is there any way to cheat a bit?
-You can give the condition mint to any jerk.
+You can give the condition mint to any jerk/groaner.
 It turns out that it doesn't speed things up radically, but it helps a bit.
 It also lets you skip over accusing one person in conversation.
 Giving it to Paul crosses out the most possibilities. Also, giving it to Warm Luke helps. I think Paul's a bit more helpful, as the above logic notes you can figure out Luke pretty quickly.
@@ -274,7 +274,7 @@ The Legend of Stuff tells you how to get through the game but blocks the optiona
 You can examine the red, the blue or the big area. Or all of them.
 Each corresponds to a brother in Questions Field.
 So you can see what you need to do next.
-It gives a vague clue for the jerks, too.
+It gives a vague clue for the jerks/groaners, too.
 ?Can I take both the items in the crib?
 No. Get one, the other vanishes.
 ?What do I do with the crocked half?
@@ -317,7 +317,7 @@ Not much except take the safe.
 Oh, wait! Something else!
 The Finger Index has information on seven people.
 Where else have you seen seven people?
-The Jerk Circle/Groan Collective!
+The Nominal Fen!
 >>>TRUTH HOME
 ?What do I do with Sid Lew and Lee Bull?
 Sid Lew seems to be laying down the facts, and he doesn't shut up.
@@ -402,7 +402,7 @@ So if you go Soul, Blood, Big, they should all seem equal.
 ?The brothers are gone! Why can't I go north?
 You're ambushed by the question and exclamation mark.
 You'll need some sort of antidote.
-Have you figured how to work with the jerks yet?
+Have you figured how to work with the jerks/groaners yet?
 DRINK QUIZ POP.N
 >>>Temper Keep
 ?What does Sal want?
@@ -534,12 +534,12 @@ Or you can beat the bad guy and the Thoughts Idol.
 ?I'd like a walkthrough. Is there a walkthrough?
 Yes. It should be included with the game as a short HTML file.
 ?What meta-commands are there to jump ahead?
-The first one simply lets you solve the jerks. TRACK BEATEN.
+The first one simply lets you solve the jerks/groaners. TRACK BEATEN.
 DUCK SITTING jumps to the Tension Surface
 KNOCK HARD gets you to Pressure Pier.
 FIGURE A CUT gets you past Terry Sally.
 FANCY PASSING removes the Brothers from play.
-NOTICE ADVANCE skips all the way to disposing of the jerks and helping the Brothers and leaves you at the Questions Field, but you still need to take down Cute Percy and Thoughts Idol for the best ending.
+NOTICE ADVANCE skips all the way to disposing of the jerks/groaners and helping the Brothers and leaves you at the Questions Field, but you still need to take down Cute Percy and Thoughts Idol for the best ending.
 >>Director's Cut
 ?Is there any objective?
 Not really, other than seeing all the footnotes.
