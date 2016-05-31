@@ -2893,146 +2893,147 @@ after explaining out puzzle: [just below, the dots explanation asks a question, 
 
 table of explanations [toe] [alfbyroom]
 exp-thing	exp-text	exp-anno
-a thing	"A smart alec is someone who always has a clever quip."
-bad knot	"A bad knot is hard to untangle. You wouldn't say it's not bad to untangle. And 'not bad' can have several connotations, itself, from strong to faint praise. So you can tie yourself up thinking of what it means."
+a thing	"A smart alec is someone who always has a clever quip."	-- [start of smart street] [thing is defined as Alec in intro]
+bad knot	"A bad knot is hard to untangle. You wouldn't say it's not bad to untangle. And 'not bad' can have several connotations, itself, from strong to faint praise. So you can tie yourself up thinking of what it means."	--
 Broke Flat	"Flat Broke means out of money."	"This was originally a location until I discovered A Round Lounge."
-chess board	"Despite being a really good chess player, this always fooled me. I started with a queen in the corner as a kid and got run around, but then as an adult I recognized the virtue of going for an easy solution and seeing why it didn't work. Restricting the center 16 squares helped a lot--by sheer number, that's 21/23 each queen touches, not 25/27. Also, I didn't understand symmetry arguments e.g. it's useful to see if we can have a queen 2 from any corner, or one 3 from a corner. It's important not to think of this as 'laziness' if we can start building general principles or eliminate enough cases."
-face of loss	"Loss of face means humiliation or loss of respect. A face of loss isn't a real term, but it probably means you're just sad."
-hangman	"The strategy of hangman always interested me. I enjoyed finding tough words or even seeing how people squabbled over the rules: how many misses, etc. Of course, there is One Best Strategy, well, until you are up against people who know tricky words. I remember feeling guilty writing a PERL script to see what words were remaining when I had one guess left in an online game, but it was educational, for all that."
-logic puzzles	"I remember marking up books of logic puzzles but thinking they could never ever be practical. I remember having a grease pen over clear plastic so the books could be reused, but I also remember the patterns geting a bit tedious. It wasn't until someone showed me a sample LSAT years later that I thought, really, these are the same thing. Or it's the same process of elimination. Suddenly lawyers seemed less intimidating."
-match sticks	"I've always enjoyed match stick problems and how some just don't seem likely. While the general trick if not too many are moved is to shift the original picture onto the new one, somehow, there are creative ones with many shifts."
-Nim	"Nim was always the toughest to prove, and my 8th-grade self wiped out in Beyond Zork and I had to watch the trees for hints. Once I learned about Strong Induction, the proof made sense. Though I was still impressed anyone would come up with it."
-out puzzle	"These aren't a pun, but it's something mathy people see a lot of, and motivational speakers tend to abuse it. If you'd like the solution to the four lines to draw to connect all the points, and even other smart-aleck answers, say yes." [note a non-person must come first or Inform thinks it's a thing]
-Towers of Hanoi	"ToH is a basic computer science problem, and I remember someone I respected raving how hard it was, and being disappointed how easy the recursive solution was: N to peg X = n-1 to peg Y, bottom to peg X, n-1 to peg Z. That said, it's just awful in practice."
-river boat	"I remember being fooled by the river boat as a kid and then realizing the moves were forced. I was glad to find some variations and even make a decent one in my experimental game Turn Around for the Apollo 18 tribute. It's not big on story, but I like the puzzles and tricks."
-necklace	"The seven-link necklace really only has three possibilities: center, next to center, and next to edge, the edge being clearly silly. That said, I felt clever being able to work out the two-link problem on my own way back when, so I put it here."
+chess board	"Despite being a really good chess player, this always fooled me. I started with a queen in the corner as a kid and got run around, but then as an adult I recognized the virtue of going for an easy solution (no queens in the center) and seeing why it didn't work."	"Starting by disallowing the center 16 squares helped a lot--by sheer number, that's 21/23 squares each queen sees, not 25/27, and then placing any of the queens in the four 2x2 corners makes rows 3-6 unable to match up. Also, I didn't understand symmetry arguments e.g. it's useful to see if we can have a queen 2 from any corner, or one 3 from a corner. It's important not to think of this as 'laziness' if we can start building general principles or eliminate enough cases."
+face of loss	"Loss of face means humiliation or loss of respect. A face of loss isn't an official idiom, but here it means you're just sad. You've lost some fun and curiosity."	"This is something I didn't discover until release 2. What's the best way for Alec to seem upset? In retrospect, 'a bad face' should've clicked things earlier, but it happened eventually."
 Game Shell	"A shell game is where an operator and possibly an assistant rig a game so that mugs think it's an easy win, but they can't. The most popular one is when they hide a bean under a hollowed shell and shift them around."	"The game shell is a shell game of its own. No matter how much you solve, you won't impress Guy Sweet, and you won't--well--figure the real puzzles you want to, beyond logic etc."
-gesture token	"A token gesture is something done as a bare minimum of acknowledgement."
-Guy Sweet	"Guy Sweet is more of a candy-[a-word] than a sweet guy, but 'sweet guy' is such a terrible compliment as-is. To yourself or others." [start of smart street]
-Rubik's Cube	"The Rubik's Cube is always something I was supposed to be good at. My sister three years older than me bought a solving book I figured I'd be old enough to look at in three years. I never did. Not til I was an adult did I see the methods, and I was surprised how piecemeal and orderly it was. I also remember being very very jealous of Will Smith solving it in an episode of Fresh Prince of Bel Air."
-off tee	"To tee off is to yell or punch out at someone." [start of a round lounge]
-person chair	"A chairperson is someone in charge of things."
-Plan Hatch	"To hatch a plan is to figure a way to do something."
-round screw	"To screw around is to do silly unproductive stuff."
-round stick	"To stick around is to move nowhere."
-Mouth Mush	"A mush-mouth is someone who talks unclearly or uses weak words." [start of tension surface]
-Absence of Leaves	"Leaves of absence means taking time off." [start of variety garden]
-aside brush	"To brush aside is to ignore someone as you move past them."
-back brush	"To brush back is to repel someone or keep them out."
-off brush	"To brush off is to ignore. It's more ignoring someone's ideas than ignoring them fully."
-pocket pick	"A pickpocket is a thief."
-proof of burden	"The burden of proof means: you need to come up with evidence to prove your point."
-Rogue Arch	"An arch-rogue is a big bad guy, obviously inappropriate for early in the story."
-Word Weasel	"A weasel word is something that seems to mean more than it should."
-earth of scum	"Scum of the earth is the worst possible person." [start of vision tunnel]
-Flower Wall	"A wallflower is someone who doesn't participate socially."
-picture hole	"Seeing the whole picture means you see everything."
-Poor Dirt	"Dirt poor means especially not rich."
-Basher Bible	"A bible basher is someone who quotes scripture too much. The reverse means a compendium of ways to try and gain power over people and put them down." [start of pressure pier]
+gesture token	"A token gesture is something done as a bare minimum of acknowledgement."	"There were all sorts of tokens this could have been. I decided on gesture because, well, you get something for doing the bare minimum."
+Guy Sweet	"Guy Sweet is more of a candy-[a-word] than a sweet guy, but 'sweet guy' is such a terrible compliment as-is. To yourself or others."	--
+hangman	"The strategy of hangman always interested me. I enjoyed finding tough words or even seeing how people squabbled over the rules: how many misses, etc. Of course, there is One Best Strategy, well, until you are up against people who know tricky words."	"Hangman was a late edition to release 3. I remember feeling guilty writing a PERL script to see what words were remaining when I had one guess left in an online game, but it was educational, for all that. And so I think it may be rather neat to look at in any case."
+logic puzzles	"I remember marking up books of logic puzzles but thinking they could never ever be practical. I remember having a grease pen over clear plastic so the books could be reused, but I also remember the patterns geting a bit tedious. It wasn't until someone showed me a sample LSAT years later that I thought, really, these are the same thing. Or it's the same process of elimination. Suddenly lawyers seemed less intimidating."	--
+match sticks	"I've always enjoyed match stick problems and how some just don't seem likely. While the general trick if not too many are moved is to shift the original picture onto the new one, somehow, there are creative ones with many shifts."	--
+necklace	"The seven-link necklace really only has three possibilities: center, next to center, and next to edge, the edge being clearly silly. That said, I felt clever being able to work out the two-link problem on my own way back when, so I put it here."	--
+Nim	"Nim was always the toughest to prove, and my 8th-grade self wiped out in Beyond Zork and I had to watch the trees for hints. Once I learned about Strong Induction, the proof made sense. Though I was still impressed anyone would come up with it."	--
+out puzzle	"These aren't a pun, but it's something mathy people see a lot of, and motivational speakers tend to abuse it. If you'd like the solution to the four lines to draw to connect all the points, and even other smart-aleck answers, say yes."	--
+river boat	"I remember being fooled by the river boat as a kid and then realizing the moves were forced. I was glad to find some variations and even make a decent one in my experimental game Turn Around for the Apollo 18 tribute. It's not big on story, but I like the puzzles and tricks."	--
+Rubik's Cube	"The Rubik's Cube is always something I was supposed to be good at. My sister three years older than me bought a solving book I figured I'd be old enough to look at in three years. I never did. Not til I was an adult did I see the methods, and I was surprised how piecemeal and orderly it was. I also remember being very very jealous of Will Smith solving it in an episode of Fresh Prince of Bel Air."	"The Rubik's Cube also has a theme of two things flipped making a big, big difference. That last pair is always a tricky one."
+Towers of Hanoi	"ToH is a basic computer science problem, and I remember someone I respected raving how hard it was, and being disappointed how easy the recursive solution was: N to peg X = n-1 to peg Y, bottom to peg X, n-1 to peg Z. That said, it's just awful in practice."	--
+off tee	"To tee off is to yell or punch out at someone."	-- [start of a round lounge]
+person chair	"A chairperson is someone in charge of things."	--
+Plan Hatch	"To hatch a plan is to figure a way to do something."	"This was the first real 'puzzle,' and it's not meant to be much of a puzzle. But there are plenty of escape the locked room ideas, and so I wanted to show Alec as learning at least a minimum. I was worried the round stick/screw might be too similar, but I really liked the switched where a noun became a verb and vice versa."
+round screw	"To screw around is to do silly unproductive stuff."	--
+round stick	"To stick around is to move nowhere."	--
+Mouth Mush	"A mush-mouth is someone who talks unclearly or uses weak words."	-- [start of tension surface]
+Absence of Leaves	"Leaves of absence means taking time off."	"I wanted Variety Garden to be plain, but I didn't know how to do it without implementation. This looked like a good joke in release 1, but it wasn't until release 2 that I really found the idea of brush, which is hard to tell apart, anyway." [start of variety garden]
+aside brush	"To brush aside is to ignore someone as you move past them."	--
+back brush	"To brush back is to repel someone or keep them out."	--
+off brush	"To brush off is to ignore. It's more ignoring someone's ideas than ignoring them fully."	--
+pocket pick	"A pickpocket is a thief."	"The pocket pick is also about the least possibly valuable item you could steal."
+proof of burden	"The burden of proof means: you need to come up with evidence to prove your point."	"I had the idea of some sort of document early on, and the Burden of Proof always fascinated me as something others needed less than I did."
+Rogue Arch	"An arch-rogue is a big bad guy, obviously inappropriate for early in the story."	--
+Word Weasel	"A weasel word is something that seems to mean more than it should."	"I like stories with talking animals, and at Alec's age, people look down on them, so it made sense to subvert that with a mean talking animal."
+earth of scum	"Scum of the earth is the worst possible person."	-- [start of vision tunnel]
+Flower Wall	"A wallflower is someone who doesn't participate socially."	"I had trouble with what this should be in the Vision Tunnel, but when I found it I realized it showed Alec being social."
+picture hole	"Seeing the whole picture means you see everything."	--
+Poor Dirt	"Dirt poor means especially not rich."	--
+Basher Bible	"A bible basher is someone who quotes scripture too much. The reverse means a compendium of ways to try and gain power over people and put them down."	"I simply can't believe this one took so much to find! The idea is, people who sell you on your own inadequacy are at least as destructive as, well, Bible-Bashers. But they put on a show and make their audience glad THEY'RE not the ones being cut down, yet." [start of pressure pier]
 boo tickety	"Tickety-boo means okay, all right, etc."	"I like the contrast of being told 'Boo!' with the horrible places you're shipped off to, elsewhere. Also, it makes it clear small mistakes are okay."
-spoon table	"A tablespoon is a small measure of something, usually for a recipe."
-Terry Sally	"Terry Sally has two possible translations: salutary or solitary. He is sort of in between salutary (greeting) and solitary (alone) which fits in with how he probably doesn't get to see many people, but he's social when he does."
-trail paper	"A paper trail is evidence in white-collar crimes. People often have to piece it together."
+spoon table	"A tablespoon is a small measure of something, usually for a recipe."	"The table also spoon-feeds you information. Wrong information, but information."
+Terry Sally	"Terry Sally has two possible translations: salutary or solitary. He is sort of in between salutary (greeting) and solitary (alone) which fits in with how he probably doesn't get to see many people, but he's social when he does."	"Terry Sally was just the Howdy Boy before release 3. But I wanted to make the Compound a bit more personable."
+trail paper	"A paper trail is evidence in white-collar crimes. People often have to piece it together."	--
 condition mint	"Mint condition is brand new."	"The mint was buggy until release 3, but it was one of the first foods that made me realize Meal Square could be an important location." [start of meal square]
 cutter cookie	"Cookie-cutter means predictable and formulaic."	"I wound up getting rid of most of the foods I planned for release 1, but I added the whole 'Alec goes bad' on a whim and it went pretty well."
-gagging lolly	"Lollygagging is waiting around."	"This is one of the worst puns with the silliest deaths."
-greater cheese	"A cheese grater chops up cheese. Also, you do become a bit of a grater if you eat it."
-iron waffle	"A waffle iron is what you put batter in to make a waffle. But a waffle is also what you use when you don't know what to say. An iron waffle, then, would be something to say when you don't know what to say--but it is hard to take down."
-Off Cheese	"To cheese someone off is to annoy them."	"I was pleased to see Hulk Handsome wrote Cheesed Off, which I think you'll like, too. Thankfully I checked PC into github before Ryan Veeder's Exposition for Good Interactive Fiction, so I think we can say the two of us both had our own takes on the pun."
-picture of a dozen bakers	"A baker's dozen is thirteen, thus counting for the illusion."	"I have no idea what this illusion looks like, but I wanted to put it there."
-Tray A	"Just a tray, contrasted with Tray B."
+gagging lolly	"Lollygagging is waiting around."	"This is one of the worst puns with the silliest deaths. I'm proud of it!"
+greater cheese	"A cheese grater chops up cheese. Also, you do become a bit of a grater if you eat it."	"This was the second of the post-comp bad foods added. It occurred to me that there are lots of ways to be a jerk."
+iron waffle	"A waffle iron is what you put batter in to make a waffle. But a waffle is also what you use when you don't know what to say. An iron waffle, then, would be something to say when you don't know what to say--but it is hard to take down."	"Alec of course would not have the confidence to make or use an iron waffle."
+Off Cheese	"To cheese someone off is to annoy them."	"I was pleased to see Hulk Handsome wrote Cheesed Off, which I think you'll like, too. Thankfully I checked PC into github before Ryan Veeder's Exposition for Good Interactive Fiction, so I think we can say the two of us both had our own takes on the pun. This was the first of the post-comp bad foods added. It's a failure for Alec in the sense that he becomes a complainer he can be better than."
+picture of a dozen bakers	"A baker's dozen is thirteen, thus counting for the illusion."	"I have no idea what this illusion would look like if drawn, but I wanted to put it there."
+points brownie	"Brownie points are uinofficial credit for helping or flattering someone."	"It occurred to me it could be horrible for Alec to try and make friends with the [bad-guy] and thus get the totally wrong ending. I think there's a lot of that, that people like the [bad-guy] try to convince you they're on your side, and so forth. Writing the ending squicked me out more than I thought it would."
+Tray A	"Just a tray, contrasted with Tray B."	--
 Tray B	"Eating anything on it may betray who you really are."	"This is another thing that dropped out in release 2 and I couldn't believe it was that simple. People were disappointed I didn't clue that it was such a bad idea to eat the Cutter Cookie."
-up gum	"To gum up is to slow down a process, often to a halt."
-dreadful penny	"A penny dreadful is a trashy novel." [start of down ground]
+up gum	"To gum up is to slow down a process, often to a halt. I do like cheap silly deaths, too."	"It's always tough to judge if something is too obvious to include or too obvious not to. The main thing is, make sure you do it right with a few side joke riffs. I'm pleased with how I moved in the law enforcement here."
+dreadful penny	"A penny dreadful is a trashy novel."	-- [start of down ground]
 Fritz the On	"On the fritz means on the blink."	"I'm proud of finding this preposition at the end. I do like poking fun at thinking you're cosmically in tune but aren't. He's probably the NPC I have the most affection for, whether or not you actually do anything to save him."
-warmer bench	"A bench warmer is someone who doesn't get into the action, especially in a sports game."
-fly bar	"A barfly is someone who goes around to bars and gets drunk." [start of joint strip]
+warmer bench	"A bench warmer is someone who doesn't get into the action, especially in a sports game."	"This may have been fueled by the sleep I needed trying to meet the IFComp deadline. But I've always wanted to try writing a side-dream world, and the idea of SLEEPing into the tense future/past/perfect came quite early on."
+fly bar	"A barfly is someone who goes around to bars and gets drunk."	"This was a candidate for the bar name, but it seemed too obvious." [start of joint strip]
 Minimum Bear	"Bare minimum is the very least you need to do to get by."	"The old Office Space routine about the bare minimum has stayed with me, especially because I worried about doing the bare minimum to seem I wasn't doing the bare minimum."
 Pigeon Stool	"A stool pigeon is someone who tattles."	"The Stool Toad came first, but there was the question of what he sat on."
 stickweed	"Stickweed is a generic term for wild plants with various odd fruit, like ragweed (thanks, dictionary.com)."	"I can't believe it took me three releases to find this! It's a nice little cheapo, though."
 Stool Toad	"A toadstool is a mushroom."	"The ST has no proper name because he is a shadowy authority figure. Plus, he's very lazy, just sitting there."
-Ally Stout	"A stout ally is someone who is on your side no matter what. Ally is, I'm afraid, a bit of a fake." [start of soda club]
-cooler wine	"A wine cooler is very low in alcohol content."
-Erin Sack	"Saccharine means uncomfortably sweet."
-haha brew	"Brouhaha is a commotion or noise."	"Puns make me giggle much more than alcohol ever could."
-Rehearsal Dress	"A dress rehearsal is the final staging of the play before the audience sees it."
-Cain Reyes	"To raise Cain is to be loud." [start of nominal fen]
-Dandy Jim	"Jim Dandy is something excellent."
+Ally Stout	"A stout ally is someone who is on your side no matter what. Ally is, I'm afraid, a bit of a fake."	"The Punch Sucker was the bartender's name through release 2, but it always felt a bit contrived and more like a customer. Ally's name makes it obvious he's, well, on everyone's side." [start of soda club]
+cooler wine	"A wine cooler is very low in alcohol content."	"I think there's no shortage of silly drink names, and I remember high school days of people poking someone for actually getting wasted on wine coolers."
+Erin Sack	"Saccharine means uncomfortably sweet."	"As much as I liked Liver Lily, this captures things better. Both men and women can be saccharine like this to get you to agree with them. I suppose Aaron Sack would've been an alternative, too."
+haha brew	"Brouhaha is a commotion or noise."	"Puns make me giggle much more than alcohol ever could. Also, the sort of laughs alcohol gives are frequently not too pleasant."
+Rehearsal Dress	"A dress rehearsal is the final staging of the play before the audience sees it."	"I'm generally suspicious of fashion that Just Seems Right. The dress is intended to be tasteful but maybe too much in the general style."
+Cain Reyes	"To raise Cain is to be loud."	-- [start of nominal fen]
+Dandy Jim	"Jim Dandy is something excellent."	--
 jerks	"[if allow-swears is false]A collective groan is when everyone groans at once[else]. A circle jerk is people getting together and stroking each other's egos. Or, well, something else[end if]. Pick one of the [j-co] by name to see details."	"Figuring out jerk names that fit the puzzle was an arduous thing, and I had many false starts in the final week before IFComp. The result was probably a few actual bugs slipping through."
-Paul Kast	"To cast a pall is to give an air of unhappiness."
-Quiz Pop	"A pop quiz is when a teacher gives an unannounced quiz on materials."
-Silly Boris	"Bore us silly."
-Warm Luke	"Lukewarm is not really warm."
-Warner Dyer	"A dire warner has a message for you to keep away."
-Wash White	"To whitewash is to wipe clean."
+Paul Kast	"To cast a pall is to give an air of unhappiness."	--
+Quiz Pop	"A pop quiz is when a teacher gives an unannounced quiz on materials."	"Of course, we've all had caffeinated cram-sessions for a big paper or exam. Here this is a reward for stuff done."
+Silly Boris	"Bore us silly."	--
+Warm Luke	"Lukewarm is not really warm."	--
+Warner Dyer	"A dire warner has a message for you to keep away."	--
+Wash White	"To whitewash is to wipe clean."	--
 chase paper	"A paper chase is excessive paperwork. In this case, work not strictly needed to reach Cute Percy."	"I love puns riffing on bureaucracy, and this was a good one. I'm pleased with this puzzle because it's a simple parity one based on actual physical reality. Too often you can go diagonally 1.4 times as fast as straight. This is neat for Reti's endgame puzzle, but not physically realistic. And I liked having a realistic puzzle in the middle of the abstract murk." [start of chipper wood]
-Cute Percy	"To persecute someone is to make them suffer for who they are[if cute percy is in lalaland]and right per se means literally right, but that's not what matters[end if]."
-bad face	"It will help you face a bad...something." [start of the belt below]
-Insanity Terminal	"Terminal insanity is having no chance to regain sanity[if terminal is in lalaland]. As for the puzzle: it is inspired by Jim Propp's Self-Referential Aptitude Test, which is well worth a look, but a good deal more complex[end if]."
+Cute Percy	"To persecute someone is to make them suffer for who they are[if cute percy is in lalaland]and right per se means literally right, but that's not what matters[end if]."	"Percy was the Assassination Character pre-release 3, but the problem is, he never got close to killing anyone. Still, the name gave me laughs."
+bad face	"The bad face will help you face a bad...something. Also, 'bad' in the Michael Jackson sense of, I did/can do something cool."	"This is meant to show Alec's emotional development. He's figured out something tough, and he's confident about that. But he also doesn't need this to go through the Compound." [start of the belt below]
+Insanity Terminal	"Terminal insanity is having no chance to regain sanity[if terminal is in lalaland]. As for the puzzle: it is inspired by Jim Propp's Self-Referential Aptitude Test, which is well worth a look, but a good deal more complex[end if]."	"I always wanted to write a puzzle like this, but yeah, in release 1, it was dropped in there."
 crocked half	"Half-crocked means drunk."	"This was a bugging doodle for a while until I found something better. You need a lot of placements like that, sometimes." [start of bottom rock]
-legend of stuff	"The Stuff of Legend means a book about great tales of yore, as opposed to the scribble-hint-book you get."	"This was another thing that sounded great but didn't seem to fit in anywhere until I decided to go ahead with the puzzle. It appeared in release 2, taking the functionality of the note crib."
-note crib	"To crib notes is to copy from someone who was at a lecture."
+legend of stuff	"The Stuff of Legend means a book about great tales of yore, as opposed to the scribble-hint-book you get."	"This was another thing that sounded great but didn't seem to fit in anywhere--or seemed too obvious--until I decided to go ahead with the puzzle. It appeared in release 2, taking the functionality of the note crib."
+note crib	"To crib notes is to copy from someone who was at a lecture."	--
 Lee Bull	"A bully is someone who hurts others physically or emotionally. The opposite of Lee Bull. Sid Lew is referring to 'bull' as his last name as what is to be made fun of. Also, fool-proof means no way to break it, but a Proof Fool could be someone who relies too much on a sure thing before doing anything."	"I kept the Truth Home names abstract and was pleased when Lee Bull dropped out." [start of truth home]
 Sid Lew	"Lucid means clear and sensible. Sid Lew relies on tricks to win his conversation."	"I figured Sid Lew while trawling for Slicker City author names, and then I said, well, he's good enough to be a character. When I re-vetted PC, I noticed the Truth Home, which was implemented near the end of release 1, still had abstract names. So I got Sid. But that left the Proof Fool needing a name."
 Trade of Tricks	"Tricks of the Trade are things that outsiders to a specialty probably don't know that are a bit out of the range of common sense."	"I've read a lot of tricks-of-trade books but most of them are about how you can sucker other people. I have read very few how not to get suckered books, so I decided to put one in here."
-Cold contract	"To contract a cold is to get sick. Also, the contract is pretty cold-blooded." [start of scheme pyramid]
+Cold contract	"To contract a cold is to get sick. Also, the contract is pretty cold-blooded."	-- [start of scheme pyramid]
 Deal Clothes	"To close the deal means to agree to terms."	"I have a special love for the homonyms I found. They required leaps on my part, and I searched them out aggressively."
-fund hedge	"A hedge fund is for super rich people to get even richer."
-Labor Child	"Child labor is about putting children to tough manual labor."
-money seed	"Seed money helps an investment. Of course, very few seeds are shaped like a dollar bill."
-Finger Index	"The index finger is the one next to your thumb. Also, to finger someone means to point them out." [start of accountable hold]
-Sound Safe	"Safe, sound means being out of trouble. Also, the safe isn't very sound, as it's easy to open."
+fund hedge	"A hedge fund is for super rich people to get even richer."	--
+Labor Child	"Child labor is about putting children to tough manual labor."	"I remember many classmates from well-off families who just knew how to manipulate others to get what they wanted. The labor child is like that. The person can hate or love school. The important thing is to be able to play that confidence game."
+money seed	"Seed money helps an investment. Of course, very few seeds are shaped like a dollar bill."	--
+Finger Index	"The index finger is the one next to your thumb. Also, to finger someone means to point them out."	"We've all had secret notes and tabs on everyone else in junior high, and we've been on them or worried about them. This was a sort of slam book. I do think that having tabs on others is something we carry to adulthood, and it helps more in a career than it should." [start of accountable hold]
+Sound Safe	"Safe, sound means being out of trouble. Also, the safe isn't very sound, as it's easy to open."	--
 Story Fish	"A fish story is a long winding story."	"The story fish was based on Billy Big Mouth Bass and meant to be as funny-if-it's-not-real." [start of disposed well]
 yards hole	"The whole nine yards means everything."	"I have a feeling I missed some idioms, but this one I like because it really can be visualized."
-blossoms	"Now that the blossoms are in place, well, it'd be mean to say a blossom is 'some blah.' Oops." [start of classic cult]
+blossoms	"Now that the blossoms are in place, well, it'd be mean to say a blossom is 'some blah.' Oops."	"Flowers are always a safe bet for showing life and decencty and all. Just don't make it too cheesy." [start of classic cult]
 Faith Goode	"Good faith."	"Coding Faith and Grace as doing the same thing was something I didn't do in release 1, but then it was a matter of saying if the second noun is Grace, then the second noun is Faith. Or is it the other way around? Well, in either case, if I'd given myself the time, I'd have figured it out."
 Googly bowl	"To bowl a googly is to throw someone for a loop."	"I remember a Jerry Seinfeld American Express commercial where he looks to 'learn the lingo' and winds up saying 'That was a wicked googly!' It's still stuck with me, that and the one where goes over $20 filling up for gas but then flashes his card triumphantly. Oh, and the one where he has 31 cents to buy a stamp and has everything except an extra penny."
-Grace Goode	"Good grace."
-mind of peace	"Peace of mind means being able to think."
-Intuition Counter	"Counterintuition means the opposite of what you'd expect. Wait, that could mean counterintuition could mean something crazy. If something's counterintuitive, it works the opposite way you'd expect it to on first glance." [start of judgment pass]
+Grace Goode	"Good grace."	--
+mind of peace	"Peace of mind means being able to think."	--
+Intuition Counter	"Counterintuition means the opposite of what you'd expect. Wait, that could mean counterintuition could mean something crazy. If something's counterintuitive, it works the opposite way you'd expect it to on first glance."	"There are lots of counters that could've been included, but I like how this makes the person intuiting unapproachable, whether or not their assumptions make immediate sense." [start of judgment pass]
 Officer Petty	"A petty officer is actually reasonably far up in the hierarchy, the equivalent of a sergeant."	"This name made me giggle when I thought of it, and it still does. Perhaps it's too obvious. OP has no first name because he is a Shadow Authority Figure."
-Ability Suit	"Suitability means appropriateness. And the suit is not appropriate for the monkey." [start of idiot village]
-Business Monkey	"Monkey business is general silliness."
-fourth-blossom	"To blossom fourth is to grow."
-lifted face	"Facelifted means you had surgery done on your face, though Alec's lifted more naturally."
-Sly Moore	"More sly = slyer = cleverer."
+Ability Suit	"Suitability means appropriateness. And the suit is not appropriate for the monkey."	"The suit is, of course, contrastable with the Labor Child's clothes as a bit of a hint." [start of idiot village]
+Business Monkey	"Monkey business is general silliness."	--
+fourth-blossom	"To blossom fourth is to grow."	"I have a sense I left a few number pun/flips on the table, but I got this one, I think."
+lifted face	"Facelifted means you had surgery done on your face, though Alec's lifted more naturally."	--
+Sly Moore	"More sly = slyer = cleverer."	"I had a lot of fun putting his random clumsy acts together, and I hope you had fun reading them"
 Thoughts Idol	"Idle thoughts, e.g., a wandering mind, are what it purports to oppose."	"I was disappointed the Compound didn't have enough surveillance, and I wanted to put it in the Village, but I didn't want it to just be there. And I wanted a way to beat it."
-Trap Rattle	"A rattle trap is a cheap car."
+Trap Rattle	"A rattle trap is a cheap car."	"This felt like the weakest of my items to barter until I realized what it could be used for. I like that, apparently, rattles are for babies, but it shuts up petulant attention-hogging."
 Fright Stage	"Stage fright is being scared to get out in front of a crowd."	"I've never been a fan of scaring someone into action. I often feel that people who say they are don't really want to help someone, or never learned it doesn't work." [start of speaking plain]
-Turk Young	"A Young Turk is a brave rebel."
-Uncle Dutch	"A Dutch Uncle gives useful advice."
-relief light	"Light relief would be a silly joke." [start of temper keep]
-Spleen Vent	"To vent one's spleen is to let our your anger."
-Volatile Sal	"Sal volatile is given to wake up unconscious people with its smell."	"Paul Lee mentioned that Volatile Sal was the person he felt most like out of all the NPC's, and I bet he is not the only one. We've all complained about something without doing anything."
+Turk Young	"A Young Turk is a brave rebel."	"I also thought of the YouTube channel Young Turks, where sometimes they cut logical corners for stances I agree with or generally want to."
+Uncle Dutch	"A Dutch Uncle gives useful advice."	"This was an idiom I wasn't aware of, but one thing that drives me up the wall is the whole good cop bad cop act, especially where the good cop isn't very good. That's the case here."
+relief light	"Light relief would be a silly joke."	-- [start of temper keep]
+Spleen Vent	"To vent one's spleen is to let our your anger."	"I knew you needed to stuff something down that vent for a while, but I didn't know what."
+Volatile Sal	"Sal volatile is given to wake up unconscious people with its smell."	"Paul Lee in his review mentioned that Volatile Sal was the person he felt most like out of all the NPC's, and I bet he is not the only one. We've all complained about something without doing anything."
 Drug Gateway	"A gateway drug leads you to bigger drugs, but here, the gateway may be blocking you from them."	"Drug humor can be in iffy taste, and making Alec a mule felt iffy, but he does need to learn there are some rules worth breaking, or things worth trying. Besides, Fritz deserves a bit of help." [start of walker street]
-long string	"To string along someone is to keep them trying or asking for more."
-Mistake Grave	"A grave mistake is a very bad mistake indeed."
-Art Fine	"Why, fine art, of course. Highfalutin['] stuff, not easy to understand." [start of discussion block]
+long string	"To string along someone is to keep them trying or asking for more."	"The string obviously had possibilities for moving somewhere. I thought about making a maze with a string, but Jim Aikin sort of did that in [i]The White Bull[r]."
+Mistake Grave	"A grave mistake is a very bad mistake indeed."	"The mistake grave is deliberately nasty to people who don't take enough risks. That's their fault, but it is also the fault of people who take a lot of risks and are jerks about it and set bad examples and convince you you have to be exciting to take big risks."
+Art Fine	"Why, fine art, of course. Highfalutin['] stuff, not easy to understand."	"I figured Art out early, but he needed a companion. Phil balanced him nicely and I realized books vs music was a good comparison." [start of discussion block]
 Book Bank	"A bankbook records numbers and is very un-literary."	"This was a book crack, but a bank feels more contrary to literature."
-Harmonic Phil	"Many orchestras bill themselves as philharmonic. I suppose they could be anti-harmonic, but an Auntie character felt a bit stereotyped, and Auntie feels a bit too charged. Also, Phil Gotsche becomes got your fill, but he doesn't ever get his fill of talking."
-Poetic Wax	"To wax poetic is to, well, rhapsodize with poems or song or whatever. It's slightly less gross than wax."
-Song Torch	"A Torch Song is about looking back on a love you can't quite let go of. The Song Torch is more cynical than that, being a bit rougher on its subjects, and, well, actually torching them."
-Poory Pot	"Potpourri, which smells good. Of course, I've read about pipe and cigar snobs who babble on about aromas and such, and apparently there are marijuana snobs too in this progressive time! Perhaps there always were." [start of pot chamber]
-Pusher Penn	"A pen pusher is someone working at a boring job."
-wacker weed	"A weed whacker is the slang for a gardening tool to cut weeds."
+Harmonic Phil	"Many orchestras bill themselves as philharmonic. I suppose they could be anti-harmonic, but an Auntie character felt a bit stereotyped, and Auntie feels a bit too charged. Also, Phil Gotsche becomes got your fill, but he doesn't ever get his fill of talking."	--
+Poetic Wax	"To wax poetic is to, well, rhapsodize with poems or song or whatever. It's slightly less gross than wax."	"There are quack creams for everything these days. Why not for creativity, too? And why not have it work in an imaginary land?"
+Song Torch	"A Torch Song is about looking back on a love you can't quite let go of. The Song Torch is more cynical than that, being a bit rougher on its subjects, and, well, actually torching them."	"This was the Song Swan in release 1, which was something, but I think the Song Torch is a bit more focused on pop songs, and besides, I already had a mechanical talking animal with the Story Fish."
+Poory Pot	"Potpourri, which smells good. Of course, I've read about pipe and cigar snobs who babble on about aromas and such, and apparently there are marijuana snobs too in this progressive time! Perhaps there always were."	"I'm aware of the mispronunciation, but when I was a kid, that's how I mispronounced it, too." [start of pot chamber]
+Pusher Penn	"A pen pusher is someone working at a boring job."	"We don't know Penn's first name. It could be Mark Penn, but that name was a bit too famous--pollster for Hillary Clinton. I think he's shadowy enough, as drug dealers can be, that no first name is appropriate."
+wacker weed	"A weed whacker is the slang for a gardening tool to cut weeds."	"I like the thought of poor Fritz reduced to buying generics, though I suspect he doesn't have a sophisticated palate. It took a while before I accepted that I was going to put drugs in my game, but the more I've learned of the War on Drugs, the more I've seen it's not really about health--and the dealers often aren't really concerned much with clients['] rights or safety."
 Language Machine	"Machine Language is very low-level, unreadable (without training) code of bits. No English or anything."	"Some people objected to the machube as being about parser vs. choice, but I tried largely to stay away from that. I just liked the image of making a machine happy. And in general I feel it's better to find what sort of game you can write that hasn't been written yet, instead of worrying what art can or should be. I hoped the general silliness would make this clear, but in release 2 I tried to touch things up to avoid misunderstandings." [start of standard bog]
-Trick Hat	"A hat trick, in hockey or soccer, is scoring three times."
-Brother Big	"Big Brother is the character from Orwell's 1984." [start of questions field]
-Brother Blood	"A blood brother is someone related by blood or who has sworn an oath of loyalty to someone else."
-Brother Soul	"A soul brother is one who has very similar opinions to you."
+Trick Hat	"A hat trick, in hockey or soccer, is scoring three times."	"This was originally just lying around, then you wore it to do something--but I wanted Alec not to have to rely on any tricks to beat the [bad-guy]."
+Brother Big	"Big Brother is the character from Orwell's 1984."	-- [start of questions field]
+Brother Blood	"A blood brother is someone related by blood or who has sworn an oath of loyalty to someone else."	--
+Brother Soul	"A soul brother is one who has very similar opinions to you."	--
 Buddy Best	"A best buddy is your favorite friend."	"Buddy Best is probably my favorite bad guy besides the Baiter Master. Of course, his 'gift' is really just a self-promotional item." [start of court of contempt]
-long tag	"To tag along is to follow behind."
-the Reasoning Circular	"Circular Reasoning is, for instance, I'm smart because I'm clever because I'm smart."
-against rails	"If someone rails against something, they're upset with it." [start of freak control]
-Baiter Master	"[if allow-swears is true]Masturbater is someone who--pleasures himself, and it's sort of humblebragging, because the Baiter Master is also great at winning arguments by tactics like, well, playing dumb[else]Messiah Complex means someone believes they're the chosen one, but Complex Messiah could mean they'll save you, but it's not that easy[end if]."
-call curtain	"A curtain call is when someone comes back out after lots of applause."
-frenzy feed	"A feed(ing) frenzy is a vicious attack, physical or emotional, by animal predators or people."
-incident miner	"A minor incident is not a big deal, but the incident miner makes a big deal of small things."
-Language Sign	"Sign language is how people communicate with the deaf."
+long tag	"To tag along is to follow behind."	"Between this and a long string, I thought I overused long in the flips, so I was glad I found the Circular."
+the Reasoning Circular	"Circular Reasoning is, for instance, I'm smart because I'm clever because I'm smart."	"This might be my favorite flip. It means the obviousd of what you said, and also it rationalizes seeing what you want to see."
+against rails	"If someone rails against something, they're upset with it."	"These were in the Variety Garden until release 2, when I realized they'd be better off somewhere more mechanical--oh, and I found the brush, too." [start of freak control]
+Baiter Master	"[if allow-swears is true]Masturbater is someone who--pleasures himself, and it's sort of humblebragging, because the Baiter Master is also great at winning arguments by tactics like, well, playing dumb[else]Messiah Complex means someone believes they're the chosen one, but Complex Messiah could mean they'll save you, but it's not that easy[end if]."	"I had the idea for the bad guy early on, and I wanted to make sure he wasn't anyone specific, though of course certain patterns you see among annoying people need to be exposed."
+call curtain	"A curtain call is when someone comes back out after lots of applause."	--
+frenzy feed	"A feed(ing) frenzy is a vicious attack, physical or emotional, by animal predators or people."	--
+incident miner	"A minor incident is not a big deal, but the incident miner makes a big deal of small things."	--
+Language Sign	"Sign language is how people communicate with the deaf."	"The language sign is pretty forceful. Plus, I wanted another easy way to tell the player what to do, though they could look around if they wanted to."
 list bucket	"A bucket list has things to do before you die."	"This was a big engine in pushing changes for release 2. The [bad-guy] was just sort of there in release 1. But I spruced him up, and I needed something plausible that didn't throw you the list of items to look at too directly."
-shot screen	"A screenshot is a graphical capture of what's on your computer screen at the moment."
-Twister Brain	"The opposite of a brain twister, where someone derives a conclusion from a fact, the brain has a set conclusion and twists and weights facts to line up with them."
-Witness Eye	"Someone at the scene of the crime."
+shot screen	"A screenshot is a graphical capture of what's on your computer screen at the moment."	--
+Twister Brain	"The opposite of a brain twister, where someone derives a conclusion from a fact, the brain has a set conclusion and twists and weights facts to line up with them."	--
+Witness Eye	"Someone at the scene of the crime."	--
 worm ring	"A ringworm is a form of parasite."	"This was originally the wood worm, and it needed to become a whole worm, but I didn't see how to do it. I decided eventually to say it was a whole worm, but you needed to un-bend it, somehow." [start of out mist]
 hammer	"The hammer can be three things[ham-desc]."	"Figuring what the hammer should be was a design puzzle for sure. I got a lot of bad puns from it, but the idea of actually having a puzzle that uses word-flipping seemed like a nice way to end the game." [start of airy station]
 lock caps	"I THINK YOU KNOW WHAT CAPS LOCK IS, BUT HERE'S A DEMONSTRATION OF WHAT HAPPENS IF YOU LEAVE IT ON."	"I love a joke about all caps, and I needed some way to prevent you from getting in the carriage immediately."
@@ -9851,6 +9852,9 @@ bm-tribute	"'There will be. Just--first things first. Stability. We almost got t
 bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Well. I didn't want to do it, but you made me put on my [activation of face facts]facts face. Think you can do better? Have at it! You don't listen to your [activation of half right]right half...makes you miss obvious things others see immediately. Always have, always will. [activation of see you later]Later, you see...' The Baiter Master storms out, and he must have had a remote, because you're locked in![wfk][paragraph break]You search frantically. There must be some way to communicate...and you dig around until you find the [activation of wire fraud]Fraud Wire! Meant to 'remind' citizens they aren't as nice as they think they are, it now encourages them to get mad. The Goods get their cult to help. The [j-co] even chip in, too. Then you . Then, for kicks, [bad-guy-2] pretending to be the [bad-guy] and you prank him. It's--there's so much to do, questions you never asked. Mark Black is on his way--but so are the [bad-guy]'s allies! You hear Brother Foster say, well, I knew they were flaky, but that's what you GET when you try to give them an important position in life, and [activation of Admiral Vice]Admiral Vice will straighten out him--AND them.[wfk]Yes. That must be Admiral Vice.[paragraph break]'A danger not just to the Problems Compound but to Slicker City[activation of slicker city]! There's only one place for you.'[wfk]"
 bm-bye	"'You're not going anywhere.' And he's right. But it's not out totally out of fear, now."
 
+already-good is a truth state that varies.
+already-great is a truth state that varies.
+
 after quipping when qbc_litany is table of baiter master talk:
 	if current quip is bm-help:
 		enable the bm-fetch quip;
@@ -9870,6 +9874,18 @@ after quipping when qbc_litany is table of baiter master talk:
 		else:
 			d "trib [if bm-tribute is talked-thru]1[else]0[end if]";
 			d "hunter/buster [if bm-so-bad2 is talked-thru]1[else]0[end if]";
+	choose-final-room;
+	
+to choose-final-room:
+	let gg be indexed text;
+	now gg is "good";
+	choose row with brief of gg in table of vu;
+	if found entry is true:
+		now already-good is true;
+	now gg is "great";
+	choose row with brief of gg in table of vu;
+	if found entry is true:
+		now already-great is true;
 	if current quip is bm-fear:
 		terminate the conversation;
 		if thoughts idol is in lalaland:
@@ -9877,7 +9893,7 @@ after quipping when qbc_litany is table of baiter master talk:
 			now player has hammer;
 			move player to Airy Station;
 		else:
-			say "'Where? In the BREAK JAIL[activation of break jail]!'[paragraph break]Could people who yell that loud REALLY be that wrong?  You keep a straight face, even as he booms '[activation of zeroin]IN, ZERO!' And your plan to sneak out works well enough, you're way ahead of the guards when they give chase. There's a mist ahead--maybe they'll lose you! But you've done even better. 'The out mist!' they yell. 'People eventually leave there to get back to real life.'";
+			say "'Where? In the BREAK JAIL[activation of break jail]!'[paragraph break]Could people who yell that loud REALLY be that wrong?  You keep a straight face, even as he booms '[activation of zeroin]IN, ZERO!' Which helps you focus more than you thought you could on how to get out. You're way ahead of the guards when they give chase. There's a mist ahead--maybe they'll lose you! But you've done even better. 'The out mist!' they yell. 'People eventually leave there to get back to real life.'";
 			move player to Out Mist;
 
 chapter freakouting
@@ -9949,27 +9965,29 @@ every turn when player is in airy station (this is the hammer clue rule):
 		say "[if no-break is true][paragraph break][end if]You imagine the hammer putting the caps in a wrestling hold[if no-break is true].[no line break][else].[end if]";
 	now no-break is false;
 
+section hammer mistakes
+
+understand "hammer ban" and "ban hammer" as a mistake ("You do feel confident you could now be an Internet forum mod and curb some silliness . But--if you banned the hammer, you'd never get back home.[hammer-clue]") when player is in Airy Station.
+
+understand "blow hammer" and "hammer blow" as a mistake ("[if allow-swears is true]The hammer is small enough to put in your mouth, but, no. This isn't that kind of game[else][one of]You blow on the hammer and wipe it off. It looks nice and shiny[or]You already cleaned the hammer a bit[stopping].[hammer-clue]") when player is in Airy Station.
+
 understand "hammer hammer" as a mistake ("Too brute force. It needs o be a different sort of hammer.[hammer-clue]") when player is in Airy Station.
-
-understand "hammer yellow" and "yellow hammer" as a mistake ("You don't need to be around birds, and it'd be hypocritical to cut people down for their fears.[hammer-clue]") when player is in Airy Station.
-
-understand "man hammer" and "hammer man" as a mistake ("So, this game isn't badly cartoonish enough for you?[hammer-clue]") when player is in Airy Station.
 
 understand "head hammer" and "hammer head" as a mistake ("You don't need to beat yourself up, or have a vicious predator beat you up, to change the hammer into what you need to.[hammer-clue]") when player is in Airy Station.
 
-understand "ban hammer" as a mistake ("You do feel confident you could now be an Internet forum mod and curb some silliness . But--if you banned the hammer, you'd never get back home.[hammer-clue]") when player is in Airy Station.
+understand "hammer jack" and "jack hammer" as a mistake ("There's probably someone named Jack in the crowd, but even if he deserved it, it'd take too long to go and ask.[hammer-clue]") when player is in Airy Station.
 
-understand "blow hammer" and "hammer blow" as a mistake ("[if allow-swears is true]The hammer is small enough to put in your mouth, but, no. This isn't that kind of game[else][one of]You blow on the hammer and wipe it off. It looks nice and shiny[or]You already cleaned the hammer a bit[stopping].[hammer-clue]") when player is in Airy Station.
+understand "man hammer" and "hammer man" as a mistake ("So, this game isn't badly cartoonish enough for you?[hammer-clue]") when player is in Airy Station.
+
+understand "hammer ninny" and "ninny hammer" as a mistake("This is a nonviolent mistake, and besides, everyone here has been slandered as an idiot, not a ninny.[hammer-clue]") when player is in Airy Station.
+
+understand "hammer sledge" and "sledge hammer" as a mistake("If there were a sledge, you wouldn't want to destroy it. Trust me, I know what I'm doing. And you will, soon, too.[hammer-clue]") when player is in Airy Station.
 
 understand "time hammer" and "hammer time" as a mistake ("A voice says 'STOP!' Your pants momentarily feel baggy. Maybe it doesn't quite need to be that sort of hammer.[hammer-clue]") when player is in Airy Station.
 
 understand "toe hammer" and "hammer toe" as a mistake ("The mentality crowd might enjoy that sort of comic relief, but you wouldn't.[hammer-clue]") when player is in Airy Station.
 
-understand "hammer jack" as a mistake ("There's probably someone named Jack in the crowd, but even if he deserved it, it'd take too long to go and ask.[hammer-clue]") when player is in Airy Station.
-
-understand "hammer ninny" as a mistake("This is a nonviolent mistake, and besides, everyone here has been slandered as an idiot, not a ninny.[hammer-clue]") when player is in Airy Station.
-
-understand "hammer sledge" as a mistake("If there were a sledge, you wouldn't want to destroy it. Trust me, I know what I'm doing. And you will, soon, too.[hammer-clue]") when player is in Airy Station.
+understand "hammer yellow" and "yellow hammer" as a mistake ("You don't need to be around birds, and it'd be hypocritical to cut people down for their fears.[hammer-clue]") when player is in Airy Station.
 
 understand "hammer [text]" and "[text] hammer" as a mistake ("You look at the hammer, hoping it will change, but nothing happens. Maybe another word.[hammer-clue]") when player is in Airy Station.
 
@@ -10637,7 +10655,7 @@ biglaff	anyrule
 "taking the Legend of Stuff after defeating the Thoughts Idol?"	very-good-end rule
 "ENTERing the Return Carriage?"	very-good-end rule
 "(XP/EXPLAIN)ing the lock caps?"	very-good-end rule
-"DROP HAMMER, MAN HAMMER, BAN HAMMER, HAMMER JACK, HAMMER NINNY, HAMMER SLEDGE or HAMMER BLOW in Airy Station?"	very-good-end rule
+"HAMMER BAN, HAMMER BLOW, DROP HAMMER, HAMMER JACK, MAN HAMMER, HAMMER NINNY, HAMMER SLEDGE, HAMMER TIME, HAMMER TOE or HAMMER YELLOW in Airy Station?"	very-good-end rule
 "WORM ROUND in the Out Mist?"	good-end rule
 "LET RING or MASTER RING in the Out Mist?"	good-end rule
 
@@ -10649,10 +10667,12 @@ this is the degen-false rule:
 
 this is the good-end rule:
 	if Out Mist is visited, the rule succeeds;
+	if already-good is true, the rule succeeds;
 	the rule fails;
 
 this is the very-good-end rule:
 	if airy station is visited, the rule succeeds;
+	if already-great is true, the rule succeeds;
 	the rule fails;
 
 book altanswering
@@ -10915,6 +10935,9 @@ this is the swear-see rule:
 	say "[2da]The game warns you might think (off) or say (on) a swear if you try to eat the dirt[line break]";
 	say "[2da]Guy Sweet warns of off-beat types, with profanity on.";
 	say "[2da]The jerks discuss girls (rather badly) if you talk to them before reading the Finger Index. There aren't any profanities here, but they're kind of creepy.";
+	consider the very-good-end rule;
+	if the rule succeeded:
+		say "[2da]HAMMER BLOW or the reverse gives a different response.";
 	say "Welp, that's not much. I planned to have a lot more, but I just got sidetracked with silly stuff like bug fixing and adding to the story, which hopefully gave you less occasion to use profanity. Sorry about that."
 
 escape mode is a truth state that varies.
@@ -11892,11 +11915,35 @@ after reading a command:
 		if the player's command includes "mist":
 			unless the player's command includes "xp" or the player's command includes "explain":
 				say "The mist doesn't seem as important as the ring." instead;
+		if the player's command matches the regular expression "^ring<a-z>":
+			replace the regular expression "^ring" in the player's command with "ring ";
+		if the player's command matches the regular expression "<a-z>ring$":
+			replace the regular expression "ring$" in the player's command with " ring";
+		if the player's command includes "ring" and the player's command includes "the":
+			say "You don't need 'the' here. Just a two-word command.";
+			replace the regular expression "\bthe\b" in the player's command with "";
+		if the player's command matches the regular expression "^worm<a-z>":
+			replace the regular expression "^worm" in the player's command with "worm ";
+		if the player's command matches the regular expression "<a-z>worm$":
+			replace the regular expression "worm$" in the player's command with " worm";
+		if the player's command includes "worm" and the player's command includes "the":
+			note-thes;
+			replace the regular expression "\bthe\b" in the player's command with "";
 	if player is in airy station:
 		if the player's command includes "home hammer" or the player's command includes "away hammer" or the player's command includes "lock hammer":
 			try examining hammer;
 			consider the shutdown rules;
 			the rule succeeds;
+		if the player's command matches the regular expression "^hammer<a-z>":
+			replace the regular expression "^hammer" in the player's command with "hammer ";
+		if the player's command matches the regular expression "<a-z>hammer$":
+			replace the regular expression "hammer$" in the player's command with " hammer";
+		if the player's command includes "hammer" and the player's command includes "the":
+			note-thes;
+			replace the regular expression "\bthe\b" in the player's command with "";
+
+to note-thes:
+	say "You don't need 'the' here. Just a two-word command.";
 
 volume swear deciding
 
@@ -13411,5 +13458,3 @@ carry out jing:
 		now player is in Nominal Fen instead;
 	say "Now that you're in the main area, this command won't let you warp further in your beta testing quest. However, BROBYE will disperse the Brothers, JGO will spoil the [j-co]['] puzzle, and JERK(S)/GROAN(S) will clue it." instead;
 	the rule succeeds;
-
-
