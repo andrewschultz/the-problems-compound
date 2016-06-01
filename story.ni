@@ -192,16 +192,17 @@ when play begins (this is the initialize jerks rule):
 	now next-c of temp-cli is first-cli;
 
 when play begins (this is the sort ALL the tables rule) :
-	sort table of bad guy worries in random order;
-	sort the table of dutch-blab in random order;
-	sort the table of sleep stories in random order;
-	repeat through table of sleep stories:
+	repeat through table of sleep stories: [ok, throw in basic initializations here]
 		if there is no b4-done entry:
 			now b4-done entry is false;
 		if there is no now-done entry:
 			now now-done entry is false;
 		if there is no af-done entry:
 			now af-done entry is false;
+	sort the table of bad guy worries in random order;
+	sort the table of incisive sid viewpoints in random order;
+	sort the table of dutch-blab in random order;
+	sort the table of sleep stories in random order;
 	sort the table of horrendous books in random order;
 	sort the table of horrendous songs in random order;
 	sort the table of jerk-girl-talk in random order;
@@ -4027,14 +4028,12 @@ to decide whether the action is expressionable:
 	decide no;
 
 instead of doing something when second noun is an expr:
-	d "the [noun].";
-	say "You can't do much with that. It's part of you."
+	say "You can't do much with or to the [noun]. It's part of you."
 
 instead of doing something with an expr:
 	if action is expressionable:
 		continue the action;
-	d "the [noun].";
-	say "You can't do much with that. It's part of you.";
+	say "You can't do much with or to the [noun]. It's part of you.";
 
 to say bad-eaten:
 	say "[random badfood in lalaland]"
@@ -7807,16 +7806,44 @@ for writing a paragraph about a person (called arg) in Truth Home:
 	now Lee Bull is mentioned;
 	now Sid Lew is mentioned;
 
-section Sid Lew
+chapter Sid Lew
 
 Sid Lew is a baiter-aligned person in Truth Home. description is "He is wearing a t-shirt with an old car on it."
 
 understand "logical/psycho" and "logical psycho" as Sid Lew.
 
+sid-row is a number that varies.
+
 check talking to Sid Lew:
 	say "'Oh yeah, sure, I bet you have interesting questions. But I've probably heard [']em all before. And I'm giving interesting answers to questions you didn't need to know yet. You might want to just listen.' [weird-hyp]" instead;
 
-section Lee Bull
+every turn when player is in truth home and Sid Lew is in truth home:
+	increment sid-row;
+	if sid-row > number of rows in table of incisive sid viewpoints:
+		now sid-row is 0;
+		say "Sid points out it's really probably better to be a jerk than not, because fake nice is really really creepy. Lee asks if it's the same for fake interesting. There's a long pause.[paragraph break]'Really, Lee, you just proved my point there. What's-your-name, you agree, right?' You're too shocked to respond. 'See? He agrees!'";
+		continue the action;
+	else:
+		choose row sid-row in table of incisive sid viewpoints;
+		say "[sid-sez entry][line break]";
+
+table of incisive sid viewpoints
+sid-sez
+"Sid throws the old chestnut about how immovable objects and unstoppable forces can't both exist at once to prove an omniscient God is a contradiction."
+"Sid proves scientists are lazy because they just aren't making enough elements quick enough. Chiseling from the government, really. Also, scientists are arrogant because they name elements after other scientists and not, like, pop culture."
+"Sid takes an annoying stance showing a political view you're opposed to, then an almost as annoying stance showing one you agree with."
+"Sid wonders why people would spend ten minutes listening to a sermon in church. You mentally calculate how long you've been around him."
+"Sid is sure Evariste Galois was smart to figure out all that stuff by the age of 21, but he was kind of dumb to get killed at 21 too, amirite?"
+"Sid wonders if maybe mathematicians are being lazy about finding a quintic formula, though he can't even remember the quadratic, and he remembers the cubic formula was really messy."
+"Sid doesn't fully believe in Godel's Incompleteness theorem. Perhaps mathematicians aren't trying hard enough to figure things out."
+"Sid has a truly appalling view on taxes. Just when you think you've heard them all, wow."
+"Sid points out the value of figuring out why things are messed up for yourself. Lee Bull asks for a moment about when Sid said...and Sid looks very offended indeed."
+"Sid figures anyone who sells Connect 4 boards is part of a racket, since the game is solved and all, but he has better things to do than read the PROOF, you know."
+"Sid wonders why computers haven't solved Checkers yet. When Lee informs him they already have, Sid wonders why there are still, apparently, checkers tournaments."
+"Sid belittles people who think we can go faster than the speed of light as unscientific and those who can't as uncreative."
+"Sid has harsh words for people who can do too much or too little math in their heads. He's--just about right. He knows, because, well, he has methods."
+
+chapter Lee Bull
 
 Lee Bull is a surveyable person in Truth Home.
 
