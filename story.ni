@@ -985,6 +985,9 @@ rule for deciding whether all includes a thing when dropping:
 	now drop-warn is true;
 	it does not;
 
+check dropping opener eye:
+	say "You can't un-know what you learned from the [bad-eaten].";
+
 check dropping face of loss:
 	say "You're frowning enough, probably, why make it worse?" instead;
 
@@ -1118,7 +1121,7 @@ instead of jumping:
 		try entering yards hole instead;
 	if anno-allow is true:
 		if accel-ending:
-			say "That [random badfood in lalaland] you ate was enough of a mental jump. You don't have time for silly details--well, not until you restart the game." instead;
+			say "That [bad-eaten] you ate was enough of a mental jump. You don't have time for silly details--well, not until you restart the game." instead;
 		say "[one of]You jump farther than you could've imagined[or]You've got the hang of jumping, now[stopping].";
 		if mrlp is Rejected:
 			now jump-to-room is location of player;
@@ -1643,6 +1646,7 @@ carry out taking inventory:
 	now all things carried by the player are marked for listing;
 	now face of loss is not marked for listing;
 	now bad face is not marked for listing;
+	now opener eye is not marked for listing;
 	if number of marked for listing things is 0:
 		say "You're not carrying anything.";
 	else:
@@ -1661,6 +1665,9 @@ after taking inventory:
 	else if player carries face of loss:
 		say "You're wearing a face of loss.";
 		now face of loss is mentioned;
+	else if player carries opener eye:
+		say "Your opener eye is revealing how things really are.";
+		now opener eye is mentioned;
 	if quiz pop is in lalaland and baiter is not in lalaland:
 		say "You also remember that ring-brass number from the Quiz Pop bottle. It may come in handy.[line break]";
 	continue the action;
@@ -2816,10 +2823,10 @@ carry out explaining the player:
 			if Q is not an exp-thing listed in table of explanations:
 				increment count;
 				say "[count]: [Q][if Q is privately-named](privately-named)[end if] ([location of Q]) needs an explanation.";
-			else:
+[			else:
 				choose row with exp-thing of Q in table of explanations;
 				if there is an exp-anno entry:
-					say "[Q] has additional explanation.";
+					say "[Q] has additional explanation.";]
 		if count is 0:
 			say "Yay! No unexplained things.";
 		now count is 0;
@@ -2939,6 +2946,7 @@ gagging lolly	"Lollygagging is waiting around."	"This is one of the worst puns w
 greater cheese	"A cheese grater chops up cheese. Also, you do become a bit of a grater if you eat it."	"This was the second of the post-comp bad foods added. It occurred to me that there are lots of ways to be a jerk."
 iron waffle	"A waffle iron is what you put batter in to make a waffle. But a waffle is also what you use when you don't know what to say. An iron waffle, then, would be something to say when you don't know what to say--but it is hard to take down."	"Alec of course would not have the confidence to make or use an iron waffle."
 Off Cheese	"To cheese someone off is to annoy them."	"I was pleased to see Hulk Handsome wrote Cheesed Off, which I think you'll like, too. Thankfully I checked PC into github before Ryan Veeder's Exposition for Good Interactive Fiction, so I think we can say the two of us both had our own takes on the pun. This was the first of the post-comp bad foods added. It's a failure for Alec in the sense that he becomes a complainer he can be better than."
+opener eye	"An eye-opener is something that makes you realize things. The bad grammar here indicates that your eye, more open, is not really that way, or it's open the wrong way."
 picture of a dozen bakers	"A baker's dozen is thirteen, thus counting for the illusion."	"I have no idea what this illusion would look like if drawn, but I wanted to put it there."
 points brownie	"Brownie points are uinofficial credit for helping or flattering someone."	"It occurred to me it could be horrible for Alec to try and make friends with the [bad-guy] and thus get the totally wrong ending. I think there's a lot of that, that people like the [bad-guy] try to convince you they're on your side, and so forth. Writing the ending squicked me out more than I thought it would."
 Tray A	"Just a tray, contrasted with Tray B."	--
@@ -3987,19 +3995,49 @@ Beginning is a region.
 
 chapter the player's possessions to start
 
-a face of loss is a thing. The player carries a face of loss. description of face of loss is "There are no mirrors, so you can't see it, but it's hard to change."
+section exprs
 
-a bad face is a thing. description is "You can't see it, but you can [i]feel[r] it has a bit more gravitas and confidence."
+an expr is a kind of thing.
 
-a lifted face is a thing. description is "You're feeling pretty good about yourself. Not too good, but you just feel your mouth muscles are a little perkier than normal."
+a face of loss is an expr. The player carries a face of loss. description of face of loss is "There are no mirrors, so you can't see it, but it's hard to change."
 
-understand "face [text]" and "[text] face" as a mistake ("You can't do much to change your face. Well, it can't last. You may need to do something big.")
+a bad face is an expr. description is "You can't see it, but you can [i]feel[r] it has a bit more gravitas and confidence."
+
+a lifted face is an expr. description is "You're feeling pretty good about yourself. Not too good, but you just feel your mouth muscles are a little perkier than normal."
+
+an opener eye is an expr. description is "You can't see it, but it's helping you see things a bit more clearly now you ate the [bad-eaten]."
+
+understand "face [text]" and "[text] face" as a mistake ("You can't do much to change your face. Well, it can't last. You may need to do something big.") when player does not have open eye.
+
+understand "eye [text]" and "[text] eye" as a mistake ("You're already a lot more aware than before you ate the [bad-eaten].") when player has open eye.
 
 rule for deciding whether all includes a face of loss: it does not.
 
 rule for deciding whether all includes a bad face: it does not.
 
 rule for deciding whether all includes a lifted face: it does not.
+
+rule for deciding whether all includes opener eye: it does not.
+
+to decide whether the action is expressionable:
+	if examining, decide yes;
+	if explaining, decide yes;
+	if annoing, decide yes;
+	if dropping, decide yes;
+	decide no;
+
+instead of doing something when second noun is an expr:
+	d "the [noun].";
+	say "You can't do much with that. It's part of you."
+
+instead of doing something with an expr:
+	if action is expressionable:
+		continue the action;
+	d "the [noun].";
+	say "You can't do much with that. It's part of you.";
+
+to say bad-eaten:
+	say "[random badfood in lalaland]"
 
 part Smart Street
 
@@ -5827,7 +5865,7 @@ carry out looking when accel-ending (this is the alec sees the world differently
 	else if player is in Meal Square:
 		say "Back out east now. Time to see the [bad-guy].";
 	else if player is in pressure pier:
-		say "With Terry Sally out of the way, you can go north. You could go back south, east, or west, but really, that [random badfood in lalaland] focused you on what's important.";
+		say "With Terry Sally out of the way, you can go north. You could go back south, east, or west, but really, that [bad-eaten] focused you on what's important.";
 	else if player is in nominal fen:
 		say "The [j-co] aren't hanging around any more, and you don't want to be, either. Not sideways, or back, but north's where it is, with the [bad-guy].";
 	else if player is in speaking plain:
@@ -5978,6 +6016,12 @@ to bad-food-process (as - a truth state):
 			say "Also, you realize how lame it was to be stuffy about swears. You have stuff to swear ABOUT now, see? You didn't used to have it, or any emotional depth, but now, heck yeah! (Okay, you still need some practice.) You realize Hunter Savage was just a pseudonym, and you're pretty sure the Complex Messiah had a coler name, too.";
 			now allow-swears is true;
 	ital-say "This has caused an irreversible personality change in Alec. You may wish to UNDO and SAVE before trying to eat again to restore Normal Alec, even if that's not what he wants right now.";
+	now player has an opener eye;
+	if player has bad face:
+		now bad face is in lalaland;
+	if player has face of loss:
+		now face of loss is in lalaland;
+	
 
 table of accel-text
 accel-place	alt-num	accel-cookie	accel-off	accel-greater	accel-brownie
@@ -6007,7 +6051,7 @@ to check-fast-track:
 		if brownie is in lalaland:
 			say "[line break]Wow! It's pretty cool being around people a little more socially acceptable than you. You're learning so fast!";
 		else:
-			say "Yup. You're not messing around. Chumps need to get out of your WAY. Maybe the Old You, before you ate the [random badfood in lalaland], would've gotten bogged down in a silly puzzle or fetch quest or something, thinking some nonsense like it's the journey that mattered. But the new you--nope, Nope, NOPE.";
+			say "Yup. You're not messing around. Chumps need to get out of your WAY. Maybe the Old You, before you ate the [bad-eaten], would've gotten bogged down in a silly puzzle or fetch quest or something, thinking some nonsense like it's the journey that mattered. But the new you--nope, Nope, NOPE.";
 		now say-old-you is true;
 
 to deal-with-loc:
