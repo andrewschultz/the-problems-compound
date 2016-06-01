@@ -7821,7 +7821,7 @@ every turn when player is in truth home and Sid Lew is in truth home:
 	increment sid-row;
 	if sid-row > number of rows in table of incisive sid viewpoints:
 		now sid-row is 0;
-		say "Sid points out it's really probably better to be a jerk than not, because fake nice is really really creepy. Lee asks if it's the same for fake interesting. There's a long pause.[paragraph break]'Really, Lee, you just proved my point there. What's-your-name, you agree, right?' You're too shocked to respond. 'See? He agrees!'";
+		say "Sid points out it's really probably better to be a jerk than not, because fake nice is really really creepy. Lee asks if it's the same for fake interesting. There's a long pause.[paragraph break]'Really, Lee, you just proved my point there. What's-your-name, you agree, right?' You're too shocked to respond. 'See? He agrees! Now, take a minute to think about how insulting you were.' Sid takes one, too, to crank up his list of 'exciting' theories again.";
 		continue the action;
 	else:
 		choose row sid-row in table of incisive sid viewpoints;
@@ -7831,21 +7831,21 @@ table of incisive sid viewpoints
 sid-sez
 "Sid throws the old chestnut about how immovable objects and unstoppable forces can't both exist at once to prove an omniscient God is a contradiction."
 "Sid proves scientists are lazy because they just aren't making enough elements quick enough. Chiseling from the government, really. Also, scientists are arrogant because they name elements after other scientists and not, like, pop culture."
-"Sid takes an annoying stance showing a political view you're opposed to, then an almost as annoying stance showing one you agree with."
-"Sid wonders why people would spend ten minutes listening to a sermon in church. You mentally calculate how long you've been around him."
+"Sid takes an annoying stance espousing a political view you're opposed to, then an almost as annoying stance explaining one you agree with. You feel biased not being as appalled the second time.""
+"Sid wonders why people would spend ten minutes listening to a sermon in church. You mentally calculate how long you've been around him, or worse, how long Lee has."
 "Sid is sure Evariste Galois was smart to figure out all that stuff by the age of 21, but he was kind of dumb to get killed at 21 too, amirite?"
 "Sid wonders if maybe mathematicians are being lazy about finding a quintic formula, though he can't even remember the quadratic, and he remembers the cubic formula was really messy."
 "Sid doesn't fully believe in Godel's Incompleteness theorem. Perhaps mathematicians aren't trying hard enough to figure things out."
-"Sid has a truly appalling view on taxes. Just when you think you've heard them all, wow."
-"Sid points out the value of figuring out why things are messed up for yourself. Lee Bull asks for a moment about when Sid said...and Sid looks very offended indeed."
+"Sid puts forth an appallingly simplistic view on taxes. Just when you think you've heard them all, wow."
+"Sid points out the value of figuring out why things are messed up for yourself. Lee Bull asks for a moment about when Sid wasn't quite right...and Sid looks very offended indeed."
 "Sid figures anyone who sells Connect 4 boards is part of a racket, since the game is solved and all, but he has better things to do than read the PROOF, you know."
 "Sid wonders why computers haven't solved Checkers yet. When Lee informs him they already have, Sid wonders why there are still, apparently, checkers tournaments."
-"Sid belittles people who think we can go faster than the speed of light as unscientific and those who can't as uncreative."
+"Sid belittles people who think we can go faster than the speed of light as unscientific and those who don't as uncreative."
 "Sid has harsh words for people who can do too much or too little math in their heads. He's--just about right. He knows, because, well, he has methods."
 
 chapter Lee Bull
 
-Lee Bull is a surveyable person in Truth Home.
+Lee Bull is a surveyable person in Truth Home. description is "When he's not trying to wave off Sid Lew's arguments, he's grabbing his head with his hands."
 
 understand "proof fool" and "proof/fool" as Lee Bull when player is in Truth Home.
 
@@ -7856,10 +7856,8 @@ check playing the rattle:
 		say "You don't know if it's worth deliberately annoying anyone here." instead;
 	say "Rattle, rattle. It gives you a headache. Maybe if you were more Type A, it'd drive you totally up the wall." instead;
 
-description is "When he's not trying to wave off Sid Lew's arguments, he's grabbing his head with his hands."
-
 check talking to Lee Bull:
-	say "Before Lee Bull can talk, Sid Lew cuts in. 'Quit distracting him! Y'got anything as interesting and profound to say as me? Well, you couldn't say it right, anyhow,' he roars. 'And if you DO have somewher I'm wrong, well, it's selfish not to let Lee find it himself. He's, like, a truthseeker or something.' [weird-hyp]" instead;
+	say "Before Lee Bull can talk, Sid Lew cuts in. 'Quit distracting him! Y'got anything as interesting and profound to say as me? Well, you couldn't say it right, anyhow,' he roars. 'And if you DO have somewhere I'm wrong, well, it's selfish not to let Lee find it himself. He's, like, a truthseeker or something.' [weird-hyp]" instead;
 
 to say weird-hyp:
 	say "Sid Lew's voice is weirdly hypnotic and rhythmic, for all its bluster. How to cut into it? You could never win an argument."
