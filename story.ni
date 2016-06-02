@@ -263,7 +263,7 @@ when play begins (this is the main story introduction and initialization rule):
 	wfak;
 	say "[line break]That's not a bookmark. It's a ticket to some place called the Problems Compound, just off Smart Street. And it has your name on it! FOR ALEC SMART. Too bad it's missing directions.";
 	wfak;
-	say "[line break]> TAKE TICKET. PUT BOOK ON SHELF. GO GET A DRINK OF WATER";
+	say "[line break][if debug-state is true])[else]>[end if] TAKE TICKET. PUT BOOK ON SHELF. GO GET A DRINK OF WATER";
 	wfak;
 	say "[paragraph break]The end of the hallway keeps getting farther away. You start to run, which makes it worse. You close your eyes until, exhausted, you catch your breath. The hallway's gone.";
 	set the pronoun him to Guy Sweet;
@@ -849,6 +849,8 @@ opt-yet is a truth state that varies.
 
 to inc-max:
 	increment maximum score;
+	increment the score;
+	now the last notified score is the score;
 	if opt-yet is false:
 		ital-say "You just found an optional point that may help get the very best ending. There are [maximum-maximum - maximum score] left.";
 		now opt-yet is true;
@@ -884,9 +886,9 @@ check requesting the score:
 			if your-tix is 4:
 				say "The trail paper is probably what Terry Sally wants." instead;
 			if your-tix > 0:
-				say "You have [your-tix] of the 4 boo-ticketies you need." instead;
+				say "You have [your-tix in words] of the four boo-ticketies you need." instead;
 			say "You need to go looking for trouble. I mean, not too much, but enough to show you're not square." instead;
-	say "You have scored [score] points and need [maximum score] to win[if maximum score < maximum-maximum], or [maximum-maximum] for the best ending[end if]";
+	say "You have scored [score] point[if score is not 1]s[end if] and need [maximum score] to win[if maximum score < maximum-maximum], or [maximum-maximum] for[else]with[end if] the best ending";
 	if number of map-pinged rooms > 1:
 		say ", and you've also been to [number of map-pinged rooms] or [number of rooms in bad ends] rooms";
 	say ".";
@@ -906,6 +908,7 @@ check requesting the score:
 	say "You have currently helped [if bros-left is 3]none[else if bros-left is 0]all[else][3 - bros-left in words][end if] of the Keeper Brothers[if idol is in lalaland], and you've rid Idiot Village of the Thoughts Idol, too![else].[end if]";
 	if number of endfound rooms > 0:
 		say "Also, if you're keeping track of that sort of thing, you've found [number of endfound rooms] bad end[if number of endfound rooms is not 1]s[end if] out of [number of rooms in Bad Ends]: [list of endfound rooms]." instead;
+	the rule succeeds;
 
 chapter waking verb
 
@@ -3495,7 +3498,7 @@ to decide whether verbs-unlocked: [I could probably check "duck sitting" but bes
 	decide no;
 
 to list-debug-cmds:
-	say "[line break]DEBUG COMMANDS: ================[line break][2da]J jumps you to the next bit from the Street, Lounge, Surface or Pier.[line break][2da]MONTY toggles every-move actions like listening and smelling. It may be more for programming testing[line break][2da]ACBYE/CTC/CTP gets rid of Cute Percy and chase paper.[line break][2da]JERK tells you what to do with the [j-co].[line break][2da]JGO gets rid of them[line break][2da]BROBYE kicks the Keeper Brothers out.[2da]VIC gives regular victory, VICX gives extra good victory[line break][2da]JC shows the cheat code for the [j-co][line break]";
+	say "[line break]DEBUG COMMANDS: ================[line break][2da]J jumps you to the next bit from the Street, Lounge, Surface or Pier.[line break][2da]MONTY toggles every-move actions like listening and smelling. It may be more for programming testing[line break][2da]ACBYE/CTC/CTP gets rid of Cute Percy and chase paper.[line break][2da]JERK tells you what to do with the [j-co].[line break][2da]JFIX fixes the [j-co] puzzle[line break][2da]JGO gets rid of them[line break][2da]BROBYE kicks the Keeper Brothers out.[2da]VIC gives regular victory, VICX gives extra good victory[line break][2da]JC shows the cheat code for the [j-co][line break]";
 
 chapter vxing
 
@@ -7831,7 +7834,7 @@ table of incisive sid viewpoints
 sid-sez
 "Sid throws the old chestnut about how immovable objects and unstoppable forces can't both exist at once to prove an omniscient God is a contradiction."
 "Sid proves scientists are lazy because they just aren't making enough elements quick enough. Chiseling from the government, really. Also, scientists are arrogant because they name elements after other scientists and not, like, pop culture."
-"Sid takes an annoying stance espousing a political view you're opposed to, then an almost as annoying stance explaining one you agree with. You feel biased not being as appalled the second time.""
+"Sid takes an annoying stance espousing a political view you're opposed to, then an almost as annoying stance explaining one you agree with. You feel biased not being as appalled the second time."
 "Sid wonders why people would spend ten minutes listening to a sermon in church. You mentally calculate how long you've been around him, or worse, how long Lee has."
 "Sid is sure Evariste Galois was smart to figure out all that stuff by the age of 21, but he was kind of dumb to get killed at 21 too, amirite?"
 "Sid wonders if maybe mathematicians are being lazy about finding a quintic formula, though he can't even remember the quadratic, and he remembers the cubic formula was really messy."
@@ -7876,6 +7879,8 @@ the note crib is a thing in Bottom Rock. it is fixed in place. "[one of]A crib b
 understand "musical notes" as note crib. understand "notes" and "notes crib" as note crib. understand "odd" and "odd crib" as note crib.
 
 description of note crib is "[if Legend of Stuff is in crib]It contains a flipbook called Legend of Stuff and a crocked half. Each looks written on, but you can't make out what's on it[else]Nothing now[end if].".
+
+A procedural rule while examining the note crib: ignore the examine containers rule.
 
 check entering crib:
 	try sleeping instead;
@@ -9157,6 +9162,8 @@ check going nowhere in discussion block:
 
 the poetic wax is in Discussion Block. "Poetic Wax--a whole ball of it--lies here behind [if number of waxblocking people is 0]where Art and Phil used to be[else][list of waxblocking people][end if]."
 
+the indefinite article of poetic wax is "some".
+
 after taking the poetic wax:
 	say "You're worried it might melt or vanish in your hands if you think too much or too little. Poetic things are that way.[paragraph break]Fortunately, it stays firm yet pliable in your hands.";
 
@@ -9494,8 +9501,8 @@ to check-left:
 		say "[random bro in Questions Field] says, 'Well. Guess one of us had to be last. But...think you could help me, too?' You're pretty sure you can.";
 	if bros-left is 0:
 		say "Oh, man! The way north is free now! As the final brother leaves, he turns to say 'Beware...trap...question mark...exclamation mark...'";
-	unlock-verb "fancy";
-	unlock-verb "notice";
+		unlock-verb "fancy";
+		unlock-verb "notice";
 	increment the score;
 
 litany of Brother Big is the table of Brother Big talk.
@@ -12283,7 +12290,7 @@ test 5-big with "n/e/get string/w/s/w/w/put string in hole/n/n/get sound safe/s/
 
 test 5-blood with "n/n/w/talk to buddy/1/1/1/s/s/w/w/n/x hedge/y/s/e/e/e/give tag/e/give seed to monkey/give contract to monkey/w/w/w/w/w/give blossom to faith/e/e/e/n/n/give mind to brother blood/s/s/bro 1"
 
-test 5-soul with "n/e/in/talk to penn/1/2/2/y/2/2/out/w/s/s/e/give weed to fritz/w/n/n/e/in/give penny to penn/out/w/w/put pot in vent/x vent/open vent/e/n/give light to brother soul/s/s/bro 2"
+test 5-soul with "n/e/in/talk to penn/1/2/2/y/2/out/w/s/s/e/give weed to fritz/w/n/n/e/in/give penny to penn/out/w/w/put pot in vent/x vent/open vent/e/n/give light to brother soul/s/s/bro 2"
 
 test 5b with "test 5b-blood/test 5b-soul/test 5-big"
 

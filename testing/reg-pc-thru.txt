@@ -1,11 +1,12 @@
 # reg-pc-thru.txt: tests both walkthroughs
-# For a full description, see <http://eblong.com/zarf/plotex/regtest.html>
+# For a full description, see <http://eblong.com/zarf/plotex/regtest.html> 
 
 ** game: /home/andrew/prt/debug-probcomp.ulx
 ** interpreter: /home/andrew/prt/glulxe -q
 
 * big-main-test
 
+> l
 > l
 /Smart Street
 
@@ -22,16 +23,496 @@
 > play nim
 
 > enter flat
-/Round Lounge
+Round Lounge
 
 > put screw in stick
 
 > climb chair
 
 > hit hatch
-/Tension Surface
+Tension Surface
 
 > w
-/Variety Garden
+Variety Garden
 
 > talk to weasel
+> 1
+> 2
+> 2
+> 2
+> 2
+> 2
+> 2
+> 2
+
+> give token to weasel
+He tucks away the token
+
+> dig
+> e
+> e
+> dig
+> w
+> w
+> give proof to weasel
+> e
+> give proof
+> n
+Pressure Pier
+
+> 1
+> 3
+> 3
+> 3
+> 3
+> e
+Down Ground
+
+> sleep
+Tense Past
+
+> z
+Tense Present
+
+> z
+Tense Future
+
+> z
+
+> i
+1 piece
+
+> score
+1 of the 4
+
+> e
+Joint Strip
+
+> e
+> e
+> e
+What luck! The second
+
+> s
+Soda Club
+
+> talk to erin
+> 2
+> talk to erin
+> 2
+almost a full paper
+
+> n
+> get bear
+> w
+> give bear to fritz
+fourth and final
+
+> i
+trail paper
+
+> w
+> n
+Nominal Fen
+
+> score
+scored 0 points
+haven't gotten near the
+
+> n
+Speaking Plain
+
+> n
+Questions Field
+
+> w
+Court of Contempt
+
+> talk
+> 1
+> 1
+> 1
+> i
+Reasoning Circular
+
+> s
+> s
+> w
+Chipper
+
+> w
+Disposed Well
+
+> n
+Scheme Pyramid
+
+> x hedge
+prominent seed
+
+> i
+cold contract (unsigned)
+
+> e
+> e
+> e
+Judgment Pass
+
+> give circular
+score has just gone up
+
+> score
+1 point and need 18
+none of the Keeper Brothers
+
+> e
+Idiot Village
+
+> give seed to monkey
+score has just gone up
+
+> score
+2 points and need 18
+
+> give contract to monkey
+score has just gone up
+would-be magician
+!Sly
+
+> score
+3 points and need 18
+
+> talk to magician
+> 3
+Sly
+!would-be magician
+
+> i
+fourth-blossom
+
+> w
+> w
+> w
+> w
+> w
+Classic Cult
+
+> put blossom in bowl
+score has just gone up
+
+> score
+4 points and need 18
+
+> i
+mind of peace
+
+> e
+> e
+> e
+> n
+> n
+> give mind to big
+I need education
+
+> give mind to soul
+That would be perfect
+
+> give mind to blood
+score has gone up
+
+> score
+helped one of the keeper
+5 points and need 18
+
+> s
+> e
+Walker Street
+
+> in
+Pot Chamber
+
+> smell
+doesn't smell like sewage
+
+> talk to penn
+> 1
+> 2
+> 2
+> 2
+> out
+> i
+wacker weed
+
+> get string
+> w
+> s
+> s
+> e
+> give weed
+score has gone up
+
+> score
+6 points and need 18
+
+> w
+> n
+> n
+> e
+> in
+> give penny to penn
+score has gone up
+
+> score
+7 points and need 18
+
+> out
+> w
+> w
+Temper Keep
+
+> put pot in vent
+score has gone up
+
+> score
+8 points and need 18
+
+> x vent
+> open it
+> e
+> n
+> give light to big
+may be perfect
+
+> give light to soul
+score has gone up
+
+> score
+9 points and need 18
+
+> s
+> s
+> w
+> w
+> put string in hole
+score has gone up
+
+> score
+10 points and need 18
+
+> n
+> n
+I'll need that signed contract first
+Accountable Hold
+
+> get safe
+CONFIDENTIAL
+
+> x paper
+embarrassing secrets
+
+> s
+> s
+> e
+> e
+> n
+> e
+> e
+
+> open safe
+score has gone up
+
+> score
+11 points and need 18
+
+> play fish
+score has gone up
+
+> score
+12 points and need 18
+
+> i
+some poetic wax
+
+> w
+> n
+> put wax in machine
+score has gone up
+
+> score
+13 points and need 18
+
+> wear hat
+It just doesn't feel
+
+> s
+> w
+> s
+> e
+> e
+
+> give hat to sly
+score has gone up
+
+> score
+14 points and need 18
+
+> w
+> w
+> w
+> w
+> give rattle to lee
+score has gone up
+
+> score
+15 points and need 18
+
+> out
+> e
+> e
+> n
+> n
+> give trade
+score has gone up
+
+> score
+16 points and need 18
+
+> s
+> s
+> jfix
+> talk to jim
+over-familiar
+
+> talk to jerks
+geez, we have names
+
+> talk to jim
+> 10
+You mumble
+
+> 1234567
+score has gone up
+You better be right about this
+
+> score
+17 points and need 18
+
+> i
+Quiz Pop
+
+> w
+> play
+> ne
+> ne
+> ne
+> s
+> w
+> s
+> w
+> s
+> w
+optional point
+
+> d
+The Belt Below
+
+> a bad face
+another optional point
+
+> i
+You're wearing a bad face.
+
+> d
+Bottom Rock
+
+> x crib
+Legend
+crocked
+
+> get legend
+schlurps up the crocked
+
+> undo
+> get crocked
+schlurps up the Legend
+
+> u
+> u
+> e
+> e
+> e
+
+> e
+You run past the Thoughts Idol.
+
+> nw
+idol whizzes
+
+> s
+a little creakier?
+
+> ne
+but did you hear a little cough?
+
+> w
+twitch back and forth
+
+> se
+barely catches its gaze up
+
+> n
+warps and seems
+
+> sw
+cracks down the middle.
+
+> w
+> w
+> n
+> n
+> n
+minor stimulant
+
+> drink quiz pop
+RING BRASS
+
+> n
+> freak out
+> 1
+> 1
+> 1
+> 1
+> 1
+> 1
+> 1
+> 1
+Airy Station
+
+> score
+20 points
+need to modify the hammer
+
+> lock hammer
+Wisdom received!
+
+> undo
+> home hammer
+Wisdom received!
+
+> undo
+> away hammer
+Wisdom received!
+
+> undo
+> gonear out mist
+Out Mist
+
+> change ring
+Wisdom received!
+
+> undo
+> tone ring
+Wisdom received!
+
+> undo
+> hollow ring
+Wisdom received!
