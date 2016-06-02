@@ -1,3 +1,4 @@
+nodiag
 prefix:sc
 
 ## C:\writing\scripts\noway.py -- a regtest.py file for detecting generic can't go that way errors
