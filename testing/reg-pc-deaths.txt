@@ -1,0 +1,137 @@
+# reg-pc-deaths.txt: testing all the deaths
+# For a full description, see <http://eblong.com/zarf/plotex/regtest.html>
+
+** game: /home/andrew/prt/debug-probcomp.ulx
+** interpreter: /home/andrew/prt/glulxe -q
+
+* death-hut-ten
+
+>attack game shell
+Hut Ten
+Back at Game Shell
+
+>attack nim
+Hut Ten
+Back at Game Shell
+
+>gonear terminal
+>attack terminal
+Hut Ten
+Back at Game Shell
+
+* death-fight-fair
+>gonear labor child
+>attack labor child
+Fight Fair
+Back at Scheme Pyramid
+
+
+* death-heap
+
+> gonear stool toad
+> shit
+> shit
+In-Dignity Heap
+Back at Joint Strip
+
+> gonear freak control
+> shit
+In-Dignity Heap
+Back at Freak Control
+
+* death-capitol
+
+> attack stool toad
+Punishment Capitol
+Back at Joint Strip
+
+* death-maintenance
+
+>gonear meal square
+>eat gum
+Maintenance High
+Back at Meal Square
+
+>gonear vision tunnel
+> sleep
+Maintenance High
+Back at Vision Tunnel
+
+> gonear meal square
+> eat lolly
+Maintenance High
+Back at Meal Squre
+
+* death-beer-pound
+
+>gonear soda club
+> attack ally
+A Beer Pound
+Back at Soda Club
+
+* death-criminals
+
+>gonear soda club
+>attack lily
+Criminals' Harbor
+Back at Soda Club
+
+>gonear classic cult
+>attack grace
+Criminals' Harbor
+Back at Classic Cult
+
+>gonear petty
+>purloin wacker weed
+>give weed to petty
+Criminals' Harbor
+Back at Judgment Pass
+
+
+>gonear freak control
+>attack witness eye
+Criminals' Harbor
+Back at Soda Club
+
+>gonear classic cult
+>attack grace
+Criminals' Harbor
+Back at Classic Cult
+
+* death-shape-ship
+
+>gonear down ground
+>sleep
+>z
+>z
+>z
+#one ticket
+
+
+>e
+>get bear
+>w
+>give bear to fritz
+#two tickets
+
+
+>e
+>e
+>e
+>e
+#three tickets
+
+>s
+>talk to erin
+>2
+>talk to erin
+>2
+A Beer Pound
+Back to Soda Club
+
+>n
+>drop boo
+Shape Ship
+Back to Joint Strip
+
+# be sure to do 5-deaths each way
