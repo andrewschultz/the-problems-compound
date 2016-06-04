@@ -83,7 +83,7 @@ Tense Future
 1 piece
 
 > score
-1 of the 4
+one of the four
 
 > e
 Joint Strip
@@ -93,6 +93,9 @@ Joint Strip
 > e
 What luck! The second
 
+>score
+two of the four
+
 > s
 Soda Club
 
@@ -101,6 +104,9 @@ Soda Club
 > talk to erin
 > 2
 almost a full paper
+
+>score
+three of the four
 
 > n
 > get bear
@@ -152,6 +158,7 @@ prominent seed
 > i
 cold contract (unsigned)
 
+> s
 > e
 > e
 > e
@@ -217,10 +224,10 @@ I need education
 That would be perfect
 
 > give mind to blood
-score has gone up
+score has just gone up
 
 > score
-helped one of the keeper
+helped one of the Keeper
 5 points and need 18
 
 > s
@@ -238,6 +245,7 @@ doesn't smell like sewage
 > 2
 > 2
 > 2
+> 2
 > out
 > i
 wacker weed
@@ -248,7 +256,7 @@ wacker weed
 > s
 > e
 > give weed
-score has gone up
+score has just gone up
 
 > score
 6 points and need 18
@@ -259,7 +267,7 @@ score has gone up
 > e
 > in
 > give penny to penn
-score has gone up
+score has just gone up
 
 > score
 7 points and need 18
@@ -270,7 +278,7 @@ score has gone up
 Temper Keep
 
 > put pot in vent
-score has gone up
+score has just gone up
 
 > score
 8 points and need 18
@@ -283,7 +291,7 @@ score has gone up
 may be perfect
 
 > give light to soul
-score has gone up
+score has just gone up
 
 > score
 9 points and need 18
@@ -293,7 +301,7 @@ score has gone up
 > w
 > w
 > put string in hole
-score has gone up
+score has just gone up
 
 > score
 10 points and need 18
@@ -318,14 +326,15 @@ embarrassing secrets
 > e
 
 > open safe
-score has gone up
+score has just gone up
 
 > score
 11 points and need 18
 
 > play fish
-score has gone up
+score has just gone up
 
+> get wax
 > score
 12 points and need 18
 
@@ -335,7 +344,7 @@ some poetic wax
 > w
 > n
 > put wax in machine
-score has gone up
+score has just gone up
 
 > score
 13 points and need 18
@@ -350,7 +359,7 @@ It just doesn't feel
 > e
 
 > give hat to sly
-score has gone up
+score has just gone up
 
 > score
 14 points and need 18
@@ -359,8 +368,9 @@ score has gone up
 > w
 > w
 > w
+> in
 > give rattle to lee
-score has gone up
+score has just gone up
 
 > score
 15 points and need 18
@@ -371,7 +381,7 @@ score has gone up
 > n
 > n
 > give trade
-score has gone up
+score has just gone up
 
 > score
 16 points and need 18
@@ -390,7 +400,7 @@ geez, we have names
 You mumble
 
 > 1234567
-score has gone up
+score has just gone up
 You better be right about this
 
 > score
@@ -412,11 +422,17 @@ Quiz Pop
 > w
 optional point
 
+>score
+scored 18 points
+
 > d
 The Belt Below
 
 > a bad face
 another optional point
+
+>score
+scored 19 points
 
 > i
 You're wearing a bad face.
@@ -465,6 +481,12 @@ warps and seems
 > sw
 cracks down the middle.
 
+>i
+lifted face
+
+>score
+scored 20 points
+
 > w
 > w
 > n
@@ -488,31 +510,31 @@ RING BRASS
 Airy Station
 
 > score
-20 points
+21 points
 need to modify the hammer
 
 > lock hammer
-Wisdom received!
+Wisdom Received!
 
 > undo
 > home hammer
-Wisdom received!
+Wisdom Received!
 
 > undo
 > away hammer
-Wisdom received!
+Wisdom Received!
 
 > undo
 > gonear out mist
 Out Mist
 
 > change ring
-Wisdom received!
+Wisdom Received!
 
 > undo
 > tone ring
-Wisdom received!
+Wisdom Received!
 
 > undo
 > hollow ring
-Wisdom received!
+Wisdom Received!

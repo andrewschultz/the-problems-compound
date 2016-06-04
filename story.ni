@@ -888,7 +888,7 @@ check requesting the score:
 			if your-tix > 0:
 				say "You have [your-tix in words] of the four boo-ticketies you need." instead;
 			say "You need to go looking for trouble. I mean, not too much, but enough to show you're not square." instead;
-	say "You have scored [score] point[if score is not 1]s[end if] and need [maximum score] to win[if maximum score < maximum-maximum], or [maximum-maximum] for[else]with[end if] the best ending";
+	say "You have scored [score] point[if score is not 1]s[end if] and need [maximum score] to win[if maximum score < maximum-maximum], or [maximum-maximum] for[else] with[end if] the best ending";
 	if number of map-pinged rooms > 1:
 		say ", and you've also been to [number of map-pinged rooms] or [number of rooms in bad ends] rooms";
 	say ".";
@@ -6023,7 +6023,7 @@ to bad-food-process (as - a truth state):
 		now bad face is in lalaland;
 	if player has face of loss:
 		now face of loss is in lalaland;
-	
+
 
 table of accel-text
 accel-place	alt-num	accel-cookie	accel-off	accel-greater	accel-brownie
@@ -9951,7 +9951,7 @@ after quipping when qbc_litany is table of baiter master talk:
 			d "trib [if bm-tribute is talked-thru]1[else]0[end if]";
 			d "hunter/buster [if bm-so-bad2 is talked-thru]1[else]0[end if]";
 	choose-final-room;
-	
+
 to choose-final-room:
 	let gg be indexed text;
 	now gg is "good";
@@ -12270,7 +12270,7 @@ section 4 pier quests
 
 test 4-convo-trap with "test street/test lounge/test arch/bb/e/e/get bear/w/talk to fritz/e/s/i/1/1/1/1/1/1/give bear to fritz/e/s/talk to erin/n"
 
-test 4 with "e/sleep/z/z/z/e/get bear/s/talk to punch/1/2/2/2/3/n/talk to punch/2/2/talk to erin/1/1/1/1/1/1/1/1/give wine to erin/n/w/give bear to fritz/w/give paper to boy/n"
+test 4 with "e/sleep/z/z/z/e/get bear/s/talk to ally/1/1/2/2/2/3/3/n/talk to ally/2/2/talk to erin/1/1/1/1/1/1/1/1/give wine to erin/n/w/give bear to fritz/w/give paper to boy/n"
 
 test 4b with "e/sleep/z/z/z/e/get bear/s/bb/y/bb/give drink to erin/n/w/give bear to fritz/w/give paper to boy/drop ticket/n"
 
