@@ -1416,9 +1416,9 @@ check smelling (this is the smelling a thing rule):
 	if noun is poetic wax:
 		say "You're sure you've smelled it before, and it's good and bad and a bit beyond you." instead;
 	if noun is flower wall:
-		say "Smells nice. Cancels out the [if scum is in tunnel]now-gone scum[else]scum, almost[end if]." instead;
-	if noun is scum:
-		say "It smells bad enough from where you are standing, even though you don't have a very picking nose[activation of nose picking]." instead;
+		say "Smells nice. Cancels out the [if earth of salt is in tunnel]now-gone salt[else]salt, almost[end if]." instead;
+	if noun is earth of salt:
+		say "Salt...well, it smells [i]interesting[r], though you don't have a very picking nose[activation of nose picking]." instead;
 	if noun is fritz:
 		say "You'd rather not risk it." instead;
 	if noun is bear:
@@ -1560,7 +1560,7 @@ the can't eat unless edible rule is not listed in any rulebook.
 lolly-eaten is a truth state that varies.
 
 check eating:
-	if noun is earth of scum:
+	if noun is earth of salt:
 		say "[taste-poor]." instead;
 	if noun is lolly:
 		if lolly-eaten is true:
@@ -1626,7 +1626,7 @@ check touching:
 		say "It doesn't feel unusual, but maybe you can change it." instead;
 	if noun is worm:
 		say "It feels pliable, like you could manipulate it--no, that's too complex a word." instead;
-	if noun is earth of scum:
+	if noun is earth of salt:
 		say "Ew. No." instead;
 	if noun is bench:
 		say "Mm. Nice. Warm. But not burning-hot." instead;
@@ -2657,7 +2657,7 @@ understand "dig [something]" as diging.
 understand "dig" as diging.
 
 does the player mean diging the poor dirt: it is likely.
-does the player mean diging the earth of scum: it is likely.
+does the player mean diging the earth of salt: it is likely.
 does the player mean diging the mouth mush: it is likely.
 does the player mean diging the t-surf when mouth mush is in lalaland: it is likely.
 
@@ -2669,8 +2669,8 @@ rule for supplying a missing noun when diging:
 	if player is in garden:
 		now the noun is poor dirt;
 	else if player is in tunnel:
-		if earth of scum is in tunnel:
-			now noun is scum;
+		if earth of salt is in tunnel:
+			now noun is earth of salt;
 		else:
 			now noun is flower wall;
 	else if player is in surface:
@@ -2700,18 +2700,18 @@ carry out diging:
 		say "It's too big for the pick to make a dent." instead;
 	if noun is flower wall:
 		say "It's too pretty to damage. Plus it might collapse." instead;
-	if noun is earth of scum:
+	if noun is earth of salt:
 		now player has the proof of burden;
 		choose row with response of weasel-sign in table of weasel talk;
 		now enabled entry is 1;
-		now earth of scum is in lalaland;
+		now earth of salt is in lalaland;
 		set the pronoun it to proof of burden;
 		now pocket pick is in lalaland;
 		choose row with response of weasel-pick-oops in table of weasel talk;
 		now permit entry is 1;
 		choose row with response of weasel-pick-hey in table of weasel talk;
 		now permit entry is 1;
-		say "With your pocket pick, the work is steady and clean, if arduous. Beneath the earth of scum, you hit something which snaps your pocket pick in two. It's a thin plaque. But not just any plaque: a PROOF OF BURDEN. You wipe it off and pick it up, then you bury the pocket pick, which is not only broken but also rusted." instead;
+		say "With your pocket pick, the work is steady and clean, if arduous. Beneath the earth of salt, you hit something which snaps your pocket pick in two. It's a thin plaque. But not just any plaque: a PROOF OF BURDEN. You wipe it off and pick it up, then you bury the pocket pick, which is not only broken but also rusted." instead;
 	say "That's not soft enough." instead;
 	the rule succeeds.
 
@@ -2935,7 +2935,7 @@ pocket pick	"A pickpocket is a thief."	"The pocket pick is also about the least 
 proof of burden	"The burden of proof means: you need to come up with evidence to prove your point."	"I had the idea of some sort of document early on, and the Burden of Proof always fascinated me as something others needed less than I did."
 Rogue Arch	"An arch-rogue is a big bad guy, obviously inappropriate for early in the story."	--
 Word Weasel	"A weasel word is something that seems to mean more than it should."	"I like stories with talking animals, and at Alec's age, people look down on them, so it made sense to subvert that with a mean talking animal."
-earth of scum	"Scum of the earth is the worst possible person."	-- [start of vision tunnel]
+earth of salt	"Salt of the earth means a great person. It's from back when salt was more valuable."	"This was earth of scum, but I decided that salt would be better, because it'd be more visual, and also it should be something nice and likable but it wasn't." [start of vision tunnel]
 Flower Wall	"A wallflower is someone who doesn't participate socially."	"I had trouble with what this should be in the Vision Tunnel, but when I found it I realized it showed Alec being social."
 picture hole	"Seeing the whole picture means you see everything."	--
 Poor Dirt	"Dirt poor means especially not rich."	--
@@ -5328,7 +5328,7 @@ after quipping when qbc_litany is table of arch talk (this is the restore asking
 
 part Vision Tunnel
 
-Vision Tunnel is east of Tension Surface. Vision Tunnel is in Beginning. "The flower wall blocking every which way but west is, well, a vision[if flower wall is examined], and now that you've seen the picture hole in it, you can't un-see it[end if][if earth of scum is in vision tunnel]. Some icky looking earth is clumped here[end if]."
+Vision Tunnel is east of Tension Surface. Vision Tunnel is in Beginning. "The flower wall blocking every which way but west is, well, a vision[if flower wall is examined], and now that you've seen the picture hole in it, you can't un-see it[end if][if earth of salt is in vision tunnel]. Some semi-crystallized looking earth is clumped here[end if]."
 
 the flower wall is scenery in the Vision Tunnel. "All manner of flowers, real and fake, are sewed together. The only break is [if flower wall is examined]that picture hole[else][pic-hole][end if]."
 
@@ -5352,10 +5352,13 @@ understand "vision" as picture hole when player is in tunnel and flower wall is 
 
 understand "vision" as flower wall when player is in tunnel and flower wall is not examined.
 
-the earth of scum is scenery in Vision Tunnel. "It doesn't smell until you get close to it. It seems to be wriggling, and you're not sure what died in it, or when. You don't want to know."
+the earth of salt is scenery in Vision Tunnel. "It doesn't smell until you get close to it. It seems to be wriggling, and you're not sure what died in it, or when. You don't want to know."
 
-check taking earth of scum:
-	say "Ew. No. If it were just one handful, maybe, but it looks like there's a lot more." instead;
+check taking earth of salt:
+	say "It's just too big of a slab to pick up. Maybe if it were broken into bits, you could see what was under it." instead;
+
+check pushing earth of salt:
+	say "You can't get a good grip on it--it's probably buried into the ground a bit too much." instead;
 
 the proof of burden is a thing. "The plaque that is the Proof of Burden lies here."
 
