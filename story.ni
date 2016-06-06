@@ -3250,6 +3250,7 @@ see if i care	"See if I Care is said to show indifference to a bully or nuisance
 see you later	"See you later is a way to say good-bye."
 shot mug	"The shot mug may look shot, or beaten-up, but mug shots--photographs of apprehended suspects--are generally very unflattering. Hence the flattering portrait of the [bad-guy] on the mug."
 Slicker City	"A city slicker is what rural people may call someone more urban. It's also the name of a planned sequel to PC."
+sly dog	"'You sly dog' is a compliment for someone who is very subtly clever."
 stand out	"To stand out is to be different from the rest."
 stupor	"A stupor is when you are conscious but not really aware of what's going on."
 taste buds	"Taste buds are what you use to experience the sensation of taste."
@@ -6650,10 +6651,10 @@ erin-warn is a truth state that varies.
 
 to say erin-creep:
 	if erin-warn is false:
-		say "'If you don't actually say anything next time, I'll be a little creeped out. I might call someone in on you.'[no line break]";
+		say "'Aww. Awkwardness is real cute, until it's creepy. So it was kinda flattering this time but don't, like, try it again.'[no line break]";
 		now erin-warn is true;
 	else:
-		say "'That's--just creepy,' she says. 'I didn't come to the bar for this.' Ally Stout blows a whistle, and the Stool Toad charges in.[paragraph break]He explains that this is pretty bad, seeing as how you looked like a nice kid, or at least a quiet one, and goes on some irrelevant diatribe against prank callers who just hang up, and also how if this is how you act SOBER...";
+		say "'That's--just creepy,' she says. 'I didn't come to the bar for this. BARTENDER!' Ally Stout blows a whistle, and the Stool Toad charges in.[paragraph break]He explains that this is pretty bad, seeing as how you looked like a nice kid, or at least a quiet one, and goes on some irrelevant diatribe against prank callers who just hang up, and also how if this is how you act SOBER...";
 		if player has a drinkable:
 			say "Ally Stout takes your drink away from you, too.";
 			if player has haha brew:
@@ -9819,7 +9820,8 @@ gad-act
 "'Record the off. Always, [activation of off the record]record the off!'"
 "'Geez, it's a pain to [activation of benefactor]factor BENNY. I'm not, like, MEAN to him.'"
 "'[activation of stupor]Poor Stu,' the [bad-guy] says, almonst genuinely concerned, before scoffing himself out of a daze."
-"'[activation of evil eye]I?!? Evil?!?' booms the [bad-guy]."
+"'[activation of evil eye]I?!? Evil?!?' booms the [bad-guy], before looking askance at the [random scenery in freak control]."
+"'[activation of sly dog]I'll need to dog Sly his magic tricks aren't anything special, now that he can actually do a few.'"
 "'[activation of pharisee]See, Farrah,' the [bad-guy] mutters to no girl in particular."
 "'Think you're clever? Foul miss, Artie[activation of Artemis Fowl],' the [bad-guy] chides."
 "The [bad-guy] congratulates himself for installing the super-sanitary doctor-recommended [activation of johns hopkins]Hopkins johns."
@@ -11871,6 +11873,8 @@ see you later is a concept in conceptville. Understand "later you see" as see yo
 The shot mug is a concept in conceptville. understand "mug shot" as shot mug. howto is "get the [bad-guy]'s attention".
 
 Slicker City is a concept in conceptville. understand "city slicker" as Slicker City. howto is "[bad-guy] dialog".
+
+sly dog is a concept in conceptville. Understand "dog sly" as sly dog. howto is "[fr-ran]".
 
 Stand out is a concept in conceptville. Understand "doubt stan" and "stan doubt" as stand out. howto is "[fr-ran]".
 
