@@ -22,6 +22,7 @@ The major stuff is here.
 --the Howdy Boy now has a proper name, Terry Sally, which is kind of between two words. He still has the Howdy Boy title.
 --Liver Lily was demoted to an off-hand reference, making way for Erin Sack.
 --The Proof Fool and Logical Psycho now have proper names: Lee Bull and Sid Lew.
+--the earth of scum is now earth of salt, because it's opaque enough you can see something below it.
 --two new jump verbs to get by just the jerks or just the brothers.
 --the very good ending is now implemented better.
 
@@ -37,7 +38,7 @@ The user-friendliness stuff is here.
 
 There's random stuff, too:
 --you can now play Hangman with Guy Sweet
---many extra silly concepts added. Up to 217, from 66 in release 2. Many of these are sort of double-counted in the tables below, but this is how many concepts are defined in the source. It's probably too hard to find them all, but the game lists them at the end. Plus you can search for "table of explanations" in the source to see the goods.
+--many extra silly concepts added. Up to 220, from 66 in release 2. Many of these are sort of double-counted in the tables below, but this is how many concepts are defined in the source. It's probably too hard to find them all, but the game lists them at the end. Plus you can search for "table of explanations" in the source to see the goods.
 --game text added here and there. As per usual for a post-release.
 --Sid Lew also has some truly 'incisive' theories about life and knowledge in general. To be precise, 14.
 --the bad guy now sounds off on individual people and ideas outside of those in the game proper. Some are a bit topical, but they're in the general knowledge realm. If nothing else, you can Google them. He's up to 31 random important administrative and philosophical matters. Busy fellow!

@@ -2045,7 +2045,7 @@ Punishment Capitol	"You're given the lecture about how just because you did some
 Hut Ten	"The basic training isn't too bad. You seem to do everything right, except for the stuff you do wrong, and a commanding officer gets on your case for that. There's so much to do, and you only make mistakes 5% of the time, maybe, but boy do the people who get it right come down hard on you when you miss. You do the same to others, but it's DIFFERENT when you do. No, really."
 A Beer Pound	"The admissions officer gives you a worksheet to fill out about how and why you can't hold your liquor."
 In-Dignity Heap	"You're given a lecture and assured that they will have to get more abusive but still won't be as effective and eventually you'll build up a tolerance to abuse, and that's better than a tolerance to alcohol."
-Shape Ship	"Here, you spend months toiling pointlessly with others who acquired too many boo ticketies. Some fellow called the [activation of scholarship]Ship Scholar booms out instructions, telling you self-awareness doesn't come for FREE, you know. You actually strike up a few good friendships, and you all vow to take more fun silly risks when you get back home.[paragraph break]But as the days pass, the whens change to ifs."
+Shape Ship	"After a brief trip to the [activation of courtship]Ship Court, where you're deemed unsuitable for stable relationships, you spend months toiling pointlessly with others who acquired too many boo ticketies. Some fellow called the [activation of scholarship]Ship Scholar booms out instructions, telling you self-awareness doesn't come for FREE, you know, and grumblers will be subjected to the heat of the [activation of censorship]Ship Censer. You actually strike up a few good friendships, and you all vow to take more fun silly risks when you get back home.[paragraph break]But as the days pass, the whens change to ifs."
 
 chapter giving
 
@@ -2711,7 +2711,7 @@ carry out diging:
 		now permit entry is 1;
 		choose row with response of weasel-pick-hey in table of weasel talk;
 		now permit entry is 1;
-		say "With your pocket pick, the work is steady and clean, if arduous. Beneath the earth of salt, you hit something which snaps your pocket pick in two. It's a thin plaque. But not just any plaque: a PROOF OF BURDEN. You wipe it off and pick it up, then you bury the pocket pick, which is not only broken but also rusted." instead;
+		say "With your pocket pick, the work is steady and clean, if arduous. Your cheap pocket pick starts splitting off--why couldn't the earth of salt been [activation of scum of earth]earth of scum or something easier to hack at?--and it snaps in two with the final blow.[paragraph break]Beneath is a thin plaque. But not just any plaque: a PROOF OF BURDEN. You wipe it off and pick it up, then you bury the pocket pick, which is not only broken but also rusted." instead;
 	say "That's not soft enough." instead;
 	the rule succeeds.
 
@@ -3088,6 +3088,7 @@ sagebrush	"Sagebrush is another form of brush. It's often found in the desert."
 work of art	"A work of art is something nice and beautiful. The art of work is--well, the term can be abused to make work seem more exciting than it is."
 enough man	"Man enough means being able to stand up for yourself. Okay, it's a bit sexist, but people who say it mean to be annoying. 'Enough, man' just means stop it."
 nose picking	"Nose picking is -- not the best habit. A picking nose would be a discerning sense of smell." [start of tension surface]
+scum of earth	"Scum of earth is the worst possible person or close to it." [start of vision tunnel]
 apple pie order	"Apple-Pie Order means very well organized." [start of meal square stuff]
 Bowled Over	"Bowled over means unable to deal with things. Over-bold means too confident."
 defeat	"Defeat is, well, a clue you'll lose the game existentially if you eat any of the foods on Tray B."
@@ -3270,9 +3271,11 @@ Cut a Figure	"To cut a figure is to make a strong impression."
 Hard Knock	"A hard knock is physical wear and tear, or being hit hard, versus just knocking at a door."
 passing fancy	"A passing fancy is something that distracts you and is fun for a bit but you forget about it. To fancy passing means to want to go quickly, or fancy passing may just be something in sports."
 Sitting Duck	"A sitting duck is someone just waiting to be taking advantage of. But if you duck sitting, you aren't waiting."
-Boss Fight	"A boss fight is a confrontation with an important adversary in a more traditional game, while the Fight Boss has you do stuff worse than level grinding." [start of shape ship]
+Boss Fight	"A boss fight is a confrontation with an important adversary in a more traditional game, while the Fight Boss has you do stuff worse than level grinding." [start of fight fair]
+Sore Loser	"A sore loser is someone who is not gracious enough to admit defeat. A loser sore is often what you get when you lose a fight, especially one someone else started."
+Censorship	"Censorship is institutionalized shutting people up or repressing what they have to say." [start of shape ship]
+Courtship	"Courtship is when you start trying to get the attention of a potential romantic partner."
 Scholarship	"A scholarship is a money grant given towards education. The Ship Scholar, contrarily, says nothing is free."
-Sore Loser	"A sore loser is someone who is not gracious enough to admit defeat. A loser sore is often what you get when you lose a fight, especially one someone else started." [start of fight fair]
 Complain Cant	"Cant means a tendency towards something, so someone with a complain cant would only say 'can't complain' very ironically." [eternal concepts]
 Much Flatter	"If your world is much flatter, it isn't very exciting. But to flatter much is to over-compliment people, which makes things [i]seem[r] exciting for a bit."
 People Power	"People power was a rallying cry in demonstrations against the authoritarianism of, well, power people."
@@ -5352,7 +5355,7 @@ understand "vision" as picture hole when player is in tunnel and flower wall is 
 
 understand "vision" as flower wall when player is in tunnel and flower wall is not examined.
 
-the earth of salt is scenery in Vision Tunnel. "It doesn't smell until you get close to it. It seems to be wriggling, and you're not sure what died in it, or when. You don't want to know."
+the earth of salt is scenery in Vision Tunnel. "It's opaque, and it seems half-buried. You think if you look closely you see something under it that's not dirt or salt. But you can't just move it away by conventional means."
 
 check taking earth of salt:
 	say "It's just too big of a slab to pick up. Maybe if it were broken into bits, you could see what was under it." instead;
@@ -11475,6 +11478,10 @@ section tension surface concepts
 
 nose picking is a concept in conceptville. understand "picking nose" as nose picking. howto is "smell the mush in Tension Surface".
 
+section vision tunnel
+
+scum of earth is a concept in conceptville. Understand "earth of scum" as scum of earth. howto is "dig the earth of salt".
+
 chapter outer concepts
 
 section meal square concepts
@@ -11919,13 +11926,27 @@ Passing Fancy is a concept in conceptville. understand "fancy passing" as Passin
 
 Sitting Duck is a concept in conceptville. understand "duck sitting" as Sitting Duck. howto is "get to Tension Surface".
 
-section fake death concepts
+chapter fake death concepts
 
-Boss Fight is a concept in conceptville. understand "fight boss" as boss fight. howto is "visit Fight Fair (attack random person)".
+section fight fair concepts
 
-Scholarship is a concept in conceptville. Understand "scholarship" as scholarship. howto is "get sent to the Shape Ship".
+Boss Fight is a concept in conceptville. understand "fight boss" as boss fight. howto is "[ff-end]".
 
-Sore Loser is a concept in conceptville. understand "loser sore" as sore loser. howto is "visit Fight Fair (attack random person)".
+Sore Loser is a concept in conceptville. understand "loser sore" as sore loser. howto is "[ff-end]".
+
+to say ff-end:
+	say "visit Fight Fair (attack random person)"
+
+section shape ship concepts
+
+Censorship is a concept in conceptville. Understand "ship censor" and "censor ship" as censorship. howto is "[ss-end]".
+
+Courtship is a concept in conceptville. Understand "court ship" and "ship court" as courtship. howto is "[ss-end]".
+
+Scholarship is a concept in conceptville. Understand "scholar ship" and "ship scholar" as scholarship. howto is "[ss-end]".
+
+to say ss-end:
+	say "visit Shape Ship (get fifth tickety outside of Soda Club)"
 
 chapter lalaland concepts
 
