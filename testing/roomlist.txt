@@ -1,8 +1,10 @@
 nodiag
 prefix:sc
 
-## C:\writing\scripts\noway.py -- a regtest.py file for detecting generic can't go that way errors
-##
+## reg-sc-noway.txt: test script for slicker city, regtest.pl
+## This gives "can't go that way" errors for every room.
+## For a full description, see <http://eblong.com/zarf/plotex/regtest.html>
+
 ** game: /home/andrew/prt/debug-slicker-city.ulx
 ** interpreter: /home/andrew/prt/glulxe -q
 
