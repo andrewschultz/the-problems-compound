@@ -1,214 +1,241 @@
-# reg-pc-bad-ends.txt: bad ending #1
+# reg-pc-bad-ends.txt: goes through all the bad ends
 # For a full description, see <http://eblong.com/zarf/plotex/regtest.html>
 
-** game: /home/andrew/prt/debug-probcomp.ulx
+** game: /home/andrew/prt/debug-compound.ulx
 ** interpreter: /home/andrew/prt/glulxe -q
 
 * bad-food-1
 
-> z
-Turn your wait.
-
 > knock hard
 
-/You stride up to Broke Flat with purpose.
-/Pressure Pier
+You stride up to Broke Flat with purpose.
+Pressure Pier
 
 > w
-/Terry Sally coughs
+Terry Sally coughs
 
-/Meal Square
+Meal Square
 
 > eat cookie
-/It's so sharp
+It's so sharp
 
 > l
-/Pfft. None
+Pfft. None
 
 >l
-/Back out east now.
+Back out east now.
 
 >e
-/You take a moment to sneer at Terry Sally.
+You take a moment to sneer at Terry Sally.
 
 >l
-/With Terry Sally out of the way, you can go north
+With Terry Sally out of the way, you can go north
 
 >n
-/Hey, move it, I'm on a quest here!
+Hey, move it, I'm on a quest here!
 
 >l
-/The jerks aren't hanging around any more
+The jerks aren't hanging around any more
+
+>s
+Much as you'd like to revisit
+
+>e
+Nothing important enough to the east
+
+>w
+Nothing important enough to the west
 
 >n
-/Oh geez. You can't take this.
+Oh geez. You can't take this.
 
 >l
-/Well, Uncle Dutch and Turk Young had something to say
+Well, Uncle Dutch and Turk Young had something to say
 
 >n
-/Just standing around, eh?
+Just standing around, eh?
 
 >l
-/The Brothers are dispatched.
+The Brothers are dispatched.
 
 >n
-/schmeadership
-/Alec didn't REALLY make a successful ending
+schmeadership
+Alec didn't REALLY make a successful ending
 
 * bad-food-2
 
-> z
-Turn your wait.
-
 > knock hard
 
-/You stride up to Broke Flat with purpose.
-/Pressure Pier
+You stride up to Broke Flat with purpose.
+Pressure Pier
 
 > w
-/Terry Sally coughs
+Terry Sally coughs
 
-/Meal Square
+Meal Square
 
 > eat brownie
-/It's so sharp
+too much chocolate
 
 > l
-/Pfft. None
+people to be social to
 
 >l
-/Back out east now.
+Back out east now.
 
 >e
-/You take a moment to sneer at Terry Sally.
+You're doing a really good job
 
 >l
-/With Terry Sally out of the way, you can go north
+With Terry Sally out of the way, you can go north
 
 >n
-/Hey, move it, I'm on a quest here!
+nice and all but
+Hey, guys! What's up?
 
 >l
-/The jerks aren't hanging around any more
+The jerks aren't hanging around any more
+
+>s
+You'd like to meet some new people.
+
+>e
+sounds like the person to meet for REAL
+
+>w
+sounds like the person to meet for REAL
 
 >n
-/Oh geez. You can't take this.
+Mellow Marsh was nice and all but
 
 >l
-/Well, Uncle Dutch and Turk Young had something to say
+Well, Uncle Dutch and Turk Young had something to say
 
 >n
-/Just standing around, eh?
+Speaking Plain was nice and all but
+He seems like someone I should meet
 
 >l
-/The Brothers are dispatched.
+The Brothers are dispatched.
 
 >n
-/schmeadership
-/Alec didn't REALLY make a successful ending
+Much Flatter
+Alec didn't REALLY make a successful ending
 
 * bad-food-3
 
-> z
-Turn your wait.
-
 > knock hard
 
-/You stride up to Broke Flat with purpose.
-/Pressure Pier
+You stride up to Broke Flat with purpose.
+Pressure Pier
 
 > w
-/Terry Sally coughs
+Terry Sally coughs
 
-/Meal Square
+Meal Square
 
 > eat off cheese
-/It's so sharp
+edible--well, eatable
 
 > l
-/Pfft. None
+Ugh. The sight of the remaining food
 
 >l
-/Back out east now.
+Back out east now.
 
 >e
-/You take a moment to sneer at Terry Sally.
+You give an exasperated sigh.
 
 >l
-/With Terry Sally out of the way, you can go north
+With Terry Sally out of the way, you can go north
 
 >n
-/Hey, move it, I'm on a quest here!
+Maybe up ahead will be less lame.
+
+>s
+south? Oh geez.
+
+>e
+whatever weird people are east
+
+>w
+whatever weird people are west
 
 >l
-/The jerks aren't hanging around any more
+The jerks aren't hanging around any more
 
 >n
-/Oh geez. You can't take this.
+FRAUDS!!!
 
 >l
-/Well, Uncle Dutch and Turk Young had something to say
+Well, Uncle Dutch and Turk Young had something to say
 
 >n
-/Just standing around, eh?
+not challenging anyone's authority
 
 >l
-/The Brothers are dispatched.
+The Brothers are dispatched.
 
 >n
-/schmeadership
-/Alec didn't REALLY make a successful ending
+Can't Complain
+Alec didn't REALLY make a successful ending
 
 * bad-food-4
 
-> z
-Turn your wait.
-
 > knock hard
 
-/You stride up to Broke Flat with purpose.
-/Pressure Pier
+You stride up to Broke Flat with purpose.
+Pressure Pier
 
 > w
-/Terry Sally coughs
+Terry Sally coughs
 
-/Meal Square
+Meal Square
 
 > eat greater cheese
-/It's so sharp
+feel superior to those
 
 > l
-/Pfft. None
+Pfft. None
 
 >l
-/Back out east now.
+Back out east now.
 
 >e
-/You take a moment to sneer at Terry Sally.
+The heck with this dump.
+Still here? I'm moving ahead in life!
 
 >l
-/With Terry Sally out of the way, you can go north
+With Terry Sally out of the way, you can go north
 
 >n
-/Hey, move it, I'm on a quest here!
+Hey, move it, I'm on a quest here!
 
 >l
-/The jerks aren't hanging around any more
+The jerks aren't hanging around any more
+
+>s
+You don't GO backwards.
+
+>e
+Nothing important enough to the east!
+
+>w
+Nothing important enough to the west!
 
 >n
-/Oh geez. You can't take this.
+Oh geez. You can't take this.
 
 >l
-/Well, Uncle Dutch and Turk Young had something to say
+Well, Uncle Dutch and Turk Young had something to say
 
 >n
-/Just standing around, eh?
+Just standing around, eh?
 
 >l
-/The Brothers are dispatched.
+The Brothers are dispatched.
 
 >n
-/schmeadership
-/Alec didn't REALLY make a successful ending
+schmeadership
+Alec didn't REALLY make a successful ending
 
