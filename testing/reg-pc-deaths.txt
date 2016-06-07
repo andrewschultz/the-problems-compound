@@ -8,16 +8,16 @@
 
 >attack game shell
 Hut Ten
-Back at Game Shell
+Back at Smart Street
 
 >attack nim
 Hut Ten
-Back at Game Shell
+Back at Smart Street
 
->gonear terminal
+>gonear insanity terminal
 >attack terminal
 Hut Ten
-Back at Game Shell
+Back at The Belt Below
 
 * death-fight-fair
 >gonear labor child
@@ -41,6 +41,7 @@ Back at Freak Control
 
 * death-capitol
 
+> gonear stool toad
 > attack stool toad
 Punishment Capitol
 Back at Joint Strip
@@ -52,6 +53,7 @@ Back at Joint Strip
 Maintenance High
 Back at Meal Square
 
+>gonear variety garden
 >gonear vision tunnel
 > sleep
 Maintenance High
@@ -60,7 +62,7 @@ Back at Vision Tunnel
 > gonear meal square
 > eat lolly
 Maintenance High
-Back at Meal Squre
+Back at Meal Square
 
 * death-beer-pound
 
@@ -72,7 +74,7 @@ Back at Soda Club
 * death-criminals
 
 >gonear soda club
->attack lily
+>attack erin
 Criminals' Harbor
 Back at Soda Club
 
@@ -91,7 +93,7 @@ Back at Judgment Pass
 >gonear freak control
 >attack witness eye
 Criminals' Harbor
-Back at Soda Club
+Back at Freak Control
 
 >gonear classic cult
 >attack grace
@@ -101,19 +103,16 @@ Back at Classic Cult
 * death-shape-ship
 
 >gonear down ground
->sleep
->z
->z
->z
-#one ticket
-
 
 >e
 >get bear
 >w
 >give bear to fritz
-#two tickets
+#one ticket
 
+
+>drop boo tickety
+#two tickets
 
 >e
 >e
@@ -122,16 +121,26 @@ Back at Classic Cult
 #three tickets
 
 >s
+>purloin cooler wine
+>n
+#four tickets
+
+>e
+>s
 >talk to erin
 >2
 >talk to erin
 >2
 A Beer Pound
-Back to Soda Club
+Back at Soda Club
 
 >n
->drop boo
+>w
+>sleep
+>z
+>z
+>z
 Shape Ship
-Back to Joint Strip
+Back at Down Ground
 
 # be sure to do 5-deaths each way

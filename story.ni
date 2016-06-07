@@ -11355,9 +11355,9 @@ rule for printing a parser error when the latest parser error is the didn't unde
 
 Rule for printing a parser error when the latest parser error is the i beg your pardon error:
 	if qbc_litany is table of no conversation:
-		say "[activation of break silence]Silence break?";
-	else:
 		say "[activation of turn of phrase]I'll need a phrase of turn here.";
+	else:
+		say "[activation of break silence]Silence break?";
 	the rule succeeds;
 
 Rule for printing a parser error when the latest parser error is the can't see any such thing error:
