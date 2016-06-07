@@ -1,7 +1,7 @@
 # reg-pc-triv.txt: testing all sorts of odd stuff
 # For a full description, see <http://eblong.com/zarf/plotex/regtest.html>
 
-** game: /home/andrew/prt/debug-probcomp.ulx
+** game: /home/andrew/prt/debug-compound.ulx
 ** interpreter: /home/andrew/prt/glulxe -q
 
 
@@ -11,16 +11,20 @@
 Turn your wait.
 
 > xyzzy
-/A hollow voice booms
+A hollow voice booms
+/(Disaster spelling|Obvious, Captain|Nonsense\? No|Errors of comedy)
 
 > xyzzy
-/A hollow voice booms
+A hollow voice booms
+/(Disaster spelling|Obvious, Captain|Nonsense\? No|Errors of comedy)
 
 > xyzzy
-/A hollow voice booms
+A hollow voice booms
+/(Disaster spelling|Obvious, Captain|Nonsense\? No|Errors of comedy)
 
 > xyzzy
-/A hollow voice booms
+A hollow voice booms
+/(Disaster spelling|Obvious, Captain|Nonsense\? No|Errors of comedy)
 
 > 
 I'll need a phrase of turn here.

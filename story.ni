@@ -3173,7 +3173,9 @@ Pollyanna	"A Pollyanna is someone who is ridiculously optimistic."
 Polygamy	"Polygamy is having more than one mate."
 Sharp Barb	"A sharp barb is a stinging, clever insult."
 tear-jerk	"The jerks['] tears may seem a bit fake, and a tear-jerker is something that tries to manipulate you into crying."
+terabyte	"A terabyte is a large amount of memory: specifically, 2^40 bytes."
 teriyaki	"Teriyaki is a Japanese sauce, or it can be meat cooked in that sauce over an open grill."
+terrapin	"A terrapin is a fancy name for a turtle, which is slow and has a shell."
 career threatening	"Something career threatening may risk not only your job but your ability to get other equal or better jobs. A threatening career is--well, a bit of a racket." [start of judgment pass]
 scofflaw	"A scofflaw is someone who breaks minor rules. Perhaps they jaywalk or litter."
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever." [start of idiot village]
@@ -3236,6 +3238,7 @@ Johns Hopkins	"Johns Hopkins is a university with a prestigious medical school a
 King Henry	"King Henry VIII of England had six wives."
 laughingstock	"A laughingstock is someone everyone laughs at. But stock laughing is canned laughter, reflexive laughter at a joke you heard before, or maybe even a laugh track."
 Leading Question	"A leading question is one designed to provoke a certain answer. The term is usually used in a court of law."
+mistruth	"A mistruth is, well, a statement that's false."
 narcissist	"A narcissist is someone that puts their own needs too far ahead of others. This can mean hogging attention or shutting other people who rely on them out."
 off the record	"Off the Record means something said privately, often negative. Record the Off means to bring something wrong or different into the open."
 oscar wilde	"Oscar Wilde was a wit and playwright known for one-liners that poked fun at the human condition."
@@ -4119,9 +4122,9 @@ guy-stuck	"'Well, yeah, I used to be kind of a dork. And by kind of a dork I mea
 guy-advice	"'Hm, well, if I give you too much advice, you won't enjoy solving them. And if I don't give you enough, you'll be kind of mad at me. So I'm doing you a favor, saying just go ahead and PLAY.'"
 guy-flat	"'Well, that way is the Problems Compound. If you can figure out some basic stuff, you'll make it to Pressure Pier. Then--oh, the people you'll meet!'"
 guy-names	"'I know what you really want to ask. It's not at all about twisting things back around and making them the opposite of what they should mean. It's about SEEING things at every angle. You'll meet people who do. You'll be a bit jealous they can, and that they're that well-adjusted. But if you pay attention, you'll learn. I have. Though I've got a way to go. But I want to learn!'"
-guy-problems	"'Well, it's a place where lots of people more social than you--or even me--pose real-life problems. Tough but fair. Lots of real interesting people. Especially the Baiter Master[if allow-swears is false]. Oops. You don't like swears? Okay. Call him the Complex Messiah[else]. AKA the Complex Messiah[end if]. But not [bg]. Even I haven't earned that right yet. Or even to enter Freak Control. It's guarded by a trap where a question mark hooks you, then an exclamation mark clobbers you.' He pauses, and you are about to speak...[wfk]'YEAH. He's really nice once you get to know him, I've heard, it's just, there's too many people might waste his time, or not deserve him or not appreciate him.' Guy stage-whispers. 'OR ALL THREE.'"
+guy-problems	"'Well, it's a place where lots of people more social than you--or even me--pose real-life problems. Tough but fair. Lots of real interesting people. Especially the Baiter Master[if allow-swears is false]. Oops. You don't like swears? Okay. Call him the Complex Messiah[else]. AKA the Complex Messiah[end if]. But not [bg]. I haven't earned the right to. Or to enter Freak Control. It's guarded by a trap where a question mark hooks you, then an exclamation mark clobbers you.' He pauses, and you are about to speak...[wfk]'YEAH. He's really nice once you get to know him, I've heard, it's just, there's too many people might waste his time, or not deserve him or not appreciate him.' Guy stage-whispers. 'OR ALL THREE.'"
 guy-mess	"'Oh, the [bad-guy]. He certainly knows what's what, and that's that! A bit of time around him, and you too will know a bit--not as much as he did. But he teaches by example! He can [activation of good egg]egg [i]good[r]. Just his way of caring. Remember, it's up to YOU what you make of his lessons! Some people--they just don't get him. Which is ironic. They're usually the type that claim society doesn't get THEM[if allow-swears is true].' Guy whispers. '[activation of beat off]OFF-BEAT types[end if].'"
-guy-bad2	"'[bad-guy-2]. Well, without the [bad-guy]'s snark, [bad-guy-2] would probably be in charge. Then things would get worse. You see, [bad-guy-2] is after our time and money. The [bad-guy] just likes to share a little snark.'"
+guy-bad2	"'[bad-guy-2]. Well, without the [bad-guy]'s snark, [bad-guy-2] would probably be in charge. Then things would get worse. You see, [bad-guy-2] is after our time and money. The [bad-guy] just likes to share a little snark. I remember that time he told me don't go thinking you're any everyman, or anything special! What? Don't frown, there. It was--well, the way he said it. Better than I did. So eye-opening, so motivational.'"
 guy-bye	"'Whatever, dude.' [one of]It's--a bit harsh, you're not sure what you did to deserve that, but probably something[or]It's a bit less grating this time, but still[stopping]."
 
 to say bad-guy:
@@ -5909,7 +5912,7 @@ before going when accel-ending:
 	if the room noun of the location of player is visited:
 		say "You look [noun]. Pfft. Why would you want to go back? You're more focused after having an invigorating meal." instead;
 	else:
-		say "[if off-eaten is true]You really don't want to get lost among whatever weird people are [noun]. You're not up to it. You just want to talk to anyone who can get you out of here.[else if brownie-eaten is true]You'd like to, but the [bad-guy] sounds like the person to meat for REAL[else]Pfft. Nothing important enough that way! Maybe before you'd eaten, you'd have spent time wandering about, but not now. North to Freak Control![end if]" instead;
+		say "[if off-eaten is true]You really don't want to get lost among whatever weird people are [noun]. You're not up to it. You just want to talk to anyone who can get you out of here.[else if brownie-eaten is true]You'd like to go [noun], but the [bad-guy] sounds like the person to meet for REAL.[else]Pfft. Nothing important enough to the [noun]! Maybe before you'd eaten, you'd have spent time wandering about, but not now. North to Freak Control![end if]" instead;
 
 section greater cheese
 
@@ -6884,6 +6887,8 @@ girl-neg
 "The [j-co] recount [activation of pollyanna]Anna Pauley's greatest hits making fun of overoptimism. She always comes through!"
 "The [j-co] agree what a [activation of lily liver]LIVER Lily is! She couldn't be exaggerating."
 "The [j-co] agree that both [activation of pepper]Pepper Black, Pepper Bell [i]and[r] Pepper Green are hotter than Pepper Serrano."
+"The [j-co] claim learning WAY too much about computers will come back to [activation of terabyte]bite Tara."
+"The [j-co] [activation of terrapin]pin Tera as someone who needs to come out of her shell and live faster."
 "The [j-co] have to admit [activation of melodious]Odious Mel sure can sing!"
 "The [j-co] try to be charitable and think of girls ranked [activation of flounder]under Flo on their beauty scale."
 "The [j-co] argue that [activation of olive]Olive Black or Olive Green being more desirable is NOT a matter of taste."
@@ -9823,6 +9828,7 @@ gad-act
 "'[activation of evil eye]I?!? Evil?!?' booms the [bad-guy], before looking askance at the [random scenery in freak control]."
 "'[activation of sly dog]I'll need to dog Sly his magic tricks aren't anything special, now that he can actually do a few.'"
 "'[activation of pharisee]See, Farrah,' the [bad-guy] mutters to no girl in particular."
+"'[activation of mistruth]Ruth missed so much by not listening to the exciting stories I offered to share to her.'"
 "'Think you're clever? Foul miss, Artie[activation of Artemis Fowl],' the [bad-guy] chides."
 "The [bad-guy] congratulates himself for installing the super-sanitary doctor-recommended [activation of johns hopkins]Hopkins johns."
 "'[random surveyable person] just needs a good [activation of disorder]Order Dis to put [']em line. Or two. Or three.'"
@@ -11683,7 +11689,11 @@ Sharp Barb is a concept in conceptville. Understand "barb sharp" as sharp barb. 
 
 Tear-Jerk is a concept in conceptville. Understand "jerk-tear" and "tear jerk" and "jerk tear" as Tear-Jerk. howto is "solve the [j-co]['] puzzle".
 
+terabyte is a concept in conceptville. Understand "terabyte" as terabyte. howto is "[j-girl]".
+
 teriyaki is a concept in conceptville. Understand "teriyaki" as teriyaki. howto is "[j-girl]".
+
+terrapin is a concept in conceptville. Understand "terrapin" as terrapin. howto is "[j-girl]".
 
 section judgment pass concepts
 
@@ -11845,6 +11855,8 @@ King Henry is a concept in conceptville. understand "henry king" as king henry. 
 laughingstock is a concept in conceptville. Understand "laughing stock" and "stock laughing" as laughingstock. howto is "talk to the [bad-guy]".
 
 Leading Question is a concept in conceptville. Understand "question leading" as leading question. howto is "[fr-ran]".
+
+mistruth is a concept in conceptville. Understand "mistruth" as mistruth. howto is "[fr-ran]".
 
 narcissist is a concept in conceptville. Understand "narcissist" as narcissist. howto is "[fr-ran]".
 
