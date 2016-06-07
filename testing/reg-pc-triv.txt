@@ -28,3 +28,8 @@ A hollow voice booms
 
 > 
 I'll need a phrase of turn here.
+
+>talk to guy
+>
+Silence break?
+

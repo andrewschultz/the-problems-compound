@@ -196,7 +196,7 @@ Meal Square
 feel superior to those
 
 > l
-Pfft. None
+pigging out
 
 >l
 Back out east now.
@@ -209,7 +209,7 @@ Still here? I'm moving ahead in life!
 With Terry Sally out of the way, you can go north
 
 >n
-Hey, move it, I'm on a quest here!
+Which way is the BM?
 
 >l
 The jerks aren't hanging around any more
@@ -224,18 +224,18 @@ Nothing important enough to the east!
 Nothing important enough to the west!
 
 >n
-Oh geez. You can't take this.
+Not that it's THAT stale
 
 >l
 Well, Uncle Dutch and Turk Young had something to say
 
 >n
-Just standing around, eh?
+from chumps, right?
 
 >l
 The Brothers are dispatched.
 
 >n
-schmeadership
+People Power
 Alec didn't REALLY make a successful ending
 
