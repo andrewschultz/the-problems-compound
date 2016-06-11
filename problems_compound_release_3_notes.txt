@@ -34,7 +34,7 @@ The user-friendliness stuff is here.
 --some concepts were revealed on start before, but now, a tracking file sees if they should be revealed.
 --push and pull now map to open. This isn't huge, technically, but I'll use it going forward.
 --fixed "can't go that way" in Service Community (up/down gave something odd).
---PDF walkthrough tweaked to separate introductory regions (now with jump-verb spoilers too)
+--PDF walkthrough tweaked to separate introductory regions (now with jump-verb spoilers too) and also to use Trizbort's new (as of 1.5.9.5) custom text offset feature, so item placing looks look neater
 
 There's random stuff, too:
 --you can now play Hangman with Guy Sweet
