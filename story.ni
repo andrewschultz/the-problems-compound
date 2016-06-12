@@ -1889,13 +1889,15 @@ carry out gotoing:
 		say "No wimping out! This is the final confrontation." instead;
 	if player is in Soda Club:
 		if player has a drinkable:
-			say "You can't just go jetting off with a drink in your hand!" instead;
+			try going north instead;
 	if noun is service community:
 		if idol is in lalaland:
 			say "No need to go back." instead;
 		say "You'll need to navigate that by yourself." instead;
 	if player is in service community:
 		say "So many ways to go! The Service Community expands everywhere. You need to just pick a direction." instead;
+	if noun is service community:
+		say "[if idol is in lalaland]No need, now you've dispatched the Thoughts Idol[else]You need to plan a path to get rid of the Thoughts Idol[end if].";
 	if bros-left is 0 and mrlg is outer bounds:
 		say "You don't need to go that far back. You're close to Freak Control, you know it." instead;
 	if noun is Soda Club and player is not in joint strip:
@@ -1905,7 +1907,7 @@ carry out gotoing:
 	if noun is court of contempt and reasoning circular is not off-stage:
 		say "You can't go back. You could, but Buddy Best would scream you back outside." instead;
 	if noun is unvisited:
-		say "You haven't visited there yet." instead;
+		say "You haven't visited [noun] yet." instead;
 	if mrlp is dream sequence or mrlg is dream sequence:
 		say "GO TO is invalid for the dream sequence." instead;
 	if mrlp is rejected rooms or mrlg is rejected rooms:
@@ -3122,6 +3124,7 @@ sleeper cell	"A group of people who blen into a community until they can commit 
 bullfrog	"A bullfrog is not quite a toad. And bull means nonsense. The Stool Toad is probably in no danger of being mistaken for Frog or Toad from Arnold Lobel's nice books." [start of joint strip]
 Double Jeopardy	"Double jeopardy is being tried for the same crime twice. Making your jeopardy double is just putting you at twice the risk."
 Moral Support	"Moral support is helping someone even if you don't have concrete advice. SUPPORT MORAL is, well, a slogan that pushes people around."
+Pigeon English	"Pigeon English is broken, grammatically poor English."
 Trust Brain	"A brain trust is a group of people that help make a decision. A trust-brain, though not an English phrase, might mean a mind that can't make its own decisions."
 boot licker	"A boot licker is someone who flatters too much." [start of soda club]
 brew a plot	"To brew a plot is to plan something subversive."
@@ -6511,7 +6514,7 @@ to say tix-adv:
 
 description of the Stool Toad is "Green, bloated and, oh yes, poisonous. He reminds you of a security guard at your high school whose every other sentence was 'YOUNG MAN!'"
 
-the pigeon stool is scenery in Joint Strip. "It's shaped like a curled up pigeon, though its head might be a bit too big and flat. It's kind of snazzy, and you'd actually sort of like one. You read the words [activation of moral support]SUPPORT MORAL on it and feel immediately depressed."
+the pigeon stool is scenery in Joint Strip. "It's shaped like a curled up pigeon, though its head might be a bit too big and flat. It's kind of snazzy, and you'd actually sort of like one. You read the words [activation of moral support]SUPPORT MORAL on it and feel immediately depressed[one of]. You aren't an orinthologist, though you got accused of being one, but if you had to guess, it'd be an [activation of pigeon English]English Pigeon[or][stopping]."
 
 does the player mean doing something with the stool toad when player is in joint strip: it is unlikely. [more likely to use stool as a noun and all that]
 
@@ -9732,7 +9735,8 @@ check going nowhere in freak control:
 	say "You'd probably get lost, and caught, exploring." instead;
 
 check going south in Freak Control:
-	say "If you start running, you'll never get a running start[activation of running start]. Plus you're too chicken to face the possibility of being called a chicken." instead;
+	say "You try to start running, but unsurprisingly, you don't get a [activation of running start]running start. The [bad-guy] turns around. 'DUDE! That's pretty messed up, making it here and then running away. I know people that can...help...with that.'";
+	ship-off shape ship instead;
 
 a list bucket is a thing in Freak Control. "[if accel-ending]A list bucket might help you see what machines do what, if you had the time, which you don't[else][one of]A list bucket lying nearby may help you make sense of the fancy machinery, though you worry you might kill yourself trying[or]The list bucket waits here, a handy reference to the gadgetry of Freak Control[stopping][end if]."
 
@@ -11568,6 +11572,8 @@ bullfrog is a concept in conceptville. understand "frog bull" and "bull frog" as
 Double Jeopardy is a concept in conceptville. understand "jeopardy double" as Double Jeopardy. howto is "get ticket for sleeping".
 
 Moral Support is a concept in conceptville. understand "support moral" as moral support. howto is "examine pigeon stool".
+
+Pigeon English is a concept in conceptville. Understand "english pigeon" as pigeon english. howto is "examine pigeon stool".
 
 Trust Brain is a concept in conceptville. understand "brain trust" as trust brain. howto is "examine dreadful penny or mind of peace".
 
