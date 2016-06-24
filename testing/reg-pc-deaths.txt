@@ -143,4 +143,88 @@ Back at Soda Club
 Shape Ship
 Back at Down Ground
 
+* rest-of-deaths
+
+>gonear toad
+>shit
+>shit
+In-Dignity Heap
+
+>gonear freak control
+>shit
+>shit
+In-Dignity Heap
+
+>gonear variety garden
+>e
+>sleep
+Maintenance High
+
+>e
+>sleep
+Maintenance High
+
+>gonear meal square
+>eat lolly
+Maintenance High
+
+>gonear soda club
+>attack ally
+A Beer Pound
+
+>gonear smart street
+>attack game shell
+Hut Ten
+
+>gonear insanity terminal
+>attack terminal
+Hut Ten
+
+>gonear torch
+>attack torch
+Hut Ten
+
+>gonear labor child
+>attack labor child
+Fight Fair
+
+>gonear freak control
+>attack witness eye
+Criminals' Harbor
+
+>gonear petty
+>attack petty
+Criminals' Harbor
+
+>gonear brother big
+>attack brother big
+Criminals' Harbor
+
+>gonear soda club
+>attack lily
+Criminals' Harbor
+
+>gonear sly moore
+>attack sly moore
+Fight Fair
+
+>purloin poory pot
+>gonear officer petty
+>give pot to petty
+Criminals' Harbor
+
+>gonear stool toad
+>give pot to stool toad
+Criminals' Harbor
+
+>gonear gum
+>eat gum
+Maintenance High
+
+>gonear freak control
+>s
+Shape Ship
+
+
+
 # be sure to do 5-deaths each way
