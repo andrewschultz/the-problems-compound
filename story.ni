@@ -859,7 +859,7 @@ to inc-max:
 
 to say terminal-2:
 	if player is in the belt below:
-		ital-say ". Also, I got the idea for this puzzle from something else even tougher and more clever. XP TERMINAL to see the details";
+		say ". Also, I got the idea for this puzzle from something else even tougher and more clever. XP TERMINAL to see the details";
 
 check requesting the score:
 	if greater-eaten is true:
@@ -948,6 +948,8 @@ to leave-dream:
 chapter waiting
 
 check waiting (this is the caught napping rule):
+	if p-c is true:
+		say "Percy takes a pause, too." instead;
 	if mrlp is dream sequence:
 		move-dream-ahead instead;
 	if player is in down ground and slept-through is false:
@@ -1511,7 +1513,8 @@ check listening (this is the listening in a place rule):
 	if player is in idiot village:
 		say "You hear a faint duh-duh-duh. But wait a minute. Maybe it's there to ward off people who think they're a little too smart, and Idiot Village is not so stupid." instead;
 	if player is in Nominal Fen:
-		say "[if boris is in lalaland]Mercifully silent[else]'[activation of dirty word]Word! Dirty! [activation of clean break]Break CLEAN!'  the [j-co] gabble away. They're trying a bit too hard to show they're not lame[end if]." instead;
+		jerk-blab;
+		the rule succeeds;
 	if player is in surface and mush is in surface:
 		say "The arch makes a slight tapping noise as it dances from side to side." instead;
 	if player is in Soda Club:
@@ -3087,6 +3090,7 @@ Witness Eye	"Someone at the scene of the crime."	--
 worm ring	"A ringworm is a form of parasite."	"This was originally the wood worm, and it needed to become a whole worm, but I didn't see how to do it. I decided eventually to say it was a whole worm, but you needed to un-bend it, somehow." [start of out mist]
 hammer	"The hammer can be three things[ham-desc]."	"Figuring what the hammer should be was a design puzzle for sure. I got a lot of bad puns from it, but the idea of actually having a puzzle that uses word-flipping seemed like a nice way to end the game." [start of airy station]
 lock caps	"I THINK YOU KNOW WHAT CAPS LOCK IS, BUT HERE'S A DEMONSTRATION OF WHAT HAPPENS IF YOU LEAVE IT ON."	"I love a joke about all caps, and I needed some way to prevent you from getting in the carriage immediately."
+mentality crowd	"Crowd mentality is when everyone believes and does the same thing."
 Return Carriage	"Carriage Return is going back to the start of a new line in a document with text. And you are sort of going back to the start, too."	"The Return Carriage was originally the Snowflake Special. That's a good phrase, but it didn't feel right here. The Carriage is obvious, for what it is."
 
 table of explanations (continued) [this is stuff referred to in the director's cut area]
@@ -4594,6 +4598,11 @@ definition: a person (called pe) is blabbable:
 	if pe is in location of player, decide yes;
 	decide no;
 
+definition: a person (called pe) is chattable:
+	if pe is Alec Smart, decide no;
+	if pe is in location of player, decide yes;
+	decide no;
+
 a person can be babbled-out. a person is usually not babbled-out.
 
 brooktrying is an action applying to one thing.
@@ -4627,7 +4636,7 @@ carry out brookbabbling:
 	if player is in chipper wood and Cute Percy is in chipper wood:
 		try talking to Cute Percy instead;
 	if number of blabbable people > 1:
-		say "[list of blabbable people].";
+		d "[list of blabbable people].";
 	if number of blabbable people is 0:
 		if number of babbled-out people in location of player > 1:
 			say "There's more than one person you babbled with/to. Try to TALK to them individually for a recap." instead;
@@ -4690,6 +4699,7 @@ to babble-out (pe - a person):
 				say "[line break]Well. Now that you, err, abridged the conversation, you feel as though you can abridge how you think of it. Instead of [b]BROOK BABBLING[r], well, [b]B[sr-space]B[r] (with or without a space) would work.";
 				now ever-babbled is true;
 			if pe is sly moore:
+				say "Oh. You also find his name. Sly Moore.";
 				now talked-to-sly is true;
 			the rule succeeds;
 	say "BUG! [pe] should have a babble shortcut in the table of npc talk summaries. I think.";
@@ -4716,8 +4726,8 @@ Erin Sack	"She--well, she seems to be making sense, but you feel obliged to agre
 Terry Sally	"The usual greetings, as he exhorts you to be good--not too good, though. Maybe if you have some proof you're not totally boring and squeaky clean, you'll be bare-knuckle enough for the Compound proper. [if your-tix is 0]You'll--well, you'll know what, once you start picking up demerits[else]Probably the boo ticketies[end if]."	"Terry Sally wanted some sort of document[if your-tix is 4], maybe like that trail paper you've got[else if your-tix > 0], and your ticketies don't quite make one yet[end if]."
 Buddy Best	"Buddy Best begins talking a mile a minute about Big Things, and it's impressive all right, and you're not sure how much you should interrupt to say so. You don't at all, and eventually he gets bored of you staring at him and hands you something called a Reasoning Circular and boots you back east."	"BUG. This should not happen."	--	Reasoning Circular
 Pusher Penn	"He drones on about exciting business opportunities and pushes some wacker weed on you to help you, apparently, get a taste of cutting-edge business."	"[if wacker weed is in lalaland]'Business, eh?'[else]He rubs his hand and makes a 'come here' gesture.[end if][penn-ask]"	"[if wacker weed is in lalaland]Pusher Penn wanted you to run an errand, and you did. He seems pretty disinterested in you now[else if player has wacker weed]You still need to find whom to give the weed to[else]You get the feeling Pusher Penn is all business[end if]."	wacker weed
-Art Fine	"Art goes to town on the superiority of unwritten art to written art. You guess it's persuasive, but you wonder if Phil would've been even more persuasive."	"He was pretty convincing about spontaneous art versus art restricted by the written word."
-Harmonic Phil	"Phil goes to town on the superiority of unwritten art to written art. You guess it's persuasive, but you wonder if Art would've been even more persuasive."	"He was pretty convincing about intellectual art versus art that might appeal to less clever people."
+Art Fine	"Art goes to town on the superiority of unwritten art to written art. You guess it's persuasive, but you wonder if Phil would've been even more persuasive, if his views were switched."	"He was pretty convincing about spontaneous art versus art restricted by the written word."
+Harmonic Phil	"Phil goes to town on the superiority of unwritten art to written art. You guess it's persuasive, but you wonder if Art would've been even more persuasive, if his views were switched."	"He was pretty convincing about intellectual art versus art that might appeal to less clever people."
 Sly Moore	"[sly-s] haltingly asks if you found anything that could help him be less klutzy? He needs it a bit more than you. Um, a lot."	"'Uh, not found anything yet for my klutziness? No worries, I'd do even worse.'"	"He wanted something to help him be less klutzy."	--
 Officer Petty	"Officer Petty boomingly proclaims a need for theoretical knowledge to augment his robust practical knowledge."	"'NOT FOUND ANYTHING YET? DIDN'T THINK SO. STILL, I CAN HOPE. I COULD USE SOME HIGHBROW FINESSE, I ADMIT IT.'"	"Officer Petty needed something to expand his skills beyond shouting and intimidation."	--
 Grace Goode	"She mentions how having a flower for the googly bowl [if fourth-blossom is in lalaland]is so[else]would be[end if] nice."	"[if fourth-blossom is in lalaland]'Thank you for returning the flower to the bowl.'[else]'Have you found a flower for the googly bowl?'[end if]"	"[if fourth-blossom is in lalaland]There's no need for words now that the flower is back in the googly bowl[else]She was hoping for a flower for the googly bowl[end if]."
@@ -6441,7 +6451,7 @@ to get-ticketed (ttext - text):
 		if player has a drinkable:
 			say "[line break]Uh oh. You look at the drink in your hand. You're a hardened lawbreaker, now, and if the Stool Toad caught you with it, he'd have reason to send you off somewhere no good. You should probably DROP the [if player has brew]brew[else]cooler[end if].";
 	else if your-tix is 1:
-		say "[line break]You aren't sure what to do with this. It's not quite a ticket, because it's not shaped like one. It's cut diagonally, and it's triangular. You notice it's got a quarter of some sort of stamped seal on the other side.";
+		say "[line break]You aren't sure what to do with this. It's not quite a ticket, because it's not shaped like one. It's cut diagonally, and it's triangular. You can see how putting four together would make a stamped seal, but it's nothing impressive right now.";
 		now player has boo tickety;
 	else if your-tix is 2:
 		say "[line break]What luck! The second boo tickety you got fits in with the first. You now have a diagonal-half of, well, something.";
@@ -6786,6 +6796,8 @@ section Ally Stout
 Ally Stout is a baiter-aligned person in Soda Club. "[one of]The guy you guess is the bartender[or]Ally Stout[stopping] bustles around, serving drinks to the customers."
 
 rule for supplying a missing noun while talking to:
+	if player is in airy station:
+		now noun is mentality crowd;
 	if location of player is soda club:
 		if erin is in soda club:
 			say "Man! You feel less awkward talking to Ally, even though he's probably out of your friendship league. Well, it's his job.[line break]";
@@ -6793,7 +6805,16 @@ rule for supplying a missing noun while talking to:
 		continue the action;
 	if number of blabbable people is 1:
 		now noun is a random blabbable person;
-	say "There's more than one person here to talk with or to.";
+		continue the action;
+	if number of blabbable people is 0:
+		if number of chattable people > 0:
+			let rc be a random chattable person;
+			say "([rc], why not)[paragraph break]";
+			now noun is rc;
+			continue the action;
+		say "There's nobody here to talk to.";
+	else:
+		say "There's more than one person here to talk with or to.";
 	reject the player's command;
 
 check talking to Ally Stout when Erin is in lalaland and conv-left of Ally Stout > 1:
@@ -6816,6 +6837,8 @@ prompt	response	enabled	permit
 "I'll have the Cooler Wine."	ally-cooler	0	1
 "What do you think of the [bad-guy]?"	ally-baiter	1	1
 "[later-or-thanks]."	ally-bye	3	1
+
+indefinite article of a drinkable is usually "some".
 
 the cooler wine is a drinkable. description is "My goodness! It's almost fluorescent."
 
@@ -6887,9 +6910,10 @@ part Nominal Fen
 Nominal Fen is north of Pressure Pier. It is in Main Chunk. printed name of Nominal Fen is "[jc]". "[if silly boris is in lalaland]It's a bit more relaxed here without the [j-co]['] conversation[else][one of]This--well, it isn't a swamp, or a bog, or--well, you're not sure, and it's not particularly amazing, so yeah, call it a fen. [or][stopping]Seven [j-co] stand in a circle (okay, a heptagon) here, talking to and about others[end if]. It looks like there's forested area to the west, a narrow valley to the east, and things open up to the north. Nothing's stopping you going back south to Pressure Pier, either[if bros-left is 0], though you probably have nothing to do there with the Brothers gone[end if]."
 
 after printing the locale description for Nominal Fen when Nominal Fen is unvisited:
-	if allow-swears is true:
-		unless accel-ending:
-			say "Man. You just feel oppressed just being [activation of jerk around]AROUND jerks.";
+	unless accel-ending:
+		say "'[activation of dirty word]Word! Dirty! [activation of clean break]Break CLEAN!'  the [j-co] gabble away. They're trying a bit too hard to show they're not lame.";
+		if allow-swears is true:
+			say "[line break]Man. You just feel oppressed just being [activation of jerk around]AROUND jerks.";
 	continue the action;
 
 check going nowhere in Nominal Fen:
@@ -6953,21 +6977,24 @@ before talking to jerks (this is the ask jerks generally to get their names rule
 	if finger is not examined:
 		if allow-swears is false:
 			say "You don't know who would be least unpleasant to talk to first. Even if you did, it'd probably be too much. Maybe if you knew more about them some other way..." instead;
-		increment jerk-girl-row;
-		if jerk-girl-row > number of rows in table of jerk-girl-talk:
-			say "'[activation of lovelies]Lies: LOVE!' proclaims [random client in Nominal Fen]. The others agree. They then resume their...evaluations.";
-			now jerk-girl-row is 0;
-			continue the action;
-		choose row jerk-girl-row in table of jerk-girl-talk;
-		say "[girl-neg entry]";
-		if jerk-girl-yet is false:
-			say "[line break]You have a vague suspicion that they don't know as much about girls as they say they do, but if you called them on it, they'd say you didn't, either, so hypocrisy.";
-			now jerk-girl-yet is true;
-		the rule succeeds;
+		say "No way you'l be able to interrupt, so you just listen instead.[line break]";
+		try listening instead;
 	if know-jerks is true:
 		say "You should really pick an individual jerk to talk to, now you know their names." instead;
 	say "You give a vague 'Hi, guys,' and are assailed by the [j-co] saying, geez, we have names, you know, and all that sort of thing. They are: [jerk-list].";
 	now know-jerks is true instead;
+
+to jerk-blab:
+	increment jerk-girl-row;
+	if jerk-girl-row > number of rows in table of jerk-girl-talk:
+		say "'[activation of lovelies]Lies: LOVE!' proclaims [random client in Nominal Fen]. The others agree. They then resume their...evaluations.";
+		now jerk-girl-row is 0;
+		continue the action;
+	choose row jerk-girl-row in table of jerk-girl-talk;
+	say "[girl-neg entry][line break]";
+	if jerk-girl-yet is false:
+		say "You have a vague suspicion that they don't know as much about girls as they say they do, but if you called them on it, they'd say you didn't, either, so hypocrisy.";
+		now jerk-girl-yet is true;
 
 table of jerk-girl-talk
 girl-neg
@@ -7380,8 +7407,8 @@ to check-jerks-done:
 	d "RIGHT!";
 	say "[snickerin].";
 	repeat through table of fingerings:
-		if debug-state is true:
-			say "[jerky-guy entry] ([my-quip entry][if my-quip entry is jerky]: JERKY[end if]): [suspect entry] [if jerky-guy entry is minted]MINT[end if].";
+		[if debug-state is true:
+			say "DEBUG: [jerky-guy entry] ([my-quip entry][if my-quip entry is jerky]: JERKY[end if]): [suspect entry] [if jerky-guy entry is minted]MINT[end if].";]
 		if suspect entry is 0 and my-quip entry is jerky and jerky-guy entry is not minted and jerky-guy entry is not buddy best:
 			if skip-after-accuse is true:
 				now last-jerk is next-c-x of last-jerk;
@@ -7888,7 +7915,7 @@ before talking to story fish:
 	if player is not in Discussion Block:
 		say "The fish opens a sleepy eye. 'Eh? Anyone with a [activation of fish for a compliment]compliment for a fish? Nope, nobody artsy enough.'" instead;
 	if art fine is in Discussion Block:
-		say "The fish eyes you sleepily but then sees the bookshelf, then Art Fine. 'Ah! Good sir! May I begin!' The fish's story is much funnier this time, and a bit shorter, too, because Art barely lasts five minutes before he runs away screaming. '[safety-of]!' You pat the fish on the head and put it in the tie it to the Book Bank with the Long String--there, you even hid the string, so it looks extra neat.[paragraph break]";
+		say "The fish eyes you sleepily but then sees the bookshelf, then Art Fine. 'Ah! Good sir! May I begin!' The fish's story is much funnier and shorter than you expected, because Art barely lasts five minutes before he runs away screaming. '[safety-of]!' You pat the fish on the head and put it in the tie it to the Book Bank with the Long String--there, you even hid the string, so it looks extra neat.[paragraph break]";
 		now long string is in lalaland;
 		now art fine is in lalaland;
 		now story fish is in Discussion Block;
@@ -8012,15 +8039,24 @@ check taking legend of stuff when Thoughts Idol is in lalaland:
 check examining the Legend of Stuff:
 	if bros-left is 0:
 		if silly boris is in Nominal Fen:
-			say "As you flip through the Legend of Stuff, you notice two identical pages, of a stick-figure is asking the second stick-figure the same question twice. The second response is nervier." instead;
+			say "As you flip through the Legend of Stuff, you notice two identical pages, of a stick-figure is asking the second stick-figure the same question twice. The second response, the askee is clutching their head, a bit nervier." instead;
 		say "The Legend of Stuff has nothing new to offer." instead;
 	say "The Legend of Stuff seems to be in roughly three parts: a red section, a blue section, and a section as big as the other two combined. Which section do you wish to look at? Or would you like to look at them all?";
+	now x-stuff-first is true;
 	try talking to the Legend of Stuff instead;
 
 check taking the note crib:
 	say "You can take notes and maybe crib notes, but you can't take the crib." instead;
 
+x-stuff-first is a truth state that varies.
+
 check talking to Legend of Stuff:
+	if x-stuff-first is false:
+		say "'OK, show me what you've got,' you whisper.";
+		now x-stuff-first is true;
+		the rule succeeds;
+	if player does not have legend of stuff:
+		say "You'll need to TAKE the Legend of Stuff to look through it." instead;
 	now stuff-talk is true;
 	now qbc_litany is the table of Legend of Stuff talk;
 	display the qbc options;
@@ -8427,7 +8463,8 @@ after quipping when qbc_litany is litany of grace:
 		superable grace-googly;
 		enable the grace-herb quip;
 	if current quip is grace-googly:
-		enable the grace-restore quip;
+		if grace-restore is not talked-thru:
+			enable the grace-restore quip;
 	if current quip is grace-hi:
 		enable the grace-baiter quip;
 	if current quip is grace-bye:
@@ -8717,7 +8754,7 @@ to decide whether not-conversing:
 	decide no;
 
 every turn when player is in idiot village and sly moore is in idiot village and not-conversing:
-	say "[one of][sly-s] plays a sample three-shell game, but a bean appears under each one.[or][sly-s] asks you to pick a card but then realizes they're all facing him.[or][sly-s] tries to palm an egg in a handkerchief, but you hear a crunch. 'Well, good thing I hollowed it out first, eh?'[or][sly-s] slaps a bunch of paperclips on some folded paper and unfolds the paper. They go flying. 'They were supposed to connect...'[or][sly-s] performs a riffle shuffle where one side of the deck of cards falls much quicker.[or][sly-s] performs a riffle shuffle that works beautifully until the last few cards fall to the ground.[or][sly-s] mumbles 'Number from one to a thousand, ten guesses, five hundred, two fifty, one twenty-five--round up or down, now? Dang, I'm stuck.'[or][sly-s] pulls out a funny flower which doesn't squirt you when he pokes it. He looks at it up close, fiddles with it and--yup. Right in his face.[or][sly-s] reaches to shake your hand, but you see the joy buzzer pretty clearly. He slaps his knee in disappointment...BZZT.[or][sly-s] looks befuddled on pulling only one handkerchief out of his pocket.[or][sly-s] cuts a paper lady in half. 'Oops. Good thing she wasn't real.'[in random order]"
+	say "[one of][sly-s] plays a sample three-shell game, but a bean appears under each one.[or][sly-s] asks you to pick a card but then realizes the value-sides all facing him.[or][sly-s] tries to palm an egg in a handkerchief, but you hear a crunch. 'Well, good thing I hollowed it out first, eh?'[or][sly-s] slaps a bunch of paperclips on some folded paper and unfolds the paper. They go flying. 'They were supposed to connect...'[or][sly-s] performs a riffle shuffle where one side of the deck of cards falls much quicker.[or][sly-s] performs a riffle shuffle that works beautifully until the last few cards fall to the ground.[or][sly-s] mumbles 'Number from one to a thousand, ten guesses, five hundred, two fifty, one twenty-five--round up or down, now? Dang, I'm stuck.'[or][sly-s] pulls out a funny flower which doesn't squirt you when he pokes it. He looks at it up close, fiddles with it and--yup. Right in his face.[or][sly-s] reaches to shake your hand, but you see the joy buzzer pretty clearly. He slaps his knee in disappointment...BZZT.[or][sly-s] looks befuddled on pulling only one handkerchief out of his pocket.[or][sly-s] cuts a paper lady in half. 'Oops. Good thing she wasn't real.'[in random order]"
 
 talked-to-sly is a truth state that varies.
 
@@ -8794,6 +8831,9 @@ orientation of northwest is 7.
   43   54]
 
 the thoughts idol is scenery in Idiot Village. "[if player is in idiot village][iv-idol][else]If you look back at the Thoughts Idol now, it may distract you. You know it's [vague-dir]. Gotta keep running, somehow, somewhere[end if]"
+
+check talking to thoughts idol:
+	say "Whoah. You can't think of anything at all to say. You'd like to be defiant, but you'd be fooling nobody." instead;
 
 check entering idol:
 	if terminal is in lalaland and player does not have legend of stuff:
@@ -9056,6 +9096,9 @@ check going nowhere in pot chamber:
 section Pusher Penn
 
 Pusher Penn is a person in Pot Chamber. description is "He looks rather ordinary, really. No beepers, no weapons, no bulge indicating a concealed weapon. You'd guess he's one of those teens adults refer to as a Fine Young American (or whatever your nationality is) who'll make good in business some day."
+
+check talking to Penn when player has penny:
+	try giving penny to Penn instead;
 
 understand "pen" and "pusher pen" as Pusher Penn.
 
@@ -9369,6 +9412,8 @@ after quipping when qbc_litany is litany of Harmonic Phil:
 	if current quip is phil-hi:
 		enable the phil-pomp quip;
 		enable the phil-aes quip;
+	if current quip is phil-tol:
+		enable the phil-tol quip;
 	if current quip is phil-aes:
 		enable the phil-tol quip;
 	if current quip is phil-bye:
@@ -9730,7 +9775,8 @@ after quipping when qbc_litany is litany of Brother Blood:
 	if current quip is blood-manip:
 		superable blood-calm;
 	if current quip is blood-calm:
-		enable the blood-all quip;
+		if blood-all is not talked-thru:
+			enable the blood-all quip;
 	if current quip is blood-bye:
 		terminate the conversation;
 
@@ -9928,7 +9974,7 @@ gad-act
 "'But does [random surveyable person] have any GOOD ways to [activation of leading question]question leading like mine?'"
 "The [bad-guy] mutters he's sure [activation of Howard Dean]Dean Howard is nice and well-meaning all, but that scream. Really. Just...unforgiveable. And even if it were, well, he probably still deserves to be REMINDED. For character building purposes."
 "'[activation of Oscar Wilde]Wild Oscar? Pff, so full of vapid one-liners.'"
-"The [bad-guy] reminds himsef how to [activation of psychoanalyst]list Anna: psycho, even if there's not enough data/proof yet."
+"The [bad-guy] reminds himself how to [activation of psychoanalyst]list Anna: psycho, even if there's not enough data/proof yet."
 "The Language Sign flashes but you don't think it changed its message. Just reinforced it."
 "[odd-machine of Twister Brain] spits out a page of data the [bad-guy] speed reads. He mutters 'Pfft. I already sort of knew that. Mostly. Still, need to keep an eye on [the random surveyable person].'"
 "[odd-machine of Witness Eye] swivels around with a VVSSHHKK before changing the focus to [random mainchunk room]."
@@ -10120,6 +10166,11 @@ Endings is a region.
 part Airy Station
 
 Airy Station is a room in Endings. "[one of]A cheering crowd surrounds you on all sides! They're going pretty crazy over their new-found freedom, and how you achieved it for them, and how they might not even need you to keep it, even though you're noce to have around[or]The mentality crowd continues to cheer and wave[stopping]."
+
+the mentality crowd is scenery in airy station. "All kinds of people applaud you."
+
+instead of talking to mentality crowd:
+	say "They are stuck in full-on cheering mode.";
 
 to say hammer-clue:
 	now no-break is true;
@@ -10519,6 +10570,7 @@ every turn when mrlp is dream sequence:
 			move player to Down Ground, without printing a room description;
 			get-ticketed "sleeping too long on the Warmer Bench";
 			say "[line break]The Stool Toad leaves you in Down Ground, to think about what you did. Maybe even sleep on it. Ha ha.";
+			leave-dream;
 			the rule succeeds;
 	if player is in Tense Future:
 		now toad-waits is true;
@@ -11443,6 +11495,8 @@ rule for printing a parser error when the latest parser error is the didn't unde
 	reject the player's command;
 
 Rule for printing a parser error when the latest parser error is the i beg your pardon error:
+	if p-c is true:
+		try waiting instead;
 	if qbc_litany is table of no conversation:
 		say "[activation of turn of phrase]I'll need a phrase of turn here.";
 	else:
