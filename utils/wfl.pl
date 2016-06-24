@@ -162,7 +162,7 @@ if ($shouldAlphabetize)
 {
 open(C, ">>$track");
 print C "========$flip\n";
-if ($dicURLPrint) { print C "\"$webapp\" http:\/\/idioms.thefreedictionary.com\/$flip\n"; }
+if ($dicURLPrint) { print C "CHECK http:\/\/idioms.thefreedictionary.com\/$flip\n"; }
 }
 
 close(C);
@@ -272,7 +272,7 @@ sub alfOut
   print B sort { crs($a) <=> crs($b) } @bigAry;
   close(A);
   close(B);
-  if (-s $output != -s "$output-alf") { print "Oops size mismatch: " . (-s $output) . " vs " . (-s "$output-alf") . "\n"; return; }
+  if (-s $output != -s "$output-alf") { print "Oops size mismatch in alf-out: " . (-s $output) . " vs " . (-s "$output-alf") . "\n"; return; }
   `copy $output-alf $output`;
 }
 
@@ -283,6 +283,8 @@ sub alfTrack
   open(B, ">$track-alf");
   while ($a = <A>)
   {
+    if ($a =~ /^#/) { print B $a; next; }
+	if ($a =~ /^APP=/) { print B $a; next; }
     if ($a !~ /^=/)
 	{
 	  if ($stillAlf) { $x = pop(@alf) . $a; print B sort(@alf); }
@@ -302,7 +304,7 @@ sub alfTrack
   print B sort(@alf);
   close(A);
   close(B);
-  if (-s $track != -s "$track-alf") { print "Oops size mismatch: " . (-s $track) . " vs " . (-s "$track-alf") . "\n"; return; }
+  if (-s $track != -s "$track-alf") { print "Oops size mismatch in alf-track: " . (-s $track) . " vs " . (-s "$track-alf") . "\n"; return; }
   `copy $track-alf $track`;
 }
 
@@ -333,23 +335,34 @@ sub idiomSearch
 {
   open(A, "$track");
   my @redo = ();
+  my @header = ();
   if ($_[0] =~ /[^0-9]/) { print "Need a number for idiom search.\n"; return; }
   my $toDo = $_[0];
   my $idiomsDone = 0;
   my $undone = 0;
   while ($a = <A>)
   {
-    if ($a =~ /^=/) { push (@redo, $a); }
-	elsif ($idiomsDone < $toDo) { chomp($a); print "$a\n"; `$a`; $idiomsDone++; }
+	if ($a =~ /^APP=/) { $app = $a; $app =~ s/^APP=//g; chomp($app); }
+    if ($a =~ /^(#|APP=)/) { push (@header, $a); next; } # header info first
+	if (($idiomsDone < $toDo) && ($a =~ /^CHECK/))
+	{
+	  chomp($a);
+	  print "$a\n";
+	  $a =~ s/^CHECK/\"$app\"/g;
+	  print "$a\n";
+	  `$a`;
+	  $idiomsDone++;
+	}
 	else { if ($a =~ /http/) { $undone++; } push (@redo, $a); }
   }
   close(A);
   open(A, ">$track");
+  for (@header) { print A $_; }
   for (@redo) { print A $_; }
   close(A);
   if ($undone == 0)
   {
-    if ($idiomsDone == 0) { print "Nothing to do!\n"; }
+    if ($idiomsDone == 0) { print "Nothing to do!\n"; return; }
 	elsif ($idiomsDone < $toDo) { print "I was only able to do $idiomsDone of $toDo. But good news is, all ideas are cleared!\n"; }
 	elsif ($undone == 0) { print "Yay! you've cleared the stack of words to check and hit the number left on the head.\n"; }
     else { "All finished!\n"; }
