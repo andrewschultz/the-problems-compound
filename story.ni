@@ -9359,6 +9359,7 @@ workname	authname	booksubj
 "The Magi of the Gift"	"Henry O"	"clever folk whose seemingly ideal gifts show the recipients up as greedy bums"
 "Messiah Dune"	"Herbert Frank"	"a race of people who gave up on interstellar war to relax at the beach and concoct a religion forbidding spices"
 "The Parson Country"	"Herbert George"	"just how impractical and rubbish religion is, even when its trappings make people do good things"
+"Twenty To Catch"	"Hilaire Joseph"	"grinding down objectors with a variety of logic traps"
 "The Sleepy Hollow of Legend"	"Irving Washington"	"how people learned and proved that silly old 'national treasures' don't hold any mysteries"
 "Command the Angels"	"Jacques Brian"	"how and why evil pirates deserve to be richer and more interesting than boring sailors"
 "The Master of the Lesson"	"James Henry"	"an older literary critic who finds and mentors hopeless young fiction authors who'd be better suited to HIS career"
@@ -11416,7 +11417,9 @@ meta-rooms is a region.
 
 chapter bullpen
 
-bullpen is a room in meta-rooms. "You should never see this. If you do, it is a [bug]." [the bullpen is for items that you dropped when you slept]
+bullpen is a privately-named room in meta-rooms. "You should never see this. If you do, it is a [bug]." [the bullpen is for items that you dropped when you slept]
+
+understand "bullpen" as bullpen when debug-state is true.
 
 chapter conceptville [xxcv]
 
@@ -11426,7 +11429,9 @@ to say activation of (x - a thing):
 to say f-t of (my-r - a room):
 	say "go to the [my-r] for the first time"
 
-conceptville is a room in meta-rooms. "You should never see this. If you do, it is a [bug]." [this is a cheesy hack, as concepts you haven't seen yet are here, and when you see them, they move to lalaland.]
+conceptville is a privately-named room in meta-rooms. "You should never see this. If you do, it is a [bug]." [this is a cheesy hack, as concepts you haven't seen yet are here, and when you see them, they move to lalaland.]
+
+understand "conceptville" as conceptville when debug-state is true.
 
 section misc concept(s)
 
@@ -11974,7 +11979,9 @@ chapter lalaland concepts
 
 section endgame concepts
 
-lalaland is a room in meta-rooms. "You should never see this. If you do, it is a [bug]."
+lalaland is a privately-named room in meta-rooms. "You should never see this. If you do, it is a [bug]."
+
+understand "lalaland" as lalaland when debug-state is true.
 
 Complain Cant is a concept in conceptville. understand "cant complain" as Complain Cant. howto is "eat the off cheese and 'win'".
 
