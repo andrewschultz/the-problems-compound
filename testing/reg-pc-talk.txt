@@ -29,6 +29,8 @@ Guy seemed impressed you took initiative and weren't intimidated, but he's still
 >undo
 
 >talk
+>
+Silence break?
 >5
 You mumble something about not really having anything to say, and sorry, and sorry for wasting time with an unnecessary apology.
 
@@ -411,6 +413,476 @@ You don't want to let anything slip that could get you in further trouble, with 
 >w
 >w
 >n
+
+* main-area
+
+>figure a cut
+>gonear fen
+
+>talk to jerks
+The jerks 
+>talk to jerks
+The jerks 
+>listen
+The jerks 
+
+>n
+>talk to dutch
+He'd be intimidating enough even if he weren't up there on the Fright Stage. Between 
+
+>talk to turk
+He'd be intimidating enough even if he weren't up there on the Fright Stage. Between 
+
+>n
+
+>w
+>bb
+Buddy Best begins talking a mile a minute about Big Things, and it's impressive all right, and you're not sure how much you should interrupt to say so. You don't at all, and eventually he gets bored of you staring at him and hands you something called a Reasoning Circular and boots you back east.
+
+Questions Field
+>i
+a Reasoning Circular
+
+>undo
+>undo
+>talk
+>1
+>1
+>3
+>2
+Questions Field
+>i
+a Reasoning Circular
+
+>undo
+>undo
+>1
+>i
+a Reasoning Circular
+
+>s
+>s
+>e
+
+>e
+>bb
+Officer Petty boomingly proclaims a need for theoretical knowledge to augment his robust practical knowledge.
+
+>talk to petty
+You don't have anything left to say except hello, good-bye. But here's a summary: Officer Petty needed something to expand his skills beyond shouting and intimidation.
+
+>undo
+>undo
+
+>talk to petty
+>1
+>1
+>1
+>1
+>1
+
+>talk to petty
+You don't have anything left to say except hello, good-bye. But here's a summary: Officer Petty needed something to expand his skills beyond shouting and intimidation.
+
+>give circular
+
+>talk to monkey
+The Business Monkey opens its pockets and smiles before clawing at the dirt and making a rising-up gesture with one paw.
+
+The would-be magician plays a sample three-shell game, but a bean appears under each one.
+
+>bb
+The would-be magician haltingly asks if you found anything that could help him be less klutzy? He needs it a bit more than you. Um, a lot.
+Oh. You also find his name. Sly Moore.
+
+>undo
+>talk to magician
+He introduces himself as Sly Moore.
+
+>3
+
+>talk to magician
+!He introduces himself as Sly Moore.
+
+>1
+>1
+>1
+>1
+>1
+>1
+>1
+>1
+>1
+"Later."
+
+>talk to sly
+>1
+>1
+
+>talk to thoughts idol
+Whoah. You can't think of anything at all to say. You'd like to be defiant, but you'd be fooling nobody.
+
+>w
+Judgment Pass
+
+>w
+>w
+>talk
+You've got no chance of winning an insult war. But maybe if you catch him on the Chase Paper...he said he might help you. Or help you get close to help. Probably the second.
+
+>talk to percy
+You've got no chance of winning an insult war. But maybe if you catch him on the Chase Paper...he said he might help you. Or help you get close to help. Probably the second.
+
+>play
+>ne
+>ne
+>ne
+>s
+>w
+>s
+>w
+>s
+>w
+
+>d
+
+>talk to terminal
+If you want to answer the puzzle, type the eight answers, a-f, in a row.
+
+>a bad face
+
+>d
+
+>talk to legend
+WRONG
+>get legend
+>talk to legend
+WRONG
+
+>u
+>u
+>w
+>n
+>talk
+"I'm a busy kid. Almost as busy as BM. In addition to delegating all my homework I am running a business! There's startup materials in the Hedge Fund."
+>talk to child
+"I'm a busy kid. Almost as busy as BM. In addition to delegating all my homework I am running a business! There's startup materials in the Hedge Fund."
+>x hedge
+>talk to child
+"The contract! Less talk! More do!" Oh, man, there's something you'd like to DO.
+
+>s
+>w
+>talk to faith
+[2] Um, later.
+>talk to grace
+[2] Um, later.
+
+>1
+[4] Um, later.
+
+>talk to faith
+[4] Um, later.
+
+>1
+[5] Um, later
+>1
+[5] Um, later
+
+>2
+>2
+>2
+>2
+>e
+Disposed Well
+
+>in
+
+>talk to sid
+"Oh yeah, sure, I bet you have interesting questions. But I've probably heard 'em all before. And I'm giving interesting answers to questions you didn't need to know yet. You might want to just listen." Sid Lew's voice is weirdly hypnotic and rhythmic, for all its bluster. How to cut into it? You could never win an argument.
+
+>talk to sid
+Before Lee Bull can talk, Sid Lew cuts in. "Quit distracting him! Y'got anything as interesting and profound to say as me? Well, you couldn't say it right, anyhow," he roars. "And if you DO have somewhere I'm wrong, well, it's selfish not to let Lee find it himself. He's, like, a truthseeker or something." Sid Lew's voice is weirdly hypnotic and rhythmic, for all its bluster. How to cut into it? You could never win an argument.
+
+>talk
+WRONG
+
+>out
+>e
+>e
+>e
+>e
+
+>give seed to monkey
+>give contract to monkey
+
+>w
+>w
+>w
+>w
+>n
+>talk to child
+Before you can say anything, he takes the contract.
+
+"Excellent! You now have a customer in your pipeline. You will receive 5% of whatever he buys from us in the future. Oh, and you may go IN to the back room."
+
+>in
+
+>get safe
+>read index
+
+>s
+>s
+>w
+
+>talk to faith
+>1
+if I restore your cult
+>2
+>1
+!if I restore your cult
+>2
+>give blossom to grace
+
+>i
+a mind of peace
+
+>e
+>e
+>e
+>talk to jerks
+You give a vague "Hi, guys," and are assailed by the jerks saying, geez, we have names, you know, and all that sort of thing. They are: Cain Reyes, Paul Kast, Warm Luke, Warner Dyer, Wash White, Silly Boris, and Dandy Jim.
+
+>talk to jerks
+You should really pick an individual jerk to talk to, now you know their names.
+
+>n
+>e
+>get string
+
+>e
+>bb phil
+Art would've been
+>bb art
+Phil would've been
+>undo
+>undo
+>bb
+Art and Phil both seem equally tough to talk to. You can B/BB/BROOK ART or PHIL, though.
+
+>talk to art
+>1
+[5] Um, later
+>2
+[2] What is your aesthetic?
+[4] Um, later
+>2
+[2] What would be
+[4] Um, later
+>2
+[2] What would be
+[4] Um, later
+>3
+[3] Um, later
+>3
+
+>talk to phil
+>1
+[4] Um, later
+>2
+>2
+>3
+>3
+Enjoy the splendour
+
+>open safe
+!You don't need to, again.
+
+>open safe
+You don't need to, again.
+
+>w
+>in
+>talk
+[3] Um, later
+
+>bb
+He drones on about exciting business opportunities and pushes some wacker weed on you to help you, apparently, get a taste of cutting-edge business.
+
+>talk
+Pusher Penn won't be happy to see you haven't made the delivery.
+
+>undo
+>undo
+
+>talk to penn
+
+>1
+>2
+>2
+>2
+>2
+Get my delivery done
+
+>out
+>w
+>s
+>s
+>e
+>give weed to fritz
+
+>w
+>n
+>n
+>e
+>in
+>talk to penn
+"Most excellent! It's not the profit so much as the trust. Now, you look like you haven't tried the good herb before. No 
+
+>out
+>w
+>w
+
+>talk
+"Um, yeah, um, back up. I really don't want to smell your breath. Just in case." He curses the Baiter Master for both not caring about the smell here and actively being the cause of it.
+
+>talk to sal
+"Um, yeah, um, back up. I really don't want to smell your breath. Just in case." He curses the Baiter Master for both not caring about the smell here and actively being the cause of it.
+
+>talk to sal
+You don't want to risk waking him. Who knows what new faults he might find?
+
+>x vent
+>open it
+
+>e
+>s
+>w
+>put string in well
+>e
+>e
+>n
+>e
+>e
+
+>talk to fish
+Ah! Good sir!
+>get wax
+>w
+>n
+>put wax on machine
+>s
+>w
+>s
+>e
+>e
+>give hat to sly
+>w
+>w
+>w
+>w
+>in
+>give rattle to lee
+>out
+>e
+>e
+>n
+>n
+>talk to big
+>1
+>1
+>1
+>1
+>1
+>1
+Good-bye
+
+>talk to blood
+>1
+>1
+>2
+>1
+>2
+>1
+>2
+You, um, yeah
+
+>talk to soul
+>1
+>1
+>1
+>1
+>1
+>1
+Facebook
+
+
+* foster-test-1
+
+>talk to big
+>1
+Brother Foster
+>4
+
+>talk to soul
+Brother Foster
+>3
+
+>talk to blood
+>2
+Brother Foster
+>2
+!Brother Foster
+
+>talk to soul
+!Brother Foster
+>2
+
+>talk to big
+!Brother Foster
+3
+
+* foster-test-2
+
+>talk to big
+>1
+Brother Foster
+>3
+Brother Foster
+>3
+!Brother Foster
+
+>talk to blood
+!Brother Foster
+>2
+
+>talk to soul
+!Brother Foster
+>2
+
+>talk to big
+!Brother Foster
+
+* foster-test-3
+
+>talk to big
+>1
+Brother Foster
+>4
+
+>talk to soul
+Brother Foster
+>2
+!Brother Foster
+>2
+
+>talk to blood
+!Brother Foster
+2
+
+>talk to big
+!Brother Foster
+3
 
 #* big-enchilada
 
