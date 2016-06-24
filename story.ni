@@ -1157,7 +1157,7 @@ instead of thinking:
 	if think-score is false:
 		say "NOTE: THINK will redirect to SCORE in the future, unless you really only have one specific task remaining.";
 		now think-score is true;
-	say "[one of]You take a thought-second. Then you take another, but you reflect it wasn't as good. OR WAS IT? So you just[or]You[stopping] think about what you've accomplished...";
+	say "[one of]You take a [activation of second thought]thought-second. Then you take another, but you reflect it wasn't as good. OR WAS IT? So you just[or]You[stopping] think about what you've accomplished...";
 	try requesting the score instead;
 
 pot-not-weed is a truth state that varies.
@@ -1529,6 +1529,9 @@ check listening (this is the listening in a place rule):
 		if noun is list bucket:
 			say "It's probably better to examine it[if list bucket is examined], as you already did[end if]." instead;
 		say "Each machines emits its own individualized [activation of grunt work]work grunt, you suspect, to impress visitors." instead;
+	if player is in discussion block:
+		say "The song torch is playing.[line break]";
+		try examining song torch instead;
 	if player is in out mist:
 		say "You can't hear anyone chasing you. That's good." instead;
 	if player is in airy station:
@@ -1776,6 +1779,18 @@ before going (this is the diagonals are wrong 99% of the time rule) :
 	if p-c is false and player is not in joint strip:
 		if noun is southeast or noun is northeast or noun is southwest or noun is northwest:
 			say "You don't need to use diagonal directions in this game unless they're specifically mentioned. Hopefully this makes it simpler for you." instead;
+
+before going up (this is the default reject up rule):
+	if location of player is round lounge:
+		continue the action;
+	if room up of location of player is nowhere:
+		say "You don't need to go up anywhere [if player is in smart street]except for, well, the next room[else]besides A Round Lounge[end if]." instead;
+
+before going down:
+	if player is in chipper and percy is in chipper:
+		say "Percy says 'Oop! Not [']til you get past me.' How'd he KNOW?" instead;
+	if room down of location of player is nowhere:
+		say "You've felt like you wanted to sink into the ground, but it's physically impossible." instead;
 
 chapter singing
 
@@ -2730,8 +2745,8 @@ does the player mean explaining something in location of player: it is very like
 understand the command "explain" as something new.
 understand the command "xp" as something new.
 
-understand the command "explain [any thing]" as something new.
-understand the command "xp [any thing]" as something new.
+[understand the command "explain [any thing]" as something new.
+understand the command "xp [any thing]" as something new.]
 
 understand "explain [any explainable thing]" as explaining.
 understand "xp [any explainable thing]" as explaining.
@@ -2913,7 +2928,6 @@ a thing	"A smart alec is someone who always has a clever quip."	-- [start of sma
 bad knot	"A bad knot is hard to untangle. You wouldn't say it's not bad to untangle. And 'not bad' can have several connotations, itself, from strong to faint praise. So you can tie yourself up thinking of what it means."	--
 Broke Flat	"Flat Broke means out of money."	"This was originally a location until I discovered A Round Lounge."
 chess board	"Despite being a really good chess player, this always fooled me. I started with a queen in the corner as a kid and got run around, but then as an adult I recognized the virtue of going for an easy solution (no queens in the center) and seeing why it didn't work."	"Starting by disallowing the center 16 squares helped a lot--by sheer number, that's 21/23 squares each queen sees, not 25/27, and then placing any of the queens in the four 2x2 corners makes rows 3-6 unable to match up. Also, I didn't understand symmetry arguments e.g. it's useful to see if we can have a queen 2 from any corner, or one 3 from a corner. It's important not to think of this as 'laziness' if we can start building general principles or eliminate enough cases."
-a thought of school	"A school of thought is a particular way of thinking held by a specific group. Alec doesn't fit in with any, and so his thought of school is a bit intimidating. Also, a thought of school is generally not about the more philosophical things. If schools do focus on that, people tend not to think too hard about them. They just go ahead and do."
 face of loss	"Loss of face means humiliation or loss of respect. A face of loss isn't an official idiom, but here it means you're just sad. You've lost some fun and curiosity."	"This is something I didn't discover until release 2. What's the best way for Alec to seem upset? In retrospect, 'a bad face' should've clicked things earlier, but it happened eventually."
 Game Shell	"A shell game is where an operator and possibly an assistant rig a game so that mugs think it's an easy win, but they can't. The most popular one is when they hide a bean under a hollowed shell and shift them around."	"The game shell is a shell game of its own. No matter how much you solve, you won't impress Guy Sweet, and you won't--well--figure the real puzzles you want to, beyond logic etc."
 gesture token	"A token gesture is something done as a bare minimum of acknowledgement."	"There were all sorts of tokens this could have been. I decided on gesture because, well, you get something for doing the bare minimum."
@@ -2926,6 +2940,7 @@ Nim	"Nim was always the toughest to prove, and my 8th-grade self wiped out in Be
 out puzzle	"These aren't a pun, but it's something mathy people see a lot of, and motivational speakers tend to abuse it. If you'd like the solution to the four lines to draw to connect all the points, and even other smart-aleck answers, say yes."	--
 river boat	"I remember being fooled by the river boat as a kid and then realizing the moves were forced. I was glad to find some variations and even make a decent one in my experimental game Turn Around for the Apollo 18 tribute. It's not big on story, but I like the puzzles and tricks."	--
 Rubik's Cube	"The Rubik's Cube is always something I was supposed to be good at. My sister three years older than me bought a solving book I figured I'd be old enough to look at in three years. I never did. Not til I was an adult did I see the methods, and I was surprised how piecemeal and orderly it was. I also remember being very very jealous of Will Smith solving it in an episode of Fresh Prince of Bel Air."	"The Rubik's Cube also has a theme of two things flipped making a big, big difference. That last pair is always a tricky one."
+thought of school	"A school of thought is a particular way of thinking held by a specific group. Alec doesn't fit in with any, and so his thought of school is a bit intimidating. Also, a thought of school is generally not about the more philosophical things. If schools do focus on that, people tend not to think too hard about them. They just go ahead and do."
 Towers of Hanoi	"ToH is a basic computer science problem, and I remember someone I respected raving how hard it was, and being disappointed how easy the recursive solution was: N to peg X = n-1 to peg Y, bottom to peg X, n-1 to peg Z. That said, it's just awful in practice."	--
 off tee	"To tee off is to yell or punch out at someone."	-- [start of a round lounge]
 person chair	"A chairperson is someone in charge of things. The person chair is, on the other hand, anonymous and plain."	--
@@ -3073,6 +3088,7 @@ break silence	"To break silence is to start talking again."
 clouds of suspicion	"Clouds of suspicion are a simile for mistrust."
 cut a deal	"To cut a deal is to make a business arrangement, often favorably. To deal a cut is just to knife someone."
 Force of Habit	"Force of habit is what causes you to do something with minimal thinking, for better or worse."
+second thought	"A second thought is looking at something another way, whether to your aid or detriment."
 turn of phrase	"A turn of phrase is clever wording. A phrase of turn is, well, what's at the command prompt, or, any wording."
 a u-turn	"A u-turn is when a car swivels in a huge circle to reverse direction. So if something tries to turn you, it bounces back."
 wait your turn	"This means not to do anything til someone else goes first. But in this case the game wants you to turn your wait into something else."
@@ -3851,7 +3867,7 @@ before doing something when qbc_litany is not table of no conversation:
 	say "You get distracted, but you've never had the power to break a conversation off. [note-recap]" instead;
 
 to say note-recap:
-	say "(NOTE: to see dialog options, type RECAP[if qbc_litany is table of jt], SHORT to shorten your questions for readability, THINK to recall the Finger Index, SKIP to [nl-skip]move on immediately from a jerk you accused, 1234567 to order your accusations from the last jerk talked to, or WHO to recall the [j-co]['] names. Currently you can choose [convo-nums])[line break]";
+	say "(NOTE: to see dialog options, type RECAP[if qbc_litany is table of jt], SHORT to shorten your questions for readability, THINK to recall the Finger Index, SKIP to [nl-skip]move on immediately from a jerk you accused, 1234567 to order your accusations from the last jerk talked to, or WHO to recall the [j-co]['] names. Currently you can choose [convo-nums][end if])[line break]";
 
 to say nl-skip:
 	say "[if skip-after-accuse is true]no longer [end if]";
@@ -4015,7 +4031,7 @@ chapter the player's possessions to start
 
 section a thought of school
 
-a thought of school is a thing. the player carries a thought of school. description is "You think about how you don't follow any orthodoxy, but everyone seems more clever and creative than you are. All sorts of things. Like you should be doing way better than you should, and how you're too self-centered and too worried about everyone else at the same time. It doesn't make sense. But any one philosophy to explain it all doesn't really mesh."
+a thought of school is a thing. the player carries a thought of school. description of thought of school is "You think about how you don't follow any orthodoxy, but everyone seems more clever and creative than you are. All sorts of things. Like you should be doing way better than you should, and how you're too self-centered and too worried about everyone else at the same time. It doesn't make sense. But any one philosophy to explain it all doesn't really mesh."
 
 section exprs
 
@@ -4299,9 +4315,13 @@ to send-bros:
 to move-puzzlies:
 	if in-beta is true:
 		say "NOTE: if you see someone or something astray, let me know.";
+	move Volatile Sal to lalaland;
+	now sal-sleepy is true;
 	move Lee Bull to lalaland;
 	move Sid Lew to lalaland;
 	move harmonic phil to lalaland;
+	move long string to lalaland;
+	move poory pot to lalaland;
 	move art fine to lalaland;
 	move poetic wax to lalaland;
 	move officer petty to lalaland;
@@ -4309,7 +4329,6 @@ to move-puzzlies:
 	move money seed to lalaland;
 	move cold contract to lalaland;
 	move trade of tricks to lalaland;
-	move Terry Sally to lalaland;
 	move wacker weed to lalaland;
 	move Terry Sally to lalaland;
 	move trail paper to lalaland;
@@ -6807,7 +6826,7 @@ Main Chunk is a region.
 
 part Nominal Fen
 
-Nominal Fen is north of Pressure Pier. It is in Main Chunk. printed name of Nominal Fen is "[jc]". "[if silly boris is in lalaland]It's a bit more relaxed here without the [j-co]['] conversation[else][one of]This--well, it isn't a swamp, or a bog, or--well, you're not sure, and it's not particularly amazing, so yeah, call it a fen. [or][stopping]Seven [j-co] stand in a circle (okay, a heptagon) here, talking to and about others[end if]. It looks like there's forested area to the west, a narrow valley to the east, and things open up to the north. Nothing's stopping you going back south to Pressure Pier, either[if bros-left is 0], though you probably have nothing to do there[end if]."
+Nominal Fen is north of Pressure Pier. It is in Main Chunk. printed name of Nominal Fen is "[jc]". "[if silly boris is in lalaland]It's a bit more relaxed here without the [j-co]['] conversation[else][one of]This--well, it isn't a swamp, or a bog, or--well, you're not sure, and it's not particularly amazing, so yeah, call it a fen. [or][stopping]Seven [j-co] stand in a circle (okay, a heptagon) here, talking to and about others[end if]. It looks like there's forested area to the west, a narrow valley to the east, and things open up to the north. Nothing's stopping you going back south to Pressure Pier, either[if bros-left is 0], though you probably have nothing to do there with the Brothers gone[end if]."
 
 after printing the locale description for Nominal Fen when Nominal Fen is unvisited:
 	if allow-swears is true:
@@ -6820,7 +6839,7 @@ check going nowhere in Nominal Fen:
 
 check going south in Nominal Fen (this is the block pier in endgame rule):
 	if bros-left is 0:
-		say "No. You don't need to go back. You're close to what you need to do." instead;
+		say "No. You don't need to go back. The brothers are gone. You're close to what you need to do." instead;
 
 to say jc:
 	say "[if silly boris is in lalaland]Mellow Marsh[else]Nominal Fen[end if]"
@@ -7325,7 +7344,7 @@ to zap-the-jerks:
 
 check going north when player is in well:
 	if silly boris is in lalaland:
-		say "[one of]Before you enter, you hear the Labor Child squealing how this all can't be legal and he knows people. Various [j-co] express interest at this confidential document or that and relief they never stooped that low. It looks like they are uncovering other of the Labor Child's 'business interests,' and they don't need you. Nothing violent is happening, and you enjoy some schadenfreude at the Labor Child's expense before deciding to move on.[or]No, you don't need or want to help the [j-co]. The Labor Child's in for it enough.[stopping]" instead;
+		say "[one of]Hmm. That's odd. You hear the [j-co] in there, marveling at the depth of the Labor Child's 'business interests.' You're glad you uncovered this, but maybe you should leave the Labor Child to the [j-co] and tackle the [bad-guy] instead.[or]No, you don't need or want to go back there. The Labor Child's in for it enough, and the [j-co] are investigating rigorously.[stopping]" instead;
 
 chapter jerk talking
 
@@ -7738,7 +7757,7 @@ understand "cp/ac/char/ass/character/assassin" and "assassin/assassination chara
 
 part Disposed Well
 
-Disposed Well is west of Chipper Wood. It is in Main Chunk. "A crumbling well is here. You may go west to some sort of church or back east to the Chipper Wood. To the north, [if boris is in lalaland]the Scheme Pyramid has been boarded up[else if pyramid is visited]the Scheme Pyramid[else]a business[end if]. There's also a small home you could go inside."
+Disposed Well is west of Chipper Wood. It is in Main Chunk. "A crumbling well is here. You may go west to some sort of church or back east to the Chipper Wood. To the north, [if boris is in lalaland]the Scheme Pyramid has been closed[else if pyramid is visited]the Scheme Pyramid[else]a business[end if]. There's also a small home you could go inside."
 
 check going outside from disposed well:
 	say "You already are outside." instead;
@@ -7822,7 +7841,7 @@ before talking to story fish:
 
 part Truth Home
 
-Truth Home is inside of Disposed Well. It is in Main Chunk. It is only-out. "Nothing feels wrong here, but it feels incredibly uncomfortable. It's also a small home, with the only exit back out."
+Truth Home is inside of Disposed Well. It is in Main Chunk. It is only-out. "Nothing feels wrong here, but it feels incredibly uncomfortable[if sid lew is in lalaland] even with Sid Lew gone[end if]. It's also a small home, with the only exit back out."
 
 check going nowhere in truth home:
 	say "The only way out is, well, out." instead;
@@ -8520,10 +8539,8 @@ part Judgment Pass
 Judgment Pass is east of Nominal Fen. It is in Main Chunk. "[if officer petty is in Judgment Pass][one of]A huge counter with INTUITION in block letters is, well, blocking you. Well, not fully, but by the time you snuck around the edge, the official--and fit--looking officer behind it will get in your way.[or]The intuition counter still mostly blocks your way.[stopping][else]With Officer Petty out of the way, the Intuition Counter is now just an inconvenience.[end if]"
 
 check going nowhere in judgment pass:
-	if noun is inside or noun is outside:
+	if noun is inside or noun is outside or noun is north or noun is south:
 		say "The only passage is east-west." instead;
-	if noun is north or noun is south:
-		say "That's blocked. You should try to go east or west." instead;
 
 Officer Petty is an enforcer in Judgment Pass. "[one of]The officer stares down at the intuition counter for a moment. 'NOPE,' he yells. 'Sure as my name's Officer Petty, no good reason for you to go to Idiot Village.'[or]Officer Petty regards you with contempt.[stopping]"
 
@@ -8604,8 +8621,7 @@ check going nowhere in idiot village (this is the final idol puzzle rule):
 		the rule succeeds;
 	if noun is outside:
 		try going west instead;
-	say "Idiot Village expands in all directions, but of course, nobody was smart enough to provide a map. OR WERE THEY CLEVER ENOUGH NOT TO GIVE INVADERS AN EASY ROUTE IN?[paragraph break]Either way, you don't want to risk getting lost.";
-	do nothing instead;
+	say "Idiot Village expands in all directions, but of course, nobody was smart enough to provide a map. OR WERE THEY CLEVER ENOUGH NOT TO GIVE INVADERS AN EASY ROUTE IN?[paragraph break]Either way, you don't want to risk getting lost, and you don't feel you can defy the Thoughts Idol right now, anyway." instead;
 
 The Business Monkey is a neuter person in Idiot Village. "A monkey mopes around here in a ridiculous suit two sizes too large for it."
 
@@ -8927,7 +8943,7 @@ banter
 "'That's some [activation of dutch reckoning]reckoning, Dutch! More than I thought possible!'"
 "'I'm equally hard on squares who don't drink and punks who drink too much.' / 'That's [activation of dutch courage]COURAGE, Dutch!'"
 "Uncle Dutch and Turk discuss the right amount to be scared to be at your most productive, but if you achieve that, you'd better not feel you have nothing to be scared of."
-"Uncle Dutch complains about lazy kids these days, and Turk Young complains about adults who are have given up on life. They both wind up agreeing initiative in general is a good thing."
+"Uncle Dutch complains about lazy kids these days, and Turk Young complains about adults who are have given up on life. They then play agreement-pong about initiative in general is a good thing."
 "Uncle Dutch reminds Turk to focus on school, but to remember it's more than school. Turk agrees. 'One day I'll have a job where I can tell people to focus on their job and make it more than a job!'"
 "Uncle Dutch and Turk discuss the etiquette of whether you should call the [bad-guy] [bg] or not. Well, YOU never should, and Turk isn't ready yet, but what a big day it will be in the near future when he is allowed!"
 
@@ -9172,7 +9188,7 @@ after quipping when qbc_litany is table of Buddy Best talk:
 
 part Discussion Block
 
-Discussion Block is east of Walker Street. It is in Main Chunk. "On one wall, a book bank is embedded--like a bookshelf, only tougher to extract the books. On another, a song torch. You can only go back west."
+Discussion Block is east of Walker Street. It is in Main Chunk. "On one wall, a book bank is embedded--like a bookshelf, only tougher to extract the books. On another, a song torch. You can only go back west[if phil is in lalaland and art fine is in lalaland and poetic wax is not in discussion block]. There's not much to do here, now, except maybe page through the bank and torch's selections[end if]."
 
 check going nowhere in discussion block:
 	if noun is outside:
@@ -9183,7 +9199,7 @@ check going nowhere in discussion block:
 		say "Searching for Creativity Block, where [if art is in lalaland]Art[else]Phil[end if] went, would be counter productive." instead;
 	say "Discussion Block also blocks you from going any way other than back west." instead;
 
-the poetic wax is in Discussion Block. "Poetic Wax--a whole ball of it--lies here behind [if number of waxblocking people is 0]where Art and Phil used to be[else][list of waxblocking people][end if]."
+the poetic wax is in Discussion Block. "Poetic Wax, a whole ball of it, lies here behind [if number of waxblocking people is 0]where Art and Phil used to be[else][list of waxblocking people][end if]."
 
 the indefinite article of poetic wax is "some".
 
@@ -9323,7 +9339,7 @@ check examining book bank:
 		now book-ord is 1;
 	choose row book-ord in the table of horrendous books;
 	if Art Fine is in lalaland:
-		say "Oh, dear. [i][workname entry][r] by [authname entry]. Looks depressing." instead;
+		say "Let's see. [i][workname entry][r] by [authname entry]. Looks [one of]confusing[or]baffling[or]dreadfully important[or]best-seller-ish[in random order]." instead;
 	say "'Ah, yes,' drones Art Fine. '[i][workname entry][r]. A most [one of]about-everything-and-nothing-y[or]simple yet complex[or]iconic[or]transformative[or]edifying[or]scintillating[or]complex yet simple[or]zeitgeisty[in random order] read, providing you are a good reader. [authname entry]. A [one of]stirring treatise[or]vigorous discussion[or]tour de force[or]stunning perspective[at random] on [booksubj entry]. And more. [pompous-phrase]! More sensible than some jingle!'";
 	the rule succeeds;
 
@@ -9666,7 +9682,7 @@ after quipping when qbc_litany is litany of Brother Blood:
 
 part Temper Keep
 
-Temper Keep is west of Speaking Plain. Temper Keep is in Main Chunk. "[if sal-sleepy is true]Temper Keep is nice and quiet now. Nothing much to do except go back east[else][one of]You find yourself hyperventilating as you enter, not due to any mind control, but because--well, it stinks[or]It still sort of stinks in here[stopping]. It would stink even worse if you couldn't go back east. [say-vent][end if]."
+Temper Keep is west of Speaking Plain. Temper Keep is in Main Chunk. "[if sal-sleepy is true]Temper Keep is nice and quiet and inoffensive-smelling now. Nothing much to do except go back east[else][one of]You find yourself hyperventilating as you enter, not due to any mind control, but because--well, it stinks[or]It still sort of stinks in here[stopping]. It would stink even worse if you couldn't go back east. [say-vent][end if]."
 
 check going nowhere in Temper Keep:
 	say "You're a bit annoyed to see there are no ways out except east. But then again, you'd also be annoyed if there was more to map. Annoying." instead;
@@ -11458,6 +11474,8 @@ clouds of suspicion is a concept in conceptville. understand "suspicion of cloud
 cut a deal is a concept in conceptville. understand "deal a cut" as cut a deal. howto is "cut any inanimate thing before Freak Control".
 
 Force of Habit is a concept in conceptville. understand "habit of force" as force of habit. howto is "attack something inanimate you don't get arrested for".
+
+second thought is a concept in conceptville. Understand "thought second" as second thought. howto is "THINK early on".
 
 turn of phrase is a concept in conceptville. understand "phrase of turn" as turn of phrase. howto is "empty command".
 

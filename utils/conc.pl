@@ -322,7 +322,7 @@ sub cutArt
 {
   my $die = 0;
   my $temp = $_[0];
-  if ($temp =~ /^a for /) { return $_[0]; } #A for effort is a special case
+  if ($temp =~ /^a (thing\t|for )/) { return $_[0]; } #A for effort is a special case
   $temp =~ s/^(a thing called |a |the )//gi;
   return $temp;
 }
@@ -347,10 +347,8 @@ sub checkGameObjExpl
 	  $compare = $a; next;
 	}
 	if (!$compare) { next; }
-	$c1 = lc($a); $c1 =~ s/^the //i;
-	$c2 = lc($compare); $c2 =~ s/^the //i;
-	$c1 =~ s/\t.*//g;
-	$c2 =~ s/\t.*//g;
+	$c1 = alfPrep($a);
+	$c2 = alfPrep($compare);
 	if ($c2 gt $c1)
 	{
 	  chomp($c1);
@@ -363,6 +361,15 @@ sub checkGameObjExpl
   }
   $objSuc = $lines - $initLines - $gameObjErr;
   return $gameObjErr;
+}
+
+sub alfPrep
+{
+  my $temp = lc($_[0]);
+  $temp =~ s/\t.*//g;
+  if ($temp eq "a thing") { return $temp; }
+  $temp =~ s/^(a |the )//i;
+  return $temp;
 }
 
 sub usage
