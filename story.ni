@@ -852,10 +852,14 @@ to inc-max:
 	increment the score;
 	now the last notified score is the score;
 	if opt-yet is false:
-		ital-say "You just found an optional point that may help get the very best ending. There are [maximum-maximum - maximum score] left.";
+		ital-say "You just found an optional point that may help get the very best ending. There are [maximum-maximum - maximum score] left[terminal-2].";
 		now opt-yet is true;
 	else if maximum score < maximum-maximum:
-		ital-say "That's another optional point. Good going.";
+		ital-say "That's another optional point. Good going[terminal-2].";
+
+to say terminal-2:
+	if player is in the belt below:
+		ital-say ". Also, I got the idea for this puzzle from something else even tougher and more clever. XP TERMINAL to see the details";
 
 check requesting the score:
 	if greater-eaten is true:
@@ -930,13 +934,16 @@ before waking up:
 to leave-dream:
 	now last-dream-loc is location of player;
 	move player to Warmer Bench;
-	now player has all things in bullpen;
-	if face of loss is in bullpen: [this is a bad hack but it sort of needs to be done]
+	if location of face of loss is bullpen: [this is a bad hack but it sort of needs to be done]
 		now player has face of loss;
-	if bad face is in bullpen:
+	if location of bad face is bullpen: [this is a bad hack but it sort of needs to be done]
 		now player has bad face;
-	if lifted face is in bullpen:
+	if location of opener eye is bullpen: [this is a bad hack but it sort of needs to be done]
+		now player has opener eye;
+	if location of lifted face is bullpen: [this is a bad hack but it sort of needs to be done]
 		now player has lifted face;
+	repeat with Q running through things in bullpen:
+		now player has Q;
 
 chapter waiting
 
@@ -1651,9 +1658,8 @@ the print standard inventory rule is not listed in any rulebook.
 
 carry out taking inventory:
 	now all things carried by the player are marked for listing;
-	now face of loss is not marked for listing;
-	now bad face is not marked for listing;
-	now opener eye is not marked for listing;
+	now all exprs are not marked for listing;
+	now thought of school is not marked for listing;
 	if number of marked for listing things is 0:
 		say "You're not carrying anything.";
 	else:
@@ -1667,14 +1673,16 @@ check taking inventory (this is the new standard inventory rule):
 
 after taking inventory:
 	if player carries bad face:
-		say "You're wearing a bad face.";
+		say "You're wearing a bad face";
 		now bad face is mentioned;
 	else if player carries face of loss:
-		say "You're wearing a face of loss.";
+		say "You're wearing a face of loss";
 		now face of loss is mentioned;
 	else if player carries opener eye:
-		say "Your opener eye is revealing how things really are.";
+		say "Your opener eye is revealing how things REALLY are";
 		now opener eye is mentioned;
+	now thought of school is mentioned;
+	say ", and there's that thought of school kicking around, too.";
 	if quiz pop is in lalaland and baiter is not in lalaland:
 		say "You also remember that ring-brass number from the Quiz Pop bottle. It may come in handy.[line break]";
 	continue the action;
@@ -1719,7 +1727,7 @@ check talking to alec:
 		say "You mutter to yourself about how lame your self-talk used to be." instead;
 	if off cheese is in lalaland:
 		say "You grumble to yourself. You feel real hard to hang with." instead;
-	say "You've already taken heat for talking to yourself. With people around or no, it's a bad habit. Socially, at least." instead;
+	say "You've already taken heat for talking to yourself, especially from people who give themselves pep talks before the big game. But with people around or no, it's a bad habit. Socially, at least." instead;
 
 understand "ask [person]" as talking to.
 understand "ask [person] about " as talking to.
@@ -2158,6 +2166,8 @@ check giving smokable to: [poory pot or wacker weed]
 		increment the score;
 		now wacker weed is in lalaland;
 		now player has dreadful penny instead;
+
+does the player mean giving a drinkable to erin: it is likely.
 
 check giving drinkable to:
 	if second noun is Ally Stout:
@@ -2711,7 +2721,7 @@ carry out diging:
 	if noun is poor dirt:
 		if dirt-dug is true:
 			say "'Enough, man[activation of enough man]!' says the Weasel, leaving you feeling not man enough." instead;
-		say "'Ah, the art of work[activation of work of art]!' the Weasel says as you begin. He throws on a few more aphorisms about exercise and experience and advice that, well, motivate you not to take breaks. 'You've paid off your debt now.'";
+		say "'Ah, the art of work[activation of work of art]!' the Weasel says as you begin. It throws on a few more aphorisms about exercise and experience and advice that, well, motivate you not to take breaks. 'You've paid off your debt now.'";
 		now dirt-dug is true;
 		the rule succeeds;
 	if noun is mouth mush:
@@ -2723,6 +2733,7 @@ carry out diging:
 	if noun is earth of salt:
 		now player has the proof of burden;
 		choose row with response of weasel-sign in table of weasel talk;
+		now weasel is not babbled-out;
 		now enabled entry is 1;
 		now earth of salt is in lalaland;
 		set the pronoun it to proof of burden;
@@ -2738,9 +2749,6 @@ carry out diging:
 chapter explaining
 
 explaining is an action applying to one visible thing.
-
-does the player mean explaining a concept: it is likely.
-does the player mean explaining something in location of player: it is very likely.
 
 understand the command "explain" as something new.
 understand the command "xp" as something new.
@@ -2834,10 +2842,6 @@ carry out explaining:
 		say "[exp-anno entry]";
 	the rule succeeds.
 
-does the player mean explaining the player when debug-state is true: it is likely;
-
-does the player mean explaining the location of the player when debug-state is false: it is likely;
-
 carry out explaining the player:
 	if debug-state is true:
 		if out mist is unvisited or airy station is unvisited:
@@ -2870,6 +2874,19 @@ carry out explaining the player:
 		unless the player's command includes "me":
 			the rule succeeds;
 
+section explaining rules
+
+[does the player mean explaining the player when debug-state is true: it is very likely.
+
+does the player mean explaining the location of the player when debug-state is false: it is likely.
+
+does the player mean explaining the Insanity Terminal: it is very likely.
+does the player mean explaining the fright stage: it is unlikely.
+
+does the player mean explaining a concept in lalaland: it is likely.]
+
+does the player mean explaining something visible: it is likely.
+
 section rxing [e.g. xp without an argument]
 
 rxing is an action applying to nothing.
@@ -2895,8 +2912,8 @@ definition: a thing (called x) is explainable:
 	if x is a direction, decide no;
 	if debug-state is true and x is off-stage, decide yes; [it is going on stage at some point]
 	if x is in bullpen, decide yes; [bullpen is for items 'lost' during sleep]
-	if x is in conceptville and debug-state is true, decide yes; [can it ever be in play? In debug, we need to know]
 	if x is in lalaland, decide yes;
+	if x is in conceptville and debug-state is true, decide yes; [can it ever be in play? In debug, we need to know]
 	if x is part of towers of hanoi or x is part of broke flat or x is part of games counter or x is games counter or x is games, decide no;
 	if x is t-surf, decide no;
 	if x is stool toad and down ground is visited, decide yes; [he does show up before you get to Joint Strip]
@@ -3823,7 +3840,7 @@ before doing something when qbc_litany is not table of no conversation:
 		say "You don't need to say yes or no unless you're directly asked a yes/no question." instead;
 	if current action is going:
 		if the room noun of location of player is nowhere:
-			say "You can't escape the conversation running nowhere! Well, you can't really escape it running anywhere, either. You're not good at slick exits." instead;
+			say "You can't escape the conversation running nowhere! Well, you can't really escape it running anywhere, either. You're not good at slick exits. [note-recap]" instead;
 		if qbc_litany is table of Ally Stout talk:
 			say "Ally Stout, with other customers to serve, is actually glad to be spared hi-bye small talk.";
 			terminate the conversation;
@@ -3844,7 +3861,9 @@ before doing something when qbc_litany is not table of no conversation:
 			say "'YOUNG MAN! DON'T GO WANDERING OFF!'" instead;
 		say "You don't have the guts to ditch someone in the middle of a conversation, unless they're REALLY busy or REALLY self-absorbed. [note-recap]" instead;
 	if current action is talking to:
-		say "You're already in a conversation." instead;
+		if noun is Alec Smart:
+			say "That might bug [the last-talked]. RECAP, or choose a number to talk." instead;
+		say "You're already in a conversation with [the last-talked]." instead;
 	if current action is attacking:
 		say "You've been baited into fights before, but there's been nothing TOO bad here." instead;
 	if current action is taking inventory:
@@ -4031,7 +4050,22 @@ chapter the player's possessions to start
 
 section a thought of school
 
-a thought of school is a thing. the player carries a thought of school. description of thought of school is "You think about how you don't follow any orthodoxy, but everyone seems more clever and creative than you are. All sorts of things. Like you should be doing way better than you should, and how you're too self-centered and too worried about everyone else at the same time. It doesn't make sense. But any one philosophy to explain it all doesn't really mesh."
+a thought of school is a thing. the player carries a thought of school. description of thought of school is "[long-school]."
+
+instead of doing something with thought of school:
+	if action is undrastic, continue the action;
+	say "You can mostly just think about it, e.g. e(X)amine or e(XP)lain.";
+
+to say long-school:
+	say "You think about how you don't follow any orthodoxy, but everyone seems more clever and creative than you are. All sorts of things. Like you should be doing way better than you should, and how you're too self-centered and too worried about everyone else at the same time. It doesn't make sense. But any one philosophy to explain it all doesn't really mesh"
+
+check examining thought of school:
+	if accel-ending:
+		if brownie is in lalaland:
+			say "Boy! School will be a lot more fun now that you can learn whom to please and not be grumpy.";
+		else:
+			say "Boy! There were some real bums at school, but you think you know how to deal with them, now.";
+		the rule succeeds;
 
 section exprs
 
@@ -4545,7 +4579,7 @@ carry out bbing:
 		if ever-babbled is false and know-babble is true:
 			say "You use a little slangy shortcut in your own mind. You found it hard to, but hey, why not?";
 		else if know-babble is false:
-			say "Bbbbb, you think, you aren't going to worry about every single conversational detail.";
+			say "Bbbbb, you think, you aren't going to worry about every single conversational detail, THIS TIME.";
 			now know-babble is true;
 		now ever-babbled is true;
 	try brookbabbling instead;
@@ -4580,9 +4614,11 @@ carry out brooktrying:
 	if player is in chipper wood and Cute Percy is in chipper wood:
 		try talking to Cute Percy instead;
 	if noun is babbled-out:
-		recap-babble noun instead;
+		recap-babble noun;
+		the rule succeeds;
 	if noun is blabbable:
-		babble-out noun instead;
+		babble-out noun;
+		the rule succeeds;
 
 carry out brookbabbling:
 	consider the babble-shush rule;
@@ -4590,7 +4626,8 @@ carry out brookbabbling:
 		continue the action;
 	if player is in chipper wood and Cute Percy is in chipper wood:
 		try talking to Cute Percy instead;
-	d "[list of blabbable people].";
+	if number of blabbable people > 1:
+		say "[list of blabbable people].";
 	if number of blabbable people is 0:
 		if number of babbled-out people in location of player > 1:
 			say "There's more than one person you babbled with/to. Try to TALK to them individually for a recap." instead;
@@ -4600,13 +4637,12 @@ carry out brookbabbling:
 		say "There's no one here to babble with. With whom to babble." instead;
 	if number of blabbable people is 1:
 		let dude be a random blabbable person;
-		d "Babbling [dude].";
 		babble-out dude instead;
 	if number of blabbable people > 1:
 		if player is in discussion block:
 			say "Art and Phil both seem equally tough to talk to. You can B/BB/BROOK ART or PHIL, though." instead;
 		if player is in soda club:
-			say "You talk to Ally Stout for a bit.";
+			say "You decide to talk to Ally Stout for a bit[if erin is in soda club]. He seems safer than Erin, to start[end if].";
 			babble-out Ally Stout instead;
 		say "There are too many people to pick out to babble at. You can B/BB/BROOK any one individual.";
 	the rule succeeds;
@@ -4639,13 +4675,15 @@ to babble-out (pe - a person):
 	repeat through table of npc talk summaries:
 		if babbler entry is pe:
 			if pe is part-talked:
-				say "You already started talking in-depth-ish with [the pe], so it's hard to change up.";
+				say "Unfortunately, you already started talking in-depth-ish with [the pe], so changing up is too tricky.";
 				continue the action;
 			choose row with babbler of pe in table of npc talk summaries;
 			say "[babble-content entry][line break]";
 			now pe is babbled-out;
 			if there is a babble-reward entry:
 				now player has babble-reward entry;
+				if pe is word weasel:
+					now gesture token is in lalaland;
 			if pe is buddy best:
 				move player to questions field;
 			if ever-babbled is false:
@@ -4668,7 +4706,7 @@ to decide whether (pe - a person) is part-talked:
 
 table of npc talk summaries
 babbler	babble-content	babble-recap	convo-recap	babble-reward
-Word Weasel	"Something about how he's willing to give you his signature, which is very valuable indeed helping you move on in the world. He hand[one of]s[or]ed[stopping] you a pocket pick, which apparently you can pay off by DIGging."	"[weasel-babble]"	--	pocket pick
+Word Weasel	"Something about how it's willing to give you his signature, which is very valuable indeed helping you move on in the world. It [if player has gesture token]seems interested in a swap[else]got you to trade your token plus some work for the pick[end if]."	"[weasel-babble]"	--	a thing
 Guy Sweet	"Guy Sweet blinks at you. 'Whoah! You're, like, more accelerated than most people at this whole social thing. Here, play a game, any game. It's sort of an aptitude test thing.'"	"Guy seemed impressed you took initiative and weren't intimidated[if gesture token is off-stage], but he's still waiting for you to play a game[else], and he even gave you that gesture token, too[end if]."	"Guy talked about the [bad-guy] and how you'd have to be very clever to meet him, and when you did, you'd better not waste his time."
 Mouth Mush	"The mouth mush harangues you about needing certification to go through the arch to the north. This isn't a big area, so it can't be far."	"The mouth mush wanted some sort of document."
 Fritz	"Many variants on 'Whoah dude whoah,' mumbling about the friend he lost[if fritz has minimum bear]--and you found[end if]."	"He was pretty incoherent, mumbling about a lost friend[if fritz has minimum bear] that you found[end if]."	--	--
@@ -4690,17 +4728,17 @@ Brother Blood	"Brother Blood moans about how he thinks more violent thoughts tha
 Baiter Master	"[bug] -- you should be forced to see all the conversation."	"[bug] -- you should be forced to see all the conversation."	--
 
 to say weasel-babble:
-	if burden-signed is true:
+	if player has gesture token:
+		say "We could make a business arrangement, here.";
+	else if burden-signed is true:
 		say "I won't waste your time if you won't waste mine. Don't make me rip up that signed burden. Deal? Deal.'";
 	else if dirt-dug is false:
 		say "'Chop chop! Dig dig. Like you promised. Like you made me make you promise.'";
 	else if player has proof of burden:
-		say "'Cut the small talk. You just want me to sign that proof, don't you?'";
-		if the player yes-consents:
-			say "'Geez, twist my arm! Ain't I a welfare animal[activation of animal welfare]?'";
-			now burden-signed is true;
+		if burden-signed is true:
+			say "You probably got everything you could from the weasel.";
 		else:
-			say "'If you change your mind, I'll be here, just a little wasted time in the future. I'll be here even if you don't.'";
+			say "The weasel needed something to sign. Maybe the proof of burden is it.";
 	else:
 		say "'Go out! Be inspired by my talk! Do things! Find things!'"
 
@@ -4726,7 +4764,7 @@ to say ally-offer:
 			now the player has Z;
 			say "Ally Stout hands you [the Z].";
 	else if player has cooler or player has brew:
-		say "'I'd offer you another drink, but drink what you got, kid.'";
+		say "'I'd offer you another drink, but drink what you got, kid.'[no line break]";
 	else:
 		say "'Want the other drink, kid?'";
 		if the player yes-consents:
@@ -5389,7 +5427,7 @@ understand "vision" as picture hole when player is in tunnel and flower wall is 
 
 understand "vision" as flower wall when player is in tunnel and flower wall is not examined.
 
-the earth of salt is scenery in Vision Tunnel. "It's opaque, and it seems half-buried. You think if you look closely you see something under it that's not dirt or salt. But you can't just move it away by conventional means."
+the earth of salt is scenery in Vision Tunnel. "It's opaque, probably earth of salt or something, and it seems half-buried. You think if you look closely you see something under it that's not dirt or salt. But you can't just move it away by conventional means."
 
 check taking earth of salt:
 	say "It's just too big of a slab to pick up. Maybe if it were broken into bits, you could see what was under it." instead;
@@ -5403,7 +5441,7 @@ after printing the name of the proof of burden while taking inventory:
 	if proof of burden is examined:
 		say " ([if burden-signed is false]un[end if]signed)";
 	else:
-		say " (which you should probably read)";
+		say " (which you should probably read[if burden-signed is true], even though you read it[end if])";
 
 understand "plaque/document" as proof of burden when mrlp is Beginning.
 
@@ -5558,7 +5596,7 @@ weasel-foryou	"'Of course, you're really asking what I can do for you. Well, I l
 weasel-forme	--
 weasel-arch	"'That's...a bit direct, isn't it? Just going from point A to point B, no worry about self improvement.'"
 weasel-arch-2	"'That's...a bit circumspect, isn't it? Throwing in a few fancy words to seem like you care. Oh, all right. I'll sponsor you. Not with money. Just a reference or something.'"
-weasel-sign	"'You haven't shown enough interest in things yet. Just in your own social progress. Ironic, but just like the others who come through here who aren't very social. It's just, you're just not good at it.'"
+weasel-sign	"'I could, but you'd have to GIVE it to me first.' It smirks."
 weasel-grow	"'I dunno. A muffin meadow, maybe?'"
 weasel-why	"'It's not because I twist words. Oh, no! Well, I do, but I twist them to EXPAND the English language. Plus it shows a deal of self-knowledge to let myself be called that. Yes? Yes. Good.' It laughs hard, and you laugh a bit, and it says that just proves how much less well-adjusted you are."
 weasel-more	--
@@ -5578,6 +5616,10 @@ check going east when player is in variety garden:
 section pocket pick
 
 the pocket pick is a thing. description is "You can DIG something with it."
+
+after printing the name of the pocket pick while taking inventory:
+	say " (DIG with it)";
+	continue the action;
 
 book Outer Bounds
 
@@ -6393,18 +6435,18 @@ to get-ticketed (ttext - text):
 			ship-off Shape Ship;
 		decrement your-tix;
 	else if your-tix is 4:
-		say "You have the fourth and final boo tickety you need! Using some origami skills you felt would never be practical, you fold them to form a coherent document: a trail paper!";
+		say "[line break]You have the fourth and final boo tickety you need! Using some origami skills you felt would never be practical, you fold them to form a coherent document: a trail paper!";
 		now boo tickety is in lalaland;
 		now player has trail paper;
 		if player has a drinkable:
 			say "[line break]Uh oh. You look at the drink in your hand. You're a hardened lawbreaker, now, and if the Stool Toad caught you with it, he'd have reason to send you off somewhere no good. You should probably DROP the [if player has brew]brew[else]cooler[end if].";
 	else if your-tix is 1:
-		say "You aren't sure what to do with this. It's not quite a ticket, because it's not shaped like one. It's cut diagonally, and it's triangular. You notice it's got a quarter of some sort of stamped seal on the other side.";
+		say "[line break]You aren't sure what to do with this. It's not quite a ticket, because it's not shaped like one. It's cut diagonally, and it's triangular. You notice it's got a quarter of some sort of stamped seal on the other side.";
 		now player has boo tickety;
 	else if your-tix is 2:
-		say "What luck! The second boo tickety you got fits in with the first. You now have a diagonal-half of, well, something.";
+		say "[line break]What luck! The second boo tickety you got fits in with the first. You now have a diagonal-half of, well, something.";
 	else if your-tix is 3:
-		say "You now have almost a full paper from the boo ticketies.";
+		say "[line break]You now have almost a full paper from the boo ticketies.";
 	else:
 		say "Uh-oh. You have entirely too many ticketies. This is a BUG. Write me at [email].";
 
@@ -6424,7 +6466,7 @@ fritz-hi	"'I...I lost my...'"
 fritz-ok	"'Yeah... just need... my pal.' Fritz looks around."
 fritz-pal	"Fritz looks embarrassed, as if he doesn't want to say who his pal is. 'Others say he's not up to scratch, but he fits in ok with me.'"
 fritz-bm	"'Well, he tolerates me more than he says [bad-guy-2] would. He also said it was ironic he got more out of drug humor than I did. He's even seen [i]Reefer Madness[r], and I haven't!'"
-fritz-bye	"As you turn away, Fritz mumbles something about hoping you find genuine consciousness."
+fritz-bye	"As you turn away, Fritz mumbles something about hoping you find genuine consciousness. You seem closer than most squares here."
 
 after quipping when qbc_litany is litany of fritz:
 	if current quip is fritz-ok:
@@ -6527,7 +6569,7 @@ understand "toy" and "toy bear" as Minimum Bear.
 
 section the Stool Toad
 
-the Stool Toad is an enforcer in Joint Strip. "[one of]Ah. Here's where the Stool Toad went. He's sitting on a stool--shaped like a pigeon, of course.[paragraph break]'So! The new juvenile from Down Ground. Best you stay out of [if tix-adv > 0]further [end if]trouble.'[or]The Stool Toad, sitting on his pigeon stool, continues to eye you [tix-adv].[stopping]"
+The Stool Toad is an improper-named enforcer in Joint Strip. "[one of]Ah. Here's where the Stool Toad went. He's sitting on a stool--shaped like a pigeon, of course.[paragraph break]'So! The new juvenile from Down Ground. Best you stay out of [if tix-adv > 0]further [end if]trouble.'[or]The Stool Toad, sitting on his pigeon stool, continues to eye you [tix-adv].[stopping]"
 
 check talking to toad when trail paper is not off-stage:
 	say "You don't want to let anything slip that could get you in further trouble, with all the boo-ticketies you accumulated." instead;
@@ -6543,7 +6585,9 @@ description of the Stool Toad is "Green, bloated and, oh yes, poisonous. He remi
 
 the pigeon stool is scenery in Joint Strip. "It's shaped like a curled up pigeon, though its head might be a bit too big and flat. It's kind of snazzy, and you'd actually sort of like one. You read the words [activation of moral support]SUPPORT MORAL on it and feel immediately depressed[one of]. You aren't an orinthologist, though you got accused of being one, but if you had to guess, it'd be an [activation of pigeon English]English Pigeon[or][stopping]."
 
-does the player mean doing something with the stool toad when player is in joint strip: it is unlikely. [more likely to use stool as a noun and all that]
+does the player mean talking to stool toad when player is in joint strip: it is likely.
+
+does the player mean doing something with the pigeon stool when player is in joint strip: it is likely.
 
 instead of doing something with pigeon stool:
 	if action is undrastic:
@@ -6627,7 +6671,7 @@ check going nowhere in Soda Club:
 
 section Erin Sack
 
-Erin Sack is a female person in Soda Club. "[one of]Well, that must be Erin Sack over there.[or]Erin Sack waits here for intelligent, stimulating conversation.[stopping]"
+Erin Sack is a female person. "[one of]Well, that must be Erin Sack over there.[or]Erin Sack waits here for intelligent, stimulating conversation.[stopping]"
 
 Erin Sack wears the rehearsal dress.
 
@@ -6641,7 +6685,8 @@ instead of doing something with rehearsal dress:
 after printing the locale description for Soda Club when Soda Club is unvisited:
 	say "The bartender calls you over. 'Say, pal! You look new here! Just use common sense, and you won't get the [activation of boot licker]liquor boot like the [activation of punch sucker]Punch Sucker.'";
 	wfak;
-	say "'But hey, one thing. Can you give me a break from Erin Sack over there? She's--she's usually pretty interesting, but when she's wearing that rehearsal dress she tends to repeat what she's already said. She's no [activation of hip rose]Hip Rose, but Rose is probably out of your league anyway. By the way, I'm Ally Stout.'"
+	say "'But hey, one thing. Can you give me a break from Erin Sack over there? She's--she's interesting at first, but when she's wearing that rehearsal dress she tends to repeat what she's already said. She's no [activation of hip rose]Hip Rose, but Rose is probably out of your league anyway. No offense. By the way, I'm Ally Stout.'";
+	move Erin Sack to Soda Club;
 
 
 description of Erin Sack is "She is waiting for conversation in her rehearsal dress."
@@ -6738,10 +6783,21 @@ to chase-erin:
 
 section Ally Stout
 
-Ally Stout is a baiter-aligned person in Soda Club. "The [one of]guy you guess is the bartender[or]Ally Stout[stopping] bustles around, serving drinks to the customers."
+Ally Stout is a baiter-aligned person in Soda Club. "[one of]The guy you guess is the bartender[or]Ally Stout[stopping] bustles around, serving drinks to the customers."
+
+rule for supplying a missing noun while talking to:
+	if location of player is soda club:
+		if erin is in soda club:
+			say "Man! You feel less awkward talking to Ally, even though he's probably out of your friendship league. Well, it's his job.[line break]";
+		now noun is Ally Stout;
+		continue the action;
+	if number of blabbable people is 1:
+		now noun is a random blabbable person;
+	say "There's more than one person here to talk with or to.";
+	reject the player's command;
 
 check talking to Ally Stout when Erin is in lalaland and conv-left of Ally Stout > 1:
-	say "Ally Stout flashes you a fake smile. 'Still around? Well, I can't make you leave, and I sort of needed a break from her chatter, I guess. Eh, I've dealt with worse.'";
+	say "Ally Stout flashes you a tense smile. 'Still around? Well, I can't make you leave, and I sort of needed a break from her chatter, I guess. Eh, I've dealt with worse.'";
 
 understand "bartender" as Ally Stout.
 
@@ -6797,10 +6853,12 @@ to say here-or-not:
 			say "You pause for a second. You've got quite a record, already. You don't need a fifth tickety. No, you'd better play it cool.[no line break]";
 			continue the action;
 		if current quip is ally-haha:
-			say "'Ah good. If you, like, laughed hard at the name, you'd get kicked out like the Punch Sucker. Maybe you'll even be refined enough for [activation of brew a plot]a plot brew some day.'";
+			say "'Ah good. If you, like, laughed hard at the name, you'd get kicked out like the Punch Sucker. Maybe you'll even be refined enough for [activation of brew a plot]a plot brew some day.'[no line break]";
 			now player has haha brew;
+			disable the ally-alco quip;
 		else:
-			say "'Let me crank up the [activation of wine-u-gen]Wine-U-Gen...'";
+			say "'Let me crank up the [activation of wine-u-gen]Wine-U-Gen...'[no line break]";
+			disable the ally-alco quip;
 			now player has cooler wine;
 
 after quipping when qbc_litany is litany of Ally Stout:
@@ -8218,7 +8276,7 @@ ever-examined-number is a truth state that varies.
 
 linereading is an action applying to one number.
 
-understand "[number]" and "x [number]" and "examine [number]" as linereading when player is in belt below and terminal is in belt below.
+understand "x [number]" and "examine [number]" as linereading when player is in belt below and terminal is in belt below.
 
 carry out linereading:
 	let ql be number of rows in table of quiz lines;
@@ -8255,8 +8313,6 @@ understand the command "a bad face" as something new.
 understand "a bad face" as abadfaceing when player is in Belt Below.
 understand "abadface" as abadfaceing when player is in Belt Below.
 
-does the player mean explaining the Terminal Illness: it is unlikely.
-
 carry out abadfaceing:
 	if jerks-spoiled is true:
 		say "[one of]The Insanity Terminal emits an ultrasound squeal that brings you to your knees. It's probably mad you made it solve the [j-co] for you and doesn't believe you solved its harder puzzle on your own. Or rather, its calculations lead it to suspect cheating[or]Nah. You don't want the Terminal to squeal at you again (note: on winning, you'll get a code where you can solve the terminal the right way and see what's below)[stopping]." instead;
@@ -8266,7 +8322,7 @@ carry out abadfaceing:
 		now player has a bad face;
 		now face of loss is in lalaland;
 		inc-max;
-		ital-say "I got the idea for this puzzle from something else. XP TERMINAL to see it.";
+		say "[line break]";
 		the rule succeeds;
 	else:
 		say "You already solved the puzzle. If any more of [if bottom rock is visited]Bottom Rock[else]the floor[end if] collapsed, you might not have a way back up." instead;
@@ -8896,8 +8952,6 @@ check going nowhere in speaking plain:
 		say "You already are." instead;
 
 The Fright Stage is scenery in Speaking Plain. "It's decorated with all manner of horrible fate for people that, you assume, messed up in life. From homelessness to getting fired to visiting a porn store on Christmas Day to just plain envying other people with more stuff or social life, it's a mural of Scared Straight for kids without the guts to do anything jail-worthy."
-
-does the player mean explaining the fright stage: it is unlikely.
 
 understand "business/show" and "business show" as Fright Stage when player is in Speaking Plain.
 
@@ -10464,7 +10518,7 @@ every turn when mrlp is dream sequence:
 			now caught-sleeping is true;
 			move player to Down Ground, without printing a room description;
 			get-ticketed "sleeping too long on the Warmer Bench";
-			say "The Stool Toad leaves you in Down Ground, to think about what you did. Maybe even sleep on it. Ha ha.";
+			say "[line break]The Stool Toad leaves you in Down Ground, to think about what you did. Maybe even sleep on it. Ha ha.";
 			the rule succeeds;
 	if player is in Tense Future:
 		now toad-waits is true;
@@ -12072,6 +12126,9 @@ after reading a command:
 		if the player's command matches the regular expression "^<0-9>+":
 			change the text of the player's command to "guess [the player's command]";
 			d "[the player's command]";
+	if player is in belt below and insanity terminal is in belt below:
+		if the player's command matches the regular expression "^<0-9>+":
+			change the text of the player's command to "x [the player's command]";
 	if player is in out mist:
 		if the player's command includes "mist":
 			unless the player's command includes "xp" or the player's command includes "explain":
@@ -12568,6 +12625,10 @@ test wjkh with "knock hard/y/test 4/test 5/test cheat-pop/test 6-final/change ri
 
 test wjna with "notice advance/test cheat-pop/test 6-final/change ring"
 
+section xps
+
+test term with "gonear belt/xp terminal/a bad face/xp terminal"
+
 chapter broing
 
 [* this tests if a brother is gone]
@@ -12704,7 +12765,7 @@ understand "swear" as swearing.
 
 carry out swearing:
 	now allow-swears is whether or not allow-swears is false;
-	say "Swearing is [on-off of allow-swears]";
+	say "Swearing is [on-off of allow-swears].";
 	the rule succeeds;
 
 chapter gqing

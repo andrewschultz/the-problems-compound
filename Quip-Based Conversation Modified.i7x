@@ -71,11 +71,16 @@ Understand "t [someone]" as talking to. [this makes it so we ask 'whom do you wa
 
 Understand "t [something]" as talking to.
 
+Understand "talk" as talking to.
+Understand "talk to" as talking to.
+Understand "talk with" as talking to.
+Understand "t" as talking to.
+
 Check talking to (this is the can only talk to talkables rule): 
 	if the noun provides the property litany and the noun provides the property greeting, continue the action; 
 	if the noun is Minimum Bear, say "You're too old for that." instead;
 	if the noun is the insanity terminal,  say "If you want to answer the puzzle, type the eight answers, a-f, in a row." instead;
-	otherwise say "Mostly, you'll want to talk to people or animals, though the game should redirect you if you talk to a machine." instead.
+	otherwise say "Mostly, you'll want to talk to people or animals, and in some cases a machine capable of receiving input." instead.
 
 Check talking to (this is the can only talk to people with things to say rule):
 	if the greeting of the noun is quip_null and the number of filled rows in the litany of the noun is zero:
@@ -83,14 +88,16 @@ Check talking to (this is the can only talk to people with things to say rule):
 
 Check talking to (this is the summarize babble rule):
 	if noun is babbled-out:
-		d "[noun] babbled out.";
 		recap-babble noun;
 		the rule succeeds;
+
+last-talked is a person that varies.
 
 Carry out talking to (this is the basic talking to rule):
 	if the greeting of the noun is not quip_null, deliver the greeting of the noun quip;
 	if the number of filled rows in the litany of the noun is not zero:
 		now the qbc_litany is the litany of the noun;
+		now last-talked is noun;
 		display the QBC options.
 
 [This is for when we have a Reactable Quips-style followup in the middle of a conversation.]
@@ -101,8 +108,6 @@ To display the QBC options:
 	if the story has ended, stop;
 	if RQ is active, stop;
 	let qbc_index be 0;
-	if noun is generic-jerk:
-		say "([last-jerk])[line break]";
 	repeat through qbc_litany:
 		if the enabled entry > 0:
 			increase qbc_index by 1;
@@ -130,10 +135,7 @@ Carry out QBC responding with (this is the perform talking rule):
 					the rule fails;
 				else:
 					if the enabled entry is 3 and anything-said-yet is false:
-						if qbc_litany is table of ast:
-							say "'Well, that's okay. I guess some people have to be introverts,' Ally Stout says, smiling a bit too widely. No, you're just jealous you can't smile like that.";
-						else:
-							say "You mumble something about not really having anything to say, and sorry, and sorry for wasting time with an unnecessary apology.[paragraph break]";
+						say "You mumble something about not really having anything to say, and sorry, and sorry for wasting time with an unnecessary apology.[paragraph break]";
 					deliver the response entry quip;
 				if the enabled entry is 1:
 					if qbc_litany is not table of generic-jerk talk:
@@ -164,7 +166,7 @@ Carry out QBC recap (this is the perform QBC recap rule):
 			increase qbc_index by 1;
 			if qbc_index is 1, say "[RQ options prologue][paragraph break]";
 			if response entry is permissible:
-				say "[if screen-read is false][bracket][end if][qbc_index][if screen-read is false][close bracket][end if] [prompt entry][line break]";
+				say "[bracket][qbc_index][close bracket] [prompt entry][line break]";
 			else:
 				say "[i][bracket][qbc_index][close bracket] [prompt entry][r][line break]";
 	[This "can't happen" but there's no reason to not check.]

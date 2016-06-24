@@ -351,6 +351,7 @@ sub checkGameObjExpl
 	$c2 = alfPrep($compare);
 	if ($c2 gt $c1)
 	{
+	  print "$c1 vs $c2, $a vs $compare\n";
 	  chomp($c1);
 	  chomp($c2);
 	  $gameObjErr++;
@@ -366,6 +367,7 @@ sub checkGameObjExpl
 sub alfPrep
 {
   my $temp = lc($_[0]);
+  chomp($temp);
   $temp =~ s/\t.*//g;
   if ($temp eq "a thing") { return $temp; }
   $temp =~ s/^(a |the )//i;
