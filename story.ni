@@ -2004,6 +2004,9 @@ check attacking:
 		if noun is female:
 			say "Attacking people unprovoked is uncool, but attacking females is doubly uncool. You may not feel big and strong, but with that recent growth spurt, you're bigger than you used to be. The Stool Toad's quick on the scene, and while his knight-in-shining-armor act goes way overboard, to the point [noun] says that's enough--well, that doesn't change what you did.";
 			ship-off Criminals' Harbor instead;
+		if noun is baiter-aligned:
+			say "'If you can't respect authority, at least respect those who do!' [toad-mb-know] waddles over.";
+			ship-off shape ship instead;
 		say "You begin to lash out, but [the noun] says 'Hey! What's your problem?' [toad-mb-know] blusters over. 'YOU! THE NEW KID!' You flinch. 'SUDDEN MOVEMENTS, EH? THERE'S ONLY ONE PLACE TO REFORM VIOLENT TYPES LIKE YOU.' You--you should've KNOWN better than to lash out, but...";
 		ship-off Fight Fair instead;
 	if noun is language machine:
@@ -2910,6 +2913,7 @@ a thing	"A smart alec is someone who always has a clever quip."	-- [start of sma
 bad knot	"A bad knot is hard to untangle. You wouldn't say it's not bad to untangle. And 'not bad' can have several connotations, itself, from strong to faint praise. So you can tie yourself up thinking of what it means."	--
 Broke Flat	"Flat Broke means out of money."	"This was originally a location until I discovered A Round Lounge."
 chess board	"Despite being a really good chess player, this always fooled me. I started with a queen in the corner as a kid and got run around, but then as an adult I recognized the virtue of going for an easy solution (no queens in the center) and seeing why it didn't work."	"Starting by disallowing the center 16 squares helped a lot--by sheer number, that's 21/23 squares each queen sees, not 25/27, and then placing any of the queens in the four 2x2 corners makes rows 3-6 unable to match up. Also, I didn't understand symmetry arguments e.g. it's useful to see if we can have a queen 2 from any corner, or one 3 from a corner. It's important not to think of this as 'laziness' if we can start building general principles or eliminate enough cases."
+a thought of school	"A school of thought is a particular way of thinking held by a specific group. Alec doesn't fit in with any, and so his thought of school is a bit intimidating. Also, a thought of school is generally not about the more philosophical things. If schools do focus on that, people tend not to think too hard about them. They just go ahead and do."
 face of loss	"Loss of face means humiliation or loss of respect. A face of loss isn't an official idiom, but here it means you're just sad. You've lost some fun and curiosity."	"This is something I didn't discover until release 2. What's the best way for Alec to seem upset? In retrospect, 'a bad face' should've clicked things earlier, but it happened eventually."
 Game Shell	"A shell game is where an operator and possibly an assistant rig a game so that mugs think it's an easy win, but they can't. The most popular one is when they hide a bean under a hollowed shell and shift them around."	"The game shell is a shell game of its own. No matter how much you solve, you won't impress Guy Sweet, and you won't--well--figure the real puzzles you want to, beyond logic etc."
 gesture token	"A token gesture is something done as a bare minimum of acknowledgement."	"There were all sorts of tokens this could have been. I decided on gesture because, well, you get something for doing the bare minimum."
@@ -2924,7 +2928,7 @@ river boat	"I remember being fooled by the river boat as a kid and then realizin
 Rubik's Cube	"The Rubik's Cube is always something I was supposed to be good at. My sister three years older than me bought a solving book I figured I'd be old enough to look at in three years. I never did. Not til I was an adult did I see the methods, and I was surprised how piecemeal and orderly it was. I also remember being very very jealous of Will Smith solving it in an episode of Fresh Prince of Bel Air."	"The Rubik's Cube also has a theme of two things flipped making a big, big difference. That last pair is always a tricky one."
 Towers of Hanoi	"ToH is a basic computer science problem, and I remember someone I respected raving how hard it was, and being disappointed how easy the recursive solution was: N to peg X = n-1 to peg Y, bottom to peg X, n-1 to peg Z. That said, it's just awful in practice."	--
 off tee	"To tee off is to yell or punch out at someone."	-- [start of a round lounge]
-person chair	"A chairperson is someone in charge of things."	--
+person chair	"A chairperson is someone in charge of things. The person chair is, on the other hand, anonymous and plain."	--
 Plan Hatch	"To hatch a plan is to figure a way to do something."	"This was the first real 'puzzle,' and it's not meant to be much of a puzzle. But there are plenty of escape the locked room ideas, and so I wanted to show Alec as learning at least a minimum. I was worried the round stick/screw might be too similar, but I really liked the switched where a noun became a verb and vice versa."
 round screw	"To screw around is to do silly unproductive stuff."	--
 round stick	"To stick around is to move nowhere."	--
@@ -4009,6 +4013,10 @@ Beginning is a region.
 
 chapter the player's possessions to start
 
+section a thought of school
+
+a thought of school is a thing. the player carries a thought of school. description is "You think about how you don't follow any orthodoxy, but everyone seems more clever and creative than you are. All sorts of things. Like you should be doing way better than you should, and how you're too self-centered and too worried about everyone else at the same time. It doesn't make sense. But any one philosophy to explain it all doesn't really mesh."
+
 section exprs
 
 an expr is a kind of thing.
@@ -4019,11 +4027,11 @@ a bad face is an expr. description is "You can't see it, but you can [i]feel[r] 
 
 a lifted face is an expr. description is "You're feeling pretty good about yourself. Not too good, but you just feel your mouth muscles are a little perkier than normal."
 
-an opener eye is an expr. description is "You can't see it, but it's helping you see things a bit more clearly now you ate the [bad-eaten]."
+an opener eye is an expr. description is "You can't see it, but it's helping you see things a bit more clearly now you ate the [bad-eaten].".
 
-understand "face [text]" and "[text] face" as a mistake ("You can't do much to change your face. Well, it can't last. You may need to do something big.") when player does not have open eye.
+understand "face [text]" and "[text] face" as a mistake ("You can't do much to change your face. Well, it can't last. You may need to do something big.") when player does not have opener eye.
 
-understand "eye [text]" and "[text] eye" as a mistake ("You're already a lot more aware than before you ate the [bad-eaten].") when player has open eye.
+understand "eye [text]" and "[text] eye" as a mistake ("You're already a lot more aware than before you ate the [bad-eaten].") when player has opener eye.
 
 rule for deciding whether all includes a face of loss: it does not.
 
@@ -9735,9 +9743,15 @@ check going nowhere in freak control:
 		try going south instead;
 	say "You'd probably get lost, and caught, exploring." instead;
 
+freak-ok is a truth state that varies.
+
 check going south in Freak Control:
-	say "You try to start running, but unsurprisingly, you don't get a [activation of running start]running start. The [bad-guy] turns around. 'DUDE! That's pretty messed up, making it here and then running away. I know people that can...help...with that.'";
-	ship-off shape ship instead;
+	say "You try to start running, but unsurprisingly, you don't get a [activation of running start]running start. The [bad-guy] turns around. 'DUDE! That's pretty messed up, making it here and then running away. We'll sort out your confusion for your own good. There are people that can...help...with that.'";
+	ship-off shape ship;
+	if freak-ok is false:
+		now freak-ok is true;
+		ital-say "You can't leave, but you also can't lose. And you will gain a verb to reset the game to just before here, if you want to see both the good and very good endings.";
+	the rule succeeds;
 
 a list bucket is a thing in Freak Control. "[if accel-ending]A list bucket might help you see what machines do what, if you had the time, which you don't[else][one of]A list bucket lying nearby may help you make sense of the fancy machinery, though you worry you might kill yourself trying[or]The list bucket waits here, a handy reference to the gadgetry of Freak Control[stopping][end if]."
 
