@@ -1,0 +1,419 @@
+# reg-pc-talk.txt: testing all sorts of talking
+
+** game: /home/andrew/prt/debug-compound.ulx
+** interpreter: /home/andrew/prt/glulxe -q
+
+
+* _guy
+
+>x me
+
+>bb
+Bbbbb, you think, you aren't going to worry about every single conversational detail, THIS TIME.
+Guy Sweet blinks at you. "Whoah! You're, like, more accelerated than most people at this whole social thing. Here, play a game, any game. It's sort of an aptitude test thing."
+!err, abridged
+
+>undo
+
+>brook babbling
+Guy Sweet blinks at you. "Whoah! You're, like, more accelerated than most people at this whole social thing. Here, play a game, any game. It's sort of an aptitude test thing."
+Well. Now that you, err, abridged the conversation, you feel as though you can abridge how you think of it. Instead of BROOK BABBLING, well, BB (with or without a space) would work.
+
+>talk
+You've already had a chat. Re-summarize?
+You forget the details, but it went a little something like this:
+
+Guy seemed impressed you took initiative and weren't intimidated, but he's still waiting for you to play a game.
+
+>undo
+>undo
+
+>talk
+>5
+You mumble something about not really having anything to say, and sorry, and sorry for wasting time with an unnecessary apology.
+
+"Whatever, dude." It's--a bit harsh, you're not sure what you did to deserve that, but probably something.
+
+>talk
+>5
+You mumble something about not really having anything to say, and sorry, and sorry for wasting time with an unnecessary apology.
+
+"Whatever, dude." It's a bit less grating
+
+>talk
+>1
+>4
+
+>brook babbling
+
+>bb
+
+>talk to guy
+[1] How'd you get stuck here?
+[2] Any advice on any of the games?
+[3] So. What's in the flat?
+[4] Um, later.
+
+>n
+You can't escape the conversation running nowhere! Well, you can't really escape it running anywhere, either. You're not good at slick exits. (NOTE: to see dialog options, type RECAP)
+
+>y
+You don't need to say yes or no unless you're directly asked a yes/no question.
+
+>n
+You can't escape the conversation running nowhere! Well, you can't really escape it running anywhere, either. You're not good at slick exits. (NOTE: to see dialog options, type RECAP)
+
+>sleep
+That'd be a bit insulting. People have yawned around you before, but...you can't do it back to them.
+
+>notice advance
+Whoah! You could totally do that. But not while you're talking. You'll need to say goodbye to Guy first.
+
+>duck sitting
+Whoah! You could totally do that. But not while you're talking. You'll need to say goodbye to Guy first.
+
+>listen
+Well, you just did, and now it's your turn to respond.
+
+>smell
+Others can throw you off with a well-timed sniff, but not vice versa.
+
+>talk to me
+That might bug Guy Sweet.
+
+>talk to guy
+You're already in a conversation with Guy Sweet.
+
+>attack guy
+You've been baited into fights before, but there's been nothing TOO bad here.
+
+>i
+You're not carrying anything.
+You're wearing a face of loss, and there's that thought of school kicking around, too.
+
+>score
+You don't need to worry about score yet. You've just got here.
+
+>think
+You get distracted, but you've never had the power to break a conversation off. (NOTE: to see dialog options, type RECAP)
+
+>1
+>1
+>1
+>1
+>1
+>1
+>1
+"Whatever, dude."
+
+>talk to guy
+You don't have anything left to say except hello, good-bye. But here's a summary: Guy talked about the Baiter Master and how you'd have to be very clever to meet him, and when you did, you'd better not waste his time.
+
+>swear
+>talk to guy
+You don't have anything left to say except hello, good-bye. But here's a summary: Guy talked about the Complex Messiah and how you'd have to be very clever to meet him, and when you did, you'd better not waste his time.
+
+>play nim
+>in
+
+>put screw in stick
+
+>climb chair
+>hit hatch
+Tension Surface
+
+* _weasel
+
+>gonear tension surface
+>purloin token
+>w
+
+>bb
+Something about how it's willing to give you his signature, which is very valuable indeed helping you move on in the world. It seems interested in a swap.
+
+>undo
+>talk to weasel
+
+>1
+"Here to weed out people who don't belong. Ah, good, you didn't laugh at the weed/garden pun. There's hope for you yet! But I just have so much to say--you will listen to it all before asking anything of me, won't you?"
+
+>1
+You imagine the Word Weasel saying that anything you do for it would be doing for you, because it probably knows what's good for you.
+Dang it. It's not the first time you thought of a clever response but balked at the last second.
+
+>1
+You imagine the Word Weasel saying that anything you do for it would be doing for you, because it probably knows what's good for you.
+!Dang it. It's not the first time you thought of a clever response but balked at the last second.
+
+>2
+>2
+>2
+>2
+>2
+>2
+>2
+
+>i
+gesture token
+
+>give token to weasel
+
+>i
+!gesture token
+
+>e
+"This isn't nap dirt, here. It won't DIG itself while you're gone."
+
+>dig
+"Ah, the art of work!" the Weasel says as you begin. It throws on a few more aphorisms about exercise and experience and advice that, well, motivate you not to take breaks. "You've paid off your debt now."
+
+>e
+Tension Surface
+
+>bb
+The mouth mush harangues you about needing certification to go through the arch to the north. This isn't a big area, so it can't be far.
+
+>talk
+(the mouth mush)
+You've already had a chat. Re-summarize?
+You forget the details, but it went a little something like this:
+
+The mouth mush wanted some sort of document.
+
+>undo
+>undo
+
+>talk to mush
+>1
+>1
+>1
+>1
+>1
+
+>e
+Vision Tunnel
+
+>talk to wall
+Mostly, you'll want to talk to people or animals, and in some cases a machine capable of receiving input.
+
+>x earth
+It's opaque, probably earth of salt or something, and it seems half-buried. You think if you look closely you see something under it that's not dirt or salt. But you can't just move it away by conventional means.
+
+>dig
+With your pocket pick, the work is steady and clean, if arduous. Your cheap pocket pick starts splitting off--why couldn't the earth of salt been earth of scum or something easier to hack at?--and it snaps in two with the final blow.
+
+Beneath is a thin plaque. But not just any plaque: a PROOF OF BURDEN. You wipe it off and pick it up, then you bury the pocket pick, which is not only broken but also rusted.
+
+>i
+probably read
+
+>x proof
+It is blank.
+
+>i
+unsigned
+
+>talk to me
+You've already taken heat for talking to yourself, especially from people who give themselves pep talks before the big game. But with people around or no, it's a bad habit. Socially, at least.
+
+>w
+>w
+
+>talk to weasel
+
+>2
+"I could, but you'd have to GIVE it to me first." It smirks.
+
+>2
+>give burden to weasel
+
+>i
+(signed)
+
+>talk to weasel
+It doesn't seem to want to talk any more, and come to think of it, neither do you, really. It's time to get a move on.
+
+>e
+>talk to mush
+You don't have much to say, now you have the signed burden. Maybe just GIVE it to the mouth.
+
+>give proof
+>in
+
+* outer
+
+>knock hard
+
+>bb
+The usual greetings, as he exhorts you to be good--not too good, though. Maybe if you have some proof you're not totally boring and squeaky clean, you'll be bare-knuckle enough for the Compound proper. You'll--well, you'll know what, once you start picking up demerits.
+
+>undo
+>talk to terry
+
+>1
+>1
+You'd like to say that, and someone with more courage can, but you can't right now.
+
+>3
+>3
+>3
+>3
+"Later. Be good. But not too good. That's just boring."
+
+>talk
+You don't have anything left to say except hello, good-bye. But here's a summary: Terry Sally wanted some sort of document.
+
+>e
+Down Ground
+
+>sleep
+>z
+>z
+>z
+
+#ticket number one
+
+>i
+1 piece
+
+>bb
+Many variants on "Whoah dude whoah," mumbling about the friend he lost.
+
+>undo
+
+>talk to fritz
+>1
+>1
+>1
+>1
+>1
+As you turn away, Fritz mumbles something about hoping you find genuine consciousness. You seem closer than most squares here.
+
+>e
+>bb
+The usual ordering to keep your nose clean, don't go off the beaten path, or litter, or annoy people, or have illicit substances.
+
+>undo
+>talk to toad
+
+>talk to me
+That might bug the Stool Toad.
+
+>talk to guy
+You're already in a conversation with the Stool Toad.
+
+
+>1
+>1
+>1
+"Littering. Suppressing evidence of prior misconduct. Acting up in the bar. Minor in possession of alcohol. Aggravated loafing. Seeking out illicit activities. All manner of frog-bull."
+>1
+"Y'mean you don't remember? Littering. Suppressing evidence of prior misconduct. Acting up in the bar. Minor in possession of alcohol. Aggravated loafing. Seeking out illicit activities. All manner of frog-bull."
+
+>3
+>3
+
+>talk
+I need a refresher
+
+>3
+You mumble something about not really having anything to say, and sorry, and sorry for wasting time with an unnecessary apology.
+
+>3
+Numbers are generally reserved for dialogue, but you're not in one right now.
+
+>s
+Soda Club
+
+>talk
+The Punch Sucker?
+
+>1
+>1
+>2
+>2
+>2
+Ah good. If you, like
+
+>2
+>1
+HEY! Drink
+
+>n
+"HALT! FREEZE! A MINOR WITH ALCOHOL!" booms the Stool Toad. He takes your drink and throws it off to the side. "THAT'S AN INFRACTION!"
+
+>i
+2 pieces
+
+>talk to ally
+
+>1
+>1
+
+>give drink to ally
+He might be insulted if you give it back.
+
+>give drink to erin
+Erin ignores your offer. Perhaps if you talked to her first, she might be more receptive.
+
+>talk to erin
+[1] Um, er, yeah, hi, I'm Alec.
+[2] (shuffles off embarrassingly and awkwardly).
+
+>2
+You mumble something about not really having anything to say, and sorry, and sorry for wasting time with an unnecessary apology.
+
+"Aww. Awkwardness is real cute, until it's creepy. So it was kinda flattering this time but don't, like, try it again."
+
+>talk to erin
+>1
+>1
+>1
+>1
+>1
+>1
+>1
+>1
+
+>talk to erin
+>1
+>1
+
+>talk to erin
+>2
+
+>i
+3 pieces
+
+>n
+
+>talk to toad
+>1
+remember, again?
+>3
+
+>w
+>w
+
+>talk to terry
+You don't have anything left to say except hello, good-bye. But here's a summary: Terry Sally wanted some sort of document, and your ticketies don't quite make one yet.
+
+>e
+>e
+>get bear
+>w
+>give bear to fritz
+
+>e
+>talk to toad
+You don't want to let anything slip that could get you in further trouble, with all the boo-ticketies you accumulated.
+
+>w
+>w
+>n
+
+#* big-enchilada
+
+#>{include} _guy
+#>{include} _weasel
+#>{include} _outer

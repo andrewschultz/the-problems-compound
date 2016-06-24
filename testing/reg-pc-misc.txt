@@ -1,0 +1,18 @@
+# reg-pc-misc.txt: testing all sorts of odd tries
+
+** game: /home/andrew/prt/debug-compound.ulx
+** interpreter: /home/andrew/prt/glulxe -q
+
+
+* word weasel
+
+>gonear word weasel
+>w
+You run into some brush. More precisely, you get close to it but turn to the side to avoid its prickliness. You look for a way around--it's not that dense, so there should be one--but no luck. "Found the aside brush, eh?" snickers the Word Weasel.
+
+>n
+You run into some brush. More precisely, you run near it but just don't feel up to it, as if you don't have the fight to look beyond it. "Found the off brush, eh?" snickers the Word Weasel.
+
+>s
+You run into some brush. More precisely, you run near it but back off. "Found the back brush, eh?" snickers the Word Weasel.
+
