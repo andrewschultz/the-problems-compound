@@ -435,7 +435,7 @@ another optional point
 scored 19 points
 
 > i
-You're wearing a bad face.
+You're wearing a bad face, and there's that thought of school kicking around, too.
 
 > d
 Bottom Rock

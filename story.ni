@@ -1345,7 +1345,7 @@ the can't take scenery rule is not listed in any rulebook.
 
 before taking a person:
 	if noun is weasel:
-		say "He is too small and mobile." instead;
+		say "It is too small and mobile." instead;
 	say "You're not strong enough for the sort of WWF moves required to move a person." instead;
 
 check taking:
@@ -1685,9 +1685,14 @@ after taking inventory:
 	else if player carries face of loss:
 		say "You're wearing a face of loss";
 		now face of loss is mentioned;
+	else if player carries lifted face:
+		say "You're got a lifted face";
+		now lifted face is mentioned;
 	else if player carries opener eye:
 		say "Your opener eye is revealing how things REALLY are";
 		now opener eye is mentioned;
+	else:
+		say "You're expressionless, which is a BUG";
 	now thought of school is mentioned;
 	say ", and there's that thought of school kicking around, too.";
 	if quiz pop is in lalaland and baiter is not in lalaland:
@@ -2205,7 +2210,7 @@ check giving gesture token to:
 	if second noun is mush:
 		say "'Pfft. Petty bribery. I need forms. Signed forms.'" instead;
 	if second noun is guy sweet:
-		say "'No way! These games are free. And if I charged, it'd be more than THAT.'" instead;
+		say "'I've got plenty of those! Anyway, these games are free. And if I charged, it'd be more than THAT.'" instead;
 
 check giving burden to:
 	if second noun is mush:
@@ -2271,14 +2276,14 @@ check giving minimum bear to (this is the fun stuff if you give the bear to some
 	if second noun is Stool Toad:
 		say "'DO I LOOK LIKE A SOFTIE?'" instead;
 	if second noun is Fritz the On:
-		say "'Dude! Minimum Bear!' he says, snatching it from you. 'I--I gotta give you something to thank you.' And he does. 'Here's a boo tickety I got for, like, not minding right. I've got so many, I won't miss it.'[paragraph break]";
+		say "'Dude! Minimum Bear!' he says, snatching it from you. 'I--I gotta give you something to thank you.' And he does. 'Here's a boo tickety I got for, like, not minding right. I've got so many, I won't miss it.'";
 		now Fritz has minimum bear;
 		if Terry Sally is in lalaland:
-			say "Fritz starts mumbling about the generosity of someone coming back to do nice things for the sake of being nice and strts complaining enough about how people who don't do this sort of thing that you wish you hadn't." instead;
+			say "[line break]Fritz starts mumbling about the generosity of someone coming back to do nice things for the sake of being nice and strts complaining enough about how people who don't do this sort of thing that you wish you hadn't." instead;
 		if your-tix >= 4:
-			say "Before you can decline Fritz's offer because you have too many already, he begins mumbling something about a revolution of the oppressed. It's enough to alert the Stool Toad.";
+			say "[line break]Before you can decline Fritz's offer because you have too many already, he begins mumbling something about a revolution of the oppressed. It's enough to alert the Stool Toad.";
 		if your-tix is 3:
-			say "'Whoah, dude! You have almost as many ticketies as me!' Fritz blurts, before you can shush him.";
+			say "[line break]'Whoah, dude! You have almost as many ticketies as me!' Fritz blurts, before you can shush him.";
 		get-ticketed "giving Fritz his dumb bear he keeps losing";
 		the rule succeeds;
 	if second noun is Terry Sally:
@@ -4062,7 +4067,7 @@ a thought of school is a thing. the player carries a thought of school. descript
 
 instead of doing something with thought of school:
 	if action is undrastic, continue the action;
-	say "You can mostly just think about it, e.g. e(X)amine or e(XP)lain.";
+	say "You can really only just think about it, e.g. e(X)amine or e(XP)lain.";
 
 to say long-school:
 	say "You think about how you don't follow any orthodoxy, but everyone seems more clever and creative than you are. All sorts of things. Like you should be doing way better than you should, and how you're too self-centered and too worried about everyone else at the same time. It doesn't make sense. But any one philosophy to explain it all doesn't really mesh"
@@ -4098,6 +4103,8 @@ rule for deciding whether all includes a bad face: it does not.
 rule for deciding whether all includes a lifted face: it does not.
 
 rule for deciding whether all includes opener eye: it does not.
+
+rule for deciding whether all includes thought of school: it does not.
 
 to decide whether the action is expressionable:
 	if examining, decide yes;
@@ -6962,7 +6969,10 @@ after examining Quiz Pop:
 to say j-co:
 	say "[if allow-swears is true]jerks[else]groaners[end if]"
 
-the seven jerks are scenery in Nominal Fen. "[if know-jerks is true][jerk-list].[else]You can't tell who they are, and they don't offer their names.[end if]"
+instead of giving to seven jerks:
+	say "It'd be too hard to decide who'd actually get any gift. So, no."
+
+the seven jerks are plural-named scenery in Nominal Fen. "[if know-jerks is true][jerk-list].[else]You can't tell who they are, and they don't offer their names.[end if]"
 
 know-jerks is a truth state that varies.
 
@@ -6991,6 +7001,7 @@ before talking to jerks (this is the ask jerks generally to get their names rule
 
 to jerk-blab:
 	increment jerk-girl-row;
+	d "Jerk dialogue: [jerk-girl-row]";
 	if jerk-girl-row > number of rows in table of jerk-girl-talk:
 		say "'[activation of lovelies]Lies: LOVE!' proclaims [random client in Nominal Fen]. The others agree. They then resume their...evaluations.";
 		now jerk-girl-row is 0;
@@ -7366,7 +7377,7 @@ after quipping when qbc_litany is table of generic-jerk talk:
 			else if jerks-scared is 2:
 				say "The [j-co] seem a bit quieter now.";
 			else if jerks-scared is 4:
-				say "[line break]The [j-co] seem quiet now.";
+				say "The [j-co] seem very quiet now.";
 		now last-jerk is next-c-x of last-jerk;
 		enable the jerk-next quip;
 		continue the action;
@@ -8051,9 +8062,9 @@ check taking the note crib:
 x-stuff-first is a truth state that varies.
 
 check talking to Legend of Stuff:
-	if x-stuff-first is true:
+	if x-stuff-first is false:
 		say "'OK, show me what you've got,' you whisper.[line break]";
-		now x-stuff-first is false;
+	now x-stuff-first is false;
 	if player does not have legend of stuff:
 		say "You'll need to TAKE the Legend of Stuff to look through it." instead;
 	if bros-left is 0:
@@ -9414,10 +9425,8 @@ after quipping when qbc_litany is litany of Harmonic Phil:
 	if current quip is phil-hi:
 		enable the phil-pomp quip;
 		enable the phil-aes quip;
-	if current quip is phil-tol:
-		enable the phil-tol quip;
 	if current quip is phil-aes:
-		enable the phil-tol quip;
+		superable phil-tol;
 	if current quip is phil-bye:
 		terminate the conversation;
 
@@ -10316,7 +10325,7 @@ part Out Mist
 Out Mist is a room in Endings. "It's very misty here, but you can still see a worm ring nearby. At the moment, it's cannibalizing itself too much to be whole.[paragraph break]It's silent here and tough to see, but you're pretty sure your pursuers aren't approaching any more."
 
 before talking to the ring:
-	say "You manage a sleepy almost-hello, but no reply." instead;
+	say "The ring reveals no hints as to what it should be." instead;
 
 mist-turns is a number that varies.
 
@@ -12901,11 +12910,12 @@ gat-ruin is a truth state that varies.
 
 to gat-ruin-check:
 	if gat-ruin is false:
-		say "NOTE: This ruins the game.";
+		say "NOTE: 	.";
 		now gat-ruin is true;
 
 carry out gating:
 	if tension surface is unvisited:
+		now player has token;
 		do nothing;
 	else if pressure pier is unvisited:
 		gat-ruin-check;
@@ -12913,7 +12923,7 @@ carry out gating:
 		now player has burden;
 	else if Terry Sally is not in lalaland:
 		gat-ruin-check;
-		now player has fritz;
+		now player has minimum bear;
 		if player is in soda club:
 			if player does not have haha brew:
 				now player has cooler wine;
@@ -12936,8 +12946,22 @@ carry out gating:
 		now player has mind of peace;
 		now player has legend of stuff;
 		now player has crocked half;
-	repeat with Q running through carried things:
-		try giving Q to the noun;
+	let int be indexed text;
+	last-item is a thing that varies;
+	if noun is language machine:
+		now last-item is poetic wax;
+	if noun is officer petty:
+		now last-item is reasoning circular;
+	repeat with gatitm running through carried things:
+		if gatitm is last-item:
+			next;
+		now int is "COMMAND: GIVE [gatitm] TO [noun]: ";
+		say "[int in upper case][no line break]";
+		try giving gatitm to the noun;
+	if last-item is not nothing:
+		say "GIVE IMPORTANT ITEM: [no line break]";
+		try giving last-item to noun;
+	say "Now we try taking [the noun]: [no line break]";
 	try taking the noun; [heck why not?]
 	the rule succeeds.
 

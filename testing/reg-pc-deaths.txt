@@ -194,14 +194,14 @@ Criminals' Harbor
 
 >gonear petty
 >attack petty
-Criminals' Harbor
+Punishment Capitol
 
 >gonear brother big
 >attack brother big
-Criminals' Harbor
+Punishment Capitol
 
 >gonear soda club
->attack lily
+>attack erin
 Criminals' Harbor
 
 >gonear sly moore

@@ -4,7 +4,7 @@
 ** interpreter: /home/andrew/prt/glulxe -q
 
 
-* _duck sitting
+* duck sitting
 
 >duck sitting
 You open the door to Broke Flat slowly, looking inside for people waiting in ambush. Nobody. You skulk around a bit more--hmm, a passage you'd've missed if you just ran through. You think you see your bathroom up ahead. Wait, no, it's another weird warp. 
@@ -28,7 +28,7 @@ You've got a task or two, but still not enough to really keep score of what you'
 >score
 You need to go forward from the tension surface somehow.
 
-* _fancy passing
+* fancy passing
 
 >fancy passing
 
@@ -43,7 +43,7 @@ You're wearing a face of loss, and there's that thought of school kicking around
 You have scored 16 points and need 18 to win, or 21 for the best ending.
 You have currently helped all of the Keeper Brothers.
 
-* _figure a cut
+* figure a cut
 
 >figure a cut
 Guy Sweet yells "Hey! Where are you going? I mean, you're probably like accelerated in school but if you think you're accelerated at life..." You ignore him. You don't need to be taught a same lesson twice. Well, not this one. You rattle the doorknob just so--and you recognize a few odd passages in Broke Flat--and bam! You fall through an invisible slide to the Nominal Fen. 
@@ -61,7 +61,7 @@ You haven't gotten near the Baiter Master's hideout yet. So maybe you need to ex
 >think
 NOTE: THINK will redirect to SCORE in the future, unless you really only have one specific task remaining.
 
-* _notice advance
+* notice advance
 
 >notice advance
 Guy Sweet yells "Hey! What could you POSSIBLY... you can't just... someone a lot less lame must've showed you that, no offense..." 
@@ -81,7 +81,7 @@ You have scored 17 points and need 18 to win, or 21 for the best ending.
 
 You've helped the Brothers and jerks. It's time to meet the Baiter Master, unless you want to take care of a few special things first.
 
-* _track beaten
+* track beaten
 
 >track beaten
 Nothing happens, or seems to. But you just feel you're more open to what people may be saying, or doing, and putting clues together so you're not in the dark about certain things.
@@ -97,7 +97,7 @@ You're not carrying anything.
 
 You're wearing a face of loss, and there's that thought of school kicking around, too.
 
-* _knock hard
+* knock hard
 
 > knock hard
 
