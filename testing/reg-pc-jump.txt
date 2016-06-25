@@ -1,0 +1,170 @@
+# reg-pc-jump.txt: testing all sorts of jump combos
+
+** game: /home/andrew/prt/debug-compound.ulx
+** interpreter: /home/andrew/prt/glulxe -q
+
+
+* _duck sitting
+
+>duck sitting
+You open the door to Broke Flat slowly, looking inside for people waiting in ambush. Nobody. You skulk around a bit more--hmm, a passage you'd've missed if you just ran through. You think you see your bathroom up ahead. Wait, no, it's another weird warp. 
+
+Tension Surface
+
+And in addition to this shortcut, you remember another one. You can BROOK BABBLING to abridge a conversation, so you just get the main points.
+
+>i
+You are carrying:
+  a gesture token
+
+You're wearing a face of loss, and there's that thought of school kicking around, too.
+
+>score
+You've got a task or two, but still not enough to really keep score of what you're doing yet.
+
+>w
+>e
+>e
+>score
+You need to go forward from the tension surface somehow.
+
+* _fancy passing
+
+>fancy passing
+
+Questions Field
+
+>i
+You're not carrying anything.
+
+You're wearing a face of loss, and there's that thought of school kicking around, too.
+
+>score
+You have scored 16 points and need 18 to win, or 21 for the best ending.
+You have currently helped all of the Keeper Brothers.
+
+* _figure a cut
+
+>figure a cut
+Guy Sweet yells "Hey! Where are you going? I mean, you're probably like accelerated in school but if you think you're accelerated at life..." You ignore him. You don't need to be taught a same lesson twice. Well, not this one. You rattle the doorknob just so--and you recognize a few odd passages in Broke Flat--and bam! You fall through an invisible slide to the Nominal Fen. 
+
+>i
+You're not carrying anything.
+
+You're wearing a face of loss, and there's that thought of school kicking around, too.
+
+>score
+You have scored 0 points and need 18 to win, or 21 for the best ending.
+
+You haven't gotten near the Baiter Master's hideout yet. So maybe you need to explore a bit more.
+
+>think
+NOTE: THINK will redirect to SCORE in the future, unless you really only have one specific task remaining.
+
+* _notice advance
+
+>notice advance
+Guy Sweet yells "Hey! What could you POSSIBLY... you can't just... someone a lot less lame must've showed you that, no offense..." 
+
+Questions Field
+
+The Keeper Brothers are gone now that you've jumped.
+
+>i
+You are carrying:
+  a bottle of Quiz Pop
+
+You're wearing a face of loss, and there's that thought of school kicking around, too.
+
+>score
+You have scored 17 points and need 18 to win, or 21 for the best ending.
+
+You've helped the Brothers and jerks. It's time to meet the Baiter Master, unless you want to take care of a few special things first.
+
+* _track beaten
+
+>track beaten
+Nothing happens, or seems to. But you just feel you're more open to what people may be saying, or doing, and putting clues together so you're not in the dark about certain things.
+
+>track beaten
+You've already made a commitment to track the beaten, though you haven't uncovered any specific evidence, yet
+
+>score
+You don't need to worry about score yet. You've just got here.
+
+>i
+You're not carrying anything.
+
+You're wearing a face of loss, and there's that thought of school kicking around, too.
+
+* _knock hard
+
+> knock hard
+
+You stride up to Broke Flat with purpose. You knock, hard, hoping to avoid a hard knock--and you do! You are escorted through a maze of hallways that eventually open up to a wide area with water behind: Pressure Pier. 
+
+Pressure Pier
+
+>score
+You need to go looking for trouble. I mean, not too much, but enough to show you're not square.
+
+>i
+You're not carrying anything.
+
+You're wearing a face of loss, and there's that thought of school kicking around, too.
+
+* fail-reject
+
+>gonear disposed well
+
+>duck sitting
+Boy! Knowing then what you know now, you'd have liked to duck sitting in some lounge and getting to action back in Smart Street. (NOTE: you need to RESTART to use this).
+
+>fancy passing
+You daydream about how nice it would be to just be able to move ahead and be almost done. You daydream long enough that--why stop with doing so here? Do so back in Smart Street. Yes. That would be neat. if you could RESTART and jump.
+
+>figure a cut
+Oh, man! Looking back, you totally see a shortcut you should've at least checked at, back in Smart Street. But it's too late to skip ahead like that now. Maybe if you somehow restart things and wind up back at Smart Street, you could. You'll need to RESTART to jump ahead to the Nominal Fen this way.
+
+>undo
+>gonear nominal fen
+>figure a cut
+Oh, man! Looking back, you totally see a shortcut you should've at least checked at, back in Smart Street. But it's too late to skip ahead like that now. Maybe if you somehow restart things and wind up back at Smart Street, you could. But, eh, you already made it to the Nominal Fen.
+
+>knock hard
+There's nothing to knock hard at. Or nothing it seems you should knock hard at. Not like Broke Flat back in Smart Street--you'd need to RESTART to try that.
+
+>gonear questions field
+
+>knock hard
+That would've gotten you into Broke Flat and beyond, but it won't do much to get into Freak Control.
+
+>undo
+>gonear joint strip
+>knock hard
+There's no secret knock or password. Either you can get in the Soda Club, or you can't.
+
+>undo
+>gonear pressure pier
+>knock hard
+There's nothing to knock hard at. Or nothing it seems you should knock hard at. Not like Broke Flat back in Smart Street.
+
+>notice advance
+Oh, man! Looking back, you totally see a shortcut you should've at least checked at, back in Smart Street. But it's too late to skip ahead like that now. You may wish to restart the game.
+
+>track beaten
+Nothing happens, or seems to. But you just feel you're more open to what people may be saying, or doing, and putting clues together so you're not in the dark about certain things
+
+>undo
+>purloin finger index
+>track beaten
+>track beaten
+You've already made a commitment to track the beaten, and you can re-read everyone in full on the Finger Index back in Accountable Hold
+>undo
+>undo
+>x finger index
+>track beaten
+You take some time to track the possible names on the Finger Index. And you remember pieces of conversation from the jerks.
+
+>track beaten
+You've already made a commitment to track the beaten, and you can re-read everyone in full on the Finger Index back in Accountable Hold.
