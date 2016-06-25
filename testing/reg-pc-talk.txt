@@ -432,11 +432,11 @@ You don't want to let anything slip that could get you in further trouble, with 
 >gonear fen
 
 >talk to jerks
-The jerks 
+DEBUG: Jerk dialogue: 1
 >talk to jerks
-The jerks 
+DEBUG: Jerk dialogue: 2
 >listen
-The jerks 
+DEBUG: Jerk dialogue: 3
 
 >n
 >talk to dutch
@@ -484,7 +484,7 @@ Officer Petty boomingly proclaims a need for theoretical knowledge to augment hi
 You've already had a chat. Re-summarize?
 You forget the details, but it went a little something like this:
 
-"NOT FOUND ANYTHING YET? DIDN'T THINK SO. STILL, I CAN HOPE. I COULD USE SOME HIGHBROW FINESSE, I ADMIT IT."
+"NOTHING FOUND YET? DIDN'T THINK SO. STILL, I CAN HOPE. I COULD USE SOME HIGHBROW FINESSE, I ADMIT IT."
 
 
 >undo
@@ -665,6 +665,8 @@ Before you can say anything, he takes the contract.
 >s
 >w
 
+>give blossom to faith
+
 >i
 a mind of peace
 
@@ -676,6 +678,9 @@ You give a vague "Hi, guys," and are assailed by the jerks saying, geez, we have
 
 >talk to jerks
 You should really pick an individual jerk to talk to, now you know their names.
+
+>listen
+DEBUG: Jerk dialogue: 4
 
 >n
 >e
@@ -713,6 +718,7 @@ Art and Phil both seem equally tough to talk to. You can B/BB/BROOK ART or PHIL,
 >2
 >2
 >2
+>3
 >3
 Enjoy the splendour
 
@@ -813,7 +819,19 @@ Ah! Good sir!
 >e
 >n
 >n
+
+>bb big
+Brother Big mutters about how he's not very clever and he'd like to change that.
 >talk to big
+You've already had a chat. Re-summarize?
+You forget the details, but it went a little something like this:
+
+Brother Big asked for something to make him cleverer.
+>undo
+>undo
+
+>talk to big
+>1
 >1
 >1
 >1
@@ -822,15 +840,41 @@ Ah! Good sir!
 >1
 Good-bye
 
+>bb blood
+Brother Blood moans about how he thinks more violent thoughts than he should, and he wants to change that, and not just to look or seem better.
+
+>talk to blood
+You've already had a chat. Re-summarize?
+You forget the details, but it went a little something like this:
+
+Brother Blood seemed upset at how upset he was about things.
+>undo
+>undo
+
 >talk to blood
 >1
 >1
->2
 >1
->2
 >1
+[1] Anything that might help
+[2] Well, hey, you got
+>1
+[1] Anything that might help
+[2] Well, hey, you got
 >2
-You, um, yeah
+>2
+You, um, yeah, seem okay.
+
+>bb soul
+Brother Soul frowns and pines for something to cheer him up.
+
+>talk to soul
+You've already had a chat. Re-summarize?
+You forget the details, but it went a little something like this:
+
+Brother Soul asked for something to cheer him up.
+>undo
+>undo
 
 >talk to soul
 >1
@@ -839,7 +883,7 @@ You, um, yeah
 >1
 >1
 >1
-Facebook
+on Facebook or something
 
 >give relief to soul
 >give peace to blood
@@ -882,7 +926,11 @@ WRONG!
 >listen
 You listen in a bit closer, so if your accusations disquieted the jerks enough, you'll know.
 
+>1
+RIGHT!
+
 >8
+The jerks sound about the same. Maybe you need to scare a couple of them in a row before they get quieter.
 >2
 RIGHT!
 
@@ -892,17 +940,15 @@ The jerks seem a bit quieter now.
 RIGHT!
 
 >8
-The jerks seem a bit quieter now.
 >4
 RIGHT!
 
 >8
-The jerks seem quiet now.
+The jerks seem very quiet now.
 >5
 RIGHT!
 
 >8
-The jerks seem a bit quieter now.
 >6
 RIGHT!
 
@@ -935,11 +981,15 @@ He waves you off without even looking. "Whoever you are, I'm busy. Too busy for 
 
 Out Mist
 
->ring
-You manage a sleepy almost-hello, but no reply.
+>talk to ring
+The ring reveals no hints as to what it should be.
 
+>gonear airy station
 
-* _foster-test-1
+>talk to crowd
+They are stuck in full-on cheering mode.
+
+* foster-test-1
 
 >gonear questions field
 >talk to big
@@ -965,7 +1015,7 @@ Brother Foster
 !Brother Foster
 3
 
-* _foster-test-2
+* foster-test-2
 
 >gonear questions field
 >talk to big
@@ -987,7 +1037,7 @@ Brother Foster
 >talk to big
 !Brother Foster
 
-* _foster-test-3
+* foster-test-3
 
 >gonear questions field
 >talk to big

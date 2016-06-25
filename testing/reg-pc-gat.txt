@@ -1,0 +1,113 @@
+# reg-pc-gat.txt: testing all sorts of odd tries
+
+** game: /home/andrew/prt/debug-compound.ulx
+** interpreter: /home/andrew/prt/glulxe -q
+
+* give-all
+
+>gonear tension surface
+>e
+>gat weasel
+
+>gonear pressure pier
+>gat terry
+
+>e
+>gat fritz
+>e
+
+>gat stool toad
+>s
+>gat erin
+
+>e
+>gat ally
+
+>gonear fen
+
+>e
+>gat jerks
+
+>e
+>gat petty
+
+>e
+>gat monkey
+>gat idol
+>gat sly
+
+>w
+>w
+>w
+>gat percy
+
+>w
+>in
+>gat labor child
+
+>n
+>x finger index
+
+>s
+>w
+>gat faith
+>gat grace
+
+>e
+>in
+>gat sid
+>gat lee
+
+>out
+>e
+>e
+>n
+>gat dutch
+>gat turk
+
+>w
+>gat sal
+
+>e
+>n
+>w
+>gat buddy
+
+>e
+>s
+>e
+>in
+>gat penn
+>out
+>e
+>gat phil
+>gat art
+
+>w
+>w
+>n
+
+>gat blood
+>gat soul
+>gat big
+
+>s
+>s
+>talk to jerks
+DEBUG: Jerk dialogue: 
+>gat boris
+
+>jfix
+>1234567
+>drink pop
+>n
+>n
+>n
+
+>gat baiter
+
+>gonear mist
+>gat worm
+
+>gonear station
+>gat crowd
