@@ -1346,6 +1346,8 @@ the can't take scenery rule is not listed in any rulebook.
 before taking a person:
 	if noun is weasel:
 		say "It is too small and mobile." instead;
+	if noun is monkey:
+		say "It neither needs or deserves that." instead;
 	say "You're not strong enough for the sort of WWF moves required to move a person." instead;
 
 check taking:
@@ -2166,14 +2168,18 @@ check giving smokable to: [poory pot or wacker weed]
 	if second noun is volatile sal:
 		say "[if noun is poory pot]Sal might be offended by that. As if he is the one causing the smell. Maybe if you can make it so the poory pot can take over the whole room...[else]Sal would probably tell you he's no druggie.[end if]" instead;
 	if second noun is Sid Lew:
-		say "That might mellow him out, but it also might start him lecturing on the idiocy of anti-pot laws. Which you don't want, regardless of his stance." instead;
+		say "That might mellow him out, but it also might start him lecturing on anti-pot laws. Which you don't want, regardless of his stance." instead;
+	if second noun is Lee Bull:
+		say "Lee shrugs helplessly. That's not active enough to disrupt Sid's barrage of chatter." instead;
+	if second noun is Sly Moore:
+		say "'That might help my audience enjoy my tricks more, but I'd wind up doing [']em a bit worse.'" instead;
 	if second noun is faith or second noun is grace:
 		say "That's probably not the sort of incense or decoration they want to use[if fourth-blossom is in lalaland]. You restored the blossom, anyway[else]. The bowl seems more for flowers[end if]." instead;
 	if second noun is Pusher Penn:
 		say "[if noun is weed]'Nope. No reneging.'[else]'Nonsense. That's your pay.'[end if]" instead;
 	if second noun is Fritz the On:
 		if noun is poory pot:
-			say "'Whoah! That stuff is too crazy for me,' mutters Fritz.'" instead;
+			say "'Whoah! That stuff is too crazy for me,' mutters Fritz." instead;
 		say "You look every which way to the Stool Toad, then put your finger to your lips as you hand Fritz the packet. He's surprisingly quick converting it to something smokable and hands you a coin back--a dreadful penny. Proper payment for the cheap stuff. 'Dude! Once I find my lighter I totally won't hog off the high[activation of hoth] from you. Can't wait for my [activation of puff piece]peace puff...nothing beats it for feeling good!' You're not sure you want a [activation of joint role]joint role, but Fritz's gratitude seems genuine as he quickly manufactures one.";
 		increment the score;
 		now wacker weed is in lalaland;
@@ -2234,7 +2240,7 @@ check giving pick to:
 	if second noun is mouth mush:
 		say "'Thanks, but I floss regularly.'" instead;
 	if second noun is weasel:
-		say "'No! It's yours now! I'm not strong enough for manual labor, anyway. But you are.' He grins brightly." instead;
+		say "'No! It's yours now! I'm not strong enough for manual labor, anyway. But you are.' It grins brightly." instead;
 
 section giving items from outskirts
 
@@ -2257,8 +2263,20 @@ check giving the condition mint to:
 		say "He's too big to get excited over candy. Especially cheap candy like that." instead;
 	if second noun is a bro:
 		say "'Mmm. That might help me feel a bit better. But not for long enough. I...well, save it for someone who'd appreciate its taste.'" instead;
+	if second noun is terry sally:
+		say "'Ooh, brave. ANYONE can steal a cheap mint.'" instead;
+	if second noun is thoughts idol:
+		say "The idol has a mouth, but I doubt it could eat the mint, or appreciate it." instead;
+	if second noun is worm ring:
+		say "That wouldn't fill it much. You need to change the ring." instead;
+	if second noun is mentality crowd:
+		say "You did pretty well, but you have no idea how to split the one mint among such a large crowd." instead;
+	if second noun is not a person:
+		say "No way for the mint to be digested." instead;
+	if second noun is Erin Sack:
+		say "That'd imply her breath was bad. Uncool." instead;
 	if second noun is baiter-aligned:
-		say "They won't accept forgiveness, and they won't admit to shame." instead;
+		say "[the second noun] is a bit above the condition mint, and how it might help them feel forgiven or put away shame." instead;
 	if second noun is not a client:
 		say "Your offer is declined. [if mint is examined]They don't seem to have any silly shame that can be absolved easily[else]Maybe looking at the mint will help decide why[end if]." instead;
 	if finger index is not examined:
@@ -2330,13 +2348,16 @@ check giving dreadful penny to:
 	if second noun is an enforcer:
 		say "'Such blatant bribery! And small thinking, too.'" instead;
 	if second noun is faith or second noun is grace:
-		say "'We need no monetary donations. Big or small. The googly bowl [if fourth-blossom is in lalaland]must be[else]is[end if] healed, and that is most important.'" instead;
+		say "'We need no monetary donations. Big or small. [goo-heal].'" instead;
 	if second noun is pusher penn:
 		now player has poory pot;
 		now penny is in lalaland;
 		say "'Most excellent! It's not the profit so much as the trust. Now, you look like you haven't tried the good herb before. No offense. So let's start you with the...' he sniffs, 'aromatic stuff. It's poor-y pot, but it'll do. Seller assumes no liability if user is too wussy to keep smoke in lungs for effective amount of time, yada, yada.' You try to say you weren't intending to smoke it, anyway.";
 		increment the score;
 		the rule succeeds;
+		
+to say goo-heal:
+	say "The googly bowl [unless fourth-blossom is in lalaland]must be[else]is[end if] healed, and that is most important"
 
 check giving quiz pop to: [couldn't figure where to put this]
 	say "No. The pop seems...unusual. You worked to get it." instead;
@@ -2455,7 +2476,7 @@ check giving trick hat to:
 	if second noun is faith goode or noun is grace goode:
 		say "Then they might become a charismatic cult, and that wouldn't be good." instead;
 	if second noun is Sly Moore:
-		say "[if talked-to-sly is false]You introduce yourself, and he introduces himself as Sly Moore. You give him[else]You give Sly Moore[end if] the trick hat. He adjusts it ten times until it feels right, which is pretty silly, since it's completely circular. But once he wears it, his eyes open. 'Oh...that's how you...and that's how you...'[paragraph break]All the magic tricks he failed at, before, work now.";
+		say "You give [if talked-to-sly is false]the magician[else]You give Sly Moore[end if] the trick hat. He adjusts it ten times until it feels right, which is pretty silly, since it's completely circular. But once he wears it, his eyes open. 'Oh...that's how you...and that's how you...'[paragraph break]All the magic tricks he failed at, before, work now[if talked-to-sly is false]. 'Oh, hey, I'm Sly Moore, by the way.'[else].[end if]";
 		wfak;
 		say "[line break]'Can...can I keep the hat?' You nod. It was sort of tough to carry, and it didn't really suit you. Sly shakes your hand. 'Thanks so much! Oh, hey, here's a gift for you. From a far-off exotic place. A trap-rattle.'[paragraph break]You accept it without thought. Sly tries a trick with the hat (got it,) then without it (almost, but much better,) then excuses himself to brush up on magic tricks.";
 		wfak;
@@ -2468,7 +2489,7 @@ check giving trick hat to:
 check giving wax to:
 	ignore the can't give what you haven't got rule;
 	if second noun is Lee Bull or second noun is Sid Lew:
-		say "[one of]Sid Lew begins an extremely boring, but loud, discourse on a poet you never heard of and never want to hear of again. The sort of poet who would not want his work read or discussed quietly[or]No, the poetic wax doesn't belong here[stopping]." instead;
+		say "[one of]Sid Lew begins an extremely boring, but loud, discourse on a poet you never heard of and never want to hear of again. The sort of poet who would not want his work read or discussed quietly[or]No, the poetic wax doesn't belong here. It'll only temporarily plug Lee's ears or (eww) Sid's mouth[stopping]." instead;
 	if second noun is grace goode or second noun is faith goode:
 		say "[one of]Faith and Grace begin humming a tune too wonderful to remember to remember. You feel refreshed after hearing it, but you can't remember why[or]You feel greedy, for some reason, giving [second noun] the Poetic Wax. But you don't know why[stopping]." instead;
 	if second noun is Stool Toad:
@@ -2484,7 +2505,7 @@ check giving wax to:
 	if second noun is Labor Child:
 		say "He squirms. The [i]thought[r] of getting something like that over his practical, getting-ahead clothes!" instead;
 	if second noun is Officer Petty:
-		say "'You'll have to work a little harder to bribe me. Well, if I [i]could[r] be bribed." instead;
+		say "'You'll have to work a little harder to bribe me. Well, if I [i]could[r] be bribed. A thoughtful gift, on the other hand...'" instead;
 	if second noun is Sly Moore:
 		say "Sly examines the wax, waves at it and tries to make it disappear, and fails." instead;
 	if second noun is Art Fine or second noun is Harmonic Phil:
@@ -2545,7 +2566,9 @@ check giving fourth-blossom to:
 		say "He takes a dainty sniff. 'It's nice, but no imagination went into it.'" instead;
 	if second noun is a bro:
 		say "He looks momentarily comforted but says, 'No. I need something that will last. And change me.'" instead;
-	say "They don't seem to appreciate that." instead;
+	if second noun is monkey:
+		say "The business monkey points at you, to say you own the blossom now." instead;
+	say "You don't know if [the second noun] would appreciate the fourth-blossom[if second noun is baiter-aligned]. Well, actually, you're 99.9% sure not[end if]." instead;
 
 section giving items from below
 
@@ -2557,7 +2580,11 @@ check giving legend of stuff to:
 check giving crocked half to:
 	if second noun is idol:
 		say "The idol seems to shake a bit as you wave the crocked half at it." instead;
-	say "[if thoughts idol is in lalaland]It's completely useless now[else]Probably even more useless for them than you[end if]." instead;
+	if thoughts idol is in lalaland:
+		say "It's completely useless now";
+	else:
+		say "[if second noun is baiter-aligned]Don't let it fall in the wrong hands. You went through a lot to get it[else]It's yours, to figure what to do with[end if]";
+	say "." instead;
 
 chapter person based
 
@@ -2592,6 +2619,11 @@ check giving to Brother Blood:
 chapter big one and default
 
 [this is a catch-all]
+
+procedural rule while giving:
+	if second noun is idol or second noun is worm ring or second noun is return carriage or second noun is mentality crowd:
+		ignore the can't give to a non-person rule;
+
 check giving (this is the default for giving to people organized by room rule) :
 	if second noun is Guy Sweet: [smart street]
 		if noun is token: [second noun must be Guy Sweet]
@@ -2608,10 +2640,38 @@ check giving (this is the default for giving to people organized by room rule) :
 		say "Fritz rambles about material possessions bringing you down for a bit. [if fritz has minimum bear]You've given him enough[else]That can't be what he wants[end if]." instead;
 	if second noun is Stool Toad: [joint strip]
 		say "'NO BRIBERY! Plus, that looks worthless. No offense.'" instead;
-	if second noun is Ally Stout:
+	if second noun is Ally Stout: [soda club]
 		say "'Thanks, but no thanks. I do okay enough with tips.'" instead;
+	if second noun is Erin Sack:
+		say "That seems like a weak gift idea. Not the sort of thing you give someone in a bar. Uh, club." instead;
 	if second noun is Cute Percy:
-		say "'Ha!' he says. 'If I took that, you'd catch me. Nice try!'" instead;
+		say "'Ha!' he says. 'If I took that, you'd be in a great position to catch me. Nice try!'" instead;
+	if second noun is business monkey:
+		say "The business monkey shrugs its shoulders." instead;
+	if second noun is dutch or second noun is turk:
+		say "'GIFTS AFTER THE SHOW,' booms [second noun]." instead;
+	if second noun is pusher penn:
+		say "'Not useful in my line of business.'" instead;
+	if second noun is a client:
+		say "[second noun] would rather spend time talking with his friends. Yet for all their loud talking, they don't seem confident." instead;
+	if second noun is art fine or second noun is harmonic phil:
+		if noun is fish:
+			say "Phil smirks, but Art looks horrified." instead;
+		if noun is sound safe:
+			say "Art smirks, but Phil looks horrified." instead;
+		say "'I'm not sure how that fits in with the decor.'" instead;
+	if second noun is Sly Moore:
+		say "[sly-s] says 'That's nice for someone else, maybe, but I can't use it for magic stuff.'" instead;
+	if second noun is Sid Lew:
+		say "Sid arglebargles about possessions weighing you down, especially worthless ones. He'd rather have your time." instead;
+	if second noun is Volatile Sal:
+		say "Sal sniffs, not the I'm-too-good sniff but the sniff he'd rather take care of the smell." instead;
+	if second noun is Lee Bull:
+		say "Sid's arguments, combined with any clutter, would be too much. Lee needs something different. Something that can defend and counterattack." instead;
+	if second noun is labor child:
+		say "'Wasting my time with small things? No!'" instead;
+	if second noun is faith or second noun is grace:
+		say "'Thank you, but we lead a minimalist lifestyle here. [goo-heal]." instead;
 	if second noun is Brother Blood:
 		say "'No, I need something to calm me down.'" instead;
 	if second noun is Brother Big:
@@ -2625,10 +2685,19 @@ check giving (this is the default for giving to people organized by room rule) :
 		try putting noun on language machine instead;
 	if second noun is Officer Petty:
 		say "'NO BRIBERY! Besides, that's not worth anything. But, uh, it's perfectly legal to give me something that might help my career.'" instead;
+	if second noun is worm ring or second noun is return carriage:
+		say "No, you need to do something to the [second noun] to leave the Problems Compound successfully." instead;
+	if second noun is mentality crowd:
+		say "Aw, shucks, you gave them enough." instead;
+	if second noun is thoughts idol:
+		say "The idol seems to watch you with contempt. THAT?!";
+
+give-put-warn is a truth state that varies.
 
 check giving (this is the default fall-through giving rule) :
-	if second noun is not a person:
-		say "You should probably GIVE stuff to people. For inanimate objects, try PUT X ON/IN Y." instead;
+	if second noun is not a person and give-put-warn is false:
+		ital-say "it may work better to GIVE stuff to people or living things. For inanimate objects, try PUT X ON/IN Y.";
+		now give-put-warn is true instead;
 	say "As you reach for that, [the second noun] blinks and looks at you. No, you don't see how they'd want THAT." instead;
 
 [end check giving rules block -- if you grep, nothing should be below here until the testing section]
@@ -2860,7 +2929,7 @@ carry out explaining the player:
 			now all rooms are visited;
 		let count be 0;
 		repeat with Q running through explainable things:
-			if Q is not an exp-thing listed in table of explanations:
+			if Q is not an exp-thing listed in table of explanations and Q is not macguffin:
 				increment count;
 				say "[count]: [Q][if Q is privately-named](privately-named)[end if] ([location of Q]) needs an explanation.";
 [			else:
@@ -3530,9 +3599,8 @@ carry out verbing:
 		say "[2da]PLAY/TRY any of the games in the shell.";
 	say "[2da]directions (N, S, E, W, IN, OUT, ENTER something, and occasionally U and D)[line break]";
 	say "[2da]OPEN X (no WITH second noun needed)[line break]";
-	say "[2da]PUT X ON/IN Y or ATTACH X TO Y. These are usually functionally equivalent.[line break]";
 	say "[2da]GT or GO TO lets you go to a room you've been to.[line break]";
-	say "[2da]GIVE X TO Y[line break]";
+	say "[2da]GIVE X TO Y for people, PUT X ON/IN Y or ATTACH X TO Y for inanimate objects.[line break]";
 	say "[2da]TALK/T talks to the only other person in the room. TALK TO X is needed if there is more than one.[line break]";
 	if jerk-who-short is true and silly boris is not in lalaland:
 		say "[2da]WHO tells the [j-co]['] names.";
@@ -6969,10 +7037,12 @@ after examining Quiz Pop:
 to say j-co:
 	say "[if allow-swears is true]jerks[else]groaners[end if]"
 
-instead of giving to seven jerks:
+instead of giving to jerks:
 	say "It'd be too hard to decide who'd actually get any gift. So, no."
 
 the seven jerks are plural-named scenery in Nominal Fen. "[if know-jerks is true][jerk-list].[else]You can't tell who they are, and they don't offer their names.[end if]"
+
+understand "groaners" as jerks when allow-swears is false.
 
 know-jerks is a truth state that varies.
 
@@ -12913,6 +12983,8 @@ to gat-ruin-check:
 		say "NOTE: 	.";
 		now gat-ruin is true;
 
+the macguffin is a thing. description is "bug".
+
 carry out gating:
 	if tension surface is unvisited:
 		now player has token;
@@ -12921,14 +12993,16 @@ carry out gating:
 		gat-ruin-check;
 		now player has pick;
 		now player has burden;
-	else if Terry Sally is not in lalaland:
+	else if Terry Sally is not in lalaland and mrlp is not main chunk:
 		gat-ruin-check;
 		now player has minimum bear;
-		if player is in soda club:
-			if player does not have haha brew:
-				now player has cooler wine;
+		now player has trail paper;
+		now player has boo tickety;
+		now player has condition mint;
 	else:
 		gat-ruin-check;
+		now trail paper is in lalaland;
+		now boo tickety is in lalaland;
 		now player has poory pot;
 		now player has dreadful penny;
 		now player has wacker weed;
@@ -12938,6 +13012,7 @@ carry out gating:
 		now player has poetic wax;
 		now player has trick hat;
 		now player has trap rattle;
+		now player has cold contract;
 		now player has trade of tricks;
 		now player has relief light;
 		now player has condition mint;
@@ -12946,12 +13021,42 @@ carry out gating:
 		now player has mind of peace;
 		now player has legend of stuff;
 		now player has crocked half;
+		now player has story fish;
+		now player has sound safe;
+	if player is in soda club:
+		if player does not have haha brew:
+			now player has cooler wine;
+	else:
+		now cooler wine is in lalaland;
+		now haha brew is in lalaland;
+	now player has macguffin;
 	let int be indexed text;
-	last-item is a thing that varies;
-	if noun is language machine:
+	let last-item be an object;
+	if noun is brother big:
+		now last-item is trade of tricks;
+	else if noun is brother blood:
+		now last-item is mind of peace;
+	else if noun is brother soul:
+		now last-item is relief light;
+	else if noun is business monkey:
+		now last-item is money seed;
+	else if noun is fritz:
+		now last-item is minimum bear;
+	else if noun is grace or noun is faith:
+		now last-item is fourth-blossom;
+	else if noun is labor child:
+		now last-item is cold contract;
+	else if noun is language machine:
 		now last-item is poetic wax;
-	if noun is officer petty:
+	else if noun is lee bull:
+		now last-item is trap rattle;
+	else if noun is officer petty:
 		now last-item is reasoning circular;
+	else if noun is sly moore:
+		now last-item is trick hat;
+	else if noun is terry sally:
+		now last-item is trail paper;
+	say "Last item is [last-item].[line break]";
 	repeat with gatitm running through carried things:
 		if gatitm is last-item:
 			next;
@@ -12962,7 +13067,12 @@ carry out gating:
 		say "GIVE IMPORTANT ITEM: [no line break]";
 		try giving last-item to noun;
 	say "Now we try taking [the noun]: [no line break]";
+	if noun is in lalaland:
+		say "Oops, moving [the noun] back to where you are.";
+		move noun to location of player;
 	try taking the noun; [heck why not?]
+	now haha brew is in lalaland;
+	now cooler wine is in lalaland;
 	the rule succeeds.
 
 chapter testjumping

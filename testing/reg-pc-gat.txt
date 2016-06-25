@@ -6,7 +6,7 @@
 * give-all
 
 >gonear tension surface
->e
+>w
 >gat weasel
 
 >gonear pressure pier
@@ -25,8 +25,8 @@
 
 >gonear fen
 
->e
 >gat jerks
+>e
 
 >e
 >gat petty
@@ -42,12 +42,13 @@
 >gat percy
 
 >w
->in
+>n
 >gat labor child
 
 >n
 >x finger index
 
+>s
 >s
 >w
 >gat faith
@@ -94,7 +95,7 @@
 >s
 >s
 >talk to jerks
-DEBUG: Jerk dialogue: 
+DEBUG: Jerk dialogue:
 >gat boris
 
 >jfix
