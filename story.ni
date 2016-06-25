@@ -882,7 +882,9 @@ check requesting the score:
 	if player is in round lounge:
 		say "Score isn't as important as finding a way out. So you could say you've got 0 for 1 right now." instead;
 	if mrlp is beginning:
-		say "You've got more places to visit, but not enough to really keep score of what you're doing yet." instead;
+		if tension surface is visited and variety garden is visited:
+			say "You need to go forward from the tension surface somehow." instead;
+		say "You've got a task or two, but still not enough to really keep score of what you're doing yet." instead;
 	if mrlp is Dream Sequence:
 		say "This is one of those nightmares where your score may be negative, if that's possible." instead;
 	if mrlp is outer:
@@ -909,6 +911,8 @@ check requesting the score:
 		say "You haven't found what the crocked half's clue is, either." instead;
 	if player is in freak control:
 		say "[if qbc_litany is table of no conversation]You need to get the [bad-guy]'s attention somehow[else]Don't worry. There's no way to 'lose' this conversation[end if].";
+	if bros-left is 0 and boris is in lalaland:
+		say "You've helped the Brothers and [j-co]. It's time to meet the [bad-guy][if score < 20 and player does not have legend of stuff], unless you want to take care of a few special things first[end if]." instead;
 	say "You have currently helped [if bros-left is 3]none[else if bros-left is 0]all[else][3 - bros-left in words][end if] of the Keeper Brothers[if idol is in lalaland], and you've rid Idiot Village of the Thoughts Idol, too![else].[end if]";
 	if number of endfound rooms > 0:
 		say "Also, if you're keeping track of that sort of thing, you've found [number of endfound rooms] bad end[if number of endfound rooms is not 1]s[end if] out of [number of rooms in Bad Ends]: [list of endfound rooms]." instead;
@@ -3820,7 +3824,7 @@ before doing something when qbc_litany is not table of no conversation:
 	if qbc_litany is table of legend of stuff talk:
 		if current action is examining legend of stuff:
 			say "You already are!" instead;
-		say "You put the Legend of Stuff away[if noun is legend of stuff or second noun is legend of stuff], perhaps only temporarily[end if].";
+		say "You close the Legend of Stuff for now. Back to adventuring.";
 		terminate the conversation;
 		continue the action;
 	if current action is thinking or current action is listening:
@@ -4352,7 +4356,7 @@ to send-bros:
 
 to move-puzzlies:
 	if in-beta is true:
-		say "NOTE: if you see someone or something astray, let me know.";
+		say "DEBUG NOTE: if you see someone or something astray, let me know.";
 	move Volatile Sal to lalaland;
 	now sal-sleepy is true;
 	move Lee Bull to lalaland;
@@ -4505,8 +4509,8 @@ carry out trackbeatening:
 	if boris is in lalaland:
 		say "You already figured the [j-co]['] secrets, but after that episode, you realize that other people's secrets may be there, if you know where to look. That leaves potential for abuse but also it's good to know everyone else isn't ten times as impervious as you to misfortune. Wait, no, not strictly good. But you feel less odd." instead;
 	if secrets-open is true:
-		say "You've already made a commitment to track the beaten[if finger index is in accountable hold], and you can re-read everyone in full on the Finger Index back in Accountable Hold[else], though you haven't uncovered any specific unfortunates, yet[end if]." instead;
-	say "[activation of beaten track][if finger index is examined]You take some time to track the possible names on the Finger Index. And you remember pieces of conversation from the [j-co]. One guy was too hesitant, or too eager, to dismiss this or that, or he knew too much about this subject, or played too dumb about that subject. Oh goodness. You've missed or dismissed those clues before in other situations. And you're a bit embarrassed the Labor Child figured things out so young. But--well, there were clues. You see that now[else]Nothing happens. But you just feel you're more open to what people may be saying, or doing, and putting clues together so you're not in the dark about certain things[end if][periodly]";
+		say "You've already made a commitment to track the beaten[if finger index is not off-stage], and you can re-read everyone in full on the Finger Index back in Accountable Hold[else], though you haven't uncovered any specific evidence, yet[end if]." instead;
+	say "[activation of beaten track][if finger index is examined]You take some time to track the possible names on the Finger Index. And you remember pieces of conversation from the [j-co]. One guy was too hesitant, or too eager, to dismiss this or that, or he knew too much about this subject, or played too dumb about that subject. Oh goodness. You've missed or dismissed those clues before in other situations. And you're a bit embarrassed the Labor Child figured things out so young. But--well, there were clues. You see that now[else]Nothing happens, or seems to. But you just feel you're more open to what people may be saying, or doing, and putting clues together so you're not in the dark about certain things[end if][periodly]";
 	now secrets-open is true;
 	the rule succeeds;
 
@@ -4521,8 +4525,9 @@ understand "fancy passing" as fancypassing.
 carry out fancypassing:
 	if player is not in smart street:
 		say "You daydream about how nice it would be to just be able to move ahead and be almost done. You daydream long enough that--why stop with doing so here? Do so back in Smart Street. Yes. That would be neat. if you could RESTART and jump." instead;
-	say "[activation of passing fancy]You don't know how you know, but you know there's a hidden compartment in the Game Shell that will drop you by Freak Control and leave any guardians speechless and impressed enough that they'll listen to you instead of the [bad-guy]. Guy Sweet whines 'Cheater!' as you enter. Yuo're surprised how well the conversation with the Keeper Brothers goes. You never really had that sort of confidence before.";
-	write-undo "fancy passing";
+	say "[activation of passing fancy]You don't know how you know, but you know there's a hidden compartment in the Game Shell that will drop you by Freak Control and leave any guardians speechless and impressed enough that they'll listen to you instead of the [bad-guy].[paragraph break]Guy Sweet whines 'Cheater!' as you enter. You're surprised how well the conversation with the Keeper Brothers goes. You never really had that sort of confidence before.";
+	send-bros;
+	write-undo "fancy";
 	fancy-pass;
 	the rule succeeds;
 
@@ -4728,8 +4733,8 @@ Buddy Best	"Buddy Best begins talking a mile a minute about Big Things, and it's
 Pusher Penn	"He drones on about exciting business opportunities and pushes some wacker weed on you to help you, apparently, get a taste of cutting-edge business."	"[if wacker weed is in lalaland]'Business, eh?'[else]He rubs his hand and makes a 'come here' gesture.[end if][penn-ask]"	"[if wacker weed is in lalaland]Pusher Penn wanted you to run an errand, and you did. He seems pretty disinterested in you now[else if player has wacker weed]You still need to find whom to give the weed to[else]You get the feeling Pusher Penn is all business[end if]."	wacker weed
 Art Fine	"Art goes to town on the superiority of unwritten art to written art. You guess it's persuasive, but you wonder if Phil would've been even more persuasive, if his views were switched."	"He was pretty convincing about spontaneous art versus art restricted by the written word."
 Harmonic Phil	"Phil goes to town on the superiority of unwritten art to written art. You guess it's persuasive, but you wonder if Art would've been even more persuasive, if his views were switched."	"He was pretty convincing about intellectual art versus art that might appeal to less clever people."
-Sly Moore	"[sly-s] haltingly asks if you found anything that could help him be less klutzy? He needs it a bit more than you. Um, a lot."	"'Uh, not found anything yet for my klutziness? No worries, I'd do even worse.'"	"He wanted something to help him be less klutzy."	--
-Officer Petty	"Officer Petty boomingly proclaims a need for theoretical knowledge to augment his robust practical knowledge."	"'NOT FOUND ANYTHING YET? DIDN'T THINK SO. STILL, I CAN HOPE. I COULD USE SOME HIGHBROW FINESSE, I ADMIT IT.'"	"Officer Petty needed something to expand his skills beyond shouting and intimidation."	--
+Sly Moore	"[sly-s] haltingly asks if you found anything that could help him be less klutzy? He needs it a bit more than you. Um, a lot."	"'Uh, not got anything yet for my klutziness? No worries, I'd do even worse.'"	"He wanted something to help him be less klutzy."	--
+Officer Petty	"Officer Petty boomingly proclaims a need for theoretical knowledge to augment his robust practical knowledge."	"'NOTHING FOUND YET? DIDN'T THINK SO. STILL, I CAN HOPE. I COULD USE SOME HIGHBROW FINESSE, I ADMIT IT.'"	"Officer Petty needed something to expand his skills beyond shouting and intimidation."	--
 Grace Goode	"She mentions how having a flower for the googly bowl [if fourth-blossom is in lalaland]is so[else]would be[end if] nice."	"[if fourth-blossom is in lalaland]'Thank you for returning the flower to the bowl.'[else]'Have you found a flower for the googly bowl?'[end if]"	"[if fourth-blossom is in lalaland]There's no need for words now that the flower is back in the googly bowl[else]She was hoping for a flower for the googly bowl[end if]."
 generic-jerk	"Each [j-g] seems to be hiding something for all his bluster."	"Each [j-g] put up a good face but there was something wrong about all the bragging."	--
 Brother Big	"Brother Big mutters about how he's not very clever and he'd like to change that."	"Brother Big asked for something to make him cleverer."	--
@@ -8037,11 +8042,6 @@ check taking legend of stuff when Thoughts Idol is in lalaland:
 	say "You hear a very low voice tell you to feel very very guilty for taking the Legend of Stuff for puzzles easier than getting rid of the Thoughts Idol. A voice...like you'd expect from the Thoughts Idol. Which you just destroyed. You imagine NOT taking the Legend of Stuff and hearing the Idol also asking if you're too good to ask for help, and--well, that does it.";
 
 check examining the Legend of Stuff:
-	if bros-left is 0:
-		if silly boris is in Nominal Fen:
-			say "As you flip through the Legend of Stuff, you notice two identical pages, of a stick-figure is asking the second stick-figure the same question twice. The second response, the askee is clutching their head, a bit nervier." instead;
-		say "The Legend of Stuff has nothing new to offer." instead;
-	say "The Legend of Stuff seems to be in roughly three parts: a red section, a blue section, and a section as big as the other two combined. Which section do you wish to look at? Or would you like to look at them all?";
 	now x-stuff-first is true;
 	try talking to the Legend of Stuff instead;
 
@@ -8051,12 +8051,16 @@ check taking the note crib:
 x-stuff-first is a truth state that varies.
 
 check talking to Legend of Stuff:
-	if x-stuff-first is false:
-		say "'OK, show me what you've got,' you whisper.";
-		now x-stuff-first is true;
-		the rule succeeds;
+	if x-stuff-first is true:
+		say "'OK, show me what you've got,' you whisper.[line break]";
+		now x-stuff-first is false;
 	if player does not have legend of stuff:
 		say "You'll need to TAKE the Legend of Stuff to look through it." instead;
+	if bros-left is 0:
+		if silly boris is in Nominal Fen:
+			say "As you flip through the Legend of Stuff, you notice two identical pages, of a stick-figure is asking the second stick-figure the same question twice. The second response, the askee is clutching their head, a bit nervier." instead;
+		say "The Legend of Stuff has nothing new to offer." instead;
+	say "The Legend of Stuff seems to be in roughly three parts: a red section, a blue section, and a section as big as the other two combined. Which section do you wish to look at? Or would you like to look at them all?";
 	now stuff-talk is true;
 	now qbc_litany is the table of Legend of Stuff talk;
 	display the qbc options;
@@ -8444,8 +8448,8 @@ table of gg - Grace Goode talk
 prompt	response	enabled	permit
 "Hi. I'm -- well, I'm looking for something. Uh, not religion."	grace-hi	1	1
 "What's wrong with the googly bowl?"	grace-googly	0	1
-"Herb?"	grace-herb	0	1
 "But if I restore your cult, won't you just indoctrinate people?"	grace-restore	0	1
+"Herb?"	grace-herb	0	1
 "Why did the [bad-guy] break the Googly Bowl?"	grace-baiter	0	1
 "[later-or-thanks]."	grace-bye	3	1
 
@@ -8832,8 +8836,6 @@ orientation of northwest is 7.
 
 the thoughts idol is scenery in Idiot Village. "[if player is in idiot village][iv-idol][else]If you look back at the Thoughts Idol now, it may distract you. You know it's [vague-dir]. Gotta keep running, somehow, somewhere[end if]"
 
-check talking to thoughts idol:
-	say "Whoah. You can't think of anything at all to say. You'd like to be defiant, but you'd be fooling nobody." instead;
 
 check entering idol:
 	if terminal is in lalaland and player does not have legend of stuff:
@@ -8841,7 +8843,7 @@ check entering idol:
 	say "No way. You can't even get near it." instead;
 
 before talking to idol:
-	say "Even if you had something to say, it would probably stare you down quickly." instead;
+	say "Even if you had something profoundly defiant to say, it would probably stare you down quickly." instead;
 
 to say vague-dir:
 	let J be orientation of last-dir * 2;
@@ -12081,13 +12083,13 @@ touch base is a concept in conceptville. understand "base touch" as touch base. 
 
 section game-warp concepts
 
-Advance Notice is a concept in conceptville. understand "advance notice" as Advance Notice. howto is "enter Freak Control".
+Advance Notice is a concept in conceptville. understand "notice advance" as Advance Notice. howto is "enter Freak Control".
 
 Beaten Track is a concept in conceptville. understand "track beaten" as Beaten Track. howto is "solve the [j-co] puzzle for the first time".
 
 Cut a Figure is a concept in conceptville. understand "cut a figure" as cut a figure. howto is "get to Nominal Fen".
 
-Hard Knock is a concept in conceptville. understand "hard knock" as Hard Knock. howto is "get to Pressure Pier".
+Hard Knock is a concept in conceptville. understand "knock hard" as Hard Knock. howto is "get to Pressure Pier".
 
 Passing Fancy is a concept in conceptville. understand "fancy passing" as Passing Fancy. howto is "help all three Keeper Brothers".
 
