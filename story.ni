@@ -23,6 +23,8 @@ section compiler debug
 
 [without these numbers beiing increased, the I7 would be translated to I6, but the I6 compiler would complain. That's what happens when a game gets bigger than intended.]
 
+use MAX_ACTIONS of 205.
+
 use MAX_SYMBOLS of 24000.
 
 use MAX_STATIC_DATA of 200000.
@@ -610,7 +612,7 @@ Rule for reading a command when the parser error flag is true:
 
 section debug stubs
 
-[* these 3 must be in release section since release code uses them trivially at points. Beta = for beta testers, Debug-state is my own debugging, stop-on-bug is for me in case something bad happens.]
+[* these all must be in release section since release code uses them trivially at points. Beta = for beta testers, Debug-state is my own debugging, stop-on-bug is for me in case something bad happens.]
 
 in-beta is a truth state that varies.
 
@@ -2355,7 +2357,7 @@ check giving dreadful penny to:
 		say "'Most excellent! It's not the profit so much as the trust. Now, you look like you haven't tried the good herb before. No offense. So let's start you with the...' he sniffs, 'aromatic stuff. It's poor-y pot, but it'll do. Seller assumes no liability if user is too wussy to keep smoke in lungs for effective amount of time, yada, yada.' You try to say you weren't intending to smoke it, anyway.";
 		increment the score;
 		the rule succeeds;
-		
+
 to say goo-heal:
 	say "The googly bowl [unless fourth-blossom is in lalaland]must be[else]is[end if] healed, and that is most important"
 
@@ -2644,6 +2646,8 @@ check giving (this is the default for giving to people organized by room rule) :
 		say "'Thanks, but no thanks. I do okay enough with tips.'" instead;
 	if second noun is Erin Sack:
 		say "That seems like a weak gift idea. Not the sort of thing you give someone in a bar. Uh, club." instead;
+	if second noun is Buddy Best:
+		say "'I'm sure there's a good thought behind that. Well, there better be. It doesn't seem too useful to me.'" instead;
 	if second noun is Cute Percy:
 		say "'Ha!' he says. 'If I took that, you'd be in a great position to catch me. Nice try!'" instead;
 	if second noun is business monkey:
@@ -2656,9 +2660,9 @@ check giving (this is the default for giving to people organized by room rule) :
 		say "[second noun] would rather spend time talking with his friends. Yet for all their loud talking, they don't seem confident." instead;
 	if second noun is art fine or second noun is harmonic phil:
 		if noun is fish:
-			say "Phil smirks, but Art looks horrified." instead;
+			say "[if phil is in discussion block]Phil smirks, but [end if]Art looks horrified." instead;
 		if noun is sound safe:
-			say "Art smirks, but Phil looks horrified." instead;
+			say "[if phil is in discussion block]Art smirks, but [end if]Phil looks horrified." instead;
 		say "'I'm not sure how that fits in with the decor.'" instead;
 	if second noun is Sly Moore:
 		say "[sly-s] says 'That's nice for someone else, maybe, but I can't use it for magic stuff.'" instead;
@@ -2929,7 +2933,7 @@ carry out explaining the player:
 			now all rooms are visited;
 		let count be 0;
 		repeat with Q running through explainable things:
-			if Q is not an exp-thing listed in table of explanations and Q is not macguffin:
+			if Q is not an exp-thing listed in table of explanations:
 				increment count;
 				say "[count]: [Q][if Q is privately-named](privately-named)[end if] ([location of Q]) needs an explanation.";
 [			else:
@@ -12978,12 +12982,16 @@ understand "gat [something]" as gating.
 
 gat-ruin is a truth state that varies.
 
+the macguffin is a thing. description is "bug".
+
+table of explanations (continued)
+exp-thing	exp-text	exp-anno
+macguffin	"BUG--testing item."	--
+
 to gat-ruin-check:
 	if gat-ruin is false:
 		say "NOTE: 	.";
 		now gat-ruin is true;
-
-the macguffin is a thing. description is "bug".
 
 carry out gating:
 	if tension surface is unvisited:
