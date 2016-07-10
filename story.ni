@@ -232,6 +232,8 @@ when play begins (this is the initialize bad room viewing rule):
 
 to choose-swearing:
 	let qq be swear-decide;
+	if started-yet is true:
+		say "swear choice: [qq].";
 	if qq is 2:
 		say "You hear someone moan 'Great, another indecisive type! We'll go easy with the tough language. I guess.'[paragraph break]";
 		now allow-swears is false;
@@ -240,8 +242,12 @@ to choose-swearing:
 		now allow-swears is true;
 	else if qq is 3:
 		now allow-swears is true;
+		if started-yet is true:
+			say "[line break]Going with swears.";
 	else if qq is 4:
 		now allow-swears is false;
+		if started-yet is true:
+			say "[line break]Going with no swears.";
 	else:
 		say "You hear a far-off voice: 'Great. No freakin['] profanity. Sorry, FLIPPIN[']. In case they're extra sensitive.'";
 		now allow-swears is false;
@@ -12343,26 +12349,27 @@ Include (-
 			}
 			if (returnYes)
 			{
-				if (bigSwear) { print "'Dude! CHILL! We GET IT!' a voice says.^"; }
-				if (smallSwear) { print "'You hear snickering at your half-body-parted swear attempts. 'Let's give @@39im the rough stuff!'^"; }
-				return 3;
+				if (bigSwear) { print "~Dude! CHILL! We GET IT!~ a voice says.^"; return 3; }
+				if (smallSwear) { print "You hear snickering at your half-body-parted swear attempts. ~Let's give 'im the rough stuff!~^"; return 3; }
+				return 1;
 			}
 			if (returnNo)
 			{
-				if (bigSwear) { print "'Don't play mind games with us!' a voice booms. 'Just for that, you're in for it.'^"; return 3; }
-				if (smallSwear) { print "'You sure can't! What a lame try.' a voice booms.^"; }
+				if (bigSwear) { print "~Don't play mind games with us!~ a voice booms. ~Just for that, you're in for it.~^"; return 3; }
+				if (smallSwear) { print "~You sure can't! What a lame try,~ a voice booms.^"; }
 				return 4;
 			}
 			if (bigSwear || smallSwear)
 			{
-			  if (bigSwear) { print "'A simple yes or no would've done, but we get the point,' you hear."; }
-			  else { print "'Oh, you'll have to deal with worse than that!' you hear.^"; }
+			  if (bigSwear) { print "~A simple yes or no would've done, but we get the point,~ you hear."; }
+			  else { print "~Oh, you'll have to deal with worse than that!~ you hear.^"; }
 			  return 3;
 			}
 		}
 		times++;
 		if (times == 4) { return 2; }
 		print "I won't judge. And it won't affect the game. Yes or No (Y or N for short also works). ";
+		if ((+ started-yet +) == 1) { print "^"; }
 		print "> ";
 	}
 ];
@@ -13852,7 +13859,12 @@ understand the command "cswear" as something new.
 understand "cswear" as cswearing.
 
 carry out cswearing:
+	let restore-debug be debug-state;
+	now debug-state is false;
+	say "This is a test for the swearing option at the game's start.";
+	say "> ";
 	choose-swearing;
+	now debug-state is restore-debug;
 	the rule succeeds;
 
 chapter jing
