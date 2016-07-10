@@ -2582,10 +2582,12 @@ check giving legend of stuff to:
 check giving crocked half to:
 	if second noun is idol:
 		say "The idol seems to shake a bit as you wave the crocked half at it." instead;
+	if player is in out mist:
+		say "Maybe you could've used the crocked half earlier, somewhere." instead;
 	if thoughts idol is in lalaland:
-		say "It's completely useless now";
+		say "The crocked half is useless now you've beaten the idol, but nah, keep it. It has sentimental value";
 	else:
-		say "[if second noun is baiter-aligned]Don't let it fall in the wrong hands. You went through a lot to get it[else]It's yours, to figure what to do with[end if]";
+		say "[if second noun is a baiter-aligned person]Don't let it fall in the wrong hands. You went through a lot to get it[else]It's yours, to figure what to do with[end if]";
 	say "." instead;
 
 chapter person based
@@ -9581,6 +9583,7 @@ workname	authname	booksubj
 "Thrones of a Game"	"Martin George"	"Three hundred pages of medieval Musical Chairs, with a secret deeper meaning careful readers can't miss"
 "The Cancer of Tropic"	"Miller Arthur"	"one ascetic's skin disease and the surprising poetry that lies therein"
 "The World Beyond the Wood"	"Morris William"	"a muddled fellow moving on from silly fantasy novels to real-life gritty ones you can have louder arguments over"
+"Say, Pawns"	"Pascal Blaise"	"coffeehouse logic to make people feel better that they can't read REAL books. I mean, other than this one"
 "The Goer Movie"	"Percy Walker"	"how one man used motivational movies--or just movies with lots of rich stuff--to learn to fit in with people who matter"
 "The Star Shooting"	"Remy George"	"a group of scientists convinced to care about the death of a charismatic celebrity over stuffy boring research"
 "On Death After Life"	"Ross Kubler"	"how and why to truth-bomb the terminally ill with stuff they better learn before they peg out"
@@ -9590,7 +9593,6 @@ workname	authname	booksubj
 "Jest? Knight, Fie, In"	"Wallace Foster David"	"a snappy fifty-page tour de force that's about nothing and everything--err, make that everything and nothing"
 "The Stone in the Sword"	"White Theodore"	"a kid learning to be king by doing all the things fantasy novels don't describe--like pushing people around, politics, and so forth"
 "The Stuff, Right?"	"Wolfie Thomas"	"some schlep's comical attempts to alchemize a 'good' drug and his failure to keep his feet on the ground"
-"Say, Pawns"	"Pascal Blaise"	"coffeehouse logic to make people feel better that they can't read REAL books. I mean, other than this one"
 
 [can't quite get to work:
 brooks walter: Freddy and (something) (dang it none of the 26 do anything cool. I mean the books are cool but they all have FREDDY in them which ruins things)
