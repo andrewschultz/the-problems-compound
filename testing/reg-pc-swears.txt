@@ -1,0 +1,48 @@
+# reg-pc-swears.txt: goes through all the swear tries
+# For a full description, see <http://eblong.com/zarf/plotex/regtest.html>
+
+** game: /home/andrew/prt/debug-compound.ulx
+** interpreter: /home/andrew/prt/glulxe -q
+
+* exhaustive
+
+>cswear
+>y
+You hear someone sniff. "Oh, good, someone at least willing to TRY the heavy-hitting stuff."
+
+>cswear
+>n
+Going with no swears.
+
+>cswear
+>bother no
+"You sure can't! What a lame try," a voice booms.
+
+Going with no swears.
+
+
+>cswear
+>shit no
+"Don't play mind games with us!" a voice booms. "Just for that, you're in for it."
+
+Going with swears.
+
+>cswear
+>shit yes
+"Dude! CHILL! We GET IT!" a voice says.
+Going with swears.
+
+>cswear
+>bother yes
+You hear snickering at your half-body-parted swear attempts. "Let's give 'im the rough stuff!"
+Going with swears.
+
+>cswear
+>z
+I won't judge. And it won't affect the game. Yes or No (Y or N for short also works). 
+>z
+I won't judge. And it won't affect the game. Yes or No (Y or N for short also works). 
+>z
+I won't judge. And it won't affect the game. Yes or No (Y or N for short also works). 
+>z
+You hear someone moan "Great, another indecisive type! We'll go easy with the tough language. I guess."
