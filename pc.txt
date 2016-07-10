@@ -368,19 +368,19 @@ Depending on how you run around, you could...
 The crocked half is a clue but not a necessary one.
 Make the idol's head spin so fast it short circuits.
 The path on the crocked half is half of...
-...an eight pointed star.
+...an eight pointed star. The idol is between east and northeast, and if you loop around it, it goes boom.
 E.NW.S.NE.W.SE.N.SW.
 Or you can flip and reverse the directions.
 NE.S.NW.E.SW.N.SE.W
 Either way, you spin the idol around until it explodes.
 ?Hey, that wasn't fair! How else would I figure it?
-Well, there's trial and error. And noticing that the directions follow a pattern, and none are reused.
+Well, there's trial and error. And noticing that the directions follow a pattern, and none are reused, and how the idol turns its head affects Alec.
 >>NORTH AREA
 >>>Speaking Plain
 ?The Fright Stage sure is imposing! Is there any way to get around it?
 Yes. Just go in whatever direction.
 ?Are Uncle Dutch and Turk Young helpful?
-Well, depending on the meaning of 'helpful...'
+Well, depending on the meaning of "helpful..."
 They seem like they've better things to do than be in some game.
 They can't help you at all. If you listen to their lectures, the game mentions that they'll be less helpful the second time through.
 >>>Questions Field
@@ -388,7 +388,7 @@ They can't help you at all. If you listen to their lectures, the game mentions t
 They have nothing better to do than protect the Baiter Master/Complex Messiah. They know, because he told them!
 You need to give them more meaning in life, something higher to shoot for.
 Each brother you give a special item will thank you and disappear.
-Once they're gone, you can face the Big Bad Guy. Well, almost.
+Once they're gone, you can go north to Freak Control. Well, almost.
 ?What does Brother Soul need?
 Brother Soul needs a relief light (in Temper Keep.)
 ?What does Brother Blood need?
@@ -397,12 +397,13 @@ Brother Blood needs a Mind of Peace (in Classic Cult.)
 Brother Big needs the Trade of Tricks (in Truth Home.)
 ?Do any of these quests overlap? Is one tougher than the other?
 Brother Big's is the biggest (sorry) quest. The other two are about equal.
-Brother Blood's and Brother Big's quests overlap.
+Brother Blood's and Brother Big's quests overlap. Both require you to get past Officer Petty.
 So if you go Soul, Blood, Big, they should all seem equal.
 ?The brothers are gone! Why can't I go north?
 You're ambushed by the question and exclamation mark.
 You'll need some sort of antidote.
 Have you figured how to work with the jerks/groaners yet?
+They give you a reward once you expose who is blackmailing them.
 DRINK QUIZ POP.N
 >>>Temper Keep
 ?What does Sal want?
@@ -438,7 +439,7 @@ Phil and Art are blocking it.
 You need a way to chase both of them.
 They seem opposed to inane art they can't make fun of.
 Since Phil likes music and Art likes books or stories, that may help you guess.
-?Do I need to do anything with the Song Swan and Book Bank?
+?Do I need to do anything with the Song Torch and Book Bank?
 They're there just for fun.
 I wish I could've written more.
 If you have a good title, email me, and I'll give you credit.
@@ -454,15 +455,15 @@ He would probably hate a really bad story.
 What do you know that tells a bad story?
 The fish from the Disposed Well.
 You already have a long string, so you can get the fish with that, then come back.
-TALK TO FISH. It will cause Art to Flee.
+TALK TO FISH. It will cause Art to flee.
 ?Does it matter whom I get rid of first?
 No.
 ?What do I do with the wax?
-It's useful for someone, or something, who is sick of just writing prose.
+It's useful for someone, or something, who wants to do better than churn out sad prose.
 >>>Standard Bog
 ?What is the Language Machine doing?
 It's writing sad stories, looking sad.
-It doesn't seem to 'want' to keep writing sad stories, but it's a bit stuck.
+It doesn't seem to WANT to keep writing sad stories, but it's a bit stuck.
 What could help it write something else?
 The Poetic Wax from the Discussion Block.
 >>FINAL ROOMS
@@ -506,7 +507,7 @@ Either one opens the Return Carriage and lets you go home.
 If you WAIT, you move to another era.
 If you WAKE, you return.
 If you THINK, you will relive horrible things that you just can't stop. Well, they're meant to be sort of funny, too.
-If you WAIT three times to loop back, the Stool Toad will gaffle you for aggravated timewasting and give you a boo tickety.
+If you WAIT three times to loop back, the Stool Toad will gaffle you for aggravated timewasting and give you a boo tickety. But this only happens once.
 >>Tense Future
 ?Is there anything special here?
 Not really. Just different worries of the future.
@@ -523,22 +524,25 @@ Punishment Capitol, Hut Ten, In-Dignity Heap, Shape Ship, Criminals' Harbor, Mai
 If you make it to Window Bay in the Director's Cut, you'll be able to see them all through the View of Points.
 >Meta-Questions
 ?How many endings are there?
-Well, there are bad ones where you mess up, but they don't really end it. There are five final endings, three bad, two good.
-Each food on Tray B gives a badending.
+Well, there are bad ones where you mess up and go to the penalty areas but get kicked back, but they don't really end the game. There are six final endings, four bad, two good.
+Each food on Tray B gives a bad ending.
 You can eat the cookie cutter.
 You can eat the off cheese.
 You can eat the greater cheese.
 You can eat the points brownie.
 You can just beat the Complex Messiah/Baiter Master and not the Thoughts Idol.
-Or you can beat the bad guy and the Thoughts Idol.
+Or you can beat the Complex Messiah/Baiter Master and the Thoughts Idol.
 ?I'd like a walkthrough. Is there a walkthrough?
 Yes. It should be included with the game as a short HTML file.
 ?What meta-commands are there to jump ahead?
-The first one simply lets you solve the jerks/groaners. TRACK BEATEN.
+Well, you'll see them all if you solve the game.
+You can only use one before restarting.
 DUCK SITTING jumps to the Tension Surface
 KNOCK HARD gets you to Pressure Pier.
 FIGURE A CUT gets you past Terry Sally.
-FANCY PASSING removes the Brothers from play.
+These get you past the beginning, but others get you past the end.
+One simply lets you solve the jerks/groaners immedately, once you see the list. TRACK BEATEN.
+FANCY PASSING removes the Brothers (and the puzzles leading up to them) from play.
 NOTICE ADVANCE skips all the way to disposing of the jerks/groaners and helping the Brothers and leaves you at the Questions Field, but you still need to take down Cute Percy and Thoughts Idol for the best ending.
 >>Director's Cut
 ?Is there any objective?
@@ -548,10 +552,19 @@ The game tracks this for you with SCORE.
 No. But JUMP will let you see into rejected locations.
 >>General Questions
 ?How autobiographical is Alec Smart? Andrew Schultz, A. S., Alec Smart...?
-(Nervous hemming and hawing) ... um, the name just fit, and I ran with it. Then I saw...oops.
+(Nervous hemming and hawing) ... um, the name just fit, and I ran with it. Then I saw...oops. But A and S are pretty common initials.
 A truthful answer is: somewhat. He probably knows puzzles better than I do.
 And the nuisances are roughly based on people I knew long ago. Maybe they're subconsciously based on more recent people, but I tried to tackle stuff I had some perspective on.
+The Baiter Master is probably most like Archie Costello in Robert Cormier's <i>The Chocolate War</i>. I didn't really have him pinned down until I tried that.
+I'd like to think that I address behaviors instead of individuals with my characters. There's a lot that we see and process, or that seems wrong and we can't put our figure on it, or that'd be easier to deal with if we could make a bit of fun of it, and I hope this helps.
 I also loved The Phantom Tollbooth, and I was often at a loss to understand Social Stuff.
+So I wanted to write something about being able to do some good despite getting spun around.
 Alec is probably a more extreme version of me.
 I'm better looking, though. Not that he's bad looking.
-;
+?Cliff's Notes on meaning lists for characters?
+Intro: Sweet guy = if someone calls you that, it's maybe not a truthful compliment. Weasel word = words that don't really say anything.
+Outer edges: Terry Sally = solitary or salutary. Fritz the on = on the fritz, e.g. about to break down (a machine). Stool toad = toadstool = mushroom. Ally Stout = stout ally, someone who is on your side. Erin Sack = saccharine = too sweet.
+West area: good faith/grace = virtues and good manners. Sid Lew = lucid, or clear. Lee Bull = bully. Cute Percy = persecute, or to annoy someone without remorse, often for minor things.
+North area: Young turk = brave rebel, Dutch uncle gives good advice, best buddy is a loyal friend, sal volatile is smelling salts so you wake up (of course you put him to sleep), fine art is non-physical art, philharmonic is nice sounding. a pen pusher is someone with a dreary job.
+East area: petty officer = ship commander, monkey business is silliness, Sly moore = more sly, idle thoughts = letting your mind wander.
+Jerks: bore us silly, dire warner, jim-dandy means okay, raise cain = be loud and upset, lukewarm = not very enthusiastic, whitewash = to cover up evidence, cast (a) pall = to make things sad.

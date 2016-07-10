@@ -3114,8 +3114,8 @@ Cute Percy	"To persecute someone is to make them suffer for who they are[if cute
 bad face	"The bad face will help you face a bad...something. Also, 'bad' in the Michael Jackson sense of, I did/can do something cool."	"This is meant to show Alec's emotional development. He's figured out something tough, and he's confident about that. But he also doesn't need this to go through the Compound." [start of the belt below]
 Insanity Terminal	"Terminal insanity is having no chance to regain sanity[if terminal is in lalaland]. As for the puzzle: it is inspired by Jim Propp's Self-Referential Aptitude Test, which is well worth a look, but a good deal more complex[end if]."	"I always wanted to write a puzzle like this, but yeah, in release 1, it was dropped in there."
 crocked half	"Half-crocked means drunk."	"This was a bugging doodle for a while until I found something better. You need a lot of placements like that, sometimes." [start of bottom rock]
-legend of stuff	"The Stuff of Legend means a book about great tales of yore, as opposed to the scribble-hint-book you get."	"This was another thing that sounded great but didn't seem to fit in anywhere--or seemed too obvious--until I decided to go ahead with the puzzle. It appeared in release 2, taking the functionality of the note crib."
-note crib	"To crib notes is to copy from someone who was at a lecture."	--
+legend of stuff	"The Stuff of Legend means a book about great tales of yore, as opposed to the scribble-hint-book you get."	"This was another thing that sounded great but didn't seem to fit in anywhere--or seemed too obvious--until I decided to go ahead with the puzzle. It appeared in release 2, taking the functionality of the notes crib."
+notes crib	"To crib notes is to copy from someone who was at a lecture."	--
 Lee Bull	"A bully is someone who hurts others physically or emotionally. The opposite of Lee Bull. Sid Lew is referring to 'bull' as his last name as what is to be made fun of. Also, fool-proof means no way to break it, but a Proof Fool could be someone who relies too much on a sure thing before doing anything."	"I kept the Truth Home names abstract and was pleased when Lee Bull dropped out." [start of truth home]
 Sid Lew	"Lucid means clear and sensible. Sid Lew relies on tricks to win his conversation."	"I figured Sid Lew while trawling for Slicker City author names, and then I said, well, he's good enough to be a character. When I re-vetted PC, I noticed the Truth Home, which was implemented near the end of release 1, still had abstract names. So I got Sid. But that left the Proof Fool needing a name."
 Trade of Tricks	"Tricks of the Trade are things that outsiders to a specialty probably don't know that are a bit out of the range of common sense."	"I've read a lot of tricks-of-trade books but most of them are about how you can sucker other people. I have read very few how not to get suckered books, so I decided to put one in here."
@@ -5161,7 +5161,7 @@ carry out playing:
 		say "Writing is no game. And the machine doesn't seem equipped for games. Even semantic ones." instead;
 	if noun is insanity terminal:
 		say "It's more a technical console than a gaming console." instead;
-	if noun is note crib:
+	if noun is notes crib:
 		say "You're not particularly musical or fatherly, so you can't play with the notes crib." instead;
 	if noun is idol:
 		say "Maybe you can. But you'll have to figure how." instead;
@@ -8099,29 +8099,29 @@ Bottom Rock is a room. It is in Main Chunk. "You've reached a rock chamber. It's
 check going nowhere in bottom rock:
 	say "You can only go back up." instead;
 
-the note crib is a thing in Bottom Rock. it is fixed in place. "[one of]A crib barred by musical notes--it must be a notes crib--[or]The notes crib [stopping]stands here. [if Legend of Stuff is in crib]It contains two small papers: a small flipbook entitled Legend of Stuff, and a crocked half[else]It's empty, now[end if]."
+the notes crib is a thing in Bottom Rock. it is fixed in place. "[one of]A crib barred by musical notes--it must be a notes crib--[or]The notes crib [stopping]stands here. [if Legend of Stuff is in crib]It contains two small papers: a small flipbook entitled Legend of Stuff, and a crocked half[else]It's empty, now[end if]."
 
-understand "musical notes" as note crib. understand "notes" and "notes crib" as note crib. understand "odd" and "odd crib" as note crib.
+understand "musical notes" as notes crib. understand "note" and "note crib" as notes crib. understand "odd" and "odd crib" as notes crib.
 
-description of note crib is "[if Legend of Stuff is in crib]It contains a flipbook called Legend of Stuff and a crocked half. Each looks written on, but you can't make out what's on it[else]Nothing now[end if].".
+description of notes crib is "[if Legend of Stuff is in crib]It contains a flipbook called Legend of Stuff and a crocked half. Each looks written on, but you can't make out what's on it[else]Nothing now[end if].".
 
-A procedural rule while examining the note crib: ignore the examine containers rule.
+A procedural rule while examining the notes crib: ignore the examine containers rule.
 
 check entering crib:
 	try sleeping instead;
 
 report taking a hintable:
-	say "As you take the [noun], the note crib schlurps up the [random not carried hintable]. Well, you're still up one hint, net. You hope.";
+	say "As you take the [noun], the notes crib schlurps up the [random not carried hintable]. Well, you're still up one hint, net. You hope.";
 	now random not carried hintable is in lalaland;
 	the rule succeeds;
 
 before examining a hintable (this is the fuzz out but hint taking rule):
-	if noun is in note crib:
+	if noun is in notes crib:
 		say "[if noun is crocked half]It's got a pattern on it, but you'd need to take it to see it more closely.[else]It's weird--the details shift from things you remember: that looked like the word weasel, this looked like the Stool Toad--who knows what else it'd look like if you decided to TAKE it?[end if]" instead;
 
 section Legend of Stuff
 
-the Legend of Stuff is a hintable. it is in the Note Crib. description of Legend of Stuff is "[bug]".
+the Legend of Stuff is a hintable. it is in the notes crib. description of Legend of Stuff is "[bug]".
 
 Include (-
 	has transparent talkable
@@ -8138,7 +8138,7 @@ check examining the Legend of Stuff:
 	now x-stuff-first is true;
 	try talking to the Legend of Stuff instead;
 
-check taking the note crib:
+check taking the notes crib:
 	say "You can take notes and maybe crib notes, but you can't take the crib." instead;
 
 x-stuff-first is a truth state that varies.
@@ -8316,7 +8316,7 @@ to hint-big:
 
 section crocked half
 
-the crocked half is a hintable. it is in the Note Crib. "A crocked half of a paper is here, ready to blow away. You'd better take it quickly, if you want it."
+the crocked half is a hintable. it is in the notes crib. "A crocked half of a paper is here, ready to blow away. You'd better take it quickly, if you want it."
 
 description of the crocked half is "It's half-a-square and seems to be torn at the bottom, as if, well, there were another part."
 
@@ -12370,7 +12370,7 @@ Include (-
 		if (times == 4) { return 2; }
 		print "I won't judge. And it won't affect the game. Yes or No (Y or N for short also works). ";
 		if ((+ started-yet +) == 1) { print "^"; }
-		print "> ";
+		print ">";
 	}
 ];
 

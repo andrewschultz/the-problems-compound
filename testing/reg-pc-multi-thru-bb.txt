@@ -1,0 +1,222 @@
+# reg-pc-multi-thru-bb.txt: tests "brief" walkthrough with all sorts of skips and jumps and shuffling the Brothers orders
+# For a full description, see <http://eblong.com/zarf/plotex/regtest.html> 
+
+** game: /home/andrew/prt/debug-compound.ulx
+** interpreter: /home/andrew/prt/glulxe -q
+
+* big-soul-blood
+
+>figure a cut
+>{include} _getseed
+>{include} _big
+>{include} _soul
+>{include} _blood
+>{include} _shortwin
+
+* big-blood-soul
+
+>figure a cut
+>{include} _getseed
+>{include} _big
+>{include} _blood
+>{include} _soul
+>{include} _shortwin
+
+* blood-big-soul
+
+>figure a cut
+>{include} _getseed
+>{include} _blood
+>{include} _big
+>{include} _soul
+>{include} _shortwin
+
+* blood-soul-big
+
+>figure a cut
+>{include} _getseed
+>{include} _blood
+>{include} _soul
+>{include} _big
+>{include} _shortwin
+
+* soul-blood-big
+
+>figure a cut
+>{include} _getseed
+>{include} _soul
+>{include} _blood
+>{include} _big
+>{include} _shortwin
+
+* soul-big-blood
+
+>figure a cut
+>{include} _getseed
+>{include} _soul
+>{include} _big
+>{include} _blood
+>{include} _shortwin
+
+* _getseed
+>w
+>w
+>n
+>x hedge
+>s
+>e
+>e
+>n
+>n
+>w
+>bb
+>s
+>s
+>e
+>give circular to petty
+by one point
+>e
+>give seed to monkey
+by one point
+>give contract to monkey
+by one point
+>w
+>w
+>w
+>w
+>n
+>n
+>get safe
+>x index
+>s
+>s
+>e
+>e
+
+* _blood
+
+>w
+>w
+>w
+>give blossom to faith
+by one point
+>e
+>e
+>e
+>n
+>n
+>give mind to brother blood
+by one point
+Brother Blood takes the mind and gazes at it from all different angles. He smiles. 
+>s
+>s
+Nominal Fen
+
+* _soul
+
+>n
+>e
+>in
+>bb penn
+>out
+>w
+>s
+>s
+>e
+>give weed to fritz
+>w
+>n
+>n
+>e
+>in
+>give penny to penn
+>out
+>w
+>w
+>put pot in vent
+>x vent
+>open vent
+>e
+>n
+>give light to brother soul
+by one point
+"Thank you! My soul is less heavy and dark now. I believe I have a higher purpose than just blocking people."
+>s
+>s
+
+* _big
+
+>n
+>e
+>get string
+>w
+>s
+>w
+>w
+>put string in hole
+by one point
+>e
+>e
+>n
+>e
+>e
+>open safe
+by one point
+>talk to story fish
+by one point
+>get poetic wax
+>w
+>n
+>put wax in machine
+by one point
+>s
+>w
+>s
+>e
+>e
+>give hat to sly moore
+by one point
+>w
+>w
+>w
+>w
+>in
+>give trap rattle to lee
+by one point
+>out
+>e
+>e
+>n
+>n
+>give trade to brother big
+by one point
+"Wow! All these things I never learned before! Was it really--did people really--yes, they did." You read through with him,
+>s
+>s
+
+* _shortwin
+
+>jfix
+>talk to jerks
+>talk to dandy jim
+>10
+>1234567
+>n
+>n
+>drink quiz pop
+>n
+>freak out
+>1
+>1
+>1
+>1
+>1
+>1
+>1
+>1
+Out Mist
+
+>change ring
+by one point
+Wisdom Received!
+
