@@ -885,11 +885,12 @@ check requesting the score:
 	if greater-eaten is true:
 		say "Whatever your score is, you have intangibles above that." instead;
 	if mrlp is rejected rooms:
-		say "You have [number of unvisited rooms in mrlp] to visit here, and ";
+		let uan be number of unvisited rooms in mrlp;
+		say "You have [uan in words] rejected room[if uan is not 1]s[end if] to visit here, and ";
 		if window bay is unvisited:
-			say "you haven't found the place that lets you see a few others.";
+			say "you haven't found the place that lets you see the hidden ones and the fake-bad-end scenes.";
 		else:
-			say "you've seen [number of visited rooms in just ideas now] rooms in the view of points.";
+			say "you've seen [number of visited rooms in just ideas now in words] rooms in the view of points.";
 		the rule succeeds;
 	if player is in smart street:
 		say "You don't need to worry about score yet. You've just got here." instead;
@@ -1182,7 +1183,7 @@ instead of thinking:
 		say "Hmm. You remember the finger index and the seven [j-co].";
 		say "[finger-say]." instead;
 	if think-score is false:
-		say "NOTE: THINK will redirect to SCORE in the future, unless you really only have one specific task remaining.";
+		say "NOTE: THINK will redirect to SCORE in the future, unless you really only have one specific task remaining.[paragraph break]";
 		now think-score is true;
 	say "[one of]You take a [activation of second thought]thought-second. Then you take another, but you reflect it wasn't as good. OR WAS IT? So you just[or]You[stopping] think about what you've accomplished...";
 	try requesting the score instead;
@@ -2004,6 +2005,8 @@ understand "kick [thing]" as attacking.
 check attacking:
 	if noun is player:
 		say "You don't want to embarrass yourself like that." instead;
+	if mrlp is rejected rooms:
+		say "With the pressure off, you don't feel violent." instead;
 	if noun is tee:
 		say "Instead of breaking the tee, maybe you can use it to break something else." instead;
 	if noun is mouth mush:
@@ -2938,7 +2941,9 @@ carry out explaining:
 				now expl-hint is true;
 				say "[line break][i][bracket]NOTE: [if ever-anno is true]typing ANNO and explaining again will let you see more details notes on this item and others[else]once you finish the game, you'll get a command that will annotate this more fully, beyond the basics[end if].[close bracket][r][line break]";
 			the rule succeeds;
-		say "[exp-anno entry]";
+		if there is an exp-text entry:
+			say "[line break]";
+		say "[exp-anno entry][line break]";
 	the rule succeeds.
 
 carry out explaining the player:
@@ -3194,7 +3199,7 @@ exp-thing	exp-text	exp-anno
 pen fountain	"A fountain pen is (these days) a typical pen. You don't have to dip it in ink to keep writing. It's less exotic than a pen fountain, of course."
 consciousness stream	"Stream of consciousness is a form of writing that relies heavily on inner monologue."	"It turns out that Nigel Jayne wrote a game called Gaia's Web which features a Consciousness Stream that actually blends into the game better, so you should definitely give that a check."
 Francis Pope	"Pope Francis is the current pope as of this game's writing."	"I have a favorable impression of Pope Francis for saying things that need to be said and not double-talking a lot. Other people in power could learn from that."
-Flames Fan	"To fan the flames is to keep things going. The Flames Fan just watches them."
+Flames Fan	"To fan the flames is to keep things going. The Flames Fan just watches them."	"Originally the Flames Fan was one of the [j-co], but then he wound up being the only one without a proper name. He would've made a good F, but I needed someone less abstract. So Cain Reyes slipped in."
 Cards of the House	"The house of cards is something that falls down easily."
 View of Points	"Points of view are opinions."
 
@@ -3529,16 +3534,27 @@ noteing is an action applying to a number.
 
 notetexting is an action applying to one topic.
 
+roomnoteing is an action applying to one visible thing.
+
 understand the command "note" as something new.
 
 understand "note [number]" as noteing when anno-allow is true.
 
-understand "anno [number]" as noteing when anno-allow is true.
+understand "note [any room]" as roomnoteing when anno-allow is true.
 
 understand "note [text]" as notetexting when anno-allow is true.
 
 understand "note" as noteflating when anno-allow is true.
 
+carry out roomnoteing:
+	if there is an anno-loc of noun in table of annotations:
+		choose row with anno-loc of noun in table of annotations;
+		if anno-num entry is 0:
+			say "You haven't seen this room yet, so I'm not going to give you the annotation yet." instead;
+		say "Notes for [anno-loc entry]: [anno-long entry][line break]";
+		the rule succeeds;
+	say "Well, there should be a note for this room, but there isn't." instead;
+	
 carry out noteflating:
 	say "Here is a list of the notes so far:[line break]";
 	repeat with X running from 1 to cur-anno:
@@ -3561,17 +3577,17 @@ carry out noteing:
 		say "Oops, there should be a footnote for that, but there is not. [bug]";
 		continue the action;
 	choose row with anno-num of number understood in table of annotations;
-	say "Notes for [anno-loc entry]: [anno-long entry][line break]";
-	show-anno number understood;
+	the rule succeeds;
 
 understand "note [text]" as notetexting when anno-allow is true;
 
 carry out notetexting:
 	repeat through table of annotations:
-		if the topic understood includes anno-short entry:
-			say "[anno-num entry]. [if anno-loc entry is not lalaland][anno-loc entry][else][exam-thing entry][end if] ([anno-short entry])[line break]";
+		say "Looking for [anno-short entry] in [topic understood].";
+		if the topic understood matches the text "[anno-short entry]":
+			say "Notes for [anno-loc entry]: [anno-long entry][line break]";
 			the rule succeeds;
-	say "There's no note containing that text. You may wish to try a number (1-[cur-anno]) instead." instead;
+	say "There's no note containing that text. You may wish to try a number (1-[cur-anno]) or try a specific noun instead." instead;
 
 chapter verbing
 
@@ -4027,6 +4043,8 @@ understand the command "anno" as something new.
 
 understand "anno" as annoing.
 
+understand "anno [number]" as noteing when anno-allow is true. [if it went earlier with noteing it'd get overwritten]
+
 carry out annoing:
 	unless anno-check is true or "anno" is unlock-verified or ever-anno is true:
 		say "This is the command for annotations, which are usually only for after you win the game. While it has no spoilers, and it can be toggled, it may be a distraction. Are you sure you want to activate annotations?";
@@ -4036,8 +4054,9 @@ carry out annoing:
 	now anno-allow is whether or not anno-allow is false;
 	now ever-anno is true;
 	say "Now annotations are [if anno-allow is true]on[else]off[end if].";
-	[showme whether or not anno-allow is true;] [commented this code for later reference. It's handy.]
+	follow the show annos rule;
 	the rule succeeds;
+	[showme whether or not anno-allow is true;] [commented this code for later reference. It's handy.]
 
 cur-anno is a number that varies. cur-anno is usually 0.
 
@@ -4118,6 +4137,18 @@ anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
 0	--	Shoulder Square	"shoulder"	"I do like the pun shoulder/should, er. They mix well with shoulders tensing thinking what you should do."
 0	--	Perilous Siege	"siege"	"The Siege Perilous is where Galahad was allowed to sit. It signified virtue. Of course, many of the antagonists in the Compound think they have virtue, but they don't. Since this room was so general, I didn't see a way to include it in the game proper."
 0	--	Expectations Meet	"meet"	"The irony of expectations meet is that if people gather together and discuss their expectations, they never quite meet them."
+0	--	Camp Concentration	"camp"	"I felt very, very horrible thinking of this, for obvious reasons, and similarly, I didn't want to put this in the game proper and fought about including it in the Director's Cut. I wasn't looking for anything provocative, but reading an online article, the switcheroo hit me. Because there's some things you clearly can't trivialize or pass off as a joke, or not easily. But I imagined a place where people yelled at you you needed to focus to stop making stupid mistakes, and of course it could be far FAR worse, and perhaps they want you to concentrate on that and also on being a productive member of society at the same time, when at the same time they'd never have such low standards themselves.[paragraph break]The gallows humor here I also saw is that the [bad-guy] never sends you here, because you aren't that bad, and of course he can use that to manipulate you, or say if this is mind control, there was other that was worse.[paragraph break]And while my writerly fee-fees are far from the most important thing, here, I was genuinely unnerved that I saw these links and my abstract-reasoning brain part went ahead with them, poking at the words for irony when there was something far more serious underneath."
+
+
+table of annotations (continued) [toa-bad]
+anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
+0	--	Hut Ten	"hut"	"I never got to implement as many deaths as I thought, but this was an obvious pun to conjure up images of Stalag 17 or something."
+0	--	A Beer Pound	"pound"	"This came up when I was looking for better names for the Sinister Bar (now the Soda Club) post-release. I wanted a place for alcohol-related offenses but had nowhere until this seemed a bit obvious."
+0	--	In-Dignity Heap	"heap"	"It's hard to be dignified on a heap, and the 'in' prefix provides fodder for a lot of puns. I wasn't able to use this on an item, so there is a fake death location."
+0	--	Shape Ship	"ship"	"What better place to get ship shape than on a shape ship? Again, the creative deaths/failures didn't pile up enough, but I still enjoyed imagining all this."
+0	--	Criminals' Harbor	"harbor"	"This pun was too good to pass up. Maybe I should've saved it for the sequel. Maybe I will anyway. It's delightfully seedy."
+0	--	Maintenance High	"high"	"Most people who complain about others being high maintenance usually are emotionally high maintenance themselves. So I imagined a place where people learned WHY they were high maintenance and had it beat into their skulls. If they learned quickly, see, it was right. If not, well, they're taking up teaching time. Where people doled out abuse and projected their own deficiencies on others."
+0	--	Fight Fair	"fair"	"Of course, none of the fights in Fight Fair are remotely fair, and fights at fairs in general are, well, rigged. It also seemed to be a good way to underscore pitting less popular kids against each other, or against a bully-henchman to grind them down."
 
 table of annotations (continued) [toa-rej]
 anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
@@ -4141,7 +4172,7 @@ anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
 0	--	Criminals' Harbor	"harbor"	"This could have been lumped with Shape Ship, but I liked them both too much."
 0	--	Maintenance High	"high"	"One irony I've found about avoiding being high maintenance is that I've often forgotten to do simple things to keep things going. Most of the time that's paying a bill or putting off an eye doctor appointment. But more seriously, it's tough for me to evaluate high maintenance vs. high standards."
 0	--	Fight Fair	"fight"	"Of course, there's not a single fair fight here."
-0	--	Punishment Capitol	"capitol"	"I'm opposed to capital punishment. And I think the [bad-guy] is, too. Well, until it happens to him. I needed a place for the big crimes, and here it is."
+0	--	Punishment Capitol	"capitol"	"I'm opposed to capital punishment. And I think the [bad-guy] is, too, though he does like to retaliate more vigorously than any (perceived) attack on him. I needed a place for the big crimes, and here it is. It's the place for the worst crimes, like attacking the [bad-guy]. Obviously, it had to be."
 0	--	Camp Concentration	"camp"	"Ever think of something and feel guilty about it after? Yup."
 0	--	In-Dignity Heap	"heap"	"This was only put in to make the map 8x8 but I think it's a good one. People with seeming dignity giving pompous morality lectures do heap indignity on others. And some of us take it for our own good."
 
@@ -10761,7 +10792,7 @@ One Route is a room in Rejected Rooms. "This is the first route in the director'
 
 part Muster Pass
 
-Muster Pass is a room in Rejected Rooms. "There's a lot of nice scenery here, but maybe not enough for a truly exciting fantasy world. Exits east and west seem equally suitable."
+Muster Pass is a room in Rejected Rooms. "It looks and feels nice here, but there's nothing REALLY worth describing. Exits east and west seem equally suitable when this passage (which is okay and all) isn't good enough for you any more."
 
 Muster Pass is west of One Route.
 
@@ -10785,7 +10816,7 @@ Ill Falls is a room in Rejected Rooms. Ill Falls is east of Tuff Butt Fair. "A b
 The Flames Fan is a proper-named person in Ill Falls. "The Flames Fan waits here, ready to chat about anything allowing pointless arguments. He snort-laughs every thirty seconds at some idea he thinks you don't deserve to know.". description is "Surprisingly, he is not wearing a Calgary hockey jersey."
 
 check talking to Flames Fan:
-	say "He blows you off. He probably needs another person here so he can start a flame war and watch. But--well, this is the director's cut, and that's not happening." instead;
+	say "He blows you off. Perhaps he evaluates you as more likely to blow up if you're ignored instead of insulted. He probably needs another person here so he can start a flame war and watch. But--well, this is the director's cut, and that's not happening." instead;
 
 part Eternal Hope Springs
 
@@ -10814,6 +10845,11 @@ part Humor Gallows
 Humor Gallows is west of Chicken Free Range. Humor Gallows is in Rejected Rooms. "Laughter goes to die here. Or it bursts up then dies quickly. You can only go back east."
 
 The Cards of the House are plural-named people in Humor Gallows. description is "They seem straining to create a laugh or, indeed, claim why others aren't as funny as they are."
+
+check taking cards of the house:
+	say "They're not a deck of cards. They're people trying to be funny. You can barely take them as is." instead;
+
+understand "card [text]" and "[text] card" and "[text] cards" as a mistake ("You can't do anything tricky with the Cards. You're able to deflect their 'humor,' and that's enough.") when player is in Humor Gallows.
 
 check talking to Cards of the House:
 	say "Nothing they say is funny. It's all inside jokes, or stuff about celebrities, or overgeneralization. You wish they could be dealt with (this is one of my very favorite bad puns. You're welcome.)[paragraph break]" instead;
@@ -10853,26 +10889,6 @@ to decide which room is the-view-room:
 			decide on rm;
 	decide on Window Bay;
 
-check looking when alt-view is true and mrlp is bad ends:
-	follow the room description heading rule;
-	repeat through the table of alt-views:
-		if location of player is therm entry:
-			say "[thealt entry]";
-			the rule succeeds;
-	say "Oh, the atrocity!";
-	the rule succeeds;
-
-table of alt-views
-therm	thealt
-punishment capitol	"The place for the worst crimes, like attacking the [bad-guy]. Obviously, it had to be."
-hut ten	"I never got to implement as many deaths as I thought, but this was an obvious pun along the lines of Stalag 17 or something."
-beer pound	"This came up when I was looking for better names for the Sinister Bar (now the Soda Club) post-release. I wanted a place for alcohol-related offenses but had nowhere until this seemed a bit obvious."
-shape ship	"What better place to get ship shape than on a shape ship? Again, the creative deaths/failures didn't pile up enough, but I still enjoyed imagining all this."
-criminals' harbor	"This pun was too good to pass up. Maybe I should've saved it for the sequel. Maybe I will anyway. It's delightfully seedy."
-maintenance high	"Most people who complain about others being high maintenance usually are emotionally high maintenance themselves. So I imagined a place where people learned WHY they were high maintenance and had it beat into their skulls. If they learned quickly, see, it was right. If not, well, they're taking up teaching time. Where people doled out abuse and projected their own deficiencies on others."
-fight fair	"Of course, none of the fights in Fight Fair are remotely fair, and fights at fairs in general are, well, rigged. It also seemed to be a good way to underscore pitting less popular kids against each other, or against a bully-henchman to grind them down."
-camp concentration	"I felt very, very horrible thinking of this, for obvious reasons, and similarly, I didn't want to put this in the game proper and fought about including it in the Director's Cut. I wasn't looking for anything provocative, but reading an online article, the switcheroo hit me. Because there's some things you clearly can't trivialize or pass off as a joke, or not easily. But I imagined a place where people yelled at you you needed to focus to stop making stupid mistakes, and of course it could be far FAR worse, and perhaps they want you to concentrate on that and also on being a productive member of society at the same time, when at the same time they'd never have such low standards themselves.[paragraph break]The gallows humor here I also saw is that the [bad-guy] never sends you here, because you aren't that bad, and of course he can use that to manipulate you, or say if this is mind control, there was other that was worse.[paragraph break]And while my writerly fee-fees are far from the most important thing, here, I was genuinely unnerved that I saw these links and my abstract-reasoning brain part went ahead with them, poking at the words for irony when there was something far more serious underneath."
-
 alt-view is a truth state that varies.
 
 to view-point:
@@ -10884,7 +10900,7 @@ to view-point:
 		now alt-view is false;
 		move the player to Window Bay, without printing a room description;
 		now the-view-room is map-pinged;
-	say "[line break]The vision blurs, and you look up from the View of Points, sadder but hopefully wiser."
+	say "The vision blurs, and you look up from the View of Points, sadder but hopefully wiser."
 
 before switching on the view of points:
 	if current-idea-room is switch-to-bad:
@@ -12295,6 +12311,9 @@ after reading a command:
 	if player is in belt below and insanity terminal is in belt below:
 		if the player's command matches the regular expression "^<0-9>+":
 			change the text of the player's command to "x [the player's command]";
+	if anno-allow is true:
+		if the player's command matches the regular expression "^<0-9>+":
+			change the text of the player's command to "note [the player's command]";
 	if player is in out mist:
 		if the player's command includes "mist":
 			unless the player's command includes "xp" or the player's command includes "explain":
@@ -13913,7 +13932,7 @@ carry out vuing:
 		now jumpable entry is vuc2;
 		if brief entry is "notice":
 			now vuc2 is false;
-	say "All verb-unlock found entries are now [vuc].";		
+	say "All verb-unlock found entries are now [vuc].";
 	the rule succeeds;
 
 chapter jing
