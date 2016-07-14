@@ -1,0 +1,129 @@
+# reg-pc-bad-ends.txt: goes through all the bad ends
+# For a full description, see <http://eblong.com/zarf/plotex/regtest.html>
+
+** game: /home/andrew/prt/debug-compound.ulx
+** interpreter: /home/andrew/prt/glulxe -q
+
+* annotation
+
+>vu 0
+
+> jump
+You're not ready to form hasty conclusions.
+
+>vu 1
+
+You can make the following jumps:
+--DUCK SITTING to skip to Tension Surface.
+--KNOCK HARD to get to Pressure Pier.
+--FIGURE A CUT to skip past Terry Sally to the Nominal Fen.
+--FANCY PASSING to skip to the Questions Field with the brothers gone.
+--TRACK BEATEN to reveal the Nominal Fen puzzle spoilers on examining the Finger Index.
+--NOTICE ADVANCE to skip to Questions Field, with the brothers and Nominal Fen puzzle solved.
+
+>anno
+You don't seem to have unlocked that verb yet. Are you sure you wish to go ahead?
+Okay. You can undo if you change your mind.
+Now annotations are on.
+
+>anno
+!You don't seem to have unlocked that verb yet. Are you sure you wish to go ahead?
+Now annotations are off.
+
+>anno
+!You don't seem to have unlocked that verb yet. Are you sure you wish to go ahead?
+Now annotations are on.
+
+> jump
+
+One Route
+
+(1)
+
+>sleep
+Oh no, this extra material isn't THAT boring, is it?
+
+>note
+Here is a list of the notes so far:
+1. One Route (route)
+!2.
+
+>note 1
+1. 
+
+>note 0
+There's only one annotation, #1, so far. Explore a bit more!
+
+>note 2
+There's only one annotation, #1, so far. Explore a bit more!
+
+>w
+Muster Pass
+
+>note 2
+>anno 2
+
+>w
+Rage Road
+
+(3)
+
+>w
+Mine Land
+(4)
+
+>e
+>n
+Chicken Free Range
+(5)
+
+>w
+Humor Gallows
+
+(6)
+
+>talk to cards
+Nothing they say is funny. It's all inside jokes, or stuff about celebrities, or overgeneralization. You wish they could be dealt with (this is one of my very favorite bad puns. You're welcome.)
+
+>e
+>e
+Tuff Butt Fair
+
+(7)
+
+Francis Pope
+
+>talk to francis
+You don't want to hear his views on religion. They generally involve telling poor people to shut up and be happy and fake-smiling at anyone who disagrees with that.
+
+>e
+Ill Falls
+
+(8)
+
+>w
+>w
+>n
+Eternal Hope Springs
+
+(9)
+
+>e
+Brains Beat
+(10)
+
+>w
+>w
+Madness March
+(11)
+
+>n
+Window Bay
+(12)
+
+>x structure
+(13)
+Expectations Meet
+
+>switch structure
+(14)

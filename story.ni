@@ -222,12 +222,16 @@ when play begins (this is the initialize missing table element rule) :
 when play begins (this is the initialize bad room viewing rule):
 	let room-index be 0;
 	repeat with RM running through rooms in Just Ideas Now:
+		if RM is Camp Concentration:
+			next;
 		increment room-index;
 		now point-view of RM is room-index;
 	now switch-to-bad is room-index;
 	repeat with RM running through rooms in Bad Ends:
 		increment room-index;
 		now point-view of RM is room-index;
+	increment room-index;
+	now point-view of Camp Concentration is room-index;
 	now idea-rooms is room-index;
 
 to choose-swearing:
@@ -404,14 +408,14 @@ to prep-action (inte - indexed text):
 the file of verb-unlocks is called "pcverbs".
 
 table of vu - verb-unlocks [tvu]
-brief (indexed text)	found	expound	jumpable	descr (indexed text)	conc [conc is for backwards compatibility]
+brief (indexed text)	found	expound	jumpable	descr	conc [conc is for backwards compatibility]
 "anno"	false	true	false	"ANNO to show annotations, or JUMP to jump to a bunch of rejected rooms, as a sort of director's cut."	0
 "duck"	false	true	true	"DUCK SITTING to skip to Tension Surface."	0
 "knock"	false	true	true	"KNOCK HARD to get to Pressure Pier."	0
 "figure"	false	true	true	"FIGURE A CUT to skip past Terry Sally to the [jc]."	0
 "fancy"	false	true	true	"FANCY PASSING to skip to the Questions Field with the brothers gone."	0
-"track"	false	true	true	"TRACK BEATEN to reveal the [j-co] puzzle spoilers on examining the Finger Index."	0
-"notice"	false	true	true	"NOTICE ADVANCE to skip to Questions Field, with the brothers and [j-co] gone."	0
+"track"	false	true	true	"TRACK BEATEN to reveal the Nominal Fen puzzle spoilers on examining the Finger Index."	0
+"notice"	false	true	true	"NOTICE ADVANCE to skip to Questions Field, with the brothers and Nominal Fen solved."	0
 "cookie"	false	false	false	"Eating the cookie on tray B unlocked a few concepts."	0
 "greater"	false	false	false	"Eating the greater cheese on tray B unlocked a few concepts."	0
 "off"	false	false	false	"Eating the off cheese on tray B unlocked a few concepts."	0
@@ -506,6 +510,8 @@ to decide whether (t - text) is unlock-verified:
 					say "OK. You can try this again, if you want. There's no penalty.";
 					decide no;
 				say "Okay. You can undo if you change your mind.";
+				now found entry is true;
+				now ever-anno is true;
 				decide yes;
 	decide no;
 
@@ -1218,9 +1224,9 @@ hypoc-swear is a number that varies.
 carry out do-swearing:
 	unless accel-ending:
 		if hypoc-swear is 0:
-			say "A voice in your head reminds you of your gross, gross hypocrisy in swearing when you opted for no profanity, but dang it, you're confused and frustrated.";
+			say "A voice in your head reminds you of your gross, gross hypocrisy in swearing when you opted for no profanity, but dang it, you're confused and frustrated.[paragraph break]";
 		else if hypoc-swear is 1:
-			say "The 'hypocrisy' of swearing feels a bit less, now. Yes, you're allowed to change your mind. And...well...you know how people can manipulate with the threat of a swear, or saying, don't make me swear.";
+			say "The 'hypocrisy' of swearing feels a bit less, now. Yes, you're allowed to change your mind. And...well...you know how people can manipulate with the threat of a swear, or saying, don't make me swear.[paragraph break]";
 		else:
 			say "It's almost getting a bit boring breaking the rules again.";
 		if hypoc-swear < 2:
@@ -3527,12 +3533,14 @@ understand the command "note" as something new.
 
 understand "note [number]" as noteing when anno-allow is true.
 
+understand "anno [number]" as noteing when anno-allow is true.
+
 understand "note [text]" as notetexting when anno-allow is true.
 
 understand "note" as noteflating when anno-allow is true.
 
 carry out noteflating:
-	say "Here is a list of the notes so far:";
+	say "Here is a list of the notes so far:[line break]";
 	repeat with X running from 1 to cur-anno:
 		show-anno X;
 	the rule succeeds;
@@ -3546,7 +3554,14 @@ to show-anno (X - a number):
 
 carry out noteing:
 	if the number understood < 1 or the number understood > cur-anno:
+		if cur-anno is 1:
+			say "There's only one annotation, #1, so far. Explore a bit more!" instead;
 		say "You need a number between 1 and [cur-anno]." instead;
+	unless there is an anno-num of number understood in table of annotations:
+		say "Oops, there should be a footnote for that, but there is not. [bug]";
+		continue the action;
+	choose row with anno-num of number understood in table of annotations;
+	say "Notes for [anno-loc entry]: [anno-long entry][line break]";
 	show-anno number understood;
 
 understand "note [text]" as notetexting when anno-allow is true;
@@ -3614,6 +3629,8 @@ carry out verbing:
 	say "[2da]GT or GO TO lets you go to a room you've been to.[line break]";
 	say "[2da]GIVE X TO Y for people, PUT X ON/IN Y or ATTACH X TO Y for inanimate objects.[line break]";
 	say "[2da]TALK/T talks to the only other person in the room. TALK TO X is needed if there is more than one.[line break]";
+	if "anno" is unlock-verified or anno-check is true:
+		say "[2da]ANNO toggles annotations, which are currently [on-off of anno-check], and JUMP will send you between the director's cut area and the main area.";
 	if jerk-who-short is true and silly boris is not in lalaland:
 		say "[2da]WHO tells the [j-co]['] names.";
 		say "[2da]SHORT cuts down the conversation topics.";
@@ -4011,7 +4028,7 @@ understand the command "anno" as something new.
 understand "anno" as annoing.
 
 carry out annoing:
-	unless anno-check is true or "anno" is unlock-verified:
+	unless anno-check is true or "anno" is unlock-verified or ever-anno is true:
 		say "This is the command for annotations, which are usually only for after you win the game. While it has no spoilers, and it can be toggled, it may be a distraction. Are you sure you want to activate annotations?";
 		now anno-check is true;
 		unless the player yes-consents:
@@ -4059,11 +4076,11 @@ anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
 0	--	Tension Surface	"compound"	"I thought of making this the title of the game. But it was probably better to have it clue you to the room names. Anyway, It'd be hard to believe such a big world was part of a compound." [start intro]
 0	--	Variety Garden	"garden"	"The title was totally silly until release 2, when I added varieties of brush. Basically, the garden has a lot of variety of brush, but not really quality. Originally there was a Stream of Consciousness and Train of Thought, but these were placeholders. The Word Weasel didn't come until later, but I always liked that phrase. I went through a bunch of vegetables before I found an animal would do just as well."
 0	--	Vision Tunnel	"tunnel"	"I'm pleased with the flip here from 'tunnel vision' as the vision tunnel opens you up to the different ways to see things."
-0	--	Pressure Pier	"pier"	"This shuffled around a bit until I found someone who was adequate for pressuring you, as opposed to just talking you down. That was Terry Sally. And, in fact, he was just 'there' in Sense Common for a while. Early I took a 'best/worst remaining pun' approach to the map, but as I started writing code and sending the game to testers, I realized how it could make more sense." [start outskirts]
+0	--	Pressure  Pier	"pier"	"This shuffled around a bit until I found someone who was adequate for pressuring you, as opposed to just talking you down. That was Terry Sally. And, in fact, he was just 'there' in Sense Common for a while. Early I took a 'best/worst remaining pun' approach to the map, but as I started writing code and sending the game to testers, I realized how it could make more sense." [start outskirts]
 0	--	Meal Square	"square"	"This was the Tactics Stall for a while, until I had enough food items for a separate area, and then I didn't have enough time to implement tactical items. I needed a place to put them. 'Sink kitchen' didn't quite work, but eventually I found this. The baker's dozen was my first scenery implemented, and I'm quite pleased at the bad pun. Also, the Gagging Lolly was the first silly-death thing I implemented."
-0	--	Down Ground	"jump"	"Some locations didn't make the cut, but they helped me figure out better ones.  However, Down Ground was one of the first and most reliable. It was behind Rejection Retreat, which--well--didn't fit the bill.[paragraph break]You can now JUMP to or from random areas that didn't quite make it. Actually, you could've once you turned on annotation mode. But now you know you can."
+0	--	Down Ground	"jump"	"Some locations didn't make the cut, but they helped me figure out better ones.  However, Down Ground was one of the first and most reliable. It was behind Rejection Retreat, which--well--didn't fit the bill[if ever-anno is false].[paragraph break]You can now JUMP to or from random areas that didn't quite make it. Actually, you could've once you turned on annotation mode. But now you know you can[end if]."
 0	--	Joint Strip	"strip"	"Sometimes the names just fall into your lap. It's pretty horrible and silly either way, isn't it? I don't smoke pot myself, but I can't resist minor drug humor, and between Reefer Madness and Cheech and Chong, there is a lot of fertile ground out there."
-0	--	Soda Club	"club"	"I forget what medieval text I read that made me figure out the Sinister Bar, but that's what it was in release 1. Then one day at the grocery store, I saw club soda, thought--could it be that easy? Having an ironic title for a speakeasy? It was!"
+0	--	Soda Club	"club"	"I forget what medieval text I read that made me figure out the Sinister Bar, but that's what it was in release 1. Some authors in the forum said, well, this is a bit awkward, and they were right, but it was the best idea I had and not worth holding up the game for a year.[paragraph break]Then one day at the grocery store, I saw club soda, thought--could it be that easy? Having an ironic title for a speakeasy? It was! And I'd probably seen it before, but it didn't click.[paragraph break]There's a lesson here. I've spent a lot of time wondering if an idea is too complex or too simple, or too good to be true. And of course you can't be overconfident, but if it feels right, if feels right. Easy ideas don't fall out every day, but when they do, don't turn them down or worry if you haven't done enough to deserve them."
 0	--	Tense Past	"past"	"These three rooms fell pretty quickly once I heard 'past tense.' Dreams have often been a source of helplessness for me, with one 'favorite' flavor being me as my younger self knowing what I know now, knowing I'd get cut down for using that knowledge. That snafu has grown amusing over the years, but it wasn't as a teen." [sleepytime rooms]
 0	--	Tense Present	"present"	"Of course we've all had dreams about stuff we can't do now, or issues that keep coming up. I'd like to think that my bad dreams, once I confronted them, let me exaggerate things for humor in everday conversation. Still, it's been a developing process."
 0	--	Tense Future	"future"	"We all worry about the future and what it will be, and we get it wrong, but that doesn't make it any less scary. I included this once I saw that dreams and fears could be traced into three segments: how you messed up, how you are messing up, and how you won't be able to stop messing up."
@@ -4071,7 +4088,7 @@ anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
 0	--	Chipper Wood	"wood"	"I got the idea for this when reminded of a certain Coen Brothers movie. The contrast of violence and happiness in the title made me realize it was a better choice than Rage Road." [west-a-ways first]
 0	--	Disposed Well	"well"	"This was originally the preserved well, and the Belt Below was below it. There was going to be a Barrel of the Bottom that opened, but it seemed too far-fetched. So I just went with a well where you couldn't quite reach something."
 0	--	Classic Cult	"cult"	"Of course, a cult never calls itself a cult these days. It just--emphasizes things society doesn't. Which is seductive, since we all should do it on our own. But whether the thinking is New or Old, it remains. It can be dogma, even if people say it all exciting.[paragraph break]Plus I cringe when someone replies 'That's classic!' to a joke that's a bit too well-worn or even mean-spirited. Oh, a cult classic is a movie with a small but fervent following."
-0	--	Truth Home	"home"	"Of course, the truth home has lots of truth--it's just all misused. And I liked the idea of a name that sounds a bit superior but isn't. Sid and Lee felt like they should have abstract names until I realized they were the last two that didn't, and hey, why not give them a try? I put their original names in Slicker City but then realized that they were too good just to be random authors in a list of 200."
+0	--	Truth Home	"home"	"Of course, the truth home has lots of truth--it's just all misused. And I liked the idea of a name that sounds a bit superior but isn't. Sid and Lee felt like they should have abstract names until I realized they were the last two that didn't, and hey, why not give them a try? I put their original names in Slicker City as authors, but when I looked at the list of 100+ to see who might be a good character for SC and didn't deserve to get lost in the random shuffle, I realized they could go in PC."
 0	--	Scheme Pyramid	"pyramid"	"I find pyramid schemes endlessly funny in theory, though their cost is real and sad. They're worse than lotteries. I'd originally intended to have more people here, but it didn't work out that way."
 0	--	Accountable Hold	"hold"	"I'm critical of Big Business and people who think they've done a lot more than they have because they have a good network they don't give much back to. In particular, if someone talks about accountability, it's a sad but safe bet that in a minute they will start blaming less powerful people for things out of their control. There's a certain confidence you need for business, but too often it turns into bluster."
 0	--	The Belt Below	"belt"	"I wanted a seedy underbelly. And I got one. I didn't know what it was for, and certainly, it didn't all come together in the initial release. But the room name spurred me to make a puzzle that FELT unfair. In subsequent releases, I cleaned it up a bit"
@@ -4104,13 +4121,13 @@ anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
 
 table of annotations (continued) [toa-rej]
 anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
-0	--	One Route	"route"	"It was either this or One Square or Way One, at the beginning. But those two dovetailed nicely into a small puzzle."
-0	--	Muster Pass	"muster"	"It was a close call between here and Judgment Pass, but only one could pass muster. Err, sorry about that." [begin speculative locations]
+0	--	One Route	"route"	"It was either this or One Square or Way One, at the beginning. But those two got carded off to something better: Meal Square and, well, Way of Right should be in Slicker City." [begin speculative locations]
+0	--	Muster Pass	"muster"	"It was a close call between here and Judgment Pass, but only one could pass muster. Err, sorry about that. Judgment pass won out because it allowed for a snarkier more annoying NPC."
 0	--	Rage Road	"rage"	"This flip made me giggle immediately, but it was one of those things where I could do better. The flipped meaning wasn't skewed enough. So when I stumbled on Chipper Wood, I decided to change it. That said, even though road rage is serious, coworkers and I riff on it when we're carrying lots of stuff and want pedestrians out of our way.[paragraph break]I also had ideas for a diner called Pizza Road."
 0	--	Chicken Free Range	"range"	"The Chicken Free Range is, well, free of everyone. It was replaced by the Speaking Plain and Chipper Wood. As much as I like the idea of rotating two of three names, the problem is that you have six possibilities now, which gets confusing. Plus, free-range chicken may be a bit obscure, though I like the connotation of chicken-free range as 'THOU SHALT NOT FEAR.'"
 0	--	Humor Gallows	"gallows"	"This was originally part of the main map, but the joke wasn't universal enough. I like the idea of killing jokes from something that should be funny, the reverse of gallows humor--which draws humor from tragedy or near tragedy. As well as the variety of ways jokes can be killed."
-0	--	Tuff Butt Fair	"fair"	"This was one of the first locations I found, and I took it, and I put it in the game. Tough butt/tough but is a good pun, and I have a personal test that if I can picture pundits calling a person 'tough but fair,' that person is a loudmouthed critical jerk. The only problem is, 'fair but tough' isn't really a fair flip. It was replaced by the Interest Compound, which became the Discussion Block, and Judgment Pass.[paragraph break]I originally thought of a lot of contemporary sounding people I could put in here, but they got rejected. Even Francis Pope (who'd be a rather nasty opposite of the Pontiff, whom I respect.) I wanted to keep it abstract and not real people in the game, except when the [bad-guy] does at the end, for humor value. However, for a truly atrocious inside joke, I was tempted to put in a bully named Nelson Graham who beat other kids up for playing games over three years old--or for even TRYING to make their own programming language. I decided agai--oops."
-0	--	Ill Falls	"falls"	"This was simply a good pun that might have afforded a play on Ill, which often means beautiful and ugly at the same time."
+0	--	Tuff Butt Fair	"fair"	"This was one of the first locations I found, and I took it, and I put it in the game. Tough butt/tough but is a good pun, and I have a personal test that if I can picture pundits calling a person 'tough but fair,' that person is a loudmouthed critical jerk. The only problem is, 'fair but tough' isn't really a fair flip. It was replaced by the Interest Compound, which became the Discussion Block, and Judgment Pass.[paragraph break]I originally thought of a lot of contemporary sounding people I could put in here, but they got rejected. I wanted to keep it abstract and not real people in the game, except when the [bad-guy] does at the end, for humor value and also to show him being socially 'conscious,' I mean, ambitious. However, for a truly atrocious inside joke, I was tempted to put in a bully named Nelson Graham who beat other kids up for playing games over three years old--or for even TRYING to make their own programming language. I decided against even hinting at--oops."
+0	--	Ill Falls	"falls"	"This was simply a good pun that might have afforded a play on Ill, which often means beautiful and ugly at the same time. Or it could be a verb: to ill means to be out of it, or to insult someone, well or poorly."
 0	--	Eternal Hope Springs	"springs"	"This was the original place you'd sleep. Then I put the warmer bench, but then I discovered the Joint Strip as perfectly seedy. Since, like Chicken Free Range, this had three substansive words in its name, it didn't quite fit the room aesthetic. But I still liked the name, and it probably catalyzed other ideas before becoming obsolete."
 0	--	Brains Beat	"beat"	"I like the image of brainy people walking a beat, talking bout stuff, making someone (figuratively, of course) want to beat their brains in. Them being themselves or the others. Intellectual Conversation in general drives me up the wall."
 0	--	Madness March	"madness"	"Unsurprisingly, I thought of this one in March. But I didn't feel it was universal enough. March Madness is a big deal in the US among basketball fans. In fact, even non-basketball fans enter (nominally illegal) betting pools in this 68-game knockout tournament. I was planning to have a bunch of people getting into stupid arguments with someone winning, but I hadn't the heart to implement it."
@@ -4504,7 +4521,7 @@ to duck-sitting:
 
 to open-babble:
 	if know-babble is false:
-		say "And in addition to this shortcut, you remember another one. You can [b]BROOK BABBLING[r] to abridge a conversation, so you just get the main points.";
+		say "Also, in addition to this shortcut, you remember another one. You can [b]BROOK BABBLING[r] to abridge a conversation, so you just get the main points.";
 		now know-babble is true;
 
 section knockharding [get to pressure pier]
@@ -4575,7 +4592,7 @@ to figure-cut:
 	now gesture token is in lalaland;
 	open-babble;
 
-chapter trackbeatening
+chapter trackbeatening [lets you know the jerks solution]
 
 trackbeatening is an action applying to nothing.
 
@@ -4601,7 +4618,7 @@ carry out trackbeatening:
 	now secrets-open is true;
 	the rule succeeds;
 
-chapter fancypassing
+chapter fancypassing [skips you to Questions Field with just the jerks left]
 
 fancypassing is an action applying to nothing.
 
@@ -7047,7 +7064,7 @@ after examining Quiz Pop:
 	continue the action;
 
 to say j-co:
-	say "[if allow-swears is true]jerks[else]groaners[end if]"
+	say "[if allow-swears is true]jerks[else]groaners[end if]";
 
 instead of giving to jerks:
 	say "It'd be too hard to decide who'd actually get any gift. So, no."
@@ -10740,7 +10757,7 @@ check going nowhere when mrlp is rejected rooms:
 
 part One Route
 
-One Route is a room in Rejected Rooms. "Oh, hey, guess what? There's only one route out of here: to the west."
+One Route is a room in Rejected Rooms. "This is the first route in the director's cut, and oh, hey, guess what? There's only one route out of here: to the west."
 
 part Muster Pass
 
@@ -10768,7 +10785,7 @@ Ill Falls is a room in Rejected Rooms. Ill Falls is east of Tuff Butt Fair. "A b
 The Flames Fan is a proper-named person in Ill Falls. "The Flames Fan waits here, ready to chat about anything allowing pointless arguments. He snort-laughs every thirty seconds at some idea he thinks you don't deserve to know.". description is "Surprisingly, he is not wearing a Calgary hockey jersey."
 
 check talking to Flames Fan:
-	say "He blows you off. He probably needs another person here so he can start a flame war and watch." instead;
+	say "He blows you off. He probably needs another person here so he can start a flame war and watch. But--well, this is the director's cut, and that's not happening." instead;
 
 part Eternal Hope Springs
 
@@ -10794,7 +10811,7 @@ Mine Land is a room in Rejected. Mine Land is west of Rage Road. "A very barren,
 
 part Humor Gallows
 
-Humor Gallows is west of Chicken Free Range. Humor Gallows is in Rejected Rooms. "Laughter goes to die here. Or it bursts up then dies quickly."
+Humor Gallows is west of Chicken Free Range. Humor Gallows is in Rejected Rooms. "Laughter goes to die here. Or it bursts up then dies quickly. You can only go back east."
 
 The Cards of the House are plural-named people in Humor Gallows. description is "They seem straining to create a laugh or, indeed, claim why others aren't as funny as they are."
 
@@ -10808,6 +10825,8 @@ Madness March is west of Eternal Hope Springs. Madness March is in Rejected Room
 part Window Bay
 
 Window Bay is north of Madness March. Window Bay is in Rejected Rooms. "It seems like your vision is sharper here than elsewhere. To keep you busy, a small structure labeled 'VIEW OF POINTS' is here."
+
+does the player mean switching on the view of points: it is very likely.
 
 the view of points is scenery in Window Bay. "You shouldn't be seeing this."
 
@@ -10904,7 +10923,7 @@ Expectations Meet is a room in Just Ideas Now. "People all discuss what they des
 
 chapter Perilous Siege
 
-Perilous Siege is a room in Just Ideas Now. "Some kind of combat is going on here! A big castle labeled [bad-guy-2-c]'S PLACE is surrounded by forces that can only be the [bad-guy][']s. Nobody's getting killed, but the insults are coming fast from each side."
+Perilous Siege is a room in Just Ideas Now. "Some kind of combat is going on here! A big castle labeled [bad-guy-2-c][']S PLACE is surrounded by forces that can only be the [bad-guy][']s. Nobody's getting killed, but the insults are coming fast from each side."
 
 chapter Robbery Highway
 
@@ -13847,7 +13866,6 @@ carry out xinding:
 	now finger index is examined;
 	the rule succeeds;
 
-
 chapter cswearing
 
 [ * this lets someone re-try the Choose Swearing routine. ]
@@ -13865,6 +13883,37 @@ carry out cswearing:
 	say "> ";
 	choose-swearing;
 	now debug-state is restore-debug;
+	the rule succeeds;
+
+chapter vuing
+
+vuing is an action out of world applying to one number.
+vu0ing is an action out of world.
+
+understand the command "vu" as something new.
+
+understand "vu [number]" as vuing.
+
+understand "vu" as vu0ing.
+
+carry out vu0ing:
+	choose row 1 in table of verb-unlocks;
+	if found entry is true:
+		try vuing 0;
+	else:
+		try vuing 1;
+
+carry out vuing:
+	if number understood > 1 or number understood < 0:
+		say "0 clears verb unlocks, 1 puts them all in." instead;
+	let vuc be whether or not number understood is 1;
+	let vuc2 be vuc;
+	repeat through table of verb-unlocks:
+		now found entry is vuc;
+		now jumpable entry is vuc2;
+		if brief entry is "notice":
+			now vuc2 is false;
+	say "All verb-unlock found entries are now [vuc].";		
 	the rule succeeds;
 
 chapter jing
