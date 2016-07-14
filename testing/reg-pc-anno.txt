@@ -8,10 +8,12 @@
 
 >vu 0
 
-> jump
+>jump
 You're not ready to form hasty conclusions.
 
 >vu 1
+
+>jump
 
 You can make the following jumps:
 --DUCK SITTING to skip to Tension Surface.
@@ -22,8 +24,12 @@ You can make the following jumps:
 --NOTICE ADVANCE to skip to Questions Field, with the brothers and Nominal Fen puzzle solved.
 
 >anno
-You don't seem to have unlocked that verb yet. Are you sure you wish to go ahead?
+This is the command for annotations, which are usually only for after you win the game. While it has no spoilers, and it can be toggled, it may be a distraction. Are you sure you want to activate annotations?
 Okay. You can undo if you change your mind.
+Now annotations are on, and, in fact, there's something for right here. You may wish to JUMP to the director's cut area for a lot of notes.
+
+(1)
+
 Now annotations are on.
 
 >anno
@@ -34,87 +40,98 @@ Now annotations are off.
 !You don't seem to have unlocked that verb yet. Are you sure you wish to go ahead?
 Now annotations are on.
 
+>note
+1.
+!2.
+
+>note 0
+There's only one annotation, #1, so far. Explore a bit more!
+
+>anno 0
+There's only one annotation, #1, so far. Explore a bit more!
+
 > jump
 
 One Route
 
-(1)
+(2)
 
 >think
 NOTE: THINK will redirect to SCORE in the future, unless you really only have one specific task remaining.
 You take a thought-second. Then you take another, but you reflect it wasn't as good. OR WAS IT? So you just think about what you've accomplished...
 
-You have eleven rejected rooms to visit here, and you haven't found the place that lets you see a the hidden ones and the fake-bad-end scenes.
+You have eleven rejected rooms to visit here, and you haven't found the place that lets you see the hidden ones and the fake-bad-end scenes.
 
 >sleep
 Oh no, this extra material isn't THAT boring, is it?
 
 >note
 Here is a list of the notes so far:
-1. One Route (route)
-!2.
-
->note 1
-Notes for One Route: It was either this or One Square or Way One, at the beginning. But those two got carded off to something better: Meal Square and, well, Way of Right should be in Slicker City.
-
->anno 1
-Notes for One Route: It was either this or One Square or Way One, at the beginning. But those two got carded off to something better: Meal Square and, well, Way of Right should be in Slicker City.
-
->note 0
->anno 0
-
->note 0
-There's only one annotation, #1, so far. Explore a bit more!
-
->anno 0
-There's only one annotation, #1, so far. Explore a bit more!
+2. One Route (route)
+!3.
 
 >note 2
-There's only one annotation, #1, so far. Explore a bit more!
+Notes for One Route: It was either this or One Square or Way One, at the beginning. But those two got carded off to something better: Meal Square and, well, Way of Right should be in Slicker City.
 
 >anno 2
-There's only one annotation, #1, so far. Explore a bit more!
+Notes for One Route: It was either this or One Square or Way One, at the beginning. But those two got carded off to something better: Meal Square and, well, Way of Right should be in Slicker City.
+
+>note 0
+You need a number between 1 and 2.
+
+>anno 0
+You need a number between 1 and 2.
+
+>note 3
+You need a number between 1 and 2.
+
+>anno 3
+You need a number between 1 and 2.
 
 >w
 Muster Pass
 
->note 2
->anno 2
+>note 3
+M
+>anno 3
 
 >note
-2. Muster Pass (muster)
-!3.
+3. Muster Pass (muster)
+!4.
 
 >w
 Rage Road
 
-(3)
-
->note
-3. Rage Road (rage)
-!4.
-
->w
-Mine Land
 (4)
 
 >note
-4. Mine Land (mine)
+4. Rage Road (rage)
 !5.
+
+>w
+Mine Land
+(5)
+
+>note
+5. Mine Land (mine)
+!6.
 
 >e
 >n
 Chicken Free Range
-(5)
+(6)
 
 >note
-5. Chicken Free Range (range)
-!6.
+6. Chicken Free Range (range)
+!7.
 
 >w
 Humor Gallows
 
-(6)
+(7)
+
+7. Humor Gallows
+!8.
 
 >note
 
@@ -131,13 +148,13 @@ You have neither matches nor pyromaniac desires.
 >e
 Tuff Butt Fair
 
-(7)
+(9)
 
 Francis Pope
 
 >note
-7. Tuff Butt Fair (fair)
-!8.
+8. Tuff Butt Fair (fair)
+!9.
 
 >talk to francis
 You don't want to hear his views on religion. They generally involve telling poor people to shut up and be happy and fake-smiling at anyone who disagrees with that.
@@ -145,71 +162,72 @@ You don't want to hear his views on religion. They generally involve telling poo
 >e
 Ill Falls
 
-(8)
+(9)
 
-8. Ill Falls (falls)
-!9.
+9. Ill Falls (falls)
+!10.
 
 >w
 >w
 >n
 Eternal Hope Springs
 
-(9)
-9. Eternal Hope Springs (springs)
-!10.
+(10)
+10. Eternal Hope Springs (springs)
+!11.
 
 >e
 Brains Beat
-(10)
+(11)
 
 >note
-10. Brains Beat (beat)
-!11.
+11. Brains Beat (beat)
+!12.
 
 >w
 >w
 Madness March
-(11)
-
->note
-11. Madness March (madness)
-!12.
-
->n
-Window Bay
 (12)
 
 >note
-12. Window Bay (coast)
+12. Madness March (madness)
 !13.
 
->x structure
+>n
+Window Bay
 (13)
-Expectations Meet
-
-(13) The irony of expectations meet is that if people gather together and discuss their expectations, they never quite meet them.
-
->x structure
-!(13) The irony
 
 >note
-13. Expectations Meet (meet)
+13. Window Bay (coast)
 !14.
+
+>x structure
+Expectations Meet
+
+(14) The irony of expectations meet is that if people gather together and discuss their expectations, they never quite meet them.
+
+>x structure
+!(14) The irony
+
+>note
+14. Expectations Meet (meet)
+!15.
 
 >switch 
 (the view of points)
 Perilous Siege
-(14)
+(15)
 
 >note
-14. Perilous Siege (siege)
-!15.
+15. Perilous Siege (siege)
+!16.
+
+>switch structure
 
 Robbery Highway
 There's a speed limit sign here, but it's just put there so anyone dumb enough to follow it will get mugged.
 
-(15) Highway robbery being a clear rip-off, I liked the idea of a location made especially for that.
+(16) Highway robbery being a clear rip-off, I liked the idea of a location made especially for that.
 
 The vision blurs, and you look up from the View of Points, sadder but hopefully wiser.
 
@@ -217,7 +235,7 @@ The vision blurs, and you look up from the View of Points, sadder but hopefully 
 Space of Waste
 Piles and piles of things society apparently needs, but you have no use for. Magazines, mattresses, furniture, take-out boxes. A voice whispers: "But you do! People buy them, and if you invested in a company that sells them, that makes you money."
 
-(16) Like Mine Land, this is one of those areas that don't work well in a game, but all the same--so many spaces are space of waste.
+(17) Like Mine Land, this is one of those areas that don't work well in a game, but all the same--so many spaces are space of waste.
 
 The vision blurs, and you look up from the View of Points, sadder but hopefully wiser.
 
@@ -225,7 +243,7 @@ The vision blurs, and you look up from the View of Points, sadder but hopefully 
 Clown Class
 One teen forcefully berates a class into how they're not funny, and they never will be, unless they shape up and start blending intelligence with social knowledge properly. And the way to start is to encourage people who are actually funny, but don't be a COPYCAT. He scoffs a lot at them, and assures them he's not laughing at their JOKES.
 
-(17) I had an idea of making Clown Class a dead end, or maybe even a separate game, but I couldn't pull it off.
+(18) I had an idea of making Clown Class a dead end, or maybe even a separate game, but I couldn't pull it off.
 
 The vision blurs, and you look up from the View of Points, sadder but hopefully wiser.
 
@@ -233,7 +251,7 @@ The vision blurs, and you look up from the View of Points, sadder but hopefully 
 Everything Hold
 You see about one of everything you've ever owned or wanted to here. Considering it all makes you pause with jealousy--for what you don't have--and regret, for what you got and wasn't worth it.
 
-(18) The obvious pun here is that trying to hold everything physically often makes you hold everything in terms of time. So this seemed apt, but if I put anything in this room, I'd put in a lot, and that'd be way too much trouble to implement.
+(19) The obvious pun here is that trying to hold everything physically often makes you hold everything in terms of time. So this seemed apt, but if I put anything in this room, I'd put in a lot, and that'd be way too much trouble to implement.
 
 The vision blurs, and you look up from the View of Points, sadder but hopefully wiser.
 
@@ -241,16 +259,35 @@ The vision blurs, and you look up from the View of Points, sadder but hopefully 
 Shoulder Square
 People mill about here in pairs, shoulder to shoulder. One of each pair always tells the other what he should have done.
 
-(19) I do like the pun shoulder/should, er. They mix well with shoulders tensing thinking what you should do.
+(20) I do like the pun shoulder/should, er. They mix well with shoulders tensing thinking what you should do.
 
 >note
-14. Perilous Siege (siege)
-15. Robbery Highway (highway)
-16. Space of Waste (space)
-17. Clown Class (class)
-18. Everything Hold (hold)
-19. Shoulder Square (shoulder)
-!20.
+15. Perilous Siege (siege)
+16. Robbery Highway (highway)
+17. Space of Waste (space)
+18. Clown Class (class)
+19. Everything Hold (hold)
+20. Shoulder Square (shoulder)
+!21.
+
+>switch structure
+(21)
+>switch structure
+(22)
+>switch structure
+(23)
+>switch structure
+(24)
+>switch structure
+(25)
+>switch structure
+(26)
+>switch structure
+(27)
+>switch structure
+(28)
+>switch structure
+/!([0-9]+)
 
 * dif-order
 
@@ -262,5 +299,10 @@ People mill about here in pairs, shoulder to shoulder. One of each pair always t
 >n
 >s
 >w
->note 5
+>note
+5.
+!6.
+
+>note 6
+Mine Land
 
