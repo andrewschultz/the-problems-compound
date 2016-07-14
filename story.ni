@@ -408,7 +408,7 @@ to prep-action (inte - indexed text):
 the file of verb-unlocks is called "pcverbs".
 
 table of vu - verb-unlocks [tvu]
-brief (indexed text)	found	expound	jumpable	descr	conc [conc is for backwards compatibility]
+brief (indexed text)	found	expound	jumpable	descr (indexed text)	conc [conc is for backwards compatibility]
 "anno"	false	true	false	"ANNO to show annotations, or JUMP to jump to a bunch of rejected rooms, as a sort of director's cut."	0
 "duck"	false	true	true	"DUCK SITTING to skip to Tension Surface."	0
 "knock"	false	true	true	"KNOCK HARD to get to Pressure Pier."	0
@@ -1145,12 +1145,15 @@ jump-to-room is a room that varies. jump-to-room is One Route.
 instead of jumping:
 	if player is in round lounge:
 		if player is on person chair:
-			say "You're actually worried you might hit your head on the ceiling. You consider jumping to grab the crack in the hatch and swing it open Indiana Jones style, but...no. You'd need to push it open a bit more first[one of].[paragraph break]NOTE: if you want to jump off, just EXIT or DOWN works[or][stopping]." instead;
-		say "You jump for the hatch, but you don't get close." instead;
+			say "[ev-ju]You're actually worried you might hit your head on the ceiling. You consider jumping to grab the crack in the hatch and swing it open Indiana Jones style, but...no. You'd need to push it open a bit more first[one of].[paragraph break]NOTE: if you want to jump off, just EXIT or DOWN works[or][stopping]." instead;
+		say "[ev-ju]You jump for the hatch, but you don't get close." instead;
 	if player is in tension surface:
-		say "[if mush is in lalaland]You can just enter the arch[else]No, it's too far to jump over the mouth[end if]." instead;
+		say "[ev-ju][if mush is in lalaland]You can just enter the arch[else]No, it's too far to jump over the mouth[end if]." instead;
 	if player is in disposed well:
-		try entering yards hole instead;
+		if anno-allow is true:
+			say "No, not in the well. To somewhere far away.[paragraph break]";
+		else:
+			try entering yards hole instead;
 	if anno-allow is true:
 		if accel-ending:
 			say "That [bad-eaten] you ate was enough of a mental jump. You don't have time for silly details--well, not until you restart the game." instead;
@@ -1171,6 +1174,10 @@ instead of jumping:
 			say "[2da][descr entry][line break]";
 	if any-jumps is false:
 		say "You're not ready to form hasty conclusions."
+
+to say ev-ju:
+	if anno-allow is true:
+		say "(JUMPing to the director's cut is blocked here due to in--game hinting. The rooms beyond, and to either side of, Tension Surface should all be okay.)[paragraph break]";
 
 chapter thinking
 
@@ -1681,6 +1688,8 @@ check taking inventory (this is the adjust sleep rule) :
 the print standard inventory rule is not listed in any rulebook.
 
 carry out taking inventory:
+	if mrlp is rejected rooms:
+		say "You aren't interested in your stuff here. More your surroundings." instead;
 	now all things carried by the player are marked for listing;
 	now all exprs are not marked for listing;
 	now thought of school is not marked for listing;
@@ -3577,6 +3586,7 @@ carry out noteing:
 		say "Oops, there should be a footnote for that, but there is not. [bug]";
 		continue the action;
 	choose row with anno-num of number understood in table of annotations;
+	say "Notes for [anno-loc entry]: [anno-long entry][line break]";
 	the rule succeeds;
 
 understand "note [text]" as notetexting when anno-allow is true;
@@ -3671,7 +3681,7 @@ to decide whether verbs-unlocked: [I could probably check "duck sitting" but bes
 	decide no;
 
 to list-debug-cmds:
-	say "[line break]DEBUG COMMANDS: ================[line break][2da]J jumps you to the next bit from the Street, Lounge, Surface or Pier.[line break][2da]MONTY toggles every-move actions like listening and smelling. It may be more for programming testing[line break][2da]ACBYE/CTC/CTP gets rid of Cute Percy and chase paper.[line break][2da]JERK tells you what to do with the [j-co].[line break][2da]JFIX fixes the [j-co] puzzle[line break][2da]JGO gets rid of them[line break][2da]BROBYE kicks the Keeper Brothers out.[2da]VIC gives regular victory, VICX gives extra good victory[line break][2da]JC shows the cheat code for the [j-co][line break]";
+	say "[line break]DEBUG COMMANDS: ================[line break][2da]J jumps you to the next bit from the Street, Lounge, Surface or Pier.[line break][2da]MONTY toggles every-move actions like listening and smelling. It may be more for programming testing[line break][2da]ACBYE/CTC/CTP gets rid of Cute Percy and chase paper.[line break][2da]JERK tells you what to do with the [j-co].[line break][2da]JFIX fixes the [j-co] puzzle[line break][2da]JGO gets rid of them[line break][2da]BROBYE kicks the Keeper Brothers out.[2da]VIC gives regular victory, VICX gives extra good victory[line break][2da]FIN shows the finger-index cheat code for the [j-co][line break]";
 
 chapter vxing
 
@@ -3936,7 +3946,7 @@ to decide whether convo-left:
 			decide yes;
 	decide no;
 
-before doing something when qbc_litany is not table of no conversation:
+before doing something when qbc_litany is not table of no conversation (this is the Alec is usually forced to talk rule) :
 	if current action is qbc responding with:
 		continue the action;
 	if qbc_litany is table of legend of stuff talk:
@@ -4045,6 +4055,8 @@ understand "anno" as annoing.
 
 understand "anno [number]" as noteing when anno-allow is true. [if it went earlier with noteing it'd get overwritten]
 
+understand "anno [any room]" as roomnoteing when anno-allow is true.
+
 carry out annoing:
 	unless anno-check is true or "anno" is unlock-verified or ever-anno is true:
 		say "This is the command for annotations, which are usually only for after you win the game. While it has no spoilers, and it can be toggled, it may be a distraction. Are you sure you want to activate annotations?";
@@ -4053,7 +4065,11 @@ carry out annoing:
 			say "OK. This warning won't appear again." instead;
 	now anno-allow is whether or not anno-allow is false;
 	now ever-anno is true;
-	say "Now annotations are [if anno-allow is true]on[else]off[end if].";
+	say "Now annotations are [if anno-allow is true]on[else]off[end if]";
+	repeat through table of annotations:
+		if there is an anno-loc entry and anno-loc entry is location of player and anno-num entry is 0:
+			say ", and, in fact, there's something for right here";
+	say "[if route is unvisited]. You may [one of][or]still [stopping]wish to JUMP to the director's cut area for a lot of notes[end if].";
 	follow the show annos rule;
 	the rule succeeds;
 	[showme whether or not anno-allow is true;] [commented this code for later reference. It's handy.]
@@ -4090,42 +4106,42 @@ section the table
 
 table of annotations [toa]
 anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
-0	--	Smart Street	"smart"	"This came surprisingly late, but the reverse made total sense. The main point is that Alec may not be street smart, but people often assume he'll wind up somewhere around clever people. And of course Alec does not feel at home even though it shares a name with him." [very start]
+0	--	Smart Street	"smart"	"The idea for Smart Street came surprisingly late, but the reverse made total sense. The main point is that Alec may not be street smart, but people often assume he'll wind up somewhere around clever people. And of course Alec does not feel at home even though it shares a name with him." [very start]
 0	--	A Round Lounge	"lounge"	"This came to me pretty late. I'm never quite sure how to start games. It always seems the best idea comes at the end, and yet on the other hand it's not fully comforting that I know how my story will end. I wanted you to start pretty normally, but move to progressively odder places."
-0	--	Tension Surface	"compound"	"I thought of making this the title of the game. But it was probably better to have it clue you to the room names. Anyway, It'd be hard to believe such a big world was part of a compound." [start intro]
-0	--	Variety Garden	"garden"	"The title was totally silly until release 2, when I added varieties of brush. Basically, the garden has a lot of variety of brush, but not really quality. Originally there was a Stream of Consciousness and Train of Thought, but these were placeholders. The Word Weasel didn't come until later, but I always liked that phrase. I went through a bunch of vegetables before I found an animal would do just as well."
+0	--	Tension Surface	"surface"	"This may've been a throwaway idea at first, but it grew on me as a noun that I hadn't used." [start intro]
+0	--	Variety Garden	"garden"	"The title was just for silliness until release 2, when I added varieties of brush. Basically, the garden has a lot of variety of brush, but not really quality, or nothing interesting. Originally there was a Stream of Consciousness and Train of Thought here, but these were placeholders and they didn't really flip. But they helped me until I found things. Like the Word Weasel, which didn't come until later, but I always liked that phrase. I went through a bunch of vegetables to put in the garden before I found an animal would do just as well."
 0	--	Vision Tunnel	"tunnel"	"I'm pleased with the flip here from 'tunnel vision' as the vision tunnel opens you up to the different ways to see things."
-0	--	Pressure  Pier	"pier"	"This shuffled around a bit until I found someone who was adequate for pressuring you, as opposed to just talking you down. That was Terry Sally. And, in fact, he was just 'there' in Sense Common for a while. Early I took a 'best/worst remaining pun' approach to the map, but as I started writing code and sending the game to testers, I realized how it could make more sense." [start outskirts]
-0	--	Meal Square	"square"	"This was the Tactics Stall for a while, until I had enough food items for a separate area, and then I didn't have enough time to implement tactical items. I needed a place to put them. 'Sink kitchen' didn't quite work, but eventually I found this. The baker's dozen was my first scenery implemented, and I'm quite pleased at the bad pun. Also, the Gagging Lolly was the first silly-death thing I implemented."
-0	--	Down Ground	"jump"	"Some locations didn't make the cut, but they helped me figure out better ones.  However, Down Ground was one of the first and most reliable. It was behind Rejection Retreat, which--well--didn't fit the bill[if ever-anno is false].[paragraph break]You can now JUMP to or from random areas that didn't quite make it. Actually, you could've once you turned on annotation mode. But now you know you can[end if]."
-0	--	Joint Strip	"strip"	"Sometimes the names just fall into your lap. It's pretty horrible and silly either way, isn't it? I don't smoke pot myself, but I can't resist minor drug humor, and between Reefer Madness and Cheech and Chong, there is a lot of fertile ground out there."
-0	--	Soda Club	"club"	"I forget what medieval text I read that made me figure out the Sinister Bar, but that's what it was in release 1. Some authors in the forum said, well, this is a bit awkward, and they were right, but it was the best idea I had and not worth holding up the game for a year.[paragraph break]Then one day at the grocery store, I saw club soda, thought--could it be that easy? Having an ironic title for a speakeasy? It was! And I'd probably seen it before, but it didn't click.[paragraph break]There's a lesson here. I've spent a lot of time wondering if an idea is too complex or too simple, or too good to be true. And of course you can't be overconfident, but if it feels right, if feels right. Easy ideas don't fall out every day, but when they do, don't turn them down or worry if you haven't done enough to deserve them."
+0	--	Pressure  Pier	"pier"	"This shuffled around a bit until I found someone who was adequate for pressuring you, as opposed to just talking you down. That was Terry Sally, who was the Howdy Boy for a long time. And, in fact, he was just 'there' in Sense Common for a while. Early I took a 'best/worst remaining pun' approach to the map, but as I started writing code and sending the game to testers, I realized how it could make more sense." [start outskirts]
+0	--	Meal Square	"square"	"This was the Tactics Stall (now in Slicker City) for a while, until I had enough food items for a separate area, and then I didn't have enough time to implement tactical items. I needed a place to put them. 'Sink kitchen' didn't quite work, but eventually I found this. The dozen bakers were my first scenery implemented, and I'm quite pleased at the bad pun. Also, the Gagging Lolly was the first silly-death thing I implemented."
+0	--	Down Ground	"jump"	"Some locations didn't make the cut, but they helped me figure out better ones.  However, Down Ground was one of the first and most reliable. It was behind Rejection Retreat, which--well--didn't fit the pattern, though it was another name I liked[if ever-anno is false].[paragraph break]You can now JUMP to or from random areas that didn't quite make it. Actually, you could've once you turned on annotation mode. But now you know you can[end if]."
+0	--	Joint Strip	"strip"	"Sometimes the names just fall into your lap. It's pretty horrible and silly either way, isn't it? I don't smoke pot myself, but I can't resist minor drug humor, and between Reefer Madness and Cheech and Chong, and people too stridently opposed to or in favor of drug legalization, there is a lot of fertile ground out there."
+0	--	Soda Club	"club"	"[one of]I forget what medieval text I read that made me figure out the Sinister Bar, but that's what it was in release 1. Some authors in the forum said, well, this is a bit awkward, and they were right, but it was the best idea I had and not worth holding up the game for a year. The thing is: it was an obvious weakness, but I had confidence I'd figure it out post-release. ANNO CLUB for more.[or]Then one day at the grocery store, I saw club soda, thought--could it be that easy? Having an ironic title for a speakeasy? It was! And I'd probably seen it before, but it didn't click.[paragraph break]There's a lesson here. I've spent a lot of time wondering if an idea is too complex or too simple, or too good to be true. And of course you can't be overconfident, but if it feels right, if feels right. Easy ideas don't fall out every day, but when they do, don't turn them down or worry if you haven't done enough to deserve them.[paragraph break]Of course, I'd probably have seen Soda Club if I started earlier. But that's another lesson.[cycling]"
 0	--	Tense Past	"past"	"These three rooms fell pretty quickly once I heard 'past tense.' Dreams have often been a source of helplessness for me, with one 'favorite' flavor being me as my younger self knowing what I know now, knowing I'd get cut down for using that knowledge. That snafu has grown amusing over the years, but it wasn't as a teen." [sleepytime rooms]
 0	--	Tense Present	"present"	"Of course we've all had dreams about stuff we can't do now, or issues that keep coming up. I'd like to think that my bad dreams, once I confronted them, let me exaggerate things for humor in everday conversation. Still, it's been a developing process."
 0	--	Tense Future	"future"	"We all worry about the future and what it will be, and we get it wrong, but that doesn't make it any less scary. I included this once I saw that dreams and fears could be traced into three segments: how you messed up, how you are messing up, and how you won't be able to stop messing up."
-0	--	Nominal Fen	"fen"	"The Nominal Fen was the Jerk Circle for a long time until the end of release 3, when I started cleaning up names. Then I realized I hadn't used the Mellow Marsh, which was great for after the jerks left. But what about before? I plowed through various types of terrain. Fen stuck, and nominal worked well especially because I couldn't quite describe a fen. Also, the idea of Jerk Circle made me laugh until I realized it might be a bit too icky to see too much, so I decided to break it off. Even with the Groan Collective as an adequate non-risque replacement. This way, the locations make (relative) sense even with the jerks gone. Of course, when you know the 'other' name is Jerk Circle, there are still connotations. But the image of one person starting to groan encouraging others is very apt. Once I saw how the NPCs could interact, I felt even more amused." [main area]
-0	--	Chipper Wood	"wood"	"I got the idea for this when reminded of a certain Coen Brothers movie. The contrast of violence and happiness in the title made me realize it was a better choice than Rage Road." [west-a-ways first]
+0	--	Nominal Fen	"fen"	"The Nominal Fen was the Jerk Circle for a long time until the end of release 3, when I started cleaning up names. Then I realized I hadn't used the Mellow Marsh, which was great for after the jerks left. But what about before? I plowed through various types of terrain. Fen stuck, and nominal worked well especially because I couldn't quite describe a fen. Also, the idea of Jerk Circle made me laugh until I realized it might be a bit too icky to see too much, so I decided to break it off. Even with the Groan Collective as an adequate non-risque replacement. This way, the locations make (relative) sense even with the jerks/groaneres gone. Of course, when you know the 'other' name is Jerk Circle, there are still connotations. But the image of one person starting to groan encouraging others is very apt. Once I saw how the NPCs could interact, I felt even more amused." [main area]
+0	--	Chipper Wood	"wood"	"I got the idea for this when reminded of a certain Coen Brothers movie. The contrast of violence and happiness in the title made me realize it was a better choice than Rage Road, which it replaced." [west-a-ways first]
 0	--	Disposed Well	"well"	"This was originally the preserved well, and the Belt Below was below it. There was going to be a Barrel of the Bottom that opened, but it seemed too far-fetched. So I just went with a well where you couldn't quite reach something."
-0	--	Classic Cult	"cult"	"Of course, a cult never calls itself a cult these days. It just--emphasizes things society doesn't. Which is seductive, since we all should do it on our own. But whether the thinking is New or Old, it remains. It can be dogma, even if people say it all exciting.[paragraph break]Plus I cringe when someone replies 'That's classic!' to a joke that's a bit too well-worn or even mean-spirited. Oh, a cult classic is a movie with a small but fervent following."
-0	--	Truth Home	"home"	"Of course, the truth home has lots of truth--it's just all misused. And I liked the idea of a name that sounds a bit superior but isn't. Sid and Lee felt like they should have abstract names until I realized they were the last two that didn't, and hey, why not give them a try? I put their original names in Slicker City as authors, but when I looked at the list of 100+ to see who might be a good character for SC and didn't deserve to get lost in the random shuffle, I realized they could go in PC."
-0	--	Scheme Pyramid	"pyramid"	"I find pyramid schemes endlessly funny in theory, though their cost is real and sad. They're worse than lotteries. I'd originally intended to have more people here, but it didn't work out that way."
-0	--	Accountable Hold	"hold"	"I'm critical of Big Business and people who think they've done a lot more than they have because they have a good network they don't give much back to. In particular, if someone talks about accountability, it's a sad but safe bet that in a minute they will start blaming less powerful people for things out of their control. There's a certain confidence you need for business, but too often it turns into bluster."
-0	--	The Belt Below	"belt"	"I wanted a seedy underbelly. And I got one. I didn't know what it was for, and certainly, it didn't all come together in the initial release. But the room name spurred me to make a puzzle that FELT unfair. In subsequent releases, I cleaned it up a bit"
-0	--	Bottom Rock	"bottom"	"I forget when the idea of giving you a powerful item if you got abstract puzzles came to me. But I wanted it to be powerful and cleverly named. I wasn't sure where I could put a crib, because I couldn't implement a bedroom, but then I realized it could be just dropped anywhere, to show the Problems Compound is not for babies--or maybe to insinuate that hints are for babies. I mean, for the [bad-guy] to insinuate, not me. I use them a lot, too."
-0	--	Judgment Pass	"pass"	"This seemed as good a generic place-you-need-a-puzzle-to-get-by as any. Especially since I wanted solutions to focus around outsmarting instead of violence or pushing someone out of the way." [east-ish]
+0	--	Classic Cult	"cult"	"Of course, a cult never calls itself a cult these days. It just--emphasizes things society doesn't. Which is seductive, since we all should do it on our own, and we'd all love to find something quick and simple that helps us. But whether the thinking is New or Old, it remains. It can be dogma, even if people say it all exciting.[paragraph break]Plus I cringe when someone replies 'That's classic!' to a joke that's a bit too well-worn or even mean-spirited."
+0	--	Truth Home	"home"	"Of course, the truth home has lots of truth--it's just all misused. And I liked the idea of a name that sounds a bit superior but isn't. Sid and Lee felt like they should have abstract names--and they did until release three, when I realized they were the last two that didn't. I had put their original names in Slicker City as authors, but when I looked at the list of 100+ to see who might be a good character for SC and didn't deserve to get lost in the random shuffle, I realized they could go in PC."
+0	--	Scheme Pyramid	"pyramid"	"I find pyramid schemes endlessly funny in theory, though their cost is real and sad. They're worse than lotteries. I'd originally intended to have more people here, but it didn't work out that way. The Labor Child does have a 'downline' of his own, in the other kids he's blackmailing."
+0	--	Accountable Hold	"hold"	"I'm critical of Big Business and people who think they've done a lot more than they have because they have a good network they don't give much back to. In particular, if someone talks about accountability, it's a sad but safe bet that in a minute they will start blaming less powerful people for things out of their control. There's a certain confidence you need for business, but too often it turns into bluster. In this case the only people held accountable are the jerks, for unusual things they like."
+0	--	The Belt Below	"belt"	"I wanted a seedy underbelly. And I got one. I didn't know what it was for, and certainly, it didn't all come together in the initial release. I just found a puzzle with a week before IFComp, and I got it to work. But the room name spurred me to make a puzzle that FELT unfair. In subsequent releases, I cleaned it up a bit."
+0	--	Bottom Rock	"bottom"	"I forget when the idea of giving you a powerful item if you got abstract puzzles came to me. But I wanted it to be powerful and cleverly named. I wasn't sure where I could put a crib, because I couldn't implement a bedroom, but then I realized it could be just dropped anywhere, to show the Problems Compound is not for babies--or maybe to insinuate that hints are for babies. I mean, for the [bad-guy] to insinuate, not me. I use them a lot, too. Sometimes it's the difference between being blocked and seeing the author was quite close to their original vision."
+0	--	Judgment Pass	"pass"	"This seemed as good a generic place-you-need-a-puzzle-to-get-by as any. Especially since I wanted solutions to focus around outsmarting instead of violence or pushing someone out of the way. I just needed someone officious to be blocking you, and that was Officer Petty." [east-ish]
 0	--	Idiot Village	"village"	"Of course, the people here aren't total idiots, even if they are very silly. But I liked the idea of turning 'village idiot' on its head, as well as having a caste of 'outs' who maybe weren't stupid but let themselves be treated that way."
-0	--	Service Community	"community"	"I liked the idea of an underclass that needs to rebel, and Idiot Village was good enough for getting the game out there. But then while playing Kingdom of Loathing, which has 'inspired' a lot of my 'jokes,' the Community Service path's name kept pinging me."
-0	--	Speaking Plain	"plain"	"The people here do go in for plain speaking, but that doesn't mean it's good speaking. In general, Alec is assaulted by a bunch of people who want to convince him they're wasting their time speaking to him than the other way around. They act like advertisements, to me." [north-ish]
-0	--	Temper Keep	"keep"	"This is one of those ideas that came relatively late, but once it did, I had a few adjectives and verbs that tipped me off to a quick puzzle that should be in there."
-0	--	Questions Field	"field"	"This was originally the Way of Right, which was sort of close to Freak Control, but then close to release I was searching for other names and this popped up. I liked it better--the three Brothers are asking questions, first of you and then of why they're there and how they could leave--and it seemed less generic. So it stayed."
-0	--	Court of Contempt	"court"	"As someone unimpressed and/or intimidated by all the yelling that went on in law-firm shows when I was younger, any sort of court always seemed fearful to me. What would I be doing there? I was shocked when I got my first traffic ticket and went in to protest that it was relatively quiet and orderly. But the image and fears still remain, funnier now."
+0	--	Service Community	"community"	"I liked the idea of an underclass that needs to rebel, and Idiot Village was good enough for getting the game out there. But then while playing Kingdom of Loathing, which has 'inspired' a lot of my 'jokes,' the Community Service challenge path's name kept pinging me. About the hundredth time, I smacked my head and said, oh, of course."
+0	--	Speaking Plain	"plain"	"The people here do go in for plain speaking, but that doesn't mean it's good speaking. In general, Alec is assaulted by a bunch of people who want to convince him they're wasting their time speaking to him than the other way around. They act like advertisements, to me. I no longer feel as trapped as I used to between people bossing you around with plain speech vs. people bossing you around with lofty speech, but I remember it being very painful." [north-ish]
+0	--	Temper Keep	"keep"	"Temper Keep is one of those ideas that came relatively late, but once it did, I had a few adjectives and verbs that tipped me off to a quick puzzle that should be in there."
+0	--	Questions Field	"field"	"This was originally the Way of Right, which was sort of close to Freak Control, but then close to release I was searching for other names and this popped up. I liked it better--the three Brothers are asking questions, first of you and then of why they're there and how they could leave--and it seemed less generic. And of course they're hearing questions--loaded ones. So it stayed."
+0	--	Court of Contempt	"court"	"As someone intimidated and confused by all the yelling that went on in law-firm shows when I was younger, and as someone who thought I never could, any sort of court always seemed fearful to me. What would I be doing there? I was shocked when I got my first parking ticket and went in to protest that it was relatively quiet and orderly. (I got it overturned.) But the memory of younger fears still remains, funnier now."
 0	--	Walker Street	"walker"	"Walker Street was Crazy Drive in release 1. But I found the joke of somewhere plain or boring too much to resist, especially after finding 'Walker Street' as a stray annotation to delete in my Trizbort map file. Oh, a streetwalker is, well, someone who trades favors for money. Yes, THAT sort of favor."
-0	--	Discussion Block	"block"	"This was the Interest Compound in release 1, but that was too close to the title. The discussions, of course, block any real discussion. The books and songs are purposely bad, but you can't SAY that."
-0	--	Standard Bog	"bog"	"This was something entirely different until the end. Something different enough, it might go in a sequel."
+0	--	Discussion Block	"block"	"This was the Interest Compound in release 1, but that was too close to the title once I changed it from the Directors of Bored. The discussions, of course, block any real discussion. The books and songs are meant to be wrong, but you as Alec can't SAY that, and Art and Phil claim they 'make you think.' Better to have books that help or let you think, I say."
+0	--	Standard Bog	"bog"	"This was something entirely different until the end. Something different enough, it might go in a sequel. But being a bog, I realized that'd make it a handy dead end."
 0	--	Pot Chamber	"chamber"	"Some room names made me smile with their subtlety. Others, with their utter lack. Since this combines two awkward conversation subjects, guess which it was?"
 0	--	Freak Control	"control"	"This was one of those rooms that made me realize I had a game. And I think the false humility in it ties up an important thing: the Baiter claims he's a bit of a dork, but he's like moderate and stuff. Except when he needs to be extreme to win an argument. The for-your-own good of how he went through it adds to the pile."
 0	--	Out Mist	"mist"	"I needed a name for a final location, and originally it was the Haves Wood, which didn't quite make sense. It needed to be somewhere shadowy--unclear. Then I overheard someone saying 'Boy, you missed out,' and I wanted to thank them, but they would've thought it was weird. The wordplay is, of course, that you missed out a bit, but the mist is still out of bounds for people in the Compound."
-0	--	Airy Station	"station"	"Since stationary means motion and you are leaving, this seems good. I wanted a way for people to say thanks for Alec before he left, as opposed to him just sneaking out."
+0	--	Airy Station	"station"	"Since stationary means lack of motion and you are leaving, I lliked the contradiction. I wanted a way for people to say thanks for Alec before he left, if he did enough, as opposed to him just sneaking out as was the only way in release 1."
 
 table of annotations (continued) [toa-views]
 anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
@@ -4137,7 +4153,7 @@ anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
 0	--	Shoulder Square	"shoulder"	"I do like the pun shoulder/should, er. They mix well with shoulders tensing thinking what you should do."
 0	--	Perilous Siege	"siege"	"The Siege Perilous is where Galahad was allowed to sit. It signified virtue. Of course, many of the antagonists in the Compound think they have virtue, but they don't. Since this room was so general, I didn't see a way to include it in the game proper."
 0	--	Expectations Meet	"meet"	"The irony of expectations meet is that if people gather together and discuss their expectations, they never quite meet them."
-0	--	Camp Concentration	"camp"	"I felt very, very horrible thinking of this, for obvious reasons, and similarly, I didn't want to put this in the game proper and fought about including it in the Director's Cut. I wasn't looking for anything provocative, but reading an online article, the switcheroo hit me. Because there's some things you clearly can't trivialize or pass off as a joke, or not easily. But I imagined a place where people yelled at you you needed to focus to stop making stupid mistakes, and of course it could be far FAR worse, and perhaps they want you to concentrate on that and also on being a productive member of society at the same time, when at the same time they'd never have such low standards themselves.[paragraph break]The gallows humor here I also saw is that the [bad-guy] never sends you here, because you aren't that bad, and of course he can use that to manipulate you, or say if this is mind control, there was other that was worse.[paragraph break]And while my writerly fee-fees are far from the most important thing, here, I was genuinely unnerved that I saw these links and my abstract-reasoning brain part went ahead with them, poking at the words for irony when there was something far more serious underneath."
+0	--	Camp Concentration	"camp"	"[one of]I felt very, very horrible thinking of this, for obvious reasons, and similarly, I didn't want to put this in the game proper and fought about including it in the Director's Cut. So you'll have to ANNO CAMP to see more.[or]I wasn't looking for anything provocative, but reading an online article, the switcheroo hit me. Because there's some things you clearly can't trivialize or pass off as a joke, or not easily. But I imagined a place where people yelled at you you needed to focus to stop making stupid mistakes, and of course it could be far FAR worse, and perhaps they want you to concentrate on that and also on being a productive member of society at the same time, when at the same time they'd never have such low standards themselves.[paragraph break]The gallows humor here I also saw is that the [bad-guy] never sends you here, because you aren't that bad, and he wouldn't be nearly that bad, so stop complaining.[paragraph break]And while my writerly fee-fees are far from the most important thing, here, I was genuinely unnerved that I saw these links and my abstract-reasoning brain part went ahead with them, poking at the words for irony when there was something far more serious underneath. The contradiction here is that many people will tll you 1) it could be way worse and 2) dude, have some standards! And that's the sort of manipulation Alec, or too many people, don't know how to deal with, and there's not much teaching on the subject.[stopping]"
 
 
 table of annotations (continued) [toa-bad]
@@ -4154,7 +4170,7 @@ table of annotations (continued) [toa-rej]
 anno-num	exam-thing	anno-loc	anno-short (text)	anno-long (text)
 0	--	One Route	"route"	"It was either this or One Square or Way One, at the beginning. But those two got carded off to something better: Meal Square and, well, Way of Right should be in Slicker City." [begin speculative locations]
 0	--	Muster Pass	"muster"	"It was a close call between here and Judgment Pass, but only one could pass muster. Err, sorry about that. Judgment pass won out because it allowed for a snarkier more annoying NPC."
-0	--	Rage Road	"rage"	"This flip made me giggle immediately, but it was one of those things where I could do better. The flipped meaning wasn't skewed enough. So when I stumbled on Chipper Wood, I decided to change it. That said, even though road rage is serious, coworkers and I riff on it when we're carrying lots of stuff and want pedestrians out of our way.[paragraph break]I also had ideas for a diner called Pizza Road."
+0	--	Rage Road	"rage"	"This flip made me giggle immediately, but it was one of those things where I could do better. The flipped meaning wasn't skewed enough. So when I stumbled on Chipper Wood, I decided to change it. That said, even though road rage is serious, it's fun to make fun of the silly ambitions behind it.[paragraph break]I also had ideas for a diner called Pizza Road."
 0	--	Chicken Free Range	"range"	"The Chicken Free Range is, well, free of everyone. It was replaced by the Speaking Plain and Chipper Wood. As much as I like the idea of rotating two of three names, the problem is that you have six possibilities now, which gets confusing. Plus, free-range chicken may be a bit obscure, though I like the connotation of chicken-free range as 'THOU SHALT NOT FEAR.'"
 0	--	Humor Gallows	"gallows"	"This was originally part of the main map, but the joke wasn't universal enough. I like the idea of killing jokes from something that should be funny, the reverse of gallows humor--which draws humor from tragedy or near tragedy. As well as the variety of ways jokes can be killed."
 0	--	Tuff Butt Fair	"fair"	"This was one of the first locations I found, and I took it, and I put it in the game. Tough butt/tough but is a good pun, and I have a personal test that if I can picture pundits calling a person 'tough but fair,' that person is a loudmouthed critical jerk. The only problem is, 'fair but tough' isn't really a fair flip. It was replaced by the Interest Compound, which became the Discussion Block, and Judgment Pass.[paragraph break]I originally thought of a lot of contemporary sounding people I could put in here, but they got rejected. I wanted to keep it abstract and not real people in the game, except when the [bad-guy] does at the end, for humor value and also to show him being socially 'conscious,' I mean, ambitious. However, for a truly atrocious inside joke, I was tempted to put in a bully named Nelson Graham who beat other kids up for playing games over three years old--or for even TRYING to make their own programming language. I decided against even hinting at--oops."
@@ -10792,9 +10808,10 @@ One Route is a room in Rejected Rooms. "This is the first route in the director'
 
 part Muster Pass
 
-Muster Pass is a room in Rejected Rooms. "It looks and feels nice here, but there's nothing REALLY worth describing. Exits east and west seem equally suitable when this passage (which is okay and all) isn't good enough for you any more."
+Muster Pass is a room in Rejected Rooms. "It looks and feels nice here, but there's nothing REALLY worth describing except that maple. Exits east and west seem equally suitable when this passage (which is okay and all) isn't good enough for you any more.". Muster Pass is west of One Route.
 
-Muster Pass is west of One Route.
+the maple is scenery in Muster Pass. "The maple has, carved in it, LE MAP over a rough map of the Problems Compound that's much like the Trizbort/PDF included in this game's package. You appear to be at the southeast of the southwest area. There are two other areas you didn't cross while beating the [bad-guy]: isolated rooms to the northwest and northeast."
+
 
 part Chicken Free Range
 
@@ -12311,7 +12328,7 @@ after reading a command:
 	if player is in belt below and insanity terminal is in belt below:
 		if the player's command matches the regular expression "^<0-9>+":
 			change the text of the player's command to "x [the player's command]";
-	if anno-allow is true:
+	if anno-allow is true and qbc_litany is table of no conversation:
 		if the player's command matches the regular expression "^<0-9>+":
 			change the text of the player's command to "note [the player's command]";
 	if player is in out mist:
@@ -13868,7 +13885,8 @@ understand "fin" as fining.
 
 carry out fining:
 	repeat through table of fingerings:
-		say "[jerky-guy entry]: [blackmail entry]: [my-quip entry]: [suspect entry].";
+		if jerky-guy entry is not buddy best:
+			say "[jerky-guy entry]: [blackmail entry].";
 	the rule succeeds;
 
 chapter xinding
