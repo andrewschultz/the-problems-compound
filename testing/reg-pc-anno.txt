@@ -40,6 +40,12 @@ One Route
 
 (1)
 
+>think
+NOTE: THINK will redirect to SCORE in the future, unless you really only have one specific task remaining.
+You take a thought-second. Then you take another, but you reflect it wasn't as good. OR WAS IT? So you just think about what you've accomplished...
+
+You have eleven rejected rooms to visit here, and you haven't found the place that lets you see a the hidden ones and the fake-bad-end scenes.
+
 >sleep
 Oh no, this extra material isn't THAT boring, is it?
 
@@ -49,12 +55,24 @@ Here is a list of the notes so far:
 !2.
 
 >note 1
-1. 
+Notes for One Route: It was either this or One Square or Way One, at the beginning. But those two got carded off to something better: Meal Square and, well, Way of Right should be in Slicker City.
+
+>anno 1
+Notes for One Route: It was either this or One Square or Way One, at the beginning. But those two got carded off to something better: Meal Square and, well, Way of Right should be in Slicker City.
+
+>note 0
+>anno 0
 
 >note 0
 There's only one annotation, #1, so far. Explore a bit more!
 
+>anno 0
+There's only one annotation, #1, so far. Explore a bit more!
+
 >note 2
+There's only one annotation, #1, so far. Explore a bit more!
+
+>anno 2
 There's only one annotation, #1, so far. Explore a bit more!
 
 >w
@@ -63,27 +81,51 @@ Muster Pass
 >note 2
 >anno 2
 
+>note
+2. Muster Pass (muster)
+!3.
+
 >w
 Rage Road
 
 (3)
 
+>note
+3. Rage Road (rage)
+!4.
+
 >w
 Mine Land
 (4)
+
+>note
+4. Mine Land (mine)
+!5.
 
 >e
 >n
 Chicken Free Range
 (5)
 
+>note
+5. Chicken Free Range (range)
+!6.
+
 >w
 Humor Gallows
 
 (6)
 
+>note
+
 >talk to cards
 Nothing they say is funny. It's all inside jokes, or stuff about celebrities, or overgeneralization. You wish they could be dealt with (this is one of my very favorite bad puns. You're welcome.)
+
+>attack cards
+With the pressure off, you don't feel violent.
+
+>burn cards
+You have neither matches nor pyromaniac desires.
 
 >e
 >e
@@ -93,6 +135,10 @@ Tuff Butt Fair
 
 Francis Pope
 
+>note
+7. Tuff Butt Fair (fair)
+!8.
+
 >talk to francis
 You don't want to hear his views on religion. They generally involve telling poor people to shut up and be happy and fake-smiling at anyone who disagrees with that.
 
@@ -101,29 +147,120 @@ Ill Falls
 
 (8)
 
+8. Ill Falls (falls)
+!9.
+
 >w
 >w
 >n
 Eternal Hope Springs
 
 (9)
+9. Eternal Hope Springs (springs)
+!10.
 
 >e
 Brains Beat
 (10)
+
+>note
+10. Brains Beat (beat)
+!11.
 
 >w
 >w
 Madness March
 (11)
 
+>note
+11. Madness March (madness)
+!12.
+
 >n
 Window Bay
 (12)
+
+>note
+12. Window Bay (coast)
+!13.
 
 >x structure
 (13)
 Expectations Meet
 
->switch structure
+(13) The irony of expectations meet is that if people gather together and discuss their expectations, they never quite meet them.
+
+>x structure
+!(13) The irony
+
+>note
+13. Expectations Meet (meet)
+!14.
+
+>switch 
+(the view of points)
+Perilous Siege
 (14)
+
+>note
+14. Perilous Siege (siege)
+!15.
+
+Robbery Highway
+There's a speed limit sign here, but it's just put there so anyone dumb enough to follow it will get mugged.
+
+(15) Highway robbery being a clear rip-off, I liked the idea of a location made especially for that.
+
+The vision blurs, and you look up from the View of Points, sadder but hopefully wiser.
+
+>switch structure
+Space of Waste
+Piles and piles of things society apparently needs, but you have no use for. Magazines, mattresses, furniture, take-out boxes. A voice whispers: "But you do! People buy them, and if you invested in a company that sells them, that makes you money."
+
+(16) Like Mine Land, this is one of those areas that don't work well in a game, but all the same--so many spaces are space of waste.
+
+The vision blurs, and you look up from the View of Points, sadder but hopefully wiser.
+
+>switch structure
+Clown Class
+One teen forcefully berates a class into how they're not funny, and they never will be, unless they shape up and start blending intelligence with social knowledge properly. And the way to start is to encourage people who are actually funny, but don't be a COPYCAT. He scoffs a lot at them, and assures them he's not laughing at their JOKES.
+
+(17) I had an idea of making Clown Class a dead end, or maybe even a separate game, but I couldn't pull it off.
+
+The vision blurs, and you look up from the View of Points, sadder but hopefully wiser.
+
+>switch structure
+Everything Hold
+You see about one of everything you've ever owned or wanted to here. Considering it all makes you pause with jealousy--for what you don't have--and regret, for what you got and wasn't worth it.
+
+(18) The obvious pun here is that trying to hold everything physically often makes you hold everything in terms of time. So this seemed apt, but if I put anything in this room, I'd put in a lot, and that'd be way too much trouble to implement.
+
+The vision blurs, and you look up from the View of Points, sadder but hopefully wiser.
+
+>switch structure
+Shoulder Square
+People mill about here in pairs, shoulder to shoulder. One of each pair always tells the other what he should have done.
+
+(19) I do like the pun shoulder/should, er. They mix well with shoulders tensing thinking what you should do.
+
+>note
+14. Perilous Siege (siege)
+15. Robbery Highway (highway)
+16. Space of Waste (space)
+17. Clown Class (class)
+18. Everything Hold (hold)
+19. Shoulder Square (shoulder)
+!20.
+
+* dif-order
+
+>vu 1
+>anno
+>jump
+>w
+>w
+>n
+>s
+>w
+>note 5
+
