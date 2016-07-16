@@ -28,7 +28,7 @@ This is the command for annotations, which are usually only for after you win th
 Okay. You can undo if you change your mind.
 Now annotations are on, and, in fact, there's something for right here. You may wish to JUMP to the director's cut area for a lot of notes.
 
-(1)
+(ROOM ANNO)
 
 Now annotations are on.
 
@@ -54,7 +54,7 @@ There's only one annotation, #1, so far. Explore a bit more!
 
 One Route
 
-(2)
+(ROOM ANNO)
 
 >think
 NOTE: THINK will redirect to SCORE in the future, unless you really only have one specific task remaining.
@@ -102,7 +102,7 @@ M
 >w
 Rage Road
 
-(4)
+(ROOM ANNO)
 
 >note
 4. Rage Road (rage)
@@ -110,7 +110,7 @@ Rage Road
 
 >w
 Mine Land
-(5)
+(ROOM ANNO)
 
 >note
 5. Mine Land (mine)
@@ -119,7 +119,7 @@ Mine Land
 >e
 >n
 Chicken Free Range
-(6)
+(ROOM ANNO)
 
 >note
 6. Chicken Free Range (range)
@@ -128,7 +128,7 @@ Chicken Free Range
 >w
 Humor Gallows
 
-(7)
+(ROOM ANNO)
 
 7. Humor Gallows
 !8.
@@ -148,7 +148,7 @@ You have neither matches nor pyromaniac desires.
 >e
 Tuff Butt Fair
 
-(9)
+(ROOM ANNO)
 
 Francis Pope
 
@@ -162,7 +162,7 @@ You don't want to hear his views on religion. They generally involve telling poo
 >e
 Ill Falls
 
-(9)
+(ROOM ANNO)
 
 9. Ill Falls (falls)
 !10.
@@ -172,13 +172,13 @@ Ill Falls
 >n
 Eternal Hope Springs
 
-(10)
+(ROOM ANNO)
 10. Eternal Hope Springs (springs)
 !11.
 
 >e
 Brains Beat
-(11)
+(ROOM ANNO)
 
 >note
 11. Brains Beat (beat)
@@ -187,7 +187,7 @@ Brains Beat
 >w
 >w
 Madness March
-(12)
+(ROOM ANNO)
 
 >note
 12. Madness March (madness)
@@ -195,7 +195,7 @@ Madness March
 
 >n
 Window Bay
-(13)
+(ROOM ANNO)
 
 >note
 13. Window Bay (coast)
@@ -204,10 +204,10 @@ Window Bay
 >x structure
 Expectations Meet
 
-(14) The irony of expectations meet is that if people gather together and discuss their expectations, they never quite meet them.
+(ROOM ANNO) The irony of expectations meet is that if people gather together and discuss their expectations, they never quite meet them.
 
 >x structure
-!(14) The irony
+!(ROOM ANNO) The irony
 
 >note
 14. Expectations Meet (meet)
@@ -216,7 +216,7 @@ Expectations Meet
 >switch 
 (the view of points)
 Perilous Siege
-(15)
+(ROOM ANNO)
 
 >note
 15. Perilous Siege (siege)
@@ -227,7 +227,7 @@ Perilous Siege
 Robbery Highway
 There's a speed limit sign here, but it's just put there so anyone dumb enough to follow it will get mugged.
 
-(16) Highway robbery being a clear rip-off, I liked the idea of a location made especially for that.
+(ROOM ANNO) Highway robbery being a clear rip-off, I liked the idea of a location made especially for that.
 
 The vision blurs, and you look up from the View of Points, sadder but hopefully wiser.
 
@@ -235,7 +235,7 @@ The vision blurs, and you look up from the View of Points, sadder but hopefully 
 Space of Waste
 Piles and piles of things society apparently needs, but you have no use for. Magazines, mattresses, furniture, take-out boxes. A voice whispers: "But you do! People buy them, and if you invested in a company that sells them, that makes you money."
 
-(17) Like Mine Land, this is one of those areas that don't work well in a game, but all the same--so many spaces are space of waste.
+(ROOM ANNO) Like Mine Land, this is one of those areas that don't work well in a game, but all the same--so many spaces are space of waste.
 
 The vision blurs, and you look up from the View of Points, sadder but hopefully wiser.
 
@@ -243,7 +243,7 @@ The vision blurs, and you look up from the View of Points, sadder but hopefully 
 Clown Class
 One teen forcefully berates a class into how they're not funny, and they never will be, unless they shape up and start blending intelligence with social knowledge properly. And the way to start is to encourage people who are actually funny, but don't be a COPYCAT. He scoffs a lot at them, and assures them he's not laughing at their JOKES.
 
-(18) I had an idea of making Clown Class a dead end, or maybe even a separate game, but I couldn't pull it off.
+(ROOM ANNO) I had an idea of making Clown Class a dead end, or maybe even a separate game, but I couldn't pull it off.
 
 The vision blurs, and you look up from the View of Points, sadder but hopefully wiser.
 
@@ -251,7 +251,7 @@ The vision blurs, and you look up from the View of Points, sadder but hopefully 
 Everything Hold
 You see about one of everything you've ever owned or wanted to here. Considering it all makes you pause with jealousy--for what you don't have--and regret, for what you got and wasn't worth it.
 
-(19) The obvious pun here is that trying to hold everything physically often makes you hold everything in terms of time. So this seemed apt, but if I put anything in this room, I'd put in a lot, and that'd be way too much trouble to implement.
+(ROOM ANNO) The obvious pun here is that trying to hold everything physically often makes you hold everything in terms of time. So this seemed apt, but if I put anything in this room, I'd put in a lot, and that'd be way too much trouble to implement.
 
 The vision blurs, and you look up from the View of Points, sadder but hopefully wiser.
 
@@ -259,7 +259,7 @@ The vision blurs, and you look up from the View of Points, sadder but hopefully 
 Shoulder Square
 People mill about here in pairs, shoulder to shoulder. One of each pair always tells the other what he should have done.
 
-(20) I do like the pun shoulder/should, er. They mix well with shoulders tensing thinking what you should do.
+(ROOM ANNO) I do like the pun shoulder/should, er. They mix well with shoulders tensing thinking what you should do.
 
 >note
 15. Perilous Siege (siege)
@@ -271,23 +271,26 @@ People mill about here in pairs, shoulder to shoulder. One of each pair always t
 !21.
 
 >switch structure
-(21)
+(ROOM ANNO)
 >switch structure
-(22)
+(ROOM ANNO)
 >switch structure
-(23)
+(ROOM ANNO)
 >switch structure
-(24)
+(ROOM ANNO)
 >switch structure
-(25)
+(ROOM ANNO)
 >switch structure
-(26)
+(ROOM ANNO)
 >switch structure
-(27)
+(ROOM ANNO)
 >switch structure
-(28)
+(ROOM ANNO)
 >switch structure
 /!([0-9]+)
+
+>jump
+Smart Street
 
 * dif-order
 

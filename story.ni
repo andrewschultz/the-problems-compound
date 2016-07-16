@@ -3434,6 +3434,7 @@ Sore Loser	"A sore loser is someone who is not gracious enough to admit defeat. 
 Censorship	"Censorship is institutionalized shutting people up or repressing what they have to say." [start of shape ship]
 Courtship	"Courtship is when you start trying to get the attention of a potential romantic partner."
 Scholarship	"A scholarship is a money grant given towards education. The Ship Scholar, contrarily, says nothing is free."
+road pizza	"Road pizza is poor helpless animals that have been hit by traffic." [start of director's cut locations]
 Complain Cant	"Cant means a tendency towards something, so someone with a complain cant would only say 'can't complain' very ironically." [eternal concepts]
 Much Flatter	"If your world is much flatter, it isn't very exciting. But to flatter much is to over-compliment people, which makes things [i]seem[r] exciting for a bit."
 People Power	"People power was a rallying cry in demonstrations against the authoritarianism of, well, power people."
@@ -3539,31 +3540,55 @@ chapter noteing
 
 noteflating is an action out of world.
 
-noteing is an action applying to a number.
+notenuming is an action applying to a number.
 
 roomnoteing is an action applying to one visible thing.
 
+notethinging is an action applying to one visible thing.
+
 understand the command "note" as something new.
 
-understand "note [number]" as noteing when anno-allow is true.
+understand "note" as noteflating when anno-allow is true.
+
+understand "note [any thing]" as notethinging when anno-allow is true.
+
+understand "note [number]" as notenuming when anno-allow is true.
 
 understand "note [any room]" as roomnoteing when anno-allow is true.
 
-understand "note" as noteflating when anno-allow is true.
+carry out notethinging:
+	dl "[noun].";
+	if there is an exam-thing of noun in table of annotations:
+		choose row with exam-thing of noun in table of annotations;
+		if location of noun is visited:
+			say "Notes for [anno-loc entry]: [anno-long entry][line break]";
+		else:
+			say "You haven't seen this item yet, so I'm not going to give you the annotation yet.";
+		the rule succeeds;
+	say "No special notes there. XP is probably all you can get." instead;
 
 carry out roomnoteing:
 	if there is an anno-loc of noun in table of annotations:
 		choose row with anno-loc of noun in table of annotations;
-		if anno-num entry is 0:
-			say "You haven't seen this room yet, so I'm not going to give you the annotation yet." instead;
-		say "Notes for [anno-loc entry]: [anno-long entry][line break]";
+		if noun is visited:
+			say "Notes for [anno-loc entry]: [anno-long entry][line break]";
+		else:
+			say "You haven't seen this room yet, so I'm not going to give you the annotation yet.";
 		the rule succeeds;
 	say "Well, there should be a note for this room, but there isn't." instead;
-	
+
 carry out noteflating:
-	say "Here is a list of the notes so far:[line break]";
-	repeat with X running from 1 to cur-anno:
-		show-anno X;
+	say "You should be able to NOTE (location) for any location you visited while annotations were on. In addition, you should be able to NOTE (item) or NOTE (number) for the number of an item.";
+	say "[line break]";
+	if cur-anno > 1:
+		say "Here is a list of the notes so far:[line break]";
+		repeat with X running from 1 to cur-anno:
+			show-anno X;
+	else if cur-anno is 1:
+		say "There is only one note so far.";
+		show-anno 1;
+	else:
+		say "You haven't examined any items with annotations yet. If you used them successfully and forget to examine them, they will appear in the long list.";
 	the rule succeeds;
 
 to show-anno (X - a number):
@@ -3573,8 +3598,10 @@ to show-anno (X - a number):
 	choose row with anno-num of X in table of annotations;
 	say "[X]. [if anno-loc entry is not lalaland][anno-loc entry][else][exam-thing entry][end if][line break]";
 
-carry out noteing:
+carry out notenuming:
 	if the number understood < 1 or the number understood > cur-anno:
+		if cur-anno is 0:
+			say "Nothing to annotate yet!" instead;
 		if cur-anno is 1:
 			say "There's only one annotation, #1, so far. Explore a bit more!" instead;
 		say "You need a number between 1 and [cur-anno]." instead;
@@ -3582,7 +3609,7 @@ carry out noteing:
 		say "Oops, there should be a footnote for that, but there is not. [bug]";
 		continue the action;
 	choose row with anno-num of number understood in table of annotations;
-	say "Notes for [anno-loc entry]: [anno-long entry][line break]";
+	say "Notes for [exam-thing entry]: [anno-long entry][line break]";
 	the rule succeeds;
 
 chapter verbing
@@ -3597,7 +3624,7 @@ understand the command "commands" as something new.
 understand "verb" as verbing.
 understand "verbs" as verbing.
 understand "command" as verbing.
-understand "commandss" as verbing.
+understand "commands" as verbing.
 
 to say 2da:
 	say "[if screen-read is false]--[end if]";
@@ -4039,7 +4066,7 @@ understand the command "anno" as something new.
 
 understand "anno" as annoing.
 
-understand "anno [number]" as noteing when anno-allow is true. [if it went earlier with noteing it'd get overwritten]
+understand "anno [number]" as notenuming when anno-allow is true. [if it went earlier with notenuming it'd get overwritten]
 
 understand "anno [any room]" as roomnoteing when anno-allow is true.
 
@@ -4070,21 +4097,20 @@ after printing the locale description (this is the show annos rule):
 		repeat through table of annotations:
 			if myloc is anno-loc entry:
 				if anno-num entry is 0:
-					increment cur-anno;
-					say "([cur-anno]) [anno-long entry][line break]";
-					now anno-num entry is cur-anno;
+					say "(ROOM ANNO) [anno-long entry][line break]";
+					now anno-num entry is -1;
 				continue the action;
 		if mrlp is rejected rooms:
 			ital-say "There should be an annotation for this room, but there isn't.";
 	continue the action;
 
-after examining:
+after examining (this is the annotate things rule):
 	if anno-allow is true:
-		if noun is an exam-thing listed in table of annotations:
-			choose row with exam-thing of noun in table of annotations;
-			if anno-num entry is 0:
-				say "([cur-anno]) [anno-long entry]";
+		d "anno-ing [noun].";
+		repeat through table of annotations:
+			if there is an exam-thing entry and noun is exam-thing entry:
 				increment cur-anno;
+				say "([cur-anno]) [anno-long entry][line break]";
 				now anno-num entry is cur-anno;
 	continue the action;
 
@@ -4156,8 +4182,8 @@ table of annotations (continued) [toa-rej]
 anno-num	exam-thing	anno-loc	anno-long (text)
 0	--	One Route	"It was either this or One Square or Way One, at the beginning. But those two got carded off to something better: Meal Square and, well, Way of Right should be in Slicker City." [begin speculative locations]
 0	--	Muster Pass	"It was a close call between here and Judgment Pass, but only one could pass muster. Err, sorry about that. Judgment pass won out because it allowed for a snarkier more annoying NPC."
-0	--	Rage Road	"This flip made me giggle immediately, but it was one of those things where I could do better. The flipped meaning wasn't skewed enough. So when I stumbled on Chipper Wood, I decided to change it. That said, even though road rage is serious, it's fun to make fun of the silly ambitions behind it.[paragraph break]I also had ideas for a diner called Pizza Road."
-0	--	Chicken Free Range	"The Chicken Free Range is, well, free of everyone. It was replaced by the Speaking Plain and Chipper Wood. As much as I like the idea of rotating two of three names, the problem is that you have six possibilities now, which gets confusing. Plus, free-range chicken may be a bit obscure, though I like the connotation of chicken-free range as 'THOU SHALT NOT FEAR.'"
+0	--	Rage Road	"This flip made me giggle immediately, but it was one of those things where I could do better. The flipped meaning wasn't skewed enough. So when I stumbled on Chipper Wood, I decided to change it. That said, even though road rage is serious, it's fun to make fun of the silly ambitions behind it.[paragraph break]I also had ideas for a diner called [activation of road pizza]Pizza Road."
+0	--	Chicken Free Range	"The Chicken Free Range is, well, free of everyone. It was replaced by the Speaking Plain and Chipper Wood. As much as I like the idea of rotating two of three names, the problem is that you have six possibilities now, which gets confusing. Plus, free-range chicken may be a bit obscure, though I like the connotation of chicken-free range as the self-contradictory booming edict 'THOU SHALT NOT FEAR.'"
 0	--	Humor Gallows	"This was originally part of the main map, but the joke wasn't universal enough. I like the idea of killing jokes from something that should be funny, the reverse of gallows humor--which draws humor from tragedy or near tragedy. As well as the variety of ways jokes can be killed."
 0	--	Tuff Butt Fair	"This was one of the first locations I found, and I took it, and I put it in the game. Tough butt/tough but is a good pun, and I have a personal test that if I can picture pundits calling a person 'tough but fair,' that person is a loudmouthed critical jerk. The only problem is, 'fair but tough' isn't really a fair flip. It was replaced by the Interest Compound, which became the Discussion Block, and Judgment Pass.[paragraph break]I originally thought of a lot of contemporary sounding people I could put in here, but they got rejected. I wanted to keep it abstract and not real people in the game, except when the [bad-guy] does at the end, for humor value and also to show him being socially 'conscious,' I mean, ambitious. However, for a truly atrocious inside joke, I was tempted to put in a bully named Nelson Graham who beat other kids up for playing games over three years old--or for even TRYING to make their own programming language. I decided against even hinting at--oops."
 0	--	Ill Falls	"This was simply a good pun that might have afforded a play on Ill, which often means beautiful and ugly at the same time. Or it could be a verb: to ill means to be out of it, or to insult someone, well or poorly."
@@ -4182,6 +4208,9 @@ table of annotations (continued) [toa-items]
 anno-num	exam-thing	anno-loc	anno-long (text)
 0	round stick	lalaland	"It took a bit of time to find the magic item to cross over. Originally it was the Proof of Burden, but that was too magical, too early. And that might've forced the mechanic on you. I think A Round Stick is a bit subtler."
 0	game shell	lalaland	"This was originally a location, and its predecessor was the Gallery Peanut, which got shuffled to Meal Square, then to a potential sequel. But once I moved the Peanut, the Shell became obvious: a place where you could play games and win, but never really win anything valuable. Or you'd lose interest, or confidence."
+0	flower wall	lalaland	"It took me forever to figure what should be in the Vision Tunnel. I couldn't leave it empty."
+0	Word Weasel	lalaland	"I like books with talking animals, but at the same time, it's interesting to subvery certain tropes. And the Word Weasel worked very well. It also plays on the whole 'you should've seen something from its name' versus 'with a name like that it better be honest.' The Word Weasel was also one of several entities neutered in release 3."
+0	mouth mush	lalaland	"The mouth mush wasn't around until late in release 1. Originally it was the rogue arch talking, but walking into an actual mouth seemed a bit too creepy."
 
 volume the game itself
 
@@ -4329,7 +4358,7 @@ guy-advice	"'Hm, well, if I give you too much advice, you won't enjoy solving th
 guy-flat	"'Well, that way is the Problems Compound. If you can figure out some basic stuff, you'll make it to Pressure Pier. Then--oh, the people you'll meet!'"
 guy-names	"'I know what you really want to ask. It's not at all about twisting things back around and making them the opposite of what they should mean. It's about SEEING things at every angle. You'll meet people who do. You'll be a bit jealous they can, and that they're that well-adjusted. But if you pay attention, you'll learn. I have. Though I've got a way to go. But I want to learn!'"
 guy-problems	"'Well, it's a place where lots of people more social than you--or even me--pose real-life problems. Tough but fair. Lots of real interesting people. Especially the Baiter Master[if allow-swears is false]. Oops. You don't like swears? Okay. Call him the Complex Messiah[else]. AKA the Complex Messiah[end if]. But not [bg]. I haven't earned the right to. Or to enter Freak Control. It's guarded by a trap where a question mark hooks you, then an exclamation mark clobbers you.' He pauses, and you are about to speak...[wfk]'YEAH. He's really nice once you get to know him, I've heard, it's just, there's too many people might waste his time, or not deserve him or not appreciate him.' Guy stage-whispers. 'OR ALL THREE.'"
-guy-mess	"'Oh, the [bad-guy]. He certainly knows what's what, and that's that! A bit of time around him, and you too will know a bit--not as much as he did. But he teaches by example! He can [activation of good egg]egg [i]good[r]. Just his way of caring. Remember, it's up to YOU what you make of his lessons! Some people--they just don't get him. Which is ironic. They're usually the type that claim society doesn't get THEM[if allow-swears is true].' Guy whispers. '[activation of beat off]OFF-BEAT types[end if].'"
+guy-mess	"'Oh, the [bad-guy]. He certainly knows what's what, and that's that! A bit of time around him, and you too will know a bit--not as much as he did. He teaches by example! He can [activation of good egg]egg [i]good[r]. Just his way of caring. Remember, it's up to YOU what you make of his lessons! Some people--they just don't get him. Which is ironic. They're usually the type that claim society doesn't get THEM[if allow-swears is true].' Guy whispers. '[activation of beat off]OFF-BEAT types[end if].'"
 guy-bad2	"'[bad-guy-2]. Well, without the [bad-guy]'s snark, [bad-guy-2] would probably be in charge. Then things would get worse. You see, [bad-guy-2] is after our time and money. The [bad-guy] just likes to share a little snark. I remember that time he told me don't go thinking you're any everyman, or anything special! What? Don't frown, there. It was--well, the way he said it. Better than I did. So eye-opening, so motivational.'"
 guy-bye	"'Whatever, dude.' [one of]It's--a bit harsh, you're not sure what you did to deserve that, but probably something[or]It's a bit less grating this time, but still[stopping]."
 
@@ -4390,6 +4419,7 @@ the printed name of out puzzle is "the 'out' puzzle".
 instead of doing something with the out puzzle:
 	if current action is not explaining and current action is not examining:
 		say "No. You know the Out Puzzle. You forget if you got it when you saw it, but people made you feel awkward for actually knowing it. Best not to dwell--concentrate on Guy's, instead." instead;
+	continue the action;
 
 instead of entering shell:
 	say "'Whoah. Back up there, champ. We need to, like, verify your [g-c]. Just PLAY a game here. Any game.'"
@@ -10609,7 +10639,7 @@ to go-back-home:
 		say "Yay! This worked. I am blocking the ending so you can try again.";
 		continue the action;
 	score-now;
-	say "The door leads to your closet and vanishes when you walk through. You're hungry after all that running around. Downstairs you find some old cereal you got sick of--certainly not killer cereal (ha ha) but now you realize it could be Procrastination Cereal, Moping Cereal, or even something goofy like Monogamy Cereal--that little reverse will feel fresh for a while.";
+	say "The door leads to your closet and vanishes when you walk through. You're hungry after all that running around. Downstairs you find some old cereal you got sick of--certainly not killer cereal (ha ha) but now you realize it could be Procrastination Cereal, Moping Cereal, or even something goofy like Monogamy Cereal. Maybe if it's really old you can pretend it's Pest Cereal, especially when you've put off asking someone about something. That little reverse will feel fresh for a while.";
 	wfak;
 	say "You laugh at your own joke, which brings your parents out, complaining your late night moping is worse than ever. You promise them it'll get better.";
 	wfak;
@@ -10785,7 +10815,7 @@ book rejected rooms
 
 Rejected Rooms is a region.
 
-check going nowhere when mrlp is rejected rooms:
+check going nowhere when mrlp is rejected rooms (this is the spell out the directions in director's cut rule):
 	say "You can't go [noun], but you can go [list of viable directions]. Also, you can look in the upper right to see which way to exit." instead;
 
 part One Route
@@ -10796,8 +10826,7 @@ part Muster Pass
 
 Muster Pass is a room in Rejected Rooms. "It looks and feels nice here, but there's nothing REALLY worth describing except that maple. Exits east and west seem equally suitable when this passage (which is okay and all) isn't good enough for you any more.". Muster Pass is west of One Route.
 
-the maple is scenery in Muster Pass. "The maple has, carved in it, LE MAP over a rough map of the Problems Compound that's much like the Trizbort/PDF included in this game's package. You appear to be at the southeast of the southwest area. There are two other areas you didn't cross while beating the [bad-guy]: isolated rooms to the northwest and northeast."
-
+the maple is scenery in Muster Pass. "The maple has, carved in it, LE MAP (the sort of stretch that'd be a bit much for the game proper) over a rough map of the Problems Compound that's much like the Trizbort/PDF included in this game's package. You appear to be at the southeast of the southwest area. There are two other areas you didn't cross while beating the [bad-guy]: isolated rooms to the northwest and northeast."
 
 part Chicken Free Range
 
@@ -10825,13 +10854,19 @@ part Eternal Hope Springs
 
 Eternal Hope Springs is a room in Rejected Rooms. It is north of Chicken Free Range. "A pen fountain burbles happily here. Not a writing pen, but the fountain is caged in so you can really only see part of it and not appreciate its fully beauty, or maybe so people don't try to ruin it."
 
-the pen fountain is scenery in Eternal Hope Springs. "You gaze at the fountain and wonder further why it's penned off. You hope there's a good reason."
+the pen fountain is scenery in Eternal Hope Springs. "You gaze at the fountain and wonder further why it's penned off. You hope there's a good reason. You don't even see any coins to be stolen from it."
+
+check going nowhere in eternal hope springs:
+	say "You can't go north, but any other way is okay." instead;
 
 part Brains Beat
 
 Brains Beat is a room in Rejected Rooms. It is east of Eternal Hope Springs. it is east of Eternal Hope Springs. "The consciousness stream flows by here. It cuts off passage everywhere except back west."
 
 the consciousness stream is scenery in Brains Beat. "One look at the consciousness stream, and immediately, voices in your head cool down a bit. You feel more--wait for it--conscious of what you need to do.[paragraph break]Okay, you would've if this were in the game proper. It was, at the start. But it quickly felt even more contrived than what you just played through."
+
+check going nowhere in Brains Beat:
+	say "The stream blocks off passage anywhere except back west. You start to wade, but it's deeper and longer than you imagined. Like consciousness itself. Whoah!" instead;
 
 part Rage Road
 
@@ -10847,7 +10882,7 @@ part Humor Gallows
 
 Humor Gallows is west of Chicken Free Range. Humor Gallows is in Rejected Rooms. "Laughter goes to die here. Or it bursts up then dies quickly. You can only go back east."
 
-The Cards of the House are plural-named people in Humor Gallows. description is "They seem straining to create a laugh or, indeed, claim why others aren't as funny as they are."
+The Cards of the House are plural-named people in Humor Gallows. "The Cards of the House stand here, laughing at things you don't understand. They aren't going to let you in, so best ignore them.". description is "They seem straining to create a laugh or, indeed, claim why others aren't as funny as they are."
 
 check taking cards of the house:
 	say "They're not a deck of cards. They're people trying to be funny. You can barely take them as is." instead;
@@ -10861,9 +10896,15 @@ part Madness March
 
 Madness March is west of Eternal Hope Springs. Madness March is in Rejected Rooms. "You hear the distant sound of cheering and groaning about something people have no control over."
 
+check going nowhere in madness march:
+	say "The path bends north and east here." instead;
+	
 part Window Bay
 
 Window Bay is north of Madness March. Window Bay is in Rejected Rooms. "It seems like your vision is sharper here than elsewhere. To keep you busy, a small structure labeled 'VIEW OF POINTS' is here."
+
+check going nowhere in window bay:
+	say "The water is too deep anywhere but back south." instead;
 
 does the player mean switching on the view of points: it is very likely.
 
@@ -10946,7 +10987,10 @@ Perilous Siege is a room in Just Ideas Now. "Some kind of combat is going on her
 
 chapter Robbery Highway
 
-Robbery Highway is a room in Just Ideas Now. "There's a speed limit sign here, but it's just put there so anyone dumb enough to follow it will get mugged."
+Robbery Highway is a room in Just Ideas Now. "There's a speed limit sign here (45 MPH IF YOU'RE LAME, 75 IF YOU'RE NOT,) but it's just put there so anyone dumb enough to follow it will get mugged."
+
+check taking speed limit sign:
+	say "You never even played mailbox baseball. Anyway, it'd be a pain to carry." instead;
 
 chapter Space of Waste
 
@@ -12245,6 +12289,10 @@ Scholarship is a concept in conceptville. Understand "scholar ship" and "ship sc
 
 to say ss-end:
 	say "visit Shape Ship (get fifth tickety outside of Soda Club)"
+
+chapter director's cut concepts
+
+road pizza is a concept in conceptville. Understand "pizza road" as road pizza. howto is "visit Rage Road in the Directors['] Cut".
 
 chapter lalaland concepts
 
