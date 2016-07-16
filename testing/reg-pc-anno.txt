@@ -21,16 +21,14 @@ You can make the following jumps:
 --FIGURE A CUT to skip past Terry Sally to the Nominal Fen.
 --FANCY PASSING to skip to the Questions Field with the brothers gone.
 --TRACK BEATEN to reveal the Nominal Fen puzzle spoilers on examining the Finger Index.
---NOTICE ADVANCE to skip to Questions Field, with the brothers and Nominal Fen puzzle solved.
+--NOTICE ADVANCE to skip to Questions Field, with the brothers and Nominal Fen solved.
 
 >anno
 This is the command for annotations, which are usually only for after you win the game. While it has no spoilers, and it can be toggled, it may be a distraction. Are you sure you want to activate annotations?
-Okay. You can undo if you change your mind.
+!Okay. You can undo if you change your mind.
 Now annotations are on, and, in fact, there's something for right here. You may wish to JUMP to the director's cut area for a lot of notes.
 
 (ROOM ANNO)
-
-Now annotations are on.
 
 >anno
 !You don't seem to have unlocked that verb yet. Are you sure you wish to go ahead?
@@ -41,99 +39,55 @@ Now annotations are off.
 Now annotations are on.
 
 >note
-1.
-!2.
+You should be able to NOTE (location) for any location you visited while annotations were on. In addition, you should be able to NOTE (item) or NOTE (number) for the number of an item.
+You haven't examined any items with annotations yet. If you used them successfully and forget to examine them, they will appear in the long list.
 
 >note 0
-There's only one annotation, #1, so far. Explore a bit more!
+Nothing to annotate yet!
 
 >anno 0
-There's only one annotation, #1, so far. Explore a bit more!
+Nothing to annotate yet!
 
 > jump
 
 One Route
 
-(ROOM ANNO)
+(ROOM ANNO) It was either this or One Square or Way One, at the beginning. But those two got carded off to something better: Meal Square and, well, Way of Right should be in Slicker City.
 
 >think
 NOTE: THINK will redirect to SCORE in the future, unless you really only have one specific task remaining.
 You take a thought-second. Then you take another, but you reflect it wasn't as good. OR WAS IT? So you just think about what you've accomplished...
 
-You have eleven rejected rooms to visit here, and you haven't found the place that lets you see the hidden ones and the fake-bad-end scenes.
+You have eleven rejected rooms to visit here (JUMP back once you're finished,) and you haven't found the place that lets you see the hidden ones and the fake-bad-end scenes.
 
 >sleep
 Oh no, this extra material isn't THAT boring, is it?
 
 >note
-Here is a list of the notes so far:
-2. One Route (route)
-!3.
-
->note 2
-Notes for One Route: It was either this or One Square or Way One, at the beginning. But those two got carded off to something better: Meal Square and, well, Way of Right should be in Slicker City.
-
->anno 2
-Notes for One Route: It was either this or One Square or Way One, at the beginning. But those two got carded off to something better: Meal Square and, well, Way of Right should be in Slicker City.
-
->note 0
-You need a number between 1 and 2.
-
->anno 0
-You need a number between 1 and 2.
-
->note 3
-You need a number between 1 and 2.
-
->anno 3
-You need a number between 1 and 2.
+You should be able to NOTE (location) for any location you visited while annotations were on. In addition, you should be able to NOTE (item) or NOTE (number) for the number of an item.
+You haven't examined any items with annotations yet. If you used them successfully and forget to examine them, they will appear in the long list.
 
 >w
 Muster Pass
-
->note 3
-M
->anno 3
-
->note
-3. Muster Pass (muster)
-!4.
 
 >w
 Rage Road
 
 (ROOM ANNO)
 
->note
-4. Rage Road (rage)
-!5.
-
 >w
 Mine Land
 (ROOM ANNO)
-
->note
-5. Mine Land (mine)
-!6.
 
 >e
 >n
 Chicken Free Range
 (ROOM ANNO)
 
->note
-6. Chicken Free Range (range)
-!7.
-
 >w
 Humor Gallows
 
 (ROOM ANNO)
-
-7. Humor Gallows
-!8.
-
->note
 
 >talk to cards
 Nothing they say is funny. It's all inside jokes, or stuff about celebrities, or overgeneralization. You wish they could be dealt with (this is one of my very favorite bad puns. You're welcome.)
@@ -152,10 +106,6 @@ Tuff Butt Fair
 
 Francis Pope
 
->note
-8. Tuff Butt Fair (fair)
-!9.
-
 >talk to francis
 You don't want to hear his views on religion. They generally involve telling poor people to shut up and be happy and fake-smiling at anyone who disagrees with that.
 
@@ -164,44 +114,27 @@ Ill Falls
 
 (ROOM ANNO)
 
-9. Ill Falls (falls)
-!10.
-
 >w
 >w
 >n
 Eternal Hope Springs
 
-(ROOM ANNO)
-10. Eternal Hope Springs (springs)
-!11.
-
 >e
 Brains Beat
 (ROOM ANNO)
-
->note
-11. Brains Beat (beat)
-!12.
 
 >w
 >w
 Madness March
 (ROOM ANNO)
 
->note
-12. Madness March (madness)
-!13.
-
 >n
 Window Bay
 (ROOM ANNO)
 
->note
-13. Window Bay (coast)
-!14.
-
 >x structure
+The View of Points is like one of those parking meter looking things you see at the edge of a cliff to magnify the landscape beyond. It's currently set to 1, though you can SWITCH it.
+
 Expectations Meet
 
 (ROOM ANNO) The irony of expectations meet is that if people gather together and discuss their expectations, they never quite meet them.
@@ -209,103 +142,100 @@ Expectations Meet
 >x structure
 !(ROOM ANNO) The irony
 
->note
-14. Expectations Meet (meet)
-!15.
+>x view
+The View of Points is currently set to 1, though you can SWITCH it.
+You've seen Expectations Meet already, but have another look?
 
->switch 
+Expectations Meet
+People all discuss what they deserve to have and why they deserve it more than others. Well, most. There's some impressively nuanced false humility here, though you could never call anyone on it.
+
+The vision blurs, and you look up from the View of Points, sadder but hopefully wiser.
+
+>switch
 (the view of points)
 Perilous Siege
-(ROOM ANNO)
+Some kind of combat is going on here! A big castle labeled BUSTER BALL'S PLACE is surrounded by forces that can only be the Baiter Master's. Nobody's getting killed, but the insults are coming fast from each side.
+(ROOM ANNO) The Siege Perilous is where Galahad was allowed to sit. It signified virtue. Of course, many of the antagonists in the Compound think they have virtue, but they don't. Since this room was so general, I didn't see a way to include it in the game proper.
 
->note
-15. Perilous Siege (siege)
-!16.
-
->switch structure
-
+>switch
 Robbery Highway
-There's a speed limit sign here, but it's just put there so anyone dumb enough to follow it will get mugged.
-
+There's a speed limit sign here (45 MPH IF YOU'RE LAME, 75 IF YOU'RE NOT,) but it's just put there so anyone dumb enough to follow it will get mugged.
 (ROOM ANNO) Highway robbery being a clear rip-off, I liked the idea of a location made especially for that.
 
-The vision blurs, and you look up from the View of Points, sadder but hopefully wiser.
-
->switch structure
+>switch
 Space of Waste
 Piles and piles of things society apparently needs, but you have no use for. Magazines, mattresses, furniture, take-out boxes. A voice whispers: "But you do! People buy them, and if you invested in a company that sells them, that makes you money."
-
 (ROOM ANNO) Like Mine Land, this is one of those areas that don't work well in a game, but all the same--so many spaces are space of waste.
 
-The vision blurs, and you look up from the View of Points, sadder but hopefully wiser.
-
->switch structure
+>switch
 Clown Class
 One teen forcefully berates a class into how they're not funny, and they never will be, unless they shape up and start blending intelligence with social knowledge properly. And the way to start is to encourage people who are actually funny, but don't be a COPYCAT. He scoffs a lot at them, and assures them he's not laughing at their JOKES.
-
 (ROOM ANNO) I had an idea of making Clown Class a dead end, or maybe even a separate game, but I couldn't pull it off.
 
-The vision blurs, and you look up from the View of Points, sadder but hopefully wiser.
-
->switch structure
+>switch
 Everything Hold
 You see about one of everything you've ever owned or wanted to here. Considering it all makes you pause with jealousy--for what you don't have--and regret, for what you got and wasn't worth it.
-
 (ROOM ANNO) The obvious pun here is that trying to hold everything physically often makes you hold everything in terms of time. So this seemed apt, but if I put anything in this room, I'd put in a lot, and that'd be way too much trouble to implement.
+
+>switch
+Shoulder Square
+People mill about here in pairs, shoulder to shoulder. One of each pair always tells the other what he should have done.
+(ROOM ANNO) I do like the pun shoulder/should, er. They mix well with shoulders tensing thinking what you should do.
+
+>switch
+Punishment Capitol
+(ROOM ANNO) I'm opposed to capital punishment. And I think the Baiter Master is, too, though he does like to retaliate more vigorously than any (perceived) attack on him. I needed a place for the big crimes, and here it is. It's the place for the worst crimes, like attacking the Baiter Master. Obviously, it had to be.
 
 The vision blurs, and you look up from the View of Points, sadder but hopefully wiser.
 
->switch structure
-Shoulder Square
-People mill about here in pairs, shoulder to shoulder. One of each pair always tells the other what he should have done.
+>switch
+Hut Ten
+(ROOM ANNO) I never got to implement as many deaths as I thought, but this was an obvious pun to conjure up images of Stalag 17 or something.
 
-(ROOM ANNO) I do like the pun shoulder/should, er. They mix well with shoulders tensing thinking what you should do.
+The vision blurs, and you look up from the View of Points, sadder but hopefully wiser.
 
->note
-15. Perilous Siege (siege)
-16. Robbery Highway (highway)
-17. Space of Waste (space)
-18. Clown Class (class)
-19. Everything Hold (hold)
-20. Shoulder Square (shoulder)
-!21.
+>switch
+A Beer Pound
+(ROOM ANNO) This came up when I was looking for better names for the Sinister Bar (now the Soda Club) post-release. I wanted a place for alcohol-related offenses but had nowhere until this seemed a bit obvious.
 
->switch structure
-(ROOM ANNO)
->switch structure
-(ROOM ANNO)
->switch structure
-(ROOM ANNO)
->switch structure
-(ROOM ANNO)
->switch structure
-(ROOM ANNO)
->switch structure
-(ROOM ANNO)
->switch structure
-(ROOM ANNO)
->switch structure
-(ROOM ANNO)
->switch structure
-/!([0-9]+)
+The vision blurs, and you look up from the View of Points, sadder but hopefully wiser.
 
->jump
-Smart Street
+>switch
+In-Dignity Heap
+(ROOM ANNO) It's hard to be dignified on a heap, and the "in" prefix provides fodder for a lot of puns. I wasn't able to use this on an item, so there is a fake death location.
 
-* dif-order
+>switch
+Shape Ship
+(ROOM ANNO) What better place to get ship shape than on a shape ship? Again, the creative deaths/failures didn't pile up enough, but I still enjoyed imagining all this.
 
->vu 1
+>switch
+Criminals' Harbor
+(ROOM ANNO) This pun was too good to pass up. Maybe I should've saved it for the sequel. Maybe I will anyway. It's delightfully seedy.
+
+>switch
+Maintenance High
+(ROOM ANNO) Most people who complain about others being high maintenance usually are emotionally high maintenance themselves. So I imagined a place where people learned WHY they were high maintenance and had it beat into their skulls. If they learned quickly, see, it was right. If not, well, they're taking up teaching time. Where people doled out abuse and projected their own deficiencies on others.
+
+>switch
+(the view of points)
+Fight Fair
+The Baiter Master watches down from a video screen as much stronger people beat up on much weaker people. "Use your minds! Be grateful they're not really hurting you!" Nobody dares call it barbaric. After all, it could be worse.
+
+(ROOM ANNO) Of course, none of the fights in Fight Fair are remotely fair, and fights at fairs in general are, well, rigged. It also seemed to be a good way to underscore pitting less popular kids against each other, or against a bully-henchman to grind them down.
+
+The vision blurs, and you look up from the View of Points, sadder but hopefully wiser.
+
+>switch
+(ROOM ANNO) I felt very, very horrible thinking of this, for obvious reasons, and similarly, I didn't want to put this in the game proper and fought about including it in the Director's Cut. So you'll have to ANNO CAMP to see more.
+
+>switch
+(the view of points)
+CLICK! That's the last one. You're back to the start. No more prison-y areas.
+
+Expectations Meet
+
+* anno-not-unlocked
+
+>vu 0
 >anno
->jump
->w
->w
->n
->s
->w
->note
-5.
-!6.
-
->note 6
-Mine Land
-
+Okay. You can undo if you change your mind.
