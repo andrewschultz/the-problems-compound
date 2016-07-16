@@ -713,7 +713,7 @@ understand "pe" as peing.
 
 carry out peing:
 	now print-exits is whether or not print-exits is false;
-	say "The Problems Compound now [if print-exits is true]displays[else]does not display[end if] exits in the header[if screen-read is true]. EXITS may be a better option if you are using a screen reader, though[end if].";
+	say "The Problems Compound now [if print-exits is true]displays[else]does not display[end if] exits in the upper left of the header[if screen-read is true]. EXITS may be a better option if you are using a screen reader, though[end if][if mrlp is rejected rooms and screen-read is false]. This information may be redundant for the Director's Cut section, but it'll be there back in the agme proper[end if].";
 	the rule succeeds;
 
 section procedurality
@@ -886,7 +886,7 @@ check requesting the score:
 		say "Whatever your score is, you have intangibles above that." instead;
 	if mrlp is rejected rooms:
 		let uan be number of unvisited rooms in mrlp;
-		say "You have [uan in words] rejected room[if uan is not 1]s[end if] to visit here, and ";
+		say "You have [uan in words] rejected room[if uan is not 1]s[end if] to visit here (JUMP back once you're finished,) and ";
 		if window bay is unvisited:
 			say "you haven't found the place that lets you see the hidden ones and the fake-bad-end scenes.";
 		else:
@@ -3663,25 +3663,25 @@ carry out verbing:
 	say "[one of]The Problems Compound has tried to avoid guess-the-verb situations and keep the parser simple.[line break][or][stopping]Verbs needed in The Problems Compound include:[paragraph break]";
 	if player is in smart street:
 		say "[2da]PLAY/TRY any of the games in the shell.";
-	say "[2da]directions (N, S, E, W, IN, OUT, ENTER something, and occasionally U and D)[line break]";
-	say "[2da]OPEN X (no WITH second noun needed)[line break]";
-	say "[2da]GT or GO TO lets you go to a room you've been to.[line break]";
-	say "[2da]GIVE X TO Y for people, PUT X ON/IN Y or ATTACH X TO Y for inanimate objects.[line break]";
-	say "[2da]TALK/T talks to the only other person in the room. TALK TO X is needed if there is more than one.[line break]";
+	say "[2da]directions ([b]N, S, E, W, IN, OUT, ENTER[r] something, and occasionally [b]U[r] and [b]D[r])[line break]";
+	say "[2da][b]OPEN X[r] (no WITH second noun needed)[line break]";
+	say "[2da][b]GT[r] or [b]GO TO[r] lets you go to a room you've been to.[line break]";
+	say "[2da][b]GIVE X TO Y[r] for people, [b]PUT X ON/IN Y[r] or [b]ATTACH X TO Y[r] for inanimate objects.[line break]";
+	say "[2da][b]TALK/T[r] talks to the only other person in the room. [b]TALK TO X[r] is needed if there is more than one.[line break]";
 	if "anno" is unlock-verified or anno-check is true:
-		say "[2da]ANNO toggles annotations, which are currently [on-off of anno-check], and JUMP will send you between the director's cut area and the main area.";
+		say "[2da][b]ANNO[r] toggles annotations, which are currently [on-off of anno-check], [b]NOTE[r] lets you recall an area or item, and [b]JUMP[r] will send you between the director's cut area and the main area.";
 	if jerk-who-short is true and silly boris is not in lalaland:
-		say "[2da]WHO tells the [j-co]['] names.";
-		say "[2da]SHORT cuts down the conversation topics.";
+		say "[2da][b]WHO[r] tells the [j-co]['] names.";
+		say "[2da][b]SHORT[r] cuts down the conversation topics.";
 	if know-babble is true:
-		say "[2da]BROOK BABBLING lets you talk to someone and skip over a conversation's details[if ever-babbled is true]. It can be shortened to B[sr-space]B, with or without a space[end if]. You can even specify a person if there's more than one to talk to, e.g. BROOK HIM or BB HER.[line break]";
+		say "[2da][b]BROOK BABBLING[r] lets you talk to someone and skip over a conversation's details[if ever-babbled is true]. It can be shortened to B[sr-space]B, with or without a space[end if]. You can even specify a person if there's more than one to talk to, e.g. [b]BROOK HIM[r] or [b]BB HER[r].[line break]";
 	if player is in belt below and terminal is in belt below and x-term-yet is true:
 		say "[2da]X 1-8 is a shortcut to read an individual question in the Insanity Terminal's puzzle.";
-	say "[2da]specific items may mention a verb to use in CAPS, e.g 'You can SHOOT the gun AT something,' but otherwise, prepositions aren't necessary.";
-	say "[2da]conversations use numbered options, and you often need to end them before using standard verbs. RECAP shows your options.";
+	say "[2da]specific items may mention a verb to use in [b]CAPS[r], e.g 'You can [b]SHOOT[r] the gun' or 'You can [b]SHOOT[r] the gun [b]AT[r] something,' but otherwise, prepositions aren't necessary.";
+	say "[2da]conversations use numbered options, and you often need to end them before using standard verbs. [b]RECAP[r] shows your options.";
 	say "[2da]other standard parser verbs apply, and some may provide alternate solutions, but you should be able to win without them.";
-	say "[2da]EXITS shows the exits. While these should be displayed in the room text, you can see where they lead if you've been there. PE also toggles showing them in the header.";
-	say "[2da]META describes additional commands not critical to winning the game[if verbs-unlocked], and V[sr-sp]X gives verbs you unlocked[end if], but this list is long enough.";
+	say "[2da][b]EXITS[r] shows the exits. While these should be displayed in the room text, you can see where they lead if you've been there. [b]PE[r] also toggles showing them in the header.";
+	say "[2da][b]META[r] describes additional commands not critical to winning the game[if verbs-unlocked], and V[sr-sp]X gives verbs you unlocked[end if], but this list is long enough.";
 	if in-beta is true:
 		say "Beta testers have debug commands. See debug commands too?";
 		if the player yes-consents:
@@ -4082,7 +4082,7 @@ carry out annoing:
 	repeat through table of annotations:
 		if there is an anno-loc entry and anno-loc entry is location of player and anno-num entry is 0:
 			say ", and, in fact, there's something for right here";
-	say "[if route is unvisited]. You may [one of][or]still [stopping]wish to JUMP to the director's cut area for a lot of notes[end if].";
+	say "[if route is unvisited]. You may [one of][or]still [stopping]wish to [b]JUMP[r] to the director's cut area for a lot of notes[end if].";
 	follow the show annos rule;
 	the rule succeeds;
 	[showme whether or not anno-allow is true;] [commented this code for later reference. It's handy.]
@@ -4120,7 +4120,7 @@ table of annotations [toa]
 anno-num	exam-thing	anno-loc	anno-long (text)
 0	--	Smart Street	"The idea for Smart Street came surprisingly late, but the reverse made total sense. The main point is that Alec may not be street smart, but people often assume he'll wind up somewhere around clever people. And of course Alec does not feel at home even though it shares a name with him." [very start]
 0	--	A Round Lounge	"This came to me pretty late. I'm never quite sure how to start games. It always seems the best idea comes at the end, and yet on the other hand it's not fully comforting that I know how my story will end. I wanted you to start pretty normally, but move to progressively odder places."
-0	--	Tension Surface	"This may've been a throwaway idea at first, but it grew on me as a noun that I hadn't used." [start intro]
+0	--	Tension Surface	"This may've been a throwaway idea at first, but it grew on me as a noun that I hadn't used. You can examine the MOUTH MUSH for more commentary." [start intro]
 0	--	Variety Garden	"The title was just for silliness until release 2, when I added varieties of brush. Basically, the garden has a lot of variety of brush, but not really quality, or nothing interesting. Originally there was a Stream of Consciousness and Train of Thought here, but these were placeholders and they didn't really flip. But they helped me until I found things. Like the Word Weasel, which didn't come until later, but I always liked that phrase. I went through a bunch of vegetables to put in the garden before I found an animal would do just as well."
 0	--	Vision Tunnel	"I'm pleased with the flip here from 'tunnel vision' as the vision tunnel opens you up to the different ways to see things."
 0	--	Pressure  Pier	"This shuffled around a bit until I found someone who was adequate for pressuring you, as opposed to just talking you down. That was Terry Sally, who was the Howdy Boy for a long time. And, in fact, he was just 'there' in Sense Common for a while. Early I took a 'best/worst remaining pun' approach to the map, but as I started writing code and sending the game to testers, I realized how it could make more sense." [start outskirts]
@@ -4206,11 +4206,41 @@ anno-num	exam-thing	anno-loc	anno-long (text)
 
 table of annotations (continued) [toa-items]
 anno-num	exam-thing	anno-loc	anno-long (text)
-0	round stick	lalaland	"It took a bit of time to find the magic item to cross over. Originally it was the Proof of Burden, but that was too magical, too early. And that might've forced the mechanic on you. I think A Round Stick is a bit subtler."
-0	game shell	lalaland	"This was originally a location, and its predecessor was the Gallery Peanut, which got shuffled to Meal Square, then to a potential sequel. But once I moved the Peanut, the Shell became obvious: a place where you could play games and win, but never really win anything valuable. Or you'd lose interest, or confidence."
-0	flower wall	lalaland	"It took me forever to figure what should be in the Vision Tunnel. I couldn't leave it empty."
-0	Word Weasel	lalaland	"I like books with talking animals, but at the same time, it's interesting to subvery certain tropes. And the Word Weasel worked very well. It also plays on the whole 'you should've seen something from its name' versus 'with a name like that it better be honest.' The Word Weasel was also one of several entities neutered in release 3."
-0	mouth mush	lalaland	"The mouth mush wasn't around until late in release 1. Originally it was the rogue arch talking, but walking into an actual mouth seemed a bit too creepy."
+0	game shell	Smart Street	"This was originally a location, and its predecessor was the Gallery Peanut, which got shuffled to Meal Square, then to a potential sequel. But once I moved the Peanut, the Shell became obvious: a place where you could play games and win, but never really win anything valuable. Or you'd lose interest, or confidence."
+0	round stick	Round Lounge	"It took a bit of time to find the magic item to cross over into the truly odd bits. Originally it was the Proof of Burden, but that was too magical, too early. And that might've forced the mechanic on you. I think A Round Stick is a bit subtler. Plus it let me put two round things together."
+0	mouth mush	Tension Surface	"The mouth mush wasn't around until late in release 1. Originally it was the rogue arch talking, but walking into an actual mouth seemed a bit too creepy."
+0	flower wall	Vision Tunnel	"It took me forever to figure what should be in the Vision Tunnel. I couldn't leave it empty."
+0	Word Weasel	Variety Garden	"I like books with talking animals, but at the same time, it's interesting to subvery certain tropes. And the Word Weasel worked very well. It also plays on the whole 'you should've seen something from its name' versus 'with a name like that it better be honest.' The Word Weasel was also one of several entities neutered in release 3."
+0	Terry Sally	Pressure Pier	"I was a bit wary of having two gatekeepers, but I wanted to contrast them so that Guy Sweet forced you to seem square and Terry (formerly the Howdy Boy before release 3 when I tried to give proper names) gave you the possibility of rebelling a bit, even if it was a bit forced."
+0	Fritz the On	Down Ground	"Fritz is the character I have the most affection for. He may be the most well-meaning NPC in the whole game, but boy is he muddled. Also, the phrase 'on the fritz' bugged me in high school. I'm not sure why. But I'm able to get a good laugh from it now."
+0	Stool Toad	Joint Strip	"I don't go in for in-depth NPC creation, and I think the Stool Toad fit into that. A general useless bureaucrat who thinks better of himself than he deserves to and doesn't realize his platitudes don't mean much all by themselves."
+0	Ally Stout	Soda Club	"The social dynamics of bars and bartending eluded me, but I always figured I'd be the guy a bartender gave a fake smile to. They have a sort of celebrity and soft-power all of their own. They still confuse me, and they definitely still confuse Alec."
+0	Erin Sack	Soda Club	"Most of the antagonists in the Problems Compound are male. Erin isn't a huge antagonist, but she does look down on Alec, much like the rest of them. Alec shouldn't be too good to listen to her views, and while they may be generally important, well, Alec needs to take care of his own stuff."
+0	jerks	Nominal Fen	"The [j-co] aren't there just for a puzzle. That came together a week before release 1, with the result a few bugs slipped in. But I wanted to establish that there's a lot of insecurity under the 'impressive' bragging, which falls out when they are forced to admit they like certain things that may not be in the mainstream, and you may not be able to say, wow, look at me being retro for knowing all this."
+0	Grace Goode	Classic Cult	"Faith and Grace were sort of inspired by the 'minimalist' episode of Absolutely Fabulous, where Max and Bettina make minimal comments on why they are happy. But then there's also the more serious side of how they've given up trying to overthink things and just want to be happy, but the [bad-guy] keeps finding complex 'sophisticated' reasons they're not. They're even betrayed by their own family (Herb Goode) in release 3."
+0	Cute Percy	Chipper Wood	"Cute Percy, formerly the Assassination Character, may've been inspired by the Cruel Puppet from Beyond Zork. During testing, Brian Rushton pointed out his puzzle was something like the puzzle in Enchanter where you need to lose a move. I liked the idea of Alec being able to win a chase-game that seemed undoable by using diagonal moves, and I'd had the idea of such an area where diagonal moves only took half the time after playing yet another game where going southwest saved a turn over going west or south."
+0	Insanity Terminal	Belt Below	"The Insanity Terminal was just a name, but once I had it, I wanted to make a ridiculous puzzle. David Welbourn pointed out that not assuming something at first led to more than one possible solution, so filling in that hole with a PERL script--and checking the other possible solutions--took a while."
+0	Sid Lew	Truth Home	"I suppose we've all been on the receiving end of an argument that felt glib but couldn't possibly be right. How Alec gets circuitous revenge on Sid helped me recoup some of that."
+0	Officer Petty	Judgment Pass	"This is maybe a slightly dishonest reverse, but then, you get the feeling that Officer Petty hasn't had much formal training. I'm a big Dukes of Hazzard fan, so it's fun to me to see policemen suckered by their own greed, as OP is when you find the right item to give him."
+0	Sly Moore	Idiot Village	"More/Moore was an obvious homonym to play on, but I didn't know about a first name. I thought about Les, but that just ran into itself. I was able to google-spam enough sites to get first names that mean something, but then Sly Moore didn't seem like an antagonist to outwit. I needed someone for Alec to help, though, so Sly it was."
+0	Thoughts Idol	Idiot Village	"I had the idea for the puzzle before the idol. Why would Alec run in that pattern? Well, he would be followed--and then it hit me. Alec couldn't get too near the idol for too long, but he had to keep it busy. Combine that with how I always liked to draw eight-pointed stars as a kid, and voila. The puzzle. Going from an idol giving you a long sidelong glance to you spinning it around until it explodes."
+0	Turk Young	Speaking Plain	"Turk and Dutch's advice is worthless, but I remember being pressured that I didn't have the common sense of some other kids my age. I took it out a bit on Turk and Dutch and made them pompous--though it might not immediately be obvious why they're wrong."
+0	Volatile Sal	Temper Keep	"Sal is probably the person I identify most with. He's probably most on the edge to being aligned with the bad guy or Alec. The thing is: he complains a lot, but the solution is right under his nose. So Alec doing that for him gives Alec some confidence he's not the only one who's dragged his feet, and he can do better."
+0	Buddy Best	Court of Contempt	"I don't know if I fully explained Buddy in the first release. Testers were upset he kicked you out--but I wanted that to be sort of the point. He didn't have time for you, and he acted like he was doing a favor giving you anything, and he sort of was, except you didn't need to feel grateful for that. Alec also learns to use Buddy's gift to get by someone else, so that's a good example of getting two enemies out of the way at once."
+0	Mistake Grave	Walker Street	"I couldn't resist a chance for a cheap joke. The [bad-guy] is, sadly, one of those people who will condemn you for not being exciting enough, and while there's no way for Alec to outright lose, such a grave gives him a little fear.[paragraph break]Of course, there's no assurance anyone DID actually die."
+0	Art Fine	Discussion Block	"Critical discussion of art is good. But hopefully Art is so over the top with his hyperbole, and the art is so obviously bad, that you can see why listening to him might turn people away. I have to admit listening to louder people than myself turned me away from reading in high school. Everything was terrible or awesome! You better not make the mistake of reading a stupid book! And so on. There was a lot of posturing, but I never quite picked up on it."
+0	Harmonic Phil	Discussion Block	"I've always had trouble getting into music, and it's hard to describe what's so good about it. But people raving about it has never helped me. I admit I'm dreadfully conservative, often listening to the same song a few times in a row. But a long while back I was surprised to read research that overselling isn't the way to go, and it isn't just a matter of the sell-ees being stubborn or prissy. That holds for more than just music."
+0	Language Machine	Standard Bog	"Some people expressed concern that the Language Machine was about choice versus parser games, but I think that's a little too solipsistic and art-on-art. The language machine continues to burble on writing to itself after Alec helps it, but the difference is that it looks for more than just complaining. I fixed some text for the next releasese to clear that up. But I'm disappointed that something intended to be optimistic and quirky turned out to be interpreted as an attack on a whole community."
+0	Pusher Penn	Pot Chamber	"There may be some problem here with getting Alec to perform the risky task Pusher Penn asks. Only it isn't, as long as he avoids the Stool Toad. So there's a certain element of not worrying too much about obeying the rules for their own sake, and also for helping Fritz the On a bit, and how Pusher Penn sees the impoverished Fritz as beneath him. Also, I was sure to provide Alec with no matches so he couldn't consume the product or the reward. And I do like to put in references to smoking every game, especially after reading a po-faced research article condemning movies for excessive 'tobacco incidents,' which included nonsmoking signs that researcher's pals probably pushed for in the first place."
+0	Brother Soul	Questions Field	"[intro-bro]Brother Soul had the easiest puzzle-train to implement once I figured something needed to be in the Spleen Vent."
+0	Brother Blood	Questions Field	"[intro-bro]Brother Blood had the second-easiest puzzle-train to implement. I always viewed him as being gaslighted more than the other two, where people claimed he might do something violent due to--the sort of inane baiting they were putting on him in the first place."
+0	Brother Big	Questions Field	"[intro-bro]Brother Big takes the most steps to get through, which is fortuitious. But I had a lot of false starts and the path felt artificial until near the end. However, I like that 'you are big and strong so you must be stupid' dilemma he has to face and stare down."
+0	Baiter Master	Freak Control	"Once I realized the bad guy's name, I realized I had a serious game if only I knew what to do with him. But I also didn't want to identify him too much with any one person in my near past. I also wanted to have a non-swear version of the name, and I didn't want to waste Complex Messiah. Bino! Add asking for profanities at the start, which is intended to be a sort of power play where it doesn't matter what you respond, someone will have something mean to say, and you have another twist."
+0	Worm Ring	Out Mist	"There wasn't even a location past Freak Control at the end of release 1. But people said it might be nice to have something based on the game's main mechanic and pun making, and I wondered if there were words I'd forgotten. A whole worm provided Alec's way home, but how to MAKE one? The good ending may actually have a tougher puzzle than the very good one--well, without the progressive clues."
+0	Return Carriage	Airy Station	"Alec needed a way to go home once I decided on good/very good ends. The Snowflake Special was the first, but it didn't afford a puzzle, and I didn't want modern slang if I could avoid it. Of course, the answer came unexpectedly when I was looking for a way to parse my code for obvious mistakes. That happens a lot. I was worried too long that I didn't have enough ideas, but when I decided one a day was pretty good (say, about September 1, a month before IFCom's start,) they started falling. And they kept doing so once IFComp was over. The final barrier here was, how do you enter the carriage? Get rid of a lock? So I got HAMMER LOCK and then realized I could do more with a hammer."
+
+to say intro-bro:
+	say "[one of]The three brothers['] names dropped easily once I saw the Biblical phrase 'brothers and keepers.' Once I did, the puzzles really started clicking. I didn't know who would get what, but each one would obviously be missing something. [or][stopping]"
 
 volume the game itself
 
@@ -4289,7 +4319,9 @@ Smart Street is a room in Beginning. "This isn't a busy street[one of], but ther
 
 after looking in Smart Street when Guy Sweet is not in Smart Street:
 	move Guy Sweet to Smart Street;
-	say "[activation of compound problems]A loud, hearty voice from the shell. 'Howdy! I'm Guy Sweet! You look like a fella with a [activation of games mind]games mind! Why not come over to the Game Shell and have a TALK?'"
+	say "[activation of compound problems]A loud, hearty voice from the shell. 'Howdy! I'm Guy Sweet! You look like a fella with a [activation of games mind]games mind! Why not come over to the Game Shell and have a TALK?'";
+	say "[line break]";
+	ital-say "you may wish to see the verbs for The Problems Compound by typing VERB at any time.";
 
 the player is in Smart Street.
 
@@ -5724,7 +5756,7 @@ carry out going west in Tension Surface:
 
 chapter word weasel
 
-the Word Weasel is a neuter person in Variety Garden. description is "The Word Weasel[one of] looks pretty much like the weasels you imagined from those Brian Jacques novels you're too old for now, so you can't read the last few you wanted to. It[or][']s[stopping] facial expression seems to be going for 'so untrustworthy it's trustworthy.'". "The Word Weasel smirks about here."
+the Word Weasel is a neuter person in Variety Garden. description is "The Word Weasel looks pretty much like the weasels you imagined from those Brian Jacques novels you're too old for now (it took a while for people to convince you,) so you can't read the last few you wanted to. Its facial expression seems to be going for 'so untrustworthy it's trustworthy.'". "The Word Weasel smirks about here."
 
 check talking to weasel when burden-signed is true:
 	say "It doesn't seem to want to talk any more, and come to think of it, neither do you, really. It's time to get a move on." instead;
@@ -10822,6 +10854,9 @@ part One Route
 
 One Route is a room in Rejected Rooms. "This is the first route in the director's cut, and oh, hey, guess what? There's only one route out of here: to the west."
 
+check going nowhere in One Route:
+	say "The rest of the director's cut area opens to the west." instead;
+
 part Muster Pass
 
 Muster Pass is a room in Rejected Rooms. "It looks and feels nice here, but there's nothing REALLY worth describing except that maple. Exits east and west seem equally suitable when this passage (which is okay and all) isn't good enough for you any more.". Muster Pass is west of One Route.
@@ -10841,6 +10876,9 @@ Francis Pope is a person in Tuff Butt Fair. description of Francis Pope is "Dres
 check talking to Francis Pope:
 	say "You don't want to hear his views on religion. They generally involve telling poor people to shut up and be happy and fake-smiling at anyone who disagrees with that." instead;
 
+check going nowhere in Tuff Butt Fair:
+	say "The ways south and north are, err, too tough to fight through." instead;
+	
 part Ill Falls
 
 Ill Falls is a room in Rejected Rooms. Ill Falls is east of Tuff Butt Fair. "A breathtaking view of waterfalls, and yet--it seems possibly manufactured, and you hold your breath suppressing anger that might be the case.[paragraph break]You can only go back west to the fair."
@@ -10872,11 +10910,17 @@ part Rage Road
 
 Rage Road is south of Chicken Free Range. Rage Road is in Rejected Rooms. "Fortunately, there is no sound of SUVs or hummers or sports cars about to run you over or get close to it or not stop at a crosswalk. Unfortunately, you flash back to all the times they did."
 
+check going nowhere in rage road:
+	say "Boy, if there were an intersection here, it'd be just too mad. So, it's just east-west." instead;
+	
 Rage Road is west of Muster Pass.
 
 part Mine Land
 
 Mine Land is a room in Rejected. Mine Land is west of Rage Road. "A very barren, unevenly pitted place. You can still hear echos of people who likely fought over it until it was wasted."
+
+check going nowhere in mine land:
+	say "It might not be safe to go [noun]. Rage Road to the east is less unsafe." instead;
 
 part Humor Gallows
 
@@ -10988,9 +11032,6 @@ Perilous Siege is a room in Just Ideas Now. "Some kind of combat is going on her
 chapter Robbery Highway
 
 Robbery Highway is a room in Just Ideas Now. "There's a speed limit sign here (45 MPH IF YOU'RE LAME, 75 IF YOU'RE NOT,) but it's just put there so anyone dumb enough to follow it will get mugged."
-
-check taking speed limit sign:
-	say "You never even played mailbox baseball. Anyway, it'd be a pain to carry." instead;
 
 chapter Space of Waste
 
