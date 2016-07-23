@@ -234,6 +234,39 @@ CLICK! That's the last one. You're back to the start. No more prison-y areas.
 
 Expectations Meet
 
+>jump
+Smart Street
+
+>bb
+>x game shell
+
+>note
+There is only one note so far.
+1. Game Shell
+
+>note 0
+There's only one annotation, #1, so far. Explore a bit more!
+>note 2
+There's only one annotation, #1, so far. Explore a bit more!
+
+>bb
+>play
+>in
+
+>x round stick
+(2) It took a bit of time to find the magic item to cross over into the truly odd bits. Originally it was the Proof of Burden, but that was too magical, too early. And that might've forced the mechanic on you. I think A Round Stick is a bit subtler. Plus it let me put two round things together.
+
+>note 0
+You need a number between 1 and 2.
+
+>note 3
+You need a number between 1 and 2.
+
+>put stick in screw
+
+>climb chair
+>hit hatch
+
 * anno-not-unlocked
 
 >vu 0

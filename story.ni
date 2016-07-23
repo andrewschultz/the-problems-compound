@@ -2195,10 +2195,10 @@ check giving smokable to: [poory pot or wacker weed]
 		say "[if noun is poory pot]Sal might be offended by that. As if he is the one causing the smell. Maybe if you can make it so the poory pot can take over the whole room...[else]Sal would probably tell you he's no druggie.[end if]" instead;
 	if second noun is Sid Lew:
 		say "That might mellow him out, but it also might start him lecturing on anti-pot laws. Which you don't want, regardless of his stance." instead;
-	if second noun is Lee Bull:
-		say "Lee shrugs helplessly. That's not active enough to disrupt Sid's barrage of chatter." instead;
 	if second noun is Sly Moore:
 		say "'That might help my audience enjoy my tricks more, but I'd wind up doing [']em a bit worse.'" instead;
+	if second noun is Lee Bull:
+		say "Lee shrugs helplessly. That's not active enough to disrupt Sid's barrage of chatter." instead;
 	if second noun is faith or second noun is grace:
 		say "That's probably not the sort of incense or decoration they want to use[if fourth-blossom is in lalaland]. You restored the blossom, anyway[else]. The bowl seems more for flowers[end if]." instead;
 	if second noun is Pusher Penn:
@@ -2297,10 +2297,18 @@ check giving the condition mint to:
 		say "That wouldn't fill it much. You need to change the ring." instead;
 	if second noun is mentality crowd:
 		say "You did pretty well, but you have no idea how to split the one mint among such a large crowd." instead;
+	if second noun is sly moore:
+		if talked-to-sly is true:
+			say "Maybe it would've been a good way to break the ice, but he doesn't need that now." instead;
+		now mint is in lalaland;
+		now talked-to-sly is true;
+		say "'Oh, hey, thanks! I'm Sly Moore.'" instead;
 	if second noun is not a person:
 		say "No way for the mint to be digested." instead;
 	if second noun is Erin Sack:
 		say "That'd imply her breath was bad. Uncool." instead;
+	if second noun is percy:
+		continue the action;
 	if second noun is baiter-aligned:
 		say "[the second noun] is a bit above the condition mint, and how it might help them feel forgiven or put away shame." instead;
 	if second noun is not a client:
@@ -2720,7 +2728,7 @@ check giving (this is the default for giving to people organized by room rule) :
 	if second noun is mentality crowd:
 		say "Aw, shucks, you gave them enough." instead;
 	if second noun is thoughts idol:
-		say "The idol seems to watch you with contempt. THAT?!";
+		say "The Thoughts Idol wants nothing physical. Just your fear and thoughts." instead;
 
 give-put-warn is a truth state that varies.
 
@@ -3132,7 +3140,7 @@ Wash White	"To whitewash is to wipe clean."	--
 chase paper	"A paper chase is excessive paperwork. In this case, work not strictly needed to reach Cute Percy."	"I love puns riffing on bureaucracy, and this was a good one. I'm pleased with this puzzle because it's a simple parity one based on actual physical reality. Too often you can go diagonally 1.4 times as fast as straight. This is neat for Reti's endgame puzzle, but not physically realistic. And I liked having a realistic puzzle in the middle of the abstract murk." [start of chipper wood]
 Cute Percy	"To persecute someone is to make them suffer for who they are[if cute percy is in lalaland]and right per se means literally right, but that's not what matters[end if]."	"Percy was the Assassination Character pre-release 3, but the problem is, he never got close to killing anyone. Still, the name gave me laughs."
 bad face	"The bad face will help you face a bad...something. Also, 'bad' in the Michael Jackson sense of, I did/can do something cool."	"This is meant to show Alec's emotional development. He's figured out something tough, and he's confident about that. But he also doesn't need this to go through the Compound." [start of the belt below]
-Insanity Terminal	"Terminal insanity is having no chance to regain sanity[if terminal is in lalaland]. As for the puzzle: it is inspired by Jim Propp's Self-Referential Aptitude Test, which is well worth a look, but a good deal more complex[end if]."	"I always wanted to write a puzzle like this, but yeah, in release 1, it was dropped in there."
+Insanity Terminal	"Terminal insanity is having no chance to regain sanity[if terminal is in lalaland]. As for the puzzle: it is inspired by Jim Propp's Self-Referential Aptitude Test, which is well worth a look (http://faculty.uml.edu/jpropp/srat.html is one place to find it,) but a good deal more complex[end if]."	"I always wanted to write a puzzle like this, but yeah, in release 1, it was dropped in there."
 crocked half	"Half-crocked means drunk."	"This was a bugging doodle for a while until I found something better. You need a lot of placements like that, sometimes." [start of bottom rock]
 legend of stuff	"The Stuff of Legend means a book about great tales of yore, as opposed to the scribble-hint-book you get."	"This was another thing that sounded great but didn't seem to fit in anywhere--or seemed too obvious--until I decided to go ahead with the puzzle. It appeared in release 2, taking the functionality of the notes crib."
 notes crib	"To crib notes is to copy from someone who was at a lecture."	--
@@ -10599,6 +10607,8 @@ understand "wring [text]" and "[text] wring" as a mistake ("It's too big for tha
 
 understand "ring true" and "true ring" as a mistake ("You know your Tolkein, but somehow, you think, showing up its falsehood might be the way to go.[ring-clue]") when player is in Out Mist.
 
+understand "ring false" and "false ring" as a mistake ("Well, not false...but a word like it.[ring-clue]") when player is in Out Mist.
+
 understand "hole [text]" and "[text] hole" as a mistake ("Concentrate on the ring, not the hole.") when player is in Out Mist.
 
 understand "worm [text]" and "[text] worm" as a mistake ("The worm ring's problem isn't that it's a worm, but rather that it's a ring.") when player is in Out Mist.
@@ -10878,7 +10888,7 @@ check talking to Francis Pope:
 
 check going nowhere in Tuff Butt Fair:
 	say "The ways south and north are, err, too tough to fight through." instead;
-	
+
 part Ill Falls
 
 Ill Falls is a room in Rejected Rooms. Ill Falls is east of Tuff Butt Fair. "A breathtaking view of waterfalls, and yet--it seems possibly manufactured, and you hold your breath suppressing anger that might be the case.[paragraph break]You can only go back west to the fair."
@@ -10912,7 +10922,7 @@ Rage Road is south of Chicken Free Range. Rage Road is in Rejected Rooms. "Fortu
 
 check going nowhere in rage road:
 	say "Boy, if there were an intersection here, it'd be just too mad. So, it's just east-west." instead;
-	
+
 Rage Road is west of Muster Pass.
 
 part Mine Land
@@ -10942,7 +10952,7 @@ Madness March is west of Eternal Hope Springs. Madness March is in Rejected Room
 
 check going nowhere in madness march:
 	say "The path bends north and east here." instead;
-	
+
 part Window Bay
 
 Window Bay is north of Madness March. Window Bay is in Rejected Rooms. "It seems like your vision is sharper here than elsewhere. To keep you busy, a small structure labeled 'VIEW OF POINTS' is here."
