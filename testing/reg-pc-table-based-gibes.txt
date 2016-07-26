@@ -1,0 +1,477 @@
+# reg-pc-table-based-gibes.txt: testing all sorts of table based responses
+# For a full description, see <http://eblong.com/zarf/plotex/regtest.html>
+
+** game: /home/andrew/prt/debug-compound.ulx
+** interpreter: /home/andrew/prt/glulxe -q
+
+* quick general test why not
+
+>tj 0
+1. Round Lounge
+>tj
+1. Round Lounge
+>testjump
+1. Round Lounge
+>testjump 0
+1. Round Lounge
+>jt
+1. Round Lounge
+>jt 0
+1. Round Lounge
+
+* freakout-idol-solved
+
+>tj 15
+
+>drink quiz pop
+>n
+
+>freak out
+WRONG
+
+>undo
+>gq 101
+>freak out
+WRONG
+
+>undo
+>gq 102
+>freak out
+WRONG
+
+>undo
+>gq 104
+>freak out
+WRONG
+
+>undo
+>gq 105
+>freak out
+WRONG
+
+>undo
+>gq 106
+>freak out
+WRONG
+
+>undo
+>gq 109
+>freak out
+WRONG
+
+>undo
+>gq 110
+>freak out
+WRONG
+
+>undo
+>gq 111
+>freak out
+WRONG
+
+>undo
+>gq 114
+>freak out
+WRONG
+
+>undo
+>gq 115
+>freak out
+WRONG
+
+>undo
+>gq 116
+>freak out
+WRONG
+
+>undo
+>gq 119
+>freak out
+WRONG
+
+>undo
+>gq 120
+>freak out
+WRONG
+
+>undo
+>gq 121
+>freak out
+WRONG
+
+>undo
+>gq 122
+>freak out
+WRONG
+
+* freakout-idol-unsolved
+
+>notice advance
+
+>drink quiz pop
+>n
+
+>freak out
+WRONG
+
+>undo
+>gq 101
+>freak out
+WRONG
+
+>undo
+>gq 102
+>freak out
+WRONG
+
+>undo
+>gq 104
+>freak out
+WRONG
+
+>undo
+>gq 105
+>freak out
+WRONG
+
+>undo
+>gq 106
+>freak out
+WRONG
+
+>undo
+>gq 109
+>freak out
+WRONG
+
+>undo
+>gq 110
+>freak out
+WRONG
+
+>undo
+>gq 111
+>freak out
+WRONG
+
+>undo
+>gq 114
+>freak out
+WRONG
+
+>undo
+>gq 115
+>freak out
+WRONG
+
+>undo
+>gq 116
+>freak out
+WRONG
+
+>undo
+>gq 119
+>freak out
+WRONG
+
+>undo
+>gq 120
+>freak out
+WRONG
+
+>undo
+>gq 121
+>freak out
+WRONG
+
+>undo
+>gq 122
+>freak out
+WRONG
+
+* terminal-errors
+
+>gonear belt below
+
+>z
+
+>aaaaaaca
+The Insanity Terminal emits a piercing siren tone. It looks like you'll need to try again.
+
+>aaaaaaca
+The Insanity Terminal emits a piercing siren tone. It looks like you'll need to try again.
+
+>aaaaaaca
+The Insanity Terminal emits a piercing siren tone. It looks like you'll need to try again.
+
+>aaaaaaca
+The Insanity Terminal emits a piercing siren tone. It looks like you'll need to try again.
+
+>aaaaaaca
+The Insanity Terminal emits a piercing siren tone. It looks like you'll need to try again.
+Okay. This is getting annoying.
+
+>gq 204
+If this wasn't what you wanted, type GQ for general help.
+Terminal-errors is now 6. Bad-guy taunt for terminal failure critical values are:4, 5, 6 19, 20, 21 
+
+>abcdeffa
+The Insanity Terminal emits one of those slow scales that always seem to be ascending. You look down, and it's highlighting question 7. You wonder if you are overthinking that one. It looks like you'll need to try again.
+Okay. This is getting annoying.
+
+>gq 219
+>aaaaaaca
+The Insanity Terminal emits a piercing siren tone. It looks like you'll need to try again.
+You will get it, somehow, some way. You hope.
+
+* game-shell-turns
+
+>bb
+
+>play
+>play
+>play
+Guy pauses to count on his fingers a bit. "Oh, yeah, hey, if you were expecting a new gift, I heard these puzzles are their own reward for, uh, you people. What?! C'mon, now. You'll need thicker skin than that to get to the Baiter Master through Broke Flat over there."
+
+>play
+>play
+>play
+Guy pauses to count on his fingers a bit. "Wow. You have, like, aptitude or something. You're gonna go far in life. Well, unless you use your smarts or memory on silly games like these. Or use 'em to put off bigger challenges. Like in Broke Flat over there."
+
+>play
+>play
+>play
+>play
+Guy pauses to count on his fingers a bit. "All these wins are most impressive! I'm sure your skills will come in handy in a technical field. Not enough to be a high-level manager, but yeah. Boy. You need the Baiter Master's snark even more. If a brain like yours fell into Buster Ball's clutches..."
+
+>play
+>play
+>play
+>play
+>play
+Guy pauses to count on his fingers a bit. "Hey, you've shown some heavy-duty, I guess! Uh, yeah, I'm totally yawning because my brain is tired, not because I am."
+
+>play
+>play
+>play
+>play
+>play
+>play
+>play
+>play
+>play
+>play
+>play
+>play
+>play
+
+You scrunch your eyes. You've already played and won everything.
+
+"Bored? Me too! How 'bout that?" snarks Guy.
+
+>play
+You scrunch your eyes. You've already played and won everything.
+
+"Bored? Me too! How 'bout that?" snarks Guy.
+
+>enter broke flat
+WRONG
+>undo
+
+>gq 301
+>enter broke flat
+WRONG
+>undo
+
+>gq 302
+>enter broke flat
+WRONG
+>undo
+
+>gq 305
+>enter broke flat
+WRONG
+>undo
+
+>gq 306
+>enter broke flat
+WRONG
+>undo
+
+>gq 307
+>enter broke flat
+WRONG
+>undo
+
+>gq 310
+>enter broke flat
+WRONG
+>undo
+
+>gq 311
+>enter broke flat
+WRONG
+>undo
+
+>gq 315
+>enter broke flat
+WRONG
+>undo
+
+>gq 316
+>enter broke flat
+WRONG
+>undo
+
+>gq 320
+>enter broke flat
+WRONG
+>undo
+
+>gq 321
+>enter broke flat
+WRONG
+>undo
+
+
+
+* freak-control-turns
+
+>tj 15
+
+>drink pop
+>n
+
+>gq 400
+>freak out
+WRONG
+
+>undo
+>gq 401
+>freak out
+WRONG
+
+>undo
+>gq 404
+>freak out
+WRONG
+
+>undo
+>gq 405
+>freak out
+WRONG
+
+>undo
+>gq 406
+>freak out
+WRONG
+
+>undo
+>gq 409
+>freak out
+WRONG
+
+>undo
+>gq 410
+>freak out
+WRONG
+
+>undo
+>gq 411
+>freak out
+WRONG
+
+>undo
+>gq 414
+>freak out
+WRONG
+
+>undo
+>gq 415
+>freak out
+WRONG
+
+>undo
+>gq 416
+>freak out
+WRONG
+
+>undo
+>gq 440
+>freak out
+WRONG
+
+* hint-taunt-track
+
+>notice advance
+>purloin legend of stuff
+>drink quiz pop
+>n
+
+>freak out
+WRONG
+>undo
+>gq 501
+>n
+
+>freak out
+WRONG
+>undo
+>gq 502
+>n
+
+>freak out
+WRONG
+>undo
+>gq 503
+>n
+
+>freak out
+WRONG
+>undo
+>gq 504
+>n
+
+>freak out
+WRONG
+>undo
+>gq 505
+>n
+
+>freak out
+WRONG
+>undo
+>gq 506
+>n
+
+>freak out
+WRONG
+>undo
+>gq 509
+>n
+
+>freak out
+WRONG
+>undo
+>gq 510
+>n
+
+>freak out
+WRONG
+>undo
+>gq 511
+>n
+
+>freak out
+WRONG
+>undo
+>gq 520
+>n
+
+>freak out
+WRONG
+>undo
+>gq -1
+>freak out
+WRONG
+

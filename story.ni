@@ -4505,7 +4505,8 @@ total-wins	guy-sez
 2	"'I guess you're prepared and stuff. Or not.'"
 6	"'Nice job and all, but the puzzles are a bit more social in there. You know, talking to other people? Just a tip.'"
 10	"'Smart enough to get that many puzzles, you're smart enough to know how much they don't mean in the real world, eh? Without, like, people skills."
-10	"'You know, if you were more social, you'd be a total showoff. So you need to watch for that, if you get a clue in the Compound.'"
+15	"'You know, if you were more social, you'd be a total showoff. So you need to watch for that, if you get a clue in the Compound.'"
+20	"'Whoah! You really do need some social well-roundedness to go with that knowing. No offense.'"
 999	"'Boy! With all you learned about puzzles, you probably DIDN'T have time for common sensical stuff. Maybe you'll find it in there...or not.'"
 
 section Broke Flat
@@ -4554,6 +4555,7 @@ section jump macros
 
 to move-puzzlies-and-jerks:
 	now all clients are in lalaland;
+	now player has quiz pop;
 	move-puzzlies;
 
 to send-bros:
@@ -4771,10 +4773,10 @@ to notice-advance:
 	now jump-level is 4;
 	move player to questions field;
 	now all clients are in lalaland;
+	now player has quiz pop;
 	send-bros;
 	now the score is 17;
 	now last notified score is 17;
-	now player has quiz pop;
 	now gesture token is in lalaland;
 	open-babble;
 
@@ -5180,7 +5182,8 @@ rule for supplying a missing noun when the current action is playing (this is th
 				say "[ok-rand]." instead;
 			say "[ok-rand].";
 		if number of sortof-won logic-games is 0:
-			say "There are no games left! You've won them all, all ways you can.";
+			guy-all-done;
+			reject the player's command;
 		now noun is random-open-game;
 		say "(picking [noun])[paragraph break]";
 		the rule succeeds;
@@ -5196,8 +5199,11 @@ to decide which thing is random-open-game:
 		decide on a random never-won logic-game;
 	if number of sortof-won logic-games > 0:
 		decide on a random sortof-won logic-game;
-	say "You scrunch your eyes. You've already played and won everything.[paragraph break]'Bored? Me too! How [']bout that?' snarks Guy.";
+	guy-all-done;
 	decide on nothing;
+
+to guy-all-done:
+	say "You scrunch your eyes. You've already played and won everything.[paragraph break]'Bored? Me too! How [']bout that?' snarks Guy.";
 
 definition: a logic-game (called myg) is never-won:
 	if times-won of myg is 0, decide yes;
@@ -5251,7 +5257,7 @@ win-check	achieved	guy-banter
 3	false	"'Oh, yeah, hey, if you were expecting a new gift, I heard these puzzles are their own reward for, uh, you people. What?! C'mon, now. You'll need thicker skin than that to get to the [bad-guy] through Broke Flat over there.'"
 6	false	"'Wow. You have, like, aptitude or something. You're gonna go far in life. Well, unless you use your smarts or memory on silly games like these. Or use [']em to put off bigger challenges. Like in Broke Flat over there.'"
 10	false	"'All these wins are most impressive! I'm sure your skills will come in handy in a technical field. Not enough to be a high-level manager, but yeah. Boy. You need the [bad-guy]'s snark even more. If a brain like yours fell into [bad-guy-2]'s clutches...'"
-15	false	"'Hey, you've shown some heavy-duty, I guess! Uh, yeah, I'm totally yawning because my brain is tired, not because I am.'"
+15	false	"'Hey, you've shown some heavy-duty smarts, I guess! Uh, yeah, I'm totally yawning because my brain is tired, not because I am.'"
 99	false	"'Gee. That's the end. Impressive. If you had the social skills to match, why, it'd be YOU defending us against [bad-guy-2], not the [bad-guy].'"
 
 does the player mean playing Cute Percy: it is likely.
@@ -5287,6 +5293,7 @@ carry out playing:
 		say "Maybe you can. But you'll have to figure how." instead;
 	say "You can only really play something that's explicitly a game.";
 	if player is in smart street:
+		say "[line break]";
 		if number of sortof-won logic-games is 0:
 			say "You look for any game to play, but--you've solved them all, several different ways." instead;
 		say "Play a random game?";
@@ -10163,7 +10170,7 @@ table of bad guy worries [administrative]
 gad-act
 "The [bad-guy] mutters something about needing to [activation of Ezra Pound]pound Ezra for not appreciating his edgy, advanced, experimental poetry."
 "The [bad-guy] mutters he'd get six girls before [activation of King Henry]Henry King got one."
-"The [bad-guy] snickers at [activation of Tucker Max]Max Tucker's boring diaries that are well-written and all but don't have a trace of sex in them."
+"The [bad-guy] snickers at [activation of Tucker Max]Max Tucker's boring diaries that are well-written and all but don't have a trace of REAL self-awareness in them."
 "The [bad-guy] snorts at [activation of taste buds]Bud's taste."
 "The [bad-guy] mutters plans about the monthly [activation of cruise control]Control Cruise coming up, a nice support group for people almost tired of being in power."
 "'Ally, Inform!' the [bad-guy] says to nobody in particular."
@@ -10222,9 +10229,8 @@ check talking to Baiter Master:
 	if player has legend of stuff:
 		say "He points to the Legend of Stuff. 'Oh. It looks like you took the easy way out. In fact...";
 		say "[bm-stuff-brags][line break]";
-	say "[if thoughts idol is in lalaland]Destroyed the Thoughts Idol, too[else if service community is in lalaland]You'd think failing with the Thoughts Idol would be a hint, but maybe not[else if insanity terminal is in lalaland]Knew better than to challenge the Thoughts Idol, at least[else]Well, I have...resources...in place to fix your mess[end if].";
-	if insanity terminal is in lalaland:
-		say "[bm-idol-brags]";
+	say "[bm-idol-brags]";
+	say "[line break]Well, even with the Thoughts Idol [if idol is in lalaland]gone[else]here[end if], I should be able to fix the mess you made."
 
 to say bm-stuff-brags:
 	repeat through table of bm stuff brags:
@@ -10235,7 +10241,7 @@ to say bm-stuff-brags:
 to say bm-idol-brags:
 	repeat through table of bm idol brags:
 		if idol-fails <= times-failed entry or times-failed entry is -1:
-			say "[if idol is in lalaland][win-say entry][else][nowin-say entry]";
+			say "[if idol is in lalaland][win-say entry][else][nowin-say entry][end if]";
 			continue the action;
 
 reused-hint is a truth state that varies.
@@ -10246,6 +10252,7 @@ control-turns	time-taunt
 5	"'Wondered if you were going to do something.'"
 10	"'Gosh! Was it awkward for you, waiting, too?'"
 15	"'Well, yes, I saw you first thing.'"
+--	"'You know, you're lucky I didn't have you arrested for loitering.'"
 
 table of bm stuff brags
 times-failed	what-to-say
@@ -10426,6 +10433,8 @@ understand "hammer ninny" and "ninny hammer" as a mistake("This is a nonviolent 
 
 understand "hammer sledge" and "sledge hammer" as a mistake("If there were a sledge, you wouldn't want to destroy it. Trust me, I know what I'm doing. And you will, soon, too.[hammer-clue]") when player is in Airy Station.
 
+understand "strength hammer" and "hammer strength" as a mistake ("You've already gained strength. And hitting such a thick lock harder wouldn't do much.") when player is in Airy Station.
+
 understand "time hammer" and "hammer time" as a mistake ("A voice says 'STOP!' Your pants momentarily feel baggy. Maybe it doesn't quite need to be that sort of hammer.[hammer-clue]") when player is in Airy Station.
 
 understand "toe hammer" and "hammer toe" as a mistake ("The mentality crowd might enjoy that sort of comic relief, but you wouldn't.[hammer-clue]") when player is in Airy Station.
@@ -10443,7 +10452,7 @@ the hammer is a thing in Airy Station. "A hammer lies nearby. It's the sort you 
 check dropping the hammer:
 	say "You already dropped the figurative hammer on the [bad-guy]. Now to do something constructive with the real hammer." instead;
 
-description of hammer is "It's a nondescript hammer. You feel a power, though, as you carry it--as if you were able to change it, if you knew how to describe it."
+description of hammer is "It's a nondescript hammer--well, okay, it's blunt, not claw. Almost like a rubber mallet. You feel a power, though, as you carry it--as if you were able to change it correctly, if you knew a good way to describe it."
 
 after printing the name of the hammer when taking inventory:
 	say " (much plainer than it should be)";
@@ -11588,7 +11597,7 @@ terminal-errors is a number that varies.
 table of terminal frustration
 term-miss	term-text
 5	"Okay. This is getting annoying."
-50	"You will get it, somehow, some way. You hope."
+20	"You will get it, somehow, some way. You hope."
 
 table of plausible misses
 plaus
@@ -13071,52 +13080,60 @@ understand "gq" as a mistake ("[gq-err]")
 to say gq-err:
 	say "gq (number) forces a variable that would be tedious to increase to what it needs to be. The game detects what to changed based on where you are or what you have.[paragraph break]# of game wins in smart street.[line break]# of idol failures[line break][line break]# of times used the Legend of Stuff for new hints[line break]# of Insanity Terminal failures[line break]-1 twiddles whether you re-saw a hint in the Legend of Stuff.[paragraph break]Some too big answers may give a 'bug' response, which isn't really a bug.[paragraph break]Adding 100 to the number = that many idol failures, adding 200 = that many terminal failures, adding 300 = smart street game-wins, adding 400 = turns before talking to BM, adding 500 = legend of stuff reads.[paragraph break]Sorry for the magic numbers, but coding alternatives were worse."
 
+to say gqhelp:
+	say "If this wasn't what you wanted, type GQ for general help.[line break]";
+
 carry out gqing:
-	say "If this wasn't what you wanted, type GQ for general help.";
 	if the number understood is -1:
 		if player does not have legend of stuff:
 			say "You need the Legend of Stuff to twiddle whether you looked in it." instead;
 			now reused-hint is whether or not reused-hint is false;
 			say "You have now [if reused-hint is false]not [end if]reused a hint in the Legend of Stuff." instead;
 	let Z be the number understood / 100;
-	let Y be the remainder after dividing Z by 100;
+	let Y be the remainder after dividing the number understood by 100;
 	if Z > 5 or Z < 0:
 		say "You can only use numbers from -1 to 599 for this test hack.";
 		say "[gq-err] instead.";
 	if player is in service community or player is in idiot village or Z is 1:
-		say "Bad-guy taunt for idol failure critical values are:";
+		say "Idol-fails is now [idol-fails]. Bad-guy taunt for idol failure critical values are:";
 		repeat through table of bm idol brags:
-			say "[times-failed entry - 1], [times-failed entry], [times-failed entry + 1] ";
+			if there is a times-failed entry:
+				say "([times-failed entry - 1], [times-failed entry], [times-failed entry + 1])[line break]";
 		now idol-fails is Y;
-		say "[line break]" instead;
+		say "[gqhelp]" instead;
 	if player is in belt below or Z is 2:
-		say "Bad-guy taunt for terminal failure critical values are:";
+		say "Terminal-errors is now [terminal-errors]. Bad-guy taunt for terminal failure critical values are:";
 		repeat through table of terminal frustration:
-			say "[term-miss entry - 1], [term-miss entry], [term-miss entry + 1] ";
+			if there is a term-miss entry:
+				say "([term-miss entry - 1], [term-miss entry], [term-miss entry + 1])[line break]";
 		now terminal-errors is Y;
-		say "[line break]" instead;
+		say "[gqhelp]" instead;
 	if player is in smart street or Z is 3:
-		say "Win chat critical values are: ";
+		say "Your-game-wins is now [your-game-wins]. Win chat critical values are: ";
 		repeat through table of win chat:
-			say "[win-check entry - 1], [win-check entry], [win-check entry + 1] ";
+			if there is a win-check entry:
+				say "([win-check entry - 1], [win-check entry], [win-check entry + 1])[line break]";
 		say "[line break]";
 		say "Guy taunt-as-you-leave values are:";
-		repeat through table of win chat:
-			say "[total-wins entry - 1], [total-wins entry], [total-wins entry + 1] ";
+		repeat through table of guy taunts:
+			if there is a total-wins entry:
+				say "([total-wins entry - 1], [total-wins entry], [total-wins entry + 1])[line break]";
 		now your-game-wins is Y;
-		say "[line break]" instead;
+		say "[gqhelp]" instead;
 	if player is in freak control or Z is 4:
-		say "Bad-guy taunts for time taken: ";
+		say "Freak control turns is [freak-control-turns]. Bad-guy taunts for time taken: ";
 		repeat through table of distract time:
-			say "[control-turns entry - 1], [control-turns entry], [control-turns entry + 1] ";
+			if there is a control-turns entry:
+				say "([control-turns entry - 1], [control-turns entry], [control-turns entry + 1])[line break]";
 		now freak-control-turns is Y;
-		say "[line break]" instead;
+		say "[gqhelp]" instead;
 	if player has Legend of Stuff or Z is 5:
-		say "Bad-guy taunts for using Legend of Stuff: ";
+		say "Legend of stuff peeks is now [hints-used]. Bad-guy taunts for using Legend of Stuff: ";
 		repeat through table of bm stuff brags:
-			say "[times-failed entry - 1], [times-failed entry], [times-failed entry + 1] ";
-		say "[line break]";
-		now hints-used is Y instead;
+			if there is a times-failed entry:
+				say "([times-failed entry - 1], [times-failed entry], [times-failed entry + 1])[line break]";
+		now hints-used is Y;
+		say "[gqhelp]" instead;
 	the rule succeeds;
 
 chapter gating
@@ -13238,15 +13255,17 @@ chapter testjumping
 
 understand the command "testjump" as something new.
 understand the command "tj" as something new.
+understand the command "jt" as something new.
 
 understand "testjump [number]" as nu-testjumping.
 understand "tj [number]" as nu-testjumping.
+understand "jt [number]" as nu-testjumping.
 
 nu-testjumping is an action applying to one number.
 
 list-testjumping is an action out of world.
 
-understand "testjump 0" and "testjump" and "tj" and "tj 0" as list-testjumping.
+understand "testjump 0/" and "tj 0/" and "jt 0/" as list-testjumping.
 
 carry out list-testjumping:
 	try nu-testjumping 0;
@@ -13298,6 +13317,7 @@ tj-descr	tj-rule	corruption
 "Face the Insanity Terminal"	face-term rule	true
 "Face the Idol"	face-idol rule	true
 "Defeat the Idol"	defeat-idol rule	true
+"Defeat everyone"	defeat-everyone rule	true
 
 this is the go-lounge rule:
 	move player to round lounge;
@@ -13372,6 +13392,11 @@ this is the defeat-idol rule:
 	open-bottom;
 	now player has crocked half;
 	now thoughts idol is in lalaland;
+	the rule succeeds;
+
+this is the defeat-everyone rule:
+	send-bros;
+	follow the defeat-idol rule;
 	the rule succeeds;
 
 chapter montying
