@@ -2236,13 +2236,24 @@ check giving bad face to:
 
 check giving gesture token to:
 	if second noun is weasel:
-		now token is in lalaland;
+		now gesture token is in lalaland;
+		annotize gesture token;
 		now player has the pocket pick;
 		say "He tucks away the token with a sniff. 'Well, it's not much--but, very well, I'll let you in my work study program. I won't even charge interest. Have this pocket pick. It'll help you DIG to find stuff. You can try it here, with the poor dirt!'" instead;
 	if second noun is mush:
 		say "'Pfft. Petty bribery. I need forms. Signed forms.'" instead;
 	if second noun is guy sweet:
 		say "'I've got plenty of those! Anyway, these games are free. And if I charged, it'd be more than THAT.'" instead;
+
+to annotize (toanno - a thing):
+	if ever-anno is true:
+		repeat through table of annotations:
+			if there is an exam-thing entry:
+				if toanno is exam-thing entry and anno-num entry is 0:
+					increment cur-anno;
+					now anno-num entry is cur-anno;
+					if anno-allow is true:
+						say "Annotation [cur-anno] inserted for [the toanno] if you'd like.";
 
 check giving burden to:
 	if second noun is mush:
@@ -2368,6 +2379,8 @@ check giving the trail paper to:
 		say "'Eh, you've done enough. Here, I'll shred the evidence. So you don't get caught later. Say, after all that goofing around, you might be hungry. Look around in Meal Square. There's some food that'll fix you quick.'";
 		unlock-verb "figure";
 		now Terry Sally is in lalaland;
+		annotize erin sack;
+		annotize ally stout;
 		the rule succeeds;
 	if second noun is Erin:
 		say "She shrugs and mentions she's been better places." instead;
@@ -2415,6 +2428,7 @@ check giving mind of peace to:
 		now brother blood is in lalaland;
 		say "Brother Blood takes the mind and gazes at it from all different angles. He smiles. 'Yeah...yeah. Some people are just mean. Nothing you can do to brush [']em off but brush [']em off. I mean, I knew that, but I KNOW it now.'[paragraph break]'Thank you!' he says, squeezing your arm a bit too hard. 'Oops, sorry, let's try that again.' The other arm works better. 'I'm--I'm not just good for snarling and yelling at people and pushing them around, like the [bad-guy] said. I'm more than that. So I guess I need to go find myself or something.'";
 		check-left;
+		annotize brother blood;
 		the rule succeeds;
 
 check giving trade of tricks to:
@@ -2423,6 +2437,7 @@ check giving trade of tricks to:
 		now trade of tricks is in lalaland;
 		say "'Wow! All these things I never learned before! Was it really--did people really--yes, they did.' You read through with him, [if trade of tricks is examined]re-[end if]appreciating all the things you'd fallen for and won't again.[paragraph break]'I won't be suckered again. Well, not as badly, or as often.'";
 		check-left;
+		annotize brother big;
 		the rule succeeds;
 
 check giving money seed to:
@@ -2481,6 +2496,7 @@ check giving relief light to:
 		now brother soul is in lalaland;
 		say "'Thank you! My soul is less heavy and dark now. I believe I have a higher purpose than just blocking people.'";
 		check-left;
+		annotize brother soul;
 		the rule succeeds;
 
 instead of giving the long tag to:
@@ -2498,6 +2514,7 @@ check giving Reasoning Circular to:
 		now the Reasoning Circular is in lalaland;
 		say "A tear starts to form in Officer Petty's eye. 'Really? I...well, this definitely isn't bribery! I've cultivated a nice [activation of scofflaw]law-scoff at people who get simple stuff wrong, but I always felt there was more. I could have more complex reasons to put people down. I really CAN follow a [activation of career threatening]Threatening Career! I CAN be clever and still play the Maybe I Didn't Go to a Fancy School card. Thank...' He looks at the Reasoning Circular again. 'Wait, wait. Maybe you wouldn't have gotten anything out of this invitation anyway. So it's not so generous.' Officer Petty beams at his newfound profundity before shuffling off.";
 		increment the score;
+		annotize officer petty;
 		the rule succeeds;
 	if second noun is Fritz:
 		say "'Whoah! Cosmic!'" instead;
@@ -2517,8 +2534,10 @@ check giving trick hat to:
 		now player has the trap rattle;
 		now trick hat is in lalaland;
 		increment the score;
-		now sly is in lalaland;
-		say "[line break]And once you take a step, thought is hard. Rattle, rattle. But you can't give it back, now. Still, maybe it'll be more useful for you than Sly." instead;
+		now sly moore is in lalaland;
+		say "[line break]And once you take a step, thought is hard. Rattle, rattle. But you can't give it back, now. Still, maybe it'll be more useful for you than Sly.";
+		annotize Sly Moore;
+		the rule succeeds;
 
 check giving wax to:
 	ignore the can't give what you haven't got rule;
@@ -2579,7 +2598,9 @@ check giving the trap rattle to: [you can't get the trap rattle until you've got
 		now Sid Lew is in lalaland;
 		now trap rattle is in lalaland;
 		now player has trade of tricks;
-		increment the score instead;
+		increment the score;
+		annotize lee bull;
+		annotize sid lew;
 	if second noun is dutch or second noun is turk:
 		say "They're making enough hoopla as-is." instead;
 	if second noun is pusher penn:
@@ -3564,12 +3585,14 @@ understand "note [number]" as notenuming when anno-allow is true.
 
 understand "note [any room]" as roomnoteing when anno-allow is true.
 
+understand "note" and "note [text]" as a mistake ("NOTE can only be used while ANNO is on.") when anno-allow is false.
+
 carry out notethinging:
 	dl "[noun].";
 	if there is an exam-thing of noun in table of annotations:
 		choose row with exam-thing of noun in table of annotations;
 		if location of noun is visited:
-			say "Notes for [anno-loc entry]: [anno-long entry][line break]";
+			say "Notes for [noun]: [anno-long entry][line break]";
 		else:
 			say "You haven't seen this item yet, so I'm not going to give you the annotation yet.";
 		the rule succeeds;
@@ -3586,7 +3609,7 @@ carry out roomnoteing:
 	say "Well, there should be a note for this room, but there isn't." instead;
 
 carry out noteflating:
-	say "You should be able to NOTE (location) for any location you visited while annotations were on. In addition, you should be able to NOTE (item) or NOTE (number) for the number of an item.";
+	say "You should be able to NOTE (location) for any location you visited while annotations are on. In addition, you should be able to NOTE (item) or NOTE (number) for the number of an item.";
 	say "[line break]";
 	if cur-anno > 1:
 		say "Here is a list of the notes so far:[line break]";
@@ -3604,7 +3627,7 @@ to show-anno (X - a number):
 		say "Oops, there should be a footnote for that, but there is not. [bug]";
 		continue the action;
 	choose row with anno-num of X in table of annotations;
-	say "[X]. [if anno-loc entry is not lalaland][anno-loc entry][else][exam-thing entry][end if][line break]";
+	say "[X]. [exam-thing entry][line break]";
 
 carry out notenuming:
 	if the number understood < 1 or the number understood > cur-anno:
@@ -3720,11 +3743,13 @@ carry out vxing:
 	say "This is a list of extra jump verbs. They're not valid past Smart Street, though hopefully the rejects are interesting.";
 	repeat through table of vu:
 		if found entry is true:
+			if brief entry is "anno":
+				say "[b]ANNO[r] toggles if annotations are on. Once it is, you can [b]NOTE[r] a room or object. You can also [b]JUMP[r] to or from a director's cut area[if mrlp is rejected rooms], where you are now[else if route is visited], which you've already been to[end if].";
 			if brief entry is "track":
 				say "[2da]TRACK BEATEN doesn't jump physically, but it does let you solve the jerks' puzzle.";
 	repeat through table of vu:
 		if found entry is true:
-			if brief entry is not "track":
+			if brief entry is not "track" and brief entry is not "anno":
 				say "[2da][descr entry][line break]";
 	the rule succeeds;
 
@@ -3748,10 +3773,10 @@ carry out metaing:
 			do nothing;
 		else:
 			say "OK." instead;
-	say "Meta-commands:";
-	say "[2da]you can also type ABOUT or CREDITS or HISTORY or TECH to see information on the game's history.";
-	say "[2da]XP/EXPLAIN (any object) gives a brief description. XP with no argument explains the room name. XP can also explain a concept[one of], e.g. when Guy Sweet says 'you have a Games Mind,' you can XP GAMES MIND of XP MIND GAMES[or][stopping]. This is more for general information than game hinting.";
-	say "[2da]HELP/HINT/HINTS/WALKTHROUGH will redirect you to the PDF and HTML hints that come with the game. THINK/SCORE gives very broad, general hinting. WAIT lets you wait, which is useless, but it's a standard verb.";
+	say "Meta-commands:[line break]";
+	say "[2da]you can also type [b]ABOUT[r] or [b]CREDITS[r] or [b]HISTORY[r] or [b]TECH[r] to see information on the game's history.";
+	say "[2da][b]XP/EXPLAIN[r] (any object) gives a brief description. XP with no argument explains the room name. [b]XP[r] can also explain a concept[one of], e.g. when Guy Sweet says 'you have a Games Mind,' you can [b]XP GAMES MIND[r] or XP [b]MIND GAMES[r][or][stopping]. This is more for general information than game hinting.";
+	say "[2da][b]HELP/HINT/HINTS/WALKTHROUGH[r] will redirect you to the PDF and HTML hints that come with the game. [b]THINK/SCORE[r] gives very broad, general hinting.";
 	if cur-anno > 0:
 		say "[2da]NOTE (number or text) displays a previous note you uncovered." instead;
 	the rule succeeds;
@@ -4215,7 +4240,7 @@ anno-num	exam-thing	anno-loc	anno-long (text)
 table of annotations (continued) [toa-items]
 anno-num	exam-thing	anno-loc	anno-long (text)
 0	game shell	Smart Street	"This was originally a location, and its predecessor was the Gallery Peanut, which got shuffled to Meal Square, then to a potential sequel. But once I moved the Peanut, the Shell became obvious: a place where you could play games and win, but never really win anything valuable. Or you'd lose interest, or confidence."
-0	round stick	Round Lounge	"It took a bit of time to find the magic item to cross over into the truly odd bits. Originally it was the Proof of Burden, but that was too magical, too early. And that might've forced the mechanic on you. I think A Round Stick is a bit subtler. Plus it let me put two round things together."
+0	round stick	Round Lounge	"It took a bit of time to find the magic item to cross over into the truly odd bits. Originally it was the Proof of Burden, but that was too magical, too early. And that might've forced the mechanic on you. I think A Round Stick is a bit subtler. Plus it let me put two round things together. In a round location!"
 0	mouth mush	Tension Surface	"The mouth mush wasn't around until late in release 1. Originally it was the rogue arch talking, but walking into an actual mouth seemed a bit too creepy."
 0	flower wall	Vision Tunnel	"It took me forever to figure what should be in the Vision Tunnel. I couldn't leave it empty."
 0	Word Weasel	Variety Garden	"I like books with talking animals, but at the same time, it's interesting to subvery certain tropes. And the Word Weasel worked very well. It also plays on the whole 'you should've seen something from its name' versus 'with a name like that it better be honest.' The Word Weasel was also one of several entities neutered in release 3."
@@ -4498,6 +4523,7 @@ check going inside when player is in Smart Street:
 			say "As you enter the flat, you hear a lock click--from the outside. There's no way out except down to a basement and a tunnel. At a dead end, you push a wall, which swivels and clicks again as you tumble into a lighted room. You push the wall again, but whatever passage was there isn't now.";
 			continue the action;
 	say "Guy Sweet remains quiet. He should not.";
+	annotize game shell;
 
 table of guy taunts
 total-wins	guy-sez
@@ -4930,7 +4956,7 @@ to decide whether (pe - a person) is part-talked:
 
 table of npc talk summaries
 babbler	babble-content	babble-recap	convo-recap	babble-reward
-Word Weasel	"Something about how it's willing to give you his signature, which is very valuable indeed helping you move on in the world. It [if player has gesture token]seems interested in a swap[else]got you to trade your token plus some work for the pick[end if]."	"[weasel-babble]"	--	a thing
+Word Weasel	"Something about how the weasel's willing to give you its signature, which is very valuable indeed helping you move on in the world. It [if player has gesture token]seems interested in a swap[else]got you to trade your token plus some work for the pick[end if]."	"[weasel-babble]"	--	a thing
 Guy Sweet	"Guy Sweet blinks at you. 'Whoah! You're, like, more accelerated than most people at this whole social thing. Here, play a game, any game. It's sort of an aptitude test thing.'"	"Guy seemed impressed you took initiative and weren't intimidated[if gesture token is off-stage], but he's still waiting for you to play a game[else], and he even gave you that gesture token, too[end if]."	"Guy talked about the [bad-guy] and how you'd have to be very clever to meet him, and when you did, you'd better not waste his time."
 Mouth Mush	"The mouth mush harangues you about needing certification to go through the arch to the north. This isn't a big area, so it can't be far."	"The mouth mush wanted some sort of document."
 Fritz	"Many variants on 'Whoah dude whoah,' mumbling about the friend he lost[if fritz has minimum bear]--and you found[end if]."	"He was pretty incoherent, mumbling about a lost friend[if fritz has minimum bear] that you found[end if]."	--	--
@@ -5443,7 +5469,9 @@ check attacking the hatch:
 			say "Wham! You swing at the hatch with your off tee. It catches just between the hatch and the ceiling. The hatch hinges down, and a fold-out ladder falls out from it. Which is handy, but unfortunately, it's also handsy, so you sort of have to drop the off-tee. You unscrew it, too, for the next person who might get stuck in here, before climbing up to somewhere completely different from Smart Street...";
 			wfak;
 			now off tee is in lalaland;
-			move player to Tension Surface instead;
+			move player to Tension Surface;
+			annotize round stick;
+			the rule succeeds;
 		say "You swing your fist at it, but you miss by a couple feet. Maybe if you extended your reach, you could pull the hatch open." instead;
 	if player has screw or player has stick:
 		say "You take a good swing with your [screw-or-stick] but miss by a few feet. Hm. How to get closer?" instead;
@@ -5559,7 +5587,10 @@ check going when player is in Tension Surface (this is the pass-arch rule) :
 			say "[one of]You think you've judged how the arch dances, so you can anticipate and walk in. Timing...there...WOOMP! The mush mouth opens so wide you can't jump over it. 'Oops! I need proof you NEED to get by.'[or]The mouth expands again. You're not falling in there, oh no.[stopping]" instead;
 		say "You take a cautious step. That rogue arch might still bounce around...";
 		wfak;
-		say "Thankfully, nothing happens besides your surroundings changing from plains to water."
+		say "Thankfully, nothing happens besides your surroundings changing from plains to water.";
+		annotize flower wall;
+		annotize mouth mush;
+		annotize word weasel;
 
 section mouth mush
 
@@ -6731,7 +6762,7 @@ check going south in joint strip:
 	if jump-level > 2:
 		say "[one of]'There's something about you, young man. Like you've been shifty before. I can't trust you. So you better use some common sense. Or I'll use it for you!' booms the Stool Toad.[paragraph break]On further reflection, you figure there probably wasn't much in there. Much you need any more, anyway. Also, his last little put-down didn't make any sense. But it still hurt.[or]You don't want to be told off by the Stool Toad again. Whether or not he makes sense the next time.[stopping]" instead;
 	if Terry Sally is in lalaland:
-		say "You had your 'fun,' or an attempt at it, anyway. You don't want to go [if soda club is visited]back there[else]anywhere too crazy[end if].";
+		say "You had your 'fun,' or an attempt at it, anyway. You don't want to go [if soda club is visited]back there[else]anywhere too crazy[end if]." instead;
 	if jump-level > 0 and soda club is unvisited:
 		say "The Stool Toad eyes you suspiciously. 'Don't know what you're up to, but ... it's something too clever for your own good. You--you cheated to get here, somehow.'";
 	else if soda club is unvisited:
@@ -7651,6 +7682,7 @@ to zap-the-jerks:
 	now all clients are in lalaland;
 	unlock-verb "track";
 	unlock-verb "notice";
+	annotize jerks;
 
 check going north when player is in well:
 	if silly boris is in lalaland:
@@ -8016,6 +8048,7 @@ to open-below:
 	now belt below is below chipper wood;
 	now chipper wood is above belt below;
 	inc-max;
+	annotize Cute Percy;
 
 to decide whether Percy-in-corner:
 	if ac-x is 0 and ac-y is 12:
@@ -8145,7 +8178,9 @@ before talking to story fish:
 		now art fine is in lalaland;
 		now story fish is in Discussion Block;
 		say "[if harmonic phil is in Discussion Block]Harmonic Phil snickers. 'Well, Art was smart and all, but he was getting kind of boring anyway. And he didn't know a THING about music.'[else]Well, that's Phil AND Art gone.[end if]";
-		increment the score instead;
+		increment the score;
+		annotize art fine;
+		the rule succeeds;
 	say "[if harmonic phil is in Discussion Block and player is in Discussion Block]Harmonic Phil hums loudly over the sound of the fish talking. You'll need to ... fish for another way to get rid of Phil.[else]'Eh? Where'd everyone go? I'll wait [']til there's a crowd to tell my story.'[end if]";
 	the rule succeeds;
 
@@ -8592,6 +8627,7 @@ to open-bottom:
 	now Bottom Rock is below Belt Below;
 	now Belt Below is above Bottom Rock;
 	now Insanity Terminal is in lalaland;
+	annotize insanity terminal;
 
 part Classic Cult
 
@@ -8842,7 +8878,8 @@ check opening sound safe:
 	now sound safe is in Discussion Block;
 	now harmonic phil is in lalaland;
 	say "[line break][if art fine is in Discussion Block]Art Fine chuckles and nods approval. 'That's what you get for dabbling in art that's not intellectually robust.' Wow. Even before a line like that, you figured Art Fine had to go, too.[else]Well, that's Phil AND Art gone.[end if]";
-	increment the score instead;
+	increment the score;
+	annotize harmonic phil;
 
 to say safety-of:
 	say "[one of]I need the safety of the [activation of block creativity]Creativity Block[or]It's never this rough in the [activation of block arguments]Arguments Block[stopping]"
@@ -9128,6 +9165,7 @@ check going in service community:
 			move player to idiot village, without printing a room description;
 			move crocked half to lalaland;
 			inc-max;
+			annotize thoughts idol;
 		the rule succeeds;
 	else:
 		move thoughts idol to idiot village;
@@ -9504,6 +9542,7 @@ after quipping when qbc_litany is table of Buddy Best talk:
 		say "[line break]Well, it's something. Which is more than you expected. Generally, obnoxious fast-talkers wound up taking something from YOU after a short, loud, fast dialog. You're not sorry you had no chance to say good-bye.";
 		now player has the Reasoning Circular;
 		try going east;
+		annotize buddy best;
 
 part Discussion Block
 
@@ -9862,6 +9901,9 @@ to check-left:
 		say "Oh, man! The way north is free now! As the final brother leaves, he turns to say 'Beware...trap...question mark...exclamation mark...'";
 		unlock-verb "fancy";
 		unlock-verb "notice";
+		annotize terry sally;
+		annotize fritz the on;
+		annotize stool toad;
 	increment the score;
 
 litany of Brother Big is the table of Brother Big talk.
@@ -10058,6 +10100,7 @@ check inserting it into (this is the put it in vent rule):
 			now sal-sleepy is true;
 			say "As you stuff the thin roll into the vent, it tumbles down to what you can only assume is an incinerator or air flow or something in Temper Keep's foundation you'd be better off not touching in normal circumstances.[paragraph break]The 'aromatics' of the poory pot seep into the air in Temper Keep. 'Is it just me, or is it not stinky in here? Yes! Yes! It is probably some combination of both!' You stand well out of the way as Sal continues to babble, his pseudo-philosophy becoming ever more pseudo- before...clonk. He's out.";
 			increment the score;
+			annotize pusher penn;
 			the rule succeeds;
 		if noun is long string:
 			say "You fish in the vent with the string, but nothing comes up." instead;
@@ -10340,6 +10383,12 @@ to choose-final-room:
 		else:
 			say "'Where? In the BREAK JAIL[activation of break jail]!'[paragraph break]Could people who yell that loud REALLY be that wrong?  You keep a straight face, even as he booms '[activation of zeroin]IN, ZERO!' Which helps you focus more than you thought you could on how to get out. You're way ahead of the guards when they give chase. There's a mist ahead--maybe they'll lose you! But you've done even better. 'The out mist!' they yell. 'People eventually leave there to get back to real life.'";
 			move player to Out Mist;
+		annotize baiter master;
+		annotize grace goode;
+		annotize turk young;
+		annotize volatile sal;
+		annotize mistake grave;
+		annotize language machine;
 
 chapter freakouting
 
