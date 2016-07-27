@@ -13158,7 +13158,10 @@ carry out gqing:
 		now terminal-errors is Y;
 		say "[gqhelp]" instead;
 	if player is in smart street or Z is 3:
-		say "Your-game-wins is now [your-game-wins]. Win chat critical values are: ";
+		let totwin be 0;
+		repeat with lg running through logic-games:
+			now totwin is totwin + max-won of lg;
+		say "Your-game-wins is now [your-game-wins]. The maximum possible is [totwin]. Win chat critical values are: ";
 		repeat through table of win chat:
 			if there is a win-check entry:
 				say "([win-check entry - 1], [win-check entry], [win-check entry + 1])[line break]";
@@ -14082,6 +14085,8 @@ carry out cswearing:
 	the rule succeeds;
 
 chapter vuing
+
+[ * this either unlocks all the verbs (vu 1) or locks them (vu 0) ]
 
 vuing is an action out of world applying to one number.
 vu0ing is an action out of world.

@@ -168,6 +168,8 @@ if ($dicURLPrint) { print C "CHECK http:\/\/idioms.thefreedictionary.com\/$flip\
 close(C);
 
 my $bigLongBit = "";
+my $endBit = "";
+my $thisLine = "";
 
 open(A, "c:/writing/dict/brit-1$wa.txt");
 
@@ -186,12 +188,15 @@ while ($a = <A>)
   }
   else { next; }
   $wordLength = length($a);
-  $bigLongBit .= "$a to $b";
-  if ($word{$c}) { $bigLongBit .= " *** word"; $wordy++; }
-  if (($oldLength != $wordLength) && ($wa eq "word")) { $bigLongBit .= " ($wordLength)"; $oldLength = $wordLength; }
-  $bigLongBit .= "\n";
+  $thisLine = "$a to $b";
+  if ($word{$c}) { $thisLine .= " *** word"; $wordy++; }
+  if (($oldLength != $wordLength) && ($wa eq "word")) { $thisLine .= " ($wordLength)"; $oldLength = $wordLength; }
+  $thisLine .= "\n";
+  if (($thisLine !~ /\*/) && ($wa ne "word")) { $bigLongBit .= $thisLine; } else { $endBit .= $thisLine; }
   $found++;
 }
+
+$bigLongBit = "$endBit$bigLongBit";
 
 close(A);
 my $firstLine = "========$flip ($found)\n";
