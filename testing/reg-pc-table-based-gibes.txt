@@ -27,82 +27,82 @@
 >n
 
 >freak out
-WRONG
+"Destroyed the Thoughts Idol in one try, too. Lucky."
 
 >undo
 >gq 101
 >freak out
-WRONG
+"You're lucky the Thoughts Idol didn't kill you first try you got. It should've. But, mercy and stuff."
 
 >undo
 >gq 102
 >freak out
-WRONG
+"I suppose you can feel smart enough, beating the idol pretty quickly."
 
 >undo
 >gq 104
 >freak out
-WRONG
+"I suppose you can feel smart enough, beating the idol pretty quickly."
 
 >undo
 >gq 105
 >freak out
-WRONG
+"I suppose you can feel smart enough, beating the idol pretty quickly."
 
 >undo
 >gq 106
 >freak out
-WRONG
+"Eh, well, sort of average performance taking the idol."
 
 >undo
 >gq 109
 >freak out
-WRONG
+"Eh, well, sort of average performance taking the idol."
 
 >undo
 >gq 110
 >freak out
-WRONG
+"Eh, well, sort of average performance taking the idol."
 
 >undo
 >gq 111
 >freak out
-WRONG
+"Boy. Took you long enough with the idol, there."
 
 >undo
 >gq 114
 >freak out
-WRONG
+"Boy. Took you long enough with the idol, there."
 
 >undo
 >gq 115
 >freak out
-WRONG
+"Boy. Took you long enough with the idol, there."
 
 >undo
 >gq 116
 >freak out
-WRONG
+"So. Trial and error worked, I guess. But--didn't you feel dumb once you realized what you did?"
 
 >undo
 >gq 119
 >freak out
-WRONG
+"So. Trial and error worked, I guess. But--didn't you feel dumb once you realized what you did?"
 
 >undo
 >gq 120
 >freak out
-WRONG
+"So. Trial and error worked, I guess. But--didn't you feel dumb once you realized what you did?"
 
 >undo
 >gq 121
 >freak out
-WRONG
+"So. Trial and error worked, I guess. But--didn't you feel dumb once you realized what you did?"
 
 >undo
 >gq 122
 >freak out
-WRONG
+"Congratulations, I guess. If you were persistent with, y'know, practical stuff..."
 
 * freakout-idol-unsolved
 
@@ -112,82 +112,82 @@ WRONG
 >n
 
 >freak out
-WRONG
+"Didn't even try with the Thoughts Idol. That's a good way to get far in life."
 
 >undo
 >gq 101
 >freak out
-WRONG
+"Quit pretty quickly with the Thoughts Idol, though."
 
 >undo
 >gq 102
 >freak out
-WRONG
+"You sort of tried to figure the Idol, I guess."
 
 >undo
 >gq 104
 >freak out
-WRONG
+"You sort of tried to figure the Idol, I guess."
 
 >undo
 >gq 105
 >freak out
-WRONG
+"You sort of tried to figure the Idol, I guess."
 
 >undo
 >gq 106
 >freak out
-WRONG
+"Guess I'll give you credit for persistence with the Idol, even in failure."
 
 >undo
 >gq 109
 >freak out
-WRONG
+"Guess I'll give you credit for persistence with the Idol, even in failure."
 
 >undo
 >gq 110
 >freak out
-WRONG
+"Guess I'll give you credit for persistence with the Idol, even in failure."
 
 >undo
 >gq 111
 >freak out
-WRONG
+"Boy, you seem like the sort that'd figure how to get by the Idol. Guess you got frustrated."
 
 >undo
 >gq 114
 >freak out
-WRONG
+"Boy, you seem like the sort that'd figure how to get by the Idol. Guess you got frustrated."
 
 >undo
 >gq 115
 >freak out
-WRONG
+"Boy, you seem like the sort that'd figure how to get by the Idol. Guess you got frustrated."
 
 >undo
 >gq 116
 >freak out
-WRONG
+"Too bad there wasn't an answer hidden somewhere for the Thoughts Idol.."
 
 >undo
 >gq 119
 >freak out
-WRONG
+"Too bad there wasn't an answer hidden somewhere for the Thoughts Idol.."
 
 >undo
 >gq 120
 >freak out
-WRONG
+"Too bad there wasn't an answer hidden somewhere for the Thoughts Idol.."
 
 >undo
 >gq 121
 >freak out
-WRONG
+"Too bad there wasn't an answer hidden somewhere for the Thoughts Idol.."
 
 >undo
 >gq 122
 >freak out
-WRONG
+"Doubt you learned much from all your failures. Yeah, persistence, but you SHOULD have brute-forced it."
 
 * terminal-errors
 
@@ -212,8 +212,9 @@ The Insanity Terminal emits a piercing siren tone. It looks like you'll need to 
 Okay. This is getting annoying.
 
 >gq 204
+Terminal-errors is now 4. Bad-guy taunt for terminal failure critical values are:(4, 5, 6)
+(19, 20, 21)
 If this wasn't what you wanted, type GQ for general help.
-Terminal-errors is now 6. Bad-guy taunt for terminal failure critical values are:4, 5, 6 19, 20, 21 
 
 >abcdeffa
 The Insanity Terminal emits one of those slow scales that always seem to be ascending. You look down, and it's highlighting question 7. You wonder if you are overthinking that one. It looks like you'll need to try again.
@@ -249,7 +250,7 @@ Guy pauses to count on his fingers a bit. "All these wins are most impressive! I
 >play
 >play
 >play
-Guy pauses to count on his fingers a bit. "Hey, you've shown some heavy-duty, I guess! Uh, yeah, I'm totally yawning because my brain is tired, not because I am."
+Guy pauses to count on his fingers a bit. "Hey, you've shown some heavy-duty smarts, I guess! Uh, yeah, I'm totally yawning because my brain is tired, not because I am."
 
 >play
 >play
@@ -275,65 +276,63 @@ You scrunch your eyes. You've already played and won everything.
 "Bored? Me too! How 'bout that?" snarks Guy.
 
 >enter broke flat
-WRONG
+A final salvo from Guy Sweet: "Boy! With all you learned about puzzles, you probably DIDN'T have time for common sensical stuff. Maybe you'll find it in there...or not."
 >undo
 
 >gq 301
 >enter broke flat
-WRONG
+A final salvo from Guy Sweet: "Thanks for not wasting my time with these dumb brain teasers too much, but all the same, doing the bare minimum..."
 >undo
 
 >gq 302
 >enter broke flat
-WRONG
+A final salvo from Guy Sweet: "I guess you're prepared and stuff. Or not."
 >undo
 
 >gq 305
 >enter broke flat
-WRONG
+A final salvo from Guy Sweet: "Nice job and all, but the puzzles are a bit more social in there. You know, talking to other people? Just a tip."
 >undo
 
 >gq 306
 >enter broke flat
-WRONG
+A final salvo from Guy Sweet: "Nice job and all, but the puzzles are a bit more social in there. You know, talking to other people? Just a tip."
 >undo
 
 >gq 307
 >enter broke flat
-WRONG
+A final salvo from Guy Sweet: "Smart enough to get that many puzzles, you're smart enough to know how much they don't mean in the real world, eh? Without, like, people skills.
 >undo
 
 >gq 310
 >enter broke flat
-WRONG
+A final salvo from Guy Sweet: "Smart enough to get that many puzzles, you're smart enough to know how much they don't mean in the real world, eh? Without, like, people skills.
 >undo
 
 >gq 311
 >enter broke flat
-WRONG
+A final salvo from Guy Sweet: "You know, if you were more social, you'd be a total showoff. So you need to watch for that, if you get a clue in the Compound."
 >undo
 
 >gq 315
 >enter broke flat
-WRONG
+A final salvo from Guy Sweet: "You know, if you were more social, you'd be a total showoff. So you need to watch for that, if you get a clue in the Compound."
 >undo
 
 >gq 316
 >enter broke flat
-WRONG
+A final salvo from Guy Sweet: "Whoah! You really do need some social well-roundedness to go with that knowing. No offense."
 >undo
 
 >gq 320
 >enter broke flat
-WRONG
+A final salvo from Guy Sweet: "Whoah! You really do need some social well-roundedness to go with that knowing. No offense."
 >undo
 
 >gq 321
 >enter broke flat
-WRONG
+A final salvo from Guy Sweet: "Boy! With all you learned about puzzles, you probably DIDN'T have time for common sensical stuff. Maybe you'll find it in there...or not."
 >undo
-
-
 
 * freak-control-turns
 
@@ -344,62 +343,62 @@ WRONG
 
 >gq 400
 >freak out
-WRONG
+"Just running in here quickly, eh? Not appreciating the scenery?"
 
 >undo
 >gq 401
 >freak out
-WRONG
+"Wondered if you were going to do something."
 
 >undo
 >gq 404
 >freak out
-WRONG
+"Wondered if you were going to do something."
 
 >undo
 >gq 405
 >freak out
-WRONG
+"Gosh! Was it awkward for you, waiting, too?"
 
 >undo
 >gq 406
 >freak out
-WRONG
+"Gosh! Was it awkward for you, waiting, too?"
 
 >undo
 >gq 409
 >freak out
-WRONG
+"Gosh! Was it awkward for you, waiting, too?"
 
 >undo
 >gq 410
 >freak out
-WRONG
+"Well, yes, I saw you first thing. Finally had the guts..."
 
 >undo
 >gq 411
 >freak out
-WRONG
+"Well, yes, I saw you first thing. Finally had the guts..."
 
 >undo
 >gq 414
 >freak out
-WRONG
+"Well, yes, I saw you first thing. Finally had the guts..."
 
 >undo
 >gq 415
 >freak out
-WRONG
+"You know, you're lucky I didn't have you arrested for loitering."
 
 >undo
 >gq 416
 >freak out
-WRONG
+"You know, you're lucky I didn't have you arrested for loitering."
 
 >undo
 >gq 440
 >freak out
-WRONG
+"You know, you're lucky I didn't have you arrested for loitering."
 
 * hint-taunt-track
 
@@ -409,69 +408,77 @@ WRONG
 >n
 
 >freak out
-WRONG
+He points to the Legend of Stuff. "Oh. It looks like you took the easy way out. In fact...
+"More precisely, you went to all that trouble and didn't even use it."
+
+>undo
+>gq 500
+>n
+>freak out
+"More precisely, you went to all that trouble and didn't even use it."
+
 >undo
 >gq 501
 >n
-
 >freak out
-WRONG
+"Only used it once, maybe, but still--you had to cheat."
+
 >undo
 >gq 502
 >n
-
 >freak out
-WRONG
+"Used it twice, there."
+
 >undo
 >gq 503
 >n
-
 >freak out
-WRONG
+"Kind of taking the easy way, there."
+
 >undo
 >gq 504
 >n
-
 >freak out
-WRONG
+"Kind of taking the easy way, there."
+
 >undo
 >gq 505
 >n
-
 >freak out
-WRONG
+"Kind of taking the easy way, there."
+
 >undo
 >gq 506
 >n
-
 >freak out
-WRONG
+"Did you even TRY to think on your own? I'm all for research and reading and re-reading, but..."
+
 >undo
 >gq 509
 >n
-
 >freak out
-WRONG
+"Did you even TRY to think on your own? I'm all for research and reading and re-reading, but..."
+
 >undo
 >gq 510
 >n
-
 >freak out
-WRONG
+"Did you even TRY to think on your own? I'm all for research and reading and re-reading, but..."
+
 >undo
 >gq 511
 >n
-
 >freak out
-WRONG
+"You should be embarrassed using the Legend that much! Honestly."
+
 >undo
 >gq 520
 >n
-
 >freak out
-WRONG
+"You should be embarrassed using the Legend that much! Honestly."
+
 >undo
 >gq -1
 >freak out
-WRONG
+"You should be embarrassed using the Legend that much! Honestly."
 

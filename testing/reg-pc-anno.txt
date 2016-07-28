@@ -4,6 +4,16 @@
 ** game: /home/andrew/prt/debug-compound.ulx
 ** interpreter: /home/andrew/prt/glulxe -q
 
+* no-anno
+>vu 1
+>gonear disposed well
+>anno
+
+>note 0
+Nothing to annotate yet!
+>anno 0
+Nothing to annotate yet!
+
 * annotation
 
 >vu 0
@@ -26,7 +36,7 @@ You can make the following jumps:
 >anno
 This is the command for annotations, which are usually only for after you win the game. While it has no spoilers, and it can be toggled, it may be a distraction. Are you sure you want to activate annotations?
 !Okay. You can undo if you change your mind.
-Now annotations are on, and, in fact, there's something for right here. You may wish to JUMP to the director's cut area for a lot of notes.
+Now annotations are on, and, in fact, there's one to check right here (1). You may also wish to JUMP to the director's cut area for a lot of notes.
 
 (ROOM ANNO)
 
@@ -36,17 +46,17 @@ Now annotations are off.
 
 >anno
 !You don't seem to have unlocked that verb yet. Are you sure you wish to go ahead?
-Now annotations are on.
+Now annotations are on. You may still wish to JUMP to the director's cut area for a lot of notes.
 
 >note
-You should be able to NOTE (location) for any location you visited while annotations were on. In addition, you should be able to NOTE (item) or NOTE (number) for the number of an item.
-You haven't examined any items with annotations yet. If you used them successfully and forget to examine them, they will appear in the long list.
+You should be able to NOTE (location) for any location you visited with annotations on. In addition, you should be able to NOTE (item) or NOTE (number) for the number of an item.
+There is only one note so far.
 
 >note 0
-Nothing to annotate yet!
+There's only one annotation, #1, so far. Explore a bit more!
 
 >anno 0
-Nothing to annotate yet!
+There's only one annotation, #1, so far. Explore a bit more!
 
 > jump
 
@@ -64,8 +74,8 @@ You have eleven rejected rooms to visit here (JUMP back once you're finished,) a
 Oh no, this extra material isn't THAT boring, is it?
 
 >note
-You should be able to NOTE (location) for any location you visited while annotations were on. In addition, you should be able to NOTE (item) or NOTE (number) for the number of an item.
-You haven't examined any items with annotations yet. If you used them successfully and forget to examine them, they will appear in the long list.
+You should be able to NOTE (location) for any location you visited with annotations on. In addition, you should be able to NOTE (item) or NOTE (number) for the number of an item.
+There is only one note so far.
 
 >w
 Muster Pass

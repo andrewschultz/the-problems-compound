@@ -33,3 +33,50 @@ I'll need a phrase of turn here.
 >
 Silence break?
 
+* exits
+
+>exits
+You can go in to somewhere you haven't been.
+
+>gonear lounge
+>exits
+The hatch above. Well, once you figure how.
+
+>gonear tense past
+>exits
+There is no escape. You can WAKE, or you can THINK or WAIT to see where the dream goes.
+
+>gonear truth home
+>exits
+You can go out
+
+>out
+>exits
+To the north is somewhere you haven't been.
+To the east is somewhere you haven't been.
+To the west is somewhere you haven't been.
+You can go in to Truth Home.
+
+>gonear freak control
+>exits
+There's no backing out. You'll want to find a way to take down the Baiter Master.
+
+>gonear belt below
+>a bad face
+>exits
+
+>gonear idiot village
+>exits
+You can exit to the west, and you might've, earlier, but--you may want to poke around Idiot Village in even some crazy diagonal directions.
+
+>gonear service community
+>exits
+You can go pretty much any which way, including diagonally, but you sense that there's only one right way out.
+
+>gonear airy station
+>exits
+It looks like you have a small puzzle on how to get out of here.
+
+>gonear out mist
+>exits
+It looks like you have a small puzzle on how to get out of here.
