@@ -15,3 +15,15 @@ You run into some brush. More precisely, you run near it but just don't feel up 
 
 >s
 You run into some brush. More precisely, you run near it but back off. "Found the back brush, eh?" snickers the Word Weasel.
+
+>u
+Even if you had wings, you'd probably fly into up brush that'd remind you you don't REALLY know how to use them.
+
+>x back brush
+>x off brush
+>x aside brush
+
+brush sage, now
+
+>u
+>!brush sage

@@ -1827,7 +1827,7 @@ before going (this is the diagonals are wrong 99% of the time rule) :
 			say "You don't need to use diagonal directions in this game unless they're specifically mentioned. Hopefully this makes it simpler for you." instead;
 
 before going up (this is the default reject up rule):
-	if location of player is round lounge:
+	if location of player is round lounge or location of player is variety garden:
 		continue the action;
 	if room up of location of player is nowhere:
 		say "You don't need to go up anywhere [if player is in smart street]except for, well, the next room[else]besides A Round Lounge[end if]." instead;
@@ -2001,6 +2001,8 @@ check examining (this is the don't examine directions rule) :
 after examining (this is the say it's examined rule):
 	if noun provides the property examined:
 		now noun is examined;
+	if noun is back brush or noun is aside brush or noun is off brush:
+		check-all-brush;
 	continue the action;
 
 chapter attacking
@@ -3610,7 +3612,7 @@ carry out roomnoteing:
 	say "Well, there should be a note for this room, but there isn't." instead;
 
 carry out noteflating:
-	say "You should be able to NOTE (location) for any location you visited while annotations are on. In addition, you should be able to NOTE (item) or NOTE (number) for the number of an item.";
+	say "You should be able to NOTE (location) for any location you visited with annotations on. In addition, you should be able to NOTE (item) or NOTE (number) for the number of an item.";
 	say "[line break]";
 	if cur-anno > 1:
 		say "Here is a list of the notes so far:[line break]";
@@ -3915,7 +3917,6 @@ check going:
 	if noun is up and the room up of location of player is nowhere:
 		if location of player is variety garden:
 			say "Even if you had wings, you'd probably fly into [activation of brush up]up brush that'd remind you you don't REALLY know how to use them.";
-			check-all-brush;
 			the rule succeeds;
 		say "You don't often need to go up." instead;
 	if noun is outside:
@@ -3935,7 +3936,7 @@ to check-all-brush:
 	if sagebrush is in lalaland:
 		continue the action;
 	if off brush is examined and back brush is examined and aside brush is examined:
-		say "Wow! You know so much about brush, you're a [activation of sagebrush]brush sage, now. The knowledge is a bit dry, but it's good to know, all the same.";
+		say "[line break]Wow! You know so much about brush, you're a [activation of sagebrush]brush sage, now. The knowledge is a bit dry, but it's good to know, all the same.";
 
 volume dialogues
 
@@ -4113,10 +4114,20 @@ carry out annoing:
 	now anno-allow is whether or not anno-allow is false;
 	now ever-anno is true;
 	say "Now annotations are [if anno-allow is true]on[else]off[end if]";
+	let oh-looky be 0;
 	repeat through table of annotations:
-		if there is an anno-loc entry and anno-loc entry is location of player and anno-num entry is 0:
-			say ", and, in fact, there's something for right here";
-	say "[if route is unvisited]. You may [one of][or]still [stopping]wish to [b]JUMP[r] to the director's cut area for a lot of notes[end if].";
+		if there is an exam-thing entry:
+			if there is an anno-loc entry and anno-loc entry is location of player and anno-num entry is 0:
+				increment oh-looky;
+				increment cur-anno;
+				now anno-num entry is cur-anno;
+	if oh-looky > 0:
+		say ", and, in fact, there's [oh-looky in words] to check right here ";
+		if oh-looky is 1:
+			say "([cur-anno])";
+		else:
+			say "([cur-anno - oh-looky + 1] to [cur-anno])";
+	say "[if route is unvisited]. You may [one of]also[or]still[stopping] wish to [b]JUMP[r] to the director's cut area for a lot of notes[end if].";
 	follow the show annos rule;
 	the rule succeeds;
 	[showme whether or not anno-allow is true;] [commented this code for later reference. It's handy.]
@@ -4143,9 +4154,10 @@ after examining (this is the annotate things rule):
 		d "anno-ing [noun].";
 		repeat through table of annotations:
 			if there is an exam-thing entry and noun is exam-thing entry:
-				increment cur-anno;
-				say "([cur-anno]) [anno-long entry][line break]";
-				now anno-num entry is cur-anno;
+				if anno-num entry is 0:
+					increment cur-anno;
+					say "([cur-anno]) [anno-long entry][line break]";
+					now anno-num entry is cur-anno;
 	continue the action;
 
 section the table
@@ -5747,12 +5759,15 @@ the aside brush is scenery. "The brush seems to wave left and right in a breeze 
 
 after doing something with back brush:
 	now current-brush is back brush;
+	continue the action;
 
 after doing something with aside brush:
 	now current-brush is aside brush;
+	continue the action;
 
 after doing something with off brush:
 	now current-brush is off brush;
+	continue the action;
 
 current-brush is a thing that varies. current-brush is usually gen-brush.
 
@@ -5782,8 +5797,8 @@ instead of doing something with poor dirt:
 	say "The poor dirt, though providing the main variety of the garden, isn't good for much other than digging[if dirt-dug is true], which you already did[else if pocket pick is off-stage], but you don't have a tool for that, yet[end if]."
 
 check going in variety garden:
-	if noun is up or noun is down:
-		say "No. Only back east." instead;
+	if noun is up:
+		continue the action;
 	if noun is south or noun is southeast:
 		now current-brush is back brush;
 		move back brush to variety garden;
@@ -5792,10 +5807,11 @@ check going in variety garden:
 		now current-brush is off brush;
 		move off brush to variety garden;
 		say "You run into some brush. More precisely, you run near it but just don't feel up to it, as if you don't have the fight to look beyond it. 'Found the off brush, eh?' snickers the Word Weasel." instead;
-	if noun is not east: [w nw sw in]
+	if noun is west or noun is southwest or noun is northwest: [w nw sw in]
 		now current-brush is aside brush;
 		move aside brush to variety garden;
 		say "You run into some brush. More precisely, you get close to it but turn to the side to avoid its prickliness. You look for a way around--it's not that dense, so there should be one--but no luck. 'Found the aside brush, eh?' snickers the Word Weasel." instead;
+	say "There's no clever place to dig and find underground.";
 
 carry out going west in Tension Surface:
 	if variety garden is unvisited:
@@ -10272,9 +10288,9 @@ check talking to Baiter Master:
 	say "'Dude! You need to chill... there are things called manners...' but he does have your attention now. 'So. Someone finally got past those mopey brothers. You want a [activation of dual vision]vision duel? Because we can have a vision duel. I have...an [i]opinion[r] of difference. You don't even have...one right serve.' He takes a slurp from a shot mug[activation of shot mug] (with a too-flattering self-portrait, of course) and perks up.";
 	if player has legend of stuff:
 		say "He points to the Legend of Stuff. 'Oh. It looks like you took the easy way out. In fact...";
-		say "[bm-stuff-brags][line break]";
-	say "[bm-idol-brags]";
-	say "[line break]Well, even with the Thoughts Idol [if idol is in lalaland]gone[else]here[end if], I should be able to fix the mess you made."
+		say "[line break][bm-stuff-brags]";
+	say "[line break][bm-idol-brags]";
+	say "[line break]'Well, even with the Thoughts Idol [if idol is in lalaland]gone[else]here[end if], I should be able to fix the mess you made.'"
 
 to say bm-stuff-brags:
 	repeat through table of bm stuff brags:
@@ -10292,10 +10308,10 @@ reused-hint is a truth state that varies.
 
 table of distract time
 control-turns	time-taunt
-1	"'Just running in here quickly, eh? Making a big mess?'"
+1	"'Just running in here quickly, eh? Not appreciating the scenery?'"
 5	"'Wondered if you were going to do something.'"
 10	"'Gosh! Was it awkward for you, waiting, too?'"
-15	"'Well, yes, I saw you first thing.'"
+15	"'Well, yes, I saw you first thing. Finally had the guts...'"
 --	"'You know, you're lucky I didn't have you arrested for loitering.'"
 
 table of bm stuff brags
@@ -10303,19 +10319,19 @@ times-failed	what-to-say
 0	"More precisely, you went to all that trouble and didn't even use it."
 1	"Only used it once, maybe, but still--you had to cheat."
 2	"Used it twice, there."
-5	"The really easy way."
-10	"Did you even TRY to think on your own? I'm all for research, but..."
--1	"You should be embarrassed using it that much! Honestly."
+5	"Kind of taking the easy way, there."
+10	"Did you even TRY to think on your own? I'm all for research and reading and re-reading, but..."
+-1	"You should be embarrassed using the Legend that much! Honestly."
 
 table of bm idol brags
 times-failed	win-say	nowin-say
-0	"'Destroyed the Thoughts Idol in one try, too. Lucky.'"	"'Didn't even try. That's a good way to get far in life.'"
-1	"'You're lucky the Thoughts Idol didn't kill you first try you got. It should've. But, mercy and stuff.'"	"'Quit pretty quickly, though.'"
-5	"'I suppose you can feel smart enough, beating the idol pretty quickly.'"	"'You sort of tried to figure it, I guess.'"
-10	"'Eh, well, sort of average performance taking the idol.'"	"'Guess I'll give you credit for persistence even in failure.'"
-15	"'Boy. Took you long enough.'"	"'Boy, you seem like the sort that'd figure how to get by the Idol. Guess you got frustrated.'"
-21	"'Well. Trial and error worked, I guess. But--didn't you feel dumb once you realized what you did?'"	"'Too bad there wasn't an answer in back of the book.'"
--1	"'Congratulations, I guess. If you were persistent with, y'know, practical stuff...'"	"'Doubt you learned much from all your failures.'"
+0	"'Destroyed the Thoughts Idol in one try, too. Lucky.'"	"'Didn't even try with the Thoughts Idol. That's a good way to get far in life.'"
+1	"'You're lucky the Thoughts Idol didn't kill you first try you got. It should've. But, mercy and stuff.'"	"'Quit pretty quickly with the Thoughts Idol, though.'"
+5	"'I suppose you can feel smart enough, beating the idol pretty quickly.'"	"'You sort of tried to figure the Idol, I guess.'"
+10	"'Eh, well, sort of average performance taking the idol.'"	"'Guess I'll give you credit for persistence with the Idol, even in failure.'"
+15	"'Boy. Took you long enough with the idol, there.'"	"'Boy, you seem like the sort that'd figure how to get by the Idol. Guess you got frustrated.'"
+21	"'So. Trial and error worked, I guess. But--didn't you feel dumb once you realized what you did?'"	"'Too bad there wasn't an answer hidden somewhere for the Thoughts Idol..'"
+-1	"'Congratulations, I guess. If you were persistent with, y'know, practical stuff...'"	"'Doubt you learned much from all your failures. Yeah, persistence, but you SHOULD have brute-forced it.'"
 
 table of bm - Baiter Master talk
 prompt	response	enabled	permit
@@ -13146,24 +13162,34 @@ carry out gqing:
 	if Z > 5 or Z < 0:
 		say "You can only use numbers from -1 to 599 for this test hack.";
 		say "[gq-err] instead.";
+	if player has Legend of Stuff and Z is 5: [this trumps everything]
+		now hints-used is Y;
+		say "Legend of stuff peeks is now [hints-used]. Bad-guy taunts for using Legend of Stuff: ";
+		repeat through table of bm stuff brags:
+			if there is a times-failed entry:
+				say "([times-failed entry - 1], [times-failed entry], [times-failed entry + 1])[line break]";
+		say "[gqhelp]" instead;
+	if Z is 5 and player does not have legend of stuff:
+		say "You may wish to PURLOIN LEGEND to test this." instead;
 	if player is in service community or player is in idiot village or Z is 1:
+		now idol-fails is Y;
 		say "Idol-fails is now [idol-fails]. Bad-guy taunt for idol failure critical values are:";
 		repeat through table of bm idol brags:
 			if there is a times-failed entry:
 				say "([times-failed entry - 1], [times-failed entry], [times-failed entry + 1])[line break]";
-		now idol-fails is Y;
 		say "[gqhelp]" instead;
 	if player is in belt below or Z is 2:
+		now terminal-errors is Y;
 		say "Terminal-errors is now [terminal-errors]. Bad-guy taunt for terminal failure critical values are:";
 		repeat through table of terminal frustration:
 			if there is a term-miss entry:
 				say "([term-miss entry - 1], [term-miss entry], [term-miss entry + 1])[line break]";
-		now terminal-errors is Y;
 		say "[gqhelp]" instead;
 	if player is in smart street or Z is 3:
 		let totwin be 0;
 		repeat with lg running through logic-games:
 			now totwin is totwin + max-won of lg;
+		now your-game-wins is Y;
 		say "Your-game-wins is now [your-game-wins]. The maximum possible is [totwin]. Win chat critical values are: ";
 		repeat through table of win chat:
 			if there is a win-check entry:
@@ -13173,21 +13199,13 @@ carry out gqing:
 		repeat through table of guy taunts:
 			if there is a total-wins entry:
 				say "([total-wins entry - 1], [total-wins entry], [total-wins entry + 1])[line break]";
-		now your-game-wins is Y;
 		say "[gqhelp]" instead;
 	if player is in freak control or Z is 4:
+		now freak-control-turns is Y;
 		say "Freak control turns is [freak-control-turns]. Bad-guy taunts for time taken: ";
 		repeat through table of distract time:
 			if there is a control-turns entry:
 				say "([control-turns entry - 1], [control-turns entry], [control-turns entry + 1])[line break]";
-		now freak-control-turns is Y;
-		say "[gqhelp]" instead;
-	if player has Legend of Stuff or Z is 5:
-		say "Legend of stuff peeks is now [hints-used]. Bad-guy taunts for using Legend of Stuff: ";
-		repeat through table of bm stuff brags:
-			if there is a times-failed entry:
-				say "([times-failed entry - 1], [times-failed entry], [times-failed entry + 1])[line break]";
-		now hints-used is Y;
 		say "[gqhelp]" instead;
 	the rule succeeds;
 
@@ -13320,7 +13338,7 @@ nu-testjumping is an action applying to one number.
 
 list-testjumping is an action out of world.
 
-understand "testjump 0/" and "tj 0/" and "jt 0/" as list-testjumping.
+understand "testjump 0" and "testjump" and "tj 0/" and "jt 0/" as list-testjumping.
 
 carry out list-testjumping:
 	try nu-testjumping 0;
