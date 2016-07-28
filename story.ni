@@ -3377,6 +3377,7 @@ Show Business	"Show business is the act of entertainment, and the business show'
 show off	"To show off is to brag about yourself, and the implication is an 'off' show (not as good as it should be) is bad without that."
 Stand the Pace	"If you can't stand the pace, it's too fast for you. Turk and Dutch pace the stand because they need a break."
 Determined Bound	"Bound and determined means you're set on doing something. A determined bound is set to prevent you from doing something." [start of walker street]
+Watkins Glen	"Watkins Glen is a famous racecourse in upstate New York."
 artifact	"An artifact is, in programming, something left over that can be gotten rid of." [start of discussion block]
 Block Arguments	"To block arguments is not to hear an opposing point of view."
 Block Creativity	"To block creativity is to get in the way of someone imagining things."
@@ -9314,7 +9315,7 @@ check going inside in walker street:
 	if poory pot is in lalaland:
 		say "[one of]As you walk in, Pusher Penn asks if you enjoyed your 'payment.' But you manage to give a version of the truth that seems even more preposterous than if you'd actually sampled the stuff. 'THE THANKS I GET!' he booms. 'DON'T COME BACK.'[or]Pusher Penn really, really doesn't want to see you. But you don't want or need to see him.[stopping]" instead;
 
-the mistake grave is scenery in Walker Street. "It's illuminated oddly, as if a red light were flashing behind it, and reads: IN MEMORY OF THE NAMELESS IDIOT WHO WENT ONLY FIVE MILES OVER THE SPEED LIMIT AND DIDN'T HEAR THE JOYRIDERS GOING THIRTY FORTY OR FIFTY OVER THUS RUINING THIS PRIME JOYRIDING ZONE FOR MORE EXCITING PEOPLE. -[bg]."
+the mistake grave is scenery in Walker Street. "It's illuminated oddly, as if a red light were flashing behind it, and reads: IN MEMORY OF [activation of watkins glen]GLEN WATKINS, THE IDIOT WHO WENT ONLY FIVE MILES OVER THE SPEED LIMIT AND DIDN'T HEAR THE JOYRIDERS GOING THIRTY FORTY OR FIFTY OVER THUS RUINING THIS PRIME JOYRIDING ZONE FOR MORE EXCITING PEOPLE. -[bg]."
 
 check going nowhere in Walker Street:
 	if noun is south:
@@ -12183,6 +12184,8 @@ Stand the Pace is a concept in conceptville. Understand "pace the stand" as stan
 section walker street concepts
 
 Determined Bound is a concept in conceptville. understand "bound and determined" as determined bound. howto is "go south in Walker Street".
+
+Watkins Glen is a concept in conceptville. understand "glen watkins" as watkins glen. howto is "examine the mistake grave in Walker Street".
 
 section discussion block concepts
 
