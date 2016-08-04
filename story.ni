@@ -21,7 +21,7 @@ the release number is 3.
 
 section compiler debug
 
-[without these numbers beiing increased, the I7 would be translated to I6, but the I6 compiler would complain. That's what happens when a game gets bigger than intended.]
+[without these numbers beiing increa sed, the I7 would be translated to I6, but the I6 compiler would complain. That's what happens when a game gets bigger than intended.]
 
 use MAX_ACTIONS of 205.
 
@@ -2017,7 +2017,7 @@ check attacking:
 	if noun is player:
 		say "You don't want to embarrass yourself like that." instead;
 	if mrlp is rejected rooms:
-		say "With the pressure off, you don't feel violent." instead;
+		say "With the pressure of defeating the [bad-guy] off, you don't feel violent in the slightest." instead;
 	if noun is tee:
 		say "Instead of breaking the tee, maybe you can use it to break something else." instead;
 	if noun is mouth mush:
@@ -3238,8 +3238,8 @@ table of explanations (continued) [this is stuff referred to in the director's c
 exp-thing	exp-text	exp-anno
 pen fountain	"A fountain pen is (these days) a typical pen. You don't have to dip it in ink to keep writing. It's less exotic than a pen fountain, of course."
 consciousness stream	"Stream of consciousness is a form of writing that relies heavily on inner monologue."	"It turns out that Nigel Jayne wrote a game called Gaia's Web which features a Consciousness Stream that actually blends into the game better, so you should definitely give that a check."
-Francis Pope	"Pope Francis is the current pope as of this game's writing."	"I have a favorable impression of Pope Francis for saying things that need to be said and not double-talking a lot. Other people in power could learn from that."
-Flames Fan	"To fan the flames is to keep things going. The Flames Fan just watches them."	"Originally the Flames Fan was one of the [j-co], but then he wound up being the only one without a proper name. He would've made a good F, but I needed someone less abstract. So Cain Reyes slipped in."
+Francis Pope	"Pope Francis is the current pope as of this game's writing."	"I have a favorable impression of Pope Francis for saying things that need to be said and not double-talking a lot. He may not be perfect, but he does seem to encourage decency in general without ranting and raving. Many people in power (elected or corporate, 'hard' or 'soft' power) could learn from that."
+Flames Fan	"To fan the flames is to keep things going. The Flames Fan knows when to poke an argument that's about to die down."	"Originally the Flames Fan was one of the [j-co], but then he wound up being the only one without a proper name. He would've made a good F, but I needed someone less abstract. So Cain Reyes slipped in."
 Cards of the House	"The house of cards is something that falls down easily."
 View of Points	"Points of view are opinions."
 
@@ -4227,14 +4227,14 @@ anno-num	exam-thing	anno-loc	anno-long (text)
 table of annotations (continued) [toa-rej]
 anno-num	exam-thing	anno-loc	anno-long (text)
 0	--	One Route	"It was either this or One Square or Way One, at the beginning. But those two got carded off to something better: Meal Square and, well, Way of Right should be in Slicker City." [begin speculative locations]
-0	--	Muster Pass	"It was a close call between here and Judgment Pass, but only one could pass muster. Err, sorry about that. Judgment pass won out because it allowed for a snarkier more annoying NPC."
+0	--	Muster Pass	"It was a close call between here and Judgment Pass, but only one could pass muster. Err, sorry about that. Judgment pass won out because it allowed for a NPC I could satirize a bit more."
 0	--	Rage Road	"This flip made me giggle immediately, but it was one of those things where I could do better. The flipped meaning wasn't skewed enough. So when I stumbled on Chipper Wood, I decided to change it. That said, even though road rage is serious, it's fun to make fun of the silly ambitions behind it.[paragraph break]I also had ideas for a diner called [activation of road pizza]Pizza Road."
 0	--	Chicken Free Range	"The Chicken Free Range is, well, free of everyone. It was replaced by the Speaking Plain and Chipper Wood. As much as I like the idea of rotating two of three names, the problem is that you have six possibilities now, which gets confusing. Plus, free-range chicken may be a bit obscure, though I like the connotation of chicken-free range as the self-contradictory booming edict 'THOU SHALT NOT FEAR.'"
 0	--	Humor Gallows	"This was originally part of the main map, but the joke wasn't universal enough. I like the idea of killing jokes from something that should be funny, the reverse of gallows humor--which draws humor from tragedy or near tragedy. As well as the variety of ways jokes can be killed."
-0	--	Tuff Butt Fair	"This was one of the first locations I found, and I took it, and I put it in the game. Tough butt/tough but is a good pun, and I have a personal test that if I can picture pundits calling a person 'tough but fair,' that person is a loudmouthed critical jerk. The only problem is, 'fair but tough' isn't really a fair flip. It was replaced by the Interest Compound, which became the Discussion Block, and Judgment Pass.[paragraph break]I originally thought of a lot of contemporary sounding people I could put in here, but they got rejected. I wanted to keep it abstract and not real people in the game, except when the [bad-guy] does at the end, for humor value and also to show him being socially 'conscious,' I mean, ambitious. However, for a truly atrocious inside joke, I was tempted to put in a bully named Nelson Graham who beat other kids up for playing games over three years old--or for even TRYING to make their own programming language. I decided against even hinting at--oops."
+0	--	Tuff Butt Fair	"This was one of the first locations I found, and I took it, and I put it in the game. Tough butt/tough but is a good pun, and I have a personal test that if I can picture pundits calling a person 'tough but fair,' that person is a loudmouthed critical jerk. The only problem is, 'fair but tough' isn't really a fair flip. It was replaced by the Interest Compound, which became the Discussion Block, and Judgment Pass.[paragraph break]I originally thought of a lot of contemporary sounding people I could put in here, but they got rejected. I wanted to keep it abstract and not real people in the game, except when the [bad-guy] does at the end, for humor value and also to show him being socially 'conscious,' I mean, ambitious. However, for a truly atrocious inside joke, I was tempted to put in a bully named Nelson Graham who beat other kids up for playing games over three years old--or for even TRYING to make their own programming language. Especially one without even any graphics! I decided against even hinting at--oops."
 0	--	Ill Falls	"This was simply a good pun that might have afforded a play on Ill, which often means beautiful and ugly at the same time. Or it could be a verb: to ill means to be out of it, or to insult someone, well or poorly."
 0	--	Eternal Hope Springs	"This was the original place you'd sleep. Then I put the warmer bench, but then I discovered the Joint Strip as perfectly seedy. Since, like Chicken Free Range, this had three substansive words in its name, it didn't quite fit the room aesthetic. But I still liked the name, and it probably catalyzed other ideas before becoming obsolete."
-0	--	Brains Beat	"I like the image of brainy people walking a beat, talking bout stuff, making someone (figuratively, of course) want to beat their brains in. Them being themselves or the others. Intellectual Conversation in general drives me up the wall."
+0	--	Brains Beat	"I like the image of brainy people walking a beat, talking about stuff, making someone (figuratively, of course) want to beat their brains in. Them being themselves or the others. Intellectual Conversation in general drives me up the wall when it is too ostentatious."
 0	--	Madness March	"Unsurprisingly, I thought of this one in March. But I didn't feel it was universal enough. March Madness is a big deal in the US among basketball fans. In fact, even non-basketball fans enter (nominally illegal) betting pools in this 68-game knockout tournament. I was planning to have a bunch of people getting into stupid arguments with someone winning, but I hadn't the heart to implement it."
 0	--	Window Bay	"I liked the reversal on architecture for a more natural and magical setting."
 
@@ -8907,7 +8907,7 @@ check taking sound safe:
 
 part Judgment Pass
 
-Judgment Pass is east of Nominal Fen. It is in Main Chunk. "[if officer petty is in Judgment Pass][one of]A huge counter with INTUITION in block letters is, well, blocking you. Well, not fully, but by the time you snuck around the edge, the official--and fit--looking officer behind it will get in your way.[or]The intuition counter still mostly blocks your way.[stopping][else]With Officer Petty out of the way, the Intuition Counter is now just an inconvenience.[end if]"
+Judgment Pass is east of Nominal Fen. It is in Main Chunk. "[if officer petty is in Judgment Pass][one of]A huge counter with INTUITION in block letters is, well, blocking you. Well, not fully, but by the time you snuck around the edge, the official--and fit--looking officer behind it will get in your way.[or]The intuition counter still mostly blocks your way.[stopping][else]With Officer Petty out of the way, the Intuition Counter is now just an inconvenience. You can go east and west as you please.[end if]"
 
 check going nowhere in judgment pass:
 	if noun is inside or noun is outside or noun is north or noun is south:
@@ -8984,6 +8984,7 @@ check going nowhere in idiot village (this is the final idol puzzle rule):
 			now thoughts idol is in Service Community;
 			move player to Service Community;
 			prevent undo;
+			the rule succeeds;
 		else if noun is inside:
 			say "You have two ways inside: east or northeast." instead;
 		else if noun is outside:
@@ -9140,7 +9141,7 @@ to say iv-idol:
 	if player has Legend of Stuff:
 		say "The idol stares back at you and seems to shake its head slightly. You look down guiltily at the Legend of Stuff.[no line break]";
 		continue the action;
-	say "You stare at the thoughts idol, [if player has bad face]and as it glares back, you resist the urge to look away. It--it actually blinks first.[else]but it stares back at you. You lose the war of facial expressions[end if]";
+	say "You stare at the thoughts idol, [if player has bad face]and as it glares back, you resist the urge to look away. It--it actually blinks first. You wonder if you could run by it and see more of Idiot Village[else]but it stares back at you. You lose the war of facial expressions[end if]";
 	if player has bad face:
 		now stared-idol is true;
 
@@ -9183,6 +9184,7 @@ check going in service community:
 			move crocked half to lalaland;
 			inc-max;
 			annotize thoughts idol;
+			say "[line break][bold type]Back at Idiot Village[roman type][line break]";
 		the rule succeeds;
 	else:
 		move thoughts idol to idiot village;
@@ -9190,7 +9192,7 @@ check going in service community:
 		choose row idol-off in table of idol smackdowns;
 		say "[smackdown entry][line break]";
 		choose row idol-progress + 1 in the table of idol text;
-		say "[bad-text entry][line break]";
+		say "[line break][bad-text entry][line break]";
 		if idol-progress < best-idol-progress:
 			say "Rats. You did better and lasted longer before. Maybe you can repeat that and do a little better next time.";
 		else:
@@ -9254,7 +9256,7 @@ good-text	bad-text	undo-text
 "The thoughts idol seems to twitch back and forth while following you."	"You feel frozen and collapse. The idol's contempt can't hide a legitimate frown. You slipped up, but you got pretty far."	"Halfway there...maybe if you get momentum, you'll nail the pattern down for good."
 "The thoughts idol barely catches its gaze up with you."	"The idol gives that look--you know it--'Smart, but no common sense.' Still--you can give it another shot."	"Would'ves won't help here. You've actually gotten in better shape, walking around just thinking."
 "The thoughts idol warps and seems to wobble a bit but still looks at you."	"You--well, confidence or whatever it was let you down."	"Geez. You were that close. But no chance to stew. You bet you could do it, next time. But you can't say 'Oh, I meant to...'"
-"The thoughts idol spins, coughs, and with a final buzz, it flips into the air and lands on its head! its eyes spark and go out, and it cracks down the middle. All of Idiot Village comes out to cheer your victory!"	"You must have been close. But no."	"The idol's look reminds you of when you got a really hard math problem right except for adding 1 and 6 to get 8. People laughed at you. It hurt."
+"The thoughts idol spins, coughs, and with a final buzz, it flips into the air and lands on its head! Its eyes spark and go out, and it cracks down the middle. All of Idiot Village comes out to cheer your victory and pound the remnants of the idol into unrecognizeable rubble!"	"You must have been close. But no."	"The idol's look reminds you of when you got a really hard math problem right except for adding 1 and 6 to get 8. People laughed at you. It hurt."
 
 part Speaking Plain
 
@@ -10807,11 +10809,11 @@ Punishment Capitol is a room in Bad Ends. "You've really hit the jackpot! I gues
 
 part Hut Ten
 
-Hut Ten is a room in Bad Ends. "Here you spend time in pointless military marches next to people who might be your friends in kinder environs. Apparently you're being trained for some sort of strike on [bad-guy-2]'s base, whoever he is. As time goes on, more recruits come in. You do well enough, you're allowed to boss a few around. But it's not good ENOUGH."
+Hut Ten is a room in Bad Ends. "Here you spend time in pointless military marches next to people who might be your friends in kinder environs. Apparently you're being trained for some sort of strike on [bad-guy-2]'s base, whoever he is. As time goes on, more recruits come in. You do well enough, to boss a few around. But people above you remind you that's still not good ENOUGH."
 
 part Beer Pound
 
-there is a room called A Beer Pound. It is in Bad Ends. "Here prisoners are subjected to abuse from prison guards who CAN hold their liquor and NEED a drink at the end of the day. Though of course they do not go in for the hard stuff."
+there is a room called A Beer Pound. It is in Bad Ends. "Here prisoners are subjected to abuse from prison guards who CAN hold their liquor and NEED a drink at the end of the day. And they are not wimps with low alcohol tolerance, either."
 
 part In-Dignity Heap
 
@@ -11104,7 +11106,7 @@ switch-to-bad is a number that varies.
 
 chapter Camp Concentration
 
-Camp Concentration is a room in Just Ideas Now. "This one's impossible to joke about straight-up. Just, the perpetrators are all, 'Well, of course it's not THAT bad, so quit moping.' Which isn't a lethal mind game, but it's a mean one."
+Camp Concentration is a room in Just Ideas Now. "This one's impossible to joke about straight-up. Just, the perpetrators are all, 'Well, it could be a LOT worse, so quit moping and focus on improving yourself.' Which isn't a lethal mind game, but it's a mean one."
 
 chapter Expectations Meet
 
@@ -13338,7 +13340,7 @@ nu-testjumping is an action applying to one number.
 
 list-testjumping is an action out of world.
 
-understand "testjump 0" and "testjump" and "tj 0/" and "jt 0/" as list-testjumping.
+understand "testjump 0" and "testjump" and "tj 0" and "jt 0" and "tj" and "jt" as list-testjumping.
 
 carry out list-testjumping:
 	try nu-testjumping 0;
@@ -13456,6 +13458,8 @@ this is the face-idol rule:
 	now Cute Percy is in lalaland;
 	open-bottom;
 	now player has crocked half;
+	now player has bad face;
+	now face of loss is in lalaland;
 	the rule succeeds;
 
 this is the defeat-idol rule:
@@ -13464,6 +13468,8 @@ this is the defeat-idol rule:
 	now Cute Percy is in lalaland;
 	open-bottom;
 	now player has crocked half;
+	now player has bad face;
+	now face of loss is in lalaland;
 	now thoughts idol is in lalaland;
 	the rule succeeds;
 

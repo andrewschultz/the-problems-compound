@@ -1,76 +1,60 @@
 nodiag
-prefix:sc
+prefix:pc
 
-## reg-sc-noway.txt: test script for slicker city, regtest.pl
-## This gives "can't go that way" errors for every room.
-## For a full description, see <http://eblong.com/zarf/plotex/regtest.html>
-
-** game: /home/andrew/prt/debug-slicker-city.ulx
+## C:\writing\scripts\noway.py -- a regtest.py file for detecting generic can't go that way errors
+##
+** game: /home/andrew/prt/debug-compound.ulx
 ** interpreter: /home/andrew/prt/glulxe -q
 
-#intro
-cadet space
+#first bit
+smart street
+a round lounge
 
-#procrastination
-sense common
-pavement pound
-dark pitch
-ward space
-crazy bureau
-delta of delta
-purposes cross
+#next bit
+vision tunnel
+tension surface
+variety garden
 
-#purple
-prime past
-caring past
-master past
-secret keep
+#outers
+pressure pier
+meal square
+soda club
+down ground
+joint strip
 
-#popularity
-way of right
-bust row
-something institute
-ego altar
-motive base
-perception altar
+#sleep
+tense past
+tense present
+tense future
 
-#profit
-profit turn
-handshake firm
-market corner
-knowledge base
-production peak
+#main chunk
+court of contempt
+judgment pass
+freak control
+nominal fen
+speaking plain
+discussion block
+scheme pyramid
+chipper wood
+idiot village
+walker street
+classic cult
+disposed well
+standard bog
+pot chamber
+accountable hold
+temper keep
+truth home
+questions field
 
-#power
-jungle of law
-office box
-office front
-blotter police
-corrected stand
-juice jungle
-protection cavity
+#optional
+the belt below
+bottom rock
 
-#partnership
-shock culture
-cool lou's
-instinct base
-snipe gutter
+diag
 
-#punishment
-bait jail
-complaint lodge
-liner one
-review pier
-systems class
-test suite
-work patch
+service community
 
-#paradise
-works hole
-animal party
-hanger cliff
-grosser green
-way-out bluff
-events current
-merrier moor
-enough shore
+#ends
+out mist
+airy station
