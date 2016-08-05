@@ -8993,7 +8993,7 @@ check going nowhere in idiot village (this is the final idol puzzle rule):
 		the rule succeeds;
 	if noun is outside:
 		try going west instead;
-	say "Idiot Village expands in all directions, but of course, nobody was smart enough to provide a map. OR WERE THEY CLEVER ENOUGH NOT TO GIVE INVADERS AN EASY ROUTE IN?[paragraph break]Either way, you don't want to risk getting lost, and you don't feel you can defy the Thoughts Idol right now, anyway." instead;
+	say "Idiot Village expands in all directions, but of course, nobody was smart enough to provide a map. OR WERE THEY CLEVER ENOUGH NOT TO GIVE INVADERS AN EASY ROUTE IN?[paragraph break]Either way, you don't want to risk getting lost, and you don't feel you can defy the Thoughts Idol right now. You'd like to, but you don't see how, yet." instead;
 
 The Business Monkey is a neuter person in Idiot Village. "A monkey mopes around here in a ridiculous suit two sizes too large for it."
 
@@ -9571,9 +9571,9 @@ check going nowhere in discussion block:
 	if noun is outside:
 		try going west;
 	if art is in lalaland and phil is in lalaland:
-		say "No sense searching for Art or Phil or Arguments/Creativity Block." instead;
+		say "No sense searching for Art or Phil or the Creativity Block. You might even get lost and stumble on the Arguments Block, which would be horrible." instead;
 	if art is in lalaland or phil is in lalaland:
-		say "Searching for Creativity Block, where [if art is in lalaland]Art[else]Phil[end if] went, would be counter productive." instead;
+		say "Searching for Creativity Block, where [if art is in lalaland]Art[else]Phil[end if] went, would be counterproductive." instead;
 	say "Discussion Block also blocks you from going any way other than back west." instead;
 
 the poetic wax is in Discussion Block. "Poetic Wax, a whole ball of it, lies here behind [if number of waxblocking people is 0]where Art and Phil used to be[else][list of waxblocking people][end if]."
