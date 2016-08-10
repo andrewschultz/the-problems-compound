@@ -2255,7 +2255,7 @@ to annotize (toanno - a thing):
 					increment cur-anno;
 					now anno-num entry is cur-anno;
 					if anno-allow is true:
-						say "Annotation [cur-anno] inserted for [the toanno] if you'd like.";
+						say "Annotation [cur-anno] inserted for [the toanno] if you'd like: NOTE [cur-anno] to see it.";
 
 check giving burden to:
 	if second noun is mush:
@@ -3343,6 +3343,7 @@ flounder	"To flounder is to try and fail without any progress. It's also the nam
 hara-kiri	"Hara-kiri is Japanese ritual suicide."
 jerk around	"To jerk someone around is to pester them physically or mentally."
 jerk off	"To jerk off is to gratify oneself carnally."
+Keyser Soze	"Keyser Soze is the shadowy antagonist of the film [italic type]The Usual Suspects[roman type]."
 lily liver	"A lily-liver is someone who is afraid to go out and do risky things."
 Liverwurst	"Liverwurst is a sort of meat which I found tastes nice until it really doesn't, and it's a bit greasy, too. 'Worst liver' may be an exaggeration, but the jerks are not living well."
 lovelies	"Lovelies is a term of endearment."
@@ -3412,6 +3413,7 @@ dual vision	"Dual vision is seeing two things at once, often due to a blow to th
 evil eye	"The evil eye is staring at someone to make them uncomfortable."
 Ezra Pound	"Ezra Pound was an influential Modernist poet."
 face facts	"To face facts is to see the sad truth. In this case, the [bad-guy] is telling you he's telling the truth, which is often--inaccurate. Or it means he's been lying before."
+fatigue duty	"Fatigue duty is the drudge work low-ranking members of the military get."
 favor curry	"To curry favor is to try to get on someone's good side."
 fawn over	"To fawn over is to flatter someone."
 Freak Out	"To freak out is to make a much bigger emotional display than seems really necessary."
@@ -3591,7 +3593,6 @@ understand "note [any room]" as roomnoteing when anno-allow is true.
 understand "note" and "note [text]" as a mistake ("NOTE can only be used while ANNO is on.") when anno-allow is false.
 
 carry out notethinging:
-	dl "[noun].";
 	if there is an exam-thing of noun in table of annotations:
 		choose row with exam-thing of noun in table of annotations;
 		if location of noun is visited:
@@ -5216,7 +5217,7 @@ rule for supplying a missing noun when the current action is playing (this is th
 			say "[one of]'What? You gonna just play any old game without chatting a bit first?'[or]You'd like to poke around the merchandise, but Guy Sweet is glaring at you, waiting for you to TALK.[stopping]" instead;
 		if pick-warn is false:
 			now pick-warn is true;
-			say "There are a lot of games. To be precise, [number of logic-games in words]. Let the game pick one?";
+			say "There are a lot of games. To be precise, [number of logic-games in words]. Just pick a random one?";
 			unless the player yes-consents:
 				say "[ok-rand]." instead;
 			say "[ok-rand].";
@@ -7278,6 +7279,7 @@ girl-neg
 "The [j-co] claim learning WAY too much about computers will come back to [activation of terabyte]bite Tara."
 "The [j-co] [activation of terrapin]pin Tera as someone who needs to come out of her shell and live faster."
 "The [j-co] have to admit [activation of melodious]Odious Mel sure can sing!"
+"The [j-co] create a conspiracy theory for laughs: plain, quiet [activation of Keyser Soze]Suzy Kaiser somehow ruthlessly controls female and male social circles."
 "The [j-co] try to be charitable and think of girls ranked [activation of flounder]under Flo on their beauty scale."
 "The [j-co] argue that [activation of olive]Olive Black or Olive Green being more desirable is NOT a matter of taste."
 "'[activation of plaintiff]Tiff? Plain,' [random client in nominal fen] quips. The others agree, citing various elements of her personality."
@@ -10255,6 +10257,7 @@ gad-act
 "'Y'know, I have all these machines. People want too much credit for an [activation of narcissist]assist-narc these days.'"
 "'But does [random surveyable person] have any GOOD ways to [activation of leading question]question leading like mine?'"
 "The [bad-guy] mutters he's sure [activation of Howard Dean]Dean Howard is nice and well-meaning all, but that scream. Really. Just...unforgiveable. And even if it were, well, he probably still deserves to be REMINDED. For character building purposes."
+"'So much to plan and delegate. So many unreliable people. Duty fatigue, duty fatigue[activation of fatigue duty].'"
 "'[activation of Oscar Wilde]Wild Oscar? Pff, so full of vapid one-liners.'"
 "The [bad-guy] reminds himself how to [activation of psychoanalyst]list Anna: psycho, even if there's not enough data/proof yet."
 "The Language Sign flashes but you don't think it changed its message. Just reinforced it."
@@ -12113,6 +12116,8 @@ Jerk Around is a concept in conceptville. Understand "around jerk" as jerk aroun
 
 Jerk Off is a concept in conceptville. understand "off jerk" as jerk off. howto is "attack a jerk in swearing-on mode".
 
+keyser soze is a concept in conceptville. Understand "suzy kaiser" and "kaiser suzy" as keyser soze. howto is "[fill-in-here]".
+
 lily liver is a concept in conceptville. Understand "liver lily" as lily liver. howto is "[j-girl]".
 
 Liverwurst is a concept in conceptville. understand "wurst/worst liver" and "liver wurst/worst" and "worstliver/wurstliver" as liverwurst. howto is "smell any of the [j-co], or SMELL in the [jc]"
@@ -12287,6 +12292,8 @@ evil eye is a concept in conceptville. Understand "i evil" and "evil i" as evil 
 Ezra Pound is a concept in conceptville. understand "pound ezra" as ezra pound. howto is "[fr-ran]".
 
 face facts is a concept in conceptville. Understand "facts face" as face facts. howto is "talk to the [bad-guy]".
+
+fatigue duty is a concept in conceptville. Understand "duty fatigue" as fatigue duty. howto is "[fill-in-here]".
 
 favor curry is a concept in conceptville. understand "curry favor" as favor curry. howto is "[fr-pb]".
 
@@ -13045,6 +13052,8 @@ the force tester wherever rule is listed last in the when play begins rulebook.
 beta-zap-room is a room that varies. beta-zap-room is lalaland.
 
 after printing the locale description when mrlp is endings and location of player is unvisited:
+	if player is in airy station:
+		say "[line break]";
 	say "NOTE TO BETA TESTERS: the EST command lets you toggle whether or not a winning command ends the game, so you don't have to keep UNDOing if you want to try to guess all three wins, here, or just beat the game up. Whatever you can try is a big help.";
 
 after printing the locale description when player is in beta-zap-room and beta-zap-room is unvisited (this is the stop the game before I'm embarrassed by implementation rule) :
