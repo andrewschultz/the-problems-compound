@@ -3331,19 +3331,22 @@ Well Done	"Well done means good job, but 'done' is also a synonym for dead, beca
 Character Assassination	"Character assassination is an attempt to tarnish someone's good reputation." [start of chipper wood]
 Play it Cool	"To play it cool is not to lose your temper. Of course, Percy's chase may make you want to lose your temper."
 Sweetheart Deal	"A sweetheart deal is something that works very well for both sides, often obtained unethically. Telling someone to deal often means they have to settle for being ripped off."
-Bandanna	"A bandanna is a scarf you tie around your head. Some people find it rebellious, others not rebellious enough." [start of Nominal Fen]
+anapest	"Anapest is a common beat for a poem. It can seem singsong." [start of Nominal Fen]
+Bandanna	"A bandanna is a scarf you tie around your head. Some people find it rebellious, others not rebellious enough."
 benevolent	"Benevolent means doing things to help people."
 Black Mark	"A black mark is something indicating bad behavior."
+Cary Grant	"Cary Grant is a movie star from the 40s and 50s."
 casually	"Casually means not really in-depth."
 category	"A category is a logical class to divide someone into. In here, Kate fits into an obvious one, but she doesn't quite live up or down to it."
 clean break	"A clean break from something is leaving quickly and for good. The jerks haven't broken with their 'clean' secrets yet."
 Cotton Candy	"Cotton candy is stringy sugary stuff, often bundled together in a soft ball. People eat it at circuses and fairs and movies a lot."
 dirty word	"A dirty word is profanity. 'Word' on its own is slang for agreement."
 flounder	"To flounder is to try and fail without any progress. It's also the name of a fish."
+fluoridated	"Fluoridated water is a subject of many silly conspiracy theories."
 hara-kiri	"Hara-kiri is Japanese ritual suicide."
 jerk around	"To jerk someone around is to pester them physically or mentally."
 jerk off	"To jerk off is to gratify oneself carnally."
-Keyser Soze	"Keyser Soze is the shadowy antagonist of the film [italic type]The Usual Suspects[roman type]."
+Keyser Soze	"Keyser Söze is the shadowy antagonist of the film [italic type]The Usual Suspects[roman type]."
 lily liver	"A lily-liver is someone who is afraid to go out and do risky things."
 Liverwurst	"Liverwurst is a sort of meat which I found tastes nice until it really doesn't, and it's a bit greasy, too. 'Worst liver' may be an exaggeration, but the jerks are not living well."
 lovelies	"Lovelies is a term of endearment."
@@ -6395,7 +6398,7 @@ speaking plain	0	"Oh geez. You can't take this. You really can't. All this obvio
 questions field	3	"Well, of COURSE the Brothers didn't leave a thank-you note. Ungrateful chumps. Next time you help someone, you'll demand a deposit of flattery up front, that's for sure."	"You expected no thanks, but you didn't expect to feel bad about getting no thanks. Hmph. Lesson learned!"	"'You had some wisdom to foist on the Brothers, but if they'd REALLY done their job, they'd have stayed. The heck with them! If they couldn't soak up knowledge from BEING around the [bg], they're hopeless."	"Well! You did something for the brothers, but just in case, you want to make sure the [bad-guy] isn't upset with you for stealing his employees away. You never thought of that before. Maybe if he's mad, you can make it up to him."
 questions field	4	"'Kinda jealous of your brothers, eh? Not jealous enough to DO anything about it.' The brother[plur-s] nod[sing-s] at your sterling logic. 'You gonna waste your whole life here? I can't help everyone. I'm not a charity, you know.' More hard hitting truth! Ba-bam!'[wfk]'Go on, now! Go! What's that? I'm even bossier than the [bad-guy]? Excellent! If I can change, so can you! And the guy bossier than the [bad-guy] is ORDERING you to do something useful with your life!'[paragraph break]They follow your orders. You remember being bossed around by someone dumber than you--and now you turned the tables! Pasta fazoo!"	"'Still guarding Freak Control, eh? Well, I think you'll see you don't need to guard it from ME any more. Take the day off! C'mon, you want to. Hey, [bg] might be mad if you don't.' You're surprised he DOES run off."	"'Hey! Sorry to separate you from the rest of your family. But--well, mind if I go by? I mean, if you let someone in who just wants to help, maybe you'll, like, get rewarded.' The [if bros-left is 1]remaining brother shrugs and leaves[else]two reamining brothers look at each other, shrug, say 'He DID say...' and walk off[end if]. Man! You just had to ask nicely!"
 questions field	5	"[qfifvis] brothers guard the way north. '[qfjs] standing around, eh? Nothing to do? Well, I've been out, y'know, DOING stuff. You might try it. Go along. Go. You wanna block me from seeing the [bad-guy]? I'll remember it once he's out of my way.' You're convincing enough, they rush along."	"You've done your share of standing around, but you're pretty sure you did a bit of thinking. 'Look,' you say, 'I just need to get through and get out of here. I'm not challenging anyone's authority. Just, I really don't want to be here.' [bro-consider]. You're free to continue."	"'So, yeah, you're here to guard the [bg] from chumps, right? Well, I'm not one. So you can make way.' And they do. Even though they're all bigger than you. Sweet!"	"'Hey, there! Any chance I can see the [bad-guy]? He seems like someone I should meet,' you say. The brother[plur-s] seem[sing-s] confused. Usually, anyone trying to get in has a complaint.[paragraph break]'Stay there a minute.' You do. When [he-they-bro] come[sing-s] back out, you're nodded through. You turn to wave and give a thumbs-up, but nobody's there. Gee, all you had to do was ask nicely!"
-freak control	0	"You speak first. 'Don't pretend you can't see me, with all those reflective panels and stuff.'[paragraph break]He turns around, visibly surprised.[paragraph break]'Leadership, schmeadership,' you say. You're worried for a moment he might call you out on how dumb that sounds. You're open-minded like that. But when he hesitates, you know the good insults will work even better. 'Really. Leaving the cutter cookie right where I could take it, and plow through, and expose you for the lame chump you are. Pfft. I could do better than that.'[paragraph break]He stutters a half-response.[paragraph break]'Maybe that's why [bad-guy-2] hasn't been dealt with, yet. You say all the right things, but you're not forceful enough. Things'll change once I'm in power.'[wfk]He has no response. You point outside. He goes. Settling in is easy--as a new leader of Freak Control, you glad-hand the important people and assure them you're a bit cleverer than the [bad-guy] was.  Naturally, you keep a list of [bad-guy-2]'s atrocities, and they're pretty easy to rail against, and people respect you for it, and from what you've seen, it's not like they could really get together and do anything, so you're making their lame lives more exciting.[wfk]You settle into a routine, as you read case studies of kids a lot like you used to be. Maybe you'd help one or two, if they had initiative...but until then, you'd like to chill and just let people appreciate the wit they always knew you had.[paragraph break]Really, who can defeat you? Anyone of power or consequence is on your side. Even [bad-guy-2] gives you tribute of a cutter cookie now and then. One day, you drop one in Meal Square... but nobody is brave enough to eat one. Well, for a while."	"You speak first. Well, you sigh REALLY loudly first. 'Just--this is messed up. I want to leave.'[paragraph break]'Of course you do,' says the [bad-guy]. 'I don't blame you. If you're not in power here, it's not fun. It's sort of your fault, but not totally. Hey, you actually showed some personality to get here. Just--show me you're worthy of leaving.' You complain--more excitingly than you've ever complained before. Without flattering or insulting the [bad-guy] too much: fair and balanced. You let him interrupt you, and you even interrupt him--but only to agree with his complaints.[wfk]'You're okay, I guess. You seem to know your place. Here, have a trip to the [activation of snipe gutter]Snipe Gutter in Slicker City. Seems like just the place for you. The [bad-guy] pushes a button and gestures to an opening. It's a slide. You complain a bit, but he holds up his hand. 'You'll have a lot more to complain about if you don't go.' You're impressed by this logic, and you only wish you could've stayed longer to absorb more of it, and maybe you could complain even more interestingly. You learn the culture in the Snipe Gutter for a bit, outlasting some veterans, then one day you just get sick of the clueless newbies who don't know what they're doing.[wfk]Back home, people notice a difference. You're still upset about things, but you impress people with it now. You notice other kids who just kind of seem vaguely upset, like you were before the Compound, not even bothering with constructive criticism. They're not worth it, but everywhere you go, you're able to fall in with complainers who complain about such a wide variety of things, especially people too dense to realize how much there is to complain about! You've matured, from..."	"'Hey! It's me!' you yell. [bg] turns. 'You know, I probably skipped a lot of dumb stuff to get here. You think you could be a LITTLE impressed?'[paragraph break][wfk]But he isn't. 'You know? You're not the first. Still, so many people just sort of putter around. You're going to be okay in life.' You two have a good laugh about things--you're even able to laugh at yourself, which of course gives you the right to laugh at people who haven't figured things out yet. Humor helps you deal, well, if it doesn't suck. You realize how silly you were before with all your fears, and you try to communicate that to a few creeps who don't want to be social. But they just don't listen. You'd rather hang around more with-it types, and from now on, you do."	"You speak a bit loudly. 'Hey, man! I heard you could teach me stuff, and I was jealous at first, but I'm...er...[activation of see if i care]care if I see how you do it?'[paragraph break]'Dude! Everyone says that. Do you mean it?' You nod vigorously. 'Great,' he continues. 'We could use more attitudes like yours. Tell me what you've been up to. Oh, yes, the points brownie. Made with my special [activation of butter up]up butter. Say, there's more where that came from. But I can't just GIVE you it. You'll need some [activation of train gravy]train gravy to toughen up, then maybe you can appreciate my special [activation of salad days]daze salad more fully. It's, well, you'll be impressed. But first, well, I'm getting a bit tired of Guy Sweet. I think you'd be an upgrade. Do well enough, and we'll maybe discuss another promotion over some of my sophisticated special cooking.'[wfk][line break]'What's that?'[wfk][line break]'Well, at first, you might need a little [activation of chowderhead]head chowder, which you won't appreciate fully right away, but when you do, you'll deserve my [activation of favor curry]favor curry.'[paragraph break]Your mouth waters at the thought. Something even better than that Daze Salad! You listen as the [bad-guy] describes your first task: tell Guy Sweet he's nice and all but he deserves a break. You're going to do it. And everyone's going to be happier when you do. Well, everyone who [i]wants[r] to be."
+freak control	0	"You speak first. 'Don't pretend you can't see me, with all those reflective panels and stuff.'[paragraph break]He turns around, visibly surprised.[paragraph break]'Leadership, schmeadership,' you say. You're worried for a moment he might call you out on how dumb that sounds. You're open-minded like that. But when he hesitates, you know the good insults will work even better. 'Really. Leaving the cutter cookie right where I could take it, and plow through, and expose you for the lame chump you are. Pfft. I could do better than that.'[paragraph break]He stutters a half-response.[paragraph break]'Maybe that's why [bad-guy-2] hasn't been dealt with, yet. You say all the right things, but you're not forceful enough. Things'll change once I'm in power.'[wfk]He has no response. You point outside. He goes. Settling in is easy--as a new leader of Freak Control, you glad-hand the important people and assure them you're a bit cleverer than the [bad-guy] was.  Naturally, you keep a list of [bad-guy-2]'s atrocities, and they're pretty easy to rail against, and people respect you for it, and from what you've seen, it's not like they could really get together and do anything, so you're making their lame lives more exciting.[wfk]You settle into a routine, as you read case studies of kids a lot like you used to be. Maybe you'd help one or two, if they had initiative...but until then, you'd like to chill and just let people appreciate the wit they always knew you had.[paragraph break]Really, who can defeat you? Anyone of power or consequence is on your side. Even [bad-guy-2] gives you tribute of a cutter cookie now and then. One day, you drop one in Meal Square... but nobody is brave enough to eat one. Well, for a while."	"You speak first. Well, you sigh REALLY loudly first. 'Just--this is messed up. I want to leave.'[paragraph break]'Of course you do,' says the [bad-guy]. 'I don't blame you. If you're not in power here, it's not fun. It's sort of your fault, but not totally. Hey, you actually showed some personality to get here. Just--show me you're worthy of leaving.' You complain--more excitingly than you've ever complained before. Without flattering or insulting the [bad-guy] too much: fair and balanced. You let him interrupt you, and you even interrupt him--but only to agree with his complaints.[wfk]'You're okay, I guess. You seem to know your place. Here, have a trip to the [activation of snipe gutter]Snipe Gutter in Slicker City. Seems like just the place for you. The [bad-guy] pushes a button and gestures to an opening. It's a slide. You complain a bit, but he holds up his hand. 'You'll have a lot more to complain about if you don't go.' You're impressed by this logic, and you only wish you could've stayed longer to absorb more of it, and maybe you could complain even more interestingly. You learn the culture in the Snipe Gutter for a bit, outlasting some veterans, then one day you just get sick of the clueless newbies who don't know what they're doing.[wfk]Back home, people notice a difference. You're still upset about things, but you impress people with it now. You notice other kids who just kind of seem vaguely upset, like you were before the Compound, not even bothering with constructive criticism. They're not worth it, but everywhere you go, you're able to fall in with complainers who complain about such a wide variety of things, especially people too dense to realize how much there is to complain about! You've matured, from..."	"'Hey! It's me!' you yell. [bg] turns. 'You know, I probably skipped a lot of dumb stuff to get here. You think you could be a LITTLE impressed?'[paragraph break][wfk]But he isn't. 'You know? You're not the first. Still, so many people just sort of putter around. You're going to be okay in life.' You two have a good laugh about things--you're even able to laugh at yourself, which of course gives you the right to laugh at people who haven't figured things out yet. Humor helps you deal, well, if it doesn't suck. You realize how silly you were before with all your fears, and you try to communicate that to a few creeps who don't want to be social. But they just don't listen. You'd rather hang around more with-it types, and from now on, you do."	"You speak a bit loudly. 'Hey, man! I heard you could teach me stuff, and I was jealous at first, but I'm...er...[activation of see if i care]care if I see how you do it?'[paragraph break]'Dude! Everyone says that. Do you mean it?' You nod vigorously. 'Great,' he continues. 'We could use more attitudes like yours. Tell me what you've been up to. Oh, yes, the points brownie. Made with my special [activation of butter up]up butter. Say, there's more where that came from. But I can't just GIVE you it. You'll need some [activation of train gravy]train gravy to toughen up, then maybe you can appreciate my special [activation of salad days]daze salad more fully. It's, well, you'll be impressed. But first, well, I'm getting a bit tired of Guy Sweet. I think you'd be an upgrade. Do well enough, and we'll maybe discuss another promotion over some of my sophisticated special cooking.'[wfk][line break]'What's that?'[wfk][line break]'Well, at first, you might need a little [activation of chowderhead]head chowder, which you won't appreciate fully right away, but when you do, you'll deserve my [activation of favor curry]favor curry.'[paragraph break]Your mouth waters at the thought. Something even better than that daze salad! You listen as the [bad-guy] describes your first task: tell Guy Sweet he's nice and all but he deserves a break. You're going to do it. And everyone's going to be happier when you do. Well, everyone who [i]wants[r] to be."
 
 to say he-they-bro:
 	if bros-left > 1:
@@ -7272,29 +7275,32 @@ to jerk-blab:
 
 table of jerk-girl-talk
 girl-neg
-"The [j-co] appreciate how [activation of mary sue]Sue Merry reliably smacks down anyone who seems too nice."
-"The [j-co] recount [activation of pollyanna]Anna Pauley's greatest hits making fun of overoptimism. She always comes through!"
-"The [j-co] agree what a [activation of lily liver]LIVER Lily is! She couldn't be exaggerating."
-"The [j-co] agree that both [activation of pepper]Pepper Black, Pepper Bell [i]and[r] Pepper Green are hotter than Pepper Serrano."
-"The [j-co] claim learning WAY too much about computers will come back to [activation of terabyte]bite Tara."
-"The [j-co] [activation of terrapin]pin Tera as someone who needs to come out of her shell and live faster."
-"The [j-co] have to admit [activation of melodious]Odious Mel sure can sing!"
-"The [j-co] create a conspiracy theory for laughs: plain, quiet [activation of Keyser Soze]Suzy Kaiser somehow ruthlessly controls female and male social circles."
-"The [j-co] try to be charitable and think of girls ranked [activation of flounder]under Flo on their beauty scale."
-"The [j-co] argue that [activation of olive]Olive Black or Olive Green being more desirable is NOT a matter of taste."
-"'[activation of plaintiff]Tiff? Plain,' [random client in nominal fen] quips. The others agree, citing various elements of her personality."
+"The [j-co] berate [activation of anapest]Pest Anna and her weird 'modern' poetry."
+"The [j-co] argue over whether [activation of bandanna]Anna Bandt's clothes choices are really rebellious."
+"The [j-co] rave about how [activation of benevolent]Evelyn Benn is snarky to people for their own good."
+"The [j-co] alternately flatter and berate [activation of Cary Grant]Grant Carey for success with women despite a lack of looks."
 "The [j-co] claim to want to get to know [activation of casually]Julie Kaz better."
 "The [j-co] praise [activation of category]Gory Kate as less weird than she should be on paper."
-"The [j-co] don't understand what [activation of polygamy]Gamy Polly has to be fussy [i]about[r]."
-"The [j-co] stage-whisper that [activation of teriyaki]Yacky Terri's conversation is neither spicy nor meaty."
-"The [j-co] disagree on whether [activation of sharp barb]Barb Sharpe would be worth putting up with her lame gossip."
-"The [j-co] harbor fantasies of [activation of mollycoddling]coddling, err, cuddling Molly, who is maybe not as wild as they pretend she is."
-"The [j-co] rave about how [activation of benevolent]Evelyn Benn is snarky to people for their own good."
-"The [j-co] argue over whether [activation of bandanna]Anna Bandt's clothes choices are really rebellious."
 "The [j-co] mention how [activation of cotton candy]Candy Cotton smacks down saccharine pickup lines."
-"The [j-co] despair that [activation of nose candy]Candi knows too little about how to party."
+"The [j-co] try to be charitable and think of girls ranked [activation of flounder]under Flo on their beauty scale."
+"A couple [j-co] feel sorry they [activation of fluoridated]dated Flora and listened to her conspiracy theories."
 "The [j-co] rave how full of life [activation of hara-kiri]Keri Harrah is."
+"The [j-co] create a conspiracy theory for laughs: plain, quiet [activation of Keyser Soze]Suzy Kaiser somehow ruthlessly controls female and male social circles."
+"The [j-co] agree what a [activation of lily liver]LIVER Lily is! She couldn't be exaggerating."
+"The [j-co] appreciate how [activation of mary sue]Sue Merry reliably smacks down anyone who seems too nice."
 "The [j-co] discuss how [activation of mascara]Cara Maas would be pretty if she just TRIED."
+"The [j-co] have to admit [activation of melodious]Odious Mel sure can sing!"
+"The [j-co] harbor fantasies of [activation of mollycoddling]coddling, err, cuddling Molly, who is maybe not as wild as they pretend she is."
+"The [j-co] despair that [activation of nose candy]Candi knows too little about how to party."
+"The [j-co] argue that [activation of olive]Olive Black or Olive Green being more desirable is NOT a matter of taste."
+"The [j-co] agree that both [activation of pepper]Pepper Black, Pepper Bell [i]and[r] Pepper Green are hotter than Pepper Serrano."
+"'[activation of plaintiff]Tiff? Plain,' [random client in nominal fen] quips. The others agree, citing various elements of her personality."
+"The [j-co] recount [activation of pollyanna]Anna Pauley's greatest hits making fun of overoptimism. She always comes through!"
+"The [j-co] don't understand what [activation of polygamy]Gamy Polly has to be fussy [i]about[r]."
+"The [j-co] disagree on whether [activation of sharp barb]Barb Sharpe would be worth putting up with her lame gossip."
+"The [j-co] claim learning WAY too much about computers will come back to [activation of terabyte]bite Tara."
+"The [j-co] stage-whisper that [activation of teriyaki]Yacky Terri's conversation is neither spicy nor meaty."
+"The [j-co] [activation of terrapin]pin Tera as someone who needs to come out of her shell and live faster."
 
 for writing a paragraph about a client (called jrk) in Nominal Fen:
 	if cookie-eaten is true:
@@ -12092,11 +12098,15 @@ section Nominal Fen concepts
 to say j-girl:
 	say "talk to the [j-co] [if allow-swears is false]with swears on [end if]before reading the Finger Index"
 
+anapest is a concept in conceptville. Understand "pest anna" and "anna pest" as anapest. howto is "[j-girl]".
+
 Bandanna is a concept in conceptville. Understand "anna bandt/band" and "bandt/band anna" as bandanna. howto is "[j-girl]".
 
 benevolent is a concept in conceptville. Understand "evelyn benn" and "benn evelyn" as benevolent. howto is "[j-girl]".
 
 Black Mark is a concept in conceptville. understand "mark black" as black mark. howto is "examine quiz pop".
+
+cary grant is a concept in conceptville. Understand "grant carey" and "carey grant" as cary grant. howto is "[j-girl]".
 
 casually is a concept in conceptville. Understand "julie kaz" and "kaz julie" as casually. howto is "[j-girl]".
 
@@ -12110,13 +12120,15 @@ Dirty Word is a concept in conceptville. Understand "word dirty" as dirty word. 
 
 flounder is a concept in conceptville. Understand "flo under" and "under flo" as flounder. howto is "[j-girl]".
 
+fluoridated is a concept in conceptville. Understand "dated flora" and "flora dated" as fluoridated. howto is "[j-girl]".
+
 Hara-Kiri is a concept in conceptville. Understand "keri harrah" and "harrah keri" as hara-kiri. howto is "[j-girl]".
 
 Jerk Around is a concept in conceptville. Understand "around jerk" as jerk around. howto is "enter the main area with profanity on".
 
 Jerk Off is a concept in conceptville. understand "off jerk" as jerk off. howto is "attack a jerk in swearing-on mode".
 
-keyser soze is a concept in conceptville. Understand "suzy kaiser" and "kaiser suzy" as keyser soze. howto is "[fill-in-here]".
+Keyser Soze is a concept in conceptville. Understand "suzy kaiser" and "kaiser suzy" as Keyser Soze. howto is "[j-girl]".
 
 lily liver is a concept in conceptville. Understand "liver lily" as lily liver. howto is "[j-girl]".
 
@@ -12293,7 +12305,7 @@ Ezra Pound is a concept in conceptville. understand "pound ezra" as ezra pound. 
 
 face facts is a concept in conceptville. Understand "facts face" as face facts. howto is "talk to the [bad-guy]".
 
-fatigue duty is a concept in conceptville. Understand "duty fatigue" as fatigue duty. howto is "[fill-in-here]".
+fatigue duty is a concept in conceptville. Understand "duty fatigue" as fatigue duty. howto is "[fr-ran]".
 
 favor curry is a concept in conceptville. understand "curry favor" as favor curry. howto is "[fr-pb]".
 
