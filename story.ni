@@ -3323,6 +3323,7 @@ Rummy Gin	"Gin Rummy is a card game, generally not the sort associated with wild
 speakeasy	"A speakeasy is a place where illegal alcohol is served."
 Total T	"Teetotal means alcohol-free."
 Wine-U-Gen	"Genuine is, well, real and true. Both Ally Stout and his drinks are superficial, as wine is generally not made by machine."
+cargo cult	"A cargo cult is when islanders cut off from the first world use various instruments and devices to try to get planes filled with material goods to land."
 defrock	"To defrock is to remove someone's role as priest." [start of classic cult]
 good herb	"The good herb is slang for marijuana."
 grace period	"A grace period is time given for someone to learn or understand something, or even to return a book late to the library."
@@ -7180,6 +7181,8 @@ part Nominal Fen
 
 Nominal Fen is north of Pressure Pier. It is in Main Chunk. printed name of Nominal Fen is "[jc]". "[if silly boris is in lalaland]It's a bit more relaxed here without the [j-co]['] conversation[else][one of]This--well, it isn't a swamp, or a bog, or--well, you're not sure, and it's not particularly amazing, so yeah, call it a fen. [or][stopping]Seven [j-co] stand in a circle (okay, a heptagon) here, talking to and about others[end if]. It looks like there's forested area to the west, a narrow valley to the east, and things open up to the north. Nothing's stopping you going back south to Pressure Pier, either[if bros-left is 0], though you probably have nothing to do there with the Brothers gone[end if]."
 
+understand "drain the circle" and "drain circle" as a mistake ("Maybe you can find a way to make them feel drained.") when player is in fen and boris is in fen and allow-swears is true
+
 after printing the locale description for Nominal Fen when Nominal Fen is unvisited:
 	unless accel-ending:
 		say "'[activation of dirty word]Word! Dirty! [activation of clean break]Break CLEAN!'  the [j-co] gabble away. They're trying a bit too hard to show they're not lame.";
@@ -8737,8 +8740,8 @@ prompt	response	enabled	permit
 table of quip texts (continued)
 quip	quiptext
 grace-hi	"'That is no matter,' they reply in unison. 'You are welcome here. Whether or not you are the one to repair our Googly Bowl. The [bad-guy] ordered it broken, and our brother [activation of good herb]Herb performed the act.'"
-grace-googly	"'It only contains three of the four vital elements it needs to create transcendent happiness, or at least provide relaxing aromas, so it is useless. The metaphysics would take too long to explain, but trust us.'"
-grace-herb	"He says brainwashing is worse than drugs. Each gets in the way of appreciating the [bad-guy], but we are apparently more insidious."
+grace-googly	"'It only contains three of the four vital elements it needs to create transcendent happiness, or at least provide relaxing aromas, so it is useless. The [bad-guy] deemed one of few pieces of [activation of cargo cult]cult cargo not completely disposable. The metaphysics would take too long to explain, but... trust us.'"
+grace-herb	"'Herb says brainwashing is worse than drugs. Each gets in the way of appreciating the [bad-guy], but we are apparently more insidious.'"
 grace-restore	"'We hope not. We are a bit confused. The [bad-guy] said we were not very charismatic, but all the same, we were using unfair tactics. Really, we just sit around and enjoy classic movies or cult movies without making too many snarky comments. But that's out of favor, thanks to the [bad-guy].'"
 grace-baiter	"'Well, he thinks this whole boring-nice thing is not the way to go. We don't even try to [activation of defrock]rock def. So he said if the googly-bowl worked, which it didn't, we didn't deserve it anyway. [activation of grace period]PERIOD, Grace. Something too about how people should try to make their lives almost as exciting as his, but not as exciting--that'd be like sacrilege against intellect or something. It's all a bit confusing.'"
 grace-bye	"'Fare well in your journeys.'"
@@ -9831,22 +9834,23 @@ section all the songs
 
 table of hs - horrendous songs
 workname	singername	songsubj
-"Stop Believing, Don't"	"Perry Steven"	"people who already tried enough and should stop embarrassing themselves"
+"My Mind on Georgia"	"Charles Ray"	"cutting reflections on why certain places hate progress"
+"Knife the Mack"	"Darin Bobby"	"harsh punishment for some dude with no game trying to impress women out of his league"
+"Motion? Loco"	"Eva Little"	"being very cool criticising the latest dance craze before everyone else gets sick of it"
+"The Light of Dying"	"The Machine Against Rage"	"admitting that there are smarter people than you who know what's best and if you care about society, maybe it's time to go, but don't, like, make a messy suicide. Even better than The Name in Killing"
 "King of the Mountain Hall"	"Grieg Freidrich"	"something transcendent or other"
-"Train Downtown"	"Stewart Rodd"	"a man rightfully too busy advancing his career prospects to spend time with his woman"
 "Life Is WHAT"	"Harrison George"	"a man too clever for all the constant love-is-life babble"
 "Out Movin[']"	"Joel Billey"	"someone who finds value in a more stressful life"
-"The Light of Dying"	"The Machine Against Rage"	"admitting that there are smarter people than you who know what's best and if you care about society, maybe it's time to go, but don't, like, make a messy suicide. Even better than The Name in Killing"
-"Motion? Loco"	"Eva Little"	"being very cool criticising the latest dance craze before everyone else gets sick of it"
-"Work Fire"	"Perry Keady"	"having everyday up and at em for the things you deserve to do (if you're smart) or better do to survive (if you're dumb)"
-"Bound Homeward"	"Simon Paul"	"someone who wants to get out more but his stupid artsy worries get in the way"
-"My Mind in Carolina"	"Taylor James"	"getting away from one's backward past and entering sophistication"
-"Off, Get"	"Nelson Rogers Prince"	"people without enough social nous to have a sexual partner and why they deserve no fun"
-"Gold of Heart"	"Young Neil"	"someone who understands finding someone with money is important, but only to support a blocked artist like himself."
-"Knife the Mack"	"Darin Bobby"	"harsh punishment for some dude with no game trying to impress women out of his league"
 "Girl Island"	"John Elton"	"the first really cool song about men finding paradise among REAL women"
-"My Mind on Georgia"	"Charles Ray"	"cutting reflections on why certain places hate progress"
 "Lies Little"	"Mac Fleetwood"	"how it's fun to cheat on someone dumb enough to tell the truth too much"
+"Off, Get"	"Nelson Rogers Prince"	"people without enough social nous to have a sexual partner and why they deserve no fun"
+"Work Fire"	"Perry Keady"	"having everyday up and at em for the things you deserve to do (if you're smart) or better do to survive (if you're dumb)"
+"Stop Believing, Don't"	"Perry Steven"	"people who already tried enough and should stop embarrassing themselves"
+"Mourning Sunday"	"Reid Lew"	"when everyone else is too lazy to do and think awesome things 24-7 and you aren't, and why that makes them bums"
+"Bound Homeward"	"Simon Paul"	"someone who wants to get out more but his stupid artsy worries get in the way"
+"Train Downtown"	"Stewart Rodd"	"a man rightfully too busy advancing his career prospects to spend time with his woman"
+"My Mind in Carolina"	"Taylor James"	"getting away from one's backward past and entering sophistication"
+"Gold of Heart"	"Young Neil"	"someone who understands finding someone with money is important, but only to support a blocked artist like himself."
 
 part Questions Field
 
@@ -10515,6 +10519,8 @@ understand "strength hammer" and "hammer strength" as a mistake ("You've already
 understand "time hammer" and "hammer time" as a mistake ("A voice says 'STOP!' Your pants momentarily feel baggy. Maybe it doesn't quite need to be that sort of hammer.[hammer-clue]") when player is in Airy Station.
 
 understand "toe hammer" and "hammer toe" as a mistake ("The mentality crowd might enjoy that sort of comic relief, but you wouldn't.[hammer-clue]") when player is in Airy Station.
+
+understand "under the hammer" and "under hammer" and "hammer under" and "hammer the under" as a mistake ("You don't know enough about vehicles, but even if you did, the hammer wouldn't have enough force to open the Return Carriage from below.[hammer-clue]") when player is in Airy Station.
 
 understand "hammer yellow" and "yellow hammer" as a mistake ("You don't need to be around birds, and it'd be hypocritical to cut people down for their fears.[hammer-clue]") when player is in Airy Station.
 
@@ -12072,6 +12078,8 @@ Wine-U-Gen is a concept in conceptville. understand "wine u gen" and "wineugen" 
 chapter main chunk concepts [left to right, then below]
 
 section classic cult concepts
+
+cargo cult is a concept in conceptville. Understand "cult cargo" as cargo cult. howto is "talk to Grace".
 
 Defrock is a concept in conceptville. Understand "rock def" and "def rock" as defrock. howto is "talk to Grace".
 
