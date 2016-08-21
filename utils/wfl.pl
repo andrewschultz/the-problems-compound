@@ -9,6 +9,9 @@
 #try might give sultry and trying
 #
 
+use strict;
+use warnings;
+
 my $dicURLPrint = 1;
 
 my $autoSort = 1;
@@ -20,17 +23,31 @@ my $chrome = "C:\\Users\\Andrew\\AppData\\Local\\Google\\Chrome\\Application\\ch
 my $ffox = "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe";
 my $opera = "C:\\Program Files (x86)\\Opera\\launcher.exe";
 
+#######################options
+my $shouldSort = 0;
+my $overlook = 0;
+my $override = 0;
+my $dicURL = 0;
 my $alphabetical = 1;
+my $flipData;
+my @flipAry;
 
 my $webapp = $chrome;
 
 my $wa = "alf";
 
-if (!@ARGV[0]) { print "Need a word to flip, but here are diagnostics:\n"; countChunks(); countURLs(); exit; }
+##################helper variables
+my %isDone;
+my %word;
+my $addedSomething = 0;
+my $shouldAlphabetize = 0;
+my $count = 0;
+
+if (!$ARGV[0]) { print "Need a word to flip, but here are diagnostics:\n"; countChunks(); countURLs(); exit; }
 
 while ($count <= $#ARGV)
 {
-$a = @ARGV[$count];
+$a = $ARGV[$count];
 
 for ($a)
 {
@@ -44,11 +61,11 @@ for ($a)
   /^-ff$/ && do { $webapp = $ffox; $count++; next; };
   /^-gc$/ && do { $webapp = $chrome; $count++; next; };
   /^-op$/ && do { $webapp = $opera; $count++; next; };
-  /^-i$/ && do { idiomSearch(@ARGV[$count+1]); exit; };
+  /^-i$/ && do { idiomSearch($ARGV[$count+1]); exit; };
   /^-l$/ && do { $wa = "word"; $count++; next; exit; };
   /^-t$/ && do { runFileTest(); countChunks(); exit; };
   /^-2$/ && do { $override = 1; $count++; next; };
-  /^(#|-|)[0-9]+$/ && do { $temp = @ARGV[$count]; $temp =~ s/^[#-]//g; idiomSearch($temp); exit; };
+  /^(#|-|)[0-9]+$/ && do { my $temp = $ARGV[$count]; $temp =~ s/^[#-]//g; idiomSearch($temp); exit; };
   /^-d$/ && do { $dicURL = 1; $count++; next; };
   /^-du$/ && do { trim(); exit; };
   /^-?o$/ && do { print "Opening $output.\n"; `$output`; exit; };
@@ -76,8 +93,12 @@ initWordCheck();
 initDupeRead();
 
 $autoSort = 0;
-for $q (@flipAry)
+
+my %dupCheck;
+for my $q (@flipAry)
 {
+  if ($dupCheck{$q}) { print "Tried $q twice on the command line. Skipping.\n"; next; }
+  $dupCheck{$q} = 1;
 readOneWord($q);
 }
 
@@ -111,6 +132,7 @@ close(A);
 #initDupeRead = see what's already been done. Separate function or else it will be run several times.
 sub initDupeRead
 {
+my $lineNum;
 open(B, "c:/games/inform/compound.inform/source/fliptrack.txt");
 while ($b = <B>)
 {
@@ -127,16 +149,17 @@ sub readOneWord
 {
   my $wordLength = 0;
   my $t = $_[0];
+  my $flip;
 
-  $found = 0;
-  $wordy = 0;
+  my $found = 0;
+  my $wordy = 0;
 
   if ($isDone{$_[0]})
  {
    if ($overlook)
    {
      open(Q, "$output");
-	 while ($q = <Q>)
+	 while (my $q = <Q>)
 	 {
 	   if ($q =~ /for $t$/)
 	   { print "$t is not erased from flip.txt, returning.\n"; close(Q); return; }
@@ -151,7 +174,7 @@ sub readOneWord
  { $shouldAlphabetize = 1; print "$t not done yet.\n"; }
  $shouldSort = 1;
  $flip = $t;
- for $q (sort keys %isDone)
+ for my $q (sort keys %isDone)
  {
    if (($t =~ /$q/) && ($_[0] ne $q)) { print "$t contains already-done word $q\n"; }
    if (($q =~ /$t/) && ($_[0] ne $q)) { print "$t contained by already-done word $q\n"; }
@@ -175,6 +198,10 @@ my $endBit = "";
 my $thisLine = "";
 
 open(A, "c:/writing/dict/brit-1$wa.txt");
+
+my $b;
+my $c;
+my $oldLength = 0;
 
 while ($a = <A>)
 {
@@ -219,6 +246,9 @@ sub runFileTest
 {
   my $errs = 0;
   my $lines = 0;
+  my $curLines;
+  my $meaningLines;
+
   open(A, "$output");
   while ($a = <A>)
   {
@@ -246,6 +276,10 @@ sub runFileTest
 
 sub trim
 {
+  my @undup;
+  my %already;
+  my $lines = 0;
+
   open(A, "$track");
   while ($a = <A>)
   {
@@ -263,6 +297,7 @@ sub trim
 
 sub alfOut
 {
+  my $cur;
   my $lastStr;
   my $foundAny;
   open(A, "$output") || die ("No $output");
@@ -287,6 +322,9 @@ sub alfOut
 sub alfTrack
 {
   my $stillAlf = 1;
+  my @alf;
+  my $x;
+
   open(A, "$track") || die ("No $track");
   open(B, ">$track-alf");
   while ($a = <A>)
@@ -319,8 +357,11 @@ sub alfTrack
 sub countChunks
 {
   my @sizes;
+  my @titles;
   my @actsizes;
-  my $totalWords
+  my $totalWords;
+  my $thisChunk;
+
   open(A, "$output");
   while ($a = <A>)
   {
@@ -331,9 +372,9 @@ sub countChunks
   if ($#sizes > -1)
   {
     if ($alphabetical) { @titles = sort (@titles); }
-    print "Words to finagle (-an toggles alphabetizing): " . join(", ", @titles) . "\n";
+    print "Words to finagle: " . join(", ", @titles) . "\n";
   }
-  
+
   open(A, "$output");
   while ($a = <A>)
   {
@@ -348,10 +389,10 @@ sub countChunks
     print "Chunk sizes: ";
     for (0..$#actsizes)
 	{
-	  if (@sizes[$_] == @actsizes[$_]) { if ($_ > 0) { print ", "; } }
-	  $totalWords += @sizes[$_];
-	  print @actsizes[$_];
-	  if (@sizes[$_] != @actsizes[$_]) { print " (@sizes[$_])"; }
+	  if ($sizes[$_] == $actsizes[$_]) { if ($_ > 0) { print ", "; } }
+	  $totalWords += $sizes[$_];
+	  print $actsizes[$_];
+	  if ($sizes[$_] != $actsizes[$_]) { print " ($sizes[$_])"; }
 	}
 	print "\n";
 	if ($totalWords) { print "Total flip-words left: $totalWords\n"; }
@@ -367,6 +408,8 @@ sub idiomSearch
   my $toDo = $_[0];
   my $idiomsDone = 0;
   my $undone = 0;
+  my $app;
+
   while ($a = <A>)
   {
 	if ($a =~ /^APP=/) { $app = $a; $app =~ s/^APP=//g; chomp($app); }
@@ -392,7 +435,7 @@ sub idiomSearch
     if ($idiomsDone == 0) { print "Nothing to do!\n"; return; }
 	elsif ($idiomsDone < $toDo) { print "I was only able to do $idiomsDone of $toDo. But good news is, all ideas are cleared!\n"; }
 	elsif ($undone == 0) { print "Yay! you've cleared the stack of words to check and hit the number left on the head.\n"; }
-    else { "All finished!\n"; }
+    else { print "All finished!\n"; }
   }
   else
   {
@@ -430,6 +473,7 @@ sub usage
 {
 print<<EOT;
 -2 = override 2-letter word
+-an = toggles alphabetizing in "Words to Finagle"
 -at = alphabetizes fliptrack.txt up to where you have spare links
 -ao = organizes flip.txt by size
 -ct = count chunks in outfile
