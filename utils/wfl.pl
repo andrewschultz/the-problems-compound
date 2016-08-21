@@ -20,6 +20,8 @@ my $chrome = "C:\\Users\\Andrew\\AppData\\Local\\Google\\Chrome\\Application\\ch
 my $ffox = "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe";
 my $opera = "C:\\Program Files (x86)\\Opera\\launcher.exe";
 
+my $alphabetical = 1;
+
 my $webapp = $chrome;
 
 my $wa = "alf";
@@ -34,6 +36,7 @@ for ($a)
 {
   /^-f$/ && do { $overlook = 1; $count++; next; };
   /^(-e|e)$/ && do { `\"c:\\Program Files (x86)\\Notepad++\\notepad++.exe\" $0 `; exit; };
+  /^-an$/ && do { $alphabetical = !$alphabetical; $count++; next; };
   /^-ao$/ && do { alfOut(); exit; };
   /^-at$/ && do { alfTrack(); exit; };
   /^-ct$/ && do { countChunks(); exit; };
@@ -316,24 +319,43 @@ sub alfTrack
 sub countChunks
 {
   my @sizes;
+  my @actsizes;
+  my $totalWords
   open(A, "$output");
   while ($a = <A>)
   {
     if ($a =~ /==Found/i) { chomp($a); $b = $a; $b =~ s/.*for //g; $a =~ s/\/.*//g; $a =~ s/.* //g; push(@sizes, $a); push(@titles, $b); }
   }
   close(A);
-  if ($#sizes > -1) { print "Words to finagle: " . join(", ", @titles) . "\n"; print "Listed chunk sizes: " . join(", ", @sizes) . ".\n"; }
+
+  if ($#sizes > -1)
+  {
+    if ($alphabetical) { @titles = sort (@titles); }
+    print "Words to finagle (-an toggles alphabetizing): " . join(", ", @titles) . "\n";
+  }
   
-  @sizes = ();
   open(A, "$output");
   while ($a = <A>)
   {
-    if ($a =~ /^=/i) { if ($thisChunk) { push(@sizes, $thisChunk); $thisChunk = 0; } }
+    if ($a =~ /^=/i) { if ($thisChunk) { push(@actsizes, $thisChunk); $thisChunk = 0; } }
 	else { $thisChunk++; }
   }
-  if ($thisChunk) { print "Warning, file ended wrong, should end with ====Found. This will give an extra actual chunk.\n"; push(@sizes, $thisChunk); }
+  if ($thisChunk) { print "Warning, file ended wrong, should end with ====Found. This will give an extra actual chunk.\n"; push(@actsizes, $thisChunk); }
   close(A);
-  if ($#sizes > -1) { $totes = eval join '+', @sizes; print "Actual chunk sizes: " . join(", ", @sizes) . ". Total = $totes in " . ($#sizes + 1) . ".\n"; }
+  if ($#actsizes != $#sizes) { print "================\nWARNING: size arrays not equal. This shouldn't happen, but it did.\n================\n"; }
+  if ($#sizes > -1)
+  {
+    print "Chunk sizes: ";
+    for (0..$#actsizes)
+	{
+	  if (@sizes[$_] == @actsizes[$_]) { if ($_ > 0) { print ", "; } }
+	  $totalWords += @sizes[$_];
+	  print @actsizes[$_];
+	  if (@sizes[$_] != @actsizes[$_]) { print " (@sizes[$_])"; }
+	}
+	print "\n";
+	if ($totalWords) { print "Total flip-words left: $totalWords\n"; }
+  }
 }
 
 sub idiomSearch
