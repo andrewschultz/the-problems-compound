@@ -3336,6 +3336,7 @@ anapest	"Anapest is a common beat for a poem. It can seem singsong." [start of N
 Bandanna	"A bandanna is a scarf you tie around your head. Some people find it rebellious, others not rebellious enough."
 benevolent	"Benevolent means doing things to help people."
 Black Mark	"A black mark is something indicating bad behavior."
+call girl	"A call girl is a paid female escort."
 Cary Grant	"Cary Grant is a movie star from the 40s and 50s."
 casually	"Casually means not really in-depth."
 category	"A category is a logical class to divide someone into. In here, Kate fits into an obvious one, but she doesn't quite live up or down to it."
@@ -7281,6 +7282,7 @@ girl-neg
 "The [j-co] berate [activation of anapest]Pest Anna and her weird 'modern' poetry."
 "The [j-co] argue over whether [activation of bandanna]Anna Bandt's clothes choices are really rebellious."
 "The [j-co] rave about how [activation of benevolent]Evelyn Benn is snarky to people for their own good."
+"The [j-co] brainstorm a [activation of call girl]girl call that will make you irresistible."
 "The [j-co] alternately flatter and berate [activation of Cary Grant]Grant Carey for success with women despite a lack of looks."
 "The [j-co] claim to want to get to know [activation of casually]Julie Kaz better."
 "The [j-co] praise [activation of category]Gory Kate as less weird than she should be on paper."
@@ -12113,6 +12115,8 @@ Bandanna is a concept in conceptville. Understand "anna bandt/band" and "bandt/b
 benevolent is a concept in conceptville. Understand "evelyn benn" and "benn evelyn" as benevolent. howto is "[j-girl]".
 
 Black Mark is a concept in conceptville. understand "mark black" as black mark. howto is "examine quiz pop".
+
+call girl is a concept in conceptville. Understand "girl call" as call girl. howto is "[j-girl]".
 
 cary grant is a concept in conceptville. Understand "grant carey" and "carey grant" as cary grant. howto is "[j-girl]".
 

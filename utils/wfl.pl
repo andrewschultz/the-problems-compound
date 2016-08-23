@@ -42,8 +42,7 @@ my %word;
 my $addedSomething = 0;
 my $shouldAlphabetize = 0;
 my $count = 0;
-
-if (!$ARGV[0]) { print "Need a word to flip, but here are diagnostics:\n"; countChunks(); countURLs(); exit; }
+my $wordsAdded = 0;
 
 while ($count <= $#ARGV)
 {
@@ -86,6 +85,8 @@ for ($a)
 }
 }
 
+if (!$flipData) { print "Need a word to flip, but here are diagnostics:\n"; countChunks(); countURLs(); exit; }
+
 
 @flipAry = split(/,/, lc($flipData));
 
@@ -109,6 +110,9 @@ if ($shouldSort || $autoSort)
   if ($shouldAlphabetize) { alfTrack(); }
   countChunks();
   countURLs();
+  print "$wordsAdded word";
+  if ($wordsAdded != 1) { print "s"; }
+  print " added total.\n";
 }
 
 ###########################################
@@ -238,6 +242,7 @@ print B $bigLongBit;
 print B "====Found $found/$wordy for $flip\n";
 print "====Found $found/$wordy for $flip\n";
 $addedSomething = 1;
+$wordsAdded++;
 } else { print "====found nothing for $flip, so I'm adding nothing to the file.\n"; }
 close(B);
 }
@@ -372,7 +377,8 @@ sub countChunks
   if ($#sizes > -1)
   {
     if ($alphabetical) { @titles = sort (@titles); }
-    print "Words to finagle: " . join(", ", @titles) . "\n";
+	my $temp = $#titles + 1;
+    print "Words to finagle ($temp): " . join(", ", @titles) . "\n";
   }
 
   open(A, "$output");
@@ -389,11 +395,11 @@ sub countChunks
     print "Chunk sizes: ";
     for (0..$#actsizes)
 	{
-	  if ($sizes[$_] == $actsizes[$_]) { if ($_ > 0) { print ", "; } }
-	  $totalWords += $sizes[$_];
+      if ($_ > 0) { print ", "; } 
+	  $totalWords += $actsizes[$_];
 	  print $actsizes[$_];
 	  if ($sizes[$_] != $actsizes[$_]) { print " ($sizes[$_])"; }
-	}
+	  }
 	print "\n";
 	if ($totalWords) { print "Total flip-words left: $totalWords\n"; }
   }
@@ -466,6 +472,7 @@ sub countURLs
 sub crs
 {
 my $total = $_[0] =~ tr/\n/\n/;
+if ($_[0] =~ /^========/) { $total--; } # ignore the line starting with ======== which isn't really a word switch
 return $total;
 }
 
