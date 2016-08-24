@@ -505,14 +505,15 @@ to decide whether (t - text) is unlock-verified:
 	repeat through table of verb-unlocks:
 		if brief entry matches the regular expression "[t]":
 			if found entry is false:
-				say "You don't seem to have unlocked that verb yet. Are you sure you wish to go ahead?";
+				if in-verbs is true:
+					decide no;
+				say "You don't seem to have unlocked [t in upper case] yet. Are you sure you wish to go ahead?";
 				unless the player yes-consents:
 					say "OK. You can try this again, if you want. There's no penalty.";
 					decide no;
-				say "Okay. You can undo if you change your mind.";
+				say "Okay. You can undo this command if you change your mind.";
 				now found entry is true;
-				now ever-anno is true;
-				decide yes;
+			decide yes;
 	decide no;
 
 book people and things
@@ -3672,6 +3673,8 @@ to say 2da:
 to say equal-line:
 	say "[if screen-read is false]==========[end if]";
 
+in-verbs is a truth state that varies.
+
 this is the special-verb rule:
 	if mrlp is Dream Sequence:
 		if in-meta is false:
@@ -3701,6 +3704,7 @@ carry out verbing:
 	if the rule succeeded:
 		say "This is a slightly restricted area, so you don't need extra verbs." instead;
 	say "[one of]The Problems Compound has tried to avoid guess-the-verb situations and keep the parser simple.[line break][or][stopping]Verbs needed in The Problems Compound include:[paragraph break]";
+	now in-verbs is true;
 	if player is in smart street:
 		say "[2da]PLAY/TRY any of the games in the shell.";
 	say "[2da]directions ([b]N, S, E, W, IN, OUT, ENTER[r] something, and occasionally [b]U[r] and [b]D[r])[line break]";
@@ -3726,6 +3730,7 @@ carry out verbing:
 		say "Beta testers have debug commands. See debug commands too?";
 		if the player yes-consents:
 			list-debug-cmds;
+	now in-verbs is false;
 	the rule succeeds;
 
 to decide whether verbs-unlocked: [I could probably check "duck sitting" but best to be thorough]
@@ -4442,7 +4447,7 @@ guy-advice	"'Hm, well, if I give you too much advice, you won't enjoy solving th
 guy-flat	"'Well, that way is the Problems Compound. If you can figure out some basic stuff, you'll make it to Pressure Pier. Then--oh, the people you'll meet!'"
 guy-names	"'I know what you really want to ask. It's not at all about twisting things back around and making them the opposite of what they should mean. It's about SEEING things at every angle. You'll meet people who do. You'll be a bit jealous they can, and that they're that well-adjusted. But if you pay attention, you'll learn. I have. Though I've got a way to go. But I want to learn!'"
 guy-problems	"'Well, it's a place where lots of people more social than you--or even me--pose real-life problems. Tough but fair. Lots of real interesting people. Especially the Baiter Master[if allow-swears is false]. Oops. You don't like swears? Okay. Call him the Complex Messiah[else]. AKA the Complex Messiah[end if]. But not [bg]. I haven't earned the right to. Or to enter Freak Control. It's guarded by a trap where a question mark hooks you, then an exclamation mark clobbers you.' He pauses, and you are about to speak...[wfk]'YEAH. He's really nice once you get to know him, I've heard, it's just, there's too many people might waste his time, or not deserve him or not appreciate him.' Guy stage-whispers. 'OR ALL THREE.'"
-guy-mess	"'Oh, the [bad-guy]. He certainly knows what's what, and that's that! A bit of time around him, and you too will know a bit--not as much as he did. He teaches by example! He can [activation of good egg]egg [i]good[r]. Just his way of caring. Remember, it's up to YOU what you make of his lessons! Some people--they just don't get him. Which is ironic. They're usually the type that claim society doesn't get THEM[if allow-swears is true].' Guy whispers. '[activation of beat off]OFF-BEAT types[end if].'"
+guy-mess	"'Oh, the [bad-guy]. He certainly knows what's what, and that's that! A bit of time around him, and you too will know a bit--not as much as he did. He teaches by example! He can [activation of good egg]egg [i]good[r]. Just his way of caring. Much nicer than [bad-guy-2]. Remember, it's up to YOU what you make of his lessons! Some people--they just don't get him. Which is ironic. They're usually the type that claim society doesn't get THEM[if allow-swears is true].' Guy whispers. '[activation of beat off]OFF-BEAT types[end if].'"
 guy-bad2	"'[bad-guy-2]. Well, without the [bad-guy]'s snark, [bad-guy-2] would probably be in charge. Then things would get worse. You see, [bad-guy-2] is after our time and money. The [bad-guy] just likes to share a little snark. I remember that time he told me don't go thinking you're any everyman, or anything special! What? Don't frown, there. It was--well, the way he said it. Better than I did. So eye-opening, so motivational.'"
 guy-bye	"'Whatever, dude.' [one of]It's--a bit harsh, you're not sure what you did to deserve that, but probably something[or]It's a bit less grating this time, but still[stopping]."
 
@@ -4465,8 +4470,9 @@ after quipping when qbc_litany is table of guy sweet talk:
 	if current quip is guy-flat or current quip is guy-stuck:
 		if guy-problems is not talked-thru:
 			enable the guy-problems quip;
-	if current quip is guy-problems:
+	else if current quip is guy-problems:
 		enable the guy-mess quip;
+	else if current quip is guy-mess:
 		enable the guy-bad2 quip;
 	else if current quip is guy-bye:
 		check-babble;
@@ -5521,6 +5527,18 @@ report taking when player is on person chair:
 	now player has the noun;
 	the rule succeeds;
 
+report taking round stick:
+	say "[got-stick-screw].";
+	the rule succeeds;
+
+report taking round screw:
+	say "[got-stick-screw].";
+	the rule succeeds;
+
+to say got-stick-screw:
+	say "[one of]It feels light but sturdy[or]The stick and screw are easy to carry, but it'd still be nice to have a hand free, somehow[stopping]";
+
+
 waited-yet is a truth state that varies.
 
 ignore-wait is a truth state that varies.
@@ -5825,7 +5843,7 @@ carry out going west in Tension Surface:
 
 chapter word weasel
 
-the Word Weasel is a neuter person in Variety Garden. description is "The Word Weasel looks pretty much like the weasels you imagined from those Brian Jacques novels you're too old for now (it took a while for people to convince you,) so you can't read the last few you wanted to. Its facial expression seems to be going for 'so untrustworthy it's trustworthy.'". "The Word Weasel smirks about here."
+the Word Weasel is a neuter person in Variety Garden. description is "The Word Weasel has a 'so untrustworthy it's trustworthy' look on its face[one of]. It looks pretty much like the weasels you imagined from those Brian Jacques books. The ones you got pinged for reading two years ago, and you still haven't read the last few[or][stopping].". "The Word Weasel smirks about here."
 
 check talking to weasel when burden-signed is true:
 	say "It doesn't seem to want to talk any more, and come to think of it, neither do you, really. It's time to get a move on." instead;
