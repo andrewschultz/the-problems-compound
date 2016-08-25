@@ -1435,7 +1435,11 @@ check tying it to:
 		try attacking hatch instead;
 	if noun is hatch and second noun is off tee:
 		try attacking hatch instead;
+	if second noun is tray a or second noun is tray b:
+		say "[if noun is edible]You don't need to put food back on the trays[else]Only food belongs on the trays[end if]." instead;
 	say "That doesn't seem to work." instead;
+
+does the player mean putting it on tray a: it is likely.
 
 chapter smelling
 
@@ -2006,6 +2010,22 @@ after examining (this is the say it's examined rule):
 		check-all-brush;
 	continue the action;
 
+xrooming is an action applying to one visible thing.
+
+understand "x [any room]" as xrooming.
+
+check xrooming:
+	if noun is location of player:
+		say "X (ROOM) is equivalent to LOOK in the Problems Compound.";
+		try looking instead;
+	if noun is visited:
+		say "You've been there, but you can't see that far[x-room-n].";
+	else:
+		say "You haven't gotten there yet, and you can't see that far[x-room-n].";
+
+to say x-room-n:
+	say "[one of]. X ROOM is really just the same as LOOK for the room you're in, and you don't need to look ahead or behind[or][stopping]"
+
 chapter attacking
 
 the block attacking rule is not listed in any rulebook.
@@ -2059,7 +2079,7 @@ check attacking:
 		say "Of course, with all those screens, he saw you well before you got close. He whirls and smacks you. Stunned, you offer no resistance as guards appear and take you away to where those who commit the worst crimes... 'Dude! If you wanted to talk, just TALK. I mean, you can't be too boring, but don't be all...' You don't hear the rest.";
 		ship-off Punishment Capitol instead;
 	if noun is an enforcer:
-		say "'ATTACKING A LAW ENFORCEMENT OFFICER?' Ouch. You should've known better. And [noun] lets you know that in utterly needless detail, explaining just because you had no chance of beating him up doesn't mean it's not a very serious crime indeed.[paragraph break]It's almost a relief when he has finished shipping you off.";
+		say "'ATTACKING A LAW ENFORCEMENT OFFICER?' Ouch. You should've known better. And [the noun] lets you know that in utterly needless detail, explaining just because you had no chance of beating him up doesn't mean it's not a very serious crime indeed.[paragraph break]It's almost a relief when he has finished shipping you off.";
 		ship-off Punishment Capitol instead;
 	if noun is a bro:
 		say "'Silently, [noun] grabs you. [if bros-left is 1]Even without his brothers, it's a quick affair[else]His brothers hold you[end if]. He's apologetic--but he'd have liked to work with you, and violence is violence, and his job is his job. He realizes he is not so important, but anyone trying to break past him must have SOMETHING bad on their mind.";
@@ -2872,7 +2892,7 @@ carry out diging:
 	if noun is arch:
 		say "It's too big for the pick to make a dent." instead;
 	if noun is flower wall:
-		say "It's too pretty to damage. Plus it might collapse." instead;
+		say "The flower wall is too pretty to damage. Plus it might collapse." instead;
 	if noun is earth of salt:
 		now player has the proof of burden;
 		choose row with response of weasel-sign in table of weasel talk;
@@ -5826,16 +5846,17 @@ check going in variety garden:
 	if noun is south or noun is southeast:
 		now current-brush is back brush;
 		move back brush to variety garden;
-		say "You run into some brush. More precisely, you run near it but back off. 'Found the back brush, eh?' snickers the Word Weasel." instead;
+		say "[one of]You run into some brush. More precisely, you run near it but back off. 'Found the back brush, eh?' snickers the Word Weasel[or]You back up before you run into the back brush again[stopping]." instead;
 	if noun is north or noun is northeast:
 		now current-brush is off brush;
 		move off brush to variety garden;
-		say "You run into some brush. More precisely, you run near it but just don't feel up to it, as if you don't have the fight to look beyond it. 'Found the off brush, eh?' snickers the Word Weasel." instead;
+		say "[one of]You run into some brush. More precisely, you run near it but just don't feel up to it, as if you don't have the fight to look beyond it. 'Found the off brush, eh?' snickers the Word Weasel[or]You back up before you run into the off brush again[stopping]." instead;
 	if noun is west or noun is southwest or noun is northwest: [w nw sw in]
 		now current-brush is aside brush;
 		move aside brush to variety garden;
-		say "You run into some brush. More precisely, you get close to it but turn to the side to avoid its prickliness. You look for a way around--it's not that dense, so there should be one--but no luck. 'Found the aside brush, eh?' snickers the Word Weasel." instead;
-	say "There's no clever place to dig and find underground.";
+		say "[one of]You run into some brush. More precisely, you get close to it but turn to the side to avoid its prickliness. You look for a way around--it's not that dense, so there should be one--but no luck. 'Found the aside brush, eh?' snickers the Word Weasel[or]You back up before you run into the aside brush again[stopping]." instead;
+	if noun is down:
+		say "There's no clever place to dig and find underground." instead;
 
 carry out going west in Tension Surface:
 	if variety garden is unvisited:
@@ -5984,15 +6005,15 @@ to say tip-of-moment:
 	choose row bible-row in the table of Bible references;
 	say "[italic type][reference-blurb entry][line break]";
 	if bible-row is number of rows in table of Bible references:
-		say "[r]LAST HINT. You'd better have learned something, but remember, you can push around people who don't matter by saying they aren't persistent enough or they are a bit obsessed. Often within five minutes of each other. Because it's important to see both sides.";
+		say "[r][line break]LAST HINT. You'd better have learned something, but remember, you can push around people who don't matter by saying they aren't persistent enough or they are a bit obsessed. Often within five minutes of each other. Because it's important to see both sides.[run paragraph on]";
 	else if bible-row is 1:
 		say "Of course, just internalizing this tip won't make you quite the guy the [bad-guy] is. Everyone can be right about some random thing. You need a variety of moves. To be a complete person![r]";
 	else:
-		say "[r]";
+		say "[r][run paragraph on]";
 	unless accel-ending:
 		if bible-cycled is false and bible-row is a looknum listed in table of Bible reflections:
 			choose row with looknum of bible-row in table of Bible reflections;
-			say "[reflection entry]";
+			say "[line break][reflection entry]";
 
 table of Bible reflections
 looknum	reflection
@@ -6046,18 +6067,18 @@ instead of doing something with spoon table:
 	if action is procedural:
 		continue the action;
 	if current action is taking:
-		say "The spoons are dug in, and they're stuck together. You table the idea.";
+		say "The spoons are dug in, and they're stuck together. You table the idea." instead;
 	if current action is attacking:
-		say "The table is too sturdy.";
+		say "The table is too sturdy." instead;
 	say "It's mostly there for holding up the Basher Bible."
 
 instead of doing something with Basher Bible:
 	if action is procedural:
 		continue the action;
 	if current action is taking:
-		say "It's more or less impossible to take, both physically (its cover is woven or glued to the spoons) and emotionally.";
+		say "It's more or less impossible to take, both physically (its cover is woven or glued to the spoons) and emotionally." instead;
 	if current action is attacking:
-		say "[if accel-ending]No. Attacking it won't destroy its philosophy, or help you learn it better[else]It sort of makes you want to lash out, but somehow it makes you feel guilty for WANTING to attack it[end if].";
+		say "[if accel-ending]No. Attacking it won't destroy its philosophy, or help you learn it better[else]It sort of makes you want to lash out, but somehow it makes you feel guilty for WANTING to attack it[end if]." instead;
 	say "It's mostly there for looking at and absorbing its philosophy, whatever that may be."
 
 section Terry Sally
@@ -6091,7 +6112,7 @@ terry-int	--
 terry-fun	"'Well, there's solving boring puzzles. But that's a bit too square. No offense, but that's probably how you wound up here. What if you--well, bend the rules a bit? Nothing too stupid, but annoy authority. Convince me--and yourself, of course--you're not just some boring square.'"
 terry-ways	"'Well, there's public laziness. Annoying other bar patrons. Possession of alcohol. Littering and/or obfuscating your own transgressions record.'"
 terry-north	"'Well, it gets a bit seedier there. Rougher. I'm sure you're nice and all, even if you're not actually nice TO anyone, but it might be better not to be totally nice. Tell you what. You find me a trail paper, I let you by. It's made up of--oh, what do you call em? For not being a total kiss-up? Anyway, don't do anything too dumb. But you'll want to annoy authorities a bit.'"
-terry-west	"'Meal Square. But you can't get up to much trouble there.'"
+terry-west	"'Meal Square. Some odd foods there. Some of [']em scare me a bit. But you might like [']em.'"
 terry-baiter	"'I'm sure he'd like to welcome you individually, but he's just too busy fending off [bad-guy-2]. And thinking up his own philosophies. And making sure nobody weirds out too much, from his big observation room in Freak Control. So he delegates the greeting to me, while making sure nobody acts out the wrong way. Don't get me wrong. He's a geek/dork/nerd and loves the rest of us. Just, those who give it a bad name...'"
 terry-bye	"'Later. Be good. But not too good. That's just boring.'"
 
@@ -6148,7 +6169,7 @@ check going west in pressure pier:
 	otherwise:
 		if meal square is unvisited:
 			now thought for food is in lalaland;
-			say "Terry Sally coughs. 'That's Meal Square. Nice if you've got a thought for food[activation of thought for food]. But better places to break the rules.' Nevertheless, he lets you go.";
+			say "Terry Sally coughs. 'That's Meal Square. Nice if you've got a thought for food[activation of thought for food]. But there's better places to break the rules.' Nevertheless, he lets you go.";
 
 Meal Square is west of Pressure Pier. Meal Square is in Outer Bounds. "This is a small alcove with Pressure Pier back east. There's not much decoration except a picture of a dozen bakers."
 
@@ -6436,7 +6457,7 @@ to check-fast-track:
 		if brownie is in lalaland:
 			say "[line break]Wow! It's pretty cool being around people a little more socially acceptable than you. You're learning so fast!";
 		else:
-			say "Yup. You're not messing around. Chumps need to get out of your WAY. Maybe the Old You, before you ate the [bad-eaten], would've gotten bogged down in a silly puzzle or fetch quest or something, thinking some nonsense like it's the journey that mattered. But the new you--nope, Nope, NOPE.";
+			say "[line break]Yup. You're not messing around. Chumps need to get out of your WAY. Maybe the Old You, before you ate the [bad-eaten], would've gotten bogged down in a silly puzzle or fetch quest or something, thinking some nonsense like it's the journey that mattered. But the new you--nope, Nope, NOPE.";
 		now say-old-you is true;
 
 to deal-with-loc:
@@ -6544,7 +6565,7 @@ for writing a paragraph about a supporter in Meal Square:
 	say "Two trays sit here, labeled, semi-helpfully, Tray A and Tray B[one of]. You're not surprised [activation of tray s]Tray S or [activation of tray x]X is gone, but [activation of tray t]Tray T would've been nice[or][stopping].";
 	now all supporters in meal square are mentioned;
 
-a condition mint is an edible thing on Tray A. description is "It's one inch square, with [activation of shame no]SHAME? NO! [activation of forgive]GIVE, FOR... on it. Maybe there's be more, but it [i]is[r] a small mint"
+a condition mint is an edible thing on Tray A. description is "It's one inch square, with [activation of shame no]SHAME? NO! [activation of forgive]GIVE, FOR... on it. Maybe there's be more, but it [i]is[r] a small mint."
 
 indefinite article of condition mint is "a".
 
@@ -6845,7 +6866,7 @@ section minimum bear
 
 Minimum Bear is a thing in Joint Strip. "[unless minimum bear is examined]A small toy bear[else]Minimum Bear[end if] lies here."
 
-description of Minimum Bear is "[if minimum bear is not examined]Aww, isn't that cute? A tag reveals its name to be Minimum Bear. Well, it's not that cute. Only just cute enough to make you go aww. Or want to[else]It's just bear-ly cute enough. Ba boom boom[end if]. Only someone completely unworried about aesthetics, or terribly caught up in nostalgia and/or bizarre aesthetics, could fully love poor Minimum Bear."
+description of Minimum Bear is "[if minimum bear is not examined]Gee, isn't that cute? A tag reveals its name to be Minimum Bear. Well, it's not that cute. Only just cute enough to make you think aw, with as few w's as possible[else]It's just bear-ly cute enough. Ba boom boom[end if]. Only someone completely unworried about aesthetics, or terribly caught up in nostalgia and/or bizarre reasoning, could fully love poor Minimum Bear."
 
 after taking Minimum Bear:
 	if Minimum Bear is not examined:
@@ -7044,7 +7065,7 @@ to say erin-creep:
 		get-ticketed "being too awkward to speak in the Soda Club";
 
 to say erin-sez:
-	say "[bye-erin of 0]She starts off explaining how you are lucky to have met someone as exciting as her. She babbles on about the low quality and alcohol content of drinks in this place. You nod, but she notes you haven't even TRIED to interrupt, and how she used to never interrupt but she's learned there's a balance between not interrupting at all and interrupting too much, and you--you do want more balance in your life? You want to be more enthusiastic about life, don't you?'[no line break]"
+	say "[bye-erin of 0]She starts off explaining how you are lucky to have met someone as exciting as her. She babbles on about the low quality and alcohol content of drinks in this place. You nod, but she notes you haven't even TRIED to interrupt, and how she used to never interrupt but she's learned there's a balance between not interrupting at all and interrupting too much, and you--you do want more balance in your life? You want to be more enthusiastic about life, don't you?[no line break]"
 
 to say bye-erin of (x - a number):
 	choose row with response of erin-bye in table of Erin talk;
@@ -7148,7 +7169,7 @@ after printing the name of haha brew when taking inventory:
 
 table of quip texts (continued)
 quip	quiptext
-ally-punch	"Whatever we give him, it goes down badly. [activation of punch out]Out Punch, he starts a fight. [activation of punch line]Line Punch, the stupid jokes he tells! [activation of punch ticket]Ticket Punch, he whines he's entitled, or worse, he isn't. And that night he snuck some [activation of punch drunk]drunk punch..."
+ally-punch	"'Whatever we give him, it goes down badly. [activation of punch out]Out Punch, he starts a fight. [activation of punch line]Line Punch, the stupid jokes he tells! [activation of punch ticket]Ticket Punch, he whines he's entitled, or worse, he isn't. And that night he snuck some [activation of punch drunk]drunk punch...'"
 ally-drinks	"'Well, you wouldn't be ready for the [activation of rummy gin]Rummy Gin or [activation of go rum]Go Rum. If we served it after-hours, of course. If we served it after-hours. And water's...troubled, in such an exciting place. But we have Haha Brew and Cooler Wine. Both so watered down, the Stool Toad won't nab you long as you drink it here.'"
 ally-alco	"'Haha. No.'"
 ally-onrocks	"He pushes a button on an unseen machine. You hear ice cubes rattle. He holds up a glass, swirls it, and nods meaningfully before putting it away. Duh, now. Maybe you should've asked what Beechwood Aged or something meant, instead."
@@ -9589,9 +9610,10 @@ after quipping when qbc_litany is table of Buddy Best talk:
 		wfak;
 		say "[line break]'Negotiator, eh? Standing your ground? I'm sure you're nice once I get to know you even if you're not as nice as [bg] once you get to know him, but this is real efficient self improvement stuff. I'm sure you're smart enough to understand. [']Cause you probably should've understood it a few years ago. Here, I don't want to waste any more of your time.' Buddy Best hands you something as he pushes you out.";
 		wfak;
-		say "[line break]Well, it's something. Which is more than you expected. Generally, obnoxious fast-talkers wound up taking something from YOU after a short, loud, fast dialog. You're not sorry you had no chance to say good-bye.";
+		say "[line break]Well, it's something. Which is more than you expected. Generally, obnoxious fast-talkers wound up taking something from YOU after a short, loud, fast dialog.";
 		now player has the Reasoning Circular;
-		try going east;
+		move player to Questions Field, without printing a room description;
+		say "[bold type]Questions Field[paragraph break][roman type]The [if bros-left is 3]Brothers look[else if bros-left is 2]remaining Brothers look[else]remaining Brother looks[end if] unsurprised you got thrown out. Well, at least you have this...Reasoning Circular now.";
 		annotize buddy best;
 
 part Discussion Block
@@ -9972,7 +9994,7 @@ prompt	response	enabled	permit
 table of quip texts (continued)
 quip	quiptext
 big-hi	"'Not really. But it is my duty. The [bad-guy] and [bfa] dictated it.'"
-big-duty	"'Well, they explained it was what I was best at. I asked what else and they laughed. Until I had to laugh. I forget why. But apparently I'm not good at laughing at myself. As good as he is. At himself, or me. But he always has smart stuff to say.'"
+big-duty	"'Well, they explained it was what I was best at. I asked what else and they laughed. Until I had to laugh. I forget why. But apparently I'm not good at laughing at myself. Despite his example, laughing at me or himself. But he always has smart stuff to say.'"
 big-theory	"'It's helping me, though. I'm just not smart enough to figure out why.'"
 big-go	"'Well, if you could help me feel smart. I mean, you seem smart, but I dunno if you could help me feel smart. It's like I'd like a book, not boring like a dictionary or too fluffy. But one that just helps me, you know?'"
 big-baiter	"'I figure I'll appreciate him more once or if I ever get smarter. He'd help me, but he's too busy.'"
@@ -10086,7 +10108,7 @@ after quipping when qbc_litany is litany of Brother Blood:
 	if current quip is blood-maybe:
 		enable the blood-manip quip;
 	if current quip is blood-manip:
-		superable blood-calm;
+		enable the blood-calm quip;
 	if current quip is blood-calm:
 		if blood-all is not talked-thru:
 			enable the blood-all quip;
