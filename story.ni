@@ -1578,7 +1578,7 @@ check listening (this is the listening in a place rule):
 	if player is in judgment and petty is in judgment:
 		try listening to petty instead;
 	if player is in speaking plain and dutch is in speaking plain:
-		say "Hard NOT to listen to Uncle Dutch." instead;
+		say "Hard NOT to listen to Dutch and Turk, really." instead;
 	if player is in truth home and Sid Lew is in truth home:
 		say "[one of]'See there, Lee Bull? This guy sits and listens. Right?' Before you can agree, Sid Lew continues. Strictly speaking, everything he says is true, but he tends to weight this or that more than he should...[or]Sid Lew continues to spew truths, with his own unique weighting of what is important.[stopping]" instead;
 	if player is in Discussion Block:
@@ -1687,6 +1687,7 @@ check unlocking:
 chapter touching
 
 understand "tag [thing]" as touching.
+understand "pet [thing]" as touching.
 
 check touching:
 	if noun is hammer:
@@ -3774,8 +3775,8 @@ carry out verbing:
 	if "anno" is unlock-verified or anno-check is true:
 		say "[2da][b]ANNO[r] toggles annotations, which are currently [on-off of anno-check], [b]NOTE[r] lets you recall an area or item, and [b]JUMP[r] will send you between the director's cut area and the main area.";
 	if jerk-who-short is true and silly boris is not in lalaland:
-		say "[2da][b]WHO[r] tells the [j-co]['] names.";
-		say "[2da][b]SHORT[r] cuts down the conversation topics.";
+		say "[2da][b]WHO[r] tells the [j-co]['] names. [b]THINK[r] reminds you who likes what. [b]SKIP[r] skips to the next jerk to accuse.";
+		say "[2da][b]SHORT[r] abbreviates the conversation topics.";
 	if know-babble is true:
 		say "[2da][b]BROOK BABBLING[r] lets you talk to someone and skip over a conversation's details[if ever-babbled is true]. It can be shortened to B[sr-space]B, with or without a space[end if]. You can even specify a person if there's more than one to talk to, e.g. [b]BROOK HIM[r] or [b]BB HER[r].[line break]";
 	if player is in belt below and terminal is in belt below and x-term-yet is true:
@@ -7313,6 +7314,9 @@ after examining Quiz Pop:
 to say j-co:
 	say "[if allow-swears is true]jerks[else]groaners[end if]";
 
+to say j-cap:
+	say "[if allow-swears is true]Jerks[else]Groaners[end if]";
+
 to say jc-gc:
 	say "[if allow-swears is true]Jerk Circle[else]Groan Collective[end if]";
 
@@ -7416,12 +7420,10 @@ jerk-who-short is a truth state that varies.
 before talking to a client (this is the successfully talk to a client rule) :
 	if noun is minted:
 		say "You already know [noun]'s secret. You should talk to someone else." instead;
-	say "Notes in hand, you realize you can THINK to recall finger index at any time. You also may want to LISTEN to see if everyone is getting demoralized after you move on to the next [j-g]. You can, of course, UNDO that, too, and I won't judge.";
-	say "Also, you can type WHO to remember their names in-conversation, or SHORT to toggle shortening your questions, or SKIP to skip to the next jerk after accusing him.";
 	now jerk-who-short is true;
 	now last-jerk is noun;
 	try talking to generic-jerk instead;
-
+		
 chapter skiping
 
 skiping is an action applying to nothing.
@@ -7707,6 +7709,15 @@ before talking to generic-jerk when secrets-open is true:
 	say "After listening to the [j-co] for a bit, it's extra apparent who's who on the Labor Child's list. You gather them around and tell them what's up.[line break]";
 	zap-the-jerks;
 	the rule succeeds;
+
+jerk-num-hint is a truth state that varies.
+
+after talking to generic-jerk:
+	if jerk-num-hint is false:
+		ital-say "now that you've seen the questions, there are easier ways than plowing through the dialogues. They are listed in VERBS, but now that you know which question is which, you can type a seven-digit number such as 1234567 to guess more quickly.";
+	else:
+		ital-say "remember, VERBS can show you shortcut alternatives to the dialogue.";
+	now jerk-num-hint is true;
 
 to decide which quip is mint-quip:
 	if number of minted clients is 0:
@@ -9364,7 +9375,7 @@ rule for deciding whether to allow undo:
 
 table of idol text
 good-text	bad-text	undo-text
-"The thoughts idol whizzes around to track you, quicker as you get close, slower as you get near, and quicker as you go away. Was it you, or did the humming seem just a bit more staticky than when you entered the Service Community? Well, you're safe so far."	"You look back at the idol after your run. But you can't look at its face. A loud buzz emanates from the idol, and you sink to the ground, covering your ears. Once they stop ringing, you go back to the entrance to Idiot Village."	"You didn't really do much wrong. There's not much to undo."
+"The thoughts idol whizzes around to track you, quicker as you get close, slower as you get near, and quicker as you go away. Was it you, or did the humming seem just a bit more staticky than when you entered the Service Community? Well, you're safe so far.[paragraph break]You look back to the entrance to Idiot Village, [if rotation is 3]west and a bit north[else]south and a bit west[end if][one of]. Makes sense, thinking back to how you got past Cute Percy losing a turn by moving diagonally[or][stopping]."	"You look back at the idol after your run. But you can't look at its face. A loud buzz emanates from the idol, and you sink to the ground, covering your ears. Once they stop ringing, you go back to the entrance to Idiot Village."	"You didn't really do much wrong. There's not much to undo."
 "The thoughts idol whirls around some more. Was it just you, or did it go a little more slowly and sound a little creakier?"	"The idol catches you. A loud buzz, and you cover your ears. That could not have been the way to go."	"You didn't really do much wrong. There's not much to undo."
 "The thoughts idol whizzes around, adjusting speed--but did you hear a little cough?"	"The idol buzzes. You feel frozen, then are frozen."	"You thought you almost had the idol there for a bit, but it's not exactly going to be open to letting you brute-force it into submission."
 "The thoughts idol seems to twitch back and forth while following you."	"You feel frozen and collapse. The idol's contempt can't hide a legitimate frown. You slipped up, but you got pretty far."	"Halfway there...maybe if you get momentum, you'll nail the pattern down for good."
@@ -9485,7 +9496,7 @@ does the player mean entering drug gateway: it is very likely.
 
 part Pot Chamber
 
-Pot Chamber is inside of Walker Street. It is in Main Chunk. It is only-out. "This is a reclusive little chamber that sells far more of incense and air freshener than any place has a right to[one of], and after a moment's thought, you realize why[or][stopping]. Any sort of incriminating equipment is probably behind secret passages you'll never find, and you can only go out again."
+Pot Chamber is inside of Walker Street. It is in Main Chunk. It is only-out. "This is a reclusive little chamber that smells far more of incense and air freshener than any place has a right to[one of], and after a moment's thought, you realize why[or][stopping]. Any sort of incriminating equipment is probably behind secret passages you'll never find, and you can only go out again."
 
 check going nowhere in pot chamber:
 	say "The only way to go is out." instead;
@@ -9584,7 +9595,7 @@ The Language Machine is scenery in Standard Bog. "The language machine hums alon
 
 to say fr-sm:
 	say "[if wax is in lalaland]smile[else]frown[end if]"
-	
+
 the lcd frown is part of the language machine. description is "BUG"
 
 understand "lcd smile" and "smile" as lcd frown when wax is in lalaland.
@@ -13546,17 +13557,17 @@ tj-descr	tj-rule	corruption
 "Tension Surface"	go-surface rule	false
 "Pressure Pier"	go-pier rule	false
 "Nominal Fen"	go-jerks rule	false
-"Brothers gone, visit [j-co]"	go-field-bro rule	false
-"Brothers and [j-co] gone"	notice-advance rule	false
-"Jerks solved, brothers not"	jerks-not-bros rule	true
+"Brothers gone, visit [j-cap]"	go-field-bro rule	false
+"Brothers and [j-cap] gone"	notice-advance rule	false
+"[j-cap] gone, go near Brothers"	jerks-not-bros rule	true
 "Jump to Freak Control"	freak-control rule	false
 "Jump to Good End"	to-good-end rule	false
 "Jump to Great End"	to-very-good-end rule	false
 "Face Cute Percy"	face-ac rule	false
 "Face the Insanity Terminal"	face-term rule	true
 "Face the Idol"	face-idol rule	true
-"Defeat the Idol"	defeat-idol rule	true
-"Defeat everyone"	defeat-everyone rule	true
+"Auto-solve the Idol"	defeat-idol rule	true
+"Auto-solve the Idol/Brothers/[j-cap]"	defeat-everyone rule	true
 
 this is the go-lounge rule:
 	move player to round lounge;
