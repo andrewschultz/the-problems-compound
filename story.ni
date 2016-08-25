@@ -546,8 +546,6 @@ a client is a kind of person. a client is usually male. a client can be specifie
 
 a client can be minted. a client is usually not minted.
 
-an enforcer is a kind of person.
-
 chapter misc defs for later
 
 a concept is a kind of thing. description of a concept is usually "[bug]"
@@ -1153,7 +1151,7 @@ check smoking:
 		say "Pusher Penn only gave him enough for one person. Plus, you'd probably do it wrong." instead;
 	if noun is pusher penn:
 		say "The acute social observer Oshea Jackson once posited that the main barriers to success for someone in Pusher Penn's position was getting high off one's own supply." instead;
-	if noun is an enforcer:
+	if noun is enforcing:
 		say "That's a bad idea. For your health and your freedom." instead;
 
 chapter jumping
@@ -2104,7 +2102,7 @@ check attacking:
 	if noun is Baiter:
 		say "Of course, with all those screens, he saw you well before you got close. He whirls and smacks you. Stunned, you offer no resistance as guards appear and take you away to where those who commit the worst crimes... 'Dude! If you wanted to talk, just TALK. I mean, you can't be too boring, but don't be all...' You don't hear the rest.";
 		ship-off Punishment Capitol instead;
-	if noun is an enforcer:
+	if noun is enforcing:
 		say "'ATTACKING A LAW ENFORCEMENT OFFICER?' Ouch. You should've known better. And [the noun] lets you know that in utterly needless detail, explaining just because you had no chance of beating him up doesn't mean it's not a very serious crime indeed.[paragraph break]It's almost a relief when he has finished shipping you off.";
 		ship-off Punishment Capitol instead;
 	if noun is a bro:
@@ -2371,7 +2369,7 @@ check giving the condition mint to:
 		continue the action;
 	if second noun is baiter-aligned:
 		say "[the second noun] is a bit above the condition mint, and how it might help them feel forgiven or put away shame." instead;
-	if second noun is an enforcer:
+	if second noun is enforcing:
 		say "That's not substantial enough for an officer of the law." instead;
 	if second noun is not a client:
 		say "Your offer is declined. [if mint is examined]They don't seem to have any silly shame that can be absolved easily[else]Maybe looking at the mint will help decide why[end if]." instead;
@@ -2443,7 +2441,7 @@ check giving the trail paper to:
 check giving dreadful penny to:
 	if second noun is labor child:
 		say "That's small stuff for him. He'd probably rather be doing business." instead;
-	if second noun is an enforcer:
+	if second noun is enforcing:
 		say "'Such blatant bribery! And small thinking, too.'" instead;
 	if second noun is faith or second noun is grace:
 		say "'We need no monetary donations. Big or small. [goo-heal].'" instead;
@@ -6934,7 +6932,7 @@ understand "toy" and "toy bear" as Minimum Bear.
 
 section the Stool Toad
 
-The Stool Toad is an improper-named enforcing enforcer in Joint Strip. "[one of]Ah. Here's where the Stool Toad went. He's sitting on a stool--shaped like a pigeon, of course.[paragraph break]'So! The new juvenile from Down Ground. Best you stay out of [if tix-adv > 0]further [end if]trouble.'[or]The Stool Toad, sitting on his pigeon stool, continues to eye you [tix-adv].[stopping]"
+The Stool Toad is an improper-named enforcing person in Joint Strip. "[one of]Ah. Here's where the Stool Toad went. He's sitting on a stool--shaped like a pigeon, of course.[paragraph break]'So! The new juvenile from Down Ground. Best you stay out of [if tix-adv > 0]further [end if]trouble.'[or]The Stool Toad, sitting on his pigeon stool, continues to eye you [tix-adv].[stopping]"
 
 check talking to toad when trail paper is not off-stage:
 	say "You don't want to let anything slip that could get you in further trouble, with all the boo-ticketies you accumulated." instead;
@@ -9031,7 +9029,7 @@ check going nowhere in judgment pass:
 	if noun is inside or noun is outside or noun is north or noun is south:
 		say "The only passage is east-west." instead;
 
-Officer Petty is an enforcing enforcer in Judgment Pass. "[one of]The officer stares down at the intuition counter for a moment. 'NOPE,' he yells. 'Sure as my name's Officer Petty, no good reason for you to go to Idiot Village.'[or]Officer Petty regards you with contempt.[stopping]"
+Officer Petty is an enforcing person in Judgment Pass. "[one of]The officer stares down at the intuition counter for a moment. 'NOPE,' he yells. 'Sure as my name's Officer Petty, no good reason for you to go to Idiot Village.'[or]Officer Petty regards you with contempt.[stopping]"
 
 description of Officer Petty is "Officer Petty stares back at you, cracks his knuckles, and rubs a palm. He's bigger, stronger and fitter than you."
 
