@@ -23,7 +23,7 @@ section compiler debug
 
 [without these numbers beiing increa sed, the I7 would be translated to I6, but the I6 compiler would complain. That's what happens when a game gets bigger than intended.]
 
-use MAX_ACTIONS of 205.
+use MAX_ACTIONS of 210.
 
 use MAX_SYMBOLS of 24000.
 
@@ -334,15 +334,18 @@ to say your-mood:
 	else if mrlp is beginning:
 		say "[if player is in surface]T[else]Near t[end if]he Arch";
 	else if mrlp is outer bounds:
-		if trail paper is in lalaland:
-			do nothing;
-		else:
+		if trail paper is off-stage:
 			if your-tix is 0:
 				say "Find trouble?";
 			else:
 				say "[your-tix]/4 ticketies";
-			the rule succeeds;
-		say "[if player is in pressure pier]By Terry Sally[else]Find Trouble[end if]";
+		else if terry sally is in pressure pier:
+			say "[if player is in pressure pier]By[else]Go See[end if] Terry";
+		else if wacker weed is in lalaland:
+			say "Not much here";
+		else:
+			say "1 task here?";
+		the rule succeeds;
 	else if mrlp is rejected rooms:
 		say "EXIT[if number of viable directions > 1]S[end if]: ";
 		say "[unless the room north of location of player is nowhere]N [end if]";
@@ -532,7 +535,7 @@ a room can be cheat-surveyed. a room is usually not cheat-surveyed.
 
 a room can be endfound. a room is usually not endfound.
 
-a person can be surveyable, baiter-aligned, or unaffected. a person is usually unaffected.
+a person can be surveyable, baiter-aligned, enforcing, or unaffected. a person is usually unaffected.
 
 Procedural rule: ignore the print final score rule.
 
@@ -1136,6 +1139,21 @@ check burning:
 		say "Even if you had something to light it with, which you don't and won't, you know you apparently need to keep the smoke in longer than a real cigarette. Too much. Anyway, the Compound has been trippy enough" instead;
 	say "A fit of pyromania won't exactly set the Compound on fire, especially since you don't have--and won't find--the tools." instead;
 
+smoking is an action applying to one thing.
+
+understand "smoke with [person]" as smoking.
+
+check smoking:
+	if noun is fritz:
+		if player has weed:
+			say "You'll probably want to GIVE the weed to Fritz." instead;
+		if weed is off-stage:
+			say "Nothing to smoke." instead;
+		say "Pusher Penn only gave him enough for one person. Plus, you'd probably do it wrong." instead;
+	if noun is pusher penn:
+		say "The acute social observer Oshea Jackson once posited that the main barriers to success for someone in Pusher Penn's position was getting high off one's own supply." instead;
+	if noun is an enforcer:
+		say "That's a bad idea. For your health and your freedom." instead;
 
 chapter jumping
 
@@ -1502,7 +1520,7 @@ check smelling (this is the smelling a place rule): [see above for people]
 	if player is in speaking plain:
 		say "The advice you're hearing thankfully only stinks metaphorically." instead;
 	if player is in pot chamber:
-		say "You take a whiff, against your better judgement, but it doesn't smell like sewage. Whew." instead;
+		say "You take a whiff, against your better judgement, but it doesn't smell like sewage. Whew. In fact, it smells less weird than the Joint Strip." instead;
 	if player is in freak control:
 		say "Unusually sterile." instead;
 	if player is in discussion block:
@@ -1642,6 +1660,8 @@ chapter wearing
 the can't wear what's not clothing rule is not listed in any rulebook.
 
 check wearing:
+	if noun is mind of peace:
+		say "You're not sure how to, and you're not sure if you need it the most of anyone here, either." instead;
 	say "Thankfully, you don't need to worry about style in this game. Anything you need to wear, you'll do so automatically." instead;
 
 chapter unlocking
@@ -1680,6 +1700,8 @@ check touching:
 		say "You took a year longer than most to find out what that meant. You're still embarrassed by that." instead;
 	if noun is Cute Percy:
 		say "You'll need to [if p-c is true]catch him[else]ENTER the chase paper[end if]." instead;
+	if noun is business monkey:
+		say "The monkey seems friendly, but this is not a petting zoo." instead;
 	if noun is a person:
 		say "That wouldn't be a fun poke[activation of poke fun]. It might even be a base touch[activation of touch base]." instead;
 	say "You can just TAKE something if you want to." instead;
@@ -2345,6 +2367,8 @@ check giving the condition mint to:
 		continue the action;
 	if second noun is baiter-aligned:
 		say "[the second noun] is a bit above the condition mint, and how it might help them feel forgiven or put away shame." instead;
+	if second noun is an enforcer:
+		say "That's not substantial enough for an officer of the law." instead;
 	if second noun is not a client:
 		say "Your offer is declined. [if mint is examined]They don't seem to have any silly shame that can be absolved easily[else]Maybe looking at the mint will help decide why[end if]." instead;
 	if finger index is not examined:
@@ -2424,6 +2448,7 @@ check giving dreadful penny to:
 		now penny is in lalaland;
 		say "'Most excellent! It's not the profit so much as the trust. Now, you look like you haven't tried the good herb before. No offense. So let's start you with the...' he sniffs, 'aromatic stuff. It's poor-y pot, but it'll do. Seller assumes no liability if user is too wussy to keep smoke in lungs for effective amount of time, yada, yada.' You try to say you weren't intending to smoke it, anyway.";
 		increment the score;
+		set the pronoun it to the poory pot;
 		the rule succeeds;
 
 to say goo-heal:
@@ -2671,6 +2696,8 @@ chapter person based
 [these kick in before giving X to Y, but it's a smaller section so I put them here.]
 
 check giving to Brother Big:
+	if noun is a smokable:
+		say "'That might give me too-crazy ideas. I need something I can study.'" instead;
 	if noun is poetic wax:
 		say "'I am too clumsy to write poetry.'" instead;
 	if noun is Trick Hat:
@@ -2681,6 +2708,8 @@ check giving to Brother Big:
 		say "'I need specific relief from my own lack of knowledge. However, that may be perfect for Brother Soul.'" instead;
 
 check giving to Brother Soul:
+	if noun is a smokable:
+		say "'That works to inspire some people, but probably not for me.'" instead;
 	if noun is poetic wax:
 		say "'If I were cheerier, that might help me write decent poetry. But alas, I am not, yet.'" instead;
 	if noun is Trade of Tricks:
@@ -2689,6 +2718,8 @@ check giving to Brother Soul:
 		say "'That would be perfect for Brother Blood. But any peace I have would be temporary. I would still need relief.'" instead;
 
 check giving to Brother Blood:
+	if noun is a smokable:
+		say "'That might give me a short-term fix, but I need something permanent.'" instead;
 	if noun is poetic wax:
 		say "'I am scared of what I might write.'" instead;
 	if noun is Trade of Tricks:
@@ -2731,6 +2762,8 @@ check giving (this is the default for giving to people organized by room rule) :
 	if second noun is business monkey:
 		say "The business monkey shrugs its shoulders." instead;
 	if second noun is dutch or second noun is turk:
+		if noun is dreadful penny:
+			say "'NOT FOR US BIG THINKERS', booms [second noun]." instead;
 		say "'GIFTS AFTER THE SHOW,' booms [second noun]." instead;
 	if second noun is pusher penn:
 		say "'Not useful in my line of business.'" instead;
@@ -6891,7 +6924,7 @@ understand "toy" and "toy bear" as Minimum Bear.
 
 section the Stool Toad
 
-The Stool Toad is an improper-named enforcer in Joint Strip. "[one of]Ah. Here's where the Stool Toad went. He's sitting on a stool--shaped like a pigeon, of course.[paragraph break]'So! The new juvenile from Down Ground. Best you stay out of [if tix-adv > 0]further [end if]trouble.'[or]The Stool Toad, sitting on his pigeon stool, continues to eye you [tix-adv].[stopping]"
+The Stool Toad is an improper-named enforcing enforcer in Joint Strip. "[one of]Ah. Here's where the Stool Toad went. He's sitting on a stool--shaped like a pigeon, of course.[paragraph break]'So! The new juvenile from Down Ground. Best you stay out of [if tix-adv > 0]further [end if]trouble.'[or]The Stool Toad, sitting on his pigeon stool, continues to eye you [tix-adv].[stopping]"
 
 check talking to toad when trail paper is not off-stage:
 	say "You don't want to let anything slip that could get you in further trouble, with all the boo-ticketies you accumulated." instead;
@@ -7313,7 +7346,7 @@ to jerk-blab:
 	choose row jerk-girl-row in table of jerk-girl-talk;
 	say "[girl-neg entry][line break]";
 	if jerk-girl-yet is false:
-		say "You have a vague suspicion that they don't know as much about girls as they say they do, but if you called them on it, they'd say you didn't, either, so hypocrisy.";
+		say "[line break]You have a vague suspicion they don't know as much about girls as they say they do, but if you called them on it, they'd say you didn't, either, so hypocrisy.";
 		now jerk-girl-yet is true;
 
 table of jerk-girl-talk
@@ -8161,7 +8194,7 @@ to say wfk:
 	say "[line break]";
 
 to say as-char:
-	say "[one of]You hear a rustle from behind. Someone slaps you on the left side of your neck--you look there but see no-one. Then you look right. Ah, there. You STILL hate when people do that.[paragraph break]'Hey. It's me, Cute Percy. The [activation of character assassination]assassination character, cuz the [bg], err, [bad-guy], says 'You're killing me!' at my little jokes and puzzles. AC for short. What're you? AS? No, not as catchy. Don't worry, I could make plenty of names for you.' He tries a few, guessing your middle name is Sheldon or Steve, and you rush at him, and he snickers.[wfk]'Temper, temper. Well, if you're not a lazy quitter, there's a cheat below.'[wfk]'Cheat?'[paragraph break]'Oop! Interested, eh? Guess you're not perfectly honest. Just ENTER the chase paper and give it a try. UNLESS YOU'RE CHICKEN.'[paragraph break]You wonder why you wouldn't fall through the chase paper if there was nothing under there, but the AC probably has an annoying response for that.[no line break][or]Cute Percy springs out of nowhere again, asking whether you are too chicken to get on the chase paper or maybe you want to be lazy and cheat but you're scared you'll fail.[no line break][stopping]"
+	say "[one of]You hear a rustle from behind. Someone slaps you on the left side of your neck--you look there but see no-one. Then you look right. Ah, there. You STILL hate when people do that.[paragraph break]'Hey. It's me, Cute Percy. The [activation of character assassination]assassination character, cuz the [bg], err, [bad-guy], says 'You're killing me!' at my little jokes and puzzles. AC for short. Or CP. What're you? AS? Pft, that's lame. Don't worry, I could make plenty of names for you.' He tries a few, guessing your middle name is Sheldon or Steve, and you rush at him, and he snickers.[wfk]'Temper, temper. Well, if you're not a lazy quitter, there's a cheat below.'[wfk]'Cheat?'[paragraph break]'Oop! Interested, eh? Guess you're not perfectly honest. Just ENTER the chase paper and give it a try. UNLESS YOU'RE CHICKEN.'[paragraph break]You wonder why you wouldn't fall through the chase paper if there was nothing under there, but the AC probably has an annoying response for that.[no line break][or]Cute Percy springs out of nowhere again, asking whether you are too chicken to get on the chase paper or maybe you want to be lazy and cheat but you're scared you'll fail.[no line break][stopping]"
 
 does the player mean entering the chase paper: it is likely.
 
@@ -8261,7 +8294,7 @@ check going nowhere in truth home:
 	say "The only way out is, well, out." instead;
 
 for writing a paragraph about a person (called arg) in Truth Home:
-	say "[one of]You walk in on a one-sided argument. The louder and bigger of the two getting the most of it. 'Oh, hey,' he says. 'I'm Sid Lew. They call me the Logical Psycho [']cause I'm quick to make one point and move on to something even better. I was worried my energy's wasted on Lee over here. Maybe you, well, Lee over here, he knows boring facts, but not exciting ones. Might even be jealous of my dynamic style. Say, tell this guy, whatshisname, do they call you? C'mon, you've got a chance to SPEAK.'[wfk][line break]'The Proof Fool.'[paragraph break]'Well, with a name like Bull, well, that maybe has meanings, too, am I right? Right!'[or]Sid Lew continues to explain something Lee Bull doesn't want to hear.[stopping]";
+	say "[one of]You walk in on a one-sided argument. The louder and bigger of the two getting the most of it. 'Oh, hey,' he says. 'I'm Sid Lew. They call me the Logical Psycho [']cause I'm quick to make one point and move on to something even better. I was worried my energy's wasted on Lee over here. Maybe you, well, Lee over here, he knows boring facts, but not exciting ones. Might even be jealous of my dynamic style. Say, tell this guy, whatshisname, do they call you? C'mon, you've got a chance to SPEAK.'[line break]'Lee Bull.'[paragraph break]'No, what they call you.'[paragraph break]'The Proof Fool.'[paragraph break]'Well, with a name like Bull, well, that maybe has meanings, too, am I right? Right!'[or]Sid Lew continues to explain something Lee Bull doesn't want to hear.[stopping]";
 	now Lee Bull is mentioned;
 	now Sid Lew is mentioned;
 
@@ -8292,7 +8325,7 @@ sid-sez
 "Sid proves scientists are lazy because they just aren't making enough elements quick enough. Chiseling from the government, really. Also, scientists are arrogant because they name elements after other scientists and not, like, pop culture."
 "Sid takes an annoying stance espousing a political view you're opposed to, then an almost as annoying stance explaining one you agree with. You feel biased not being as appalled the second time."
 "Sid wonders why people would spend ten minutes listening to a sermon in church. You mentally calculate how long you've been around him, or worse, how long Lee has."
-"Sid is sure Evariste Galois was smart to figure out all that stuff by the age of 21, but he was kind of dumb to get killed at 21 too, amirite?"
+"Sid is sure Évariste Galois was smart to figure out all that stuff by the age of 21, but he was kind of dumb to get killed at 21 too, amirite?"
 "Sid wonders if maybe mathematicians are being lazy about finding a quintic formula, though he can't even remember the quadratic, and he remembers the cubic formula was really messy."
 "Sid doesn't fully believe in Godel's Incompleteness theorem. Perhaps mathematicians aren't trying hard enough to figure things out."
 "Sid puts forth an appallingly simplistic view on taxes. Just when you think you've heard them all, wow."
@@ -8824,7 +8857,7 @@ description of Labor Child is "He's dressed in abhorrently cutesy Deal Clothes, 
 
 check talking to labor child:
 	if contract is off-stage:
-		say "'I'm a busy kid. Almost as busy as [bg]. In addition to delegating all my homework I am running a business! There's startup materials in the Hedge Fund.'" instead;
+		say "'I'm a busy kid. Almost as busy as [bg]. In addition to delegating all my homework I am running a business! There's startup materials in the Fund Hedge.'" instead;
 	if player has contract:
 		if contract-signed is false:
 			say "'The contract! Less talk! More do!' Oh, man, there's something you'd like to DO." instead;
@@ -8965,7 +8998,7 @@ check going nowhere in judgment pass:
 	if noun is inside or noun is outside or noun is north or noun is south:
 		say "The only passage is east-west." instead;
 
-Officer Petty is an enforcer in Judgment Pass. "[one of]The officer stares down at the intuition counter for a moment. 'NOPE,' he yells. 'Sure as my name's Officer Petty, no good reason for you to go to Idiot Village.'[or]Officer Petty regards you with contempt.[stopping]"
+Officer Petty is an enforcing enforcer in Judgment Pass. "[one of]The officer stares down at the intuition counter for a moment. 'NOPE,' he yells. 'Sure as my name's Officer Petty, no good reason for you to go to Idiot Village.'[or]Officer Petty regards you with contempt.[stopping]"
 
 description of Officer Petty is "Officer Petty stares back at you, cracks his knuckles, and rubs a palm. He's bigger, stronger and fitter than you."
 
@@ -9085,7 +9118,7 @@ to decide whether not-conversing:
 	decide no;
 
 every turn when player is in idiot village and sly moore is in idiot village and not-conversing:
-	say "[one of][sly-s] plays a sample three-shell game, but a bean appears under each one.[or][sly-s] asks you to pick a card but then realizes the value-sides all facing him.[or][sly-s] tries to palm an egg in a handkerchief, but you hear a crunch. 'Well, good thing I hollowed it out first, eh?'[or][sly-s] slaps a bunch of paperclips on some folded paper and unfolds the paper. They go flying. 'They were supposed to connect...'[or][sly-s] performs a riffle shuffle where one side of the deck of cards falls much quicker.[or][sly-s] performs a riffle shuffle that works beautifully until the last few cards fall to the ground.[or][sly-s] mumbles 'Number from one to a thousand, ten guesses, five hundred, two fifty, one twenty-five--round up or down, now? Dang, I'm stuck.'[or][sly-s] pulls out a funny flower which doesn't squirt you when he pokes it. He looks at it up close, fiddles with it and--yup. Right in his face.[or][sly-s] reaches to shake your hand, but you see the joy buzzer pretty clearly. He slaps his knee in disappointment...BZZT.[or][sly-s] looks befuddled on pulling only one handkerchief out of his pocket.[or][sly-s] cuts a paper lady in half. 'Oops. Good thing she wasn't real.'[in random order]"
+	say "[one of][sly-s] plays a sample three-shell game, but a bean appears under each one.[or][sly-s] asks you to pick a card but then realizes the value-sides all face him.[or][sly-s] tries to palm an egg in a handkerchief, but you hear a crunch. 'Well, good thing I hollowed it out first, eh?'[or][sly-s] slaps a bunch of paperclips on some folded paper and unfolds the paper. They go flying. 'They were supposed to connect...'[or][sly-s] performs a riffle shuffle where one side of the deck of cards falls much quicker.[or][sly-s] performs a riffle shuffle that works beautifully until the last few cards fall to the ground.[or][sly-s] mumbles 'Number from one to a thousand, ten guesses, five hundred, two fifty, one twenty-five--round up or down, now? Dang, I'm stuck.'[or][sly-s] pulls out a funny flower which doesn't squirt you when he pokes it. He looks at it up close, fiddles with it and--yup. Right in his face.[or][sly-s] reaches to shake your hand, but you see the joy buzzer pretty clearly. He slaps his knee in disappointment...BZZT.[or][sly-s] looks befuddled on pulling only one handkerchief out of his pocket.[or][sly-s] cuts a paper lady in half. 'Oops. Good thing she wasn't real.'[in random order]"
 
 talked-to-sly is a truth state that varies.
 
@@ -9109,7 +9142,7 @@ prompt	response	enabled	permit
 table of quip texts (continued)
 quip	quiptext
 sly-magic	"'Not so good. I keep following instructions, but everything goes wrong. Not even the [bad-guy] could help me.'"
-sly-idiot	"Well, I feel dumb if I learn anything, cuz I probably should've. But I feel dumb if I don't, too."
+sly-idiot	"'Well, I feel dumb if I learn anything, cuz I probably should've. But I feel dumb if I don't, too.'"
 sly-bm	"'Well, the [bad-guy] told me I needed to banter more. He's real good at banter. He even borrowed my magic book and assured me it was easy enough for him, and he even has the whole Problems Compound to run. Too busy to explain or check up, but hey, teaching yourself works best.'"
 sly-check	"'My progress. I mean, if it's what I'd like to do and all, I'd better be good at it. Or else he might be forced to label me a [activation of candidate dummy]Candidate Dummy.'"
 sly-dummy	"'Oh, no! Not an actual dummy. It was sort of a warning shot. Motivation to wise up. I mean he laughed real silvery and all after he said it. Or else. But I guess I took it wrong. Because I'm too worried about it.'"
@@ -9193,7 +9226,7 @@ to say iv-idol:
 	if player has Legend of Stuff:
 		say "The idol stares back at you and seems to shake its head slightly. You look down guiltily at the Legend of Stuff.[no line break]";
 		continue the action;
-	say "You stare at the thoughts idol, [if player has bad face]and as it glares back, you resist the urge to look away. It--it actually blinks first. You wonder if you could run by it and see more of Idiot Village[else]but it stares back at you. You lose the war of facial expressions[end if]";
+	say "You stare at the thoughts idol, [if player has bad face]and as it glares back, you resist the urge to look away. It--it actually blinks first. You wonder if you could run by it and see more of Idiot Village[else]but it stares back at you. You lose the war of facial expressions[end if].";
 	if player has bad face:
 		now stared-idol is true;
 
@@ -9385,7 +9418,7 @@ check going inside in walker street:
 	if poory pot is in lalaland:
 		say "[one of]As you walk in, Pusher Penn asks if you enjoyed your 'payment.' But you manage to give a version of the truth that seems even more preposterous than if you'd actually sampled the stuff. 'THE THANKS I GET!' he booms. 'DON'T COME BACK.'[or]Pusher Penn really, really doesn't want to see you. But you don't want or need to see him.[stopping]" instead;
 
-the mistake grave is scenery in Walker Street. "It's illuminated oddly, as if a red light were flashing behind it, and reads: IN MEMORY OF [activation of watkins glen]GLEN WATKINS, THE IDIOT WHO WENT ONLY FIVE MILES OVER THE SPEED LIMIT AND DIDN'T HEAR THE JOYRIDERS GOING THIRTY FORTY OR FIFTY OVER THUS RUINING THIS PRIME JOYRIDING ZONE FOR MORE EXCITING PEOPLE. -[bg]."
+the mistake grave is scenery in Walker Street. "It's illuminated oddly, as if a red light were flashing behind it, and reads: IN MEMORY OF [activation of watkins glen]GLEN WATKINS, THE IDIOT WHO WENT ONLY FIVE MILES OVER THE SPEED LIMIT AND DIDN'T HEAR THE JOYRIDERS GOING THIRTY FORTY OR FIFTY OVER THUS RUINING THIS PRIME CRUISING ZONE FOR MORE EXCITING PEOPLE. -[bg]."
 
 check going nowhere in Walker Street:
 	if noun is south:
@@ -9403,6 +9436,10 @@ to say gateway-desc:
 		say "the Pot Chamber"
 
 a long string is a thing in Walker Street. "A long string lies piled up here.". description is "It's coiled, now, but it seems pretty easy to untangle if you want to PUT it IN somewhere deep."
+
+report taking long string:
+	say "You coil the string around itself so it doesn't get too unwieldy.";
+	the rule succeeds;
 
 check entering drug gateway:
 	try going inside instead;
@@ -9494,7 +9531,7 @@ after quipping when qbc_litany is litany of pusher penn:
 	if current quip is penn-bye:
 		terminate the conversation;
 
-some wacker weed is a smokable. description is "You couldn't tell if it is good or bad, really. But it needs to be delivered. It's in a baggie and everything."
+some wacker weed is a singular-named smokable. description is "You couldn't tell if it is good or bad, really. But it needs to be delivered. It's in a baggie and everything."
 
 understand "baggie" as wacker weed.
 
@@ -9514,7 +9551,20 @@ check going nowhere in standard bog:
 		try going south instead;
 	say "With all those potential quicksand traps, it's really only safe to go back south." instead;
 
-The Language Machine is scenery in Standard Bog. "The language machine hums along [if wax is in lalaland]cheerfully[else]balefully[end if], its console spewing out [if wax is in lalaland]poetry, which isn't good, but it's not overblown[else]dolorous, leaden, formulated prose about, well, being stuck in a bog[end if] in its bottom half. In the top half is an LCD [if wax is in lalaland]smile[else]frown[end if]."
+The Language Machine is scenery in Standard Bog. "The language machine hums along [if wax is in lalaland]cheerfully[else]balefully[end if], its console spewing out [if wax is in lalaland]poetry, which isn't good, but it's not overblown[else]dolorous, leaden, formulated prose about, well, being stuck in a bog[end if] in its bottom half. In the top half is an LCD [fr-sm]."
+
+to say fr-sm:
+	say "[if wax is in lalaland]smile[else]frown[end if]"
+	
+the lcd frown is part of the language machine. description is "BUG"
+
+understand "lcd smile" and "smile" as lcd frown when wax is in lalaland.
+
+instead of doing something with the lcd frown:
+	say "The [fr-sm] is just a output of the computer's feelings. [if wax is in lalaland]You already helped it[else]You could maybe help it somehow[end if]."
+
+check opening the language machine:
+	say "It's probably too complex to tinker with." instead;
 
 check talking to language machine:
 	say "It processes your words and converts them into an [if wax is in lalaland]amusing poem[else]angsty story[end if]. But it doesn't seem to notice you, being a machine[if wax is in lalaland]. Just as well. You've done what you can[else]. Maybe there's something that can modify how it sees its input." instead;
@@ -9572,7 +9622,7 @@ before doing something with a long tag:
 		try giving Reasoning Circular to the second noun instead;
 	say "You don't need to fiddle with the tag. It's part of the Circular. Plus, it's a ticket to somewhere that might help you get rid of someone." instead;
 
-the long tag is part of the Reasoning Circular. description is "It's stapled to the Reasoning Circular and reads:[paragraph break]By Order of the [bad-guy]:[paragraph break]The holder of this ticket is entitled, irregardless (I know, I'm being ironic and vernacular) of station or current responsibility, to visit Enough Fair, a whirlwind event of social skills where the bearer learns[paragraph break][2da]1. how to yell at others to stop complaining life's not fair AND still point how it's rigged against you[line break][2da]2. Of course, not trying to be too fair. People who overdo things are the worst![line break][2da]3. Lots more, but if we wrote everything, you wouldn't need to show up. Ha ha."
+the long tag is part of the Reasoning Circular. description is "It's stapled to the Reasoning Circular and reads:[paragraph break]By Order of the [bad-guy]:[paragraph break]The holder of this ticket is entitled, irregardless (I know, I'm being ironic and vernacular) of station or current responsibility, to visit Enough Fair (you know, that place newbies won't find), a whirlwind event of social skills where the bearer learns[paragraph break][2da]1. how to yell at others to stop complaining life's not fair AND still point how it's rigged against you[line break][2da]2. Of course, not trying to be too fair. People who overdo things are the worst![line break][2da]3. Lots more, but if we wrote everything, you wouldn't need to show up. Ha ha."
 
 litany of buddy best is the table of Buddy Best talk.
 
@@ -9803,8 +9853,8 @@ workname	authname	booksubj
 "Odyssey Space"	"Clark Arthur"	"a modern retelling of Ulysses dealing harshly with technocrats"
 "Life, MY"	"Clinton William"	"a poor uncharismatic schlub appalled with the complexity and speed of today's fast-paced world, especially politics"
 "The Stone Moon"	"Collins Wilkie"	"a short book of looting a temple to destroy a religion."
-"Gene the Selfish"	"Dawkins Richard"	"How someone cared too much about science for its own sake and not enough about his career, and how he had nobody but himself to blame for that"
-"Fear of the Valley"	"Doyle Arthur"	"A story about a would-be sleuth who knows all sorts of useless facts but misses the obvious that anyone with gumption would've checked on."
+"Gene the Selfish"	"Dawkins Richard"	"how someone cared too much about science for its own sake and not enough about his career, and how he had nobody but himself to blame for that"
+"Fear of the Valley"	"Doyle Arthur"	"a story about a would-be sleuth who knows all sorts of useless facts but misses the obvious that anyone with gumption would've checked on."
 "The Half Second"	"Doyle Roddy"	"a literary type, Keen Roy, suddenly realizing how truly silly reading, writing and thinking about sports can be"
 "The Floss on the Mill"	"Elliot George"	"a family with nothing better to do than stay together, and how they think they're happy [']til they stagnate into loathing at the end"
 "Pay, Soldiers"	"Faulkner William"	"a soldier who returns from war uninjured and how people with medical exemptions proved he didn't try hard enough"
@@ -9824,7 +9874,7 @@ workname	authname	booksubj
 "A Mockingbird to Kill"	"Lee Harper"	"losers who try to imitate people less weird than them. Or don't EVEN try"
 "The Divorce: GREAT"	"Lewis S. Clive"	"how blatant infidelity is really about seeing all the world has to offer and making the most of things--well, if you're worth cheating with. It surpasses even [i]The Boy and His Horse[r] and [i]The Love of Allegory[r]"
 "War's Star"	"Lucas George"	"how some kid ignored his weenie father's humble advice and took over the galaxy"
-"Thrones of a Game"	"Martin George"	"Three hundred pages of medieval Musical Chairs, with a secret deeper meaning careful readers can't miss"
+"Thrones of a Game"	"Martin George"	"three hundred pages of medieval Musical Chairs, with a secret deeper meaning careful readers can't miss"
 "The Cancer of Tropic"	"Miller Arthur"	"one ascetic's skin disease and the surprising poetry that lies therein"
 "The World Beyond the Wood"	"Morris William"	"a muddled fellow moving on from silly fantasy novels to real-life gritty ones you can have louder arguments over"
 "Say, Pawns"	"Pascal Blaise"	"coffeehouse logic to make people feel better that they can't read REAL books. I mean, other than this one"
@@ -10212,7 +10262,7 @@ check taking the bucket:
 
 description of list bucket is "[one of]It's nice and clean, free of [activation of scuzz bucket]bucket scuzz or scum. Of course it is.[paragraph break][or][stopping][2da]The Language Sign should, um, y'know, make things obvious.[line break][2da]The Shot Screen: track various areas in the Compound[line break][2da]The Twister Brain: to see what people REALLY mean when they oppose you just a little[line break][2da]The Witness Eye provides tracking of several suspicious individuals[line break][2da]The Incident Miner processes fuller meaning of events the perpetrators wish were harmless.[line break][2da]The Call Curtain is somewhere the [bad-guy] better not have to go behind more than once a day.[line break][2da]The Frenzy Feed magnifies social violations people don't know they're making, or want to hide from others, and lets you feel fully outraged.[paragraph break]All this gadgetry is well and good, but the [bad-guy] probably knows it better than you. You may need some other way to overcome him."
 
-the frenzy feed is scenery in Freak Control. "It's whizzing out paper filled with oversized punctuation and question marks, SRSLY, WUT and OMG, and emoticons and so forth. You think you read something about [a random baiter-aligned person] which is more harsh than it needs to be."
+the frenzy feed is scenery in Freak Control. "It's whizzing out paper filled with oversized punctuation and question marks, SRSLY, WUT and OMG, and emoticons and so forth. You think you read something about [a random surveyable person] which is more harsh than it needs to be."
 
 the call curtain is scenery in Freak Control. "It doesn't look particularly malevolent--it seems well washed--but you don't know what's going on behind it."
 
@@ -11876,11 +11926,10 @@ Rule for printing a parser error when the latest parser error is the can't see a
 		now the last-command is the player's command;
 		if the player yes-consents:
 			replace the regular expression "with .*" in the last-command with "";
-			say "After: [the last-command].";
 			now the parser error flag is true;
 			say "Trying new command...";
 		else:
-			say "OK.";
+			say "OK, I can't do much with the command as-is. Sorry.";
 		the rule succeeds;
 	say "You see nothing there like that. You may want to check for typos or excess words or prepositions."
 
