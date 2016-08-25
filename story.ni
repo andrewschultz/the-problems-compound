@@ -202,6 +202,7 @@ when play begins (this is the sort ALL the tables rule) :
 		if there is no af-done entry:
 			now af-done entry is false;
 	sort the table of bad guy worries in random order;
+	sort the table of bible references in random order;
 	sort the table of incisive sid viewpoints in random order;
 	sort the table of dutch-blab in random order;
 	sort the table of sleep stories in random order;
@@ -1562,7 +1563,7 @@ check listening (this is the listening in a place rule):
 	if player is in cult:
 		say "That stereotypical 'OM' noise which fools nobody any more. The Goodes pretty clearly haven't taken any marketing clues from any big televangelist, and they seem happy just helping people feel at ease." instead;
 	if player is in idiot village:
-		say "You hear a faint duh-duh-duh. But wait a minute. Maybe it's there to ward off people who think they're a little too smart, and Idiot Village is not so stupid." instead;
+		say "You hear a faint duh-duh-duh. But wait a minute. Maybe it's there to ward off people who think they're a little too smart, and Idiot Village is not so stupid after all." instead;
 	if player is in Nominal Fen:
 		jerk-blab;
 		the rule succeeds;
@@ -1749,7 +1750,7 @@ after taking inventory:
 	now thought of school is mentioned;
 	say ", and there's that thought of school kicking around, too.";
 	if quiz pop is in lalaland and baiter is not in lalaland:
-		say "You also remember that ring-brass number from the Quiz Pop bottle. It may come in handy.[line break]";
+		say "[line break]You also remember that ring-brass number from the Quiz Pop bottle. It may come in handy.[line break]";
 	continue the action;
 
 chapter kissing
@@ -1872,6 +1873,8 @@ the block singing rule is not listed in any rulebook.
 check singing:
 	if player is in Discussion Block:
 		say "[if phil is in Discussion Block]You don't want to hear Phil's critique of your singing[else]You still can't compete with the song torch[end if]." instead;
+	if player has poetic wax:
+		say "It's poetic wax, not [activation of wax lyrical]lyrical wax." instead;
 	if player is in cult:
 		say "You sense singing may be overdoing it for the cult here." instead;
 	say "Once you scrunch up [activation of face the music]the music face needed, you realize never were the artsy type. And the songs you want to sing are always out of fashion." instead;
@@ -2093,7 +2096,7 @@ check attacking:
 		say "'Help! Officers!' The Labor Child searches for a hidden button, and you can only assume a hidden alarm has gone off. The Stool Toad and [if judgment pass is visited]Officer Petty[else]another man[end if] block the exit. 'Kid, give [']im the lecture! The one the boss loves!' It's one you don't. The adults give you the lecture about picking on someone smaller than you and mention that you aren't the first but you're the worst. 'Good job! [bg] will be pleased!' the Labor Child says as you're carried away.";
 		ship-off Fight Fair instead;
 	if player is in Freak Control and noun is scenery:
-		say "'Dude. REALLY? It's not like I don't have spares,' says the [bad-guy] as you pound away. 'No damage done? No. But it's the intent that matters. I don't know how you got in here but you'll be going somewhere far away.'";
+		say "'Dude. REALLY? It's not like I don't have spares,' says the [bad-guy] as you pound away. 'No damage done? No. But it's the intent that matters. I don't know how you got in here but you'll be going somewhere far away.' Ouch--you needed to do something that didn't just kill one machine.";
 		ship-off Criminals' Harbor instead;
 	if noun is Percy:
 		say "You can't get close to him. '[activation of play it cool]Cool it! Play!' he mocks you." instead;
@@ -2468,7 +2471,7 @@ check giving the fish to:
 		say "That would depress [second noun] even more." instead;
 	if second noun is sal:
 		say "'Well, that fish doesn't stink like it should, but something here still does.'" instead;
-	say "It's far too tacky for anyone to use. You probably just want to TALK to it to get it going." instead;
+	say "It's far too tacky to give, even as a joke. You probably just want to TALK to it to get it going." instead;
 
 check giving mind of peace to:
 	if second noun is Brother Blood:
@@ -2637,11 +2640,9 @@ check giving the trap rattle to: [you can't get the trap rattle until you've got
 	if second noun is Lee Bull:
 		say "Sid Lew continues his abuse. At first Lee Bull seems to take it, but then--rattle, rattle. It distracts Sid Lew enough, Lee Bull finds his voice. Animated, he shows up every hole in Sid Lew's seductive but wrong arguments. He begins hitting Sid Lew on the head with the trap rattle until Sid Lew runs out.";
 		wfak;
-		say "[line break]Very impressive! You learned so much from Lee Bull. He gestures to your trick hat, then his head. You hand it over. The hat, silly.";
+		say "[line break]Lee Bull shakes the rattle some more. You see something fall out. '[activation of mass production]Production mass,' says Lee. 'It helps people with bottled up ideas see their way through to organize them, with their unique life view! I better star some [activation of assembly line]line assembly before it decays...' Lee begins to write. And write. He hands you the first page--and wow! All the clever life hacks you learn just from the introduction! It's too much, though. You fall asleep as your mind processes it all, with incidents from your own life suddenly making sense.";
 		wfak;
-		say "[line break]Lee Bull begins to write. And write. He hands you the first page--and wow! All the clever life hacks you learn just from the introduction! It's too much, though. You fall asleep as your mind processes it all.";
-		wfak;
-		say "[line break]When you wake up, Lee Bull has written a small, but fully bound book. He stuffs it in the Trick Hat, shakes it up, and out emerges a xerox copy! He hands it to you and shakes your hand. THE TRADE OF TRICKS, it's called. Then he retreats to his private quarters.";
+		say "[line break]When you wake up, Lee Bull has written several copies of a small, but fully bound book. He gives it to you and shakes your hand. THE TRADE OF TRICKS, it's called. But he's tired now, and he leaves to his own private quarters.";
 		now Lee Bull is in lalaland;
 		now Sid Lew is in lalaland;
 		now trap rattle is in lalaland;
@@ -2649,6 +2650,7 @@ check giving the trap rattle to: [you can't get the trap rattle until you've got
 		increment the score;
 		annotize lee bull;
 		annotize sid lew;
+		the rule succeeds;
 	if second noun is dutch or second noun is turk:
 		say "They're making enough hoopla as-is." instead;
 	if second noun is pusher penn:
@@ -2656,7 +2658,7 @@ check giving the trap rattle to: [you can't get the trap rattle until you've got
 	if second noun is volatile sal:
 		say "'Oh, great. Noise AND smell!'" instead;
 	if second noun is a bro:
-		say "[second noun] stares blankly." instead;
+		say "[second noun] stares blankly. He doesn't have anyone to trap, so it isn't that useful." instead;
 
 check giving fourth-blossom to:
 	if second noun is faith or second noun is grace:
@@ -3424,6 +3426,8 @@ terrapin	"A terrapin is a fancy name for a turtle, which is slow and has a shell
 career threatening	"Something career threatening may risk not only your job but your ability to get other equal or better jobs. A threatening career is--well, a bit of a racket." [start of judgment pass]
 scofflaw	"A scofflaw is someone who breaks minor rules. Perhaps they jaywalk or litter."
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever." [start of idiot village]
+assembly line	"An assembly line is where each person or machine has a specific sub-job in creating a larger product." [start of truth home]
+mass production	"Mass production is a procedure of efficiently creating many of the same thing using standardized design."
 age four	"Age four is, well, four years old. It is too young to forage." [start of scheme pyramid]
 baby boomer	"The Baby Boomers were the generation born just after World War II. Sometimes referred to as 'The Greatest Generation.'"
 brat army	"An army brat is the child of a military officer. They would be more likely to move than most children."
@@ -3441,6 +3445,7 @@ Stand the Pace	"If you can't stand the pace, it's too fast for you. Turk and Dut
 Determined Bound	"Bound and determined means you're set on doing something. A determined bound is set to prevent you from doing something." [start of walker street]
 Watkins Glen	"Watkins Glen is a famous racecourse in upstate New York."
 artifact	"An artifact is, in programming, something left over that can be gotten rid of." [start of discussion block]
+babel fish	"The babel fish is an item in The Hitchhiker's Guide to the Galaxy (the game and the book) which translates between galactic languages."
 Block Arguments	"To block arguments is not to hear an opposing point of view."
 Block Creativity	"To block creativity is to get in the way of someone imagining things."
 Coals to Newcastle	"Coals to Newcastle means a pointless action. In this case, there are no dark rooms, so you don't need a torch. Reducing a new castle to coals is, of course, pointless, too."
@@ -3448,6 +3453,7 @@ Elevator Music	"Elevator music is soft, boring, inoffensive music that plays in 
 philistine	"A philistine is someone who doesn't appreciate the arts."
 Play Dumb	"To play dumb is to pretend you don't know something you do, to avoid criticism or to catch someone off-guard. Of course, Phil and Art, after saying this, treat you like you're kind of dumb. Or you can't even ask the name of the play."
 Steal This Book	"Steal This Book was a countercultural guide by Abbie Hoffman. Book this steal refers to 'booking' suspects for a transgression, e.g. a parking fine or ticket."
+wax lyrical	"To wax lyrical is to talk endlessly and enthusiastically about something."
 brass ring	"To grab the brass ring is to achieve a dream goal. It refers to the brass ring on merry-go-rounds."
 brother foster	"A foster brother is a brother not related by birth." [start of questions field]
 Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
@@ -6020,7 +6026,7 @@ instead of doing something with water-scen:
 		continue the action;
 	say "The water goes on a ways."
 
-the Basher Bible is scenery in Pressure Pier. "[one of]The Basher Bible labels seemingly contradictory things to want and to be: to be clever enough to cut down too-clever weirdos. To have enough interests you can almost empathize with obsessed nerds, but not quite. To know enough pop culture you can poke fun at people who care too much about it. To be nice enough adults are sure you'll go far, but not be some useless dweeb.[paragraph break]There's also something about how if you don't know how to balance those things and have to ask others, or if this triggers some oversensitivity, well, REALLY. And there's even a tip of the moment! You read it:[paragraph break][or]You read another passage from the Basher Bible: [stopping][tip-of-moment]"
+the Basher Bible is scenery in Pressure Pier. "[one of]The Basher Bible labels seemingly contradictory things to want and to be: to be clever enough to cut down too-clever weirdos. To have enough interests you can almost empathize with obsessed nerds, but not quite. To know enough pop culture you can poke fun at people who care too much about it. To be nice enough adults are sure you'll go far, but not be some useless dweeb.[paragraph break]There's also something about how if you don't know how to balance those things and have to ask others, or if this triggers some oversensitivity, well, REALLY. And there's even a tip of the moment! You read it:[or]You read another passage from the Basher Bible: [stopping]"
 
 the spoon table is scenery in Pressure Pier. "Many kinds of spoon: greasy, tea, wooden and silver, and that thick one must be a fed spoon. They are welded together to form a table one person can eat at, well--with a few holes. The Basher Bible appears entangled with the top spoons, so you can't pull it off."
 
@@ -6030,7 +6036,7 @@ bible-row is a number that varies. bible-row is usually 0.
 
 bible-cycled is a truth state that varies. bible-cycled is usually false.
 
-to say tip-of-moment:
+after examining basher bible:
 	increment bible-row;
 	if bible-row > number of rows in table of Bible references:
 		now bible-row is 1;
@@ -6038,15 +6044,15 @@ to say tip-of-moment:
 	choose row bible-row in the table of Bible references;
 	say "[italic type][reference-blurb entry][line break]";
 	if bible-row is number of rows in table of Bible references:
-		say "[r][line break]LAST HINT. You'd better have learned something, but remember, you can push around people who don't matter by saying they aren't persistent enough or they are a bit obsessed. Often within five minutes of each other. Because it's important to see both sides.[run paragraph on]";
+		say "[r][line break]LAST HINT. You'd better have learned something, but remember, you can push around people who don't matter by saying they aren't persistent enough or they are a bit obsessed. Often within five minutes of each other. Because it's important to see both sides.";
 	else if bible-row is 1:
-		say "Of course, just internalizing this tip won't make you quite the guy the [bad-guy] is. Everyone can be right about some random thing. You need a variety of moves. To be a complete person![r]";
+		say "[line break][r]Of course, just internalizing this tip won't make you quite the guy the [bad-guy] is. Everyone can be right about some random thing. You need a variety of moves. To be a complete person!";
 	else:
-		say "[r][run paragraph on]";
+		say "[r]";
 	unless accel-ending:
 		if bible-cycled is false and bible-row is a looknum listed in table of Bible reflections:
 			choose row with looknum of bible-row in table of Bible reflections;
-			say "[line break][reflection entry]";
+			say "[line break][reflection entry][line break]";
 
 table of Bible reflections
 looknum	reflection
@@ -6603,6 +6609,9 @@ a condition mint is an edible thing on Tray A. description is "It's one inch squ
 indefinite article of condition mint is "a".
 
 check eating the condition mint:
+	if silly boris is in lalaland:
+		now condition mint is in lalaland;
+		say "You think about the jerks. Maybe they'd have liked it. Then you gulp down the mint in their memory. You look at all the machinery--maybe one has a clue what to do." instead;
 	say "No, it's the sort you gift to someone else[if player does not have mint], but you can take it, to give it to someone else[end if]." instead;
 
 definition: a client (called cli) is befriended:
@@ -7304,6 +7313,9 @@ after examining Quiz Pop:
 to say j-co:
 	say "[if allow-swears is true]jerks[else]groaners[end if]";
 
+to say jc-gc:
+	say "[if allow-swears is true]Jerk Circle[else]Groan Collective[end if]";
+
 instead of giving to jerks:
 	say "It'd be too hard to decide who'd actually get any gift. So, no."
 
@@ -7607,7 +7619,7 @@ prompt	response	enabled	permit
 "[if short-jerk is false]So, do women's sports really have better fundamentals[else]SPORTSWOMEN[end if]?"	jerk-wsport	0	1
 "[if short-jerk is false]So, what sort of glossy magazines do you read[else]MAGAZINES[end if]?"	jerk-zines	0	1
 "[if short-jerk is false]So, any classic shows you miss? Or not so classic[else]EMBARRASSING CARTOONS[end if]?"	jerk-cartoon	0	1
-"[if short-jerk is false]So, you like dogs even if they're not super tough[else]WIMPY SMALL DOGS[end if]"	jerk-dogs	0	1
+"[if short-jerk is false]So, you like dogs even if they're not super tough[else]WIMPY SMALL DOGS[end if]?"	jerk-dogs	0	1
 "(bug the next [j-g], [next-c-x of last-jerk])"	jerk-next	0	1
 "So, what about the [bad-guy]?"	jerk-baiter	1	1
 "[later-or-thanks]."	jerk-bye	3	1
@@ -7783,7 +7795,8 @@ to zap-the-jerks:
 	increment the score;
 	now all clients are in lalaland;
 	unlock-verb "track";
-	unlock-verb "notice";
+	if bros-left is 0:
+		unlock-verb "notice";
 	annotize jerks;
 
 check going north when player is in well:
@@ -8202,7 +8215,7 @@ understand "cp/ac/char/ass/character/assassin" and "assassin/assassination chara
 
 part Disposed Well
 
-Disposed Well is west of Chipper Wood. It is in Main Chunk. "A crumbling well is here. You may go west to some sort of church or back east to the Chipper Wood. To the north, [if boris is in lalaland]the Scheme Pyramid has been closed[else if pyramid is visited]the Scheme Pyramid[else]a business[end if]. There's also a small home you could go inside."
+Disposed Well is west of Chipper Wood. It is in Main Chunk. "A crumbling well marks the center of this clearing.[paragraph break]You may go west to [if classic cult is visited]the Classic Cult[else]some sort of church[end if] or back east to the Chipper Wood. To the north, [if boris is in lalaland]the Scheme Pyramid has been closed[else if pyramid is visited]the Scheme Pyramid[else]a business[end if]. [if truth home is visited]You can go back inside to the Truth Home, too[else]There's also a small home you could go inside[end if]."
 
 check going outside from disposed well:
 	say "You already are outside." instead;
@@ -8245,7 +8258,10 @@ check entering the yards hole:
 
 understand "disposed/well" as the yards hole.
 
-the story fish is a thing. description of story fish is "[if player has story fish]It looks wooden and mechanical[else]The story fish has been stuffed into the book bank here[end if]."
+the story fish is a thing. description of story fish is "[if player has story fish]It looks wooden and mechanical, but you can TALK to it when you need to[else]The story fish has been stuffed into the book bank here[end if]."
+
+instead of switching on story fish:
+	try playing story fish instead;
 
 check taking story fish:
 	if player has fish:
@@ -8262,7 +8278,7 @@ check inserting it into (this is the insert it right rule):
 		unless story fish is off-stage:
 			say "[one of]You try your luck again. Nothing. B[or]B[stopping]est go [i]expedition[r] fishing instead." instead;
 		now player has story fish;
-		say "You pull the string down. It seems to take forever. But you wait. You feel a pull on the string. You tug--and--yes! Your catch stays with the string! You're not surprised it's a fish, but you are when it talks--and it explains it wanted to be caught, so it could tell others its story! You suffer through ten minutes of digressions and bad grammar before the fish takes a break. 'You don't seem to be appreciating me right now. Show me someone who does, then TALK to me.'";
+		say "You pull the string down. It seems to take forever. But you wait. You feel a pull on the string. You tug--and--yes! Your catch stays with the string! You're not surprised it's a fish, but you are when it talks--and it explains it wanted to be caught, so it could tell others its story! You suffer through ten minutes of digressions and bad grammar before the fish takes a break. 'You don't seem to be appreciating me right now. Show me someone who appreciates a story fish like me, then TALK to me.'";
 		increment the score instead;
 	if second noun is yards hole:
 		say "That'd be a good way to lose stuff." instead;
@@ -8275,7 +8291,7 @@ before talking to story fish:
 	if player is not in Discussion Block:
 		say "The fish opens a sleepy eye. 'Eh? Anyone with a [activation of fish for a compliment]compliment for a fish? Nope, nobody artsy enough.'" instead;
 	if art fine is in Discussion Block:
-		say "The fish eyes you sleepily but then sees the bookshelf, then Art Fine. 'Ah! Good sir! May I begin!' The fish's story is much funnier and shorter than you expected, because Art barely lasts five minutes before he runs away screaming. '[safety-of]!' You pat the fish on the head and put it in the tie it to the Book Bank with the Long String--there, you even hid the string, so it looks extra neat.[paragraph break]";
+		say "The fish eyes you sleepily but then sees the bookshelf, then Art Fine. 'Ah! Good sir! May I begin!' The fish's story is much funnier and shorter than you expected, because Art barely lasts five minutes before he runs away screaming. 'No more [activation of babel fish]fish babble! [safety-of]!' You pat the fish on the head and put it in the tie it to the Book Bank with the Long String--there, you even hid the string, so it looks extra neat.[paragraph break]";
 		now long string is in lalaland;
 		now art fine is in lalaland;
 		now story fish is in Discussion Block;
@@ -8355,6 +8371,8 @@ to say weird-hyp:
 	say "Sid Lew's voice is weirdly hypnotic and rhythmic, for all its bluster. How to cut into it? You could never win an argument."
 
 a thing called The Trade of Tricks is a proper-named thing. description is "[one of]You got laughed at enough for reading, much less re-reading, in middle school, so you learned to cut that nonsense out--especially books you just liked. Because it was easier to get caught if you were absorbed in a book. But this--you can't help yourself. You earned this book. You feel like the lessons may not sink in for a few days, but all the same--man! You learned a lot! And you feel like sharing.[or]You pick up a few more tricks re-reading. But you realize others may need the book even more than you.[stopping]"
+
+understand "book" as trade of tricks when player has trade of tricks.
 
 part Bottom Rock
 
@@ -8582,20 +8600,16 @@ section crocked half
 
 the crocked half is a hintable. it is in the notes crib. "A crocked half of a paper is here, ready to blow away. You'd better take it quickly, if you want it."
 
-description of the crocked half is "It's half-a-square and seems to be torn at the bottom, as if, well, there were another part."
+description of the crocked half is "It's half-a-square and seems to be torn at the bottom, as if, well, there were another part.[paragraph break][upper]"
 
 to say stars:
 	say "   *     *[line break]";
 
 to say upper:
 	if screen-read is false:
-		say "[fixed letter spacing][stars]   |\   /|[line break]
-   | \ / |[line break]
-*--*--*--*--*[line break]
- \ | / \ | /[line break]
-  \|/   \|/[line break][stars][variable letter spacing]";
+		say "The design looks like so:[paragraph break][fixed letter spacing][stars]   |\   /|[line break]   | \ / |[line break]*--*--*--*--*[line break] \ | / \ | /[line break]  \|/   \|/[line break][stars][variable letter spacing][run paragraph on]";
 	else:
-		say "The paper is ridged in a clear pattern--there's a straight line across, and each quarter is a leg of an isosceles right triangle: in order, below, above, above and below."
+		say "The paper is ridged in a clear pattern--there's a straight line across, and each quarter is a leg of an isosceles right triangle: in order, below, above, above and below.[no line break]"
 
 part The Belt Below
 
@@ -8948,6 +8962,11 @@ check examining finger index when finger index is not examined:
 	if secrets-open is true:
 		say "[line break]And suddenly you realize who the people are on the sheet. You maybe couldn't overhear the conversation, but you heard snatches of names and so forth. You know what this document is for, and you can deduce who's who. So you do.";
 
+after examining finger index:
+	if finger index is not examined:
+		say "You can THINK to remember this information, later.";
+	continue the action;
+
 to say finger-say:
 	let temp be 0;
 	repeat through the table of fingerings:
@@ -8969,11 +8988,13 @@ after taking Sound Safe:
 	now finger index is in Accountable Hold;
 	the rule succeeds;
 
-description of Sound Safe is "[if sound safe is in Discussion Block]It's, well, not very sound. While it's closed, you can OPEN it at will. You're not even sure how to lock it[else if safe is in accountable hold]It sits, closed, and you probably want to keep it that way while it's here[else if player has safe]It's much lighter than expected, and you can probably OPEN it[end if]."
+description of Sound Safe is "[if sound safe is in Discussion Block]It sits there as a memorial to Art Fine[else if safe is in accountable hold]It looks the part, but on closer inspection, you don't see how it locks. You can probably OPEN it at will[else if player has safe]It's much lighter than expected, and you can probably OPEN it at the right time[end if]."
 
 check opening sound safe:
 	if harmonic phil is in lalaland:
 		say "You don't need to, again." instead;
+	if player is in speaking plain:
+		say "[one of]Uncle Dutch and Turk Young look momentarily shaken up! But they soon talk over the Sound Safe, congratulating each other on not getting rattled by it, unlike less practical types[or]It won't work better this time. Dutch and Turk are too goal-oriented for the safe to bother them[stopping]." instead;
 	if player is not in Discussion Block:
 		say "You crack it open, but it makes such a terrible noise you have to close it again. You wouldn't want to open it again unless you were around someone you really wanted to spite[if player does not have safe], and thing is, it felt a lot lighter than you thought it would as you opened it[end if]." instead;
 	say "The Sound Safe makes a brutal noise in the Discussion Block, made worse by the special acoustics. Harmonic Phil covers his ears. 'I can't even be clever about how this is so bad it's good!' he yells, running off. '[safety-of]!'[paragraph break]You put the safe down by the song torch.";
@@ -8982,6 +9003,7 @@ check opening sound safe:
 	say "[line break][if art fine is in Discussion Block]Art Fine chuckles and nods approval. 'That's what you get for dabbling in art that's not intellectually robust.' Wow. Even before a line like that, you figured Art Fine had to go, too.[else]Well, that's Phil AND Art gone.[end if]";
 	increment the score;
 	annotize harmonic phil;
+	the rule succeeds;
 
 to say safety-of:
 	say "[one of]I need the safety of the [activation of block creativity]Creativity Block[or]It's never this rough in the [activation of block arguments]Arguments Block[stopping]"
@@ -9194,7 +9216,7 @@ orientation of northwest is 7.
  5  2 6  3
   43   54]
 
-the thoughts idol is scenery in Idiot Village. "[if player is in idiot village][iv-idol][else]If you look back at the Thoughts Idol now, it may distract you. You know it's [vague-dir]. Gotta keep running, somehow, somewhere[end if]"
+the thoughts idol is scenery in Idiot Village. "[if player is in idiot village][iv-idol][else]If you look back at the Thoughts Idol now, it may distract you. You know it's [vague-dir]. Gotta keep running, somehow, somewhere[end if]."
 
 
 check entering idol:
@@ -9224,9 +9246,9 @@ stared-idol is a truth state that varies.
 
 to say iv-idol:
 	if player has Legend of Stuff:
-		say "The idol stares back at you and seems to shake its head slightly. You look down guiltily at the Legend of Stuff.[no line break]";
+		say "The idol stares back at you and seems to shake its head slightly. You look down guiltily at the Legend of Stuff[no line break]";
 		continue the action;
-	say "You stare at the thoughts idol, [if player has bad face]and as it glares back, you resist the urge to look away. It--it actually blinks first. You wonder if you could run by it and see more of Idiot Village[else]but it stares back at you. You lose the war of facial expressions[end if].";
+	say "You stare at the thoughts idol, [if player has bad face]and as it glares back, you resist the urge to look away. It--it actually blinks first. You wonder if you could run by it and see more of Idiot Village[else]but it stares back at you. You lose the war of facial expressions[end if]";
 	if player has bad face:
 		now stared-idol is true;
 
@@ -9301,13 +9323,20 @@ to decide which number is idol-off:
 	decide on temp;
 
 to say to-away:
+	if debug-state is true:
+		say "[idol-off]";
 	say "[if idol-off < 5]away from[else]towards[end if]"
 
+to say back-along:
+	if debug-state is true:
+		say "[idol-off]";
+	say "[if idol-off < 5]along[else]back[end if]"
+
 to say rt-idol:
-	say "You zigzag [to-away] the idol, but an audible whirr makes you look up. When you stop, it's already looking where you meant to go. It locks down a stare. You've gotten that before. You feel compelled to head back to Idiot Village under its gaze"
+	say "You make a right turn [if idol-off is 7]towards[else]away from[end if] the idol, but an audible whirr makes you look up. When you stop, it's already looking where you meant to go. It locks down a stare. You've gotten that before. You feel compelled to head back to Idiot Village under its gaze"
 
 to say zz-idol:
-	say "The short turn [to-away] the idol makes it wheeze a good bit, but it's enough to make you look back. It's just finished turning its head, then. The stare. The embarrassment. Wondering what you were trying to DO, anyway, REALLY"
+	say "You zigzag [if idol-off is 6]along[else]back[end if], making the idol wheeze a good bit. You look back, and the idol's just finished turning its head, then. The stare. The embarrassment. Wondering what you were trying to DO, anyway, REALLY"
 
 to say idol-straight-away:
 	say "You try running and running away, but (not so) eventually you have to turn around to see how much you're being watched, and the idol seems to be staring extra hard at you when you look back as if to say you can't run and that only makes it worse"
@@ -9315,12 +9344,12 @@ to say idol-straight-away:
 table of idol smackdowns
 smackdown
 "You feel particularly helpless running back and forth. The idol shakes its head, as if to let you know that just won't do, and it's tired of telling lesser things, or people, or whatever, that." [3, backwards]
-"[zz-idol]." [2]
+"You make a sharp zigzag, but somehow, the idol was ready for it. You dance back and forth, and the idol shakes its head at you. You stare at the ground and plod back to Idiot Village." [2]
 "[rt-idol]." [3]
-"[idol-straight-away]." [4]
+"[zz-idol]." [4]
 "[idol-straight-away]." [5]
-"[rt-idol]." [6]
-"[zz-idol]." [7]
+"[zz-idol]." [6]
+"[rt-idol]." [7]
 
 chapter community text
 
@@ -9693,7 +9722,7 @@ after examining the poetic wax:
 		enable the phil-wax quip;
 	continue the action;
 
-description of poetic wax is "It fluctuates through many shades of grey and colors of the rainbow at once. As you look at it, words seem to appear and vanish as it swirls. it becomes whatever you want it to be, but whatever it is, it isn't quite good enough and you think, just one more adjustment...it's the most fun you've had in forever."
+description of poetic wax is "It fluctuates through many shades of grey and colors of the rainbow at once. As you look at it, words seem to appear and vanish as it swirls. It becomes whatever you want it to be, but whatever it is, it isn't quite good enough and you think, just one more adjustment...it's the most fun you've had in forever."
 
 check taking the poetic wax:
 	if number of waxblocking people > 0:
@@ -10023,7 +10052,8 @@ to check-left:
 	if bros-left is 0:
 		say "Oh, man! The way north is free now! As the final brother leaves, he turns to say 'Beware...trap...question mark...exclamation mark...'";
 		unlock-verb "fancy";
-		unlock-verb "notice";
+		if silly boris is in lalaland:
+			unlock-verb "notice";
 		annotize terry sally;
 		annotize fritz the on;
 		annotize stool toad;
@@ -10392,7 +10422,7 @@ litany of Baiter Master is the table of Baiter Master talk.
 check talking to Baiter Master:
 	if freaked-out is false:
 		say "[one of]He waves you off without even looking. 'Whoever you are, I'm busy. Too busy for your lame problems. And they must be lame, if you asked so weakly.' You'll need an entirely more aggressive way to get his attention.[or]You just aren't good enough at yelling to do things straight up. Maybe you can upset things somehow.[stopping]" instead;
-	say "'Dude! You need to chill... there are things called manners...' but he does have your attention now. 'So. Someone finally got past those mopey brothers. You want a [activation of dual vision]vision duel? Because we can have a vision duel. I have...an [i]opinion[r] of difference. You don't even have...one right serve.' He takes a slurp from a shot mug[activation of shot mug] (with a too-flattering self-portrait, of course) and perks up.";
+	say "'But seriously, dude! You need to chill... there are things called manners...' but he does have your attention now. 'So. Someone finally got past those mopey brothers. You want a [activation of dual vision]vision duel? Because we can have a vision duel. I have...an [i]opinion[r] of difference. You don't even have...one right serve.' He takes a slurp from a shot mug[activation of shot mug] (with a too-flattering self-portrait, of course) and perks up.";
 	if player has legend of stuff:
 		say "He points to the Legend of Stuff. 'Oh. It looks like you took the easy way out. In fact...";
 		say "[line break][bm-stuff-brags]";
@@ -10461,7 +10491,7 @@ bm-mug	"'Oh, it's Crisis Energy[activation of crisis energy]. For taking urgent 
 bm-bad2	"'It's--it's, well, tribute is what it is.'"
 bm-so-bad2	"'Oh, come on, you know the difference.'[wfk][line break]Your reply just slips out. 'Yeah, it's easy, there's not much of it.' Maybe you shouldn't have...but nothing happens..."
 bm-tribute	"'There will be. Just--first things first. Stability. We almost got there, until you stepped in.'"
-bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Well. I didn't want to do it, but you made me put on my [activation of face facts]facts face. Think you can do better? Have at it! You don't listen to your [activation of half right]right half...makes you miss obvious things others see immediately. Always have, always will. [activation of see you later]Later, you see...' The Baiter Master storms out, and he must have had a remote, because you're locked in![wfk][paragraph break]You search frantically. There must be some way to communicate...and you dig around until you find the [activation of wire fraud]Fraud Wire! Meant to 'remind' citizens they aren't as nice as they think they are, it now encourages them to get mad. The Goods get their cult to help. The [j-co] even chip in, too. Then you . Then, for kicks, [bad-guy-2] pretending to be the [bad-guy] and you prank him. It's--there's so much to do, questions you never asked. Mark Black is on his way--but so are the [bad-guy]'s allies! You hear Brother Foster say, well, I knew they were flaky, but that's what you GET when you try to give them an important position in life, and [activation of Admiral Vice]Admiral Vice will straighten out him--AND them.[wfk]Yes. That must be Admiral Vice.[paragraph break]'A danger not just to the Problems Compound but to Slicker City[activation of slicker city]! There's only one place for you.'[wfk]"
+bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Well. I didn't want to do it, but you made me put on my [activation of face facts]facts face. Think you can do better? Have at it! You don't listen to your [activation of half right]right half...makes you miss obvious things others see immediately. Always have, always will. [activation of see you later]Later, you see...' The Baiter Master storms out, and he must have had a remote, because you're locked in![wfk][paragraph break]You search frantically. There must be some way to communicate...and you dig around until you find the [activation of wire fraud]Fraud Wire! Meant to 'remind' citizens they aren't as nice as they think they are, it now encourages them to get mad. The Goods get their cult to help. The [j-co] even chip in, too. Then, for kicks, you call [bad-guy-2] pretending to be the [bad-guy] and you prank him. And, of course, you remember the number to RING BRASS, from the Quiz Pop.[paragraph break]Mark Black is on his way--but so are the [bad-guy]'s allies! You hear Brother Foster say, well, I knew they were flaky, but that's what you GET when you try to give them an important position in life, and [activation of Admiral Vice]Admiral Vice will straighten out him--AND them.[wfk]Yes. That must be Admiral Vice.[paragraph break]'A danger not just to the Problems Compound but to Slicker City[activation of slicker city]! There's only one place for you.'[wfk]"
 bm-bye	"'You're not going anywhere.' And he's right. But it's not out totally out of fear, now."
 
 already-good is a truth state that varies.
@@ -10500,6 +10530,7 @@ to choose-final-room:
 		now already-great is true;
 	if current quip is bm-fear:
 		terminate the conversation;
+		move baiter master to lalaland;
 		if thoughts idol is in lalaland:
 			say "But Idiot Village has had time to assemble and rescue the hero that dispelled the Thoughts Idol! They overwhelm the Admiral, trash the more sinister surveillance technology in Freak Control, and lead you somewhere new. You protest you're not a leader--you just, well, did a bunch of errands. But they insist they have something to show you.";
 			now player has hammer;
@@ -10558,7 +10589,7 @@ Endings is a region.
 
 part Airy Station
 
-Airy Station is a room in Endings. "[one of]A cheering crowd surrounds you on all sides! They're going pretty crazy over their new-found freedom, and how you achieved it for them, and how they might not even need you to keep it, even though you're noce to have around[or]The mentality crowd continues to cheer and wave[stopping]."
+Airy Station is a room in Endings. "[one of]A cheering crowd surrounds you on all sides! They're going pretty crazy over their new-found freedom, and how you achieved it for them, and how they might not even need you to keep it, even though you're nice to have around[or]The mentality crowd continues to cheer and wave[stopping]."
 
 the mentality crowd is scenery in airy station. "All kinds of people applaud you."
 
@@ -10576,25 +10607,25 @@ every turn when player is in airy station (this is the hammer clue rule):
 	if the remainder after dividing hammer-turns by 4 is 0:
 		if hammer is not examined:
 			now mist-turns is 0;
-			say "[if no-break is true][paragraph break][end if]You may [one of][or]still [stopping]need to figure how the hammer can help you get out of here--or past the caps[if no-break is true].[no line break][else].[end if]";
+			say "[if no-break is true][paragraph break][end if]You may [one of][or]still [stopping]need to figure how the hammer can help you get out of here--or past the caps. Maybe it'd help to EXAMINE the hammer[if no-break is true].[no line break][else].[end if]";
 			now no-break is false;
 			the rule succeeds;
 	if hammer-turns is 4:
 		say "[if no-break is true][paragraph break][end if]If you had another hammer, maybe you could click them together and go back[if no-break is true].[no line break][else].[end if]";
-	else if mist-turns is 8:
+	else if hammer-turns is 8:
 		say "[if no-break is true][paragraph break][end if]You're chipping off things the hammer can't be[if no-break is true].[no line break][else].[end if]";
-	else if mist-turns is 12:
+	else if hammer-turns is 12:
 		now mist-turns is 0;
 		say "[if no-break is true][paragraph break][end if]You imagine the hammer putting the caps in a wrestling hold[if no-break is true].[no line break][else].[end if]";
 	now no-break is false;
 
 section hammer mistakes
 
-understand "hammer ban" and "ban hammer" as a mistake ("You do feel confident you could now be an Internet forum mod and curb some silliness . But--if you banned the hammer, you'd never get back home.[hammer-clue]") when player is in Airy Station.
+understand "hammer ban" and "ban hammer" as a mistake ("You do feel confident you could now be an Internet forum mod and curb some silliness. But--if you banned the hammer, you'd never get back home.[hammer-clue]") when player is in Airy Station.
 
 understand "blow hammer" and "hammer blow" as a mistake ("[if allow-swears is true]The hammer is small enough to put in your mouth, but, no. This isn't that kind of game[else][one of]You blow on the hammer and wipe it off. It looks nice and shiny[or]You already cleaned the hammer a bit[stopping].[hammer-clue]") when player is in Airy Station.
 
-understand "hammer hammer" as a mistake ("Too brute force. It needs o be a different sort of hammer.[hammer-clue]") when player is in Airy Station.
+understand "hammer hammer" as a mistake ("Too brute force. It needs to be a different sort of hammer.[hammer-clue]") when player is in Airy Station.
 
 understand "head hammer" and "hammer head" as a mistake ("You don't need to beat yourself up, or have a vicious predator beat you up, to change the hammer into what you need to.[hammer-clue]") when player is in Airy Station.
 
@@ -10733,7 +10764,7 @@ every turn when player is in out mist (this is the ring clue rule):
 	now no-break is false;
 
 check going nowhere in Out Mist:
-	say "No. This is the first thing you stumbled on, and getting more or less lost both seem equally bad." instead;
+	say "No. This is the first place you stumbled on, and getting more or less lost both seem equally bad." instead;
 
 check going inside in out mist:
 	try entering worm ring instead;
@@ -10755,7 +10786,7 @@ understand the command "answer" as something new.
 
 understand "ring ring" as a mistake ("You hear in your head the sound from an old rotary phone. It's so different these days when someone calls you up.[ring-clue]") when player is in Out Mist.
 
-understand "brass ring" and "ring brass" as a mistake ("[if player is in out mist]You already had to ring the brass to get here. Gotta be something else with the ring.[ring-clue][else if player is in airy station][else]You sense you don't quite need to, yet.[end if]") when quiz pop is in lalaland
+understand "brass ring" and "ring brass" as a mistake ("[if player is in out mist]You already had to ring the brass to get here. Gotta be something else with the ring.[ring-clue][else if player is in airy station][else if player is in freak control]You can't bring yourself to attack the [bad-guy] first.[else]You sense you don't quite need to, yet.[end if]") when quiz pop is in lalaland
 
 understand "answer ring" and "ring answer" as a mistake ("The ring seems to be straining to be different. But it can't make a difference on its own.[ring-clue]") when player is in Out Mist.
 
@@ -11452,6 +11483,7 @@ this is the dream-see rule:
 				let Q be the chosen letter;
 				if Q is 81 or Q is 113:
 					the rule succeeds;
+				say "[line break]";
 
 chapter concept
 
@@ -11567,7 +11599,7 @@ this is the swear-see rule:
 	now swearseen is true;
 	say "[2da]The [bad-guy] is the [stwid][bad-guy][stwid] instead.";
 	say "[2da][bad-guy-2] is [stwid][bad-guy-2][stwid] instead.";
-	say "[2da]The [jc] is the [stwid][jc][stwid] instead. Also, you feel a bit more foreboding, and everyone sheds a jerk-tear, and if you attack them, you get a 'special' message.";
+	say "[2da]The [jc-gc] is the [stwid][jc-gc][stwid] instead. Also, you feel a bit more foreboding, and everyone sheds a jerk-tear, and if you attack them, you get a 'special' message.";
 	say "[2da]The Business Monkey's [brapos] efforts are [stwid][brapos][stwid] instead.";
 	say "[2da]If you actually swear, obscenely or mildly (BOTHER)--there's a small inner dialogue for swearing with swears off[line break]";
 	say "[2da]You get a different reaction to repeatedly playing the logic puzzles[line break]";
@@ -12277,6 +12309,12 @@ section idiot village concepts
 
 Candidate Dummy is a concept in conceptville. understand "dummy candidate" as Candidate Dummy. howto is "talk to Sly".
 
+section truth home concepts
+
+assembly line is a concept in conceptville. Understand "line assembly" as assembly line. howto is "give Lee the rattle".
+
+mass production is a concept in conceptville. Understand "production mass" as mass production. howto is "give Lee the rattle".
+
 section scheme pyramid concepts
 
 age four is a concept in conceptville. Understand "four age" and "forage" as age four. howto is "decline the Labor Child's offer for help".
@@ -12327,6 +12365,8 @@ section discussion block concepts
 
 artifact is a concept in conceptville. Understand "artifact" as artifact. howto is "[f-t of Discussion Block]".
 
+babel fish is a concept in conceptville. Understand "fish babel/babble" and "babble fish" as babel fish. howto is "play the fish in Discussion Block".
+
 Block Arguments is a concept in conceptville. understand "arguments block" as block arguments. howto is "get rid of both of Art and Phil".
 
 Block Creativity is a concept in conceptville. understand "creativity block" as block creativity. howto is "get rid of one of Art and Phil".
@@ -12340,6 +12380,8 @@ philistine is a concept in conceptville. Understand "philistine" as philistine. 
 Play Dumb is a concept in conceptville. understand "dumb play" as play dumb. howto is "[f-t of Discussion Block]".
 
 Steal This Book is a concept in conceptville. understand "book this steal" as Steal This Book. howto is "take book bank".
+
+wax lyrical is a concept in conceptville. Understand "lyrical wax" as wax lyrical. howto is "sing while holding the poetic wax".
 
 section questions field concepts
 
