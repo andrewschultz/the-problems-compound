@@ -7421,7 +7421,7 @@ before talking to a client (this is the successfully talk to a client rule) :
 	now jerk-who-short is true;
 	now last-jerk is noun;
 	try talking to generic-jerk instead;
-		
+
 chapter skiping
 
 skiping is an action applying to nothing.
@@ -10605,10 +10605,6 @@ the mentality crowd is scenery in airy station. "All kinds of people applaud you
 instead of talking to mentality crowd:
 	say "They are stuck in full-on cheering mode.";
 
-to say hammer-clue:
-	now no-break is true;
-	consider the hammer clue rule;
-
 hammer-turns is a number that varies.
 
 every turn when player is in airy station (this is the hammer clue rule):
@@ -10616,51 +10612,23 @@ every turn when player is in airy station (this is the hammer clue rule):
 	if the remainder after dividing hammer-turns by 4 is 0:
 		if hammer is not examined:
 			now mist-turns is 0;
-			say "[if no-break is true][paragraph break][end if]You may [one of][or]still [stopping]need to figure how the hammer can help you get out of here--or past the caps. Maybe it'd help to EXAMINE the hammer[if no-break is true].[no line break][else].[end if]";
-			now no-break is false;
+			say "You may [one of][or]still [stopping]need to figure how the hammer can help you get out of here--or past the caps. Maybe it'd help to EXAMINE the hammer.";
 			the rule succeeds;
 	if hammer-turns is 4:
-		say "[if no-break is true][paragraph break][end if]If you had another hammer, maybe you could click them together and go back[if no-break is true].[no line break][else].[end if]";
+		say "If you had another hammer, maybe you could click them together and go back.";
 	else if hammer-turns is 8:
-		say "[if no-break is true][paragraph break][end if]You're chipping off things the hammer can't be[if no-break is true].[no line break][else].[end if]";
+		say "You're chipping off things the hammer can't be.";
 	else if hammer-turns is 12:
+		say "You imagine the hammer putting the caps in a wrestling hold.";
+	else if hammer-turns is 16:
+		say "You wonder if the hammer can lead you some direction--up or down, maybe, or something vaguer.";
+	else if hammer-turns is 20:
+		say "You wonder if and how the hammer can lead you from this somewhat neutral arena.";
 		now mist-turns is 0;
-		say "[if no-break is true][paragraph break][end if]You imagine the hammer putting the caps in a wrestling hold[if no-break is true].[no line break][else].[end if]";
-	now no-break is false;
 
 section hammer mistakes
 
-understand "hammer ban" and "ban hammer" as a mistake ("You do feel confident you could now be an Internet forum mod and curb some silliness. But--if you banned the hammer, you'd never get back home.[hammer-clue]") when player is in Airy Station.
-
-understand "blow hammer" and "hammer blow" as a mistake ("[if allow-swears is true]The hammer is small enough to put in your mouth, but, no. This isn't that kind of game[else][one of]You blow on the hammer and wipe it off. It looks nice and shiny[or]You already cleaned the hammer a bit[stopping].[hammer-clue]") when player is in Airy Station.
-
-understand "hammer hammer" as a mistake ("Too brute force. It needs to be a different sort of hammer.[hammer-clue]") when player is in Airy Station.
-
-understand "head hammer" and "hammer head" as a mistake ("You don't need to beat yourself up, or have a vicious predator beat you up, to change the hammer into what you need to.[hammer-clue]") when player is in Airy Station.
-
-understand "hammer jack" and "jack hammer" as a mistake ("There's probably someone named Jack in the crowd, but even if he deserved it, it'd take too long to go and ask.[hammer-clue]") when player is in Airy Station.
-
-understand "man hammer" and "hammer man" as a mistake ("So, this game isn't badly cartoonish enough for you?[hammer-clue]") when player is in Airy Station.
-
-understand "hammer ninny" and "ninny hammer" as a mistake("This is a nonviolent mistake, and besides, everyone here has been slandered as an idiot, not a ninny.[hammer-clue]") when player is in Airy Station.
-
-understand "hammer sledge" and "sledge hammer" as a mistake("If there were a sledge, you wouldn't want to destroy it. Trust me, I know what I'm doing. And you will, soon, too.[hammer-clue]") when player is in Airy Station.
-
-understand "strength hammer" and "hammer strength" as a mistake ("You've already gained strength. And hitting such a thick lock harder wouldn't do much.") when player is in Airy Station.
-
-understand "time hammer" and "hammer time" as a mistake ("A voice says 'STOP!' Your pants momentarily feel baggy. Maybe it doesn't quite need to be that sort of hammer.[hammer-clue]") when player is in Airy Station.
-
-understand "toe hammer" and "hammer toe" as a mistake ("The mentality crowd might enjoy that sort of comic relief, but you wouldn't.[hammer-clue]") when player is in Airy Station.
-
-understand "under the hammer" and "under hammer" and "hammer under" and "hammer the under" as a mistake ("You don't know enough about vehicles, but even if you did, the hammer wouldn't have enough force to open the Return Carriage from below.[hammer-clue]") when player is in Airy Station.
-
-understand "hammer yellow" and "yellow hammer" as a mistake ("You don't need to be around birds, and it'd be hypocritical to cut people down for their fears.[hammer-clue]") when player is in Airy Station.
-
-understand "hammer [text]" and "[text] hammer" as a mistake ("You look at the hammer, hoping it will change, but nothing happens. Maybe another word.[hammer-clue]") when player is in Airy Station.
-
-understand "hammer away" and "hammer home" and "hammer lock" as a mistake ("Almost. Wrong way round.") when player is in Airy Station.
-
-understand "lock [text]" and "[text] lock" and "[text] caps" and "caps [text]" as a mistake ("The lock caps remain solid. Maybe you could augment the hammer, though.[hammer-clue]") when player is in Airy Station.
+understand "lock [text]" and "[text] lock" and "[text] caps" and "caps [text]" as a mistake ("The lock caps remain solid. Maybe you could augment the hammer, though.") when player is in Airy Station. [??] [how to put this in the after reading, so you can get a clue?]
 
 the hammer is a thing in Airy Station. "A hammer lies nearby. It's the sort you use to knock in big spikes on a rail."
 
@@ -10677,7 +10645,7 @@ end-index is a number that varies.
 instead of doing something with hammer:
 	let q be right-adj;
 	if q is -1:
-		say "That should have worked. But it didn't. You must be close, though." instead;
+		say "The hammer seems to move in your hand a bit." instead;
 	if q is 0:
 		continue the action;
 	now end-index is q;
@@ -10760,17 +10728,15 @@ every turn when player is in out mist (this is the ring clue rule):
 	if the remainder after dividing mist-turns by 4 is 0:
 		if worm is not examined:
 			now mist-turns is 0;
-			say "[if no-break is true][paragraph break][end if]You may [one of][or]still [stopping]need to take a closer look at the worm[if no-break is true].[no line break][else].[end if]";
-			now no-break is false;
+			say "You may [one of][or]still [stopping]need to take a closer look at the worm.";
 			the rule succeeds;
 	if mist-turns is 4:
-		say "[if no-break is true][paragraph break][end if]You just want to generally, well, do something to the ring. Make it different from what it is. Hmm, but what? Maybe you don't need to be too specific[if no-break is true].[no line break][else].[end if]";
+		say "You just want to generally, well, do something to the ring. Make it different from what it is. Hmm, but what? Maybe you don't need to be too specific.";
 	else if mist-turns is 8:
-		say "[if no-break is true][paragraph break][end if]Something about the ring seems dishonest, wrong[if no-break is true].[no line break][else].[end if]";
+		say "Something about the ring seems dishonest, wrong.";
 	else if mist-turns is 12:
 		now mist-turns is 0;
-		say "[if no-break is true][paragraph break][end if]If you had a cell phone, maybe someone would call you with an idea. Whether it was on vibrate, or it was more audible[if no-break is true].[no line break][else].[end if]";
-	now no-break is false;
+		say "If you had a cell phone, maybe someone would call you with an idea. Whether it was on vibrate, or it was more audible.";
 
 check going nowhere in Out Mist:
 	say "No. This is the first place you stumbled on, and getting more or less lost both seem equally bad." instead;
@@ -10785,23 +10751,14 @@ to good-end:
 	say "The Whole Worm is bigger than you thought. You hide deeper and deeper. A passage turns down, and then here's a door. Through it you see your bedroom.";
 	go-back-home;
 
-no-break is a truth state that varies.
-
-to say ring-clue:
-	now no-break is true;
-	consider the ring clue rule;
-
 understand the command "answer" as something new.
 
-understand "ring ring" as a mistake ("You hear in your head the sound from an old rotary phone. It's so different these days when someone calls you up.[ring-clue]") when player is in Out Mist.
+to say ring-clue:
+	say "!";
 
 understand "brass ring" and "ring brass" as a mistake ("[if player is in out mist]You already had to ring the brass to get here. Gotta be something else with the ring.[ring-clue][else if player is in airy station][else if player is in freak control]You can't bring yourself to attack the [bad-guy] first.[else]You sense you don't quite need to, yet.[end if]") when quiz pop is in lalaland
 
 understand "answer ring" and "ring answer" as a mistake ("The ring seems to be straining to be different. But it can't make a difference on its own.[ring-clue]") when player is in Out Mist.
-
-understand "worm glow" and "glow worm" as a mistake ("If you needed to find it, it might help. But now, you need to get inside it. You probably need to fix the ring shape.[ring-clue]") when player is in Out Mist.
-
-understand "round worm" and "worm round" as a mistake ("You consider worming around, but you're not very good at flattery, and there's nobody to flatter. Not that it's worth being good at flattery.[ring-clue]") when player is in Out Mist.
 
 understand "like ring" and "ring like" and "ringlike" as a mistake("You sort of like the ring the way it is, but you'd like it much better another way.[ring-clue]") when player is in Out Mist.
 
@@ -10817,21 +10774,14 @@ to say r-m-l:
 		now x is word number 2 in the player's command;
 	say "[x]";
 
-understand "ring change" and "ring tone" and "ring hollow" as a mistake ("Ooh! Almost.")
 
-understand "ring right" and "right ring" as a mistake ("That has the right ring, but maybe not quite the right note, or melody.[ring-clue]") when player is in Out Mist.
+understand "worm glow" and "glow worm" as a mistake ("If you needed to find it, it might help. But now, you need to get inside it. You probably need to fix the ring shape.[ring-clue]") when player is in Out Mist.
 
-understand the command "clear" as something new.
-
-understand "ring clear" and "clear ring" as a mistake ("You can't move the ring away, but you can make it feel less solid on the inside.[ring-clue]") when player is in Out Mist.
-
-understand "ring [text]" and "[text] ring" as a mistake ("Nothing happens to the ring. It sits there as lumpy and round and impenetrable as before, not quite spacy enough to enter, not quite straight enough to follow anywhere.[ring-clue]") when player is in Out Mist.
+understand "round worm" and "worm round" as a mistake ("You consider worming around, but you're not very good at flattery, and there's nobody to flatter. Not that it's worth being good at flattery.[ring-clue]") when player is in Out Mist.
 
 understand "wring [text]" and "[text] wring" as a mistake ("It's too big for that. That's not quite how to manipulate the ring.[ring-clue]") when player is in Out Mist.
 
-understand "ring true" and "true ring" as a mistake ("You know your Tolkein, but somehow, you think, showing up its falsehood might be the way to go.[ring-clue]") when player is in Out Mist.
-
-understand "ring false" and "false ring" as a mistake ("Well, not false...but a word like it.[ring-clue]") when player is in Out Mist.
+understand the command "clear" as something new.
 
 understand "hole [text]" and "[text] hole" as a mistake ("Concentrate on the ring, not the hole.") when player is in Out Mist.
 
@@ -10870,6 +10820,8 @@ does the player mean worming the worm ring: it is very likely.
 carry out worming:
 	if noun is not worm ring:
 		say "That's the right idea, but the wrong thing to do it to." instead;
+	if the player's command includes "worm":
+		say "(well, the ring)[paragraph break]";
 	say "You scoop out the innards of the worm. The moment they're outside the worm, it extends a bit more. Then it twitches and straightens.";
 	wfak;
 	say "It's a whole worm. What luck! You enter it, hoping things are still a bit flip flopped...";
@@ -12675,8 +12627,23 @@ after reading a command:
 		if the player's command matches the regular expression "<a-z>ring$":
 			replace the regular expression "ring$" in the player's command with " ring";
 		if the player's command includes "ring" and the player's command includes "the":
-			say "You don't need 'the' here. Just a two-word command.";
+			note-thes;
 			replace the regular expression "\bthe\b" in the player's command with "";
+		if the player's command includes "change ring" or the player's command includes "tone ring" or the player's command includes "hollow ring":
+			consider the shutdown rules;
+			the rule succeeds;
+		if the player's command includes "ring":
+			if number of words in player's command is 1:
+				say "But what to do with the ring?";
+			else if number of words in player's command is 3:
+				say "No, too complex. Just a one-word action.";
+			else:
+				if word number 1 in the player's command is "ring":
+					now word-req is 2;
+				else:
+					now word-req is 1;
+				try-ring-poss;
+			reject the player's command;
 		if the player's command matches the regular expression "^worm<a-z>":
 			replace the regular expression "^worm" in the player's command with "worm ";
 		if the player's command matches the regular expression "<a-z>worm$":
@@ -12685,10 +12652,6 @@ after reading a command:
 			note-thes;
 			replace the regular expression "\bthe\b" in the player's command with "";
 	if player is in airy station:
-		if the player's command includes "home hammer" or the player's command includes "away hammer" or the player's command includes "lock hammer":
-			try examining hammer;
-			consider the shutdown rules;
-			the rule succeeds;
 		if the player's command matches the regular expression "^hammer<a-z>":
 			replace the regular expression "^hammer" in the player's command with "hammer ";
 		if the player's command matches the regular expression "<a-z>hammer$":
@@ -12696,9 +12659,91 @@ after reading a command:
 		if the player's command includes "hammer" and the player's command includes "the":
 			note-thes;
 			replace the regular expression "\bthe\b" in the player's command with "";
+		if the player's command includes "hammer":
+			if word number 1 in the player's command is "hammer":
+				now word-req is 2;
+			else:
+				now word-req is 1;
+			try-hammer-poss;
+			reject the player's command;
 
 to note-thes:
 	say "You don't need 'the' here. Just a two-word command.";
+
+word-req is a number that varies.
+
+to try-ring-poss:
+	repeat through table of ring tries:
+		if word number word-req in the player's command is wordtry entry:
+			if there is no tryresp entry:
+				if word-req is 2:
+					say "Close! Very.";
+					consider the ring clue rule;
+					continue the action;
+				consider the shutdown rules;
+				continue the action;
+			say "[tryresp entry][line break]";
+			continue the action;
+	say "Nothing happens to the ring. It sits there as lumpy and round and impenetrable as before, not quite spacy enough to enter, not quite straight enough to follow anywhere.";
+	consider the ring clue rule;
+
+table of ring tries [trt]
+wordtry	tryresp
+"change"	--
+"tone"	--
+"hollow"	-- [the 3 right ones]
+"clear"	"You can't move the ring or mist away, but you can make it feel less solid on the inside."
+"ear"	"You aren't rebellious enough to pierce, well, anything."
+"false"	"Well, not false...but a word like it."
+"let"	"Your hair curls at the thought of such passivity."
+"like"	"You sort of like the ring the way it is, but you'd like it much better another way."
+"right"	"That has the right ring, but maybe not quite the right note, or melody."
+"ring"	"You hear in your head the sound from an old rotary phone. It's so different these days when someone calls you up."
+"true"	"You know your Tolkein, but somehow, you think, showing up its falsehood might be the way to go."
+"master"	"[r-m-l]."
+"leader"	"[r-m-l]."
+
+to say r-m-l:
+	say "You're RUNNING from the [word number word-req in the player's command], and you've already spent time mastering the Problems Compound"
+
+to try-hammer-poss:
+	repeat through table of hammer tries:
+		if word number word-req in the player's command is wordtry entry:
+			if there is no tryresp entry:
+				if word-req is 2:
+					say "Close! Very.";
+					consider the hammer clue rule;
+					continue the action;
+				consider the shutdown rules;
+				continue the action;
+			say "[tryresp entry][line break]";
+			continue the action;
+	say "You look at the hammer, hoping it will change, but nothing happens. Maybe another word.";
+	consider the ring clue rule;
+
+table of hammer tries [tht]
+wordtry	tryresp
+"away"	--
+"home"	--
+"lock"	--
+"ban"	"You do feel confident you could now be an Internet forum mod and curb some silliness. But--if you banned the hammer, you'd never get back home."
+"blow"	"[if allow-swears is true]The hammer is small enough to put in your mouth, but, no. This isn't that kind of game[else][one of]You blow on the hammer and wipe it off. It looks nice and shiny[or]You already cleaned the hammer a bit[stopping]."
+"emcee"	"[stanley-burrell]."
+"hammer"	"Too brute force. It needs to be a different sort of hammer."
+"head"	"You don't need to beat yourself up, or have a vicious predator beat you up, to change the hammer into what you need to."
+"jack"	"There's probably someone named Jack in the crowd, but even if he deserved it, it'd take too long to go and ask."
+"mc"	"[stanley-burrell]."
+"man"	"[stanley-burrell]."
+"ninny"	"This is a nonviolent mistake, and besides, everyone here has been slandered as an idiot, not a ninny."
+"sledge"	"If there were a sledge, you wouldn't want to destroy it. Trust me, I know what I'm doing. And you will, soon, too."
+"strength"	"You've already gained strength. And hitting such a thick lock harder wouldn't do much."
+"time"	"[stanley-burrell]."
+"toe"	"The mentality crowd might enjoy that sort of comic relief, but you wouldn't."
+"under"	"You don't know enough about vehicles, but even if you did, the hammer wouldn't have enough force to open the Return Carriage from below."
+"yellow"	"You don't need to be around birds, and it'd be hypocritical to cut people down for their fears."
+
+to say stanley-burrell:
+	say "A voice says 'STOP!' Your pants momentarily feel baggy. Maybe it doesn't quite need to be that sort of hammer"
 
 volume swear deciding
 
