@@ -29,6 +29,8 @@ use MAX_SYMBOLS of 24000.
 
 use MAX_STATIC_DATA of 200000.
 
+use MAX_PROP_TABLE_SIZE of 210000.
+
 book includes
 
 include Basic Screen Effects by Emily Short.
@@ -180,18 +182,18 @@ when play begins (this is the initialize jerks rule):
 	sort table of fingerings in random order;
 	choose row 7 in table of fingerings;
 	let f-cur-row be 0;
-	let temp-cli be Buddy Best;
-	let first-cli be Buddy Best;
-	repeat through table of fingerings:
-		unless jerky-guy entry is Buddy Best:
-			unless temp-cli is Buddy Best:
-				now next-c of temp-cli is jerky-guy entry;
-				d "[temp-cli] to [jerky-guy entry].";
-			else:
-				now first-cli is jerky-guy entry;
-			now temp-cli is jerky-guy entry;
-	d "[temp-cli] to [first-cli].";
-	now next-c of temp-cli is first-cli;
+	let first-cli be a random client;
+	now first-cli is ordered;
+	let this-cli be first-cli;
+	let next-cli be Buddy Best;
+	while number of unordered clients > 0:
+		now next-cli is a random unordered client;
+		now next-c of this-cli is next-cli;
+		now next-cli is ordered;
+		d "[this-cli] -> [next-cli]";
+		now this-cli is next-cli;
+	now next-c of next-cli is first-cli;
+	d "[next-cli] -> [first-cli]";
 
 when play begins (this is the sort ALL the tables rule) :
 	repeat through table of sleep stories: [ok, throw in basic initializations here]
@@ -542,9 +544,11 @@ Procedural rule: ignore the print final score rule.
 
 a thing can be abstract. a thing is usually not abstract.
 
-a client is a kind of person. a client is usually male. a client can be specified. a client is usually not specified. a client has text called clue-letter.
+a client is a kind of person. a client is usually male. a client can be specified. a client is usually not specified. a client has text called clue-letter. [specified = how to sort clients in the table]
 
 a client can be minted. a client is usually not minted.
+
+a client can be unordered or ordered. a client is usually unordered. [this is for sorting clients by whom you talk to]
 
 chapter misc defs for later
 
