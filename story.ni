@@ -1706,6 +1706,13 @@ check touching:
 		say "That wouldn't be a fun poke[activation of poke fun]. It might even be a base touch[activation of touch base]." instead;
 	say "You can just TAKE something if you want to." instead;
 
+chapter inserting
+
+check inserting it into:
+	if second noun is Alec Smart:
+		try eating noun instead;
+	try tying noun to second noun instead;
+
 chapter taking inventory
 
 check taking inventory (this is the adjust sleep rule) :
@@ -8087,25 +8094,21 @@ to move-Percy:
 			now ac-x is ac-x - 3;
 		continue the action;
 	if you-y < ac-y:
-		d "1.";
 		if ac-y < 12:
 			now ac-y is ac-y + 3; [move south]
 		else:
 			east-or-west-rand;
 	else if you-y > ac-y:
-		d "2.";
 		if ac-y > 0:
 			now ac-y is ac-y - 3; [move north]
 		else:
 			east-or-west-rand;
 	else if you-x > ac-x:
-		d "3.";
 		if ac-x > 0:
 			now ac-x is ac-x - 3; [move west]
 		else:
 			north-or-south-rand;
 	else if you-x < ac-x:
-		d "4.";
 		if ac-x < 12:
 			now ac-x is ac-x + 3; [move east]
 		else:
@@ -10628,53 +10631,16 @@ every turn when player is in airy station (this is the hammer clue rule):
 
 section hammer mistakes
 
-understand "lock [text]" and "[text] lock" and "[text] caps" and "caps [text]" as a mistake ("The lock caps remain solid. Maybe you could augment the hammer, though.") when player is in Airy Station. [??] [how to put this in the after reading, so you can get a clue?]
-
 the hammer is a thing in Airy Station. "A hammer lies nearby. It's the sort you use to knock in big spikes on a rail."
 
 check dropping the hammer:
 	say "You already dropped the figurative hammer on the [bad-guy]. Now to do something constructive with the real hammer." instead;
 
-description of hammer is "It's a nondescript hammer--well, okay, it's blunt, not claw. Almost like a rubber mallet. You feel a power, though, as you carry it--as if you were able to change it correctly, if you knew a good way to describe it."
-
 after printing the name of the hammer when taking inventory:
 	say " (much plainer than it should be)";
 
-end-index is a number that varies.
-
 instead of doing something with hammer:
-	let q be right-adj;
-	if q is -1:
-		say "The hammer seems to move in your hand a bit." instead;
-	if q is 0:
-		continue the action;
-	now end-index is q;
-	if q is 1:
-		say "The hammer glows a bit. You feel it pulling you towards the lock caps. Its claw end grabs one after another, strangling them until they pop off.";
-		best-end;
-	if q is 2:
-		say "The hammer glows a bit. You feel it pulling your arm up. The hammer crackles a bit, and you slam it down on the lock caps, which fall quickly.";
-		best-end;
-	if q is 3:
-		say "The hammer glows a bit. You feel it swinging side to side, and before it touches the lock caps, they crack open and fall to the ground.";
-		best-end;
-	if q > 3:
-		say "Oops. Bug. This should never happen. But it won't stop you winning the game.";
-
-to best-end:
-	say "The door to the Return Carriage creaks open. You wave to the crowd as you enter the Return Carriage. You think of all the people you helped, the smart-alecks you didn't let get you down. The clues won't be as obvious back home, but you see some people are full of hot air, and you can overcome them, and that's a relief.";
-	go-back-home;
-
-to decide which number is right-adj:
-	if the player's command matches the regular expression "\bcaps\b":
-		decide on -1;
-	if the player's command matches the regular expression "\block\b":
-		decide on 1;
-	if the player's command matches the regular expression "\bhome\b":
-		decide on 2;
-	if the player's command matches the regular expression "\baway\b":
-		decide on 3;
-	decide on 0;
+	say "The hammer seems to move in your hand a bit." instead;
 
 the Return Carriage is a thing. "The Return Carriage awaits, but the problem is, you can't find an obvious way to, um, enter.". description is "It's spiffy and sleek. But the lock caps on the return carriage prevent you from entering. Maybe your hammer could help. Maybe not in its present state, but in some other state."
 
@@ -10748,6 +10714,10 @@ check entering worm ring:
 	say "Hm. Enter ring, enterring--it might be simple, but it's not that simple. Because there's not enough space for you to fit, as is. But it looks and feels pliable. You may need to modify it a bit--somehow." instead;
 
 to good-end:
+	say "You scoop out the innards of the worm. The moment they're outside the worm, it extends a bit more. Then it twitches and straightens.";
+	wfak;
+	say "It's a whole worm. What luck! You enter it, hoping things are still a bit flip flopped...";
+	wfak;
 	say "The Whole Worm is bigger than you thought. You hide deeper and deeper. A passage turns down, and then here's a door. Through it you see your bedroom.";
 	go-back-home;
 
@@ -10791,7 +10761,7 @@ understand "whole worm" and "worm whole" as a mistake ("It pretty much is a whol
 
 understand "worm bait" and "bait worm" as a mistake ("It's an inanimate worm, and -- well -- you might rather try fishing with things to do to a ring.") when player is in Out Mist.
 
-the worm ring is scenery in Out Mist. "It's circular and seems to be almost eating itself, Ouroborous-style, though it looks a bit slushy on the inside that you can see. You can't quite enter it, but maybe if it straightened out into a regular worm...or if you made it less fat, or thick, or dense, or maybe wide, with the hole being too small...so many possibilities, but maybe the right thing (or things) to do will be simple."
+the worm ring is scenery in Out Mist.
 
 check opening worm ring:
 	say "It's not in the right state to open." instead;
@@ -10804,40 +10774,6 @@ check wearing ring:
 	say "Hm, a good try, but it would be wearing to wear it. It's just--not useful as is, and you need to modify it." instead;
 
 Rule for deciding whether all includes worm ring when player is in out mist: it does.
-
-chapter verbs for wood
-
-worming is an action applying to one thing.
-
-understand the command "change" as something new.
-understand the command "tone" as something new.
-understand the command "hollow" as something new.
-
-understand "hollow [thing]" and "tone [thing]" and "change [thing]" as worming when player is in Out Mist.
-
-does the player mean worming the worm ring: it is very likely.
-
-carry out worming:
-	if noun is not worm ring:
-		say "That's the right idea, but the wrong thing to do it to." instead;
-	if the player's command includes "worm":
-		say "(well, the ring)[paragraph break]";
-	say "You scoop out the innards of the worm. The moment they're outside the worm, it extends a bit more. Then it twitches and straightens.";
-	wfak;
-	say "It's a whole worm. What luck! You enter it, hoping things are still a bit flip flopped...";
-	now end-index is right-act;
-	good-end;
-
-to decide which number is right-act:
-	if the player's command matches the regular expression "\bcaps\b":
-		decide on -1;
-	if the player's command matches the regular expression "\bchange\b":
-		decide on 1;
-	if the player's command matches the regular expression "\bhollow\b":
-		decide on 2;
-	if the player's command matches the regular expression "\btone\b":
-		decide on 3;
-	decide on 0;
 
 part merged ending
 
@@ -12583,10 +12519,7 @@ the can't put onto what's not a supporter rule is not listed in any rulebook.
 
 understand "put [thing]" as a mistake ("PUT is too vague for the parser. You need to PUT something ON or IN something else.")
 
-check inserting it into:
-	if second noun is Alec Smart:
-		try eating noun instead;
-	try tying noun to second noun instead;
+book reading a command
 
 period-warn is a truth state that varies.
 
@@ -12629,9 +12562,6 @@ after reading a command:
 		if the player's command includes "ring" and the player's command includes "the":
 			note-thes;
 			replace the regular expression "\bthe\b" in the player's command with "";
-		if the player's command includes "change ring" or the player's command includes "tone ring" or the player's command includes "hollow ring":
-			consider the shutdown rules;
-			the rule succeeds;
 		if the player's command includes "ring":
 			if number of words in player's command is 1:
 				say "But what to do with the ring?";
@@ -12666,9 +12596,17 @@ after reading a command:
 				now word-req is 1;
 			try-hammer-poss;
 			reject the player's command;
+		if the player's command includes "lock" or the player's command includes "caps":
+			say "The lock caps remain solid. Maybe you could augment the hammer, though.";
+			consider the hammer clue rule;
+			reject the player's command;
+		if the player's command includes "key" or the player's command includes "keys":
+			say "The lock caps are sort of keys, or a key. But they can't work on themselves. You probably want to focus on the hammer.";
+			consider the hammer clue rule;
+			reject the player's command;
 
 to note-thes:
-	say "You don't need 'the' here. Just a two-word command.";
+	say "(You don't need 'the' here. Just a two-word command.)[line break]";
 
 word-req is a number that varies.
 
@@ -12680,12 +12618,25 @@ to try-ring-poss:
 					say "Close! Very.";
 					consider the ring clue rule;
 					continue the action;
+				now end-index is right-act;
+				good-end;
 				consider the shutdown rules;
 				continue the action;
 			say "[tryresp entry][line break]";
 			continue the action;
 	say "Nothing happens to the ring. It sits there as lumpy and round and impenetrable as before, not quite spacy enough to enter, not quite straight enough to follow anywhere.";
 	consider the ring clue rule;
+
+to decide which number is right-act:
+	if the player's command matches the regular expression "\bcaps\b":
+		decide on -1;
+	if the player's command matches the regular expression "\bchange\b":
+		decide on 1;
+	if the player's command matches the regular expression "\bhollow\b":
+		decide on 2;
+	if the player's command matches the regular expression "\btone\b":
+		decide on 3;
+	decide on 0;
 
 table of ring tries [trt]
 wordtry	tryresp
@@ -12694,14 +12645,20 @@ wordtry	tryresp
 "hollow"	-- [the 3 right ones]
 "clear"	"You can't move the ring or mist away, but you can make it feel less solid on the inside."
 "ear"	"You aren't rebellious enough to pierce, well, anything."
+"examine"	"[ring-x]."
 "false"	"Well, not false...but a word like it."
+"finger"	"You poke at the ring, and it seems like it could be scooped out, the right way."
+"leader"	"[r-m-l]."
 "let"	"Your hair curls at the thought of such passivity."
 "like"	"You sort of like the ring the way it is, but you'd like it much better another way."
+"master"	"[r-m-l]."
 "right"	"That has the right ring, but maybe not quite the right note, or melody."
 "ring"	"You hear in your head the sound from an old rotary phone. It's so different these days when someone calls you up."
 "true"	"You know your Tolkein, but somehow, you think, showing up its falsehood might be the way to go."
-"master"	"[r-m-l]."
-"leader"	"[r-m-l]."
+"x"	"[ring-x]."
+
+to say ring-x:
+	say "It's circular and seems to be almost eating itself, Ouroborous-style, though it looks a bit slushy on the inside that you can see. You can't quite enter it, but maybe if it straightened out into a regular worm...or if you made it less fat, or thick, or dense, or maybe wide, with the hole being too small...so many possibilities, but maybe the right thing (or things) to do will be simple"
 
 to say r-m-l:
 	say "You're RUNNING from the [word number word-req in the player's command], and you've already spent time mastering the Problems Compound"
@@ -12714,6 +12671,7 @@ to try-hammer-poss:
 					say "Close! Very.";
 					consider the hammer clue rule;
 					continue the action;
+				best-end;
 				consider the shutdown rules;
 				continue the action;
 			say "[tryresp entry][line break]";
@@ -12721,26 +12679,63 @@ to try-hammer-poss:
 	say "You look at the hammer, hoping it will change, but nothing happens. Maybe another word.";
 	consider the ring clue rule;
 
+end-index is a number that varies.
+
+to best-end:
+	let q be right-adj;
+	now end-index is q;
+	if q is 1:
+		say "The hammer glows a bit. You feel it pulling you towards the lock caps. Its claw end grabs one after another, strangling them until they pop off.";
+	else if q is 2:
+		say "The hammer glows a bit. You feel it pulling your arm up. The hammer crackles a bit, and you slam it down on the lock caps, which fall quickly.";
+	else if q is 3:
+		say "The hammer glows a bit. You feel it swinging side to side, and before it touches the lock caps, they crack open and fall to the ground.";
+	else:
+		say "Oops. Bug. This should never happen. But it won't stop you winning the game. I would like to know what command you used, though: [email].";
+	say "[line break]The door to the Return Carriage creaks open. You wave to the crowd as you enter the Return Carriage. You think of all the people you helped, the smart-alecks you didn't let get you down. The clues won't be as obvious back home, but you see some people are full of hot air, and you can overcome them, and that's a relief.";
+	go-back-home;
+
+to decide which number is right-adj:
+	if the player's command matches the regular expression "\bcaps\b":
+		decide on -1;
+	if the player's command matches the regular expression "\block\b":
+		decide on 1;
+	if the player's command matches the regular expression "\bhome\b":
+		decide on 2;
+	if the player's command matches the regular expression "\baway\b":
+		decide on 3;
+	decide on 0;
+
+
 table of hammer tries [tht]
 wordtry	tryresp
 "away"	--
 "home"	--
 "lock"	--
+"age"	"You've already grown up a bit, and you don't need to get drunk."
 "ban"	"You do feel confident you could now be an Internet forum mod and curb some silliness. But--if you banned the hammer, you'd never get back home."
 "blow"	"[if allow-swears is true]The hammer is small enough to put in your mouth, but, no. This isn't that kind of game[else][one of]You blow on the hammer and wipe it off. It looks nice and shiny[or]You already cleaned the hammer a bit[stopping]."
+"down"	"You've already put the hammer down in the [bad-guy], and you don't need or want to make everyone else feel down."
 "emcee"	"[stanley-burrell]."
+"examine"	"[x-hammer]."
+"fall"	"It's not seasons, but maybe distance, or maybe getting rid of the caps."
 "hammer"	"Too brute force. It needs to be a different sort of hammer."
-"head"	"You don't need to beat yourself up, or have a vicious predator beat you up, to change the hammer into what you need to."
+"head"	"You don't need to beat yourself up, or have a vicious shark do the honors, to change the hammer into what you need to. It's probably the best hammer for the purpose, too."
 "jack"	"There's probably someone named Jack in the crowd, but even if he deserved it, it'd take too long to go and ask."
 "mc"	"[stanley-burrell]."
 "man"	"[stanley-burrell]."
 "ninny"	"This is a nonviolent mistake, and besides, everyone here has been slandered as an idiot, not a ninny."
-"sledge"	"If there were a sledge, you wouldn't want to destroy it. Trust me, I know what I'm doing. And you will, soon, too."
+"sledge"	"If there were a sledge, you wouldn't want to destroy it. Plus the carriage is cooler and faster than a sledge. Trust me, I know what I'm doing. And you will, soon, too."
+"stein"	"The hammer produces no music and fails to turn into a mug, which wouldn't be helpful anyway."
 "strength"	"You've already gained strength. And hitting such a thick lock harder wouldn't do much."
 "time"	"[stanley-burrell]."
 "toe"	"The mentality crowd might enjoy that sort of comic relief, but you wouldn't."
 "under"	"You don't know enough about vehicles, but even if you did, the hammer wouldn't have enough force to open the Return Carriage from below."
+"x"	"[x-hammer]."
 "yellow"	"You don't need to be around birds, and it'd be hypocritical to cut people down for their fears."
+
+to say x-hammer:
+	say "It's a nondescript hammer--well, okay, it's blunt, not claw. Almost like a rubber mallet. You feel a power, though, as you carry it--as if you were able to change it correctly, if you knew a good way to describe it"
 
 to say stanley-burrell:
 	say "A voice says 'STOP!' Your pants momentarily feel baggy. Maybe it doesn't quite need to be that sort of hammer"
@@ -13655,10 +13650,12 @@ this is the freak-control rule:
 
 this is the to-good-end rule:
 	now player is in out mist;
+	send-bros;
 	the rule succeeds;
 
 this is the to-very-good-end rule:
 	now player is in airy station;
+	send-bros;
 	the rule succeeds;
 
 this is the face-ac rule:
@@ -13754,6 +13751,11 @@ montopic (topic)	on-off	test-title (text)	test-action	topic-as-text (text)
 "mood"	false	"MOOD tracking"	try-mood rule	"mood"
 "think"	false	"THINK tracking"	try-think rule	"think"
 "sleep"	false	"SLEEP tracking"	try-sleep rule	"sleep"
+"status"	false	"STATUS LINE (SL)"	try-statline rule	"sl"
+
+this is the try-statline rule:
+	say "Left-hand status line: [lhs][line break]";
+	say "Right-hand status line: [lhs][line break]";
 
 this is the try-exits rule:
 	try exitsing;
