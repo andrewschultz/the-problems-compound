@@ -1205,7 +1205,7 @@ instead of thinking:
 	if mrlp is dream sequence:
 		move-dream-ahead instead;
 	if finger index is examined and silly boris is in Nominal Fen:
-		say "Hmm. You remember the finger index and the seven [j-co].";
+		say "Hmm. You remember the finger index[if know-jerks is true] and the seven [j-co], [list of clients in nominal fen][end if].";
 		say "[finger-say]." instead;
 	if think-score is false:
 		say "NOTE: THINK will redirect to SCORE in the future, unless you really only have one specific task remaining.[paragraph break]";
@@ -7485,6 +7485,10 @@ carry out whoing:
 			now cur-jerk is next-c of cur-jerk;
 	else:
 		say "The [j-co]['] names are [list of clients in Nominal Fen].";
+	if debug-state is true:
+		repeat with CLI running through clients in nominal fen:
+			say "[CLI]=[clue-letter of CLI] ";
+		say "[line break]";
 	the rule succeeds;
 
 chapter numjerking
@@ -7723,6 +7727,7 @@ after talking to generic-jerk:
 	else:
 		ital-say "remember, VERBS can show you shortcut alternatives to the dialogue.";
 	now jerk-num-hint is true;
+	now know-jerk-opts is true;
 
 to decide which quip is mint-quip:
 	if number of minted clients is 0:
@@ -8979,12 +8984,27 @@ after examining finger index:
 		say "You can THINK to remember this information, later.";
 	continue the action;
 
+to say dia-count of (myq - a quip):
+	let count be 0;
+	repeat through table of jt:
+		increment count;
+		if response entry is myq:
+			say "[count]";
+			continue the action;
+	say "UNDEF";
+
+know-jerk-opts is a truth state that varies.
+
 to say finger-say:
 	let temp be 0;
 	repeat through the table of fingerings:
 		if jerky-guy entry is not buddy best:
 			increment temp;
-			say "[2da][clue-letter of jerky-guy entry][if secrets-open is true] ([jerky-guy entry])[end if] [blackmail entry][if jerky-guy entry is minted] ([jerky-guy entry])[end if][line break]";
+			say "[2da][clue-letter of jerky-guy entry][if secrets-open is true] ([jerky-guy entry])[end if] [blackmail entry][if jerky-guy entry is minted] ([jerky-guy entry])[end if]";
+			if know-jerk-opts is true:
+				let jconv be 0;
+				say " ([temp])";
+			say "[line break]";
 	say "[line break]Collect hush fees every Monday. Repeating accusations breaks the guilty parties. Insanity Terminal has backup data";
 	now finger index is examined;
 
