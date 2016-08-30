@@ -3,8 +3,11 @@
 the story headline is "A Direction of Sense: changing what's-thats to that's-whats"
 
 [to search through this file, two x's at the start of a comment will delinate major points I revisit.
-  CV = conceptville, where concepts you don't know about are.
+  CV = conceptville, where concepts you don't know about are
   add = stuff referred to tangentially and its explanations.
+  
+  trt = table of ring tries
+  tht = table of hammer tries
 ]
 
 volume initialization
@@ -21,7 +24,7 @@ the release number is 3.
 
 section compiler debug
 
-[without these numbers beiing increa sed, the I7 would be translated to I6, but the I6 compiler would complain. That's what happens when a game gets bigger than intended.]
+[without these numbers beiing increased, the I7 would be translated to I6, but the I6 compiler would complain. That's what happens when a game gets bigger than intended.]
 
 use MAX_ACTIONS of 210.
 
@@ -3492,11 +3495,12 @@ fatigue duty	"Fatigue duty is the drudge work low-ranking members of the militar
 favor curry	"To curry favor is to try to get on someone's good side."
 fawn over	"To fawn over is to flatter someone."
 Freak Out	"To freak out is to make a much bigger emotional display than seems really necessary."
-generate d	"Degenerate means without moral values. D is short for defense."
+degenerate	"Degenerate means without moral values. D is short for defense."
 grunt work	"Grunt work is unchallenging work."
 half right	"Half right is when you are, well, half right. Being half right is often worse than making a ridiculous statement, because it's more believable."
 Howard Dean	"Howard Dean was a candidate for the 2004 US Democratic Party nomination. After placing 3rd in the Iowa caucuses, he had an infamous 'Dean Scream' at a rally with supporters, which sounded worse than it was, because he was close to a microphone that picked it up. Which made him the butt of many jokes for a week. The media realised that everyone was yelling a week later, but the story was too ingrained by then.[paragraph break]DISCLAIMER: the author voted for Dean in the 2004 primary, and seeing/recalling this episode has unlocked how and why some other people acted the way they have over the years."
 infomania	"Infomania is always wanting new info. The [bad-guy] pretends he doesn't want it, but it's just fun to have. Mania info is, in this case, malicious gossip about people different the wrong way."
+informally	"informally means without rigid structure, or in a friendly manner."
 Johns Hopkins	"Johns Hopkins is a university with a prestigious medical school and pre-med program."
 King Henry	"King Henry VIII of England had six wives."
 laughingstock	"A laughingstock is someone everyone laughs at. But stock laughing is canned laughter, reflexive laughter at a joke you heard before, or maybe even a laugh track."
@@ -3522,6 +3526,7 @@ stupor	"A stupor is when you are conscious but not really aware of what's going 
 taste buds	"Taste buds are what you use to experience the sensation of taste."
 train gravy	"A gravy train is a method for getting rich."
 Tucker Max	"Tucker Max was alleged to have spanwed the 'fratire' genre, which features cynical 'tell it like it is' writing full of sex and hedonism and self-centeredness. It's the reading equivalent of sitting next to a guy bragging at a bar for a long time. An intelligent guy, sure, but that just lets him bang on longer. Imagine PG Wodehouse's Bertie Wooster without any heart."
+Wallace Shawn	"Wallace Shawn is the actor who played Vizzini ('INCONCEIVABLE!') in The Princess Bride. He's also a critically acclaimed writer."
 Wire Fraud	"Wire fraud is a financial crime designed to cheat people out of money."
 zeroin	"To zero in is to focus, and you do, on getting out of the Break Jail." [start of out mist]
 clear waivers	"To clear waivers in pro sports is when your team releases you and no other team signs you." [start of airy station]
@@ -4311,7 +4316,7 @@ anno-num	exam-thing	anno-loc	anno-long (text)
 0	--	Rage Road	"This flip made me giggle immediately, but it was one of those things where I could do better. The flipped meaning wasn't skewed enough. So when I stumbled on Chipper Wood, I decided to change it. That said, even though road rage is serious, it's fun to make fun of the silly ambitions behind it.[paragraph break]I also had ideas for a diner called [activation of road pizza]Pizza Road."
 0	--	Chicken Free Range	"The Chicken Free Range is, well, free of everyone. It was replaced by the Speaking Plain and Chipper Wood. As much as I like the idea of rotating two of three names, the problem is that you have six possibilities now, which gets confusing. Plus, free-range chicken may be a bit obscure, though I like the connotation of chicken-free range as the self-contradictory booming edict 'THOU SHALT NOT FEAR.'"
 0	--	Humor Gallows	"This was originally part of the main map, but the joke wasn't universal enough. I like the idea of killing jokes from something that should be funny, the reverse of gallows humor--which draws humor from tragedy or near tragedy. As well as the variety of ways jokes can be killed."
-0	--	Tuff Butt Fair	"This was one of the first locations I found, and I took it, and I put it in the game. Tough butt/tough but is a good pun, and I have a personal test that if I can picture pundits calling a person 'tough but fair,' that person is a loudmouthed critical jerk. The only problem is, 'fair but tough' isn't really a fair flip. It was replaced by the Interest Compound, which became the Discussion Block, and Judgment Pass.[paragraph break]I originally thought of a lot of contemporary sounding people I could put in here, but they got rejected. I wanted to keep it abstract and not real people in the game, except when the [bad-guy] does at the end, for humor value and also to show him being socially 'conscious,' I mean, ambitious. However, for a truly atrocious inside joke, I was tempted to put in a bully named Nelson Graham who beat other kids up for playing games over three years old--or for even TRYING to make their own programming language. Especially one without even any graphics! I decided against even hinting at--oops."
+0	--	Tuff Butt Fair	"This was one of the first locations I found, and I took it, and I put it in the game. Tough butt/tough but is a good pun, and I have a personal test that if I can picture pundits calling a person 'tough but fair,' that person is a loudmouthed critical jerk. The only problem is, 'fair but tough' isn't really a fair flip. It was replaced by the Interest Compound, which became the Discussion Block, and Judgment Pass.[paragraph break]I originally thought of a lot of real people I could put in here, but I settled for putting them into the [bad-guy]'s name dropping at the end, for humor value and also to show him being socially 'conscious,' I mean, ambitious. However, for a truly atrocious inside joke, I was tempted to put in a bully named Nelson Graham who beat other kids up for playing games over three years old--or for even TRYING to make their own programming language. Especially one without even any graphics! I decided against even hinting at--oops."
 0	--	Ill Falls	"This was simply a good pun that might have afforded a play on Ill, which often means beautiful and ugly at the same time. Or it could be a verb: to ill means to be out of it, or to insult someone, well or poorly."
 0	--	Eternal Hope Springs	"This was the original place you'd sleep. Then I put the warmer bench, but then I discovered the Joint Strip as perfectly seedy. Since, like Chicken Free Range, this had three substansive words in its name, it didn't quite fit the room aesthetic. But I still liked the name, and it probably catalyzed other ideas before becoming obsolete."
 0	--	Brains Beat	"I like the image of brainy people walking a beat, talking about stuff, making someone (figuratively, of course) want to beat their brains in. Them being themselves or the others. Intellectual Conversation in general drives me up the wall when it is too ostentatious."
@@ -8892,7 +8897,7 @@ description of Labor Child is "He's dressed in abhorrently cutesy Deal Clothes, 
 
 check talking to labor child:
 	if contract is off-stage:
-		say "'I'm a busy kid. Almost as busy as [bg]. In addition to delegating all my homework I am running a business! There's startup materials in the Fund Hedge.'" instead;
+		say "'I'm a busy kid. Almost as busy as the [bg]. In addition to delegating all my homework I am running a business! There's startup materials in the Fund Hedge.'" instead;
 	if player has contract:
 		if contract-signed is false:
 			say "'The contract! Less talk! More do!' Oh, man, there's something you'd like to DO." instead;
@@ -9995,6 +10000,7 @@ workname	singername	songsubj
 "Knife the Mack"	"Darin Bobby"	"harsh punishment for some dude with no game trying to impress women out of his league"
 "Motion? Loco"	"Eva Little"	"being very cool criticising the latest dance craze before everyone else gets sick of it"
 "The Light of Dying"	"The Machine Against Rage"	"admitting that there are smarter people than you who know what's best and if you care about society, maybe it's time to go, but don't, like, make a messy suicide. Even better than The Name in Killing"
+"Gabriel Peter"	"Frontiers Without Games"	"the right sort of ambition, material or social"
 "King of the Mountain Hall"	"Grieg Freidrich"	"something transcendent or other"
 "Life Is WHAT"	"Harrison George"	"a man too clever for all the constant love-is-life babble"
 "Out Movin[']"	"Joel Billey"	"someone who finds value in a more stressful life"
@@ -10398,42 +10404,46 @@ to say odd-machine-l of (x - a thing):
 	else:
 		say "some machine";
 
-table of bad guy worries [administrative]
+table of bad guy worries [xxbgw]
 gad-act
-"The [bad-guy] mutters something about needing to [activation of Ezra Pound]pound Ezra for not appreciating his edgy, advanced, experimental poetry."
-"The [bad-guy] mutters he'd get six girls before [activation of King Henry]Henry King got one."
-"The [bad-guy] snickers at [activation of Tucker Max]Max Tucker's boring diaries that are well-written and all but don't have a trace of REAL self-awareness in them."
-"The [bad-guy] snorts at [activation of taste buds]Bud's taste."
-"The [bad-guy] mutters plans about the monthly [activation of cruise control]Control Cruise coming up, a nice support group for people almost tired of being in power."
-"'Ally, Inform!' the [bad-guy] says to nobody in particular."
-"'[activation of busy work]Work...busy...work...busy,' says the [bad-guy], pacing back and forth."
-"'[activation of infomania]Mania Info. Always good to have more. Well, until I get bored of it.'"
-"'We need to [activation of generate d]generate D, here, against [bad-guy-2]!'"
-"'Record the off. Always, [activation of off the record]record the off!'"
-"'Geez, it's a pain to [activation of benefactor]factor BENNY. I'm not, like, MEAN to him.'"
-"'[activation of stupor]Poor Stu,' the [bad-guy] says, almonst genuinely concerned, before scoffing himself out of a daze."
-"'[activation of evil eye]I?!? Evil?!?' booms the [bad-guy], before looking askance at the [random scenery in freak control]."
-"'[activation of sly dog]I'll need to dog Sly his magic tricks aren't anything special, now that he can actually do a few.'"
-"'[activation of pharisee]See, Farrah,' the [bad-guy] mutters to no girl in particular."
-"'[activation of mistruth]Ruth missed so much by not listening to the exciting stories I offered to share to her.'"
 "'Think you're clever? Foul miss, Artie[activation of Artemis Fowl],' the [bad-guy] chides."
-"The [bad-guy] congratulates himself for installing the super-sanitary doctor-recommended [activation of johns hopkins]Hopkins johns."
+"'Geez, it's a pain to [activation of benefactor]factor BENNY. I'm not, like, MEAN to him.'"
+"'[activation of busy work]Work...busy...work...busy,' says the [bad-guy], pacing back and forth."
+"The [bad-guy] mutters plans about the monthly [activation of cruise control]Control Cruise coming up, a nice support group for people almost tired of being in power."
+"'We need to [activation of degenerate]generate D, here, against [bad-guy-2]!'"
 "'[random surveyable person] just needs a good [activation of disorder]Order Dis to put [']em line. Or two. Or three.'"
-"'I'm so [activation of fawn over]OVER Fawn. She never APPRECIATED my appreciation.'"
-"'That's why we need to [activation of stand out]doubt Stan, not just because he's different...'"
-"'Yeah, if we [activation of polygraph]graph Polly, she's lying without lying.'"
-"'Y'know, I have all these machines. People want too much credit for an [activation of narcissist]assist-narc these days.'"
-"'But does [random surveyable person] have any GOOD ways to [activation of leading question]question leading like mine?'"
-"The [bad-guy] mutters he's sure [activation of Howard Dean]Dean Howard is nice and well-meaning all, but that scream. Really. Just...unforgiveable. And even if it were, well, he probably still deserves to be REMINDED. For character building purposes."
+"'[activation of evil eye]I?!? Evil?!?' booms the [bad-guy], before looking askance at the [random scenery in freak control]."
+"The [bad-guy] mutters something about needing to [activation of Ezra Pound]pound Ezra for not appreciating his edgy, advanced, experimental poetry."
 "'So much to plan and delegate. So many unreliable people. Duty fatigue, duty fatigue[activation of fatigue duty].'"
+"'I'm so [activation of fawn over]OVER Fawn. She never APPRECIATED my appreciation.'"
+"The [bad-guy] mutters he's sure [activation of Howard Dean]Dean Howard is nice and well-meaning all, but that scream. Really. Just...unforgiveable. And even if it were, well, he probably still deserves to be REMINDED. For character building purposes."
+"'[activation of infomania]Mania Info. Always good to have more. Well, until I get bored of it.'"
+"'[activation of informally]Ally, Inform!' the [bad-guy] says to nobody in particular."
+"The [bad-guy] congratulates himself for installing the super-sanitary doctor-recommended [activation of johns hopkins]Hopkins johns."
+"The [bad-guy] mutters he'd get six girls before [activation of King Henry]Henry King got one."
+"'But does [random surveyable person] have any GOOD ways to [activation of leading question]question leading like mine?'"
+"'[activation of mistruth]Ruth missed so much by not listening to the exciting stories I offered to share to her.'"
+"'Y'know, I have all these machines. People want too much credit for an [activation of narcissist]assist-narc these days.'"
+"'Record the off. Always, [activation of off the record]record the off!'"
 "'[activation of Oscar Wilde]Wild Oscar? Pff, so full of vapid one-liners.'"
+"'[activation of pharisee]See, Farrah,' the [bad-guy] mutters to no girl in particular."
+"'Yeah, if we [activation of polygraph]graph Polly, she's lying without lying.'"
 "The [bad-guy] reminds himself how to [activation of psychoanalyst]list Anna: psycho, even if there's not enough data/proof yet."
-"The Language Sign flashes but you don't think it changed its message. Just reinforced it."
+"'[activation of sly dog]I'll need to dog Sly his magic tricks aren't anything special, now that he can actually do a few.'"
+"'That's why we need to [activation of stand out]doubt Stan, not just because he's different...'"
+"'[activation of stupor]Poor Stu,' the [bad-guy] says, almonst genuinely concerned, before scoffing himself out of a daze."
+"The [bad-guy] snorts at [activation of taste buds]Bud's taste."
+"The [bad-guy] snickers at [activation of Tucker Max]Max Tucker's boring diaries that are well-written and all but don't have a trace of REAL self-awareness in them."
+"'[activation of Wallace Shawn]Shawn Wallace said THAT? Conceivable.'"
+
+table of bad guy worries (continued) [divided so activations are always alphabetical] [xxbgw]
+gad-act
+"The [bad-guy] laughs sardonically at [odd-machine-l of frenzy feed]. 'Hah, gonna love complaining about that with [random baiter-aligned person].'"
+"The [bad-guy] gestures at [odd-machine-l of Incident Miner]. '[one of]Yup. It's always when they're being a little too nice, you gotta watch out[or]Some people never learn. Or they just learn wrong[or]Just because that wasn't clever doesn't mean it wasn't sneaky[or]They say THAT's no big deal, I say my snark's no big deal, they still feel ripped off. Sheesh[at random].'"
+"[odd-machine of shot screen] blinks a bit before changing its focus."
 "[odd-machine of Twister Brain] spits out a page of data the [bad-guy] speed reads. He mutters 'Pfft. I already sort of knew that. Mostly. Still, need to keep an eye on [the random surveyable person].'"
 "[odd-machine of Witness Eye] swivels around with a VVSSHHKK before changing the focus to [random mainchunk room]."
-"The [bad-guy] gestures at [odd-machine-l of Incident Miner]. '[one of]Yup. It's always when they're being a little too nice, you gotta watch out[or]Some people never learn. Or they just learn wrong[or]Just because that wasn't clever doesn't mean it wasn't sneaky[or]They say THAT's no big deal, I say my snark's no big deal, they still feel ripped off. Sheesh[at random].'"
-"The [bad-guy] laughs sardonically at [odd-machine-l of frenzy feed]. 'Hah, gonna love complaining about that with [random baiter-aligned person].'"
-"[odd-machine of shot screen] blinks a bit before changing its focus."
+"The Language Sign flashes but you don't think it changed its message. Just reinforced it."
 
 the Twister Brain is scenery in Freak Control. "The way it's creased, it's just a contemptuous smirk. Or maybe you're just seeing things."
 
@@ -12377,7 +12387,7 @@ fawn over is a concept in conceptville. understand "over fawn" as fawn over. how
 
 Freak Out is a concept in conceptville. understand "out freak" as freak out. howto is "read the Language sign".
 
-generate d is a concept in conceptville. Understand "d generate" as generate d. howto is "[fr-ran]".
+degenerate is a concept in conceptville. Understand "d generate" and "generate d" as degenerate. howto is "[fr-ran]".
 
 grunt work is a concept in conceptville. Understand "work grunt" as grunt work. howto is "listen in Freak Control".
 
@@ -12386,6 +12396,8 @@ half right is a concept in conceptville. Understand "right half" as half right. 
 Howard Dean is a concept in conceptville. understand "dean howard" as howard dean. howto is "[fr-ran]".
 
 Infomania is a concept in conceptville. Understand "infomania" as infomania. howto is "[fr-ran]".
+
+informally is a concept in conceptville. Understand "ally inform" and "inform ally" as informally. howto is "[fr-ran]".
 
 Johns Hopkins is a concept in conceptville. Understand "hopkins johns" as johns hopkins. howto is "[fr-ran]".
 
@@ -12436,6 +12448,8 @@ taste buds is a concept in conceptville. understand "bud's/buds taste" as taste 
 train gravy is a concept in conceptville. understand "gravy train" as taste buds. howto is "[fr-pb]".
 
 Tucker Max is a concept in conceptville. understand "max tucker" as Tucker Max. howto is "[fr-ran]".
+
+Wallace Shawn is a concept in conceptville. Understand "shawn wallace" as wallace shawn. howto is "[fr-ran]".
 
 Wire Fraud is a concept in conceptville. understand "fraud wire" as Wire Fraud. howto is "[bad-guy] dialog".
 

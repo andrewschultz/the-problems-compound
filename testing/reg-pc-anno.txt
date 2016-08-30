@@ -103,7 +103,7 @@ Humor Gallows
 Nothing they say is funny. It's all inside jokes, or stuff about celebrities, or overgeneralization. You wish they could be dealt with (this is one of my very favorite bad puns. You're welcome.)
 
 >attack cards
-With the pressure off, you don't feel violent.
+With the pressure of defeating the Baiter Master off, you don't feel violent in the slightest.
 
 >burn cards
 You have neither matches nor pyromaniac desires.
@@ -281,4 +281,4 @@ You need a number between 1 and 2.
 
 >vu 0
 >anno
-Okay. You can undo if you change your mind.
+Okay. You can undo this command if you change your mind.

@@ -582,9 +582,9 @@ You'll need to TAKE the Legend of Stuff to look through it.
 >w
 >n
 >talk
-"I'm a busy kid. Almost as busy as BM. In addition to delegating all my homework I am running a business! There's startup materials in the Hedge Fund."
+"I'm a busy kid. Almost as busy as the BM. In addition to delegating all my homework I am running a business! There's startup materials in the Fund Hedge."
 >talk to child
-"I'm a busy kid. Almost as busy as BM. In addition to delegating all my homework I am running a business! There's startup materials in the Hedge Fund."
+"I'm a busy kid. Almost as busy as the BM. In addition to delegating all my homework I am running a business! There's startup materials in the Fund Hedge."
 >x hedge
 >talk to child
 "The contract! Less talk! More do!" Oh, man, there's something you'd like to DO.
@@ -856,13 +856,9 @@ Brother Blood seemed upset at how upset he was about things.
 >1
 >1
 >1
-[1] Anything that might help
-[2] Well, hey, you got
+[1] Well, hey, you got
 >1
-[1] Anything that might help
-[2] Well, hey, you got
->2
->2
+>1
 You, um, yeah, seem okay.
 
 >bb soul
@@ -982,7 +978,7 @@ He waves you off without even looking. "Whoever you are, I'm busy. Too busy for 
 Out Mist
 
 >talk to ring
-The ring reveals no hints as to what it should be.
+No, too complex.
 
 >gonear airy station
 
