@@ -553,6 +553,9 @@ a client can be minted. a client is usually not minted.
 
 a client can be unordered or ordered. a client is usually unordered. [this is for sorting clients by whom you talk to]
 
+before examining a client when know-jerks is false:
+	say "They all seem so similar and intimidating right now." instead;
+
 chapter misc defs for later
 
 a concept is a kind of thing. description of a concept is usually "[bug]"
@@ -631,6 +634,12 @@ Rule for reading a command when the parser error flag is true:
 	d "Reading [last-command].";
 	now the parser error flag is false;
 	change the text of the player's command to the last-command.
+
+section pronoun stubs
+
+to it-take (myt - a thing):
+	now player has myt;
+	set the pronoun it to myt;
 
 section debug stubs
 
@@ -2131,7 +2140,7 @@ check attacking:
 		if noun is baiter-aligned:
 			say "'If you can't respect authority, at least respect those who do!' [toad-mb-know] waddles over.";
 			ship-off shape ship instead;
-		say "You begin to lash out, but [the noun] says 'Hey! What's your problem?' [toad-mb-know] blusters over. 'YOU! THE NEW KID!' You flinch. 'SUDDEN MOVEMENTS, EH? THERE'S ONLY ONE PLACE TO REFORM VIOLENT TYPES LIKE YOU.' You--you should've KNOWN better than to lash out, but...";
+		say "You begin to lash out, but [if know-jerks is true]the [j-g][else][the noun][end if] says 'Hey! What's your problem?' [toad-mb-know] blusters over. 'YOU! THE NEW KID!' You flinch. 'SUDDEN MOVEMENTS, EH? THERE'S ONLY ONE PLACE TO REFORM VIOLENT TYPES LIKE YOU.' You--you should've KNOWN better than to lash out, but...";
 		ship-off Fight Fair instead;
 	if noun is language machine:
 		say "[if wax is in lalaland]After you were so nice to it? That's rough, man[else]No, it needs compassion, here[end if]." instead;
@@ -2160,7 +2169,7 @@ to ship-off (X - a room):
 		say "[room-fun entry][paragraph break]";
 	else:
 		say "BUG! [X] isn't listed but should be.";
-	say "Wait, no, that's not quite how it happened. It was tempting to lash out and step over the line, but it was just a thought. Let's undo that so you can try again...";
+	say "Wait, no, that's not quite how it happened. It was tempting to step over the line, and people always tell you you might, but it was just a thought. Perhaps something less drastic...";
 	wfak;
 	move player to ZZ, without printing a room description;
 	say "[b]Back at [ZZ][r][line break]"
@@ -2267,10 +2276,11 @@ check giving smokable to: [poory pot or wacker weed]
 	if second noun is Fritz the On:
 		if noun is poory pot:
 			say "'Whoah! That stuff is too crazy for me,' mutters Fritz." instead;
-		say "You look every which way to the Stool Toad, then put your finger to your lips as you hand Fritz the packet. He's surprisingly quick converting it to something smokable and hands you a coin back--a dreadful penny. Proper payment for the cheap stuff. 'Dude! Once I find my lighter I totally won't hog off the high[activation of hoth] from you. Can't wait for my [activation of puff piece]peace puff...nothing beats it for feeling good!' You're not sure you want a [activation of joint role]joint role, but Fritz's gratitude seems genuine as he quickly manufactures one.";
+		say "You look every which way for the Stool Toad, then put your finger to your lips as you hand Fritz the packet. He's surprisingly quick converting it to something smokable and hands you a coin back--a dreadful penny. Proper payment for the cheap stuff. 'Dude! Once I find my lighter I totally won't hog off the high[activation of hoth] from you. Can't wait for my [activation of puff piece]peace puff...nothing beats it for feeling good!' You're not sure you want a [activation of joint role]joint role, but Fritz's gratitude seems genuine as he quickly manufactures one.";
 		increment the score;
 		now wacker weed is in lalaland;
-		now player has dreadful penny instead;
+		it-take dreadful penny;
+		the rule succeeds;
 
 does the player mean giving a drinkable to erin: it is likely.
 
@@ -2300,7 +2310,8 @@ check giving gesture token to:
 		now gesture token is in lalaland;
 		annotize gesture token;
 		now player has the pocket pick;
-		say "He tucks away the token with a sniff. 'Well, it's not much--but, very well, I'll let you in my work study program. I won't even charge interest. Have this pocket pick. It'll help you DIG to find stuff. You can try it here, with the poor dirt!'" instead;
+		set the pronoun it to weasel;
+		say "It tucks away the token with a sniff. 'Well, it's not much--but, very well, I'll let you in my work study program. I won't even charge interest. Have this pocket pick. It'll help you DIG to find stuff. You can try it here, with the poor dirt!'" instead;
 	if second noun is mush:
 		say "'Pfft. Petty bribery. I need forms. Signed forms.'" instead;
 	if second noun is guy sweet:
@@ -2322,6 +2333,7 @@ check giving burden to:
 			say "With a horrible SCHLURP, the mouth mush vacuums the signed burden away from you. You hear digestive noises, then a burp, and an 'Ah!'[paragraph break]'That'll do. Okay, you stupid arch, stay put. And YOU--wait a few seconds before walking through. I'm just as alive as you are.' You're too stunned to step right away, and after the mush burbles into plain ground, you take a few seconds to make sure the Rogue Arch is motionless.";
 			now burden is in lalaland;
 			now mouth mush is in lalaland;
+			set the pronoun it to rogue arch;
 			the rule succeeds;
 		say "'It's not properly signed! And it's not officially a proof [']til it is!'" instead;
 	if second noun is weasel:
@@ -2330,6 +2342,7 @@ check giving burden to:
 		unless weasel-baiter is talked-thru or weasel is babbled-out:
 			say "'Oh no! You obviously need a little help being more social, but you haven't listened to me enough yet. That'll help. Totally.'" instead;
 		say "The weasel makes a big show about how it would normally charge for this sort of thing, but then, signing for you means it'll feel less guilty rejecting an actual charity since it already did something for someone. It makes you sign a disclaimer in turn, absolving it if you do anything dumb. 'Ain't I a welfare animal[activation of animal welfare]?'[paragraph break]Well, the proof is signed now.";
+		set the pronoun it to weasel;
 		now burden-signed is true instead;
 
 section giving items from surface
@@ -2521,6 +2534,7 @@ check giving money seed to:
 		say "[line break]As both actions were rather half-[if allow-swears is true]assed[else]brained[end if] to say the least, you are completely unsurprised to see, not a full blossom, but a fourth of one spring up--one quadrant from above, instead of, well, a blossom one-fourth the length or size it should be. He plucks it and offers it to you--very generous, you think, as you accept it. As you do, three others pop up, and he pockets them.";
 		increment the score;
 		now player has the fourth-blossom;
+		set the pronoun it to the business monkey;
 		now money seed is in lalaland;
 		the rule succeeds;
 
@@ -2542,6 +2556,7 @@ check giving the cold contract to the business monkey:
 	if money seed is not in lalaland:
 		say "The monkey looks at it, smiles and shrugs. It seems to trust you, but not enough to sign a contract, yet." instead;
 	say "You feel only momentary guilt at having the business monkey sign such a contract. After all, it binds the [i]person[r] to the terms. And is a monkey a person? Corporations, maybe, but monkeys, certainly not, despite any genetic similarities! The monkey eagerly pulls a pen from an inside pocket, then signs and returns the contract.";
+	set the pronoun it to the business monkey;
 	increment the score;
 	now contract-signed is true;
 	the rule succeeds;
@@ -2595,7 +2610,7 @@ check giving trick hat to:
 		wfak;
 		say "[line break]'Can...can I keep the hat?' You nod. It was sort of tough to carry, and it didn't really suit you. Sly shakes your hand. 'Thanks so much! Oh, hey, here's a gift for you. From a far-off exotic place. A trap-rattle.'[paragraph break]You accept it without thought. Sly tries a trick with the hat (got it,) then without it (almost, but much better,) then excuses himself to brush up on magic tricks.";
 		wfak;
-		now player has the trap rattle;
+		it-take trap rattle;
 		now trick hat is in lalaland;
 		increment the score;
 		now sly moore is in lalaland;
@@ -2659,7 +2674,7 @@ check giving the trap rattle to: [you can't get the trap rattle until you've got
 		now Lee Bull is in lalaland;
 		now Sid Lew is in lalaland;
 		now trap rattle is in lalaland;
-		now player has trade of tricks;
+		it-take trade of tricks;
 		increment the score;
 		annotize lee bull;
 		annotize sid lew;
@@ -5532,7 +5547,7 @@ to make-tee:
 	say "You twist the round screw into the hole in the round stick. The result is a slightly asymmetrical T. Yes, you could call it an off tee. In fact, it's best to think of it that way from now on, and not as the screw and/or stick it was.";
 	now stick is in lalaland;
 	now screw is in lalaland;
-	now player has off tee;
+	it-take off tee;
 
 section round stick
 
@@ -5705,7 +5720,7 @@ check going when player is in Tension Surface (this is the pass-arch rule) :
 
 section mouth mush
 
-the mouth mush is a person in Tension Surface. "[if mush is examined]The mouth mush[else]Some mush[end if] burbles in front of the [r-a], conjuring up condescending facial expressions."
+the mouth mush is a neuter person in Tension Surface. "[if mush is examined]The mouth mush[else]Some mush[end if] burbles in front of the [r-a], conjuring up condescending facial expressions."
 
 description of mouth mush is "It almost seems to whistle innocently as you examine it closely."
 
@@ -5920,6 +5935,11 @@ chapter word weasel
 
 the Word Weasel is a neuter person in Variety Garden. description is "The Word Weasel has a 'so untrustworthy it's trustworthy' look on its face[one of]. It looks pretty much like the weasels you imagined from those Brian Jacques books. The ones you got pinged for reading two years ago, and you still haven't read the last few[or][stopping].". "The Word Weasel smirks about here."
 
+after doing something with weasel:
+	set the pronoun him to weasel;
+	set the pronoun her to weasel;
+	continue the action;
+
 check talking to weasel when burden-signed is true:
 	say "It doesn't seem to want to talk any more, and come to think of it, neither do you, really. It's time to get a move on." instead;
 
@@ -6009,7 +6029,8 @@ pier-visited is a truth state that varies.
 
  after printing the locale description for Pressure Pier when Pressure Pier is unvisited:
 	now pier-visited is true; [not the best way to do things but I need to reference something in I6 to modify the play-end text, and it's just cleaner for my i6-illiterate self to define a boolean in I7]
-	unlock-verb "knock"
+	unlock-verb "knock";
+	set the pronoun it to basher bible;
 
 check going in Pressure Pier:
 	if noun is outside or noun is south:
@@ -7821,7 +7842,7 @@ to check-jerks-done:
 to zap-the-jerks:
 	say "A fight's about to break out, until you tell them where you got this information from.[paragraph break]'You better be right about this,' [a random not minted client] says. They rush off. You hear whining in the distance. It's the Labor Child. He protests he was just trying to shame them into doing more practical things. They aren't buying it!";
 	say "[line break]The (ex-)jerks arrive back, and [a random client] wipes away a [activation of tear-jerk]jerk-tear before handing you a bottle of Quiz Pop. 'Man, you seem to know what's what, and you helped us see it was okay to be us. Here's some totally sweet contraband.'[paragraph break]Hmm. Interesting. Quiz Pop.";
-	now player has quiz pop;
+	it-take quiz pop;
 	increment the score;
 	now all clients are in lalaland;
 	unlock-verb "track";
@@ -7886,6 +7907,7 @@ before entering the chase paper:
 	now diag-yet is false;
 	now corner-yet is false;
 	say "'I'll even let you cut diagonally if you want.'";
+	set the pronoun it to chase paper;
 	do nothing instead;
 
 you-x is a number that varies. you-y is a number that varies.
@@ -8303,7 +8325,7 @@ check inserting it into (this is the insert it right rule):
 	if noun is long string and second noun is yards hole:
 		unless story fish is off-stage:
 			say "[one of]You try your luck again. Nothing. B[or]B[stopping]est go [i]expedition[r] fishing instead." instead;
-		now player has story fish;
+		it-take story fish;
 		say "You pull the string down. It seems to take forever. But you wait. You feel a pull on the string. You tug--and--yes! Your catch stays with the string! You're not surprised it's a fish, but you are when it talks--and it explains it wanted to be caught, so it could tell others its story! You suffer through ten minutes of digressions and bad grammar before the fish takes a break. 'You don't seem to be appreciating me right now. Show me someone who appreciates a story fish like me, then TALK to me.'";
 		increment the score instead;
 	if second noun is yards hole:
@@ -8652,6 +8674,9 @@ after printing the locale description when player is in belt below and belt belo
 	say "'ATTENTION RECOVERING NERDLING!' booms the terminal. 'I THE INSANITY TERMINAL HAVE A CHALLENGE FOR YOU! IF YOU SOLVE IT, KNOWLEDGE UNIMAGINABLE WILL BE YOURS AND IT WILL BE ESPECIALLY VALUABLE IF YOU ARE UNIMAGINATIVE.'";
 	say "[line break]You have a look, and -- well, it's about the oddest puzzle you've ever seen.";
 
+after printing the locale description when player is in belt below and insanity terminal is in belt below:
+	set the pronoun it to insanity terminal;
+
 jerks-spoiled is a truth state that varies.
 
 x-term-yet is a truth state that varies.
@@ -8809,6 +8834,7 @@ to get-mind:
 	say "Faith and Grace place the blossom and spin it, and when it slows, the flowers are changed so you can't remember which was which. 'This is the least we can do for you. Have this mind of peace.' It's beautiful, but not gaudy.";
 	now player has mind of peace;
 	now fourth-blossom is in lalaland;
+	set the pronoun it to googly bowl;
 	increment the score;
 
 chapter Goode Sisters
@@ -8881,6 +8907,9 @@ understand "trust brain" and "trust/brain" as mind of peace.
 part Scheme Pyramid
 
 Scheme Pyramid is north of Disposed Well. It is in Main Chunk. "A gaudy, pointy-ceilinged room with exits north and south. Everything twinkles and shines. [one of]An odd hedge[or]The Fund Hedge[stopping] drips with all forms of currency, but you [if money seed is off-stage]are probably only allowed to take the cheapest[else]already got something[end if]."
+
+after printing the locale description for scheme pyramid when scheme pyramid is unvisited:
+	set the pronoun it to fund hedge;
 
 check going nowhere in scheme pyramid:
 	if noun is outside:
@@ -9121,7 +9150,8 @@ check going nowhere in idiot village (this is the final idol puzzle rule):
 		say "The idol glares at you. Once it makes eye contact, it lowers its eyes to the Legend of Stuff. You feel a bit silly." instead;
 	if insanity terminal is in lalaland or player has bad face: [really just the first but for testing the 2nd works too]
 		if noun is northeast or noun is east:
-			say "You run past the Thoughts Idol. Its eyes follow you. You hear an efficient hum, then a voice in your head: 'Trying to be a star[one of][or] again[stopping]?'";
+			say "You run past the Thoughts Idol. Its eyes follow you. You hear a buzzing hum, then a voice in your head: 'Trying to be a star[one of][or] again[stopping]?'";
+			set the pronoun it to thoughts idol;
 			if noun is northeast:
 				now rotation is 3;
 				now last-dir is northeast;
@@ -9575,8 +9605,8 @@ check talking to Pusher Penn (this is the drugs trump Penn chats rule):
 		say "Pusher Penn shoos you away. You've done enough business with him." instead;
 
 to give-weed:
-	say "'Here you go. Some wacker weed. There's a fella down by the Joint Strip on the monthly deep discount plan. Didn't pick up his allotment. Forget his name, too. Always mumbling. Maybe shouldn't a given him that [activation of weed out]out-weed.' You take the baggie.[line break]";
-	now player has wacker weed;
+	say "'Here you go. Some wacker weed. There's a fella down by the Joint Strip on the monthly deep discount plan. Didn't pick up his allotment. Forget his name, too. Always mumbling. Maybe shouldn't a given him that [activation of weed out]out-weed.' You take the baggie.[paragraph break]";
+	it-take wacker weed;
 
 after quipping when qbc_litany is litany of pusher penn:
 	if current quip is penn-nodrugs:
@@ -9656,6 +9686,7 @@ check putting on the language machine:
 		say "The language machine emits a few weird meeps, then the wax seeps into it. The words on the terminal change from well-organized paragraphs to clumps of four in a line. You steel yourself and read a few...";
 		wfak;
 		say "...and they're not that great, but they're uplifting, and if they're still cynical, they have an amusing twist or two. No more FEEL MY ENNUI stuff. If only you could've done that back when you used to write, before you got too grim...well, maybe you still can.[paragraph break]The computer prints out a map for you, of the bog. It has all the pitfalls. You walk to the end to find a bona fide trick hat--like a wizard hat but with clever facial expressions instead of stars and whatnot.[paragraph break]You stick the map back in the computer, since it's really tearing through scratch paper to write poems, and it needs all the paper it can get. It's the least you can do. You won't need to go back, and that hat seems pretty cool. In fact, a bit too cool to wear without a good reason.";
+		set the pronoun it to language machine;
 		increment the score instead;
 	if poetic wax is in lalaland:
 		say "The machine is on a roll. You don't have anything else to give to it, anyway." instead;
@@ -9731,7 +9762,7 @@ after quipping when qbc_litany is table of Buddy Best talk:
 		say "[line break]'Negotiator, eh? Standing your ground? I'm sure you're nice once I get to know you even if you're not as nice as [bg] once you get to know him, but this is real efficient self improvement stuff. I'm sure you're smart enough to understand. [']Cause you probably should've understood it a few years ago. Here, I don't want to waste any more of your time.' Buddy Best hands you something as he pushes you out.";
 		wfak;
 		say "[line break]Well, it's something. Which is more than you expected. Generally, obnoxious fast-talkers wound up taking something from YOU after a short, loud, fast dialog.";
-		now player has the Reasoning Circular;
+		it-take Reasoning Circular;
 		move player to Questions Field, without printing a room description;
 		say "[bold type]Questions Field[paragraph break][roman type]The [if bros-left is 3]Brothers look[else if bros-left is 2]remaining Brothers look[else]remaining Brother looks[end if] unsurprised you got thrown out. Well, at least you have this...Reasoning Circular now.";
 		annotize buddy best;
@@ -10296,6 +10327,7 @@ check inserting it into (this is the put it in vent rule):
 			say "As you stuff the thin roll into the vent, it tumbles down to what you can only assume is an incinerator or air flow or something in Temper Keep's foundation you'd be better off not touching in normal circumstances.[paragraph break]The 'aromatics' of the poory pot seep into the air in Temper Keep. 'Is it just me, or is it not stinky in here? Yes! Yes! It is probably some combination of both!' You stand well out of the way as Sal continues to babble, his pseudo-philosophy becoming ever more pseudo- before...clonk. He's out.";
 			increment the score;
 			annotize pusher penn;
+			set the pronoun it to spleen vent;
 			the rule succeeds;
 		if noun is long string:
 			say "You fish in the vent with the string, but nothing comes up." instead;
@@ -10579,10 +10611,12 @@ to choose-final-room:
 		move baiter master to lalaland;
 		if thoughts idol is in lalaland:
 			say "But Idiot Village has had time to assemble and rescue the hero that dispelled the Thoughts Idol! They overwhelm the Admiral, trash the more sinister surveillance technology in Freak Control, and lead you somewhere new. You protest you're not a leader--you just, well, did a bunch of errands. But they insist they have something to show you.";
-			now player has hammer;
+			it-take hammer;
+			set the pronoun them to mentality crowd;
 			move player to Airy Station;
 		else:
 			say "'Where? In the BREAK JAIL[activation of break jail]!'[paragraph break]Could people who yell that loud REALLY be that wrong?  You keep a straight face, even as he booms '[activation of zeroin]IN, ZERO!' Which helps you focus more than you thought you could on how to get out. You're way ahead of the guards when they give chase. There's a mist ahead--maybe they'll lose you! But you've done even better. 'The out mist!' they yell. 'People eventually leave there to get back to real life.'";
+			set the pronoun it to worm ring;
 			move player to Out Mist;
 		annotize baiter master;
 		annotize grace goode;
@@ -11906,7 +11940,7 @@ Rule for printing a parser error when the latest parser error is the noun did no
 	if current action is explaining:
 		say "I couldn't find anything named that to explain.";
 	else:
-		say "The verb was ok, but you referred to something that hasn't come up yet in the game--and may not."
+		say "The verb was ok, but you referred to something that [if noun is in lalaland]has been dealt with[else]hasn't come up yet in the game--and may not[end if]."
 
 volume weird stuff
 
