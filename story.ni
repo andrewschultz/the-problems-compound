@@ -5,7 +5,7 @@ the story headline is "A Direction of Sense: changing what's-thats to that's-wha
 [to search through this file, two x's at the start of a comment will delinate major points I revisit.
   CV = conceptville, where concepts you don't know about are
   add = stuff referred to tangentially and its explanations.
-  
+
   trt = table of ring tries
   tht = table of hammer tries
 ]
@@ -636,6 +636,8 @@ Rule for reading a command when the parser error flag is true:
 	change the text of the player's command to the last-command.
 
 section pronoun stubs
+
+[* this is to say "it" for an item you receive]
 
 to it-take (myt - a thing):
 	now player has myt;
@@ -10861,7 +10863,7 @@ to go-back-home:
 		say "Yay! This worked. I am blocking the ending so you can try again.";
 		continue the action;
 	score-now;
-	say "The door leads to your closet and vanishes when you walk through. You're hungry after all that running around. Downstairs you find some old cereal you got sick of--certainly not killer cereal (ha ha) but now you realize it could be Procrastination Cereal, Moping Cereal, or even something goofy like Monogamy Cereal. Maybe if it's really old you can pretend it's Pest Cereal, especially when you've put off asking someone about something. That little reverse will feel fresh for a while.";
+	say "The door leads to your closet and vanishes when you walk through. You're hungry after all that running around. Downstairs you find some old cereal you got sick of--certainly not killer cereal (ha ha) but now you realize it could be Procrastination Cereal, Moping Cereal, Complainer Cereal, or even something goofy like Monogamy Cereal. Maybe if it's really old you can pretend it's Pest Cereal, especially when you've put off asking someone about something. That little reverse will feel fresh for a while.";
 	wfak;
 	say "You laugh at your own joke, which brings your parents out, complaining your late night moping is worse than ever. You promise them it'll get better.";
 	wfak;
