@@ -9289,8 +9289,7 @@ orientation of northwest is 7.
  5  2 6  3
   43   54]
 
-the thoughts idol is scenery in Idiot Village. "[if player is in idiot village][iv-idol][else]If you look back at the Thoughts Idol now, it may distract you. You know it's [vague-dir]. Gotta keep running, somehow, somewhere[end if]."
-
+the thoughts idol is scenery in Idiot Village. "[if player is in idiot village][iv-idol][else]If you look too long back at the Thoughts Idol now, it may distract you. You know it's [idol-dir]. Gotta keep running, somehow, somewhere[end if]."
 
 check entering idol:
 	if terminal is in lalaland and player does not have legend of stuff:
@@ -9299,21 +9298,6 @@ check entering idol:
 
 before talking to idol:
 	say "Even if you had something profoundly defiant to say, it would probably stare you down quickly." instead;
-
-to say vague-dir:
-	let J be orientation of last-dir * 2;
-	now J is J + rotation;
-	now J is the remainder after dividing J by 16;
-	let J1 be (J + 1) / 4;
-	say "mostly [if j1 is 0]east[else if j1 is 1]south[else if j1 is 2]west[else if j1 is 3]north and a bit ";
-	if J is 5 or J is 11:
-		say "west";
-	else if J is 13 or J is 3:
-		say "east";
-	else if j > 8: [9 or 15]
-		say "north";
-	else: [1 or 7]
-		say "south";
 
 stared-idol is a truth state that varies.
 
@@ -9325,7 +9309,29 @@ to say iv-idol:
 	if player has bad face:
 		now stared-idol is true;
 
-the Service Community is a room in Main Chunk. "Idiot Village's suburbs stretch every which way, including diagonal directions! The Thoughts Idol surveys you from a distance. You just came from the [opposite of last-dir]."
+the Service Community is a room in Main Chunk. "Idiot Village's suburbs stretch every which way, including diagonal directions! The Thoughts Idol surveys you from the [idol-dir]. You just came from the [opposite of last-dir]."
+
+to say idol-dir:
+	let id be idol-progress;
+	if rotation is 3:
+		now id is 6 - id;
+	if id is 0 or id is 3:
+		say "west";
+	else if id is 2 or id is 5:
+		say "north";
+	else if id is 1 or id is 6:
+		say "south";
+	else:
+		say "east";
+	say " and a bit ";
+	if id is 0:
+		say "north";
+	else if id <= 2:
+		say "east";
+	else if id <= 4:
+		say "south";
+	else:
+		say "west";
 
 idol-progress is a number that varies.
 
@@ -9437,12 +9443,12 @@ rule for deciding whether to allow undo:
 
 table of idol text
 good-text	bad-text	undo-text
-"The thoughts idol whizzes around to track you, quicker as you get close, slower as you get near, and quicker as you go away. Was it you, or did the humming seem just a bit more staticky than when you entered the Service Community? Well, you're safe so far.[paragraph break]You look back to the entrance to Idiot Village, [if rotation is 3]west and a bit north[else]south and a bit west[end if][one of]. Makes sense, thinking back to how you got past Cute Percy losing a turn by moving diagonally[or][stopping]."	"You look back at the idol after your run. But you can't look at its face. A loud buzz emanates from the idol, and you sink to the ground, covering your ears. Once they stop ringing, you go back to the entrance to Idiot Village."	"You didn't really do much wrong. There's not much to undo."
-"The thoughts idol whirls around some more. Was it just you, or did it go a little more slowly and sound a little creakier?"	"The idol catches you. A loud buzz, and you cover your ears. That could not have been the way to go."	"You didn't really do much wrong. There's not much to undo."
-"The thoughts idol whizzes around, adjusting speed--but did you hear a little cough?"	"The idol buzzes. You feel frozen, then are frozen."	"You thought you almost had the idol there for a bit, but it's not exactly going to be open to letting you brute-force it into submission."
-"The thoughts idol seems to twitch back and forth while following you."	"You feel frozen and collapse. The idol's contempt can't hide a legitimate frown. You slipped up, but you got pretty far."	"Halfway there...maybe if you get momentum, you'll nail the pattern down for good."
-"The thoughts idol barely catches its gaze up with you."	"The idol gives that look--you know it--'Smart, but no common sense.' Still--you can give it another shot."	"Would'ves won't help here. You've actually gotten in better shape, walking around just thinking."
-"The thoughts idol warps and seems to wobble a bit but still looks at you."	"You--well, confidence or whatever it was let you down."	"Geez. You were that close. But no chance to stew. You bet you could do it, next time. But you can't say 'Oh, I meant to...'"
+"The thoughts idol whizzes around to track you, quicker as you get close, slower as you get near, and quicker as you go away. Was it you, or did the humming seem just a bit more staticky than when you entered the Service Community? Well, you're safe so far[one of].[paragraph break]You look back to the entrance to Idiot Village, [idol-dir]. Makes sense, thinking back to how you got past Cute Percy losing a turn by moving diagonally[or][stopping]."	"You look back at the idol after your run. But you can't look at its face. A loud buzz emanates from the idol, and you sink to the ground, covering your ears. Once they stop ringing, you go back to the entrance to Idiot Village."	"You didn't really do much wrong. There's not much to undo."
+"The thoughts idol whirls around some more. It must be [idol-dir] now. Was it just you, or did it go a little more slowly and sound a little creakier?"	"The idol catches you. A loud buzz, and you cover your ears. That could not have been the way to go."	"You didn't really do much wrong. There's not much to undo."
+"The thoughts idol whizzes around, adjusting speed--but did you hear a little cough from [idol-dir]?"	"The idol buzzes. You feel frozen, then are frozen."	"You thought you almost had the idol there for a bit, but it's not exactly going to be open to letting you brute-force it into submission."
+"The thoughts idol seems to twitch back and forth while following you. The noise is now from the [idol-dir]."	"You feel frozen and collapse. The idol's contempt can't hide a legitimate frown. You slipped up, but you got pretty far."	"Halfway there...maybe if you get momentum, you'll nail the pattern down for good."
+"The thoughts idol barely catches its gaze up with you. More hacking, [idol-dir]."	"The idol gives that look--you know it--'Smart, but no common sense.' Still--you can give it another shot."	"Would'ves won't help here. You've actually gotten in better shape, walking around just thinking."
+"The thoughts idol warps and seems to wobble a bit but you still see if staring back, [idol-dir]."	"You--well, confidence or whatever it was let you down."	"Geez. You were that close. But no chance to stew. You bet you could do it, next time. But you can't say 'Oh, I meant to...'"
 "The thoughts idol spins, coughs, and with a final buzz, it flips into the air and lands on its head! Its eyes spark and go out, and it cracks down the middle. All of Idiot Village comes out to cheer your victory and pound the remnants of the idol into unrecognizeable rubble!"	"You must have been close. But no."	"The idol's look reminds you of when you got a really hard math problem right except for adding 1 and 6 to get 8. People laughed at you. It hurt."
 
 part Speaking Plain
