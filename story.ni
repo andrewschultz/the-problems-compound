@@ -3518,6 +3518,7 @@ half right	"Half right is when you are, well, half right. Being half right is of
 Howard Dean	"Howard Dean was a candidate for the 2004 US Democratic Party nomination. After placing 3rd in the Iowa caucuses, he had an infamous 'Dean Scream' at a rally with supporters, which sounded worse than it was, because he was close to a microphone that picked it up. Which made him the butt of many jokes for a week. The media realised that everyone was yelling a week later, but the story was too ingrained by then.[paragraph break]DISCLAIMER: the author voted for Dean in the 2004 primary, and seeing/recalling this episode has unlocked how and why some other people acted the way they have over the years."
 infomania	"Infomania is always wanting new info. The [bad-guy] pretends he doesn't want it, but it's just fun to have. Mania info is, in this case, malicious gossip about people different the wrong way."
 informally	"informally means without rigid structure, or in a friendly manner."
+John Stewart	"john stewart was the longtime host of The Daily Show, which became a staple of political satire and commentary."
 Johns Hopkins	"Johns Hopkins is a university with a prestigious medical school and pre-med program."
 King Henry	"King Henry VIII of England had six wives."
 laughingstock	"A laughingstock is someone everyone laughs at. But stock laughing is canned laughter, reflexive laughter at a joke you heard before, or maybe even a laugh track."
@@ -3542,6 +3543,7 @@ stand out	"To stand out is to be different from the rest."
 stupor	"A stupor is when you are conscious but not really aware of what's going on."
 taste buds	"Taste buds are what you use to experience the sensation of taste."
 train gravy	"A gravy train is a method for getting rich."
+Trevor Noah	"Trevor Noah is the current (as of 2016) host of The Daily Show, which became a staple of political satire and commentary."
 Tucker Max	"Tucker Max was alleged to have spanwed the 'fratire' genre, which features cynical 'tell it like it is' writing full of sex and hedonism and self-centeredness. It's the reading equivalent of sitting next to a guy bragging at a bar for a long time. An intelligent guy, sure, but that just lets him bang on longer. Imagine PG Wodehouse's Bertie Wooster without any heart."
 Wallace Shawn	"Wallace Shawn is the actor who played Vizzini ('INCONCEIVABLE!') in The Princess Bride. He's also a critically acclaimed writer."
 Wire Fraud	"Wire fraud is a financial crime designed to cheat people out of money."
@@ -10049,6 +10051,7 @@ workname	singername	songsubj
 "Work Fire"	"Perry Keady"	"having everyday up and at em for the things you deserve to do (if you're smart) or better do to survive (if you're dumb)"
 "Stop Believing, Don't"	"Perry Steven"	"people who already tried enough and should stop embarrassing themselves"
 "Mourning Sunday"	"Reid Lew"	"when everyone else is too lazy to do and think awesome things 24-7 and you aren't, and why that makes them bums"
+"You: On, Stuck"	"Richie Lionel"	"creative and poetic ways schleps should just get over, well, whatever"
 "Bound Homeward"	"Simon Paul"	"someone who wants to get out more but his stupid artsy worries get in the way"
 "Train Downtown"	"Stewart Rodd"	"a man rightfully too busy advancing his career prospects to spend time with his woman"
 "My Mind in Carolina"	"Taylor James"	"getting away from one's backward past and entering sophistication"
@@ -10459,6 +10462,7 @@ gad-act
 "The [bad-guy] mutters he's sure [activation of Howard Dean]Dean Howard is nice and well-meaning all, but that scream. Really. Just...unforgiveable. And even if it were, well, he probably still deserves to be REMINDED. For character building purposes."
 "'[activation of infomania]Mania Info. Always good to have more. Well, until I get bored of it.'"
 "'[activation of informally]Ally, Inform!' the [bad-guy] says to nobody in particular."
+"The [bad-guy] groans about [activation of John Stewart]Stewart Jahn's constant unfunny, uninteresting political babble, and how [activation of trevor noah]Noah Trevor is equally as bad."
 "The [bad-guy] congratulates himself for installing the super-sanitary doctor-recommended [activation of johns hopkins]Hopkins johns."
 "The [bad-guy] mutters he'd get six girls before [activation of King Henry]Henry King got one."
 "'But does [random surveyable person] have any GOOD ways to [activation of leading question]question leading like mine?'"
@@ -12441,6 +12445,8 @@ Infomania is a concept in conceptville. Understand "infomania" as infomania. how
 
 informally is a concept in conceptville. Understand "ally inform" and "inform ally" as informally. howto is "[fr-ran]".
 
+John Stewart is a concept in conceptville. Understand "stewart jahn" and "jahn stewart" as john stewart. howto is "[fr-ran]".
+
 Johns Hopkins is a concept in conceptville. Understand "hopkins johns" as johns hopkins. howto is "[fr-ran]".
 
 King Henry is a concept in conceptville. understand "henry king" as king henry. howto is "[fr-ran]".
@@ -12488,6 +12494,8 @@ stupor is a concept in conceptville. Understand "poor stu" and "stu poor" as stu
 taste buds is a concept in conceptville. understand "bud's/buds taste" as taste buds. howto is "[fr-ran]".
 
 train gravy is a concept in conceptville. understand "gravy train" as taste buds. howto is "[fr-pb]".
+
+Trevor Noah is a concept in conceptville. Understand "noah trevor" as trevor noah. howto is "[fr-ran]".
 
 Tucker Max is a concept in conceptville. understand "max tucker" as Tucker Max. howto is "[fr-ran]".
 
