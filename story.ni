@@ -24,7 +24,7 @@ the release number is 3.
 
 section compiler debug
 
-[without these numbers beiing increased, the I7 would be translated to I6, but the I6 compiler would complain. That's what happens when a game gets bigger than intended.]
+[without these numbers being increased, the I7 would be translated to I6, but the I6 compiler would complain. That's what happens when a game gets bigger than intended.]
 
 use MAX_ACTIONS of 210.
 
@@ -3503,6 +3503,7 @@ butter up	"To butter someone up is to flatter them."
 chowderhead	"A chowderhead is someone who makes silly mistakes."
 Crisis Energy	"An energy crisis is when a community doesn't have enough electrical power, or oil, or whatever."
 cruise control	"Cruise control is when you set a car to go at a certain speed. A person on cruise control is going through life and not trying anything new."
+Daily Show	"The Daily Show is a very popular comedy/political commentary show on Comedy Central."
 disorder	"Disorder means a mess, while an order is telling someone what to do and a dis is an insult. Basically, the [bad-guy] is saying, insulting people for being disorganized helps them get organized. Well, it never helped me."
 dual vision	"Dual vision is seeing two things at once, often due to a blow to the head or alcohol intoxication."
 evil eye	"The evil eye is staring at someone to make them uncomfortable."
@@ -3518,7 +3519,7 @@ half right	"Half right is when you are, well, half right. Being half right is of
 Howard Dean	"Howard Dean was a candidate for the 2004 US Democratic Party nomination. After placing 3rd in the Iowa caucuses, he had an infamous 'Dean Scream' at a rally with supporters, which sounded worse than it was, because he was close to a microphone that picked it up. Which made him the butt of many jokes for a week. The media realised that everyone was yelling a week later, but the story was too ingrained by then.[paragraph break]DISCLAIMER: the author voted for Dean in the 2004 primary, and seeing/recalling this episode has unlocked how and why some other people acted the way they have over the years."
 infomania	"Infomania is always wanting new info. The [bad-guy] pretends he doesn't want it, but it's just fun to have. Mania info is, in this case, malicious gossip about people different the wrong way."
 informally	"informally means without rigid structure, or in a friendly manner."
-John Stewart	"john stewart was the longtime host of The Daily Show, which became a staple of political satire and commentary."
+John Stewart	"John Stewart was the longtime host of The Daily Show, which became a staple of political satire and commentary."
 Johns Hopkins	"Johns Hopkins is a university with a prestigious medical school and pre-med program."
 King Henry	"King Henry VIII of England had six wives."
 laughingstock	"A laughingstock is someone everyone laughs at. But stock laughing is canned laughter, reflexive laughter at a joke you heard before, or maybe even a laugh track."
@@ -10462,7 +10463,7 @@ gad-act
 "The [bad-guy] mutters he's sure [activation of Howard Dean]Dean Howard is nice and well-meaning all, but that scream. Really. Just...unforgiveable. And even if it were, well, he probably still deserves to be REMINDED. For character building purposes."
 "'[activation of infomania]Mania Info. Always good to have more. Well, until I get bored of it.'"
 "'[activation of informally]Ally, Inform!' the [bad-guy] says to nobody in particular."
-"The [bad-guy] groans about [activation of John Stewart]Stewart Jahn's constant unfunny, uninteresting political babble, and how [activation of trevor noah]Noah Trevor is equally as bad."
+"The [bad-guy] groans how [activation of John Stewart]Stewart Jahn and [activation of trevor noah]Noah Trevor [activation of daily show]show daily how unfunny and irrelevant and socially aloof they are."
 "The [bad-guy] congratulates himself for installing the super-sanitary doctor-recommended [activation of johns hopkins]Hopkins johns."
 "The [bad-guy] mutters he'd get six girls before [activation of King Henry]Henry King got one."
 "'But does [random surveyable person] have any GOOD ways to [activation of leading question]question leading like mine?'"
@@ -12414,6 +12415,8 @@ chowderhead is a concept in conceptville. Understand "chowder head" and "head ch
 Crisis Energy is a concept in conceptville. understand "energy crisis" as Crisis Energy. howto is "get the [bad-guy]'s attention".
 
 Cruise Control is a concept in conceptville. Understand "control cruise" as cruise control. howto is "[fr-ran]".
+
+Daily Show is a concept in conceptville. Understand "daily show" as daily show. howto is "[fr-ran]".
 
 disorder is a concept in conceptville. understand "order dis" and "dis order" as disorder. howto is "[fr-ran]".
 
