@@ -9097,6 +9097,8 @@ check going nowhere in judgment pass:
 
 Officer Petty is an enforcing person in Judgment Pass. "[one of]The officer stares down at the intuition counter for a moment. 'NOPE,' he yells. 'Sure as my name's Officer Petty, no good reason for you to go to Idiot Village.'[or]Officer Petty regards you with contempt.[stopping]"
 
+understand "fog petty" as a mistake ("Officer Petty is more likely to talk circles around you. Perhaps you could get on his good side, somehow.") when player is in Judgment Pass and Petty is in Judgment Pass.
+
 description of Officer Petty is "Officer Petty stares back at you, cracks his knuckles, and rubs a palm. He's bigger, stronger and fitter than you."
 
 the Intuition Counter is scenery in Judgment Pass. "It's labeled with all manner of dire motivational phrases I'm ashamed to spell out here."
