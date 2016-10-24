@@ -32,7 +32,7 @@ my $alphabetical = 1;
 my $flipData;
 my @flipAry;
 
-my $webapp = $chrome;
+my $webapp = $ffox;
 
 my $wa = "alf";
 
@@ -51,6 +51,7 @@ $a = $ARGV[$count];
 for ($a)
 {
   /^-f$/ && do { $overlook = 1; $count++; next; };
+  /^-(uf|fu)$/ && do { $overlook = 1; $dicURL = 1; $count++; next; };
   /^(-e|e)$/ && do { `\"c:\\Program Files (x86)\\Notepad++\\notepad++.exe\" $0 `; exit; };
   /^-an$/ && do { $alphabetical = !$alphabetical; $count++; next; };
   /^-ao$/ && do { alfOut(); exit; };

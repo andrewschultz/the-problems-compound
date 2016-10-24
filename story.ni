@@ -9984,6 +9984,7 @@ workname	authname	booksubj
 "The Islands of an Outcast"	"Joseph Conrad"	"a gentle fellow, shunned by modern society, who forges an idyllic utopia"
 "Wake, Finnegans"	"Joyce James"	"(he pauses) matters likely too complex for you."
 "Writing On"	"King Stephen"	"how society represses real writers from writing real books"
+"Trek, Star"	"Kirk T. James"	"the right way to think about worldly things, not philosophize too much or get too science-nerdy, and get ahead socially"
 "Lover Chatterly's Lady"	"L. H. David"	"a reformed rake who marries a social equal for scandalous reasons indeed"
 "A Mockingbird to Kill"	"Lee Harper"	"losers who try to imitate people less weird than them. Or don't EVEN try"
 "The Divorce: GREAT"	"Lewis S. Clive"	"how blatant infidelity is really about seeing all the world has to offer and making the most of things--well, if you're worth cheating with. It surpasses even [i]The Boy and His Horse[r] and [i]The Love of Allegory[r]"

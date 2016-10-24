@@ -2,7 +2,7 @@ use Win32::Clipboard;
 
 $clip = Win32::Clipboard::new();
 
-@dirs = ("Compound", "Slicker-City");
+@dirs = ("Compound", "Slicker-City", "Buck-the-Past");
 
 my $codeToClipboard = 0;
 my $printErrCode = 0;
@@ -18,7 +18,9 @@ while ($count <= $#ARGV)
     /^-?ps$/ && do { $printSuccess = 1; $count++; next; };
     /^-?pc$/ && do { @dirs = ("Compound"); $count++; next; };
     /^-?sc$/ && do { @dirs = ("Slicker-City"); $count++; next; };
+    /^-?bp$/ && do { @dirs = ("Buck-the-Past"); $count++; next; };
 	/^-?as$/ && do { @dirs = ("Slicker-City", "Compound"); $count++; next; };
+	/^-?a3$/ && do { @dirs = ("Slicker-City", "Compound", "Buck-the-Past"); $count++; next; };
 	/^-?[cve]+$/ && do
 	{
 	  $codeToClipboard = $printErrCode = $printErrors = 0;
@@ -256,6 +258,8 @@ sub readConcept
 $source = "c:/games/inform/$_[0].inform/source/story.ni";
 open(A, $source) || do { print "No source file $source.\n"; return; };
 
+$line = 0;
+
 while ($a = <A>)
 {
   $line++;
@@ -292,7 +296,7 @@ while ($a = <A>)
 	$activ{wordtrim($c)} = 1; $any{wordtrim($c)} = 1;
   }
   if ($inTable == 1) { $b = $a; $b =~ s/\t.*//g; $b = wordtrim($b); $expl{$b} = $any{$b} = 1; next; }
-  if ($a =~ /is a (privately-named |)?concept/)
+  if (($a =~ /is a (privately-named |)?concept/) && ($a !~ /\t/)) #prevents  "is a concept" in source text from false flag
   {
     $b = $a; $b =~ s/ is a (privately-named |)?concept.*//g; $b = wordtrim($b); $conc{$b} = $any{$b} = 1;
 	if ($a =~ /\[ac\]/) { $activ{$b} = 1; } # [ac] says it's activated somewhere else
