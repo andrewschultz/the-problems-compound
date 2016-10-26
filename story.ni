@@ -2533,12 +2533,15 @@ check giving money seed to:
 	if second noun is business monkey:
 		say "The business monkey grabs it eagerly, stuffing it into the soil.";
 		wfak;
-		say "[line break]As both actions were rather half-[if allow-swears is true]assed[else]brained[end if] to say the least, you are completely unsurprised to see, not a full blossom, but a fourth of one spring up--one quadrant from above, instead of, well, a blossom one-fourth the length or size it should be. He plucks it and offers it to you--very generous, you think, as you accept it. As you do, three others pop up, and he pockets them.";
+		say "[line break]As both actions were rather half-[abr] to say the least, you are completely unsurprised to see, not a full blossom, but a fourth of one spring up--one quadrant from above, instead of, well, a blossom one-fourth the length or size it should be. He plucks it and offers it to you--very generous, you think, as you accept it. As you do, three others pop up, and he pockets them.";
 		increment the score;
 		now player has the fourth-blossom;
 		set the pronoun it to the business monkey;
 		now money seed is in lalaland;
 		the rule succeeds;
+
+to say abr:
+	say "[if allow-swears is true]assed[else]brained[end if]"
 
 check giving cold contract to:
 	if second noun is labor child:
@@ -6500,7 +6503,7 @@ section general tray b eating stuff
 to bad-food-process (as - a truth state):
 	if as is true:
 		if allow-swears is false:
-			say "Also, you realize how lame it was to be stuffy about swears. You have stuff to swear ABOUT now, see? You didn't used to have it, or any emotional depth, but now, heck yeah! (Okay, you still need some practice.) You realize Hunter Savage was just a pseudonym, and you're pretty sure the Complex Messiah had a coler name, too.";
+			say "Then, after a bit of thinking, you realize how lame it was to be stuffy about swears. You have stuff to swear ABOUT now, see? You didn't used to have it, or any emotional depth, but now, heck yeah! (Okay, you still need some practice.) You realize Hunter Savage was just a pseudonym, and you're pretty sure the Complex Messiah had a coler name, too.";
 			now allow-swears is true;
 	ital-say "This has caused an irreversible personality change in Alec. You may wish to UNDO and SAVE before trying to eat again to restore Normal Alec, even if that's not what he wants right now.";
 	now player has an opener eye;
@@ -7305,7 +7308,7 @@ part Nominal Fen
 
 Nominal Fen is north of Pressure Pier. It is in Main Chunk. printed name of Nominal Fen is "[jc]". "[if silly boris is in lalaland]It's a bit more relaxed here without the [j-co]['] conversation[else][one of]This--well, it isn't a swamp, or a bog, or--well, you're not sure, and it's not particularly amazing, so yeah, call it a fen. [or][stopping]Seven [j-co] stand in a circle (okay, a heptagon) here, talking to and about others[end if]. It looks like there's forested area to the west, a narrow valley to the east, and things open up to the north. Nothing's stopping you going back south to Pressure Pier, either[if bros-left is 0], though you probably have nothing to do there with the Brothers gone[end if]."
 
-understand "drain the circle" and "drain circle" as a mistake ("Maybe you can find a way to make them feel drained.") when player is in fen and boris is in fen and allow-swears is true
+understand "drain the circle" and "drain circle" as a mistake ("Maybe you can find a way to make them feel drained.") when player is in fen and boris is in fen and allow-swears is true.
 
 after printing the locale description for Nominal Fen when Nominal Fen is unvisited:
 	unless accel-ending:
@@ -11575,26 +11578,24 @@ chapter swearing
 
 swearseeing is an activity.
 
-to say brapos:
-	say "[if allow-swears is true]ass[else]posterior[end if]"
-
 this is the swear-see rule:
 	now swearseen is true;
+	say "This list goes from the start of the game to the end.";
+	say "[2da](general) If you actually swear, obscenely or mildly (BOTHER)--there's a small inner dialogue for swearing with swears off.";
+	say "[2da]EXPLAIN Guy Sweet has a slight difference.";
+	say "[2da]Guy Sweet warns of off-beat types, with profanity on, when you ask about the [bad-guy].";
+	say "[2da]Solving the Logic Matrices in the Game Shell gives some minor profanity.";
 	say "[2da]The [bad-guy] is the [stwid][bad-guy][stwid] instead.";
-	say "[2da][bad-guy-2] is [stwid][bad-guy-2][stwid] instead.";
+	say "[2da][bad-guy-2] is [stwid][bad-guy-2][stwid] instead."; [end smart street]
+	say "[2da]The game warns you might think (off) or say (on) a swear if you try to eat the dirt."; [end mid part]
+	say "[2da]Eating a food from Tray B forces swears on, if they were off, but you have a last moment before eating the Cutter Cookie."; [end outskirts]
 	say "[2da]The [jc-gc] is the [stwid][jc-gc][stwid] instead. Also, you feel a bit more foreboding, and everyone sheds a jerk-tear, and if you attack them, you get a 'special' message.";
-	say "[2da]The Business Monkey's [brapos] efforts are [stwid][brapos][stwid] instead.";
-	say "[2da]If you actually swear, obscenely or mildly (BOTHER)--there's a small inner dialogue for swearing with swears off[line break]";
-	say "[2da]You get a different reaction to repeatedly playing the logic puzzles[line break]";
-	say "[2da]EXPLAIN Guy Sweet has a slight difference[line break]";
-	say "[2da]Eating a food from Tray B forces swears on, if they were off[line break]";
-	say "[2da]The game warns you might think (off) or say (on) a swear if you try to eat the dirt[line break]";
-	say "[2da]Guy Sweet warns of off-beat types, with profanity on.";
-	say "[2da]The jerks discuss girls (rather badly) if you talk to them before reading the Finger Index. There aren't any profanities here, but they're kind of creepy.";
+	say "[2da]The jerks discuss girls (rather badly) if you talk to them before reading the Finger Index. There aren't any profanities here, but they're kind of, well, juvenile. They also give an obscene gesture if you try to talk to them before reading the Finger Index.";
+	say "[2da]The Business Monkey's half-[abr] efforts are [stwid][abr][stwid] instead.";
 	consider the very-good-end rule;
 	if the rule succeeded:
 		say "[2da]HAMMER BLOW or the reverse gives a different response.";
-	say "Welp, that's not much. I planned to have a lot more, but I just got sidetracked with silly stuff like bug fixing and adding to the story, which hopefully gave you less occasion to use profanity. Sorry about that."
+	say "That's not a ton. I planned to have a lot more, but I just got sidetracked with silly stuff like bug fixing and adding to the story, which hopefully gave you less occasion to use profanity. So I hope that balances out."
 
 escape mode is a truth state that varies.
 
