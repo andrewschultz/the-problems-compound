@@ -3448,6 +3448,7 @@ Pepper	"Black pepper is the ground-up stuff. Green and bell peppers are not espe
 Plaintiff	"A plaintiff is the party bringing the charge in a court case."
 Pollyanna	"A Pollyanna is someone who is ridiculously optimistic."
 Polygamy	"Polygamy is having more than one mate."
+ring finger	"The ring finger is the one between the middle and the pinky."
 Sharp Barb	"A sharp barb is a stinging, clever insult."
 tear-jerk	"The jerks['] tears may seem a bit fake, and a tear-jerker is something that tries to manipulate you into crying."
 terabyte	"A terabyte is a large amount of memory: specifically, 2^40 bytes."
@@ -7385,7 +7386,7 @@ before talking to jerks (this is the ask jerks generally to get their names rule
 	if finger is not examined:
 		if allow-swears is false:
 			say "You don't know who would be least unpleasant to talk to first. Even if you did, it'd probably be too much. Maybe if you knew more about them some other way..." instead;
-		say "No way you'l be able to interrupt, so you just listen instead.[line break]";
+		say "[one of]You mouth something, but they form a [activation of ring finger]finger ring, but using THAT finger, of course[or]Without anything specific to talk about, you don't want to bug them again[stopping]. So you just listen instead.[line break]";
 		try listening instead;
 	if know-jerks is true:
 		say "You should really pick an individual jerk to talk to, now you know their names." instead;
@@ -9990,13 +9991,14 @@ workname	authname	booksubj
 "The Divorce: GREAT"	"Lewis S. Clive"	"how blatant infidelity is really about seeing all the world has to offer and making the most of things--well, if you're worth cheating with. It surpasses even [i]The Boy and His Horse[r] and [i]The Love of Allegory[r]"
 "War's Star"	"Lucas George"	"how some kid ignored his weenie father's humble advice and took over the galaxy"
 "Thrones of a Game"	"Martin George"	"three hundred pages of medieval Musical Chairs, with a secret deeper meaning careful readers can't miss"
-"The Cancer of Tropic"	"Miller Arthur"	"one ascetic's skin disease and the surprising poetry that lies therein"
+"The Cancer of Tropic"	"Miller Arthur"	"one ascetic's skin disease and the surprising poetry that lies therein. Even beyond [i]A Salesman of Death[r]"
 "The World Beyond the Wood"	"Morris William"	"a muddled fellow moving on from silly fantasy novels to real-life gritty ones you can have louder arguments over"
 "Say, Pawns"	"Pascal Blaise"	"coffeehouse logic to make people feel better that they can't read REAL books. I mean, other than this one"
 "The Goer Movie"	"Percy Walker"	"how one man used motivational movies--or just movies with lots of rich stuff--to learn to fit in with people who matter"
-"The Star Shooting"	"Remy George"	"a group of scientists convinced to care about the death of a charismatic celebrity over stuffy boring research"
+"The Star Shooting"	"Remy George"	"a group of scientists convinced to care about the death of a charismatic celebrity over stuffy boring research. Even better than The Pharaoh of Cigars and The Affair Calculus"
 "On Death After Life"	"Ross Kubler"	"how and why to truth-bomb the terminally ill with stuff they better learn before they peg out"
 "Mannering Guy"	"Scott Walter"	"a man eschewing a life of travel and adventure for simple pleasures like putting neighbors in their place"
+"Pepper's Little Five"	"Sidney Margaret"	"how growing up isn't fun, but telling people growing up isn't fun CAN be"
 "Rings of the Lord"	"T. R. R. John"	"one person's quest to help some insanely rich person gain a full collection of rich jewels and why it was character building"
 "And Dominion Shall Have No Death"	"Thomas Dylan"	"a New World Order of smart poetic people that properly keeps the rabble scared of death and all that"
 "Jest? Knight, Fie, In"	"Wallace Foster David"	"a snappy fifty-page tour de force that's about nothing and everything--err, make that everything and nothing"
@@ -12269,6 +12271,8 @@ plaintiff is a concept in conceptville. understand "tiff plain" and "plain tiff"
 Pollyanna is a concept in conceptville. Understand "anna pauley" and "pauley anna" as pollyanna. howto is "[j-girl]".
 
 Polygamy is a concept in conceptville. Understand "gamy polly" and "polly gamy" as polygamy. howto is "[j-girl]".
+
+ring finger is a concept in conceptville. Understand "finger ring" as ring finger. howto is "talk to the jerks before knowing their names, with swears on".
 
 Sharp Barb is a concept in conceptville. Understand "barb sharp" as sharp barb. howto is "[j-girl]".
 
