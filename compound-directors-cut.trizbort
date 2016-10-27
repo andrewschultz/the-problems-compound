@@ -15,17 +15,17 @@
 		<room id="27" name="Tension Surface" subtitle="" x="160" y="224" w="96" h="64" region="Entry" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="yes" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Dash" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects>    Rogue Arch/Mouth Mush|    (give Proof of Burden)</objects>
 		</room>
-		<room id="31" name="Court of Contempt" subtitle="" x="0" y="-288" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="yes" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects custom="yes" customRight="-28" customDown="0">Buddy Best|Motion Table</objects>
+		<room id="31" name="Court of Contempt" subtitle="" x="0" y="-288" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="yes" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="You get the Reasoning Circular here after getting thrown out." roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects custom="yes" customRight="-28" customDown="0">Buddy Best, General Attorney|Motion Table</objects>
 		</room>
 		<room id="33" name="Judgment Pass" subtitle="" x="320" y="-32" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects custom="yes" customRight="-24" customDown="0">Officer Petty|Intuition Counter</objects>
 		</room>
-		<room id="35" name="Freak Control (Airy Station)" subtitle="" x="160" y="-416" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="This is the final area!" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+		<room id="35" name="Freak Control" subtitle="" x="160" y="-416" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="No turning back once you enter." roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects at="n" custom="yes" customRight="-40" customDown="0">Complex Messiah/|  Baiter Master|List Bucket</objects>
 		</room>
 		<room id="38" name="Nominal Fen/Mellow Marsh" subtitle="" x="160" y="-32" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects>Jerk Circle/|Groan Collective|</objects>
+			<objects>Jerk Circle/|Groan Collective</objects>
 		</room>
 		<room id="39" name="Speaking Plain" subtitle="" x="160" y="-160" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects>Turk Young|Uncle Dutch|Fright Stage</objects>
@@ -119,7 +119,7 @@
 			<dock index="0" id="25" port="w" />
 			<dock index="1" id="34" port="e" />
 		</line>
-		<room id="44" name="Standard Bog" subtitle="" x="320" y="-288" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="&#xD;&#xA;" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+		<room id="44" name="Standard Bog" subtitle="" x="320" y="-288" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects at="n" custom="yes" customRight="-40" customDown="0">Language Machine</objects>
 		</room>
 		<line id="45" name="" description="" color="#000000">
@@ -127,28 +127,28 @@
 			<dock index="1" id="44" port="s" />
 		</line>
 		<room id="24" name="Hut Ten" subtitle="" x="640" y="480" w="96" h="64" region="Bad Ends" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects>Punishment Corporal</objects>
+			<objects custom="yes" customRight="-44" customDown="0">Punishment Corporal</objects>
 		</room>
-		<room id="47" name="Eternal Hope Springs" subtitle="" x="-320" y="224" w="96" h="64" region="Rejected" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+		<room id="47" name="Eternal Hope Springs" subtitle="" x="-320" y="224" w="96" h="64" region="Post-Game Fun" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects at="n" custom="yes" customRight="-24" customDown="0">Pen Fountain</objects>
 		</room>
 		<room id="49" name="Variety Garden" subtitle="" x="0" y="224" w="96" h="64" region="Entry" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="The Word Weasel talks to you to begin. He will explain how things work around here. You have to visit to move on. The basics!&#xD;&#xA;&#xD;&#xA;The Word Weasel is also grateful if you give it good information. Or it would be if you could. So return the favor, eh?" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects custom="yes" customRight="-24" customDown="0">Word Weasel|Poor Dirt|Brush (3 types)</objects>
 		</room>
-		<room id="51" name="Chicken Free Range" subtitle="" x="-320" y="352" w="96" h="64" region="Rejected" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="0" cornerTopRight="0" cornerBottomLeft="0" cornerBottomRight="0" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+		<room id="51" name="Chicken Free Range" subtitle="" x="-320" y="352" w="96" h="64" region="Post-Game Fun" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="0" cornerTopRight="0" cornerBottomLeft="0" cornerBottomRight="0" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects>Low Low Troll|The "Up" Gang</objects>
 		</room>
 		<room id="52" name="Soda Club" subtitle="" x="480" y="224" w="96" h="64" region="Outer Bounds" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="yes" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects custom="yes" customRight="-20" customDown="0">Erin Sack|Ally Stout</objects>
 		</room>
 		<room id="53" name="Criminals' Harbor" subtitle="" x="160" y="480" w="96" h="64" region="Bad Ends" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects>Plank Gang</objects>
+			<objects custom="yes" customRight="-24" customDown="0">Plank Gang</objects>
 		</room>
-		<room id="54" name="Tuff Butt Fair" subtitle="" x="-160" y="352" w="96" h="64" region="Rejected" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+		<room id="54" name="Tuff Butt Fair" subtitle="" x="-160" y="352" w="96" h="64" region="Post-Game Fun" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects custom="yes" customRight="-24" customDown="0">House Tree|Francis Pope</objects>
 		</room>
-		<room id="55" name="Punishment Capitol" subtitle="" x="320" y="480" w="96" h="64" region="Bad Ends" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="0" cornerTopRight="0" cornerBottomLeft="0" cornerBottomRight="0" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects>Will Steele|War of Prisoners</objects>
+		<room id="55" name="Punishment Capitol" subtitle="" x="320" y="480" w="96" h="64" region="Bad Ends" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects custom="yes" customRight="-34" customDown="0">Will Steele|War of Prisoners</objects>
 		</room>
 		<room id="57" name="Pot Chamber" subtitle="" x="480" y="-288" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="yes" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="Pusher Penn gives you the wacker weed. If you get it to Fritz the On safely, you get the Poory Pot." roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects custom="yes" customRight="-24" customDown="0">Pusher Penn|Wacker Weed|Poor-y Pot</objects>
@@ -158,25 +158,25 @@
 			<dock index="1" id="57" port="sw" />
 		</line>
 		<room id="59" name="Accountable Hold" subtitle="" x="-160" y="-288" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects at="n" custom="yes" customRight="-32" customDown="0">Sound Safe|  (Finger Index)</objects>
+			<objects at="n" custom="yes" customRight="-32" customDown="0">  Sound Safe|(Finger Index)</objects>
 		</room>
 		<line id="60" name="" description="" color="#000000" style="dashed" startText="in" endText="out">
 			<dock index="0" id="42" port="n" />
 			<dock index="1" id="59" port="s" />
 		</line>
-		<room id="62" name="Clown Class" subtitle="" x="0" y="-416" w="96" h="64" region="Just Ideas Now" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="62" name="Clown Class" subtitle="" x="0" y="-416" w="96" h="64" region="Hypothetical" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<line id="63" name="" description="" color="#000000">
 			<dock index="0" id="51" port="e" />
 			<dock index="1" id="54" port="w" />
 		</line>
-		<room id="65" name="Madness March" subtitle="" x="-480" y="224" w="96" h="64" region="Rejected" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<room id="67" name="Space of Waste" subtitle="" x="-320" y="-416" w="96" h="64" region="Just Ideas Now" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+		<room id="65" name="Madness March" subtitle="" x="-480" y="224" w="96" h="64" region="Post-Game Fun" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="67" name="Space of Waste" subtitle="" x="-320" y="-416" w="96" h="64" region="Hypothetical" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects at="n" />
 		</room>
-		<room id="72" name="Humor Gallows" subtitle="" x="-480" y="352" w="96" h="64" region="Rejected" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+		<room id="72" name="Humor Gallows" subtitle="" x="-480" y="352" w="96" h="64" region="Post-Game Fun" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects custom="yes" customRight="-40" customDown="0">Cards of the House|</objects>
 		</room>
-		<room id="73" name="Shoulder Square" subtitle="" x="-320" y="-288" w="96" h="64" region="Just Ideas Now" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="73" name="Shoulder Square" subtitle="" x="-320" y="-288" w="96" h="64" region="Hypothetical" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<room id="76" name="Meal Square" subtitle="" x="0" y="96" w="96" h="64" region="Outer Bounds" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="Cracker Safe&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;Order Apple Pie?&#xD;&#xA;Factor Fudge" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects custom="yes" customRight="-44" customDown="0">Tray A (Silly Foods)|Tray B (Bad End Foods)</objects>
 		</room>
@@ -194,13 +194,13 @@
 		<room id="82" name="Temper Keep" subtitle="" x="0" y="-160" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="The relief light is found in the spleen vent once you get past Sal." roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects custom="yes" customRight="-24" customDown="0">Spleen Vent|Volatile Sal</objects>
 		</room>
-		<room id="84" name="Rage Road" subtitle="" x="-320" y="480" w="96" h="64" region="Rejected" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="84" name="Rage Road" subtitle="" x="-320" y="480" w="96" h="64" region="Post-Game Fun" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<line id="85" name="" description="" color="#000000">
 			<dock index="0" id="84" port="n" />
 			<dock index="1" id="51" port="s" />
 		</line>
-		<room id="8" name="Everything Hold" subtitle="" x="-480" y="-416" w="96" h="64" region="Just Ideas Now" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="0" cornerTopRight="0" cornerBottomLeft="0" cornerBottomRight="0" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<room id="28" name="A Round Lounge" subtitle="" x="160" y="352" w="96" h="64" region="Entry" handDrawn="yes" allcornersequal="no" ellipse="yes" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="There's a plan hatch and a people chair here." roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+		<room id="8" name="Everything Hold" subtitle="" x="-480" y="-416" w="96" h="64" region="Hypothetical" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="0" cornerTopRight="0" cornerBottomLeft="0" cornerBottomRight="0" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="28" name="A Round Lounge" subtitle="" x="160" y="352" w="96" h="64" region="Entry" handDrawn="yes" allcornersequal="no" ellipse="yes" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects custom="yes" customRight="-28" customDown="0">A round stick|A round screw|Person Chair|Plan Hatch</objects>
 		</room>
 		<line id="79" name="" description="" color="#000000">
@@ -219,17 +219,17 @@
 			<dock index="0" id="27" port="w" />
 			<dock index="1" id="49" port="e" />
 		</line>
-		<line id="69" name="" description="" color="#000000" style="dashed" flow="oneWay" startText="in">
+		<line id="69" name="" description="" color="#000000" flow="oneWay" startText="in">
 			<dock index="0" id="27" port="n" />
 			<dock index="1" id="41" port="s" />
 		</line>
-		<room id="88" name="Muster Pass" subtitle="" x="-160" y="480" w="96" h="64" region="Rejected" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+		<room id="88" name="Muster Pass" subtitle="" x="-160" y="480" w="96" h="64" region="Post-Game Fun" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects custom="yes" customRight="-40" customDown="0">Charlie Checkpoint</objects>
 		</room>
 		<room id="90" name="Truth Home" subtitle="" x="-320" y="-160" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects at="n" custom="yes" customRight="-16" customDown="0">Sid Lew|Lee Bull</objects>
+			<objects at="n" custom="yes" customRight="-50" customDown="0">Sid Lew (Logical Psycho)|   Lee Bull (Proof Fool)</objects>
 		</room>
-		<room id="92" name="Window Bay" subtitle="" x="-480" y="96" w="96" h="64" region="Rejected" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+		<room id="92" name="Window Bay" subtitle="" x="-480" y="96" w="96" h="64" region="Post-Game Fun" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects at="n" custom="yes" customRight="-24" customDown="0">View of Points</objects>
 		</room>
 		<room id="93" name="Questions Field" subtitle="" x="160" y="-288" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="yes" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Dash" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
@@ -239,7 +239,7 @@
 			<dock index="0" id="39" port="n" />
 			<dock index="1" id="93" port="s" />
 		</line>
-		<line id="95" name="" description="" color="#000000" style="dashed">
+		<line id="95" name="" description="" color="#000000" style="dashed" flow="oneWay">
 			<dock index="0" id="93" port="n" />
 			<dock index="1" id="35" port="s" />
 		</line>
@@ -257,18 +257,18 @@
 			<dock index="1" id="31" port="e" />
 		</line>
 		<room id="81" name="Fight Fair" subtitle="" x="640" y="352" w="96" h="64" region="Bad Ends" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="0" cornerTopRight="0" cornerBottomLeft="0" cornerBottomRight="0" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<room id="83" name="Expectations Meet" subtitle="" x="-480" y="-288" w="96" h="64" region="Just Ideas Now" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="0" cornerTopRight="0" cornerBottomLeft="0" cornerBottomRight="0" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<room id="89" name="Mine Land" subtitle="" x="-480" y="480" w="96" h="64" region="Rejected" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="0" cornerTopRight="0" cornerBottomLeft="0" cornerBottomRight="0" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="83" name="Expectations Meet" subtitle="" x="-480" y="-288" w="96" h="64" region="Hypothetical" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="0" cornerTopRight="0" cornerBottomLeft="0" cornerBottomRight="0" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="89" name="Mine Land" subtitle="" x="-480" y="480" w="96" h="64" region="Post-Game Fun" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="0" cornerTopRight="0" cornerBottomLeft="0" cornerBottomRight="0" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<line id="77" name="" description="" color="#000000">
 			<dock index="0" id="84" port="w" />
 			<dock index="1" id="89" port="e" />
 		</line>
-		<room id="68" name="One Route" subtitle="" x="0" y="480" w="96" h="64" region="Rejected" handDrawn="yes" allcornersequal="yes" ellipse="yes" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="68" name="One Route" subtitle="" x="0" y="480" w="96" h="64" region="Post-Game Fun" handDrawn="yes" allcornersequal="no" ellipse="yes" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<line id="91" name="" description="" color="#000000">
 			<dock index="0" id="88" port="e" />
 			<dock index="1" id="68" port="w" />
 		</line>
-		<room id="66" name="Ill Falls" subtitle="" x="0" y="352" w="96" h="64" region="Rejected" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="0" cornerTopRight="0" cornerBottomLeft="0" cornerBottomRight="0" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="66" name="Ill Falls" subtitle="" x="0" y="352" w="96" h="64" region="Post-Game Fun" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="0" cornerTopRight="0" cornerBottomLeft="0" cornerBottomRight="0" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<line id="96" name="" description="" color="#000000">
 			<dock index="0" id="54" port="e" />
 			<dock index="1" id="66" port="w" />
@@ -308,19 +308,19 @@
 			<dock index="0" id="11" port="sw" />
 			<dock index="1" id="25" port="ne" />
 		</line>
-		<line id="5" name="" description="" style="dashed">
+		<line id="5" name="" description="">
 			<dock index="0" id="76" port="e" />
 			<dock index="1" id="41" port="w" />
 		</line>
-		<room id="46" name="Brains Beat" subtitle="" x="-160" y="224" w="96" h="64" region="Rejected" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects at="n" custom="yes" customRight="-50" customDown="0">Consciousness Stream</objects>
+		<room id="46" name="Brains Beat" subtitle="" x="-160" y="224" w="96" h="64" region="Post-Game Fun" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects custom="yes" customRight="-48" customDown="0">Consciousness Stream</objects>
 		</room>
 		<line id="86" name="" description="">
 			<dock index="0" id="46" port="w" />
 			<dock index="1" id="47" port="e" />
 		</line>
-		<room id="100" name="Green = main area, purple = director's cut rooms, orange = &quot;almost&quot; rooms, Red = &quot;you died&quot; rooms, Yellow/Grey = intro rooms, Brown = optional puzzle, Ellipse=starting, Rounded=blocked later in game, dashed=can jump to" subtitle="" x="-480" y="-544" w="1216" h="64" region="NoRegion" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<room id="101" name="Service Community" subtitle="" x="640" y="-32" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="yes" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+		<room id="100" name="Green = main area, purple = director's cut rooms, orange = &quot;almost&quot; rooms, Red = &quot;you died&quot; rooms, Yellow/Grey = intro rooms, Brown = optional puzzle, round=locks you out later" subtitle="" x="-480" y="-544" w="1216" h="64" region="NoRegion" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="101" name="Service Community" subtitle="" x="640" y="-32" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="yes" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="Defeat the Insanity Terminal to get here" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects custom="yes" customRight="-28" customDown="0">Thoughts Idol</objects>
 		</room>
 		<line id="102" name="" description="" style="dashed">
@@ -328,10 +328,10 @@
 			<dock index="1" id="101" port="w" />
 		</line>
 		<room id="103" name="Beer Pound" subtitle="" x="640" y="224" w="96" h="64" region="Bad Ends" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<room id="104" name="Out Mist" subtitle="" x="320" y="-416" w="96" h="64" region="Endings" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="#A0A000" secondFillLocation="Right" roomBorder="" roomLargeText="" roomSmallText="">
+		<room id="104" name="Out Mist" subtitle="" x="320" y="-416" w="96" h="64" region="Endings" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="#808040" secondFillLocation="Right" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects at="n" custom="yes" customRight="-20" customDown="0">Worm Ring</objects>
 		</room>
-		<room id="105" name="Airy Station" subtitle="" x="480" y="-416" w="96" h="64" region="Endings" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="#A0A000" secondFillLocation="Left" roomBorder="" roomLargeText="" roomSmallText="">
+		<room id="105" name="Airy Station" subtitle="" x="480" y="-416" w="96" h="64" region="Endings" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="You need to have beaten the Thoughts Idol to get here." roomFill="" secondFill="#808040" secondFillLocation="Left" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects custom="yes" customRight="-32" customDown="0">Mentality Crowd|Return Carriage</objects>
 		</room>
 		<line id="106" name="" description="" flow="oneWay" midText="win">
@@ -342,18 +342,18 @@
 			<dock index="0" id="35" port="se" />
 			<dock index="1" id="105" port="sw" />
 		</line>
-		<room id="108" name="Camp Concentration" subtitle="" x="-480" y="-160" w="96" h="64" region="Just Ideas Now" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<room id="109" name="Perilous Siege" subtitle="" x="-160" y="-416" w="96" h="64" region="Just Ideas Now" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<room id="110" name="Robbery Highway" subtitle="" x="-480" y="-32" w="96" h="64" region="Just Ideas Now" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<room id="111" name="In-Dignity Heap" subtitle="" x="640" y="96" w="96" h="64" region="Bad Ends" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<line id="112" name="" description="" style="dashed">
-			<dock index="0" id="13" port="ne" />
-			<dock index="1" id="101" port="nw" />
-		</line>
-		<line id="113" name="" description="" style="dashed" startText="SLEEP" endText="WAKE">
+		<line id="108" name="" description="" startText="SLEEP" endText="WAKE">
 			<dock index="0" id="61" port="ne" />
 			<dock index="1" id="17" port="w" />
 		</line>
+		<line id="109" name="" description="" style="dashed">
+			<dock index="0" id="13" port="ne" />
+			<dock index="1" id="101" port="nw" />
+		</line>
+		<room id="110" name="Camp Concentration" subtitle="" x="-480" y="-160" w="96" h="64" region="Hypothetical" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="111" name="Robbery Highway" subtitle="" x="-480" y="-32" w="96" h="64" region="Hypothetical" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="112" name="Perilous Siege" subtitle="" x="-160" y="-416" w="96" h="64" region="Hypothetical" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="113" name="In-Dignity Heap" subtitle="" x="640" y="96" w="96" h="64" region="Bad Ends" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 	</map>
 	<settings>
 		<colors>
@@ -375,11 +375,11 @@
 			<Dream Name="Dream" TextColor="Black">#2090FF</Dream>
 			<Endings Name="Endings" TextColor="White">#606060</Endings>
 			<Entry Name="Entry" TextColor="Black">Yellow</Entry>
-			<Just____Ideas____Now Name="Just Ideas Now" TextColor="Black">#FF8000</Just____Ideas____Now>
+			<Hypothetical Name="Hypothetical" TextColor="Black">#FF8000</Hypothetical>
 			<Main____Area Name="Main Area" TextColor="Black">Lime</Main____Area>
 			<NoRegion Name="NoRegion" TextColor="Black">White</NoRegion>
 			<Outer____Bounds Name="Outer Bounds" TextColor="Black">Silver</Outer____Bounds>
-			<Rejected Name="Rejected" TextColor="Black">#9020FF</Rejected>
+			<Post-Game____Fun Name="Post-Game Fun" TextColor="Black">#9020FF</Post-Game____Fun>
 		</regions>
 		<fonts>
 			<room size="12">Arial</room>
