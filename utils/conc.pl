@@ -146,10 +146,11 @@ for $x (sort keys %any)
   {
     print $bigString;
   }
-  } else { print "No errors in $_[0]. Nothing sent to clipboard.\n"; }
+  } else { print "No errors in this run for $_[0]. Nothing sent to clipboard.\n"; }
 
   if (!$errMsg) { $errMsg = "All okay!"; } else { $errMsg =~ s/\n/<br>/g; $errMsg =~ s/<br>$//g; }
 
+  $errMsg = "";
 }
 
 sub checkOrder
@@ -293,6 +294,7 @@ while ($a = <A>)
   {
     $b =~ s/.*?\[activation of //; $c = $b;
 	$c =~ s/\].*//g;
+	if ($c eq "conc-name entry") { next; }
 	$activ{wordtrim($c)} = 1; $any{wordtrim($c)} = 1;
   }
   if ($inTable == 1) { $b = $a; $b =~ s/\t.*//g; $b = wordtrim($b); $expl{$b} = $any{$b} = 1; next; }

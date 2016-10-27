@@ -1283,7 +1283,7 @@ carry out do-swearing:
 		say "Percy smirks[if p-c is true]. 'That won't do any good!'[else].[end if]" instead;
 	if player is in belt and terminal is in belt:
 		say "Sorry, man. I didn't mean for it to be THIS hard." instead;
-	if player is in joint strip:
+	if player is in joint strip: [??]
 		if toad-swear is false:
 			now toad-swear is true;
 			say "'It's a damn shame. Kids thinking they're tougher than they are. I had a lot more to swear ABOUT when I was a kid.'" instead;
@@ -2179,12 +2179,12 @@ to ship-off (X - a room):
 table of ending-places
 room-loc	room-fun
 Fight Fair	"The fellow in charge, the [activation of boss fight]Fight Boss, places you against someone slightly stronger, quicker, and savvier than you. He beats you up rather easily, assuring you that just because you're smart doesn't mean you needed to lack any physical prowess. Your opponent then goes to face someone stronger than him.[paragraph break]Everyone quietly nurses his [activation of sore loser]loser sore at night before repeating the next day. And the next."
-Maintenance High	"You're given the lecture about how attempts to rehabilitate you cost society even if they work out pretty quickly. Did I say the lecture? I meant, many different lectures. Which are equally painful whether they're familiar or unfamiliar."
-Criminals' Harbor	"You're given the lecture about how you'll be performing drudgework until your attempts at obvious crime are sucked out of you. Your overseer keeps babbling about how it's equally bad if you get sick of his lectures or used to them. You're going down a bad road, etc., so forth."
-Punishment Capitol	"You're given the lecture about how just because you did something really wrong doesn't mean you're a big thinker. Then you're told to sit and think deeply about that for a good long while."
-Hut Ten	"The basic training isn't too bad. You seem to do everything right, except for the stuff you do wrong, and a commanding officer gets on your case for that. There's so much to do, and you only make mistakes 5% of the time, maybe, but boy do the people who get it right come down hard on you when you miss. You do the same to others, but it's DIFFERENT when you do. No, really."
+Maintenance High	"You're given the lecture about how attempts to rehabilitate you cost society even if they work out pretty quickly. Did I say the lecture? I meant, many different lectures, dedicated to helping you (or others) one day becoming a [activation of self sufficient]sufficient self. Which are equally painful whether they're familiar or unfamiliar. Those who fall asleep get an extra dose. Those who stay awake are berated for not following through."
+Criminals' Harbor	"You're given the lecture about how you'll be performing drudgework until your attempts at obvious crime are sucked out of you. Your overseer and his prison-enforcers (the [activation of gangplank]Plank Gang, because of their weapons) keep babbling about how it's equally bad if you get sick of his lectures or used to them. You're going down a bad road, etc., so forth."
+Punishment Capitol	"You're given the lecture about how just because you did something really majorly wrong doesn't mean you're a big thinker. In fact you're perfect trainees for the [activation of prisoners of war]War of Prisoners, which nobody explains to you what it's about. Then you're told to sit and think deeply about that for a good long while."
+Hut Ten	"The basic training isn't too bad. You seem to do everything right, except for the stuff you do wrong, and the [activation of corporal punishment]Punishment Corporal gets on your case for that. There's so much to do, and you only make mistakes 5% of the time, maybe, but boy do the people who get it right come down hard on you when you miss. You do the same to others, but it's DIFFERENT when you do. No, really."
 A Beer Pound	"The admissions officer gives you a worksheet to fill out about how and why you can't hold your liquor."
-In-Dignity Heap	"You're given a lecture and assured that they will have to get more abusive but still won't be as effective and eventually you'll build up a tolerance to abuse, and that's better than a tolerance to alcohol."
+In-Dignity Heap	"Here a fellow named [activation of steel will]Will Steele lectures you on weighty matters such as why he'll have to get more abusive but still won't be as effective because eventually you'll build up a tolerance to abuse, and that's better than a tolerance to alcohol, but not as good as not needing one in the first place."
 Shape Ship	"After a brief trip to the [activation of courtship]Ship Court, where you're deemed unsuitable for stable relationships, you spend months toiling pointlessly with others who acquired too many boo ticketies. Some fellow called the [activation of scholarship]Ship Scholar booms out instructions, telling you self-awareness doesn't come for FREE, you know, and grumblers will be subjected to the heat of the [activation of censorship]Ship Censer. You actually strike up a few good friendships, and you all vow to take more fun silly risks when you get back home.[paragraph break]But as the days pass, the whens change to ifs."
 
 chapter giving
@@ -3567,8 +3567,13 @@ Cut a Figure	"To cut a figure is to make a strong impression."
 Hard Knock	"A hard knock is physical wear and tear, or being hit hard, versus just knocking at a door."
 passing fancy	"A passing fancy is something that distracts you and is fun for a bit but you forget about it. To fancy passing means to want to go quickly, or fancy passing may just be something in sports."
 Sitting Duck	"A sitting duck is someone just waiting to be taking advantage of. But if you duck sitting, you aren't waiting."
+gangplank	"A gangplank leads out of a boat and into the sea. So it is a method of killing prisoners no longer useful." [start of criminals' harbor]
 Boss Fight	"A boss fight is a confrontation with an important adversary in a more traditional game, while the Fight Boss has you do stuff worse than level grinding." [start of fight fair]
 Sore Loser	"A sore loser is someone who is not gracious enough to admit defeat. A loser sore is often what you get when you lose a fight, especially one someone else started."
+corporal punishment	"Corporal punishment is any form of bodily physical punishment." [start of hut ten]
+steel will	"A steel will means you don't bend to others." [start of in-dignity heap]
+self sufficient	"self sufficient is when you can take care of yourself without outside help." [start of maintenance high]
+prisoners of war	"Prisoners of war are people captured in combat. Using prisoners to help with a war is not very Geneva Convention." [start of punishment capitol]
 Censorship	"Censorship is institutionalized shutting people up or repressing what they have to say." [start of shape ship]
 Courtship	"Courtship is when you start trying to get the attention of a potential romantic partner."
 Scholarship	"A scholarship is a money grant given towards education. The Ship Scholar, contrarily, says nothing is free."
@@ -12558,6 +12563,13 @@ Sitting Duck is a concept in conceptville. understand "duck sitting" as Sitting 
 
 chapter fake death concepts
 
+section Criminals' Harbor concepts
+
+gangplank is a concept in conceptville. Understand "gang plank" and "plank gang" and "plankgang" as gangplank. howto is "[ch-end]".
+
+to say ch-end:
+	say "visit Criminals['] Harbor (vandalize scenery in Freak Control)"
+
 section fight fair concepts
 
 Boss Fight is a concept in conceptville. understand "fight boss" as boss fight. howto is "[ff-end]".
@@ -12566,6 +12578,22 @@ Sore Loser is a concept in conceptville. understand "loser sore" as sore loser. 
 
 to say ff-end:
 	say "visit Fight Fair (attack random person)"
+
+section Hut Ten concepts
+
+corporal punishment is a concept in conceptville. Understand "punishment corporal" as corporal punishment. howto is "vandalize scenery/games before Freak Control".
+
+section In-Dignity Heap concepts
+
+steel will is a concept in conceptville. Understand "will steel" as steel will. howto is "swear around an authority figure".
+
+section Maintenance High concepts
+
+self sufficient is a concept in conceptville. Understand "sufficient self" as self sufficient. howto is "eat the lolly or gum".
+
+section Punishment Capitol concepts
+
+prisoners of war is a concept in conceptville. Understand "war of prisoners" as prisoners of war. howto is "attack an ally of the [bad-guy]".
 
 section shape ship concepts
 
