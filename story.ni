@@ -1265,6 +1265,8 @@ toad-swear is a truth state that varies.
 
 hypoc-swear is a number that varies.
 
+petty-swear is a truth state that varies.
+
 carry out do-swearing:
 	unless accel-ending:
 		if hypoc-swear is 0:
@@ -1283,15 +1285,26 @@ carry out do-swearing:
 		say "Percy smirks[if p-c is true]. 'That won't do any good!'[else].[end if]" instead;
 	if player is in belt and terminal is in belt:
 		say "Sorry, man. I didn't mean for it to be THIS hard." instead;
-	if player is in joint strip: [??]
+	if player is in joint strip:
 		if toad-swear is false:
 			now toad-swear is true;
 			say "'It's a damn shame. Kids thinking they're tougher than they are. I had a lot more to swear ABOUT when I was a kid.'" instead;
 		say "'Repeat offender? Cutting up for the fun of it? Off you go!'";
 		ship-off in-dignity heap instead;
+	if player is in judgment pass and officer petty is in judgment pass:
+		if petty-swear is false:
+			now petty-swear is true;
+			say "'You get one of those, kid. One more than you deserve.'" instead;
+		say "'It's a damn shame, kid probably scared of doing anything useful, can't even understand a warning.'";
+		ship-off in-dignity heap instead;
+	if player is in idiot village or player is in service community:
+		if thoughts idol is in idiot village:
+			say "Before you can say it, or think it too long, the Thoughts Idol shakes its head at you." instead;
 	if player is in freak control:
 		say "That gets the [bad-guy]'s attention. 'DUDE!' he says. 'REALLY, dude! Some respect for authority? I mean, don't respect stupid authority but I *** need to *** concentrate, here. My job's not *** easy and anyone who just swears frivolously to grab attention--well, they don't GET IT, y'know? Besides, you sounded lame when you said that.' As you're pulled away by guards you hadn't seen before, the '[activation of freak out]OUT, FREAK' sign catches your eye. Perhaps there was another way to annoy him, without letting him be so self-righteous.";
 		ship-off in-dignity heap instead;
+	if mrlp is endings:
+		say "Don't give up! You're so close!" instead;
 	if big-swear is false:
 		say "That's a wishy-washy swear--it wouldn't seem to do you any good if you [if allow-swears is true]dis[else]en[end if]abled profanity in this game." instead;
 	say "[if allow-swears is false]You mumble a swear under your breath, remembering full well you didn't want to hear it from others[else]Much as you'd like it to, your profanity has no oomph[end if]." instead;
@@ -3477,6 +3490,7 @@ Show Business	"Show business is the act of entertainment, and the business show'
 show off	"To show off is to brag about yourself, and the implication is an 'off' show (not as good as it should be) is bad without that."
 Stand the Pace	"If you can't stand the pace, it's too fast for you. Turk and Dutch pace the stand because they need a break."
 Determined Bound	"Bound and determined means you're set on doing something. A determined bound is set to prevent you from doing something." [start of walker street]
+Driving Crazy	"Driving someone crazy is usually not literal, but it means you are annoying them a lot, enough they may want to lash back."
 Watkins Glen	"Watkins Glen is a famous racecourse in upstate New York."
 artifact	"An artifact is, in programming, something left over that can be gotten rid of." [start of discussion block]
 babel fish	"The babel fish is an item in The Hitchhiker's Guide to the Galaxy (the game and the book) which translates between galactic languages."
@@ -3492,6 +3506,7 @@ brass ring	"To grab the brass ring is to achieve a dream goal. It refers to the 
 brother foster	"A foster brother is a brother not related by birth." [start of questions field]
 Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
 bum a cigarette	"To bum a cigarette is to ask someone for one of theirs. 'A cigarette bum' indicates Penn's disdain for more legal smokables."
+go to pot	"To go to pot is to fall apart due to lack of upkeep."
 pop pills	"To pop pills is to take them indiscriminately."
 weed out	"To weed out people is to create a test to show they are inadequate." [start of pot chamber]
 Terminal Illness	"A terminal illness is one which is bound to be fatal. Illness can also mean full of insults, e.g. very 'ill,' as kids these days say. And said, even in my day!" [start of belt below]
@@ -9540,7 +9555,7 @@ check going inside in walker street:
 	if poory pot is in lalaland:
 		say "[one of]As you walk in, Pusher Penn asks if you enjoyed your 'payment.' But you manage to give a version of the truth that seems even more preposterous than if you'd actually sampled the stuff. 'THE THANKS I GET!' he booms. 'DON'T COME BACK.'[or]Pusher Penn really, really doesn't want to see you. But you don't want or need to see him.[stopping]" instead;
 
-the mistake grave is scenery in Walker Street. "It's illuminated oddly, as if a red light were flashing behind it, and reads: IN MEMORY OF [activation of watkins glen]GLEN WATKINS, THE IDIOT WHO WENT ONLY FIVE MILES OVER THE SPEED LIMIT AND DIDN'T HEAR THE JOYRIDERS GOING THIRTY FORTY OR FIFTY OVER THUS RUINING THIS PRIME CRUISING ZONE FOR MORE EXCITING PEOPLE. -[bg]."
+the mistake grave is scenery in Walker Street. "It's illuminated oddly, as if a red light were flashing behind it, and reads: IN MEMORY OF [activation of watkins glen]GLEN WATKINS, THE IDIOT WHO WENT ONLY FIVE MILES OVER THE SPEED LIMIT AND DIDN'T HEAR THE JOYRIDERS GOING THIRTY FORTY OR FIFTY OVER THUS RUINING THIS PRIME [activation of driving crazy]CRAZY DRIVING ZONE FOR MORE EXCITING PEOPLE. -[bg]."
 
 check going nowhere in Walker Street:
 	if noun is south:
@@ -9585,7 +9600,7 @@ check going nowhere in pot chamber:
 
 section Pusher Penn
 
-Pusher Penn is a person in Pot Chamber. description is "He looks rather ordinary, really. No beepers, no weapons, no bulge indicating a concealed weapon. You'd guess he's one of those teens adults refer to as a Fine Young American (or whatever your nationality is) who'll make good in business some day."
+Pusher Penn is a person in Pot Chamber. description is "He looks rather ordinary, really. No beepers, no weapons, no bulge indicating a concealed weapon. You'd guess he's one of those teens adults refer to as a Fine Young American (or whatever your nationality is) who'll make good in business some day.". "[one of]'Pusher Penn, [activation of go to pot]Pot to Go,' says someone barely older than you. 'Customer? Nah...'[or]Pusher Penn paces here.[stopping]"
 
 check talking to Penn when player has penny:
 	try giving penny to Penn instead;
@@ -12350,6 +12365,8 @@ section walker street concepts
 
 Determined Bound is a concept in conceptville. understand "bound and determined" as determined bound. howto is "go south in Walker Street".
 
+Driving Crazy is a concept in conceptville. Understand "crazy driving" as driving crazy. howto is "examine the mistake grave in Walker Street".
+
 Watkins Glen is a concept in conceptville. understand "glen watkins" as watkins glen. howto is "examine the mistake grave in Walker Street".
 
 section discussion block concepts
@@ -12382,9 +12399,11 @@ brother foster is a concept in conceptville. Understand "foster brother" as brot
 
 Brother's Keepers is a concept in conceptville. understand "brother/brothers keeper/keepers" and "keeper/keepers brother/brothers" as Brother's Keepers. howto is "examine the brothers".
 
-section pot chamber
+section pot chamber concepts
 
 bum a cigarette is a concept in conceptville. Understand "cigarette a bum" as bum a cigarette. howto is "(fill in here)".
+
+go to pot is a concept in conceptville. Understand "pot to go" as go to pot. howto is "[f-t of Pot Chamber]".
 
 pop pills is a concept in conceptville. Understand "pills pop" as pop pills. howto is "ask Pusher Penn about the [bad-guy]".
 
