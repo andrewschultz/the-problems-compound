@@ -365,8 +365,10 @@ sub countChunks
   my @sizes;
   my @titles;
   my @actsizes;
+  my @goodies;
   my $totalWords;
-  my $thisChunk;
+  my $thisChunk = 0;
+  my $rwChunk = 0;
 
   open(A, "$output");
   while ($a = <A>)
@@ -385,12 +387,12 @@ sub countChunks
   open(A, "$output");
   while ($a = <A>)
   {
-    if ($a =~ /^=/i) { if ($thisChunk) { push(@actsizes, $thisChunk); $thisChunk = 0; } }
-	else { $thisChunk++; }
+    if ($a =~ /^=/i) { if ($thisChunk) { push(@actsizes, $thisChunk); push (@goodies, $rwChunk); $thisChunk = 0; $rwChunk = 0;} }
+	else { $thisChunk++; if ($a =~ /\*/) { $rwChunk++; } }
   }
   if ($thisChunk) { print "Warning, file ended wrong, should end with ====Found. This will give an extra actual chunk.\n"; push(@actsizes, $thisChunk); }
   close(A);
-  if ($#actsizes != $#sizes) { print "================\nWARNING: size arrays not equal. This shouldn't happen, but it did.\n================\n"; }
+  if ($#actsizes != $#sizes) { die "================\nWARNING: size arrays not equal. This shouldn't happen, but it did. Likely problem is deleting ===found line.\n================I can't read the data, so I'm bailing.\n================\n"; }
   if ($#sizes > -1)
   {
     print "Chunk sizes: ";
@@ -399,8 +401,9 @@ sub countChunks
       if ($_ > 0) { print ", "; } 
 	  $totalWords += $actsizes[$_];
 	  print $actsizes[$_];
+	  if ($goodies[$_]) { print "/$goodies[$_]"; }
 	  if ($sizes[$_] != $actsizes[$_]) { print " ($sizes[$_])"; }
-	  }
+	}
 	print "\n";
 	if ($totalWords) { print "Total flip-words left: $totalWords\n"; }
   }

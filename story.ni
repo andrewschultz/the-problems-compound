@@ -2688,7 +2688,7 @@ check giving the trap rattle to: [you can't get the trap rattle until you've got
 		wfak;
 		say "[line break]Lee Bull shakes the rattle some more. You see something fall out. '[activation of mass production]Production mass,' says Lee. 'It helps people with bottled up ideas see their way through to organize them, with their unique life view! I better star some [activation of assembly line]line assembly before it decays...' Lee begins to write. And write. He hands you the first page--and wow! All the clever life hacks you learn just from the introduction! It's too much, though. You fall asleep as your mind processes it all, with incidents from your own life suddenly making sense.";
 		wfak;
-		say "[line break]When you wake up, Lee Bull has written several copies of a small, but fully bound book. He gives it to you and shakes your hand. THE TRADE OF TRICKS, it's called. But he's tired now, and he leaves to his own private quarters.";
+		say "[line break]When you wake up, Lee Bull has written several copies of a small, but fully bound book. He gives it to you and shakes your hand. THE TRADE OF TRICKS, it's called. '[activation of thp]Proof 200 is particularly intoxicating,' he says, 'but I'm too tired to explain it.' He leaves to his own private quarters.";
 		now Lee Bull is in lalaland;
 		now Sid Lew is in lalaland;
 		now trap rattle is in lalaland;
@@ -3475,6 +3475,7 @@ scofflaw	"A scofflaw is someone who breaks minor rules. Perhaps they jaywalk or 
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever." [start of idiot village]
 assembly line	"An assembly line is where each person or machine has a specific sub-job in creating a larger product." [start of truth home]
 mass production	"Mass production is a procedure of efficiently creating many of the same thing using standardized design."
+thp	"Two hundred proof means pure grain alcohol."
 age four	"Age four is, well, four years old. It is too young to forage." [start of scheme pyramid]
 baby boomer	"The Baby Boomers were the generation born just after World War II. Sometimes referred to as 'The Greatest Generation.'"
 brat army	"An army brat is the child of a military officer. They would be more likely to move than most children."
@@ -12320,6 +12321,8 @@ section truth home concepts
 assembly line is a concept in conceptville. Understand "line assembly" as assembly line. howto is "give Lee the rattle".
 
 mass production is a concept in conceptville. Understand "production mass" as mass production. howto is "give Lee the rattle".
+
+thp is a privately-named concept in conceptville. printed name is "200 proof". understand "proof 200" as thp. howto is "give Lee the rattle".
 
 section scheme pyramid concepts
 
