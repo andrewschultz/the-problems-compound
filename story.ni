@@ -1442,7 +1442,7 @@ check climbing:
 	if noun is chase paper or noun is hatch or noun is person chair:
 		try entering noun instead;
 	if noun is intuition counter:
-		say "[if petty is in judgment pass]Oh, Officer Petty would get you for that one![else][one of]You climb on the Intuition Counter for a moment and feel rebellious, but the feeling passes.[or]Nah, that's already old.[stopping]" instead;
+		say "[if petty is in judgment pass]Oh, Officer Petty would get you for that one![else][one of]You climb on the Intuition Counter, and suddenly, stuff that seemed clear for years is all muddled and confused. You quickly step down, and your thoughts return to normal.[or]No way. Not again.[stopping]" instead;
 	if noun is the nine yards hole:
 		say "No footholds or handholds. You'd be stuck.";
 	if noun is fright stage:
@@ -3385,7 +3385,7 @@ Growing Pains	"Growing pains are temporary setbacks that help you get going. Pai
 just deserts	"Just deserts means getting what you deserve. After eating the 'sophisticated' cheese, Alec doesn't deserve to enjoy other foods."
 loaf around	"To loaf around is to wait with no real purpose."
 pig out	"To pig out is to eat everything you see. The reverse is an admonishment to leave."
-Shame No	"No shame means a person isn't embarrassed by anything to the point where it's dangerous. Shame? No! is more, there's a healthier way to look at things than through shame."
+Shame No	"No shame means a person isn't embarrassed by anything to the point where it's dangerous. The reverse (Shame? No!) is more, there's a healthier way to look at things than through shame."
 Snap Decision	"A decision made reflexively, versus a conscious decision to snap e.g. just quit holding back."
 Spur of the Moment	"Spur of the moment means you're finally pushed to do something. If you wonder if it's the moment of the spur , you're probably thinking too hard for it to be the spur of the moment."
 strike a balance	"To strike a balance is to find a satisfactory compromise. A strike can alo mean--well, your balance went on strike, or you'd fall over."
@@ -3447,6 +3447,7 @@ Cotton Candy	"Cotton candy is stringy sugary stuff, often bundled together in a 
 dirty word	"A dirty word is profanity. 'Word' on its own is slang for agreement."
 flounder	"To flounder is to try and fail without any progress. It's also the name of a fish."
 fluoridated	"Fluoridated water is a subject of many silly conspiracy theories."
+grown up	"Grown up means, well, you've learned and matured."
 hara-kiri	"Hara-kiri is Japanese ritual suicide."
 jerk around	"To jerk someone around is to pester them physically or mentally."
 jerk off	"To jerk off is to gratify oneself carnally."
@@ -3465,6 +3466,7 @@ Plaintiff	"A plaintiff is the party bringing the charge in a court case."
 Pollyanna	"A Pollyanna is someone who is ridiculously optimistic."
 Polygamy	"Polygamy is having more than one mate."
 ring finger	"The ring finger is the one between the middle and the pinky."
+sausage fest	"A sausage fest is a congregation of males with no females."
 Sharp Barb	"A sharp barb is a stinging, clever insult."
 tear-jerk	"The jerks['] tears may seem a bit fake, and a tear-jerker is something that tries to manipulate you into crying."
 terabyte	"A terabyte is a large amount of memory: specifically, 2^40 bytes."
@@ -3538,7 +3540,7 @@ grunt work	"Grunt work is unchallenging work."
 half right	"Half right is when you are, well, half right. Being half right is often worse than making a ridiculous statement, because it's more believable."
 Howard Dean	"Howard Dean was a candidate for the 2004 US Democratic Party nomination. After placing 3rd in the Iowa caucuses, he had an infamous 'Dean Scream' at a rally with supporters, which sounded worse than it was, because he was close to a microphone that picked it up. Which made him the butt of many jokes for a week. The media realised that everyone was yelling a week later, but the story was too ingrained by then.[paragraph break]DISCLAIMER: the author voted for Dean in the 2004 primary, and seeing/recalling this episode has unlocked how and why some other people acted the way they have over the years."
 infomania	"Infomania is always wanting new info. The [bad-guy] pretends he doesn't want it, but it's just fun to have. Mania info is, in this case, malicious gossip about people different the wrong way."
-informally	"informally means without rigid structure, or in a friendly manner."
+informally	"Informally means without rigid structure, or in a friendly manner."
 John Stewart	"John Stewart was the longtime host of The Daily Show, which became a staple of political satire and commentary."
 Johns Hopkins	"Johns Hopkins is a university with a prestigious medical school and pre-med program."
 King Henry	"King Henry VIII of England had six wives."
@@ -3588,7 +3590,7 @@ Boss Fight	"A boss fight is a confrontation with an important adversary in a mor
 Sore Loser	"A sore loser is someone who is not gracious enough to admit defeat. A loser sore is often what you get when you lose a fight, especially one someone else started."
 corporal punishment	"Corporal punishment is any form of bodily physical punishment." [start of hut ten]
 steel will	"A steel will means you don't bend to others." [start of in-dignity heap]
-self sufficient	"self sufficient is when you can take care of yourself without outside help." [start of maintenance high]
+self sufficient	"Self-sufficient is when you can take care of yourself without outside help." [start of maintenance high]
 prisoners of war	"Prisoners of war are people captured in combat. Using prisoners to help with a war is not very Geneva Convention." [start of punishment capitol]
 Censorship	"Censorship is institutionalized shutting people up or repressing what they have to say." [start of shape ship]
 Courtship	"Courtship is when you start trying to get the attention of a potential romantic partner."
@@ -7871,7 +7873,7 @@ to check-jerks-done:
 
 to zap-the-jerks:
 	say "A fight's about to break out, until you tell them where you got this information from.[paragraph break]'You better be right about this,' [a random not minted client] says. They rush off. You hear whining in the distance. It's the Labor Child. He protests he was just trying to shame them into doing more practical things. They aren't buying it!";
-	say "[line break]The (ex-)jerks arrive back, and [a random client] wipes away a [activation of tear-jerk]jerk-tear before handing you a bottle of Quiz Pop. 'Man, you seem to know what's what, and you helped us see it was okay to be us. Here's some totally sweet contraband.'[paragraph break]Hmm. Interesting. Quiz Pop.";
+	say "[line break]The (ex-)jerks arrive back, and [a random client] [if allow-swears is true]gives an [activation of grown up]up groan[else]wipes away a [activation of tear-jerk]jerk-tear[end if] before handing you a bottle of Quiz Pop. 'Man, you seem to know what's what, and you helped us see it was okay to be us. Here's some totally sweet contraband.'[paragraph break]Hmm. Interesting. Quiz Pop. As they walk away, you hear them deciding on a victory meal: [activation of sausage fest]fest sausage.";
 	it-take quiz pop;
 	increment the score;
 	now all clients are in lalaland;
@@ -9122,6 +9124,8 @@ check going nowhere in judgment pass:
 
 Officer Petty is an enforcing person in Judgment Pass. "[one of]The officer stares down at the intuition counter for a moment. 'NOPE,' he yells. 'Sure as my name's Officer Petty, no good reason for you to go to Idiot Village.'[or]Officer Petty regards you with contempt.[stopping]"
 
+understand "coat petty" as a mistake ("Officer Petty raps on the Intuition Counter, then looks at you for a moment. 'You look like one of those closet perverts. I can't arrest you for that, but I have freedom of speech, y'know.'") when player is in Judgment Pass and Petty is in Judgment Pass.
+
 understand "fog petty" as a mistake ("Officer Petty is more likely to talk circles around you. Perhaps you could get on his good side, somehow.") when player is in Judgment Pass and Petty is in Judgment Pass.
 
 description of Officer Petty is "Officer Petty stares back at you, cracks his knuckles, and rubs a palm. He's bigger, stronger and fitter than you."
@@ -10027,7 +10031,7 @@ workname	authname	booksubj
 "And Dominion Shall Have No Death"	"Thomas Dylan"	"a New World Order of smart poetic people that properly keeps the rabble scared of death and all that"
 "Jest? Knight, Fie, In"	"Wallace Foster David"	"a snappy fifty-page tour de force that's about nothing and everything--err, make that everything and nothing"
 "The Stone in the Sword"	"White Theodore"	"a kid learning to be king by doing all the things fantasy novels don't describe--like pushing people around, politics, and so forth"
-"The Stuff, Right?"	"Wolfie Thomas"	"some schlep's comical attempts to alchemize a 'good' drug and his failure to keep his feet on the ground"
+"The Stuff, Right?"	"Wolfie Thomas"	"some schlep's comical attempts to alchemize a 'good' drug and his failure to keep his feet on the ground" [p]
 
 [can't quite get to work:
 brooks walter: Freddy and (something) (dang it none of the 26 do anything cool. I mean the books are cool but they all have FREDDY in them which ruins things)
@@ -10081,6 +10085,7 @@ workname	singername	songsubj
 "Work Fire"	"Perry Keady"	"having everyday up and at em for the things you deserve to do (if you're smart) or better do to survive (if you're dumb)"
 "Stop Believing, Don't"	"Perry Steven"	"people who already tried enough and should stop embarrassing themselves"
 "Mourning Sunday"	"Reid Lew"	"when everyone else is too lazy to do and think awesome things 24-7 and you aren't, and why that makes them bums"
+"Fruity Tootie"	"Richard Little"	"increasingly strong evidence and examples why a girl currently in the closet should, in this day and age, just come out already or she obviously hates herself"
 "You: On, Stuck"	"Richie Lionel"	"creative and poetic ways schleps should just get over, well, whatever"
 "Bound Homeward"	"Simon Paul"	"someone who wants to get out more but his stupid artsy worries get in the way"
 "Train Downtown"	"Stewart Rodd"	"a man rightfully too busy advancing his career prospects to spend time with his woman"
@@ -11305,7 +11310,7 @@ rule for amusing a victorious player:
 
 table of amusingness
 biglaff	anyrule
-"waiting?"	degen-true rule
+"waiting? Especially in A Round Lounge?"	degen-true rule
 "(first time only) thinking?"	--
 "swearing (and saying yes or no) when the game asks if you want swearing?"	--
 "an empty command?"	--
@@ -11315,6 +11320,7 @@ biglaff	anyrule
 "DIGging twice in Variety Garden?"	--
 "DROPping the dreadful penny, reasoning circluar or other things?"	--
 "going east when Officer Petty is still in Judgment Pass?"	--
+"COAT PETTY or FOG PETTY?"	--
 "giving the condition mint to various non-jerks, like Volatile Sal or Buddy Best?"
 "cussing when you asked for no profanity?"	--
 "cussing in front of certain people, especially authority figures (twice for a 'bad' ending)?"	--
@@ -11611,7 +11617,8 @@ this is the swear-see rule:
 	say "[2da]The game warns you might think (off) or say (on) a swear if you try to eat the dirt."; [end mid part]
 	say "[2da]Eating a food from Tray B forces swears on, if they were off, but you have a last moment before eating the Cutter Cookie."; [end outskirts]
 	say "[2da]The [jc-gc] is the [stwid][jc-gc][stwid] instead. Also, you feel a bit more foreboding, and everyone sheds a jerk-tear, and if you attack them, you get a 'special' message.";
-	say "[2da]The jerks discuss girls (rather badly) if you talk to them before reading the Finger Index. There aren't any profanities here, but they're kind of, well, juvenile. They also give an obscene gesture if you try to talk to them before reading the Finger Index.";
+	say "[2da]The guys in the Fen discuss girls (rather badly) if you talk to them before reading the Finger Index. There aren't any profanities here, but they're kind of, well, juvenile. They also give an obscene gesture if you try to talk to them before reading the Finger Index.";
+	say "[2da]The guys in the Fen give an up groan or a jerk-tear if innuendo/profanity is off or on, respectively.";
 	say "[2da]The Business Monkey's half-[abr] efforts are [stwid][abr][stwid] instead.";
 	consider the very-good-end rule;
 	if the rule succeeded:
@@ -12260,6 +12267,8 @@ flounder is a concept in conceptville. Understand "flo under" and "under flo" as
 
 fluoridated is a concept in conceptville. Understand "dated flora" and "flora dated" as fluoridated. howto is "[j-girl]".
 
+grown up is a concept in conceptville. Understand "up groan" and "groan up" as grown up. howto is "[solve-j] with swears off".
+
 Hara-Kiri is a concept in conceptville. Understand "keri harrah" and "harrah keri" as hara-kiri. howto is "[j-girl]".
 
 Jerk Around is a concept in conceptville. Understand "around jerk" as jerk around. howto is "enter the main area with profanity on".
@@ -12296,6 +12305,8 @@ Polygamy is a concept in conceptville. Understand "gamy polly" and "polly gamy" 
 
 ring finger is a concept in conceptville. Understand "finger ring" as ring finger. howto is "talk to the jerks before knowing their names, with swears on".
 
+sausage fest is a concept in conceptville. Understand "fest sausage" as sausage fest. howto is "[solve-j] with swears on".
+
 Sharp Barb is a concept in conceptville. Understand "barb sharp" as sharp barb. howto is "[j-girl]".
 
 Tear-Jerk is a concept in conceptville. Understand "jerk-tear" and "tear jerk" and "jerk tear" as Tear-Jerk. howto is "solve the [j-co]['] puzzle".
@@ -12305,6 +12316,9 @@ terabyte is a concept in conceptville. Understand "terabyte" as terabyte. howto 
 teriyaki is a concept in conceptville. Understand "teriyaki" as teriyaki. howto is "[j-girl]".
 
 terrapin is a concept in conceptville. Understand "terrapin" as terrapin. howto is "[j-girl]".
+
+to say solve-j:
+	say "solve the [j-co]['] puzzle"
 
 section judgment pass concepts
 
