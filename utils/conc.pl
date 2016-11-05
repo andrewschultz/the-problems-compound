@@ -8,6 +8,8 @@ my $codeToClipboard = 0;
 my $printErrCode = 0;
 my $printErrors = 1;
 
+my $objSuc;
+
 while ($count <= $#ARGV)
 {
   $a = @ARGV[$count];
@@ -168,21 +170,42 @@ sub checkOrder
   my $line = 0;
   my $writeGameObjErrRes = 0;
   my $objAlf = 0;
+  my $lastComp = 0;
   $objSuc = 0;
+  my $origLine;
 
   while ($a = <A>)
   {
+    $origLine = $a;
     $line++;
-	if ($a =~ /alfbyroom/) { <A>; $line++; $objAlf = checkGameObjExpl($line); $writeGameObjErrRes = 1; next; }
+	if ($a =~ /alfbyroom/) { <A>; $line++; $objAlf = checkGameObjExpl($line); $writeGameObjErrRes = 1; $line = $.; print next; }
     if (($a =~ /is a.* author\. pop/) && ($a !~ /^\[/)) { $b = $a; $b =~ s/ is (a|an) .*//g; chomp($b); $auth{$b} = $line; next; }
 	if (($expls) && ($a !~ /[a-z]/i)) { $expls = 0; next; }
 	if (($concs) && ($a =~ /end concepts/)) { $concs = 0; next; }
     if ($a =~ /xx(add|auth|slb|bks|bkj)/) { $line++; <A>; $expls = 1; next; }
     if ($a =~ /\[xxcv\]/) { $line++; <A>; $concs = 1; next; }
-	if ($expls) { chomp($a); $a =~ s/\t.*//g; $a = cutArt($a); push (@ex, $a); next; }
+	if ($expls)
+	{
+	  chomp($a);
+	  $a =~ s/\t.*//g;
+	  $a = cutArt($a);
+	  push (@ex, $a);
+	  if ($origLine =~ /\[start/)
+	  {
+	    $lastComp = "";
+      }
+	  else
+	  {
+        if (lc($a) le lc($lastComp)) { print "($line) Order flip $a vs $lastComp\n"; $ordFail++; }
+	    $lastComp = $a;
+      }
+	  next;
+	}
 	if (($concs) && ($a =~ /concept.in/)) { chomp($a); $a =~ s/ is a .*concept.*//g; $a = cutArt($a); push (@co, $a); next; }
   }
+  if ($ordFail) { print "  EXPLANATIONS table order mistakes above ($ordFail)\n"; }
 
+  $ordFail = 0;
   for (0..$#ex)
   {
     #print lc(@ex[$_]) . " =? " . lc(@co[$_]) . "\n";
@@ -341,30 +364,31 @@ sub checkGameObjExpl
   my $c2;
   my $initLines = $lines;
   my $gameObjErr = 0;
+  my $line;
 
-  while ($a = <A>)
+  while ($line = <A>)
   {
     $lines++;
-	if ($a !~ /[a-z]/i) { last; }
-    if ($a =~ /\[start/)
+	if ($line !~ /[a-z]/i) { last; }
+    if ($line =~ /\[start/)
 	{
-	  $curLoc = $a; chomp($curLoc); $curLoc =~ s/.*\[start (of )?//g; $curLoc =~ s/\].*//g;
+	  $curLoc = $line; chomp($curLoc); $curLoc =~ s/.*\[start (of )?//g; $curLoc =~ s/\].*//g;
 	  $locCount = 0;
-	  $compare = $a; next;
+	  $compare = $line; next;
 	}
 	if (!$compare) { next; }
-	$c1 = alfPrep($a);
+	$c1 = alfPrep($line);
 	$c2 = alfPrep($compare);
 	if ($c2 gt $c1)
 	{
-	  print "$c1 vs $c2, $a vs $compare\n";
+	  print "$c1 vs $c2, $line vs $compare\n";
 	  chomp($c1);
 	  chomp($c2);
 	  $gameObjErr++;
 	  $locCount++;
 	  print "$linesToRet($gameObjErr): $c2 should be after $c1 ($curLoc, $locCount).\n";
 	}
-	$compare = $a;
+	$compare = $line;
   }
   $objSuc = $lines - $initLines - $gameObjErr;
   return $gameObjErr;
