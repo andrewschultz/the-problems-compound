@@ -2964,7 +2964,7 @@ carry out diging:
 		say "Doing that to a tension surface may release too much pressure. You're pretty good in science, so you worry about these things." instead;
 	if noun is poor dirt:
 		if dirt-dug is true:
-			say "'Enough, man[activation of enough man]!' says the Weasel, leaving you feeling not man enough." instead;
+			say "'Enough, man[activation of man enough]!' says the Weasel, leaving you feeling not man enough." instead;
 		say "'Ah, the art of work[activation of work of art]!' the Weasel says as you begin. It throws on a few more aphorisms about exercise and experience and advice that, well, motivate you not to take breaks. 'You've paid off your debt now.'";
 		now dirt-dug is true;
 		the rule succeeds;
@@ -3357,10 +3357,10 @@ turn of phrase	"A turn of phrase is clever wording. A phrase of turn is, well, w
 a u-turn	"A u-turn is when a car swivels in a huge circle to reverse direction. So if something tries to turn you, it bounces back."
 wait your turn	"This means not to do anything til someone else goes first. But in this case the game wants you to turn your wait into something else."
 wave a flag	"To wave a flag is to give up. To flag something is to note it as particularly productive or unproductive."
-acceptable	"Acceptable means good enough. Though sometimes it might not, if someone is just being diplomatic. Able, Except means you're pretty good but have big flaws. So both can feel like backhand compliments."
+acceptable	"Acceptable means good enough. Though sometimes it might not, if someone is just being diplomatic.  Able, Except means you're pretty good but have big flaws. So both can feel like backhand compliments." [start smart street stuff]
 beat off	"To beat off is to, well, pleasure oneself. People who are off-beat are often accused of this, among other things, in high school."
 Buster Ball	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure."
-Compound Problems	"Compound problems are problems that aren't simple or can't be dealt with simply, or that build together to leave someone totally overwhelmed." [begin smart street stuff]
+Compound Problems	"Compound problems are problems that aren't simple or can't be dealt with simply, or that build together to leave someone totally overwhelmed."
 a Games Mind	"Mind games are messing with people's mind with lies or half-truths. A games mind might be more inclined to abstract puzzles." [start of game]
 Games Confidence	"Confidence games are where someone gains someone else's trust to rip them off. It can be as simple as a shell game or as complex as an investment scheme. Of course, Alec has confidence with logic games but not much else."
 good egg	"A good egg is a nice person. To egg, or egg on, is to bait someone into doing something you want them to."
@@ -3369,10 +3369,10 @@ knockwurst	"Knockwurst is a kind of sausage."
 Animal Welfare	"Animal welfare is concern for animals who often can't help themselves. Welfare has a slightly perjorative definition in the US these days, e.g. people on welfare are lazy, or someone giving it is very generous indeed, more than they need to be." [start of variety garden]
 brush up	"To brush up is to refresh your memory of something."
 dirt nap	"Taking a dirt nap means dying."
+man enough	"Man enough means being able to stand up for yourself. Okay, it's a bit sexist, but people who say it mean to be annoying. 'Enough, man' just means stop it."
 poor taste	"Poor taste means potentially offensive or classless."
 sagebrush	"Sagebrush is another form of brush. It's often found in the desert."
 work of art	"A work of art is something nice and beautiful. The art of work is--well, the term can be abused to make work seem more exciting than it is."
-enough man	"Man enough means being able to stand up for yourself. Okay, it's a bit sexist, but people who say it mean to be annoying. 'Enough, man' just means stop it."
 nose picking	"Nose picking is -- not the best habit. A picking nose would be a discerning sense of smell." [start of tension surface]
 scum of earth	"Scum of earth is the worst possible person or close to it." [start of vision tunnel]
 apple pie order	"Apple-Pie Order means very well organized." [start of meal square stuff]
@@ -3425,8 +3425,8 @@ Rummy Gin	"Gin Rummy is a card game, generally not the sort associated with wild
 speakeasy	"A speakeasy is a place where illegal alcohol is served."
 Total T	"Teetotal means alcohol-free."
 Wine-U-Gen	"Genuine is, well, real and true. Both Ally Stout and his drinks are superficial, as wine is generally not made by machine."
-cargo cult	"A cargo cult is when islanders cut off from the first world use various instruments and devices to try to get planes filled with material goods to land."
-defrock	"To defrock is to remove someone's role as priest." [start of classic cult]
+cargo cult	"A cargo cult is when islanders cut off from the first world use various instruments and devices to try to get planes filled with material goods to land." [start of classic cult]
+defrock	"To defrock is to remove someone's role as priest."
 good herb	"The good herb is slang for marijuana."
 grace period	"A grace period is time given for someone to learn or understand something, or even to return a book late to the library."
 Fish for a Compliment	"To fish for a compliment is to try to manipulate someone into saying something nice." [start of disposed well]
@@ -3465,6 +3465,7 @@ Pepper	"Black pepper is the ground-up stuff. Green and bell peppers are not espe
 Plaintiff	"A plaintiff is the party bringing the charge in a court case."
 Pollyanna	"A Pollyanna is someone who is ridiculously optimistic."
 Polygamy	"Polygamy is having more than one mate."
+Ralph Lauren	"Ralph Lauren is a fashion designer."
 ring finger	"The ring finger is the one between the middle and the pinky."
 sausage fest	"A sausage fest is a congregation of males with no females."
 Sharp Barb	"A sharp barb is a stinging, clever insult."
@@ -3482,7 +3483,8 @@ age four	"Age four is, well, four years old. It is too young to forage." [start 
 baby boomer	"The Baby Boomers were the generation born just after World War II. Sometimes referred to as 'The Greatest Generation.'"
 brat army	"An army brat is the child of a military officer. They would be more likely to move than most children."
 labor of love	"A labor of love is something done for its own sake, not for worldly advancement."
-venturesome	"Venturesome means willing to go places." [start of temper keep]
+sound asleep	"Sound asleep means, well, hard to wake up." [start of temper keep]
+venturesome	"Venturesome means willing to go places."
 Cry Uncle	"To cry uncle is to surrender, to give up." [start of speaking plain]
 Dutch Act	"The Dutch Act is suicide[dutch-off]."
 Dutch Courage	"Dutch courage comes from alcoholic refreshment[dutch-off]."
@@ -3505,13 +3507,14 @@ philistine	"A philistine is someone who doesn't appreciate the arts."
 Play Dumb	"To play dumb is to pretend you don't know something you do, to avoid criticism or to catch someone off-guard. Of course, Phil and Art, after saying this, treat you like you're kind of dumb. Or you can't even ask the name of the play."
 Steal This Book	"Steal This Book was a countercultural guide by Abbie Hoffman. Book this steal refers to 'booking' suspects for a transgression, e.g. a parking fine or ticket."
 wax lyrical	"To wax lyrical is to talk endlessly and enthusiastically about something."
-brass ring	"To grab the brass ring is to achieve a dream goal. It refers to the brass ring on merry-go-rounds."
-brother foster	"A foster brother is a brother not related by birth." [start of questions field]
+world record	"A world record is the best or most someone's ever done something."
+brass ring	"To grab the brass ring is to achieve a dream goal. It refers to the brass ring on merry-go-rounds." [start of questions field]
+brother foster	"A foster brother is a brother not related by birth."
 Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
-bum a cigarette	"To bum a cigarette is to ask someone for one of theirs. 'A cigarette bum' indicates Penn's disdain for more legal smokables."
+bum a cigarette	"To bum a cigarette is to ask someone for one of theirs. 'A cigarette bum' indicates Penn's disdain for more legal smokables." [start of pot chamber]
 go to pot	"To go to pot is to fall apart due to lack of upkeep."
 pop pills	"To pop pills is to take them indiscriminately."
-weed out	"To weed out people is to create a test to show they are inadequate." [start of pot chamber]
+weed out	"To weed out people is to create a test to show they are inadequate."
 Terminal Illness	"A terminal illness is one which is bound to be fatal. Illness can also mean full of insults, e.g. very 'ill,' as kids these days say. And said, even in my day!" [start of belt below]
 Admiral Vice	"A vice-(anything) is a next-in-line/assistant to an honorary position, but vice is also a personal failing, big or small." [start of freak control]
 artemis fowl	"Artemis fowl is the intelligent, cocky hero of Eoin Colfer's seven-book series. He's everything the [bad-guy] thinks he is, and more."
@@ -3522,10 +3525,12 @@ Break Jail	"A jailbreak means getting out of jail. Though to break someone is to
 Break Monotony	"To break (the) monotony is to get a change from something boring."
 busy work	"Busy work is often given to someone just to keep them occupied."
 butter up	"To butter someone up is to flatter them."
+carry over	"To carry over is to do or be more than your initial impression."
 chowderhead	"A chowderhead is someone who makes silly mistakes."
 Crisis Energy	"An energy crisis is when a community doesn't have enough electrical power, or oil, or whatever."
 cruise control	"Cruise control is when you set a car to go at a certain speed. A person on cruise control is going through life and not trying anything new."
 Daily Show	"The Daily Show is a very popular comedy/political commentary show on Comedy Central."
+degenerate	"Degenerate means without moral values. D is short for defense."
 disorder	"Disorder means a mess, while an order is telling someone what to do and a dis is an insult. Basically, the [bad-guy] is saying, insulting people for being disorganized helps them get organized. Well, it never helped me."
 dual vision	"Dual vision is seeing two things at once, often due to a blow to the head or alcohol intoxication."
 evil eye	"The evil eye is staring at someone to make them uncomfortable."
@@ -3535,7 +3540,6 @@ fatigue duty	"Fatigue duty is the drudge work low-ranking members of the militar
 favor curry	"To curry favor is to try to get on someone's good side."
 fawn over	"To fawn over is to flatter someone."
 Freak Out	"To freak out is to make a much bigger emotional display than seems really necessary."
-degenerate	"Degenerate means without moral values. D is short for defense."
 grunt work	"Grunt work is unchallenging work."
 half right	"Half right is when you are, well, half right. Being half right is often worse than making a ridiculous statement, because it's more believable."
 Howard Dean	"Howard Dean was a candidate for the 2004 US Democratic Party nomination. After placing 3rd in the Iowa caucuses, he had an infamous 'Dean Scream' at a rally with supporters, which sounded worse than it was, because he was close to a microphone that picked it up. Which made him the butt of many jokes for a week. The media realised that everyone was yelling a week later, but the story was too ingrained by then.[paragraph break]DISCLAIMER: the author voted for Dean in the 2004 primary, and seeing/recalling this episode has unlocked how and why some other people acted the way they have over the years."
@@ -3550,6 +3554,7 @@ mistruth	"A mistruth is, well, a statement that's false."
 narcissist	"A narcissist is someone that puts their own needs too far ahead of others. This can mean hogging attention or shutting other people who rely on them out."
 off the record	"Off the Record means something said privately, often negative. Record the Off means to bring something wrong or different into the open."
 oscar wilde	"Oscar Wilde was a wit and playwright known for one-liners that poked fun at the human condition."
+paddywagon	"A paddywagon is a police car that carries arrested people."
 pharisee	"A pharisee is someone who gives the trappings of morality but is not."
 polygraph	"A polygraph is a lie detector. The [bad-guy] is probably looking for lies that aren't there."
 Power Trip	"A power trip is when someone is so overcome with their own power, they do mean things to show it off."
@@ -3577,7 +3582,7 @@ Comedy of Errors	"A comedy of errors is so much going wrong it's funny. Errors o
 face the music	"To face the music is to realize you've come up short."
 Nonsense No	"No-nonsense means, well, not taking any silliness."
 Spelling Disaster	"Disaster spelling is, well, consonants clumped together. Spelling disaster is leading to bad news."
-poke fun	"To poke fun is to make a joke, but poke can mean a lot of things--putter around, meddle, or maybe poke a friend to get their attention." [touch commands]
+poke fun	"To poke fun is to make a joke, but poke can mean a lot of things--putter around, meddle, or maybe poke a friend to get their attention." [start of touch commands]
 touch base	"To touch base is to get back to someone or return their call, especially if it's been a while. Versus a base touch, base being mean, so it's a bit more creepy."
 Advance Notice	"Advance notice is letting someone know ahead of time." [start of advancements]
 beaten track	"The beaten track is an experience most everyone's had. To track the beaten, in this case, is to figure who is diverging from 'proper' behavior, where."
@@ -3596,7 +3601,7 @@ Censorship	"Censorship is institutionalized shutting people up or repressing wha
 Courtship	"Courtship is when you start trying to get the attention of a potential romantic partner."
 Scholarship	"A scholarship is a money grant given towards education. The Ship Scholar, contrarily, says nothing is free."
 road pizza	"Road pizza is poor helpless animals that have been hit by traffic." [start of director's cut locations]
-Complain Cant	"Cant means a tendency towards something, so someone with a complain cant would only say 'can't complain' very ironically." [eternal concepts]
+Complain Cant	"Cant means a tendency towards something, so someone with a complain cant would only say 'can't complain' very ironically." [start eternal concepts]
 Much Flatter	"If your world is much flatter, it isn't very exciting. But to flatter much is to over-compliment people, which makes things [i]seem[r] exciting for a bit."
 People Power	"People power was a rallying cry in demonstrations against the authoritarianism of, well, power people."
 Received Wisdom	"Received wisdom is generally accepted knowledge which is often not true, such as how we only use 10% of our brain. Gustave Flaubert wrote a fun book called The Dictionary of Received Wisdom that makes fun of many such examples. For instance, a hamlet is always charming."
@@ -4738,7 +4743,6 @@ to send-bros:
 to move-puzzlies:
 	if in-beta is true:
 		say "DEBUG NOTE: if you see someone or something astray, let me know.";
-	move Volatile Sal to lalaland;
 	now sal-sleepy is true;
 	move Lee Bull to lalaland;
 	move Sid Lew to lalaland;
@@ -7453,6 +7457,7 @@ girl-neg
 "The [j-co] harbor fantasies of [activation of mollycoddling]coddling, err, cuddling Molly, who is maybe not as wild as they pretend she is."
 "The [j-co] despair that [activation of nose candy]Candi knows too little about how to party."
 "The [j-co] argue that [activation of olive]Olive Black or Olive Green being more desirable is NOT a matter of taste."
+"The [j-co] agree [activation of Ralph Lauren]Lauren Ralph would actually be really attractive with any fashion sense at all."
 "The [j-co] agree that both [activation of pepper]Pepper Black, Pepper Bell [i]and[r] Pepper Green are hotter than Pepper Serrano."
 "'[activation of plaintiff]Tiff? Plain,' [random client in nominal fen] quips. The others agree, citing various elements of her personality."
 "The [j-co] recount [activation of pollyanna]Anna Pauley's greatest hits making fun of overoptimism. She always comes through!"
@@ -9099,7 +9104,7 @@ check opening sound safe:
 		say "[one of]Uncle Dutch and Turk Young look momentarily shaken up! But they soon talk over the Sound Safe, congratulating each other on not getting rattled by it, unlike less practical types[or]It won't work better this time. Dutch and Turk are too goal-oriented for the safe to bother them[stopping]." instead;
 	if player is not in Discussion Block:
 		say "You crack it open, but it makes such a terrible noise you have to close it again. You wouldn't want to open it again unless you were around someone you really wanted to spite[if player does not have safe], and thing is, it felt a lot lighter than you thought it would as you opened it[end if]." instead;
-	say "The Sound Safe makes a brutal noise in the Discussion Block, made worse by the special acoustics. Harmonic Phil covers his ears. 'I can't even be clever about how this is so bad it's good!' he yells, running off. '[safety-of]!'[paragraph break]You put the safe down by the song torch.";
+	say "The Sound Safe makes a brutal noise in the Discussion Block, made worse by the special acoustics. Harmonic Phil covers his ears. 'Not even [activation of world record]Record World would sell dreck like this! I can't even be clever about how this is so bad it's good!' he yells, running off. '[safety-of]!'[paragraph break]You put the safe down by the song torch.";
 	now sound safe is in Discussion Block;
 	now harmonic phil is in lalaland;
 	say "[line break][if art fine is in Discussion Block]Art Fine chuckles and nods approval. 'That's what you get for dabbling in art that's not intellectually robust.' Wow. Even before a line like that, you figured Art Fine had to go, too.[else]Well, that's Phil AND Art gone.[end if]";
@@ -10370,7 +10375,7 @@ check inserting it into (this is the put it in vent rule):
 		if noun is poory pot:
 			now poory pot is in lalaland;
 			now sal-sleepy is true;
-			say "As you stuff the thin roll into the vent, it tumbles down to what you can only assume is an incinerator or air flow or something in Temper Keep's foundation you'd be better off not touching in normal circumstances.[paragraph break]The 'aromatics' of the poory pot seep into the air in Temper Keep. 'Is it just me, or is it not stinky in here? Yes! Yes! It is probably some combination of both!' You stand well out of the way as Sal continues to babble, his pseudo-philosophy becoming ever more pseudo- before...clonk. He's out.";
+			say "As you stuff the thin roll into the vent, it tumbles down to what you can only assume is an incinerator or air flow or something in Temper Keep's foundation you'd be better off not touching in normal circumstances.[paragraph break]The 'aromatics' of the poory pot seep into the air in Temper Keep. 'Is it just me, or is it not stinky in here? Yes! Yes! It is probably some combination of both!' You stand well out of the way as Sal continues to babble, his pseudo-philosophy becoming ever more pseudo- before...clonk. An [activation of sound asleep]asleep sound. You wait a minute to make sure. Yup, he's out.";
 			increment the score;
 			annotize pusher penn;
 			set the pronoun it to spleen vent;
@@ -10487,7 +10492,9 @@ gad-act
 "'Think you're clever? Foul miss, Artie[activation of Artemis Fowl],' the [bad-guy] chides."
 "'Geez, it's a pain to [activation of benefactor]factor BENNY. I'm not, like, MEAN to him.'"
 "'[activation of busy work]Work...busy...work...busy,' says the [bad-guy], pacing back and forth."
+"The [bad-guy] mentions he is [activation of carry over]over Carrie several times."
 "The [bad-guy] mutters plans about the monthly [activation of cruise control]Control Cruise coming up, a nice support group for people almost tired of being in power."
+"The [bad-guy] groans how [activation of John Stewart]Stewart Jahn and [activation of trevor noah]Noah Trevor [activation of daily show]show daily how unfunny and irrelevant and socially aloof they are."
 "'We need to [activation of degenerate]generate D, here, against [bad-guy-2]!'"
 "'[random surveyable person] just needs a good [activation of disorder]Order Dis to put [']em line. Or two. Or three.'"
 "'[activation of evil eye]I?!? Evil?!?' booms the [bad-guy], before looking askance at the [random scenery in freak control]."
@@ -10497,7 +10504,6 @@ gad-act
 "The [bad-guy] mutters he's sure [activation of Howard Dean]Dean Howard is nice and well-meaning all, but that scream. Really. Just...unforgiveable. And even if it were, well, he probably still deserves to be REMINDED. For character building purposes."
 "'[activation of infomania]Mania Info. Always good to have more. Well, until I get bored of it.'"
 "'[activation of informally]Ally, Inform!' the [bad-guy] says to nobody in particular."
-"The [bad-guy] groans how [activation of John Stewart]Stewart Jahn and [activation of trevor noah]Noah Trevor [activation of daily show]show daily how unfunny and irrelevant and socially aloof they are."
 "The [bad-guy] congratulates himself for installing the super-sanitary doctor-recommended [activation of johns hopkins]Hopkins johns."
 "The [bad-guy] mutters he'd get six girls before [activation of King Henry]Henry King got one."
 "'But does [random surveyable person] have any GOOD ways to [activation of leading question]question leading like mine?'"
@@ -10505,6 +10511,7 @@ gad-act
 "'Y'know, I have all these machines. People want too much credit for an [activation of narcissist]assist-narc these days.'"
 "'Record the off. Always, [activation of off the record]record the off!'"
 "'[activation of Oscar Wilde]Wild Oscar? Pff, so full of vapid one-liners.'"
+"The [bad-guy] mumbles about how [activation of paddywagon]Waggin['] Patty is a good snitch. Um, observer."
 "'[activation of pharisee]See, Farrah,' the [bad-guy] mutters to no girl in particular."
 "'Yeah, if we [activation of polygraph]graph Polly, she's lying without lying.'"
 "The [bad-guy] reminds himself how to [activation of psychoanalyst]list Anna: psycho, even if there's not enough data/proof yet."
@@ -10517,11 +10524,11 @@ gad-act
 
 table of bad guy worries (continued) [divided so activations are always alphabetical] [xxbgw]
 gad-act
-"The [bad-guy] laughs sardonically at [odd-machine-l of frenzy feed]. 'Hah, gonna love complaining about that with [random baiter-aligned person].'"
-"The [bad-guy] gestures at [odd-machine-l of Incident Miner]. '[one of]Yup. It's always when they're being a little too nice, you gotta watch out[or]Some people never learn. Or they just learn wrong[or]Just because that wasn't clever doesn't mean it wasn't sneaky[or]They say THAT's no big deal, I say my snark's no big deal, they still feel ripped off. Sheesh[at random].'"
 "[odd-machine of shot screen] blinks a bit before changing its focus."
 "[odd-machine of Twister Brain] spits out a page of data the [bad-guy] speed reads. He mutters 'Pfft. I already sort of knew that. Mostly. Still, need to keep an eye on [the random surveyable person].'"
 "[odd-machine of Witness Eye] swivels around with a VVSSHHKK before changing the focus to [random mainchunk room]."
+"The [bad-guy] laughs sardonically at [odd-machine-l of frenzy feed]. 'Hah, gonna love complaining about that with [random baiter-aligned person].'"
+"The [bad-guy] gestures at [odd-machine-l of Incident Miner]. '[one of]Yup. It's always when they're being a little too nice, you gotta watch out[or]Some people never learn. Or they just learn wrong[or]Just because that wasn't clever doesn't mean it wasn't sneaky[or]They say THAT's no big deal, I say my snark's no big deal, they still feel ripped off. Sheesh[at random].'"
 "The Language Sign flashes but you don't think it changed its message. Just reinforced it."
 
 the Twister Brain is scenery in Freak Control. "The way it's creased, it's just a contemptuous smirk. Or maybe you're just seeing things."
@@ -12076,13 +12083,13 @@ brush up is a concept in conceptville. understand "up brush" as brush up. howto 
 
 dirt nap is a concept in conceptville. understand "nap dirt" as dirt nap. howto is "leave the garden without digging, or sleep when you have the pick".
 
+man enough is a concept in conceptville. understand "enough man" as man enough. howto is "dig twice with the pick in Variety Garden".
+
 poor taste is a concept in conceptville. understand "taste poor" as poor taste. howto is "try to eat the poor dirt."
 
 sagebrush is a concept in conceptville. Understand "brush sage" and "sage brush" as sagebrush. howto is "examine all three types of brush in Variety Garden and try going up too".
 
 work of art is a concept in conceptville. understand "art of work" as work of art. howto is "dig once with the pick in Variety Garden".
-
-enough man is a concept in conceptville. understand "man enough" as enough man. howto is "dig twice with the pick in Variety Garden".
 
 section tension surface concepts
 
@@ -12303,6 +12310,8 @@ Pollyanna is a concept in conceptville. Understand "anna pauley" and "pauley ann
 
 Polygamy is a concept in conceptville. Understand "gamy polly" and "polly gamy" as polygamy. howto is "[j-girl]".
 
+Ralph Lauren is a concept in conceptville. Understand "lauren ralph" as ralph lauren. howto is "[j-girl]".
+
 ring finger is a concept in conceptville. Understand "finger ring" as ring finger. howto is "talk to the jerks before knowing their names, with swears on".
 
 sausage fest is a concept in conceptville. Understand "fest sausage" as sausage fest. howto is "[solve-j] with swears on".
@@ -12349,6 +12358,8 @@ Brat Army is a concept in conceptville. Understand "army brat" as brat army. how
 Labor of Love is a concept in conceptville. Understand "love of labor" as labor of love. howto is "enter the Scheme Pyramid".
 
 section temper keep concepts
+
+sound asleep is a concept in conceptville. Understand "asleep sound" as sound asleep. howto is "put the pot in the vent".
 
 venturesome is a concept in conceptville. understand "you're/youre some vent" and "some vent" as venturesome. howto is "enter the spleen vent".
 
@@ -12408,6 +12419,8 @@ Steal This Book is a concept in conceptville. understand "book this steal" as St
 
 wax lyrical is a concept in conceptville. Understand "lyrical wax" as wax lyrical. howto is "sing while holding the poetic wax".
 
+world record is a concept in conceptville. Understand "record world" as world record. howto is "get rid of Phil".
+
 section questions field concepts
 
 brass ring is a concept in conceptville. Understand "ring brass" as brass ring. howto is "drink the Quiz Pop".
@@ -12459,6 +12472,8 @@ busy work is a concept in conceptville. Understand "work busy" as busy work. how
 
 butter up is a concept in conceptville. Understand "up butter" as butter up. howto is "[fr-pb]".
 
+carry over is a concept in conceptville. Understand "over carry" as carry over. howto is "[fr-ran]".
+
 chowderhead is a concept in conceptville. Understand "chowder head" and "head chowder" as chowderhead. howto is "[fr-pb]".
 
 Crisis Energy is a concept in conceptville. understand "energy crisis" as Crisis Energy. howto is "get the [bad-guy]'s attention".
@@ -12466,6 +12481,8 @@ Crisis Energy is a concept in conceptville. understand "energy crisis" as Crisis
 Cruise Control is a concept in conceptville. Understand "control cruise" as cruise control. howto is "[fr-ran]".
 
 Daily Show is a concept in conceptville. Understand "daily show" as daily show. howto is "[fr-ran]".
+
+degenerate is a concept in conceptville. Understand "d generate" and "generate d" as degenerate. howto is "[fr-ran]".
 
 disorder is a concept in conceptville. understand "order dis" and "dis order" as disorder. howto is "[fr-ran]".
 
@@ -12484,8 +12501,6 @@ favor curry is a concept in conceptville. understand "curry favor" as favor curr
 fawn over is a concept in conceptville. understand "over fawn" as fawn over. howto is "[fr-ran]".
 
 Freak Out is a concept in conceptville. understand "out freak" as freak out. howto is "read the Language sign".
-
-degenerate is a concept in conceptville. Understand "d generate" and "generate d" as degenerate. howto is "[fr-ran]".
 
 grunt work is a concept in conceptville. Understand "work grunt" as grunt work. howto is "listen in Freak Control".
 
@@ -12514,6 +12529,8 @@ narcissist is a concept in conceptville. Understand "narcissist" as narcissist. 
 Off the Record is a concept in conceptville. Understand "record the off" as off the record. howto is "[fr-ran]".
 
 oscar wilde is a concept in conceptville. Understand "wilde/wild oscar" and "oscar wild" as oscar wilde. howto is "[fr-ran]".
+
+paddywagon is a concept in conceptville. Understand "paddywagon" as paddywagon. howto is "[fill-in-here]".
 
 pharisee is a concept in conceptville. understand "see farrah" and "farrah see" as pharisee. howto is "[fr-ran]".
 
