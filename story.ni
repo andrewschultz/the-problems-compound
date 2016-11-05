@@ -32,7 +32,7 @@ use MAX_SYMBOLS of 24000.
 
 use MAX_STATIC_DATA of 200000.
 
-use MAX_PROP_TABLE_SIZE of 210000.
+use MAX_PROP_TABLE_SIZE of 230000.
 
 book includes
 
@@ -2148,6 +2148,9 @@ check attacking:
 		ship-off Punishment Capitol instead;
 	if noun is list bucket:
 		say "You didn't come so far only to -- wait for it -- kick the bucket. Surely there's a better way to get the [bad-guy]'s attention." instead;
+	if noun is Young Turk or noun is Uncle Dutch:
+		say "'[activation of hate speech]SPEECH HATE! SPEECH HATE!' Turk and Dutch cry in unison. You're no match for both of them, or the Stool Toad, who appears in short order. 'There's not much worse than speech hate, son. Even if it's not very effective. Looking at you, I had a bad feeling you might be full of it.' The Toad blathers on about how he really just hates your actions and not you, and it's almost a relief when you're dumped off...";
+		ship-off Punishment Capitol instead;
 	if noun is a person:
 		if noun is female:
 			say "Attacking people unprovoked is uncool, but attacking females is doubly uncool. You may not feel big and strong, but with that recent growth spurt, you're bigger than you used to be. The Stool Toad's quick on the scene, and while his knight-in-shining-armor act goes way overboard, to the point [noun] says that's enough--well, that doesn't change what you did.";
@@ -2193,7 +2196,7 @@ table of ending-places
 room-loc	room-fun
 Fight Fair	"The fellow in charge, the [activation of boss fight]Fight Boss, places you against someone slightly stronger, quicker, and savvier than you. He beats you up rather easily, assuring you that just because you're smart doesn't mean you needed to lack any physical prowess. Your opponent then goes to face someone stronger than him.[paragraph break]Everyone quietly nurses his [activation of sore loser]loser sore at night before repeating the next day. And the next."
 Maintenance High	"You're given the lecture about how attempts to rehabilitate you cost society even if they work out pretty quickly. Did I say the lecture? I meant, many different lectures, dedicated to helping you (or others) one day becoming a [activation of self sufficient]sufficient self. Which are equally painful whether they're familiar or unfamiliar. Those who fall asleep get an extra dose. Those who stay awake are berated for not following through."
-Criminals' Harbor	"You're given the lecture about how you'll be performing drudgework until your attempts at obvious crime are sucked out of you. Your overseer and his prison-enforcers (the [activation of gangplank]Plank Gang, because of their weapons) keep babbling about how it's equally bad if you get sick of his lectures or used to them. You're going down a bad road, etc., so forth."
+Criminals' Harbor	"You're given the lecture about how you'll be performing drudgework until your attempts at obvious crime are sucked out of you and you gain enough [activation of hate crime]crime hate to be useful to society. Your overseer and his prison-enforcers (the [activation of gangplank]Plank Gang, because of their weapons) keep babbling about how it's equally bad if you get sick of his lectures or used to them. You're going down a bad road, etc., so forth."
 Punishment Capitol	"You're given the lecture about how just because you did something really majorly wrong doesn't mean you're a big thinker. In fact you're perfect trainees for the [activation of prisoners of war]War of Prisoners, which nobody explains to you what it's about. Then you're told to sit and think deeply about that for a good long while."
 Hut Ten	"The basic training isn't too bad. You seem to do everything right, except for the stuff you do wrong, and the [activation of corporal punishment]Punishment Corporal gets on your case for that. There's so much to do, and you only make mistakes 5% of the time, maybe, but boy do the people who get it right come down hard on you when you miss. You do the same to others, but it's DIFFERENT when you do. No, really."
 A Beer Pound	"The admissions officer gives you a worksheet to fill out about how and why you can't hold your liquor."
@@ -2290,10 +2293,11 @@ check giving smokable to: [poory pot or wacker weed]
 		say "[if noun is weed]'Nope. No reneging.'[else]'Nonsense. That's your pay.'[end if]" instead;
 	if second noun is Fritz the On:
 		if noun is poory pot:
-			say "'Whoah! That stuff is too crazy for me,' mutters Fritz." instead;
-		say "You look every which way for the Stool Toad, then put your finger to your lips as you hand Fritz the packet. He's surprisingly quick converting it to something smokable and hands you a coin back--a dreadful penny. Proper payment for the cheap stuff. 'Dude! Once I find my lighter I totally won't hog off the high[activation of hoth] from you. Can't wait for my [activation of puff piece]peace puff...nothing beats it for feeling good!' You're not sure you want a [activation of joint role]joint role, but Fritz's gratitude seems genuine as he quickly manufactures one.";
+			say "'Whoah! That stuff doesn't do it for me any more,' mutters Fritz." instead;
+		say "You look every which way for the Stool Toad, then put your finger to your lips as you hand Fritz the packet. He's surprisingly quick converting it to something smokable and hands you a coin back--a dreadful penny. Proper payment for the cheap stuff. 'Dude! Once I find my lighter I totally won't hog off the high[activation of hoth] from you. Can't wait for my [activation of puff piece]peace puff...nothing beats it for feeling good!' You're not sure you want a [activation of joint role]joint role, but Fritz's gratitude seems genuine. 'I'd give you [activation of drag along]a long drag if i could light it...' After searching himself for a source of flame, Fritz mumbles an apology and runs off.";
 		increment the score;
 		now wacker weed is in lalaland;
+		now fritz is in lalaland;
 		it-take dreadful penny;
 		the rule succeeds;
 
@@ -3312,7 +3316,7 @@ Song Torch	"A Torch Song is about looking back on a love you can't quite let go 
 Poory Pot	"Potpourri, which smells good. Of course, I've read about pipe and cigar snobs who babble on about aromas and such, and apparently there are marijuana snobs too in this progressive time! Perhaps there always were."	"I'm aware of the mispronunciation, but when I was a kid, that's how I mispronounced it, too." [start of pot chamber]
 Pusher Penn	"A pen pusher is someone working at a boring job."	"We don't know Penn's first name. It could be Mark Penn, but that name was a bit too famous--pollster for Hillary Clinton. I think he's shadowy enough, as drug dealers can be, that no first name is appropriate."
 wacker weed	"A weed whacker is the slang for a gardening tool to cut weeds."	"I like the thought of poor Fritz reduced to buying generics, though I suspect he doesn't have a sophisticated palate. It took a while before I accepted that I was going to put drugs in my game, but the more I've learned of the War on Drugs, the more I've seen it's not really about health--and the dealers often aren't really concerned much with clients['] rights or safety."
-Language Machine	"Machine Language is very low-level, unreadable (without training) code of bits. No English or anything."	"Some people objected to the machube as being about parser vs. choice, but I tried largely to stay away from that. I just liked the image of making a machine happy. And in general I feel it's better to find what sort of game you can write that hasn't been written yet, instead of worrying what art can or should be. I hoped the general silliness would make this clear, but in release 2 I tried to touch things up to avoid misunderstandings." [start of standard bog]
+Language Machine	"Machine Language is very low-level, unreadable (without training) code of bits. No English or anything."	"Some people objected to the machine as being about parser versus choice, but I tried largely to stay away from that. I just liked the image of making a machine happy. And in general I feel it's better to find what sort of game you can write that hasn't been written yet, instead of worrying what art can or should be. I hoped the general silliness would make this clear, but in release 2 I tried to touch things up to avoid misunderstandings." [start of standard bog]
 Trick Hat	"A hat trick, in hockey or soccer, is scoring three times."	"This was originally just lying around, then you wore it to do something--but I wanted Alec not to have to rely on any tricks to beat the [bad-guy]."
 Brother Big	"Big Brother is the character from Orwell's 1984."	-- [start of questions field]
 Brother Blood	"A blood brother is someone related by blood or who has sworn an oath of loyalty to someone else."	--
@@ -3397,6 +3401,7 @@ Boy Howdy	"Boy Howdy is a colloquial expression of surprise." [start of pressure
 fish out of water	"A fish out of water is someone or something out of place."
 Bum Beach	"A beach bum is someone who wanders on the beach. Maybe he lives there in a shack too." [start of down ground]
 clip joint	"A clip joint is a place that overcharges customers. A joint clip will help Fritz save on purchases so none is wasted."
+drag along	"To drag someone along is to take them with despite their reluctance."
 Dream Ticket	"A pair of candidates who, running together, have extremely broad appeal they wouldn't have alone. In Alec's dreams, he's often ganged up on by two people or groups who triangulate him rather differently."
 Grammar Police	"Grammar police are people who argue trivial grammar points when something is clear, or there's a much bigger cogent argument. In the Stool Toad's case, he deliberately uses bad grammar for emphasis, like on a 'hard-boiled' cop show."
 high and dry	"High and dry means in a good safe position."
@@ -3406,6 +3411,7 @@ joint role	"A joint role is something done together. Rolling a joint is the act 
 puff piece	"A puff piece is a fawning newspaper article that makes someone out to be better than they really are. A peace puff from smoking marijuana is (we can assume) less socially motivated."
 sleeper cell	"A group of people who blen into a community until they can commit an act of terrorism."
 bullfrog	"A bullfrog is not quite a toad. And bull means nonsense. The Stool Toad is probably in no danger of being mistaken for Frog or Toad from Arnold Lobel's nice books." [start of joint strip]
+case a joint	"To case a joint is to search a place thoroughly."
 Double Jeopardy	"Double jeopardy is being tried for the same crime twice. Making your jeopardy double is just putting you at twice the risk."
 Moral Support	"Moral support is helping someone even if you don't have concrete advice. SUPPORT MORAL is, well, a slogan that pushes people around."
 Pigeon English	"Pigeon English is broken, grammatically poor English."
@@ -3491,6 +3497,7 @@ Dutch Courage	"Dutch courage comes from alcoholic refreshment[dutch-off]."
 Dutch Reckoning	"Dutch Reckoning is a bill that's too high[dutch-off]."
 Dutch Treat	"A Dutch treat is where everyone pays his own way[dutch-off]."
 fearlessness	"Fearlessness means scared of nothing. Lessness fear is being scared of becoming less."
+hate speech	"Hate speech is talk disparaging someone based on gender, ethnicity, religion or sexual orientation."
 Show Business	"Show business is the act of entertainment, and the business show's is (purportedly) more practical."
 show off	"To show off is to brag about yourself, and the implication is an 'off' show (not as good as it should be) is bad without that."
 Stand the Pace	"If you can't stand the pace, it's too fast for you. Turk and Dutch pace the stand because they need a break."
@@ -3521,6 +3528,7 @@ artemis fowl	"Artemis fowl is the intelligent, cocky hero of Eoin Colfer's seven
 beholder of the eye	"'Beauty is in the eye of the beholder' is a cliche meaning we see the nice things we want. Here Alec is worried he's seeing oppresion that gives him an excuse to fear."
 benefactor	"A benefactor is someone who provides support, emotional or financial."
 Beyond Belief	"Beyond belief means something you can't possibly believe in, but belief beyond means more faith than you thought you could have."
+breadwinner	"A breadwinner is the member of the family who makes all or most of the money."
 Break Jail	"A jailbreak means getting out of jail. Though to break someone is to destroy their spirit."
 Break Monotony	"To break (the) monotony is to get a change from something boring."
 busy work	"Busy work is often given to someone just to keep them occupied."
@@ -3591,6 +3599,7 @@ Hard Knock	"A hard knock is physical wear and tear, or being hit hard, versus ju
 passing fancy	"A passing fancy is something that distracts you and is fun for a bit but you forget about it. To fancy passing means to want to go quickly, or fancy passing may just be something in sports."
 Sitting Duck	"A sitting duck is someone just waiting to be taking advantage of. But if you duck sitting, you aren't waiting."
 gangplank	"A gangplank leads out of a boat and into the sea. So it is a method of killing prisoners no longer useful." [start of criminals' harbor]
+hate crime	"Hate crime is an illegal act directed specifically against victims based on gender, sexual orientation, race or religion."
 Boss Fight	"A boss fight is a confrontation with an important adversary in a more traditional game, while the Fight Boss has you do stuff worse than level grinding." [start of fight fair]
 Sore Loser	"A sore loser is someone who is not gracious enough to admit defeat. A loser sore is often what you get when you lose a fight, especially one someone else started."
 corporal punishment	"Corporal punishment is any form of bodily physical punishment." [start of hut ten]
@@ -4326,7 +4335,7 @@ anno-num	exam-thing	anno-loc	anno-long (text)
 0	--	Judgment Pass	"This seemed as good a generic place-you-need-a-puzzle-to-get-by as any. Especially since I wanted solutions to focus around outsmarting instead of violence or pushing someone out of the way. I just needed someone officious to be blocking you, and that was Officer Petty." [east-ish]
 0	--	Idiot Village	"Of course, the people here aren't total idiots, even if they are very silly. But I liked the idea of turning 'village idiot' on its head, as well as having a caste of 'outs' who maybe weren't stupid but let themselves be treated that way."
 0	--	Service Community	"I liked the idea of an underclass that needs to rebel, and Idiot Village was good enough for getting the game out there. But then while playing Kingdom of Loathing, which has 'inspired' a lot of my 'jokes,' the Community Service challenge path's name kept pinging me. About the hundredth time, I smacked my head and said, oh, of course."
-0	--	Speaking Plain	"The people here do go in for plain speaking, but that doesn't mean it's good speaking. In general, Alec is assaulted by a bunch of people who want to convince him they're wasting their time speaking to him than the other way around. They act like advertisements, to me. I no longer feel as trapped as I used to between people bossing you around with plain speech vs. people bossing you around with lofty speech, but I remember it being very painful." [north-ish]
+0	--	Speaking Plain	"The people here do go in for plain speaking, but that doesn't mean it's good speaking. In general, Alec is assaulted by a bunch of people who want to convince him they're wasting their time speaking to him than the other way around. They act like advertisements, to me. I no longer feel as trapped as I used to between people bossing you around with plain speech versus people bossing you around with lofty speech, but I remember it being very painful." [north-ish]
 0	--	Temper Keep	"Temper Keep is one of those ideas that came relatively late, but once it did, I had a few adjectives and verbs that tipped me off to a quick puzzle that should be in there."
 0	--	Questions Field	"This was originally the Way of Right, which was sort of close to Freak Control, but then close to release I was searching for other names and this popped up. I liked it better--the three Brothers are asking questions, first of you and then of why they're there and how they could leave--and it seemed less generic. And of course they're hearing questions--loaded ones. So it stayed."
 0	--	Court of Contempt	"As someone intimidated and confused by all the yelling that went on in law-firm shows when I was younger, and as someone who thought I never could, any sort of court always seemed fearful to me. What would I be doing there? I was shocked when I got my first parking ticket and went in to protest that it was relatively quiet and orderly. (I got it overturned.) But the memory of younger fears still remains, funnier now."
@@ -4381,7 +4390,7 @@ anno-num	exam-thing	anno-loc	anno-long (text)
 0	--	A Beer Pound	"I think there's a chance to be moralistic about alcohol no matter how much you drink. Maybe you are sure you need it after a hard day's work, or people never should've started. I've seen my share of people cutting down others who don't know their limits, including former employees upset with a junior employee they took out drinking and he found it hard to control. It's sad and unfortunate, and I've had my fair share of awkward explanations that, well, I'd be a fool to risk drinking."
 0	--	Shape Ship	"If you've ever read any novels about rough life on a ship, well, this is just a gimme."
 0	--	Criminals' Harbor	"This could have been lumped with Shape Ship, but I liked them both too much."
-0	--	Maintenance High	"One irony I've found about avoiding being high maintenance is that I've often forgotten to do simple things to keep things going. Most of the time that's paying a bill or putting off an eye doctor appointment. But more seriously, it's tough for me to evaluate high maintenance vs. high standards."
+0	--	Maintenance High	"One irony I've found about avoiding being high maintenance is that I've often forgotten to do simple things to keep things going. Most of the time that's paying a bill or putting off an eye doctor appointment. But more seriously, it's tough for me to evaluate high maintenance versus high standards."
 0	--	Fight Fair	"Of course, there's not a single fair fight here."
 0	--	Punishment Capitol	"I'm opposed to capital punishment. And I think the [bad-guy] is, too, though he does like to retaliate more vigorously than any (perceived) attack on him. I needed a place for the big crimes, and here it is. It's the place for the worst crimes, like attacking the [bad-guy]. Obviously, it had to be."
 0	--	Camp Concentration	"Ever think of something and feel guilty about it after? Yup."
@@ -4567,7 +4576,7 @@ definition: a logic-game (called j) is defeated:
 
 table of quip texts (continued)
 quip	quiptext
-guy-games	"'They're for people who don't like regular fun social games. Sort of like IQ tests. You look like you'd enjoy them more than most. No offense. Hey, I'm saying you have [g-c].'"
+guy-games	"'They're for people who don't like re	gular fun social games. Sort of like IQ tests. You look like you'd enjoy them more than most. No offense. Hey, I'm saying you have [g-c].'"
 guy-stuck	"'Well, yeah, I used to be kind of a dork. And by kind of a dork I mean really a dork. Probably even worse than you. Hey, I'm showing some serious humility here. I mean, starting at the bottom, as a greeter, until I'm an interesting enough person to join the Problems Compound.'"
 guy-advice	"'Hm, well, if I give you too much advice, you won't enjoy solving them. And if I don't give you enough, you'll be kind of mad at me. So I'm doing you a favor, saying just go ahead and PLAY.'"
 guy-flat	"'Well, that way is the Problems Compound. If you can figure out some basic stuff, you'll make it to Pressure Pier. Then--oh, the people you'll meet!'"
@@ -4757,6 +4766,7 @@ to move-puzzlies:
 	move cold contract to lalaland;
 	move trade of tricks to lalaland;
 	move wacker weed to lalaland;
+	move Fritz the On to lalaland;
 	move Terry Sally to lalaland;
 	move trail paper to lalaland;
 	move boo tickety to lalaland;
@@ -5788,7 +5798,7 @@ to say talk-back:
 	if mush-go is not talked-thru:
 		say "[paragraph break][if mush-go is not talked-thru]Hmm. Maybe you can talk to it, back.[no line break][end if]"
 
-litany of mouth mush is the table of arch talk
+litany of mouth mush is the table of arch talk.
 
 table of quip texts (continued)
 quip	quiptext
@@ -6136,6 +6146,7 @@ looknum	reflection
 table of Bible references
 reference-blurb
 "Explain to someone you're only attacking their behavior, but if they're too attached to that, maybe they need to change more than they think they did."
+"Deliberately misunderstand someone who talks weakly. Give them a fake smile. Well, they'll need to learn to deal with that sort of thing SOME time!"
 "Misunderstand someone blatantly to see if they react excitingly enough. If so, you may have a new associate!"
 "Use 'fair enough' frequently to cool off someone who actually may have a point."
 "Complain about something you can't say these days, but don't let your audience cut in too much."
@@ -6202,9 +6213,9 @@ check talking to Terry Sally:
 	if trail paper is in lalaland:
 		say "'You don't need anyone to greet you any more. [if Nominal Fen is unvisited]Go on! See what's north[else]You've already visited what's beyond[end if][if meal square is not visited]. Oh, and check out to the west, too[end if].'" instead;
 
-the litany of Terry Sally is table of Terry Sally talks.
+the litany of Terry Sally is table of Terry Sally talk.
 
-table of ts - Terry Sally talks
+table of ts - Terry Sally talk
 prompt	response	enabled	permit
 "So, um. Hi. I mean Howdy. Or heya."	terry-howdy	1	1
 "Boy howdy! This sure is an interesting place!"	terry-boy	0	0
@@ -6550,7 +6561,7 @@ speaking plain	0	"Oh geez. You can't take this. You really can't. All this obvio
 questions field	3	"Well, of COURSE the Brothers didn't leave a thank-you note. Ungrateful chumps. Next time you help someone, you'll demand a deposit of flattery up front, that's for sure."	"You expected no thanks, but you didn't expect to feel bad about getting no thanks. Hmph. Lesson learned!"	"'You had some wisdom to foist on the Brothers, but if they'd REALLY done their job, they'd have stayed. The heck with them! If they couldn't soak up knowledge from BEING around the [bg], they're hopeless."	"Well! You did something for the brothers, but just in case, you want to make sure the [bad-guy] isn't upset with you for stealing his employees away. You never thought of that before. Maybe if he's mad, you can make it up to him."
 questions field	4	"'Kinda jealous of your brothers, eh? Not jealous enough to DO anything about it.' The brother[plur-s] nod[sing-s] at your sterling logic. 'You gonna waste your whole life here? I can't help everyone. I'm not a charity, you know.' More hard hitting truth! Ba-bam!'[wfk]'Go on, now! Go! What's that? I'm even bossier than the [bad-guy]? Excellent! If I can change, so can you! And the guy bossier than the [bad-guy] is ORDERING you to do something useful with your life!'[paragraph break]They follow your orders. You remember being bossed around by someone dumber than you--and now you turned the tables! Pasta fazoo!"	"'Still guarding Freak Control, eh? Well, I think you'll see you don't need to guard it from ME any more. Take the day off! C'mon, you want to. Hey, [bg] might be mad if you don't.' You're surprised he DOES run off."	"'Hey! Sorry to separate you from the rest of your family. But--well, mind if I go by? I mean, if you let someone in who just wants to help, maybe you'll, like, get rewarded.' The [if bros-left is 1]remaining brother shrugs and leaves[else]two reamining brothers look at each other, shrug, say 'He DID say...' and walk off[end if]. Man! You just had to ask nicely!"
 questions field	5	"[qfifvis] brothers guard the way north. '[qfjs] standing around, eh? Nothing to do? Well, I've been out, y'know, DOING stuff. You might try it. Go along. Go. You wanna block me from seeing the [bad-guy]? I'll remember it once he's out of my way.' You're convincing enough, they rush along."	"You've done your share of standing around, but you're pretty sure you did a bit of thinking. 'Look,' you say, 'I just need to get through and get out of here. I'm not challenging anyone's authority. Just, I really don't want to be here.' [bro-consider]. You're free to continue."	"'So, yeah, you're here to guard the [bg] from chumps, right? Well, I'm not one. So you can make way.' And they do. Even though they're all bigger than you. Sweet!"	"'Hey, there! Any chance I can see the [bad-guy]? He seems like someone I should meet,' you say. The brother[plur-s] seem[sing-s] confused. Usually, anyone trying to get in has a complaint.[paragraph break]'Stay there a minute.' You do. When [he-they-bro] come[sing-s] back out, you're nodded through. You turn to wave and give a thumbs-up, but nobody's there. Gee, all you had to do was ask nicely!"
-freak control	0	"You speak first. 'Don't pretend you can't see me, with all those reflective panels and stuff.'[paragraph break]He turns around, visibly surprised.[paragraph break]'Leadership, schmeadership,' you say. You're worried for a moment he might call you out on how dumb that sounds. You're open-minded like that. But when he hesitates, you know the good insults will work even better. 'Really. Leaving the cutter cookie right where I could take it, and plow through, and expose you for the lame chump you are. Pfft. I could do better than that.'[paragraph break]He stutters a half-response.[paragraph break]'Maybe that's why [bad-guy-2] hasn't been dealt with, yet. You say all the right things, but you're not forceful enough. Things'll change once I'm in power.'[wfk]He has no response. You point outside. He goes. Settling in is easy--as a new leader of Freak Control, you glad-hand the important people and assure them you're a bit cleverer than the [bad-guy] was.  Naturally, you keep a list of [bad-guy-2]'s atrocities, and they're pretty easy to rail against, and people respect you for it, and from what you've seen, it's not like they could really get together and do anything, so you're making their lame lives more exciting.[wfk]You settle into a routine, as you read case studies of kids a lot like you used to be. Maybe you'd help one or two, if they had initiative...but until then, you'd like to chill and just let people appreciate the wit they always knew you had.[paragraph break]Really, who can defeat you? Anyone of power or consequence is on your side. Even [bad-guy-2] gives you tribute of a cutter cookie now and then. One day, you drop one in Meal Square... but nobody is brave enough to eat one. Well, for a while."	"You speak first. Well, you sigh REALLY loudly first. 'Just--this is messed up. I want to leave.'[paragraph break]'Of course you do,' says the [bad-guy]. 'I don't blame you. If you're not in power here, it's not fun. It's sort of your fault, but not totally. Hey, you actually showed some personality to get here. Just--show me you're worthy of leaving.' You complain--more excitingly than you've ever complained before. Without flattering or insulting the [bad-guy] too much: fair and balanced. You let him interrupt you, and you even interrupt him--but only to agree with his complaints.[wfk]'You're okay, I guess. You seem to know your place. Here, have a trip to the [activation of snipe gutter]Snipe Gutter in Slicker City. Seems like just the place for you. The [bad-guy] pushes a button and gestures to an opening. It's a slide. You complain a bit, but he holds up his hand. 'You'll have a lot more to complain about if you don't go.' You're impressed by this logic, and you only wish you could've stayed longer to absorb more of it, and maybe you could complain even more interestingly. You learn the culture in the Snipe Gutter for a bit, outlasting some veterans, then one day you just get sick of the clueless newbies who don't know what they're doing.[wfk]Back home, people notice a difference. You're still upset about things, but you impress people with it now. You notice other kids who just kind of seem vaguely upset, like you were before the Compound, not even bothering with constructive criticism. They're not worth it, but everywhere you go, you're able to fall in with complainers who complain about such a wide variety of things, especially people too dense to realize how much there is to complain about! You've matured, from..."	"'Hey! It's me!' you yell. [bg] turns. 'You know, I probably skipped a lot of dumb stuff to get here. You think you could be a LITTLE impressed?'[paragraph break][wfk]But he isn't. 'You know? You're not the first. Still, so many people just sort of putter around. You're going to be okay in life.' You two have a good laugh about things--you're even able to laugh at yourself, which of course gives you the right to laugh at people who haven't figured things out yet. Humor helps you deal, well, if it doesn't suck. You realize how silly you were before with all your fears, and you try to communicate that to a few creeps who don't want to be social. But they just don't listen. You'd rather hang around more with-it types, and from now on, you do."	"You speak a bit loudly. 'Hey, man! I heard you could teach me stuff, and I was jealous at first, but I'm...er...[activation of see if i care]care if I see how you do it?'[paragraph break]'Dude! Everyone says that. Do you mean it?' You nod vigorously. 'Great,' he continues. 'We could use more attitudes like yours. Tell me what you've been up to. Oh, yes, the points brownie. Made with my special [activation of butter up]up butter. Say, there's more where that came from. But I can't just GIVE you it. You'll need some [activation of train gravy]train gravy to toughen up, then maybe you can appreciate my special [activation of salad days]daze salad more fully. It's, well, you'll be impressed. But first, well, I'm getting a bit tired of Guy Sweet. I think you'd be an upgrade. Do well enough, and we'll maybe discuss another promotion over some of my sophisticated special cooking.'[wfk][line break]'What's that?'[wfk][line break]'Well, at first, you might need a little [activation of chowderhead]head chowder, which you won't appreciate fully right away, but when you do, you'll deserve my [activation of favor curry]favor curry.'[paragraph break]Your mouth waters at the thought. Something even better than that daze salad! You listen as the [bad-guy] describes your first task: tell Guy Sweet he's nice and all but he deserves a break. You're going to do it. And everyone's going to be happier when you do. Well, everyone who [i]wants[r] to be."
+freak control	0	"You speak first. 'Don't pretend you can't see me, with all those reflective panels and stuff.'[paragraph break]He turns around, visibly surprised.[paragraph break]'Leadership, schmeadership,' you say. You're worried for a moment he might call you out on how dumb that sounds. You're open-minded like that. But when he hesitates, you know the good insults will work even better. 'Really. Leaving the cutter cookie right where I could take it, and plow through, and expose you for the lame chump you are. Pfft. I could do better than that.'[paragraph break]He stutters a half-response.[paragraph break]'Maybe that's why [bad-guy-2] hasn't been dealt with, yet. You say all the right things, but you're not forceful enough. Things'll change once I'm in power.'[wfk]He has no response. You point outside. He goes. Settling in is easy--as a new leader of Freak Control, you glad-hand the important people and assure them you're a bit cleverer than the [bad-guy] was.  Naturally, you keep a list of [bad-guy-2]'s atrocities, and they're pretty easy to rail against, and people respect you for it, and from what you've seen, it's not like they could really get together and do anything, so you're making their lame lives more exciting.[wfk]You settle into a routine, as you read case studies of kids a lot like you used to be. Maybe you'd help one or two, if they had initiative...but until then, you'd like to chill and just let people appreciate the wit they always knew you had.[paragraph break]Really, who can defeat you? Anyone of power or consequence is on your side. Even [bad-guy-2] gives you tribute of a cutter cookie now and then. One day, you drop one in Meal Square... but nobody is brave enough to eat one. Well, for a while."	"You speak first. Well, you sigh REALLY loudly first. 'Just--this is messed up. I want to leave.'[paragraph break]'Of course you do,' says the [bad-guy]. 'I don't blame you. If you're not in power here, it's not fun. It's sort of your fault, but not totally. Hey, you actually showed some personality to get here. Just--show me you're worthy of leaving.' You complain--more excitingly than you've ever complained before. Without flattering or insulting the [bad-guy] too much: fair and balanced. You let him interrupt you, and you even interrupt him--but only to agree with his complaints.[wfk]'You're okay, I guess. You seem to know your place. Here, have a trip to the [activation of snipe gutter]Snipe Gutter in Slicker City. Seems like just the place for you. The [bad-guy] pushes a button and gestures to an opening. It's a slide. You complain a bit, but he holds up his hand. 'You'll have a lot more to complain about if you don't go.' You're impressed by this logic, and you only wish you could've stayed longer to absorb more of it, and maybe you could complain even more interestingly. You learn the culture in the Snipe Gutter for a bit, outlasting some veterans, then one day you just get sick of the clueless newbies who don't know what they're doing.[wfk]Back home, people notice a difference. You're still upset about things, but you impress people with it now. You notice other kids who just kind of seem vaguely upset, like you were before the Compound, not even bothering with constructive criticism. They're not worth it, but everywhere you go, you're able to fall in with complainers who complain about such a wide variety of things, especially people too dense to realize how much there is to complain about! You've matured, from..."	"'Hey! It's me!' you yell. [bg] turns. 'You know, I probably skipped a lot of dumb stuff to get here. You think you could be a LITTLE impressed?'[paragraph break][wfk]But he isn't. 'You know? You're not the first. Still, so many people just sort of putter around. You're going to be okay in life.' You two have a good laugh about things--you're even able to laugh at yourself, which of course gives you the right to laugh at people who haven't figured things out yet. Humor helps you deal, well, if it doesn't suck. You realize how silly you were before with all your fears, and you try to communicate that to a few creeps who don't want to be social. But they just don't listen. You'd rather hang around more with-it types, and from now on, you do."	"You speak a bit loudly. 'Hey, man! I heard you could teach me stuff, and I was jealous at first, but I'm...er...[activation of see if i care]care if I see how you do it?'[paragraph break]'Dude! Everyone says that. Do you mean it?' You nod vigorously. 'Great,' he continues. 'We could use more attitudes like yours. Tell me what you've been up to. Oh, yes, the points brownie. Made with my special [activation of butter up]up butter. Say, there's more where that came from. But I can't just GIVE you it. You'll need some [activation of train gravy]train gravy to toughen up, then maybe you can appreciate my special [activation of salad days]daze salad more fully. It's, well, you'll be impressed. But first, well, I'm getting a bit tired of Guy Sweet. I think you'd be an upgrade. Do well enough, and we'll maybe discuss another promotion over some of my sophisticated special cooking.'[wfk][line break]'What's that?'[wfk][line break]'Well, at first, you might need a little [activation of chowderhead]head chowder, which you won't appreciate fully right away, but when you do, you'll deserve my [activation of favor curry]favor curry. Of course, you'll never quite deserve my [activation of breadwinner], but...'[paragraph break]Your mouth waters. Something even better than that daze salad! You listen as the [bad-guy] describes your first task: tell Guy Sweet he's nice and all but he deserves a break. You're going to do it. And everyone's going to be happier when you do. Well, everyone who [i]wants[r] to be."
 
 to say he-they-bro:
 	if bros-left > 1:
@@ -6957,13 +6968,13 @@ check going nowhere in Joint Strip:
 		try going south instead;
 	if noun is outside:
 		say "You already are." instead;
-	say "[one of]The Stool Toad booms 'Where you going, son? There's degenerates hiding that way in the stickweed! That's a warning!' You consider asking him why he doesn't go hunt them down, but you don't have the guts.[or]The Stool Toad blathers something about a final warning, because he sees you trying to sneak off.[or][toad-write-up][stopping]";
+	say "[one of]The Stool Toad booms 'Where you going, son? There's degenerates hiding that way in the stickweed! That's a warning!' You consider asking him why he doesn't go hunt them down, but you don't have the guts. Yet.[or]The Stool Toad blathers something about a final warning, because he sees you trying to sneak off.[or][toad-write-up][or]You already crossed the Stool Toad that way.[stopping]";
 	the rule succeeds;
 
 off-the-path is a truth state that varies.
 
 to say toad-write-up:
-	say "The Stool Toad, so passive with all the suspicious smells around, leaps into action as you seek them out for yourself. He writes you up for jaywalking, all the while muttering that stupid laws prevent him from writing you up for more.";
+	say "As you stumble through the stickweed for the third time, you uncover--[activation of case a joint]a joint case! The Stool Toad, so passive with all the suspicious smells around, leaps into action as sunlight reflects off it and in his eyes.[paragraph break]'You're lucky it's empty. But I can still write you up for aggravated jaywalking.' He mutters about laws preventing him from writing you up for more[if get-ticketed > 0], before seeing you're a repeat offender[end if].";
 	now off-the-path is true;
 	get-ticketed "going off the path in the Joint Strip";
 
@@ -7698,7 +7709,7 @@ prompt	response	enabled	permit
 "[if short-jerk is false]So, what sort of glossy magazines do you read[else]MAGAZINES[end if]?"	jerk-zines	0	1
 "[if short-jerk is false]So, any classic shows you miss? Or not so classic[else]EMBARRASSING CARTOONS[end if]?"	jerk-cartoon	0	1
 "[if short-jerk is false]So, you like dogs even if they're not super tough[else]WIMPY SMALL DOGS[end if]?"	jerk-dogs	0	1
-"(bug the next [j-g], [next-c-x of last-jerk])"	jerk-next	0	1
+"(bug the next [j-g], [next-c-x of last-jerk])"	jerk-next	0	1 [p]
 "So, what about the [bad-guy]?"	jerk-baiter	1	1
 "[later-or-thanks]."	jerk-bye	3	1
 
@@ -9544,9 +9555,9 @@ banter
 "'Should I rant about that?' asks Uncle Dutch. '[activation of cry uncle]Uncle, CRY!' says Turk Young."
 "'A voice says, [activation of dutch act]ACT, DUTCH, even though I might kill myself helping people...'"
 "'Some attendees claim our encouraging lectures are just fluff. That they are only about getting ahead in the world,' says Uncle Dutch. 'I've had teachers like that,' says Turk Young. 'They never tried more exciting encouragement themselves. But they still had to give me A's. And they're still...teachers.'"
-"Uncle Dutch and Turk praise the motivating power of [activation of fearlessness]lessness-fear to keep yourself important."
 "'That's some [activation of dutch reckoning]reckoning, Dutch! More than I thought possible!'"
 "'I'm equally hard on squares who don't drink and punks who drink too much.' / 'That's [activation of dutch courage]COURAGE, Dutch!'"
+"Uncle Dutch and Turk praise the motivating power of [activation of fearlessness]lessness-fear to keep yourself important."
 "Uncle Dutch and Turk discuss the right amount to be scared to be at your most productive, but if you achieve that, you'd better not feel you have nothing to be scared of."
 "Uncle Dutch complains about lazy kids these days, and Turk Young complains about adults who are have given up on life. They then play agreement-pong about initiative in general is a good thing."
 "Uncle Dutch reminds Turk to focus on school, but to remember it's more than school. Turk agrees. 'One day I'll have a job where I can tell people to focus on their job and make it more than a job!'"
@@ -9624,7 +9635,7 @@ prompt	response	enabled	permit
 "Um, hi, what's up?"	penn-nodrugs	1	1
 "Whoah, I'm, like, all in for DRUGS, BABY!"	penn-drugs	0	0
 "You sell drugs? Isn't that illegal?"	penn-yousell	0	1
-"'Wait, isn't it all sort of bad stuff?"	penn-cigarette	0	1
+"Wait, isn't it all sort of bad stuff?"	penn-cigarette	0	1
 "Free stuff? Wow! Sure!"	penn-free	0	1
 "Herb Goode?"	penn-herb	0	1
 "Changed my mind. I'll help you out with your delivery."	penn-changed	0	1
@@ -10089,6 +10100,7 @@ workname	singername	songsubj
 "Off, Get"	"Nelson Rogers Prince"	"people without enough social nous to have a sexual partner and why they deserve no fun"
 "Work Fire"	"Perry Keady"	"having everyday up and at em for the things you deserve to do (if you're smart) or better do to survive (if you're dumb)"
 "Stop Believing, Don't"	"Perry Steven"	"people who already tried enough and should stop embarrassing themselves"
+"You of All"	"Porter Cole"	"about anyone in the crowd that isn't worth even cursory attention, and they need to know it without being told directly"
 "Mourning Sunday"	"Reid Lew"	"when everyone else is too lazy to do and think awesome things 24-7 and you aren't, and why that makes them bums"
 "Fruity Tootie"	"Richard Little"	"increasingly strong evidence and examples why a girl currently in the closet should, in this day and age, just come out already or she obviously hates herself"
 "You: On, Stuck"	"Richie Lionel"	"creative and poetic ways schleps should just get over, well, whatever"
@@ -11317,34 +11329,34 @@ rule for amusing a victorious player:
 
 table of amusingness
 biglaff	anyrule
-"waiting? Especially in A Round Lounge?"	degen-true rule
-"(first time only) thinking?"	--
-"swearing (and saying yes or no) when the game asks if you want swearing?"	--
-"an empty command?"	--
+"Waiting? Especially in A Round Lounge?"	degen-true rule
+"(First time only) thinking?"	--
+"Swearing (and saying yes or no) when the game asks if you want swearing?"	--
+"An empty command?"	--
 "XYZZY? Four times?"	--
 "XYZZY in Freak Control? Twice?"	--
-"attacking anyone? Or the torch?"	--
+"Attacking anyone? Or the torch?"	--
 "DIGging twice in Variety Garden?"	--
 "DROPping the dreadful penny, reasoning circluar or other things?"	--
-"going east when Officer Petty is still in Judgment Pass?"	--
+"Going east when Officer Petty is still in Judgment Pass?"	--
 "COAT PETTY or FOG PETTY?"	--
-"giving the condition mint to various non-jerks, like Volatile Sal or Buddy Best?"
-"cussing when you asked for no profanity?"	--
-"cussing in front of certain people, especially authority figures (twice for a 'bad' ending)?"	--
-"kissing the Language Machine?"	--
-"drinking someone?"	--
-"going west/north/south in the Variety Garden?"	--
-"giving Pusher Penn's 'merchandise' to the Stool Toad or Officer Petty?"	--
-"giving Minimum Bear to anyone except Fritz the On?"	--
-"giving Minimum Bear to Fritz with Terry Sally gone? Or with four ticketies?"	--
-"putting the poetic wax on/giving it to anything except the language machine?"	--
-"saying YES or NO in the Drug Gateway?"	--
-"visiting the Scheme Pyramid after the [j-co] take their revenge?"	--
-"listening to all the songs from the song torch (there are [number of rows in table of horrendous songs])? Or just searching the source for them?"	--
-"reading all the books from the book crack (there are [number of rows in table of horrendous books])? Or just searching the source for them?"	--
-"taking the book bank?"	--
-"SLEEPing in the extra directors' cut rooms in ANNO mode?"	--
-"taking the Legend of Stuff after defeating the Thoughts Idol?"	very-good-end rule
+"Giving the condition mint to various non-jerks, like Volatile Sal or Buddy Best?"
+"Cussing when you asked for no profanity?"	--
+"Cussing in front of certain people, especially authority figures (twice for a 'bad' ending)?"	--
+"Kissing the Language Machine?"	--
+"Drinking someone?"	--
+"Going west/north/south in the Variety Garden?"	--
+"GIVEing Pusher Penn's 'merchandise' to the Stool Toad or Officer Petty?"	--
+"GIVEing Minimum Bear to anyone except Fritz the On?"	--
+"GIVEng Minimum Bear to Fritz with Terry Sally gone? Or with four ticketies?"	--
+"PUTting the poetic wax on/giving it to anything except the language machine?"	--
+"Saying YES or NO in the Drug Gateway?"	--
+"Visiting the Scheme Pyramid after the [j-co] take their revenge?"	--
+"LISTENing to all the songs from the song torch (there are [number of rows in table of horrendous songs])? Or just searching the source for them?"	--
+"READing all the books from the book crack (there are [number of rows in table of horrendous books])? Or just searching the source for them?"	--
+"TAKEng the book bank?"	--
+"SLEEPing in the extra directors['] cut rooms in ANNO mode?"	--
+"TAKEng the Legend of Stuff after defeating the Thoughts Idol?"	very-good-end rule
 "ENTERing the Return Carriage?"	very-good-end rule
 "(XP/EXPLAIN)ing the lock caps?"	very-good-end rule
 "HAMMER BAN, HAMMER BLOW, DROP HAMMER, HAMMER JACK, MAN HAMMER, HAMMER NINNY, HAMMER SLEDGE, HAMMER TIME, HAMMER TOE or HAMMER YELLOW in Airy Station?"	very-good-end rule
@@ -11549,14 +11561,14 @@ this is the bad-end-see rule:
 
 table of bad end listing
 badroom	howto
-A Beer Pound	"Get your fifth ticket in A Beer Pound, or attack Ally Stout"
-Criminals' Harbor	"Give a smokable to an officer, attack a woman, or attack machines in Freak Control"
-In-Dignity Heap	"Careless swearing around the [bad-guy], Officer Petty or the Stool Toad"
-Fight Fair	"Attacking other people"
-Hut Ten	"Vandalizing things like the Insanity Terminal, Game Shell, Thoughts Idol, or a logic game"
-Maintenance High	"Choke on the gagging lolly"
-Punishment Capitol	"Attacking the [bad-guy], Officer Petty, or the Stool Toad"
-Shape Ship	"Get your fifth ticket outside A Beer Pound"
+A Beer Pound	"Get your fifth ticket in A Beer Pound, or attack Ally Stout."
+Criminals' Harbor	"Give a smokable to an officer, attack a woman, or attack machines in Freak Control."
+In-Dignity Heap	"Careless swearing around the [bad-guy], Officer Petty or the Stool Toad."
+Fight Fair	"Attacking other people."
+Hut Ten	"Vandalizing things like the Insanity Terminal, Game Shell, Thoughts Idol, or a logic game."
+Maintenance High	"Choke on the gagging lolly."
+Punishment Capitol	"Attacking the [bad-guy], Officer Petty, or the Stool Toad."
+Shape Ship	"Get your fifth ticket outside A Beer Pound."
 
 chapter special
 
@@ -12154,6 +12166,8 @@ Bum Beach is a concept in conceptville. understand "beach bum" as Bum Beach. how
 
 Clip Joint is a concept in conceptville. Understand "joint clip" as clip joint. howto is "listen to Fritz after giving him the weed".
 
+drag along is a concept in conceptville. Understand "along drag" as drag along. howto is "[w-fr]".
+
 Dream Ticket is a concept in conceptville. understand "ticket dream" as dream ticket. howto is "sleep after you got a tickety".
 
 Grammar Police is a concept in conceptville. understand "police grammar" as grammar police. howto is "go east to Down Ground".
@@ -12173,6 +12187,8 @@ Sleeper Cell is a concept in conceptville. understand "cell sleeper" as sleeper 
 section joint strip concepts
 
 bullfrog is a concept in conceptville. understand "frog bull" and "bull frog" as bullfrog. howto is "ask the Stool Toad how to get in trouble".
+
+case a joint is a concept in conceptville. Understand "joint a case" as case a joint. howto is "get ticket for exploring the stickweed".
 
 Double Jeopardy is a concept in conceptville. understand "jeopardy double" as Double Jeopardy. howto is "get ticket for sleeping".
 
@@ -12383,6 +12399,8 @@ Dutch Treat is a concept in conceptville. understand "treat dutch" as dutch trea
 
 Fearlessness is a concept in conceptville. Understand "lessness fear" and "fear lessness" as fearlessness. howto is "[pl-wa]".
 
+hate speech is a concept in conceptville. Understand "speech hate" as hate speech. howto is "attack Turk or Dutch".
+
 Show Business is a concept in conceptville. understand "business show" as show business. howto is "Go to the Speaking Plain without eating a Tray B food".
 
 show off is a concept in conceptville. Understand "off show" as show off. howto is "listen to all of the Business Show".
@@ -12464,6 +12482,8 @@ benefactor is a concept in conceptville. understand "factor benny" and "benny fa
 
 Beyond Belief is a concept in conceptville. understand "belief beyond" as Beyond Belief. howto is "get the [bad-guy]'s attention".
 
+breadwinner is a concept in conceptville. Understand "winner bread" and "winner bread" as breadwinner. howto is "[fr-pb]".
+
 The Break Jail is a concept in conceptville. understand "jail break" as Break Jail. howto is "[ok-end]".
 
 Break Monotony is a concept in conceptville. understand "monotony break" as break monotony. howto is "wait for the [bad-guy] to go through his actions".
@@ -12530,7 +12550,7 @@ Off the Record is a concept in conceptville. Understand "record the off" as off 
 
 oscar wilde is a concept in conceptville. Understand "wilde/wild oscar" and "oscar wild" as oscar wilde. howto is "[fr-ran]".
 
-paddywagon is a concept in conceptville. Understand "paddywagon" as paddywagon. howto is "[fill-in-here]".
+paddywagon is a concept in conceptville. Understand "paddywagon" as paddywagon. howto is "[fr-ran]".
 
 pharisee is a concept in conceptville. understand "see farrah" and "farrah see" as pharisee. howto is "[fr-ran]".
 
@@ -12620,8 +12640,10 @@ section Criminals' Harbor concepts
 
 gangplank is a concept in conceptville. Understand "gang plank" and "plank gang" and "plankgang" as gangplank. howto is "[ch-end]".
 
+hate crime is a concept in conceptville. Understand "crime hate" as hate crime. howto is "[ch-end]".
+
 to say ch-end:
-	say "visit Criminals['] Harbor (vandalize scenery in Freak Control)"
+	say "get sent to Criminals['] Harbor (e.g. vandalize scenery in Freak Control)"
 
 section fight fair concepts
 
@@ -13928,9 +13950,9 @@ montopic (topic)	on-off	test-title (text)	test-action	topic-as-text (text)
 "dir/noway"	false	"GOING NOWHERE"	try-wid rule	"dir/noway"
 "dirs"	false	"GOING BASIC DIRS"	try-dirs rule	"dirs"
 "donote/note"	false	"DONOTEING"	try-noting rule	"donote/note"
-"mood"	false	"MOOD tracking"	try-mood rule	"mood"
-"think"	false	"THINK tracking"	try-think rule	"think"
-"sleep"	false	"SLEEP tracking"	try-sleep rule	"sleep"
+"mood"	false	"MOOD TRACKING"	try-mood rule	"mood"
+"think"	false	"THINK TRACKING"	try-think rule	"think"
+"sleep"	false	"SLEEP TRACKING"	try-sleep rule	"sleep"
 "status"	false	"STATUS LINE (SL)"	try-statline rule	"sl"
 
 this is the try-statline rule:
