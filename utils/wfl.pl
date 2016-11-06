@@ -185,16 +185,17 @@ sub readOneWord
    if (($q =~ /$t/) && ($_[0] ne $q)) { print "$t contained by already-done word $q\n"; }
   }
 
-if ($dicURL) { `\"$webapp\" http:\/\/idioms.thefreedictionary.com\/$flip`; }
+# force the URL only if we've seen it before. Otherwise it goes in the to-do list.
+if ($dicURL && $isDone{$flip}) { `\"$webapp\" http:\/\/idioms.thefreedictionary.com\/$flip`; }
 
 open(B, ">>$output");
 
-if ($shouldAlphabetize)
+if (!$isDone{$flip})
 {
 open(C, ">>$track");
 print C "========$flip\n";
 if ($dicURLPrint) { print C "CHECK http:\/\/idioms.thefreedictionary.com\/$flip\n"; }
-}
+} else { print "Not adding $flip to fliptrack.txt.\n"; }
 
 close(C);
 
