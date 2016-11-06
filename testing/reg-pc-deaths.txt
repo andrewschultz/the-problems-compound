@@ -10,6 +10,10 @@
 Hut Ten
 Back at Smart Street
 
+>attack game shell
+Shape Ship
+Back at Smart Street
+
 >attack nim
 Hut Ten
 Back at Smart Street

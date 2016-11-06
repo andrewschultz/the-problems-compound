@@ -415,9 +415,10 @@ print<<EOT;
 (-)ps = print success
 (-)pc = PC only
 (-)sc = SC only
-(-)as = PC and SC (default)
+(-)btp = BTP only
+(-)as = PC and SC and BTP (default)
 (-)o = check order
-CURRENT TESTS: conc.pl -pc, conc.pl -t -o -spc, conc.pl -sc, conc.pl -t -o -sc
+CURRENT TESTS: conc.pl -pc, conc.pl -t -o -as, conc.pl -sc, conc.pl -t -o -sc
 EOT
 exit;
 }

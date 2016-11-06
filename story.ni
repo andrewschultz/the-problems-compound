@@ -1567,6 +1567,8 @@ before listening when accel-ending:
 	say "You've had enough of meekly listening to others. You'll be listening to yourself from now on." instead;
 
 check listening (this is the listening to a thing rule):
+	if noun is seven jerks:
+		say "The [j-co] babble on about random [activation of junk mail]male junk. It just piles up!" instead;
 	if noun is fritz:
 		say "Fritz mumbles to himself [if fritz has wacker weed]about buying a fancy [activation of clip joint]joint clip to not waste ANY leaves[else if Nominal Fen is visited]about being [activation of high and dry]dry and high[else if fritz has bear]a bit more happily now he has minimum bear[else]nervously[end if]." instead;
 	if noun is stool toad:
@@ -2173,13 +2175,16 @@ check attacking:
 	say "Best not to make a [activation of force of habit]habit of force. Especially not against people. Fortunately, you didn't get arrested this time." instead;
 
 to say toad-mb-know:
-	say "[if down ground is
-		 visited]the Stool Toad[else]A big scary important greenish looking half-man[end if]"
+	say "[if down ground is visited]the Stool Toad[else]A big scary important greenish looking half-man[end if]"
 
 return-room is a room that varies.
 
 to ship-off (X - a room):
 	let ZZ be location of player;
+	if X is map-pinged and Shape Ship is not map-pinged:
+		say "You hear a voice. 'Repeat offender. Same sort of thing. [X] didn't work before. Try something new.'";
+		ship-off Shape Ship;
+		continue the action;
 	say "[b][X][r][paragraph break]";
 	now X is map-pinged;
 	if X is a room-loc listed in table of ending-places:
@@ -2468,7 +2473,7 @@ check giving the trail paper to:
 		say "'That's not the kind of trips I go in for, dude.'" instead;
 	if second noun is Terry Sally:
 		now trail paper is in lalaland;
-		choose row with response of terry-west in table of Terry Sally talks;
+		choose row with response of terry-west in table of Terry Sally talk;
 		now enabled entry is 0;
 		terry-sug;
 		say "'Eh, you've done enough. Here, I'll shred the evidence. So you don't get caught later. Say, after all that goofing around, you might be hungry. Look around in Meal Square. There's some food that'll fix you quick.'";
@@ -3444,6 +3449,7 @@ anapest	"Anapest is a common beat for a poem. It can seem singsong." [start of N
 Bandanna	"A bandanna is a scarf you tie around your head. Some people find it rebellious, others not rebellious enough."
 benevolent	"Benevolent means doing things to help people."
 Black Mark	"A black mark is something indicating bad behavior."
+body slamming	"Body slamming is a particularly painful wrestling move where you pretty much throw a person to the ground."
 call girl	"A call girl is a paid female escort."
 Cary Grant	"Cary Grant is a movie star from the 40s and 50s."
 casually	"Casually means not really in-depth."
@@ -3451,12 +3457,14 @@ category	"A category is a logical class to divide someone into. In here, Kate fi
 clean break	"A clean break from something is leaving quickly and for good. The jerks haven't broken with their 'clean' secrets yet."
 Cotton Candy	"Cotton candy is stringy sugary stuff, often bundled together in a soft ball. People eat it at circuses and fairs and movies a lot."
 dirty word	"A dirty word is profanity. 'Word' on its own is slang for agreement."
+electrocute	"If someone is electrocuted, they're filled with an often lethal dose of electrical current."
 flounder	"To flounder is to try and fail without any progress. It's also the name of a fish."
 fluoridated	"Fluoridated water is a subject of many silly conspiracy theories."
 grown up	"Grown up means, well, you've learned and matured."
 hara-kiri	"Hara-kiri is Japanese ritual suicide."
 jerk around	"To jerk someone around is to pester them physically or mentally."
 jerk off	"To jerk off is to gratify oneself carnally."
+junk mail	"Junk mail means letters and fliers you didn't ask for that appear in your (physical or electronic) mailbox anyway."
 Keyser Soze	"Keyser Söze is the shadowy antagonist of the film [italic type]The Usual Suspects[roman type]."
 lily liver	"A lily-liver is someone who is afraid to go out and do risky things."
 Liverwurst	"Liverwurst is a sort of meat which I found tastes nice until it really doesn't, and it's a bit greasy, too. 'Worst liver' may be an exaggeration, but the jerks are not living well."
@@ -3482,6 +3490,7 @@ terrapin	"A terrapin is a fancy name for a turtle, which is slow and has a shell
 career threatening	"Something career threatening may risk not only your job but your ability to get other equal or better jobs. A threatening career is--well, a bit of a racket." [start of judgment pass]
 scofflaw	"A scofflaw is someone who breaks minor rules. Perhaps they jaywalk or litter."
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever." [start of idiot village]
+grease monkey	"A grease monkey is a manual laborer, especially with machines."
 assembly line	"An assembly line is where each person or machine has a specific sub-job in creating a larger product." [start of truth home]
 mass production	"Mass production is a procedure of efficiently creating many of the same thing using standardized design."
 thp	"Two hundred proof means pure grain alcohol."
@@ -3519,6 +3528,7 @@ brass ring	"To grab the brass ring is to achieve a dream goal. It refers to the 
 brother foster	"A foster brother is a brother not related by birth."
 Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
 bum a cigarette	"To bum a cigarette is to ask someone for one of theirs. 'A cigarette bum' indicates Penn's disdain for more legal smokables." [start of pot chamber]
+crack up	"To crack up is to lose sanity. To crack down is to oppress someone, or arrest people for possession of contraband. To crack a joke is to tell a joke."
 go to pot	"To go to pot is to fall apart due to lack of upkeep."
 pop pills	"To pop pills is to take them indiscriminately."
 weed out	"To weed out people is to create a test to show they are inadequate."
@@ -4582,7 +4592,7 @@ guy-advice	"'Hm, well, if I give you too much advice, you won't enjoy solving th
 guy-flat	"'Well, that way is the Problems Compound. If you can figure out some basic stuff, you'll make it to Pressure Pier. Then--oh, the people you'll meet!'"
 guy-names	"'I know what you really want to ask. It's not at all about twisting things back around and making them the opposite of what they should mean. It's about SEEING things at every angle. You'll meet people who do. You'll be a bit jealous they can, and that they're that well-adjusted. But if you pay attention, you'll learn. I have. Though I've got a way to go. But I want to learn!'"
 guy-problems	"'Well, it's a place where lots of people more social than you--or even me--pose real-life problems. Tough but fair. Lots of real interesting people. Especially the Baiter Master[if allow-swears is false]. Oops. You don't like swears? Okay. Call him the Complex Messiah[else]. AKA the Complex Messiah[end if]. But not [bg]. I haven't earned the right to. Or to enter Freak Control. It's guarded by a trap where a question mark hooks you, then an exclamation mark clobbers you.' He pauses, and you are about to speak...[wfk]'YEAH. He's really nice once you get to know him, I've heard, it's just, there's too many people might waste his time, or not deserve him or not appreciate him.' Guy stage-whispers. 'OR ALL THREE.'"
-guy-mess	"'Oh, the [bad-guy]. He certainly knows what's what, and that's that! A bit of time around him, and you too will know a bit--not as much as he did. He teaches by example! He can [activation of good egg]egg [i]good[r]. Just his way of caring. Much nicer than [bad-guy-2]. Remember, it's up to YOU what you make of his lessons! Some people--they just don't get him. Which is ironic. They're usually the type that claim society doesn't get THEM[if allow-swears is true].' Guy whispers. '[activation of beat off]OFF-BEAT types[end if].'"
+guy-mess	"'Oh, the [bad-guy]. He certainly knows what's what, and that's that! He certainly does things differently! But not all weird-like. A bit of time around him, and you too will know a bit--not as much as he did. He teaches by example! He can [activation of good egg]egg [i]good[r]. Just his way of caring. Much nicer than [bad-guy-2]. Remember, it's up to YOU what you make of his lessons! Some people--they just don't get him. Which is ironic. They're usually the type that claim society doesn't get THEM[if allow-swears is true].' Guy whispers. '[activation of beat off]OFF-BEAT types[end if].'"
 guy-bad2	"'[bad-guy-2]. Well, without the [bad-guy]'s snark, [bad-guy-2] would probably be in charge. Then things would get worse. You see, [bad-guy-2] is after our time and money. The [bad-guy] just likes to share a little snark. I remember that time he told me don't go thinking you're any everyman, or anything special! What? Don't frown, there. It was--well, the way he said it. Better than I did. So eye-opening, so motivational.'"
 guy-bye	"'Whatever, dude.' [one of]It's--a bit harsh, you're not sure what you did to deserve that, but probably something[or]It's a bit less grating this time, but still[stopping]."
 
@@ -6244,7 +6254,7 @@ before talking to Terry Sally when player has trail paper:
 		terminate the conversation;
 		try giving trail paper to Terry Sally instead;
 
-after quipping when qbc_litany is table of Terry Sally talks:
+after quipping when qbc_litany is table of Terry Sally talk:
 	if current quip is terry-howdy:
 		enable the terry-boy quip;
 		enable the terry-int quip;
@@ -6273,7 +6283,7 @@ check going north in Pressure Pier:
 		if trail paper is in lalaland:
 			continue the action;
 		the rule succeeds;
-	choose row with response of terry-north in table of Terry Sally talks;
+	choose row with response of terry-north in table of Terry Sally talk;
 	now enabled entry is 2;
 	if terry-howdy is not talked-thru:
 		say "Terry Sally bars you with his arm. He's not bigger than you, but he is louder. 'Hey! Whoah! I took the time to greet you, and you're going to bull right on through? Nope!'" instead;
@@ -6974,7 +6984,7 @@ check going nowhere in Joint Strip:
 off-the-path is a truth state that varies.
 
 to say toad-write-up:
-	say "As you stumble through the stickweed for the third time, you uncover--[activation of case a joint]a joint case! The Stool Toad, so passive with all the suspicious smells around, leaps into action as sunlight reflects off it and in his eyes.[paragraph break]'You're lucky it's empty. But I can still write you up for aggravated jaywalking.' He mutters about laws preventing him from writing you up for more[if get-ticketed > 0], before seeing you're a repeat offender[end if].";
+	say "As you stumble through the stickweed for the third time, you uncover--[activation of case a joint]a joint case! The Stool Toad, so passive with all the suspicious smells around, leaps into action as sunlight reflects off it and in his eyes.[paragraph break]'You're lucky it's empty. But I can still write you up for aggravated jaywalking.' He mutters about laws preventing him from writing you up for more[if your-tix > 0], before seeing you're a repeat offender[end if].";
 	now off-the-path is true;
 	get-ticketed "going off the path in the Joint Strip";
 
@@ -7452,11 +7462,13 @@ girl-neg
 "The [j-co] berate [activation of anapest]Pest Anna and her weird 'modern' poetry."
 "The [j-co] argue over whether [activation of bandanna]Anna Bandt's clothes choices are really rebellious."
 "The [j-co] rave about how [activation of benevolent]Evelyn Benn is snarky to people for their own good."
+"The [j-co] wrestle over the sensitivest way to compliment a girl on a [activation of body slamming]slamming body."
 "The [j-co] brainstorm a [activation of call girl]girl call that will make you irresistible."
 "The [j-co] alternately flatter and berate [activation of Cary Grant]Grant Carey for success with women despite a lack of looks."
 "The [j-co] claim to want to get to know [activation of casually]Julie Kaz better."
 "The [j-co] praise [activation of category]Gory Kate as less weird than she should be on paper."
 "The [j-co] mention how [activation of cotton candy]Candy Cotton smacks down saccharine pickup lines."
+"The [j-co] agree that [activation of electrocute]Cute Electra isn't, like, LETHALLY hot."
 "The [j-co] try to be charitable and think of girls ranked [activation of flounder]under Flo on their beauty scale."
 "A couple [j-co] feel sorry they [activation of fluoridated]dated Flora and listened to her conspiracy theories."
 "The [j-co] rave how full of life [activation of hara-kiri]Keri Harrah is."
@@ -9227,7 +9239,7 @@ check going nowhere in idiot village (this is the final idol puzzle rule):
 
 The Business Monkey is a neuter person in Idiot Village. "A monkey mopes around here in a ridiculous suit two sizes too large for it."
 
-the Business Monkey wears the Ability Suit. description of suit is "It's halfway between a business suit and a monkey suit (eg a tuxedo), without capturing the intended dignity or prestige of either. Nevertheless, the Monkey does preen in it a bit[if ability suit is not examined]. It's probably an Ability Suit, if you had to guess[end if]."
+the Business Monkey wears the Ability Suit. description of suit is "It's halfway between a business suit and a monkey suit (eg a tuxedo), without capturing the intended dignity or prestige of either. Nevertheless, the Monkey does preen in it a bit[if ability suit is not examined]. It's probably an Ability Suit, if you had to guess, and hey, it's free of [activation of grease monkey]monkey grease, too[end if]."
 
 description of Business Monkey is "The monkey grins happily and vacantly, occasionally adjusting its [if suit is examined]Ability Suit[else]suit[end if] or pawing in the ground."
 
@@ -9647,7 +9659,7 @@ table of quip texts (continued)
 quip	quiptext
 penn-nodrugs	"'Come on. You know the deal. I sell smokables. The good stuff--I'm not [activation of bum a cigarette]a [i]cigarette bum[r].'"
 penn-yousell	"'Well, the [bad-guy] legalized them, but he gets the markup if they buy from him. And of course he makes fun of the serious druggies, because that's seeing both sides of things. Plus, I think he deals with [bad-guy-2]. No proof, though. Eh, I make a good profit, underselling. [activation of good herb]Herb Goode's rants don't hurt either. Say, if you want a little sample, I just need a small favor.'"
-penn-cigarette	"'Well, I'm not pro-everything. I helped raise the cigarette tax 1357%, for the public health! Plain old cigarettes are more harmful than weed, because they're less harmful. So don't let me catch you TRYING to smoke in here. What? You never have? Then what's with the sour look? I'll let it slide this time.'"
+penn-cigarette	"'Well, I'm not pro-everything. I'm anti-crack. [activation of crack up]Up, down or even joke. And I helped raise the cigarette tax 1357%, for the public health! Plain old cigarettes are more harmful than weed, because they're less harmful. So don't let me catch you TRYING to smoke in here. What? You never have? Then what's with the sour look? I'll let it slide this time.'"
 penn-drugs	--
 penn-free	"'Ha ha. Well, not quite free. Just a little favor. Make a little delivery. Behind five-oh's back.'"
 penn-herb	"A lot less wishy washy than his sisters. Met [']em? [if classic cult is visited]Yeah[else]No[end if]? People probably start to NOT be like him. Also, I assure my customers I won't rat them to him. For just a small markup."
@@ -10514,6 +10526,7 @@ gad-act
 "'So much to plan and delegate. So many unreliable people. Duty fatigue, duty fatigue[activation of fatigue duty].'"
 "'I'm so [activation of fawn over]OVER Fawn. She never APPRECIATED my appreciation.'"
 "The [bad-guy] mutters he's sure [activation of Howard Dean]Dean Howard is nice and well-meaning all, but that scream. Really. Just...unforgiveable. And even if it were, well, he probably still deserves to be REMINDED. For character building purposes."
+"The [bad-guy] loud-whispers how those wimps Willis Bruce and Norris Charles need attending to by his...associates."
 "'[activation of infomania]Mania Info. Always good to have more. Well, until I get bored of it.'"
 "'[activation of informally]Ally, Inform!' the [bad-guy] says to nobody in particular."
 "The [bad-guy] congratulates himself for installing the super-sanitary doctor-recommended [activation of johns hopkins]Hopkins johns."
@@ -11066,6 +11079,9 @@ b4-nar	now-nar	af-nar	b4-done	now-done	af-done
 "You're picked apart for knowing weird facts that aren't on any quiz."	"In school, you feel bad you never have anything interesting to add to right answers."	"You feel lost in a game of Trivial Pursuit you feel you should be much better at."
 "Teachers tell you to UNDERSTAND other kids might be mad you're smarter than they are."	"Teachers tell you don't get mad other people have better social skills. DO something, you're smart enough!"	"Peers ask why you just don't care about being social either way. THEY'RE trying to connect with you, but..."
 "You're shouted down for missing an obscure grammar point."	"You're told that you are good at grammar and all, but you don't have an ounce of creativity."	"You notice someone has made a grammar checker that sells well, and others say you could've thought of it if you'd had ANY initiative."
+"'The kid has no self-awareness!'"	"'The kid is too self-absorbed!'"	"'The guy never found a way to quit wallowing in private. Or complaining in public. Sad.'"
+"'Adult X is not miserable! You just feel miserable around him because he's so real-world.'"	"'Son, it's up to you whether or not to be miserable, and only you.'"	"'You say you're not miserable but you sure make everyone around you miserable.'"
+"You're assured, no matter what your political beliefs are, or how strongly you hold them, you'll know better when you get older."	"Peers explain that either they have better reasons to vote your way, or you're just too biased to see their voting logic. But they guess your vote deserves to count as much as they did."	"You are overwhelmed by people younger than you voting and canvassing with more enthusiasm than you ever did. They have to be right, with that enthusiasm."
 
 part tense past
 
@@ -12272,6 +12288,8 @@ benevolent is a concept in conceptville. Understand "evelyn benn" and "benn evel
 
 Black Mark is a concept in conceptville. understand "mark black" as black mark. howto is "examine quiz pop".
 
+body slamming is a concept in conceptville. Understand "slamming body" as body slamming. howto is "[j-girl]".
+
 call girl is a concept in conceptville. Understand "girl call" as call girl. howto is "[j-girl]".
 
 cary grant is a concept in conceptville. Understand "grant carey" and "carey grant" as cary grant. howto is "[j-girl]".
@@ -12286,6 +12304,8 @@ Cotton Candy is a concept in conceptville. Understand "candy cotton" as cotton c
 
 Dirty Word is a concept in conceptville. Understand "word dirty" as dirty word. howto is "go to the [jc]".
 
+electrocute is a concept in conceptville. Understand "cute electra" and "electra cute" as electrocute. howto is "[j-girl]".
+
 flounder is a concept in conceptville. Understand "flo under" and "under flo" as flounder. howto is "[j-girl]".
 
 fluoridated is a concept in conceptville. Understand "dated flora" and "flora dated" as fluoridated. howto is "[j-girl]".
@@ -12297,6 +12317,8 @@ Hara-Kiri is a concept in conceptville. Understand "keri harrah" and "harrah ker
 Jerk Around is a concept in conceptville. Understand "around jerk" as jerk around. howto is "enter the main area with profanity on".
 
 Jerk Off is a concept in conceptville. understand "off jerk" as jerk off. howto is "attack a jerk in swearing-on mode".
+
+junk mail is a concept in conceptville. Understand "mail junk" as junk mail. howto is "listen to the [j-co] before figuring the Index puzzle".
 
 Keyser Soze is a concept in conceptville. Understand "suzy kaiser" and "kaiser suzy" as Keyser Soze. howto is "[j-girl]".
 
@@ -12354,6 +12376,8 @@ scofflaw is a concept in conceptville. Understand "scoff law" and "lawscoff/law-
 section idiot village concepts
 
 Candidate Dummy is a concept in conceptville. understand "dummy candidate" as Candidate Dummy. howto is "talk to Sly".
+
+grease monkey is a concept in conceptville. Understand "monkey grease" as grease monkey. howto is "examine the Business Monkey".
 
 section truth home concepts
 
@@ -12450,6 +12474,8 @@ Brother's Keepers is a concept in conceptville. understand "brother/brothers kee
 section pot chamber concepts
 
 bum a cigarette is a concept in conceptville. Understand "cigarette a bum" as bum a cigarette. howto is "(fill in here)".
+
+crack up is a concept in conceptville. Understand "up/down/joke crack" and "crack joke/down" as crack up. howto is "ask Pusher Penn about bad stuff".
 
 go to pot is a concept in conceptville. Understand "pot to go" as go to pot. howto is "[f-t of Pot Chamber]".
 
