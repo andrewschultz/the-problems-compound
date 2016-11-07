@@ -996,6 +996,8 @@ check waiting (this is the caught napping rule):
 		say "[one of]You attempt to loiter in this seedy area in order to get in trouble or something, but no dice.[or]Still, nobody comes to break up your loitering.[or]You reflect if you want to get zapped for loitering, maybe you need to do better than just hang around.[or]Hm, you wonder what is even lazier than standing around.[stopping]" instead;
 	if player is in Meal Square:
 		say "You wait, but [activation of loaf around]a round loaf fails to appear." instead;
+	if player is in Soda Club:
+		say "Er, be." instead;
 	if player is in airy station:
 		say "The mentality crowd cheers some more! They're glad you don't want to leave right away, and they know you'll figure what to do with the hammer, eventually." instead;
 	say "[activation of wait your turn]Turn your wait." instead;
@@ -3551,6 +3553,7 @@ Daily Show	"The Daily Show is a very popular comedy/political commentary show on
 degenerate	"Degenerate means without moral values. D is short for defense."
 disorder	"Disorder means a mess, while an order is telling someone what to do and a dis is an insult. Basically, the [bad-guy] is saying, insulting people for being disorganized helps them get organized. Well, it never helped me."
 dual vision	"Dual vision is seeing two things at once, often due to a blow to the head or alcohol intoxication."
+elitist	"Elitist means snobbish or stuck-up."
 evil eye	"The evil eye is staring at someone to make them uncomfortable."
 Ezra Pound	"Ezra Pound was an influential Modernist poet."
 face facts	"To face facts is to see the sad truth. In this case, the [bad-guy] is telling you he's telling the truth, which is often--inaccurate. Or it means he's been lying before."
@@ -10521,6 +10524,7 @@ gad-act
 "The [bad-guy] groans how [activation of John Stewart]Stewart Jahn and [activation of trevor noah]Noah Trevor [activation of daily show]show daily how unfunny and irrelevant and socially aloof they are."
 "'We need to [activation of degenerate]generate D, here, against [bad-guy-2]!'"
 "'[random surveyable person] just needs a good [activation of disorder]Order Dis to put [']em line. Or two. Or three.'"
+"'[activation of elitist]Leetest! Eeee!' boasts the [bad-guy], establishing several layers of irony, you're pretty sure."
 "'[activation of evil eye]I?!? Evil?!?' booms the [bad-guy], before looking askance at the [random scenery in freak control]."
 "The [bad-guy] mutters something about needing to [activation of Ezra Pound]pound Ezra for not appreciating his edgy, advanced, experimental poetry."
 "'So much to plan and delegate. So many unreliable people. Duty fatigue, duty fatigue[activation of fatigue duty].'"
@@ -11345,7 +11349,7 @@ rule for amusing a victorious player:
 
 table of amusingness
 biglaff	anyrule
-"Waiting? Especially in A Round Lounge?"	degen-true rule
+"Waiting? Especially in A Round Lounge/Soda Club?"	degen-true rule
 "(First time only) thinking?"	--
 "Swearing (and saying yes or no) when the game asks if you want swearing?"	--
 "An empty command?"	--
@@ -12533,6 +12537,8 @@ degenerate is a concept in conceptville. Understand "d generate" and "generate d
 disorder is a concept in conceptville. understand "order dis" and "dis order" as disorder. howto is "[fr-ran]".
 
 dual vision is a concept in conceptville. Understand "vision duel" and "duel vision" as dual vision. howto is "[fr-ran]".
+
+elitist is a concept in conceptville. Understand "elitist" as elitist. howto is "[fr-ran]".
 
 evil eye is a concept in conceptville. Understand "i evil" and "evil i" as evil eye. howto is "[fr-ran]".
 
