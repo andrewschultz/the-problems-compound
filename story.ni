@@ -1567,7 +1567,7 @@ before listening when accel-ending:
 	say "You've had enough of meekly listening to others. You'll be listening to yourself from now on." instead;
 
 check listening (this is the listening to a thing rule):
-	if noun is seven jerks:
+	if noun is jerks:
 		say "The [j-co] babble on about random [activation of junk mail]male junk. It just piles up!" instead;
 	if noun is fritz:
 		say "Fritz mumbles to himself [if fritz has wacker weed]about buying a fancy [activation of clip joint]joint clip to not waste ANY leaves[else if Nominal Fen is visited]about being [activation of high and dry]dry and high[else if fritz has bear]a bit more happily now he has minimum bear[else]nervously[end if]." instead;
@@ -9978,7 +9978,7 @@ the book bank is scenery in Discussion Block. "Just filled with books! And inter
 book-ord is a number that varies.
 
 check examining book bank for the first time:
-	say "It's just filled with books! And interest!";
+	say "It's just filled with books! And interest! But no silly books by, say, Jerome K. Jerome.";
 
 check examining book bank:
 	increment book-ord;
@@ -9986,7 +9986,7 @@ check examining book bank:
 		if art fine is in Discussion Block:
 			say "Art Fine sighs. While he's obviously happy to reiterate his opinions on literature, he does need to let you know how kind he is to give his wisdom for free.[paragraph break]";
 		else:
-			say "You go back to the start of the book crack.[paragraph break]";
+			say "You go back to the start of the book bank.[paragraph break]";
 		now book-ord is 1;
 	choose row book-ord in the table of horrendous books;
 	if Art Fine is in lalaland:
