@@ -12,22 +12,42 @@
 #      -nt/-t toggles test result printing
 #called from talf
 
+use strict;
+use warnings;
+
 use Win32::Clipboard;
 
-$clip = Win32::Clipboard::new();
+my $clip = Win32::Clipboard::new();
 
-@dirs = ("Compound", "Slicker-City", "Buck-the-Past");
+my @dirs = ("Compound", "Slicker-City", "Buck-the-Past");
 
+###############################
+#options
 my $codeToClipboard = 0;
 my $printErrCode = 0;
 my $printErrors = 1;
 my $printTest = 0;
+my $order = 0;
+my $printSuccess = 0;
 
-my $objSuc;
+#############################
+#hashes
+my %any;
+my %expl;
+my %auth;
+my %conc;
+my %activ;
+my %gotText;
+my %authTab;
+
+######################counters
+my $objSuc = 0;
+my $count = 0;
+my $authFail = 0;
 
 while ($count <= $#ARGV)
 {
-  $a = @ARGV[$count];
+  $a = $ARGV[$count];
   for ($a)
   {
     /^-?o$/ && do { $order = 1; $count++; next; };
@@ -51,18 +71,18 @@ while ($count <= $#ARGV)
 	/^[a-z][a-z-]+$/i && do
 	{
 	  print "Note that this assumes the idiom written properly e.g. show business vs business show.";
-	  @cranks = split(/,/, @ARGV[0]); foreach $mycon (@cranks) { crankOutCode($mycon); } exit;
+	  my @cranks = split(/,/, $ARGV[0]); foreach my $mycon (@cranks) { crankOutCode($mycon); } exit;
 	};
 	usage();
   }
 }
 
-for $thisproj (@dirs) { if ($order) { checkOrder($thisproj); } else { readConcept($thisproj); } }
+for my $thisproj (@dirs) { if ($order) { checkOrder($thisproj); } else { readConcept($thisproj); } }
 
 sub crankOutCode
 {
-  $temp = $_[0]; $temp =~ s/-/ /g;
-  $bkwd = join(" ", reverse(split(/ /, $temp)));
+  my $temp = $_[0]; $temp =~ s/-/ /g;
+  my $bkwd = join(" ", reverse(split(/ /, $temp)));
   if ($a)
   {
     $a .= "\n";
@@ -79,9 +99,9 @@ sub crankOutCode
 #debugging routine to dump the hashes
 sub dumpHashes
 {
-  print "EXPL:\n"; for $x (sort keys %expl) { print "$x\n"; }
-  print "ANY:\n"; for $x (sort keys %any) { print "$x\n"; }
-  print "CONC:\n"; for $x (sort keys %conc) { print "$x\n"; }
+  print "EXPL:\n"; for my $x (sort keys %expl) { print "$x\n"; }
+  print "ANY:\n"; for my $x (sort keys %any) { print "$x\n"; }
+  print "CONC:\n"; for my $x (sort keys %conc) { print "$x\n"; }
 }
 
 #######################################
@@ -92,13 +112,20 @@ sub printResults
 my $fails = 0;
 my $totals = 0;
 my $errMsg = "";
+my $activErr;
+my $explErr;
+my $concErr;
+my $authErr;
+my $y;
+my $y1;
+my $lastLine = 0;
 
 #dumpHashes();
-for $x (sort keys %any)
+for my $x (sort keys %any)
 {
-  $thisFailed = 0;
+  my $thisFailed = 0;
   $totals++;
-  $xmod = $x; $xmod =~ s/\*//g;
+  my $xmod = $x; $xmod =~ s/\*//g;
   #print "Looking at $x:\n";
   if (!$expl{$x}) { $errMsg .= "$xmod needs explanation.\n"; $explErr .= "$xmod\t\"$xmod is when you [fill-in-here].\"\n"; $fails++; $thisFailed = 1; }
   if (!$conc{$x})
@@ -128,23 +155,22 @@ for $x (sort keys %any)
   else { print "Test succeeded! All $totals passed."; }
 
   print "\n";
-  my $authErr;
-  my $needAlf = 0; my $authfail = 0; my $authsucc = 0;
+  my $needAlf = 0; my $authFail = 0; my $authsucc = 0;
   my $numauth = scalar keys %auth;
   if ($numauth)
   {
 
 
-  for $q (sort keys %auth)
+  for my $q (sort keys %auth)
   {
-    if ($gotText{$q} == 0) { print "$q needs xp-text.\n"; $authfail++; $authErr .= "$q\t\"[fix-this]\"\n"; $errMsg = 1; next; }
-	#elsif ($authtab{$q} < $lastLine) { print "$q is out of order in the author explanations, $authtab{$q} vs $lastLine, $auth{$q}.\n"; $authfail++; $needAlf = 1;}
+    if ($gotText{$q} == 0) { print "$q needs xp-text.\n"; $authFail++; $authErr .= "$q\t\"[fix-this]\"\n"; $errMsg = 1; next; }
+	#elsif ($authtab{$q} < $lastLine) { print "$q is out of order in the author explanations, $authtab{$q} vs $lastLine, $auth{$q}.\n"; $authFail++; $needAlf = 1;}
 	else { $authsucc++; }
-	$lastLine = $authtab{$q};	
+	$lastLine = $authTab{$q};	
   }
   if ($needAlf) { print "talf.pl may help straighten things out.\n"; }
 
-  print "TEST RESULTS:$_[0] authors matching,0,$authfail,$authsucc,0,$numauth\n";
+  print "TEST RESULTS:$_[0] authors matching,0,$authFail,$authsucc,0,$numauth\n";
   }
 
   if ($errMsg)
@@ -189,6 +215,10 @@ sub checkOrder
   my $lastComp = 0;
   $objSuc = 0;
   my $origLine;
+  my $lw = "";
+  my @authErrs;
+  my $lastMatch = 0;
+  my $match = 0;
 
   while ($a = <A>)
   {
@@ -222,24 +252,25 @@ sub checkOrder
   if ($ordFail) { print "  EXPLANATIONS table order mistakes above ($ordFail)\n"; }
 
   $ordFail = 0;
+  my $inOrder = 0;
   for (0..$#ex)
   {
     #print lc(@ex[$_]) . " =? " . lc(@co[$_]) . "\n";
-    if (lc(@ex[$_]) ne lc(@co[$_]))
+    if (lc($ex[$_]) ne lc($co[$_]))
 	{
 	  $ordFail++;
-	  if ((!$detail) && ($match - $lastMatch == 1)) { next; }
-      print "$_ ($ordFail): @ex[$_] vs @co[$_]";
-	  for $match (0..$#co)
+	  if ($match - $lastMatch == 1) { next; }
+      print "$_ ($ordFail): $ex[$_] vs $co[$_]";
+	  for my $match (0..$#co)
 	  {
-	    if (lc(@ex[$_]) eq lc(@co[$match]))
+	    if (lc($ex[$_]) eq lc($co[$match]))
 	    {
 		  print " (#$match)";
 		  if ($match - $lastMatch == 1) { print " (in order)"; $inOrder++; }
 		  $lastMatch = $match;
 		}
 	  }
-	  if ($lw ne "") { print " (last working=@ex[$lw])"; }
+	  if ($lw ne "") { print " (last working=$ex[$lw])"; }
 	  print "\n";
 	} else { $lw = $_; }
   }
@@ -249,7 +280,7 @@ sub checkOrder
     print "$ordFail failed";
 	if ($inOrder)
 	{
-	  $remain = $ordFail - $inOrder;
+	  my $remain = $ordFail - $inOrder;
 	  print ", but $inOrder are nice and consecutive. That means there might really be $remain or fewer changes to make";
 	}
 	print ".\n      EXPLANATIONS vs CONCEPTS above\n";
@@ -265,23 +296,25 @@ sub checkOrder
     print "TEST RESULTS:$_[0] explanation alphabetizing,0,$objAlf,$objSuc\n";
   }
   if (scalar keys %auth == 0) { return; }
-  $gots = scalar keys %gotText;
+  my $gots = scalar keys %gotText;
 
   my $authOops = 0;
-  foreach $q (sort {$auth{$a} <=> $auth{$b}} keys %auth)
+  my $authAlf = 0;
+  my $lastAuth = "";
+
+  foreach my $q (sort {$auth{$a} <=> $auth{$b}} keys %auth)
   {
-    if ($q le $lastAuth) { print "$lastAuth/$q is not correctly alphabetized in the defines. Look at line $auth{$q}. $lastAuth is at $auth{$lastAuth}.\n"; push(@authErr, "$q/$auth{$q}"); $authFail++; }
-	if ($gots) { if ($q !~ / xp-text is /) { print "$q needs xp-text.\n"; push(@authErr, "$q/$auth{$q}"); } }
+    if ($q le $lastAuth) { print "$lastAuth/$q is not correctly alphabetized in the defines. Look at line $auth{$q}. $lastAuth is at $auth{$lastAuth}.\n"; push(@authErrs, "$q/$auth{$q}"); $authFail++; }
+	if ($gots) { if ($q !~ / xp-text is /) { print "$q needs xp-text.\n"; push(@authErrs, "$q/$auth{$q}"); } }
 	$lastAuth = $q;
 	$authAlf++;
   }
   
-  $lastAuthLine="";
   if (scalar(keys %auth))
   {
-    my $authFail = 0;
-    if (($#authErr == -1) && ($authOops == 0)) { push(@authErr, "ALL OKAY"); } else { $authFail = $#authErr + 1 + $authOops; }
-    print "TEST RESULTS:$_[0] author order checks,0,$authFail,$authAlf," . join("<br />", @authErr) . "\n";
+    $authFail = 0;
+    if (($#authErrs == -1) && ($authOops == 0)) { push(@authErrs, "ALL OKAY"); } else { $authFail = $#authErrs + 1 + $authOops; }
+    print "TEST RESULTS:$_[0] author order checks,0,$authFail,$authAlf," . join("<br />", @authErrs) . "\n";
 	if ($authFail) { print "talf.pl may fix things.\n"; }
   }
 }
@@ -294,53 +327,61 @@ sub readConcept
 %expl = ();
 %conc = ();
 %any = ();
+%activ = ();
 
-$source = "c:/games/inform/$_[0].inform/source/story.ni";
+my $inTable = 0;
+
+my $source = "c:/games/inform/$_[0].inform/source/story.ni";
 open(A, $source) || do { print "No source file $source.\n"; return; };
 
-$line = 0;
+my $line = 0;
 
-while ($a = <A>)
+my $inBookTable = 0;
+my $inAuthTable = 0;
+
+my $lineIn;
+my $tmpVar;
+
+while ($lineIn = <A>)
 {
-  $line++;
-  if (($a =~ /is a.* author\. pop/) && ($a !~ /^\[/)) { $b = $a; $b =~ s/ is (an|a) .*//g; chomp($b); if ($a =~ /xp-text is /) { $gotText{$b} = 1; } elsif ($a =~ /\"/) { print "Probable typo for $b.\n"; } $auth{$b} = $line; next; }
+  if (($lineIn =~ /is a.* author\. pop/) && ($lineIn !~ /^\[/)) { $tmpVar = $lineIn; $tmpVar =~ s/ is (an|a) .*//g; chomp($tmpVar); if ($lineIn =~ /xp-text is /) { $gotText{$tmpVar} = 1; } elsif ($lineIn =~ /\"/) { print "Probable typo for $tmpVar.\n"; } $auth{$tmpVar} = $line; next; }
   if ($inBookTable)
   {
-    if ($a !~ /[a-z]/i) { $inBookTable = 0; next; }
-    $b = $a; chomp($b); $b = wordtrim($b); $b =~ s/\t.*//g; $activ{$b} = 1; $any{$b} = 1; next;
+    if ($lineIn !~ /[a-z]/i) { $inBookTable = 0; next; }
+    $tmpVar = $lineIn; chomp($tmpVar); $tmpVar = wordtrim($tmpVar); $tmpVar =~ s/\t.*//g; $activ{$tmpVar} = 1; $any{$tmpVar} = 1; next;
   }
   if ($inAuthTable)
   {
-    if ($a !~ /[a-z]/i) { $inAuthTable = 0; next; }
-    $b = $a; chomp($b); $b =~ s/\t.*//g; $authtab{$b} = $line; next;
+    if ($lineIn !~ /[a-z]/i) { $inAuthTable = 0; next; }
+    $tmpVar = $lineIn; chomp($tmpVar); $tmpVar =~ s/\t.*//g; $authTab{$tmpVar} = $line; next;
   }
-  if ($a =~ /xxauth/) { $inAuthTable = 1; <A>; $line++; next; }
-  if ($a =~ /section misc concept\(s\)/) { $concepts = $line; }
-  if ($a =~ /^table of (book jungle|life shelf)/) { $xadd = $line; $inBookTable = 1; <A>; next; }
-  if ($a =~ /^table of explanations.*concepts/) { $xadd = $line; $inTable = 1; <A>; next; }
-  if ($a !~ /[a-z]/i) { $inTable = 0; next; }
-  chomp($a); $a = cutArt($a);
-  if ($a =~ /is a concept in lalaland/)
+  if ($lineIn =~ /xxauth/) { $inAuthTable = 1; <A>; $line++; next; }
+  if ($lineIn =~ /^table of (book jungle|life shelf)/) { $inBookTable = 1; <A>; next; }
+  if ($lineIn =~ /^table of explanations.*concepts/) { $inTable = 1; <A>; next; }
+  if ($lineIn !~ /[a-z]/i) { $inTable = 0; next; }
+  chomp($lineIn); $lineIn = cutArt($lineIn);
+  if ($lineIn =~ /is a concept in lalaland/)
   {
-    $a =~ s/ is a concept in lalaland.*//g;
-	$a = wordtrim($a);
-	$conc{$a} = 1;
-	$activ{$a} = 1;
-	$any{$a} = 1;
+    $lineIn =~ s/ is a concept in lalaland.*//g;
+	$lineIn = wordtrim($lineIn);
+	$conc{$lineIn} = 1;
+	$activ{$lineIn} = 1;
+	$any{$lineIn} = 1;
   }
-  $b = $a;
-  while ($b =~ /\[activation of/)
+  $tmpVar = $lineIn;
+  while ($tmpVar =~ /\[activation of/)
   {
-    $b =~ s/.*?\[activation of //; $c = $b;
+    $tmpVar =~ s/.*?\[activation of //;
+	my $c = $tmpVar;
 	$c =~ s/\].*//g;
 	if ($c eq "conc-name entry") { next; }
 	$activ{wordtrim($c)} = 1; $any{wordtrim($c)} = 1;
   }
-  if ($inTable == 1) { $b = $a; $b =~ s/\t.*//g; $b = wordtrim($b); $expl{$b} = $any{$b} = 1; next; }
-  if (($a =~ /is a (privately-named |)?concept/) && ($a !~ /\t/)) #prevents  "is a concept" in source text from false flag
+  if ($inTable == 1) { $tmpVar = $lineIn; $tmpVar =~ s/\t.*//g; $tmpVar = wordtrim($tmpVar); $expl{$tmpVar} = $any{$tmpVar} = 1; next; }
+  if (($lineIn =~ /is a (privately-named |)?concept/) && ($lineIn !~ /\t/)) #prevents  "is a concept" in source text from false flag
   {
-    $b = $a; $b =~ s/ is a (privately-named |)?concept.*//g; $b = wordtrim($b); $conc{$b} = $any{$b} = 1;
-	if ($a =~ /\[ac\]/) { $activ{$b} = 1; } # [ac] says it's activated somewhere else
+    $tmpVar = $lineIn; $tmpVar =~ s/ is a (privately-named |)?concept.*//g; $tmpVar = wordtrim($tmpVar); $conc{$tmpVar} = $any{$tmpVar} = 1;
+	if ($lineIn =~ /\[ac\]/) { $activ{$tmpVar} = 1; } # [ac] says it's activated somewhere else
 	next;
   }
 }
@@ -378,13 +419,13 @@ sub checkGameObjExpl
   my $locCount = 0;
   my $c1;
   my $c2;
-  my $initLines = $lines;
+  my $initLines = $.;
   my $gameObjErr = 0;
   my $line;
+  my $curLoc;
 
   while ($line = <A>)
   {
-    $lines++;
 	if ($line !~ /[a-z]/i) { last; }
     if ($line =~ /\[start/)
 	{
@@ -402,11 +443,11 @@ sub checkGameObjExpl
 	  chomp($c2);
 	  $gameObjErr++;
 	  $locCount++;
-	  print "$linesToRet($gameObjErr): $c2 should be after $c1 ($curLoc, $locCount).\n";
+	  print "$.($gameObjErr): $c2 should be after $c1 ($curLoc, $locCount).\n";
 	}
 	$compare = $line;
   }
-  $objSuc = $lines - $initLines - $gameObjErr;
+  $objSuc = $. - $initLines - $gameObjErr;
   return $gameObjErr;
 }
 
