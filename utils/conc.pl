@@ -1,3 +1,17 @@
+#############################################
+#conc.pl
+#
+#concept dredger for Alec Smart games
+#
+#usually I've just created [activation of] or written a new BTP book
+#
+#usage -o tracks order of concepts/tables
+#      -c to clipboard
+#      -pc/sc/btp runs (-a all)
+#
+#      -nt/-t toggles test result printing
+#called from talf
+
 use Win32::Clipboard;
 
 $clip = Win32::Clipboard::new();
@@ -7,6 +21,7 @@ $clip = Win32::Clipboard::new();
 my $codeToClipboard = 0;
 my $printErrCode = 0;
 my $printErrors = 1;
+my $printTest = 0;
 
 my $objSuc;
 
@@ -16,11 +31,12 @@ while ($count <= $#ARGV)
   for ($a)
   {
     /^-?o$/ && do { $order = 1; $count++; next; };
+    /^-?nt$/ && do { $printTest = 0; $count++; next; };
     /^-?t$/ && do { $printTest = 1; $count++; next; };
     /^-?ps$/ && do { $printSuccess = 1; $count++; next; };
     /^-?pc$/ && do { @dirs = ("Compound"); $count++; next; };
     /^-?sc$/ && do { @dirs = ("Slicker-City"); $count++; next; };
-    /^-?bp$/ && do { @dirs = ("Buck-the-Past"); $count++; next; };
+    /^-?(bp|btp)$/ && do { @dirs = ("Buck-the-Past"); $count++; next; };
 	/^-?as$/ && do { @dirs = ("Slicker-City", "Compound"); $count++; next; };
 	/^-?a3$/ && do { @dirs = ("Slicker-City", "Compound", "Buck-the-Past"); $count++; next; };
 	/^-?[cve]+$/ && do
@@ -407,6 +423,8 @@ sub alfPrep
 sub usage
 {
 print<<EOT;
+CONC.PL usage
+===================================
 -c = error code to clipboard
 -e = print errors not error code
 -v = verbosely print code
