@@ -8468,6 +8468,8 @@ Lee Bull is a surveyable person in Truth Home. description is "When he's not try
 
 understand "proof fool" and "proof/fool" as Lee Bull when player is in Truth Home.
 
+understand "read proof" as a mistake ("He gives you a look like he's been scrutinized enough, really.") when Lee Bull is in truth home and player is in truth home.
+
 check playing the rattle:
 	if player is in truth home:
 		say "Sid Lew looks worried for a second, but goes on. Hm. You interrupted one of his rants, but not at the right time. Maybe someone who understood them better, but just didn't have the guts to speak back, could use the rattle. Who could that be, now." instead;

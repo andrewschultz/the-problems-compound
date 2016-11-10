@@ -43,6 +43,7 @@ my $addedSomething = 0;
 my $shouldAlphabetize = 0;
 my $count = 0;
 my $wordsAdded = 0;
+my $warn = 0;
 
 while ($count <= $#ARGV)
 {
@@ -72,16 +73,11 @@ for ($a)
   /^-?oo$/ && do { print "Opening $track.\n"; `$track`; exit; };
   /^-np$/ && do { $dicURLPrint = 0; $count++; next; };
   /^-\!$/ && do { countChunks(); countURLs(); exit; };
- / ^-\?$/ && do { usage(); exit; };
-  if ($flipData) { print "Only one flip data allowed. Use comma separators.\n"; exit; }
-  else
-  {
-    if ($a =~ /^(\"?)[,a-z]+$/)
-    {
-      if (length($a) == 1) { print ("Length must be at least 2.\n"); exit; }
-      if ((length($a) == 2) && (!$override)) { print ("-2 flag must be used for 2-letter word.\n"); exit; }
-	  $flipData =$a; $count++; print "Flip data = $flipData\n"; next; }
-     }
+  / ^-\?$/ && do { usage(); exit; };
+  if (length($a) == 1) { print ("Length must be at least 2.\n"); exit; }
+  if ((length($a) == 2) && (!$override)) { print ("-2 flag must be used for 2-letter word.\n"); exit; }
+  
+  if ($flipData) { if ($warn) { print "Usually, we use comma separators, but I'll let it slide.\n"; $warn = 1; } $flipData .= ",$a"; $count++; next; } else { $flipData = $a; $count++; next; }
   print "Bad flag, $a.\n"; usage();
 }
 }
@@ -89,7 +85,7 @@ for ($a)
 if (!$flipData) { print "Need a word to flip, but here are diagnostics:\n"; countChunks(); countURLs(); exit; }
 
 
-@flipAry = split(/,/, lc($flipData));
+@flipAry = split(/[,\..]/, lc($flipData));
 
 initWordCheck();
 initDupeRead();
