@@ -10021,6 +10021,7 @@ workname	authname	booksubj
 "Prejudice and Pride"	"Austin Jayne"	"someone learning, with humor and pathos, how and why his instincts about lesser people who think they're equal to him is right"
 "The Convictions of Our Courage"	"Blair Anthony"	"the emotional and moral fulfillment a fellow who told on his friends to milquetoast seeming politicians who grovel shamefully before greater power"
 "Farm Animal"	"Blair Irick"	"how particularly common people never understand why they obviously need to be pushed aside, in fable form, no less"
+"The Melancholy of Anatomy"	"Burton Robert"	"reflections of two failed medical students who went in for art and something more lucrative"
 "The Judgement of Vision"	"Byron Gordon George"	"how a great poet is denied Heaven for exposing truths to people a bit too common to appreciate them"
 "Stop the Mind"	"Carey V. Gordon"	"how to criticise people who care too much or too little about grammar."
 "The Snark of the Hunting"	"Carol Lewis"	"how to gaslight people into thinking what they said was nonsense, especially if it should be"
