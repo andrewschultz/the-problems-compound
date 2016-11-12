@@ -3466,6 +3466,7 @@ grown up	"Grown up means, well, you've learned and matured."
 hara-kiri	"Hara-kiri is Japanese ritual suicide."
 jerk around	"To jerk someone around is to pester them physically or mentally."
 jerk off	"To jerk off is to gratify oneself carnally."
+joint committee	"A joint committee is a group of legislators from different parts of US Congress."
 junk mail	"Junk mail means letters and fliers you didn't ask for that appear in your (physical or electronic) mailbox anyway."
 Keyser Soze	"Keyser Söze is the shadowy antagonist of the film [italic type]The Usual Suspects[roman type]."
 lily liver	"A lily-liver is someone who is afraid to go out and do risky things."
@@ -7904,7 +7905,7 @@ to check-jerks-done:
 
 to zap-the-jerks:
 	say "A fight's about to break out, until you tell them where you got this information from.[paragraph break]'You better be right about this,' [a random not minted client] says. They rush off. You hear whining in the distance. It's the Labor Child. He protests he was just trying to shame them into doing more practical things. They aren't buying it!";
-	say "[line break]The (ex-)jerks arrive back, and [a random client] [if allow-swears is true]gives an [activation of grown up]up groan[else]wipes away a [activation of tear-jerk]jerk-tear[end if] before handing you a bottle of Quiz Pop. 'Man, you seem to know what's what, and you helped us see it was okay to be us. Here's some totally sweet contraband.'[paragraph break]Hmm. Interesting. Quiz Pop. As they walk away, you hear them deciding on a victory meal: [activation of sausage fest]fest sausage.";
+	say "[line break]The (ex-)jerks arrive back, and [a random client] [if allow-swears is true]gives an [activation of grown up]up groan[else]wipes away a [activation of tear-jerk]jerk-tear[end if] before handing you a bottle of Quiz Pop. 'Man, you seem to know what's what, and you helped us see it was okay to be us. Here's some totally sweet contraband.'[paragraph break]Hmm. Interesting. Quiz Pop. As they walk away, you hear them deciding on a victory meal: [activation of sausage fest]fest sausage. With a [activation of joint committee]committee joint to top it off! They have the extra money, now.";
 	it-take quiz pop;
 	increment the score;
 	now all clients are in lalaland;
@@ -12324,6 +12325,8 @@ Hara-Kiri is a concept in conceptville. Understand "keri harrah" and "harrah ker
 Jerk Around is a concept in conceptville. Understand "around jerk" as jerk around. howto is "enter the main area with profanity on".
 
 Jerk Off is a concept in conceptville. understand "off jerk" as jerk off. howto is "attack a jerk in swearing-on mode".
+
+joint committee is a concept in conceptville. Understand "committee joint" as joint committee. howto is "[solve-j]".
 
 junk mail is a concept in conceptville. Understand "mail junk" as junk mail. howto is "listen to the [j-co] before figuring the Index puzzle".
 
