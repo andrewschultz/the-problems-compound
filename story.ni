@@ -10115,6 +10115,7 @@ workname	singername	songsubj
 "Life Is WHAT"	"Harrison George"	"a man too clever for all the constant love-is-life babble"
 "Out Movin[']"	"Joel Billey"	"someone who finds value in a more stressful life"
 "Girl Island"	"John Elton"	"the first really cool song about men finding paradise among REAL women"
+"Losers? Beautiful"	"Keon Leonard"	"winning arguments or life and not feeling sorry"
 "Lies Little"	"Mac Fleetwood"	"how it's fun to cheat on someone dumb enough to tell the truth too much"
 "Off, Get"	"Nelson Rogers Prince"	"people without enough social nous to have a sexual partner and why they deserve no fun"
 "Work Fire"	"Perry Keady"	"having everyday up and at em for the things you deserve to do (if you're smart) or better do to survive (if you're dumb)"
@@ -10520,6 +10521,7 @@ to say odd-machine-l of (x - a thing):
 
 table of bad guy worries [xxbgw]
 gad-act
+"The [bad-guy] loud-whispers how those wimps Willis Bruce and Norris Charles need attending to by his...associates."
 "'Think you're clever? Foul miss, Artie[activation of Artemis Fowl],' the [bad-guy] chides."
 "'Geez, it's a pain to [activation of benefactor]factor BENNY. I'm not, like, MEAN to him.'"
 "'[activation of busy work]Work...busy...work...busy,' says the [bad-guy], pacing back and forth."
@@ -10534,7 +10536,6 @@ gad-act
 "'So much to plan and delegate. So many unreliable people. Duty fatigue, duty fatigue[activation of fatigue duty].'"
 "'I'm so [activation of fawn over]OVER Fawn. She never APPRECIATED my appreciation.'"
 "The [bad-guy] mutters he's sure [activation of Howard Dean]Dean Howard is nice and well-meaning all, but that scream. Really. Just...unforgiveable. And even if it were, well, he probably still deserves to be REMINDED. For character building purposes."
-"The [bad-guy] loud-whispers how those wimps Willis Bruce and Norris Charles need attending to by his...associates."
 "'[activation of infomania]Mania Info. Always good to have more. Well, until I get bored of it.'"
 "'[activation of informally]Ally, Inform!' the [bad-guy] says to nobody in particular."
 "The [bad-guy] congratulates himself for installing the super-sanitary doctor-recommended [activation of johns hopkins]Hopkins johns."
