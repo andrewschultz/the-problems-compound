@@ -3411,6 +3411,7 @@ clip joint	"A clip joint is a place that overcharges customers. A joint clip wil
 drag along	"To drag someone along is to take them with despite their reluctance."
 Dream Ticket	"A pair of candidates who, running together, have extremely broad appeal they wouldn't have alone. In Alec's dreams, he's often ganged up on by two people or groups who triangulate him rather differently."
 Grammar Police	"Grammar police are people who argue trivial grammar points when something is clear, or there's a much bigger cogent argument. In the Stool Toad's case, he deliberately uses bad grammar for emphasis, like on a 'hard-boiled' cop show."
+ground up	"Ground up can mean making something from nothing, or modest resources. But it also means physically ground up, like putting food in a blender."
 high and dry	"High and dry means in a good safe position."
 high roller	"A high roller is someone with a lot of money and prestige."
 hoth	"High on the hog means living wealthily. To hog the high would be if Fritz didn't share his, um, stuff."
@@ -6793,7 +6794,7 @@ check going nowhere in Down Ground:
 		say "There are two ways in or out: east or west." instead;
 	if noun is up:
 		say "Paths up to the east or west. So hard to decide which." instead;
-	say "It's too high a slope north or south." instead;
+	say "It's too high a slope north or south. Plus, you're not sure if such [activation of ground up]up ground would be safe, though you do want to work from the, er, ground up." instead;
 
 the warmer bench is a supporter in Down Ground. "The Warmer Bench waits here. It may be fun to lie on.". description is "Originally painted on the bench: PROPERTY OF [activation of bum beach]BUM BEACH. Property Of is replaced by FORECLOSED FROM. You feel the heat coming from it. It makes you sleepy."
 
@@ -12196,6 +12197,8 @@ drag along is a concept in conceptville. Understand "along drag" as drag along. 
 Dream Ticket is a concept in conceptville. understand "ticket dream" as dream ticket. howto is "sleep after you got a tickety".
 
 Grammar Police is a concept in conceptville. understand "police grammar" as grammar police. howto is "go east to Down Ground".
+
+ground up is a concept in conceptville. Understand "up ground" as ground up. howto is "go north or south in Down Ground".
 
 a thing called High and Dry is a concept in conceptville. Understand "dry and high" as high and dry. howto is "listen to Fritz after getting past Pressure Pier but before giving him the weed".
 
