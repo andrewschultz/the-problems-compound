@@ -1660,6 +1660,8 @@ lolly-eaten is a truth state that varies.
 check eating:
 	if noun is earth of salt:
 		say "[taste-poor]." instead;
+	if noun is tickety:
+		say "It's not big enough to be a [activation of meal ticket]ticket meal." instead;
 	if noun is lolly:
 		if lolly-eaten is true:
 			say "It--well, you don't it'd be as bad as you imagined." instead;
@@ -3406,6 +3408,7 @@ Tray T	"A tea tray. To go with food."
 Tray X	"It is an ex-tray."
 Boy Howdy	"Boy Howdy is a colloquial expression of surprise." [start of pressure pier]
 fish out of water	"A fish out of water is someone or something out of place."
+meal ticket	"A meal ticket is something you own that will help you advance socially or economically. It could be physical, or a piece of knowledge, or clout."
 Bum Beach	"A beach bum is someone who wanders on the beach. Maybe he lives there in a shack too." [start of down ground]
 clip joint	"A clip joint is a place that overcharges customers. A joint clip will help Fritz save on purchases so none is wasted."
 drag along	"To drag someone along is to take them with despite their reluctance."
@@ -12182,6 +12185,8 @@ section pressure pier concepts
 Boy Howdy is a concept in conceptville. understand "howdy boy" as Boy Howdy. howto is "get to Pressure Pier".
 
 fish out of water is a concept in conceptville. understand "water out of fish" as fish out of water. howto is "examine the water in Pressure Pier".
+
+meal ticket is a concept in conceptville. Understand "ticket meal" as meal ticket. howto is "eat the boo tickety".
 
 section down ground concepts
 
