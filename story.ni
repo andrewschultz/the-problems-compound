@@ -1041,10 +1041,13 @@ rule for deciding whether all includes a thing when dropping:
 	it does not;
 
 check dropping opener eye:
-	say "You can't un-know what you learned from the [bad-eaten].";
+	say "You can't un-know what you learned from the [bad-eaten]." instead;
 
 check dropping face of loss:
 	say "You're frowning enough, probably, why make it worse?" instead;
+
+check dropping smokable:
+	say "[activation of roach dropping]Dropping a roach would be really, really unsanitary here." instead;
 
 check dropping bad face:
 	say "You wonder if you should drop the act, but--it may not be a total act any more." instead;
@@ -3499,6 +3502,7 @@ scofflaw	"A scofflaw is someone who breaks minor rules. Perhaps they jaywalk or 
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever." [start of idiot village]
 grease monkey	"A grease monkey is a manual laborer, especially with machines."
 assembly line	"An assembly line is where each person or machine has a specific sub-job in creating a larger product." [start of truth home]
+ideological	"Ideological means fixated on specific political ideas and not willing to listen to others."
 mass production	"Mass production is a procedure of efficiently creating many of the same thing using standardized design."
 thp	"Two hundred proof means pure grain alcohol."
 age four	"Age four is, well, four years old. It is too young to forage." [start of scheme pyramid]
@@ -3538,6 +3542,7 @@ bum a cigarette	"To bum a cigarette is to ask someone for one of theirs. 'A ciga
 crack up	"To crack up is to lose sanity. To crack down is to oppress someone, or arrest people for possession of contraband. To crack a joke is to tell a joke."
 go to pot	"To go to pot is to fall apart due to lack of upkeep."
 pop pills	"To pop pills is to take them indiscriminately."
+roach dropping	"A roach is a marijuana cigarette or a bug that appears around dirt. A roach dropping, well, what the roach leaves behind."
 weed out	"To weed out people is to create a test to show they are inadequate."
 Terminal Illness	"A terminal illness is one which is bound to be fatal. Illness can also mean full of insults, e.g. very 'ill,' as kids these days say. And said, even in my day!" [start of belt below]
 Admiral Vice	"A vice-(anything) is a next-in-line/assistant to an honorary position, but vice is also a personal failing, big or small." [start of freak control]
@@ -3585,6 +3590,7 @@ pharisee	"A pharisee is someone who gives the trappings of morality but is not."
 polygraph	"A polygraph is a lie detector. The [bad-guy] is probably looking for lies that aren't there."
 Power Trip	"A power trip is when someone is so overcome with their own power, they do mean things to show it off."
 psychoanalyst	"An analyst is someone who examines data and makes conclusions. Or it could be a psychoanalyst, who interprets a client's concerns and offers solutions.."
+red alert	"Red alert is when an enemy attack appears imminent."
 running start	"A running start means you've gotten started quickly."
 salad days	"Salad days are a time when things are going well."
 scuzz bucket	"A scuzz, or scum, bucket is a person who is just plain dirty or disgusting. The [bad-guy] is not obviously physically like this."
@@ -7148,7 +7154,7 @@ instead of doing something with rehearsal dress:
 	say "In this game, you can pretty much only examine the dress."
 
 after printing the locale description for Soda Club when Soda Club is unvisited:
-	say "The bartender calls you over. 'Say, pal! You look new here! Just use common sense, and you won't get the [activation of boot licker]liquor boot like the [activation of punch sucker]Punch Sucker.'";
+	say "The bartender calls you over. 'Say, new fella! Just use common sense, and you won't get the [activation of boot licker]liquor boot like the [activation of punch sucker]Punch Sucker.'";
 	wfak;
 	say "'But hey, one thing. Can you give me a break from Erin Sack over there? She's--she's interesting at first, but when she's wearing that rehearsal dress she tends to repeat what she's already said. She's no [activation of hip rose]Hip Rose, but Rose is probably out of your league anyway. No offense. By the way, I'm Ally Stout.'";
 	move Erin Sack to Soda Club;
@@ -8445,7 +8451,7 @@ every turn when player is in truth home and Sid Lew is in truth home:
 	increment sid-row;
 	if sid-row > number of rows in table of incisive sid viewpoints:
 		now sid-row is 0;
-		say "Sid points out it's really probably better to be a jerk than not, because fake nice is really really creepy. Lee asks if it's the same for fake interesting. There's a long pause.[paragraph break]'Really, Lee, you just proved my point there. What's-your-name, you agree, right?' You're too shocked to respond. 'See? He agrees! Now, take a minute to think about how insulting you were.' Sid takes one, too, to crank up his list of 'exciting' theories again.";
+		say "'[activation of ideological]Logical idea, logical idea, logical idea. How can you POSSIBLY disagree with me?' booms Sid. He pauses before starting again.";
 		continue the action;
 	else:
 		choose row sid-row in table of incisive sid viewpoints;
@@ -8453,13 +8459,16 @@ every turn when player is in truth home and Sid Lew is in truth home:
 
 table of incisive sid viewpoints
 sid-sez
+"Sid points out it's really probably better to be a jerk than not, because fake nice is really really creepy. Lee asks if it's the same for fake interesting. 'A-HA! I KNEW YOU WEREN'T NICE!'"
+"Sid puts down Lee and notes your silence is agreement. But Lee has a comeback--and Sid notes your silence (again) as disbelief."
 "Sid throws the old chestnut about how immovable objects and unstoppable forces can't both exist at once to prove an omniscient God is a contradiction."
 "Sid proves scientists are lazy because they just aren't making enough elements quick enough. Chiseling from the government, really. Also, scientists are arrogant because they name elements after other scientists and not, like, pop culture."
 "Sid takes an annoying stance espousing a political view you're opposed to, then an almost as annoying stance explaining one you agree with. You feel biased not being as appalled the second time."
+"Sid argues TS Eliot really is toilets spelled backwards, because the TS should go together being in caps, and anyway, there aren't enough palindromes in the world."
 "Sid wonders why people would spend ten minutes listening to a sermon in church. You mentally calculate how long you've been around him, or worse, how long Lee has."
 "Sid is sure Évariste Galois was smart to figure out all that stuff by the age of 21, but he was kind of dumb to get killed at 21 too, amirite?"
 "Sid wonders if maybe mathematicians are being lazy about finding a quintic formula, though he can't even remember the quadratic, and he remembers the cubic formula was really messy."
-"Sid doesn't fully believe in Godel's Incompleteness theorem. Perhaps mathematicians aren't trying hard enough to figure things out."
+"Sid doesn't fully believe in Godel's Incompleteness theorem. Perhaps mathematicians aren't trying hard enough to figure things out, or there's a conspiracy to keep cushy tenured jobs."
 "Sid puts forth an appallingly simplistic view on taxes. Just when you think you've heard them all, wow."
 "Sid points out the value of figuring out why things are messed up for yourself. Lee Bull asks for a moment about when Sid wasn't quite right...and Sid looks very offended indeed."
 "Sid figures anyone who sells Connect 4 boards is part of a racket, since the game is solved and all, but he has better things to do than read the PROOF, you know."
@@ -9191,7 +9200,7 @@ quip	quiptext
 petty-biz	"'Just keeping [']em sequestered in Idiot Village. Not really where I hoped my career would go, but it's a job.'"
 petty-career	"'Well, I used to enjoy just shouting at people and pushing them around, but lots of my friends have got better at that psychological stuff. I been trying, but I can't work it out.'"
 petty-village	"'Smart fella like you doesn't belong there. And no offense, but you're not the sort to whip [']em into line. So I can't let you past.'"
-petty-break	"'Not any time soon, kid. But dispensation from above, and bam. I'm gone.'"
+petty-break	"'No sir, no sir, no sir!' You wonder if you should call him sir, but you'd probably lose a sir-off. 'Unless there's an official opportunity for career skills enhancement!'"
 petty-help	"'Cash donations are illegal. But gifts from the goodness of your heart...'"
 petty-baiter	"'The [bad-guy] had a philosophical discussion with me once. Boy, oh, boy! It was about how just because someone is boring or passive doesn't mean they're not suspicious. What an exciting discussion! He said if I kept it up I could call him [bg] one day, even!'"
 petty-bye	"'Stay law-abiding and stuff, kid.'"
@@ -10051,7 +10060,7 @@ workname	authname	booksubj
 "The Master of the Lesson"	"James Henry"	"an older literary critic who finds and mentors hopeless young fiction authors who'd be better suited to HIS career"
 "The Islands of an Outcast"	"Joseph Conrad"	"a gentle fellow, shunned by modern society, who forges an idyllic utopia"
 "Wake, Finnegans"	"Joyce James"	"(he pauses) matters likely too complex for you."
-"Writing On"	"King Stephen"	"how society represses real writers from writing real books"
+"Writing On"	"King Stephen"	"how society represses real writers from writing real books, with the 'Johnny Hears' chapter being especially relevant"
 "Trek, Star"	"Kirk T. James"	"the right way to think about worldly things, not philosophize too much or get too science-nerdy, and get ahead socially"
 "Lover Chatterly's Lady"	"L. H. David"	"a reformed rake who marries a social equal for scandalous reasons indeed"
 "A Mockingbird to Kill"	"Lee Harper"	"losers who try to imitate people less weird than them. Or don't EVEN try"
@@ -10553,6 +10562,7 @@ gad-act
 "'[activation of pharisee]See, Farrah,' the [bad-guy] mutters to no girl in particular."
 "'Yeah, if we [activation of polygraph]graph Polly, she's lying without lying.'"
 "The [bad-guy] reminds himself how to [activation of psychoanalyst]list Anna: psycho, even if there's not enough data/proof yet."
+"The [bad-guy] picks up a paper, shrugs, and throws it away. '[activation of red alert]Alert? Read...'"
 "'[activation of sly dog]I'll need to dog Sly his magic tricks aren't anything special, now that he can actually do a few.'"
 "'That's why we need to [activation of stand out]doubt Stan, not just because he's different...'"
 "'[activation of stupor]Poor Stu,' the [bad-guy] says, almonst genuinely concerned, before scoffing himself out of a daze."
@@ -11366,10 +11376,10 @@ biglaff	anyrule
 "XYZZY in Freak Control? Twice?"	--
 "Attacking anyone? Or the torch?"	--
 "DIGging twice in Variety Garden?"	--
-"DROPping the dreadful penny, reasoning circluar or other things?"	--
+"DROPping the dreadful penny, reasoning circluar, pot/weed or other things?"	--
 "Going east when Officer Petty is still in Judgment Pass?"	--
 "COAT PETTY or FOG PETTY?"	--
-"Giving the condition mint to various non-jerks, like Volatile Sal or Buddy Best?"
+"Giving the condition mint to various non-[j-co], such as Volatile Sal or Buddy Best?"	--
 "Cussing when you asked for no profanity?"	--
 "Cussing in front of certain people, especially authority figures (twice for a 'bad' ending)?"	--
 "Kissing the Language Machine?"	--
@@ -12402,6 +12412,8 @@ section truth home concepts
 
 assembly line is a concept in conceptville. Understand "line assembly" as assembly line. howto is "give Lee the rattle".
 
+ideological is a concept in conceptville. Understand "ideological" as ideological. howto is "listen to all of Sid Lew ".
+
 mass production is a concept in conceptville. Understand "production mass" as mass production. howto is "give Lee the rattle".
 
 thp is a privately-named concept in conceptville. printed name is "200 proof". understand "proof 200" as thp. howto is "give Lee the rattle".
@@ -12499,6 +12511,8 @@ crack up is a concept in conceptville. Understand "up/down/joke crack" and "crac
 go to pot is a concept in conceptville. Understand "pot to go" as go to pot. howto is "[f-t of Pot Chamber]".
 
 pop pills is a concept in conceptville. Understand "pills pop" as pop pills. howto is "ask Pusher Penn about the [bad-guy]".
+
+roach dropping is a concept in conceptville. Understand "dropping roach" as roach dropping. howto is "drop the weed or pot".
 
 weed out is a concept in conceptville. Understand "out weed" as weed out. howto is "take Pusher Penn's wacker weed".
 
@@ -12606,6 +12620,8 @@ polygraph is a concept in conceptville. understand "graph polly" and "polly grap
 Power Trip is a concept in conceptville. understand "trip power" as power trip. howto is "wait for the [bad-guy] to go through his actions".
 
 Psychoanalyst is a concept in conceptville. Understand "list anna" and "anna list" and "analyst" as psychoanalyst. howto is "[fr-ran]".
+
+red alert is a concept in conceptville. Understand "alert red" as red alert. howto is "[fr-ran]".
 
 Running Start is a concept in conceptville. understand "start running" as running start. howto is "try going south in Freak Control".
 
