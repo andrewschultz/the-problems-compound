@@ -3464,6 +3464,7 @@ Cary Grant	"Cary Grant is a movie star from the 40s and 50s."
 casually	"Casually means not really in-depth."
 category	"A category is a logical class to divide someone into. In here, Kate fits into an obvious one, but she doesn't quite live up or down to it."
 clean break	"A clean break from something is leaving quickly and for good. The jerks haven't broken with their 'clean' secrets yet."
+co-ed	"Co-ed means having males and females in classes together."
 Cotton Candy	"Cotton candy is stringy sugary stuff, often bundled together in a soft ball. People eat it at circuses and fairs and movies a lot."
 dirty word	"A dirty word is profanity. 'Word' on its own is slang for agreement."
 electrocute	"If someone is electrocuted, they're filled with an often lethal dose of electrical current."
@@ -3484,6 +3485,7 @@ mascara	"Mascara is basic make-up for women."
 melodious	"Melodious means nice-sounding."
 mollycoddling	"Mollycoddling is being overprotective of someone."
 Nose Candy	"Nose candy is slang for cocaine."
+Notre Dame	"Notre Dame is a famous Catholic university."
 Olive	"Black and green olives are the two main different kinds of olives."
 Pepper	"Black pepper is the ground-up stuff. Green and bell peppers are not especially spicy. Serrano peppers taste hotter."
 Plaintiff	"A plaintiff is the party bringing the charge in a court case."
@@ -3547,6 +3549,7 @@ weed out	"To weed out people is to create a test to show they are inadequate."
 Terminal Illness	"A terminal illness is one which is bound to be fatal. Illness can also mean full of insults, e.g. very 'ill,' as kids these days say. And said, even in my day!" [start of belt below]
 Admiral Vice	"A vice-(anything) is a next-in-line/assistant to an honorary position, but vice is also a personal failing, big or small." [start of freak control]
 artemis fowl	"Artemis fowl is the intelligent, cocky hero of Eoin Colfer's seven-book series. He's everything the [bad-guy] thinks he is, and more."
+autocratic	"Autocratic means having one person firmly in control."
 beholder of the eye	"'Beauty is in the eye of the beholder' is a cliche meaning we see the nice things we want. Here Alec is worried he's seeing oppresion that gives him an excuse to fear."
 benefactor	"A benefactor is someone who provides support, emotional or financial."
 Beyond Belief	"Beyond belief means something you can't possibly believe in, but belief beyond means more faith than you thought you could have."
@@ -7481,6 +7484,7 @@ girl-neg
 "The [j-co] alternately flatter and berate [activation of Cary Grant]Grant Carey for success with women despite a lack of looks."
 "The [j-co] claim to want to get to know [activation of casually]Julie Kaz better."
 "The [j-co] praise [activation of category]Gory Kate as less weird than she should be on paper."
+"The [j-co] marvel at what a ladies['] man [activation of co-ed]Ed Coe is when he comes home from the military boarding school."
 "The [j-co] mention how [activation of cotton candy]Candy Cotton smacks down saccharine pickup lines."
 "The [j-co] agree that [activation of electrocute]Cute Electra isn't, like, LETHALLY hot."
 "The [j-co] try to be charitable and think of girls ranked [activation of flounder]under Flo on their beauty scale."
@@ -7493,6 +7497,7 @@ girl-neg
 "The [j-co] have to admit [activation of melodious]Odious Mel sure can sing!"
 "The [j-co] harbor fantasies of [activation of mollycoddling]coddling, err, cuddling Molly, who is maybe not as wild as they pretend she is."
 "The [j-co] despair that [activation of nose candy]Candi knows too little about how to party."
+"The [j-co] chuckle at the irreverence of the [activation of notre dame]Dame Noter."
 "The [j-co] argue that [activation of olive]Olive Black or Olive Green being more desirable is NOT a matter of taste."
 "The [j-co] agree [activation of Ralph Lauren]Lauren Ralph would actually be really attractive with any fashion sense at all."
 "The [j-co] agree that both [activation of pepper]Pepper Black, Pepper Bell [i]and[r] Pepper Green are hotter than Pepper Serrano."
@@ -10536,6 +10541,7 @@ table of bad guy worries [xxbgw]
 gad-act
 "The [bad-guy] loud-whispers how those wimps Willis Bruce and Norris Charles need attending to by his...associates."
 "'Think you're clever? Foul miss, Artie[activation of Artemis Fowl],' the [bad-guy] chides."
+"The bad guy plans out a trip to [activation of autocratic]Craddock Auto for a bulletproof limo."
 "'Geez, it's a pain to [activation of benefactor]factor BENNY. I'm not, like, MEAN to him.'"
 "'[activation of busy work]Work...busy...work...busy,' says the [bad-guy], pacing back and forth."
 "The [bad-guy] mentions he is [activation of carry over]over Carrie several times."
@@ -12327,6 +12333,8 @@ category is a concept in conceptville. Understand "gory kate" and "kate gory" as
 
 Clean Break is a concept in conceptville. Understand "break clean" as clean break. howto is "go to the [jc]".
 
+co-ed is a concept in conceptville. Understand "co-ed" as co-ed. howto is "[j-girl]".
+
 Cotton Candy is a concept in conceptville. Understand "candy cotton" as cotton candy. howto is "[j-girl]".
 
 Dirty Word is a concept in conceptville. Understand "word dirty" as dirty word. howto is "go to the [jc]".
@@ -12366,6 +12374,8 @@ melodious is a concept in conceptville. Understand "odious mel" and "mel odious"
 Mollycoddling is a concept in conceptville. Understand "coddling molly" as mollycoddling. howto is "[j-girl]".
 
 Nose Candy is a concept in conceptville. Understand "candy/candi nose/knows" as nose candy. howto is "[j-girl]".
+
+Notre Dame is a concept in conceptville. Understand "dame notre" as notre dame. howto is "[j-girl]".
 
 Olive is a concept in conceptville. Understand "olive green/black" and "green/black olive" as olive. howto is "[j-girl]".
 
@@ -12412,7 +12422,7 @@ section truth home concepts
 
 assembly line is a concept in conceptville. Understand "line assembly" as assembly line. howto is "give Lee the rattle".
 
-ideological is a concept in conceptville. Understand "ideological" as ideological. howto is "listen to all of Sid Lew ".
+ideological is a concept in conceptville. Understand "logical idea" and "idea logical" as ideological. howto is "listen to all of Sid Lew ".
 
 mass production is a concept in conceptville. Understand "production mass" as mass production. howto is "give Lee the rattle".
 
@@ -12535,6 +12545,8 @@ Admiral Vice is a concept in conceptville. understand "vice admiral" as admiral 
 
 artemis fowl is a concept in conceptville. Understand "foul miss artie" and "artie miss foul" as artemis fowl. howto is "[fr-ran]".
 
+autocratic is a concept in conceptville. Understand "craddock auto" and "auto craddock" as autocratic. howto is "[fr-ran]".
+
 beholder of the eye is a concept in conceptville. Understand "eye the of beholder" as beholder of the eye. howto is "examine the Witness Eye".
 
 benefactor is a concept in conceptville. understand "factor benny" and "benny factor" as benefactor. howto is "[fr-ran]".
@@ -12621,7 +12633,7 @@ Power Trip is a concept in conceptville. understand "trip power" as power trip. 
 
 Psychoanalyst is a concept in conceptville. Understand "list anna" and "anna list" and "analyst" as psychoanalyst. howto is "[fr-ran]".
 
-red alert is a concept in conceptville. Understand "alert red" as red alert. howto is "[fr-ran]".
+red alert is a concept in conceptville. Understand "alert red/read" and "read alert" as red alert. howto is "[fr-ran]".
 
 Running Start is a concept in conceptville. understand "start running" as running start. howto is "try going south in Freak Control".
 

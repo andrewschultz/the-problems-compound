@@ -39,17 +39,17 @@ The user-friendliness stuff is here.
 
 There's random stuff, too:
 --you can now play Hangman with Guy Sweet
---many extra silly concepts added. Up to 277, from 66 in release 2. Many of these are sort of double-counted in the tables below, but this is how many concepts are defined in the source. It's probably too hard to find them all, but the game lists them at the end. Plus you can search for "table of explanations" in the source to see the goods.
+--many extra silly concepts added. Up to 280, from 66 in release 2. Many of these are sort of double-counted in the tables below, but this is how many concepts are defined in the source. It's probably too hard to find them all, but the game lists them at the end. Plus you can search for "table of explanations" in the source to see the goods.
 --game text added here and there. As per usual for a post-release.
 --it's now easier to get sent to the Ship if you mess up. The first time you re-visit an area, you go there.
 --Sid Lew also has some truly 'incisive' theories about life and knowledge in general. To be precise, 17.
---the bad guy now sounds off on individual people and ideas outside of those in the game proper. Some are a bit topical, but they're in the general knowledge realm. If nothing else, you can Google them. He's up to 41 random important administrative and philosophical matters overall, too. Busy, well-rounded fellow!
+--the bad guy now sounds off on individual people and ideas outside of those in the game proper. Some are a bit topical, but they're in the general knowledge realm. If nothing else, you can Google them. He's up to 42 random important administrative and philosophical matters overall, too. Busy, well-rounded fellow!
 --flexible maximum in score e.g. 0/(18-21) so the player knows if they're close, or they need to do more.
 --new songs (22, up from 13).
 --new books (54, up from 38).
 --XYZZY in Freak Control now gives a horribly silly side story I just couldn't pass up.
 --Uncle Dutch and Turk Young now have 14 bits of wisdom, up from 8.
---the jerks now have 30 "romantic" discussions, if swearing is on, including a final lament. They don't actually swear, but...well, they're teenagers. Talking as teenagers do.
+--the jerks/groaners now have 32 "romantic" discussions, if swearing is on, including a final lament. They don't actually swear, but...well, they're teenagers. Talking as teenagers do.
 --more silly mistakes in either good ending.
 --there are now 20 sleep stories, up from 15
 --there are now 30 Basher Bible references, up from 29
