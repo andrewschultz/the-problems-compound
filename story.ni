@@ -3136,6 +3136,17 @@ carry out explaining the player:
 		unless the player's command includes "me":
 			the rule succeeds;
 
+section xring
+
+xring is an action out of world.
+
+understand the command "xr" as something new.
+
+understand "xr" as xring.
+
+carry out xring:
+	try explaining location of Alec instead;
+
 section explaining rules
 
 [does the player mean explaining the player when debug-state is true: it is very likely.
@@ -3819,11 +3830,13 @@ chapter verbing
 
 verbing is an action out of world.
 
+understand the command "v" as something new.
 understand the command "verb" as something new.
 understand the command "verbs" as something new.
 understand the command "command" as something new.
 understand the command "commands" as something new.
 
+understand "v" as verbing.
 understand "verb" as verbing.
 understand "verbs" as verbing.
 understand "command" as verbing.
@@ -3951,7 +3964,7 @@ carry out metaing:
 			say "OK." instead;
 	say "Meta-commands:[line break]";
 	say "[2da]you can also type [b]ABOUT[r] or [b]CREDITS[r] or [b]HISTORY[r] or [b]TECH[r] to see information on the game's history.";
-	say "[2da][b]XP/EXPLAIN[r] (any object) gives a brief description. XP with no argument explains the room name. [b]XP[r] can also explain a concept[one of], e.g. when Guy Sweet says 'you have a Games Mind,' you can [b]XP GAMES MIND[r] or XP [b]MIND GAMES[r][or][stopping]. This is more for general information than game hinting.";
+	say "[2da][b]XP/EXPLAIN[r] (any object or room) gives a brief description. XR explains the current room name. [b]XP[r] can also explain a concept[one of], e.g. when Guy Sweet says 'you have a Games Mind,' you can [b]XP GAMES MIND[r] or XP [b]MIND GAMES[r][or][stopping]. This is more for general information than game hinting.";
 	say "[2da][b]HELP/HINT/HINTS/WALKTHROUGH[r] will redirect you to the PDF and HTML hints that come with the game. [b]THINK/SCORE[r] gives very broad, general hinting.";
 	if cur-anno > 0:
 		say "[2da]NOTE (number or text) displays a previous note you uncovered." instead;

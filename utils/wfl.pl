@@ -257,7 +257,7 @@ sub runFileTest
   while ($a = <A>)
   {
     $lines++;
-	if ($a =~ /[a-z]/) { $meaningLines++; }
+	if (($a =~ /[a-z]/) && ($a !~ /^==/)) { $meaningLines++; }
     if ($a =~ /^====Found/) { $errs++; <A>; $curLines = 0; }
     elsif (($a =~ /^====/) && ($curLines)) { $errs++; $curLines = 0; }
 	else { $curLines++; }
