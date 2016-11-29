@@ -3599,6 +3599,7 @@ mistruth	"A mistruth is, well, a statement that's false."
 narcissist	"A narcissist is someone that puts their own needs too far ahead of others. This can mean hogging attention or shutting other people who rely on them out."
 off the record	"Off the Record means something said privately, often negative. Record the Off means to bring something wrong or different into the open."
 oscar wilde	"Oscar Wilde was a wit and playwright known for one-liners that poked fun at the human condition."
+pad accounts	"To pad accounts is to perform an illegal or unethical manipulation of a company's money, to give yourself more."
 paddywagon	"A paddywagon is a police car that carries arrested people."
 pharisee	"A pharisee is someone who gives the trappings of morality but is not."
 polygraph	"A polygraph is a lie detector. The [bad-guy] is probably looking for lies that aren't there."
@@ -9151,7 +9152,7 @@ chapter sound safe
 The Sound Safe is a thing in Accountable Hold. "[if player is in Discussion Block]The safe lies here beneath the song torch[else]A safe lies here. It doesn't look particularly heavy or secure. You hear some sound from it[end if]."
 
 after taking Sound Safe:
-	say "It's not THAT heavy. The sound magnifies when you pick it up and the door opens briefly, but you close it. You try, but there's no way to lock it.[paragraph break]But what's this? Something's stuck under the safe. It's a piece of paper marked CONFIDENTIAL.";
+	say "It's not THAT heavy. The sound magnifies when you pick it up and the door opens briefly, but nothing falls out, not even an accounts pad.[paragraph break]But what's this? Something was stuck under the safe. It's a piece of paper marked FINGER INDEX: CONFIDENTIAL.";
 	now finger index is in Accountable Hold;
 	the rule succeeds;
 
@@ -10577,6 +10578,7 @@ gad-act
 "'Y'know, I have all these machines. People want too much credit for an [activation of narcissist]assist-narc these days.'"
 "'Record the off. Always, [activation of off the record]record the off!'"
 "'[activation of Oscar Wilde]Wild Oscar? Pff, so full of vapid one-liners.'"
+"The [bad-guy] mumbles 'Now, where'd I put my [activation of pad accounts]accounts pad?'"
 "The [bad-guy] mumbles about how [activation of paddywagon]Waggin['] Patty is a good snitch. Um, observer."
 "'[activation of pharisee]See, Farrah,' the [bad-guy] mutters to no girl in particular."
 "'Yeah, if we [activation of polygraph]graph Polly, she's lying without lying.'"
@@ -12635,6 +12637,8 @@ narcissist is a concept in conceptville. Understand "narcissist" as narcissist. 
 Off the Record is a concept in conceptville. Understand "record the off" as off the record. howto is "[fr-ran]".
 
 oscar wilde is a concept in conceptville. Understand "wilde/wild oscar" and "oscar wild" as oscar wilde. howto is "[fr-ran]".
+
+pad accounts is a concept in conceptville. Understand "accounts pad" as pad accounts. howto is "[fr-ran]".
 
 paddywagon is a concept in conceptville. Understand "paddywagon" as paddywagon. howto is "[fr-ran]".
 

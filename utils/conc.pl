@@ -40,6 +40,10 @@ my %activ;
 my %gotText;
 my %authTab;
 
+#################################
+#arrays
+my @dumbErrors = ();
+
 ######################counters
 my $objSuc = 0;
 my $count = 0;
@@ -195,6 +199,12 @@ for my $x (sort keys %any)
   if (!$errMsg) { $errMsg = "All okay!"; } else { $errMsg =~ s/\n/<br>/g; $errMsg =~ s/<br>$//g; }
 
   $errMsg = "";
+
+  if ($#dumbErrors > -1)
+  {
+    print "#####################Remove error-text from line(s) " . join(", ", @dumbErrors) . ".\n";
+  }
+
 }
 
 sub checkOrder
@@ -342,8 +352,11 @@ my $inAuthTable = 0;
 my $lineIn;
 my $tmpVar;
 
+@dumbErrors = ();
+
 while ($lineIn = <A>)
 {
+  if ($lineIn =~ /(EXPLANATIONS:|CONCEPTS:|fill-in-here throws)/) { push (@dumbErrors, $.); next; }
   if (($lineIn =~ /is a.* author\. pop/) && ($lineIn !~ /^\[/)) { $tmpVar = $lineIn; $tmpVar =~ s/ is (an|a) .*//g; chomp($tmpVar); if ($lineIn =~ /xp-text is /) { $gotText{$tmpVar} = 1; } elsif ($lineIn =~ /\"/) { print "Probable typo for $tmpVar.\n"; } $auth{$tmpVar} = $line; next; }
   if ($inBookTable)
   {
