@@ -3470,6 +3470,7 @@ Bandanna	"A bandanna is a scarf you tie around your head. Some people find it re
 benevolent	"Benevolent means doing things to help people."
 Black Mark	"A black mark is something indicating bad behavior."
 body slamming	"Body slamming is a particularly painful wrestling move where you pretty much throw a person to the ground."
+box score	"A box score describes the basic individual statistics from a sporting event."
 call girl	"A call girl is a paid female escort."
 Cary Grant	"Cary Grant is a movie star from the 40s and 50s."
 casually	"Casually means not really in-depth."
@@ -7494,6 +7495,7 @@ girl-neg
 "The [j-co] argue over whether [activation of bandanna]Anna Bandt's clothes choices are really rebellious."
 "The [j-co] rave about how [activation of benevolent]Evelyn Benn is snarky to people for their own good."
 "The [j-co] wrestle over the sensitivest way to compliment a girl on a [activation of body slamming]slamming body."
+"The [j-co] babble on about the [activation of box score]Score Box, where everyone except math obsessed nerds can hook up with a girl."
 "The [j-co] brainstorm a [activation of call girl]girl call that will make you irresistible."
 "The [j-co] alternately flatter and berate [activation of Cary Grant]Grant Carey for success with women despite a lack of looks."
 "The [j-co] claim to want to get to know [activation of casually]Julie Kaz better."
@@ -12337,6 +12339,8 @@ benevolent is a concept in conceptville. Understand "evelyn benn" and "benn evel
 Black Mark is a concept in conceptville. understand "mark black" as black mark. howto is "examine quiz pop".
 
 body slamming is a concept in conceptville. Understand "slamming body" as body slamming. howto is "[j-girl]".
+
+box score is a concept in conceptville. Understand "score box" as box score. howto is "[j-girl]".
 
 call girl is a concept in conceptville. Understand "girl call" as call girl. howto is "[j-girl]".
 
