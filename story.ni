@@ -3503,6 +3503,7 @@ Pepper	"Black pepper is the ground-up stuff. Green and bell peppers are not espe
 Plaintiff	"A plaintiff is the party bringing the charge in a court case."
 Pollyanna	"A Pollyanna is someone who is ridiculously optimistic."
 Polygamy	"Polygamy is having more than one mate."
+Potter Stewart	"Potter Stewart was a US Supreme who said he'd know obscenity when he saw it."
 Ralph Lauren	"Ralph Lauren is a fashion designer."
 ring finger	"The ring finger is the one between the middle and the pinky."
 sausage fest	"A sausage fest is a congregation of males with no females."
@@ -7520,6 +7521,7 @@ girl-neg
 "'[activation of plaintiff]Tiff? Plain,' [random client in nominal fen] quips. The others agree, citing various elements of her personality."
 "The [j-co] recount [activation of pollyanna]Anna Pauley's greatest hits making fun of overoptimism. She always comes through!"
 "The [j-co] don't understand what [activation of polygamy]Gamy Polly has to be fussy [i]about[r]."
+"The [j-co] snicker at [activation of Potter Stewart]Stewart Potter, who couldn't recognize a kickass profane putdown if he saw it."
 "The [j-co] disagree on whether [activation of sharp barb]Barb Sharpe would be worth putting up with her lame gossip."
 "The [j-co] claim learning WAY too much about computers will come back to [activation of terabyte]bite Tara."
 "The [j-co] stage-whisper that [activation of teriyaki]Yacky Terri's conversation is neither spicy nor meaty."
@@ -12405,6 +12407,8 @@ plaintiff is a concept in conceptville. understand "tiff plain" and "plain tiff"
 Pollyanna is a concept in conceptville. Understand "anna pauley" and "pauley anna" as pollyanna. howto is "[j-girl]".
 
 Polygamy is a concept in conceptville. Understand "gamy polly" and "polly gamy" as polygamy. howto is "[j-girl]".
+
+Potter Stewart is a concept in conceptville. Understand "stewart potter" as Potter Stewart. howto is "[j-girl]".
 
 Ralph Lauren is a concept in conceptville. Understand "lauren ralph" as ralph lauren. howto is "[j-girl]".
 
