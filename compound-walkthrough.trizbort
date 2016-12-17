@@ -299,7 +299,7 @@
 			<objectListOffset>4</objectListOffset>
 			<connectionStalkLength>8</connectionStalkLength>
 			<preferredDistanceBetweenRooms>64</preferredDistanceBetweenRooms>
-			<defaultRoomName>Cave</defaultRoomName>
+			<defaultRoomName>Holder Place</defaultRoomName>
 		</rooms>
 		<ui>
 			<handleSize>12</handleSize>

@@ -2157,6 +2157,8 @@ check attacking:
 		ship-off Punishment Capitol instead;
 	if noun is list bucket:
 		say "You didn't come so far only to -- wait for it -- kick the bucket. Surely there's a better way to get the [bad-guy]'s attention." instead;
+	if noun is scenery and noun is in freak control:
+		say "[activation of breaking entering]Entering and breaking? Nah, there's a better way to get the [bad-guy]'s attention." instead;
 	if noun is Young Turk or noun is Uncle Dutch:
 		say "'[activation of hate speech]SPEECH HATE! SPEECH HATE!' Turk and Dutch cry in unison. You're no match for both of them, or the Stool Toad, who appears in short order. 'There's not much worse than speech hate, son. Even if it's not very effective. Looking at you, I had a bad feeling you might be full of it.' The Toad blathers on about how he really just hates your actions and not you, and it's almost a relief when you're dumped off...";
 		ship-off Punishment Capitol instead;
@@ -2700,7 +2702,7 @@ check giving the trap rattle to: [you can't get the trap rattle until you've got
 	if second noun is Sid Lew:
 		say "He recoils in fear for a second, then booms 'WHY WOULD I WANT THAT.' It's not really a question." instead;
 	if second noun is Lee Bull:
-		say "Sid Lew continues his abuse. At first Lee Bull seems to take it, but then--rattle, rattle. It distracts Sid Lew enough, Lee Bull finds his voice. Animated, he shows up every hole in Sid Lew's seductive but wrong arguments. He begins hitting Sid Lew on the head with the trap rattle until Sid Lew runs out.";
+		say "Sid Lew continues his abuse. At first Lee Bull seems to take it, but then--rattle, rattle. It distracts Sid Lew enough, Lee Bull finds his voice. Animated, he shows up every hole in Sid Lew's seductive but wrong arguments. He begins hitting Sid Lew on the head with the trap rattle until Sid Lew runs out, grousing Lee doesn't DESERVE [activation of right to privacy]privacy to write, and he won't USE it, but...";
 		wfak;
 		say "[line break]Lee Bull shakes the rattle some more. You see something fall out. '[activation of mass production]Production mass,' says Lee. 'It helps people with bottled up ideas see their way through to organize them, with their unique life view! I better star some [activation of assembly line]line assembly before it decays...' Lee begins to write. And write. He hands you the first page--and wow! All the clever life hacks you learn just from the introduction! It's too much, though. You fall asleep as your mind processes it all, with incidents from your own life suddenly making sense.";
 		wfak;
@@ -3467,6 +3469,7 @@ Play it Cool	"To play it cool is not to lose your temper. Of course, Percy's cha
 Sweetheart Deal	"A sweetheart deal is something that works very well for both sides, often obtained unethically. Telling someone to deal often means they have to settle for being ripped off."
 anapest	"Anapest is a common beat for a poem. It can seem singsong." [start of Nominal Fen]
 Bandanna	"A bandanna is a scarf you tie around your head. Some people find it rebellious, others not rebellious enough."
+bechdel	"The Bechdel test is if an author has two females talking about things other than men or sex. Del Beck fails miserably, of course."
 benevolent	"Benevolent means doing things to help people."
 Black Mark	"A black mark is something indicating bad behavior."
 body slamming	"Body slamming is a particularly painful wrestling move where you pretty much throw a person to the ground."
@@ -3519,6 +3522,8 @@ grease monkey	"A grease monkey is a manual laborer, especially with machines."
 assembly line	"An assembly line is where each person or machine has a specific sub-job in creating a larger product." [start of truth home]
 ideological	"Ideological means fixated on specific political ideas and not willing to listen to others."
 mass production	"Mass production is a procedure of efficiently creating many of the same thing using standardized design."
+psychotherapy	"Psychotherapy is seeing a trained professional for emotional and mental issues."
+right to privacy	"Right to privacy is considered a basic human right in democratic societies. It means you have the right to be left alone and not to be arrested for arbitrary reasons."
 thp	"Two hundred proof means pure grain alcohol."
 age four	"Age four is, well, four years old. It is too young to forage." [start of scheme pyramid]
 baby boomer	"The Baby Boomers were the generation born just after World War II. Sometimes referred to as 'The Greatest Generation.'"
@@ -3569,6 +3574,7 @@ Beyond Belief	"Beyond belief means something you can't possibly believe in, but 
 breadwinner	"A breadwinner is the member of the family who makes all or most of the money."
 Break Jail	"A jailbreak means getting out of jail. Though to break someone is to destroy their spirit."
 Break Monotony	"To break (the) monotony is to get a change from something boring."
+breaking entering	"Breaking and entering means forcing your way in somewhere, usually past a security system."
 busy work	"Busy work is often given to someone just to keep them occupied."
 butter up	"To butter someone up is to flatter them."
 carry over	"To carry over is to do or be more than your initial impression."
@@ -7503,6 +7509,7 @@ girl-neg
 "The [j-co] praise [activation of category]Gory Kate as less weird than she should be on paper."
 "The [j-co] marvel at what a ladies['] man [activation of co-ed]Ed Coe is when he comes home from the military boarding school."
 "The [j-co] mention how [activation of cotton candy]Candy Cotton smacks down saccharine pickup lines."
+"The [j-co] praise the writing of [activation of Bechdel]Del Beck, who knows how to do girl-talk even if girls say he doesn't."
 "The [j-co] agree that [activation of electrocute]Cute Electra isn't, like, LETHALLY hot."
 "The [j-co] try to be charitable and think of girls ranked [activation of flounder]under Flo on their beauty scale."
 "A couple [j-co] feel sorry they [activation of fluoridated]dated Flora and listened to her conspiracy theories."
@@ -8470,11 +8477,18 @@ sid-row is a number that varies.
 check talking to Sid Lew:
 	say "'Oh yeah, sure, I bet you have interesting questions. But I've probably heard [']em all before. And I'm giving interesting answers to questions you didn't need to know yet. You might want to just listen.' [weird-hyp]" instead;
 
+half-sid-yet is a truth state that varies.
+
 every turn when player is in truth home and Sid Lew is in truth home:
 	increment sid-row;
+	if half-yet is false and sid-row is number of rows in table of incisive sid viewpoints:
+		say "Sid takes a brief break. 'Boy! I could deserve good money as a [activation of psychotherapy]therapy psycho! You've only heard the half of my advice so far!'"
+		now half-sid-yet is true;
+		continue the action;
 	if sid-row > number of rows in table of incisive sid viewpoints:
 		now sid-row is 0;
 		say "'[activation of ideological]Logical idea, logical idea, logical idea. How can you POSSIBLY disagree with me?' booms Sid. He pauses before starting again.";
+		now half-sid-yet is false;
 		continue the action;
 	else:
 		choose row sid-row in table of incisive sid viewpoints;
@@ -10072,6 +10086,7 @@ workname	authname	booksubj
 "The Half Second"	"Doyle Roddy"	"a literary type, Keen Roy, suddenly realizing how truly silly reading, writing and thinking about sports can be"
 "The Floss on the Mill"	"Elliot George"	"a family with nothing better to do than stay together, and how they think they're happy [']til they stagnate into loathing at the end"
 "Pay, Soldiers"	"Faulkner William"	"a soldier who returns from war uninjured and how people with medical exemptions proved he didn't try hard enough"
+"The Matter of the Heart"	"Gerine Graham"	"an opaque plot almost as audacious and unreadably brilliant as [i]The Affair of the End[r]"
 "Willows in the Wind"	"Graham Kenneth"	"a toad who learns to leave behind his less clever animal friends and passe forest life for more advanced, luxurious society"
 "Let Her, Scarlet"	"Hawthorne Nathaniel"	"a woman everyone thought was exciting who turned out to be boring, and how people were fooled, but it worked out OK for them"
 "The Magi of the Gift"	"Henry O"	"clever folk whose seemingly ideal gifts show the recipients up as greedy bums"
@@ -12336,6 +12351,8 @@ anapest is a concept in conceptville. Understand "pest anna" and "anna pest" as 
 
 Bandanna is a concept in conceptville. Understand "anna bandt/band" and "bandt/band anna" as bandanna. howto is "[j-girl]".
 
+Bechdel is a concept in conceptville. Understand "del beck" and "beck del" as bechdel. howto is "[j-girl]".
+
 benevolent is a concept in conceptville. Understand "evelyn benn" and "benn evelyn" as benevolent. howto is "[j-girl]".
 
 Black Mark is a concept in conceptville. understand "mark black" as black mark. howto is "examine quiz pop".
@@ -12445,9 +12462,13 @@ section truth home concepts
 
 assembly line is a concept in conceptville. Understand "line assembly" as assembly line. howto is "give Lee the rattle".
 
-ideological is a concept in conceptville. Understand "logical idea" and "idea logical" as ideological. howto is "listen to all of Sid Lew ".
+ideological is a concept in conceptville. Understand "logical idea" and "idea logical" as ideological. howto is "listen to all of Sid Lew's advice".
 
 mass production is a concept in conceptville. Understand "production mass" as mass production. howto is "give Lee the rattle".
+
+psychotherapy is a concept in conceptville. Understand "psycho therapy" and ""therapy psycho" as psychotherapy. howto is "listen to half of Sid Lew's advice".
+
+right to privacy is a concept in conceptville. Understand "privacy to write" and "write to privacy" as right to privacy. howto is "give Lee the rattle".
 
 thp is a privately-named concept in conceptville. printed name is "200 proof". understand "proof 200" as thp. howto is "give Lee the rattle".
 
@@ -12582,6 +12603,8 @@ The Break Jail is a concept in conceptville. understand "jail break" as Break Ja
 
 Break Monotony is a concept in conceptville. understand "monotony break" as break monotony. howto is "wait for the [bad-guy] to go through his actions".
 
+breaking entering is a concept in conceptville. printed name is "breaking and entering". Understand "entering and breaking" and "breaking and entering" as breaking entering. howto is "attack scenery in Freak Control". [??]
+
 busy work is a concept in conceptville. Understand "work busy" as busy work. howto is "[fr-ran]".
 
 butter up is a concept in conceptville. Understand "up butter" as butter up. howto is "[fr-pb]".
@@ -12682,7 +12705,7 @@ stupor is a concept in conceptville. Understand "poor stu" and "stu poor" as stu
 
 taste buds is a concept in conceptville. understand "bud's/buds taste" as taste buds. howto is "[fr-ran]".
 
-train gravy is a concept in conceptville. understand "gravy train" as taste buds. howto is "[fr-pb]".
+train gravy is a concept in conceptville. understand "gravy train" as train gravy. howto is "[fr-pb]".
 
 Trevor Noah is a concept in conceptville. Understand "noah trevor" as trevor noah. howto is "[fr-ran]".
 
