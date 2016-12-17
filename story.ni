@@ -3456,6 +3456,7 @@ Punch Sucker	"A sucker punch is an unexpected hit."
 punch ticket	"To get your ticket punched, or punch your ticket, is to get killed."
 Rummy Gin	"Gin Rummy is a card game, generally not the sort associated with wild binge drinking."
 speakeasy	"A speakeasy is a place where illegal alcohol is served."
+striptease	"A striptease is, well, what happens at a strip club, where someone slowly removes their clothes."
 Total T	"Teetotal means alcohol-free."
 Wine-U-Gen	"Genuine is, well, real and true. Both Ally Stout and his drinks are superficial, as wine is generally not made by machine."
 cargo cult	"A cargo cult is when islanders cut off from the first world use various instruments and devices to try to get planes filled with material goods to land." [start of classic cult]
@@ -3487,6 +3488,7 @@ flounder	"To flounder is to try and fail without any progress. It's also the nam
 fluoridated	"Fluoridated water is a subject of many silly conspiracy theories."
 grown up	"Grown up means, well, you've learned and matured."
 hara-kiri	"Hara-kiri is Japanese ritual suicide."
+Howard Stern	"Howard Stern is a long-time radio personality with loud provocative opinions."
 jerk around	"To jerk someone around is to pester them physically or mentally."
 jerk off	"To jerk off is to gratify oneself carnally."
 joint committee	"A joint committee is a group of legislators from different parts of US Congress."
@@ -3511,6 +3513,7 @@ Ralph Lauren	"Ralph Lauren is a fashion designer."
 ring finger	"The ring finger is the one between the middle and the pinky."
 sausage fest	"A sausage fest is a congregation of males with no females."
 Sharp Barb	"A sharp barb is a stinging, clever insult."
+shock jock	"A shock jock is someone who provides deliberately insulting opinions to a wide audience, often on radio."
 tear-jerk	"The jerks['] tears may seem a bit fake, and a tear-jerker is something that tries to manipulate you into crying."
 terabyte	"A terabyte is a large amount of memory: specifically, 2^40 bytes."
 teriyaki	"Teriyaki is a Japanese sauce, or it can be meat cooked in that sauce over an open grill."
@@ -3528,6 +3531,7 @@ thp	"Two hundred proof means pure grain alcohol."
 age four	"Age four is, well, four years old. It is too young to forage." [start of scheme pyramid]
 baby boomer	"The Baby Boomers were the generation born just after World War II. Sometimes referred to as 'The Greatest Generation.'"
 brat army	"An army brat is the child of a military officer. They would be more likely to move than most children."
+child support	"Child support is what one separated spouse pays to another to take care of a child."
 labor of love	"A labor of love is something done for its own sake, not for worldly advancement."
 sound asleep	"Sound asleep means, well, hard to wake up." [start of temper keep]
 venturesome	"Venturesome means willing to go places."
@@ -7346,12 +7350,12 @@ quip	quiptext
 ally-punch	"'Whatever we give him, it goes down badly. [activation of punch out]Out Punch, he starts a fight. [activation of punch line]Line Punch, the stupid jokes he tells! [activation of punch ticket]Ticket Punch, he whines he's entitled, or worse, he isn't. And that night he snuck some [activation of punch drunk]drunk punch...'"
 ally-drinks	"'Well, you wouldn't be ready for the [activation of rummy gin]Rummy Gin or [activation of go rum]Go Rum. If we served it after-hours, of course. If we served it after-hours. And water's...troubled, in such an exciting place. But we have Haha Brew and Cooler Wine. Both so watered down, the Stool Toad won't nab you long as you drink it here.'"
 ally-alco	"'Haha. No.'"
-ally-onrocks	"He pushes a button on an unseen machine. You hear ice cubes rattle. He holds up a glass, swirls it, and nods meaningfully before putting it away. Duh, now. Maybe you should've asked what Beechwood Aged or something meant, instead."
+ally-onrocks	"Ally pushes a button on an unseen machine. You hear ice cubes rattle. He holds up a glass, swirls it, and nods meaningfully before putting it away. Duh, now. Maybe you should've asked what Beechwood Aged or something meant, instead."
 ally-but	"'Well, everyone here is a bit smarter and maturer than normal, and anyway, this isn't the high-proof stuff. Plus the Stool Toad, we've paid him off. As long as nobody makes it obvious and walks out with a drink. Then he's pretty awesome. So what the hey.'"
 ally-haha	"[here-or-not]"
 ally-cooler	"[here-or-not]"
 ally-baiter	"'The [bg] lets me stay open for very reasonable shakedown fees. Much better than [bad-guy-2], I'm sure. He just, well, he just wants to know about all the patrons in here. Why, he drops in here himself and gets the good stuff. But he's very fair and balanced. He knows it's not how much you drink but how it affects you. Why, he's better at shaming unruly customers than I am! I'm just too good at the [activation of speakeasy]easy-speak you need to get along, I guess.'"
-ally-bye	"He goes back to mixing and serving drinks, to talking to some other customers about other customers[one of]. You wonder if you're an other other customer, or if you're even that important[or][stopping]."
+ally-bye	"He goes back to mixing and serving drinks, to talking to some other customers about other customers[if allow-swears is true] and backhand-complimenting the rival [activation of striptease]Teas Strip[end if][one of]. You wonder if you're an other other customer, or if you're even that important[or][stopping]."
 
 to say here-or-not:
 	if player has cooler or player has haha brew:
@@ -7514,6 +7518,7 @@ girl-neg
 "The [j-co] try to be charitable and think of girls ranked [activation of flounder]under Flo on their beauty scale."
 "A couple [j-co] feel sorry they [activation of fluoridated]dated Flora and listened to her conspiracy theories."
 "The [j-co] rave how full of life [activation of hara-kiri]Keri Harrah is."
+"The [j-co] hope [activation of howard stern]stern Howard doesn't come by to moralize again."
 "The [j-co] create a conspiracy theory for laughs: plain, quiet [activation of Keyser Soze]Suzy Kaiser somehow ruthlessly controls female and male social circles."
 "The [j-co] agree what a [activation of lily liver]LIVER Lily is! She couldn't be exaggerating."
 "The [j-co] appreciate how [activation of mary sue]Sue Merry reliably smacks down anyone who seems too nice."
@@ -7530,6 +7535,7 @@ girl-neg
 "The [j-co] don't understand what [activation of polygamy]Gamy Polly has to be fussy [i]about[r]."
 "The [j-co] snicker at [activation of Potter Stewart]Stewart Potter, who couldn't recognize a kickass profane putdown if he saw it."
 "The [j-co] disagree on whether [activation of sharp barb]Barb Sharpe would be worth putting up with her lame gossip."
+"The [j-co] take a minute to [activation of shock jock]jock shock in general. It's very disturbing, but you can't put your finger on why."
 "The [j-co] claim learning WAY too much about computers will come back to [activation of terabyte]bite Tara."
 "The [j-co] stage-whisper that [activation of teriyaki]Yacky Terri's conversation is neither spicy nor meaty."
 "The [j-co] [activation of terrapin]pin Tera as someone who needs to come out of her shell and live faster."
@@ -8481,8 +8487,8 @@ half-sid-yet is a truth state that varies.
 
 every turn when player is in truth home and Sid Lew is in truth home:
 	increment sid-row;
-	if half-yet is false and sid-row is number of rows in table of incisive sid viewpoints:
-		say "Sid takes a brief break. 'Boy! I could deserve good money as a [activation of psychotherapy]therapy psycho! You've only heard the half of my advice so far!'"
+	if half-sid-yet is false and sid-row is number of rows in table of incisive sid viewpoints:
+		say "Sid takes a brief break. 'Boy! I could deserve good money as a [activation of psychotherapy]therapy psycho! You've only heard the half of my advice so far!'";
 		now half-sid-yet is true;
 		continue the action;
 	if sid-row > number of rows in table of incisive sid viewpoints:
@@ -9042,7 +9048,7 @@ description of Labor Child is "He's dressed in abhorrently cutesy Deal Clothes, 
 
 check talking to labor child:
 	if contract is off-stage:
-		say "'I'm a busy kid. Almost as busy as the [bg]. In addition to delegating all my homework I am running a business! There's startup materials in the Fund Hedge.'" instead;
+		say "'I'm a busy kid. Almost as busy as the [bg]. In addition to delegating all my homework I am running a business! There's startup materials in the Fund Hedge. I'm not some silly [activation of child support]Support Child.'" instead;
 	if player has contract:
 		if contract-signed is false:
 			say "'The contract! Less talk! More do!' Oh, man, there's something you'd like to DO." instead;
@@ -11712,8 +11718,9 @@ this is the swear-see rule:
 	say "[2da]Solving the Logic Matrices in the Game Shell gives some minor profanity.";
 	say "[2da]The [bad-guy] is the [stwid][bad-guy][stwid] instead.";
 	say "[2da][bad-guy-2] is [stwid][bad-guy-2][stwid] instead."; [end smart street]
-	say "[2da]The game warns you might think (off) or say (on) a swear if you try to eat the dirt."; [end mid part]
-	say "[2da]Eating a food from Tray B forces swears on, if they were off, but you have a last moment before eating the Cutter Cookie."; [end outskirts]
+	say "[2da]The game warns you might think (off) or say (on) a swear if you try to eat the dirt."; [end garden part]
+	say "[2da]Eating a food from Tray B forces swears on, if they were off, but you have a last moment before eating the Cutter Cookie.";
+	say "[2da]Letting .";	[end outskirts]
 	say "[2da]The [jc-gc] is the [stwid][jc-gc][stwid] instead. Also, you feel a bit more foreboding, and everyone sheds a jerk-tear, and if you attack them, you get a 'special' message.";
 	say "[2da]The guys in the Fen discuss girls (rather badly) if you talk to them before reading the Finger Index. There aren't any profanities here, but they're kind of, well, juvenile. They also give an obscene gesture if you try to talk to them before reading the Finger Index.";
 	say "[2da]The guys in the Fen give an up groan or a jerk-tear if innuendo/profanity is off or on, respectively.";
@@ -12312,6 +12319,8 @@ Rummy Gin is a concept in conceptville. howto is "ask Ally Stout about drinks".
 
 speakeasy is a concept in conceptville. Understand "easy speak" and "speak easy" as speakeasy. howto is "ask Ally Stout about the [bad-guy]".
 
+striptease is a concept in conceptville. Understand "strip teas" and "teas strip" as striptease. howto is "talk to Ally Stout and say good-bye".
+
 the Total T is a concept in conceptville. howto is "visit the Soda Club".
 
 Wine-U-Gen is a concept in conceptville. understand "wine u gen" and "wineugen" as Wine-U-Gen. howto is "order the Cooler Wine"
@@ -12387,6 +12396,8 @@ grown up is a concept in conceptville. Understand "up groan" and "groan up" as g
 
 Hara-Kiri is a concept in conceptville. Understand "keri harrah" and "harrah keri" as hara-kiri. howto is "[j-girl]".
 
+Howard Stern is a concept in conceptville. Understand "stern howard" as Howard Stern. howto is "[j-girl]".
+
 Jerk Around is a concept in conceptville. Understand "around jerk" as jerk around. howto is "enter the main area with profanity on".
 
 Jerk Off is a concept in conceptville. understand "off jerk" as jerk off. howto is "attack a jerk in swearing-on mode".
@@ -12435,6 +12446,8 @@ sausage fest is a concept in conceptville. Understand "fest sausage" as sausage 
 
 Sharp Barb is a concept in conceptville. Understand "barb sharp" as sharp barb. howto is "[j-girl]".
 
+shock jock is a concept in conceptville. Understand "jock shock" as shock jock. howto is "[j-girl]".
+
 Tear-Jerk is a concept in conceptville. Understand "jerk-tear" and "tear jerk" and "jerk tear" as Tear-Jerk. howto is "solve the [j-co]['] puzzle".
 
 terabyte is a concept in conceptville. Understand "terabyte" as terabyte. howto is "[j-girl]".
@@ -12466,7 +12479,7 @@ ideological is a concept in conceptville. Understand "logical idea" and "idea lo
 
 mass production is a concept in conceptville. Understand "production mass" as mass production. howto is "give Lee the rattle".
 
-psychotherapy is a concept in conceptville. Understand "psycho therapy" and ""therapy psycho" as psychotherapy. howto is "listen to half of Sid Lew's advice".
+psychotherapy is a concept in conceptville. Understand "psycho therapy" and "therapy psycho" as psychotherapy. howto is "listen to half of Sid Lew's advice".
 
 right to privacy is a concept in conceptville. Understand "privacy to write" and "write to privacy" as right to privacy. howto is "give Lee the rattle".
 
@@ -12479,6 +12492,8 @@ age four is a concept in conceptville. Understand "four age" and "forage" as age
 Baby Boomer is a concept in conceptville. Understand "boomer baby" as baby boomer. howto is "enter the Scheme Pyramid".
 
 Brat Army is a concept in conceptville. Understand "army brat" as brat army. howto is "enter the scheme pyramid".
+
+child support is a concept in conceptville. Understand "support child" as child support. howto is "talk to the Labor Child before gettiing the contract".
 
 Labor of Love is a concept in conceptville. Understand "love of labor" as labor of love. howto is "enter the Scheme Pyramid".
 

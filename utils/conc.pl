@@ -151,6 +151,10 @@ for my $x (sort keys %any)
   }
   if (!$activ{$x}) { $errMsg .= "$xmod needs activation.\n"; $activErr .= "\[activation of $xmod\]\n"; $fails++; $thisFailed = 1; }
   if (($thisFailed == 0) && ($printSuccess)) { print "$x succeeded.\n"; }
+  if (($thisFailed) && ($x !~ /[ \*]/))
+  {
+    print "You may want a space or asterisk in $x to see where it can be divided. Asterisk disappears with the object name.\n";
+  }
 }
 
   print "TEST RESULTS:concepts-$_[0],0,$fails,$totals,$errMsg\n";
