@@ -3489,6 +3489,7 @@ fluoridated	"Fluoridated water is a subject of many silly conspiracy theories."
 grown up	"Grown up means, well, you've learned and matured."
 hara-kiri	"Hara-kiri is Japanese ritual suicide."
 Howard Stern	"Howard Stern is a long-time radio personality with loud provocative opinions."
+humphrey davy	"Humphrey Davy was an 18th century scientist."
 jerk around	"To jerk someone around is to pester them physically or mentally."
 jerk off	"To jerk off is to gratify oneself carnally."
 joint committee	"A joint committee is a group of legislators from different parts of US Congress."
@@ -7519,6 +7520,7 @@ girl-neg
 "A couple [j-co] feel sorry they [activation of fluoridated]dated Flora and listened to her conspiracy theories."
 "The [j-co] rave how full of life [activation of hara-kiri]Keri Harrah is."
 "The [j-co] hope [activation of howard stern]stern Howard doesn't come by to moralize again."
+"The [j-co] laugh at how [activation of humphrey davy]Davey Humphrey beats up and makes fun of science nerds."
 "The [j-co] create a conspiracy theory for laughs: plain, quiet [activation of Keyser Soze]Suzy Kaiser somehow ruthlessly controls female and male social circles."
 "The [j-co] agree what a [activation of lily liver]LIVER Lily is! She couldn't be exaggerating."
 "The [j-co] appreciate how [activation of mary sue]Sue Merry reliably smacks down anyone who seems too nice."
@@ -12397,6 +12399,8 @@ grown up is a concept in conceptville. Understand "up groan" and "groan up" as g
 Hara-Kiri is a concept in conceptville. Understand "keri harrah" and "harrah keri" as hara-kiri. howto is "[j-girl]".
 
 Howard Stern is a concept in conceptville. Understand "stern howard" as Howard Stern. howto is "[j-girl]".
+
+humphrey davy is a concept in conceptville. Understand "davey humphrey" and "humphrey davey"as humphrey davy. howto is "[j-girl]".
 
 Jerk Around is a concept in conceptville. Understand "around jerk" as jerk around. howto is "enter the main area with profanity on".
 
