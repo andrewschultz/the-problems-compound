@@ -153,7 +153,7 @@ for my $x (sort keys %any)
   if (($thisFailed == 0) && ($printSuccess)) { print "$x succeeded.\n"; }
   if (($thisFailed) && ($x !~ /[ \*]/))
   {
-    print "You may want a space or asterisk in $x to see where it can be divided. Asterisk disappears with the object name.\n";
+    print "You may want a space or asterisk in $x (line $any{$x}) to see where it can be divided. Asterisk disappears with the object name.\n";
   }
 }
 
@@ -350,7 +350,6 @@ open(A, $source) || do { print "No source file $source.\n"; return; };
 
 my $line = 0;
 
-my $inBookTable = 0;
 my $inAuthTable = 0;
 
 my $lineIn;
@@ -362,42 +361,36 @@ while ($lineIn = <A>)
 {
   if ($lineIn =~ /(EXPLANATIONS:|CONCEPTS:|fill-in-here throws)/) { push (@dumbErrors, $.); next; }
   if (($lineIn =~ /is a.* author\. pop/) && ($lineIn !~ /^\[/)) { $tmpVar = $lineIn; $tmpVar =~ s/ is (an|a) .*//g; chomp($tmpVar); if ($lineIn =~ /xp-text is /) { $gotText{$tmpVar} = 1; } elsif ($lineIn =~ /\"/) { print "Probable typo for $tmpVar.\n"; } $auth{$tmpVar} = $line; next; }
-  if ($inBookTable)
-  {
-    if ($lineIn !~ /[a-z]/i) { $inBookTable = 0; next; }
-    $tmpVar = $lineIn; chomp($tmpVar); $tmpVar = wordtrim($tmpVar); $tmpVar =~ s/\t.*//g; $activ{$tmpVar} = 1; $any{$tmpVar} = 1; next;
-  }
   if ($inAuthTable)
   {
     if ($lineIn !~ /[a-z]/i) { $inAuthTable = 0; next; }
     $tmpVar = $lineIn; chomp($tmpVar); $tmpVar =~ s/\t.*//g; $authTab{$tmpVar} = $line; next;
   }
   if ($lineIn =~ /xxauth/) { $inAuthTable = 1; <A>; $line++; next; }
-  if ($lineIn =~ /^table of (book jungle|life shelf)/) { $inBookTable = 1; <A>; next; }
   if ($lineIn =~ /^table of explanations.*concepts/) { $inTable = 1; <A>; next; }
   if ($lineIn !~ /[a-z]/i) { $inTable = 0; next; }
   chomp($lineIn); $lineIn = cutArt($lineIn);
-  if ($lineIn =~ /is a concept in lalaland/)
+  if ($lineIn =~ /is a concept in lalaland/) # concept definitions
   {
     $lineIn =~ s/ is a concept in lalaland.*//g;
 	$lineIn = wordtrim($lineIn);
 	$conc{$lineIn} = 1;
 	$activ{$lineIn} = 1;
-	$any{$lineIn} = 1;
+	$any{$lineIn} = $.;
   }
   $tmpVar = $lineIn;
-  while ($tmpVar =~ /\[activation of/)
+  while ($tmpVar =~ /\[activation of/) # "activation of" in source code
   {
     $tmpVar =~ s/.*?\[activation of //;
 	my $c = $tmpVar;
 	$c =~ s/\].*//g;
 	if ($c eq "conc-name entry") { next; }
-	$activ{wordtrim($c)} = 1; $any{wordtrim($c)} = 1;
+	$activ{wordtrim($c)} = 1; $any{wordtrim($c)} = $.;
   }
-  if ($inTable == 1) { $tmpVar = $lineIn; $tmpVar =~ s/\t.*//g; $tmpVar = wordtrim($tmpVar); $expl{$tmpVar} = $any{$tmpVar} = 1; next; }
+  if ($inTable == 1) { $tmpVar = $lineIn; $tmpVar =~ s/\t.*//g; $tmpVar = wordtrim($tmpVar); $expl{$tmpVar} = $any{$tmpVar} = $.; next; }
   if (($lineIn =~ /is a (privately-named |)?concept/) && ($lineIn !~ /\t/)) #prevents  "is a concept" in source text from false flag
   {
-    $tmpVar = $lineIn; $tmpVar =~ s/ is a (privately-named |)?concept.*//g; $tmpVar = wordtrim($tmpVar); $conc{$tmpVar} = $any{$tmpVar} = 1;
+    $tmpVar = $lineIn; $tmpVar =~ s/ is a (privately-named |)?concept.*//g; $tmpVar = wordtrim($tmpVar); $conc{$tmpVar} = $any{$tmpVar} = $.;
 	if ($lineIn =~ /\[ac\]/) { $activ{$tmpVar} = 1; } # [ac] says it's activated somewhere else
 	next;
   }

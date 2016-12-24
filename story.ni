@@ -1630,6 +1630,8 @@ check listening (this is the listening in a place rule):
 	if player is in discussion block:
 		say "The song torch is playing.[line break]";
 		try examining song torch instead;
+	if player is in pot chamber:
+		say "You hear nothing. Were you expecting to hear a [activation of crack pipe]pipe crack?" instead;
 	if player is in out mist:
 		say "You can't hear anyone chasing you. That's good." instead;
 	if player is in airy station:
@@ -3564,6 +3566,7 @@ brass ring	"To grab the brass ring is to achieve a dream goal. It refers to the 
 brother foster	"A foster brother is a brother not related by birth."
 Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
 bum a cigarette	"To bum a cigarette is to ask someone for one of theirs. 'A cigarette bum' indicates Penn's disdain for more legal smokables." [start of pot chamber]
+crack pipe	"A crack pipe is used to smoke crack cocaine, which is even more illegal and risky than marijuana."
 crack up	"To crack up is to lose sanity. To crack down is to oppress someone, or arrest people for possession of contraband. To crack a joke is to tell a joke."
 go to pot	"To go to pot is to fall apart due to lack of upkeep."
 pop pills	"To pop pills is to take them indiscriminately."
@@ -12578,6 +12581,8 @@ Brother's Keepers is a concept in conceptville. understand "brother/brothers kee
 section pot chamber concepts
 
 bum a cigarette is a concept in conceptville. Understand "cigarette a bum" as bum a cigarette. howto is "(fill in here)".
+
+crack pipe is a concept in conceptville. Understand "pipe crack" as crack pipe. howto is "listen in the Pot Chamber".
 
 crack up is a concept in conceptville. Understand "up/down/joke crack" and "crack joke/down" as crack up. howto is "ask Pusher Penn about bad stuff".
 
