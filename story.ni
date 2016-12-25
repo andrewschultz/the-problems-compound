@@ -3512,6 +3512,7 @@ Plaintiff	"A plaintiff is the party bringing the charge in a court case."
 Pollyanna	"A Pollyanna is someone who is ridiculously optimistic."
 Polygamy	"Polygamy is having more than one mate."
 Potter Stewart	"Potter Stewart was a US Supreme who said he'd know obscenity when he saw it."
+pound meat	"To pound your meat is to, well, touch your genitals."
 Ralph Lauren	"Ralph Lauren is a fashion designer."
 ring finger	"The ring finger is the one between the middle and the pinky."
 sausage fest	"A sausage fest is a congregation of males with no females."
@@ -3536,6 +3537,7 @@ baby boomer	"The Baby Boomers were the generation born just after World War II. 
 brat army	"An army brat is the child of a military officer. They would be more likely to move than most children."
 child support	"Child support is what one separated spouse pays to another to take care of a child."
 labor of love	"A labor of love is something done for its own sake, not for worldly advancement."
+slush fund	"A slush fund is money raised for undesignated and often unethical purposes."
 sound asleep	"Sound asleep means, well, hard to wake up." [start of temper keep]
 venturesome	"Venturesome means willing to go places."
 Cry Uncle	"To cry uncle is to surrender, to give up." [start of speaking plain]
@@ -7533,6 +7535,7 @@ girl-neg
 "The [j-co] despair that [activation of nose candy]Candi knows too little about how to party."
 "The [j-co] chuckle at the irreverence of the [activation of notre dame]Dame Noter."
 "The [j-co] argue that [activation of olive]Olive Black or Olive Green being more desirable is NOT a matter of taste."
+"The [j-co] rave it's easy to hook up at the [activation of pound meat]Meet Pound."
 "The [j-co] agree [activation of Ralph Lauren]Lauren Ralph would actually be really attractive with any fashion sense at all."
 "The [j-co] agree that both [activation of pepper]Pepper Black, Pepper Bell [i]and[r] Pepper Green are hotter than Pepper Serrano."
 "'[activation of plaintiff]Tiff? Plain,' [random client in nominal fen] quips. The others agree, citing various elements of her personality."
@@ -9075,7 +9078,7 @@ check examining the fund hedge:
 			now player has cold contract;
 			say "[line break]'Now, be sure you get that contract signed, now you have it.'";
 		else:
-			say "'No free lunches. You didn't learn to [activation of age four]FORAGE young, did you?'";
+			say "'Really, you're lucky I didn't make you search through [activation of slush fund]fund slush. You didn't learn to [activation of age four]FORAGE young, did you?'";
 		the rule succeeds;
 
 the cold contract is a thing. description is "All the legal jargon is nothing to sneeze at. (Sorry.)[paragraph break]The main gist is that any person [if contract-signed is false](written extensively, instead of 'party') [end if]who signs it is probably screwed if they breathe wrong, and it's their fault if they missed something or didn't have access to someone who could read all the details.[paragraph break]It is currently [if contract-signed is false]unsigned[else]signed by the Business Monkey[end if]."
@@ -12445,6 +12448,8 @@ Polygamy is a concept in conceptville. Understand "gamy polly" and "polly gamy" 
 
 Potter Stewart is a concept in conceptville. Understand "stewart potter" as Potter Stewart. howto is "[j-girl]".
 
+pound meat is a concept in conceptville. Understand "meet pound" and "pound meet" as pound meat. howto is "[j-girl]".
+
 Ralph Lauren is a concept in conceptville. Understand "lauren ralph" as ralph lauren. howto is "[j-girl]".
 
 ring finger is a concept in conceptville. Understand "finger ring" as ring finger. howto is "talk to the jerks before knowing their names, with swears on".
@@ -12503,6 +12508,8 @@ Brat Army is a concept in conceptville. Understand "army brat" as brat army. how
 child support is a concept in conceptville. Understand "support child" as child support. howto is "talk to the Labor Child before gettiing the contract".
 
 Labor of Love is a concept in conceptville. Understand "love of labor" as labor of love. howto is "enter the Scheme Pyramid".
+
+slush fund is a concept in conceptville. Understand "fund slush" as slush fund. howto is "decline the Labor Child's offer for help".
 
 section temper keep concepts
 

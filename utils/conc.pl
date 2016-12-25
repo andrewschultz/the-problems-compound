@@ -28,6 +28,7 @@ my $printErrCode = 0;
 my $printErrors = 1;
 my $printTest = 0;
 my $order = 0;
+my $readConcepts = 1;
 my $printSuccess = 0;
 
 #############################
@@ -54,7 +55,12 @@ while ($count <= $#ARGV)
   $a = $ARGV[$count];
   for ($a)
   {
-    /^-?o$/ && do { $order = 1; $count++; next; };
+    /^-?[or]+$/ && do {
+	  $order = ($a =~ /o/);
+	  $readConcepts = ($a =~ /r/);
+	  $count++;
+	  next;
+	  };
     /^-?nt$/ && do { $printTest = 0; $count++; next; };
     /^-?t$/ && do { $printTest = 1; $count++; next; };
     /^-?ps$/ && do { $printSuccess = 1; $count++; next; };
@@ -81,7 +87,11 @@ while ($count <= $#ARGV)
   }
 }
 
-for my $thisproj (@dirs) { if ($order) { checkOrder($thisproj); } else { readConcept($thisproj); } }
+for my $thisproj (@dirs)
+{
+  if ($order) { checkOrder($thisproj); }
+  if ($readConcepts) { readConcept($thisproj); }
+}
 
 sub crankOutCode
 {
@@ -167,7 +177,6 @@ for my $x (sort keys %any)
   my $numauth = scalar keys %auth;
   if ($numauth)
   {
-
 
   for my $q (sort keys %auth)
   {
@@ -444,6 +453,8 @@ sub checkGameObjExpl
 	  $compare = $line; next;
 	}
 	if (!$compare) { next; }
+	chomp($line);
+	chomp($compare);
 	$c1 = alfPrep($line);
 	$c2 = alfPrep($compare);
 	if ($c2 gt $c1)
