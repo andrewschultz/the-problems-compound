@@ -3,11 +3,19 @@
 the story headline is "A Direction of Sense: changing what's-thats to that's-whats"
 
 [to search through this file, two x's at the start of a comment will delinate major points I revisit.
-  CV = conceptville, where concepts you don't know about are
-  add = stuff referred to tangentially and its explanations.
 
-  trt = table of ring tries
-  tht = table of hammer tries
+  other tables begin with xx and you can search for them. That way. Or with xx (first letter) in most cases.
+  add = stuff referred to tangentially and its explanations.
+  bgw = bad guy worries
+  br = basher bible advice
+  cv = conceptville, where concepts you don't know about are
+  hb = horrible books
+  hs = horrendous songs
+  isv = sid's viewpoints
+  jgt = jerk girl talk
+  ss = sleep stories (the past)
+  trt = ring tries (good)
+  tht = hammer tries (best)
 ]
 
 volume initialization
@@ -3424,6 +3432,7 @@ Thought for food	"Food for thought is something to think about."
 Tray S	"Stray. In other words, it strayed from Meal Square."
 Tray T	"A tea tray. To go with food."
 Tray X	"It is an ex-tray."
+treat like dirt	"To treat someone like dirt is to be very nasty to them."
 Boy Howdy	"Boy Howdy is a colloquial expression of surprise." [start of pressure pier]
 fish out of water	"A fish out of water is someone or something out of place."
 meal ticket	"A meal ticket is something you own that will help you advance socially or economically. It could be physical, or a piece of knowledge, or clout."
@@ -3511,6 +3520,7 @@ Pepper	"Black pepper is the ground-up stuff. Green and bell peppers are not espe
 Plaintiff	"A plaintiff is the party bringing the charge in a court case."
 Pollyanna	"A Pollyanna is someone who is ridiculously optimistic."
 Polygamy	"Polygamy is having more than one mate."
+pocket pool	"Pocket pool is a euphemism for self-pleasure."
 Potter Stewart	"Potter Stewart was a US Supreme who said he'd know obscenity when he saw it."
 pound meat	"To pound your meat is to, well, touch your genitals."
 Ralph Lauren	"Ralph Lauren is a fashion designer."
@@ -3518,6 +3528,8 @@ ring finger	"The ring finger is the one between the middle and the pinky."
 sausage fest	"A sausage fest is a congregation of males with no females."
 Sharp Barb	"A sharp barb is a stinging, clever insult."
 shock jock	"A shock jock is someone who provides deliberately insulting opinions to a wide audience, often on radio."
+sympathetic	"Sympathetic means caring and willing to listen."
+tallywhacker	"A tallywhacker is a male sexual organ."
 tear-jerk	"The jerks['] tears may seem a bit fake, and a tear-jerker is something that tries to manipulate you into crying."
 terabyte	"A terabyte is a large amount of memory: specifically, 2^40 bytes."
 teriyaki	"Teriyaki is a Japanese sauce, or it can be meat cooked in that sauce over an open grill."
@@ -3529,6 +3541,7 @@ grease monkey	"A grease monkey is a manual laborer, especially with machines."
 assembly line	"An assembly line is where each person or machine has a specific sub-job in creating a larger product." [start of truth home]
 ideological	"Ideological means fixated on specific political ideas and not willing to listen to others."
 mass production	"Mass production is a procedure of efficiently creating many of the same thing using standardized design."
+pathologic	"Pathologic behavior is compulsive and anti-social."
 psychotherapy	"Psychotherapy is seeing a trained professional for emotional and mental issues."
 right to privacy	"Right to privacy is considered a basic human right in democratic societies. It means you have the right to be left alone and not to be arrested for arbitrary reasons."
 thp	"Two hundred proof means pure grain alcohol."
@@ -6202,7 +6215,7 @@ looknum	reflection
 6	"Ugh. Surely that can't be the way to be? But people who mastered this, get ahead."
 10	"It seems knowing these makes up for not knowing actual stuff. Maybe you are just jealous others put in the effort to look and be clever with more than just boring facts."
 
-table of Bible references
+table of Bible references [xxbr]
 reference-blurb
 "Explain to someone you're only attacking their behavior, but if they're too attached to that, maybe they need to change more than they think they did."
 "Deliberately misunderstand someone who talks weakly. Give them a fake smile. Well, they'll need to learn to deal with that sort of thing SOME time!"
@@ -6576,7 +6589,7 @@ check eating cutter cookie:
 
 section points brownie
 
-a points brownie is a badfood on Tray B. description is "[if greater-eaten is true or cookie-eaten is true]The sort of chocolatey treat that fattens people with no willpower[else if off-eaten is true]The sort of sugary treat people used to try to bribe you with. With which they tried to bribe you. Ugh. You hate following grammar rules[else]It's not shaped like a square but rather a star. It has points[end if]."
+a points brownie is a badfood on Tray B. description is "[if greater-eaten is true or cookie-eaten is true]The sort of chocolatey treat that fattens people with no willpower[else if off-eaten is true]A [activation of treat like dirt]dirt-like treat, the sort people used to try to bribe you with. With which they tried to bribe you. Ugh. You hate following grammar rules[else]It's not shaped like a square but rather a star. It has points[end if]."
 
 brownie-eaten is a truth state that varies.
 
@@ -6586,7 +6599,7 @@ check eating points brownie:
 	consider the too cool for dessert rule;
 	if the rule succeeded:
 		continue the action;
-	say "You remember your first few weeks['] allowances and eating too much chocolate with them and being on a crazy sugar high. This--well, it's not a LOT, but it reminds you of that, like there might be some risk here. ";
+	say "You promise not to get on a sugar high like you did from wasting your first week's allowance. After eating it, you feel less inadequate, and willing to be even less inadequate if someone asks or hints! Oh boy!";
 	consider the tray b eating rule;
 	if the rule failed:
 		the rule succeeds;
@@ -7506,7 +7519,7 @@ to jerk-blab:
 		say "[line break]You have a vague suspicion they don't know as much about girls as they say they do, but if you called them on it, they'd say you didn't, either, so hypocrisy.";
 		now jerk-girl-yet is true;
 
-table of jerk-girl-talk
+table of jerk-girl-talk [xxjgt]
 girl-neg
 "The [j-co] berate [activation of anapest]Pest Anna and her weird 'modern' poetry."
 "The [j-co] argue over whether [activation of bandanna]Anna Bandt's clothes choices are really rebellious."
@@ -7541,9 +7554,12 @@ girl-neg
 "'[activation of plaintiff]Tiff? Plain,' [random client in nominal fen] quips. The others agree, citing various elements of her personality."
 "The [j-co] recount [activation of pollyanna]Anna Pauley's greatest hits making fun of overoptimism. She always comes through!"
 "The [j-co] don't understand what [activation of polygamy]Gamy Polly has to be fussy [i]about[r]."
+"The [j-co] whisper rumors of the louche goings-on at the [activation of pocket pool]Pool Pocket. It's unclear if it's water or table pool."
 "The [j-co] snicker at [activation of Potter Stewart]Stewart Potter, who couldn't recognize a kickass profane putdown if he saw it."
 "The [j-co] disagree on whether [activation of sharp barb]Barb Sharpe would be worth putting up with her lame gossip."
 "The [j-co] take a minute to [activation of shock jock]jock shock in general. It's very disturbing, but you can't put your finger on why."
+"The [j-co] mock [activation of sympathetic]Pathetic Sim for listening to girls whine about their breakups without getting their phone numbers."
+"The [j-co] start a [activation of tallywhacker]wacker tally of guys very likely to have no experience with women."
 "The [j-co] claim learning WAY too much about computers will come back to [activation of terabyte]bite Tara."
 "The [j-co] stage-whisper that [activation of teriyaki]Yacky Terri's conversation is neither spicy nor meaty."
 "The [j-co] [activation of terrapin]pin Tera as someone who needs to come out of her shell and live faster."
@@ -8491,24 +8507,30 @@ sid-row is a number that varies.
 check talking to Sid Lew:
 	say "'Oh yeah, sure, I bet you have interesting questions. But I've probably heard [']em all before. And I'm giving interesting answers to questions you didn't need to know yet. You might want to just listen.' [weird-hyp]" instead;
 
-half-sid-yet is a truth state that varies.
+third-sid-yet is a truth state that varies.
+twothird-sid-yet is a truth state that varies.
 
 every turn when player is in truth home and Sid Lew is in truth home:
 	increment sid-row;
-	if half-sid-yet is false and sid-row is number of rows in table of incisive sid viewpoints:
+	if third-sid-yet is false and sid-row is number of rows in table of incisive sid viewpoints:
 		say "Sid takes a brief break. 'Boy! I could deserve good money as a [activation of psychotherapy]therapy psycho! You've only heard the half of my advice so far!'";
-		now half-sid-yet is true;
+		now third-sid-yet is true;
+		continue the action;
+	if twothird-sid-yet is false and sid-row is number of rows in table of incisive sid viewpoints:
+		say "Sid coughs then warms up for a song. '[activation of pathologic]Oh, logic path, oh logic path!' He's in the home stretch of ideas, now.";
+		now twothird-sid-yet is true;
 		continue the action;
 	if sid-row > number of rows in table of incisive sid viewpoints:
 		now sid-row is 0;
 		say "'[activation of ideological]Logical idea, logical idea, logical idea. How can you POSSIBLY disagree with me?' booms Sid. He pauses before starting again.";
-		now half-sid-yet is false;
+		now twothird-sid-yet is false;
+		now third-sid-yet is false;
 		continue the action;
 	else:
 		choose row sid-row in table of incisive sid viewpoints;
 		say "[sid-sez entry][line break]";
 
-table of incisive sid viewpoints
+table of incisive sid viewpoints [xxisv]
 sid-sez
 "Sid points out it's really probably better to be a jerk than not, because fake nice is really really creepy. Lee asks if it's the same for fake interesting. 'A-HA! I KNEW YOU WEREN'T NICE!'"
 "Sid puts down Lee and notes your silence is agreement. But Lee has a comeback--and Sid notes your silence (again) as disbelief."
@@ -9628,7 +9650,7 @@ every turn when Alec Smart is in Speaking Plain and Speaking Plain was visited a
 		choose row dutch-blab in table of dutch-blab;
 		say "[banter entry][line break]";
 
-table of dutch-blab
+table of dutch-blab [xxdb]
 banter
 "Uncle Dutch mentions kids who have more potential than Turk who are destined to be screwups. Turk Young condemns adults who had more going for them than Uncle Dutch but predictably failed."
 "Uncle Dutch mentions he's not trying to scare people, but if they are scared, that's his problem. All the same, he mentions one truly scary person he had to deal with the other week."
@@ -10169,7 +10191,7 @@ check taking song torch:
 
 section all the songs
 
-table of hs - horrendous songs
+table of hs - horrendous songs [xxhs]
 workname	singername	songsubj
 "My Mind on Georgia"	"Charles Ray"	"cutting reflections on why certain places hate progress"
 "Knife the Mack"	"Darin Bobby"	"harsh punishment for some dude with no game trying to impress women out of his league"
@@ -11137,7 +11159,7 @@ every turn when mrlp is dream sequence:
 		now af-done entry is true;
 	say "[if player is in tense past][b4-nar entry][else if player is in tense present][now-nar entry][else if player is in tense future][af-nar entry][else](BUG)[end if][line break]";
 
-table of sleep stories [painful narratives]
+table of sleep stories [xxss]
 b4-nar	now-nar	af-nar	b4-done	now-done	af-done
 "'Dude, why do you read so much? It's sort of showing off.'"	"You are, for the moment, in English class. People are running circles around you discussing an assigned book. You overhear that YOU should be participating more, with all you used to read."	"You are outside an expensive charity dinner--not allowed in, of course. A grown-up version of the classmate who made fun of you in the past for reading blathers on about how reading books helps children become success stories."	true	true	true
 "A teacher chides the class to be 'nice like Alec.' They aren't, at recess."	"Some fake contrarian says that just being nice isn't nearly enough, and it's so formulated."	"You face an onslaught of people who were apparently trying to be nice to you, but NO..."
@@ -12245,6 +12267,8 @@ Tray T is a concept in conceptville. howto is "enter Meal Square".
 
 Tray X is a concept in conceptville. howto is "enter Meal Square".
 
+treat like dirt is a concept in conceptville. Understand "dirt like treat" as treat like dirt. howto is "examine the points brownie".
+
 section pressure pier concepts
 
 Boy Howdy is a concept in conceptville. understand "howdy boy" as Boy Howdy. howto is "get to Pressure Pier".
@@ -12446,6 +12470,8 @@ Pollyanna is a concept in conceptville. Understand "anna pauley" and "pauley ann
 
 Polygamy is a concept in conceptville. Understand "gamy polly" and "polly gamy" as polygamy. howto is "[j-girl]".
 
+pocket pool is a concept in conceptville. Understand "pool pocket" as pocket pool. howto is "[j-girl]".
+
 Potter Stewart is a concept in conceptville. Understand "stewart potter" as Potter Stewart. howto is "[j-girl]".
 
 pound meat is a concept in conceptville. Understand "meet pound" and "pound meet" as pound meat. howto is "[j-girl]".
@@ -12459,6 +12485,10 @@ sausage fest is a concept in conceptville. Understand "fest sausage" as sausage 
 Sharp Barb is a concept in conceptville. Understand "barb sharp" as sharp barb. howto is "[j-girl]".
 
 shock jock is a concept in conceptville. Understand "jock shock" as shock jock. howto is "[j-girl]".
+
+sympathetic is a concept in conceptville. Understand "sym pathetic" and "pathetic sym" as sympathetic. howto is "[j-girl]".
+
+tallywhacker is a concept in conceptville. Understand "tally wacker" and "wacker tally" as tallywhacker. howto is "[j-co]".
 
 Tear-Jerk is a concept in conceptville. Understand "jerk-tear" and "tear jerk" and "jerk tear" as Tear-Jerk. howto is "solve the [j-co]['] puzzle".
 
@@ -12491,7 +12521,9 @@ ideological is a concept in conceptville. Understand "logical idea" and "idea lo
 
 mass production is a concept in conceptville. Understand "production mass" as mass production. howto is "give Lee the rattle".
 
-psychotherapy is a concept in conceptville. Understand "psycho therapy" and "therapy psycho" as psychotherapy. howto is "listen to half of Sid Lew's advice".
+pathologic is a concept in conceptville. Understand "path oh/o logic" and "logic oh/o path" as pathologic. howto is "listen to two-thirds of Sid Lew's advice".
+
+psychotherapy is a concept in conceptville. Understand "psycho therapy" and "therapy psycho" as psychotherapy. howto is "listen to one-third of Sid Lew's advice".
 
 right to privacy is a concept in conceptville. Understand "privacy to write" and "write to privacy" as right to privacy. howto is "give Lee the rattle".
 
