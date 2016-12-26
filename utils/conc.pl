@@ -21,6 +21,8 @@ my $clip = Win32::Clipboard::new();
 
 my @dirs = ("Compound", "Slicker-City", "Buck-the-Past");
 
+my @okays = ("buster ball", "hunter savage", "trust brain", "good herb", "freak out" );
+
 ###############################
 #options
 my $codeToClipboard = 0;
@@ -40,6 +42,7 @@ my %conc;
 my %activ;
 my %gotText;
 my %authTab;
+my %okdup;
 
 #################################
 #arrays
@@ -86,6 +89,8 @@ while ($count <= $#ARGV)
 	usage();
   }
 }
+
+for (@okays) { $okdup{$_} = 1; }
 
 for my $thisproj (@dirs)
 {
@@ -135,11 +140,15 @@ my $y1;
 my $lastLine = 0;
 
 #dumpHashes();
+my %gotyet;
 for my $x (sort keys %any)
 {
   my $thisFailed = 0;
   $totals++;
+  if ($x =~ /\*/) { print "Warning remove asterisk at line $activ{$x}.\n"; }
   my $xmod = $x; $xmod =~ s/\*//g;
+  if ($gotyet{$xmod}) { print "Oops, $xmod looks like an almost-duplicate with asterisks there/missing.\n"; }
+  $gotyet{$xmod} = 1;
   #print "Looking at $x:\n";
   if (!$expl{$x}) { $errMsg .= "$xmod needs explanation.\n"; $explErr .= "$xmod\t\"$xmod is when you [fill-in-here].\"\n"; $fails++; $thisFailed = 1; }
   if (!$conc{$x})
@@ -384,7 +393,7 @@ while ($lineIn = <A>)
     $lineIn =~ s/ is a concept in lalaland.*//g;
 	$lineIn = wordtrim($lineIn);
 	$conc{$lineIn} = 1;
-	$activ{$lineIn} = 1;
+	$activ{$lineIn} = $.;
 	$any{$lineIn} = $.;
   }
   $tmpVar = $lineIn;
@@ -394,13 +403,14 @@ while ($lineIn = <A>)
 	my $c = $tmpVar;
 	$c =~ s/\].*//g;
 	if ($c eq "conc-name entry") { next; }
-	$activ{wordtrim($c)} = 1; $any{wordtrim($c)} = $.;
+	if (defined($activ{wordtrim($c)}) && !defined($okdup{wordtrim($c)})) { print "Warning line $. double defines $c.\n"; }
+	$activ{wordtrim($c)} = $.; $any{wordtrim($c)} = $.;
   }
   if ($inTable == 1) { $tmpVar = $lineIn; $tmpVar =~ s/\t.*//g; $tmpVar = wordtrim($tmpVar); $expl{$tmpVar} = $any{$tmpVar} = $.; next; }
   if (($lineIn =~ /is a (privately-named |)?concept/) && ($lineIn !~ /\t/)) #prevents  "is a concept" in source text from false flag
   {
     $tmpVar = $lineIn; $tmpVar =~ s/ is a (privately-named |)?concept.*//g; $tmpVar = wordtrim($tmpVar); $conc{$tmpVar} = $any{$tmpVar} = $.;
-	if ($lineIn =~ /\[ac\]/) { $activ{$tmpVar} = 1; } # [ac] says it's activated somewhere else
+	if ($lineIn =~ /\[ac\]/) { $activ{$tmpVar} = $.; } # [ac] says it's activated somewhere else
 	next;
   }
 }
