@@ -32,6 +32,8 @@ my $printTest = 0;
 my $order = 0;
 my $readConcepts = 1;
 my $printSuccess = 0;
+my $addStart = 0;
+my $cvStart = 0;
 
 #############################
 #hashes
@@ -43,6 +45,7 @@ my %activ;
 my %gotText;
 my %authTab;
 my %okdup;
+my %lineNum;
 
 #################################
 #arrays
@@ -101,7 +104,7 @@ for my $thisproj (@dirs)
 sub crankOutCode
 {
   my $temp = $_[0]; $temp =~ s/-/ /g;
-  my $bkwd = join(" ", reverse(split(/ /, $temp)));
+  my $bkwd = join(" ", reverse(split(/ /, lc($temp))));
   if ($a)
   {
     $a .= "\n";
@@ -150,10 +153,15 @@ for my $x (sort keys %any)
   if ($gotyet{$xmod}) { print "Oops, $xmod looks like an almost-duplicate with asterisks there/missing.\n"; }
   $gotyet{$xmod} = 1;
   #print "Looking at $x:\n";
-  if (!$expl{$x}) { $errMsg .= "$xmod needs explanation.\n"; $explErr .= "$xmod\t\"$xmod is when you [fill-in-here].\"\n"; $fails++; $thisFailed = 1; }
-  if (!$conc{$x})
+  if (!$expl{$xmod})
   {
-	$errMsg .= "$xmod needs concept definition.\n";
+    $errMsg .= "$xmod ($lineNum{$xmod}) needs explanation.\n";
+	$explErr .= "$xmod\t\"$xmod is when you [fill-in-here].\"\n";
+	$fails++; $thisFailed = 1;
+  }
+  if (!$conc{$xmod})
+  {
+	$errMsg .= "$xmod ($lineNum{$xmod}) needs concept definition.\n";
     if ($x =~ /\*/)
 	{
     $y1 = join(" ", reverse(split(/\*/, $x)));
@@ -165,10 +173,14 @@ for my $x (sort keys %any)
     $y = join(" ", reverse(split(/ /, $x)));
 	$concErr .= "$xmod is a concept in conceptville. Understand \"$y\" as $xmod. howto is \"[fill-in-here]\".\n";
 	}
-	$fails++;
-	$thisFailed = 1;
+	$fails++; $thisFailed = 1;
   }
-  if (!$activ{$x}) { $errMsg .= "$xmod needs activation.\n"; $activErr .= "\[activation of $xmod\]\n"; $fails++; $thisFailed = 1; }
+  if (!$activ{$x})
+  {
+    $errMsg .= "$xmod needs activation.\n";
+	$activErr .= "\[activation of $xmod\]\n";
+	$fails++; $thisFailed = 1;
+  }
   if (($thisFailed == 0) && ($printSuccess)) { print "$x succeeded.\n"; }
   if (($thisFailed) && ($x !~ /[ \*]/))
   {
@@ -178,7 +190,12 @@ for my $x (sort keys %any)
 
   print "TEST RESULTS:concepts-$_[0],0,$fails,$totals,$errMsg\n";
 
-  if ($fails) { print "Test failed, $fails failures of $totals."; }
+  if ($fails)
+  {
+    print "XXADD starts at $addStart.\n";
+    print "XXCV starts at $cvStart.\n";
+	print "Test failed, $fails failures of $totals.";
+  }
   else { print "Test succeeded! All $totals passed."; }
 
   print "\n";
@@ -384,6 +401,8 @@ while ($lineIn = <A>)
     if ($lineIn !~ /[a-z]/i) { $inAuthTable = 0; next; }
     $tmpVar = $lineIn; chomp($tmpVar); $tmpVar =~ s/\t.*//g; $authTab{$tmpVar} = $line; next;
   }
+  if ($lineIn =~ /xxadd/) { $addStart = $.; }
+  if ($lineIn =~ /xxcv/) { $cvStart = $.; }
   if ($lineIn =~ /xxauth/) { $inAuthTable = 1; <A>; $line++; next; }
   if ($lineIn =~ /^table of explanations.*concepts/) { $inTable = 1; <A>; next; }
   if ($lineIn !~ /[a-z]/i) { $inTable = 0; next; }
@@ -393,8 +412,10 @@ while ($lineIn = <A>)
     $lineIn =~ s/ is a concept in lalaland.*//g;
 	$lineIn = wordtrim($lineIn);
 	$conc{$lineIn} = 1;
+	$any{$lineIn} = 1;
+	if (!defined($lineNum{$lineIn})) { $lineNum{$lineIn} = $.; }
+	# the concept is activated by default, so we need to add this line.
 	$activ{$lineIn} = $.;
-	$any{$lineIn} = $.;
   }
   $tmpVar = $lineIn;
   while ($tmpVar =~ /\[activation of/) # "activation of" in source code
@@ -403,10 +424,21 @@ while ($lineIn = <A>)
 	my $c = $tmpVar;
 	$c =~ s/\].*//g;
 	if ($c eq "conc-name entry") { next; }
-	if (defined($activ{wordtrim($c)}) && !defined($okdup{wordtrim($c)})) { print "Warning line $. double defines $c.\n"; }
-	$activ{wordtrim($c)} = $.; $any{wordtrim($c)} = $.;
+	$c = wordtrim($c);
+	if (defined($activ{$c}) && !defined($okdup{$c})) { print "Warning line $. double defines $c.\n"; }
+	$activ{$c} = $.;
+	$any{wordtrim($c)} = $.;
+	$lineNum{$c} = $.;
   }
-  if ($inTable == 1) { $tmpVar = $lineIn; $tmpVar =~ s/\t.*//g; $tmpVar = wordtrim($tmpVar); $expl{$tmpVar} = $any{$tmpVar} = $.; next; }
+  if ($inTable == 1)
+  {
+    $tmpVar = $lineIn;
+	$tmpVar =~ s/\t.*//g;
+	$tmpVar = wordtrim($tmpVar);
+	$expl{$tmpVar} = $any{$tmpVar} = 1;
+	if (!defined($lineNum{$tmpVar})) { $lineNum{$tmpVar} = $,; }
+	next;
+  }
   if (($lineIn =~ /is a (privately-named |)?concept/) && ($lineIn !~ /\t/)) #prevents  "is a concept" in source text from false flag
   {
     $tmpVar = $lineIn; $tmpVar =~ s/ is a (privately-named |)?concept.*//g; $tmpVar = wordtrim($tmpVar); $conc{$tmpVar} = $any{$tmpVar} = $.;
@@ -427,6 +459,7 @@ sub wordtrim
   $temp =~ s/^the //g;
   $temp =~ s/^a thing called //g;
   $temp =~ s/^a //g;
+  $temp =~ s/\*//g;
   return $temp;
 }
 
