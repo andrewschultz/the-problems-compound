@@ -3272,10 +3272,11 @@ cutter cookie	"Cookie-cutter means predictable and formulaic."	"I wound up getti
 gagging lolly	"Lollygagging is waiting around."	"This is one of the worst puns with the silliest deaths. I'm proud of it!"
 greater cheese	"A cheese grater chops up cheese. Also, you do become a bit of a grater if you eat it."	"This was the second of the post-comp bad foods added. It occurred to me that there are lots of ways to be a jerk."
 iron waffle	"A waffle iron is what you put batter in to make a waffle. But a waffle is also what you use when you don't know what to say. An iron waffle, then, would be something to say when you don't know what to say--but it is hard to take down."	"Alec of course would not have the confidence to make or use an iron waffle."
-Off Cheese	"To cheese someone off is to annoy them."	"I was pleased to see Hulk Handsome wrote Cheesed Off, which I think you'll like, too. Thankfully I checked PC into github before Ryan Veeder's Exposition for Good Interactive Fiction, so I think we can say the two of us both had our own takes on the pun. This was the first of the post-comp bad foods added. It's a failure for Alec in the sense that he becomes a complainer he can be better than."
+Off Cheese	"To cheese someone off is to annoy them."	"I was pleased to see Hulk Handsome wrote Cheesed Off, which I think you'll like, too. Thankfully I checked PC into github before Ryan Veeder's Exposition for Good Interactive Fiction, so I think we can say the two of us both had our own takes on the pun. This was the first of the post-comp bad foods added. It's a failure for Alec in the sense that he becomes the sort of complainer he might be impressed by, but they're not actually BETTER than he is."
 opener eye	"An eye-opener is something that makes you realize things. The bad grammar here indicates that your eye, more open, is not really that way, or it's open the wrong way."
 picture of a dozen bakers	"A baker's dozen is thirteen, thus counting for the illusion."	"I have no idea what this illusion would look like if drawn, but I wanted to put it there."
 points brownie	"Brownie points are uinofficial credit for helping or flattering someone."	"It occurred to me it could be horrible for Alec to try and make friends with the [bad-guy] and thus get the totally wrong ending. I think there's a lot of that, that people like the [bad-guy] try to convince you they're on your side, and so forth. Writing the ending squicked me out more than I thought it would."
+thyme burger	"BurgerTime is a retro arcade game where Peter Pepper, the protagonist, goes around shaking pepper at enemies and stepping on burgers to prepare them."	"This is a dumb joke I enjoyed."
 Tray A	"Just a tray, contrasted with Tray B."	--
 Tray B	"Eating anything on it may betray who you really are."	"This is another thing that dropped out in release 2 and I couldn't believe it was that simple. People were disappointed I didn't clue that it was such a bad idea to eat the Cutter Cookie."
 up gum	"To gum up is to slow down a process, often to a halt. I do like cheap silly deaths, too."	"It's always tough to judge if something is too obvious to include or too obvious not to. The main thing is, make sure you do it right with a few side joke riffs. I'm pleased with how I moved in the law enforcement here."
@@ -3356,7 +3357,7 @@ Trick Hat	"A hat trick, in hockey or soccer, is scoring three times."	"This was 
 Brother Big	"Big Brother is the character from Orwell's 1984."	-- [start of questions field]
 Brother Blood	"A blood brother is someone related by blood or who has sworn an oath of loyalty to someone else."	--
 Brother Soul	"A soul brother is one who has very similar opinions to you."	--
-Buddy Best	"A best buddy is your favorite friend."	"Buddy Best is probably my favorite bad guy besides the Baiter Master. Of course, his 'gift' is really just a self-promotional item." [start of court of contempt]
+Buddy Best	"A best buddy is your favorite friend."	"Buddy Best is probably my favorite NPC aligned with the [bad-guy]. Of course, his 'gift' is really just a self-promotional item." [start of court of contempt]
 long tag	"To tag along is to follow behind."	"Between this and a long string, I thought I overused long in the flips, so I was glad I found the Circular."
 the Reasoning Circular	"Circular Reasoning is, for instance, I'm smart because I'm clever because I'm smart."	"This might be my favorite flip. It means the obviousd of what you said, and also it rationalizes seeing what you want to see."
 against rails	"If someone rails against something, they're upset with it."	"These were in the Variety Garden until release 2, when I realized they'd be better off somewhere more mechanical--oh, and I found the brush, too." [start of freak control]
@@ -3509,6 +3510,7 @@ Keyser Soze	"Keyser Söze is the shadowy antagonist of the film [italic type]The
 lily liver	"A lily-liver is someone who is afraid to go out and do risky things."
 Liverwurst	"Liverwurst is a sort of meat which I found tastes nice until it really doesn't, and it's a bit greasy, too. 'Worst liver' may be an exaggeration, but the jerks are not living well."
 lovelies	"Lovelies is a term of endearment."
+manicured	"Manicured fingernails are generally for women, so Manny being cured of non-masculinity is contradictory."
 Mary Sue	"A Mary Sue is a character who is too unbelievably nice. It comes from the tour de force short story A Trekkie's Tale."
 mascara	"Mascara is basic make-up for women."
 melodious	"Melodious means nice-sounding."
@@ -3518,9 +3520,9 @@ Notre Dame	"Notre Dame is a famous Catholic university."
 Olive	"Black and green olives are the two main different kinds of olives."
 Pepper	"Black pepper is the ground-up stuff. Green and bell peppers are not especially spicy. Serrano peppers taste hotter."
 Plaintiff	"A plaintiff is the party bringing the charge in a court case."
+pocket pool	"Pocket pool is a euphemism for self-pleasure."
 Pollyanna	"A Pollyanna is someone who is ridiculously optimistic."
 Polygamy	"Polygamy is having more than one mate."
-pocket pool	"Pocket pool is a euphemism for self-pleasure."
 Potter Stewart	"Potter Stewart was a US Supreme who said he'd know obscenity when he saw it."
 pound meat	"To pound your meat is to, well, touch your genitals."
 Ralph Lauren	"Ralph Lauren is a fashion designer."
@@ -3528,6 +3530,7 @@ ring finger	"The ring finger is the one between the middle and the pinky."
 sausage fest	"A sausage fest is a congregation of males with no females."
 Sharp Barb	"A sharp barb is a stinging, clever insult."
 shock jock	"A shock jock is someone who provides deliberately insulting opinions to a wide audience, often on radio."
+sweeney todd	"Sweeney Todd was a fictitious murderous barber."
 sympathetic	"Sympathetic means caring and willing to listen."
 tallywhacker	"A tallywhacker is a male sexual organ."
 tear-jerk	"The jerks['] tears may seem a bit fake, and a tear-jerker is something that tries to manipulate you into crying."
@@ -3547,6 +3550,7 @@ right to privacy	"Right to privacy is considered a basic human right in democrat
 thp	"Two hundred proof means pure grain alcohol."
 age four	"Age four is, well, four years old. It is too young to forage." [start of scheme pyramid]
 baby boomer	"The Baby Boomers were the generation born just after World War II. Sometimes referred to as 'The Greatest Generation.'"
+bookworm	"A bookworm is someone who reads a lot. A worm is, well, unflattering to call someone."
 brat army	"An army brat is the child of a military officer. They would be more likely to move than most children."
 child support	"Child support is what one separated spouse pays to another to take care of a child."
 labor of love	"A labor of love is something done for its own sake, not for worldly advancement."
@@ -3636,6 +3640,7 @@ pharisee	"A pharisee is someone who gives the trappings of morality but is not."
 polygraph	"A polygraph is a lie detector. The [bad-guy] is probably looking for lies that aren't there."
 Power Trip	"A power trip is when someone is so overcome with their own power, they do mean things to show it off."
 psychoanalyst	"An analyst is someone who examines data and makes conclusions. Or it could be a psychoanalyst, who interprets a client's concerns and offers solutions.."
+race baiting	"Race baiting is when someone mocks another person for their ethnicity."
 red alert	"Red alert is when an enemy attack appears imminent."
 running start	"A running start means you've gotten started quickly."
 salad days	"Salad days are a time when things are going well."
@@ -4026,7 +4031,7 @@ understand the command "credits" as something new.
 understand "credits" as creditsing.
 
 carry out creditsing:
-	say "I was able to bounce technical and non-technical ideas off several other people. Wade Clarke, Marco Innocenti, Hugo Labrande, Juhana Leinonen, Brian Rushton and Matt Weiner offered testing and general encouragement and insight on what was a VERY short deadline given the game's size. An anonymous tester provided other direction.[paragraph break]";
+	say "I was able to bounce technical and non-technical ideas off several other people. Wade Clarke (not Clark Wade,) Marco Innocenti, Hugo Labrande, Juhana Leinonen, Brian Rushton and Matt Weiner offered testing and general encouragement and insight on what was a VERY short deadline given the game's size. An anonymous tester provided other direction.[paragraph break]";
 	say "Jason Lautzenheiser's work on Genstein's Trizbort app (www.trizbort.com) was invaluable for big-picture planning and for adding in ideas I wasn't ready to code. If you are writing a parser game, I recommend it. (Disclaimer: I am a contributor, too.)[paragraph break]";
 	say "====IN-COMP THANKS:[line break]";
 	say "I'd also like to thank non-competitors who alerted me to flaws/bugs in the comp version: Olly Kirk, Paul Lee, Michael Martin, David Welbourn and Al Golden. Competitors offered both praise and criticism which helped add features and polish to the post-comp release.";
@@ -4489,7 +4494,7 @@ anno-num	exam-thing	anno-loc	anno-long (text)
 0	Sly Moore	Idiot Village	"More/Moore was an obvious homonym to play on, but I didn't know about a first name. I thought about Les, but that just ran into itself. I was able to google-spam enough sites to get first names that mean something, but then Sly Moore didn't seem like an antagonist to outwit. I needed someone for Alec to help, though, so Sly it was."
 0	Thoughts Idol	Idiot Village	"I had the idea for the puzzle before the idol. Why would Alec run in that pattern? Well, he would be followed--and then it hit me. Alec couldn't get too near the idol for too long, but he had to keep it busy. Combine that with how I always liked to draw eight-pointed stars as a kid, and voila. The puzzle. Going from an idol giving you a long sidelong glance to you spinning it around until it explodes."
 0	Turk Young	Speaking Plain	"Turk and Dutch's advice is worthless, but I remember being pressured that I didn't have the common sense of some other kids my age. I took it out a bit on Turk and Dutch and made them pompous--though it might not immediately be obvious why they're wrong."
-0	Volatile Sal	Temper Keep	"Sal is probably the person I identify most with. He's probably most on the edge to being aligned with the bad guy or Alec. The thing is: he complains a lot, but the solution is right under his nose. So Alec doing that for him gives Alec some confidence he's not the only one who's dragged his feet, and he can do better."
+0	Volatile Sal	Temper Keep	"Sal is probably the person I identify most with. He's probably most on the edge to being aligned with the [bad-guy] or Alec. The thing is: he complains a lot, but the solution is right under his nose. So Alec doing that for him gives Alec some confidence he's not the only one who's dragged his feet, and he can do better."
 0	Buddy Best	Court of Contempt	"I don't know if I fully explained Buddy in the first release. Testers were upset he kicked you out--but I wanted that to be sort of the point. He didn't have time for you, and he acted like he was doing a favor giving you anything, and he sort of was, except you didn't need to feel grateful for that. Alec also learns to use Buddy's gift to get by someone else, so that's a good example of getting two enemies out of the way at once."
 0	Mistake Grave	Walker Street	"I couldn't resist a chance for a cheap joke. The [bad-guy] is, sadly, one of those people who will condemn you for not being exciting enough, and while there's no way for Alec to outright lose, such a grave gives him a little fear.[paragraph break]Of course, there's no assurance anyone DID actually die."
 0	Art Fine	Discussion Block	"Critical discussion of art is good. But hopefully Art is so over the top with his hyperbole, and the art is so obviously bad, that you can see why listening to him might turn people away. I have to admit listening to louder people than myself turned me away from reading in high school. Everything was terrible or awesome! You better not make the mistake of reading a stupid book! And so on. There was a lot of posturing, but I never quite picked up on it."
@@ -6753,6 +6758,16 @@ to say sing-s:
 to say plur-s:
 	say "[unless bros-left is 1]s[end if]";
 
+chapter Thyme Burger
+
+the thyme burger is an edible thing on Tray A. description is "It doesn't appear to have any hot dogs or pickles or eggs in it. Or, um, meat. But lots of thyme is sticking out of it. And it looks like it's been stepped on, too."
+
+check eating thyme burger:
+	try taking thyme burger instead;
+
+check taking the thyme burger:
+	say "A catchy tune pops in your head as you reach for it, but then, nah. You've got no idea who might've stepped on it." instead;
+
 chapter condition mint
 
 for writing a paragraph about a supporter in Meal Square:
@@ -7541,6 +7556,7 @@ girl-neg
 "The [j-co] laugh at how [activation of humphrey davy]Davey Humphrey beats up and makes fun of science nerds."
 "The [j-co] create a conspiracy theory for laughs: plain, quiet [activation of Keyser Soze]Suzy Kaiser somehow ruthlessly controls female and male social circles."
 "The [j-co] agree what a [activation of lily liver]LIVER Lily is! She couldn't be exaggerating."
+"The [j-co] mentioned how [activation of mani*cured]cured Manny is of his lack of machismo."
 "The [j-co] appreciate how [activation of mary sue]Sue Merry reliably smacks down anyone who seems too nice."
 "The [j-co] discuss how [activation of mascara]Cara Maas would be pretty if she just TRIED."
 "The [j-co] have to admit [activation of melodious]Odious Mel sure can sing!"
@@ -7558,11 +7574,13 @@ girl-neg
 "The [j-co] snicker at [activation of Potter Stewart]Stewart Potter, who couldn't recognize a kickass profane putdown if he saw it."
 "The [j-co] disagree on whether [activation of sharp barb]Barb Sharpe would be worth putting up with her lame gossip."
 "The [j-co] take a minute to [activation of shock jock]jock shock in general. It's very disturbing, but you can't put your finger on why."
+"The [j-co] deride [activation of Sweeney Todd]Todd Sweeney for his fear of horror movies."
 "The [j-co] mock [activation of sympathetic]Pathetic Sim for listening to girls whine about their breakups without getting their phone numbers."
 "The [j-co] start a [activation of tallywhacker]wacker tally of guys very likely to have no experience with women."
 "The [j-co] claim learning WAY too much about computers will come back to [activation of terabyte]bite Tara."
 "The [j-co] stage-whisper that [activation of teriyaki]Yacky Terri's conversation is neither spicy nor meaty."
 "The [j-co] [activation of terrapin]pin Tera as someone who needs to come out of her shell and live faster."
+"The [j-co] agree Erwin is just a total loser name."
 
 for writing a paragraph about a client (called jrk) in Nominal Fen:
 	if cookie-eaten is true:
@@ -9162,7 +9180,7 @@ after examining the finger index (this is the know what jerks are about rule) :
 
 understand "paper" as finger index.
 
-description of finger index is "FINGER INDEX (CONFIDENTIAL):[paragraph break][finger-say].".
+description of finger index is "FINGER INDEX (CONFIDENTIAL):[paragraph break][finger-say].[paragraph break]P.S. upgrade anyone who tries to tattle to the [activation of bookworm]Worm Book.".
 
 check examining finger index when finger index is not examined:
 	say "It looks like a list of customers--wait, no, it's a list of embarrassing secrets. The little brat!";
@@ -10610,7 +10628,7 @@ table of bad guy worries [xxbgw]
 gad-act
 "The [bad-guy] loud-whispers how those wimps Willis Bruce and Norris Charles need attending to by his...associates."
 "'Think you're clever? Foul miss, Artie[activation of Artemis Fowl],' the [bad-guy] chides."
-"The bad guy plans out a trip to [activation of autocratic]Craddock Auto for a bulletproof limo."
+"The [bad-guy] plans out a trip to [activation of autocratic]Craddock Auto for a bulletproof limo."
 "'Geez, it's a pain to [activation of benefactor]factor BENNY. I'm not, like, MEAN to him.'"
 "'[activation of busy work]Work...busy...work...busy,' says the [bad-guy], pacing back and forth."
 "The [bad-guy] mentions he is [activation of carry over]over Carrie several times."
@@ -10678,7 +10696,7 @@ litany of Baiter Master is the table of Baiter Master talk.
 check talking to Baiter Master:
 	if freaked-out is false:
 		say "[one of]He waves you off without even looking. 'Whoever you are, I'm busy. Too busy for your lame problems. And they must be lame, if you asked so weakly.' You'll need an entirely more aggressive way to get his attention.[or]You just aren't good enough at yelling to do things straight up. Maybe you can upset things somehow.[stopping]" instead;
-	say "'But seriously, dude! You need to chill... there are things called manners...' but he does have your attention now. 'So. Someone finally got past those mopey brothers. You want a [activation of dual vision]vision duel? Because we can have a vision duel. I have...an [i]opinion[r] of difference. You don't even have...one right serve.' He takes a slurp from a shot mug[activation of shot mug] (with a too-flattering self-portrait, of course) and perks up.";
+	say "'But seriously, dude! You need to chill... there are things called manners...' but he does have your attention now. 'So. Someone finally got past those mopey brothers. You want a [activation of race baiting]baiting race? A [activation of dual vision]vision duel? I have...an [i]opinion[r] of difference. You don't even have...one right serve.' He takes a slurp from a shot mug[activation of shot mug] (with a too-flattering self-portrait, of course) and perks up.";
 	if player has legend of stuff:
 		say "He points to the Legend of Stuff. 'Oh. It looks like you took the easy way out. In fact...";
 		say "[line break][bm-stuff-brags]";
@@ -12448,7 +12466,9 @@ Liverwurst is a concept in conceptville. understand "wurst/worst liver" and "liv
 
 Lovelies is a concept in conceptville. Understand "lies love" and "love lies" as Lovelies. howto is "listen to all the [j-co] have to say, with swearing on".
 
-Mary Sue is a concept in conceptville. understand "Sue Merry" and "Merry Sue" as Mary Sue. howto is "[j-girl]".
+manicured is a concept in conceptville. understand "cure manny" and "manny cure" as manicure. howto is "[j-girl]".
+
+Mary Sue is a concept in conceptville. understand "sue merry" and "merry sue" as mary sue. howto is "[j-girl]".
 
 mascara is a concept in conceptville. Understand "cara maas" and "maas cara" as mascara. howto is "[j-girl]".
 
@@ -12466,11 +12486,11 @@ Pepper is a concept in conceptville. Understand "pepper bell/black/serrano/green
 
 plaintiff is a concept in conceptville. understand "tiff plain" and "plain tiff" as plaintiff. howto is "[fr-ran]".
 
+pocket pool is a concept in conceptville. Understand "pool pocket" as pocket pool. howto is "[j-girl]".
+
 Pollyanna is a concept in conceptville. Understand "anna pauley" and "pauley anna" as pollyanna. howto is "[j-girl]".
 
 Polygamy is a concept in conceptville. Understand "gamy polly" and "polly gamy" as polygamy. howto is "[j-girl]".
-
-pocket pool is a concept in conceptville. Understand "pool pocket" as pocket pool. howto is "[j-girl]".
 
 Potter Stewart is a concept in conceptville. Understand "stewart potter" as Potter Stewart. howto is "[j-girl]".
 
@@ -12485,6 +12505,8 @@ sausage fest is a concept in conceptville. Understand "fest sausage" as sausage 
 Sharp Barb is a concept in conceptville. Understand "barb sharp" as sharp barb. howto is "[j-girl]".
 
 shock jock is a concept in conceptville. Understand "jock shock" as shock jock. howto is "[j-girl]".
+
+sweeney todd is a concept in conceptville. Understand "todd sweeney" as sweeney todd. howto is "[j-girl]".
 
 sympathetic is a concept in conceptville. Understand "sym pathetic" and "pathetic sym" as sympathetic. howto is "[j-girl]".
 
@@ -12534,6 +12556,8 @@ section scheme pyramid concepts
 age four is a concept in conceptville. Understand "four age" and "forage" as age four. howto is "decline the Labor Child's offer for help".
 
 Baby Boomer is a concept in conceptville. Understand "boomer baby" as baby boomer. howto is "enter the Scheme Pyramid".
+
+bookworm is a concept in conceptville. Understand "book worm" and "worm book" as bookworm. howto is "examine the Finger Index".
 
 Brat Army is a concept in conceptville. Understand "army brat" as brat army. howto is "enter the scheme pyramid".
 
@@ -12743,6 +12767,8 @@ polygraph is a concept in conceptville. understand "graph polly" and "polly grap
 Power Trip is a concept in conceptville. understand "trip power" as power trip. howto is "wait for the [bad-guy] to go through his actions".
 
 Psychoanalyst is a concept in conceptville. Understand "list anna" and "anna list" and "analyst" as psychoanalyst. howto is "[fr-ran]".
+
+race baiting is a concept in conceptville. Understand "baiting race" as race baiting. howto is "[fr-ran]".
 
 red alert is a concept in conceptville. Understand "alert red/read" and "read alert" as red alert. howto is "[fr-ran]".
 
