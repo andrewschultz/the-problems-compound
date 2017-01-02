@@ -3401,8 +3401,8 @@ acceptable	"Acceptable means good enough. Though sometimes it might not, if some
 beat off	"To beat off is to, well, pleasure oneself. People who are off-beat are often accused of this, among other things, in high school."
 Buster Ball	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure."
 Compound Problems	"Compound problems are problems that aren't simple or can't be dealt with simply, or that build together to leave someone totally overwhelmed."
-a Games Mind	"Mind games are messing with people's mind with lies or half-truths. A games mind might be more inclined to abstract puzzles." [start of game]
 Games Confidence	"Confidence games are where someone gains someone else's trust to rip them off. It can be as simple as a shell game or as complex as an investment scheme. Of course, Alec has confidence with logic games but not much else."
+a Games Mind	"Mind games are messing with people's mind with lies or half-truths. A games mind might be more inclined to abstract puzzles." [start of game]
 good egg	"A good egg is a nice person. To egg, or egg on, is to bait someone into doing something you want them to."
 Hunter Savage	"A savage hunter is, well, someone with no mercy. Yup, I like the 'dirty' tangential bad guy better, too."
 knockwurst	"Knockwurst is a kind of sausage."
@@ -3416,6 +3416,7 @@ work of art	"A work of art is something nice and beautiful. The art of work is--
 nose picking	"Nose picking is -- not the best habit. A picking nose would be a discerning sense of smell." [start of tension surface]
 scum of earth	"Scum of earth is the worst possible person or close to it." [start of vision tunnel]
 apple pie order	"Apple-Pie Order means very well organized." [start of meal square stuff]
+arch deluxe	"The Arch Deluxe was a menu item at McDonald's that was advertised heavily but sold poorly."
 Bowled Over	"Bowled over means unable to deal with things. Over-bold means too confident."
 defeat	"Defeat is, well, a clue you'll lose the game existentially if you eat any of the foods on Tray B."
 devil's food	"Devil's food is a rich chocolate layer cake."
@@ -3425,6 +3426,7 @@ Growing Pains	"Growing pains are temporary setbacks that help you get going. Pai
 just deserts	"Just deserts means getting what you deserve. After eating the 'sophisticated' cheese, Alec doesn't deserve to enjoy other foods."
 loaf around	"To loaf around is to wait with no real purpose."
 pig out	"To pig out is to eat everything you see. The reverse is an admonishment to leave."
+quarter pounder	"A quarter pounder is a popular burger at McDonalds."
 Shame No	"No shame means a person isn't embarrassed by anything to the point where it's dangerous. The reverse (Shame? No!) is more, there's a healthier way to look at things than through shame."
 Snap Decision	"A decision made reflexively, versus a conscious decision to snap e.g. just quit holding back."
 Spur of the Moment	"Spur of the moment means you're finally pushed to do something. If you wonder if it's the moment of the spur , you're probably thinking too hard for it to be the spur of the moment."
@@ -3568,6 +3570,7 @@ Show Business	"Show business is the act of entertainment, and the business show'
 show off	"To show off is to brag about yourself, and the implication is an 'off' show (not as good as it should be) is bad without that."
 Stand the Pace	"If you can't stand the pace, it's too fast for you. Turk and Dutch pace the stand because they need a break."
 Determined Bound	"Bound and determined means you're set on doing something. A determined bound is set to prevent you from doing something." [start of walker street]
+drive into the ground	"To drive something into the ground is to make the point far too obviously and long."
 Driving Crazy	"Driving someone crazy is usually not literal, but it means you are annoying them a lot, enough they may want to lash back."
 Watkins Glen	"Watkins Glen is a famous racecourse in upstate New York."
 artifact	"An artifact is, in programming, something left over that can be gotten rid of." [start of discussion block]
@@ -6430,7 +6433,7 @@ check eating when player is in Meal Square and accel-ending:
 check going nowhere in meal square:
 	if noun is outside:
 		try going east instead;
-	say "No way out except east." instead;
+	say "No way out except east. There's no hidden [activation of arch deluxe]deluxe arch leading to truly glorious foods, either, but then again, it might be a trap leading to a [activation of quarter pounder]pounder quarter anyway." instead;
 
 the picture of a dozen bakers is scenery in Meal Square. "It's a weird optical illusion--sometimes you count twelve, but if you look right, they warp a bit, and there's one extra. What's up with that?"
 
@@ -7556,7 +7559,7 @@ girl-neg
 "The [j-co] laugh at how [activation of humphrey davy]Davey Humphrey beats up and makes fun of science nerds."
 "The [j-co] create a conspiracy theory for laughs: plain, quiet [activation of Keyser Soze]Suzy Kaiser somehow ruthlessly controls female and male social circles."
 "The [j-co] agree what a [activation of lily liver]LIVER Lily is! She couldn't be exaggerating."
-"The [j-co] mentioned how [activation of mani*cured]cured Manny is of his lack of machismo."
+"The [j-co] mentioned how [activation of manicured]cured Manny is of his lack of machismo."
 "The [j-co] appreciate how [activation of mary sue]Sue Merry reliably smacks down anyone who seems too nice."
 "The [j-co] discuss how [activation of mascara]Cara Maas would be pretty if she just TRIED."
 "The [j-co] have to admit [activation of melodious]Odious Mel sure can sing!"
@@ -9698,7 +9701,7 @@ check going inside in walker street:
 	if poory pot is in lalaland:
 		say "[one of]As you walk in, Pusher Penn asks if you enjoyed your 'payment.' But you manage to give a version of the truth that seems even more preposterous than if you'd actually sampled the stuff. 'THE THANKS I GET!' he booms. 'DON'T COME BACK.'[or]Pusher Penn really, really doesn't want to see you. But you don't want or need to see him.[stopping]" instead;
 
-the mistake grave is scenery in Walker Street. "It's illuminated oddly, as if a red light were flashing behind it, and reads: IN MEMORY OF [activation of watkins glen]GLEN WATKINS, THE IDIOT WHO WENT ONLY FIVE MILES OVER THE SPEED LIMIT AND DIDN'T HEAR THE JOYRIDERS GOING THIRTY FORTY OR FIFTY OVER THUS RUINING THIS PRIME [activation of driving crazy]CRAZY DRIVING ZONE FOR MORE EXCITING PEOPLE. -[bg]."
+the mistake grave is scenery in Walker Street. "It's illuminated oddly, as if a red light were flashing behind it, and reads: IN MEMORY OF [activation of watkins glen]GLEN WATKINS, THE IDIOT WHO WENT ONLY FIVE MILES OVER THE SPEED LIMIT AND DIDN'T HEAR THE JOYRIDERS GOING THIRTY FORTY OR FIFTY OVER THUS RUINING THIS PRIME [activation of driving crazy]CRAZY DRIVING ZONE FOR MORE EXCITING PEOPLE. -[bg][one of].[paragraph break]Well, the message isn't [activation of drive into the ground]ground into the [i]drive[r][or][stopping]."
 
 check going nowhere in Walker Street:
 	if noun is south:
@@ -12209,9 +12212,9 @@ Buster Ball is a concept in conceptville. understand "ball buster" as buster bal
 
 compound problems is a concept in conceptville. understand "problems compound" and "compound problem" as compound problems. howto is "very start".
 
-a games mind is a concept in conceptville. understand "mind games" as games mind. howto is "very start".
-
 Games confidence is a concept in conceptville. understand "confidence game/games" and "game confidence" as games confidence. howto is "talk to Guy".
+
+a games mind is a concept in conceptville. understand "mind games" as games mind. howto is "very start".
 
 Good Egg is a concept in conceptville. understand "egg good" as good egg. howto is "talk to Guy".
 
@@ -12251,6 +12254,8 @@ section meal square concepts
 
 apple pie order is a concept in conceptville. understand "apple-pie order" and "order apple pie" as apple pie order. howto is "examine both Tray A and Tray B".
 
+arch deluxe is a concept in conceptville. Understand "deluxe arch" as arch deluxe. howto is "[nogo of Meal Square]".
+
 bowled over is a concept in conceptville. howto is "eat Tray B food".
 
 defeat is a concept in conceptville. understand "eat def" and "def eat" as defeat. howto is "examine Tray B".
@@ -12268,6 +12273,8 @@ just deserts is a concept in conceptville. Understand "deserts just" as just des
 Loaf Around is a concept in conceptville. Understand "around loaf" as loaf around. howto is "wait in Meal Square".
 
 pig out is a concept in conceptville. understand "out pig" as pig out. howto is "TAKE ALL in Meal Square".
+
+quarter pounder is a concept in conceptville. Understand "pounder quarter" as quarter pounder. howto is "[nogo of Meal Square]".
 
 Shame No is a concept in conceptville. understand "no shame" as Shame No. howto is "examine the condition mint".
 
@@ -12466,7 +12473,7 @@ Liverwurst is a concept in conceptville. understand "wurst/worst liver" and "liv
 
 Lovelies is a concept in conceptville. Understand "lies love" and "love lies" as Lovelies. howto is "listen to all the [j-co] have to say, with swearing on".
 
-manicured is a concept in conceptville. understand "cure manny" and "manny cure" as manicure. howto is "[j-girl]".
+manicured is a concept in conceptville. understand "cured manny" and "manny cured" as manicured. howto is "[j-girl]".
 
 Mary Sue is a concept in conceptville. understand "sue merry" and "merry sue" as mary sue. howto is "[j-girl]".
 
@@ -12604,6 +12611,8 @@ Stand the Pace is a concept in conceptville. Understand "pace the stand" as stan
 section walker street concepts
 
 Determined Bound is a concept in conceptville. understand "bound and determined" as determined bound. howto is "go south in Walker Street".
+
+drive into the ground is a concept in conceptville. Understand "ground the into drive" as drive into the ground. howto is "[f-t of Walker Street]".
 
 Driving Crazy is a concept in conceptville. Understand "crazy driving" as driving crazy. howto is "examine the mistake grave in Walker Street".
 
