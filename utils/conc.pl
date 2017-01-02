@@ -55,6 +55,8 @@ my @dumbErrors = ();
 my $objSuc = 0;
 my $count = 0;
 my $authFail = 0;
+my $asterisks = 0;
+my $astString = "";
 
 while ($count <= $#ARGV)
 {
@@ -177,7 +179,7 @@ for my $x (sort keys %any)
   }
   if (!$activ{$x})
   {
-    $errMsg .= "$xmod needs activation.\n";
+    $errMsg .= "$xmod ($lineNum{$xmod}) needs activation.\n";
 	$activErr .= "\[activation of $xmod\]\n";
 	$fails++; $thisFailed = 1;
   }
@@ -188,6 +190,7 @@ for my $x (sort keys %any)
   }
 }
 
+  if ($asterisks) { print "TEST RESULTS: asterisks-$_[0],0,$asterisks,0,$astString"; }
   print "TEST RESULTS:concepts-$_[0],0,$fails,$totals,$errMsg\n";
 
   if ($fails)
@@ -253,6 +256,7 @@ sub checkOrder
   my $expls;
   my $concs;
   my $ordFail = 0;
+  my $lastConcept = "";
   
   my $source = "c:/games/inform/$_[0].inform/source/story.ni";
 
@@ -268,6 +272,7 @@ sub checkOrder
   my @authErrs;
   my $lastMatch = 0;
   my $match = 0;
+  my $conceptOrdErr = 0;
 
   while ($a = <A>)
   {
@@ -285,6 +290,7 @@ sub checkOrder
 	  $a =~ s/\t.*//g;
 	  $a = cutArt($a);
 	  push (@ex, $a);
+	  if (!$lineNum{$a}) { $lineNum{$a} = $.; }
 	  if ($origLine =~ /\[start/)
 	  {
 	    $lastComp = "";
@@ -296,7 +302,26 @@ sub checkOrder
       }
 	  next;
 	}
-	if (($concs) && ($a =~ /concept.in/)) { chomp($a); $a =~ s/ is a .*concept.*//g; $a = cutArt($a); push (@co, $a); next; }
+	if ($concs)
+	{
+	  if ($a =~ /^(chapter|section|book|part|volume)/i) { $lastConcept = ""; }
+	  if ($a =~ /concept.in/)
+	  {
+	    chomp($a);
+		$a =~ s/ is a .*concept.*//g;
+		$a = cutArt($a);
+		push (@co, $a);
+	    if (lc($a) le $lastConcept)
+		{
+		  if (!$conceptOrdErr)
+		  { print "================concept order errors\n"; }
+		  $conceptOrdErr++;
+		  print "$a out of order at line $., comes after $lastConcept.\n";
+        }
+		$lastConcept = lc($a);
+	    next;
+	  }
+	}
   }
   if ($ordFail) { print "  EXPLANATIONS table order mistakes above ($ordFail)\n"; }
 
@@ -309,7 +334,7 @@ sub checkOrder
 	{
 	  $ordFail++;
 	  if ($match - $lastMatch == 1) { next; }
-      print "$_ ($ordFail): $ex[$_] vs $co[$_]";
+      printf("$_ ($ordFail): $ex[$_] %s vs $co[$_] %s", $lineNum{$ex[$_]} ? "($lineNum{$ex[$_]})" : "", $lineNum{$co[$_]} ? "($lineNum{$co[$_]})" : "");
 	  for my $match (0..$#co)
 	  {
 	    if (lc($ex[$_]) eq lc($co[$match]))
@@ -327,6 +352,7 @@ sub checkOrder
   if ($ordFail)
   {
     print "$ordFail failed";
+	if ($conceptOrdErr) { print ", but maybe fix the concept definitions first"; }
 	if ($inOrder)
 	{
 	  my $remain = $ordFail - $inOrder;
@@ -338,7 +364,8 @@ sub checkOrder
   {
     print "Ordering (" . ($#ex+1) . ") all matched for $_[0].\n";
   }
-  if ($printTest) { print "TEST RESULTS:$_[0] ordering,0,$ordFail,0,run conc.pl -o\n"; }
+  if ($printTest) { print "TEST RESULTS:$_[0] ordering,$ordFail,0,0,run conc.pl -o\n"; }
+  if ($printTest) { print "TEST RESULTS:$_[0] concept order errors,$conceptOrdErr,0,0,\n"; }
 
   if ($writeGameObjErrRes)
   {
@@ -359,6 +386,7 @@ sub checkOrder
 	$authAlf++;
   }
   
+  
   if (scalar(keys %auth))
   {
     $authFail = 0;
@@ -377,6 +405,8 @@ sub readConcept
 %conc = ();
 %any = ();
 %activ = ();
+$asterisks = 0;
+$astString = "";
 
 my $inTable = 0;
 
@@ -421,27 +451,30 @@ while ($lineIn = <A>)
   while ($tmpVar =~ /\[activation of/) # "activation of" in source code
   {
     $tmpVar =~ s/.*?\[activation of //;
+	if ($tmpVar =~ /\*/) { my $tmpVar2 = $tmpVar; $tmpVar2 =~ s/\].*//; $asterisks++; $astString .= "$tmpVar2($.)\n"; }
 	my $c = $tmpVar;
 	$c =~ s/\].*//g;
 	if ($c eq "conc-name entry") { next; }
 	$c = wordtrim($c);
-	if (defined($activ{$c}) && !defined($okdup{$c})) { print "Warning line $. double defines $c.\n"; }
+	if (defined($activ{$c}) && !defined($okdup{$c})) { print "Warning line $. double defines $c from $lineNum{$c}.\n"; }
 	$activ{$c} = $.;
 	$any{wordtrim($c)} = $.;
 	$lineNum{$c} = $.;
   }
-  if ($inTable == 1)
+  if ($inTable)
   {
     $tmpVar = $lineIn;
 	$tmpVar =~ s/\t.*//g;
 	$tmpVar = wordtrim($tmpVar);
 	$expl{$tmpVar} = $any{$tmpVar} = 1;
-	if (!defined($lineNum{$tmpVar})) { $lineNum{$tmpVar} = $,; }
+	if (!defined($lineNum{$tmpVar})) { $lineNum{$tmpVar} = $.; }
 	next;
   }
+  if ($lineIn =~ /^a thing called /) { $lineIn =~ s/^a thing called //i; }
   if (($lineIn =~ /is a (privately-named |)?concept/) && ($lineIn !~ /\t/)) #prevents  "is a concept" in source text from false flag
   {
     $tmpVar = $lineIn; $tmpVar =~ s/ is a (privately-named |)?concept.*//g; $tmpVar = wordtrim($tmpVar); $conc{$tmpVar} = $any{$tmpVar} = $.;
+	if (!defined($lineNum{$tmpVar})) { $lineNum{$tmpVar} = $.; }
 	if ($lineIn =~ /\[ac\]/) { $activ{$tmpVar} = $.; } # [ac] says it's activated somewhere else
 	next;
   }
