@@ -471,9 +471,9 @@ while ($lineIn = <A>)
 	next;
   }
   if ($lineIn =~ /^a thing called /) { $lineIn =~ s/^a thing called //i; }
-  if (($lineIn =~ /is a (privately-named |)?concept/) && ($lineIn !~ /\t/)) #prevents  "is a concept" in source text from false flag
+  if (($lineIn =~ /is a (privately-named |risque |)?concept/) && ($lineIn !~ /\t/)) #prevents  "is a concept" in source text from false flag
   {
-    $tmpVar = $lineIn; $tmpVar =~ s/ is a (privately-named |)?concept.*//g; $tmpVar = wordtrim($tmpVar); $conc{$tmpVar} = $any{$tmpVar} = $.;
+    $tmpVar = $lineIn; $tmpVar =~ s/ is a (privately-named |risque |)?concept.*//g; $tmpVar = wordtrim($tmpVar); $conc{$tmpVar} = $any{$tmpVar} = $.;
 	if (!defined($lineNum{$tmpVar})) { $lineNum{$tmpVar} = $.; }
 	if ($lineIn =~ /\[ac\]/) { $activ{$tmpVar} = $.; } # [ac] says it's activated somewhere else
 	next;

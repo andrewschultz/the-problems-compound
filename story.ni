@@ -3493,6 +3493,7 @@ call girl	"A call girl is a paid female escort."
 Cary Grant	"Cary Grant is a movie star from the 40s and 50s."
 casually	"Casually means not really in-depth."
 category	"A category is a logical class to divide someone into. In here, Kate fits into an obvious one, but she doesn't quite live up or down to it."
+cirrhosis	"Cirrhosis is a disease of the liver, often bought on by drinking."
 clean break	"A clean break from something is leaving quickly and for good. The jerks haven't broken with their 'clean' secrets yet."
 co-ed	"Co-ed means having males and females in classes together."
 Cotton Candy	"Cotton candy is stringy sugary stuff, often bundled together in a soft ball. People eat it at circuses and fairs and movies a lot."
@@ -3522,6 +3523,7 @@ Notre Dame	"Notre Dame is a famous Catholic university."
 Olive	"Black and green olives are the two main different kinds of olives."
 Pepper	"Black pepper is the ground-up stuff. Green and bell peppers are not especially spicy. Serrano peppers taste hotter."
 Plaintiff	"A plaintiff is the party bringing the charge in a court case."
+playboy	"Playboy is probably the most famous 'adult' magazine. It's not particularly raunchy, but people often joke they read it for the articles."
 pocket pool	"Pocket pool is a euphemism for self-pleasure."
 Pollyanna	"A Pollyanna is someone who is ridiculously optimistic."
 Polygamy	"Polygamy is having more than one mate."
@@ -3591,6 +3593,7 @@ bum a cigarette	"To bum a cigarette is to ask someone for one of theirs. 'A ciga
 crack pipe	"A crack pipe is used to smoke crack cocaine, which is even more illegal and risky than marijuana."
 crack up	"To crack up is to lose sanity. To crack down is to oppress someone, or arrest people for possession of contraband. To crack a joke is to tell a joke."
 go to pot	"To go to pot is to fall apart due to lack of upkeep."
+kilo	"A kilo (gram) is a measure of cocaine. It's a lot, especially since one gram can keep someone fixed for a while."
 pop pills	"To pop pills is to take them indiscriminately."
 roach dropping	"A roach is a marijuana cigarette or a bug that appears around dirt. A roach dropping, well, what the roach leaves behind."
 weed out	"To weed out people is to create a test to show they are inadequate."
@@ -7548,6 +7551,7 @@ girl-neg
 "The [j-co] alternately flatter and berate [activation of Cary Grant]Grant Carey for success with women despite a lack of looks."
 "The [j-co] claim to want to get to know [activation of casually]Julie Kaz better."
 "The [j-co] praise [activation of category]Gory Kate as less weird than she should be on paper."
+"The [j-co] banter about when they will be able to buy alcohol with a fake ID, or even legally. Then everything's [activation of cirrhosis]Roses, sir!"
 "The [j-co] marvel at what a ladies['] man [activation of co-ed]Ed Coe is when he comes home from the military boarding school."
 "The [j-co] mention how [activation of cotton candy]Candy Cotton smacks down saccharine pickup lines."
 "The [j-co] praise the writing of [activation of Bechdel]Del Beck, who knows how to do girl-talk even if girls say he doesn't."
@@ -7567,6 +7571,7 @@ girl-neg
 "The [j-co] despair that [activation of nose candy]Candi knows too little about how to party."
 "The [j-co] chuckle at the irreverence of the [activation of notre dame]Dame Noter."
 "The [j-co] argue that [activation of olive]Olive Black or Olive Green being more desirable is NOT a matter of taste."
+"The [j-co] resolve to put [activation of playboy]boy play behind for more grown-up, sophisticated things. Like, well, articles instead of pictures."
 "The [j-co] rave it's easy to hook up at the [activation of pound meat]Meet Pound."
 "The [j-co] agree [activation of Ralph Lauren]Lauren Ralph would actually be really attractive with any fashion sense at all."
 "The [j-co] agree that both [activation of pepper]Pepper Black, Pepper Bell [i]and[r] Pepper Green are hotter than Pepper Serrano."
@@ -7584,6 +7589,7 @@ girl-neg
 "The [j-co] stage-whisper that [activation of teriyaki]Yacky Terri's conversation is neither spicy nor meaty."
 "The [j-co] [activation of terrapin]pin Tera as someone who needs to come out of her shell and live faster."
 "The [j-co] agree Erwin is just a total loser name."
+"The [j-co] argue pointlessly over if a girl is pretty plain or plain pretty."
 
 for writing a paragraph about a client (called jrk) in Nominal Fen:
 	if cookie-eaten is true:
@@ -9772,7 +9778,7 @@ table of quip texts (continued)
 quip	quiptext
 penn-nodrugs	"'Come on. You know the deal. I sell smokables. The good stuff--I'm not [activation of bum a cigarette]a [i]cigarette bum[r].'"
 penn-yousell	"'Well, the [bad-guy] legalized them, but he gets the markup if they buy from him. And of course he makes fun of the serious druggies, because that's seeing both sides of things. Plus, I think he deals with [bad-guy-2]. No proof, though. Eh, I make a good profit, underselling. [activation of good herb]Herb Goode's rants don't hurt either. Say, if you want a little sample, I just need a small favor.'"
-penn-cigarette	"'Well, I'm not pro-everything. I'm anti-crack. [activation of crack up]Up, down or even joke. And I helped raise the cigarette tax 1357%, for the public health! Plain old cigarettes are more harmful than weed, because they're less harmful. So don't let me catch you TRYING to smoke in here. What? You never have? Then what's with the sour look? I'll let it slide this time.'"
+penn-cigarette	"'Well, I'm not pro-everything. I'm not like ... [activation of kilo]Loki. No crack, [activation of crack up]up, down or even joke. And I helped raise the cigarette tax 1357%, for the public health! Plain old cigarettes are more harmful than weed, because they're less harmful. So don't let me catch you TRYING to smoke in here. What? You never have? Then what's with the sour look? I'll let it slide this time.'"
 penn-drugs	--
 penn-free	"'Ha ha. Well, not quite free. Just a little favor. Make a little delivery. Behind five-oh's back.'"
 penn-herb	"A lot less wishy washy than his sisters. Met [']em? [if classic cult is visited]Yeah[else]No[end if]? People probably start to NOT be like him. Also, I assure my customers I won't rat them to him. For just a small markup."
@@ -12176,6 +12182,9 @@ to say activation of (x - a thing):
 to say f-t of (my-r - a room):
 	say "go to the [my-r] for the first time"
 
+to say nogo of (my-r - a room):
+	say "go nowhere in [my-r]"
+
 conceptville is a privately-named room in meta-rooms. "You should never see this. If you do, it is a [bug]." [this is a cheesy hack, as concepts you haven't seen yet are here, and when you see them, they move to lalaland.]
 
 understand "conceptville" as conceptville when debug-state is true.
@@ -12435,6 +12444,8 @@ casually is a concept in conceptville. Understand "julie kaz" and "kaz julie" as
 
 category is a concept in conceptville. Understand "gory kate" and "kate gory" as category. howto is "[j-girl]".
 
+cirrhosis is a concept in conceptville. Understand "roses sir" and "sir roses" as cirrhosis. howto is "[j-girl]".
+
 Clean Break is a concept in conceptville. Understand "break clean" as clean break. howto is "go to the [jc]".
 
 co-ed is a concept in conceptville. Understand "co-ed" as co-ed. howto is "[j-girl]".
@@ -12491,7 +12502,9 @@ Olive is a concept in conceptville. Understand "olive green/black" and "green/bl
 
 Pepper is a concept in conceptville. Understand "pepper bell/black/serrano/green" and "bell/black/green/serrano pepper" as pepper. howto is "[j-girl]".
 
-plaintiff is a concept in conceptville. understand "tiff plain" and "plain tiff" as plaintiff. howto is "[fr-ran]".
+plaintiff is a concept in conceptville. understand "tiff plain" and "plain tiff" as plaintiff. howto is "[j-girl]".
+
+playboy is a concept in conceptville. Understand "boys/boy play" and "play boy/boys" as playboy. howto is "[j-girl]".
 
 pocket pool is a concept in conceptville. Understand "pool pocket" as pocket pool. howto is "[j-girl]".
 
@@ -12659,6 +12672,8 @@ crack pipe is a concept in conceptville. Understand "pipe crack" as crack pipe. 
 crack up is a concept in conceptville. Understand "up/down/joke crack" and "crack joke/down" as crack up. howto is "ask Pusher Penn about bad stuff".
 
 go to pot is a concept in conceptville. Understand "pot to go" as go to pot. howto is "[f-t of Pot Chamber]".
+
+kilo is a concept in conceptville. Understand "loki" as kilo. howto is "ask Pusher Penn about bad stuff".
 
 pop pills is a concept in conceptville. Understand "pills pop" as pop pills. howto is "ask Pusher Penn about the [bad-guy]".
 

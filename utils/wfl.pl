@@ -96,6 +96,7 @@ $autoSort = 0;
 my %dupCheck;
 for my $q (@flipAry)
 {
+  if ((!$override) && (length($q) <= 2)) { print "$q is too short. Use -2 to retry.\n"; next; }
   if ($dupCheck{$q}) { print "Tried $q twice on the command line. Skipping.\n"; next; }
   $dupCheck{$q} = 1;
 readOneWord($q);
