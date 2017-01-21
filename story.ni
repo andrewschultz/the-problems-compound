@@ -40,7 +40,7 @@ use MAX_SYMBOLS of 24000.
 
 use MAX_STATIC_DATA of 200000.
 
-use MAX_PROP_TABLE_SIZE of 230000.
+use MAX_PROP_TABLE_SIZE of 240000.
 
 book includes
 
@@ -3488,6 +3488,7 @@ bechdel	"The Bechdel test is if an author has two females talking about things o
 benevolent	"Benevolent means doing things to help people."
 Black Mark	"A black mark is something indicating bad behavior."
 body slamming	"Body slamming is a particularly painful wrestling move where you pretty much throw a person to the ground."
+bouncing betty	"Bouncing betty is slang for a land mine."
 box score	"A box score describes the basic individual statistics from a sporting event."
 call girl	"A call girl is a paid female escort."
 Cary Grant	"Cary Grant is a movie star from the 40s and 50s."
@@ -7546,6 +7547,7 @@ girl-neg
 "The [j-co] argue over whether [activation of bandanna]Anna Bandt's clothes choices are really rebellious."
 "The [j-co] rave about how [activation of benevolent]Evelyn Benn is snarky to people for their own good."
 "The [j-co] wrestle over the sensitivest way to compliment a girl on a [activation of body slamming]slamming body."
+"The [j-co] compare kid-style [activation of bouncing betty]beddy bouncing to adult-style, which is clearly the BOMB."
 "The [j-co] babble on about the [activation of box score]Score Box, where everyone except math obsessed nerds can hook up with a girl."
 "The [j-co] brainstorm a [activation of call girl]girl call that will make you irresistible."
 "The [j-co] alternately flatter and berate [activation of Cary Grant]Grant Carey for success with women despite a lack of looks."
@@ -10231,6 +10233,7 @@ workname	singername	songsubj
 "Girl Island"	"John Elton"	"the first really cool song about men finding paradise among REAL women"
 "Losers? Beautiful"	"Keon Leonard"	"winning arguments or life and not feeling sorry"
 "Lies Little"	"Mac Fleetwood"	"how it's fun to cheat on someone dumb enough to tell the truth too much"
+"Figure Father"	"Michael George"	"a kid who doesn't want guidance but just wants to mess with his superior's head"
 "Off, Get"	"Nelson Rogers Prince"	"people without enough social nous to have a sexual partner and why they deserve no fun"
 "Work Fire"	"Perry Keady"	"having everyday up and at em for the things you deserve to do (if you're smart) or better do to survive (if you're dumb)"
 "Stop Believing, Don't"	"Perry Steven"	"people who already tried enough and should stop embarrassing themselves"
@@ -12433,6 +12436,8 @@ benevolent is a concept in conceptville. Understand "evelyn benn" and "benn evel
 Black Mark is a concept in conceptville. understand "mark black" as black mark. howto is "examine quiz pop".
 
 body slamming is a concept in conceptville. Understand "slamming body" as body slamming. howto is "[j-girl]".
+
+bouncing betty is a concept in conceptville. Understand "betty/beddy bouncing" and "beddy bouncing" as bouncing betty. howto is "[j-girl]".
 
 box score is a concept in conceptville. Understand "score box" as box score. howto is "[j-girl]".
 
