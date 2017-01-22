@@ -3509,6 +3509,7 @@ humphrey davy	"Humphrey Davy was an 18th century scientist."
 jerk around	"To jerk someone around is to pester them physically or mentally."
 jerk off	"To jerk off is to gratify oneself carnally."
 joint committee	"A joint committee is a group of legislators from different parts of US Congress."
+journeyman	"A journeyman is someone who is maybe not spectacular but who has paid his dues in his field."
 junk mail	"Junk mail means letters and fliers you didn't ask for that appear in your (physical or electronic) mailbox anyway."
 Keyser Soze	"Keyser Söze is the shadowy antagonist of the film [italic type]The Usual Suspects[roman type]."
 lily liver	"A lily-liver is someone who is afraid to go out and do risky things."
@@ -7563,6 +7564,7 @@ girl-neg
 "The [j-co] rave how full of life [activation of hara-kiri]Keri Harrah is."
 "The [j-co] hope [activation of howard stern]stern Howard doesn't come by to moralize again."
 "The [j-co] laugh at how [activation of humphrey davy]Davey Humphrey beats up and makes fun of science nerds."
+"Each of the [j-co] discusses a [activation of journeyman]man-journey he will take to be above average."
 "The [j-co] create a conspiracy theory for laughs: plain, quiet [activation of Keyser Soze]Suzy Kaiser somehow ruthlessly controls female and male social circles."
 "The [j-co] agree what a [activation of lily liver]LIVER Lily is! She couldn't be exaggerating."
 "The [j-co] mentioned how [activation of manicured]cured Manny is of his lack of machismo."
@@ -10229,6 +10231,7 @@ workname	singername	songsubj
 "Gabriel Peter"	"Frontiers Without Games"	"the right sort of ambition, material or social"
 "King of the Mountain Hall"	"Grieg Freidrich"	"something transcendent or other"
 "Life Is WHAT"	"Harrison George"	"a man too clever for all the constant love-is-life babble"
+"Ian Janus"	"Child Societies"	"why it's not very grown up to give too many handouts to people who haven't earned them."
 "Out Movin[']"	"Joel Billey"	"someone who finds value in a more stressful life"
 "Girl Island"	"John Elton"	"the first really cool song about men finding paradise among REAL women"
 "Losers? Beautiful"	"Keon Leonard"	"winning arguments or life and not feeling sorry"
@@ -12478,6 +12481,8 @@ Jerk Around is a concept in conceptville. Understand "around jerk" as jerk aroun
 Jerk Off is a concept in conceptville. understand "off jerk" as jerk off. howto is "attack a jerk in swearing-on mode".
 
 joint committee is a concept in conceptville. Understand "committee joint" as joint committee. howto is "[solve-j]".
+
+journeyman is a concept in conceptville. Understand "journeyman" as journeyman. howto is "[j-girl]".
 
 junk mail is a concept in conceptville. Understand "mail junk" as junk mail. howto is "listen to the [j-co] before figuring the Index puzzle".
 
