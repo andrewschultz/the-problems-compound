@@ -77,7 +77,7 @@ for ($a)
   /^-$/ && do { print "Bad flag.\n"; usage(); exit; };
   if (length($a) == 1) { print ("Length must be at least 2. ? for help.\n"); exit; }
   if ((length($a) == 2) && (!$override)) { print ("-2 flag must be used for 2-letter word.\n"); exit; }
-  
+
   if ($flipData) { if (!$warn) { print "Usually, we use comma separators, but I'll let it slide.\n"; $warn = 1; } $flipData .= ",$a"; $count++; next; } else { $flipData = $a; $count++; next; }
   print "Bad flag, $a.\n"; usage();
 }
@@ -87,6 +87,8 @@ if (!$flipData) { print "Need a word to flip, but here are diagnostics:\n"; coun
 
 
 @flipAry = split(/[,\..]/, lc($flipData));
+
+wcexpand();
 
 initWordCheck();
 initDupeRead();
@@ -397,7 +399,7 @@ sub countChunks
     print "Chunk sizes: ";
     for (0..$#actsizes)
 	{
-      if ($_ > 0) { print ", "; } 
+      if ($_ > 0) { print ", "; }
 	  $totalWords += $actsizes[$_];
 	  print $actsizes[$_];
 	  if ($goodies[$_]) { print "/$goodies[$_]"; }
@@ -477,6 +479,44 @@ sub crs
 my $total = $_[0] =~ tr/\n/\n/;
 if ($_[0] =~ /^========/) { $total--; } # ignore the line starting with ======== which isn't really a word switch
 return $total;
+}
+
+sub wcexpand
+{
+  my $wcsub;
+  my $tempwc;
+  my $rchar;
+  my $aryIdx = 0;
+  my @backflipAry  = @flipAry;
+  my $wc;
+  for $wc (@backflipAry)
+  {
+    if ($wc !~ /[\*\/\\]/) { $aryIdx++; next; }
+	if ($wc =~ /[\*\/\\]\*[\*\/\\]/){ print "$wc has too many wild cards.\n"; return; }
+	if ($wc =~ /\*/)
+	{
+	  for $rchar ('a' .. 'z')
+	  {
+	    $tempwc = $wc; $tempwc =~ s/\*/$rchar/;
+		push(@flipAry, $tempwc);
+	  }
+	}
+	if ($wc =~ /\//)
+	{
+	  for $rchar(('a', 'e', 'i', 'o', 'u', 'y'))
+	  {
+	    $tempwc = $wc; $tempwc =~ s/\//$rchar/; push(@flipAry, $tempwc);
+	  }
+	}
+	if ($wc =~ /\\/)
+	{
+	  for $rchar(('b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'))
+	  {
+	    $tempwc = $wc; $tempwc =~ s/\\/$rchar/; push(@flipAry, $tempwc);
+	  }
+	}
+	splice(@flipAry, $aryIdx, 1);
+  }
 }
 
 sub usage
