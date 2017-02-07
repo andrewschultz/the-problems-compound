@@ -3408,6 +3408,7 @@ Hunter Savage	"A savage hunter is, well, someone with no mercy. Yup, I like the 
 knockwurst	"Knockwurst is a kind of sausage."
 Animal Welfare	"Animal welfare is concern for animals who often can't help themselves. Welfare has a slightly perjorative definition in the US these days, e.g. people on welfare are lazy, or someone giving it is very generous indeed, more than they need to be." [start of variety garden]
 brush up	"To brush up is to refresh your memory of something."
+brush with greatness	"A brush with greatness means meeting someone important or doing something potentially awesome."
 dirt nap	"Taking a dirt nap means dying."
 man enough	"Man enough means being able to stand up for yourself. Okay, it's a bit sexist, but people who say it mean to be annoying. 'Enough, man' just means stop it."
 poor taste	"Poor taste means potentially offensive or classless."
@@ -4165,9 +4166,11 @@ check going:
 
 to check-all-brush:
 	if sagebrush is in lalaland:
+		if brush with greatness is not in lalaland:
+			say "[line break]The more you look at the brush, the more you realize you'll never achieve any [activation of brush with greatness]greatness with brush. Time to [if pocket pick is off-stage]see what the Weasel wants[else]get along with whatever you need to do[end if].";
 		continue the action;
-	if off brush is examined and back brush is examined and aside brush is examined:
-		say "[line break]Wow! You know so much about brush, you're a [activation of sagebrush]brush sage, now. The knowledge is a bit dry, but it's good to know, all the same.";
+	if off brush is examined and back brush is examined and aside brush is examined and up brush is in lalaland:
+		say "[line break]Wow! You know so much about brush, you're a [activation of sagebrush]brush sage, now. The knowledge is a bit dry, but you're glad to have it, all the same.";
 
 volume dialogues
 
@@ -12244,6 +12247,8 @@ section variety garden concepts
 Animal Welfare is a concept in conceptville. understand "welfare animal" as animal welfare. howto is "get the Weasel to sign the Burden".
 
 brush up is a concept in conceptville. understand "up brush" as brush up. howto is "go up in Variety Garden".
+
+a thing called brush with greatness is a concept in conceptville. Understand "greatness with brush" as brush with greatness. howto is "examine any brush after becoming a brush sage".
 
 dirt nap is a concept in conceptville. understand "nap dirt" as dirt nap. howto is "leave the garden without digging, or sleep when you have the pick".
 
