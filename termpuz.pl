@@ -23,7 +23,7 @@ sub psol
   }
   $totals++;
   @x = split(//, $_[0]);
-  
+
   #if (@x[6] ne "c") { return; }
 
 # question 3
@@ -70,7 +70,7 @@ if ($debug == 1) { print "Past q5.\n"; }
 	}
   }
 
-  
+
   if ($dupes != ord(@x[1]) - ord('a')) { return; }
 
 
@@ -84,7 +84,7 @@ if ($debug == 1) { print "Past q5.\n"; }
   my $vs = $as;
   $vs += $_[0] =~ tr/e//;
   my $vans = ord(@x[7]) - ord('a');
-  
+
   if ($vans != $vs) { return; }
 
 #  if (@x[2] == 0)

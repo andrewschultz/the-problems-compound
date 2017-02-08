@@ -212,7 +212,7 @@ for my $x (sort keys %any)
     if ($gotText{$q} == 0) { print "$q needs xp-text.\n"; $authFail++; $authErr .= "$q\t\"[fix-this]\"\n"; $errMsg = 1; next; }
 	#elsif ($authtab{$q} < $lastLine) { print "$q is out of order in the author explanations, $authtab{$q} vs $lastLine, $auth{$q}.\n"; $authFail++; $needAlf = 1;}
 	else { $authsucc++; }
-	$lastLine = $authTab{$q};	
+	$lastLine = $authTab{$q};
   }
   if ($needAlf) { print "talf.pl may help straighten things out.\n"; }
 
@@ -257,7 +257,7 @@ sub checkOrder
   my $concs;
   my $ordFail = 0;
   my $lastConcept = "";
-  
+
   my $source = "c:/games/inform/$_[0].inform/source/story.ni";
 
   open(A, "$source") || die ("Can't open $source.");
@@ -385,8 +385,8 @@ sub checkOrder
 	$lastAuth = $q;
 	$authAlf++;
   }
-  
-  
+
+
   if (scalar(keys %auth))
   {
     $authFail = 0;

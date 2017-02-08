@@ -18,6 +18,9 @@ the story headline is "A Direction of Sense: changing what's-thats to that's-wha
   tht = hammer tries (best)
 ]
 
+to say fill-in-here:
+	say "!!";	
+
 volume initialization
 
 Release along with an interpreter.
@@ -3589,6 +3592,8 @@ Play Dumb	"To play dumb is to pretend you don't know something you do, to avoid 
 Steal This Book	"Steal This Book was a countercultural guide by Abbie Hoffman. Book this steal refers to 'booking' suspects for a transgression, e.g. a parking fine or ticket."
 wax lyrical	"To wax lyrical is to talk endlessly and enthusiastically about something."
 world record	"A world record is the best or most someone's ever done something."
+attorney general	"An Attorney General is the highest ranking lawyer in a country or state."
+nutcase	"A nutcase is a pejorative  term for someone who is crazy, clinical or otherwise, as opposed to Buddy Best's claims he just studies a lot."
 brass ring	"To grab the brass ring is to achieve a dream goal. It refers to the brass ring on merry-go-rounds." [start of questions field]
 brother foster	"A foster brother is a brother not related by birth."
 Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
@@ -9906,7 +9911,7 @@ check going nowhere in Court of Contempt:
 		try going east instead;
 	say "'So, you the sort of person who runs into walls a lot? Not that there's anything wrong with that.' Yup. Looks like back east's the only way out." instead;
 
-Buddy Best is a baiter-aligned person in Court of Contempt. "[one of]But wait! Someone here looks excited to see you! Not happy, but excited.[paragraph break]'Yah. Hi. I'm Buddy Best. You seem real nice. Nice enough not to waste too much of my time.'[paragraph break]Okay, never mind.[or]Buddy Best waits and taps his foot here.[stopping]". description is "Buddy Best has a half-smile on his face, which is totally a delicate balance of happiness and seriousness and not a sign of contempt, so stop saying that."
+Buddy Best is a baiter-aligned person in Court of Contempt. "[one of]But wait! Someone here looks excited to see you! Not happy, but excited.[paragraph break]'Yah. Hi. I'm Buddy Best. You seem real nice. Nice enough not to waste too much of a [if allow-swears is true]dedicated lawyerly [activation of nutcase]case nut, job nut, whichever,[else][activation of attorney general]general attorney[end if] like me.'[paragraph break]Okay, never mind.[or]Buddy Best waits and taps his foot here.[stopping]". description is "Buddy Best has a half-smile on his face, which is totally a delicate balance of happiness and seriousness and not a sign of contempt, so stop saying that."
 
 the Reasoning Circular is a thing. description is "It's full of several pages why you're great if you think you are, unless you're lame, in which case you don't know what great means. There's a long tag stapled to it."
 
@@ -11790,6 +11795,7 @@ this is the swear-see rule:
 	say "[2da]The [jc-gc] is the [stwid][jc-gc][stwid] instead. Also, you feel a bit more foreboding, and everyone sheds a jerk-tear, and if you attack them, you get a 'special' message.";
 	say "[2da]The guys in the Fen discuss girls (rather badly) if you talk to them before reading the Finger Index. There aren't any profanities here, but they're kind of, well, juvenile. They also give an obscene gesture if you try to talk to them before reading the Finger Index.";
 	say "[2da]The guys in the Fen give an up groan or a jerk-tear if innuendo/profanity is off or on, respectively.";
+	say "[2da]Buddy Best is either a general attorney or a case/job nut.";
 	say "[2da]The Business Monkey's half-[abr] efforts are [stwid][abr][stwid] instead.";
 	consider the very-good-end rule;
 	if the rule succeeded:
@@ -12669,6 +12675,12 @@ Steal This Book is a concept in conceptville. understand "book this steal" as St
 wax lyrical is a concept in conceptville. Understand "lyrical wax" as wax lyrical. howto is "sing while holding the poetic wax".
 
 world record is a concept in conceptville. Understand "record world" as world record. howto is "get rid of Phil".
+
+section court of contempt concepts
+
+attorney general is a concept in conceptville. Understand "general attorney" as attorney general. howto is "[f-t of Court of Contempt], innuendo off".
+
+nutcase is a concept in conceptville. Understand "case/job nut" and "nut case/job" as nutcase. howto is "[f-t of Court of Contempt], innuendo on".
 
 section questions field concepts
 
