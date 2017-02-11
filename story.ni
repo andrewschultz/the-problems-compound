@@ -2498,7 +2498,7 @@ check giving the trail paper to:
 		choose row with response of terry-west in table of Terry Sally talk;
 		now enabled entry is 0;
 		terry-sug;
-		say "'Eh, you've done enough. Here, I'll shred the evidence. So you don't get caught later. Say, after all that goofing around, you might be hungry. Look around in Meal Square. There's some food that'll fix you quick.'";
+		say "'Eh, you've done enough. Here, I'll shred the evidence. So you don't get caught later. Say, after all that goofing around, you might be hungry. Look around in Meal Square. There's some food that'll fix you quick. Need anything else? No? Okay.' He walks off.";
 		unlock-verb "figure";
 		now Terry Sally is in lalaland;
 		annotize erin sack;
@@ -3481,6 +3481,7 @@ cargo cult	"A cargo cult is when islanders cut off from the first world use vari
 defrock	"To defrock is to remove someone's role as priest."
 good herb	"The good herb is slang for marijuana."
 grace period	"A grace period is time given for someone to learn or understand something, or even to return a book late to the library."
+personality cult	"A personality cult is when someone uses a forceful personality to control how others think. It is hard to leave. It can range in size from Jonestown to Stalin in the USSR."
 Fish for a Compliment	"To fish for a compliment is to try to manipulate someone into saying something nice." [start of disposed well]
 Well Done	"Well done means good job, but 'done' is also a synonym for dead, because you'd fall down the well if you tried to enter it."
 Character Assassination	"Character assassination is an attempt to tarnish someone's good reputation." [start of chipper wood]
@@ -6138,7 +6139,7 @@ weasel-why	"'It's not because I twist words. Oh, no! Well, I do, but I twist the
 weasel-more	--
 weasel-pick-hey	--
 weasel-freak	"'Yup. It's way in the north. It's guarded well. It has to be. [bg]'s all for equality, but that doesn't mean everyone deserves to bask in [bg]'s cleverness equally.'"
-weasel-baiter	"'Well, if everyone's praising him, that's because he really is great. I mean, there's no personality cult. He gave a great lecture against that. He's just so...well, even when he cuts you down, he's just so full of truth and interestingness. It's obvious, by the energy he puts in to cut people down, how thoughtful he is. No 'everyone is nice' dribble. He doesn't leave Freak Control to spread his wisdom very often.'"
+weasel-baiter	"'Well, if everyone's praising him, that's because he really is great. It can't be hero worship, because he gave the BEST lecture against that. He's just so...well, even when he cuts you down, he's just so full of truth and interestingness. It's obvious, by the energy he puts in to cut people down, how thoughtful he is. No 'everyone is nice' dribble. He doesn't leave Freak Control to spread his wisdom very often.'"
 weasel-pick-oops	"'Good thing I didn't charge you a deposit, eh?'"
 weasel-bye	"'Gosh! You're lucky I didn't charge you for all this cleverness!'"
 
@@ -6179,6 +6180,10 @@ check going in Pressure Pier:
 		try going west instead;
 	if room noun of Pressure Pier is nowhere:
 		say "You consider going that way, but you'd feel embarrassed walking into a wall or whatever, with or without people watching." instead;
+	if noun is north and pressure pier is unvisited:
+		say "Up ahead is ... well, you're not sure what sort of terrain it is. Not quite a swamp. You squint a bit, and the ridges landscape seems to spell out F-E-N. So it's definitely a nominal fen. You blink, embarrassed you're not 100% sure what a three-letter word like fen means, and then you can't see the ridges any more.";
+		say "[line break]";
+		wfak;
 
 water-scen is privately-named scenery in Pressure Pier. "You notice the water: out of fish[activation of fish out of water]. It stretches quite a ways."
 
@@ -6359,7 +6364,7 @@ check going north in Pressure Pier:
 	if Terry Sally is in lalaland:
 		continue the action;
 	if trail paper is in lalaland:
-		say "Terry Sally gestures you through. 'Well, you started good. Here's luck to finding more, further on. Dunno if the Nominal Fen--well, we don't know what else to call it--is worth it, but look around. Have fun[if meal square is not visited]. Oh, and maybe stop off west Meal Square, if you want[end if].'";
+		say "Terry Sally gestures you through. 'Well, you did okay, I guess. Go have fun, or your idea of it[if meal square is not visited]. Oh, and maybe stop off west Meal Square, if you want[end if].'";
 		continue the action;
 	if player has trail paper:
 		say "Terry Sally snaps his fingers and points at your trail paper.";
@@ -6940,7 +6945,7 @@ to terry-sug:
 	let ff be first-ticket of 0;
 	if ff > 0:
 		choose row ff in table of tickety suggestions;
-		say "Terry Sally nods, semi-impressed, but wonders aloud if you considered [ticket-ref entry]. You shake your head.";
+		say "Terry Sally nods, semi-impressed, but wonders aloud if you considered [ticket-ref entry]. You shake your head.[line break]";
 		continue the action;
 	let ff be first-ticket of 2;
 	if ff > 0:
@@ -7151,11 +7156,11 @@ check going north in Soda Club:
 	if player has a drinkable:
 		if toad-got-you is false:
 			say "'HALT! FREEZE! A MINOR WITH ALCOHOL!' booms the Stool Toad. He takes your drink and throws it off to the side. 'THAT'S AN INFRACTION!'[paragraph break]He looks around in his pockets but only finds a diagonal scrap of paper. 'Well, this'll do, for a boo tickety. Remember, you're warned.' You feel sort of rebellious--good rebellious--as he [if your-tix >= 4]counts your infractions on his fingers. Uh oh. Maybe you could've DROPped the booze before leaving[else]goes back to his pigeon stool[end if].";
-			get-ticketed "taking alcohol out of the Soda Club";
 			if player has haha brew:
 				now haha brew is in lalaland;
 			else:
 				now cooler wine is in lalaland;
+			get-ticketed "taking alcohol out of the Soda Club";
 			activate-drink-check;
 			now toad-got-you is true;
 			do nothing instead;
@@ -7454,7 +7459,7 @@ understand "drain the circle" and "drain circle" as a mistake ("Maybe you can fi
 
 after printing the locale description for Nominal Fen when Nominal Fen is unvisited:
 	unless accel-ending:
-		say "'[activation of dirty word]Word! Dirty! [activation of clean break]Break CLEAN!'  the [j-co] gabble away. They're trying a bit too hard to show they're not lame.";
+		say "'[activation of dirty word]Word! Dirty! [activation of clean break]Break CLEAN!' the [j-co] gabble away. They're trying a bit too hard to show they're not lame.";
 		if allow-swears is true:
 			say "[line break]Man. You just feel oppressed just being [activation of jerk around]AROUND jerks.";
 	continue the action;
@@ -9074,7 +9079,7 @@ quip	quiptext
 grace-hi	"'That is no matter,' they reply in unison. 'You are welcome here. Whether or not you are the one to repair our Googly Bowl. The [bad-guy] ordered it broken, and our brother [activation of good herb]Herb performed the act.'"
 grace-googly	"'It only contains three of the four vital elements it needs to create transcendent happiness, or at least provide relaxing aromas, so it is useless. The [bad-guy] deemed one of few pieces of [activation of cargo cult]cult cargo not completely disposable. The metaphysics would take too long to explain, but... trust us.'"
 grace-herb	"'Herb says brainwashing is worse than drugs. Each gets in the way of appreciating the [bad-guy], but we are apparently more insidious.'"
-grace-restore	"'We hope not. We are a bit confused. The [bad-guy] said we were not very charismatic, but all the same, we were using unfair tactics. Really, we just sit around and enjoy classic movies or cult movies without making too many snarky comments. But that's out of favor, thanks to the [bad-guy].'"
+grace-restore	"'We hope not. We are a bit confused. The [bad-guy] said we didn't have anything close to the proper [activation of personality cult]cult personality, but all the same, we were using unfair tactics. Really, we just sit around and enjoy classic movies or cult movies without making too many snarky comments. But that's out of favor, thanks to the [bad-guy].'"
 grace-baiter	"'Well, he thinks this whole boring-nice thing is not the way to go. We don't even try to [activation of defrock]rock def. So he said if the googly-bowl worked, which it didn't, we didn't deserve it anyway. [activation of grace period]PERIOD, Grace. Something too about how people should try to make their lives almost as exciting as his, but not as exciting--that'd be like sacrilege against intellect or something. It's all a bit confusing.'"
 grace-bye	"'Fare well in your journeys.'"
 
@@ -12419,7 +12424,9 @@ Defrock is a concept in conceptville. Understand "rock def" and "def rock" as de
 
 good herb is a concept in conceptville. Understand "herb good/goode" as good herb. howto is "talk to Pusher Penn or the Goode sisters".
 
-grace period is a concept in conceptville. Understand "period grace" as grace period. howto is "Ask Grace about the [bad-guy]".
+grace period is a concept in conceptville. Understand "period grace" as grace period. howto is "ask Grace about the [bad-guy]".
+
+personality cult is a concept in conceptville. Understand "cult personality" as personality cult. howto is "ask Grace about restoring her cult".
 
 section disposed well concepts
 
