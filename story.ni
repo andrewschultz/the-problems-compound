@@ -19,7 +19,7 @@ the story headline is "A Direction of Sense: changing what's-thats to that's-wha
 ]
 
 to say fill-in-here:
-	say "!!";	
+	say "!!";
 
 volume initialization
 
@@ -3655,6 +3655,7 @@ polygraph	"A polygraph is a lie detector. The [bad-guy] is probably looking for 
 Power Trip	"A power trip is when someone is so overcome with their own power, they do mean things to show it off."
 psychoanalyst	"An analyst is someone who examines data and makes conclusions. Or it could be a psychoanalyst, who interprets a client's concerns and offers solutions.."
 race baiting	"Race baiting is when someone mocks another person for their ethnicity."
+reactionary	"Reactionary means aggressively wanting things to be how they were, or you thought they were."
 red alert	"Red alert is when an enemy attack appears imminent."
 running start	"A running start means you've gotten started quickly."
 salad days	"Salad days are a time when things are going well."
@@ -10718,7 +10719,7 @@ litany of Baiter Master is the table of Baiter Master talk.
 
 check talking to Baiter Master:
 	if freaked-out is false:
-		say "[one of]He waves you off without even looking. 'Whoever you are, I'm busy. Too busy for your lame problems. And they must be lame, if you asked so weakly.' You'll need an entirely more aggressive way to get his attention.[or]You just aren't good enough at yelling to do things straight up. Maybe you can upset things somehow.[stopping]" instead;
+		say "[one of]He waves you off without even looking. 'Whoever you are, I'm busy. Too busy for your lame problems. And they must be lame, if you asked so weakly.' Such an [activation of reactionary]airy reaction! You'll need an entirely more aggressive way to get his attention.[or]You just aren't good enough at yelling to do things straight up. Maybe you can upset things somehow.[stopping]" instead;
 	say "'But seriously, dude! You need to chill... there are things called manners...' but he does have your attention now. 'So. Someone finally got past those mopey brothers. You want a [activation of race baiting]baiting race? A [activation of dual vision]vision duel? I have...an [i]opinion[r] of difference. You don't even have...one right serve.' He takes a slurp from a shot mug[activation of shot mug] (with a too-flattering self-portrait, of course) and perks up.";
 	if player has legend of stuff:
 		say "He points to the Legend of Stuff. 'Oh. It looks like you took the easy way out. In fact...";
@@ -12820,6 +12821,8 @@ Power Trip is a concept in conceptville. understand "trip power" as power trip. 
 Psychoanalyst is a concept in conceptville. Understand "list anna" and "anna list" and "analyst" as psychoanalyst. howto is "[fr-ran]".
 
 race baiting is a concept in conceptville. Understand "baiting race" as race baiting. howto is "[fr-ran]".
+
+reactionary is a concept in conceptville. Understand "airy reaction" and "reaction airy" as reactionary. howto is "talk to the [bad-guy] before guessing the right action".
 
 red alert is a concept in conceptville. Understand "alert red/read" and "read alert" as red alert. howto is "[fr-ran]".
 
