@@ -111,32 +111,6 @@
 		<room id="36" name="Airy Station" subtitle="" x="352" y="-480" w="96" h="64" region="Endings" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="You need to have beaten the Thoughts Idol to get here." roomFill="" secondFill="#808040" secondFillLocation="Left" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects custom="yes" customRight="-32" customDown="0">Mentality Crowd|Return Carriage</objects>
 		</room>
-		<room id="45" name="One Route" subtitle="" x="-128" y="416" w="96" h="64" region="Post-Game Fun" handDrawn="yes" allcornersequal="no" ellipse="yes" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<room id="46" name="Muster Pass" subtitle="" x="-288" y="416" w="96" h="64" region="Post-Game Fun" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects custom="yes" customRight="-40" customDown="0">Charlie Checkpoint</objects>
-		</room>
-		<room id="47" name="Rage Road" subtitle="" x="-448" y="416" w="96" h="64" region="Post-Game Fun" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<room id="48" name="Mine Land" subtitle="" x="-608" y="416" w="96" h="64" region="Post-Game Fun" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="0" cornerTopRight="0" cornerBottomLeft="0" cornerBottomRight="0" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<room id="49" name="Chicken Free Range" subtitle="" x="-448" y="288" w="96" h="64" region="Post-Game Fun" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="0" cornerTopRight="0" cornerBottomLeft="0" cornerBottomRight="0" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects>Low Low Troll|The "Up" Gang</objects>
-		</room>
-		<room id="50" name="Humor Gallows" subtitle="" x="-608" y="288" w="96" h="64" region="Post-Game Fun" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects custom="yes" customRight="-40" customDown="0">Cards of the House|</objects>
-		</room>
-		<room id="51" name="Tuff Butt Fair" subtitle="" x="-288" y="288" w="96" h="64" region="Post-Game Fun" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects custom="yes" customRight="-24" customDown="0">House Tree|Francis Pope</objects>
-		</room>
-		<room id="52" name="Ill Falls" subtitle="" x="-128" y="288" w="96" h="64" region="Post-Game Fun" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="0" cornerTopRight="0" cornerBottomLeft="0" cornerBottomRight="0" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<room id="53" name="Eternal Hope Springs" subtitle="" x="-448" y="160" w="96" h="64" region="Post-Game Fun" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects at="n" custom="yes" customRight="-24" customDown="0">Pen Fountain</objects>
-		</room>
-		<room id="54" name="Madness March" subtitle="" x="-608" y="160" w="96" h="64" region="Post-Game Fun" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
-		<room id="55" name="Window Bay" subtitle="" x="-608" y="32" w="96" h="64" region="Post-Game Fun" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects at="n" custom="yes" customRight="-24" customDown="0">View of Points</objects>
-		</room>
-		<room id="56" name="Brains Beat" subtitle="" x="-288" y="160" w="96" h="64" region="Post-Game Fun" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects custom="yes" customRight="-48" customDown="0">Consciousness Stream</objects>
-		</room>
 		<line id="66" name="" description="" style="dashed">
 			<dock index="0" id="14" port="s" />
 			<dock index="1" id="6" port="n" />
@@ -173,25 +147,9 @@
 			<dock index="0" id="28" port="w" />
 			<dock index="1" id="29" port="e" />
 		</line>
-		<line id="75" name="" description="" color="#000000">
-			<dock index="0" id="49" port="n" />
-			<dock index="1" id="53" port="s" />
-		</line>
-		<line id="76" name="" description="" color="#000000">
-			<dock index="0" id="55" port="s" />
-			<dock index="1" id="54" port="n" />
-		</line>
-		<line id="77" name="" description="" color="#000000">
-			<dock index="0" id="47" port="w" />
-			<dock index="1" id="48" port="e" />
-		</line>
 		<line id="78" name="" description="">
 			<dock index="0" id="7" port="e" />
 			<dock index="1" id="6" port="w" />
-		</line>
-		<line id="79" name="" description="" color="#000000">
-			<dock index="0" id="53" port="w" />
-			<dock index="1" id="54" port="e" />
 		</line>
 		<line id="80" name="" description="">
 			<dock index="0" id="8" port="e" />
@@ -213,14 +171,6 @@
 			<dock index="0" id="3" port="e" />
 			<dock index="1" id="5" port="w" />
 		</line>
-		<line id="85" name="" description="" color="#000000">
-			<dock index="0" id="47" port="n" />
-			<dock index="1" id="49" port="s" />
-		</line>
-		<line id="86" name="" description="">
-			<dock index="0" id="56" port="w" />
-			<dock index="1" id="53" port="e" />
-		</line>
 		<line id="87" name="" description="" style="dashed" startText="down" endText="up">
 			<dock index="0" id="15" port="sw" />
 			<dock index="1" id="21" port="ne" />
@@ -229,17 +179,9 @@
 			<dock index="0" id="2" port="n" />
 			<dock index="1" id="3" port="s" />
 		</line>
-		<line id="89" name="" description="" color="#000000">
-			<dock index="0" id="46" port="w" />
-			<dock index="1" id="47" port="e" />
-		</line>
 		<line id="90" name="" description="">
 			<dock index="0" id="15" port="e" />
 			<dock index="1" id="14" port="w" />
-		</line>
-		<line id="91" name="" description="" color="#000000">
-			<dock index="0" id="46" port="e" />
-			<dock index="1" id="45" port="w" />
 		</line>
 		<line id="92" name="" description="" color="#000000" style="dashed">
 			<dock index="0" id="23" port="e" />
@@ -256,10 +198,6 @@
 		<line id="95" name="" description="" color="#000000" style="dashed" flow="oneWay">
 			<dock index="0" id="28" port="n" />
 			<dock index="1" id="34" port="s" />
-		</line>
-		<line id="96" name="" description="" color="#000000">
-			<dock index="0" id="51" port="e" />
-			<dock index="1" id="52" port="w" />
 		</line>
 		<line id="97" name="" description="" color="#000000">
 			<dock index="0" id="33" port="w" />
@@ -313,14 +251,6 @@
 			<dock index="0" id="24" port="ne" />
 			<dock index="1" id="25" port="nw" />
 		</line>
-		<line id="110" name="" description="" color="#000000">
-			<dock index="0" id="49" port="e" />
-			<dock index="1" id="51" port="w" />
-		</line>
-		<line id="111" name="" description="" color="#000000">
-			<dock index="0" id="49" port="w" />
-			<dock index="1" id="50" port="e" />
-		</line>
 		<line id="112" name="" description="">
 			<dock index="0" id="26" port="s" />
 			<dock index="1" id="14" port="n" />
@@ -351,7 +281,6 @@
 			<Entry Name="Entry" TextColor="Black">Yellow</Entry>
 			<Main____Area Name="Main Area" TextColor="Black">Lime</Main____Area>
 			<Outer____Bounds Name="Outer Bounds" TextColor="Black">Silver</Outer____Bounds>
-			<Post-Game____Fun Name="Post-Game Fun" TextColor="Black">#9020FF</Post-Game____Fun>
 		</regions>
 		<fonts>
 			<room size="12">Arial</room>
