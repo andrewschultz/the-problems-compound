@@ -3461,8 +3461,10 @@ Double Jeopardy	"Double jeopardy is being tried for the same crime twice. Making
 Moral Support	"Moral support is helping someone even if you don't have concrete advice. SUPPORT MORAL is, well, a slogan that pushes people around."
 Pigeon English	"Pigeon English is broken, grammatically poor English."
 Trust Brain	"A brain trust is a group of people that help make a decision. A trust-brain, though not an English phrase, might mean a mind that can't make its own decisions."
-boot licker	"A boot licker is someone who flatters too much." [start of soda club]
+beer nuts	"Beer nuts is slang for peanuts." [start of soda club]
+boot licker	"A boot licker is someone who flatters too much."
 brew a plot	"To brew a plot is to plan something subversive."
+gin bar	"Gin bar can go to two things: to barge in, or a bargain."
 Go Rum	"A rum go is an unforeseen unusual experience, as opposed to 'GO' anything which indicates general motivation."
 Hip Rose	"Rose hips are ingredients found in tea, which is too non-alcoholic for the Soda Club. Hip is, of course, cool or desirable or with-it."
 hit the bottle	"To hit the bottle is to drink."
@@ -3593,7 +3595,7 @@ Play Dumb	"To play dumb is to pretend you don't know something you do, to avoid 
 Steal This Book	"Steal This Book was a countercultural guide by Abbie Hoffman. Book this steal refers to 'booking' suspects for a transgression, e.g. a parking fine or ticket."
 wax lyrical	"To wax lyrical is to talk endlessly and enthusiastically about something."
 world record	"A world record is the best or most someone's ever done something."
-attorney general	"An Attorney General is the highest ranking lawyer in a country or state."
+attorney general	"An Attorney General is the highest ranking lawyer in a country or state." [start of court of contempt]
 nutcase	"A nutcase is a pejorative  term for someone who is crazy, clinical or otherwise, as opposed to Buddy Best's claims he just studies a lot."
 brass ring	"To grab the brass ring is to achieve a dream goal. It refers to the brass ring on merry-go-rounds." [start of questions field]
 brother foster	"A foster brother is a brother not related by birth."
@@ -7223,7 +7225,7 @@ Soda Club is south of Joint Strip. It is in Outer Bounds. "Maybe if it were past
 check going nowhere in Soda Club:
 	if noun is outside:
 		try going north instead;
-	say "There aren't, like, hidden bathrooms, and you wouldn't need to go even if there were. And if there's a secret passage, there's probably a secret code you don't know, too. So, back north it'll be, once you want to leave." instead;
+	say "Maybe there's a [activation of gin bar]gin bar where they serve [activation of beer nuts]nuts beer behind a hidden passage. But you're not going to find it, or be told about it, so you'll have to continue with your adventure here." instead;
 
 section Erin Sack
 
@@ -12382,9 +12384,13 @@ section soda club concepts
 to say ask-ally:
 	say "Ask Ally Stout about the Punch Sucker"
 
+beer nuts is a concept in conceptville. Understand "nuts beer" as beer nuts. howto is "[nogo of soda club]".
+
 boot licker is a concept in conceptville. Understand "licker/liquor boot" and "boot liquor" as boot licker. howto is "visit the Soda Club".
 
 brew a plot is a concept in conceptville. Understand "plot a brew" as brew a plot. howto is "order the Haha Brew in the Soda Club".
+
+gin bar is a concept in conceptville. Understand "bar gin" as gin bar. howto is "[nogo of soda club]".
 
 the Go Rum is a concept in conceptville. howto is "ask Ally Stout about drinks".
 
