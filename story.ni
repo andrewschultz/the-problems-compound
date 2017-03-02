@@ -3492,6 +3492,7 @@ Sweetheart Deal	"A sweetheart deal is something that works very well for both si
 anapest	"Anapest is a common beat for a poem. It can seem singsong." [start of Nominal Fen]
 Bandanna	"A bandanna is a scarf you tie around your head. Some people find it rebellious, others not rebellious enough."
 bechdel	"The Bechdel test is if an author has two females talking about things other than men or sex. Del Beck fails miserably, of course."
+beer guts	"Beer guts are increased weight from drinking too much beer."
 benevolent	"Benevolent means doing things to help people."
 Black Mark	"A black mark is something indicating bad behavior."
 body slamming	"Body slamming is a particularly painful wrestling move where you pretty much throw a person to the ground."
@@ -7567,6 +7568,7 @@ girl-neg
 "The [j-co] wrestle over the sensitivest way to compliment a girl on a [activation of body slamming]slamming body."
 "The [j-co] compare kid-style [activation of bouncing betty]beddy bouncing to adult-style, which is clearly the BOMB."
 "The [j-co] babble on about the [activation of box score]Score Box, where everyone except math obsessed nerds can hook up with a girl."
+"The [j-co] revel in how [activation of beer guts]Guts Beer helps you get out there and DO super man stuff."
 "The [j-co] brainstorm a [activation of call girl]girl call that will make you irresistible."
 "The [j-co] alternately flatter and berate [activation of Cary Grant]Grant Carey for success with women despite a lack of looks."
 "The [j-co] claim to want to get to know [activation of casually]Julie Kaz better."
@@ -12460,6 +12462,8 @@ anapest is a concept in conceptville. Understand "pest anna" and "anna pest" as 
 Bandanna is a concept in conceptville. Understand "anna bandt/band" and "bandt/band anna" as bandanna. howto is "[j-girl]".
 
 Bechdel is a concept in conceptville. Understand "del beck" and "beck del" as bechdel. howto is "[j-girl]".
+
+beer guts is a concept in conceptville. Understand "guts beer" as beer guts. howto is "[j-girl]".
 
 benevolent is a concept in conceptville. Understand "evelyn benn" and "benn evelyn" as benevolent. howto is "[j-girl]".
 

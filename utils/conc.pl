@@ -288,7 +288,7 @@ sub checkOrder
 	{
 	  chomp($a);
 	  $a =~ s/\t.*//g;
-	  $a = cutArt($a);
+	  $a = lc(cutArt($a));
 	  push (@ex, $a);
 	  if (!$lineNum{$a}) { $lineNum{$a} = $.; }
 	  if ($origLine =~ /\[start/)
@@ -309,9 +309,9 @@ sub checkOrder
 	  {
 	    chomp($a);
 		$a =~ s/ is a .*concept.*//g;
-		$a = cutArt($a);
+		$a = lc(cutArt($a));
 		push (@co, $a);
-	    if (lc($a) le $lastConcept)
+	    if ($a le $lastConcept)
 		{
 		  if (!$conceptOrdErr)
 		  { print "================concept order errors\n"; }
@@ -330,11 +330,13 @@ sub checkOrder
   for (0..$#ex)
   {
     #print lc(@ex[$_]) . " =? " . lc(@co[$_]) . "\n";
-    if (lc($ex[$_]) ne lc($co[$_]))
+    if ((!defined($co[$_])) || (lc($ex[$_]) ne lc($co[$_])))
 	{
 	  $ordFail++;
 	  if ($match - $lastMatch == 1) { next; }
-      printf("$_ ($ordFail): $ex[$_] %s vs $co[$_] %s", $lineNum{$ex[$_]} ? "($lineNum{$ex[$_]})" : "", $lineNum{$co[$_]} ? "($lineNum{$co[$_]})" : "");
+      printf("$_ ($ordFail): $ex[$_] %s vs %s", $lineNum{$ex[$_]} ? "($lineNum{$ex[$_]})" : "",
+	  defined($co[$_]) ? "$co[$_] ($lineNum{$co[$_]})" : "(nothing)");
+	  #defined($co[$_]) ? "$co[$_] ($lineNum{$co[$_]})" : "");
 	  for my $match (0..$#co)
 	  {
 	    if (lc($ex[$_]) eq lc($co[$match]))
@@ -411,7 +413,7 @@ $astString = "";
 my $inTable = 0;
 
 my $source = "c:/games/inform/$_[0].inform/source/story.ni";
-open(A, $source) || do { print "No source file $source.\n"; return; };
+open(X, $source) || do { print "No source file $source.\n"; return; };
 
 my $line = 0;
 
@@ -422,7 +424,7 @@ my $tmpVar;
 
 @dumbErrors = ();
 
-while ($lineIn = <A>)
+while ($lineIn = <X>)
 {
   if ($lineIn =~ /(EXPLANATIONS:|CONCEPTS:|fill-in-here throws)/) { push (@dumbErrors, $.); next; }
   if (($lineIn =~ /is a.* author\. pop/) && ($lineIn !~ /^\[/)) { $tmpVar = $lineIn; $tmpVar =~ s/ is (an|a) .*//g; chomp($tmpVar); if ($lineIn =~ /xp-text is /) { $gotText{$tmpVar} = 1; } elsif ($lineIn =~ /\"/) { print "Probable typo for $tmpVar.\n"; } $auth{$tmpVar} = $line; next; }
@@ -434,7 +436,7 @@ while ($lineIn = <A>)
   if ($lineIn =~ /xxadd/) { $addStart = $.; }
   if ($lineIn =~ /xxcv/) { $cvStart = $.; }
   if ($lineIn =~ /xxauth/) { $inAuthTable = 1; <A>; $line++; next; }
-  if ($lineIn =~ /^table of explanations.*concepts/) { $inTable = 1; <A>; next; }
+  if ($lineIn =~ /^table of explanations.*concepts/) { $inTable = 1; <X>; next; }
   if ($lineIn !~ /[a-z]/i) { $inTable = 0; next; }
   chomp($lineIn); $lineIn = cutArt($lineIn);
   if ($lineIn =~ /is a concept in lalaland/) # concept definitions
@@ -480,7 +482,7 @@ while ($lineIn = <A>)
   }
 }
 
-close(A);
+close(X);
 
 printResults($_[0]);
 
