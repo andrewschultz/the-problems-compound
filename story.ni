@@ -3511,6 +3511,7 @@ flounder	"To flounder is to try and fail without any progress. It's also the nam
 fluoridated	"Fluoridated water is a subject of many silly conspiracy theories."
 grown up	"Grown up means, well, you've learned and matured."
 hara-kiri	"Hara-kiri is Japanese ritual suicide."
+hittite	"A Hittite is a now-extinct race of people in the Bible."
 Howard Stern	"Howard Stern is a long-time radio personality with loud provocative opinions."
 humphrey davy	"Humphrey Davy was an 18th century scientist."
 jerk around	"To jerk someone around is to pester them physically or mentally."
@@ -7578,6 +7579,7 @@ girl-neg
 "The [j-co] try to be charitable and think of girls ranked [activation of flounder]under Flo on their beauty scale."
 "A couple [j-co] feel sorry they [activation of fluoridated]dated Flora and listened to her conspiracy theories."
 "The [j-co] rave how full of life [activation of hara-kiri]Keri Harrah is."
+"The [j-co] formulate a [activation of hittite]'tight' hit (must be some new slang) on the Bible's legitimacy."
 "The [j-co] hope [activation of howard stern]stern Howard doesn't come by to moralize again."
 "The [j-co] laugh at how [activation of humphrey davy]Davey Humphrey beats up and makes fun of science nerds."
 "Each of the [j-co] discusses a [activation of journeyman]man-journey he will take to be above average."
@@ -12496,6 +12498,8 @@ fluoridated is a concept in conceptville. Understand "dated flora" and "flora da
 grown up is a concept in conceptville. Understand "up groan" and "groan up" as grown up. howto is "[solve-j] with swears off".
 
 Hara-Kiri is a concept in conceptville. Understand "keri harrah" and "harrah keri" as hara-kiri. howto is "[j-girl]".
+
+hittite is a concept in conceptville. Understand "tight hit" and "hit tight" as hittite. howto is "[j-girl]".
 
 Howard Stern is a concept in conceptville. Understand "stern howard" as Howard Stern. howto is "[j-girl]".
 
