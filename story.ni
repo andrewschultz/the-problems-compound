@@ -3219,7 +3219,7 @@ definition: a thing (called x) is explainable:
 	if location of x is visited, decide yes;
 	decide no;
 
-understand "explain [text]" as a mistake ("You've come across nothing like that, yet. Or perhaps it is way in the past by now.")
+understand "explain [text]" and "xp [text]" as a mistake ("You've come across nothing like that, yet. Or perhaps it is way in the past by now.")
 
 after explaining out puzzle: [just below, the dots explanation asks a question, if you want it spoiled]
 	if the player yes-consents:
@@ -3267,7 +3267,7 @@ picture hole	"Seeing the whole picture means you see everything."	--
 Poor Dirt	"Dirt poor means especially not rich."	--
 Basher Bible	"A bible basher is someone who quotes scripture too much. The reverse means a compendium of ways to try and gain power over people and put them down."	"I simply can't believe this one took so much to find! The idea is, people who sell you on your own inadequacy are at least as destructive as, well, Bible-Bashers. But they put on a show and make their audience glad THEY'RE not the ones being cut down, yet." [start of pressure pier]
 boo tickety	"Tickety-boo means okay, all right, etc."	"I like the contrast of being told 'Boo!' with the horrible places you're shipped off to, elsewhere. Also, it makes it clear small mistakes are okay."
-spoon table	"A tablespoon is a small measure of something, usually for a recipe."	"The table also spoon-feeds you information. Wrong information, but information."
+a side stand	"To stand aside is to get out of the way."	"I had trouble with what was supporting the Basher Bible, until I stumbled on this. I'd thought of a stand for a while, but it seemed like there were too many choices. Then I realized I could just give a different figure of speech if you tried different things."
 Terry Sally	"Terry Sally has two possible translations: salutary or solitary. He is sort of in between salutary (greeting) and solitary (alone) which fits in with how he probably doesn't get to see many people, but he's social when he does."	"Terry Sally was just the Howdy Boy before release 3. But I wanted to make the Compound a bit more personable."
 trail paper	"A paper trail is evidence in white-collar crimes. People often have to piece it together."	--
 condition mint	"Mint condition is brand new."	"The mint was buggy until release 3, but it was one of the first foods that made me realize Meal Square could be an important location." [start of meal square]
@@ -3279,6 +3279,7 @@ Off Cheese	"To cheese someone off is to annoy them."	"I was pleased to see Hulk 
 opener eye	"An eye-opener is something that makes you realize things. The bad grammar here indicates that your eye, more open, is not really that way, or it's open the wrong way."
 picture of a dozen bakers	"A baker's dozen is thirteen, thus counting for the illusion."	"I have no idea what this illusion would look like if drawn, but I wanted to put it there."
 points brownie	"Brownie points are uinofficial credit for helping or flattering someone."	"It occurred to me it could be horrible for Alec to try and make friends with the [bad-guy] and thus get the totally wrong ending. I think there's a lot of that, that people like the [bad-guy] try to convince you they're on your side, and so forth. Writing the ending squicked me out more than I thought it would."
+spoon table	"A tablespoon is a small measure of something, usually for a recipe."	"The table also spoon-feeds you information. Wrong information, but information."
 thyme burger	"BurgerTime is a retro arcade game where Peter Pepper, the protagonist, goes around shaking pepper at enemies and stepping on burgers to prepare them."	"This is a dumb joke I enjoyed."
 Tray A	"Just a tray, contrasted with Tray B."	--
 Tray B	"Eating anything on it may betray who you really are."	"This is another thing that dropped out in release 2 and I couldn't believe it was that simple. People were disappointed I didn't clue that it was such a bad idea to eat the Cutter Cookie."
@@ -3443,6 +3444,7 @@ treat like dirt	"To treat someone like dirt is to be very nasty to them."
 Boy Howdy	"Boy Howdy is a colloquial expression of surprise." [start of pressure pier]
 fish out of water	"A fish out of water is someone or something out of place."
 meal ticket	"A meal ticket is something you own that will help you advance socially or economically. It could be physical, or a piece of knowledge, or clout."
+take a stand	"To take a stand is to have a firm moral position. To take the stand is slang for being summoned for interrogation in a court of law."
 Bum Beach	"A beach bum is someone who wanders on the beach. Maybe he lives there in a shack too." [start of down ground]
 clip joint	"A clip joint is a place that overcharges customers. A joint clip will help Fritz save on purchases so none is wasted."
 drag along	"To drag someone along is to take them with despite their reluctance."
@@ -6168,7 +6170,12 @@ Outer Bounds is a region.
 
 part Pressure Pier
 
-Pressure Pier is north of Tension Surface. It is in Outer Bounds. "[one of]So, this is Pressure Pier. Off south is water--no way back to the Tension Surface[or]Water south, passage north[stopping]. You smell food to the west, and the land sinks a bit to the east. [one of]There's a spoon table to your left, and when you take a closer look, you notice there's a book on it, called the Basher Bible[or]The Basher Bible still rests on the spoon table[stopping]."
+Pressure Pier is north of Tension Surface. It is in Outer Bounds. "[one of]So, this is Pressure Pier. Off south is water--no way back to the Tension Surface[or]Water south, passage north[stopping]. You smell food to the west, and the land sinks a bit to the east. [one of]A side stand grabs your attention enough you notice it holds a book with the words BASHER on the front[or]The Basher Bible still rests on a side stand[stopping]."
+
+a side stand is scenery in Pressure Pier. "It's not actually blocking any direction to go in, but it's gaudy and shiny enough you won't be overlooking it."
+
+instead of taking side stand:
+	say "You couldn't [activation of take a stand]stand the take. A take? Either way, you've got enough of a trial without lugging something like that around."
 
 pier-visited is a truth state that varies.
 
@@ -6212,8 +6219,6 @@ instead of doing something with water-scen:
 	say "The water goes on a ways."
 
 the Basher Bible is scenery in Pressure Pier. "[one of]The Basher Bible labels seemingly contradictory things to want and to be: to be clever enough to cut down too-clever weirdos. To have enough interests you can almost empathize with obsessed nerds, but not quite. To know enough pop culture you can poke fun at people who care too much about it. To be nice enough adults are sure you'll go far, but not be some useless dweeb.[paragraph break]There's also something about how if you don't know how to balance those things and have to ask others, or if this triggers some oversensitivity, well, REALLY. And there's even a tip of the moment! You read it:[or]You read another passage from the Basher Bible: [stopping]"
-
-the spoon table is scenery in Pressure Pier. "Many kinds of spoon: greasy, tea, wooden and silver, and that thick one must be a fed spoon. They are welded together to form a table one person can eat at, well--with a few holes. The Basher Bible appears entangled with the top spoons, so you can't pull it off."
 
 understand "spoons" and "spoons table" as spoon table.
 
@@ -6397,6 +6402,8 @@ check going west in pressure pier:
 			say "Terry Sally coughs. 'That's Meal Square. Nice if you've got a thought for food[activation of thought for food]. But there's better places to break the rules.' Nevertheless, he lets you go.";
 
 Meal Square is west of Pressure Pier. Meal Square is in Outer Bounds. "This is a small alcove with Pressure Pier back east. There's not much decoration except a picture of a dozen bakers."
+
+the spoon table is scenery in  Meal Square. "Many kinds of spoon: greasy, tea, wooden and silver, and that thick one must be a fed spoon. They are welded together to form a table one person can eat at, well--with a few holes. It's large but also largely decorative."
 
 Tray A is a supporter in Meal Square. description is "It's just a tray, really. Nothing special. A few foods rest on tray A: [the list of things on tray a]."
 
@@ -12173,10 +12180,7 @@ Rule for printing a parser error when the latest parser error is the nothing to 
 		say "Sorry, but right now ALL doesn't encompass anything you need to take. Though, don't worry, this game doesn't require you to mess with a ton of stuff in any one location." instead.
 
 Rule for printing a parser error when the latest parser error is the noun did not make sense in that context error:
-	if current action is explaining:
-		say "I couldn't find anything named that to explain.";
-	else:
-		say "The verb was ok, but you referred to something that [if noun is in lalaland]has been dealt with[else]hasn't come up yet in the game--and may not[end if]."
+	say "The verb was ok, but I couldn't place the noun."
 
 volume weird stuff
 
@@ -12339,6 +12343,8 @@ Boy Howdy is a concept in conceptville. understand "howdy boy" as Boy Howdy. how
 fish out of water is a concept in conceptville. understand "water out of fish" as fish out of water. howto is "examine the water in Pressure Pier".
 
 meal ticket is a concept in conceptville. Understand "ticket meal" as meal ticket. howto is "eat the boo tickety".
+
+take a stand is a concept in conceptville. Understand "stand a/the take" and "take the stand" as take a stand. howto is "try to take a/the side stand".
 
 section down ground concepts
 
