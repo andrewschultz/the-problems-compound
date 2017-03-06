@@ -7569,15 +7569,16 @@ to jerk-blab:
 		say "[line break]You have a vague suspicion they don't know as much about girls as they say they do, but if you called them on it, they'd say you didn't, either, so hypocrisy.";
 		now jerk-girl-yet is true;
 
-table of jerk-girl-talk [xxjgt]
+table of jerk-girl-talk [xxjgt] 
 girl-neg
 "The [j-co] berate [activation of anapest]Pest Anna and her weird 'modern' poetry."
 "The [j-co] argue over whether [activation of bandanna]Anna Bandt's clothes choices are really rebellious."
-"The [j-co] rave about how [activation of benevolent]Evelyn Benn is snarky to people for their own good."
+"The [j-co] praise the writing of [activation of Bechdel]Del Beck, who knows how to do girl-talk even if girls say he doesn't."
+"The [j-co] revel in how [activation of beer guts]Guts Beer helps you get out there and DO super man stuff."
+"The [j-co] rave about how  [activation of benevolent]Evelyn Benn is snarky to people for their own good."
 "The [j-co] wrestle over the sensitivest way to compliment a girl on a [activation of body slamming]slamming body."
 "The [j-co] compare kid-style [activation of bouncing betty]beddy bouncing to adult-style, which is clearly the BOMB."
 "The [j-co] babble on about the [activation of box score]Score Box, where everyone except math obsessed nerds can hook up with a girl."
-"The [j-co] revel in how [activation of beer guts]Guts Beer helps you get out there and DO super man stuff."
 "The [j-co] brainstorm a [activation of call girl]girl call that will make you irresistible."
 "The [j-co] alternately flatter and berate [activation of Cary Grant]Grant Carey for success with women despite a lack of looks."
 "The [j-co] claim to want to get to know [activation of casually]Julie Kaz better."
@@ -7585,7 +7586,6 @@ girl-neg
 "The [j-co] banter about when they will be able to buy alcohol with a fake ID, or even legally. Then everything's [activation of cirrhosis]Roses, sir!"
 "The [j-co] marvel at what a ladies['] man [activation of co-ed]Ed Coe is when he comes home from the military boarding school."
 "The [j-co] mention how [activation of cotton candy]Candy Cotton smacks down saccharine pickup lines."
-"The [j-co] praise the writing of [activation of Bechdel]Del Beck, who knows how to do girl-talk even if girls say he doesn't."
 "The [j-co] agree that [activation of electrocute]Cute Electra isn't, like, LETHALLY hot."
 "The [j-co] try to be charitable and think of girls ranked [activation of flounder]under Flo on their beauty scale."
 "A couple [j-co] feel sorry they [activation of fluoridated]dated Flora and listened to her conspiracy theories."
@@ -7593,8 +7593,10 @@ girl-neg
 "The [j-co] formulate a [activation of hittite]'tight' hit (must be some new slang) on the Bible's legitimacy."
 "The [j-co] hope [activation of howard stern]stern Howard doesn't come by to moralize again."
 "The [j-co] laugh at how [activation of humphrey davy]Davey Humphrey beats up and makes fun of science nerds."
+"The [j-co] talk about getting in shape at the [activation of Jim Beam]Beam Gym."
 "Each of the [j-co] discusses a [activation of journeyman]man-journey he will take to be above average."
 "The [j-co] create a conspiracy theory for laughs: plain, quiet [activation of Keyser Soze]Suzy Kaiser somehow ruthlessly controls female and male social circles."
+"The [j-co] snicker over [activation of lavergne and shirley]Lee Shore and Vern Love's jokes about girls."
 "The [j-co] agree what a [activation of lily liver]LIVER Lily is! She couldn't be exaggerating."
 "The [j-co] mentioned how [activation of manicured]cured Manny is of his lack of machismo."
 "The [j-co] appreciate how [activation of mary sue]Sue Merry reliably smacks down anyone who seems too nice."
@@ -7604,15 +7606,15 @@ girl-neg
 "The [j-co] despair that [activation of nose candy]Candi knows too little about how to party."
 "The [j-co] chuckle at the irreverence of the [activation of notre dame]Dame Noter."
 "The [j-co] argue that [activation of olive]Olive Black or Olive Green being more desirable is NOT a matter of taste."
-"The [j-co] resolve to put [activation of playboy]boy play behind for more grown-up, sophisticated things. Like, well, articles instead of pictures."
-"The [j-co] rave it's easy to hook up at the [activation of pound meat]Meet Pound."
-"The [j-co] agree [activation of Ralph Lauren]Lauren Ralph would actually be really attractive with any fashion sense at all."
 "The [j-co] agree that both [activation of pepper]Pepper Black, Pepper Bell [i]and[r] Pepper Green are hotter than Pepper Serrano."
 "'[activation of plaintiff]Tiff? Plain,' [random client in nominal fen] quips. The others agree, citing various elements of her personality."
+"The [j-co] resolve to put [activation of playboy]boy play behind for more grown-up, sophisticated things. Like, well, articles instead of pictures."
+"The [j-co] whisper rumors of the louche goings-on at the [activation of pocket pool]Pool Pocket. It's unclear if it's water or table pool."
 "The [j-co] recount [activation of pollyanna]Anna Pauley's greatest hits making fun of overoptimism. She always comes through!"
 "The [j-co] don't understand what [activation of polygamy]Gamy Polly has to be fussy [i]about[r]."
-"The [j-co] whisper rumors of the louche goings-on at the [activation of pocket pool]Pool Pocket. It's unclear if it's water or table pool."
 "The [j-co] snicker at [activation of Potter Stewart]Stewart Potter, who couldn't recognize a kickass profane putdown if he saw it."
+"The [j-co] rave it's easy to hook up at the [activation of pound meat]Meet Pound."
+"The [j-co] agree [activation of Ralph Lauren]Lauren Ralph would actually be really attractive with any fashion sense at all."
 "The [j-co] disagree on whether [activation of sharp barb]Barb Sharpe would be worth putting up with her lame gossip."
 "The [j-co] take a minute to [activation of shock jock]jock shock in general. It's very disturbing, but you can't put your finger on why."
 "The [j-co] deride [activation of Sweeney Todd]Todd Sweeney for his fear of horror movies."
@@ -7621,8 +7623,8 @@ girl-neg
 "The [j-co] claim learning WAY too much about computers will come back to [activation of terabyte]bite Tara."
 "The [j-co] stage-whisper that [activation of teriyaki]Yacky Terri's conversation is neither spicy nor meaty."
 "The [j-co] [activation of terrapin]pin Tera as someone who needs to come out of her shell and live faster."
-"The [j-co] agree Erwin is just a total loser name."
-"The [j-co] argue pointlessly over if a girl is pretty plain or plain pretty."
+"The [j-co] agree Erwin is just a total loser name." [na]
+"The [j-co] argue pointlessly over if a girl is pretty plain or plain pretty." [na]
 
 for writing a paragraph about a client (called jrk) in Nominal Fen:
 	if cookie-eaten is true:

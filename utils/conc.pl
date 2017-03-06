@@ -34,6 +34,7 @@ my $readConcepts = 1;
 my $printSuccess = 0;
 my $addStart = 0;
 my $cvStart = 0;
+my $detailAlpha = 1;
 
 #############################
 #hashes
@@ -46,6 +47,10 @@ my %gotText;
 my %authTab;
 my %okdup;
 my %lineNum;
+
+my %tableDetHash;
+
+$tableDetHash{"Compound"} = "xxjgt";
 
 #################################
 #arrays
@@ -101,6 +106,40 @@ for my $thisproj (@dirs)
 {
   if ($order) { checkOrder($thisproj); }
   if ($readConcepts) { readConcept($thisproj); }
+  if ($detailAlpha) { checkTableDetail($thisproj); }
+}
+
+##############################################subroutines
+
+sub checkTableDetail
+{
+  if (!defined($tableDetHash{$_[0]})) { return; }
+
+  my $lastAlf = "";
+  my $inTable = 0;
+  my $source = "c:/games/inform/$_[0].inform/source/story.ni";
+  my @stuff = split(/,/, $tableDetHash{$_[0]});
+
+  open(A, "$source") || die ("No $source.");
+
+  OUTER:
+  while ($a = <A>)
+  {
+  if ($a =~ /^table/)
+  {
+    for (@stuff) { if ($a =~ /$_/) { $inTable = $_; <A>; $lastAlf = ""; next OUTER; } }
+  }
+  if ($a !~ /[a-z]/i) { $inTable = ""; next; }
+  if ($inTable)
+  {
+    if ($a =~ /\[na\]/) { next; }
+    chomp($a);
+    if ($a !~ /activation of/) { print "Warning: line $. has no ACTIVATION OF.\n"; next; }
+    $a =~ s/.*activation of //; $a =~ s/\].*//;
+    if (lc($a) le lc($lastAlf)) { print "$a ($. $inTable) may be out of order vs $lastAlf.\n"; }
+	$lastAlf = $a;
+  }
+  }
 }
 
 sub crankOutCode
