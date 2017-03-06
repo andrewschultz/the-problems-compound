@@ -3493,6 +3493,7 @@ Play it Cool	"To play it cool is not to lose your temper. Of course, Percy's cha
 Sweetheart Deal	"A sweetheart deal is something that works very well for both sides, often obtained unethically. Telling someone to deal often means they have to settle for being ripped off."
 anapest	"Anapest is a common beat for a poem. It can seem singsong." [start of Nominal Fen]
 Bandanna	"A bandanna is a scarf you tie around your head. Some people find it rebellious, others not rebellious enough."
+bayou	"A bayou is a tributary (river leading to bigger water), and the reverse pronunciation is 'you buy.'"
 bechdel	"The Bechdel test is if an author has two females talking about things other than men or sex. Del Beck fails miserably, of course."
 beer guts	"Beer guts are increased weight from drinking too much beer."
 benevolent	"Benevolent means doing things to help people."
@@ -3661,6 +3662,7 @@ pharisee	"A pharisee is someone who gives the trappings of morality but is not."
 polygraph	"A polygraph is a lie detector. The [bad-guy] is probably looking for lies that aren't there."
 Power Trip	"A power trip is when someone is so overcome with their own power, they do mean things to show it off."
 psychoanalyst	"An analyst is someone who examines data and makes conclusions. Or it could be a psychoanalyst, who interprets a client's concerns and offers solutions.."
+putin	"Vladimir Putin is the autocratic leader of Russia as of 2017. He is also alleged to have helped Donald Trump's 2016 Presidential campaign. The tune being whistled is the Russian (former Soviet) national anthem."
 race baiting	"Race baiting is when someone mocks another person for their ethnicity."
 reactionary	"Reactionary means aggressively wanting things to be how they were, or you thought they were."
 red alert	"Red alert is when an enemy attack appears imminent."
@@ -8033,7 +8035,7 @@ to check-jerks-done:
 
 to zap-the-jerks:
 	say "A fight's about to break out, until you tell them where you got this information from.[paragraph break]'You better be right about this,' [a random not minted client] says. They rush off. You hear whining in the distance. It's the Labor Child. He protests he was just trying to shame them into doing more practical things. They aren't buying it!";
-	say "[line break]The (ex-)jerks arrive back, and [a random client] [if allow-swears is true]gives an [activation of grown up]up groan[else]wipes away a [activation of tear-jerk]jerk-tear[end if] before handing you a bottle of Quiz Pop. 'Man, you seem to know what's what, and you helped us see it was okay to be us. Here's some totally sweet contraband.'[paragraph break]Hmm. Interesting. Quiz Pop. As they walk away, you hear them deciding on a victory meal: [activation of sausage fest]fest sausage. With a [activation of joint committee]committee joint to top it off! They have the extra money, now.";
+	say "[line break]The (ex-)[j-co]s arrive back, and [a random client] [if allow-swears is true]gives an [activation of grown up]up groan[else]wipes away a [activation of tear-jerk]jerk-tear[end if] before handing you a bottle of Quiz Pop. 'Man, you seem to know what's what, and you helped us see it was okay to be us. Here's some totally sweet contraband.'[paragraph break]Hmm. Interesting. Quiz Pop. As they walk away, you hear them deciding on a victory meal they can now afford at the [activation of bayou] bayou: [activation of sausage fest]fest sausage. With a [activation of joint committee]committee joint to top it off!";
 	it-take quiz pop;
 	increment the score;
 	now all clients are in lalaland;
@@ -10698,6 +10700,7 @@ gad-act
 "'[activation of pharisee]See, Farrah,' the [bad-guy] mutters to no girl in particular."
 "'Yeah, if we [activation of polygraph]graph Polly, she's lying without lying.'"
 "The [bad-guy] reminds himself how to [activation of psychoanalyst]list Anna: psycho, even if there's not enough data/proof yet."
+"'[activation of putin]Input, input, input,' mutters the [bad-guy]. 'The more I get, the more I'm in charge.' He proceeds to whistle a jaunty marching dirge you feel you should know the title of."
 "The [bad-guy] picks up a paper, shrugs, and throws it away. '[activation of red alert]Alert? Read...'"
 "'[activation of sly dog]I'll need to dog Sly his magic tricks aren't anything special, now that he can actually do a few.'"
 "'That's why we need to [activation of stand out]doubt Stan, not just because he's different...'"
@@ -12467,6 +12470,8 @@ anapest is a concept in conceptville. Understand "pest anna" and "anna pest" as 
 
 Bandanna is a concept in conceptville. Understand "anna bandt/band" and "bandt/band anna" as bandanna. howto is "[j-girl]".
 
+bayou is a concept in conceptville. Understand "bayou" as bayou. howto is "[solve-j  ]".
+
 Bechdel is a concept in conceptville. Understand "del beck" and "beck del" as bechdel. howto is "[j-girl]".
 
 beer guts is a concept in conceptville. Understand "guts beer" as beer guts. howto is "[j-girl]".
@@ -12846,6 +12851,8 @@ polygraph is a concept in conceptville. understand "graph polly" and "polly grap
 Power Trip is a concept in conceptville. understand "trip power" as power trip. howto is "wait for the [bad-guy] to go through his actions".
 
 Psychoanalyst is a concept in conceptville. Understand "list anna" and "anna list" and "analyst" as psychoanalyst. howto is "[fr-ran]".
+
+Putin is a concept in conceptville. Understand "input" as putin when freak control is visited. howto is "[fr-ran]".
 
 race baiting is a concept in conceptville. Understand "baiting race" as race baiting. howto is "[fr-ran]".
 
