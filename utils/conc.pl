@@ -50,7 +50,7 @@ my %lineNum;
 
 my %tableDetHash;
 
-$tableDetHash{"Compound"} = "xxjgt";
+$tableDetHash{"Compound"} = "xxjgt,xxbgw";
 
 #################################
 #arrays
@@ -196,7 +196,7 @@ for my $x (sort keys %any)
   #print "Looking at $x:\n";
   if (!$expl{$xmod})
   {
-    $errMsg .= "$xmod ($lineNum{$xmod}) needs explanation.\n";
+    $errMsg .= "$xmod ($lineNum{$xmod}) needs explanation: guess = " . (findExplLine($xmod, $_[0])) . ".\n";
 	$explErr .= "$xmod\t\"$xmod is when you [fill-in-here].\"\n";
 	$fails++; $thisFailed = 1;
   }
@@ -597,6 +597,32 @@ sub alfPrep
   if ($temp eq "a thing") { return $temp; }
   $temp =~ s/^(a |the )//i;
   return $temp;
+}
+
+sub findExplLine
+{
+  my $actRoom;
+  my $curRoom = "";
+  my $toFind = 0;
+  open(B, "c:/games/inform/$_[1].inform/source/story.ni");
+  while ($a = <B>)
+  {
+    if ($a =~ /^part /i) { $curRoom = $a; $curRoom =~ s/^part //i; }
+	if ($a =~ /activation of $_[0]/i) { chomp($curRoom); $actRoom = $curRoom; last;}
+  }
+  if (!$actRoom) { return "(failed)"; close(B); }
+  print "$actRoom\n";
+
+  close(B);
+  open(B, "c:/games/inform/$_[1].inform/source/story.ni");
+
+  while ($a = <B>)
+  {
+    if ($a =~ /start of $actRoom/i) { my $retVal = "line $."; close(B); return $retVal; }
+  }
+  print "Couldn't find exp line for $_[0]/$actRoom.\n";
+  close(B);
+  return;
 }
 
 sub usage
