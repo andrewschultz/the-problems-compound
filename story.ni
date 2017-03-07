@@ -3441,7 +3441,8 @@ Tray S	"Stray. In other words, it strayed from Meal Square."
 Tray T	"A tea tray. To go with food."
 Tray X	"It is an ex-tray."
 treat like dirt	"To treat someone like dirt is to be very nasty to them."
-Boy Howdy	"Boy Howdy is a colloquial expression of surprise." [start of pressure pier]
+Bible Belt	"The Bible Belt is a very religious area of the USA." [start of pressure pier]
+Boy Howdy	"Boy Howdy is a colloquial expression of surprise."
 fish out of water	"A fish out of water is someone or something out of place."
 meal ticket	"A meal ticket is something you own that will help you advance socially or economically. It could be physical, or a piece of knowledge, or clout."
 take a stand	"To take a stand is to have a firm moral position. To take the stand is slang for being summoned for interrogation in a court of law."
@@ -3520,10 +3521,12 @@ Howard Stern	"Howard Stern is a long-time radio personality with loud provocativ
 humphrey davy	"Humphrey Davy was an 18th century scientist."
 jerk around	"To jerk someone around is to pester them physically or mentally."
 jerk off	"To jerk off is to gratify oneself carnally."
+jim beam	"Jim Beam is a brand of whiskey."
 joint committee	"A joint committee is a group of legislators from different parts of US Congress."
 journeyman	"A journeyman is someone who is maybe not spectacular but who has paid his dues in his field."
 junk mail	"Junk mail means letters and fliers you didn't ask for that appear in your (physical or electronic) mailbox anyway."
 Keyser Soze	"Keyser Söze is the shadowy antagonist of the film [italic type]The Usual Suspects[roman type]."
+Laverne and Shirley	"Laverne and Shirley was a TV show from the 70s and 80s about two single female roommates."
 lily liver	"A lily-liver is someone who is afraid to go out and do risky things."
 Liverwurst	"Liverwurst is a sort of meat which I found tastes nice until it really doesn't, and it's a bit greasy, too. 'Worst liver' may be an exaggeration, but the jerks are not living well."
 lovelies	"Lovelies is a term of endearment."
@@ -3638,6 +3641,7 @@ elitist	"Elitist means snobbish or stuck-up."
 evil eye	"The evil eye is staring at someone to make them uncomfortable."
 Ezra Pound	"Ezra Pound was an influential Modernist poet."
 face facts	"To face facts is to see the sad truth. In this case, the [bad-guy] is telling you he's telling the truth, which is often--inaccurate. Or it means he's been lying before."
+fanatic	"A fanatic is someone who is obsessed about something."
 fatigue duty	"Fatigue duty is the drudge work low-ranking members of the military get."
 favor curry	"To curry favor is to try to get on someone's good side."
 fawn over	"To fawn over is to flatter someone."
@@ -3666,7 +3670,7 @@ putin	"Vladimir Putin is the autocratic leader of Russia as of 2017. He is also 
 race baiting	"Race baiting is when someone mocks another person for their ethnicity."
 reactionary	"Reactionary means aggressively wanting things to be how they were, or you thought they were."
 red alert	"Red alert is when an enemy attack appears imminent."
-running start	"A running start means you've gotten started quickly."
+running gag	"A running gag is a joke that keeps popping up."
 salad days	"Salad days are a time when things are going well."
 scuzz bucket	"A scuzz, or scum, bucket is a person who is just plain dirty or disgusting. The [bad-guy] is not obviously physically like this."
 see if i care	"See if I Care is said to show indifference to a bully or nuisance."
@@ -6222,6 +6226,9 @@ instead of doing something with water-scen:
 
 the Basher Bible is scenery in Pressure Pier. "[one of]The Basher Bible labels seemingly contradictory things to want and to be: to be clever enough to cut down too-clever weirdos. To have enough interests you can almost empathize with obsessed nerds, but not quite. To know enough pop culture you can poke fun at people who care too much about it. To be nice enough adults are sure you'll go far, but not be some useless dweeb.[paragraph break]There's also something about how if you don't know how to balance those things and have to ask others, or if this triggers some oversensitivity, well, REALLY. And there's even a tip of the moment! You read it:[or]You read another passage from the Basher Bible: [stopping]"
 
+check taking Basher Bible:
+	say "That'd mean trouble if it's a [activation of bible belt] belt bible, too." instead;
+
 understand "spoons" and "spoons table" as spoon table.
 
 bible-row is a number that varies. bible-row is usually 0.
@@ -7569,7 +7576,7 @@ to jerk-blab:
 		say "[line break]You have a vague suspicion they don't know as much about girls as they say they do, but if you called them on it, they'd say you didn't, either, so hypocrisy.";
 		now jerk-girl-yet is true;
 
-table of jerk-girl-talk [xxjgt] 
+table of jerk-girl-talk [xxjgt]
 girl-neg
 "The [j-co] berate [activation of anapest]Pest Anna and her weird 'modern' poetry."
 "The [j-co] argue over whether [activation of bandanna]Anna Bandt's clothes choices are really rebellious."
@@ -7596,7 +7603,7 @@ girl-neg
 "The [j-co] talk about getting in shape at the [activation of Jim Beam]Beam Gym."
 "Each of the [j-co] discusses a [activation of journeyman]man-journey he will take to be above average."
 "The [j-co] create a conspiracy theory for laughs: plain, quiet [activation of Keyser Soze]Suzy Kaiser somehow ruthlessly controls female and male social circles."
-"The [j-co] snicker over [activation of lavergne and shirley]Lee Shore and Vern Love's jokes about girls."
+"The [j-co] snicker over [activation of laverne and shirley]Lee Shore and Vern Love's jokes about girls."
 "The [j-co] agree what a [activation of lily liver]LIVER Lily is! She couldn't be exaggerating."
 "The [j-co] mentioned how [activation of manicured]cured Manny is of his lack of machismo."
 "The [j-co] appreciate how [activation of mary sue]Sue Merry reliably smacks down anyone who seems too nice."
@@ -10586,7 +10593,7 @@ check going nowhere in freak control:
 freak-ok is a truth state that varies.
 
 check going south in Freak Control:
-	say "You try to start running, but unsurprisingly, you don't get a [activation of running start]running start. The [bad-guy] turns around. 'DUDE! That's pretty messed up, making it here and then running away. We'll sort out your confusion for your own good. There are people that can...help...with that.'";
+	say "[one of]You try to start running, but it fails, because you didn't have a running start. The [bad-guy] turns around. 'DUDE! That's pretty messed up, making it here and then running away. We'll sort out your confusion for your own good. There are people that can...help...with that.'[or]The [bad-guy] turns around, frowning intensely. '[activation of running gag]Gag! Running?' As if he's seen it before, he calls in help to sort out your ... confusion. They talk about you as if you aren't there for a bit, then...[stopping]";
 	ship-off shape ship;
 	if freak-ok is false:
 		now freak-ok is true;
@@ -10672,7 +10679,7 @@ to say odd-machine-l of (x - a thing):
 
 table of bad guy worries [xxbgw]
 gad-act
-"The [bad-guy] loud-whispers how those wimps Willis Bruce and Norris Charles need attending to by his...associates."
+"The [bad-guy] loud-whispers how those wimps Willis Bruce and Norris Charles need attending to by his...associates." [na]
 "'Think you're clever? Foul miss, Artie[activation of Artemis Fowl],' the [bad-guy] chides."
 "The [bad-guy] plans out a trip to [activation of autocratic]Craddock Auto for a bulletproof limo."
 "'Geez, it's a pain to [activation of benefactor]factor BENNY. I'm not, like, MEAN to him.'"
@@ -10684,7 +10691,8 @@ gad-act
 "'[random surveyable person] just needs a good [activation of disorder]Order Dis to put [']em line. Or two. Or three.'"
 "'[activation of elitist]Leetest! Eeee!' boasts the [bad-guy], establishing several layers of irony, you're pretty sure."
 "'[activation of evil eye]I?!? Evil?!?' booms the [bad-guy], before looking askance at the [random scenery in freak control]."
-"The [bad-guy] mutters something about needing to [activation of Ezra Pound]pound Ezra for not appreciating his edgy, advanced, experimental poetry."
+"The [bad-guy] mutters something about needing to [activation of Ezra Pound]pound Ezra for not appreciating his edgy,  advanced, experimental poetry."
+"You hear whirring up above during a break in the [bad-guy]'s mutterings. After a moment, you guess it's an [activation of fanatic]attic fan."
 "'So much to plan and delegate. So many unreliable people. Duty fatigue, duty fatigue[activation of fatigue duty].'"
 "'I'm so [activation of fawn over]OVER Fawn. She never APPRECIATED my appreciation.'"
 "The [bad-guy] mutters he's sure [activation of Howard Dean]Dean Howard is nice and well-meaning all, but that scream. Really. Just...unforgiveable. And even if it were, well, he probably still deserves to be REMINDED. For character building purposes."
@@ -10713,12 +10721,12 @@ gad-act
 
 table of bad guy worries (continued) [divided so activations are always alphabetical] [xxbgw]
 gad-act
-"[odd-machine of shot screen] blinks a bit before changing its focus."
-"[odd-machine of Twister Brain] spits out a page of data the [bad-guy] speed reads. He mutters 'Pfft. I already sort of knew that. Mostly. Still, need to keep an eye on [the random surveyable person].'"
-"[odd-machine of Witness Eye] swivels around with a VVSSHHKK before changing the focus to [random mainchunk room]."
-"The [bad-guy] laughs sardonically at [odd-machine-l of frenzy feed]. 'Hah, gonna love complaining about that with [random baiter-aligned person].'"
-"The [bad-guy] gestures at [odd-machine-l of Incident Miner]. '[one of]Yup. It's always when they're being a little too nice, you gotta watch out[or]Some people never learn. Or they just learn wrong[or]Just because that wasn't clever doesn't mean it wasn't sneaky[or]They say THAT's no big deal, I say my snark's no big deal, they still feel ripped off. Sheesh[at random].'"
-"The Language Sign flashes but you don't think it changed its message. Just reinforced it."
+"[odd-machine of shot screen] blinks a bit before changing its focus." [na]
+"[odd-machine of Twister Brain] spits out a page of data the [bad-guy] speed reads. He mutters 'Pfft. I already sort of knew that. Mostly. Still, need to keep an eye on [the random surveyable person].'" [na]
+"[odd-machine of Witness Eye] swivels around with a VVSSHHKK before changing the focus to [random mainchunk room]." [na]
+"The [bad-guy] laughs sardonically at [odd-machine-l of frenzy feed]. 'Hah, gonna love complaining about that with [random baiter-aligned person].'" [na]
+"The [bad-guy] gestures at [odd-machine-l of Incident Miner]. '[one of]Yup. It's always when they're being a little too nice, you gotta watch out[or]Some people never learn. Or they just learn wrong[or]Just because that wasn't clever doesn't mean it wasn't sneaky[or]They say THAT's no big deal, I say my snark's no big deal, they still feel ripped off. Sheesh[at random].'" [na]
+"The Language Sign flashes but you don't think it changed its message. Just reinforced it." [na]
 
 the Twister Brain is scenery in Freak Control. "The way it's creased, it's just a contemptuous smirk. Or maybe you're just seeing things."
 
@@ -12225,7 +12233,7 @@ conceptville is a privately-named room in meta-rooms. "You should never see this
 
 understand "conceptville" as conceptville when debug-state is true.
 
-section misc concept(s)
+section misc concepts
 
 abuse testing is a concept in conceptville. understand "testing abuse" as abuse testing. howto is "credits".
 
@@ -12291,7 +12299,7 @@ section tension surface concepts
 
 nose picking is a concept in conceptville. understand "picking nose" as nose picking. howto is "smell the mush in Tension Surface".
 
-section vision tunnel
+section vision tunnel concepts
 
 scum of earth is a concept in conceptville. Understand "earth of scum" as scum of earth. howto is "dig the earth of salt".
 
@@ -12342,6 +12350,8 @@ Tray X is a concept in conceptville. howto is "enter Meal Square".
 treat like dirt is a concept in conceptville. Understand "dirt like treat" as treat like dirt. howto is "examine the points brownie".
 
 section pressure pier concepts
+
+Bible Belt is a concept in conceptville. Understand "belt bible" as bible belt. howto is "[fill-in-here]".
 
 Boy Howdy is a concept in conceptville. understand "howdy boy" as Boy Howdy. howto is "get to Pressure Pier".
 
@@ -12526,6 +12536,8 @@ Jerk Around is a concept in conceptville. Understand "around jerk" as jerk aroun
 
 Jerk Off is a concept in conceptville. understand "off jerk" as jerk off. howto is "attack a jerk in swearing-on mode".
 
+jim beam is a concept in conceptville. Understand "beam jim" as jim beam. howto is "[j-girl]".
+
 joint committee is a concept in conceptville. Understand "committee joint" as joint committee. howto is "[solve-j]".
 
 journeyman is a concept in conceptville. Understand "journeyman" as journeyman. howto is "[j-girl]".
@@ -12533,6 +12545,8 @@ journeyman is a concept in conceptville. Understand "journeyman" as journeyman. 
 junk mail is a concept in conceptville. Understand "mail junk" as junk mail. howto is "listen to the [j-co] before figuring the Index puzzle".
 
 Keyser Soze is a concept in conceptville. Understand "suzy kaiser" and "kaiser suzy" as Keyser Soze. howto is "[j-girl]".
+
+a thing called Laverne and Shirley is a concept in conceptville. Understand "shirley and laverne" as Laverne and Shirley. howto is "[j-girl]".
 
 lily liver is a concept in conceptville. Understand "liver lily" as lily liver. howto is "[j-girl]".
 
@@ -12806,6 +12820,8 @@ Ezra Pound is a concept in conceptville. understand "pound ezra" as ezra pound. 
 
 face facts is a concept in conceptville. Understand "facts face" as face facts. howto is "talk to the [bad-guy]".
 
+fanatic is a concept in conceptville. Understand "fanatic" as fanatic. howto is "[fr-ran]".
+
 fatigue duty is a concept in conceptville. Understand "duty fatigue" as fatigue duty. howto is "[fr-ran]".
 
 favor curry is a concept in conceptville. understand "curry favor" as favor curry. howto is "[fr-pb]".
@@ -12862,7 +12878,7 @@ reactionary is a concept in conceptville. Understand "airy reaction" and "reacti
 
 red alert is a concept in conceptville. Understand "alert red/read" and "read alert" as red alert. howto is "[fr-ran]".
 
-Running Start is a concept in conceptville. understand "start running" as running start. howto is "try going south in Freak Control".
+running gag is a concept in conceptville. Understand "gag running" as running gag. howto is "go south twice in Freak Control".
 
 salad days is a concept in conceptville. understand "daze salad" and "salad daze" as salad days. howto is "[fr-pb]".
 
