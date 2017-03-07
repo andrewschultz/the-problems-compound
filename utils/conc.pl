@@ -196,13 +196,13 @@ for my $x (sort keys %any)
   #print "Looking at $x:\n";
   if (!$expl{$xmod})
   {
-    $errMsg .= "$xmod ($lineNum{$xmod}) needs explanation: guess = " . (findExplLine($xmod, $_[0])) . ".\n";
+    $errMsg .= "$xmod ($lineNum{$xmod}) needs explanation: guess = " . (findExplLine($xmod, $_[0], 1)) . ".\n";
 	$explErr .= "$xmod\t\"$xmod is when you [fill-in-here].\"\n";
 	$fails++; $thisFailed = 1;
   }
   if (!$conc{$xmod})
   {
-	$errMsg .= "$xmod ($lineNum{$xmod}) needs concept definition.\n";
+	$errMsg .= "$xmod ($lineNum{$xmod}) needs concept definition: guess = " . (findExplLine($xmod, $_[0], 2)) . ".\n";
     if ($x =~ /\*/)
 	{
     $y1 = join(" ", reverse(split(/\*/, $x)));
@@ -599,6 +599,8 @@ sub alfPrep
   return $temp;
 }
 
+###########################
+#some magic #s here,  $_[2] = 1 means exp, 2 means conc definition
 sub findExplLine
 {
   my $actRoom;
@@ -611,19 +613,28 @@ sub findExplLine
 	if ($a =~ /activation of $_[0]/i) { chomp($curRoom); $actRoom = $curRoom; last;}
   }
   if (!$actRoom) { return "(failed)"; close(B); }
-  print "$actRoom\n";
 
   close(B);
   open(B, "c:/games/inform/$_[1].inform/source/story.ni");
 
+  my $inXX = 0;
   while ($a = <B>)
   {
-    if ($a =~ /start of $actRoom/i) { my $retVal = "line $."; close(B); return $retVal; }
+    if ($_[2] == 1)
+	{
+    if ($a =~ /xxadd/) { $inXX = 1; }
+    if ($inXX && ($a =~ /start of $actRoom/i)) { my $retVal = "line $."; close(B); return $retVal; }
+	}
+	else
+	{
+	if ($a =~ /section $actRoom/i) { my $retVal = "line $."; close(B); return $retVal; }
+	}
   }
   print "Couldn't find exp line for $_[0]/$actRoom.\n";
   close(B);
   return;
 }
+
 
 sub usage
 {
