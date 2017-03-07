@@ -3456,6 +3456,7 @@ high and dry	"High and dry means in a good safe position."
 high roller	"A high roller is someone with a lot of money and prestige."
 hoth	"High on the hog means living wealthily. To hog the high would be if Fritz didn't share his, um, stuff."
 joint role	"A joint role is something done together. Rolling a joint is the act of creating a marijuana cigarette."
+joint statement	"A joint statement is something made and agreed on by a group of people."
 puff piece	"A puff piece is a fawning newspaper article that makes someone out to be better than they really are. A peace puff from smoking marijuana is (we can assume) less socially motivated."
 sleeper cell	"A group of people who blen into a community until they can commit an act of terrorism."
 bullfrog	"A bullfrog is not quite a toad. And bull means nonsense. The Stool Toad is probably in no danger of being mistaken for Frog or Toad from Arnold Lobel's nice books." [start of joint strip]
@@ -6901,7 +6902,7 @@ Down Ground is east of Pressure Pier. It is in Outer Bounds. "[one of]Walking ea
 
 after printing the locale description for down ground when down ground is unvisited:
 	say "You're reminded of the day you didn't get a permission slip signed to go to the roller coaster park at science class's year end. You wondered if you really deserved it, since you didn't do as well as you felt you could've.[line break]";
-	say "As you finish this thought, a large human-sized toad strolls in from the east. 'So! A new juvenile, eh? You best don't never SLIP. It ain't hard to avoid winding up like Fritz the On, here.' His [activation of grammar police]police grammar leaves you unable to say anything until he disappears back east.[paragraph break]Fritz the On mutters something about that oppressive Stool Toad."
+	say "As you finish this thought, a large human-sized toad strolls in from the east. 'So! A new juvenile, eh? You's best not to SLIP. It ain't hard to avoid winding up mumbling and alone like Fritz the On, here. Whatever he smokes, can't be no [activation of joint statement]statement joint.' His [activation of grammar police]police grammar leaves you unable to say anything until he disappears back east.[paragraph break]Fritz the On mutters something about that oppressive Stool Toad."
 
 check going nowhere in Down Ground:
 	if noun is down:
@@ -12378,7 +12379,7 @@ drag along is a concept in conceptville. Understand "along drag" as drag along. 
 
 Dream Ticket is a concept in conceptville. understand "ticket dream" as dream ticket. howto is "sleep after you got a tickety".
 
-Grammar Police is a concept in conceptville. understand "police grammar" as grammar police. howto is "go east to Down Ground".
+Grammar Police is a concept in conceptville. understand "police grammar" as grammar police. howto is "[f-t of Down Ground]".
 
 ground up is a concept in conceptville. Understand "up ground" as ground up. howto is "go north or south in Down Ground".
 
@@ -12389,6 +12390,8 @@ high roller is a concept in conceptville. Understand "roller high" as high rolle
 hoth is a privately-named concept in conceptville. printed name is "high off the hog". understand "hog on/off the high" and "high on/off the hog" as hoth. howto is "[w-fr]".
 
 joint role is a concept in conceptville. Understand "role/roll joint" and "role/roll a joint" as joint role. howto is "[w-fr]".
+
+joint statement is a concept in conceptville. Understand "statement joint" as joint statement. howto is " [f-t of down ground]".
 
 Puff Piece is a concept in conceptville. understand "peace/piece puff" and "puff peace" as puff piece. howto is "[w-fr]".
 
