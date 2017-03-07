@@ -4,18 +4,18 @@ the story headline is "A Direction of Sense: changing what's-thats to that's-wha
 
 [to search through this file, two x's at the start of a comment will delinate major points I revisit.
 
-  other tables begin with xx and you can search for them. That way. Or with xx (first letter) in most cases.
-  add = stuff referred to tangentially and its explanations.
-  bgw = bad guy worries
-  br = basher bible advice
-  cv = conceptville, where concepts you don't know about are
-  hb = horrible books
-  hs = horrendous songs
-  isv = sid's viewpoints
-  jgt = jerk girl talk
-  ss = sleep stories (the past)
-  trt = ring tries (good)
-  tht = hammer tries (best)
+  other tables begin with xx and you can search for them. That way. Or with xx (first letter) in most cases. I put spaces in the index below so your first hit won't be, well, the index.
+  2x add = stuff referred to tangentially and its explanations.
+  2x bgw = bad guy worries
+  2x br = basher bible advice
+  2x cv = conceptville, where concepts you don't know about are
+  2x hb = horrible books
+  2x hs = horrendous songs
+  2x isv = sid's viewpoints
+  2x jgt = jerk girl talk
+  2x ss = sleep stories (the past)
+  2x trt = ring tries (good ending)
+  2x tht = hammer tries (best ending)
 ]
 
 to say fill-in-here:
@@ -3558,6 +3558,7 @@ tear-jerk	"The jerks['] tears may seem a bit fake, and a tear-jerker is somethin
 terabyte	"A terabyte is a large amount of memory: specifically, 2^40 bytes."
 teriyaki	"Teriyaki is a Japanese sauce, or it can be meat cooked in that sauce over an open grill."
 terrapin	"A terrapin is a fancy name for a turtle, which is slow and has a shell."
+whistler's mother	"Whistler's Mother is a famous painting of an old lady, the mother of the artist."
 career threatening	"Something career threatening may risk not only your job but your ability to get other equal or better jobs. A threatening career is--well, a bit of a racket." [start of judgment pass]
 scofflaw	"A scofflaw is someone who breaks minor rules. Perhaps they jaywalk or litter."
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever." [start of idiot village]
@@ -3659,6 +3660,7 @@ Leading Question	"A leading question is one designed to provoke a certain answer
 mistruth	"A mistruth is, well, a statement that's false."
 narcissist	"A narcissist is someone that puts their own needs too far ahead of others. This can mean hogging attention or shutting other people who rely on them out."
 off the record	"Off the Record means something said privately, often negative. Record the Off means to bring something wrong or different into the open."
+order of operations	"Order of operations is how, for instance, a calculator or program prioritizes multiplication, addition, etc. without parentheses."
 oscar wilde	"Oscar Wilde was a wit and playwright known for one-liners that poked fun at the human condition."
 pad accounts	"To pad accounts is to perform an illegal or unethical manipulation of a company's money, to give yourself more."
 paddywagon	"A paddywagon is a police car that carries arrested people."
@@ -3676,7 +3678,7 @@ scuzz bucket	"A scuzz, or scum, bucket is a person who is just plain dirty or di
 see if i care	"See if I Care is said to show indifference to a bully or nuisance."
 see you later	"See you later is a way to say good-bye."
 shot mug	"The shot mug may look shot, or beaten-up, but mug shots--photographs of apprehended suspects--are generally very unflattering. Hence the flattering portrait of the [bad-guy] on the mug."
-Slicker City	"A city slicker is what rural people may call someone more urban. It's also the name of a planned sequel to PC."
+Slicker City	"A city slicker is what rural people may call someone more urban. It's also the name of the sequel to PC."
 sly dog	"'You sly dog' is a compliment for someone who is very subtly clever."
 stand out	"To stand out is to be different from the rest."
 stupor	"A stupor is when you are conscious but not really aware of what's going on."
@@ -4093,7 +4095,7 @@ understand the command "history" as something new.
 understand "history" as historying.
 
 carry out historying:
-	say "I originally thought up this game in November of 2013. It had a completely different name, which I like a lot, but it didn't fit. PC went through several other names which sounded good but not good enough. The basic idea behind most room names etc. was unchanged.[paragraph break]I wanted to riff on some facet of language without being as abstract and obscure as Ugly Oafs, or as puzzly as the Stale Tales Slate or Threediopolis. The ideas poured in slowly, often by accident. Sometimes I'd overhear stuff, or I'd read an article or book, and there it was. Other times, I'd see a word I was sure had to work some way.[paragraph break]There were enough ideas that didn't fit my story line that [if you-already-won]will go into Slicker City, the sequel[else]I have a sequel and a name for it too. That name will be reveled in a successful ending[end if].";
+	say "I originally thought up this game in November of 2013. It had a completely different name, which I like a lot, but it didn't fit. PC went through several other names which sounded good but not good enough. The basic idea behind most room names etc. was unchanged.[paragraph break]I wanted to riff on some facet of language without being as abstract and obscure as Ugly Oafs, or as puzzly as the Stale Tales Slate or Threediopolis. The ideas poured in slowly, often by accident. Sometimes I'd overhear stuff, or I'd read an article or book, and there it was. Other times, I'd see a word I was sure had to work some way.[paragraph break]There were enough ideas that didn't fit my story line that [if you-already-won]went into Slicker City and Buck the Past, the sequels[else]sequels, listed when you win, or at IFDB[end if].";
 	say "Nuts-and-bolts details can be found in the latest release's included notes.";
 	the rule succeeds;
 
@@ -7630,6 +7632,7 @@ girl-neg
 "The [j-co] claim learning WAY too much about computers will come back to [activation of terabyte]bite Tara."
 "The [j-co] stage-whisper that [activation of teriyaki]Yacky Terri's conversation is neither spicy nor meaty."
 "The [j-co] [activation of terrapin]pin Tera as someone who needs to come out of her shell and live faster."
+"The [j-co] laugh at [activation of whistler's mother]mother whistlers who find true beauty in older females, like, over thirty."
 "The [j-co] agree Erwin is just a total loser name." [na]
 "The [j-co] argue pointlessly over if a girl is pretty plain or plain pretty." [na]
 
@@ -10704,6 +10707,7 @@ gad-act
 "'[activation of mistruth]Ruth missed so much by not listening to the exciting stories I offered to share to her.'"
 "'Y'know, I have all these machines. People want too much credit for an [activation of narcissist]assist-narc these days.'"
 "'Record the off. Always, [activation of off the record]record the off!'"
+"The [bad-guy] mumbles about [activation of order of operations]operations of order and how esoteric nerdy details get in the way."
 "'[activation of Oscar Wilde]Wild Oscar? Pff, so full of vapid one-liners.'"
 "The [bad-guy] mumbles 'Now, where'd I put my [activation of pad accounts]accounts pad?'"
 "The [bad-guy] mumbles about how [activation of paddywagon]Waggin['] Patty is a good snitch. Um, observer."
@@ -12610,6 +12614,8 @@ teriyaki is a concept in conceptville. Understand "teriyaki" as teriyaki. howto 
 
 terrapin is a concept in conceptville. Understand "terrapin" as terrapin. howto is "[j-girl]".
 
+whistler's mother is a concept in conceptville. Understand "mother whistlers/whistler's/whistler" and "whistler/whitler's mother" as whistler's mother. howto is "[j-girl]".
+
 to say solve-j:
 	say "solve the [j-co]['] puzzle"
 
@@ -12855,6 +12861,8 @@ mistruth is a concept in conceptville. Understand "mistruth" as mistruth. howto 
 narcissist is a concept in conceptville. Understand "narcissist" as narcissist. howto is "[fr-ran]".
 
 Off the Record is a concept in conceptville. Understand "record the off" as off the record. howto is "[fr-ran]".
+
+order of operations is a concept in conceptville. Understand "operations of order" as order of operations. howto is "[fr-ran]".
 
 oscar wilde is a concept in conceptville. Understand "wilde/wild oscar" and "oscar wild" as oscar wilde. howto is "[fr-ran]".
 
