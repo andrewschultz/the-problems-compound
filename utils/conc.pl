@@ -600,12 +600,15 @@ sub alfPrep
 }
 
 ###########################
-#some magic #s here,  $_[2] = 1 means exp, 2 means conc definition
+#some magic #s here, $_[0] = search string, $_[1] = file, $_[2] = 1 means exp, 2 means conc definition
 sub findExplLine
 {
   my $actRoom;
   my $curRoom = "";
   my $toFind = 0;
+  my $startSearch = 0;
+  my $amClose = 0;
+
   open(B, "c:/games/inform/$_[1].inform/source/story.ni");
   while ($a = <B>)
   {
@@ -623,11 +626,30 @@ sub findExplLine
     if ($_[2] == 1)
 	{
     if ($a =~ /xxadd/) { $inXX = 1; }
-    if ($inXX && ($a =~ /start of $actRoom/i)) { my $retVal = "line $."; close(B); return $retVal; }
+    if ($inXX && ($a =~ /\[start of $actRoom/i)) { $startSearch = $.; $amClose = 1; next; }
 	}
 	else
 	{
-	if ($a =~ /section $actRoom/i) { my $retVal = "line $."; close(B); return $retVal; }
+	if ($a =~ /section $actRoom/i) { $startSearch = $.; $amClose = 1; next; }
+	}
+	if ($amClose)
+	{
+	  if ($_[2] == 2)
+	  {
+	  if  ($a =~ /^to say/) { <B>; next; }
+	  $a =~ s/^a thing called //i;
+	  $a =~ s/^the //i;
+	  if ($a =~ /^(part|section|chapter|volume|book) +/i)
+	  { my $retVal = "line " . ($.-1); close(B); return $retVal; }
+	  if (lc($a) ge lc($_[0])) { my $retVal = "line " . ($.-1); close(B); return $retVal; }
+	  }
+	  elsif ($_[2] == 1)
+	  {
+	  #print "Checking $a vs $_[0]";
+	  if ($a !~ /[a-z]/i) { my $retVal = "line " . ($.-1); close(B); return $retVal; }
+	  if ($a =~ /\[start of/i) { my $retVal = "line " . ($.-1); close(B); return $retVal; }
+	  if (lc($a) ge lc($_[0])) { my $retVal = "line " . ($.-1); close(B); return $retVal; }
+	  }
 	}
   }
   print "Couldn't find exp line for $_[0]/$actRoom.\n";
