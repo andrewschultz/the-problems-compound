@@ -35,15 +35,17 @@ the release number is 3.
 
 section compiler debug
 
-[without these numbers being increased, the I7 would be translated to I6, but the I6 compiler would complain. That's what happens when a game gets bigger than intended.]
+[without these numbers being increased, the I7 would be translated to I6, but the I6 compiler would complain. That's what happens when a game gets bigger than intended. Often times I'll build in release to make sure things are okay, then I'll forget to build in debug, when things may go boom.]
 
 use MAX_ACTIONS of 210.
+
+use MAX_OBJECTS of 650.
 
 use MAX_SYMBOLS of 24000.
 
 use MAX_STATIC_DATA of 200000.
 
-use MAX_PROP_TABLE_SIZE of 240000.
+use MAX_PROP_TABLE_SIZE of 260000.
 
 book includes
 
@@ -3535,6 +3537,7 @@ manicured	"Manicured fingernails are generally for women, so Manny being cured o
 Mary Sue	"A Mary Sue is a character who is too unbelievably nice. It comes from the tour de force short story A Trekkie's Tale."
 mascara	"Mascara is basic make-up for women."
 melodious	"Melodious means nice-sounding."
+mike drop	"Mike drop is an internet term meaning you've won the argument and there's nothing left to say."
 mollycoddling	"Mollycoddling is being overprotective of someone."
 Nose Candy	"Nose candy is slang for cocaine."
 Notre Dame	"Notre Dame is a famous Catholic university."
@@ -3610,6 +3613,7 @@ nutcase	"A nutcase is a pejorative  term for someone who is crazy, clinical or o
 brass ring	"To grab the brass ring is to achieve a dream goal. It refers to the brass ring on merry-go-rounds." [start of questions field]
 brother foster	"A foster brother is a brother not related by birth."
 Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
+sods law	"Sod's law says anything that can go wrong, will. It's often misstated as Murphy's Law, which is different." [start of standard bog]
 bum a cigarette	"To bum a cigarette is to ask someone for one of theirs. 'A cigarette bum' indicates Penn's disdain for more legal smokables." [start of pot chamber]
 crack pipe	"A crack pipe is used to smoke crack cocaine, which is even more illegal and risky than marijuana."
 crack up	"To crack up is to lose sanity. To crack down is to oppress someone, or arrest people for possession of contraband. To crack a joke is to tell a joke."
@@ -7612,6 +7616,7 @@ girl-neg
 "The [j-co] appreciate how [activation of mary sue]Sue Merry reliably smacks down anyone who seems too nice."
 "The [j-co] discuss how [activation of mascara]Cara Maas would be pretty if she just TRIED."
 "The [j-co] have to admit [activation of melodious]Odious Mel sure can sing!"
+"The [j-co] wonder if they should [activation of mike drop]drop Mike from their extended gang, starting a big argument."
 "The [j-co] harbor fantasies of [activation of mollycoddling]coddling, err, cuddling Molly, who is maybe not as wild as they pretend she is."
 "The [j-co] despair that [activation of nose candy]Candi knows too little about how to party."
 "The [j-co] chuckle at the irreverence of the [activation of notre dame]Dame Noter."
@@ -9884,7 +9889,7 @@ check going nowhere in standard bog:
 		say "You don't want to get...bogged down." instead;
 	if noun is outside:
 		try going south instead;
-	say "With all those potential quicksand traps, it's really only safe to go back south." instead;
+	say "I'm worried you might run into the treacherous [activation of sods law]Law Sods...if you're lucky. It's really only safe to go back south." instead;
 
 The Language Machine is scenery in Standard Bog. "The language machine hums along [if wax is in lalaland]cheerfully[else]balefully[end if], its console spewing out [if wax is in lalaland]poetry, which isn't good, but it's not overblown[else]dolorous, leaden, formulated prose about, well, being stuck in a bog[end if] in its bottom half. In the top half is an LCD [fr-sm]."
 
@@ -12569,6 +12574,8 @@ mascara is a concept in conceptville. Understand "cara maas" and "maas cara" as 
 
 melodious is a concept in conceptville. Understand "odious mel" and "mel odious" as melodious. howto is "[j-girl]".
 
+mike drop is a concept in conceptville. Understand "drop mike" as mike drop. howto is "[j-girl]".
+
 Mollycoddling is a concept in conceptville. Understand "coddling molly" as mollycoddling. howto is "[j-girl]".
 
 Nose Candy is a concept in conceptville. Understand "candy/candi nose/knows" as nose candy. howto is "[j-girl]".
@@ -12747,6 +12754,10 @@ brass ring is a concept in conceptville. Understand "ring brass" as brass ring. 
 brother foster is a concept in conceptville. Understand "foster brother" as brother foster. howto is "talk to any of the brothers in Questions Field".
 
 Brother's Keepers is a concept in conceptville. understand "brother/brothers keeper/keepers" and "keeper/keepers brother/brothers" as Brother's Keepers. howto is "examine the brothers".
+
+section standard bog concepts
+
+sods law is a concept in conceptville. Understand "law sods" and "sod's law" as sods law. howto is "[nogo of standard bog]".
 
 section pot chamber concepts
 
