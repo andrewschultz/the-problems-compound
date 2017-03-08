@@ -23,6 +23,8 @@ my @dirs = ("Compound", "Slicker-City", "Buck-the-Past");
 
 my @okays = ("buster ball", "hunter savage", "trust brain", "good herb", "freak out" );
 
+my $np = "\"C:\\Program Files (x86)\\Notepad++\\notepad++.exe\"";
+
 ###############################
 #options
 my $codeToClipboard = 0;
@@ -35,6 +37,7 @@ my $printSuccess = 0;
 my $addStart = 0;
 my $cvStart = 0;
 my $detailAlpha = 1;
+my $openStoryFile = 1;
 
 #############################
 #hashes
@@ -62,6 +65,7 @@ my $count = 0;
 my $authFail = 0;
 my $asterisks = 0;
 my $astString = "";
+my $nuline = 0;
 
 while ($count <= $#ARGV)
 {
@@ -82,12 +86,14 @@ while ($count <= $#ARGV)
     /^-?(bp|btp)$/ && do { @dirs = ("Buck-the-Past"); $count++; next; };
 	/^-?as$/ && do { @dirs = ("Slicker-City", "Compound"); $count++; next; };
 	/^-?a3$/ && do { @dirs = ("Slicker-City", "Compound", "Buck-the-Past"); $count++; next; };
-	/^-?[cve]+$/ && do
+	/^-?[cve](n|o)?+$/ && do
 	{
 	  $codeToClipboard = $printErrCode = $printErrors = 0;
 	  if ($a =~ /c/) { $codeToClipboard = 1; }
 	  if ($a =~ /e/) { $printErrCode = 1; }
 	  if ($a =~ /v/) { $printErrors = 1; }
+	  if ($a =~ /n/) { $openStoryFile = 0; }
+	  if ($a =~ /o/) { $openStoryFile = 1; }
 	  $count++;
 	  next;
 	};
@@ -194,15 +200,20 @@ for my $x (sort keys %any)
   if ($gotyet{$xmod}) { print "Oops, $xmod looks like an almost-duplicate with asterisks there/missing.\n"; }
   $gotyet{$xmod} = 1;
   #print "Looking at $x:\n";
+  my $maxToOpen = 0;
   if (!$expl{$xmod})
   {
-    $errMsg .= "$xmod ($lineNum{$xmod}) needs explanation: guess = " . (findExplLine($xmod, $_[0], 1)) . ".\n";
+    $nuline = findExplLine($xmod, $_[0], 1);
+	if ($nuline > $maxToOpen) { $maxToOpen = $nuline; }
+    $errMsg .= "$xmod ($lineNum{$xmod}) needs explanation: guess = line $nuline\n";
 	$explErr .= "$xmod\t\"$xmod is when you [fill-in-here].\"\n";
 	$fails++; $thisFailed = 1;
   }
   if (!$conc{$xmod})
   {
-	$errMsg .= "$xmod ($lineNum{$xmod}) needs concept definition: guess = " . (findExplLine($xmod, $_[0], 2)) . ".\n";
+    $nuline = findExplLine($xmod, $_[0], 2);
+	if ($nuline > $maxToOpen) { $maxToOpen = $nuline; }
+	$errMsg .= "$xmod ($lineNum{$xmod}) needs concept definition: guess = line $nuline\n";
     if ($x =~ /\*/)
 	{
     $y1 = join(" ", reverse(split(/\*/, $x)));
@@ -284,6 +295,11 @@ for my $x (sort keys %any)
   if ($#dumbErrors > -1)
   {
     print "#####################Remove error-text from line(s) " . join(", ", @dumbErrors) . ".\n";
+  }
+  if (($openStoryFile) && ($nuline =~ /[1-9]/))
+  {
+    my $cmd = "$np \"c:\\games\\inform\\$_[0].inform\\source\\story.ni\" -n$nuline";
+	`$cmd`;
   }
 
 }
@@ -640,19 +656,20 @@ sub findExplLine
 	  $a =~ s/^a thing called //i;
 	  $a =~ s/^the //i;
 	  if ($a =~ /^(part|section|chapter|volume|book) +/i)
-	  { my $retVal = "line " . ($.-1); close(B); return $retVal; }
-	  if (lc($a) ge lc($_[0])) { my $retVal = "line " . ($.-1); close(B); return $retVal; }
+	  { my $retVal = $.; close(B); return $retVal; }
+	  if (lc($a) ge lc($_[0])) { my $retVal = $.; close(B); return $retVal; }
 	  }
 	  elsif ($_[2] == 1)
 	  {
 	  #print "Checking $a vs $_[0]";
-	  if ($a !~ /[a-z]/i) { my $retVal = "line " . ($.-1); close(B); return $retVal; }
-	  if ($a =~ /\[start of/i) { my $retVal = "line " . ($.-1); close(B); return $retVal; }
-	  if (lc($a) ge lc($_[0])) { my $retVal = "line " . ($.-1); close(B); return $retVal; }
+	  if ($a !~ /[a-z]/i) { my $retVal = $.; close(B); return $retVal; }
+	  if ($a =~ /\[start of/i) { my $retVal = $.; close(B); return $retVal; }
+	  if (lc($a) ge lc($_[0])) { my $retVal = $.; close(B); return $retVal; }
 	  }
 	}
   }
-  print "Couldn't find exp line for $_[0]/$actRoom.\n";
+  return "????";
+  #print "Couldn't find exp line for $_[0]/$actRoom.\n";
   close(B);
   return;
 }
