@@ -54,6 +54,7 @@ my %lineNum;
 my %tableDetHash;
 
 $tableDetHash{"Compound"} = "xxjgt,xxbgw";
+$tableDetHash{"Buck-the-Past"} = "xxtia";
 
 #################################
 #arrays
@@ -124,6 +125,9 @@ sub checkTableDetail
   my $lastAlf = "";
   my $inTable = 0;
   my $source = "c:/games/inform/$_[0].inform/source/story.ni";
+  my $lastFirstTab = "";
+  my $thisFirstTab = "";
+  my $needActive = 0;
   my @stuff = split(/,/, $tableDetHash{$_[0]});
 
   open(A, "$source") || die ("No $source.");
@@ -133,16 +137,26 @@ sub checkTableDetail
   {
   if ($a =~ /^table/)
   {
-    for (@stuff) { if ($a =~ /$_/) { $inTable = $_; <A>; $lastAlf = ""; next OUTER; } }
+    for (@stuff) { if ($a =~ /$_/) { $inTable = $_; <A>; $lastAlf = ""; $needActive = ($a !~ "xxtia"); next OUTER; } }
   }
-  if ($a !~ /[a-z]/i) { $inTable = ""; next; }
+  if ($a !~ /[a-z]/i) { $inTable = ""; $lastFirstTab = ""; next; }
   if ($inTable)
   {
     if ($a =~ /\[na\]/) { next; }
     chomp($a);
-    if ($a !~ /activation of/) { print "Warning: line $. has no ACTIVATION OF.\n"; next; }
+    if ($a =~ /\t/)
+	{
+	  $thisFirstTab = $a; $thisFirstTab =~ s/\t.*//;
+	  if ($thisFirstTab lt $lastFirstTab) { print "BAD ORDER: $.: $thisFirstTab vs $lastFirstTab\n"; }
+	  elsif (lc($thisFirstTab) eq lc($lastFirstTab)) { print "EQUAL: $.: $thisFirstTab vs $lastFirstTab\n"; }
+      $lastFirstTab = $thisFirstTab;
+    }
+	if ($needActive)
+	{
+    if (($a !~ /activation of/) && ($needActive)) { print "Warning: line $. has no ACTIVATION OF.\n"; next; }
     $a =~ s/.*activation of //; $a =~ s/\].*//;
     if (lc($a) le lc($lastAlf)) { print "$a ($. $inTable) may be out of order vs $lastAlf.\n"; }
+	}
 	$lastAlf = $a;
   }
   }

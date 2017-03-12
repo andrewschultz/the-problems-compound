@@ -2142,8 +2142,7 @@ check attacking:
 		say "'Dude! I don't care about the logic games, but they're, like, someone's PROPERTY! And lashing out like that doesn't make you any less, um...' As you wait, you're grabbed from behind. It's some giant toad in a police uniform. Weird. 'There's a place for disrespectful troublemakers like you.'";
 		ship-off Hut Ten instead;
 	if noun is insanity terminal:
-		say "It gives a ton of warning beeps. You run, but the Stool Toad and Officer Petty block the way up. 'Vandalism, eh? An expensive piece of property!'";
-		ship-off Hut Ten instead;
+		say "Break a computer? Maybe you just need a computer break." instead;
 	if noun is torch or noun is book bank:
 		if phil is in Discussion Block or art is in Discussion Block:
 			say "'VANDAL!' shouts [if phil is not in Discussion Block]Art[else if art is not in Discussion Block]Phil[else]the pair of impresarios[end if]. 'You don't realize how priceless it is!' Law enforcement arrives. There's only one place for unartistic lummoxes like you.";
@@ -3281,7 +3280,7 @@ Off Cheese	"To cheese someone off is to annoy them."	"I was pleased to see Hulk 
 opener eye	"An eye-opener is something that makes you realize things. The bad grammar here indicates that your eye, more open, is not really that way, or it's open the wrong way."
 picture of a dozen bakers	"A baker's dozen is thirteen, thus counting for the illusion."	"I have no idea what this illusion would look like if drawn, but I wanted to put it there."
 points brownie	"Brownie points are uinofficial credit for helping or flattering someone."	"It occurred to me it could be horrible for Alec to try and make friends with the [bad-guy] and thus get the totally wrong ending. I think there's a lot of that, that people like the [bad-guy] try to convince you they're on your side, and so forth. Writing the ending squicked me out more than I thought it would."
-spoon table	"A tablespoon is a small measure of something, usually for a recipe."	"The table also spoon-feeds you information. Wrong information, but information."
+spoon table	"A tablespoon is a small measure of something, usually for a recipe."	"The table is bigger than a spoon of course. It originally supported the Basher Bible but seemed more appropriate in Meal Square once I found a replacememt."
 thyme burger	"BurgerTime is a retro arcade game where Peter Pepper, the protagonist, goes around shaking pepper at enemies and stepping on burgers to prepare them."	"This is a dumb joke I enjoyed."
 Tray A	"Just a tray, contrasted with Tray B."	--
 Tray B	"Eating anything on it may betray who you really are."	"This is another thing that dropped out in release 2 and I couldn't believe it was that simple. People were disappointed I didn't clue that it was such a bad idea to eat the Cutter Cookie."
