@@ -3494,7 +3494,8 @@ Well Done	"Well done means good job, but 'done' is also a synonym for dead, beca
 Character Assassination	"Character assassination is an attempt to tarnish someone's good reputation." [start of chipper wood]
 Play it Cool	"To play it cool is not to lose your temper. Of course, Percy's chase may make you want to lose your temper."
 Sweetheart Deal	"A sweetheart deal is something that works very well for both sides, often obtained unethically. Telling someone to deal often means they have to settle for being ripped off."
-anapest	"Anapest is a common beat for a poem. It can seem singsong." [start of Nominal Fen]
+air jordan	"Air Jordan is an expensive athletic shoe named after Michael Jordan, maybe the greatest basketball player ever." [start of Nominal Fen]
+anapest	"Anapest is a common beat for a poem. It can seem singsong."
 Bandanna	"A bandanna is a scarf you tie around your head. Some people find it rebellious, others not rebellious enough."
 bayou	"A bayou is a tributary (river leading to bigger water), and the reverse pronunciation is 'you buy.'"
 bechdel	"The Bechdel test is if an author has two females talking about things other than men or sex. Del Beck fails miserably, of course."
@@ -3554,6 +3555,7 @@ ring finger	"The ring finger is the one between the middle and the pinky."
 sausage fest	"A sausage fest is a congregation of males with no females."
 Sharp Barb	"A sharp barb is a stinging, clever insult."
 shock jock	"A shock jock is someone who provides deliberately insulting opinions to a wide audience, often on radio."
+spotted dick	"Spotted dick is a sort of sweet pudding."
 sweeney todd	"Sweeney Todd was a fictitious murderous barber."
 sympathetic	"Sympathetic means caring and willing to listen."
 tallywhacker	"A tallywhacker is a male sexual organ."
@@ -7584,6 +7586,7 @@ to jerk-blab:
 
 table of jerk-girl-talk [xxjgt]
 girl-neg
+"The [j-co] laugh at how unathletic [activation of air jordan]Jordan Ayer is. They vow to actually start working out some day."
 "The [j-co] berate [activation of anapest]Pest Anna and her weird 'modern' poetry."
 "The [j-co] argue over whether [activation of bandanna]Anna Bandt's clothes choices are really rebellious."
 "The [j-co] praise the writing of [activation of Bechdel]Del Beck, who knows how to do girl-talk even if girls say he doesn't."
@@ -7631,6 +7634,7 @@ girl-neg
 "The [j-co] agree [activation of Ralph Lauren]Lauren Ralph would actually be really attractive with any fashion sense at all."
 "The [j-co] disagree on whether [activation of sharp barb]Barb Sharpe would be worth putting up with her lame gossip."
 "The [j-co] take a minute to [activation of shock jock]jock shock in general. It's very disturbing, but you can't put your finger on why."
+"The [j-co] act disgusted at the food they [activation of spotted dick]spotted Dick eating. Eat a cheeseburger, dude."
 "The [j-co] deride [activation of Sweeney Todd]Todd Sweeney for his fear of horror movies."
 "The [j-co] mock [activation of sympathetic]Pathetic Sim for listening to girls whine about their breakups without getting their phone numbers."
 "The [j-co] start a [activation of tallywhacker]wacker tally of guys very likely to have no experience with women."
@@ -12360,7 +12364,7 @@ treat like dirt is a concept in conceptville. Understand "dirt like treat" as tr
 
 section pressure pier concepts
 
-Bible Belt is a concept in conceptville. Understand "belt bible" as bible belt. howto is "[fill-in-here]".
+Bible Belt is a concept in conceptville. Understand "belt bible" as bible belt. howto is "try taking the Basher Bible".
 
 Boy Howdy is a concept in conceptville. understand "howdy boy" as Boy Howdy. howto is "get to Pressure Pier".
 
@@ -12489,6 +12493,8 @@ section Nominal Fen concepts
 to say j-girl:
 	say "talk to the [j-co] [if allow-swears is false]with swears on [end if]before reading the Finger Index"
 
+air jordan is a concept in conceptville. Understand "jordan air" as air jordan. howto is "[j-girl]".
+
 anapest is a concept in conceptville. Understand "pest anna" and "anna pest" as anapest. howto is "[j-girl]".
 
 Bandanna is a concept in conceptville. Understand "anna bandt/band" and "bandt/band anna" as bandanna. howto is "[j-girl]".
@@ -12608,6 +12614,8 @@ sausage fest is a concept in conceptville. Understand "fest sausage" as sausage 
 Sharp Barb is a concept in conceptville. Understand "barb sharp" as sharp barb. howto is "[j-girl]".
 
 shock jock is a concept in conceptville. Understand "jock shock" as shock jock. howto is "[j-girl]".
+
+spotted dick is a concept in conceptville. Understand "dick spotted" as spotted dick. howto is "[j-girl]".
 
 sweeney todd is a concept in conceptville. Understand "todd sweeney" as sweeney todd. howto is "[j-girl]".
 

@@ -59,6 +59,7 @@ $tableDetHash{"Buck-the-Past"} = "xxtia";
 #################################
 #arrays
 my @dumbErrors = ();
+my @fillIn = ();
 
 ######################counters
 my $objSuc = 0;
@@ -128,7 +129,10 @@ sub checkTableDetail
   my $lastFirstTab = "";
   my $thisFirstTab = "";
   my $needActive = 0;
+  my %needActHash;
   my @stuff = split(/,/, $tableDetHash{$_[0]});
+
+  for (@stuff) { if ($_ =~ /^!/) { $_ = ~ s/^!//; $needActHash{$_} = 0; } else { $needActHash{$_} = 1; } }
 
   open(A, "$source") || die ("No $source.");
 
@@ -137,7 +141,7 @@ sub checkTableDetail
   {
   if ($a =~ /^table/)
   {
-    for (@stuff) { if ($a =~ /$_/) { $inTable = $_; <A>; $lastAlf = ""; $needActive = ($a !~ "xxtia"); next OUTER; } }
+    for (@stuff) { if ($a =~ /$_/) { $inTable = $_; <A>; $lastAlf = ""; $needActive = ($needActHash{$_} == 1); next OUTER; } }
   }
   if ($a !~ /[a-z]/i) { $inTable = ""; $lastFirstTab = ""; next; }
   if ($inTable)
@@ -310,6 +314,12 @@ for my $x (sort keys %any)
   {
     print "#####################Remove error-text from line(s) " . join(", ", @dumbErrors) . ".\n";
   }
+
+  if ($#fillIn > -1)
+  {
+    print "Zap fill-in text at line(s) " . join(", ", @fillIn) . ".\n";
+  }
+
   if (($openStoryFile) && ($nuline =~ /[1-9]/))
   {
     my $cmd = "$np \"c:\\games\\inform\\$_[0].inform\\source\\story.ni\" -n$nuline";
@@ -495,6 +505,7 @@ my $tmpVar;
 
 while ($lineIn = <X>)
 {
+  if ($lineIn =~ /\[fill-in-here\]/) { $nuline = $.; push (@fillIn, $.); next; }
   if ($lineIn =~ /(EXPLANATIONS:|CONCEPTS:|fill-in-here throws)/) { push (@dumbErrors, $.); next; }
   if (($lineIn =~ /is a.* author\. pop/) && ($lineIn !~ /^\[/)) { $tmpVar = $lineIn; $tmpVar =~ s/ is (an|a) .*//g; chomp($tmpVar); if ($lineIn =~ /xp-text is /) { $gotText{$tmpVar} = 1; } elsif ($lineIn =~ /\"/) { print "Probable typo for $tmpVar.\n"; } $auth{$tmpVar} = $line; next; }
   if ($inAuthTable)
