@@ -54,7 +54,7 @@ my %lineNum;
 my %tableDetHash;
 
 $tableDetHash{"Compound"} = "xxjgt,xxbgw";
-$tableDetHash{"Buck-the-Past"} = "xxtia";
+$tableDetHash{"Buck-the-Past"} = "!xxtia";
 
 #################################
 #arrays
@@ -123,6 +123,8 @@ sub checkTableDetail
 {
   if (!defined($tableDetHash{$_[0]})) { return; }
 
+  my $a2;
+  my $a3;
   my $lastAlf = "";
   my $inTable = 0;
   my $source = "c:/games/inform/$_[0].inform/source/story.ni";
@@ -158,10 +160,16 @@ sub checkTableDetail
 	if ($needActive)
 	{
     if (($a !~ /activation of/) && ($needActive)) { print "Warning: line $. has no ACTIVATION OF.\n"; next; }
-    $a =~ s/.*activation of //; $a =~ s/\].*//;
-    if (lc($a) le lc($lastAlf)) { print "$a ($. $inTable) may be out of order vs $lastAlf.\n"; }
+	$a3 = "zzzzzz";
+	$a = lc($a);
+	while ($a =~ /activation of /)
+	{
+    $a =~ s/.*?activation of //; $a2 = $a; $a2 =~ s/\].*//;
+	if ($a3 ge $a2) { $a3 = $a2; }
 	}
-	$lastAlf = $a;
+    if (lc($a3) le lc($lastAlf)) { print "$a3 ($. $inTable) may be out of order vs $lastAlf.\n"; }
+	}
+	$lastAlf = $a3;
   }
   }
 }
