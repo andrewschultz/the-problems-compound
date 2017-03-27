@@ -74,6 +74,7 @@ for ($a)
   /^-np$/ && do { $dicURLPrint = 0; $count++; next; };
   /^-\!$/ && do { countChunks(); countURLs(); exit; };
   /^-?\?$/ && do { usage(); exit; };
+  /^--/ && do { usage(); exit; };
   /^-$/ && do { print "Bad flag.\n"; usage(); exit; };
   if (length($a) == 1) { print ("Length must be at least 2. ? for help.\n"); exit; }
   if ((length($a) == 2) && (!$override)) { print ("-2 flag must be used for 2-letter word.\n"); exit; }

@@ -39,7 +39,7 @@ section compiler debug
 
 use MAX_ACTIONS of 210.
 
-use MAX_OBJECTS of 650.
+use MAX_OBJECTS of 680.
 
 use MAX_SYMBOLS of 24000.
 
@@ -12570,7 +12570,7 @@ Howard Stern is a concept in conceptville. Understand "stern howard" as Howard S
 
 humphrey davy is a concept in conceptville. Understand "davey humphrey" and "humphrey davey"as humphrey davy. howto is "[j-girl]".
 
-Jack London is a concept in conceptville. Understand "london jack" as jack london. howto is "[j-ra]".
+Jack London is a concept in conceptville. Understand "london jack" as jack london. howto is "[j-girl]".
 
 Jerk Around is a concept in conceptville. Understand "around jerk" as jerk around. howto is "enter the main area with profanity on".
 
@@ -12606,7 +12606,7 @@ mike drop is a concept in conceptville. Understand "drop mike" as mike drop. how
 
 Mollycoddling is a concept in conceptville. Understand "coddling molly" as mollycoddling. howto is "[j-girl]".
 
-Nolan Ryan is a concept in conceptville. Understand "ryan nolan" as nolan ryan. howto is "[j-ra]".
+Nolan Ryan is a concept in conceptville. Understand "ryan nolan" as nolan ryan. howto is "[j-girl]".
 
 Nose Candy is a concept in conceptville. Understand "candy/candi nose/knows" as nose candy. howto is "[j-girl]".
 
