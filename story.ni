@@ -3411,6 +3411,7 @@ a Games Mind	"Mind games are messing with people's mind with lies or half-truths
 good egg	"A good egg is a nice person. To egg, or egg on, is to bait someone into doing something you want them to."
 Hunter Savage	"A savage hunter is, well, someone with no mercy. Yup, I like the 'dirty' tangential bad guy better, too."
 knockwurst	"Knockwurst is a kind of sausage."
+power games	"Power games are when people use manipulation to take charge, or when people struggle to control a business, often without voting involved."
 Animal Welfare	"Animal welfare is concern for animals who often can't help themselves. Welfare has a slightly perjorative definition in the US these days, e.g. people on welfare are lazy, or someone giving it is very generous indeed, more than they need to be." [start of variety garden]
 brush up	"To brush up is to refresh your memory of something."
 brush with greatness	"A brush with greatness means meeting someone important or doing something potentially awesome."
@@ -3465,6 +3466,7 @@ case a joint	"To case a joint is to search a place thoroughly."
 Double Jeopardy	"Double jeopardy is being tried for the same crime twice. Making your jeopardy double is just putting you at twice the risk."
 Moral Support	"Moral support is helping someone even if you don't have concrete advice. SUPPORT MORAL is, well, a slogan that pushes people around."
 Pigeon English	"Pigeon English is broken, grammatically poor English."
+strip search	"To strip search someone is to remove their clothes to look for something on them, or in them."
 Trust Brain	"A brain trust is a group of people that help make a decision. A trust-brain, though not an English phrase, might mean a mind that can't make its own decisions."
 beer nuts	"Beer nuts is slang for peanuts." [start of soda club]
 boot licker	"A boot licker is someone who flatters too much."
@@ -3485,6 +3487,7 @@ striptease	"A striptease is, well, what happens at a strip club, where someone s
 Total T	"Teetotal means alcohol-free."
 Wine-U-Gen	"Genuine is, well, real and true. Both Ally Stout and his drinks are superficial, as wine is generally not made by machine."
 cargo cult	"A cargo cult is when islanders cut off from the first world use various instruments and devices to try to get planes filled with material goods to land." [start of classic cult]
+cult status	"Cult status is when a work of art (or person) achieves popularity among a narrow segment of the population. This may or may not be deserved."
 defrock	"To defrock is to remove someone's role as priest."
 good herb	"The good herb is slang for marijuana."
 grace period	"A grace period is time given for someone to learn or understand something, or even to return a book late to the library."
@@ -3494,7 +3497,8 @@ Well Done	"Well done means good job, but 'done' is also a synonym for dead, beca
 Character Assassination	"Character assassination is an attempt to tarnish someone's good reputation." [start of chipper wood]
 Play it Cool	"To play it cool is not to lose your temper. Of course, Percy's chase may make you want to lose your temper."
 Sweetheart Deal	"A sweetheart deal is something that works very well for both sides, often obtained unethically. Telling someone to deal often means they have to settle for being ripped off."
-air jordan	"Air Jordan is an expensive athletic shoe named after Michael Jordan, maybe the greatest basketball player ever." [start of Nominal Fen]
+adult content	"Adult content relates to nontrivial sex or violence." [start of Nominal Fen]
+air jordan	"Air Jordan is an expensive athletic shoe named after Michael Jordan, maybe the greatest basketball player ever."
 anapest	"Anapest is a common beat for a poem. It can seem singsong."
 Bandanna	"A bandanna is a scarf you tie around your head. Some people find it rebellious, others not rebellious enough."
 bayou	"A bayou is a tributary (river leading to bigger water), and the reverse pronunciation is 'you buy.'"
@@ -3517,11 +3521,13 @@ dirty word	"A dirty word is profanity. 'Word' on its own is slang for agreement.
 electrocute	"If someone is electrocuted, they're filled with an often lethal dose of electrical current."
 flounder	"To flounder is to try and fail without any progress. It's also the name of a fish."
 fluoridated	"Fluoridated water is a subject of many silly conspiracy theories."
+gorgeous	"Gorgeous is, well, beautiful."
 grown up	"Grown up means, well, you've learned and matured."
 hara-kiri	"Hara-kiri is Japanese ritual suicide."
 hittite	"A Hittite is a now-extinct race of people in the Bible."
 Howard Stern	"Howard Stern is a long-time radio personality with loud provocative opinions."
 humphrey davy	"Humphrey Davy was an 18th century scientist."
+Jack London	"Jack London generally wrote about tales of the Wild, especially in Alaska."
 jerk around	"To jerk someone around is to pester them physically or mentally."
 jerk off	"To jerk off is to gratify oneself carnally."
 jim beam	"Jim Beam is a brand of whiskey."
@@ -3539,6 +3545,7 @@ mascara	"Mascara is basic make-up for women."
 melodious	"Melodious means nice-sounding."
 mike drop	"Mike drop is an internet term meaning you've won the argument and there's nothing left to say."
 mollycoddling	"Mollycoddling is being overprotective of someone."
+Nolan Ryan	"Nolan Ryan is the Major League Baseball career strikeouts and no-hitters leader."
 Nose Candy	"Nose candy is slang for cocaine."
 Notre Dame	"Notre Dame is a famous Catholic university."
 Olive	"Black and green olives are the two main different kinds of olives."
@@ -3658,6 +3665,7 @@ half right	"Half right is when you are, well, half right. Being half right is of
 Howard Dean	"Howard Dean was a candidate for the 2004 US Democratic Party nomination. After placing 3rd in the Iowa caucuses, he had an infamous 'Dean Scream' at a rally with supporters, which sounded worse than it was, because he was close to a microphone that picked it up. Which made him the butt of many jokes for a week. The media realised that everyone was yelling a week later, but the story was too ingrained by then.[paragraph break]DISCLAIMER: the author voted for Dean in the 2004 primary, and seeing/recalling this episode has unlocked how and why some other people acted the way they have over the years."
 infomania	"Infomania is always wanting new info. The [bad-guy] pretends he doesn't want it, but it's just fun to have. Mania info is, in this case, malicious gossip about people different the wrong way."
 informally	"Informally means without rigid structure, or in a friendly manner."
+John Oliver	"John Stewart hosts Last Week with John Oliver, a popular political satire and commentary show on HBO."
 John Stewart	"John Stewart was the longtime host of The Daily Show, which became a staple of political satire and commentary."
 Johns Hopkins	"Johns Hopkins is a university with a prestigious medical school and pre-med program."
 King Henry	"King Henry VIII of England had six wives."
@@ -5536,7 +5544,7 @@ carry out playing a logic-game:
 			now the-game entry is tried;
 			if gesture token is off-stage:
 				now player has gesture token;
-				say "'Oh, hey, and here's a little something to recognize you're good for something, or at something, or something.'[paragraph break]You turn it over after he hands it to you. Each side looks deliberately counterfeited.[paragraph break]'Buck up, bucko! Show some [g-c]! That's a gen-u-ine gesture token! They're pretty rare. At any rate, I bet YOU'VE never seen one.'";
+				say "'Oh, hey, and here's a little something to recognize you've got, llike, [activation of power games]games power.'[paragraph break]You turn it over after he hands it to you. Each side looks deliberately counterfeited.[paragraph break]'Buck up, bucko! Show some [g-c]! That's a gen-u-ine gesture token! They're pretty rare. At any rate, I bet YOU'VE never seen one.'";
 			unless max-won of noun is times-won of noun:
 				increment times-won of noun;
 				increment your-game-wins;
@@ -7105,7 +7113,7 @@ check going nowhere in Joint Strip:
 		try going south instead;
 	if noun is outside:
 		say "You already are." instead;
-	say "[one of]The Stool Toad booms 'Where you going, son? There's degenerates hiding that way in the stickweed! That's a warning!' You consider asking him why he doesn't go hunt them down, but you don't have the guts. Yet.[or]The Stool Toad blathers something about a final warning, because he sees you trying to sneak off.[or][toad-write-up][or]You already crossed the Stool Toad that way.[stopping]";
+	say "[one of]The Stool Toad booms 'Where you going, son? This isn't a [activation of strip search]search strip without the right outfit!' You consider asking him why he isn't searching, but you don't have the guts. Yet.[or]The Stool Toad blathers something about a final warning, because he sees you trying to sneak off.[or][toad-write-up][or]You already crossed the Stool Toad that way.[stopping]";
 	the rule succeeds;
 
 off-the-path is a truth state that varies.
@@ -7586,7 +7594,8 @@ to jerk-blab:
 
 table of jerk-girl-talk [xxjgt]
 girl-neg
-"The [j-co] laugh at how unathletic [activation of air jordan]Jordan Ayer is. They vow to actually start working out some day."
+"The [j-co] muse how you can't be a [activation of adult content]content adult without getting, well, serious ACTION."
+"The [j-co] laugh at how unathletic [activation of air jordan]Jordan Ayer and [activation of nolan ryan]Ryan Nolan are. They vow to actually start working out some day."
 "The [j-co] berate [activation of anapest]Pest Anna and her weird 'modern' poetry."
 "The [j-co] argue over whether [activation of bandanna]Anna Bandt's clothes choices are really rebellious."
 "The [j-co] praise the writing of [activation of Bechdel]Del Beck, who knows how to do girl-talk even if girls say he doesn't."
@@ -7605,10 +7614,12 @@ girl-neg
 "The [j-co] agree that [activation of electrocute]Cute Electra isn't, like, LETHALLY hot."
 "The [j-co] try to be charitable and think of girls ranked [activation of flounder]under Flo on their beauty scale."
 "A couple [j-co] feel sorry they [activation of fluoridated]dated Flora and listened to her conspiracy theories."
+"The [j-co] agree [activation of gorgeous]Jess Gore is not very attractive."
 "The [j-co] rave how full of life [activation of hara-kiri]Keri Harrah is."
 "The [j-co] formulate a [activation of hittite]'tight' hit (must be some new slang) on the Bible's legitimacy."
 "The [j-co] hope [activation of howard stern]stern Howard doesn't come by to moralize again."
 "The [j-co] laugh at how [activation of humphrey davy]Davey Humphrey beats up and makes fun of science nerds."
+"The [j-co] ooh and ahh at [activation of jack london]London Jack's stories of suave city life."
 "The [j-co] talk about getting in shape at the [activation of Jim Beam]Beam Gym."
 "Each of the [j-co] discusses a [activation of journeyman]man-journey he will take to be above average."
 "The [j-co] create a conspiracy theory for laughs: plain, quiet [activation of Keyser Soze]Suzy Kaiser somehow ruthlessly controls female and male social circles."
@@ -9115,7 +9126,7 @@ quip	quiptext
 grace-hi	"'That is no matter,' they reply in unison. 'You are welcome here. Whether or not you are the one to repair our Googly Bowl. The [bad-guy] ordered it broken, and our brother [activation of good herb]Herb performed the act.'"
 grace-googly	"'It only contains three of the four vital elements it needs to create transcendent happiness, or at least provide relaxing aromas, so it is useless. The [bad-guy] deemed one of few pieces of [activation of cargo cult]cult cargo not completely disposable. The metaphysics would take too long to explain, but... trust us.'"
 grace-herb	"'Herb says brainwashing is worse than drugs. Each gets in the way of appreciating the [bad-guy], but we are apparently more insidious.'"
-grace-restore	"'We hope not. We are a bit confused. The [bad-guy] said we didn't have anything close to the proper [activation of personality cult]cult personality, but all the same, we were using unfair tactics. Really, we just sit around and enjoy classic movies or cult movies without making too many snarky comments. But that's out of favor, thanks to the [bad-guy].'"
+grace-restore	"'We hope not. We are a bit confused. The [bad-guy] said we didn't have anything close to the proper [activation of personality cult]cult personality to be a useful [activation of cult status]status cult, but all the same, we were using unfair tactics. Really, we just sit around and enjoy classic movies or cult movies without making too many snarky comments. But that's out of favor, thanks to the [bad-guy].'"
 grace-baiter	"'Well, he thinks this whole boring-nice thing is not the way to go. We don't even try to [activation of defrock]rock def. So he said if the googly-bowl worked, which it didn't, we didn't deserve it anyway. [activation of grace period]PERIOD, Grace. Something too about how people should try to make their lives almost as exciting as his, but not as exciting--that'd be like sacrilege against intellect or something. It's all a bit confusing.'"
 grace-bye	"'Fare well in your journeys.'"
 
@@ -10698,7 +10709,7 @@ gad-act
 "'[activation of busy work]Work...busy...work...busy,' says the [bad-guy], pacing back and forth."
 "The [bad-guy] mentions he is [activation of carry over]over Carrie several times."
 "The [bad-guy] mutters plans about the monthly [activation of cruise control]Control Cruise coming up, a nice support group for people almost tired of being in power."
-"The [bad-guy] groans how [activation of John Stewart]Stewart Jahn and [activation of trevor noah]Noah Trevor [activation of daily show]show daily how unfunny and irrelevant and socially aloof they are."
+"The [bad-guy] groans how [activation of John Stewart]Stewart and [activation of John Oliver]Oliver Jahn and [activation of trevor noah]Noah Trevor [activation of daily show]show daily how unfunny and irrelevant and socially aloof they are."
 "'We need to [activation of degenerate]generate D, here, against [bad-guy-2]!'"
 "'[random surveyable person] just needs a good [activation of disorder]Order Dis to put [']em line. Or two. Or three.'"
 "'[activation of elitist]Leetest! Eeee!' boasts the [bad-guy], establishing several layers of irony, you're pretty sure."
@@ -12268,7 +12279,7 @@ wait your turn is a concept in conceptville. understand "turn your wait" as wait
 
 wave a flag is a concept in conceptville. Understand "flag a wave" as wave a flag. howto is "wave".
 
-section intro concepts
+section smart street concepts
 
 acceptable is a concept in conceptville. understand "able except" and "except able" as acceptable. howto is "examine the gesture token".
 
@@ -12287,6 +12298,8 @@ Good Egg is a concept in conceptville. understand "egg good" as good egg. howto 
 Hunter Savage is a concept in conceptville. understand "savage hunter" as hunter savage. howto is "talking".
 
 knockwurst is a concept in conceptville. Understand "knock worst" and "worst knock" as knockwurst. howto is "knock any way other than hard in Smart Street".
+
+power games is a concept in conceptville. Understand "games power" as power games. howto is "win your first logic game against Guy Sweet".
 
 chapter surface concepts
 
@@ -12417,6 +12430,8 @@ Moral Support is a concept in conceptville. understand "support moral" as moral 
 
 Pigeon English is a concept in conceptville. Understand "english pigeon" as pigeon english. howto is "examine pigeon stool".
 
+strip search is a concept in conceptville. Understand "search strip" as strip search. howto is "[nogo of Joint Strip]".
+
 Trust Brain is a concept in conceptville. understand "brain trust" as trust brain. howto is "examine dreadful penny or mind of peace".
 
 section soda club concepts
@@ -12466,6 +12481,8 @@ section classic cult concepts
 
 cargo cult is a concept in conceptville. Understand "cult cargo" as cargo cult. howto is "talk to Grace".
 
+cult status is a concept in conceptville. Understand "status cult" as cult status. howto is "ask about restoring the googly bowl".
+
 Defrock is a concept in conceptville. Understand "rock def" and "def rock" as defrock. howto is "talk to Grace".
 
 good herb is a concept in conceptville. Understand "herb good/goode" as good herb. howto is "talk to Pusher Penn or the Goode sisters".
@@ -12492,6 +12509,8 @@ section Nominal Fen concepts
 
 to say j-girl:
 	say "talk to the [j-co] [if allow-swears is false]with swears on [end if]before reading the Finger Index"
+
+adult content is a concept in conceptville. Understand "content adult" as adult content. howto is "[j-girl]".
 
 air jordan is a concept in conceptville. Understand "jordan air" as air jordan. howto is "[j-girl]".
 
@@ -12539,6 +12558,8 @@ flounder is a concept in conceptville. Understand "flo under" and "under flo" as
 
 fluoridated is a concept in conceptville. Understand "dated flora" and "flora dated" as fluoridated. howto is "[j-girl]".
 
+gorgeous is a concept in conceptville. Understand "jess gore" and "gore jess" as gorgeous. howto is "[j-girl]".
+
 grown up is a concept in conceptville. Understand "up groan" and "groan up" as grown up. howto is "[solve-j] with swears off".
 
 Hara-Kiri is a concept in conceptville. Understand "keri harrah" and "harrah keri" as hara-kiri. howto is "[j-girl]".
@@ -12548,6 +12569,8 @@ hittite is a concept in conceptville. Understand "tight hit" and "hit tight" as 
 Howard Stern is a concept in conceptville. Understand "stern howard" as Howard Stern. howto is "[j-girl]".
 
 humphrey davy is a concept in conceptville. Understand "davey humphrey" and "humphrey davey"as humphrey davy. howto is "[j-girl]".
+
+Jack London is a concept in conceptville. Understand "london jack" as jack london. howto is "[j-ra]".
 
 Jerk Around is a concept in conceptville. Understand "around jerk" as jerk around. howto is "enter the main area with profanity on".
 
@@ -12582,6 +12605,8 @@ melodious is a concept in conceptville. Understand "odious mel" and "mel odious"
 mike drop is a concept in conceptville. Understand "drop mike" as mike drop. howto is "[j-girl]".
 
 Mollycoddling is a concept in conceptville. Understand "coddling molly" as mollycoddling. howto is "[j-girl]".
+
+Nolan Ryan is a concept in conceptville. Understand "ryan nolan" as nolan ryan. howto is "[j-ra]".
 
 Nose Candy is a concept in conceptville. Understand "candy/candi nose/knows" as nose candy. howto is "[j-girl]".
 
@@ -12866,6 +12891,8 @@ Howard Dean is a concept in conceptville. understand "dean howard" as howard dea
 Infomania is a concept in conceptville. Understand "infomania" as infomania. howto is "[fr-ran]".
 
 informally is a concept in conceptville. Understand "ally inform" and "inform ally" as informally. howto is "[fr-ran]".
+
+John Oliver is a concept in conceptville. Understand "oliver jahn" and "jahn oliver" as john oliver. howto is "[fr-ran]".
 
 John Stewart is a concept in conceptville. Understand "stewart jahn" and "jahn stewart" as john stewart. howto is "[fr-ran]".
 
