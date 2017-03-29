@@ -19,7 +19,7 @@ use Win32::Clipboard;
 
 my $clip = Win32::Clipboard::new();
 
-my @dirs = ("Compound", "Slicker-City", "Buck-the-Past");
+my @dirs = ("Compound", "Slicker-City", "Buck-the-Past", "btp-st");
 
 my @okays = ("buster ball", "hunter savage", "trust brain", "good herb", "freak out" );
 
@@ -38,6 +38,7 @@ my $addStart = 0;
 my $cvStart = 0;
 my $detailAlpha = 1;
 my $openStoryFile = 1;
+my $printAllDiff = 0;
 
 #############################
 #hashes
@@ -54,6 +55,7 @@ my %lineNum;
 my %tableDetHash;
 
 $tableDetHash{"Compound"} = "xxjgt,xxbgw";
+$tableDetHash{"Buck-the-Past"} = "!xxtia";
 $tableDetHash{"Buck-the-Past"} = "!xxtia";
 
 #################################
@@ -80,19 +82,22 @@ while ($count <= $#ARGV)
 	  $count++;
 	  next;
 	  };
+    /^-?a$/ && do { $printAllDiff = 1; $count++; next; };
+    /^-?e$/ && do { `__FILE__`; exit(); };
     /^-?nt$/ && do { $printTest = 0; $count++; next; };
     /^-?t$/ && do { $printTest = 1; $count++; next; };
     /^-?ps$/ && do { $printSuccess = 1; $count++; next; };
     /^-?pc$/ && do { @dirs = ("Compound"); $count++; next; };
     /^-?sc$/ && do { @dirs = ("Slicker-City"); $count++; next; };
     /^-?(bp|btp)$/ && do { @dirs = ("Buck-the-Past"); $count++; next; };
+    /^-?bs$/ && do { @dirs = ("btp-st"); $count++; next; };
 	/^-?as$/ && do { @dirs = ("Slicker-City", "Compound"); $count++; next; };
-	/^-?a3$/ && do { @dirs = ("Slicker-City", "Compound", "Buck-the-Past"); $count++; next; };
-	/^-?[cve](n|o)?+$/ && do
+	/^-?a3$/ && do { @dirs = ("Slicker-City", "Compound", "Buck-the-Past", "btp-st"); $count++; next; };
+	/^-?[cv0](n|o)?+$/ && do
 	{
 	  $codeToClipboard = $printErrCode = $printErrors = 0;
 	  if ($a =~ /c/) { $codeToClipboard = 1; }
-	  if ($a =~ /e/) { $printErrCode = 1; }
+	  if ($a =~ /0/) { $printErrCode = 1; }
 	  if ($a =~ /v/) { $printErrors = 1; }
 	  if ($a =~ /n/) { $openStoryFile = 0; }
 	  if ($a =~ /o/) { $openStoryFile = 1; }
@@ -230,7 +235,7 @@ for my $x (sort keys %any)
   if (!$expl{$xmod})
   {
     $nuline = findExplLine($xmod, $_[0], 1);
-	if ($nuline > $maxToOpen) { $maxToOpen = $nuline; }
+	if (($nuline ne "????") && $nuline > $maxToOpen) { $maxToOpen = $nuline; }
     $errMsg .= "$xmod ($lineNum{$xmod}) needs explanation: guess = line $nuline\n";
 	$explErr .= "$xmod\t\"$xmod is when you [fill-in-here].\"\n";
 	$fails++; $thisFailed = 1;
@@ -238,7 +243,7 @@ for my $x (sort keys %any)
   if (!$conc{$xmod})
   {
     $nuline = findExplLine($xmod, $_[0], 2);
-	if ($nuline > $maxToOpen) { $maxToOpen = $nuline; }
+	if (($nuline ne "????") && $nuline > $maxToOpen) { $maxToOpen = $nuline; }
 	$errMsg .= "$xmod ($lineNum{$xmod}) needs concept definition: guess = line $nuline\n";
     if ($x =~ /\*/)
 	{
@@ -414,27 +419,42 @@ sub checkOrder
 
   $ordFail = 0;
   my $inOrder = 0;
+  my $printThisOut = 1;
+  my $lastCo = 0;
+  my $lastEx = 0;
   for (0..$#ex)
   {
+    $printThisOut = 1;
     #print lc(@ex[$_]) . " =? " . lc(@co[$_]) . "\n";
     if ((!defined($co[$_])) || (lc($ex[$_]) ne lc($co[$_])))
 	{
 	  $ordFail++;
 	  if ($match - $lastMatch == 1) { next; }
-      printf("$_ ($ordFail): $ex[$_] %s vs %s", $lineNum{$ex[$_]} ? "($lineNum{$ex[$_]})" : "",
+	  $printThisOut = !($lastCo - $lineNum{$co[$_]} == -1); #(($lastCo - $lineNum{$co[$_]} == -1) ||
+	  #print "$lastCo $lineNum{$co[$_]} $lastEx $lineNum{$ex[$_]}\n";
+	  $printThisOut |= $printAllDiff;
+	  if ($printThisOut)
+	  {
+	  printf("$_ ($ordFail): $ex[$_] %s vs %s", $lineNum{$ex[$_]} ? "($lineNum{$ex[$_]})" : "",
 	  defined($co[$_]) ? "$co[$_] ($lineNum{$co[$_]})" : "(nothing)");
 	  #defined($co[$_]) ? "$co[$_] ($lineNum{$co[$_]})" : "");
+	  }
 	  for my $match (0..$#co)
 	  {
 	    if (lc($ex[$_]) eq lc($co[$match]))
 	    {
-		  print " (#$match)";
-		  if ($match - $lastMatch == 1) { print " (in order)"; $inOrder++; }
+		  if ($printThisOut) { print " (#$match)"; }
+		  if ($match - $lastMatch == 1) { if ($printThisOut) { print " (in order)"; } $inOrder++; }
 		  $lastMatch = $match;
+	  $lastCo = $lineNum{$co[$_]};
+	  $lastEx = $lineNum{$ex[$_]};
 		}
 	  }
+	  if ($printThisOut)
+	  {
 	  if ($lw ne "") { print " (last working=$ex[$lw])"; }
 	  print "\n";
+	  }
 	} else { $lw = $_; }
   }
 
@@ -456,9 +476,9 @@ sub checkOrder
   if ($printTest) { print "TEST RESULTS:$_[0] ordering,$ordFail,0,0,run conc.pl -o\n"; }
   if ($printTest) { print "TEST RESULTS:$_[0] concept order errors,$conceptOrdErr,0,0,\n"; }
 
-  if ($writeGameObjErrRes)
+  if ($writeGameObjErrRes && $printTest)
   {
-    print "TEST RESULTS:$_[0] explanation alphabetizing,0,$objAlf,$objSuc\n";
+    print "TEST RESULTS:$_[0] explanation alphabetizing,0,$ordFail,$objSuc\n";
   }
   if (scalar keys %auth == 0) { return; }
   my $gots = scalar keys %gotText;
@@ -713,8 +733,10 @@ sub usage
 print<<EOT;
 CONC.PL usage
 ===================================
+-a = show all errors even likely redundant consecutive ones
+-e = edit source
 -c = error code to clipboard
--e = print errors not error code
+-0 = print errors not error code
 -v = verbosely print code
 (any combination is okay too)
 -t = print with test results so nightly build can process it
