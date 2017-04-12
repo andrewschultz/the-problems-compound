@@ -348,10 +348,10 @@ to say your-mood:
 		say "GIVIN['] 110%";
 	else if player is in Smart Street:
 		say "Just Starting";
-	else if player is in lounge:
+	else if player is in Round Lounge:
 		say "First Puzzle";
 	else if mrlp is beginning:
-		say "[if player is in surface]T[else]Near t[end if]he Arch";
+		say "[if player is in Tension Surface]T[else]Near t[end if]he Arch";
 	else if mrlp is outer bounds:
 		if trail paper is off-stage:
 			if your-tix is 0:
@@ -380,7 +380,7 @@ to say your-mood:
 			say "[last-jerk]";
 		else:
 			say "7[']s a crowd";
-	else if player is in Wood and p-c is true:
+	else if player is in Chipper Wood and p-c is true:
 		say "Chasing";
 	else if player is in Belt Below:
 		say "[unless terminal is in Belt Below]Cheats below[else if terminal is examined]Puzzling[else]";
@@ -1093,7 +1093,7 @@ check dropping long string:
 
 check dropping (this is the general dropping rule):
 	if noun is pocket pick:
-		say "'Aw, c'mon,' you hear the Word Weasel say, in your head[if player is in garden]. You think it was in your head[end if]." instead;
+		say "'Aw, c'mon,' you hear the Word Weasel say, in your head[if player is in variety garden]. You think it was in your head[end if]." instead;
 	if noun is dreadful penny:
 		say "The penny doesn't drop on any puzzle you want to solve." instead;
 	if noun is minimum bear:
@@ -1297,7 +1297,7 @@ carry out do-swearing:
 			increment hypoc-swear;
 	if player is in Soda Club:
 		say "You reckon that's how people are supposed to cuss in a bar, er, club, but you can't give that word the right oomph." instead;
-	if player is in cult:
+	if player is in Classic Cult:
 		say "That'd be extra rude in a place like this." instead;
 	if player is in chipper wood and Cute Percy is in chipper wood:
 		say "Percy smirks[if p-c is true]. 'That won't do any good!'[else].[end if]" instead;
@@ -1524,7 +1524,7 @@ check smelling (this is the smelling a thing rule):
 	if noun is poetic wax:
 		say "You're sure you've smelled it before, and it's good and bad and a bit beyond you." instead;
 	if noun is flower wall:
-		say "Smells nice. Cancels out the [if earth of salt is in tunnel]now-gone salt[else]salt, almost[end if]." instead;
+		say "Smells nice. Cancels out the [if earth of salt is in Vision Tunnel]now-gone salt[else]salt, almost[end if]." instead;
 	if noun is earth of salt:
 		say "Salt...well, it smells [i]interesting[r], though you don't have a very picking nose[activation of nose picking]." instead;
 	if noun is fritz:
@@ -1609,18 +1609,18 @@ check listening (this is the listening in a place rule):
 	if player is in chipper wood:
 		if Cute Percy is in chipper wood:
 			try listening to Cute Percy instead;
-	if player is in cult:
+	if player is in Classic Cult:
 		say "That stereotypical 'OM' noise which fools nobody any more. The Goodes pretty clearly haven't taken any marketing clues from any big televangelist, and they seem happy just helping people feel at ease." instead;
 	if player is in idiot village:
 		say "You hear a faint duh-duh-duh. But wait a minute. Maybe it's there to ward off people who think they're a little too smart, and Idiot Village is not so stupid after all." instead;
 	if player is in Nominal Fen:
 		jerk-blab;
 		the rule succeeds;
-	if player is in surface and mush is in surface:
+	if player is in Tension Surface and mush is in Tension Surface:
 		say "The arch makes a slight tapping noise as it dances from side to side." instead;
 	if player is in Soda Club:
 		say "Under some [one of]punk[or]New Wave[or]Disco[or]oldies[or]popular[or]alternative[or]classical[in random order] tune you really should know, you think you hear some really hearty arguments about really dumb stuff." instead;
-	if player is in pyramid:
+	if player is in scheme pyramid:
 		try listening to labor child instead;
 	if player is in joint strip:
 		try listening to stool toad instead;
@@ -1936,7 +1936,7 @@ check singing:
 		say "[if phil is in Discussion Block]You don't want to hear Phil's critique of your singing[else]You still can't compete with the song torch[end if]." instead;
 	if player has poetic wax:
 		say "It's poetic wax, not [activation of wax lyrical]lyrical wax." instead;
-	if player is in cult:
+	if player is in Classic Cult:
 		say "You sense singing may be overdoing it for the cult here." instead;
 	say "Once you scrunch up [activation of face the music]the music face needed, you realize never were the artsy type. And the songs you want to sing are always out of fashion." instead;
 
@@ -2130,7 +2130,7 @@ check attacking:
 	if noun is mouth mush:
 		say "How? By stepping on it and falling into it? Smooth." instead;
 	if noun is arch:
-		say "[if mush is in surface]Maybe you could do a flying karate-leap to touch the arch, but you'd fall into the mouth mush, so no[else]You should really just ENTER it now[end if]." instead;
+		say "[if mush is in Tension Surface]Maybe you could do a flying karate-leap to touch the arch, but you'd fall into the mouth mush, so no[else]You should really just ENTER it now[end if]." instead;
 	if noun is gen-brush or noun is off brush or noun is back brush or noun is aside brush:
 		say "Beating that brush would be beating around the brush." instead;
 	if noun is fund hedge:
@@ -2974,13 +2974,13 @@ rule for supplying a missing noun when diging:
 		say "Nothing to dig with. You try to dig things generally, but it doesn't work[if player is in down ground]. Not even with Fritz around[end if]." instead;
 	if player is in garden:
 		now the noun is poor dirt;
-	else if player is in tunnel:
-		if earth of salt is in tunnel:
+	else if player is in Vision Tunnel:
+		if earth of salt is in Vision Tunnel:
 			now noun is earth of salt;
 		else:
 			now noun is flower wall;
-	else if player is in surface:
-		if mush is in surface:
+	else if player is in Tension Surface:
+		if mush is in Tension Surface:
 			now noun is mush;
 		else:
 			now noun is arch;
@@ -3046,7 +3046,7 @@ definition: a room (called mr) is xpable:
 	let rmr be map region of mr;
 	if mr is freak control and questions field is visited:
 		decide yes;
-	if mr is fen and pier is visited:
+	if mr is Nominal fen and pier is visited:
 		decide yes;
 	if mr is round lounge:
 		if jump-level > 0:
@@ -5192,7 +5192,7 @@ this is the babble-shush rule:
 	if player is in temper keep:
 		say "[if sal-sleepy is true]Sal is sleeping and has nothing to say[else]Sal's complaining is harmless but uninformative[end if].";
 		the rule succeeds;
-	if player is in pyramid and labor child is in pyramid:
+	if player is in scheme pyramid and labor child is in scheme pyramid:
 		say "The Labor Child isn't one for small talk, especially around unconsequential people like you. No offense.";
 		the rule succeeds;
 	if player is in airy station:
@@ -5694,7 +5694,7 @@ check going outside in Round Lounge:
 	say "The only real way out is the hatch above. I mean, even if you could find a way out through the walls, you'd have to put up with Guy Sweet again." instead;
 
 for writing a paragraph about a thing (called rou) in A Round Lounge:
-	say "[unless round screw is in Lounge]A round stick still lies here[else unless round stick is in Lounge]A round screw, almost as large as the stick you're carrying, still lies here[else]A round stick and a round screw, which is about the same size as the stick, lie here[end if].";
+	say "[unless round screw is in Round Lounge]A round stick still lies here[else unless round stick is in Round Lounge]A round screw, almost as large as the stick you're carrying, still lies here[else]A round stick and a round screw, which is about the same size as the stick, lie here[end if].";
 	now round stick is mentioned;
 	now round screw is mentioned;
 
@@ -5847,7 +5847,7 @@ carry out sitting on:
 
 part Tension Surface
 
-Tension Surface is a room in beginning. it is inside of A Round Lounge. "While there's nothing here other than [if rogue arch is examined]the Rogue Arch[else]an arch[end if] [if mush is in surface]dancing sideways [end if]to the north, you're still worried the land is going to spill out over itself, or something. You can go east or west to relieve the, uh, tension. Any other way, it's crazy, but you feel like you might fall off."
+Tension Surface is a room in beginning. it is inside of A Round Lounge. "While there's nothing here other than [if rogue arch is examined]the Rogue Arch[else]an arch[end if] [if mush is in Tension Surface]dancing sideways [end if]to the north, you're still worried the land is going to spill out over itself, or something. You can go east or west to relieve the, uh, tension. Any other way, it's crazy, but you feel like you might fall off."
 
 after printing the locale description for Tension Surface when Tension Surface is unvisited:
 	if Round Lounge is visited:
@@ -5874,11 +5874,11 @@ check going when player is in Tension Surface (this is the pass-arch rule) :
 	if noun is inside:
 		try going north instead;
 	if noun is south or noun is outside or noun is down:
-		say "[if mouth mush is in surface]The mouth mush makes fake chicken noises that would make even Tommy Wiseau cringe. Not that you can really run and hide, anyway.[else]Running away would just delay the inevitable--you really should try to enter the arch now.[end if]" instead;
+		say "[if mouth mush is in Tension Surface]The mouth mush makes fake chicken noises that would make even Tommy Wiseau cringe. Not that you can really run and hide, anyway.[else]Running away would just delay the inevitable--you really should try to enter the arch now.[end if]" instead;
 	if noun is north:
 		if player has burden and burden-signed is true:
 			say "'Procedure, procedure!' mocks the mouth mush. 'You got your documentation signed, but you have to GIVE it over [i]before[r] walking in.'" instead;
-		if mush is in surface:
+		if mush is in Tension Surface:
 			say "[one of]You think you've judged how the arch dances, so you can anticipate and walk in. Timing...there...WOOMP! The mush mouth opens so wide you can't jump over it. 'Oops! I need proof you NEED to get by.'[or]The mouth expands again. You're not falling in there, oh no.[stopping]" instead;
 		say "You take a cautious step. That rogue arch might still bounce around...";
 		wfak;
@@ -5926,7 +5926,7 @@ litany of mouth mush is the table of arch talk.
 table of quip texts (continued)
 quip	quiptext
 mush-go	"'Beyond is the Problems Compound. But you must prove you belong there. That you are smart enough to be worth helping, to process what you will see there.'"
-mush-all	"'There's something west and east[unless garden is visited and tunnel is visited]. You should have a look[end if]. If you are resourceful, you will find what you need.'"
+mush-all	"'There's something west and east[unless Variety Garden is visited and Vision Tunnel is visited]. You should have a look[end if]. If you are resourceful, you will find what you need.'"
 mush-north	"'I will need proof you really need the help of the Problems Compound. SIGNED proof.'"
 mush-behind	"'More than you can imagine. Interesting people! Dynamic people! Who do not worry about which is more interesting. And if you know your place, you will not worry that they are more interesting than you.'"
 mush-mb	"'He is certainly someone to know. A few moments with him and your life views will change instantly! Well, as long as you do what he says. If you manage to gain an audience with him, of course. Not that he's a tyrant, or anything. He's just right. Tough but fair. And you look like you could use both.'"
@@ -5978,9 +5978,9 @@ check going nowhere in vision tunnel:
 
 the picture hole is scenery in vision tunnel. description is "[one of]You peek into the picture hole in the flower wall, and it looks like a bunch of swirls until you stare at it right. A whole story takes shape. [or][stopping]You recognize [one of]a stick figure[or]yourself, again[stopping] finding a ticket in a book, climbing a chair to reach a hatch, digging by a bunch of flowers, depositing a document in the ground--and then being blocked by three stick figures--blue, red and tall.[paragraph break][one of]You blink, and the picture degenerates back into swirls. But you can always look again, if you want[or]The picture scrambles again once you blink[stopping]."
 
-understand "vision" as picture hole when player is in tunnel and flower wall is examined.
+understand "vision" as picture hole when player is in Vision Tunnel and flower wall is examined.
 
-understand "vision" as flower wall when player is in tunnel and flower wall is not examined.
+understand "vision" as flower wall when player is in Vision Tunnel and flower wall is not examined.
 
 the earth of salt is scenery in Vision Tunnel. "It's opaque, probably earth of salt or something, and it seems half-buried. You think if you look closely you see something under it that's not dirt or salt. But you can't just move it away by conventional means."
 
@@ -7491,7 +7491,7 @@ part Nominal Fen
 
 Nominal Fen is north of Pressure Pier. It is in Main Chunk. printed name of Nominal Fen is "[jc]". "[if silly boris is in lalaland]It's a bit more relaxed here without the [j-co]['] conversation[else][one of]This--well, it isn't a swamp, or a bog, or--well, you're not sure, and it's not particularly amazing, so yeah, call it a fen. [or][stopping]Seven [j-co] stand in a circle (okay, a heptagon) here, talking to and about others[end if]. It looks like there's forested area to the west, a narrow valley to the east, and things open up to the north. Nothing's stopping you going back south to Pressure Pier, either[if bros-left is 0], though you probably have nothing to do there with the Brothers gone[end if]."
 
-understand "drain the circle" and "drain circle" as a mistake ("Maybe you can find a way to make them feel drained.") when player is in fen and boris is in fen and allow-swears is true.
+understand "drain the circle" and "drain circle" as a mistake ("Maybe you can find a way to make them feel drained.") when player is in Nominal fen and boris is in Nominal fen and allow-swears is true.
 
 after printing the locale description for Nominal Fen when Nominal Fen is unvisited:
 	unless accel-ending:
@@ -8076,7 +8076,7 @@ to zap-the-jerks:
 		unlock-verb "notice";
 	annotize jerks;
 
-check going north when player is in well:
+check going north when player is in Disposed Well:
 	if silly boris is in lalaland:
 		say "[one of]Hmm. That's odd. You hear the [j-co] in there, marveling at the depth of the Labor Child's 'business interests.' You're glad you uncovered this, but maybe you should leave the Labor Child to the [j-co] and tackle the [bad-guy] instead.[or]No, you don't need or want to go back there. The Labor Child's in for it enough, and the [j-co] are investigating rigorously.[stopping]" instead;
 
@@ -8084,7 +8084,7 @@ chapter jerk talking
 
 part Chipper Wood
 
-Chipper Wood is west of Nominal Fen. It is in Main Chunk. "The path cuts east-west here, the wood being too thick elsewhere. [if chase paper is in wood][say-paper][else]You can go down where the chase paper was[end if]."
+Chipper Wood is west of Nominal Fen. It is in Main Chunk. "The path cuts east-west here, the wood being too thick elsewhere. [if chase paper is in Chipper wood][say-paper][else]You can go down where the chase paper was[end if]."
 
 to say say-paper:
 	say "[one of]But this path is clear, with an odd large paper grid. It's five by five, with fainter diagonal lines too[or]The chase paper is still there, taunting you with its apparent simplicity[stopping]";
@@ -8473,7 +8473,7 @@ check talking to Cute Percy:
 		say "You've got no chance of winning an insult war. But maybe if you catch him on the Chase Paper...he said he might help you. Or help you get close to help. Probably the second." instead;
 
 check going inside when player is in chipper wood and p-c is false:
-	if chase paper is in wood:
+	if chase paper is in Chipper wood:
 		try entering chase paper instead;
 
 to say wfk:
@@ -8489,14 +8489,14 @@ understand "cp/ac/char/ass/character/assassin" and "assassin/assassination chara
 
 part Disposed Well
 
-Disposed Well is west of Chipper Wood. It is in Main Chunk. "A crumbling well marks the center of this clearing.[paragraph break]You may go west to [if classic cult is visited]the Classic Cult[else]some sort of church[end if] or back east to the Chipper Wood. To the north, [if boris is in lalaland]the Scheme Pyramid has been closed[else if pyramid is visited]the Scheme Pyramid[else]a business[end if]. [if truth home is visited]You can go back inside to the Truth Home, too[else]There's also a small home you could go inside[end if]."
+Disposed Well is west of Chipper Wood. It is in Main Chunk. "A crumbling well marks the center of this clearing.[paragraph break]You may go west to [if classic cult is visited]the Classic Cult[else]some sort of church[end if] or back east to the Chipper Wood. To the north, [if boris is in lalaland]the Scheme Pyramid has been closed[else if scheme pyramid is visited]the Scheme Pyramid[else]a business[end if]. [if truth home is visited]You can go back inside to the Truth Home, too[else]There's also a small home you could go inside[end if]."
 
 check going outside from disposed well:
 	say "You already are outside." instead;
 
 scen-home is privately-named scenery in disposed well. "[if truth home is visited]There's no evidence of Sid Lew's ramblings from outside[else]It looks safe enough to go into[end if]."
 
-understand "home" and "house" as scen-home when player is in Well.
+understand "home" and "house" as scen-home when player is in Disposed Well.
 
 check entering scen-home:
 	try going inside instead;
@@ -8520,9 +8520,9 @@ instead of doing something with scen-church:
 		try going west instead;
 	say "You can't do much except enter or examine the church."
 
-check going nowhere in well:
+check going nowhere in Disposed Well:
 	if noun is down:
-		say "If you entered the well, it could probably be renamed the [activation of well done]Done Well, because you wouldn't be [i]climbing[r] down." instead;
+		say "If you entered the well, it could probably be renamed the [activation of well done]Done Well, because you wouldn't be [i]climbing[r] down. Or back up." instead;
 	say "The wood is too thick to the south." instead;
 
 the nine yards hole is scenery in Disposed Well. "It looks too deep to reach into, and too narrow to climb, [if story fish is off-stage]but maybe with the right tools you could fish in the darkness below and find something[else]and you doubt there's anything else in there[end if]."
@@ -8855,7 +8855,7 @@ to hint-big:
 	if the rule succeeded:
 		continue the action;
 	if player does not have sound safe:
-		say "You see yourself picking up a big square object--a safe, maybe[if hold is unvisited]. The surroundings aren't familiar[end if].";
+		say "You see yourself picking up a big square object--a safe, maybe[if accountable hold is unvisited]. The surroundings aren't familiar[end if].";
 		set-clue 14;
 	else if long string is off-stage:
 		say "You see yourself wandering to a place you can't identify yet.";
@@ -9108,7 +9108,7 @@ check talking to Grace:
 	if fourth-blossom is in lalaland:
 		say "You exchange views on inner peace, finding yourself, achievement, and so forth. She's not particularly persuasive, so you sense whatever cult she had or will have won't be charismatic or forceful enough to give anyone any crazy ideas. But you still feel better for the chat, for all that." instead;
 
-does the player mean talking to Grace when player is in Cult: it is very likely.
+does the player mean talking to Grace when player is in Classic Cult: it is very likely.
 
 litany of grace is the table of Grace Goode talk.
 

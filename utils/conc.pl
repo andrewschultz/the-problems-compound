@@ -37,8 +37,9 @@ my $printSuccess = 0;
 my $addStart = 0;
 my $cvStart = 0;
 my $detailAlpha = 1;
-my $openStoryFile = 1;
+my $openStoryFile = 0;
 my $printAllDiff = 0;
+my $defaultToGeneral = 1;
 
 #############################
 #hashes
@@ -87,6 +88,8 @@ while ($count <= $#ARGV)
     /^-?nt$/ && do { $printTest = 0; $count++; next; };
     /^-?t$/ && do { $printTest = 1; $count++; next; };
     /^-?ps$/ && do { $printSuccess = 1; $count++; next; };
+    /^-?ng$/ && do { $defaultToGeneral = 0; $count++; next; };
+    /^-?dg$/ && do { $defaultToGeneral = 1; $count++; next; };
     /^-?pc$/ && do { @dirs = ("Compound"); $count++; next; };
     /^-?sc$/ && do { @dirs = ("Slicker-City"); $count++; next; };
     /^-?(bp|btp)$/ && do { @dirs = ("Buck-the-Past"); $count++; next; };
@@ -230,21 +233,20 @@ for my $x (sort keys %any)
   my $xmod = $x; $xmod =~ s/\*//g;
   if ($gotyet{$xmod}) { print "Oops, $xmod looks like an almost-duplicate with asterisks there/missing.\n"; }
   $gotyet{$xmod} = 1;
-  #print "Looking at $x:\n";
   my $maxToOpen = 0;
   if (!$expl{$xmod})
   {
-    $nuline = findExplLine($xmod, $_[0], 1);
-	if (($nuline ne "????") && $nuline > $maxToOpen) { $maxToOpen = $nuline; }
-    $errMsg .= "$xmod ($lineNum{$xmod}) needs explanation: guess = line $nuline\n";
+    $nuline = findExplLine($x, $_[0], 1);
+	if (($nuline ne "????") && ($nuline !~ /failed/) && $nuline > $maxToOpen) { $maxToOpen = $nuline; }
+    $errMsg .= "$xmod ($lineNum{$x}) needs explanation: guess = line $nuline\n";
 	$explErr .= "$xmod\t\"$xmod is when you [fill-in-here].\"\n";
 	$fails++; $thisFailed = 1;
   }
   if (!$conc{$xmod})
   {
-    $nuline = findExplLine($xmod, $_[0], 2);
-	if (($nuline ne "????") && $nuline > $maxToOpen) { $maxToOpen = $nuline; }
-	$errMsg .= "$xmod ($lineNum{$xmod}) needs concept definition: guess = line $nuline\n";
+    $nuline = findExplLine($x, $_[0], 2);
+	if (($nuline ne "????") && ($nuline !~ /failed/) && $nuline > $maxToOpen) { $maxToOpen = $nuline; }
+	$errMsg .= "$xmod ($lineNum{$x}) needs concept definition: guess = line $nuline\n";
     if ($x =~ /\*/)
 	{
     $y1 = join(" ", reverse(split(/\*/, $x)));
@@ -271,7 +273,7 @@ for my $x (sort keys %any)
   }
 }
 
-  if ($asterisks) { print "TEST RESULTS: asterisks-$_[0],0,$asterisks,0,$astString"; }
+  if ($asterisks) { print "TEST RESULTS:asterisks-$_[0],0,$asterisks,0,$astString"; }
   print "TEST RESULTS:concepts-$_[0],0,$fails,$totals,$errMsg\n";
 
   if ($fails)
@@ -561,14 +563,14 @@ while ($lineIn = <X>)
   while ($tmpVar =~ /\[activation of/) # "activation of" in source code
   {
     $tmpVar =~ s/.*?\[activation of //;
-	if ($tmpVar =~ /\*/) { my $tmpVar2 = $tmpVar; $tmpVar2 =~ s/\].*//; $asterisks++; $astString .= "$tmpVar2($.)\n"; }
+	if ($tmpVar =~ /\*/) { my $tmpVar2 = $tmpVar; $tmpVar2 =~ s/\].*//; $tmpVar2 =~ s/\*/ /; $asterisks++; $astString .= "$tmpVar2($.)\n"; }
 	my $c = $tmpVar;
 	$c =~ s/\].*//g;
 	if ($c eq "conc-name entry") { next; }
 	$c = wordtrim($c);
 	if (defined($activ{$c}) && !defined($okdup{$c})) { print "Warning line $. double defines $c from $lineNum{$c}.\n"; }
 	$activ{$c} = $.;
-	$any{wordtrim($c)} = $.;
+	$any{$c} = $.;
 	$lineNum{$c} = $.;
   }
   if ($inTable)
@@ -602,7 +604,7 @@ sub wordtrim
   $temp =~ s/^the //g;
   $temp =~ s/^a thing called //g;
   $temp =~ s/^a //g;
-  $temp =~ s/\*//g;
+  $temp =~ s/\*/ /g;
   return $temp;
 }
 
@@ -672,8 +674,8 @@ sub alfPrep
 #some magic #s here, $_[0] = search string, $_[1] = file, $_[2] = 1 means exp, 2 means conc definition
 sub findExplLine
 {
-  my $actRoom;
-  my $curRoom = "";
+  my $actRoom = "";
+  my $curRoom = $defaultToGeneral ? "general concepts" : "";
   my $toFind = 0;
   my $startSearch = 0;
   my $amClose = 0;
@@ -682,9 +684,14 @@ sub findExplLine
   while ($a = <B>)
   {
     if ($a =~ /^part /i) { $curRoom = $a; $curRoom =~ s/^part //i; }
+	$a =~ s/\*/ /g; # ugh, a bad hack but it will have to do to read asterisk'd files
 	if ($a =~ /activation of $_[0]/i) { chomp($curRoom); $actRoom = $curRoom; last;}
   }
-  if (!$actRoom) { return "(failed)"; close(B); }
+  if (!$actRoom)
+  {#print "$_[0] FAILED / $defaultToGeneral / $. / $_[2] / $curRoom\n";
+    return "(failed)";
+	close(B);
+  }
 
   close(B);
   open(B, "c:/games/inform/$_[1].inform/source/story.ni");
@@ -699,7 +706,7 @@ sub findExplLine
 	}
 	else
 	{
-	if ($a =~ /section $actRoom/i) { $startSearch = $.; $amClose = 1; next; }
+	if ($a =~ /^(chapter|section) $actRoom/i) { $startSearch = $.; $amClose = 1; print "Closse at line $.\n"; next; }
 	}
 	if ($amClose)
 	{
@@ -708,7 +715,7 @@ sub findExplLine
 	  if  ($a =~ /^to say/) { <B>; next; }
 	  $a =~ s/^a thing called //i;
 	  $a =~ s/^the //i;
-	  if ($a =~ /^(part|section|chapter|volume|book) +/i)
+	  if ($a =~ /^(part|section|chapter|volume|book) $actRoom+/i)
 	  { my $retVal = $.; close(B); return $retVal; }
 	  if (lc($a) ge lc($_[0])) { my $retVal = $.; close(B); return $retVal; }
 	  }
