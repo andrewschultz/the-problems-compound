@@ -3524,6 +3524,8 @@ fluoridated	"Fluoridated water is a subject of many silly conspiracy theories."
 gorgeous	"Gorgeous is, well, beautiful."
 grown up	"Grown up means, well, you've learned and matured."
 hara-kiri	"Hara-kiri is Japanese ritual suicide."
+henry clay	"Henry Clay was a 19th century American statesman who did nearly everything except get elected President."
+High Fidelity	"High fidelity means music that is translated clearly. It's also a movie staring John Cusack with a famous scene I won't spoil."
 hittite	"A Hittite is a now-extinct race of people in the Bible."
 Howard Stern	"Howard Stern is a long-time radio personality with loud provocative opinions."
 humphrey davy	"Humphrey Davy was an 18th century scientist."
@@ -4482,16 +4484,16 @@ anno-num	exam-thing	anno-loc	anno-long (text)
 0	--	Expectations Meet	"The irony of expectations meet is that if people gather together and discuss their expectations, they never quite meet them."
 0	--	Camp Concentration	"[one of]I felt very, very horrible thinking of this, for obvious reasons, and similarly, I didn't want to put this in the game proper and fought about including it in the Director's Cut. So you'll have to ANNO CAMP to see more.[or]I wasn't looking for anything provocative, but reading an online article, the switcheroo hit me. Because there's some things you clearly can't trivialize or pass off as a joke, or not easily. But I imagined a place where people yelled at you you needed to focus to stop making stupid mistakes, and of course it could be far FAR worse, and perhaps they want you to concentrate on that and also on being a productive member of society at the same time, when at the same time they'd never have such low standards themselves.[paragraph break]The gallows humor here I also saw is that the [bad-guy] never sends you here, because you aren't that bad, and he wouldn't be nearly that bad, so stop complaining.[paragraph break]And while my writerly fee-fees are far from the most important thing, here, I was genuinely unnerved that I saw these links and my abstract-reasoning brain part went ahead with them, poking at the words for irony when there was something far more serious underneath. The contradiction here is that many people will tll you 1) it could be way worse and 2) dude, have some standards! And that's the sort of manipulation Alec, or too many people, don't know how to deal with, and there's not much teaching on the subject.[stopping]"
 
-
 table of annotations (continued) [toa-bad]
 anno-num	exam-thing	anno-loc	anno-long (text)
-0	--	Hut Ten	"I never got to implement as many deaths as I thought, but this was an obvious pun to conjure up images of Stalag 17 or something."
-0	--	A Beer Pound	"This came up when I was looking for better names for the Sinister Bar (now the Soda Club) post-release. I wanted a place for alcohol-related offenses but had nowhere until this seemed a bit obvious."
-0	--	In-Dignity Heap	"It's hard to be dignified on a heap, and the 'in' prefix provides fodder for a lot of puns. I wasn't able to use this on an item, so there is a fake death location."
-0	--	Shape Ship	"What better place to get ship shape than on a shape ship? Again, the creative deaths/failures didn't pile up enough, but I still enjoyed imagining all this."
-0	--	Criminals' Harbor	"This pun was too good to pass up. Maybe I should've saved it for the sequel. Maybe I will anyway. It's delightfully seedy."
-0	--	Maintenance High	"Most people who complain about others being high maintenance usually are emotionally high maintenance themselves. So I imagined a place where people learned WHY they were high maintenance and had it beat into their skulls. If they learned quickly, see, it was right. If not, well, they're taking up teaching time. Where people doled out abuse and projected their own deficiencies on others."
+0	--	Hut Ten	"This was brought about by all the countless drills I was forced into in Boy Scouts, as well as the fear of possible war with the Russians and me getting drafted. I was also nervous for a few days about the first Iraq War, and what if it lasted [']til I went to college? Fortunately, the US got in and got out quickly, and there were totally no problems at all after that, amirite.[paragraph break]Also, I never got to implement as many silly 'death' rooms as I thought, but this was an obvious pun to conjure up images of Stalag 17 or something."
+0	--	A Beer Pound	"This came up when I was looking for better names for the Sinister Bar (now the Soda Club) post-release. I wanted a place for alcohol-related offenses but had nowhere until this seemed a bit obvious.[paragraph break]I think there's a chance to be moralistic about alcohol no matter how much you drink. Maybe you are sure you need it after a hard day's work, or people never should've started. I've seen my share of people cutting down others who don't know their limits, including former employees upset with a junior employee they took out drinking and he found it hard to control. It's sad and unfortunate, and I've had my fair share of awkward explanations that, well, I'd be a fool to risk drinking."
+0	--	In-Dignity Heap	"This was only put in to make the map 8x8 but I think it's a good one. People with seeming dignity giving pompous morality lectures do heap indignity on others. And some of us take it for our own good.[paragraph break]Also, it's hard to be dignified on a heap, and the 'in' prefix provides fodder for a lot of puns. I wasn't able to use this on an item, so there is a fake death location."
+0	--	Shape Ship	"What better place to get ship shape than on a shape ship? Again, the creative deaths/failures didn't pile up enough, but I still enjoyed imagining all this. Also, if you've ever read any novels about rough life on a ship, well, this is just a gimme."
+0	--	Criminals' Harbor	"This pun was too good to pass up. It could have been lumped with Shape Ship, but I liked them both too much."
+0	--	Maintenance High	"Most people who complain about others being high maintenance usually are emotionally high maintenance themselves. So I imagined a place where people learned WHY they were high maintenance and had it beat into their skulls. If they learned quickly, see, it was right. If not, well, they're taking up teaching time. Where people doled out abuse and projected their own deficiencies on others.[paragraph break]One irony I've found about actively avoiding being high maintenance is that I've often forgotten to do simple things to keep things going. Most of the time that's paying a bill or putting off an eye doctor appointment. But more seriously, it's tough for me to evaluate high maintenance versus high standards."
 0	--	Fight Fair	"Of course, none of the fights in Fight Fair are remotely fair, and fights at fairs in general are, well, rigged. It also seemed to be a good way to underscore pitting less popular kids against each other, or against a bully-henchman to grind them down."
+0	--	Punishment Capitol	"I'm opposed to capital punishment. And I think the [bad-guy] is, too, though he does like to retaliate more vigorously than any (perceived) attack on him. I needed a place for the big crimes, and here it is. It's the place for the worst crimes, like attacking the [bad-guy]. Obviously, it had to be."
 
 table of annotations (continued) [toa-rej]
 anno-num	exam-thing	anno-loc	anno-long (text)
@@ -4506,18 +4508,6 @@ anno-num	exam-thing	anno-loc	anno-long (text)
 0	--	Brains Beat	"I like the image of brainy people walking a beat, talking about stuff, making someone (figuratively, of course) want to beat their brains in. Them being themselves or the others. Intellectual Conversation in general drives me up the wall when it is too ostentatious."
 0	--	Madness March	"Unsurprisingly, I thought of this one in March. But I didn't feel it was universal enough. March Madness is a big deal in the US among basketball fans. In fact, even non-basketball fans enter (nominally illegal) betting pools in this 68-game knockout tournament. I was planning to have a bunch of people getting into stupid arguments with someone winning, but I hadn't the heart to implement it."
 0	--	Window Bay	"I liked the reversal on architecture for a more natural and magical setting."
-
-table of annotations (continued) [toa-badend]
-anno-num	exam-thing	anno-loc	anno-long (text)
-0	--	Hut Ten	"This was brought about by all the countless drills I was forced into in Boy Scouts, as well as the fear of possible war with the Russians and me getting drafted. I was also nervous for a few days about the first Iraq War, and what if it lasted [']til I went to college? Fortunately, the US got in and got out quickly, and there were totally no problems at all after that, amirite."
-0	--	A Beer Pound	"I think there's a chance to be moralistic about alcohol no matter how much you drink. Maybe you are sure you need it after a hard day's work, or people never should've started. I've seen my share of people cutting down others who don't know their limits, including former employees upset with a junior employee they took out drinking and he found it hard to control. It's sad and unfortunate, and I've had my fair share of awkward explanations that, well, I'd be a fool to risk drinking."
-0	--	Shape Ship	"If you've ever read any novels about rough life on a ship, well, this is just a gimme."
-0	--	Criminals' Harbor	"This could have been lumped with Shape Ship, but I liked them both too much."
-0	--	Maintenance High	"One irony I've found about avoiding being high maintenance is that I've often forgotten to do simple things to keep things going. Most of the time that's paying a bill or putting off an eye doctor appointment. But more seriously, it's tough for me to evaluate high maintenance versus high standards."
-0	--	Fight Fair	"Of course, there's not a single fair fight here."
-0	--	Punishment Capitol	"I'm opposed to capital punishment. And I think the [bad-guy] is, too, though he does like to retaliate more vigorously than any (perceived) attack on him. I needed a place for the big crimes, and here it is. It's the place for the worst crimes, like attacking the [bad-guy]. Obviously, it had to be."
-0	--	Camp Concentration	"Ever think of something and feel guilty about it after? Yup."
-0	--	In-Dignity Heap	"This was only put in to make the map 8x8 but I think it's a good one. People with seeming dignity giving pompous morality lectures do heap indignity on others. And some of us take it for our own good."
 
 table of annotations (continued) [toa-items]
 anno-num	exam-thing	anno-loc	anno-long (text)
@@ -7616,6 +7606,8 @@ girl-neg
 "A couple [j-co] feel sorry they [activation of fluoridated]dated Flora and listened to her conspiracy theories."
 "The [j-co] agree [activation of gorgeous]Jess Gore is not very attractive."
 "The [j-co] rave how full of life [activation of hara-kiri]Keri Harrah is."
+"The [j-co] recount [activation of henry clay]Clay Henry's prank on the dork figureheads in the school's student government."
+"The[j-co] bemoan [activation of high fidelity]Fidelity High's ban on catchy music that distracts from learning, with extra punishment for trenchcoats and boomboxes."
 "The [j-co] formulate a [activation of hittite]'tight' hit (must be some new slang) on the Bible's legitimacy."
 "The [j-co] hope [activation of howard stern]stern Howard doesn't come by to moralize again."
 "The [j-co] laugh at how [activation of humphrey davy]Davey Humphrey beats up and makes fun of science nerds."
@@ -11955,7 +11947,6 @@ Shoulder Square	0	0	"EXPEC"	"MEET " [unused locs]
 Everything Hold	1	0	"EVERY"	"HOLD "
 Perilous Siege	2	0	"SHOUL"	"SQUAR"
 Camp Concentration	3	0	"PERIL"	"SIEGE"
-Mine Land	0	1	"MINE "	"LAND "
 Space of Waste	1	1	"SPACE"	"WASTE"
 Clown Class	0	2	"CLOWN"	"CLASS"
 Robbery Highway	0	3	"ROBRY"	"HIWAY"
@@ -12563,6 +12554,10 @@ gorgeous is a concept in conceptville. Understand "jess gore" and "gore jess" as
 grown up is a concept in conceptville. Understand "up groan" and "groan up" as grown up. howto is "[solve-j] with swears off".
 
 Hara-Kiri is a concept in conceptville. Understand "keri harrah" and "harrah keri" as hara-kiri. howto is "[j-girl]".
+
+henry clay is a concept in conceptville. Understand "clay henry" as henry clay. howto is "[j-girl]".
+
+high fidelity is a concept in conceptville. Understand "fidelity high" as high fidelity. howto is "[j-girl]".
 
 hittite is a concept in conceptville. Understand "tight hit" and "hit tight" as hittite. howto is "[j-girl]".
 
