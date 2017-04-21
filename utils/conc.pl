@@ -96,14 +96,14 @@ while ($count <= $#ARGV)
     /^-?bs$/ && do { @dirs = ("btp-st"); $count++; next; };
 	/^-?as$/ && do { @dirs = ("Slicker-City", "Compound"); $count++; next; };
 	/^-?a3$/ && do { @dirs = ("Slicker-City", "Compound", "Buck-the-Past", "btp-st"); $count++; next; };
-	/^-?[cv0](n|o)?+$/ && do
+	/^-?[cv0nl]+$/ && do
 	{
 	  $codeToClipboard = $printErrCode = $printErrors = 0;
 	  if ($a =~ /c/) { $codeToClipboard = 1; }
 	  if ($a =~ /0/) { $printErrCode = 1; }
 	  if ($a =~ /v/) { $printErrors = 1; }
 	  if ($a =~ /n/) { $openStoryFile = 0; }
-	  if ($a =~ /o/) { $openStoryFile = 1; }
+	  if ($a =~ /l/) { $openStoryFile = 1; }
 	  $count++;
 	  next;
 	};
@@ -335,10 +335,17 @@ for my $x (sort keys %any)
     print "Zap fill-in text at line(s) " . join(", ", @fillIn) . ".\n";
   }
 
-  if (($openStoryFile) && ($nuline =~ /[1-9]/))
+  if ($nuline =~ /[1-9]/)
   {
+    if ($openStoryFile)
+	{
     my $cmd = "$np \"c:\\games\\inform\\$_[0].inform\\source\\story.ni\" -n$nuline";
 	`$cmd`;
+	}
+	else
+	{
+	  print "Use -l to launch the story file for direct editing.\n";
+    }
   }
 
 }
@@ -679,12 +686,15 @@ sub findExplLine
   my $toFind = 0;
   my $startSearch = 0;
   my $amClose = 0;
+  my $doneRooms = 0;
+  my $anyRooms = 0;
 
   open(B, "c:/games/inform/$_[1].inform/source/story.ni");
   while ($a = <B>)
   {
-    if ($a =~ /^part /i) { $curRoom = $a; $curRoom =~ s/^part //i; }
+    if (($a =~ /^part /i) && (!$doneRooms)) { $anyRooms = 1; $curRoom = $a; $curRoom =~ s/^part //i; }
 	$a =~ s/\*/ /g; # ugh, a bad hack but it will have to do to read asterisk'd files
+	if (($a =~ /^volume /i) && ($anyRooms)) { $doneRooms = 1; $curRoom = "general concepts"; }
 	if ($a =~ /activation of $_[0]/i) { chomp($curRoom); $actRoom = $curRoom; last;}
   }
   if (!$actRoom)
