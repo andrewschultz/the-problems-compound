@@ -25,6 +25,7 @@ The major stuff is here.
 --the earth of scum is now earth of salt, because it's opaque enough you can see something below it.
 --two new jump verbs to get by just the jerks or just the brothers.
 --the very good ending is now implemented better.
+--Bottom Rock is now A Great Den.
 
 The user-friendliness stuff is here.
 --SKIP replaces GLIB as a verb. TESTJUMP (not seen in the release) is now the testing verb.

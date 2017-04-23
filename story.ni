@@ -384,7 +384,7 @@ to say your-mood:
 		say "Chasing";
 	else if player is in Belt Below:
 		say "[unless terminal is in Belt Below]Cheats below[else if terminal is examined]Puzzling[else]";
-	else if player is in Bottom Rock:
+	else if player is in A Great Den:
 		say "Spoilerville";
 	else if player is in Airy Station:
 		say "Big Send Off";
@@ -1367,7 +1367,7 @@ check sleeping:
 		say "Tough with all that noise." instead;
 	if Down Ground is unvisited and jump-level < 2:
 		say "You're nowhere near tired. You're curious what could be ahead." instead;
-	if player is in Bottom Rock:
+	if player is in A Great Den:
 		say "The crib's too small for sleeping." instead;
 	if player is in freak control:
 		say "But the excitement is close!" instead;
@@ -3311,7 +3311,7 @@ chase paper	"A paper chase is excessive paperwork. In this case, work not strict
 Cute Percy	"To persecute someone is to make them suffer for who they are[if cute percy is in lalaland]and right per se means literally right, but that's not what matters[end if]."	"Percy was the Assassination Character pre-release 3, but the problem is, he never got close to killing anyone. Still, the name gave me laughs."
 bad face	"The bad face will help you face a bad...something. Also, 'bad' in the Michael Jackson sense of, I did/can do something cool."	"This is meant to show Alec's emotional development. He's figured out something tough, and he's confident about that. But he also doesn't need this to go through the Compound." [start of the belt below]
 Insanity Terminal	"Terminal insanity is having no chance to regain sanity[if terminal is in lalaland]. As for the puzzle: it is inspired by Jim Propp's Self-Referential Aptitude Test, which is well worth a look (http://faculty.uml.edu/jpropp/srat.html is one place to find it,) but a good deal more complex[end if]."	"I always wanted to write a puzzle like this, but yeah, in release 1, it was dropped in there."
-crocked half	"Half-crocked means drunk."	"This was a bugging doodle for a while until I found something better. You need a lot of placements like that, sometimes." [start of bottom rock]
+crocked half	"Half-crocked means drunk."	"This was a bugging doodle for a while until I found something better. You need a lot of placements like that, sometimes." [start of A Great Den]
 legend of stuff	"The Stuff of Legend means a book about great tales of yore, as opposed to the scribble-hint-book you get."	"This was another thing that sounded great but didn't seem to fit in anywhere--or seemed too obvious--until I decided to go ahead with the puzzle. It appeared in release 2, taking the functionality of the notes crib."
 notes crib	"To crib notes is to copy from someone who was at a lecture."	--
 Lee Bull	"A bully is someone who hurts others physically or emotionally. The opposite of Lee Bull. Sid Lew is referring to 'bull' as his last name as what is to be made fun of. Also, fool-proof means no way to break it, but a Proof Fool could be someone who relies too much on a sure thing before doing anything."	"I kept the Truth Home names abstract and was pleased when Lee Bull dropped out." [start of truth home]
@@ -3757,7 +3757,7 @@ Nominal Fen	"Phenomenal means really awesome. But the fen is pretty plain[if bor
 Chipper Wood	"A wood chipper puts in logs and spits out small wood chips. It's hard to be chipper (happy) if you get stuck in one." [west-ish]
 Disposed Well	"To be well disposed is to be agreeable."
 Truth Home	"A home truth is an unpleasant fact about oneself."
-Bottom Rock	"Rock bottom is the very bottom, usually emotionally more than physically. But in this case, you may be on a bit of a high after solving the terminal's puzzle."
+A Great Den	"To denigrate someone is to cut them down. This used to be Bottom Rock (rock bottom is the very bottom, usually emotionally more than physically,) but that felt too transparent."
 The Belt Below	"Below the belt describes a cheap shot, more specifically, a low punch in boxing."
 Classic Cult	"A cult classic is a movie that appeals to a small but devoted audience."
 Scheme Pyramid	"A pyramid scheme is where one person gets multiple clients to pay into an 'investment' for later, and they find several, and so forth."
@@ -4456,7 +4456,7 @@ anno-num	exam-thing	anno-loc	anno-long (text)
 0	--	Scheme Pyramid	"I find pyramid schemes endlessly funny in theory, though their cost is real and sad. They're worse than lotteries. I'd originally intended to have more people here, but it didn't work out that way. The Labor Child does have a 'downline' of his own, in the other kids he's blackmailing."
 0	--	Accountable Hold	"I'm critical of Big Business and people who think they've done a lot more than they have because they have a good network they don't give much back to. In particular, if someone talks about accountability, it's a sad but safe bet that in a minute they will start blaming less powerful people for things out of their control. There's a certain confidence you need for business, but too often it turns into bluster. In this case the only people held accountable are the jerks, for unusual things they like."
 0	--	The Belt Below	"I wanted a seedy underbelly. And I got one. I didn't know what it was for, and certainly, it didn't all come together in the initial release. I just found a puzzle with a week before IFComp, and I got it to work. But the room name spurred me to make a puzzle that FELT unfair. In subsequent releases, I cleaned it up a bit."
-0	--	Bottom Rock	"I forget when the idea of giving you a powerful item if you got abstract puzzles came to me. But I wanted it to be powerful and cleverly named. I wasn't sure where I could put a crib, because I couldn't implement a bedroom, but then I realized it could be just dropped anywhere, to show the Problems Compound is not for babies--or maybe to insinuate that hints are for babies. I mean, for the [bad-guy] to insinuate, not me. I use them a lot, too. Sometimes it's the difference between being blocked and seeing the author was quite close to their original vision."
+0	--	A Great Den	"I forget when the idea of giving you a powerful item if you got abstract puzzles came to me. But I wanted the item to be powerful and cleverly named. I don't know if the room was at first (Bottom Rock). I wasn't sure where I could put a crib, because I couldn't implement a bedroom, but then I realized it could be just dropped anywhere, to show the Problems Compound is not for babies--or maybe to insinuate that hints are for babies. I mean, for the [bad-guy] to insinuate, not me. I use them a lot, too. Sometimes it's the difference between being blocked and seeing the author was quite close to their original vision, and with A Great Den/Bottom Rock, I spent a few sessions thinking I'd like to do something, but I didn't know what. Eventually, the word 'den' seemed pliable, and from then it was a matter of finding words beginning with DEN."
 0	--	Judgment Pass	"This seemed as good a generic place-you-need-a-puzzle-to-get-by as any. Especially since I wanted solutions to focus around outsmarting instead of violence or pushing someone out of the way. I just needed someone officious to be blocking you, and that was Officer Petty." [east-ish]
 0	--	Idiot Village	"Of course, the people here aren't total idiots, even if they are very silly. But I liked the idea of turning 'village idiot' on its head, as well as having a caste of 'outs' who maybe weren't stupid but let themselves be treated that way."
 0	--	Service Community	"I liked the idea of an underclass that needs to rebel, and Idiot Village was good enough for getting the game out there. But then while playing Kingdom of Loathing, which has 'inspired' a lot of my 'jokes,' the Community Service challenge path's name kept pinging me. About the hundredth time, I smacked my head and said, oh, of course."
@@ -8658,14 +8658,14 @@ a thing called The Trade of Tricks is a proper-named thing. description is "[one
 
 understand "book" as trade of tricks when player has trade of tricks.
 
-part Bottom Rock
+part A Great Den
 
-Bottom Rock is a room. It is in Main Chunk. "You've reached a rock chamber. It's not possible to go any further down, or, in fact, any direction other than up."
+There is a room called A Great Den. It is in Main Chunk. "Wow, it's really big here, but somehow, you feel someone is watching you and laughing at you. It's not possible to go any further down, or, in fact, any direction other than up."
 
-check going nowhere in bottom rock:
+check going nowhere in A Great Den:
 	say "You can only go back up." instead;
 
-the notes crib is a thing in Bottom Rock. it is fixed in place. "[one of]A crib barred by musical notes--it must be a notes crib--[or]The notes crib [stopping]stands here. [if Legend of Stuff is in crib]It contains two small papers: a small flipbook entitled Legend of Stuff, and a crocked half[else]It's empty, now[end if]."
+the notes crib is a thing in A Great Den. it is fixed in place. "[one of]A crib barred by musical notes--it must be a notes crib--[or]The notes crib [stopping]stands here. [if Legend of Stuff is in crib]It contains two small papers: a small flipbook entitled Legend of Stuff, and a crocked half[else]It's empty, now[end if]."
 
 understand "musical notes" as notes crib. understand "note" and "note crib" as notes crib. understand "odd" and "odd crib" as notes crib.
 
@@ -9023,12 +9023,12 @@ carry out abadfaceing:
 		say "[line break]";
 		the rule succeeds;
 	else:
-		say "You already solved the puzzle. If any more of [if bottom rock is visited]Bottom Rock[else]the floor[end if] collapsed, you might not have a way back up." instead;
+		say "You already solved the puzzle. If any more of [if A Great Den is visited]A Great Den[else]the floor[end if] collapsed, you might not have a way back up." instead;
 	the rule succeeds;
 
 to open-bottom:
-	now Bottom Rock is below Belt Below;
-	now Belt Below is above Bottom Rock;
+	now A Great Den is below Belt Below;
+	now Belt Below is above A Great Den;
 	now Insanity Terminal is in lalaland;
 	annotize insanity terminal;
 
@@ -10676,7 +10676,7 @@ definition: a thing (called sc) is control-known:
 definition: a room (called rm) is mainchunk:
 	if rm is freak control, decide no;
 	if rm is belt below, decide no;
-	if rm is bottom rock, decide no;
+	if rm is A Great Den, decide no;
 	if map region of rm is main chunk, decide yes;
 	decide no;
 
@@ -11925,7 +11925,7 @@ Nominal Fen	4	3	"[if silly boris is in lalaland]MELLO[else]NOMIN[end if]"	"[if s
 Judgment Pass	5	3	"JGMNT"	"PASS "
 Idiot Village	6	3	"IDIOT"	"VILLG"
 Service Community	7	3	"SERVC"	"COMMU"
-Bottom Rock	1	4	"BOTTM"	"ROCK "
+A Great Den	1	4	"BOTTM"	"ROCK "
 Belt Below	2	4	"BELT "	"BELOW"
 Meal Square	3	4	"MEAL "	"SQUAR"
 Pressure Pier	4	4	"PRESS"	"PIER "
@@ -11965,9 +11965,9 @@ index map with A Round Lounge mapped south of Tension Surface.
 
 index map with Tension Surface mapped south of Pressure Pier.
 
-index map with Bottom Rock mapped south of Disposed Well.
+index map with A Great Den mapped south of Disposed Well.
 
-index map with The Belt Below mapped west of Bottom Rock.
+index map with The Belt Below mapped west of A Great Den.
 
 index map with Service Community mapped east of Idiot Village.
 
@@ -14235,7 +14235,7 @@ this is the face-ac rule:
 
 this is the face-term rule:
 	move-puzzlies-and-jerks;
-	move player to bottom rock;
+	move player to A Great Den;
 	the rule succeeds;
 
 this is the face-idol rule:
