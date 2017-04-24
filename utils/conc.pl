@@ -686,15 +686,17 @@ sub findExplLine
   my $toFind = 0;
   my $startSearch = 0;
   my $amClose = 0;
+  my $begunRooms = 1;
   my $doneRooms = 0;
   my $anyRooms = 0;
 
   open(B, "c:/games/inform/$_[1].inform/source/story.ni");
   while ($a = <B>)
   {
-    if (($a =~ /^part /i) && (!$doneRooms)) { $anyRooms = 1; $curRoom = $a; $curRoom =~ s/^part //i; }
+	if ($a =~ /^\[start rooms\]/i) { $begunRooms = 1; }
+    if (($a =~ /^part /i) && ($begunRooms)) { $begunRooms = 1; $curRoom = $a; $curRoom =~ s/^part //i; }
 	$a =~ s/\*/ /g; # ugh, a bad hack but it will have to do to read asterisk'd files
-	if (($a =~ /^volume /i) && ($anyRooms)) { $doneRooms = 1; $curRoom = "general concepts"; }
+	if ($a =~ /^\[end rooms\]/i) { $doneRooms = 1; $begunRooms = 0; $curRoom = "general concepts"; }
 	if ($a =~ /activation of $_[0]/i) { chomp($curRoom); $actRoom = $curRoom; last;}
   }
   if (!$actRoom)
@@ -716,7 +718,7 @@ sub findExplLine
 	}
 	else
 	{
-	if ($a =~ /^(chapter|section) $actRoom/i) { $startSearch = $.; $amClose = 1; print "Closse at line $.\n"; next; }
+	if ($a =~ /^(chapter|section) $actRoom/i) { $startSearch = $.; $amClose = 1; next; }
 	}
 	if ($amClose)
 	{
@@ -725,7 +727,8 @@ sub findExplLine
 	  if  ($a =~ /^to say/) { <B>; next; }
 	  $a =~ s/^a thing called //i;
 	  $a =~ s/^the //i;
-	  if ($a =~ /^(part|section|chapter|volume|book) $actRoom+/i)
+	  print "Close at line $. to $actRoom.\n";
+	  if ($a =~ /^(part|section|chapter|volume|book) /i)
 	  { my $retVal = $.; close(B); return $retVal; }
 	  if (lc($a) ge lc($_[0])) { my $retVal = $.; close(B); return $retVal; }
 	  }
