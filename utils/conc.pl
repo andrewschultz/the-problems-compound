@@ -40,6 +40,7 @@ my $detailAlpha = 1;
 my $openStoryFile = 0;
 my $printAllDiff = 0;
 my $defaultToGeneral = 1;
+my $defaultRoom = "general concepts";
 
 #############################
 #hashes
@@ -88,6 +89,7 @@ while ($count <= $#ARGV)
     /^-?e$/ && do { `__FILE__`; exit(); };
     /^-?nt$/ && do { $printTest = 0; $count++; next; };
     /^-?t$/ && do { $printTest = 1; $count++; next; };
+    /^-?d$/ && do { $defaultRoom = $ARGV[$count+1]; $defaultRoom =~ s/-/ /g; $count+= 2; next; };
     /^-?ps$/ && do { $printSuccess = 1; $count++; next; };
     /^-?ng$/ && do { $defaultToGeneral = 0; $count++; next; };
     /^-?dg$/ && do { $defaultToGeneral = 1; $count++; next; };
@@ -95,6 +97,7 @@ while ($count <= $#ARGV)
     /^-?sc$/ && do { @dirs = ("Slicker-City"); $count++; next; };
     /^-?(bp|btp)$/ && do { @dirs = ("Buck-the-Past"); $count++; next; };
     /^-?bs$/ && do { @dirs = ("btp-st"); $count++; next; };
+    /^-?b2$/ && do { @dirs = ("Buck-the-Past", "btp-st"); $count++; next; };
 	/^-?as$/ && do { @dirs = ("Slicker-City", "Compound"); $count++; next; };
 	/^-?a3$/ && do { @dirs = ("Slicker-City", "Compound", "Buck-the-Past", "btp-st"); $count++; next; };
 	/^-?[cv0nl]+$/ && do
@@ -683,7 +686,7 @@ sub alfPrep
 sub findExplLine
 {
   my $actRoom = "";
-  my $curRoom = $defaultToGeneral ? "general concepts" : "";
+  my $curRoom = $defaultToGeneral ? $defaultRoom : "";
   my $toFind = 0;
   my $startSearch = 0;
   my $amClose = 0;
@@ -697,7 +700,7 @@ sub findExplLine
 	if ($a =~ /^\[start rooms\]/i) { $begunRooms = 1; }
     if (($a =~ /^part /i) && ($begunRooms) && (!$doneRooms)) { $begunRooms = 1; $curRoom = $a; $curRoom =~ s/^part //i; }
 	$a =~ s/\*/ /g; # ugh, a bad hack but it will have to do to read asterisk'd files
-	if ($a =~ /^\[end rooms\]/i) { $doneRooms = 1; $curRoom = "general concepts"; }
+	if ($a =~ /^\[end rooms\]/i) { $doneRooms = 1; $curRoom = $defaultRoom; }
 	if ($a =~ /activation of $_[0]/i) { chomp($curRoom); $actRoom = $curRoom; last;}
   }
 
@@ -736,7 +739,7 @@ sub findExplLine
 	  if  ($a =~ /^to say/) { <B>; next; }
 	  $a =~ s/^a thing called //i;
 	  $a =~ s/^the //i;
-	  print "Close at line $. to $actRoom.\n";
+	  #print "Close at line $. to $actRoom.\n";
 	  if ($a =~ /^(part|section|chapter|volume|book) /i)
 	  { my $retVal = $.; close(B); return $retVal; }
 	  if (lc($a) ge lc($_[0])) { my $retVal = $.; close(B); return $retVal; }
