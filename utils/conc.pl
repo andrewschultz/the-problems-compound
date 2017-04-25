@@ -71,6 +71,7 @@ my $authFail = 0;
 my $asterisks = 0;
 my $astString = "";
 my $nuline = 0;
+my $warnedYet = 0;
 
 while ($count <= $#ARGV)
 {
@@ -694,11 +695,19 @@ sub findExplLine
   while ($a = <B>)
   {
 	if ($a =~ /^\[start rooms\]/i) { $begunRooms = 1; }
-    if (($a =~ /^part /i) && ($begunRooms)) { $begunRooms = 1; $curRoom = $a; $curRoom =~ s/^part //i; }
+    if (($a =~ /^part /i) && ($begunRooms) && (!$doneRooms)) { $begunRooms = 1; $curRoom = $a; $curRoom =~ s/^part //i; }
 	$a =~ s/\*/ /g; # ugh, a bad hack but it will have to do to read asterisk'd files
-	if ($a =~ /^\[end rooms\]/i) { $doneRooms = 1; $begunRooms = 0; $curRoom = "general concepts"; }
+	if ($a =~ /^\[end rooms\]/i) { $doneRooms = 1; $curRoom = "general concepts"; }
 	if ($a =~ /activation of $_[0]/i) { chomp($curRoom); $actRoom = $curRoom; last;}
   }
+
+  if (!$warnedYet)
+  {
+    if (!$doneRooms) { warn("You need \[end rooms\] in the source somewhere.\n"); }
+    if (!$begunRooms) { warn("You need \[start rooms\] in the source somewhere.\n"); }
+    $warnedYet = 1;
+  }
+
   if (!$actRoom)
   {#print "$_[0] FAILED / $defaultToGeneral / $. / $_[2] / $curRoom\n";
     return "(failed)";
