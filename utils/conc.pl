@@ -25,6 +25,8 @@ my @okays = ("buster ball", "hunter savage", "trust brain", "good herb", "freak 
 
 my $np = "\"C:\\Program Files (x86)\\Notepad++\\notepad++.exe\"";
 
+my $i7 = "C:\\Program Files (x86)\\Inform 7\\Inform7\\Extensions\\Andrew Schultz";
+
 ###############################
 #options
 my $codeToClipboard = 0;
@@ -532,8 +534,14 @@ $astString = "";
 
 my $inTable = 0;
 
-my $source = "c:/games/inform/$_[0].inform/source/story.ni";
-open(X, $source) || do { print "No source file $source.\n"; return; };
+my @files = ("c:/games/inform/$_[0].inform/source/story.ni");
+my $file;
+
+if (lc($_[0]) eq "compound") { push(@files, "$i7\\compound tables.i7x"); }
+
+for $file (@files)
+{
+open(X, $file) || do { print "No source file $file.\n"; return; };
 
 my $line = 0;
 
@@ -604,6 +612,7 @@ while ($lineIn = <X>)
 }
 
 close(X);
+}
 
 printResults($_[0]);
 
@@ -693,15 +702,23 @@ sub findExplLine
   my $begunRooms = 1;
   my $doneRooms = 0;
   my $anyRooms = 0;
+  my @toRead = ("c:/games/inform/$_[1].inform/source/story.ni");
+  my $file;
 
-  open(B, "c:/games/inform/$_[1].inform/source/story.ni");
+  if (lc($_[1]) eq "compound")
+  {
+    push(@toRead, "$i7\\compound tables.i7x");
+  }
+
+  for $file (@toRead)
+  {
   while ($a = <B>)
   {
 	if ($a =~ /^\[start rooms\]/i) { $begunRooms = 1; }
     if (($a =~ /^part /i) && ($begunRooms) && (!$doneRooms)) { $begunRooms = 1; $curRoom = $a; $curRoom =~ s/^part //i; }
 	$a =~ s/\*/ /g; # ugh, a bad hack but it will have to do to read asterisk'd files
 	if ($a =~ /^\[end rooms\]/i) { $doneRooms = 1; $curRoom = $defaultRoom; }
-	if ($a =~ /activation of $_[0]/i) { chomp($curRoom); $actRoom = $curRoom; last;}
+	if ($a =~ /activation of $_[0]/i) { print "$_[0]: $a"; chomp($curRoom); $actRoom = $curRoom; last;}
   }
 
   if (!$warnedYet)
@@ -718,7 +735,11 @@ sub findExplLine
   }
 
   close(B);
-  open(B, "c:/games/inform/$_[1].inform/source/story.ni");
+  }
+
+  for my $file(@toRead)
+  {
+  open(B, $file);
 
   my $inXX = 0;
   while ($a = <B>)
@@ -753,10 +774,10 @@ sub findExplLine
 	  }
 	}
   }
-  return "????";
-  #print "Couldn't find exp line for $_[0]/$actRoom.\n";
   close(B);
-  return;
+  }
+  #print "Couldn't find exp line for $_[0]/$actRoom.\n";
+  return "????";
 }
 
 
