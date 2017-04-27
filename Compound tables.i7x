@@ -1,6 +1,10 @@
 Version 1/170424 of Compound tables by Andrew Schultz begins here.
 
-volume sleep stories
+volume various random tables
+
+[start rooms]
+
+part tense past
 
 table of sleep stories [xxss]
 b4-nar	now-nar	af-nar	b4-done	now-done	af-done
@@ -24,6 +28,8 @@ b4-nar	now-nar	af-nar	b4-done	now-done	af-done
 "'The kid has no self-awareness!'"	"'The kid is too self-absorbed!'"	"'The guy never found a way to quit wallowing in private. Or complaining in public. Sad.'"
 "'Adult X is not miserable! You just feel miserable around him because he's so real-world.'"	"'Son, it's up to you whether or not to be miserable, and only you.'"	"'You say you're not miserable but you sure make everyone around you miserable.'"
 "You're assured, no matter what your political beliefs are, or how strongly you hold them, you'll know better when you get older."	"Peers explain that either they have better reasons to vote your way, or you're just too biased to see their voting logic. But they guess your vote deserves to count as much as they did."	"You are overwhelmed by people younger than you voting and canvassing with more enthusiasm than you ever did. They have to be right, with that enthusiasm."
+
+part pressure pier
 
 volume basher bible tables
 
@@ -67,7 +73,7 @@ reference-blurb
 "Understand how flattery and the golden rule interact, unless someone is fishing for approval."
 "Pick out someone creepy with a valid criticism and go ad hominem."
 
-volume sid stuff
+part truth home
 
 table of incisive sid viewpoints [xxisv]
 sid-sez
@@ -88,7 +94,7 @@ sid-sez
 "Sid belittles people who think we can go faster than the speed of light as unscientific and those who don't as uncreative."
 "Sid has harsh words for people who can do too much or too little math in their heads. He's--just about right. He knows, because, well, he has methods."
 
-volume speaking plain
+part speaking plain
 
 table of dutch-blab [xxdb]
 banter
@@ -107,7 +113,7 @@ banter
 "Uncle Dutch reminds Turk to focus on school, but to remember it's more than school. Turk agrees. 'One day I'll have a job where I can tell people to focus on their job and make it more than a job!'"
 "Uncle Dutch and Turk discuss the etiquette of whether you should call the [bad-guy] [bg] or not. Well, YOU never should, and Turk isn't ready yet, but what a big day it will be in the near future when he is allowed!"
 
-volume creativity block
+part creativity block
 
 section horrendous books
 
@@ -209,17 +215,21 @@ workname	singername	songsubj
 "My Mind in Carolina"	"Taylor James"	"getting away from one's backward past and entering sophistication"
 "Gold of Heart"	"Young Neil"	"someone who understands finding someone with money is important, but only to support a blocked artist like himself."
 
-volume jerks stuff
+part nominal fen
+
+[jerk girl talk]
 
 table of jerk-girl-talk [xxjgt]
 girl-neg
 "The [j-co] muse how you can't be a [activation of adult content]content adult without getting, well, serious ACTION."
 "The [j-co] laugh at how unathletic [activation of air jordan]Jordan Ayer and [activation of nolan ryan]Ryan Nolan are. They vow to actually start working out some day."
 "The [j-co] berate [activation of anapest]Pest Anna and her weird 'modern' poetry."
+"The [j-co] muse how [activation of Anne Frank]Frank Ahn wouldn't have to write his diaries about being oppressed if he didn't write weird diaries in the first place."
 "The [j-co] argue over whether [activation of bandanna]Anna Bandt's clothes choices are really rebellious."
 "The [j-co] praise the writing of [activation of Bechdel]Del Beck, who knows how to do girl-talk even if girls say he doesn't."
 "The [j-co] revel in how [activation of beer guts]Guts Beer helps you get out there and DO super man stuff."
 "The [j-co] rave about how  [activation of benevolent]Evelyn Benn is snarky to people for their own good."
+"The [j-co] remember not to [activation of jeremiad]add Jeremy to parties. He can't keep up a clever conversation or rant."
 "The [j-co] wrestle over the sensitivest way to compliment a girl on a [activation of body slamming]slamming body."
 "The [j-co] compare kid-style [activation of bouncing betty]beddy bouncing to adult-style, which is clearly the BOMB."
 "The [j-co] babble on about the [activation of box score]Score Box, where everyone except math obsessed nerds can hook up with a girl."
@@ -277,7 +287,7 @@ girl-neg
 "The [j-co] agree Erwin is just a total loser name." [na]
 "The [j-co] argue pointlessly over if a girl is pretty plain or plain pretty." [na]
 
-volume freak control
+part freak control
 
 table of bad guy worries [xxbgw]
 gad-act
@@ -330,6 +340,8 @@ gad-act
 "The [bad-guy] laughs sardonically at [odd-machine-l of frenzy feed]. 'Hah, gonna love complaining about that with [random baiter-aligned person].'" [na]
 "The [bad-guy] gestures at [odd-machine-l of Incident Miner]. '[one of]Yup. It's always when they're being a little too nice, you gotta watch out[or]Some people never learn. Or they just learn wrong[or]Just because that wasn't clever doesn't mean it wasn't sneaky[or]They say THAT's no big deal, I say my snark's no big deal, they still feel ripped off. Sheesh[at random].'" [na]
 "The Language Sign flashes but you don't think it changed its message. Just reinforced it." [na]
+
+[end rooms]
 
 Compound tables ends here.
 
