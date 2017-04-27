@@ -93,7 +93,7 @@ while ($count <= $#ARGV)
     /^-?e$/ && do { `__FILE__`; exit(); };
     /^-?nt$/ && do { $printTest = 0; $count++; next; };
     /^-?t$/ && do { $printTest = 1; $count++; next; };
-    /^-?d$/ && do { $defaultRoom = $ARGV[$count+1]; $defaultRoom =~ s/-/ /g; $count+= 2; next; };
+    /^-?d$/ && do { $defaultRoom = $ARGV[$count+1]; $defaultRoom =~ s/[-\._]/ /g; $count+= 2; next; };
     /^-?ps$/ && do { $printSuccess = 1; $count++; next; };
     /^-?ng$/ && do { $defaultToGeneral = 0; $count++; next; };
     /^-?dg$/ && do { $defaultToGeneral = 1; $count++; next; };
@@ -783,7 +783,7 @@ sub findExplLine
   close(B);
   }
   #print "Couldn't find exp line for $_[0]/$actRoom.\n";
-  return "????";
+  return ($toRead[0], "????");
 }
 
 

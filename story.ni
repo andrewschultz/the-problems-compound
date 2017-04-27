@@ -1467,7 +1467,7 @@ check climbing:
 	if noun is the nine yards hole:
 		say "No footholds or handholds. You'd be stuck.";
 	if noun is fright stage:
-		say "[if dutch is in plain]There's not room enough for you. Well, there is, but you'd get shouted down quickly[else]You're too busy to shout platitudes right now. You could do better than Uncle Dutch and Turk Young, but really, you're thinking bigger than that[end if]." instead;
+		say "[if dutch is in plain]There's not room enough for you. Well, there is, but you'd get shouted down quickly. It's not that tall, but it's still a [activation of platform shoes]shoos platform.[else]You're too busy to shout platitudes right now. You could do better than Uncle Dutch and Turk Young, but really, you're thinking bigger than that[end if]." instead;
 	if noun is thoughts idol:
 		say "No way. It probably has weird rays and stuff. Or anti-weird rays." instead;
 	if location of player is round lounge:
@@ -3605,6 +3605,7 @@ Dutch Reckoning	"Dutch Reckoning is a bill that's too high[dutch-off]."
 Dutch Treat	"A Dutch treat is where everyone pays his own way[dutch-off]."
 fearlessness	"Fearlessness means scared of nothing. Lessness fear is being scared of becoming less."
 hate speech	"Hate speech is talk disparaging someone based on gender, ethnicity, religion or sexual orientation."
+platform shoes	"Platform shoes have a big block under them to make you look taller."
 Show Business	"Show business is the act of entertainment, and the business show's is (purportedly) more practical."
 show off	"To show off is to brag about yourself, and the implication is an 'off' show (not as good as it should be) is bad without that."
 Stand the Pace	"If you can't stand the pace, it's too fast for you. Turk and Dutch pace the stand because they need a break."
@@ -12425,6 +12426,8 @@ Dutch Treat is a concept in conceptville. Understand "treat dutch" as dutch trea
 Fearlessness is a concept in conceptville. Understand "lessness fear" and "fear lessness" as fearlessness. howto is "[pl-wa]".
 
 hate speech is a concept in conceptville. Understand "speech hate" as hate speech. howto is "attack Turk or Dutch".
+
+platform shoes is a concept in conceptville. Understand "shoes platform" as platform shoes. howto is "climb the fright stage".
 
 Show Business is a concept in conceptville. Understand "business show" as show business. howto is "Go to the Speaking Plain without eating a Tray B food".
 
