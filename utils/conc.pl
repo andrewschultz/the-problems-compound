@@ -67,6 +67,8 @@ $tableDetHash{"Buck-the-Past"} = "!xxtia";
 my @dumbErrors = ();
 my @fillIn = ();
 
+my $fileToOpen = "";
+
 ######################counters
 my $objSuc = 0;
 my $count = 0;
@@ -242,7 +244,7 @@ for my $x (sort keys %any)
   my $maxToOpen = 0;
   if (!$expl{$xmod})
   {
-    $nuline = findExplLine($x, $_[0], 1);
+    ($fileToOpen, $nuline) = findExplLine($x, $_[0], 1);
 	if (($nuline ne "????") && ($nuline !~ /failed/) && $nuline > $maxToOpen) { $maxToOpen = $nuline; }
     $errMsg .= "$xmod ($lineNum{$x}) needs explanation: guess = line $nuline\n";
 	$explErr .= "$xmod\t\"$xmod is when you [fill-in-here].\"\n";
@@ -250,7 +252,7 @@ for my $x (sort keys %any)
   }
   if (!$conc{$xmod})
   {
-    $nuline = findExplLine($x, $_[0], 2);
+    ($fileToOpen, $nuline) = findExplLine($x, $_[0], 2);
 	if (($nuline ne "????") && ($nuline !~ /failed/) && $nuline > $maxToOpen) { $maxToOpen = $nuline; }
 	$errMsg .= "$xmod ($lineNum{$x}) needs concept definition: guess = line $nuline\n";
     if ($x =~ /\*/)
@@ -345,7 +347,7 @@ for my $x (sort keys %any)
   {
     if ($openStoryFile)
 	{
-    my $cmd = "$np \"c:\\games\\inform\\$_[0].inform\\source\\story.ni\" -n$nuline";
+    my $cmd = "$np \"$fileToOpen\" -n$nuline";
 	`$cmd`;
 	}
 	else
@@ -704,21 +706,24 @@ sub findExplLine
   my $anyRooms = 0;
   my @toRead = ("c:/games/inform/$_[1].inform/source/story.ni");
   my $file;
+  my $type = ($_[2] == 2 ? "concept definition" : "explanation");
 
   if (lc($_[1]) eq "compound")
   {
     push(@toRead, "$i7\\compound tables.i7x");
   }
 
+  OUTER:
   for $file (@toRead)
   {
+  open(B, $file);
   while ($a = <B>)
   {
-	if ($a =~ /^\[start rooms\]/i) { $begunRooms = 1; }
-    if (($a =~ /^part /i) && ($begunRooms) && (!$doneRooms)) { $begunRooms = 1; $curRoom = $a; $curRoom =~ s/^part //i; }
+	if ($a =~ /^\[start rooms\]/i) { $begunRooms = 1; $doneRooms = 0; next; }
+    if (($a =~ /^part /i) && ($begunRooms) && (!$doneRooms)) { $begunRooms = 1; $curRoom = $a; $curRoom =~ s/^part //i; next; }
 	$a =~ s/\*/ /g; # ugh, a bad hack but it will have to do to read asterisk'd files
-	if ($a =~ /^\[end rooms\]/i) { $doneRooms = 1; $curRoom = $defaultRoom; }
-	if ($a =~ /activation of $_[0]/i) { print "$_[0]: $a"; chomp($curRoom); $actRoom = $curRoom; last;}
+	if ($a =~ /^\[end rooms\]/i) { $doneRooms = 1; $curRoom = $defaultRoom; next; }
+	if ($a =~ /activation of $_[0]/i) { chomp($curRoom); $actRoom = $curRoom; close(B); last OUTER;}
   }
 
   if (!$warnedYet)
@@ -728,18 +733,19 @@ sub findExplLine
     $warnedYet = 1;
   }
 
+  close(B);
+  }
+
+
   if (!$actRoom)
   {#print "$_[0] FAILED / $defaultToGeneral / $. / $_[2] / $curRoom\n";
     return "(failed)";
-	close(B);
-  }
-
-  close(B);
   }
 
   for my $file(@toRead)
   {
-  open(B, $file);
+  print "Opening $file for $_[0], $actRoom, $type\n";
+  open(B, $file) || die ("No $file");
 
   my $inXX = 0;
   while ($a = <B>)
@@ -762,15 +768,15 @@ sub findExplLine
 	  $a =~ s/^the //i;
 	  #print "Close at line $. to $actRoom.\n";
 	  if ($a =~ /^(part|section|chapter|volume|book) /i)
-	  { my $retVal = $.; close(B); return $retVal; }
-	  if (lc($a) ge lc($_[0])) { my $retVal = $.; close(B); return $retVal; }
+	  { my $retVal = $.; close(B); return ($file, $retVal); }
+	  if (lc($a) ge lc($_[0])) { my $retVal = $.; close(B); return ($file, $retVal); }
 	  }
 	  elsif ($_[2] == 1)
 	  {
 	  #print "Checking $a vs $_[0]";
-	  if ($a !~ /[a-z]/i) { my $retVal = $.; close(B); return $retVal; }
-	  if ($a =~ /\[start of/i) { my $retVal = $.; close(B); return $retVal; }
-	  if (lc($a) ge lc($_[0])) { my $retVal = $.; close(B); return $retVal; }
+	  if ($a !~ /[a-z]/i) { my $retVal = $.; close(B); return ($file, $retVal); }
+	  if ($a =~ /\[start of/i) { my $retVal = $.; close(B); return ($file, $retVal); }
+	  if (lc($a) ge lc($_[0])) { my $retVal = $.; close(B); return ($file, $retVal); }
 	  }
 	}
   }
