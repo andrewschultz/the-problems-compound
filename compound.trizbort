@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<trizbort version="1.5.9.5">
+<trizbort version="1.5.9.8">
 	<info>
 		<title>The Problems Compound</title>
 		<author>Andrew Schultz</author>
@@ -66,8 +66,8 @@
 		<room id="21" name="The Belt Below" subtitle="" x="-288" y="32" w="96" h="64" region="Cluey Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects custom="yes" customRight="-36" customDown="0">Insanity Terminal</objects>
 		</room>
-		<room id="22" name="Bottom Rock" subtitle="" x="-448" y="32" w="96" h="64" region="Cluey Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects custom="yes" customRight="-24" customDown="0">Note Crib|  Crocked Half|  Legend of Stuff</objects>
+		<room id="22" name="A Great Den" subtitle="" x="-448" y="32" w="96" h="64" region="Cluey Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
+			<objects custom="yes" customRight="-24" customDown="0">Notes Crib|  Crocked Half|  Legend of Stuff</objects>
 		</room>
 		<room id="23" name="Judgment Pass" subtitle="" x="192" y="-96" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects custom="yes" customRight="-24" customDown="0">Officer Petty|Intuition Counter</objects>
@@ -263,7 +263,6 @@
 	<settings>
 		<colors>
 			<canvas>White</canvas>
-			<fill>White</fill>
 			<border>Black</border>
 			<line>Black</line>
 			<selectedLine>SteelBlue</selectedLine>
@@ -273,6 +272,7 @@
 			<lineText>Black</lineText>
 			<grid>#F5F5F5</grid>
 			<startRoom>GreenYellow</startRoom>
+			<endRoom>Red</endRoom>
 		</colors>
 		<regions>
 			<Cluey____Area Name="Cluey Area" TextColor="Black">#C06020</Cluey____Area>
@@ -295,7 +295,6 @@
 		</grid>
 		<lines>
 			<width>2</width>
-			<handDrawn>no</handDrawn>
 			<arrowSize>8</arrowSize>
 			<textOffset>4</textOffset>
 		</lines>
