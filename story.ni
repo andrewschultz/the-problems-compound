@@ -229,7 +229,7 @@ when play begins (this is the sort ALL the tables rule) :
 	sort the table of sleep stories in random order;
 	sort the table of horrendous books in random order;
 	sort the table of horrendous songs in random order;
-	sort the table of jerk-girl-talk in random order;
+	sort the table of jerk-macho-talk in random order;
 	continue the action;
 
 when play begins (this is the initialize missing table element rule) :
@@ -3525,6 +3525,7 @@ dirty word	"A dirty word is profanity. 'Word' on its own is slang for agreement.
 electrocute	"If someone is electrocuted, they're filled with an often lethal dose of electrical current."
 flounder	"To flounder is to try and fail without any progress. It's also the name of a fish."
 fluoridated	"Fluoridated water is a subject of many silly conspiracy theories."
+gangbusters	"Gangbusters is outdated slang for awesome."
 gorgeous	"Gorgeous is, well, beautiful."
 grown up	"Grown up means, well, you've learned and matured."
 hara-kiri	"Hara-kiri is Japanese ritual suicide."
@@ -3626,6 +3627,8 @@ wax lyrical	"To wax lyrical is to talk endlessly and enthusiastically about some
 world record	"A world record is the best or most someone's ever done something."
 attorney general	"An Attorney General is the highest ranking lawyer in a country or state." [start of court of contempt]
 nutcase	"A nutcase is a pejorative  term for someone who is crazy, clinical or otherwise, as opposed to Buddy Best's claims he just studies a lot."
+prosecutor	"A prosecutor is a lawyer who tries cases for people bringing a legal or civil complaint."
+readjust	"To readjust is to try to come to grips with a situation."
 brass ring	"To grab the brass ring is to achieve a dream goal. It refers to the brass ring on merry-go-rounds." [start of questions field]
 brother foster	"A foster brother is a brother not related by birth."
 Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
@@ -7524,7 +7527,7 @@ before talking to a client (this is the ask jerks generally first rule):
 	if know-jerks is false:
 		say "You feel a bit over-familiar. Maybe if you talk to all the [j-co], you'll get a formal introduction." instead;
 
-jerk-girl-row is a number that varies. jerk-girl-yet is a truth state that varies.
+jerk-macho-row is a number that varies. jerk-macho-yet is a truth state that varies.
 
 before talking to jerks (this is the ask jerks generally to get their names rule):
 	if finger is not examined:
@@ -7538,17 +7541,17 @@ before talking to jerks (this is the ask jerks generally to get their names rule
 	now know-jerks is true instead;
 
 to jerk-blab:
-	increment jerk-girl-row;
-	d "Jerk dialogue: [jerk-girl-row]";
-	if jerk-girl-row > number of rows in table of jerk-girl-talk:
+	increment jerk-macho-row;
+	d "Jerk dialogue: [jerk-macho-row]";
+	if jerk-macho-row > number of rows in table of jerk-macho-talk:
 		say "'[activation of lovelies]Lies: LOVE!' proclaims [random client in Nominal Fen]. The others agree. They then resume their...evaluations.";
-		now jerk-girl-row is 0;
+		now jerk-macho-row is 0;
 		continue the action;
-	choose row jerk-girl-row in table of jerk-girl-talk;
-	say "[girl-neg entry][line break]";
-	if jerk-girl-yet is false:
+	choose row jerk-macho-row in table of jerk-macho-talk;
+	say "[macho-boast entry][line break]";
+	if jerk-macho-yet is false:
 		say "[line break]You have a vague suspicion they don't know as much about girls as they say they do, but if you called them on it, they'd say you didn't, either, so hypocrisy.";
-		now jerk-girl-yet is true;
+		now jerk-macho-yet is true;
 
 for writing a paragraph about a client (called jrk) in Nominal Fen:
 	if cookie-eaten is true:
@@ -9871,9 +9874,9 @@ after quipping when qbc_litany is table of Buddy Best talk:
 		terminate the conversation;
 		say "Buddy waves his hands to change the subject. 'Well, I don't want to waste any more of your time,' he says, with fake humility not meant to be convincing. You freeze.";
 		wfak;
-		say "[line break]'Negotiator, eh? Standing your ground? I'm sure you're nice once I get to know you even if you're not as nice as [bg] once you get to know him, but this is real efficient self improvement stuff. I'm sure you're smart enough to understand. [']Cause you probably should've understood it a few years ago. Here, I don't want to waste any more of your time.' Buddy Best hands you something as he pushes you out.";
+		say "[line break]'Negotiator, eh? Standing your ground? I'm sure you're nice once I get to know you even if you're not as nice as [bg] once you get to know him, but if you go I'll give you some real efficient self improvement stuff. No [activation of prosecutor]cuter prose. [activation of readjust]Just read. I'm sure you're smart enough to understand. [']Cause you probably should've understood it a few years ago. Look, I don't want to waste any more of your time.' Buddy Best throws the newsletter at you as you leave.";
 		wfak;
-		say "[line break]Well, it's something. Which is more than you expected. Generally, obnoxious fast-talkers wound up taking something from YOU after a short, loud, fast dialog.";
+		say "[line break]You pick it up. [i]Reasoning Circular[r]. Well, it's something. Which is more than you expected. Generally, obnoxious fast-talkers wound up taking something from YOU after a short, loud, fast dialog.";
 		it-take Reasoning Circular;
 		move player to Questions Field, without printing a room description;
 		say "[bold type]Questions Field[paragraph break][roman type]The [if bros-left is 3]Brothers look[else if bros-left is 2]remaining Brothers look[else]remaining Brother looks[end if] unsurprised you got thrown out. Well, at least you have this...Reasoning Circular now.";
@@ -12246,6 +12249,8 @@ flounder is a concept in conceptville. Understand "flo under" and "under flo" as
 
 fluoridated is a concept in conceptville. Understand "dated flora" and "flora dated" as fluoridated. howto is "[j-girl]".
 
+gangbusters is a concept in conceptville. Understand "gangbusters" as gangbusters. howto is "[j-girl]".
+
 gorgeous is a concept in conceptville. Understand "jess gore" and "gore jess" as gorgeous. howto is "[j-girl]".
 
 grown up is a concept in conceptville. Understand "up groan" and "groan up" as grown up. howto is "[solve-j] with swears off".
@@ -12474,6 +12479,10 @@ section court of contempt concepts
 attorney general is a concept in conceptville. Understand "general attorney" as attorney general. howto is "[f-t of Court of Contempt], innuendo off".
 
 nutcase is a concept in conceptville. Understand "case/job nut" and "nut case/job" as nutcase. howto is "[f-t of Court of Contempt], innuendo on".
+
+prosecutor is a concept in conceptville. Understand "prosecutor" as prosecutor. howto is "talk to Buddy Best".
+
+readjust is a concept in conceptville. Understand "read just" and "just read" as readjust. howto is "talk to Buddy Best".
 
 section questions field concepts
 

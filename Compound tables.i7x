@@ -219,8 +219,8 @@ part nominal fen
 
 [jerk girl talk]
 
-table of jerk-girl-talk [xxjgt]
-girl-neg
+table of jerk-girl-talk [xxjmt]
+macho-boast
 "The [j-co] muse how you can't be a [activation of adult content]content adult without getting, well, serious ACTION."
 "The [j-co] laugh at how unathletic [activation of air jordan]Jordan Ayer and [activation of nolan ryan]Ryan Nolan are. They vow to actually start working out some day."
 "The [j-co] berate [activation of anapest]Pest Anna and her weird 'modern' poetry."
@@ -229,7 +229,6 @@ girl-neg
 "The [j-co] praise the writing of [activation of Bechdel]Del Beck, who knows how to do girl-talk even if girls say he doesn't."
 "The [j-co] revel in how [activation of beer guts]Guts Beer helps you get out there and DO super man stuff."
 "The [j-co] rave about how  [activation of benevolent]Evelyn Benn is snarky to people for their own good."
-"The [j-co] remember not to [activation of jeremiad]add Jeremy to parties. He can't keep up a clever conversation or rant."
 "The [j-co] wrestle over the sensitivest way to compliment a girl on a [activation of body slamming]slamming body."
 "The [j-co] compare kid-style [activation of bouncing betty]beddy bouncing to adult-style, which is clearly the BOMB."
 "The [j-co] babble on about the [activation of box score]Score Box, where everyone except math obsessed nerds can hook up with a girl."
@@ -243,6 +242,7 @@ girl-neg
 "The [j-co] agree that [activation of electrocute]Cute Electra isn't, like, LETHALLY hot."
 "The [j-co] try to be charitable and think of girls ranked [activation of flounder]under Flo on their beauty scale."
 "A couple [j-co] feel sorry they [activation of fluoridated]dated Flora and listened to her conspiracy theories."
+"The [j-co] are glad they're nowhere near as lame as [activation of gangbusters]Buster's Gang. Not Buster Ball, of course."
 "The [j-co] agree [activation of gorgeous]Jess Gore is not very attractive."
 "The [j-co] rave how full of life [activation of hara-kiri]Keri Harrah is."
 "The [j-co] recount [activation of henry clay]Clay Henry's prank on the dork figureheads in the school's student government."
@@ -251,6 +251,7 @@ girl-neg
 "The [j-co] hope [activation of howard stern]stern Howard doesn't come by to moralize again."
 "The [j-co] laugh at how [activation of humphrey davy]Davey Humphrey beats up and makes fun of science nerds."
 "The [j-co] ooh and ahh at [activation of jack london]London Jack's stories of suave city life."
+"The [j-co] remember not to [activation of jeremiad]add Jeremy to parties. He can't keep up a clever conversation or rant."
 "The [j-co] talk about getting in shape at the [activation of Jim Beam]Beam Gym."
 "Each of the [j-co] discusses a [activation of journeyman]man-journey he will take to be above average."
 "The [j-co] create a conspiracy theory for laughs: plain, quiet [activation of Keyser Soze]Suzy Kaiser somehow ruthlessly controls female and male social circles."

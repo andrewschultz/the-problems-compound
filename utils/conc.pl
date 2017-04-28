@@ -58,7 +58,7 @@ my %lineNum;
 
 my %tableDetHash;
 
-$tableDetHash{"Compound"} = "xxjgt,xxbgw";
+$tableDetHash{"Compound"} = "xxjmt,xxbgw";
 $tableDetHash{"Buck-the-Past"} = "!xxtia";
 $tableDetHash{"Buck-the-Past"} = "!xxtia";
 
@@ -143,7 +143,7 @@ sub checkTableDetail
   my $a3;
   my $lastAlf = "";
   my $inTable = 0;
-  my $source = "c:/games/inform/$_[0].inform/source/story.ni";
+  my @toRead = ("c:/games/inform/$_[0].inform/source/story.ni");
   my $lastFirstTab = "";
   my $thisFirstTab = "";
   my $needActive = 0;
@@ -152,7 +152,11 @@ sub checkTableDetail
 
   for (@stuff) { if ($_ =~ /^!/) { $_ = ~ s/^!//; $needActHash{$_} = 0; } else { $needActHash{$_} = 1; } }
 
-  open(A, "$source") || die ("No $source.");
+  if (lc($_[0]) eq "compound") { push(@toRead, "$i7\\compound tables.i7x"); }
+
+  for my $file (@toRead)
+  {
+  open(A, "$file") || die ("No $file.");
 
   OUTER:
   while ($a = <A>)
@@ -187,6 +191,8 @@ sub checkTableDetail
 	}
 	$lastAlf = $a3;
   }
+  }
+  close(A);
   }
 }
 
@@ -366,10 +372,11 @@ sub checkOrder
   my $concs;
   my $ordFail = 0;
   my $lastConcept = "";
+  my $file;
 
-  my $source = "c:/games/inform/$_[0].inform/source/story.ni";
+  my @toRead = ("c:/games/inform/$_[0].inform/source/story.ni");
 
-  open(A, "$source") || die ("Can't open $source.");
+  if (lc($_[0]) eq "compound") { push(@toRead, "$i7\\compound tables.i7x"); }
 
   my $line = 0;
   my $writeGameObjErrRes = 0;
@@ -382,6 +389,10 @@ sub checkOrder
   my $lastMatch = 0;
   my $match = 0;
   my $conceptOrdErr = 0;
+
+  for $file (@toRead)
+  {
+  open(A, "$file") || die ("Can't open $file.");
 
   while ($a = <A>)
   {
@@ -432,6 +443,11 @@ sub checkOrder
 	  }
 	}
   }
+
+  close(A);
+
+  }
+
   if ($ordFail) { print "  EXPLANATIONS table order mistakes above ($ordFail)\n"; }
 
   $ordFail = 0;
@@ -744,7 +760,7 @@ sub findExplLine
 
   for my $file(@toRead)
   {
-  print "Opening $file for $_[0], $actRoom, $type\n";
+  #print "Opening $file for $_[0], $actRoom, $type\n";
   open(B, $file) || die ("No $file");
 
   my $inXX = 0;
