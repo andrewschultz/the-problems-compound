@@ -62,6 +62,8 @@ $tableDetHash{"Compound"} = "xxjmt,xxbgw";
 $tableDetHash{"Buck-the-Past"} = "!xxtia";
 $tableDetHash{"Buck-the-Past"} = "!xxtia";
 
+my $source = __FILE__;
+
 #################################
 #arrays
 my @dumbErrors = ();
@@ -90,7 +92,12 @@ while ($count <= $#ARGV)
 	  next;
 	  };
     /^-?a$/ && do { $printAllDiff = 1; $count++; next; };
-    /^-?e$/ && do { `__FILE__`; exit(); };
+    /^-?e$/ && do
+	{
+	  my $cmd = "start \"\" $np $source";
+	  `$cmd`;
+	  exit();
+    };
     /^-?nt$/ && do { $printTest = 0; $count++; next; };
     /^-?t$/ && do { $printTest = 1; $count++; next; };
     /^-?d$/ && do { $defaultRoom = $ARGV[$count+1]; $defaultRoom =~ s/[-\._]/ /g; $count+= 2; next; };
@@ -600,7 +607,17 @@ while ($lineIn = <X>)
   while ($tmpVar =~ /\[activation of/) # "activation of" in source code
   {
     $tmpVar =~ s/.*?\[activation of //;
-	if ($tmpVar =~ /\*/) { my $tmpVar2 = $tmpVar; $tmpVar2 =~ s/\].*//; $tmpVar2 =~ s/\*/ /; $asterisks++; $astString .= "$tmpVar2($.)\n"; }
+	if ($tmpVar =~ /\*/)
+	{
+	  my $tmpVar2 = $tmpVar;
+	  $tmpVar2 =~ s/\].*//;
+	  if ($tmpVar2 =~ /\*/)
+	  {
+	  $tmpVar2 =~ s/\*/ /;
+	  $asterisks++;
+	  $astString .= "$tmpVar2($.)\n";
+	  }
+    }
 	my $c = $tmpVar;
 	$c =~ s/\].*//g;
 	if ($c eq "conc-name entry") { next; }
