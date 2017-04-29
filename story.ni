@@ -1557,7 +1557,7 @@ check smelling (this is the smelling a place rule): [see above for people]
 	if player is in temper keep:
 		say "[if sal-sleepy is false]You can understand why Volatile Sal is upset about smells, but you don't understand why he thinks it's other people.[else]Much nicer now with the poory pot in the vent.[end if]" instead;
 	if player is in joint strip:
-		say "It smells a bit odd[if off-the-path is true]. But you can't go off the path again with the Stool Toad watching you[else]. You're tempted to check what's off the path, to the north or east[end if]." instead;
+		say "It smells like [activation of killer weed]weed killer, which strangely (or not) hasn't been effective on the stickweed.[paragraph break][if off-the-path is true]But you can't go off the path again with the Stool Toad watching you[else]You're tempted to check what's off the path, to the north or east[end if]." instead;
 	if player is in pressure pier:
 		say "A faint smell of various foods to the west." instead;
 	if player is in meal square:
@@ -3467,6 +3467,7 @@ sleeper cell	"A group of people who blen into a community until they can commit 
 bullfrog	"A bullfrog is not quite a toad. And bull means nonsense. The Stool Toad is probably in no danger of being mistaken for Frog or Toad from Arnold Lobel's nice books." [start of joint strip]
 case a joint	"To case a joint is to search a place thoroughly."
 Double Jeopardy	"Double jeopardy is being tried for the same crime twice. Making your jeopardy double is just putting you at twice the risk."
+killer weed	"Killer weed is slang for especially good marijuana."
 Moral Support	"Moral support is helping someone even if you don't have concrete advice. SUPPORT MORAL is, well, a slogan that pushes people around."
 Pigeon English	"Pigeon English is broken, grammatically poor English."
 strip search	"To strip search someone is to remove their clothes to look for something on them, or in them."
@@ -12114,6 +12115,8 @@ bullfrog is a concept in conceptville. Understand "frog bull" and "bull frog" as
 case a joint is a concept in conceptville. Understand "joint a case" as case a joint. howto is "get ticket for exploring the stickweed".
 
 Double Jeopardy is a concept in conceptville. Understand "jeopardy double" as Double Jeopardy. howto is "get ticket for sleeping".
+
+killer weed is a concept in conceptville. Understand "weed killer" as killer weed. howto is "smell in the Joint Strip".
 
 Moral Support is a concept in conceptville. Understand "support moral" as moral support. howto is "examine pigeon stool".
 

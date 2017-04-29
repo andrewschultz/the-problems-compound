@@ -798,7 +798,7 @@ sub findExplLine
   }
   close(B);
   }
-  #print "Couldn't find exp line for $_[0]/$actRoom.\n";
+  print "Couldn't find exp line for $_[0]/$actRoom.\n";
   return ($toRead[0], "????");
 }
 

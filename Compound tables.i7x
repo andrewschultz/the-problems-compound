@@ -219,7 +219,7 @@ part nominal fen
 
 [jerk girl talk]
 
-table of jerk-girl-talk [xxjmt]
+table of jerk-macho-talk [xxjmt]
 macho-boast
 "The [j-co] muse how you can't be a [activation of adult content]content adult without getting, well, serious ACTION."
 "The [j-co] laugh at how unathletic [activation of air jordan]Jordan Ayer and [activation of nolan ryan]Ryan Nolan are. They vow to actually start working out some day."
