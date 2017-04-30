@@ -55,6 +55,7 @@ my %gotText;
 my %authTab;
 my %okdup;
 my %lineNum;
+my %fileLineErr;
 
 my %tableDetHash;
 
@@ -139,6 +140,8 @@ for my $thisproj (@dirs)
   if ($readConcepts) { readConcept($thisproj); }
   if ($detailAlpha) { checkTableDetail($thisproj); }
 }
+
+printGlobalResults();
 
 ##############################################subroutines
 
@@ -254,11 +257,10 @@ for my $x (sort keys %any)
   my $xmod = $x; $xmod =~ s/\*//g;
   if ($gotyet{$xmod}) { print "Oops, $xmod looks like an almost-duplicate with asterisks there/missing.\n"; }
   $gotyet{$xmod} = 1;
-  my $maxToOpen = 0;
   if (!$expl{$xmod})
   {
     ($fileToOpen, $nuline) = findExplLine($x, $_[0], 1);
-	if (($nuline ne "????") && ($nuline !~ /failed/) && $nuline > $maxToOpen) { $maxToOpen = $nuline; }
+	if (($nuline ne "????") && ($nuline !~ /failed/)) { $fileLineErr{$fileToOpen} = $nuline; }
     $errMsg .= "$xmod ($lineNum{$x}) needs explanation: guess = line $nuline\n";
 	$explErr .= "$xmod\t\"$xmod is when you [fill-in-here].\"\n";
 	$fails++; $thisFailed = 1;
@@ -266,7 +268,7 @@ for my $x (sort keys %any)
   if (!$conc{$xmod})
   {
     ($fileToOpen, $nuline) = findExplLine($x, $_[0], 2);
-	if (($nuline ne "????") && ($nuline !~ /failed/) && $nuline > $maxToOpen) { $maxToOpen = $nuline; }
+	if (($nuline ne "????") && ($nuline !~ /failed/)) { $fileLineErr{$fileToOpen} = $nuline; }
 	$errMsg .= "$xmod ($lineNum{$x}) needs concept definition: guess = line $nuline\n";
     if ($x =~ /\*/)
 	{
@@ -301,7 +303,7 @@ for my $x (sort keys %any)
   {
     print "XXADD starts at $addStart.\n";
     print "XXCV starts at $cvStart.\n";
-	print "Test failed, $fails failures of $totals.";
+	printf("Test failed, $fails failure%s of $totals.", $fails==1 ? "" : "s");
   }
   else { print "Test succeeded! All $totals passed."; }
 
@@ -341,10 +343,13 @@ for my $x (sort keys %any)
     print $bigString;
   }
   } else { print "No errors in this run for $_[0]. Nothing sent to clipboard.\n"; }
-
   if (!$errMsg) { $errMsg = "All okay!"; } else { $errMsg =~ s/\n/<br>/g; $errMsg =~ s/<br>$//g; }
-
   $errMsg = "";
+}
+
+sub printGlobalResults
+{
+
 
   if ($#dumbErrors > -1)
   {
@@ -356,19 +361,22 @@ for my $x (sort keys %any)
     print "Zap fill-in text at line(s) " . join(", ", @fillIn) . ".\n";
   }
 
-  if ($nuline =~ /[1-9]/)
+  if (scalar %fileLineErr)
   {
     if ($openStoryFile)
 	{
-    my $cmd = "$np \"$fileToOpen\" -n$nuline";
+	for my $thisFile (keys %fileLineErr)
+	{
+    my $cmd = "$np \"$thisFile\" -n$fileLineErr{$thisFile}";
+	print "Running $cmd\n";
 	`$cmd`;
 	}
+    }
 	else
 	{
 	  print "Use -l to launch the story file for direct editing.\n";
     }
   }
-
 }
 
 sub checkOrder
@@ -468,15 +476,18 @@ sub checkOrder
     #print lc(@ex[$_]) . " =? " . lc(@co[$_]) . "\n";
     if ((!defined($co[$_])) || (lc($ex[$_]) ne lc($co[$_])))
 	{
+	  my $temp = defined($lineNum{$co[$_]}) ? $lineNum{$co[$_]} : 0;
+
 	  $ordFail++;
 	  if ($match - $lastMatch == 1) { next; }
-	  $printThisOut = !($lastCo - $lineNum{$co[$_]} == -1); #(($lastCo - $lineNum{$co[$_]} == -1) ||
+	  $printThisOut = !($lastCo - $temp == -1); #(($lastCo - $lineNum{$co[$_]} == -1) ||
 	  #print "$lastCo $lineNum{$co[$_]} $lastEx $lineNum{$ex[$_]}\n";
 	  $printThisOut |= $printAllDiff;
 	  if ($printThisOut)
 	  {
-	  printf("$_ ($ordFail): $ex[$_] %s vs %s", $lineNum{$ex[$_]} ? "($lineNum{$ex[$_]})" : "",
-	  defined($co[$_]) ? "$co[$_] ($lineNum{$co[$_]})" : "(nothing)");
+	  $temp = defined($lineNum{$co[$_]}) ? $lineNum{$co[$_]} : "none";
+	  printf("$_ ($ordFail): $ex[$_] %s vs %s", defined($lineNum{$ex[$_]}) && $lineNum{$ex[$_]} ? "($lineNum{$ex[$_]})" : "",
+	  defined($co[$_]) ? "$co[$_] ($temp)" : "(nothing)");
 	  #defined($co[$_]) ? "$co[$_] ($lineNum{$co[$_]})" : "");
 	  }
 	  for my $match (0..$#co)
@@ -486,8 +497,8 @@ sub checkOrder
 		  if ($printThisOut) { print " (#$match)"; }
 		  if ($match - $lastMatch == 1) { if ($printThisOut) { print " (in order)"; } $inOrder++; }
 		  $lastMatch = $match;
-	  $lastCo = $lineNum{$co[$_]};
-	  $lastEx = $lineNum{$ex[$_]};
+	  if (defined($lineNum{$co[$_]})) { $lastCo = $lineNum{$co[$_]}; }
+	  if (defined($lineNum{$ex[$_]})) { $lastEx = $lineNum{$ex[$_]}; }
 		}
 	  }
 	  if ($printThisOut)
@@ -579,7 +590,7 @@ my $tmpVar;
 
 while ($lineIn = <X>)
 {
-  if ($lineIn =~ /\[fill-in-here\]/) { $nuline = $.; push (@fillIn, $.); next; }
+  if ($lineIn =~ /\[fill-in-here\]/) { $nuline = $.; $fileLineErr{$file} = $.; push (@fillIn, "$file-$."); next; }
   if ($lineIn =~ /(EXPLANATIONS:|CONCEPTS:|fill-in-here throws)/) { push (@dumbErrors, $.); next; }
   if (($lineIn =~ /is a.* author\. pop/) && ($lineIn !~ /^\[/)) { $tmpVar = $lineIn; $tmpVar =~ s/ is (an|a) .*//g; chomp($tmpVar); if ($lineIn =~ /xp-text is /) { $gotText{$tmpVar} = 1; } elsif ($lineIn =~ /\"/) { print "Probable typo for $tmpVar.\n"; } $auth{$tmpVar} = $line; next; }
   if ($inAuthTable)
