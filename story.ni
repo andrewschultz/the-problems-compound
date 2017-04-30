@@ -1012,6 +1012,8 @@ check waiting (this is the caught napping rule):
 		say "[one of]You attempt to loiter in this seedy area in order to get in trouble or something, but no dice.[or]Still, nobody comes to break up your loitering.[or]You reflect if you want to get zapped for loitering, maybe you need to do better than just hang around.[or]Hm, you wonder what is even lazier than standing around.[stopping]" instead;
 	if player is in Meal Square:
 		say "You wait, but [activation of loaf around]a round loaf fails to appear." instead;
+	if player is in Joint Strip:
+		say "With the Stool Toad around, you fear a booming [activation of do dope]DOPE, DO!" instead;
 	if player is in Soda Club:
 		say "Er, be." instead;
 	if player is in airy station:
@@ -3466,6 +3468,7 @@ puff piece	"A puff piece is a fawning newspaper article that makes someone out t
 sleeper cell	"A group of people who blen into a community until they can commit an act of terrorism."
 bullfrog	"A bullfrog is not quite a toad. And bull means nonsense. The Stool Toad is probably in no danger of being mistaken for Frog or Toad from Arnold Lobel's nice books." [start of joint strip]
 case a joint	"To case a joint is to search a place thoroughly."
+do dope	"To do dope is to use drugs."
 Double Jeopardy	"Double jeopardy is being tried for the same crime twice. Making your jeopardy double is just putting you at twice the risk."
 killer weed	"Killer weed is slang for especially good marijuana."
 Moral Support	"Moral support is helping someone even if you don't have concrete advice. SUPPORT MORAL is, well, a slogan that pushes people around."
@@ -3583,6 +3586,7 @@ whistler's mother	"Whistler's Mother is a famous painting of an old lady, the mo
 career threatening	"Something career threatening may risk not only your job but your ability to get other equal or better jobs. A threatening career is--well, a bit of a racket." [start of judgment pass]
 scofflaw	"A scofflaw is someone who breaks minor rules. Perhaps they jaywalk or litter."
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever." [start of idiot village]
+code monkey	"A code monkey is someone who writes programming code for a living."
 grease monkey	"A grease monkey is a manual laborer, especially with machines."
 assembly line	"An assembly line is where each person or machine has a specific sub-job in creating a larger product." [start of truth home]
 ideological	"Ideological means fixated on specific political ideas and not willing to listen to others."
@@ -3677,8 +3681,9 @@ half right	"Half right is when you are, well, half right. Being half right is of
 Howard Dean	"Howard Dean was a candidate for the 2004 US Democratic Party nomination. After placing 3rd in the Iowa caucuses, he had an infamous 'Dean Scream' at a rally with supporters, which sounded worse than it was, because he was close to a microphone that picked it up. Which made him the butt of many jokes for a week. The media realised that everyone was yelling a week later, but the story was too ingrained by then.[paragraph break]DISCLAIMER: the author voted for Dean in the 2004 primary, and seeing/recalling this episode has unlocked how and why some other people acted the way they have over the years."
 infomania	"Infomania is always wanting new info. The [bad-guy] pretends he doesn't want it, but it's just fun to have. Mania info is, in this case, malicious gossip about people different the wrong way."
 informally	"Informally means without rigid structure, or in a friendly manner."
-John Oliver	"John Stewart hosts Last Week with John Oliver, a popular political satire and commentary show on HBO."
-John Stewart	"John Stewart was the longtime host of The Daily Show, which became a staple of political satire and commentary."
+John Hancock	"Your John Hancock is your signature."
+John Oliver	"John Oliver hosts [i]Last Week with John Oliver[r], a popular political satire and commentary show on HBO."
+John Stewart	"John Stewart was the longtime host of [i]The Daily Show[r], which became a staple of political satire and commentary."
 Johns Hopkins	"Johns Hopkins is a university with a prestigious medical school and pre-med program."
 King Henry	"King Henry VIII of England had six wives."
 laughingstock	"A laughingstock is someone everyone laughs at. But stock laughing is canned laughter, reflexive laughter at a joke you heard before, or maybe even a laugh track."
@@ -3710,7 +3715,7 @@ stand out	"To stand out is to be different from the rest."
 stupor	"A stupor is when you are conscious but not really aware of what's going on."
 taste buds	"Taste buds are what you use to experience the sensation of taste."
 train gravy	"A gravy train is a method for getting rich."
-Trevor Noah	"Trevor Noah is the current (as of 2016) host of The Daily Show, which became a staple of political satire and commentary."
+Trevor Noah	"Trevor Noah is the current (as of 2017) host of [i]The Daily Show[r], which has become a staple of political satire and commentary."
 Tucker Max	"Tucker Max was alleged to have spanwed the 'fratire' genre, which features cynical 'tell it like it is' writing full of sex and hedonism and self-centeredness. It's the reading equivalent of sitting next to a guy bragging at a bar for a long time. An intelligent guy, sure, but that just lets him bang on longer. Imagine PG Wodehouse's Bertie Wooster without any heart."
 Wallace Shawn	"Wallace Shawn is the actor who played Vizzini ('INCONCEIVABLE!') in The Princess Bride. He's also a critically acclaimed writer."
 Wire Fraud	"Wire fraud is a financial crime designed to cheat people out of money."
@@ -9312,11 +9317,12 @@ after doing something with business monkey:
 	continue the action;
 
 check talking to Business Monkey:
+	say "The Business Monkey[if code monkey is in conceptville][activation of code monkey] chatters in unintelligible monkey code (of course) for a bit, then[end if] ";
 	if fourth-blossom is off-stage:
-		say "The Business Monkey opens its pockets and smiles before clawing at the dirt and making a rising-up gesture with one paw." instead;
+		say "opens its pockets and smiles before clawing at the dirt and making a rising-up gesture with one paw." instead;
 	if contract-signed is false:
-		say "The Business Monkey pulls a pen out of its pocket, scribbles into thin air, shrugs, and puts the pen back." instead;
-	say "The Business Monkey shakes your hand, gives you a thumbs up, and snickers." instead;
+		say "pulls a pen out of its pocket, scribbles into thin air, shrugs, and puts the pen back." instead;
+	say "shakes your hand, gives you a thumbs up, and snickers." instead;
 
 the fourth-blossom is a thing. Understand "fourth/blossom" and "fourth blossom" as fourth-blossom. description is "Seen from above, it'd take up one quadrant of the four it should. It looks like it should start falling apart at any time, since it's all sliced, but somehow, it holds together despite its weird angularity."
 
@@ -11943,6 +11949,12 @@ to say f-t of (my-r - a room):
 to say nogo of (my-r - a room):
 	say "go nowhere in [my-r]"
 
+to say x-it of (q - a thing):
+	say "examine [the q]";
+
+to say t2 of (q - a thing):
+	say "talk to [q]";
+
 conceptville is a privately-named room in meta-rooms. "You should never see this. If you do, it is a [bug]." [this is a cheesy hack, as concepts you haven't seen yet are here, and when you see them, they move to lalaland.]
 
 understand "conceptville" as conceptville when debug-state is true.
@@ -11971,7 +11983,7 @@ wave a flag is a concept in conceptville. Understand "flag a wave" as wave a fla
 
 section smart street concepts
 
-acceptable is a concept in conceptville. Understand "able except" and "except able" as acceptable. howto is "examine the gesture token".
+acceptable is a concept in conceptville. Understand "able except" and "except able" as acceptable. howto is "[x-it of gesture token]".
 
 Beat Off is a concept in conceptville. Understand "off beat" and "off-beat" as beat off. howto is "talk to Guy".
 
@@ -12029,13 +12041,13 @@ arch deluxe is a concept in conceptville. Understand "deluxe arch" as arch delux
 
 bowled over is a concept in conceptville. howto is "eat Tray B food".
 
-defeat is a concept in conceptville. Understand "eat def" and "def eat" as defeat. howto is "examine Tray B".
+defeat is a concept in conceptville. Understand "eat def" and "def eat" as defeat. howto is "[x-it of Tray B]".
 
 devil's food is a concept in conceptville. Understand "food devil's" as devil's food. howto is "eat the gagging lolly".
 
 face off is a concept in conceptville. howto is "take inventory after eating Tray B food".
 
-Forgive is a concept in conceptville. Understand "give for" as Forgive. howto is "examine the condition mint".
+Forgive is a concept in conceptville. Understand "give for" as Forgive. howto is "[x-it of condition mint]".
 
 growing pains is a concept in conceptville. Understand "pain/pains growing" as growing pains. howto is "eat off-cheese".
 
@@ -12047,7 +12059,7 @@ pig out is a concept in conceptville. Understand "out pig" as pig out. howto is 
 
 quarter pounder is a concept in conceptville. Understand "pounder quarter" as quarter pounder. howto is "[nogo of Meal Square]".
 
-Shame No is a concept in conceptville. Understand "no shame" as Shame No. howto is "examine the condition mint".
+Shame No is a concept in conceptville. Understand "no shame" as Shame No. howto is "[x-it of condition mint]".
 
 snap decision is a concept in conceptville. Understand "decision snap" as snap decision. howto is "say yes to eating a Tray B food".
 
@@ -12063,7 +12075,7 @@ Tray T is a concept in conceptville. howto is "enter Meal Square".
 
 Tray X is a concept in conceptville. howto is "enter Meal Square".
 
-treat like dirt is a concept in conceptville. Understand "dirt like treat" as treat like dirt. howto is "examine the points brownie".
+treat like dirt is a concept in conceptville. Understand "dirt like treat" as treat like dirt. howto is "[x-it of points brownie]".
 
 section pressure pier concepts
 
@@ -12114,13 +12126,15 @@ bullfrog is a concept in conceptville. Understand "frog bull" and "bull frog" as
 
 case a joint is a concept in conceptville. Understand "joint a case" as case a joint. howto is "get ticket for exploring the stickweed".
 
+do dope is a concept in conceptville. Understand "dope do" as do dope. howto is "wait in Joint Strip".
+
 Double Jeopardy is a concept in conceptville. Understand "jeopardy double" as Double Jeopardy. howto is "get ticket for sleeping".
 
 killer weed is a concept in conceptville. Understand "weed killer" as killer weed. howto is "smell in the Joint Strip".
 
-Moral Support is a concept in conceptville. Understand "support moral" as moral support. howto is "examine pigeon stool".
+Moral Support is a concept in conceptville. Understand "support moral" as moral support. howto is "[x-it of pigeon stool]".
 
-Pigeon English is a concept in conceptville. Understand "english pigeon" as pigeon english. howto is "examine pigeon stool".
+Pigeon English is a concept in conceptville. Understand "english pigeon" as pigeon english. howto is "[x-it of pigeon stool]".
 
 strip search is a concept in conceptville. Understand "search strip" as strip search. howto is "[nogo of Joint Strip]".
 
@@ -12220,7 +12234,7 @@ beer guts is a concept in conceptville. Understand "guts beer" as beer guts. how
 
 benevolent is a concept in conceptville. Understand "evelyn benn" and "benn evelyn" as benevolent. howto is "[j-girl]".
 
-Black Mark is a concept in conceptville. Understand "mark black" as black mark. howto is "examine quiz pop".
+Black Mark is a concept in conceptville. Understand "mark black" as black mark. howto is "[x-it of quiz pop]".
 
 body slamming is a concept in conceptville. Understand "slamming body" as body slamming. howto is "[j-girl]".
 
@@ -12373,7 +12387,9 @@ section idiot village concepts
 
 Candidate Dummy is a concept in conceptville. Understand "dummy candidate" as Candidate Dummy. howto is "talk to Sly".
 
-grease monkey is a concept in conceptville. Understand "monkey grease" as grease monkey. howto is "examine the Business Monkey".
+code monkey is a concept in conceptville. Understand "monkey code" as code monkey. howto is "talk to the Business Monkey".
+
+grease monkey is a concept in conceptville. Understand "monkey grease" as grease monkey. howto is "[x-it of Business Monkey]".
 
 section truth home concepts
 
@@ -12397,7 +12413,7 @@ age four is a concept in conceptville. Understand "four age" and "forage" as age
 
 Baby Boomer is a concept in conceptville. Understand "boomer baby" as baby boomer. howto is "enter the Scheme Pyramid".
 
-bookworm is a concept in conceptville. Understand "book worm" and "worm book" as bookworm. howto is "examine the Finger Index".
+bookworm is a concept in conceptville. Understand "book worm" and "worm book" as bookworm. howto is "[x-it of Finger Index]".
 
 Brat Army is a concept in conceptville. Understand "army brat" as brat army. howto is "enter the scheme pyramid".
 
@@ -12538,7 +12554,7 @@ artemis fowl is a concept in conceptville. Understand "foul miss artie" and "art
 
 autocratic is a concept in conceptville. Understand "craddock auto" and "auto craddock" as autocratic. howto is "[fr-ran]".
 
-beholder of the eye is a concept in conceptville. Understand "eye the of beholder" as beholder of the eye. howto is "examine the Witness Eye".
+beholder of the eye is a concept in conceptville. Understand "eye the of beholder" as beholder of the eye. howto is "[x-it of Witness Eye]".
 
 benefactor is a concept in conceptville. Understand "factor benny" and "benny factor" as benefactor. howto is "[fr-ran]".
 
@@ -12600,6 +12616,8 @@ Infomania is a concept in conceptville. Understand "infomania" as infomania. how
 
 informally is a concept in conceptville. Understand "ally inform" and "inform ally" as informally. howto is "[fr-ran]".
 
+John Hancock is a concept in conceptville. Understand "hancock john" as john hancock. howto is "[fr-ran]".
+
 John Oliver is a concept in conceptville. Understand "oliver jahn" and "jahn oliver" as john oliver. howto is "[fr-ran]".
 
 John Stewart is a concept in conceptville. Understand "stewart jahn" and "jahn stewart" as john stewart. howto is "[fr-ran]".
@@ -12646,7 +12664,7 @@ running gag is a concept in conceptville. Understand "gag running" as running ga
 
 salad days is a concept in conceptville. Understand "daze salad" and "salad daze" as salad days. howto is "[fr-pb]".
 
-scuzz bucket is a concept in conceptville. Understand "scum bucket" and "bucket scuzz/scum" as scuzz bucket. howto is "examine the list bucket".
+scuzz bucket is a concept in conceptville. Understand "scum bucket" and "bucket scuzz/scum" as scuzz bucket. howto is "[x-it of list bucket]".
 
 see if i care is a concept in conceptville. Understand "care i if see" as see if i care. howto is "[fr-pb]".
 

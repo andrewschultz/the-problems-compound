@@ -311,7 +311,7 @@ gad-act
 "The [bad-guy] mutters he's sure [activation of Howard Dean]Dean Howard is nice and well-meaning all, but that scream. Really. Just...unforgiveable. And even if it were, well, he probably still deserves to be REMINDED. For character building purposes."
 "'[activation of infomania]Mania Info. Always good to have more. Well, until I get bored of it.'"
 "'[activation of informally]Ally, Inform!' the [bad-guy] says to nobody in particular."
-"The [bad-guy] congratulates himself for installing the super-sanitary doctor-recommended [activation of johns hopkins]Hopkins johns."
+"The [bad-guy] congratulates himself for installing the super-sanitary doctor-recommended [activation of johns hopkins]Hopkins johns, so much harder to deface than your average [activation of john hancock]Hancock john."
 "The [bad-guy] mutters he'd get six girls before [activation of King Henry]Henry King got one."
 "'But does [random surveyable person] have any GOOD ways to [activation of leading question]question leading like mine?'"
 "'[activation of mistruth]Ruth missed so much by not listening to the exciting stories I offered to share to her.'"
