@@ -22,11 +22,11 @@ my $clip = Win32::Clipboard::new();
 my @dirs = ("Compound", "Slicker-City", "Buck-the-Past", "btp-st");
 
 ##############could move this to a spare file but there are few enough for now
-my @okays = ("buster ball", "hunter savage", "trust brain", "good herb", "freak out", "cruelty free");
 
 my $np = "\"C:\\Program Files (x86)\\Notepad++\\notepad++.exe\"";
 
 my $i7 = "C:\\Program Files (x86)\\Inform 7\\Inform7\\Extensions\\Andrew Schultz";
+my $dupeFile = __FILE__; $dupeFile =~ s/.pl$/-dupe.txt/;
 
 ###############################
 #options
@@ -44,6 +44,7 @@ my $openStoryFile = 0;
 my $printAllDiff = 0;
 my $defaultToGeneral = 1;
 my $defaultRoom = "general concepts";
+my $readDupe = 1;
 
 #############################
 #hashes
@@ -54,7 +55,7 @@ my %conc;
 my %activ;
 my %gotText;
 my %authTab;
-my %okdup;
+my %okDup;
 my %lineNum;
 my %fileLineErr;
 
@@ -104,7 +105,8 @@ while ($count <= $#ARGV)
     /^-?t$/ && do { $printTest = 1; $count++; next; };
     /^-?d$/ && do { $defaultRoom = $ARGV[$count+1]; $defaultRoom =~ s/[-\._]/ /g; $count+= 2; next; };
     /^-?ps$/ && do { $printSuccess = 1; $count++; next; };
-    /^-?nok$/ && do { @okays = (); $count++; next; };
+    /^-?nd$/ && do { $readDupe = 0; $count++; next; };
+    /^-?ed$/ && do { `$dupeFile`; exit(); };
     /^-?ng$/ && do { $defaultToGeneral = 0; $count++; next; };
     /^-?dg$/ && do { $defaultToGeneral = 1; $count++; next; };
     /^-?pc$/ && do { @dirs = ("Compound"); $count++; next; };
@@ -134,7 +136,7 @@ while ($count <= $#ARGV)
   }
 }
 
-for (@okays) { $okdup{$_} = 1; }
+if ($readDupe) { readOkayDupes(); }
 
 for my $thisproj (@dirs)
 {
@@ -635,7 +637,7 @@ while ($lineIn = <X>)
 	$c =~ s/\].*//g;
 	if ($c eq "conc-name entry") { next; }
 	$c = wordtrim($c);
-	if (defined($activ{$c}) && !defined($okdup{$c})) { print "Warning line $. double defines $c from $lineNum{$c}.\n"; }
+	if (defined($activ{$c}) && !defined($okDup{$c})) { print "Warning line $. double defines $c from $lineNum{$c}.\n"; }
 	$activ{$c} = $.;
 	$any{$c} = $.;
 	$lineNum{$c} = $.;
@@ -828,10 +830,22 @@ sub findExplLine
   }
   close(B);
   }
-  print "Couldn't find exp line for $_[0]/$actRoom.\n";
+  print "Couldn't find exp line for $_[0]/$actRoom in @toRead.\n";
   return ($toRead[0], "????");
 }
 
+sub readOkayDupes
+{
+  my $line;
+  open(A, "$dupeFile") || die ("Can't open $dupeFile.");
+  while ($line = <A>)
+  {
+    if ($line =~ /^#/) { next; }
+    if ($line =~ /^;/) { last; }
+    chomp($line);
+	$okDup{lc($line)} = 1;
+  }
+}
 
 sub usage
 {
@@ -847,7 +861,7 @@ CONC.PL usage
 -v = verbosely print code
 (any combination is okay too)
 -t = print with test results so nightly build can process it
--nok = nothing in 'okay' array
+-nd = no allowed duplicates (-ed edits)
 (-)ps = print success
 (-)pc = PC only
 (-)sc = SC only
