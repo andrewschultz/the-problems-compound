@@ -21,7 +21,8 @@ my $clip = Win32::Clipboard::new();
 
 my @dirs = ("Compound", "Slicker-City", "Buck-the-Past", "btp-st");
 
-my @okays = ("buster ball", "hunter savage", "trust brain", "good herb", "freak out" );
+##############could move this to a spare file but there are few enough for now
+my @okays = ("buster ball", "hunter savage", "trust brain", "good herb", "freak out", "cruelty free");
 
 my $np = "\"C:\\Program Files (x86)\\Notepad++\\notepad++.exe\"";
 
@@ -103,6 +104,7 @@ while ($count <= $#ARGV)
     /^-?t$/ && do { $printTest = 1; $count++; next; };
     /^-?d$/ && do { $defaultRoom = $ARGV[$count+1]; $defaultRoom =~ s/[-\._]/ /g; $count+= 2; next; };
     /^-?ps$/ && do { $printSuccess = 1; $count++; next; };
+    /^-?nok$/ && do { @okays = (); $count++; next; };
     /^-?ng$/ && do { $defaultToGeneral = 0; $count++; next; };
     /^-?dg$/ && do { $defaultToGeneral = 1; $count++; next; };
     /^-?pc$/ && do { @dirs = ("Compound"); $count++; next; };
@@ -838,17 +840,20 @@ CONC.PL usage
 ===================================
 -a = show all errors even likely redundant consecutive ones
 -e = edit source
+(can combine below)
 -c = error code to clipboard
 -0 = print errors not error code
+-l/-n = launch story file (or not) after
 -v = verbosely print code
 (any combination is okay too)
 -t = print with test results so nightly build can process it
+-nok = nothing in 'okay' array
 (-)ps = print success
 (-)pc = PC only
 (-)sc = SC only
 (-)btp = BTP only
 (-)as = PC and SC and BTP (default)
-(-)o = check order
+(-)o = check order, (-)r = read concepts order too
 CURRENT TESTS: conc.pl -pc, conc.pl -t -o -as, conc.pl -sc, conc.pl -t -o -sc
 EOT
 exit;
