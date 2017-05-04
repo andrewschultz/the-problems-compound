@@ -40,7 +40,7 @@ The user-friendliness stuff is here.
 
 There's random stuff, too:
 --you can now play Hangman with Guy Sweet
---many extra silly concepts added. Up to 355, from 66 in release 2. Many of these are sort of double-counted in the tables below, but this is how many concepts are defined in the source. It's probably too hard to find them all, but the game lists them at the end. Plus you can search for "table of explanations" in the source to see the goods.
+--many extra silly concepts added. Up to 356, from 66 in release 2. Many of these are sort of double-counted in the tables below, but this is how many concepts are defined in the source. It's probably too hard to find them all, but the game lists them at the end. Plus you can search for "table of explanations" in the source to see the goods.
 --game text added here and there. As per usual for a post-release.
 --it's now easier to get sent to the Ship if you mess up. The first time you re-visit an area, you go there.
 --Sid Lew also has some truly 'incisive' theories about life and knowledge in general. To be precise, 17.

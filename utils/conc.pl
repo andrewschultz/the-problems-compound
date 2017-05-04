@@ -768,7 +768,7 @@ sub findExplLine
   while ($a = <B>)
   {
 	if ($a =~ /^\[start rooms\]/i) { $begunRooms = 1; $doneRooms = 0; next; }
-    if (($a =~ /^part /i) && ($begunRooms) && (!$doneRooms)) { $begunRooms = 1; $curRoom = $a; $curRoom =~ s/^part //i; next; }
+    if (($a =~ /^part /i) && ($begunRooms) && (!$doneRooms)) { $a =~ s/ *\[.*//; $begunRooms = 1; $curRoom = $a; $curRoom =~ s/^part //i; next; }
 	$a =~ s/\*/ /g; # ugh, a bad hack but it will have to do to read asterisk'd files
 	if ($a =~ /^\[end rooms\]/i) { $doneRooms = 1; $curRoom = $defaultRoom; next; }
 	if ($a =~ /activation of $_[0]/i) { chomp($curRoom); $actRoom = $curRoom; close(B); last OUTER;}

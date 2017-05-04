@@ -3574,6 +3574,7 @@ ring finger	"The ring finger is the one between the middle and the pinky."
 sausage fest	"A sausage fest is a congregation of males with no females."
 Sharp Barb	"A sharp barb is a stinging, clever insult."
 shock jock	"A shock jock is someone who provides deliberately insulting opinions to a wide audience, often on radio."
+spencer tracy	"Spencer Tracy was a movie actor/leading man in the 1930's and 40's."
 spotted dick	"Spotted dick is a sort of sweet pudding."
 sweeney todd	"Sweeney Todd was a fictitious murderous barber."
 sympathetic	"Sympathetic means caring and willing to listen."
@@ -4456,7 +4457,7 @@ anno-num	exam-thing	anno-loc	anno-long (text)
 0	--	Variety Garden	"The title was just for silliness until release 2, when I added varieties of brush. Basically, the garden has a lot of variety of brush, but not really quality, or nothing interesting. Originally there was a Stream of Consciousness and Train of Thought here, but these were placeholders and they didn't really flip. But they helped me until I found things. Like the Word Weasel, which didn't come until later, but I always liked that phrase. I went through a bunch of vegetables to put in the garden before I found an animal would do just as well."
 0	--	Vision Tunnel	"I'm pleased with the flip here from 'tunnel vision' as the vision tunnel opens you up to the different ways to see things."
 0	--	Pressure  Pier	"This shuffled around a bit until I found someone who was adequate for pressuring you, as opposed to just talking you down. That was Terry Sally, who was the Howdy Boy for a long time. And, in fact, he was just 'there' in Sense Common for a while. Early I took a 'best/worst remaining pun' approach to the map, but as I started writing code and sending the game to testers, I realized how it could make more sense." [start outskirts]
-0	--	Meal Square	"This was the Tactics Stall (now in Slicker City) for a while, until I had enough food items for a separate area, and then I didn't have enough time to implement tactical items. I needed a place to put them. 'Sink kitchen' didn't quite work, but eventually I found this. The dozen bakers were my first scenery implemented, and I'm quite pleased at the bad pun. Also, the Gagging Lolly was the first silly-death thing I implemented."
+0	--	Meal Square	"This was the Tactics Stall (bumped to Slicker City then Buck the Past) for a while, until I had enough food items for a separate area, and then I didn't have enough time to implement tactical items. I needed a place to put them. 'Sink kitchen' didn't quite work, but eventually I found this. The dozen bakers were my first scenery implemented, and I'm quite pleased at the bad pun. Also, the Gagging Lolly was the first silly-death thing I implemented."
 0	--	Down Ground	"Some locations didn't make the cut, but they helped me figure out better ones.  However, Down Ground was one of the first and most reliable. It was behind Rejection Retreat, which--well--didn't fit the pattern, though it was another name I liked[if ever-anno is false].[paragraph break]You can now JUMP to or from random areas that didn't quite make it. Actually, you could've once you turned on annotation mode. But now you know you can[end if]."
 0	--	Joint Strip	"Sometimes the names just fall into your lap. It's pretty horrible and silly either way, isn't it? I don't smoke pot myself, but I can't resist minor drug humor, and between Reefer Madness and Cheech and Chong, and people too stridently opposed to or in favor of drug legalization, there is a lot of fertile ground out there."
 0	--	Soda Club	"[one of]I forget what medieval text I read that made me figure out the Sinister Bar, but that's what it was in release 1. Some authors in the forum said, well, this is a bit awkward, and they were right, but it was the best idea I had and not worth holding up the game for a year. The thing is: it was an obvious weakness, but I had confidence I'd figure it out post-release. ANNO CLUB for more.[or]Then one day at the grocery store, I saw club soda, thought--could it be that easy? Having an ironic title for a speakeasy? It was! And I'd probably seen it before, but it didn't click.[paragraph break]There's a lesson here. I've spent a lot of time wondering if an idea is too complex or too simple, or too good to be true. And of course you can't be overconfident, but if it feels right, if feels right. Easy ideas don't fall out every day, but when they do, don't turn them down or worry if you haven't done enough to deserve them.[paragraph break]Of course, I'd probably have seen Soda Club if I started earlier. But that's another lesson.[cycling]"
@@ -12355,6 +12356,8 @@ sausage fest is a concept in conceptville. Understand "fest sausage" as sausage 
 Sharp Barb is a concept in conceptville. Understand "barb sharp" as sharp barb. howto is "[j-girl]".
 
 shock jock is a concept in conceptville. Understand "jock shock" as shock jock. howto is "[j-girl]".
+
+spencer tracy is a concept in conceptville. Understand "tracy spencer" as spencer tracy. howto is "[j-girl]".
 
 spotted dick is a concept in conceptville. Understand "dick spotted" as spotted dick. howto is "[j-girl]".
 

@@ -233,7 +233,7 @@ macho-boast
 "The [j-co] compare kid-style [activation of bouncing betty]beddy bouncing to adult-style, which is clearly the BOMB."
 "The [j-co] babble on about the [activation of box score]Score Box, where everyone except math obsessed nerds can hook up with a girl."
 "The [j-co] brainstorm a [activation of call girl]girl call that will make you irresistible."
-"The [j-co] alternately flatter and berate [activation of Cary Grant]Grant Carey for success with women despite a lack of looks."
+"The [j-co] berate [activation of Cary Grant]Grant Carey and [activation of Spencer Tracy] for an unusual lack success with women."
 "The [j-co] claim to want to get to know [activation of casually]Julie Kaz better."
 "The [j-co] praise [activation of category]Gory Kate as less weird than she should be on paper."
 "The [j-co] banter about when they will be able to buy alcohol with a fake ID, or even legally. Then everything's [activation of cirrhosis]Roses, sir!"
