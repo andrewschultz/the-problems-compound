@@ -371,6 +371,7 @@ sub printGlobalResults
 	{
 	for my $thisFile (keys %fileLineErr)
 	{
+	if (!defined($fileLineErr{$thisFile}) || ($fileLineErr{$thisFile} !~ /[0-9]/)) { print "Maybe an error: $thisFile has a non numerical launch line.\n"; next; }
     my $cmd = "$np \"$thisFile\" -n$fileLineErr{$thisFile}";
 	print "Running $cmd\n";
 	`$cmd`;
@@ -830,7 +831,7 @@ sub findExplLine
   }
   close(B);
   }
-  print "Couldn't find exp line for $_[0]/$actRoom in @toRead.\n";
+  printf("Couldn't find %s line for $_[0]/$actRoom in @toRead.\n", $_[2] == 1 ? "room-concept-list" : "table-of-explanations start");
   return ($toRead[0], "????");
 }
 
