@@ -3276,7 +3276,9 @@ boo tickety	"Tickety-boo means okay, all right, etc."	"I like the contrast of be
 a side stand	"To stand aside is to get out of the way."	"I had trouble with what was supporting the Basher Bible, until I stumbled on this. I'd thought of a stand for a while, but it seemed like there were too many choices. Then I realized I could just give a different figure of speech if you tried different things."
 Terry Sally	"Terry Sally has two possible translations: salutary or solitary. He is sort of in between salutary (greeting) and solitary (alone) which fits in with how he probably doesn't get to see many people, but he's social when he does."	"Terry Sally was just the Howdy Boy before release 3. But I wanted to make the Compound a bit more personable."
 trail paper	"A paper trail is evidence in white-collar crimes. People often have to piece it together."	--
-condition mint	"Mint condition is brand new."	"The mint was buggy until release 3, but it was one of the first foods that made me realize Meal Square could be an important location." [start of meal square]
+assignment plum	"A plum assignment is giving someone a particularly prestigious, noticeable, easy or lucrative job. It's one everyone wants." [start of meal square]
+basted lamb	"To be lambasted is to be yelled at very loudly."
+condition mint	"Mint condition is brand new."	"The mint was buggy until release 3, but it was one of the first foods that made me realize Meal Square could be an important location."
 cutter cookie	"Cookie-cutter means predictable and formulaic."	"I wound up getting rid of most of the foods I planned for release 1, but I added the whole 'Alec goes bad' on a whim and it went pretty well."
 gagging lolly	"Lollygagging is waiting around."	"This is one of the worst puns with the silliest deaths. I'm proud of it!"
 greater cheese	"A cheese grater chops up cheese. Also, you do become a bit of a grater if you eat it."	"This was the second of the post-comp bad foods added. It occurred to me that there are lots of ways to be a jerk."
@@ -6398,9 +6400,9 @@ Meal Square is west of Pressure Pier. Meal Square is in Outer Bounds. "This is a
 
 the spoon table is scenery in  Meal Square. "Many kinds of spoon: greasy, tea, wooden and silver, and that thick one must be a fed spoon. They are welded together to form a table one person can eat at, well--with a few holes. It's large but also largely decorative."
 
-Tray A is a supporter in Meal Square. description is "It's just a tray, really. Nothing special. A few foods rest on tray A: [the list of things on tray a]."
+Tray A is a supporter in Meal Square. description is "It's just a tray, really. Nothing special. [number of things on tray a in upper case] different unusual foods rest on tray A[if condition mint is on tray a]. Well, the condition mint isn't food, but it's the one you'd feel leasy guilty sneaking[end if]."
 
-Tray B is a supporter in Meal Square. description is "[if accel-ending]You still see [list of things on tray a] on Tray B, but you're pretty full[else]You're both scared and intrigued by Tray B, which reads, in large print, [activation of defeat]EAT DEF. Three unappetizing looking foods lie on it, labeled: [a list of things on tray b][end if]."
+Tray B is a supporter in Meal Square. description is "[if accel-ending]You still see [number of things on tray b] foods on Tray B, but you're pretty full[else]You're both scared and intrigued by Tray B, which reads, in large print, [activation of defeat]EAT DEF. [number of things on tray b in upper case] bizarre looking foods lie on it, labeled: [a list of things on tray b][end if]."
 
 examining tray b is pielooking. examining tray a is pielooking.
 
@@ -6784,9 +6786,29 @@ to say sing-s:
 to say plur-s:
 	say "[unless bros-left is 1]s[end if]";
 
+chapter Assignment Plum
+
+an assignment plum is an edible thing on Tray A. description is "It looks too delicious to eat. You wouldn't want to, unless you'd been told."
+
+check eating assignment plum:
+	try taking assignment plum instead;
+
+check taking assignment plum:
+	say "You can't help but feel that's for someone more with-it and sophisticated than you[if bros-left > 0], even though you've made a lot of progress[end if]." instead;
+
+chapter basted lamb
+
+an basted lamb is an edible thing on Tray A. description is "It looks too delicious to eat. You wouldn't want to, unless you'd been told."
+
+check eating basted lamb:
+	try taking basted lamb instead;
+
+check taking basted lamb:
+	say "It might taste delicious, but oh, the yelling you could get if it was someone else's and they stopped by to try to eat it!" instead;
+
 chapter Thyme Burger
 
-the thyme burger is an edible thing on Tray A. description is "It doesn't appear to have any hot dogs or pickles or eggs in it. Or, um, meat. But lots of thyme is sticking out of it. And it looks like it's been stepped on, too."
+a thyme burger is an edible thing on Tray A. description is "It doesn't appear to have any hot dogs or pickles or eggs in it. Or, um, meat. But lots of thyme is sticking out of it. And it looks like it's been stepped on, too."
 
 check eating thyme burger:
 	try taking thyme burger instead;
