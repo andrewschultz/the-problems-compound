@@ -3468,7 +3468,8 @@ joint role	"A joint role is something done together. Rolling a joint is the act 
 joint statement	"A joint statement is something made and agreed on by a group of people."
 puff piece	"A puff piece is a fawning newspaper article that makes someone out to be better than they really are. A peace puff from smoking marijuana is (we can assume) less socially motivated."
 sleeper cell	"A group of people who blen into a community until they can commit an act of terrorism."
-bullfrog	"A bullfrog is not quite a toad. And bull means nonsense. The Stool Toad is probably in no danger of being mistaken for Frog or Toad from Arnold Lobel's nice books." [start of joint strip]
+advice	"Advice is, well, telling someone what they should or shouldn't do. A vice ad would be as well, only for the worse." [start of joint strip]
+bullfrog	"A bullfrog is not quite a toad. And bull means nonsense. The Stool Toad is probably in no danger of being mistaken for Frog or Toad from Arnold Lobel's nice books."
 case a joint	"To case a joint is to search a place thoroughly."
 do dope	"To do dope is to use drugs."
 Double Jeopardy	"Double jeopardy is being tried for the same crime twice. Making your jeopardy double is just putting you at twice the risk."
@@ -7223,7 +7224,7 @@ prompt	response	enabled	permit
 table of quip texts (continued)
 quip	quiptext
 toad-hi	"'They all say that. You're a bit less convincing than the rest. But you're also kind of more convincing at the same time, which also has me suspicious.'"
-toad-joint	"'Of course not! But they would be if I weren't here! In fact, there's just something ABOUT this place. Worse turpitude might fester without my imposing presence.'"
+toad-joint	"'Of course not! But they would be if I weren't here! In fact, there's just something ABOUT this place. Worse turpitude might fester without my imposing presence. Someone might even put up a [activation of advice]vice ad.'"
 toad-troub	"'[bad-toad].'"
 toad-refresh	"'Y'mean you don't remember[one of][or], again[stopping]? [bad-toad].'"
 toad-pomp	--
@@ -12158,6 +12159,8 @@ Puff Piece is a concept in conceptville. Understand "peace/piece puff" and "puff
 Sleeper Cell is a concept in conceptville. Understand "cell sleeper" as sleeper cell. howto is "sleep then wait in Down Ground".
 
 section joint strip concepts
+
+advice is a concept in conceptville. Understand "advice" as advice. howto is "ask the Stool Toad about the Joint Strip".
 
 bullfrog is a concept in conceptville. Understand "frog bull" and "bull frog" as bullfrog. howto is "ask the Stool Toad how to get in trouble".
 

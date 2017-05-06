@@ -798,7 +798,7 @@ sub findExplLine
     if ($_[2] == 1)
 	{
     if ($a =~ /xxadd/) { $inXX = 1; }
-    if ($inXX && ($a =~ /\[start of $actRoom/i)) { $startSearch = $.; $amClose = 1; next; }
+    if ($inXX && ($a =~ /\[start of $actRoom/i)) { $startSearch = $.; $amClose = 1; }
 	}
 	else
 	{
