@@ -418,13 +418,12 @@ sub checkOrder
   while ($a = <A>)
   {
     $origLine = $a;
-    $line++;
-	if ($a =~ /alfbyroom/) { <A>; $line++; $objAlf = checkGameObjExpl($line); $writeGameObjErrRes = 1; $line = $.; print next; }
-    if (($a =~ /is a.* author\. pop/) && ($a !~ /^\[/)) { $b = $a; $b =~ s/ is (a|an) .*//g; chomp($b); $auth{$b} = $line; next; }
+	if ($a =~ /alfbyroom/) { <A>; $objAlf = checkGameObjExpl($.); $writeGameObjErrRes = 1; print next; }
+    if (($a =~ /is a.* author\. pop/) && ($a !~ /^\[/)) { $b = $a; $b =~ s/ is (a|an) .*//g; chomp($b); $auth{$b} = $.; next; }
 	if (($expls) && ($a !~ /[a-z]/i)) { $expls = 0; next; }
 	if (($concs) && ($a =~ /end concepts/)) { $concs = 0; next; }
-    if ($a =~ /xx(add|auth|slb|bks|bkj)/) { $line++; <A>; $expls = 1; next; }
-    if ($a =~ /\[xxcv\]/) { $line++; <A>; $concs = 1; next; }
+    if ($a =~ /xx(add|auth|slb|bks|bkj)/) { <A>; $expls = 1; next; }
+    if ($a =~ /\[xxcv\]/) { <A>; $concs = 1; next; }
 	if ($expls)
 	{
 	  chomp($a);
@@ -438,7 +437,7 @@ sub checkOrder
       }
 	  else
 	  {
-        if (lc($a) le lc($lastComp)) { print "($line) Order flip $a vs $lastComp\n"; $ordFail++; }
+        if (lc($a) le lc($lastComp)) { print "($.) Order flip $a vs $lastComp\n"; $ordFail++; }
 	    $lastComp = $a;
       }
 	  next;
@@ -496,6 +495,7 @@ sub checkOrder
 	  defined($co[$_]) ? "$co[$_] ($temp)" : "(nothing)");
 	  #defined($co[$_]) ? "$co[$_] ($lineNum{$co[$_]})" : "");
 	  }
+	  $fileLineErr{$toRead[0]} = $lineNum{$co[$_]};
 	  for my $match (0..$#co)
 	  {
 	    if (lc($ex[$_]) eq lc($co[$match]))
@@ -842,6 +842,7 @@ sub readOkayDupes
     chomp($line);
 	$okDup{lc($line)} = 1;
   }
+  close(A);
 }
 
 sub readAux
