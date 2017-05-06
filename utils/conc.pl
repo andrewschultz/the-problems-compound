@@ -27,6 +27,7 @@ my $np = "\"C:\\Program Files (x86)\\Notepad++\\notepad++.exe\"";
 
 my $i7 = "C:\\Program Files (x86)\\Inform 7\\Inform7\\Extensions\\Andrew Schultz";
 my $dupeFile = __FILE__; $dupeFile =~ s/.pl$/-dupe.txt/;
+my $auxFile = __FILE__; $auxFile =~ s/.pl$/-aux.txt/;
 
 ###############################
 #options
@@ -60,6 +61,8 @@ my %lineNum;
 my %fileLineErr;
 
 my %tableDetHash;
+
+my %fileHash;
 
 $tableDetHash{"Compound"} = "xxjmt,xxbgw";
 $tableDetHash{"Buck-the-Past"} = "!xxtia";
@@ -136,6 +139,8 @@ while ($count <= $#ARGV)
   }
 }
 
+readAux();
+
 if ($readDupe) { readOkayDupes(); }
 
 for my $thisproj (@dirs)
@@ -157,7 +162,7 @@ sub checkTableDetail
   my $a3;
   my $lastAlf = "";
   my $inTable = 0;
-  my @toRead = ("c:/games/inform/$_[0].inform/source/story.ni");
+  my @toRead = @{$fileHash{$_[0]}};
   my $lastFirstTab = "";
   my $thisFirstTab = "";
   my $needActive = 0;
@@ -165,8 +170,6 @@ sub checkTableDetail
   my @stuff = split(/,/, $tableDetHash{$_[0]});
 
   for (@stuff) { if ($_ =~ /^!/) { $_ = ~ s/^!//; $needActHash{$_} = 0; } else { $needActHash{$_} = 1; } }
-
-  if (lc($_[0]) eq "compound") { push(@toRead, "$i7\\compound tables.i7x"); }
 
   for my $file (@toRead)
   {
@@ -394,9 +397,7 @@ sub checkOrder
   my $lastConcept = "";
   my $file;
 
-  my @toRead = ("c:/games/inform/$_[0].inform/source/story.ni");
-
-  if (lc($_[0]) eq "compound") { push(@toRead, "$i7\\compound tables.i7x"); }
+  my @toRead = @{$fileHash{$_[0]}};
 
   my $line = 0;
   my $writeGameObjErrRes = 0;
@@ -753,14 +754,9 @@ sub findExplLine
   my $begunRooms = 1;
   my $doneRooms = 0;
   my $anyRooms = 0;
-  my @toRead = ("c:/games/inform/$_[1].inform/source/story.ni");
+  my @toRead = @{$fileHash{$_[1]}};
   my $file;
   my $type = ($_[2] == 2 ? "concept definition" : "explanation");
-
-  if (lc($_[1]) eq "compound")
-  {
-    push(@toRead, "$i7\\compound tables.i7x");
-  }
 
   OUTER:
   for $file (@toRead)
@@ -845,6 +841,21 @@ sub readOkayDupes
     if ($line =~ /^;/) { last; }
     chomp($line);
 	$okDup{lc($line)} = 1;
+  }
+}
+
+sub readAux
+{
+  open(A, $auxFile) || die ("No $auxFile");
+  my $line;
+
+  while ($line = <A>)
+  {
+	chomp($line);
+    my @ary = split(/\t/, $line);
+	my $idx = shift(@ary);
+	$fileHash{$idx} = \@ary;
+	#print "$idx -> @{$fileHash{$idx}}\n";
   }
 }
 
