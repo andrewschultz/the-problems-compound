@@ -742,7 +742,7 @@ sub alfPrep
 }
 
 ###########################
-#some magic #s here, $_[0] = search string, $_[1] = file, $_[2] = 1 means exp, 2 means conc definition
+#some magic #s here, $_[0] = search string, $_[1] = file, $_[2] = 1 means exp, 2 means conc definition, 3 means activation
 sub findExplLine
 {
   my $actRoom = "";

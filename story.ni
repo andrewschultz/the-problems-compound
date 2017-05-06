@@ -6400,9 +6400,13 @@ Meal Square is west of Pressure Pier. Meal Square is in Outer Bounds. "This is a
 
 the spoon table is scenery in  Meal Square. "Many kinds of spoon: greasy, tea, wooden and silver, and that thick one must be a fed spoon. They are welded together to form a table one person can eat at, well--with a few holes. It's large but also largely decorative."
 
-Tray A is a supporter in Meal Square. description is "It's just a tray, really. Nothing special. [number of things on tray a in upper case] different unusual foods rest on tray A[if condition mint is on tray a]. Well, the condition mint isn't food, but it's the one you'd feel leasy guilty sneaking[end if]."
+Tray A is a supporter in Meal Square. description is "It's just a tray, really. Nothing special--[word-things of tray a] different unusual foods rest on tray A[if condition mint is on tray a]. Well, the condition mint isn't food, but it's the one you'd feel leasy guilty sneaking[end if]."
 
-Tray B is a supporter in Meal Square. description is "[if accel-ending]You still see [number of things on tray b] foods on Tray B, but you're pretty full[else]You're both scared and intrigued by Tray B, which reads, in large print, [activation of defeat]EAT DEF. [number of things on tray b in upper case] bizarre looking foods lie on it, labeled: [a list of things on tray b][end if]."
+Tray B is a supporter in Meal Square. description is "[if accel-ending]You still see [word-things of tray b] foods on Tray B, but you're pretty full[else]You're both scared and intrigued by Tray B, which reads, in large print, [activation of defeat]EAT DEF. You see [word-things of tray b] bizarre looking foods on it, labeled: [a list of things on tray b][end if]."
+
+to say word-things of (q - a supporter):
+	let q1 be number of things on q;
+	say "[q1 in words]"
 
 examining tray b is pielooking. examining tray a is pielooking.
 
@@ -8575,7 +8579,17 @@ understand "book" as trade of tricks when player has trade of tricks.
 
 part A Great Den
 
-There is a room called A Great Den. It is in Main Chunk. "Wow, it's really big here, but somehow, you feel someone is watching you and laughing at you. It's not possible to go any further down, or, in fact, any direction other than up."
+There is a room called A Great Den. It is in Main Chunk. "Wow, it's really big and impressive here, but somehow, you feel someone is watching you and laughing at you, and you don't really belong. It's not possible to go any further down, or, in fact, any direction other than up."
+
+after printing the locale description for A Great Den:
+	say "A voice in your mind says [if player has legend of stuff or player has crocked half]'Hoping for a welcome back gift? Heh.'[else if thoughts idol is in lalaland and bros-left is 0]'Really, there's no point being here...'[else if A Great Den is unvisited]'Need help, eh?'[else]'Still can't decide if you want to cheat?'";
+	continue the action;
+
+to say cheat-not-have:
+	say "[if player has legend of stuff]crocked half[else]Legend of Stuff[end if]"
+
+check going up in A Great Den:
+	say "You think you hear snickering as you go up. '[if legend of stuff is in crib]Too good for[else]Shouldn't REALLY need[end if] hints, eh?'";
 
 check going nowhere in A Great Den:
 	say "You can only go back up." instead;
@@ -8592,7 +8606,7 @@ check entering crib:
 	try sleeping instead;
 
 report taking a hintable:
-	say "As you take the [noun], the notes crib schlurps up the [random not carried hintable]. Well, you're still up one hint, net. You hope.";
+	say "As you take the [noun], the notes crib schlurps up the [random not carried hintable]. Well, you've still got something helpful and useful. You hope.";
 	now random not carried hintable is in lalaland;
 	the rule succeeds;
 
