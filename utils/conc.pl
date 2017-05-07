@@ -162,6 +162,13 @@ sub checkTableDetail
   my $a3;
   my $lastAlf = "";
   my $inTable = 0;
+
+  if (!defined($fileHash{$_[0]}))
+  {
+    print "Need to define a file array for project $_[0].\n";
+	return;
+  }
+
   my @toRead = @{$fileHash{$_[0]}};
   my $lastFirstTab = "";
   my $thisFirstTab = "";
@@ -396,6 +403,12 @@ sub checkOrder
   my $ordFail = 0;
   my $lastConcept = "";
   my $file;
+
+  if (!defined($fileHash{$_[0]}))
+  {
+    print "Need to define a file array for project $_[0].\n";
+	return;
+  }
 
   my @toRead = @{$fileHash{$_[0]}};
 
@@ -754,6 +767,13 @@ sub findExplLine
   my $begunRooms = 1;
   my $doneRooms = 0;
   my $anyRooms = 0;
+
+  if (!defined($fileHash{$_[1]}))
+  {
+    print "Need to define a file array for project $_[0].\n";
+	return;
+  }
+
   my @toRead = @{$fileHash{$_[1]}};
   my $file;
   my $type = ($_[2] == 2 ? "concept definition" : "explanation");
