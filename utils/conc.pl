@@ -211,7 +211,7 @@ sub checkTableDetail
     $a =~ s/.*?activation of //; $a2 = $a; $a2 =~ s/\].*//;
 	if ($a3 ge $a2) { $a3 = $a2; }
 	}
-    if (lc($a3) le lc($lastAlf)) { print "$a3 ($. $inTable) may be out of order vs $lastAlf.\n"; }
+    if (lc($a3) le lc($lastAlf)) { print "$a3 ($. $inTable) may be out of order vs $lastAlf.\n"; $fileLineErr{$file} = $.; }
 	}
 	$lastAlf = $a3;
   }

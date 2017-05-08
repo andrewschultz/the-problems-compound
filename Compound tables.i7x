@@ -2,6 +2,8 @@ Version 1/170424 of Compound tables by Andrew Schultz begins here.
 
 volume various random tables
 
+[you can search for 'table of' several times til you get the one you want to look for, or you can search for the room that pulls your table's random text]
+
 [start rooms]
 
 part tense past
@@ -267,6 +269,7 @@ macho-boast
 "The [j-co] chuckle at the irreverence of the [activation of notre dame]Dame Noter."
 "The [j-co] argue that [activation of olive]Olive Black or Olive Green being more desirable is NOT a matter of taste."
 "The [j-co] agree that both [activation of pepper]Pepper Black, Pepper Bell [i]and[r] Pepper Green are hotter than Pepper Serrano."
+"The [j-co] mock [activation of persephone]Phony Percy's silly poems with their highfalutin literary allusions."
 "'[activation of plaintiff]Tiff? Plain,' [random client in nominal fen] quips. The others agree, citing various elements of her personality."
 "The [j-co] resolve to put [activation of playboy]boy play behind for more grown-up, sophisticated things. Like, well, articles instead of pictures."
 "The [j-co] whisper rumors of the louche goings-on at the [activation of pocket pool]Pool Pocket. It's unclear if it's water or table pool."
@@ -292,14 +295,12 @@ part freak control
 
 table of bad guy worries [xxbgw]
 gad-act
-"The [bad-guy] loud-whispers how those wimps Willis Bruce and Norris Charles need attending to by his...associates." [na]
 "'Think you're clever? Foul miss, Artie[activation of Artemis Fowl],' the [bad-guy] chides."
 "The [bad-guy] plans out a trip to [activation of autocratic]Craddock Auto for a bulletproof limo."
 "'Geez, it's a pain to [activation of benefactor]factor BENNY. I'm not, like, MEAN to him.'"
 "'[activation of busy work]Work...busy...work...busy,' says the [bad-guy], pacing back and forth."
 "The [bad-guy] mentions he is [activation of carry over]over Carrie several times."
 "The [bad-guy] mutters plans about the monthly [activation of cruise control]Control Cruise coming up, a nice support group for people almost tired of being in power."
-"The [bad-guy] groans how [activation of John Stewart]Stewart and [activation of John Oliver]Oliver Jahn and [activation of trevor noah]Noah Trevor [activation of daily show]show daily how unfunny and irrelevant and socially aloof they are."
 "'We need to [activation of degenerate]generate D, here, against [bad-guy-2]!'"
 "'[random surveyable person] just needs a good [activation of disorder]Order Dis to put [']em line. Or two. Or three.'"
 "'[activation of elitist]Leetest! Eeee!' boasts the [bad-guy], establishing several layers of irony, you're pretty sure."
@@ -311,6 +312,7 @@ gad-act
 "The [bad-guy] mutters he's sure [activation of Howard Dean]Dean Howard is nice and well-meaning all, but that scream. Really. Just...unforgiveable. And even if it were, well, he probably still deserves to be REMINDED. For character building purposes."
 "'[activation of infomania]Mania Info. Always good to have more. Well, until I get bored of it.'"
 "'[activation of informally]Ally, Inform!' the [bad-guy] says to nobody in particular."
+"The [bad-guy] groans how [activation of John Stewart]Stewart and [activation of John Oliver]Oliver Jahn and [activation of trevor noah]Noah Trevor [activation of daily show]show daily how unfunny and irrelevant and socially aloof they are."
 "The [bad-guy] congratulates himself for installing the super-sanitary doctor-recommended [activation of johns hopkins]Hopkins johns, so much harder to deface than your average [activation of john hancock]Hancock john."
 "The [bad-guy] mutters he'd get six girls before [activation of King Henry]Henry King got one."
 "'But does [random surveyable person] have any GOOD ways to [activation of leading question]question leading like mine?'"
@@ -332,6 +334,7 @@ gad-act
 "The [bad-guy] snorts at [activation of taste buds]Bud's taste."
 "The [bad-guy] snickers at [activation of Tucker Max]Max Tucker's boring diaries that are well-written and all but don't have a trace of REAL self-awareness in them."
 "'[activation of Wallace Shawn]Shawn Wallace said THAT? Conceivable.'"
+"The [bad-guy] loud-whispers how those wimps Willis Bruce and Norris Charles need attending to by his...associates." [na]
 
 table of bad guy worries (continued) [divided so activations are always alphabetical] [xxbgw]
 gad-act
