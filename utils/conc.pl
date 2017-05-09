@@ -40,6 +40,8 @@ my $readConcepts = 1;
 my $printSuccess = 0;
 my $addStart = 0;
 my $cvStart = 0;
+my $addEnd = 0;
+my $cvEnd = 0;
 my $detailAlpha = 1;
 my $openStoryFile = 0;
 my $printAllDiff = 0;
@@ -315,8 +317,8 @@ for my $x (sort keys %any)
 
   if ($fails)
   {
-    print "XXADD starts at $addStart.\n";
-    print "XXCV starts at $cvStart.\n";
+    print "XXADD starts at $addStart, ends at $addEnd.\n";
+    print "XXCV starts at $cvStart, ends at $cvEnd.\n";
 	printf("Test failed, $fails failure%s of $totals.", $fails==1 ? "" : "s");
   }
   else { print "Test succeeded! All $totals passed."; }
@@ -494,7 +496,8 @@ sub checkOrder
     #print lc(@ex[$_]) . " =? " . lc(@co[$_]) . "\n";
     if ((!defined($co[$_])) || (lc($ex[$_]) ne lc($co[$_])))
 	{
-	  my $temp = defined($lineNum{$co[$_]}) ? $lineNum{$co[$_]} : 0;
+	  my $temp = 0;
+	  if (defined($co[$_])) { $temp = defined($lineNum{$co[$_]}) ? $lineNum{$co[$_]} : 0; }
 
 	  $ordFail++;
 	  if ($match - $lastMatch == 1) { next; }
@@ -503,12 +506,12 @@ sub checkOrder
 	  $printThisOut |= $printAllDiff;
 	  if ($printThisOut)
 	  {
-	  $temp = defined($lineNum{$co[$_]}) ? $lineNum{$co[$_]} : "none";
+	  if (defined($co[$_])) { $temp = defined($lineNum{$co[$_]}) ? $lineNum{$co[$_]} : "none"; }
 	  printf("$_ ($ordFail): $ex[$_] %s vs %s", defined($lineNum{$ex[$_]}) && $lineNum{$ex[$_]} ? "($lineNum{$ex[$_]})" : "",
 	  defined($co[$_]) ? "$co[$_] ($temp)" : "(nothing)");
 	  #defined($co[$_]) ? "$co[$_] ($lineNum{$co[$_]})" : "");
 	  }
-	  $fileLineErr{$toRead[0]} = $lineNum{$co[$_]};
+	  if (defined($co[$_])) { $fileLineErr{$toRead[0]} = $lineNum{$co[$_]}; }
 	  for my $match (0..$#co)
 	  {
 	    if (lc($ex[$_]) eq lc($co[$match]))
@@ -516,7 +519,7 @@ sub checkOrder
 		  if ($printThisOut) { print " (#$match)"; }
 		  if ($match - $lastMatch == 1) { if ($printThisOut) { print " (in order)"; } $inOrder++; }
 		  $lastMatch = $match;
-	  if (defined($lineNum{$co[$_]})) { $lastCo = $lineNum{$co[$_]}; }
+	  if (defined($co[$_]) && defined($lineNum{$co[$_]})) { $lastCo = $lineNum{$co[$_]}; }
 	  if (defined($lineNum{$ex[$_]})) { $lastEx = $lineNum{$ex[$_]}; }
 		}
 	  }
@@ -602,6 +605,8 @@ my $line = 0;
 
 my $inAuthTable = 0;
 
+my $inAdd = 0;
+
 my $lineIn;
 my $tmpVar;
 
@@ -617,12 +622,16 @@ while ($lineIn = <X>)
     if ($lineIn !~ /[a-z]/i) { $inAuthTable = 0; next; }
     $tmpVar = $lineIn; chomp($tmpVar); $tmpVar =~ s/\t.*//g; $authTab{$tmpVar} = $line; next;
   }
-  if ($lineIn =~ /xxadd/) { $addStart = $.; }
+  if ($lineIn =~ /xxadd/) { $addStart = $.; $inAdd = 1; }
   if ($lineIn =~ /xxcv/) { $cvStart = $.; }
   if ($lineIn =~ /xxauth/) { $inAuthTable = 1; <A>; $line++; next; }
   if ($lineIn =~ /^table of explanations.*concepts/) { $inTable = 1; <X>; next; }
-  if ($lineIn !~ /[a-z]/i) { $inTable = 0; next; }
+  if ($lineIn !~ /[a-z]/i) { $inTable = 0; if ($inAdd) { $addEnd = $.; $inAdd = 0; } next; }
   chomp($lineIn); $lineIn = cutArt($lineIn);
+  if ($lineIn =~ /is a concept in (lalaland|conceptville)/) # concept definitions
+  {
+    $cvEnd = $.;
+  }
   if ($lineIn =~ /is a concept in lalaland/) # concept definitions
   {
     $lineIn =~ s/ is a concept in lalaland.*//g;
@@ -732,7 +741,7 @@ sub checkGameObjExpl
 	$c2 = alfPrep($compare);
 	if ($c2 gt $c1)
 	{
-	  print "$c1 vs $c2, $line vs $compare\n";
+	  #print "$c1 vs $c2, $line vs $compare\n";
 	  chomp($c1);
 	  chomp($c2);
 	  $gameObjErr++;
@@ -804,7 +813,7 @@ sub findExplLine
 
   if (!$actRoom)
   {#print "$_[0] FAILED / $defaultToGeneral / $. / $_[2] / $curRoom\n";
-    return "(failed)";
+    return ("(failed)", "????");
   }
 
   for my $file(@toRead)
@@ -847,7 +856,7 @@ sub findExplLine
   }
   close(B);
   }
-  printf("Couldn't find %s line for $_[0]/$actRoom in @toRead.\n", $_[2] == 1 ? "room-concept-list" : "table-of-explanations start");
+  printf("Couldn't find %s line for $_[0]/$actRoom in $_[1] files. May need \[start of $_[0]\] in %s.\n", $_[2] == 1 ? "room-concept-list" : "table-of-explanations start", $_[2] == 1 ? "room-concept-list" : "table-of-explanations start");
   return ($toRead[0], "????");
 }
 

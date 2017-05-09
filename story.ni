@@ -3568,6 +3568,7 @@ playboy	"Playboy is probably the most famous 'adult' magazine. It's not particul
 pocket pool	"Pocket pool is a euphemism for self-pleasure."
 Pollyanna	"A Pollyanna is someone who is ridiculously optimistic."
 Polygamy	"Polygamy is having more than one mate."
+pop cherry	"To pop a cherry is to take someone's virginity."
 Potter Stewart	"Potter Stewart was a US Supreme who said he'd know obscenity when he saw it."
 pound meat	"To pound your meat is to, well, touch your genitals."
 Ralph Lauren	"Ralph Lauren is a fashion designer."
@@ -7996,7 +7997,7 @@ to check-jerks-done:
 
 to zap-the-jerks:
 	say "A fight's about to break out, until you tell them where you got this information from.[paragraph break]'You better be right about this,' [a random not minted client] says. They rush off. You hear whining in the distance. It's the Labor Child. He protests he was just trying to shame them into doing more practical things. They aren't buying it!";
-	say "[line break]The (ex-)[j-co]s arrive back, and [a random client] [if allow-swears is true]gives an [activation of grown up]up groan[else]wipes away a [activation of tear-jerk]jerk-tear[end if] before handing you a bottle of Quiz Pop. 'Man, you seem to know what's what, and you helped us see it was okay to be us. Here's some totally sweet contraband.'[paragraph break]Hmm. Interesting. Quiz Pop. As they walk away, you hear them deciding on a victory meal they can now afford at the [activation of bayou] bayou: [activation of sausage fest]fest sausage. With a [activation of joint committee]committee joint to top it off!";
+	say "[line break]The (ex-)[j-co]s arrive back, and [a random client] [if allow-swears is true]gives an [activation of grown up]up groan[else]wipes away a [activation of tear-jerk]jerk-tear[end if] before handing you a bottle of Quiz Pop. 'Man, you seem to know what's what, and you helped us see it was okay to be us. Here's some totally sweet contraband[if allow-swears is true]. We're out of [activation of pop cherry]cherry pop but this stuff is like good for people who figure stuff out[end if].'[paragraph break]Hmm. Interesting. Quiz Pop. As they walk away, you hear them deciding on a victory meal they can now afford at the [activation of bayou] bayou: [activation of sausage fest]fest sausage. With a [activation of joint committee]committee joint to top it off!";
 	it-take quiz pop;
 	increment the score;
 	now all clients are in lalaland;
@@ -12381,6 +12382,8 @@ pocket pool is a concept in conceptville. Understand "pool pocket" as pocket poo
 Pollyanna is a concept in conceptville. Understand "anna pauley" and "pauley anna" as pollyanna. howto is "[j-girl]".
 
 Polygamy is a concept in conceptville. Understand "gamy polly" and "polly gamy" as polygamy. howto is "[j-girl]".
+
+pop cherry is a concept in conceptville. Understand "cherry pop" as pop cherry. howto is "[solve-j] with swears on".
 
 Potter Stewart is a concept in conceptville. Understand "stewart potter" as Potter Stewart. howto is "[j-girl]".
 
