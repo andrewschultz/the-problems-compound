@@ -48,6 +48,7 @@ my $printAllDiff = 0;
 my $defaultToGeneral = 1;
 my $defaultRoom = "general concepts";
 my $readDupe = 1;
+my $openLowestLine = 0;
 
 #############################
 #hashes
@@ -65,6 +66,8 @@ my %fileLineErr;
 my %tableDetHash;
 
 my %fileHash;
+
+my %roomIndex;
 
 $tableDetHash{"Compound"} = "xxjmt,xxbgw";
 $tableDetHash{"Buck-the-Past"} = "!xxtia";
@@ -111,6 +114,7 @@ while ($count <= $#ARGV)
     /^-?d$/ && do { $defaultRoom = $ARGV[$count+1]; $defaultRoom =~ s/[-\._]/ /g; $count+= 2; next; };
     /^-?ps$/ && do { $printSuccess = 1; $count++; next; };
     /^-?nd$/ && do { $readDupe = 0; $count++; next; };
+    /^--$/ && do { $openLowestLine = 0; $count++; next; };
     /^-?ed$/ && do { `$dupeFile`; exit(); };
     /^-?ng$/ && do { $defaultToGeneral = 0; $count++; next; };
     /^-?dg$/ && do { $defaultToGeneral = 1; $count++; next; };
@@ -213,7 +217,11 @@ sub checkTableDetail
     $a =~ s/.*?activation of //; $a2 = $a; $a2 =~ s/\].*//;
 	if ($a3 ge $a2) { $a3 = $a2; }
 	}
-    if (lc($a3) le lc($lastAlf)) { print "$a3 ($. $inTable) may be out of order vs $lastAlf.\n"; $fileLineErr{$file} = $.; }
+    if (lc($a3) le lc($lastAlf))
+	{
+	  print "$a3 ($. $inTable) may be out of order vs $lastAlf.\n";
+	  unless($openLowestLine && defined($fileLineErr{$file})) { $fileLineErr{$file} = $.; }
+    }
 	}
 	$lastAlf = $a3;
   }
@@ -276,7 +284,7 @@ for my $x (sort keys %any)
   if (!$expl{$xmod})
   {
     ($fileToOpen, $nuline) = findExplLine($x, $_[0], 1);
-	if (($nuline ne "????") && ($nuline !~ /failed/)) { $fileLineErr{$fileToOpen} = $nuline; }
+	if (($nuline ne "????") && ($nuline !~ /failed/)) { unless ($openLowestLine && defined($fileLineErr{$fileToOpen})) { $fileLineErr{$fileToOpen} = $nuline; } }
     $errMsg .= "$xmod ($lineNum{$x}) needs explanation: guess = line $nuline\n";
 	$explErr .= "$xmod\t\"$xmod is when you [fill-in-here].\"\n";
 	$fails++; $thisFailed = 1;
@@ -284,7 +292,7 @@ for my $x (sort keys %any)
   if (!$conc{$xmod})
   {
     ($fileToOpen, $nuline) = findExplLine($x, $_[0], 2);
-	if (($nuline ne "????") && ($nuline !~ /failed/)) { $fileLineErr{$fileToOpen} = $nuline; }
+	if (($nuline ne "????") && ($nuline !~ /failed/)) { unless ($openLowestLine && defined($fileLineErr{$fileToOpen})) { $fileLineErr{$fileToOpen} = $nuline; } }
 	$errMsg .= "$xmod ($lineNum{$x}) needs concept definition: guess = line $nuline\n";
     if ($x =~ /\*/)
 	{
@@ -511,7 +519,7 @@ sub checkOrder
 	  defined($co[$_]) ? "$co[$_] ($temp)" : "(nothing)");
 	  #defined($co[$_]) ? "$co[$_] ($lineNum{$co[$_]})" : "");
 	  }
-	  if (defined($co[$_])) { $fileLineErr{$toRead[0]} = $lineNum{$co[$_]}; }
+	  if (defined($co[$_])) { unless ($openLowestLine && defined($fileLineErr{$toRead[0]})) { $fileLineErr{$toRead[0]} = $lineNum{$co[$_]}; } }
 	  for my $match (0..$#co)
 	  {
 	    if (lc($ex[$_]) eq lc($co[$match]))
@@ -614,7 +622,7 @@ my $tmpVar;
 
 while ($lineIn = <X>)
 {
-  if ($lineIn =~ /\[fill-in-here\]/) { $nuline = $.; $fileLineErr{$file} = $.; push (@fillIn, "$file-$."); next; }
+  if ($lineIn =~ /\[fill-in-here\]/) { $nuline = $.; unless ($openLowestLine && defined($fileLineErr{$file})) { $fileLineErr{$file} = $.; } push (@fillIn, "$file-$."); next; }
   if ($lineIn =~ /(EXPLANATIONS:|CONCEPTS:|fill-in-here throws)/) { push (@dumbErrors, $.); next; }
   if (($lineIn =~ /is a.* author\. pop/) && ($lineIn !~ /^\[/)) { $tmpVar = $lineIn; $tmpVar =~ s/ is (an|a) .*//g; chomp($tmpVar); if ($lineIn =~ /xp-text is /) { $gotText{$tmpVar} = 1; } elsif ($lineIn =~ /\"/) { print "Probable typo for $tmpVar.\n"; } $auth{$tmpVar} = $line; next; }
   if ($inAuthTable)
@@ -794,7 +802,7 @@ sub findExplLine
   while ($a = <B>)
   {
 	if ($a =~ /^\[start rooms\]/i) { $begunRooms = 1; $doneRooms = 0; next; }
-    if (($a =~ /^part /i) && ($begunRooms) && (!$doneRooms)) { $a =~ s/ *\[.*//; $begunRooms = 1; $curRoom = $a; $curRoom =~ s/^part //i; next; }
+    if (($a =~ /^part /i) && ($begunRooms) && (!$doneRooms)) { $a =~ s/ *\[.*//; $begunRooms = 1; $curRoom = $a; $curRoom =~ s/^part //i; $roomIndex{$curRoom} = $.; next; }
 	$a =~ s/\*/ /g; # ugh, a bad hack but it will have to do to read asterisk'd files
 	if ($a =~ /^\[end rooms\]/i) { $doneRooms = 1; $curRoom = $defaultRoom; next; }
 	if ($a =~ /activation of $_[0]/i) { chomp($curRoom); $actRoom = $curRoom; close(B); last OUTER;}
@@ -894,6 +902,7 @@ sub usage
 print<<EOT;
 CONC.PL usage
 ===================================
+-- = open with first line error instead of last
 -a = show all errors even likely redundant consecutive ones
 -e = edit source
 (can combine below)

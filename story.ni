@@ -11587,6 +11587,7 @@ this is the swear-see rule:
 	say "[2da]The guys in the Fen give an up groan or a jerk-tear if innuendo/profanity is off or on, respectively.";
 	say "[2da]Buddy Best is either a general attorney or a case/job nut.";
 	say "[2da]The Business Monkey's half-[abr] efforts are [stwid][abr][stwid] instead.";
+	say "[2da]The jerks consider a much racier pop than Quiz Pop with swears on.";
 	consider the very-good-end rule;
 	if the rule succeeded:
 		say "[2da]HAMMER BLOW or the reverse gives a different response.";
