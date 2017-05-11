@@ -3081,7 +3081,7 @@ carry out explaining:
 	if noun is a room:
 		now myt is table of room explanations;
 		repeat through table of room explanations:
-			if  noun is room-to-exp entry:
+			if noun is room-to-exp entry:
 				say "[exp-text entry][line break]";
 				now found-yet is true;
 				if noun provides the property explained:
@@ -3397,16 +3397,29 @@ View of Points	"Points of view are opinions."
 table of explanations (continued) [this is stuff referred to tangentially, concepts but not actually objects in the game] [xxadd]
 exp-thing	exp-text	exp-anno
 abuse testing	"Abuse testing means trying to break things with stuff a tester wouldn't usually try, or that they know has broken their own game. Testing abuse is--well, most abuse can feel a bit testing, or trying." [start of general concepts]
+Advance Notice	"Advance notice is letting someone know ahead of time."
+beaten track	"The beaten track is an experience most everyone's had. To track the beaten, in this case, is to figure who is diverging from 'proper' behavior, where."
 break silence	"To break silence is to start talking again."
+Captain Obvious	"Captain Obvious is someone who always states what's readily apparent. Captain has a sarcastic meaning, here."
 clouds of suspicion	"Clouds of suspicion are a simile for mistrust."
+Comedy of Errors	"A comedy of errors is so much going wrong it's funny. Errors of comedy would be so much wrong there's nothing to laugh at."
 cut a deal	"To cut a deal is to make a business arrangement, often favorably. To deal a cut is just to knife someone."
+Cut a Figure	"To cut a figure is to make a strong impression."
+face the music	"To face the music is to realize you've come up short."
 Force of Habit	"Force of habit is what causes you to do something with minimal thinking, for better or worse."
+Hard Knock	"A hard knock is physical wear and tear, or being hit hard, versus just knocking at a door."
+Nonsense No	"No-nonsense means, well, not taking any silliness."
+passing fancy	"A passing fancy is something that distracts you and is fun for a bit but you forget about it. To fancy passing means to want to go quickly, or fancy passing may just be something in sports."
+poke fun	"To poke fun is to make a joke, but poke can mean a lot of things--putter around, meddle, or maybe poke a friend to get their attention."
 second thought	"A second thought is looking at something another way, whether to your aid or detriment."
+Sitting Duck	"A sitting duck is someone just waiting to be taking advantage of. But if you duck sitting, you aren't waiting."
+Spelling Disaster	"Disaster spelling is, well, consonants clumped together. Spelling disaster is leading to bad news."
+touch base	"To touch base is to get back to someone or return their call, especially if it's been a while. Versus a base touch, base being mean, so it's a bit more creepy."
 turn of phrase	"A turn of phrase is clever wording. A phrase of turn is, well, what's at the command prompt, or, any wording."
 a u-turn	"A u-turn is when a car swivels in a huge circle to reverse direction. So if something tries to turn you, it bounces back."
 wait your turn	"This means not to do anything til someone else goes first. But in this case the game wants you to turn your wait into something else."
 wave a flag	"To wave a flag is to give up. To flag something is to note it as particularly productive or unproductive."
-acceptable	"Acceptable means good enough. Though sometimes it might not, if someone is just being diplomatic.  Able, Except means you're pretty good but have big flaws. So both can feel like backhand compliments." [start of smart street]
+acceptable	"Acceptable means good enough. Though sometimes it might not, if someone is just being diplomatic. Able, Except means you're pretty good but have big flaws. So both can feel like backhand compliments." [start of smart street]
 beat off	"To beat off is to, well, pleasure oneself. People who are off-beat are often accused of this, among other things, in high school."
 Buster Ball	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure."
 Compound Problems	"Compound problems are problems that aren't simple or can't be dealt with simply, or that build together to leave someone totally overwhelmed."
@@ -3416,6 +3429,7 @@ good egg	"A good egg is a nice person. To egg, or egg on, is to bait someone int
 Hunter Savage	"A savage hunter is, well, someone with no mercy. Yup, I like the 'dirty' tangential bad guy better, too."
 knockwurst	"Knockwurst is a kind of sausage."
 power games	"Power games are when people use manipulation to take charge, or when people struggle to control a business, often without voting involved."
+nose picking	"Nose picking is -- not the best habit. A picking nose would be a discerning sense of smell." [start of tension surface]
 Animal Welfare	"Animal welfare is concern for animals who often can't help themselves. Welfare has a slightly perjorative definition in the US these days, e.g. people on welfare are lazy, or someone giving it is very generous indeed, more than they need to be." [start of variety garden]
 brush up	"To brush up is to refresh your memory of something."
 brush with greatness	"A brush with greatness means meeting someone important or doing something potentially awesome."
@@ -3424,9 +3438,13 @@ man enough	"Man enough means being able to stand up for yourself. Okay, it's a b
 poor taste	"Poor taste means potentially offensive or classless."
 sagebrush	"Sagebrush is another form of brush. It's often found in the desert."
 work of art	"A work of art is something nice and beautiful. The art of work is--well, the term can be abused to make work seem more exciting than it is."
-nose picking	"Nose picking is -- not the best habit. A picking nose would be a discerning sense of smell." [start of tension surface]
 scum of earth	"Scum of earth is the worst possible person or close to it." [start of vision tunnel]
-apple pie order	"Apple-Pie Order means very well organized." [start of meal square stuff]
+Bible Belt	"The Bible Belt is a very religious area of the USA." [start of pressure pier]
+Boy Howdy	"Boy Howdy is a colloquial expression of surprise."
+fish out of water	"A fish out of water is someone or something out of place."
+meal ticket	"A meal ticket is something you own that will help you advance socially or economically. It could be physical, or a piece of knowledge, or clout."
+take a stand	"To take a stand is to have a firm moral position. To take the stand is slang for being summoned for interrogation in a court of law."
+apple pie order	"Apple-Pie Order means very well organized." [start of meal square]
 arch deluxe	"The Arch Deluxe was a menu item at McDonald's that was advertised heavily but sold poorly."
 Bowled Over	"Bowled over means unable to deal with things. Over-bold means too confident."
 defeat	"Defeat is, well, a clue you'll lose the game existentially if you eat any of the foods on Tray B."
@@ -3447,11 +3465,6 @@ Tray S	"Stray. In other words, it strayed from Meal Square."
 Tray T	"A tea tray. To go with food."
 Tray X	"It is an ex-tray."
 treat like dirt	"To treat someone like dirt is to be very nasty to them."
-Bible Belt	"The Bible Belt is a very religious area of the USA." [start of pressure pier]
-Boy Howdy	"Boy Howdy is a colloquial expression of surprise."
-fish out of water	"A fish out of water is someone or something out of place."
-meal ticket	"A meal ticket is something you own that will help you advance socially or economically. It could be physical, or a piece of knowledge, or clout."
-take a stand	"To take a stand is to have a firm moral position. To take the stand is slang for being summoned for interrogation in a court of law."
 Bum Beach	"A beach bum is someone who wanders on the beach. Maybe he lives there in a shack too." [start of down ground]
 clip joint	"A clip joint is a place that overcharges customers. A joint clip will help Fritz save on purchases so none is wasted."
 drag along	"To drag someone along is to take them with despite their reluctance."
@@ -3499,11 +3512,6 @@ defrock	"To defrock is to remove someone's role as priest."
 good herb	"The good herb is slang for marijuana."
 grace period	"A grace period is time given for someone to learn or understand something, or even to return a book late to the library."
 personality cult	"A personality cult is when someone uses a forceful personality to control how others think. It is hard to leave. It can range in size from Jonestown to Stalin in the USSR."
-Fish for a Compliment	"To fish for a compliment is to try to manipulate someone into saying something nice." [start of disposed well]
-Well Done	"Well done means good job, but 'done' is also a synonym for dead, because you'd fall down the well if you tried to enter it."
-Character Assassination	"Character assassination is an attempt to tarnish someone's good reputation." [start of chipper wood]
-Play it Cool	"To play it cool is not to lose your temper. Of course, Percy's chase may make you want to lose your temper."
-Sweetheart Deal	"A sweetheart deal is something that works very well for both sides, often obtained unethically. Telling someone to deal often means they have to settle for being ripped off."
 adult content	"Adult content relates to nontrivial sex or violence." [start of Nominal Fen]
 air jordan	"Air Jordan is an expensive athletic shoe named after Michael Jordan, maybe the greatest basketball player ever."
 anapest	"Anapest is a common beat for a poem. It can seem singsong."
@@ -3586,6 +3594,11 @@ terabyte	"A terabyte is a large amount of memory: specifically, 2^40 bytes."
 teriyaki	"Teriyaki is a Japanese sauce, or it can be meat cooked in that sauce over an open grill."
 terrapin	"A terrapin is a fancy name for a turtle, which is slow and has a shell."
 whistler's mother	"Whistler's Mother is a famous painting of an old lady, the mother of the artist."
+Character Assassination	"Character assassination is an attempt to tarnish someone's good reputation." [start of chipper wood]
+Play it Cool	"To play it cool is not to lose your temper. Of course, Percy's chase may make you want to lose your temper."
+Sweetheart Deal	"A sweetheart deal is something that works very well for both sides, often obtained unethically. Telling someone to deal often means they have to settle for being ripped off."
+Fish for a Compliment	"To fish for a compliment is to try to manipulate someone into saying something nice." [start of disposed well]
+Well Done	"Well done means good job, but 'done' is also a synonym for dead, because you'd fall down the well if you tried to enter it."
 career threatening	"Something career threatening may risk not only your job but your ability to get other equal or better jobs. A threatening career is--well, a bit of a racket." [start of judgment pass]
 scofflaw	"A scofflaw is someone who breaks minor rules. Perhaps they jaywalk or litter."
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever." [start of idiot village]
@@ -3649,7 +3662,7 @@ kilo	"A kilo (gram) is a measure of cocaine. It's a lot, especially since one gr
 pop pills	"To pop pills is to take them indiscriminately."
 roach dropping	"A roach is a marijuana cigarette or a bug that appears around dirt. A roach dropping, well, what the roach leaves behind."
 weed out	"To weed out people is to create a test to show they are inadequate."
-Terminal Illness	"A terminal illness is one which is bound to be fatal. Illness can also mean full of insults, e.g. very 'ill,' as kids these days say. And said, even in my day!" [start of belt below]
+Terminal Illness	"A terminal illness is one which is bound to be fatal. Illness can also mean full of insults, e.g. very 'ill,' as kids these days say. And said, even in my day!" [start of the belt below]
 Admiral Vice	"A vice-(anything) is a next-in-line/assistant to an honorary position, but vice is also a personal failing, big or small." [start of freak control]
 artemis fowl	"Artemis fowl is the intelligent, cocky hero of Eoin Colfer's seven-book series. He's everything the [bad-guy] thinks he is, and more."
 autocratic	"Autocratic means having one person firmly in control."
@@ -3724,19 +3737,6 @@ Wallace Shawn	"Wallace Shawn is the actor who played Vizzini ('INCONCEIVABLE!') 
 Wire Fraud	"Wire fraud is a financial crime designed to cheat people out of money."
 zeroin	"To zero in is to focus, and you do, on getting out of the Break Jail." [start of out mist]
 clear waivers	"To clear waivers in pro sports is when your team releases you and no other team signs you." [start of airy station]
-Captain Obvious	"Captain Obvious is someone who always states what's readily apparent. Captain has a sarcastic meaning, here." [xyzzy snark]
-Comedy of Errors	"A comedy of errors is so much going wrong it's funny. Errors of comedy would be so much wrong there's nothing to laugh at."
-face the music	"To face the music is to realize you've come up short."
-Nonsense No	"No-nonsense means, well, not taking any silliness."
-Spelling Disaster	"Disaster spelling is, well, consonants clumped together. Spelling disaster is leading to bad news."
-poke fun	"To poke fun is to make a joke, but poke can mean a lot of things--putter around, meddle, or maybe poke a friend to get their attention." [start of touch commands]
-touch base	"To touch base is to get back to someone or return their call, especially if it's been a while. Versus a base touch, base being mean, so it's a bit more creepy."
-Advance Notice	"Advance notice is letting someone know ahead of time." [start of advancements]
-beaten track	"The beaten track is an experience most everyone's had. To track the beaten, in this case, is to figure who is diverging from 'proper' behavior, where."
-Cut a Figure	"To cut a figure is to make a strong impression."
-Hard Knock	"A hard knock is physical wear and tear, or being hit hard, versus just knocking at a door."
-passing fancy	"A passing fancy is something that distracts you and is fun for a bit but you forget about it. To fancy passing means to want to go quickly, or fancy passing may just be something in sports."
-Sitting Duck	"A sitting duck is someone just waiting to be taking advantage of. But if you duck sitting, you aren't waiting."
 gangplank	"A gangplank leads out of a boat and into the sea. So it is a method of killing prisoners no longer useful." [start of criminals' harbor]
 hate crime	"Hate crime is an illegal act directed specifically against victims based on gender, sexual orientation, race or religion."
 Boss Fight	"A boss fight is a confrontation with an important adversary in a more traditional game, while the Fight Boss has you do stuff worse than level grinding." [start of fight fair]
@@ -3748,8 +3748,8 @@ prisoners of war	"Prisoners of war are people captured in combat. Using prisoner
 Censorship	"Censorship is institutionalized shutting people up or repressing what they have to say." [start of shape ship]
 Courtship	"Courtship is when you start trying to get the attention of a potential romantic partner."
 Scholarship	"A scholarship is a money grant given towards education. The Ship Scholar, contrarily, says nothing is free."
-road pizza	"Road pizza is poor helpless animals that have been hit by traffic." [start of director's cut locations]
-Complain Cant	"Cant means a tendency towards something, so someone with a complain cant would only say 'can't complain' very ironically." [start eternal concepts]
+road pizza	"Road pizza is poor helpless animals that have been hit by traffic." [start of rage road]
+Complain Cant	"Cant means a tendency towards something, so someone with a complain cant would only say 'can't complain' very ironically." [start endgame concepts]
 Much Flatter	"If your world is much flatter, it isn't very exciting. But to flatter much is to over-compliment people, which makes things [i]seem[r] exciting for a bit."
 People Power	"People power was a rallying cry in demonstrations against the authoritarianism of, well, power people."
 Received Wisdom	"Received wisdom is generally accepted knowledge which is often not true, such as how we only use 10% of our brain. Gustave Flaubert wrote a fun book called The Dictionary of Received Wisdom that makes fun of many such examples. For instance, a hamlet is always charming."
@@ -5966,60 +5966,6 @@ after quipping when qbc_litany is table of arch talk (this is the restore asking
 		terminate the conversation;
 	continue the action;
 
-part Vision Tunnel
-
-Vision Tunnel is east of Tension Surface. Vision Tunnel is in Beginning. "The flower wall blocking every which way but west is, well, a vision[if flower wall is examined], and now that you've seen the picture hole in it, you can't un-see it[end if][if earth of salt is in vision tunnel]. Some semi-crystallized looking earth is clumped here[end if]."
-
-the flower wall is scenery in the Vision Tunnel. "All manner of flowers, real and fake, are sewed together. The only break is [if flower wall is examined]that picture hole[else][pic-hole][end if]."
-
-after doing something with flower wall:
-	set the pronoun them to flower wall;
-
-to say pic-hole:
-	say "[if picture hole is examined]the picture hole you looked through[else]a small hole, call it a picture hole, because it looks like there's some sort of picture in there[end if]"
-
-check taking flower wall:
-	say "The flowers seem delicately interconnected. If you take one, you fear the whole structure might collapse. Then you might feel more lonely than ever." instead;
-
-understand "flowers" as flower wall.
-
-check going nowhere in vision tunnel:
-	say "You barge into the flower wall and feel less alone with all that nature around you. This isn't practical, but it feels much nicer than running into walls has a right to." instead;
-
-the picture hole is scenery in vision tunnel. description is "[one of]You peek into the picture hole in the flower wall, and it looks like a bunch of swirls until you stare at it right. A whole story takes shape. [or][stopping]You recognize [one of]a stick figure[or]yourself, again[stopping] finding a ticket in a book, climbing a chair to reach a hatch, digging by a bunch of flowers, depositing a document in the ground--and then being blocked by three stick figures--blue, red and tall.[paragraph break][one of]You blink, and the picture degenerates back into swirls. But you can always look again, if you want[or]The picture scrambles again once you blink[stopping]."
-
-understand "vision" as picture hole when player is in Vision Tunnel and flower wall is examined.
-
-understand "vision" as flower wall when player is in Vision Tunnel and flower wall is not examined.
-
-the earth of salt is scenery in Vision Tunnel. "It's opaque, probably earth of salt or something, and it seems half-buried. You think if you look closely you see something under it that's not dirt or salt. But you can't just move it away by conventional means."
-
-check taking earth of salt:
-	say "It's just too big of a slab to pick up. Maybe if it were broken into bits, you could see what was under it." instead;
-
-check pushing earth of salt:
-	say "You can't get a good grip on it--it's probably buried into the ground a bit too much." instead;
-
-the proof of burden is a thing. "The plaque that is the Proof of Burden lies here."
-
-after printing the name of the proof of burden while taking inventory:
-	if proof of burden is examined:
-		say " ([if burden-signed is false]un[end if]signed)";
-	else:
-		say " (which you should probably read[if burden-signed is true], even though you read it[end if])";
-
-understand "plaque/document" as proof of burden when mrlp is Beginning.
-
-burden-signed is a truth state that varies.
-
-description of proof of burden is "The bearer of this plaque is certifiably unable to brush aside problems he feels he really should be smart enough to, and he quite bluntly has no clue how to rectify the situation. I mean, we all feel this way from time to time, but boy, the bearer got an extra dose. He certainly could use an audience with the [bad-guy], whether he deserves it or not.[paragraph break]Of course, he's not just going to be allowed to walk in. Goodness no! This will just get him one step closer. Plus the journey is the important thing, and so on.[paragraph break]There's a line below: SIGNED BY APPROPRIATE AUTHORITY (BEARER DOES NOT COUNT). It is [if burden-signed is true]filled[else]blank[end if]."
-
-after taking proof of burden:
-	choose row with response of weasel-baiter in table of weasel talk;
-	now permit entry is 1;
-	continue the action;
-
-
 part Variety Garden
 
 table of smackdowns
@@ -6194,6 +6140,59 @@ the pocket pick is a thing. description is "You can DIG something with it."
 
 after printing the name of the pocket pick while taking inventory:
 	say " (DIG with it)";
+	continue the action;
+
+part Vision Tunnel
+
+Vision Tunnel is east of Tension Surface. Vision Tunnel is in Beginning. "The flower wall blocking every which way but west is, well, a vision[if flower wall is examined], and now that you've seen the picture hole in it, you can't un-see it[end if][if earth of salt is in vision tunnel]. Some semi-crystallized looking earth is clumped here[end if]."
+
+the flower wall is scenery in the Vision Tunnel. "All manner of flowers, real and fake, are sewed together. The only break is [if flower wall is examined]that picture hole[else][pic-hole][end if]."
+
+after doing something with flower wall:
+	set the pronoun them to flower wall;
+
+to say pic-hole:
+	say "[if picture hole is examined]the picture hole you looked through[else]a small hole, call it a picture hole, because it looks like there's some sort of picture in there[end if]"
+
+check taking flower wall:
+	say "The flowers seem delicately interconnected. If you take one, you fear the whole structure might collapse. Then you might feel more lonely than ever." instead;
+
+understand "flowers" as flower wall.
+
+check going nowhere in vision tunnel:
+	say "You barge into the flower wall and feel less alone with all that nature around you. This isn't practical, but it feels much nicer than running into walls has a right to." instead;
+
+the picture hole is scenery in vision tunnel. description is "[one of]You peek into the picture hole in the flower wall, and it looks like a bunch of swirls until you stare at it right. A whole story takes shape. [or][stopping]You recognize [one of]a stick figure[or]yourself, again[stopping] finding a ticket in a book, climbing a chair to reach a hatch, digging by a bunch of flowers, depositing a document in the ground--and then being blocked by three stick figures--blue, red and tall.[paragraph break][one of]You blink, and the picture degenerates back into swirls. But you can always look again, if you want[or]The picture scrambles again once you blink[stopping]."
+
+understand "vision" as picture hole when player is in Vision Tunnel and flower wall is examined.
+
+understand "vision" as flower wall when player is in Vision Tunnel and flower wall is not examined.
+
+the earth of salt is scenery in Vision Tunnel. "It's opaque, probably earth of salt or something, and it seems half-buried. You think if you look closely you see something under it that's not dirt or salt. But you can't just move it away by conventional means."
+
+check taking earth of salt:
+	say "It's just too big of a slab to pick up. Maybe if it were broken into bits, you could see what was under it." instead;
+
+check pushing earth of salt:
+	say "You can't get a good grip on it--it's probably buried into the ground a bit too much." instead;
+
+the proof of burden is a thing. "The plaque that is the Proof of Burden lies here."
+
+after printing the name of the proof of burden while taking inventory:
+	if proof of burden is examined:
+		say " ([if burden-signed is false]un[end if]signed)";
+	else:
+		say " (which you should probably read[if burden-signed is true], even though you read it[end if])";
+
+understand "plaque/document" as proof of burden when mrlp is Beginning.
+
+burden-signed is a truth state that varies.
+
+description of proof of burden is "The bearer of this plaque is certifiably unable to brush aside problems he feels he really should be smart enough to, and he quite bluntly has no clue how to rectify the situation. I mean, we all feel this way from time to time, but boy, the bearer got an extra dose. He certainly could use an audience with the [bad-guy], whether he deserves it or not.[paragraph break]Of course, he's not just going to be allowed to walk in. Goodness no! This will just get him one step closer. Plus the journey is the important thing, and so on.[paragraph break]There's a line below: SIGNED BY APPROPRIATE AUTHORITY (BEARER DOES NOT COUNT). It is [if burden-signed is true]filled[else]blank[end if]."
+
+after taking proof of burden:
+	choose row with response of weasel-baiter in table of weasel talk;
+	now permit entry is 1;
 	continue the action;
 
 book Outer Bounds
@@ -7017,7 +7016,7 @@ to get-ticketed (ttext - text):
 			say "'Up to trouble, eh? I thought you might be.' The Stool Toad frog-marches you (ha! Ha!) out of the Soda Club to a rehabilitation area.";
 			ship-off A Beer Pound;
 		else:
-			say "The Stool Toad [if player is not in joint strip] rushes over from the Joint Strip, yelling and getting on, but then [end if]turns all quiet. 'Son, you've gone too far. It's time to ship you out.' And he does. Even Fritz the On shakes his head sadly as you are marched past to the west.";
+			say "The Stool Toad [if player is not in joint strip]rushes over from the Joint Strip, yelling and getting on, but then [end if]turns all quiet. 'Son, you've gone too far. It's time to ship you out.' And he does. Even Fritz the On shakes his head sadly as you are marched past to the west.";
 			ship-off Shape Ship;
 		decrement your-tix;
 	else if your-tix is 4:
@@ -10936,37 +10935,37 @@ book Bad Ends
 
 Bad Ends is a region.
 
-part Punishment Capitol
-
-Punishment Capitol is a room in Bad Ends. "You've really hit the jackpot! I guess. Everything is bigger and better here, and of course you're constantly reminded that you have more potential to build character here than in Hut Ten or Criminals['] Harbor. And whether you grumble or agree, someone officious is there to reenforce the message you probably won't build that character. But you have to try![paragraph break]Oh, also, there's word some of the officers have a black market going with [bad-guy-2], too, but people who do that--well, there's never any evidence."
-
-part Hut Ten
-
-Hut Ten is a room in Bad Ends. "Here you spend time in pointless military marches next to people who might be your friends in kinder environs. Apparently you're being trained for some sort of strike on [bad-guy-2]'s base, whoever he is. As time goes on, more recruits come in. You do well enough, to boss a few around. But people above you remind you that's still not good ENOUGH."
-
 part Beer Pound
 
 there is a room called A Beer Pound. It is in Bad Ends. "Here prisoners are subjected to abuse from prison guards who CAN hold their liquor and NEED a drink at the end of the day. And they are not wimps with low alcohol tolerance, either."
-
-part In-Dignity Heap
-
-In-Dignity Heap is a room in Bad Ends. "Here we have someone at the top of the heap, telling people to have a little respect for themselves, you know?"
-
-part Shape Ship
-
-Shape Ship is a room in Bad Ends. "Kids drudge away at tasks they're too smart for, being reminded that with that attitude they'll never be good for anything better than, well, this."
 
 part Criminals' Harbor
 
 Criminals' Harbor is a room in Bad Ends. "Many poor teens in striped outfits or orange jumpsuits plod by here."
 
+part Fight Fair
+
+Fight Fair is a room in Bad Ends. "The [bad-guy] watches down from a video screen as much stronger people beat up on much weaker people. 'Use your minds! Be grateful they're not really hurting you!' Nobody dares call it barbaric. After all, it could be worse."
+
+part Hut Ten
+
+Hut Ten is a room in Bad Ends. "Here you spend time in pointless military marches next to people who might be your friends in kinder environs. Apparently you're being trained for some sort of strike on [bad-guy-2]'s base, whoever he is. As time goes on, more recruits come in. You do well enough, to boss a few around. But people above you remind you that's still not good ENOUGH."
+
+part In-Dignity Heap
+
+In-Dignity Heap is a room in Bad Ends. "Here we have someone at the top of the heap, telling people to have a little respect for themselves, you know?"
+
 part Maintenance High
 
 Maintenance High is a room in Bad Ends. "A teacher drones on endlessly about how it's not necessarily drugs that are bad, that people can mess themselves up even worse than drugs, and there's a whole huge lecture on how to be able to integrate making fun of drug users and feel sorry for them, to be maximally interesting."
 
-part Fight Fair
+part Punishment Capitol
 
-Fight Fair is a room in Bad Ends. "The [bad-guy] watches down from a video screen as much stronger people beat up on much weaker people. 'Use your minds! Be grateful they're not really hurting you!' Nobody dares call it barbaric. After all, it could be worse."
+Punishment Capitol is a room in Bad Ends. "You've really hit the jackpot! I guess. Everything is bigger and better here, and of course you're constantly reminded that you have more potential to build character here than in Hut Ten or Criminals['] Harbor. And whether you grumble or agree, someone officious is there to reenforce the message you probably won't build that character. But you have to try![paragraph break]Oh, also, there's word some of the officers have a black market going with [bad-guy-2], too, but people who do that--well, there's never any evidence."
+
+part Shape Ship
+
+Shape Ship is a room in Bad Ends. "Kids drudge away at tasks they're too smart for, being reminded that with that attitude they'll never be good for anything better than, well, this."
 
 book dream sequence
 
@@ -12001,15 +12000,41 @@ section general concepts
 
 abuse testing is a concept in conceptville. Understand "testing abuse" as abuse testing. howto is "credits".
 
+Advance Notice is a concept in conceptville. Understand "notice advance" as Advance Notice. howto is "enter Freak Control".
+
+Beaten Track is a concept in conceptville. Understand "track beaten" as Beaten Track. howto is "solve the [j-co] puzzle for the first time".
+
 break silence is a concept in conceptville. Understand "silence break" as break silence. howto is "give no command when you are in a conversation".
+
+Captain Obvious is a concept in conceptville. Understand "obvious captain" as captain obvious. howto is "xyzzy".
 
 clouds of suspicion is a concept in conceptville. Understand "suspicion of clouds/cloud" and "cloud of suspicion" as clouds of suspicion. howto is "X U".
 
+Comedy of Errors is a concept in conceptville. Understand "errors of comedy" as comedy of errors. howto is "xyzzy".
+
 cut a deal is a concept in conceptville. Understand "deal a cut" as cut a deal. howto is "cut any inanimate thing before Freak Control".
+
+Cut a Figure is a concept in conceptville. Understand "cut a figure" as cut a figure. howto is "get to Nominal Fen".
+
+Face the music is a concept in conceptville. Understand "music the face" as face the music. howto is "sing outside the cult or Discussion Block".
 
 Force of Habit is a concept in conceptville. Understand "habit of force" as force of habit. howto is "attack something inanimate you don't get arrested for".
 
+Hard Knock is a concept in conceptville. Understand "knock hard" as Hard Knock. howto is "get to Pressure Pier".
+
+a thing called Nonsense No is a concept in conceptville. Understand "no nonsense" as nonsense. howto is "xyzzy".
+
+Passing Fancy is a concept in conceptville. Understand "fancy passing" as Passing Fancy. howto is "help all three Keeper Brothers".
+
+poke fun is a concept in conceptville. Understand "fun poke" as poke fun. howto is "touch someone, or try".
+
 second thought is a concept in conceptville. Understand "thought second" as second thought. howto is "THINK early on".
+
+Sitting Duck is a concept in conceptville. Understand "duck sitting" as Sitting Duck. howto is "get to Tension Surface".
+
+Spelling Disaster is a concept in conceptville. Understand "disaster spelling" as spelling disaster. howto is "xyzzy".
+
+touch base is a concept in conceptville. Understand "base touch" as touch base. howto is "touch someone, or try".
 
 turn of phrase is a concept in conceptville. Understand "phrase of turn" as turn of phrase. howto is "empty command".
 
@@ -12043,6 +12068,10 @@ power games is a concept in conceptville. Understand "games power" as power game
 
 chapter surface concepts
 
+section tension surface concepts
+
+nose picking is a concept in conceptville. Understand "picking nose" as nose picking. howto is "smell the mush in Tension Surface".
+
 section variety garden concepts
 
 Animal Welfare is a concept in conceptville. Understand "welfare animal" as animal welfare. howto is "get the Weasel to sign the Burden".
@@ -12061,15 +12090,23 @@ sagebrush is a concept in conceptville. Understand "brush sage" and "sage brush"
 
 work of art is a concept in conceptville. Understand "art of work" as work of art. howto is "dig once with the pick in Variety Garden".
 
-section tension surface concepts
-
-nose picking is a concept in conceptville. Understand "picking nose" as nose picking. howto is "smell the mush in Tension Surface".
-
 section vision tunnel concepts
 
 scum of earth is a concept in conceptville. Understand "earth of scum" as scum of earth. howto is "dig the earth of salt".
 
 chapter outer concepts
+
+section pressure pier concepts
+
+Bible Belt is a concept in conceptville. Understand "belt bible" as bible belt. howto is "try taking the Basher Bible".
+
+Boy Howdy is a concept in conceptville. Understand "howdy boy" as Boy Howdy. howto is "get to Pressure Pier".
+
+fish out of water is a concept in conceptville. Understand "water out of fish" as fish out of water. howto is "examine the water in Pressure Pier".
+
+meal ticket is a concept in conceptville. Understand "ticket meal" as meal ticket. howto is "eat the boo tickety".
+
+take a stand is a concept in conceptville. Understand "stand a/the take" and "take the stand" as take a stand. howto is "try to take a/the side stand".
 
 section meal square concepts
 
@@ -12114,18 +12151,6 @@ Tray T is a concept in conceptville. howto is "enter Meal Square".
 Tray X is a concept in conceptville. howto is "enter Meal Square".
 
 treat like dirt is a concept in conceptville. Understand "dirt like treat" as treat like dirt. howto is "[x-it of points brownie]".
-
-section pressure pier concepts
-
-Bible Belt is a concept in conceptville. Understand "belt bible" as bible belt. howto is "try taking the Basher Bible".
-
-Boy Howdy is a concept in conceptville. Understand "howdy boy" as Boy Howdy. howto is "get to Pressure Pier".
-
-fish out of water is a concept in conceptville. Understand "water out of fish" as fish out of water. howto is "examine the water in Pressure Pier".
-
-meal ticket is a concept in conceptville. Understand "ticket meal" as meal ticket. howto is "eat the boo tickety".
-
-take a stand is a concept in conceptville. Understand "stand a/the take" and "take the stand" as take a stand. howto is "try to take a/the side stand".
 
 section down ground concepts
 
@@ -12236,20 +12261,6 @@ good herb is a concept in conceptville. Understand "herb good/goode" as good her
 grace period is a concept in conceptville. Understand "period grace" as grace period. howto is "ask Grace about the [bad-guy]".
 
 personality cult is a concept in conceptville. Understand "cult personality" as personality cult. howto is "ask Grace about restoring her cult".
-
-section disposed well concepts
-
-Fish for a Compliment is a concept in conceptville. Understand "compliment for a fish" as fish for a compliment. howto is "talk to the story fish with nobody else around".
-
-Well Done is a concept in conceptville. Understand "done well" as well done. howto is "try entering the Disposed Well".
-
-section chipper wood concepts
-
-character assassination is a concept in conceptville. Understand "assassination character" as character assassination. howto is "visit Chipper Wood".
-
-Play it Cool is a concept in conceptville. Understand "cool it play" as play it cool. howto is "attack Cute Percy".
-
-Sweetheart deal is a concept in conceptville. Understand "deal sweetheart" as sweetheart deal. howto is "run from Chipper Wood before catching Cute Percy".
 
 section Nominal Fen concepts
 
@@ -12423,6 +12434,20 @@ whistler's mother is a concept in conceptville. Understand "mother whistlers/whi
 to say solve-j:
 	say "solve the [j-co]['] puzzle"
 
+section chipper wood concepts
+
+character assassination is a concept in conceptville. Understand "assassination character" as character assassination. howto is "visit Chipper Wood".
+
+Play it Cool is a concept in conceptville. Understand "cool it play" as play it cool. howto is "attack Cute Percy".
+
+Sweetheart deal is a concept in conceptville. Understand "deal sweetheart" as sweetheart deal. howto is "run from Chipper Wood before catching Cute Percy".
+
+section disposed well concepts
+
+Fish for a Compliment is a concept in conceptville. Understand "compliment for a fish" as fish for a compliment. howto is "talk to the story fish with nobody else around".
+
+Well Done is a concept in conceptville. Understand "done well" as well done. howto is "try entering the Disposed Well".
+
 section judgment pass concepts
 
 career threatening is a concept in conceptville. Understand "threatening career" as career threatening. howto is "give Officer Petty the Reasoning Circular".
@@ -12579,7 +12604,7 @@ roach dropping is a concept in conceptville. Understand "dropping roach" as roac
 
 weed out is a concept in conceptville. Understand "out weed" as weed out. howto is "take Pusher Penn's wacker weed".
 
-section belt below concepts
+section the belt below concepts
 
 Terminal Illness is a concept in conceptville. Understand "illness terminal" as terminal illness. howto is "defeat the Insanity Terminal".
 
@@ -12738,47 +12763,13 @@ Wallace Shawn is a concept in conceptville. Understand "shawn wallace" as wallac
 
 Wire Fraud is a concept in conceptville. Understand "fraud wire" as Wire Fraud. howto is "[bad-guy] dialog".
 
-section out mist
+section out mist concepts
 
 zeroin is a privately-named concept in conceptville. printed name is "zero in". Understand "in zero" and "zero in" as zeroin. howto is "[ok-end]".
 
-section airy station
+section airy station concepts
 
 clear waivers is a concept in conceptville. Understand "waivers/wavers clear" and "clear wavers" as clear waivers. howto is "try going any direction in Airy Station".
-
-chapter general command concepts
-
-section xyzzy concepts
-
-Captain Obvious is a concept in conceptville. Understand "obvious captain" as captain obvious. howto is "xyzzy".
-
-Comedy of Errors is a concept in conceptville. Understand "errors of comedy" as comedy of errors. howto is "xyzzy".
-
-Face the music is a concept in conceptville. Understand "music the face" as face the music. howto is "sing outside the cult or Discussion Block".
-
-a thing called Nonsense No is a concept in conceptville. Understand "no nonsense" as nonsense. howto is "xyzzy".
-
-Spelling Disaster is a concept in conceptville. Understand "disaster spelling" as spelling disaster. howto is "xyzzy".
-
-section touch concepts
-
-poke fun is a concept in conceptville. Understand "fun poke" as poke fun. howto is "touch someone, or try".
-
-touch base is a concept in conceptville. Understand "base touch" as touch base. howto is "touch someone, or try".
-
-section game-warp concepts
-
-Advance Notice is a concept in conceptville. Understand "notice advance" as Advance Notice. howto is "enter Freak Control".
-
-Beaten Track is a concept in conceptville. Understand "track beaten" as Beaten Track. howto is "solve the [j-co] puzzle for the first time".
-
-Cut a Figure is a concept in conceptville. Understand "cut a figure" as cut a figure. howto is "get to Nominal Fen".
-
-Hard Knock is a concept in conceptville. Understand "knock hard" as Hard Knock. howto is "get to Pressure Pier".
-
-Passing Fancy is a concept in conceptville. Understand "fancy passing" as Passing Fancy. howto is "help all three Keeper Brothers".
-
-Sitting Duck is a concept in conceptville. Understand "duck sitting" as Sitting Duck. howto is "get to Tension Surface".
 
 chapter fake death concepts
 
@@ -12829,11 +12820,13 @@ to say ss-end:
 
 chapter director's cut concepts
 
+section rage road concepts
+
 road pizza is a concept in conceptville. Understand "pizza road" as road pizza. howto is "visit Rage Road in the Directors['] Cut".
 
 chapter lalaland concepts
 
-section endgame concepts
+chapter endgame concepts
 
 lalaland is a privately-named room in meta-rooms. "You should never see this. If you do, it is a [bug]."
 

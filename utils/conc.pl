@@ -49,6 +49,8 @@ my $defaultToGeneral = 1;
 my $defaultRoom = "general concepts";
 my $readDupe = 1;
 my $openLowestLine = 0;
+my $roomConcCompare = 0;
+my $rcVerbose = 0;
 
 #############################
 #hashes
@@ -68,6 +70,7 @@ my %tableDetHash;
 my %fileHash;
 
 my %roomIndex;
+my %conceptIndex;
 
 $tableDetHash{"Compound"} = "xxjmt,xxbgw";
 $tableDetHash{"Buck-the-Past"} = "!xxtia";
@@ -118,6 +121,7 @@ while ($count <= $#ARGV)
     /^-?ed$/ && do { `$dupeFile`; exit(); };
     /^-?ng$/ && do { $defaultToGeneral = 0; $count++; next; };
     /^-?dg$/ && do { $defaultToGeneral = 1; $count++; next; };
+    /^-?rc(v)?$/ && do { $roomConcCompare = 1; $rcVerbose = ($a =~ /v/); $count++; next; };
     /^-?pc$/ && do { @dirs = ("Compound"); $count++; next; };
     /^-?sc$/ && do { @dirs = ("Slicker-City"); $count++; next; };
     /^-?(bp|btp)$/ && do { @dirs = ("Buck-the-Past"); $count++; next; };
@@ -154,6 +158,7 @@ for my $thisproj (@dirs)
   if ($order) { checkOrder($thisproj); }
   if ($readConcepts) { readConcept($thisproj); }
   if ($detailAlpha) { checkTableDetail($thisproj); }
+  if ($roomConcCompare) { compareRoomConcept($thisproj); }
 }
 
 printGlobalResults();
@@ -635,7 +640,8 @@ while ($lineIn = <X>)
   if ($lineIn =~ /xxauth/) { $inAuthTable = 1; <A>; $line++; next; }
   if ($lineIn =~ /^table of explanations.*concepts/) { $inTable = 1; <X>; next; }
   if ($lineIn !~ /[a-z]/i) { $inTable = 0; if ($inAdd) { $addEnd = $.; $inAdd = 0; } next; }
-  chomp($lineIn); $lineIn = cutArt($lineIn);
+  chomp($lineIn);
+  $lineIn = cutArt($lineIn);
   if ($lineIn =~ /is a concept in (lalaland|conceptville)/) # concept definitions
   {
     $cvEnd = $.;
@@ -802,7 +808,7 @@ sub findExplLine
   while ($a = <B>)
   {
 	if ($a =~ /^\[start rooms\]/i) { $begunRooms = 1; $doneRooms = 0; next; }
-    if (($a =~ /^part /i) && ($begunRooms) && (!$doneRooms)) { $a =~ s/ *\[.*//; $begunRooms = 1; $curRoom = $a; $curRoom =~ s/^part //i; $roomIndex{$curRoom} = $.; next; }
+    if (($a =~ /^part /i) && ($begunRooms) && (!$doneRooms)) { $a =~ s/ *\[.*//; $begunRooms = 1; $curRoom = $a; $curRoom =~ s/^part //i; next; }
 	$a =~ s/\*/ /g; # ugh, a bad hack but it will have to do to read asterisk'd files
 	if ($a =~ /^\[end rooms\]/i) { $doneRooms = 1; $curRoom = $defaultRoom; next; }
 	if ($a =~ /activation of $_[0]/i) { chomp($curRoom); $actRoom = $curRoom; close(B); last OUTER;}
@@ -897,6 +903,90 @@ sub readAux
   }
 }
 
+sub compareRoomConcept
+{
+  my $conc;
+  my $lastConc = 0;
+  my $lastRoom = 0;
+  my $lastConcName = "";
+  my $concSortFail = 0;
+  my $line;
+  my $inConcepts = 0;
+  my $tempStr;
+  my $begunRooms = 0;
+  my $doneRooms = 0;
+
+  my @toRead = @{$fileHash{$_[0]}};
+
+  open(A, $toRead[0]);
+
+  while ($line = <A>)
+  {
+	if ($line =~ /^\[start rooms\]/i) { $begunRooms = 1; $doneRooms = 0; next; }
+    if (($line =~ /^part /i) && ($begunRooms) && (!$doneRooms))
+	{
+	  chomp($line);
+	  $line =~ s/ *\[.*//;
+	  $begunRooms = 1;
+	  $tempStr = lc($line);
+	  $tempStr =~ s/^part //i;
+	  $roomIndex{$tempStr} = $.;
+	  next;
+    }
+	$line =~ s/\*/ /g; # ugh, a bad hack but it will have to do to read asterisk'd files
+	if ($line =~ /\[xxcv\]/) { $inConcepts = 1; next; }
+	if ($inConcepts)
+	{
+      if ($line =~ /^volume/i) { $inConcepts = 0; next; }
+	  if ($line =~ /^section .* concepts/i)
+	  {
+        chomp($line);
+		$tempStr = lc($line);
+		$tempStr =~ s/^section *//i;
+		$tempStr =~ s/ *concepts//i;
+		$conceptIndex{$tempStr} = $.;
+		#print "$line -> $tempStr\n";
+		next;
+      }
+	}
+  }
+
+  if (scalar keys %roomIndex == 0)
+  {
+    print "Oops, no room lines are defined for $_[0], so it's not worth running a test.\n";
+  }
+
+  if (scalar keys %conceptIndex == 0)
+  {
+    print "Oops, no concept lines are defined for $_[0], so it's not worth running a test.\n";
+  }
+
+  for $conc (sort { $roomIndex{$a} <=> $roomIndex{$b} } keys %roomIndex)
+  {
+    unless (defined($conceptIndex{$conc}))
+	{
+	  if ($rcVerbose) { print "No concepts unique to $conc($roomIndex{$conc}).\n"; }
+	  next;
+    }
+	if ($conceptIndex{$conc} < $lastConc) { print "$conc(rm $roomIndex{$conc}, conc $conceptIndex{$conc}) is out of order vs $lastConcName(rm $lastRoom, conc $lastConc).\n"; $concSortFail++; }
+	else
+	{
+	  if ($rcVerbose) { print "$conc: $roomIndex{$conc} vs $conceptIndex{$conc}\n"; }
+    }
+	$lastRoom = $roomIndex{$conc};
+    $lastConc = $conceptIndex{$conc};
+	$lastConcName = $conc;
+  }
+
+  for $conc (sort keys %conceptIndex)
+  {
+    if ($conc eq "general") { next; }
+    unless(defined($roomIndex{$conc})) { print "$conc($conceptIndex{$conc}) has section in concept index but no part in room index.\n"; }
+  }
+  print "TEST RESULTS: $_[0]-conc-sort,$concSortFail,0,0\n";
+  close(A);
+}
+
 sub usage
 {
 print<<EOT;
@@ -913,6 +1003,7 @@ CONC.PL usage
 (any combination is okay too)
 -t = print with test results so nightly build can process it
 -nd = no allowed duplicates (-ed edits)
+(-)rc(v) = room coordination (v = verbose)
 (-)ps = print success
 (-)pc = PC only
 (-)sc = SC only
