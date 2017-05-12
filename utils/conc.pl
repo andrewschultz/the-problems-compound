@@ -918,6 +918,8 @@ sub compareRoomConcept
 
   my @toRead = @{$fileHash{$_[0]}};
 
+  $roomIndex{"general concepts"} = 1;
+
   open(A, $toRead[0]);
 
   while ($line = <A>)
@@ -950,6 +952,52 @@ sub compareRoomConcept
       }
 	}
   }
+  close(A);
+
+  my $inExp = 0;
+  my $lastSortRoom = "";
+  my $commentBit;
+  my $lastLine;
+
+  open(A, $toRead[0]);
+
+  while ($line = <A>)
+  {
+    if ($line =~ /^table of explanations/) { print "STARTING proofreading for $line"; <A>; $inExp = 1; $lastLine = ""; $lastSortRoom = ""; next; }
+	if ($line !~ /[a-z]/) { $inExp = 0; next; }
+	if ($inExp)
+	{
+	  chomp($line);
+	  $line = lc($line);
+	  if ($line =~ /\[start of /)
+	  {
+	    $commentBit = $line;
+		$commentBit =~ s/.*\[start of //;
+		$commentBit =~ s/\].*//;
+	    $line =~ s/\t.*//;
+		$lastLine = $line;
+		my $skip = 0;
+		#for (sort keys %roomIndex) { print "$_ $roomIndex{$_}\n"; } die();
+		if (!defined($roomIndex{$commentBit})) { warn("$commentBit has no room start.\n"); $skip = 1; }
+		if (!defined($roomIndex{$lastSortRoom})) { warn("$lastSortRoom has no room start.\n"); $skip = 1; }
+		if ($roomIndex{$commentBit} < $roomIndex{$lastSortRoom}) { print "$.: room $commentBit is behind last room of $lastSortRoom.\n"; }
+		$lastSortRoom = $commentBit;
+      }
+	  elsif ($line le $lastLine)
+	  {
+	    $line =~ s/\t.*//;
+	    print "$.: $line alphabetically behind $lastLine.\n";
+		$lastLine = $line;
+	  }
+	  else
+	  {
+	    $line =~ s/\t.*//;
+	  }
+	  $lastLine = $line;
+	}
+  }
+
+  close(A);
 
   if (scalar keys %roomIndex == 0)
   {
