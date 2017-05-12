@@ -2,7 +2,7 @@
 
 the story headline is "A Direction of Sense: changing what's-thats to that's-whats"
 
-[Compound Tables now has a list of a lot of the random text in this game that was originally in the main file.
+[Compound Tables.i7x now has a list of a lot of the random text in this game that was originally in the main file. It should be included with the GitHub project, or with the bundled release.
 
 to search through this file, two x's at the start of a comment will delinate major points I revisit.
 
@@ -13,6 +13,8 @@ to search through this file, two x's at the start of a comment will delinate maj
   2x cv = conceptville, where concepts you don't know about are, is not a table but contains all the definitions with how to get the concept in-game
   2x trt = ring tries (good ending)
   2x tht = hammer tries (best ending)
+
+  if you are searching for how concepts are triggered, search for activation of, with a left bracket before it.
 ]
 
 to say fill-in-here:
@@ -1041,6 +1043,8 @@ chapter burning
 the block burning rule is not listed in any rulebook.
 
 check burning:
+	if player is in judgment pass:
+		say "You have no matches with which to, err, [activation of pass the torch]torch the pass. Ha ha." instead;
 	if noun is poory pot:
 		say "You don't have any matches. Or guts to try even the mild stuff." instead;
 	if noun is wacker weed:
@@ -3600,6 +3604,7 @@ Sweetheart Deal	"A sweetheart deal is something that works very well for both si
 Fish for a Compliment	"To fish for a compliment is to try to manipulate someone into saying something nice." [start of disposed well]
 Well Done	"Well done means good job, but 'done' is also a synonym for dead, because you'd fall down the well if you tried to enter it."
 career threatening	"Something career threatening may risk not only your job but your ability to get other equal or better jobs. A threatening career is--well, a bit of a racket." [start of judgment pass]
+pass the torch	"To pass the torch is to hand off knowledge or responsibility to the next person."
 scofflaw	"A scofflaw is someone who breaks minor rules. Perhaps they jaywalk or litter."
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever." [start of idiot village]
 code monkey	"A code monkey is someone who writes programming code for a living."
@@ -12451,6 +12456,8 @@ Well Done is a concept in conceptville. Understand "done well" as well done. how
 section judgment pass concepts
 
 career threatening is a concept in conceptville. Understand "threatening career" as career threatening. howto is "give Officer Petty the Reasoning Circular".
+
+pass the torch is a concept in conceptville. Understand "torch the pass" as pass the torch. howto is "[fill-in-here]".
 
 scofflaw is a concept in conceptville. Understand "scoff law" and "lawscoff/law-scoff/scoff-law" and "law scoff" as scofflaw. howto is "give Officer Petty the Reasoning Circular".
 
