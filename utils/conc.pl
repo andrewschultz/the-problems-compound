@@ -64,6 +64,8 @@ my %authTab;
 my %okDup;
 my %lineNum;
 my %fileLineErr;
+my %fillConc;
+my %fillExpl;
 
 my %tableDetHash;
 
@@ -290,7 +292,7 @@ for my $x (sort keys %any)
   {
     ($fileToOpen, $nuline) = findExplLine($x, $_[0], 1);
 	if (($nuline ne "????") && ($nuline !~ /failed/)) { unless ($openLowestLine && defined($fileLineErr{$fileToOpen})) { $fileLineErr{$fileToOpen} = $nuline; } }
-    $errMsg .= "$xmod ($lineNum{$x}) needs explanation: guess = line $nuline\n";
+    $errMsg .= "$xmod ($lineNum{$x}) needs explanation" . (defined($fillExpl{$x}) ? " filled in" : "") . ": guess = line $nuline\n";
 	$explErr .= "$xmod\t\"$xmod is when you [fill-in-here].\"\n";
 	$fails++; $thisFailed = 1;
   }
@@ -298,7 +300,7 @@ for my $x (sort keys %any)
   {
     ($fileToOpen, $nuline) = findExplLine($x, $_[0], 2);
 	if (($nuline ne "????") && ($nuline !~ /failed/)) { unless ($openLowestLine && defined($fileLineErr{$fileToOpen})) { $fileLineErr{$fileToOpen} = $nuline; } }
-	$errMsg .= "$xmod ($lineNum{$x}) needs concept definition: guess = line $nuline\n";
+	$errMsg .= "$xmod ($lineNum{$x}) needs concept definition" . (defined($fillConc{$x}) ? " filled in" : "") . ": guess = line $nuline\n";
     if ($x =~ /\*/)
 	{
     $y1 = join(" ", reverse(split(/\*/, $x)));
@@ -385,6 +387,8 @@ sub printGlobalResults
     print "#####################Remove error-text from line(s) " . join(", ", @dumbErrors) . ".\n";
   }
 
+  if (scalar keys %fillExpl) { print "Fill in explanation text at " . join(", ", map { "$fillExpl{$_}($_}" } sort keys %fillExpl) . "\n"; }
+  if (scalar keys %fillConc) { print "Fill in concept text at " . join(", ", map { "$fillConc{$_}($_}" } sort keys %fillConc) . "\n"; }
   if ($#fillIn > -1)
   {
     print "Zap fill-in text at line(s) " . join(", ", @fillIn) . ".\n";
@@ -627,7 +631,6 @@ my $tmpVar;
 
 while ($lineIn = <X>)
 {
-  if ($lineIn =~ /\[fill-in-here\]/) { $nuline = $.; unless ($openLowestLine && defined($fileLineErr{$file})) { $fileLineErr{$file} = $.; } push (@fillIn, "$file-$."); next; }
   if ($lineIn =~ /(EXPLANATIONS:|CONCEPTS:|fill-in-here throws)/) { push (@dumbErrors, $.); next; }
   if (($lineIn =~ /is a.* author\. pop/) && ($lineIn !~ /^\[/)) { $tmpVar = $lineIn; $tmpVar =~ s/ is (an|a) .*//g; chomp($tmpVar); if ($lineIn =~ /xp-text is /) { $gotText{$tmpVar} = 1; } elsif ($lineIn =~ /\"/) { print "Probable typo for $tmpVar.\n"; } $auth{$tmpVar} = $line; next; }
   if ($inAuthTable)
@@ -686,6 +689,7 @@ while ($lineIn = <X>)
 	$tmpVar =~ s/\t.*//g;
 	$tmpVar = wordtrim($tmpVar);
 	$expl{$tmpVar} = $any{$tmpVar} = 1;
+	if ($lineIn =~ /fill-in-here/) { $fillExpl{$tmpVar} = $.; }
 	if (!defined($lineNum{$tmpVar})) { $lineNum{$tmpVar} = $.; }
 	next;
   }
@@ -693,8 +697,18 @@ while ($lineIn = <X>)
   if (($lineIn =~ /is a (privately-named |risque |)?concept/) && ($lineIn !~ /\t/)) #prevents  "is a concept" in source text from false flag
   {
     $tmpVar = $lineIn; $tmpVar =~ s/ is a (privately-named |risque |)?concept.*//g; $tmpVar = wordtrim($tmpVar); $conc{$tmpVar} = $any{$tmpVar} = $.;
+	if ($lineIn =~ /fill-in-here/) { $fillExpl{$tmpVar} = $.; }
 	if (!defined($lineNum{$tmpVar})) { $lineNum{$tmpVar} = $.; }
 	if ($lineIn =~ /\[ac\]/) { $activ{$tmpVar} = $.; } # [ac] says it's activated somewhere else
+	next;
+  }
+  if ($lineIn =~ /\[fill-in-here\]/)
+  {
+    $nuline = $.;
+	unless ($openLowestLine && defined($fileLineErr{$file}))
+	{ $fileLineErr{$file} = $.; }
+	push (@fillIn, "$file-$.");
+	#elsif ($lineIn =~ /is a concept in /) { $lineIn =~ s/ is a line in .*//; chomp($lineIn); $fillConc{$lineIn} = $.; }
 	next;
   }
 }
