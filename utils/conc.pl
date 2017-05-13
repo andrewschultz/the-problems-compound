@@ -95,6 +95,7 @@ my $asterisks = 0;
 my $astString = "";
 my $nuline = 0;
 my $warnedYet = 0;
+my $gameObjTot = 0;
 
 while ($count <= $#ARGV)
 {
@@ -749,7 +750,7 @@ sub checkGameObjExpl
   my $c1;
   my $c2;
   my $initLines = $.;
-  my $gameObjErr = 0;
+  my $gameObjCur = 0;
   my $line;
   my $curLoc;
 
@@ -772,14 +773,16 @@ sub checkGameObjExpl
 	  #print "$c1 vs $c2, $line vs $compare\n";
 	  chomp($c1);
 	  chomp($c2);
-	  $gameObjErr++;
+	  $gameObjTot++;
+	  $gameObjCur++;
 	  $locCount++;
-	  print "$.($gameObjErr): $c2 should be after $c1 ($curLoc, $locCount).\n";
+	  if (($gameObjCur == 1) && ($gameObjTot > 1)) { print "=" x 80 . "\n"; }
+	  print "$.($gameObjCur,$gameObjTot): $c2 should be after $c1 ($curLoc, $locCount).\n";
 	}
 	$compare = $line;
   }
-  $objSuc = $. - $initLines - $gameObjErr;
-  return $gameObjErr;
+  $objSuc = $. - $initLines - $gameObjCur;
+  return $gameObjCur;
 }
 
 sub alfPrep
@@ -970,15 +973,17 @@ sub compareRoomConcept
 
   my $inExp = 0;
   my $lastSortRoom = "";
-  my $commentBit;
-  my $lastLine;
+  my $commentBit = "";
+  my $lastLine = 0;
+  my $initWarn = 0;
+  my $proofStr = "";
 
   open(A, $toRead[0]);
 
   while ($line = <A>)
   {
-    if ($line =~ /^table of explanations/) { print "STARTING proofreading for $line"; <A>; $inExp = 1; $lastLine = ""; $lastSortRoom = ""; next; }
-	if ($line !~ /[a-z]/) { $inExp = 0; next; }
+    if ($line =~ /^table of explanations/) { $proofStr = "proofreading at line $. for $line"; <A>; $inExp = 1; $lastLine = ""; $lastSortRoom = ""; next; }
+	if ($line !~ /[a-z]/) { $inExp = 0; if ($proofStr) { print "PASSED $proofStr"; $proofStr = ""; } next; }
 	if ($inExp)
 	{
 	  chomp($line);
@@ -990,17 +995,45 @@ sub compareRoomConcept
 		$commentBit =~ s/\].*//;
 	    $line =~ s/\t.*//;
 		$lastLine = $line;
-		my $skip = 0;
 		#for (sort keys %roomIndex) { print "$_ $roomIndex{$_}\n"; } die();
-		if (!defined($roomIndex{$commentBit})) { warn("$commentBit has no room start.\n"); $skip = 1; }
-		if (!defined($roomIndex{$lastSortRoom})) { warn("$lastSortRoom has no room start.\n"); $skip = 1; }
-		if ($roomIndex{$commentBit} < $roomIndex{$lastSortRoom}) { print "$.: room $commentBit is behind last room of $lastSortRoom.\n"; }
+		if (!defined($roomIndex{$commentBit}) && !defined($roomIndex{$lastSortRoom}))
+		{
+		  warn("Line $. $commentBit/$lastSortRoom nothing defined. Probably forgot to initialize something.");
+		}
+		else
+		{
+		if (!defined($roomIndex{$commentBit})) { if ($proofStr) { print "ERRORS $proofStr"; $proofStr = ""; } warn("Line $. ($commentBit) current comment has no room start.\n"); }
+		if (!defined($roomIndex{$lastSortRoom})) { if ($lastSortRoom) { if ($proofStr) { print "ERRORS $proofStr"; $proofStr = ""; } warn("Line $. ($lastSortRoom) last room has no room start.\n"); } }
+		elsif (defined($roomIndex{$commentBit}) && (!defined($roomIndex{$commentBit}) || ($roomIndex{$commentBit} < $roomIndex{$lastSortRoom})))
+        {
+		  if ($proofStr) { print "ERRORS $proofStr"; $proofStr = ""; }
+		  print "$.: room $commentBit(index " . (defined($roomIndex{$commentBit}) ? $roomIndex{$commentBit} : "N/A") . ") should be behind last room of $lastSortRoom(index $roomIndex{$lastSortRoom})";
+		  if (defined($roomIndex{$commentBit}))
+		  {
+		  my $justAfterCandidate = "";
+		  my $justAfterLine = 0;
+		  my $rm;
+		  for $rm (keys %roomIndex)
+		  {
+		    if (($roomIndex{$rm} > $justAfterLine) && ($roomIndex{$rm} < $roomIndex{$commentBit}))
+			{
+			  $justAfterCandidate = $rm;
+			  $justAfterLine = $roomIndex{$rm};
+			}
+		  }
+          if ($justAfterCandidate) { print ", maybe shifted just ahead of $justAfterCandidate(index $roomIndex{$justAfterCandidate})"; }
+		  }
+		  print ".\n";
+        }
+		}
 		$lastSortRoom = $commentBit;
       }
-	  elsif ($line le $lastLine)
+	  elsif (cutArt($line) le cutArt($lastLine))
 	  {
+	    if (($commentBit eq "") && (!$initWarn)) { warn("Line $. forgot to initialize something.\n"); $initWarn = 1; }
 	    $line =~ s/\t.*//;
-	    print "$.: $line alphabetically behind $lastLine.\n";
+		if ($proofStr) { print "ERRORS $proofStr"; $proofStr = ""; }
+	    printf("$.: %s alphabetically behind %s.\n", $line, $lastLine);
 		$lastLine = $line;
 	  }
 	  else
@@ -1023,6 +1056,8 @@ sub compareRoomConcept
     print "Oops, no concept lines are defined for $_[0], so it's not worth running a test.\n";
   }
 
+  my $banner = "CONCEPT DEFINITION ANALYSIS\n";
+
   for $conc (sort { $roomIndex{$a} <=> $roomIndex{$b} } keys %roomIndex)
   {
     unless (defined($conceptIndex{$conc}))
@@ -1030,7 +1065,7 @@ sub compareRoomConcept
 	  if ($rcVerbose) { print "No concepts unique to $conc($roomIndex{$conc}).\n"; }
 	  next;
     }
-	if ($conceptIndex{$conc} < $lastConc) { print "$conc(rm $roomIndex{$conc}, conc $conceptIndex{$conc}) is out of order vs $lastConcName(rm $lastRoom, conc $lastConc).\n"; $concSortFail++; }
+	if ($conceptIndex{$conc} < $lastConc) { if ($banner) { print "ERRORS in $banner"; $banner = ""; } print "$conc(rm $roomIndex{$conc}, conc $conceptIndex{$conc}) is out of order vs $lastConcName(rm $lastRoom, conc $lastConc).\n"; $concSortFail++; }
 	else
 	{
 	  if ($rcVerbose) { print "$conc: $roomIndex{$conc} vs $conceptIndex{$conc}\n"; }
@@ -1039,6 +1074,8 @@ sub compareRoomConcept
     $lastConc = $conceptIndex{$conc};
 	$lastConcName = $conc;
   }
+
+  if ($banner) { print "PASSED: $banner"; }
 
   for $conc (sort keys %conceptIndex)
   {
