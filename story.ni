@@ -231,15 +231,6 @@ when play begins (this is the sort ALL the tables rule) :
 	sort the table of jerk-macho-talk in random order;
 	continue the action;
 
-when play begins (this is the initialize missing table element rule) :
-	repeat through the table of explanations:
-		if there is no exp-thing entry:
-			now exp-thing entry is Alec Smart;
-			break;
-	repeat through table of amusingness:
-		if there is no anyrule entry:
-			now anyrule entry is degen-true rule;
-
 when play begins (this is the initialize bad room viewing rule):
 	let room-index be 0;
 	repeat with RM running through rooms in Just Ideas Now:
@@ -3236,14 +3227,12 @@ after explaining out puzzle: [just below, the dots explanation asks a question, 
 
 table of explanations [toe] [alfbyroom]
 exp-thing	exp-text	exp-anno
-a thing	"A smart alec is someone who always has a clever quip."	-- [start of smart street] [thing is defined as Alec in intro]
 bad knot	"A bad knot is hard to untangle. You wouldn't say it's not bad to untangle. And 'not bad' can have several connotations, itself, from strong to faint praise. So you can tie yourself up thinking of what it means."	--
 Broke Flat	"Flat Broke means out of money."	"This was originally a location until I discovered A Round Lounge."
 chess board	"Despite being a really good chess player, this always fooled me. I started with a queen in the corner as a kid and got run around, but then as an adult I recognized the virtue of going for an easy solution (no queens in the center) and seeing why it didn't work."	"Starting by disallowing the center 16 squares helped a lot--by sheer number, that's 21/23 squares each queen sees, not 25/27, and then placing any of the queens in the four 2x2 corners makes rows 3-6 unable to match up. Also, I didn't understand symmetry arguments e.g. it's useful to see if we can have a queen 2 from any corner, or one 3 from a corner. It's important not to think of this as 'laziness' if we can start building general principles or eliminate enough cases."
 face of loss	"Loss of face means humiliation or loss of respect. A face of loss isn't an official idiom, but here it means you're just sad. You've lost some fun and curiosity."	"This is something I didn't discover until release 2. What's the best way for Alec to seem upset? In retrospect, 'a bad face' should've clicked things earlier, but it happened eventually."
 Game Shell	"A shell game is where an operator and possibly an assistant rig a game so that mugs think it's an easy win, but they can't. The most popular one is when they hide a bean under a hollowed shell and shift them around."	"The game shell is a shell game of its own. No matter how much you solve, you won't impress Guy Sweet, and you won't--well--figure the real puzzles you want to, beyond logic etc."
 gesture token	"A token gesture is something done as a bare minimum of acknowledgement."	"There were all sorts of tokens this could have been. I decided on gesture because, well, you get something for doing the bare minimum."
-Guy Sweet	"Guy Sweet is more of a candy-[a-word] than a sweet guy, but 'sweet guy' is such a terrible compliment as-is. To yourself or others."	--
 hangman	"The strategy of hangman always interested me. I enjoyed finding tough words or even seeing how people squabbled over the rules: how many misses, etc. Of course, there is One Best Strategy, well, until you are up against people who know tricky words."	"Hangman was a late edition to release 3. I remember feeling guilty writing a PERL script to see what words were remaining when I had one guess left in an online game, but it was educational, for all that. And so I think it may be rather neat to look at in any case."
 logic puzzles	"I remember marking up books of logic puzzles but thinking they could never ever be practical. I remember having a grease pen over clear plastic so the books could be reused, but I also remember the patterns geting a bit tedious. It wasn't until someone showed me a sample LSAT years later that I thought, really, these are the same thing. Or it's the same process of elimination. Suddenly lawyers seemed less intimidating."	--
 match sticks	"I've always enjoyed match stick problems and how some just don't seem likely. While the general trick if not too many are moved is to shift the original picture onto the new one, somehow, there are creative ones with many shifts."	--
@@ -3267,7 +3256,6 @@ off brush	"To brush off is to ignore. It's more ignoring someone's ideas than ig
 pocket pick	"A pickpocket is a thief."	"The pocket pick is also about the least possibly valuable item you could steal."
 proof of burden	"The burden of proof means: you need to come up with evidence to prove your point."	"I had the idea of some sort of document early on, and the Burden of Proof always fascinated me as something others needed less than I did."
 Rogue Arch	"An arch-rogue is a big bad guy, obviously inappropriate for early in the story."	--
-Word Weasel	"A weasel word is something that seems to mean more than it should."	"I like stories with talking animals, and at Alec's age, people look down on them, so it made sense to subvert that with a mean talking animal."
 earth of salt	"Salt of the earth means a great person. It's from back when salt was more valuable."	"This was earth of scum, but I decided that salt would be better, because it'd be more visual, and also it should be something nice and likable but it wasn't." [start of vision tunnel]
 Flower Wall	"A wallflower is someone who doesn't participate socially."	"I had trouble with what this should be in the Vision Tunnel, but when I found it I realized it showed Alec being social."
 picture hole	"Seeing the whole picture means you see everything."	--
@@ -3275,7 +3263,6 @@ Poor Dirt	"Dirt poor means especially not rich."	--
 Basher Bible	"A bible basher is someone who quotes scripture too much. The reverse means a compendium of ways to try and gain power over people and put them down."	"I simply can't believe this one took so much to find! The idea is, people who sell you on your own inadequacy are at least as destructive as, well, Bible-Bashers. But they put on a show and make their audience glad THEY'RE not the ones being cut down, yet." [start of pressure pier]
 boo tickety	"Tickety-boo means okay, all right, etc."	"I like the contrast of being told 'Boo!' with the horrible places you're shipped off to, elsewhere. Also, it makes it clear small mistakes are okay."
 a side stand	"To stand aside is to get out of the way."	"I had trouble with what was supporting the Basher Bible, until I stumbled on this. I'd thought of a stand for a while, but it seemed like there were too many choices. Then I realized I could just give a different figure of speech if you tried different things."
-Terry Sally	"Terry Sally has two possible translations: salutary or solitary. He is sort of in between salutary (greeting) and solitary (alone) which fits in with how he probably doesn't get to see many people, but he's social when he does."	"Terry Sally was just the Howdy Boy before release 3. But I wanted to make the Compound a bit more personable."
 trail paper	"A paper trail is evidence in white-collar crimes. People often have to piece it together."	--
 assignment plum	"A plum assignment is giving someone a particularly prestigious, noticeable, easy or lucrative job. It's one everyone wants." [start of meal square]
 basted lamb	"To be lambasted is to be yelled at very loudly."
@@ -3294,88 +3281,55 @@ Tray A	"Just a tray, contrasted with Tray B."	--
 Tray B	"Eating anything on it may betray who you really are."	"This is another thing that dropped out in release 2 and I couldn't believe it was that simple. People were disappointed I didn't clue that it was such a bad idea to eat the Cutter Cookie."
 up gum	"To gum up is to slow down a process, often to a halt. I do like cheap silly deaths, too."	"It's always tough to judge if something is too obvious to include or too obvious not to. The main thing is, make sure you do it right with a few side joke riffs. I'm pleased with how I moved in the law enforcement here."
 dreadful penny	"A penny dreadful is a trashy novel."	-- [start of down ground]
-Fritz the On	"On the fritz means on the blink."	"I'm proud of finding this preposition at the end. I do like poking fun at thinking you're cosmically in tune but aren't. He's probably the NPC I have the most affection for, whether or not you actually do anything to save him."
 warmer bench	"A bench warmer is someone who doesn't get into the action, especially in a sports game."	"This may have been fueled by the sleep I needed trying to meet the IFComp deadline. But I've always wanted to try writing a side-dream world, and the idea of SLEEPing into the tense future/past/perfect came quite early on."
 fly bar	"A barfly is someone who goes around to bars and gets drunk."	"This was a candidate for the bar name, but it seemed too obvious." [start of joint strip]
 Minimum Bear	"Bare minimum is the very least you need to do to get by."	"The old Office Space routine about the bare minimum has stayed with me, especially because I worried about doing the bare minimum to seem I wasn't doing the bare minimum."
 Pigeon Stool	"A stool pigeon is someone who tattles."	"The Stool Toad came first, but there was the question of what he sat on."
 stickweed	"Stickweed is a generic term for wild plants with various odd fruit, like ragweed (thanks, dictionary.com)."	"I can't believe it took me three releases to find this! It's a nice little cheapo, though."
-Stool Toad	"A toadstool is a mushroom."	"The ST has no proper name because he is a shadowy authority figure. Plus, he's very lazy, just sitting there."
-Ally Stout	"A stout ally is someone who is on your side no matter what. Ally is, I'm afraid, a bit of a fake."	"The Punch Sucker was the bartender's name through release 2, but it always felt a bit contrived and more like a customer. Ally's name makes it obvious he's, well, on everyone's side." [start of soda club]
-cooler wine	"A wine cooler is very low in alcohol content."	"I think there's no shortage of silly drink names, and I remember high school days of people poking someone for actually getting wasted on wine coolers."
-Erin Sack	"Saccharine means uncomfortably sweet."	"As much as I liked Liver Lily, this captures things better. Both men and women can be saccharine like this to get you to agree with them. I suppose Aaron Sack would've been an alternative, too."
+cooler wine	"A wine cooler is very low in alcohol content."	"I think there's no shortage of silly drink names, and I remember high school days of people poking someone for actually getting wasted on wine coolers." [start of soda club]
 haha brew	"Brouhaha is a commotion or noise."	"Puns make me giggle much more than alcohol ever could. Also, the sort of laughs alcohol gives are frequently not too pleasant."
 Rehearsal Dress	"A dress rehearsal is the final staging of the play before the audience sees it."	"I'm generally suspicious of fashion that Just Seems Right. The dress is intended to be tasteful but maybe too much in the general style."
-Cain Reyes	"To raise Cain is to be loud."	-- [start of nominal fen]
-Dandy Jim	"Jim Dandy is something excellent."	--
-jerks	"[if allow-swears is false]A collective groan is when everyone groans at once[else]. A circle jerk is people getting together and stroking each other's egos. Or, well, something else[end if]. Pick one of the [j-co] by name to see details."	"Figuring out jerk names that fit the puzzle was an arduous thing, and I had many false starts in the final week before IFComp. The result was probably a few actual bugs slipping through."
-Paul Kast	"To cast a pall is to give an air of unhappiness."	--
-Quiz Pop	"A pop quiz is when a teacher gives an unannounced quiz on materials."	"Of course, we've all had caffeinated cram-sessions for a big paper or exam. Here this is a reward for stuff done."
-Silly Boris	"Bore us silly."	--
-Warm Luke	"Lukewarm is not really warm."	--
-Warner Dyer	"A dire warner has a message for you to keep away."	--
-Wash White	"To whitewash is to wipe clean."	--
 chase paper	"A paper chase is excessive paperwork. In this case, work not strictly needed to reach Cute Percy."	"I love puns riffing on bureaucracy, and this was a good one. I'm pleased with this puzzle because it's a simple parity one based on actual physical reality. Too often you can go diagonally 1.4 times as fast as straight. This is neat for Reti's endgame puzzle, but not physically realistic. And I liked having a realistic puzzle in the middle of the abstract murk." [start of chipper wood]
-Cute Percy	"To persecute someone is to make them suffer for who they are[if cute percy is in lalaland]and right per se means literally right, but that's not what matters[end if]."	"Percy was the Assassination Character pre-release 3, but the problem is, he never got close to killing anyone. Still, the name gave me laughs."
 bad face	"The bad face will help you face a bad...something. Also, 'bad' in the Michael Jackson sense of, I did/can do something cool."	"This is meant to show Alec's emotional development. He's figured out something tough, and he's confident about that. But he also doesn't need this to go through the Compound." [start of the belt below]
 energy waist	"To waste energy is to do something without positive result. Or it can mean a machine is inefficient."
 Insanity Terminal	"Terminal insanity is having no chance to regain sanity[if terminal is in lalaland]. As for the puzzle: it is inspired by Jim Propp's Self-Referential Aptitude Test, which is well worth a look (http://faculty.uml.edu/jpropp/srat.html is one place to find it,) but a good deal more complex[end if]."	"I always wanted to write a puzzle like this, but yeah, in release 1, it was dropped in there."
 crocked half	"Half-crocked means drunk."	"This was a bugging doodle for a while until I found something better. You need a lot of placements like that, sometimes." [start of A Great Den]
 legend of stuff	"The Stuff of Legend means a book about great tales of yore, as opposed to the scribble-hint-book you get."	"This was another thing that sounded great but didn't seem to fit in anywhere--or seemed too obvious--until I decided to go ahead with the puzzle. It appeared in release 2, taking the functionality of the notes crib."
 notes crib	"To crib notes is to copy from someone who was at a lecture."	--
-Lee Bull	"A bully is someone who hurts others physically or emotionally. The opposite of Lee Bull. Sid Lew is referring to 'bull' as his last name as what is to be made fun of. Also, fool-proof means no way to break it, but a Proof Fool could be someone who relies too much on a sure thing before doing anything."	"I kept the Truth Home names abstract and was pleased when Lee Bull dropped out." [start of truth home]
-Sid Lew	"Lucid means clear and sensible. Sid Lew relies on tricks to win his conversation."	"I figured Sid Lew while trawling for Slicker City author names, and then I said, well, he's good enough to be a character. When I re-vetted PC, I noticed the Truth Home, which was implemented near the end of release 1, still had abstract names. So I got Sid. But that left the Proof Fool needing a name."
-Trade of Tricks	"Tricks of the Trade are things that outsiders to a specialty probably don't know that are a bit out of the range of common sense."	"I've read a lot of tricks-of-trade books but most of them are about how you can sucker other people. I have read very few how not to get suckered books, so I decided to put one in here."
-Cold contract	"To contract a cold is to get sick. Also, the contract is pretty cold-blooded."	-- [start of scheme pyramid]
-Deal Clothes	"To close the deal means to agree to terms."	"I have a special love for the homonyms I found. They required leaps on my part, and I searched them out aggressively."
-fund hedge	"A hedge fund is for super rich people to get even richer."	--
-Labor Child	"Child labor is about putting children to tough manual labor."	"I remember many classmates from well-off families who just knew how to manipulate others to get what they wanted. The labor child is like that. The person can hate or love school. The important thing is to be able to play that confidence game."
-money seed	"Seed money helps an investment. Of course, very few seeds are shaped like a dollar bill."	--
-Finger Index	"The index finger is the one next to your thumb. Also, to finger someone means to point them out."	"We've all had secret notes and tabs on everyone else in junior high, and we've been on them or worried about them. This was a sort of slam book. I do think that having tabs on others is something we carry to adulthood, and it helps more in a career than it should." [start of accountable hold]
-Sound Safe	"Safe, sound means being out of trouble. Also, the safe isn't very sound, as it's easy to open."	--
 Story Fish	"A fish story is a long winding story."	"The story fish was based on Billy Big Mouth Bass and meant to be as funny-if-it's-not-real." [start of disposed well]
 yards hole	"The whole nine yards means everything."	"I have a feeling I missed some idioms, but this one I like because it really can be visualized."
 blossoms	"Now that the blossoms are in place, well, it'd be mean to say a blossom is 'some blah.' Oops."	"Flowers are always a safe bet for showing life and decencty and all. Just don't make it too cheesy." [start of classic cult]
-Faith Goode	"Good faith."	"Coding Faith and Grace as doing the same thing was something I didn't do in release 1, but then it was a matter of saying if the second noun is Grace, then the second noun is Faith. Or is it the other way around? Well, in either case, if I'd given myself the time, I'd have figured it out."
 Googly bowl	"To bowl a googly is to throw someone for a loop."	"I remember a Jerry Seinfeld American Express commercial where he looks to 'learn the lingo' and winds up saying 'That was a wicked googly!' It's still stuck with me, that and the one where goes over $20 filling up for gas but then flashes his card triumphantly. Oh, and the one where he has 31 cents to buy a stamp and has everything except an extra penny."
-Grace Goode	"Good grace."	--
 mind of peace	"Peace of mind means being able to think."	--
-Intuition Counter	"Counterintuition means the opposite of what you'd expect. Wait, that could mean counterintuition could mean something crazy. If something's counterintuitive, it works the opposite way you'd expect it to on first glance."	"There are lots of counters that could've been included, but I like how this makes the person intuiting unapproachable, whether or not their assumptions make immediate sense." [start of judgment pass]
-Officer Petty	"A petty officer is actually reasonably far up in the hierarchy, the equivalent of a sergeant."	"This name made me giggle when I thought of it, and it still does. Perhaps it's too obvious. OP has no first name because he is a Shadow Authority Figure."
-Ability Suit	"Suitability means appropriateness. And the suit is not appropriate for the monkey."	"The suit is, of course, contrastable with the Labor Child's clothes as a bit of a hint." [start of idiot village]
-Business Monkey	"Monkey business is general silliness."	--
-fourth-blossom	"To blossom fourth is to grow."	"I have a sense I left a few number pun/flips on the table, but I got this one, I think."
-lifted face	"Facelifted means you had surgery done on your face, though Alec's lifted more naturally."	--
-Sly Moore	"More sly = slyer = cleverer."	"I had a lot of fun putting his random clumsy acts together, and I hope you had fun reading them"
-Thoughts Idol	"Idle thoughts, e.g., a wandering mind, are what it purports to oppose."	"I was disappointed the Compound didn't have enough surveillance, and I wanted to put it in the Village, but I didn't want it to just be there. And I wanted a way to beat it."
-Trap Rattle	"A rattle trap is a cheap car."	"This felt like the weakest of my items to barter until I realized what it could be used for. I like that, apparently, rattles are for babies, but it shuts up petulant attention-hogging."
+Trade of Tricks	"Tricks of the Trade are things that outsiders to a specialty probably don't know that are a bit out of the range of common sense."	"I've read a lot of tricks-of-trade books but most of them are about how you can sucker other people. I have read very few how not to get suckered books, so I decided to put one in here." [start of truth home]
+Cold contract	"To contract a cold is to get sick. Also, the contract is pretty cold-blooded."	-- [start of scheme pyramid]
+Deal Clothes	"To close the deal means to agree to terms."	"I have a special love for the homonyms I found. They required leaps on my part, and I searched them out aggressively."
+fund hedge	"A hedge fund is for super rich people to get even richer."	--
+money seed	"Seed money helps an investment. Of course, very few seeds are shaped like a dollar bill."	--
+Finger Index	"The index finger is the one next to your thumb. Also, to finger someone means to point them out."	"We've all had secret notes and tabs on everyone else in junior high, and we've been on them or worried about them. This was a sort of slam book. I do think that having tabs on others is something we carry to adulthood, and it helps more in a career than it should." [start of accountable hold]
+Sound Safe	"Safe, sound means being out of trouble. Also, the safe isn't very sound, as it's easy to open."	--
 Fright Stage	"Stage fright is being scared to get out in front of a crowd."	"I've never been a fan of scaring someone into action. I often feel that people who say they are don't really want to help someone, or never learned it doesn't work." [start of speaking plain]
-Turk Young	"A Young Turk is a brave rebel."	"I also thought of the YouTube channel Young Turks, where sometimes they cut logical corners for stances I agree with or generally want to."
-Uncle Dutch	"A Dutch Uncle gives useful advice."	"This was an idiom I wasn't aware of, but one thing that drives me up the wall is the whole good cop bad cop act, especially where the good cop isn't very good. That's the case here."
 relief light	"Light relief would be a silly joke."	-- [start of temper keep]
 Spleen Vent	"To vent one's spleen is to let our your anger."	"I knew you needed to stuff something down that vent for a while, but I didn't know what."
-Volatile Sal	"Sal volatile is given to wake up unconscious people with its smell."	"Paul Lee in his review mentioned that Volatile Sal was the person he felt most like out of all the NPC's, and I bet he is not the only one. We've all complained about something without doing anything."
+long tag	"To tag along is to follow behind."	"Between this and a long string, I thought I overused long in the flips, so I was glad I found the Circular." [start of court of contempt]
+the Reasoning Circular	"Circular Reasoning is, for instance, I'm smart because I'm clever because I'm smart."	"This might be my favorite flip. It means the obviousd of what you said, and also it rationalizes seeing what you want to see."
 Drug Gateway	"A gateway drug leads you to bigger drugs, but here, the gateway may be blocking you from them."	"Drug humor can be in iffy taste, and making Alec a mule felt iffy, but he does need to learn there are some rules worth breaking, or things worth trying. Besides, Fritz deserves a bit of help." [start of walker street]
 long string	"To string along someone is to keep them trying or asking for more."	"The string obviously had possibilities for moving somewhere. I thought about making a maze with a string, but Jim Aikin sort of did that in [i]The White Bull[r]."
 Mistake Grave	"A grave mistake is a very bad mistake indeed."	"The mistake grave is deliberately nasty to people who don't take enough risks. That's their fault, but it is also the fault of people who take a lot of risks and are jerks about it and set bad examples and convince you you have to be exciting to take big risks."
-Art Fine	"Why, fine art, of course. Highfalutin['] stuff, not easy to understand."	"I figured Art out early, but he needed a companion. Phil balanced him nicely and I realized books vs music was a good comparison." [start of discussion block]
-Book Bank	"A bankbook records numbers and is very un-literary."	"This was a book crack, but a bank feels more contrary to literature."
-Harmonic Phil	"Many orchestras bill themselves as philharmonic. I suppose they could be anti-harmonic, but an Auntie character felt a bit stereotyped, and Auntie feels a bit too charged. Also, Phil Gotsche becomes got your fill, but he doesn't ever get his fill of talking."	--
-Poetic Wax	"To wax poetic is to, well, rhapsodize with poems or song or whatever. It's slightly less gross than wax."	"There are quack creams for everything these days. Why not for creativity, too? And why not have it work in an imaginary land?"
-Song Torch	"A Torch Song is about looking back on a love you can't quite let go of. The Song Torch is more cynical than that, being a bit rougher on its subjects, and, well, actually torching them."	"This was the Song Swan in release 1, which was something, but I think the Song Torch is a bit more focused on pop songs, and besides, I already had a mechanical talking animal with the Story Fish."
-Poory Pot	"Potpourri, which smells good. Of course, I've read about pipe and cigar snobs who babble on about aromas and such, and apparently there are marijuana snobs too in this progressive time! Perhaps there always were."	"I'm aware of the mispronunciation, but when I was a kid, that's how I mispronounced it, too." [start of pot chamber]
-Pusher Penn	"A pen pusher is someone working at a boring job."	"We don't know Penn's first name. It could be Mark Penn, but that name was a bit too famous--pollster for Hillary Clinton. I think he's shadowy enough, as drug dealers can be, that no first name is appropriate."
-wacker weed	"A weed whacker is the slang for a gardening tool to cut weeds."	"I like the thought of poor Fritz reduced to buying generics, though I suspect he doesn't have a sophisticated palate. It took a while before I accepted that I was going to put drugs in my game, but the more I've learned of the War on Drugs, the more I've seen it's not really about health--and the dealers often aren't really concerned much with clients['] rights or safety."
 Language Machine	"Machine Language is very low-level, unreadable (without training) code of bits. No English or anything."	"Some people objected to the machine as being about parser versus choice, but I tried largely to stay away from that. I just liked the image of making a machine happy. And in general I feel it's better to find what sort of game you can write that hasn't been written yet, instead of worrying what art can or should be. I hoped the general silliness would make this clear, but in release 2 I tried to touch things up to avoid misunderstandings." [start of standard bog]
 Trick Hat	"A hat trick, in hockey or soccer, is scoring three times."	"This was originally just lying around, then you wore it to do something--but I wanted Alec not to have to rely on any tricks to beat the [bad-guy]."
-Brother Big	"Big Brother is the character from Orwell's 1984."	-- [start of questions field]
-Brother Blood	"A blood brother is someone related by blood or who has sworn an oath of loyalty to someone else."	--
-Brother Soul	"A soul brother is one who has very similar opinions to you."	--
-Buddy Best	"A best buddy is your favorite friend."	"Buddy Best is probably my favorite NPC aligned with the [bad-guy]. Of course, his 'gift' is really just a self-promotional item." [start of court of contempt]
-long tag	"To tag along is to follow behind."	"Between this and a long string, I thought I overused long in the flips, so I was glad I found the Circular."
-the Reasoning Circular	"Circular Reasoning is, for instance, I'm smart because I'm clever because I'm smart."	"This might be my favorite flip. It means the obviousd of what you said, and also it rationalizes seeing what you want to see."
+Poory Pot	"Potpourri, which smells good. Of course, I've read about pipe and cigar snobs who babble on about aromas and such, and apparently there are marijuana snobs too in this progressive time! Perhaps there always were."	"I'm aware of the mispronunciation, but when I was a kid, that's how I mispronounced it, too." [start of pot chamber]
+wacker weed	"A weed whacker is the slang for a gardening tool to cut weeds."	"I like the thought of poor Fritz reduced to buying generics, though I suspect he doesn't have a sophisticated palate. It took a while before I accepted that I was going to put drugs in my game, but the more I've learned of the War on Drugs, the more I've seen it's not really about health--and the dealers often aren't really concerned much with clients['] rights or safety."
+Book Bank	"A bankbook records numbers and is very un-literary."	"This was a book crack, but a bank feels more contrary to literature." [start of discussion block]
+Poetic Wax	"To wax poetic is to, well, rhapsodize with poems or song or whatever. It's slightly less gross than wax."	"There are quack creams for everything these days. Why not for creativity, too? And why not have it work in an imaginary land?"
+Song Torch	"A Torch Song is about looking back on a love you can't quite let go of. The Song Torch is more cynical than that, being a bit rougher on its subjects, and, well, actually torching them."	"This was the Song Swan in release 1, which was something, but I think the Song Torch is a bit more focused on pop songs, and besides, I already had a mechanical talking animal with the Story Fish."
+Intuition Counter	"Counterintuition means the opposite of what you'd expect. Wait, that could mean counterintuition could mean something crazy. If something's counterintuitive, it works the opposite way you'd expect it to on first glance."	"There are lots of counters that could've been included, but I like how this makes the person intuiting unapproachable, whether or not their assumptions make immediate sense." [start of judgment pass]
+Ability Suit	"Suitability means appropriateness. And the suit is not appropriate for the monkey."	"The suit is, of course, contrastable with the Labor Child's clothes as a bit of a hint." [start of idiot village]
+fourth-blossom	"To blossom fourth is to grow."	"I have a sense I left a few number pun/flips on the table, but I got this one, I think."
+lifted face	"Facelifted means you had surgery done on your face, though Alec's lifted more naturally."	--
+Thoughts Idol	"Idle thoughts, e.g., a wandering mind, are what it purports to oppose."	"I was disappointed the Compound didn't have enough surveillance, and I wanted to put it in the Village, but I didn't want it to just be there. And I wanted a way to beat it."
+Trap Rattle	"A rattle trap is a cheap car."	"This felt like the weakest of my items to barter until I realized what it could be used for. I like that, apparently, rattles are for babies, but it shuts up petulant attention-hogging."
 against rails	"If someone rails against something, they're upset with it."	"These were in the Variety Garden until release 2, when I realized they'd be better off somewhere more mechanical--oh, and I found the brush, too." [start of freak control]
-Baiter Master	"[if allow-swears is true]Masturbater is someone who--pleasures himself, and it's sort of humblebragging, because the Baiter Master is also great at winning arguments by tactics like, well, playing dumb[else]Messiah Complex means someone believes they're the chosen one, but Complex Messiah could mean they'll save you, but it's not that easy[end if]."	"I had the idea for the bad guy early on, and I wanted to make sure he wasn't anyone specific, though of course certain patterns you see among annoying people need to be exposed."
 call curtain	"A curtain call is when someone comes back out after lots of applause."	--
 frenzy feed	"A feed(ing) frenzy is a vicious attack, physical or emotional, by animal predators or people."	--
 incident miner	"A minor incident is not a big deal, but the incident miner makes a big deal of small things."	--
@@ -3389,15 +3343,52 @@ hammer	"The hammer can be three things[ham-desc]."	"Figuring what the hammer sho
 lock caps	"I THINK YOU KNOW WHAT CAPS LOCK IS, BUT HERE'S A DEMONSTRATION OF WHAT HAPPENS IF YOU LEAVE IT ON."	"I love a joke about all caps, and I needed some way to prevent you from getting in the carriage immediately."
 mentality crowd	"Crowd mentality is when everyone believes and does the same thing."
 Return Carriage	"Carriage Return is going back to the start of a new line in a document with text. And you are sort of going back to the start, too."	"The Return Carriage was originally the Snowflake Special. That's a good phrase, but it didn't feel right here. The Carriage is obvious, for what it is."
+pen fountain	"A fountain pen is (these days) a typical pen. You don't have to dip it in ink to keep writing. It's less exotic than a pen fountain, of course." [start of Eternal Hope Springs]
+consciousness stream	"Stream of consciousness is a form of writing that relies heavily on inner monologue."	"It turns out that Nigel Jayne wrote a game called Gaia's Web which features a Consciousness Stream that actually blends into the game better, so you should definitely give that a check." [start of Brains Beat]
+View of Points	"Points of view are opinions." [start of Window Bay]
 
-table of explanations (continued) [this is stuff referred to in the director's cut area]
+table of explanations (continued) [toe] [alfbyroom] [the people]
 exp-thing	exp-text	exp-anno
-pen fountain	"A fountain pen is (these days) a typical pen. You don't have to dip it in ink to keep writing. It's less exotic than a pen fountain, of course."
-consciousness stream	"Stream of consciousness is a form of writing that relies heavily on inner monologue."	"It turns out that Nigel Jayne wrote a game called Gaia's Web which features a Consciousness Stream that actually blends into the game better, so you should definitely give that a check."
-Francis Pope	"Pope Francis is the current pope as of this game's writing."	"I have a favorable impression of Pope Francis for saying things that need to be said and not double-talking a lot. He may not be perfect, but he does seem to encourage decency in general without ranting and raving. Many people in power (elected or corporate, 'hard' or 'soft' power) could learn from that."
-Flames Fan	"To fan the flames is to keep things going. The Flames Fan knows when to poke an argument that's about to die down."	"Originally the Flames Fan was one of the [j-co], but then he wound up being the only one without a proper name. He would've made a good F, but I needed someone less abstract. So Cain Reyes slipped in."
-Cards of the House	"The house of cards is something that falls down easily."
-View of Points	"Points of view are opinions."
+Alec Smart	"A smart alec is someone who always has a clever quip."	-- [start of smart street]
+Guy Sweet	"Guy Sweet is more of a candy-[a-word] than a sweet guy, but 'sweet guy' is such a terrible compliment as-is. To yourself or others."	--
+Word Weasel	"A weasel word is something that seems to mean more than it should."	"I like stories with talking animals, and at Alec's age, people look down on them, so it made sense to subvert that with a mean talking animal." [start of variety garden]
+Terry Sally	"Terry Sally has two possible translations: salutary or solitary. He is sort of in between salutary (greeting) and solitary (alone) which fits in with how he probably doesn't get to see many people, but he's social when he does."	"Terry Sally was just the Howdy Boy before release 3. But I wanted to make the Compound a bit more personable." [start of pressure pier]
+Fritz the On	"On the fritz means on the blink."	"I'm proud of finding this preposition at the end. I do like poking fun at thinking you're cosmically in tune but aren't. He's probably the NPC I have the most affection for, whether or not you actually do anything to save him." [start of down ground]
+Stool Toad	"A toadstool is a mushroom."	"The ST has no proper name because he is a shadowy authority figure. Plus, he's very lazy, just sitting there." [start of joint strip]
+Ally Stout	"A stout ally is someone who is on your side no matter what. Ally is, I'm afraid, a bit of a fake."	"The Punch Sucker was the bartender's name through release 2, but it always felt a bit contrived and more like a customer. Ally's name makes it obvious he's, well, on everyone's side." [start of soda club]
+Erin Sack	"Saccharine means uncomfortably sweet."	"As much as I liked Liver Lily, this captures things better. Both men and women can be saccharine like this to get you to agree with them. I suppose Aaron Sack would've been an alternative, too."
+Cain Reyes	"To raise Cain is to be loud."	-- [start of nominal fen]
+Dandy Jim	"Jim Dandy is something excellent."	--
+jerks	"[if allow-swears is false]A collective groan is when everyone groans at once[else]. A circle jerk is people getting together and stroking each other's egos. Or, well, something else[end if]. Pick one of the [j-co] by name to see details."	"Figuring out jerk names that fit the puzzle was an arduous thing, and I had many false starts in the final week before IFComp. The result was probably a few actual bugs slipping through."
+Paul Kast	"To cast a pall is to give an air of unhappiness."	--
+Quiz Pop	"A pop quiz is when a teacher gives an unannounced quiz on materials."	"Of course, we've all had caffeinated cram-sessions for a big paper or exam. Here this is a reward for stuff done."
+Silly Boris	"Bore us silly."	--
+Warm Luke	"Lukewarm is not really warm."	--
+Warner Dyer	"A dire warner has a message for you to keep away."	--
+Wash White	"To whitewash is to wipe clean."	--
+Cute Percy	"To persecute someone is to make them suffer for who they are[if cute percy is in lalaland]and right per se means literally right, but that's not what matters[end if]."	"Percy was the Assassination Character pre-release 3, but the problem is, he never got close to killing anyone. Still, the name gave me laughs." [start of chipper wood]
+Faith Goode	"Good faith."	"Coding Faith and Grace as doing the same thing was something I didn't do in release 1, but then it was a matter of saying if the second noun is Grace, then the second noun is Faith. Or is it the other way around? Well, in either case, if I'd given myself the time, I'd have figured it out." [start of classic cult]
+Grace Goode	"Good grace."	--
+Lee Bull	"A bully is someone who hurts others physically or emotionally. The opposite of Lee Bull. Sid Lew is referring to 'bull' as his last name as what is to be made fun of. Also, fool-proof means no way to break it, but a Proof Fool could be someone who relies too much on a sure thing before doing anything."	"I kept the Truth Home names abstract and was pleased when Lee Bull dropped out." [start of truth home]
+Sid Lew	"Lucid means clear and sensible. Sid Lew relies on tricks to win his conversation."	"I figured Sid Lew while trawling for Slicker City author names, and then I said, well, he's good enough to be a character. When I re-vetted PC, I noticed the Truth Home, which was implemented near the end of release 1, still had abstract names. So I got Sid. But that left the Proof Fool needing a name."
+Labor Child	"Child labor is about putting children to tough manual labor."	"I remember many classmates from well-off families who just knew how to manipulate others to get what they wanted. The labor child is like that. The person can hate or love school. The important thing is to be able to play that confidence game." [start of scheme pyramid]
+Turk Young	"A Young Turk is a brave rebel."	"I also thought of the YouTube channel Young Turks, where sometimes they cut logical corners for stances I agree with or generally want to." [start of speaking plain]
+Uncle Dutch	"A Dutch Uncle gives useful advice."	"This was an idiom I wasn't aware of, but one thing that drives me up the wall is the whole good cop bad cop act, especially where the good cop isn't very good. That's the case here."
+Volatile Sal	"Sal volatile is given to wake up unconscious people with its smell."	"Paul Lee in his review mentioned that Volatile Sal was the person he felt most like out of all the NPC's, and I bet he is not the only one. We've all complained about something...or stayed up later than we should worrying...without doing anything." [start of temper keep]
+Brother Big	"Big Brother is the character from Orwell's 1984."	-- [start of questions field]
+Brother Blood	"A blood brother is someone related by blood or who has sworn an oath of loyalty to someone else."	--
+Brother Soul	"A soul brother is one who has very similar opinions to you."	--
+Buddy Best	"A best buddy is your favorite friend."	"Buddy Best is probably my favorite NPC aligned with the [bad-guy]. Of course, his 'gift' is really just a self-promotional item." [start of court of contempt]
+Pusher Penn	"A pen pusher is someone working at a boring job."	"We don't know Penn's first name. It could be Mark Penn, but that name was a bit too famous--pollster for Hillary Clinton. I think he's shadowy enough, as drug dealers can be, that no first name is appropriate." [start of Pot Chamber]
+Art Fine	"Why, fine art, of course. Highfalutin['] stuff, not easy to understand."	"I figured Art out early, but he needed a companion. Phil balanced him nicely and I realized books vs music was a good comparison." [start of discussion block]
+Harmonic Phil	"Many orchestras bill themselves as philharmonic. I suppose they could be anti-harmonic, but an Auntie character felt a bit stereotyped, and Auntie feels a bit too charged. Also, Phil Gotsche becomes got your fill, but he doesn't ever get his fill of talking."	--
+Officer Petty	"A petty officer is actually reasonably far up in the hierarchy, the equivalent of a sergeant."	"This name made me giggle when I thought of it, and it still does. Perhaps it's too obvious. OP has no first name because he is a Shadow Authority Figure." [start of judgment pass]
+Business Monkey	"Monkey business is general silliness."	-- [start of idiot village]
+Sly Moore	"More sly = slyer = cleverer."	"I had a lot of fun putting his random clumsy acts together, and I hope you had fun reading them"
+Baiter Master	"[if allow-swears is true]Masturbater is someone who--pleasures himself, and it's sort of humblebragging, because the Baiter Master is also great at winning arguments by tactics like, well, playing dumb[else]Messiah Complex means someone believes they're the chosen one, but Complex Messiah could mean they'll save you, but it's not that easy[end if]."	"I had the idea for the bad guy early on, and I wanted to make sure he wasn't anyone specific, though of course certain patterns you see among annoying people need to be exposed." [start of Freak Control]
+Francis Pope	"Pope Francis is the current pope as of this game's writing."	"I have a favorable impression of Pope Francis for saying things that need to be said and not double-talking a lot. He may not be perfect, but he does seem to encourage decency in general without ranting and raving. Many people in power (elected or corporate, 'hard' or 'soft' power) could learn from that." [start of Tuff Butt Fair]
+Flames Fan	"To fan the flames is to keep things going. The Flames Fan knows when to poke an argument that's about to die down."	"Originally the Flames Fan was one of the [j-co], but then he wound up being the only one without a proper name. He would've made a good F, but I needed someone less abstract. So Cain Reyes slipped in." [start of Ill Falls]
+Cards of the House	"The house of cards is something that falls down easily." [start of Humor Gallows]
 
 table of explanations (continued) [this is stuff referred to tangentially, concepts but not actually objects in the game] [xxadd]
 exp-thing	exp-text	exp-anno
@@ -3511,12 +3502,6 @@ speakeasy	"A speakeasy is a place where illegal alcohol is served."
 striptease	"A striptease is, well, what happens at a strip club, where someone slowly removes their clothes."
 Total T	"Teetotal means alcohol-free."
 Wine-U-Gen	"Genuine is, well, real and true. Both Ally Stout and his drinks are superficial, as wine is generally not made by machine."
-cargo cult	"A cargo cult is when islanders cut off from the first world use various instruments and devices to try to get planes filled with material goods to land." [start of classic cult]
-cult status	"Cult status is when a work of art (or person) achieves popularity among a narrow segment of the population. This may or may not be deserved."
-defrock	"To defrock is to remove someone's role as priest."
-good herb	"The good herb is slang for marijuana."
-grace period	"A grace period is time given for someone to learn or understand something, or even to return a book late to the library."
-personality cult	"A personality cult is when someone uses a forceful personality to control how others think. It is hard to leave. It can range in size from Jonestown to Stalin in the USSR."
 adult content	"Adult content relates to nontrivial sex or violence." [start of Nominal Fen]
 air jordan	"Air Jordan is an expensive athletic shoe named after Michael Jordan, maybe the greatest basketball player ever."
 anapest	"Anapest is a common beat for a poem. It can seem singsong."
@@ -3602,14 +3587,16 @@ whistler's mother	"Whistler's Mother is a famous painting of an old lady, the mo
 Character Assassination	"Character assassination is an attempt to tarnish someone's good reputation." [start of chipper wood]
 Play it Cool	"To play it cool is not to lose your temper. Of course, Percy's chase may make you want to lose your temper."
 Sweetheart Deal	"A sweetheart deal is something that works very well for both sides, often obtained unethically. Telling someone to deal often means they have to settle for being ripped off."
+Terminal Illness	"A terminal illness is one which is bound to be fatal. Illness can also mean full of insults, e.g. very 'ill,' as kids these days say. And said, even in my day!" [start of the belt below]
+waste breath	"To waste breath is to speak in vain."
 Fish for a Compliment	"To fish for a compliment is to try to manipulate someone into saying something nice." [start of disposed well]
 Well Done	"Well done means good job, but 'done' is also a synonym for dead, because you'd fall down the well if you tried to enter it."
-career threatening	"Something career threatening may risk not only your job but your ability to get other equal or better jobs. A threatening career is--well, a bit of a racket." [start of judgment pass]
-pass the torch	"To pass the torch is to hand off knowledge or responsibility to the next person."
-scofflaw	"A scofflaw is someone who breaks minor rules. Perhaps they jaywalk or litter."
-Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever." [start of idiot village]
-code monkey	"A code monkey is someone who writes programming code for a living."
-grease monkey	"A grease monkey is a manual laborer, especially with machines."
+cargo cult	"A cargo cult is when islanders cut off from the first world use various instruments and devices to try to get planes filled with material goods to land." [start of classic cult]
+cult status	"Cult status is when a work of art (or person) achieves popularity among a narrow segment of the population. This may or may not be deserved."
+defrock	"To defrock is to remove someone's role as priest."
+good herb	"The good herb is slang for marijuana."
+grace period	"A grace period is time given for someone to learn or understand something, or even to return a book late to the library."
+personality cult	"A personality cult is when someone uses a forceful personality to control how others think. It is hard to leave. It can range in size from Jonestown to Stalin in the USSR."
 assembly line	"An assembly line is where each person or machine has a specific sub-job in creating a larger product." [start of truth home]
 ideological	"Ideological means fixated on specific political ideas and not willing to listen to others."
 mass production	"Mass production is a procedure of efficiently creating many of the same thing using standardized design."
@@ -3624,8 +3611,6 @@ brat army	"An army brat is the child of a military officer. They would be more l
 child support	"Child support is what one separated spouse pays to another to take care of a child."
 labor of love	"A labor of love is something done for its own sake, not for worldly advancement."
 slush fund	"A slush fund is money raised for undesignated and often unethical purposes."
-sound asleep	"Sound asleep means, well, hard to wake up." [start of temper keep]
-venturesome	"Venturesome means willing to go places."
 Cry Uncle	"To cry uncle is to surrender, to give up." [start of speaking plain]
 Dutch Act	"The Dutch Act is suicide[dutch-off]."
 Dutch Courage	"Dutch courage comes from alcoholic refreshment[dutch-off]."
@@ -3637,10 +3622,28 @@ platform shoes	"Platform shoes have a big block under them to make you look tall
 Show Business	"Show business is the act of entertainment, and the business show's is (purportedly) more practical."
 show off	"To show off is to brag about yourself, and the implication is an 'off' show (not as good as it should be) is bad without that."
 Stand the Pace	"If you can't stand the pace, it's too fast for you. Turk and Dutch pace the stand because they need a break."
+sound asleep	"Sound asleep means, well, hard to wake up." [start of temper keep]
+venturesome	"Venturesome means willing to go places."
+brass ring	"To grab the brass ring is to achieve a dream goal. It refers to the brass ring on merry-go-rounds." [start of questions field]
+brother foster	"A foster brother is a brother not related by birth."
+Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
+attorney general	"An Attorney General is the highest ranking lawyer in a country or state." [start of court of contempt]
+nutcase	"A nutcase is a pejorative term for someone who is crazy, clinical or otherwise, as opposed to Buddy Best's claims he just studies a lot."
+prosecutor	"A prosecutor is a lawyer who tries cases for people bringing a legal or civil complaint."
+readjust	"To readjust is to try to come to grips with a situation."
 Determined Bound	"Bound and determined means you're set on doing something. A determined bound is set to prevent you from doing something." [start of walker street]
 drive into the ground	"To drive something into the ground is to make the point far too obviously and long."
 Driving Crazy	"Driving someone crazy is usually not literal, but it means you are annoying them a lot, enough they may want to lash back."
 Watkins Glen	"Watkins Glen is a famous racecourse in upstate New York."
+sods law	"Sod's law says anything that can go wrong, will. It's often misstated as Murphy's Law, which is different." [start of standard bog]
+bum a cigarette	"To bum a cigarette is to ask someone for one of theirs. 'A cigarette bum' indicates Penn's disdain for more legal smokables." [start of pot chamber]
+crack pipe	"A crack pipe is used to smoke crack cocaine, which is even more illegal and risky than marijuana."
+crack up	"To crack up is to lose sanity. To crack down is to oppress someone, or arrest people for possession of contraband. To crack a joke is to tell a joke."
+go to pot	"To go to pot is to fall apart due to lack of upkeep."
+kilo	"A kilo (gram) is a measure of cocaine. It's a lot, especially since one gram can keep someone fixed for a while."
+pop pills	"To pop pills is to take them indiscriminately."
+roach dropping	"A roach is a marijuana cigarette or a bug that appears around dirt. A roach dropping, well, what the roach leaves behind."
+weed out	"To weed out people is to create a test to show they are inadequate."
 artifact	"An artifact is, in programming, something left over that can be gotten rid of." [start of discussion block]
 babel fish	"The babel fish is an item in The Hitchhiker's Guide to the Galaxy (the game and the book) which translates between galactic languages."
 Block Arguments	"To block arguments is not to hear an opposing point of view."
@@ -3652,24 +3655,12 @@ Play Dumb	"To play dumb is to pretend you don't know something you do, to avoid 
 Steal This Book	"Steal This Book was a countercultural guide by Abbie Hoffman. Book this steal refers to 'booking' suspects for a transgression, e.g. a parking fine or ticket."
 wax lyrical	"To wax lyrical is to talk endlessly and enthusiastically about something."
 world record	"A world record is the best or most someone's ever done something."
-attorney general	"An Attorney General is the highest ranking lawyer in a country or state." [start of court of contempt]
-nutcase	"A nutcase is a pejorative term for someone who is crazy, clinical or otherwise, as opposed to Buddy Best's claims he just studies a lot."
-prosecutor	"A prosecutor is a lawyer who tries cases for people bringing a legal or civil complaint."
-readjust	"To readjust is to try to come to grips with a situation."
-brass ring	"To grab the brass ring is to achieve a dream goal. It refers to the brass ring on merry-go-rounds." [start of questions field]
-brother foster	"A foster brother is a brother not related by birth."
-Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
-sods law	"Sod's law says anything that can go wrong, will. It's often misstated as Murphy's Law, which is different." [start of standard bog]
-bum a cigarette	"To bum a cigarette is to ask someone for one of theirs. 'A cigarette bum' indicates Penn's disdain for more legal smokables." [start of pot chamber]
-crack pipe	"A crack pipe is used to smoke crack cocaine, which is even more illegal and risky than marijuana."
-crack up	"To crack up is to lose sanity. To crack down is to oppress someone, or arrest people for possession of contraband. To crack a joke is to tell a joke."
-go to pot	"To go to pot is to fall apart due to lack of upkeep."
-kilo	"A kilo (gram) is a measure of cocaine. It's a lot, especially since one gram can keep someone fixed for a while."
-pop pills	"To pop pills is to take them indiscriminately."
-roach dropping	"A roach is a marijuana cigarette or a bug that appears around dirt. A roach dropping, well, what the roach leaves behind."
-weed out	"To weed out people is to create a test to show they are inadequate."
-Terminal Illness	"A terminal illness is one which is bound to be fatal. Illness can also mean full of insults, e.g. very 'ill,' as kids these days say. And said, even in my day!" [start of the belt below]
-waste breath	"To waste breath is to speak in vain."
+career threatening	"Something career threatening may risk not only your job but your ability to get other equal or better jobs. A threatening career is--well, a bit of a racket." [start of judgment pass]
+pass the torch	"To pass the torch is to hand off knowledge or responsibility to the next person."
+scofflaw	"A scofflaw is someone who breaks minor rules. Perhaps they jaywalk or litter."
+Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever." [start of idiot village]
+code monkey	"A code monkey is someone who writes programming code for a living."
+grease monkey	"A grease monkey is a manual laborer, especially with machines."
 Admiral Vice	"A vice-(anything) is a next-in-line/assistant to an honorary position, but vice is also a personal failing, big or small." [start of freak control]
 artemis fowl	"Artemis fowl is the intelligent, cocky hero of Eoin Colfer's seven-book series. He's everything the [bad-guy] thinks he is, and more."
 autocratic	"Autocratic means having one person firmly in control."
@@ -3756,7 +3747,7 @@ Censorship	"Censorship is institutionalized shutting people up or repressing wha
 Courtship	"Courtship is when you start trying to get the attention of a potential romantic partner."
 Scholarship	"A scholarship is a money grant given towards education. The Ship Scholar, contrarily, says nothing is free."
 road pizza	"Road pizza is poor helpless animals that have been hit by traffic." [start of rage road]
-Complain Cant	"Cant means a tendency towards something, so someone with a complain cant would only say 'can't complain' very ironically." [start endgame concepts]
+Complain Cant	"Cant means a tendency towards something, so someone with a complain cant would only say 'can't complain' very ironically." [start of endgame]
 Much Flatter	"If your world is much flatter, it isn't very exciting. But to flatter much is to over-compliment people, which makes things [i]seem[r] exciting for a bit."
 People Power	"People power was a rallying cry in demonstrations against the authoritarianism of, well, power people."
 Received Wisdom	"Received wisdom is generally accepted knowledge which is often not true, such as how we only use 10% of our brain. Gustave Flaubert wrote a fun book called The Dictionary of Received Wisdom that makes fun of many such examples. For instance, a hamlet is always charming."
@@ -10713,87 +10704,6 @@ book endings
 
 Endings is a region.
 
-part Airy Station
-
-Airy Station is a room in Endings. "[one of]A cheering crowd surrounds you on all sides! They're going pretty crazy over their new-found freedom, and how you achieved it for them, and how they might not even need you to keep it, even though you're nice to have around[or]The mentality crowd continues to cheer and wave[stopping]."
-
-the mentality crowd is scenery in airy station. "All kinds of people applaud you."
-
-instead of talking to mentality crowd:
-	say "They are stuck in full-on cheering mode.";
-
-hammer-turns is a number that varies.
-
-every turn when player is in airy station (this is the hammer clue rule):
-	increment hammer-turns;
-	if the remainder after dividing hammer-turns by 4 is 0:
-		if hammer is not examined:
-			now mist-turns is 0;
-			say "You may [one of][or]still [stopping]need to figure how the hammer can help you get out of here--or past the caps. Maybe it'd help to EXAMINE the hammer.";
-			the rule succeeds;
-	if hammer-turns is 4:
-		say "If you had another hammer, maybe you could click them together and go back.";
-	else if hammer-turns is 8:
-		say "You're chipping off things the hammer can't be.";
-	else if hammer-turns is 12:
-		say "You imagine the hammer putting the caps in a wrestling hold.";
-	else if hammer-turns is 16:
-		say "You wonder if the hammer can lead you some direction--up or down, maybe, or something vaguer.";
-	else if hammer-turns is 20:
-		say "You wonder if and how the hammer can lead you from this somewhat neutral arena.";
-		now mist-turns is 0;
-
-section hammer mistakes
-
-the hammer is a thing in Airy Station. "A hammer lies nearby. It's the sort you use to knock in big spikes on a rail."
-
-check dropping the hammer:
-	say "You already dropped the figurative hammer on the [bad-guy]. Now to do something constructive with the real hammer." instead;
-
-after printing the name of the hammer when taking inventory:
-	say " (much plainer than it should be)";
-
-instead of doing something with hammer:
-	say "The hammer seems to move in your hand a bit." instead;
-
-the Return Carriage is a thing. "The Return Carriage awaits, but the problem is, you can't find an obvious way to, um, enter.". description is "It's spiffy and sleek. But the lock caps on the return carriage prevent you from entering. Maybe your hammer could help. Maybe not in its present state, but in some other state."
-
-the lock caps are part of the return carriage. description is "They don't look too menacing, but then you look closer, and you feel like you're being shouted at. Hm. Plus they don't have the usual keyhole."
-
-check entering Return Carriage:
-	say "You approach the whitespace around the return carriage, then try a new line of entry, but you have to admit failure and retreat to backspace. Those lock caps--you can't find a way to control [']em." instead;
-
-check opening Return Carriage:
-	say "You need to get the locks off, somehow." instead;
-
-check attacking lock caps:
-	say "Your plain old hammer doesn't do much." instead;
-
-instead of doing something with lock caps:
-	if current action is attacking or action is undrastic:
-		continue the action;
-	say "They're pretty secure, for locks. You can't see how to start to open them." instead;
-
-after printing the locale description for Airy Station when Airy Station is unvisited:
-	say "The crowd's adulation shakes you a bit. You worry you'll be stuck in charge of the whole place, and you might get corrupted like the [bad-guy] or whatever. So you make a speech about how someone local should rule--and they eat it up! They praise your humility![wfk]";
-	say "As they do, an odd vehicle rolls out. 'The Return Carriage!' shouts the mentality crowd. Amidst cheerful farewells there's a general undercurrent of 'TAKE THE HAMMER!' So you do.";
-	now player has the hammer;
-	move return carriage to Airy Station;
-
-understand "hammer drop" as dropping when player is in airy station.
-
-rule for supplying a missing noun when dropping:
-	if player is in airy station:
-		now noun is hammer;
-
-check going in Airy Station:
-	if noun is inside:
-		say "You need to figure how to open the Return Carriage first." instead;
-	else if noun is up or noun is down:
-		say "No tricky directions here. Into the Return Carriage." instead;
-	else:
-		say "You consider saying '[activation of clear waivers]Wavers, clear' and pushing through, but you know you need to LEAVE the big time in the Return Carriage. There'll be enough to do." instead;
-
 part Out Mist
 
 Out Mist is a room in Endings. "It's very misty here, but you can still see a worm ring nearby. At the moment, it's cannibalizing itself too much to be whole.[paragraph break]It's silent here and tough to see, but you're pretty sure your pursuers aren't approaching any more."
@@ -10889,7 +10799,88 @@ check wearing ring:
 
 Rule for deciding whether all includes worm ring when player is in out mist: it does.
 
-part merged ending
+part Airy Station
+
+Airy Station is a room in Endings. "[one of]A cheering crowd surrounds you on all sides! They're going pretty crazy over their new-found freedom, and how you achieved it for them, and how they might not even need you to keep it, even though you're nice to have around[or]The mentality crowd continues to cheer and wave[stopping]."
+
+the mentality crowd is scenery in airy station. "All kinds of people applaud you."
+
+instead of talking to mentality crowd:
+	say "They are stuck in full-on cheering mode.";
+
+hammer-turns is a number that varies.
+
+every turn when player is in airy station (this is the hammer clue rule):
+	increment hammer-turns;
+	if the remainder after dividing hammer-turns by 4 is 0:
+		if hammer is not examined:
+			now mist-turns is 0;
+			say "You may [one of][or]still [stopping]need to figure how the hammer can help you get out of here--or past the caps. Maybe it'd help to EXAMINE the hammer.";
+			the rule succeeds;
+	if hammer-turns is 4:
+		say "If you had another hammer, maybe you could click them together and go back.";
+	else if hammer-turns is 8:
+		say "You're chipping off things the hammer can't be.";
+	else if hammer-turns is 12:
+		say "You imagine the hammer putting the caps in a wrestling hold.";
+	else if hammer-turns is 16:
+		say "You wonder if the hammer can lead you some direction--up or down, maybe, or something vaguer.";
+	else if hammer-turns is 20:
+		say "You wonder if and how the hammer can lead you from this somewhat neutral arena.";
+		now mist-turns is 0;
+
+section hammer mistakes
+
+the hammer is a thing in Airy Station. "A hammer lies nearby. It's the sort you use to knock in big spikes on a rail."
+
+check dropping the hammer:
+	say "You already dropped the figurative hammer on the [bad-guy]. Now to do something constructive with the real hammer." instead;
+
+after printing the name of the hammer when taking inventory:
+	say " (much plainer than it should be)";
+
+instead of doing something with hammer:
+	say "The hammer seems to move in your hand a bit." instead;
+
+the Return Carriage is a thing. "The Return Carriage awaits, but the problem is, you can't find an obvious way to, um, enter.". description is "It's spiffy and sleek. But the lock caps on the return carriage prevent you from entering. Maybe your hammer could help. Maybe not in its present state, but in some other state."
+
+the lock caps are part of the return carriage. description is "They don't look too menacing, but then you look closer, and you feel like you're being shouted at. Hm. Plus they don't have the usual keyhole."
+
+check entering Return Carriage:
+	say "You approach the whitespace around the return carriage, then try a new line of entry, but you have to admit failure and retreat to backspace. Those lock caps--you can't find a way to control [']em." instead;
+
+check opening Return Carriage:
+	say "You need to get the locks off, somehow." instead;
+
+check attacking lock caps:
+	say "Your plain old hammer doesn't do much." instead;
+
+instead of doing something with lock caps:
+	if current action is attacking or action is undrastic:
+		continue the action;
+	say "They're pretty secure, for locks. You can't see how to start to open them." instead;
+
+after printing the locale description for Airy Station when Airy Station is unvisited:
+	say "The crowd's adulation shakes you a bit. You worry you'll be stuck in charge of the whole place, and you might get corrupted like the [bad-guy] or whatever. So you make a speech about how someone local should rule--and they eat it up! They praise your humility![wfk]";
+	say "As they do, an odd vehicle rolls out. 'The Return Carriage!' shouts the mentality crowd. Amidst cheerful farewells there's a general undercurrent of 'TAKE THE HAMMER!' So you do.";
+	now player has the hammer;
+	move return carriage to Airy Station;
+
+understand "hammer drop" as dropping when player is in airy station.
+
+rule for supplying a missing noun when dropping:
+	if player is in airy station:
+		now noun is hammer;
+
+check going in Airy Station:
+	if noun is inside:
+		say "You need to figure how to open the Return Carriage first." instead;
+	else if noun is up or noun is down:
+		say "No tricky directions here. Into the Return Carriage." instead;
+	else:
+		say "You consider saying '[activation of clear waivers]Wavers, clear' and pushing through, but you know you need to LEAVE the big time in the Return Carriage. There'll be enough to do." instead;
+
+book merged ending
 
 end-stress-test is a truth state that varies.
 
@@ -11264,6 +11255,10 @@ Everything Hold is a room in Just Ideas Now. "You see about one of everything yo
 part Shoulder Square
 
 Shoulder Square is a room in Just Ideas Now. "People mill about here in pairs, shoulder to shoulder. One of each pair always tells the other what he should have done."
+
+part endgame
+
+[this is for my code checker to flag endgame concepts]
 
 [end rooms]
 
@@ -12265,20 +12260,6 @@ Wine-U-Gen is a concept in conceptville. Understand "wine u gen" and "wineugen" 
 
 chapter main chunk concepts [left to right, then below]
 
-section classic cult concepts
-
-cargo cult is a concept in conceptville. Understand "cult cargo" as cargo cult. howto is "talk to Grace".
-
-cult status is a concept in conceptville. Understand "status cult" as cult status. howto is "ask about restoring the googly bowl".
-
-Defrock is a concept in conceptville. Understand "rock def" and "def rock" as defrock. howto is "talk to Grace".
-
-good herb is a concept in conceptville. Understand "herb good/goode" as good herb. howto is "talk to Pusher Penn or the Goode sisters".
-
-grace period is a concept in conceptville. Understand "period grace" as grace period. howto is "ask Grace about the [bad-guy]".
-
-personality cult is a concept in conceptville. Understand "cult personality" as personality cult. howto is "ask Grace about restoring her cult".
-
 section Nominal Fen concepts
 
 to say j-girl:
@@ -12459,27 +12440,31 @@ Play it Cool is a concept in conceptville. Understand "cool it play" as play it 
 
 Sweetheart deal is a concept in conceptville. Understand "deal sweetheart" as sweetheart deal. howto is "run from Chipper Wood before catching Cute Percy".
 
+section the belt below concepts
+
+Terminal Illness is a concept in conceptville. Understand "illness terminal" as terminal illness. howto is "defeat the Insanity Terminal".
+
+waste breath is a concept in conceptville. Understand "breadth/breath waste/waist" and "waist/wast breadth/breath" as waste breath. howto is "[x-it of energy waist] after defeating the Insanity Terminal".
+
 section disposed well concepts
 
 Fish for a Compliment is a concept in conceptville. Understand "compliment for a fish" as fish for a compliment. howto is "talk to the story fish with nobody else around".
 
 Well Done is a concept in conceptville. Understand "done well" as well done. howto is "try entering the Disposed Well".
 
-section judgment pass concepts
+section classic cult concepts
 
-career threatening is a concept in conceptville. Understand "threatening career" as career threatening. howto is "give Officer Petty the Reasoning Circular".
+cargo cult is a concept in conceptville. Understand "cult cargo" as cargo cult. howto is "talk to Grace".
 
-pass the torch is a concept in conceptville. Understand "torch the pass" as pass the torch. howto is "BURN anything in Judgment Pass".
+cult status is a concept in conceptville. Understand "status cult" as cult status. howto is "ask about restoring the googly bowl".
 
-scofflaw is a concept in conceptville. Understand "scoff law" and "lawscoff/law-scoff/scoff-law" and "law scoff" as scofflaw. howto is "give Officer Petty the Reasoning Circular".
+Defrock is a concept in conceptville. Understand "rock def" and "def rock" as defrock. howto is "talk to Grace".
 
-section idiot village concepts
+good herb is a concept in conceptville. Understand "herb good/goode" as good herb. howto is "talk to Pusher Penn or the Goode sisters".
 
-Candidate Dummy is a concept in conceptville. Understand "dummy candidate" as Candidate Dummy. howto is "talk to Sly".
+grace period is a concept in conceptville. Understand "period grace" as grace period. howto is "ask Grace about the [bad-guy]".
 
-code monkey is a concept in conceptville. Understand "monkey code" as code monkey. howto is "talk to the Business Monkey".
-
-grease monkey is a concept in conceptville. Understand "monkey grease" as grease monkey. howto is "[x-it of Business Monkey]".
+personality cult is a concept in conceptville. Understand "cult personality" as personality cult. howto is "ask Grace about restoring her cult".
 
 section truth home concepts
 
@@ -12513,12 +12498,6 @@ Labor of Love is a concept in conceptville. Understand "love of labor" as labor 
 
 slush fund is a concept in conceptville. Understand "fund slush" as slush fund. howto is "decline the Labor Child's offer for help".
 
-section temper keep concepts
-
-sound asleep is a concept in conceptville. Understand "asleep sound" as sound asleep. howto is "put the pot in the vent".
-
-venturesome is a concept in conceptville. Understand "you're/youre some vent" and "some vent" as venturesome. howto is "enter the spleen vent".
-
 section speaking plain concepts
 
 to say pl-wa:
@@ -12549,6 +12528,30 @@ show off is a concept in conceptville. Understand "off show" as show off. howto 
 
 Stand the Pace is a concept in conceptville. Understand "pace the stand" as stand the pace. howto is "[pl-all]".
 
+section temper keep concepts
+
+sound asleep is a concept in conceptville. Understand "asleep sound" as sound asleep. howto is "put the pot in the vent".
+
+venturesome is a concept in conceptville. Understand "you're/youre some vent" and "some vent" as venturesome. howto is "enter the spleen vent".
+
+section questions field concepts
+
+brass ring is a concept in conceptville. Understand "ring brass" as brass ring. howto is "drink the Quiz Pop".
+
+brother foster is a concept in conceptville. Understand "foster brother" as brother foster. howto is "talk to any of the brothers in Questions Field".
+
+Brother's Keepers is a concept in conceptville. Understand "brother/brothers keeper/keepers" and "keeper/keepers brother/brothers" as Brother's Keepers. howto is "examine the brothers".
+
+section court of contempt concepts
+
+attorney general is a concept in conceptville. Understand "general attorney" as attorney general. howto is "[f-t of Court of Contempt], innuendo off".
+
+nutcase is a concept in conceptville. Understand "case/job nut" and "nut case/job" as nutcase. howto is "[f-t of Court of Contempt], innuendo on".
+
+prosecutor is a concept in conceptville. Understand "prosecutor" as prosecutor. howto is "talk to Buddy Best".
+
+readjust is a concept in conceptville. Understand "read just" and "just read" as readjust. howto is "talk to Buddy Best".
+
 section walker street concepts
 
 Determined Bound is a concept in conceptville. Understand "bound and determined" as determined bound. howto is "go south in Walker Street".
@@ -12558,6 +12561,28 @@ drive into the ground is a concept in conceptville. Understand "ground the into 
 Driving Crazy is a concept in conceptville. Understand "crazy driving" as driving crazy. howto is "examine the mistake grave in Walker Street".
 
 Watkins Glen is a concept in conceptville. Understand "glen watkins" as watkins glen. howto is "examine the mistake grave in Walker Street".
+
+section standard bog concepts
+
+sods law is a concept in conceptville. Understand "law sods" and "sod's law" as sods law. howto is "[nogo of standard bog]".
+
+section pot chamber concepts
+
+bum a cigarette is a concept in conceptville. Understand "cigarette a bum" as bum a cigarette. howto is "(fill in here)".
+
+crack pipe is a concept in conceptville. Understand "pipe crack" as crack pipe. howto is "listen in the Pot Chamber".
+
+crack up is a concept in conceptville. Understand "up/down/joke crack" and "crack joke/down" as crack up. howto is "ask Pusher Penn about bad stuff".
+
+go to pot is a concept in conceptville. Understand "pot to go" as go to pot. howto is "[f-t of Pot Chamber]".
+
+kilo is a concept in conceptville. Understand "loki" as kilo. howto is "ask Pusher Penn about bad stuff".
+
+pop pills is a concept in conceptville. Understand "pills pop" as pop pills. howto is "ask Pusher Penn about the [bad-guy]".
+
+roach dropping is a concept in conceptville. Understand "dropping roach" as roach dropping. howto is "drop the weed or pot".
+
+weed out is a concept in conceptville. Understand "out weed" as weed out. howto is "take Pusher Penn's wacker weed".
 
 section discussion block concepts
 
@@ -12583,51 +12608,21 @@ wax lyrical is a concept in conceptville. Understand "lyrical wax" as wax lyrica
 
 world record is a concept in conceptville. Understand "record world" as world record. howto is "get rid of Phil".
 
-section court of contempt concepts
+section judgment pass concepts
 
-attorney general is a concept in conceptville. Understand "general attorney" as attorney general. howto is "[f-t of Court of Contempt], innuendo off".
+career threatening is a concept in conceptville. Understand "threatening career" as career threatening. howto is "give Officer Petty the Reasoning Circular".
 
-nutcase is a concept in conceptville. Understand "case/job nut" and "nut case/job" as nutcase. howto is "[f-t of Court of Contempt], innuendo on".
+pass the torch is a concept in conceptville. Understand "torch the pass" as pass the torch. howto is "BURN anything in Judgment Pass".
 
-prosecutor is a concept in conceptville. Understand "prosecutor" as prosecutor. howto is "talk to Buddy Best".
+scofflaw is a concept in conceptville. Understand "scoff law" and "lawscoff/law-scoff/scoff-law" and "law scoff" as scofflaw. howto is "give Officer Petty the Reasoning Circular".
 
-readjust is a concept in conceptville. Understand "read just" and "just read" as readjust. howto is "talk to Buddy Best".
+section idiot village concepts
 
-section questions field concepts
+Candidate Dummy is a concept in conceptville. Understand "dummy candidate" as Candidate Dummy. howto is "talk to Sly".
 
-brass ring is a concept in conceptville. Understand "ring brass" as brass ring. howto is "drink the Quiz Pop".
+code monkey is a concept in conceptville. Understand "monkey code" as code monkey. howto is "talk to the Business Monkey".
 
-brother foster is a concept in conceptville. Understand "foster brother" as brother foster. howto is "talk to any of the brothers in Questions Field".
-
-Brother's Keepers is a concept in conceptville. Understand "brother/brothers keeper/keepers" and "keeper/keepers brother/brothers" as Brother's Keepers. howto is "examine the brothers".
-
-section standard bog concepts
-
-sods law is a concept in conceptville. Understand "law sods" and "sod's law" as sods law. howto is "[nogo of standard bog]".
-
-section pot chamber concepts
-
-bum a cigarette is a concept in conceptville. Understand "cigarette a bum" as bum a cigarette. howto is "(fill in here)".
-
-crack pipe is a concept in conceptville. Understand "pipe crack" as crack pipe. howto is "listen in the Pot Chamber".
-
-crack up is a concept in conceptville. Understand "up/down/joke crack" and "crack joke/down" as crack up. howto is "ask Pusher Penn about bad stuff".
-
-go to pot is a concept in conceptville. Understand "pot to go" as go to pot. howto is "[f-t of Pot Chamber]".
-
-kilo is a concept in conceptville. Understand "loki" as kilo. howto is "ask Pusher Penn about bad stuff".
-
-pop pills is a concept in conceptville. Understand "pills pop" as pop pills. howto is "ask Pusher Penn about the [bad-guy]".
-
-roach dropping is a concept in conceptville. Understand "dropping roach" as roach dropping. howto is "drop the weed or pot".
-
-weed out is a concept in conceptville. Understand "out weed" as weed out. howto is "take Pusher Penn's wacker weed".
-
-section the belt below concepts
-
-Terminal Illness is a concept in conceptville. Understand "illness terminal" as terminal illness. howto is "defeat the Insanity Terminal".
-
-waste breath is a concept in conceptville. Understand "breadth/breath waste/waist" and "waist/wast breadth/breath" as waste breath. howto is "[x-it of energy waist] after defeating the Insanity Terminal".
+grease monkey is a concept in conceptville. Understand "monkey grease" as grease monkey. howto is "[x-it of Business Monkey]".
 
 section freak control concepts
 
