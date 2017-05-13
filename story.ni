@@ -3318,6 +3318,7 @@ Wash White	"To whitewash is to wipe clean."	--
 chase paper	"A paper chase is excessive paperwork. In this case, work not strictly needed to reach Cute Percy."	"I love puns riffing on bureaucracy, and this was a good one. I'm pleased with this puzzle because it's a simple parity one based on actual physical reality. Too often you can go diagonally 1.4 times as fast as straight. This is neat for Reti's endgame puzzle, but not physically realistic. And I liked having a realistic puzzle in the middle of the abstract murk." [start of chipper wood]
 Cute Percy	"To persecute someone is to make them suffer for who they are[if cute percy is in lalaland]and right per se means literally right, but that's not what matters[end if]."	"Percy was the Assassination Character pre-release 3, but the problem is, he never got close to killing anyone. Still, the name gave me laughs."
 bad face	"The bad face will help you face a bad...something. Also, 'bad' in the Michael Jackson sense of, I did/can do something cool."	"This is meant to show Alec's emotional development. He's figured out something tough, and he's confident about that. But he also doesn't need this to go through the Compound." [start of the belt below]
+energy waist	"To waste energy is to do something without positive result. Or it can mean a machine is inefficient."
 Insanity Terminal	"Terminal insanity is having no chance to regain sanity[if terminal is in lalaland]. As for the puzzle: it is inspired by Jim Propp's Self-Referential Aptitude Test, which is well worth a look (http://faculty.uml.edu/jpropp/srat.html is one place to find it,) but a good deal more complex[end if]."	"I always wanted to write a puzzle like this, but yeah, in release 1, it was dropped in there."
 crocked half	"Half-crocked means drunk."	"This was a bugging doodle for a while until I found something better. You need a lot of placements like that, sometimes." [start of A Great Den]
 legend of stuff	"The Stuff of Legend means a book about great tales of yore, as opposed to the scribble-hint-book you get."	"This was another thing that sounded great but didn't seem to fit in anywhere--or seemed too obvious--until I decided to go ahead with the puzzle. It appeared in release 2, taking the functionality of the notes crib."
@@ -3668,6 +3669,7 @@ pop pills	"To pop pills is to take them indiscriminately."
 roach dropping	"A roach is a marijuana cigarette or a bug that appears around dirt. A roach dropping, well, what the roach leaves behind."
 weed out	"To weed out people is to create a test to show they are inadequate."
 Terminal Illness	"A terminal illness is one which is bound to be fatal. Illness can also mean full of insults, e.g. very 'ill,' as kids these days say. And said, even in my day!" [start of the belt below]
+waste breath	"To waste breath is to speak in vain."
 Admiral Vice	"A vice-(anything) is a next-in-line/assistant to an honorary position, but vice is also a personal failing, big or small." [start of freak control]
 artemis fowl	"Artemis fowl is the intelligent, cocky hero of Eoin Colfer's seven-book series. He's everything the [bad-guy] thinks he is, and more."
 autocratic	"Autocratic means having one person firmly in control."
@@ -8421,165 +8423,150 @@ does the player mean entering the chase paper: it is likely.
 
 understand "cp/ac/char/ass/character/assassin" and "assassin/assassination character" as Cute Percy.
 
-part Disposed Well
+part The Belt Below
 
-Disposed Well is west of Chipper Wood. It is in Main Chunk. "A crumbling well marks the center of this clearing.[paragraph break]You may go west to [if classic cult is visited]the Classic Cult[else]some sort of church[end if] or back east to the Chipper Wood. To the north, [if boris is in lalaland]the Scheme Pyramid has been closed[else if scheme pyramid is visited]the Scheme Pyramid[else]a business[end if]. [if truth home is visited]You can go back inside to the Truth Home, too[else]There's also a small home you could go inside[end if]."
+There is a room called The Belt Below. It is in Main Chunk. "You're in a cylindrical sort of room where instead of walls an energy waist [if insanity terminal is in lalaland]no longer [end if]blips around[if insanity terminal is in belt]. [one of]And look, there's a sort of odd faux-retro mainframe-ish computer[or]The Insanity Terminal waits for your answer[stopping][end if]."
 
-check going outside from disposed well:
-	say "You already are outside." instead;
+check going nowhere in belt below:
+	say "You can only go back up[if terminal is in belt], or maybe beating the terminal will lead elsewhere[else] or down[end if]." instead;
 
-scen-home is privately-named scenery in disposed well. "[if truth home is visited]There's no evidence of Sid Lew's ramblings from outside[else]It looks safe enough to go into[end if]."
+The Insanity Terminal is scenery in the Belt Below. description is "[bug]";
 
-understand "home" and "house" as scen-home when player is in Disposed Well.
+understand "puzzle" as terminal when player is in belt below.
 
-check entering scen-home:
-	try going inside instead;
+after printing the locale description when player is in belt below and belt below is unvisited:
+	say "'ATTENTION RECOVERING NERDLING!' booms the terminal. 'I THE INSANITY TERMINAL HAVE A CHALLENGE FOR YOU! IF YOU SOLVE IT, KNOWLEDGE UNIMAGINABLE WILL BE YOURS AND IT WILL BE ESPECIALLY VALUABLE IF YOU ARE UNIMAGINATIVE.'";
+	say "[line break]You have a look, and -- well, it's about the oddest puzzle you've ever seen.";
 
-instead of doing something with scen-home:
-	if action is undrastic:
-		continue the action;
-	d "[current action].";
-	if current action is entering:
-		try going inside instead;
-	say "You can't do much except enter or examine the home."
+after printing the locale description when player is in belt below and insanity terminal is in belt below:
+	set the pronoun it to insanity terminal;
 
-scen-church is privately-named scenery in disposed well. "[if truth home is visited]Faith and Grace Goode would welcome you back[else]It looks safe enough to go into[end if]."
+jerks-spoiled is a truth state that varies.
 
-understand "church" as scen-church.
+x-term-yet is a truth state that varies.
 
-instead of doing something with scen-church:
-	if action is undrastic:
-		continue the action;
-	if current action is entering:
-		try going west instead;
-	say "You can't do much except enter or examine the church."
-
-check going nowhere in Disposed Well:
-	if noun is down:
-		say "If you entered the well, it could probably be renamed the [activation of well done]Done Well, because you wouldn't be [i]climbing[r] down. Or back up." instead;
-	say "The wood is too thick to the south." instead;
-
-the nine yards hole is scenery in Disposed Well. "It looks too deep to reach into, and too narrow to climb, [if story fish is off-stage]but maybe with the right tools you could fish in the darkness below and find something[else]and you doubt there's anything else in there[end if]."
-
-check entering the yards hole:
-	try going down instead;
-
-understand "disposed/well" as the yards hole.
-
-the story fish is a thing. description of story fish is "[if player has story fish]It looks wooden and mechanical, but you can TALK to it when you need to[else]The story fish has been stuffed into the book bank here[end if]."
-
-instead of switching on story fish:
-	try playing story fish instead;
-
-check taking story fish:
-	if player has fish:
-		continue the action;
-	say "No, it's happy in the compound. You're happy you put it there to get rid of Art." instead;
-
-check putting fish on bank:
-	say "'Certainly not!' says Art Fine. 'Such a vulgar thing, among so many great books?'[paragraph break]Hm. You wonder what he'd think if he actually heard the fish." instead;
-
-check inserting it into (this is the insert it right rule):
-	if noun is fish and second noun is bank:
-		try putting fish on bank instead;
-	if noun is long string and second noun is yards hole:
-		unless story fish is off-stage:
-			say "[one of]You try your luck again. Nothing. B[or]B[stopping]est go [i]expedition[r] fishing instead." instead;
-		it-take story fish;
-		say "You pull the string down. It seems to take forever. But you wait. You feel a pull on the string. You tug--and--yes! Your catch stays with the string! You're not surprised it's a fish, but you are when it talks--and it explains it wanted to be caught, so it could tell others its story! You suffer through ten minutes of digressions and bad grammar before the fish takes a break. 'You don't seem to be appreciating me right now. Show me someone who appreciates a story fish like me, then TALK to me.'";
-		increment the score instead;
-	if second noun is yards hole:
-		say "That'd be a good way to lose stuff." instead;
-
-before talking to story fish:
-	if player is in truth home and Sid Lew is in truth home:
-		say "'NONSENSE! FACTS, FACTS, FACTS!' roars Sid Lew. The fish clams up after the tide of abuse leaves it all at sea." instead;
-	if player is in standard bog:
-		say "'Eh? I--I would tell my story, but the computer wouldn't appreciate it. Manufactured stuff. Mine is ORIGINAL.'" instead;
-	if player is not in Discussion Block:
-		say "The fish opens a sleepy eye. 'Eh? Anyone with a [activation of fish for a compliment]compliment for a fish? Nope, nobody artsy enough.'" instead;
-	if art fine is in Discussion Block:
-		say "The fish eyes you sleepily but then sees the bookshelf, then Art Fine. 'Ah! Good sir! May I begin!' The fish's story is much funnier and shorter than you expected, because Art barely lasts five minutes before he runs away screaming. 'No more [activation of babel fish]fish babble! [safety-of]!' You pat the fish on the head and put it in the tie it to the Book Bank with the Long String--there, you even hid the string, so it looks extra neat.[paragraph break]";
-		now long string is in lalaland;
-		now art fine is in lalaland;
-		now story fish is in Discussion Block;
-		say "[if harmonic phil is in Discussion Block]Harmonic Phil snickers. 'Well, Art was smart and all, but he was getting kind of boring anyway. And he didn't know a THING about music.'[else]Well, that's Phil AND Art gone.[end if]";
-		increment the score;
-		annotize art fine;
+check examining the insanity terminal:
+	if x-term-yet is false:
+		if screen-read is true:
+			say "This may be a bit of a text dump with screen readers active. You can say X 1 through X 8, or even just type the number, to read an individual question. Would you still like to read the whole thing?";
+			if the player yes-consents:
+				do nothing;
+			else:
+				say "OK. You can still see the whole terminal if you want, and this nag won't appear again.";
+			now x-term-yet is true;
+			the rule succeeds;
+	now x-term-yet is true;
+	if jerks-spoiled is true:
+		say "The terminal spits out who's 'guilty' of what, again:[line break]";
+		repeat through table of fingerings:
+			say "[jerky-guy entry]: [blackmail entry][line break]";
 		the rule succeeds;
-	say "[if harmonic phil is in Discussion Block and player is in Discussion Block]Harmonic Phil hums loudly over the sound of the fish talking. You'll need to ... fish for another way to get rid of Phil.[else]'Eh? Where'd everyone go? I'll wait [']til there's a crowd to tell my story.'[end if]";
+	if know-jerks is true:
+		say "You look at the Insanity Terminal. It's big on logic puzzles, like the one you're struggling with, with the [j-co]. Maybe you could program it. Give it a shot?";
+		if the player yes-consents:
+			repeat through table of fingerings:
+				say "[jerky-guy entry]: [blackmail entry][line break]";
+			now jerks-spoiled is true;
+		else:
+			say "OK.";
+		do nothing instead;
+	if terminal is examined:
+		say "You re-read the clues." instead;
+	repeat through table of quiz lines:
+		say "[qline entry][line break]";
+	if ffffffff is false:
+		say "Go FFFFFFFF at any time to disable my editorializing!";
+	say "There's a cursor, and you can probably just type out the right answer on, uh, the cursor before YOU[if ever-examined-number is false]. And you can examine an individual question, too, e.g. X 2[end if]. Convenient!";
+	if x-term-yet is false:
+		say "You can also X 1 or just type 1 to see an individual question again.";
+	now x-term-yet is true;
 	the rule succeeds;
 
-part Truth Home
+to say ps:
+	say "[if screen-read is true] [else])[end if]"
 
-Truth Home is inside of Disposed Well. It is in Main Chunk. It is only-out. "Nothing feels wrong here, but it feels incredibly uncomfortable[if sid lew is in lalaland] even with Sid Lew gone[end if]. It's also a small home, with the only exit back out."
+table of quiz lines
+qline
+"1. How many times is one answer the same letter as the previous? a[ps]0 b[ps]1 c[ps]2 d[ps]3 e[ps]4 f[ps]5"
+"2. How many letters appear in more than one right answer? a[ps]0 b[ps]1 c[ps]2 d[ps]3 e[ps]4 f[ps]5"
+"3. The first answer with A is a[ps]1 b[ps]2 c[ps]4 d[ps]5 e[ps]7 f[ps]8"
+"4. How many questions have A's as correct answers? a[ps]0 b[ps]1 c[ps]2 d[ps]3 e[ps]4 f[ps]5"
+"5. This answer is a mirror image (A/F, B/E, C/D) of which other answer? a[ps]6 b[ps]5 c[ps]4 d[ps]3 e[ps]2 f[ps]1"
+"6. The right answer to this question is a[ps]a b[ps]b c[ps]c d[ps]d e[ps]e f[ps]f"
+"7. At least one of each letter is a correct answer a[ps]false b[ps]false c[ps]true d[ps]false e[ps]false f[ps]false"
+"8. How many questions have vowels as correct answers? a[ps]0 b[ps]1 c[ps]2 d[ps]3 e[ps]4 f[ps]5"
 
-check going nowhere in truth home:
-	say "The only way out is, well, out." instead;
+chapter linereading
 
-for writing a paragraph about a person (called arg) in Truth Home:
-	say "[one of]You walk in on a one-sided argument. The louder and bigger of the two getting the most of it. 'Oh, hey,' he says. 'I'm Sid Lew. They call me the Logical Psycho [']cause I'm quick to make one point and move on to something even better. I was worried my energy's wasted on Lee over here. Maybe you, well, Lee over here, he knows boring facts, but not exciting ones. Might even be jealous of my dynamic style. Say, tell this guy, whatshisname, do they call you? C'mon, you've got a chance to SPEAK.'[line break]'Lee Bull.'[paragraph break]'No, what they call you.'[paragraph break]'The Proof Fool.'[paragraph break]'Well, with a name like Bull, well, that maybe has meanings, too, am I right? Right!'[or]Sid Lew continues to explain something Lee Bull doesn't want to hear.[stopping]";
-	now Lee Bull is mentioned;
-	now Sid Lew is mentioned;
+ever-examined-number is a truth state that varies.
 
-chapter Sid Lew
+linereading is an action applying to one number.
 
-Sid Lew is a baiter-aligned person in Truth Home. description is "He is wearing a t-shirt with an old car on it."
+understand "x [number]" and "examine [number]" as linereading when player is in belt below and terminal is in belt below.
 
-understand "logical/psycho" and "logical psycho" as Sid Lew.
+carry out linereading:
+	let ql be number of rows in table of quiz lines;
+	if the number understood < 1 or number understood > ql:
+		say "The Insanity Terminal only has [ql] questions, so pick a number from 1 to [ql]." instead;
+	choose row number understood in table of quiz lines;
+	say "[qline entry][line break]";
+	now ever-examined-number is true;
+	now x-term-yet is true;
+	the rule succeeds;
 
-sid-row is a number that varies.
+ffffffff is a truth state that varies.
 
-check talking to Sid Lew:
-	say "'Oh yeah, sure, I bet you have interesting questions. But I've probably heard [']em all before. And I'm giving interesting answers to questions you didn't need to know yet. You might want to just listen.' [weird-hyp]" instead;
+chapter ffffffffing
 
-third-sid-yet is a truth state that varies.
-twothird-sid-yet is a truth state that varies.
+ffffffffing is an action out of world.
 
-every turn when player is in truth home and Sid Lew is in truth home:
-	increment sid-row;
-	if third-sid-yet is false and sid-row is number of rows in table of incisive sid viewpoints:
-		say "Sid takes a brief break. 'Boy! I could deserve good money as a [activation of psychotherapy]therapy psycho! You've only heard the half of my advice so far!'";
-		now third-sid-yet is true;
-		continue the action;
-	if twothird-sid-yet is false and sid-row is number of rows in table of incisive sid viewpoints:
-		say "Sid coughs then warms up for a song. '[activation of pathologic]Oh, logic path, oh logic path!' He's in the home stretch of ideas, now.";
-		now twothird-sid-yet is true;
-		continue the action;
-	if sid-row > number of rows in table of incisive sid viewpoints:
-		now sid-row is 0;
-		say "'[activation of ideological]Logical idea, logical idea, logical idea. How can you POSSIBLY disagree with me?' booms Sid. He pauses before starting again.";
-		now twothird-sid-yet is false;
-		now third-sid-yet is false;
-		continue the action;
+understand the command "ffffffff" as something new.
+
+understand "ffffffff" as ffffffffing when player is in Belt Below and Terminal is in Belt Below.
+
+carry out ffffffffing:
+	now ffffffff is whether or not ffffffff is false;
+	say "Insanity Terminal heckling turned [off-on of ffffffff]";
+	the rule succeeds;
+
+chapter abadfaceing
+
+abadfaceing is an action applying to nothing.
+
+understand the command "abadface" as something new.
+understand the command "a bad face" as something new.
+
+understand "a bad face" as abadfaceing when player is in Belt Below.
+understand "abadface" as abadfaceing when player is in Belt Below.
+
+carry out abadfaceing:
+	if jerks-spoiled is true:
+		say "[one of]The Insanity Terminal emits an ultrasound squeal that brings you to your knees. It's probably mad you made it solve the [j-co] for you and doesn't believe you solved its harder puzzle on your own. Or rather, its calculations lead it to suspect cheating[or]Nah. You don't want the Terminal to squeal at you again (note: on winning, you'll get a code where you can solve the terminal the right way and see what's below)[stopping]." instead;
+	if Insanity Terminal is in Belt Below:
+		open-bottom;
+		say "You hear a great rumbling as you put on -- well, a bad face -- and the Insanity Terminal coughs and sputters (I guess it was an [activation of terminal illness]Illness Terminal, too! That would explain its--well, as close to a mood as a computer can get) before cracking in half to reveal a tunnel further below. You feel like you could face a bad...well, you're not sure. But something bad.";
+		now player has a bad face;
+		now face of loss is in lalaland;
+		inc-max;
+		say "[line break]";
+		the rule succeeds;
 	else:
-		choose row sid-row in table of incisive sid viewpoints;
-		say "[sid-sez entry][line break]";
+		say "You already solved the puzzle. If any more of [if A Great Den is visited]A Great Den[else]the floor[end if] collapsed, you might not have a way back up." instead;
+	the rule succeeds;
 
-chapter Lee Bull
+to open-bottom:
+	now A Great Den is below Belt Below;
+	now Belt Below is above A Great Den;
+	now Insanity Terminal is in lalaland;
+	annotize insanity terminal;
 
-Lee Bull is a surveyable person in Truth Home. description is "When he's not trying to wave off Sid Lew's arguments, he's grabbing his head with his hands."
+chapter energy waist
 
-understand "proof fool" and "proof/fool" as Lee Bull when player is in Truth Home.
+The Energy Waist is scenery in the belt below. "[if insanity terminal is in lalaland]Well, it no longer blinks around, but it's just as wide as before, so you can call it a [activation of waste breath]breadth waist (but it won't do any good, ha ha)[else]It blips about efficiently, you assume. You can't be sure. People have accused you of being better at electronics than you are, so you don't know the hows and whys[end if]."
 
-understand "read proof" as a mistake ("He gives you a look like he's been scrutinized enough, really.") when Lee Bull is in truth home and player is in truth home.
-
-check playing the rattle:
-	if player is in truth home:
-		say "Sid Lew looks worried for a second, but goes on. Hm. You interrupted one of his rants, but not at the right time. Maybe someone who understood them better, but just didn't have the guts to speak back, could use the rattle. Who could that be, now." instead;
-	if number of people in location of player > 1:
-		say "You don't know if it's worth deliberately annoying anyone here." instead;
-	say "Rattle, rattle. It gives you a headache. Maybe if you were more Type A, it'd drive you totally up the wall." instead;
-
-check talking to Lee Bull:
-	say "Before Lee Bull can talk, Sid Lew cuts in. 'Quit distracting him! Y'got anything as interesting and profound to say as me? Well, you couldn't say it right, anyhow,' he roars. 'And if you DO have somewhere I'm wrong, well, it's selfish not to let Lee find it himself. He's, like, a truthseeker or something.' [weird-hyp]" instead;
-
-to say weird-hyp:
-	say "Sid Lew's voice is weirdly hypnotic and rhythmic, for all its bluster. How to cut into it? You could never win an argument."
-
-a thing called The Trade of Tricks is a proper-named thing. description is "[one of]You got laughed at enough for reading, much less re-reading, in middle school, so you learned to cut that nonsense out--especially books you just liked. Because it was easier to get caught if you were absorbed in a book. But this--you can't help yourself. You earned this book. You feel like the lessons may not sink in for a few days, but all the same--man! You learned a lot! And you feel like sharing.[or]You pick up a few more tricks re-reading. But you realize others may need the book even more than you.[stopping]"
-
-understand "book" as trade of tricks when player has trade of tricks.
+instead of doing something with energy waist:
+	if action is procedural, continue the action;
+	say "Doing anything unusual with or to the waist is probably a bad idea."
 
 part A Great Den
 
@@ -8828,142 +8815,94 @@ to say upper:
 	else:
 		say "The paper is ridged in a clear pattern--there's a straight line across, and each quarter is a leg of an isosceles right triangle: in order, below, above, above and below.[no line break]"
 
-part The Belt Below
+part Disposed Well
 
-There is a room called The Belt Below. It is in Main Chunk. "You're in a cylindrical sort of room where the walls are shaped like a belt--yes, a bit even comes out like a buckle[if insanity terminal is in belt]. [one of]And look, there's a sort of odd faux-retro mainframe-ish computer[or]The Insanity Terminal waits for your answer[stopping][end if]."
+Disposed Well is west of Chipper Wood. It is in Main Chunk. "A crumbling well marks the center of this clearing.[paragraph break]You may go west to [if classic cult is visited]the Classic Cult[else]some sort of church[end if] or back east to the Chipper Wood. To the north, [if boris is in lalaland]the Scheme Pyramid has been closed[else if scheme pyramid is visited]the Scheme Pyramid[else]a business[end if]. [if truth home is visited]You can go back inside to the Truth Home, too[else]There's also a small home you could go inside[end if]."
 
-check going nowhere in belt below:
-	say "You can only go back up[if terminal is in belt], or maybe beating the terminal will lead elsewhere[else] or down[end if]." instead;
+check going outside from disposed well:
+	say "You already are outside." instead;
 
-The Insanity Terminal is scenery in the Belt Below. description is "[bug]";
+scen-home is privately-named scenery in disposed well. "[if truth home is visited]There's no evidence of Sid Lew's ramblings from outside[else]It looks safe enough to go into[end if]."
 
-understand "puzzle" as terminal when player is in belt below.
+understand "home" and "house" as scen-home when player is in Disposed Well.
 
-after printing the locale description when player is in belt below and belt below is unvisited:
-	say "'ATTENTION RECOVERING NERDLING!' booms the terminal. 'I THE INSANITY TERMINAL HAVE A CHALLENGE FOR YOU! IF YOU SOLVE IT, KNOWLEDGE UNIMAGINABLE WILL BE YOURS AND IT WILL BE ESPECIALLY VALUABLE IF YOU ARE UNIMAGINATIVE.'";
-	say "[line break]You have a look, and -- well, it's about the oddest puzzle you've ever seen.";
+check entering scen-home:
+	try going inside instead;
 
-after printing the locale description when player is in belt below and insanity terminal is in belt below:
-	set the pronoun it to insanity terminal;
+instead of doing something with scen-home:
+	if action is undrastic:
+		continue the action;
+	d "[current action].";
+	if current action is entering:
+		try going inside instead;
+	say "You can't do much except enter or examine the home."
 
-jerks-spoiled is a truth state that varies.
+scen-church is privately-named scenery in disposed well. "[if truth home is visited]Faith and Grace Goode would welcome you back[else]It looks safe enough to go into[end if]."
 
-x-term-yet is a truth state that varies.
+understand "church" as scen-church.
 
-check examining the insanity terminal:
-	if x-term-yet is false:
-		if screen-read is true:
-			say "This may be a bit of a text dump with screen readers active. You can say X 1 through X 8, or even just type the number, to read an individual question. Would you still like to read the whole thing?";
-			if the player yes-consents:
-				do nothing;
-			else:
-				say "OK. You can still see the whole terminal if you want, and this nag won't appear again.";
-			now x-term-yet is true;
-			the rule succeeds;
-	now x-term-yet is true;
-	if jerks-spoiled is true:
-		say "The terminal spits out who's 'guilty' of what, again:[line break]";
-		repeat through table of fingerings:
-			say "[jerky-guy entry]: [blackmail entry][line break]";
+instead of doing something with scen-church:
+	if action is undrastic:
+		continue the action;
+	if current action is entering:
+		try going west instead;
+	say "You can't do much except enter or examine the church."
+
+check going nowhere in Disposed Well:
+	if noun is down:
+		say "If you entered the well, it could probably be renamed the [activation of well done]Done Well, because you wouldn't be [i]climbing[r] down. Or back up." instead;
+	say "The wood is too thick to the south." instead;
+
+the nine yards hole is scenery in Disposed Well. "It looks too deep to reach into, and too narrow to climb, [if story fish is off-stage]but maybe with the right tools you could fish in the darkness below and find something[else]and you doubt there's anything else in there[end if]."
+
+check entering the yards hole:
+	try going down instead;
+
+understand "disposed/well" as the yards hole.
+
+the story fish is a thing. description of story fish is "[if player has story fish]It looks wooden and mechanical, but you can TALK to it when you need to[else]The story fish has been stuffed into the book bank here[end if]."
+
+instead of switching on story fish:
+	try playing story fish instead;
+
+check taking story fish:
+	if player has fish:
+		continue the action;
+	say "No, it's happy in the compound. You're happy you put it there to get rid of Art." instead;
+
+check putting fish on bank:
+	say "'Certainly not!' says Art Fine. 'Such a vulgar thing, among so many great books?'[paragraph break]Hm. You wonder what he'd think if he actually heard the fish." instead;
+
+check inserting it into (this is the insert it right rule):
+	if noun is fish and second noun is bank:
+		try putting fish on bank instead;
+	if noun is long string and second noun is yards hole:
+		unless story fish is off-stage:
+			say "[one of]You try your luck again. Nothing. B[or]B[stopping]est go [i]expedition[r] fishing instead." instead;
+		it-take story fish;
+		say "You pull the string down. It seems to take forever. But you wait. You feel a pull on the string. You tug--and--yes! Your catch stays with the string! You're not surprised it's a fish, but you are when it talks--and it explains it wanted to be caught, so it could tell others its story! You suffer through ten minutes of digressions and bad grammar before the fish takes a break. 'You don't seem to be appreciating me right now. Show me someone who appreciates a story fish like me, then TALK to me.'";
+		increment the score instead;
+	if second noun is yards hole:
+		say "That'd be a good way to lose stuff." instead;
+
+before talking to story fish:
+	if player is in truth home and Sid Lew is in truth home:
+		say "'NONSENSE! FACTS, FACTS, FACTS!' roars Sid Lew. The fish clams up after the tide of abuse leaves it all at sea." instead;
+	if player is in standard bog:
+		say "'Eh? I--I would tell my story, but the computer wouldn't appreciate it. Manufactured stuff. Mine is ORIGINAL.'" instead;
+	if player is not in Discussion Block:
+		say "The fish opens a sleepy eye. 'Eh? Anyone with a [activation of fish for a compliment]compliment for a fish? Nope, nobody artsy enough.'" instead;
+	if art fine is in Discussion Block:
+		say "The fish eyes you sleepily but then sees the bookshelf, then Art Fine. 'Ah! Good sir! May I begin!' The fish's story is much funnier and shorter than you expected, because Art barely lasts five minutes before he runs away screaming. 'No more [activation of babel fish]fish babble! [safety-of]!' You pat the fish on the head and put it in the tie it to the Book Bank with the Long String--there, you even hid the string, so it looks extra neat.[paragraph break]";
+		now long string is in lalaland;
+		now art fine is in lalaland;
+		now story fish is in Discussion Block;
+		say "[if harmonic phil is in Discussion Block]Harmonic Phil snickers. 'Well, Art was smart and all, but he was getting kind of boring anyway. And he didn't know a THING about music.'[else]Well, that's Phil AND Art gone.[end if]";
+		increment the score;
+		annotize art fine;
 		the rule succeeds;
-	if know-jerks is true:
-		say "You look at the Insanity Terminal. It's big on logic puzzles, like the one you're struggling with, with the [j-co]. Maybe you could program it. Give it a shot?";
-		if the player yes-consents:
-			repeat through table of fingerings:
-				say "[jerky-guy entry]: [blackmail entry][line break]";
-			now jerks-spoiled is true;
-		else:
-			say "OK.";
-		do nothing instead;
-	if terminal is examined:
-		say "You re-read the clues." instead;
-	repeat through table of quiz lines:
-		say "[qline entry][line break]";
-	if ffffffff is false:
-		say "Go FFFFFFFF at any time to disable my editorializing!";
-	say "There's a cursor, and you can probably just type out the right answer on, uh, the cursor before YOU[if ever-examined-number is false]. And you can examine an individual question, too, e.g. X 2[end if]. Convenient!";
-	if x-term-yet is false:
-		say "You can also X 1 or just type 1 to see an individual question again.";
-	now x-term-yet is true;
+	say "[if harmonic phil is in Discussion Block and player is in Discussion Block]Harmonic Phil hums loudly over the sound of the fish talking. You'll need to ... fish for another way to get rid of Phil.[else]'Eh? Where'd everyone go? I'll wait [']til there's a crowd to tell my story.'[end if]";
 	the rule succeeds;
-
-to say ps:
-	say "[if screen-read is true] [else])[end if]"
-
-table of quiz lines
-qline
-"1. How many times is one answer the same letter as the previous? a[ps]0 b[ps]1 c[ps]2 d[ps]3 e[ps]4 f[ps]5"
-"2. How many letters appear in more than one right answer? a[ps]0 b[ps]1 c[ps]2 d[ps]3 e[ps]4 f[ps]5"
-"3. The first answer with A is a[ps]1 b[ps]2 c[ps]4 d[ps]5 e[ps]7 f[ps]8"
-"4. How many questions have A's as correct answers? a[ps]0 b[ps]1 c[ps]2 d[ps]3 e[ps]4 f[ps]5"
-"5. This answer is a mirror image (A/F, B/E, C/D) of which other answer? a[ps]6 b[ps]5 c[ps]4 d[ps]3 e[ps]2 f[ps]1"
-"6. The right answer to this question is a[ps]a b[ps]b c[ps]c d[ps]d e[ps]e f[ps]f"
-"7. At least one of each letter is a correct answer a[ps]false b[ps]false c[ps]true d[ps]false e[ps]false f[ps]false"
-"8. How many questions have vowels as correct answers? a[ps]0 b[ps]1 c[ps]2 d[ps]3 e[ps]4 f[ps]5"
-
-chapter linereading
-
-ever-examined-number is a truth state that varies.
-
-linereading is an action applying to one number.
-
-understand "x [number]" and "examine [number]" as linereading when player is in belt below and terminal is in belt below.
-
-carry out linereading:
-	let ql be number of rows in table of quiz lines;
-	if the number understood < 1 or number understood > ql:
-		say "The Insanity Terminal only has [ql] questions, so pick a number from 1 to [ql]." instead;
-	choose row number understood in table of quiz lines;
-	say "[qline entry][line break]";
-	now ever-examined-number is true;
-	now x-term-yet is true;
-	the rule succeeds;
-
-ffffffff is a truth state that varies.
-
-chapter ffffffffing
-
-ffffffffing is an action out of world.
-
-understand the command "ffffffff" as something new.
-
-understand "ffffffff" as ffffffffing when player is in Belt Below and Terminal is in Belt Below.
-
-carry out ffffffffing:
-	now ffffffff is whether or not ffffffff is false;
-	say "Insanity Terminal heckling turned [off-on of ffffffff]";
-	the rule succeeds;
-
-chapter abadfaceing
-
-abadfaceing is an action applying to nothing.
-
-understand the command "abadface" as something new.
-understand the command "a bad face" as something new.
-
-understand "a bad face" as abadfaceing when player is in Belt Below.
-understand "abadface" as abadfaceing when player is in Belt Below.
-
-carry out abadfaceing:
-	if jerks-spoiled is true:
-		say "[one of]The Insanity Terminal emits an ultrasound squeal that brings you to your knees. It's probably mad you made it solve the [j-co] for you and doesn't believe you solved its harder puzzle on your own. Or rather, its calculations lead it to suspect cheating[or]Nah. You don't want the Terminal to squeal at you again (note: on winning, you'll get a code where you can solve the terminal the right way and see what's below)[stopping]." instead;
-	if Insanity Terminal is in Belt Below:
-		open-bottom;
-		say "You hear a great rumbling as you put on -- well, a bad face -- and the Insanity Terminal coughs and sputters (I guess it was an [activation of terminal illness]Illness Terminal, too! That would explain its--well, as close to a mood as a computer can get) before cracking in half to reveal a tunnel further below. You feel like you could face a bad...well, you're not sure. But something bad.";
-		now player has a bad face;
-		now face of loss is in lalaland;
-		inc-max;
-		say "[line break]";
-		the rule succeeds;
-	else:
-		say "You already solved the puzzle. If any more of [if A Great Den is visited]A Great Den[else]the floor[end if] collapsed, you might not have a way back up." instead;
-	the rule succeeds;
-
-to open-bottom:
-	now A Great Den is below Belt Below;
-	now Belt Below is above A Great Den;
-	now Insanity Terminal is in lalaland;
-	annotize insanity terminal;
 
 part Classic Cult
 
@@ -9072,6 +9011,77 @@ chapter Mind of Peace
 the mind of peace is a thing. description is "Looking into it, you feel calmer. Better about past put-downs or failures, whether or not you have a plan to improve. Yet you also know, if it helped you so easily, it may be better for someone who needs it even more.[paragraph break]I suppose it could also be a [activation of trust brain]Trust Brain. Ba ba boom."
 
 understand "trust brain" and "trust/brain" as mind of peace.
+
+part Truth Home
+
+Truth Home is inside of Disposed Well. It is in Main Chunk. It is only-out. "Nothing feels wrong here, but it feels incredibly uncomfortable[if sid lew is in lalaland] even with Sid Lew gone[end if]. It's also a small home, with the only exit back out."
+
+check going nowhere in truth home:
+	say "The only way out is, well, out." instead;
+
+for writing a paragraph about a person (called arg) in Truth Home:
+	say "[one of]You walk in on a one-sided argument. The louder and bigger of the two getting the most of it. 'Oh, hey,' he says. 'I'm Sid Lew. They call me the Logical Psycho [']cause I'm quick to make one point and move on to something even better. I was worried my energy's wasted on Lee over here. Maybe you, well, Lee over here, he knows boring facts, but not exciting ones. Might even be jealous of my dynamic style. Say, tell this guy, whatshisname, do they call you? C'mon, you've got a chance to SPEAK.'[line break]'Lee Bull.'[paragraph break]'No, what they call you.'[paragraph break]'The Proof Fool.'[paragraph break]'Well, with a name like Bull, well, that maybe has meanings, too, am I right? Right!'[or]Sid Lew continues to explain something Lee Bull doesn't want to hear.[stopping]";
+	now Lee Bull is mentioned;
+	now Sid Lew is mentioned;
+
+chapter Sid Lew
+
+Sid Lew is a baiter-aligned person in Truth Home. description is "He is wearing a t-shirt with an old car on it."
+
+understand "logical/psycho" and "logical psycho" as Sid Lew.
+
+sid-row is a number that varies.
+
+check talking to Sid Lew:
+	say "'Oh yeah, sure, I bet you have interesting questions. But I've probably heard [']em all before. And I'm giving interesting answers to questions you didn't need to know yet. You might want to just listen.' [weird-hyp]" instead;
+
+third-sid-yet is a truth state that varies.
+twothird-sid-yet is a truth state that varies.
+
+every turn when player is in truth home and Sid Lew is in truth home:
+	increment sid-row;
+	if third-sid-yet is false and sid-row is number of rows in table of incisive sid viewpoints:
+		say "Sid takes a brief break. 'Boy! I could deserve good money as a [activation of psychotherapy]therapy psycho! You've only heard the half of my advice so far!'";
+		now third-sid-yet is true;
+		continue the action;
+	if twothird-sid-yet is false and sid-row is number of rows in table of incisive sid viewpoints:
+		say "Sid coughs then warms up for a song. '[activation of pathologic]Oh, logic path, oh logic path!' He's in the home stretch of ideas, now.";
+		now twothird-sid-yet is true;
+		continue the action;
+	if sid-row > number of rows in table of incisive sid viewpoints:
+		now sid-row is 0;
+		say "'[activation of ideological]Logical idea, logical idea, logical idea. How can you POSSIBLY disagree with me?' booms Sid. He pauses before starting again.";
+		now twothird-sid-yet is false;
+		now third-sid-yet is false;
+		continue the action;
+	else:
+		choose row sid-row in table of incisive sid viewpoints;
+		say "[sid-sez entry][line break]";
+
+chapter Lee Bull
+
+Lee Bull is a surveyable person in Truth Home. description is "When he's not trying to wave off Sid Lew's arguments, he's grabbing his head with his hands."
+
+understand "proof fool" and "proof/fool" as Lee Bull when player is in Truth Home.
+
+understand "read proof" as a mistake ("He gives you a look like he's been scrutinized enough, really.") when Lee Bull is in truth home and player is in truth home.
+
+check playing the rattle:
+	if player is in truth home:
+		say "Sid Lew looks worried for a second, but goes on. Hm. You interrupted one of his rants, but not at the right time. Maybe someone who understood them better, but just didn't have the guts to speak back, could use the rattle. Who could that be, now." instead;
+	if number of people in location of player > 1:
+		say "You don't know if it's worth deliberately annoying anyone here." instead;
+	say "Rattle, rattle. It gives you a headache. Maybe if you were more Type A, it'd drive you totally up the wall." instead;
+
+check talking to Lee Bull:
+	say "Before Lee Bull can talk, Sid Lew cuts in. 'Quit distracting him! Y'got anything as interesting and profound to say as me? Well, you couldn't say it right, anyhow,' he roars. 'And if you DO have somewhere I'm wrong, well, it's selfish not to let Lee find it himself. He's, like, a truthseeker or something.' [weird-hyp]" instead;
+
+to say weird-hyp:
+	say "Sid Lew's voice is weirdly hypnotic and rhythmic, for all its bluster. How to cut into it? You could never win an argument."
+
+a thing called The Trade of Tricks is a proper-named thing. description is "[one of]You got laughed at enough for reading, much less re-reading, in middle school, so you learned to cut that nonsense out--especially books you just liked. Because it was easier to get caught if you were absorbed in a book. But this--you can't help yourself. You earned this book. You feel like the lessons may not sink in for a few days, but all the same--man! You learned a lot! And you feel like sharing.[or]You pick up a few more tricks re-reading. But you realize others may need the book even more than you.[stopping]"
+
+understand "book" as trade of tricks when player has trade of tricks.
 
 part Scheme Pyramid
 
@@ -9250,6 +9260,795 @@ to say safety-of:
 check taking sound safe:
 	if player is in Discussion Block:
 		say "No, you like it here. Good insurance against Harmonic Phil coming back." instead;
+
+part Speaking Plain
+
+Speaking Plain is north of Nominal Fen. It is in Main Chunk. "Roads go in all four directions here. North seems a bit wider. West leads [if keep is visited]back to Temper Keep[else]indoors[end if]. But the main 'attraction' is [if fright stage is examined]Fright Stage[else]a huge stage[end if] in the center."
+
+understand "treat dutch" as a mistake ("[activation of dutch treat]You get the feeling that Uncle Dutch could say, no, I'll pay for everything, blackmailing you into declining his offer and, in fact, playing even more than you intended to. And of course he wouldn't go anywhere cheap.") when player is in speaking plain and dutch is in speaking plain.
+
+check going nowhere in speaking plain:
+	if noun is inside:
+		try going west instead;
+	if noun is outside:
+		say "You already are." instead;
+
+The Fright Stage is scenery in Speaking Plain. "It's decorated with all manner of horrible fate for people that, you assume, messed up in life. From homelessness to getting fired to visiting a porn store on Christmas Day to just plain envying other people with more stuff or social life, it's a mural of Scared Straight for kids without the guts to do anything jail-worthy."
+
+understand "business/show" and "business show" as Fright Stage when player is in Speaking Plain.
+
+Turk Young is a baiter-aligned person in Speaking Plain. description is "He seems a little trimmer, a little better dressed, and a little taller than you. And of course a lot more confident. Even when he's letting Uncle Dutch speak, his furious nods indicate control. He is clearly a fellow who is Going Places, and the Fright Stage is an apprenticeship."
+
+Uncle Dutch is a baiter-aligned person in Speaking Plain. description is "The sort of adult you used to think was just really muscular, but now that you're as tall as a lot of them, you're willing to admit it's fat. His hair looks either artificial or combed-over, his teeth disturbingly white when he talks.[paragraph break]You'd say he looked avuncular if someone twisted your arm to say it (though come to think of it, you've gotten your arm twisted for saying words like avuncular, too,) but then again, he looks like he'd hire people to do that."
+
+to say stage-talk:
+	say "He'd be intimidating enough even if he weren't up there on the Fright Stage. Between [one of]Turk and Dutch[or]Dutch and Turk[at random], you can't get a word in, anyway"
+
+check talking to Turk Young:
+	say "[stage-talk]." instead;
+
+check talking to Uncle Dutch:
+	say "[stage-talk]." instead;
+
+dutch-blab is a number that varies.
+
+no-dutch is a truth state that varies.
+
+every turn when Alec Smart is in Speaking Plain and Speaking Plain was visited and Dutch is in Speaking Plain:
+	if no-dutch is true:
+		now no-dutch is false;
+		continue the action;
+	increment dutch-blab;
+	if dutch-blab > number of rows in table of dutch-blab:
+		now dutch-blab is 1;
+		say "'THUS ENDS THE BUSINESS SHOW.' Uncle Dutch and Turk Young shout in unison before applauding each other. They then look to you and sigh when you fail to applaud. 'Despite all our flourishes, he dares insinuate it was an [activation of show off]OFF SHOW,' notes Uncle Dutch. They [activation of stand the pace]pace the stand for a bit.[paragraph break][one of]You look back on all their advice and realize none of it could even conceivably help you with what you need to do, here. At least they're not stopping you from going anywhere.[or]They're going to start up again soon. But it can't be that bad the next time through.[stopping]";
+	else:
+		choose row dutch-blab in table of dutch-blab;
+		say "[banter entry][line break]";
+
+for writing a paragraph about a person (called udyt) in Speaking Plain:
+	say "[one of]As you approach the stage, the man and the teen on it boom: 'Approach the Fright Stage with care! Uncle Dutch and Turk Young bring it hard and keep it real with the [activation of show business]BUSINESS SHOW! With thanks to the [bad-guy] for not arresting us yet and who will one day let us call him [bg]!'[or]Uncle Dutch and Turk Young continue spouting practical philosophy lessons.[stopping]";
+	now uncle dutch is mentioned;
+	now turk young is mentioned;
+
+part Temper Keep
+
+Temper Keep is west of Speaking Plain. Temper Keep is in Main Chunk. "[if sal-sleepy is true]Temper Keep is nice and quiet and inoffensive-smelling now. Nothing much to do except go back east[else][one of]You find yourself hyperventilating as you enter, not due to any mind control, but because--well, it stinks[or]It still sort of stinks in here[stopping]. It would stink even worse if you couldn't go back east. [say-vent][end if]."
+
+check going nowhere in Temper Keep:
+	say "You're a bit annoyed to see there are no ways out except east. But then again, you'd also be annoyed if there was more to map. Annoying." instead;
+
+to say say-vent:
+	say "[one of]You look around for the cause, and you only see a vent shaped like a spleen[or]The spleen vent catches your eye[stopping]"
+
+Volatile Sal is a person in Temper Keep. "[if sal-sleepy is true]Volatile Sal is snoozing in a corner by [sp-vent]. It [op-jump].[else][one of]'Oh, man! [bad-guy] maybe finally sent someone to fix...' An angry looking man takes a sniff. 'You smell awful too! What is it with all these visitors? Anyway, I'm Volatile Sal. Nice to meet you. Be nicer if you smelled better.'[or]Volatile Sal paces around here anxiously, holding his nose every few seconds.[stopping][end if]"
+
+to say op-jump:
+	if jump-level is 4:
+		say "even smells nice, too";
+	else:
+		say "does smell nicer here after your operations"
+
+check putting pot on sal:
+	try giving poory pot to sal instead;
+
+understand "angry man" as Sal when player is in Temper Keep.
+
+description of Volatile Sal is "[if sal-sleepy is false]Sal paces around, grabbing at his hair or clothes and waving his hands as if to rid the stink. As you glance at him, he points at YOU.[else]He's curled up, happy and relaxed, dreaming better dreams than he probably deserves to.[end if]"
+
+sal-sleepy is a truth state that varies.
+
+The Spleen Vent is scenery in Temper Keep. "Carved into the vent is the phrase SPLEEN VENT. A [if sal-sleepy is true]weird but pleasant aroma[else]bad stench[end if] rises from it[if relief light is off-stage]. It looks like something's glowing behind it, but you'd have to open the vent to find out[end if]."
+
+check entering vent:
+	say "You're too big, but as you imagine being small enough to explore, you muse: boy, [activation of venturesome]you're some vent!" instead;
+
+check opening vent:
+	if sal-sleepy is false:
+		say "Not with Sal all anxious you aren't. He'd probably yell 'VANDALISM' or whatever. But you could fit something in there." instead;
+	if relief light is off-stage:
+		now player has relief light;
+		say "You open it and swing your arm around. Ah, there's something--the light source. It's got RELIEF scratched into it. You take it." instead;
+	say "You already did. There's nothing else in there." instead;
+
+to say sp-vent:
+	say "[if spleen vent is examined]the Spleen Vent[else]a vent[end if]";
+
+check talking to volatile sal:
+	say "[if sal-sleepy is true]You don't want to risk waking him. Who knows what new faults he might find?[else]'Um, yeah, um, back up. I really don't want to smell your breath. Just in case.' He curses the [bad-guy] for both not caring about the smell here and actively being the cause of it.[end if]" instead;
+
+check inserting it into (this is the put it in vent rule):
+	if second noun is spleen vent:
+		if noun is poetic wax:
+			say "It might calm Sal down, but you're not sure if it would be wasted on him. Or worse, he might write some of that manic poetry that's too much for you." instead;
+		if noun is wacker weed:
+			say "That might calm Sal down, but how would you explain things to Pusher Penn? Perhaps a different variety of...vegetation.";
+			now pot-not-weed is true instead;
+		if noun is poory pot:
+			now poory pot is in lalaland;
+			now sal-sleepy is true;
+			say "As you stuff the thin roll into the vent, it tumbles down to what you can only assume is an incinerator or air flow or something in Temper Keep's foundation you'd be better off not touching in normal circumstances.[paragraph break]The 'aromatics' of the poory pot seep into the air in Temper Keep. 'Is it just me, or is it not stinky in here? Yes! Yes! It is probably some combination of both!' You stand well out of the way as Sal continues to babble, his pseudo-philosophy becoming ever more pseudo- before...clonk. An [activation of sound asleep]asleep sound. You wait a minute to make sure. Yup, he's out.";
+			increment the score;
+			annotize pusher penn;
+			set the pronoun it to spleen vent;
+			the rule succeeds;
+		if noun is long string:
+			say "You fish in the vent with the string, but nothing comes up." instead;
+		say "That doesn't seem to fit." instead;
+
+section relief light
+
+The relief light is a thing. description of relief light is "It glows comfortingly. You feel happier and smarter, even if you don't understand how it works. Just looking at it and holding it makes you feel better, but maybe there's someone who needs it even more than you."
+
+part Questions Field
+
+Questions Field is north of Speaking Plain. It is in Main Chunk. "North is what can only be the [bad-guy]'s lair: Freak Control. You can go back south to the Speaking Plain, [if reasoning circular is not off-stage]though Buddy Best probably won't welcome you back west[else]and also you can go west to [c-house][end if]."
+
+check going south in questions field when got-pop is true:
+	say "No. You've drunk the quiz pop, and it's time to face the [bad-guy]." instead;
+
+to say c-house:
+	say "[if contempt is visited]the Court of Contempt[else]a courthouse[end if]";
+
+check going nowhere in questions field:
+	if noun is inside:
+		say "There are two ways to go inside: north and west." instead;
+	if noun is outside:
+		say "You already are." instead;
+	if noun is east:
+		say "The path grows tangled and too intimidating. You might get lost." instead;
+
+qp-hint is a truth state that varies.
+
+to say bro-i-we:
+	say "[if bros-left is 1]I[else]We[end if]";
+
+check going north in Questions Field:
+	if bros-left > 0:
+		say "[random bro in Questions Field] wags a finger dolefully. [one of]'[bro-i-we] can't let you by to see the [bad-guy]. What was his joke?' He pauses. '[bro-i-we] had ONE JOB!'[or]'[bro-i-we] have one job.'[stopping][line break]'He wasn't being cruel. He's nice once you get to know him, we hear. But if he had to be nice to too many people, it'd get diluted.'" instead;
+	if cookie-eaten is true:
+		say "Bye-bye, Questions Field. A question mark pops out from the side and tries to hook you out of Freak Control, but that's a stupid trap. The exclamation mark that tries to bash you? A punch disables it.";
+		continue the action;
+	if off-eaten is true:
+		say "A question mark pops out from the side and tries to hook you, but you throw your shoulders up in exasperation just so--one arm knocks the question away, and the other deflects an exclamation mark coming from above. Weird. It's more motivation than ever just to get OUT of here, already.";
+		continue the action;
+	if greater-eaten is true:
+		say "A question mark pops out from the side and tries to hook you, but you reflexively throw an arm and knock it out without even looking. Same for an exclamation mark from above. Yup, YOU were listening when Guy Sweet was talking.";
+		continue the action;
+	if brownie-eaten is true:
+		say "A question mark pops out from the side and tries to hook you, and then an exclamation mark clubs you on the head. But it's soft and foamy, and you laugh a bit. 'You know,' you say, 'I need to learn to toughen up.'[paragraph break]'Dude! Someone willing to take a little hazing! It's about time!' Oh man! You've made a good first impression!";
+		continue the action;
+	if got-pop is false:
+		now qp-hint is true;
+		say "[one of]A question mark pops out from one side of the entry and hooks you back. Then an exclamation mark clubs you on the head. Dazed, you roll back. Questions ring through your head: what makes you think you deserve to confront the [bad-guy]? Or that you have any chance of success? Perhaps a minor stimulant could perk you up.[or]The ambush looms, and you don't have the confidence to deal with it yet. You need a stimulant of some sort. You know it's there, and you can't avoid it, and that's what's frustrating.[stopping]" instead;
+	else:
+		say "Right-o. Now you've had that quiz pop, you're not going to let any question-mark hooks or exclamation-mark clubs get to you. You can handle both. You duck instinctively, and--YES! The question mark that should've hooked your neck springs out, and the exclamation mark meant for your head whacks the question mark."
+
+chapter Keeper Brothers
+
+a bro is a kind of person.
+
+to decide what number is bros-left:
+	let Q be 0;
+	decide on the number of stillblocking people.
+
+definition: a person (called p) is stillblocking:
+	unless p is in Questions Field, decide no;
+	if p is a bro, decide yes;
+	decide no;
+
+for writing a paragraph about a person (called bro) in Questions Field:
+	if jump-level < 4:
+		say "[one of]Three brothers block the way ahead to the north. They're imposing, each in his own way. 'Greetings, Traveler. We are the [activation of brother's keepers]Keeper Brothers: Brother Big, Brother Blood, and Brother Soul. We must guard Freak Control, headquarters of the [bad-guy]. It is the job we are best suited for, and we are lucky the [bad-guy] has given it to us. He said we are free to do something clearly better if we can find it. We have not, yet.'[or][list of stillblocking people] block[if bros-left is 1]s[end if] your way north. '[if bros-left is 1]I'm[else]We're[end if] sorry. It's [if bros-left is 1]my[else]our[end if] job. Until [if bros-left is 1]I[else]we[end if] find a purpose.'[stopping]";
+	else:
+		say "The Keeper Brothers are gone now that you've jumped.";
+	now brother big is mentioned;
+	now brother blood is mentioned;
+	now brother soul is mentioned;
+
+section Brother Big
+
+Brother Big is a bro in Questions Field. description is "He is a foot taller than either of his brothers, but his eyes seem duller, and he frequently scratches his head."
+
+to check-left:
+	say "[line break]";
+	if bros-left is 2:
+		say "The two remaining brothers look jealously at their departed companion, then beseechingly at you. Maybe you can help them, too?";
+	if bros-left is 1:
+		say "[random bro in Questions Field] says, 'Well. Guess one of us had to be last. But...think you could help me, too?' You're pretty sure you can.";
+	if bros-left is 0:
+		say "Oh, man! The way north is free now! As the final brother leaves, he turns to say 'Beware...trap...question mark...exclamation mark...'";
+		unlock-verb "fancy";
+		if silly boris is in lalaland:
+			unlock-verb "notice";
+		annotize terry sally;
+		annotize fritz the on;
+		annotize stool toad;
+	increment the score;
+
+litany of Brother Big is the table of Brother Big talk.
+
+table of b1 - Brother Big talk
+prompt	response	enabled	permit
+"Hi. Having fun--guarding--whatever?"	big-hi	1	1
+"Your duty. What's he done for you?"	big-duty	0	1
+"That's sad. I wouldn't take that. Well, in theory, at least."	big-theory	0	1
+"[if big-go is talked-thru]So, anything that'd give you an excuse to move on[else]Any way I could give you a reason to take a vacation[end if]?"	big-go	0	1
+"What do you really think of the [bad-guy]?"	big-baiter	0	1
+"What about Brother Foster?"	big-foster	0	1
+"[later-or-thanks]."	big-bye	3	1
+
+table of quip texts (continued)
+quip	quiptext
+big-hi	"'Not really. But it is my duty. The [bad-guy] and [bfa] dictated it.'"
+big-duty	"'Well, they explained it was what I was best at. I asked what else and they laughed. Until I had to laugh. I forget why. But apparently I'm not good at laughing at myself. Despite his example, laughing at me or himself. But he always has smart stuff to say.'"
+big-theory	"'It's helping me, though. I'm just not smart enough to figure out why.'"
+big-go	"'Well, if you could help me feel smart. I mean, you seem smart, but I dunno if you could help me feel smart. It's like I'd like a book, not boring like a dictionary or too fluffy. But one that just helps me, you know?'"
+big-baiter	"'I figure I'll appreciate him more once or if I ever get smarter. He'd help me, but he's too busy.'"
+big-foster	"'[bro-fo]. I'm sure he had a clever reason for my own good.'"
+big-bye	"'Good-bye.'"
+
+after quipping when qbc_litany is litany of Brother Big:
+	if current quip is big-hi:
+		enable the big-duty quip;
+		enable the big-baiter quip;
+	if current quip is big-duty:
+		enable the big-theory quip;
+	if current quip is big-theory:
+		enable the big-go quip;
+	if current quip is big-hi:
+		enable the big-baiter quip;
+	if current quip is big-bye:
+		terminate the conversation;
+
+section Brother Soul
+
+Brother Soul is a bro in Questions Field. description is "His frowning and moping make him perfect for standing guard but not much else. He might not try to stop you if you passed by just him, but you'd feel guilty for doing so."
+
+litany of Brother Soul is the table of Brother Soul talk.
+
+table of b2 - Brother Soul talk
+prompt	response	enabled	permit
+"Hi there! Why are you moping here and not somewhere more soulful?"	soul-why	1	1
+"Why not get out and live? See people?"	soul-live	0	1
+"Maybe there's a quick fix?"	soul-fix	0	1
+"How's him being self-absorbed better than the same from you?"	soul-how	0	1
+"What if I found something to help your malaise or ennui or whatever?"	soul-what-if	0	1
+"What about Brother Foster?"	soul-foster	0	1
+"[later-or-thanks]."	soul-bye	3	1
+
+table of quip texts (continued)
+quip	quiptext
+soul-why	"'Well, it all started when [bfa] took me to the [bad-guy] to show what REAL soul was, and how he enjoyed life more, too. He said he'd give me weekly lessons and all I had to do was guard Freak Control to the north.'"
+soul-live	"'The [bad-guy] made it pretty clear that's what I should do, in an ideal world, and it'd help me, but it might not help the people I got out and saw. It'd be selfish. Well, he helped me get out of Idiot Village, and apparently the rest's up to me.'"
+soul-fix	"'Oh, if there was, I would've found it. And if I haven't, well, that's my own fault. For being more self-absorbed than I should be. It's totally different from the [bad-guy] being self-absorbed.'"
+soul-how	"'Well, when he's self-absorbed, it's really thinking about others, because they have fun hearing him talk about himself. Me, not so much. The only quick fixes are probably illegal and unhealthy. Woe is me!'"
+soul-what-if	"'Oh, it would be nice. But it would be too much to ask. Something to relieve the darkness and burden. I could never find it myself, though.'"
+soul-foster	"'[bro-fo]. It made me upset.'"
+soul-bye	"'Best of luck. It's nothing personal, blocking you, you know. It's not like I'm blocking you on Facebook or something.'"
+
+after quipping when qbc_litany is litany of Brother Soul:
+	if current quip is soul-why:
+		enable the soul-live quip;
+	if current quip is soul-live:
+		enable the soul-fix quip;
+	if current quip is soul-fix:
+		enable the soul-how quip;
+	if current quip is soul-how:
+		enable the soul-what-if quip;
+	if current quip is soul-bye:
+		if soul-what-if is talked-thru:
+			enable the soul-what-if quip;
+		terminate the conversation;
+
+section Brother Blood
+
+Brother Blood is a bro in Questions Field. description is "He jitters with rage for a few seconds, then takes a few breaths, whispers to calm himself down, then starts over again."
+
+litany of Brother Blood is the table of Brother Blood talk.
+
+table of b3 - Brother Blood talk
+prompt	response	enabled	permit
+"Whoah, hey, you seem tense."	blood-hi	1	1
+"Well, it might not be all you."	blood-maybe	0	1
+"The really smart people, they can be really manipulative. I been there."	blood-manip	0	1
+"Anything that might help you calm down?"	blood-calm	0	1
+"Well, hey, you got through all my questions without getting mad at me. That's a start."	blood-all	0	1
+"What about Brother Foster?"	blood-foster	0	1
+"[later-or-thanks]."	blood-bye	3	1
+
+table of quip texts (continued)
+quip	quiptext
+blood-hi	"'Yeah. Well, it started the first time Brother Foster introduced us to the [bad-guy]. He cracked a few self-depreciating jokes then gave me a few to laugh at. But I got all mad. Took a swing. He said he bet he wasn't the first I lashed out at. He was right.'"
+blood-maybe	"'Maybe not, but it's ENOUGH me, you know? And the [bad-guy] said maybe some inactivity might help me. Only lash out at people who deserve it. Like trespassers trying to bug him. If I hung around smart people, I might get angry at them. So I'm sort of more useful here.'"
+blood-manip	"'Yeah. The [bad-guy] says [bad-guy-2] can be even more manipulative. Makes me all agitated about what happens if I ever lose this post.'"
+blood-calm	"'Well, the [bad-guy] joked that even a stupid spiritual healing stone might not help me. If those things worked at all. Which they can't. I better not believe it since he took me away from Idiot Village.'"
+blood-foster	"'[bro-fo]. It made me mad.'"
+blood-all	"'Yeah. Not like they were really challenging or edgy, though. I mean, it feels nice to talk and stuff but the [bad-guy] said questions like yours weren't real nitty-gritty. No offense.'"
+blood-bye	"'Later. You, um, yeah, seem okay.'"
+
+foster-yet is a truth state that varies.
+
+to say bfa:
+	say "[activation of brother foster]Brother Foster";
+	if foster-yet is false:
+		now foster-yet is true;
+		choose row with response of blood-foster in table of b3;
+		now enabled entry is 1;
+		choose row with response of soul-foster in table of b2;
+		now enabled entry is 1;
+		choose row with response of big-foster in table of b1;
+		now enabled entry is 1;
+
+to say bro-fo:
+	say "He left us in Idiot Village after meeting the [bad-guy]. Cause we were getting jealous of him, and all he could do, and we--he--didn't need that";
+		choose row with response of blood-foster in table of b3;
+		now enabled entry is 0;
+		choose row with response of soul-foster in table of b2;
+		now enabled entry is 0;
+		choose row with response of big-foster in table of b1;
+		now enabled entry is 0;
+
+after quipping when qbc_litany is litany of Brother Blood:
+	if current quip is blood-hi:
+		enable the blood-maybe quip;
+	if current quip is blood-maybe:
+		enable the blood-manip quip;
+	if current quip is blood-manip:
+		enable the blood-calm quip;
+	if current quip is blood-calm:
+		if blood-all is not talked-thru:
+			enable the blood-all quip;
+	if current quip is blood-bye:
+		terminate the conversation;
+
+part Court of Contempt
+
+Court of Contempt is west of Questions Field. It is in Main Chunk. "Boy, it's stuffy in here! You can't actually hear anyone sniffling, but you can, well, feel it. You can escape back east."
+
+check going nowhere in Court of Contempt:
+	if noun is outside:
+		try going east instead;
+	say "'So, you the sort of person who runs into walls a lot? Not that there's anything wrong with that.' Yup. Looks like back east's the only way out." instead;
+
+Buddy Best is a baiter-aligned person in Court of Contempt. "[one of]But wait! Someone here looks excited to see you! Not happy, but excited.[paragraph break]'Yah. Hi. I'm Buddy Best. You seem real nice. Nice enough not to waste too much of a [if allow-swears is true]dedicated lawyerly [activation of nutcase]case nut, job nut, whichever,[else][activation of attorney general]general attorney[end if] like me.'[paragraph break]Okay, never mind.[or]Buddy Best waits and taps his foot here.[stopping]". description is "Buddy Best has a half-smile on his face, which is totally a delicate balance of happiness and seriousness and not a sign of contempt, so stop saying that."
+
+the Reasoning Circular is a thing. description is "It's full of several pages why you're great if you think you are, unless you're lame, in which case you don't know what great means. There's a long tag stapled to it."
+
+before doing something with a long tag:
+	ignore the can't give what you haven't got rule;
+	if action is undrastic:
+		continue the action;
+	if current action is giving:
+		say "(giving the Reasoning Circular instead)[line break]";
+		try giving Reasoning Circular to the second noun instead;
+	say "You don't need to fiddle with the tag. It's part of the Circular. Plus, it's a ticket to somewhere that might help you get rid of someone." instead;
+
+the long tag is part of the Reasoning Circular. description is "It's stapled to the Reasoning Circular and reads:[paragraph break]By Order of the [bad-guy]:[paragraph break]The holder of this ticket is entitled, irregardless (I know, I'm being ironic and vernacular) of station or current responsibility, to visit Enough Fair (you know, that place newbies won't find), a whirlwind event of social skills where the bearer learns[paragraph break][2da]1. how to yell at others to stop complaining life's not fair AND still point how it's rigged against you[line break][2da]2. Of course, not trying to be too fair. People who overdo things are the worst![line break][2da]3. Lots more, but if we wrote everything, you wouldn't need to show up. Ha ha."
+
+litany of buddy best is the table of Buddy Best talk.
+
+table of bb - Buddy Best talk
+prompt	response	enabled	permit
+"Wow, so, um, you do lawyering stuff?"	best-law	1	1
+"What sort of interesting people?"	best-int	0	1
+"Can you see the good side of me?"	best-good	0	1
+"That's kind of corrupt, isn't it?"	best-dirty	0	1
+"What do you think of the [bad-guy]?"	best-baiter	1	1
+"[later-or-thanks]."	best-bye	3	1
+
+table of quip texts (continued)
+quip	quiptext
+best-law	"'Brilliant. Yeah. I kind of see the good side of people. Well, interesting people. They don't even have to be as interesting as [bg]. But they better be close.'"
+best-int	"'Oh, you know. People who break the rules. Break [']em creatively enough to be able to afford my fees. Nobody too square. No offense.'"
+best-good	"'Look, I already said I'm sure you're nice, and all. Whether or not you pick your nose too much. There. Happy with that? No? Well, I did my best. Can't do much more for ya.'"
+best-dirty	"'Y'know, that's shameful coming from you. Maybe someone said you were really weird, but it turned out you were only kind of weird? I'm doing the same thing. But for criminals. I mean, suspected criminals. Look, I can't have these accusations.'"
+best-baiter	"'Obviously [bg] knows what's what. We had a good long discussion on dorkery, nerdery and geekery, and how it's busted out since the Internet blew up. We can say that. We're both hip to nerd culture, but we need to keep less consequential dorks, nerds and geeks from defining the lot of us. Aggressively. He's really fair, though. He doesn't insult anyone else without insulting himself first. Just--others, well, without self-awareness.'"
+best-bye	"'Not very curious of you there. I'm an interesting fella, yet you...'"
+
+check going west in Questions Field:
+	if Reasoning Circular is not off-stage:
+		say "As you're about to enter, a voice from a hidden loudspeaker booms 'Get better? Better GET!'[paragraph break]Buddy Best has seen enough of you. Hmm, come to think of it, you've seen enough of Buddy Best. You're surprised he even gave you the Reasoning Circular, and you proably couldn't explain why you [if player has circular]haven't used it yet[else]gave it to Officer Petty[end if], anyway." instead;
+
+after quipping when qbc_litany is table of Buddy Best talk:
+	if current quip is best-law:
+		enable the best-int quip;
+	if current quip is best-int:
+		enable the best-good quip;
+		enable the best-dirty quip;
+	if current quip is best-bye or current quip is best-good or current quip is best-dirty:
+		terminate the conversation;
+		say "Buddy waves his hands to change the subject. 'Well, I don't want to waste any more of your time,' he says, with fake humility not meant to be convincing. You freeze.";
+		wfak;
+		say "[line break]'Negotiator, eh? Standing your ground? I'm sure you're nice once I get to know you even if you're not as nice as [bg] once you get to know him, but if you go I'll give you some real efficient self improvement stuff. No [activation of prosecutor]cuter prose. [activation of readjust]Just read. I'm sure you're smart enough to understand. [']Cause you probably should've understood it a few years ago. Look, I don't want to waste any more of your time.' Buddy Best throws the newsletter at you as you leave.";
+		wfak;
+		say "[line break]You pick it up. [i]Reasoning Circular[r]. Well, it's something. Which is more than you expected. Generally, obnoxious fast-talkers wound up taking something from YOU after a short, loud, fast dialog.";
+		it-take Reasoning Circular;
+		move player to Questions Field, without printing a room description;
+		say "[bold type]Questions Field[paragraph break][roman type]The [if bros-left is 3]Brothers look[else if bros-left is 2]remaining Brothers look[else]remaining Brother looks[end if] unsurprised you got thrown out. Well, at least you have this...Reasoning Circular now.";
+		annotize buddy best;
+
+part Walker Street
+
+Walker Street is east of Speaking Plain. It is in Main Chunk. "A huge mistake grave blocks passage south, but to the north is [if standard bog is visited]the Standard Bog[else]some swamp or something[end if], east is some sort of museum, and you can go inside [gateway-desc]. Or you can go back west to the Speaking Plain."
+
+check going inside in walker street:
+	if poory pot is in lalaland:
+		say "[one of]As you walk in, Pusher Penn asks if you enjoyed your 'payment.' But you manage to give a version of the truth that seems even more preposterous than if you'd actually sampled the stuff. 'THE THANKS I GET!' he booms. 'DON'T COME BACK.'[or]Pusher Penn really, really doesn't want to see you. But you don't want or need to see him.[stopping]" instead;
+
+the mistake grave is scenery in Walker Street. "It's illuminated oddly, as if a red light were flashing behind it, and reads: IN MEMORY OF [activation of watkins glen]GLEN WATKINS, THE IDIOT WHO WENT ONLY FIVE MILES OVER THE SPEED LIMIT AND DIDN'T HEAR THE JOYRIDERS GOING THIRTY FORTY OR FIFTY OVER THUS RUINING THIS PRIME [activation of driving crazy]CRAZY DRIVING ZONE FOR MORE EXCITING PEOPLE. -[bg][one of].[paragraph break]Well, the message isn't [activation of drive into the ground]ground into the [i]drive[r][or][stopping]."
+
+check going nowhere in Walker Street:
+	if noun is south:
+		say "I'm afraid the Mistake Grave is a [activation of determined bound]determined bound." instead;
+	if noun is outside:
+		say "If there were a red light here, it would flash to say how vague you were. Just north, east, in and west." instead;
+
+understand "pot/chamber" and "pot chamber" as drug gateway when player is in Walker Street
+
+to say gateway-desc:
+	say "[if gateway is examined]the Drug Gateway[else]a gateway[end if] to ";
+	if pot chamber is unvisited:
+		say "[if gateway is not examined]somewhere seedy[else]a place your parents would want you to stay out of it[end if]";
+	else:
+		say "the Pot Chamber"
+
+a long string is a thing in Walker Street. "A long string lies piled up here.". description is "It's coiled, now, but it seems pretty easy to untangle if you want to PUT it IN somewhere deep."
+
+report taking long string:
+	say "You coil the string around itself so it doesn't get too unwieldy.";
+	the rule succeeds;
+
+check entering drug gateway:
+	try going inside instead;
+
+check closing drug gateway:
+	say "There's no way to close it." instead;
+
+check opening drug gateway:
+	say "It already is." instead;
+
+Drug Gateway is scenery in Walker Street. "[one of]You look at it--a weird amalgam of swirls that don't seem to say anything. But they are captivating. Then they come together--DRUG GATEWAY. [or]Now you've seen the pattern in the Drug Gateway, you can't un-see it. [stopping]As you haven't heard any cries or gunshots, yet, it can't be too bad to enter[if pot chamber is visited] again[end if].. you think."
+
+does the player mean entering drug gateway: it is very likely.
+
+part Standard Bog
+
+Standard Bog is north of Walker Street. It is in Main Chunk. "This is a pretty standard bog. It's really slimy and probably has lots of quicksand traps you can't see until it's too late, and... [one of]well, the machine off to the side is not so standard. It seems to be mumbling, trying different ways to express itself. Yes, to use language. A language machine.[or]the Language Machine, still [if wax is in lalaland]burbling poems[else]grinding out dreary sentences[end if].[stopping]"
+
+check going nowhere in standard bog:
+	if noun is inside or noun is down:
+		say "You don't want to get...bogged down." instead;
+	if noun is outside:
+		try going south instead;
+	say "I'm worried you might run into the treacherous [activation of sods law]Law Sods...if you're lucky. It's really only safe to go back south." instead;
+
+The Language Machine is scenery in Standard Bog. "The language machine hums along [if wax is in lalaland]cheerfully[else]balefully[end if], its console spewing out [if wax is in lalaland]poetry, which isn't good, but it's not overblown[else]dolorous, leaden, formulated prose about, well, being stuck in a bog[end if] in its bottom half. In the top half is an LCD [fr-sm]."
+
+to say fr-sm:
+	say "[if wax is in lalaland]smile[else]frown[end if]"
+
+the lcd frown is part of the language machine. description is "BUG"
+
+understand "lcd smile" and "smile" as lcd frown when wax is in lalaland.
+
+instead of doing something with the lcd frown:
+	say "The [fr-sm] is just a output of the computer's feelings. [if wax is in lalaland]You already helped it[else]You could maybe help it somehow[end if]."
+
+check opening the language machine:
+	say "It's probably too complex to tinker with." instead;
+
+check talking to language machine:
+	say "It processes your words and converts them into an [if wax is in lalaland]amusing poem[else]angsty story[end if]. But it doesn't seem to notice you, being a machine[if wax is in lalaland]. Just as well. You've done what you can[else]. Maybe there's something that can modify how it sees its input." instead;
+
+to say no-pos:
+	say "The machine is humming along and poeticizing happily. It needs no more possessions"
+
+check inserting into the language machine:
+	if poetic wax is in lalaland:
+		say "[no-pos]." instead;
+	try putting noun on language machine instead;
+
+check putting on the language machine:
+	if poetic wax is in lalaland:
+		say "[no-pos]." instead;
+	if noun is poetic wax:
+		now wax is in lalaland;
+		now player has trick hat;
+		say "The language machine emits a few weird meeps, then the wax seeps into it. The words on the terminal change from well-organized paragraphs to clumps of four in a line. You steel yourself and read a few...";
+		wfak;
+		say "...and they're not that great, but they're uplifting, and if they're still cynical, they have an amusing twist or two. No more FEEL MY ENNUI stuff. If only you could've done that back when you used to write, before you got too grim...well, maybe you still can.[paragraph break]The computer prints out a map for you, of the bog. It has all the pitfalls. You walk to the end to find a bona fide trick hat--like a wizard hat but with clever facial expressions instead of stars and whatnot.[paragraph break]You stick the map back in the computer, since it's really tearing through scratch paper to write poems, and it needs all the paper it can get. It's the least you can do. You won't need to go back, and that hat seems pretty cool. In fact, a bit too cool to wear without a good reason.";
+		set the pronoun it to language machine;
+		increment the score instead;
+	if poetic wax is in lalaland:
+		say "The machine is on a roll. You don't have anything else to give to it, anyway." instead;
+	if noun is story fish:
+		say "[one of]The story fish moans about how it moans occasionally, but it's not as bad as that computer. You probably want to do something more positive for or to the computer[or]You don't want to annoy the story fish into moaning again[stopping]." instead;
+	if noun is contract:
+		say "The machine whirs and coughs. Like any machine, it's used to being told what to do, but the contract may be too restrictive." instead;
+	say "The machine whirs defensively as you get close. Hm, maybe something else would work better." instead;
+
+the Trick Hat is a thing. description is "It's covered in snarky facial expressions and all manner of light bulbs and symbols of eureka moments. You think you even see a diagram of a fumblerooski or a fake field goal if you squint right."
+
+check wearing the trick hat:
+	say "It just doesn't feel...YOU. Maybe it'd look better on someone else." instead;
+
+part Pot Chamber
+
+Pot Chamber is inside of Walker Street. It is in Main Chunk. It is only-out. "This is a reclusive little chamber that smells far more of incense and air freshener than any place has a right to[one of], and after a moment's thought, you realize why[or][stopping]. Any sort of incriminating equipment is probably behind secret passages you'll never find, and you can only go out again."
+
+check going nowhere in pot chamber:
+	say "The only way to go is out." instead;
+
+section Pusher Penn
+
+Pusher Penn is a person in Pot Chamber. description is "He looks rather ordinary, really. No beepers, no weapons, no bulge indicating a concealed weapon. You'd guess he's one of those teens adults refer to as a Fine Young American (or whatever your nationality is) who'll make good in business some day.". "[one of]'Pusher Penn, [activation of go to pot]Pot to Go,' says someone barely older than you. 'Customer? Nah...'[or]Pusher Penn paces here.[stopping]"
+
+check talking to Penn when player has penny:
+	try giving penny to Penn instead;
+
+understand "pen" and "pusher pen" as Pusher Penn.
+
+litany of Pusher Penn is the table of Pusher Penn talk.
+
+table of pp - Pusher Penn talk
+prompt	response	enabled	permit
+"Um, hi, what's up?"	penn-nodrugs	1	1
+"Whoah, I'm, like, all in for DRUGS, BABY!"	penn-drugs	0	0
+"You sell drugs? Isn't that illegal?"	penn-yousell	0	1
+"Wait, isn't it all sort of bad stuff?"	penn-cigarette	0	1
+"Free stuff? Wow! Sure!"	penn-free	0	1
+"Herb Goode?"	penn-herb	0	1
+"Changed my mind. I'll help you out with your delivery."	penn-changed	0	1
+"Whoah, MAN, the COPS!"	penn-cops	0	0
+"What do you think of the [bad-guy]?"	penn-baiter	1	1
+"[later-or-thanks]."	penn-bye	3	1
+
+table of quip texts (continued)
+quip	quiptext
+penn-nodrugs	"'Come on. You know the deal. I sell smokables. The good stuff--I'm not [activation of bum a cigarette]a [i]cigarette bum[r].'"
+penn-yousell	"'Well, the [bad-guy] legalized them, but he gets the markup if they buy from him. And of course he makes fun of the serious druggies, because that's seeing both sides of things. Plus, I think he deals with [bad-guy-2]. No proof, though. Eh, I make a good profit, underselling. [activation of good herb]Herb Goode's rants don't hurt either. Say, if you want a little sample, I just need a small favor.'"
+penn-cigarette	"'Well, I'm not pro-everything. I'm not like ... [activation of kilo]Loki. No crack, [activation of crack up]up, down or even joke. And I helped raise the cigarette tax 1357%, for the public health! Plain old cigarettes are more harmful than weed, because they're less harmful. So don't let me catch you TRYING to smoke in here. What? You never have? Then what's with the sour look? I'll let it slide this time.'"
+penn-drugs	--
+penn-free	"'Ha ha. Well, not quite free. Just a little favor. Make a little delivery. Behind five-oh's back.'"
+penn-herb	"A lot less wishy washy than his sisters. Met [']em? [if classic cult is visited]Yeah[else]No[end if]? People probably start to NOT be like him. Also, I assure my customers I won't rat them to him. For just a small markup."
+penn-cops	--
+penn-changed	"Pusher Penn engages in some are-you-sure-no-are-you-really-sure and then waves you off. 'Enough of this nonsense. I have a business to run."
+penn-baiter	"'Well, we had a confidential conversation, and he says he respects my business initiative, but I better not sell to anyone who matters. That's what got the [activation of pop pills]Pills Pop in trouble, but--too long a story, there.'"
+penn-bye	"[if player has weed]'Get my delivery done there, now.'[else if poory is not off-stage]'Enjoy the goods!'[else]'Well, if you need to do business, let me know.'[end if]" [ok]
+
+check talking to Pusher Penn (this is the drugs trump Penn chats rule):
+	if player has wacker weed:
+		say "Pusher Penn won't be happy to see you haven't made the delivery." instead;
+	if poory pot is not off-stage:
+		say "Pusher Penn shoos you away. You've done enough business with him." instead;
+
+to give-weed:
+	say "'Here you go. Some wacker weed. There's a fella down by the Joint Strip on the monthly deep discount plan. Didn't pick up his allotment. Forget his name, too. Always mumbling. Maybe shouldn't a given him that [activation of weed out]out-weed.' You take the baggie.[paragraph break]";
+	it-take wacker weed;
+
+after quipping when qbc_litany is litany of pusher penn:
+	if current quip is penn-nodrugs:
+		enable the penn-yousell quip;
+		enable the penn-yousell quip;
+		enable the penn-drugs quip;
+		enable the penn-cops quip;
+	if current quip is penn-yousell:
+		enable the penn-free quip;
+	if current quip is penn-free:
+		say "It's tempting. Do you go in for it?";
+		if the player yes-consents:
+			give-weed;
+			disable the penn-drugs quip;
+		else:
+			enable the penn-changed quip;
+			say "'I can wait, kid.'[paragraph break]";
+	if current quip is penn-changed:
+		disable the penn-drugs quip;
+		say "'Here you go. Some wacker weed. Nothing special, nothing I'd trust with an experienced runner. There's a fella down by the Joint Strip on the monthly discount plan. Didn't pick up his allotment.' You take the baggie.";
+		now player has wacker weed;
+	if current quip is penn-bye:
+		terminate the conversation;
+
+some wacker weed is a singular-named smokable. description is "You couldn't tell if it is good or bad, really. But it needs to be delivered. It's in a baggie and everything."
+
+understand "baggie" as wacker weed.
+
+check opening wacker weed:
+	say "Don't dip into the supply." instead;
+
+some poory pot is a smokable. description is "Geez. You can smell it. It's a sickly sweet smell."
+
+part Discussion Block
+
+Discussion Block is east of Walker Street. It is in Main Chunk. "On one wall, a book bank is embedded--like a bookshelf, only tougher to extract the books. On another, a song torch. You can only go back west[if phil is in lalaland and art fine is in lalaland and poetic wax is not in discussion block]. There's not much to do here, now, except maybe page through the bank and torch's selections[end if]."
+
+check going nowhere in discussion block:
+	if noun is outside:
+		try going west;
+	if art is in lalaland and phil is in lalaland:
+		say "No sense searching for Art or Phil or the Creativity Block. You might even get lost and stumble on the Arguments Block, which would be horrible." instead;
+	if art is in lalaland or phil is in lalaland:
+		say "Searching for Creativity Block, where [if art is in lalaland]Art[else]Phil[end if] went, would be counterproductive." instead;
+	say "Discussion Block also blocks you from going any way other than back west." instead;
+
+the poetic wax is in Discussion Block. "Poetic Wax, a whole ball of it, lies here behind [if number of waxblocking people is 0]where Art and Phil used to be[else][list of waxblocking people][end if]."
+
+the indefinite article of poetic wax is "some".
+
+after taking the poetic wax:
+	say "You're worried it might melt or vanish in your hands if you think too much or too little. Poetic things are that way.[paragraph break]Fortunately, it stays firm yet pliable in your hands.";
+
+after examining the poetic wax:
+	if art-wax is not talked-thru:
+		enable the art-wax quip;
+	if phil-wax is not talked-thru:
+		enable the phil-wax quip;
+	continue the action;
+
+description of poetic wax is "It fluctuates through many shades of grey and colors of the rainbow at once. As you look at it, words seem to appear and vanish as it swirls. It becomes whatever you want it to be, but whatever it is, it isn't quite good enough and you think, just one more adjustment...it's the most fun you've had in forever."
+
+check taking the poetic wax:
+	if number of waxblocking people > 0:
+		say "'Oh, no! Certainly not! The poetic wax is a valuable intersection of music and art, one [if number of waxblocking people is 1]I still[else]we[end if] must guard from less artful people! No offense.'" instead;
+
+definition: a person (called p) is waxblocking:
+	if p is art fine or p is harmonic phil:
+		if p is in discussion block:
+			decide yes;
+	decide no;
+
+check going to Discussion Block for the first time:
+	if jump-level < 4:
+		say "[art-phil] / [art-phil] [line break]";
+		wfak;
+		say "The arguers turn to you and introduce themselves as [hi-art-phil] and [hi-art-phil]. They ask if you prefer music or books. You shrug, so they go back to their own arguments.";
+		say "[line break]'[activation of play dumb]Dumb play! Dumb play!' / 'Could've used a [activation of elevator music]music elevator.'";
+		wfak;
+
+to say hi-art-phil:
+	say "[one of]Art Fine[or]Phil Gotsche, but call me Harmonic Phil[stopping]"
+
+to say art-phil:
+	say "'[one of][activation of artifact]A fact, Art[or][activation of philistine]Listen, Phil[in random order]' "
+
+chapter Art Fine
+
+Art Fine is a baiter-aligned person in Discussion Block. description is "He's wearing a shirt with a quote from an author you never read."
+
+litany of Art Fine is the table of Art Fine talk.
+
+table of af - Art Fine talk
+prompt	response	enabled	permit
+"Some place you got here!"	art-hi	1	1
+"Blather like yours is the sort of thing that scared me off reading, you know."	art-pomp	0	0
+"May I check out anything from the Book Bank?"	art-book	0	1
+"What is your aesthetic?"	art-aes	0	1
+"So, what's with wax back there?"	art-wax	0	1
+"What would be totally unsuitable for this fine sanctum? Just so I can, y'know, gaffle anyone who tries before they enter."	art-tol	0	1
+"What do you think of the [bad-guy]?"	art-baiter	1	1
+"[later-or-thanks]."	art-bye	3	1
+
+table of quip texts (continued)
+quip	quiptext
+art-hi	"'It is. Phil[if phil is off-stage], wherever he is,[end if] and I have worked hard to make it a paragon of good taste!'"
+art-pomp	--
+art-aes	"'Well, closed-mindedness. I'll never like that in people. But in art? Ah, I can appreciate anything. Even stuff that's so bad it's good. Especially in the presence of other aficionados. Unless it's just drivel. Of course.'"
+art-book	"'This is not a library! However, if you so choose, you may marvel at the titles, record them for your pleasure, and check them out at your nearest library.' Art mumbles something about you not being able to pay the interest back with exciting criticism of your own. You're pretty sure he meant you to hear it."
+art-tol	"'Drivel so dreary, from a mind so banal. I shudder to think. It would make me run screaming.'"
+art-wax	"[wax-blab]"
+art-baiter	"'[bg] is a top notch fellow. A true patron of the arts. Our aesthetics do line up, and I even suspect he is slightly more partial to me than my friend. He seeks to encourage all art, unless it could be understood by dumb people. Now, art that dumb people SHOULD be able to understand but don't, that's a different story.'"
+art-bye	"[enj-splend]"
+
+to say wax-blab:
+	say "'[one of]It's not for EVERYONE. It helps with the creative process. No drugs, whatever, For poetry is an intersection of music and words, is it not[or]AS WAS ALREADY EXPLAINED, it helps with the creative process. Now I believe in progressive tax structures and all but giving sops to the untalented is really too much[stopping].'"
+
+after quipping when qbc_litany is litany of Art Fine:
+	if current quip is art-hi:
+		enable the art-pomp quip;
+		enable the art-book quip;
+		enable the art-aes quip;
+	if current quip is art-aes:
+		superable art-tol;
+	if current quip is art-bye:
+		terminate the conversation;
+
+chapter Harmonic Phil
+
+Harmonic Phil is a baiter-aligned person in Discussion Block. description is "He's wearing a shirt with a band you never heard of."
+
+understand "gotsche" and "phil gotsche" as Harmonic Phil.
+
+litany of Harmonic Phil is the table of Harmonic Phil talk.
+
+table of hp - Harmonic Phil talk
+prompt	response	enabled	permit
+"Some place you got here!"	phil-hi	1	1
+"That sounded hella pompous."	phil-pomp	0	0
+"What is your aesthetic?"	phil-aes	0	1
+"So, what's with wax back there?"	phil-wax	0	1
+"Is there anything you can't tolerate?"	phil-tol	0	1
+"What do you think of the [bad-guy]?"	phil-baiter	1	1
+"[later-or-thanks]."	phil-bye	3	1
+
+table of quip texts (continued)
+quip	quiptext
+phil-hi	"'Indeed! Even if you do not appreciate our aesthetic fully, it cannot but rub off on you a bit.'"
+phil-pomp	--
+phil-aes	"'Indeed, how can one describe an aesthetic of good music? It just is. Except when it isn't. Good music--not rubbish noise--is music that convinces me to converse about it endlessly! I'm sure I've helped create more good music that way.'"
+phil-wax	"[wax-blab]"
+phil-tol	"'I enjoy any music that can be shown you have to be advanced to enjoy. It engenders discussion! Intelligent discussion! In fact, I only abhor pointless, constant noise.'"
+phil-baiter	"'Why, [bg]'s music criticism is even more wonderful to listen to than the music itself! Even a great piece of music remains the same, but his alternate opinions... the complexity, the variety of though. My, my! [bg]has clued me that he could not perform such mental gymnastics with mere literature. Not that there's anything wrong with it.'"
+phil-bye	"[enj-splend]"
+
+to say enj-splend:
+	say "'Enjoy the splendour of our sanctum of good, but not stuffy, taste.'[no line break]";
+
+after quipping when qbc_litany is litany of Harmonic Phil:
+	if current quip is phil-hi:
+		enable the phil-pomp quip;
+		enable the phil-aes quip;
+	if current quip is phil-aes:
+		superable phil-tol;
+	if current quip is phil-bye:
+		terminate the conversation;
+
+chapter book bank
+
+the book bank is scenery in Discussion Block. "Just filled with books! And interest!"
+
+book-ord is a number that varies.
+
+check examining book bank for the first time:
+	say "It's just filled with books! And interest! But no silly books by, say, Jerome K. Jerome.";
+
+check examining book bank:
+	increment book-ord;
+	if book-ord > number of rows in table of horrendous books:
+		if art fine is in Discussion Block:
+			say "Art Fine sighs. While he's obviously happy to reiterate his opinions on literature, he does need to let you know how kind he is to give his wisdom for free.[paragraph break]";
+		else:
+			say "You go back to the start of the book bank.[paragraph break]";
+		now book-ord is 1;
+	choose row book-ord in the table of horrendous books;
+	if Art Fine is in lalaland:
+		say "Let's see. [i][workname entry][r] by [authname entry]. Looks [one of]confusing[or]baffling[or]dreadfully important[or]best-seller-ish[in random order]." instead;
+	say "'Ah, yes,' drones Art Fine. '[i][workname entry][r]. A most [one of]about-everything-and-nothing-y[or]simple yet complex[or]iconic[or]transformative[or]edifying[or]scintillating[or]complex yet simple[or]zeitgeisty[in random order] read, providing you are a good reader. [authname entry]. A [one of]stirring treatise[or]vigorous discussion[or]tour de force[or]stunning perspective[at random] on [booksubj entry]. And more. [pompous-phrase]! More sensible than some jingle!'";
+	the rule succeeds;
+
+check taking book bank:
+	now Steal This Book is in lalaland;
+	say "You consider trying to Steal This Book, but then you picture the Stool Toad[if Judgment Pass is visited] or Officer Petty[end if] ready to [activation of steal this book]Book This Steal. Even without Art or Phil here to see you." instead;
+
+to say pompous-phrase:
+	say "[one of]Indeed[or]True art[or]Simple, yet complex[or]Quite so[or]Immaculate[or]Ah[or]Fascinating[or]Food for thought[in random order]"
+
+[it--it isn't just about itself. It's about other things, too!]
+
+section all the books
+
+chapter song torch
+
+a song torch is scenery in Discussion Block. "Tacky and glitzy and afire (sorry) with music you're supposed to be smart and worldly enough to appreciate, but you can't."
+
+song-ord is a number that varies.
+
+check examining song torch:
+	increment song-ord;
+	if song-ord > number of rows in table of horrendous songs:
+		if harmonic phil is in Discussion Block:
+			say "Harmonic Phil sighs. While he's obviously happy to reiterate his opinions on music, he does need to let you know how kind he is to give his wisdom for free.[paragraph break]";
+		else:
+			say "Hmm, the songs seem to be repeating.[paragraph break]";
+		now song-ord is 1;
+	choose row song-ord in the table of horrendous songs;
+	if Harmonic Phil is in lalaland:
+		say "You listen, and the song's lyrics seem to indicate it's [i][workname entry][r] by, you guess, [singername entry]. Ridiculous." instead;
+	say "'Ah, yes,' drones Harmonic Phil. '[i][workname entry][r]. A most [one of]titillating[or]sense-enhancing[or]transcending[or]pure-art[or]spine-tingling[in random order] experience, providing you are a good listener. [singername entry]. Such [one of]complex melodies[or]vigorous discussion[or]a tour de force[or]stunning perspective[at random] on [songsubj entry]. And more. [pompous-phrase]! It wouldn't be the same in print!'";
+	the rule succeeds;
+
+check taking song torch:
+	say "Maybe that could reduce a [activation of coals to newcastle]new castle to coals, but you're not sure that'd be a good idea even if you found one. Plus you don't need a light source anywhere in the Compound." instead;
 
 part Judgment Pass
 
@@ -9623,794 +10422,7 @@ good-text	bad-text	undo-text
 "The thoughts idol warps and seems to wobble a bit but you still see if staring back, [idol-dir]."	"You--well, confidence or whatever it was let you down."	"Geez. You were that close. But no chance to stew. You bet you could do it, next time. But you can't say 'Oh, I meant to...'"
 "The thoughts idol spins, coughs, and with a final buzz, it flips into the air and lands on its head! Its eyes spark and go out, and it cracks down the middle. All of Idiot Village comes out to cheer your victory and pound the remnants of the idol into unrecognizeable rubble!"	"You must have been close. But no."	"The idol's look reminds you of when you got a really hard math problem right except for adding 1 and 6 to get 8. People laughed at you. It hurt."
 
-part Speaking Plain
-
-Speaking Plain is north of Nominal Fen. It is in Main Chunk. "Roads go in all four directions here. North seems a bit wider. West leads [if keep is visited]back to Temper Keep[else]indoors[end if]. But the main 'attraction' is [if fright stage is examined]Fright Stage[else]a huge stage[end if] in the center."
-
-understand "treat dutch" as a mistake ("[activation of dutch treat]You get the feeling that Uncle Dutch could say, no, I'll pay for everything, blackmailing you into declining his offer and, in fact, playing even more than you intended to. And of course he wouldn't go anywhere cheap.") when player is in speaking plain and dutch is in speaking plain.
-
-check going nowhere in speaking plain:
-	if noun is inside:
-		try going west instead;
-	if noun is outside:
-		say "You already are." instead;
-
-The Fright Stage is scenery in Speaking Plain. "It's decorated with all manner of horrible fate for people that, you assume, messed up in life. From homelessness to getting fired to visiting a porn store on Christmas Day to just plain envying other people with more stuff or social life, it's a mural of Scared Straight for kids without the guts to do anything jail-worthy."
-
-understand "business/show" and "business show" as Fright Stage when player is in Speaking Plain.
-
-Turk Young is a baiter-aligned person in Speaking Plain. description is "He seems a little trimmer, a little better dressed, and a little taller than you. And of course a lot more confident. Even when he's letting Uncle Dutch speak, his furious nods indicate control. He is clearly a fellow who is Going Places, and the Fright Stage is an apprenticeship."
-
-Uncle Dutch is a baiter-aligned person in Speaking Plain. description is "The sort of adult you used to think was just really muscular, but now that you're as tall as a lot of them, you're willing to admit it's fat. His hair looks either artificial or combed-over, his teeth disturbingly white when he talks.[paragraph break]You'd say he looked avuncular if someone twisted your arm to say it (though come to think of it, you've gotten your arm twisted for saying words like avuncular, too,) but then again, he looks like he'd hire people to do that."
-
-to say stage-talk:
-	say "He'd be intimidating enough even if he weren't up there on the Fright Stage. Between [one of]Turk and Dutch[or]Dutch and Turk[at random], you can't get a word in, anyway"
-
-check talking to Turk Young:
-	say "[stage-talk]." instead;
-
-check talking to Uncle Dutch:
-	say "[stage-talk]." instead;
-
-dutch-blab is a number that varies.
-
-no-dutch is a truth state that varies.
-
-every turn when Alec Smart is in Speaking Plain and Speaking Plain was visited and Dutch is in Speaking Plain:
-	if no-dutch is true:
-		now no-dutch is false;
-		continue the action;
-	increment dutch-blab;
-	if dutch-blab > number of rows in table of dutch-blab:
-		now dutch-blab is 1;
-		say "'THUS ENDS THE BUSINESS SHOW.' Uncle Dutch and Turk Young shout in unison before applauding each other. They then look to you and sigh when you fail to applaud. 'Despite all our flourishes, he dares insinuate it was an [activation of show off]OFF SHOW,' notes Uncle Dutch. They [activation of stand the pace]pace the stand for a bit.[paragraph break][one of]You look back on all their advice and realize none of it could even conceivably help you with what you need to do, here. At least they're not stopping you from going anywhere.[or]They're going to start up again soon. But it can't be that bad the next time through.[stopping]";
-	else:
-		choose row dutch-blab in table of dutch-blab;
-		say "[banter entry][line break]";
-
-for writing a paragraph about a person (called udyt) in Speaking Plain:
-	say "[one of]As you approach the stage, the man and the teen on it boom: 'Approach the Fright Stage with care! Uncle Dutch and Turk Young bring it hard and keep it real with the [activation of show business]BUSINESS SHOW! With thanks to the [bad-guy] for not arresting us yet and who will one day let us call him [bg]!'[or]Uncle Dutch and Turk Young continue spouting practical philosophy lessons.[stopping]";
-	now uncle dutch is mentioned;
-	now turk young is mentioned;
-
-part Walker Street
-
-Walker Street is east of Speaking Plain. It is in Main Chunk. "A huge mistake grave blocks passage south, but to the north is [if standard bog is visited]the Standard Bog[else]some swamp or something[end if], east is some sort of museum, and you can go inside [gateway-desc]. Or you can go back west to the Speaking Plain."
-
-check going inside in walker street:
-	if poory pot is in lalaland:
-		say "[one of]As you walk in, Pusher Penn asks if you enjoyed your 'payment.' But you manage to give a version of the truth that seems even more preposterous than if you'd actually sampled the stuff. 'THE THANKS I GET!' he booms. 'DON'T COME BACK.'[or]Pusher Penn really, really doesn't want to see you. But you don't want or need to see him.[stopping]" instead;
-
-the mistake grave is scenery in Walker Street. "It's illuminated oddly, as if a red light were flashing behind it, and reads: IN MEMORY OF [activation of watkins glen]GLEN WATKINS, THE IDIOT WHO WENT ONLY FIVE MILES OVER THE SPEED LIMIT AND DIDN'T HEAR THE JOYRIDERS GOING THIRTY FORTY OR FIFTY OVER THUS RUINING THIS PRIME [activation of driving crazy]CRAZY DRIVING ZONE FOR MORE EXCITING PEOPLE. -[bg][one of].[paragraph break]Well, the message isn't [activation of drive into the ground]ground into the [i]drive[r][or][stopping]."
-
-check going nowhere in Walker Street:
-	if noun is south:
-		say "I'm afraid the Mistake Grave is a [activation of determined bound]determined bound." instead;
-	if noun is outside:
-		say "If there were a red light here, it would flash to say how vague you were. Just north, east, in and west." instead;
-
-understand "pot/chamber" and "pot chamber" as drug gateway when player is in Walker Street
-
-to say gateway-desc:
-	say "[if gateway is examined]the Drug Gateway[else]a gateway[end if] to ";
-	if pot chamber is unvisited:
-		say "[if gateway is not examined]somewhere seedy[else]a place your parents would want you to stay out of it[end if]";
-	else:
-		say "the Pot Chamber"
-
-a long string is a thing in Walker Street. "A long string lies piled up here.". description is "It's coiled, now, but it seems pretty easy to untangle if you want to PUT it IN somewhere deep."
-
-report taking long string:
-	say "You coil the string around itself so it doesn't get too unwieldy.";
-	the rule succeeds;
-
-check entering drug gateway:
-	try going inside instead;
-
-check closing drug gateway:
-	say "There's no way to close it." instead;
-
-check opening drug gateway:
-	say "It already is." instead;
-
-Drug Gateway is scenery in Walker Street. "[one of]You look at it--a weird amalgam of swirls that don't seem to say anything. But they are captivating. Then they come together--DRUG GATEWAY. [or]Now you've seen the pattern in the Drug Gateway, you can't un-see it. [stopping]As you haven't heard any cries or gunshots, yet, it can't be too bad to enter[if pot chamber is visited] again[end if].. you think."
-
-does the player mean entering drug gateway: it is very likely.
-
-part Pot Chamber
-
-Pot Chamber is inside of Walker Street. It is in Main Chunk. It is only-out. "This is a reclusive little chamber that smells far more of incense and air freshener than any place has a right to[one of], and after a moment's thought, you realize why[or][stopping]. Any sort of incriminating equipment is probably behind secret passages you'll never find, and you can only go out again."
-
-check going nowhere in pot chamber:
-	say "The only way to go is out." instead;
-
-section Pusher Penn
-
-Pusher Penn is a person in Pot Chamber. description is "He looks rather ordinary, really. No beepers, no weapons, no bulge indicating a concealed weapon. You'd guess he's one of those teens adults refer to as a Fine Young American (or whatever your nationality is) who'll make good in business some day.". "[one of]'Pusher Penn, [activation of go to pot]Pot to Go,' says someone barely older than you. 'Customer? Nah...'[or]Pusher Penn paces here.[stopping]"
-
-check talking to Penn when player has penny:
-	try giving penny to Penn instead;
-
-understand "pen" and "pusher pen" as Pusher Penn.
-
-litany of Pusher Penn is the table of Pusher Penn talk.
-
-table of pp - Pusher Penn talk
-prompt	response	enabled	permit
-"Um, hi, what's up?"	penn-nodrugs	1	1
-"Whoah, I'm, like, all in for DRUGS, BABY!"	penn-drugs	0	0
-"You sell drugs? Isn't that illegal?"	penn-yousell	0	1
-"Wait, isn't it all sort of bad stuff?"	penn-cigarette	0	1
-"Free stuff? Wow! Sure!"	penn-free	0	1
-"Herb Goode?"	penn-herb	0	1
-"Changed my mind. I'll help you out with your delivery."	penn-changed	0	1
-"Whoah, MAN, the COPS!"	penn-cops	0	0
-"What do you think of the [bad-guy]?"	penn-baiter	1	1
-"[later-or-thanks]."	penn-bye	3	1
-
-table of quip texts (continued)
-quip	quiptext
-penn-nodrugs	"'Come on. You know the deal. I sell smokables. The good stuff--I'm not [activation of bum a cigarette]a [i]cigarette bum[r].'"
-penn-yousell	"'Well, the [bad-guy] legalized them, but he gets the markup if they buy from him. And of course he makes fun of the serious druggies, because that's seeing both sides of things. Plus, I think he deals with [bad-guy-2]. No proof, though. Eh, I make a good profit, underselling. [activation of good herb]Herb Goode's rants don't hurt either. Say, if you want a little sample, I just need a small favor.'"
-penn-cigarette	"'Well, I'm not pro-everything. I'm not like ... [activation of kilo]Loki. No crack, [activation of crack up]up, down or even joke. And I helped raise the cigarette tax 1357%, for the public health! Plain old cigarettes are more harmful than weed, because they're less harmful. So don't let me catch you TRYING to smoke in here. What? You never have? Then what's with the sour look? I'll let it slide this time.'"
-penn-drugs	--
-penn-free	"'Ha ha. Well, not quite free. Just a little favor. Make a little delivery. Behind five-oh's back.'"
-penn-herb	"A lot less wishy washy than his sisters. Met [']em? [if classic cult is visited]Yeah[else]No[end if]? People probably start to NOT be like him. Also, I assure my customers I won't rat them to him. For just a small markup."
-penn-cops	--
-penn-changed	"Pusher Penn engages in some are-you-sure-no-are-you-really-sure and then waves you off. 'Enough of this nonsense. I have a business to run."
-penn-baiter	"'Well, we had a confidential conversation, and he says he respects my business initiative, but I better not sell to anyone who matters. That's what got the [activation of pop pills]Pills Pop in trouble, but--too long a story, there.'"
-penn-bye	"[if player has weed]'Get my delivery done there, now.'[else if poory is not off-stage]'Enjoy the goods!'[else]'Well, if you need to do business, let me know.'[end if]" [ok]
-
-check talking to Pusher Penn (this is the drugs trump Penn chats rule):
-	if player has wacker weed:
-		say "Pusher Penn won't be happy to see you haven't made the delivery." instead;
-	if poory pot is not off-stage:
-		say "Pusher Penn shoos you away. You've done enough business with him." instead;
-
-to give-weed:
-	say "'Here you go. Some wacker weed. There's a fella down by the Joint Strip on the monthly deep discount plan. Didn't pick up his allotment. Forget his name, too. Always mumbling. Maybe shouldn't a given him that [activation of weed out]out-weed.' You take the baggie.[paragraph break]";
-	it-take wacker weed;
-
-after quipping when qbc_litany is litany of pusher penn:
-	if current quip is penn-nodrugs:
-		enable the penn-yousell quip;
-		enable the penn-yousell quip;
-		enable the penn-drugs quip;
-		enable the penn-cops quip;
-	if current quip is penn-yousell:
-		enable the penn-free quip;
-	if current quip is penn-free:
-		say "It's tempting. Do you go in for it?";
-		if the player yes-consents:
-			give-weed;
-			disable the penn-drugs quip;
-		else:
-			enable the penn-changed quip;
-			say "'I can wait, kid.'[paragraph break]";
-	if current quip is penn-changed:
-		disable the penn-drugs quip;
-		say "'Here you go. Some wacker weed. Nothing special, nothing I'd trust with an experienced runner. There's a fella down by the Joint Strip on the monthly discount plan. Didn't pick up his allotment.' You take the baggie.";
-		now player has wacker weed;
-	if current quip is penn-bye:
-		terminate the conversation;
-
-some wacker weed is a singular-named smokable. description is "You couldn't tell if it is good or bad, really. But it needs to be delivered. It's in a baggie and everything."
-
-understand "baggie" as wacker weed.
-
-check opening wacker weed:
-	say "Don't dip into the supply." instead;
-
-some poory pot is a smokable. description is "Geez. You can smell it. It's a sickly sweet smell."
-
-part Standard Bog
-
-Standard Bog is north of Walker Street. It is in Main Chunk. "This is a pretty standard bog. It's really slimy and probably has lots of quicksand traps you can't see until it's too late, and... [one of]well, the machine off to the side is not so standard. It seems to be mumbling, trying different ways to express itself. Yes, to use language. A language machine.[or]the Language Machine, still [if wax is in lalaland]burbling poems[else]grinding out dreary sentences[end if].[stopping]"
-
-check going nowhere in standard bog:
-	if noun is inside or noun is down:
-		say "You don't want to get...bogged down." instead;
-	if noun is outside:
-		try going south instead;
-	say "I'm worried you might run into the treacherous [activation of sods law]Law Sods...if you're lucky. It's really only safe to go back south." instead;
-
-The Language Machine is scenery in Standard Bog. "The language machine hums along [if wax is in lalaland]cheerfully[else]balefully[end if], its console spewing out [if wax is in lalaland]poetry, which isn't good, but it's not overblown[else]dolorous, leaden, formulated prose about, well, being stuck in a bog[end if] in its bottom half. In the top half is an LCD [fr-sm]."
-
-to say fr-sm:
-	say "[if wax is in lalaland]smile[else]frown[end if]"
-
-the lcd frown is part of the language machine. description is "BUG"
-
-understand "lcd smile" and "smile" as lcd frown when wax is in lalaland.
-
-instead of doing something with the lcd frown:
-	say "The [fr-sm] is just a output of the computer's feelings. [if wax is in lalaland]You already helped it[else]You could maybe help it somehow[end if]."
-
-check opening the language machine:
-	say "It's probably too complex to tinker with." instead;
-
-check talking to language machine:
-	say "It processes your words and converts them into an [if wax is in lalaland]amusing poem[else]angsty story[end if]. But it doesn't seem to notice you, being a machine[if wax is in lalaland]. Just as well. You've done what you can[else]. Maybe there's something that can modify how it sees its input." instead;
-
-to say no-pos:
-	say "The machine is humming along and poeticizing happily. It needs no more possessions"
-
-check inserting into the language machine:
-	if poetic wax is in lalaland:
-		say "[no-pos]." instead;
-	try putting noun on language machine instead;
-
-check putting on the language machine:
-	if poetic wax is in lalaland:
-		say "[no-pos]." instead;
-	if noun is poetic wax:
-		now wax is in lalaland;
-		now player has trick hat;
-		say "The language machine emits a few weird meeps, then the wax seeps into it. The words on the terminal change from well-organized paragraphs to clumps of four in a line. You steel yourself and read a few...";
-		wfak;
-		say "...and they're not that great, but they're uplifting, and if they're still cynical, they have an amusing twist or two. No more FEEL MY ENNUI stuff. If only you could've done that back when you used to write, before you got too grim...well, maybe you still can.[paragraph break]The computer prints out a map for you, of the bog. It has all the pitfalls. You walk to the end to find a bona fide trick hat--like a wizard hat but with clever facial expressions instead of stars and whatnot.[paragraph break]You stick the map back in the computer, since it's really tearing through scratch paper to write poems, and it needs all the paper it can get. It's the least you can do. You won't need to go back, and that hat seems pretty cool. In fact, a bit too cool to wear without a good reason.";
-		set the pronoun it to language machine;
-		increment the score instead;
-	if poetic wax is in lalaland:
-		say "The machine is on a roll. You don't have anything else to give to it, anyway." instead;
-	if noun is story fish:
-		say "[one of]The story fish moans about how it moans occasionally, but it's not as bad as that computer. You probably want to do something more positive for or to the computer[or]You don't want to annoy the story fish into moaning again[stopping]." instead;
-	if noun is contract:
-		say "The machine whirs and coughs. Like any machine, it's used to being told what to do, but the contract may be too restrictive." instead;
-	say "The machine whirs defensively as you get close. Hm, maybe something else would work better." instead;
-
-the Trick Hat is a thing. description is "It's covered in snarky facial expressions and all manner of light bulbs and symbols of eureka moments. You think you even see a diagram of a fumblerooski or a fake field goal if you squint right."
-
-check wearing the trick hat:
-	say "It just doesn't feel...YOU. Maybe it'd look better on someone else." instead;
-
-part Court of Contempt
-
-Court of Contempt is west of Questions Field. It is in Main Chunk. "Boy, it's stuffy in here! You can't actually hear anyone sniffling, but you can, well, feel it. You can escape back east."
-
-check going nowhere in Court of Contempt:
-	if noun is outside:
-		try going east instead;
-	say "'So, you the sort of person who runs into walls a lot? Not that there's anything wrong with that.' Yup. Looks like back east's the only way out." instead;
-
-Buddy Best is a baiter-aligned person in Court of Contempt. "[one of]But wait! Someone here looks excited to see you! Not happy, but excited.[paragraph break]'Yah. Hi. I'm Buddy Best. You seem real nice. Nice enough not to waste too much of a [if allow-swears is true]dedicated lawyerly [activation of nutcase]case nut, job nut, whichever,[else][activation of attorney general]general attorney[end if] like me.'[paragraph break]Okay, never mind.[or]Buddy Best waits and taps his foot here.[stopping]". description is "Buddy Best has a half-smile on his face, which is totally a delicate balance of happiness and seriousness and not a sign of contempt, so stop saying that."
-
-the Reasoning Circular is a thing. description is "It's full of several pages why you're great if you think you are, unless you're lame, in which case you don't know what great means. There's a long tag stapled to it."
-
-before doing something with a long tag:
-	ignore the can't give what you haven't got rule;
-	if action is undrastic:
-		continue the action;
-	if current action is giving:
-		say "(giving the Reasoning Circular instead)[line break]";
-		try giving Reasoning Circular to the second noun instead;
-	say "You don't need to fiddle with the tag. It's part of the Circular. Plus, it's a ticket to somewhere that might help you get rid of someone." instead;
-
-the long tag is part of the Reasoning Circular. description is "It's stapled to the Reasoning Circular and reads:[paragraph break]By Order of the [bad-guy]:[paragraph break]The holder of this ticket is entitled, irregardless (I know, I'm being ironic and vernacular) of station or current responsibility, to visit Enough Fair (you know, that place newbies won't find), a whirlwind event of social skills where the bearer learns[paragraph break][2da]1. how to yell at others to stop complaining life's not fair AND still point how it's rigged against you[line break][2da]2. Of course, not trying to be too fair. People who overdo things are the worst![line break][2da]3. Lots more, but if we wrote everything, you wouldn't need to show up. Ha ha."
-
-litany of buddy best is the table of Buddy Best talk.
-
-table of bb - Buddy Best talk
-prompt	response	enabled	permit
-"Wow, so, um, you do lawyering stuff?"	best-law	1	1
-"What sort of interesting people?"	best-int	0	1
-"Can you see the good side of me?"	best-good	0	1
-"That's kind of corrupt, isn't it?"	best-dirty	0	1
-"What do you think of the [bad-guy]?"	best-baiter	1	1
-"[later-or-thanks]."	best-bye	3	1
-
-table of quip texts (continued)
-quip	quiptext
-best-law	"'Brilliant. Yeah. I kind of see the good side of people. Well, interesting people. They don't even have to be as interesting as [bg]. But they better be close.'"
-best-int	"'Oh, you know. People who break the rules. Break [']em creatively enough to be able to afford my fees. Nobody too square. No offense.'"
-best-good	"'Look, I already said I'm sure you're nice, and all. Whether or not you pick your nose too much. There. Happy with that? No? Well, I did my best. Can't do much more for ya.'"
-best-dirty	"'Y'know, that's shameful coming from you. Maybe someone said you were really weird, but it turned out you were only kind of weird? I'm doing the same thing. But for criminals. I mean, suspected criminals. Look, I can't have these accusations.'"
-best-baiter	"'Obviously [bg] knows what's what. We had a good long discussion on dorkery, nerdery and geekery, and how it's busted out since the Internet blew up. We can say that. We're both hip to nerd culture, but we need to keep less consequential dorks, nerds and geeks from defining the lot of us. Aggressively. He's really fair, though. He doesn't insult anyone else without insulting himself first. Just--others, well, without self-awareness.'"
-best-bye	"'Not very curious of you there. I'm an interesting fella, yet you...'"
-
-check going west in Questions Field:
-	if Reasoning Circular is not off-stage:
-		say "As you're about to enter, a voice from a hidden loudspeaker booms 'Get better? Better GET!'[paragraph break]Buddy Best has seen enough of you. Hmm, come to think of it, you've seen enough of Buddy Best. You're surprised he even gave you the Reasoning Circular, and you proably couldn't explain why you [if player has circular]haven't used it yet[else]gave it to Officer Petty[end if], anyway." instead;
-
-after quipping when qbc_litany is table of Buddy Best talk:
-	if current quip is best-law:
-		enable the best-int quip;
-	if current quip is best-int:
-		enable the best-good quip;
-		enable the best-dirty quip;
-	if current quip is best-bye or current quip is best-good or current quip is best-dirty:
-		terminate the conversation;
-		say "Buddy waves his hands to change the subject. 'Well, I don't want to waste any more of your time,' he says, with fake humility not meant to be convincing. You freeze.";
-		wfak;
-		say "[line break]'Negotiator, eh? Standing your ground? I'm sure you're nice once I get to know you even if you're not as nice as [bg] once you get to know him, but if you go I'll give you some real efficient self improvement stuff. No [activation of prosecutor]cuter prose. [activation of readjust]Just read. I'm sure you're smart enough to understand. [']Cause you probably should've understood it a few years ago. Look, I don't want to waste any more of your time.' Buddy Best throws the newsletter at you as you leave.";
-		wfak;
-		say "[line break]You pick it up. [i]Reasoning Circular[r]. Well, it's something. Which is more than you expected. Generally, obnoxious fast-talkers wound up taking something from YOU after a short, loud, fast dialog.";
-		it-take Reasoning Circular;
-		move player to Questions Field, without printing a room description;
-		say "[bold type]Questions Field[paragraph break][roman type]The [if bros-left is 3]Brothers look[else if bros-left is 2]remaining Brothers look[else]remaining Brother looks[end if] unsurprised you got thrown out. Well, at least you have this...Reasoning Circular now.";
-		annotize buddy best;
-
-part Discussion Block
-
-Discussion Block is east of Walker Street. It is in Main Chunk. "On one wall, a book bank is embedded--like a bookshelf, only tougher to extract the books. On another, a song torch. You can only go back west[if phil is in lalaland and art fine is in lalaland and poetic wax is not in discussion block]. There's not much to do here, now, except maybe page through the bank and torch's selections[end if]."
-
-check going nowhere in discussion block:
-	if noun is outside:
-		try going west;
-	if art is in lalaland and phil is in lalaland:
-		say "No sense searching for Art or Phil or the Creativity Block. You might even get lost and stumble on the Arguments Block, which would be horrible." instead;
-	if art is in lalaland or phil is in lalaland:
-		say "Searching for Creativity Block, where [if art is in lalaland]Art[else]Phil[end if] went, would be counterproductive." instead;
-	say "Discussion Block also blocks you from going any way other than back west." instead;
-
-the poetic wax is in Discussion Block. "Poetic Wax, a whole ball of it, lies here behind [if number of waxblocking people is 0]where Art and Phil used to be[else][list of waxblocking people][end if]."
-
-the indefinite article of poetic wax is "some".
-
-after taking the poetic wax:
-	say "You're worried it might melt or vanish in your hands if you think too much or too little. Poetic things are that way.[paragraph break]Fortunately, it stays firm yet pliable in your hands.";
-
-after examining the poetic wax:
-	if art-wax is not talked-thru:
-		enable the art-wax quip;
-	if phil-wax is not talked-thru:
-		enable the phil-wax quip;
-	continue the action;
-
-description of poetic wax is "It fluctuates through many shades of grey and colors of the rainbow at once. As you look at it, words seem to appear and vanish as it swirls. It becomes whatever you want it to be, but whatever it is, it isn't quite good enough and you think, just one more adjustment...it's the most fun you've had in forever."
-
-check taking the poetic wax:
-	if number of waxblocking people > 0:
-		say "'Oh, no! Certainly not! The poetic wax is a valuable intersection of music and art, one [if number of waxblocking people is 1]I still[else]we[end if] must guard from less artful people! No offense.'" instead;
-
-definition: a person (called p) is waxblocking:
-	if p is art fine or p is harmonic phil:
-		if p is in discussion block:
-			decide yes;
-	decide no;
-
-check going to Discussion Block for the first time:
-	if jump-level < 4:
-		say "[art-phil] / [art-phil] [line break]";
-		wfak;
-		say "The arguers turn to you and introduce themselves as [hi-art-phil] and [hi-art-phil]. They ask if you prefer music or books. You shrug, so they go back to their own arguments.";
-		say "[line break]'[activation of play dumb]Dumb play! Dumb play!' / 'Could've used a [activation of elevator music]music elevator.'";
-		wfak;
-
-to say hi-art-phil:
-	say "[one of]Art Fine[or]Phil Gotsche, but call me Harmonic Phil[stopping]"
-
-to say art-phil:
-	say "'[one of][activation of artifact]A fact, Art[or][activation of philistine]Listen, Phil[in random order]' "
-
-chapter Art Fine
-
-Art Fine is a baiter-aligned person in Discussion Block. description is "He's wearing a shirt with a quote from an author you never read."
-
-litany of Art Fine is the table of Art Fine talk.
-
-table of af - Art Fine talk
-prompt	response	enabled	permit
-"Some place you got here!"	art-hi	1	1
-"Blather like yours is the sort of thing that scared me off reading, you know."	art-pomp	0	0
-"May I check out anything from the Book Bank?"	art-book	0	1
-"What is your aesthetic?"	art-aes	0	1
-"So, what's with wax back there?"	art-wax	0	1
-"What would be totally unsuitable for this fine sanctum? Just so I can, y'know, gaffle anyone who tries before they enter."	art-tol	0	1
-"What do you think of the [bad-guy]?"	art-baiter	1	1
-"[later-or-thanks]."	art-bye	3	1
-
-table of quip texts (continued)
-quip	quiptext
-art-hi	"'It is. Phil[if phil is off-stage], wherever he is,[end if] and I have worked hard to make it a paragon of good taste!'"
-art-pomp	--
-art-aes	"'Well, closed-mindedness. I'll never like that in people. But in art? Ah, I can appreciate anything. Even stuff that's so bad it's good. Especially in the presence of other aficionados. Unless it's just drivel. Of course.'"
-art-book	"'This is not a library! However, if you so choose, you may marvel at the titles, record them for your pleasure, and check them out at your nearest library.' Art mumbles something about you not being able to pay the interest back with exciting criticism of your own. You're pretty sure he meant you to hear it."
-art-tol	"'Drivel so dreary, from a mind so banal. I shudder to think. It would make me run screaming.'"
-art-wax	"[wax-blab]"
-art-baiter	"'[bg] is a top notch fellow. A true patron of the arts. Our aesthetics do line up, and I even suspect he is slightly more partial to me than my friend. He seeks to encourage all art, unless it could be understood by dumb people. Now, art that dumb people SHOULD be able to understand but don't, that's a different story.'"
-art-bye	"[enj-splend]"
-
-to say wax-blab:
-	say "'[one of]It's not for EVERYONE. It helps with the creative process. No drugs, whatever, For poetry is an intersection of music and words, is it not[or]AS WAS ALREADY EXPLAINED, it helps with the creative process. Now I believe in progressive tax structures and all but giving sops to the untalented is really too much[stopping].'"
-
-after quipping when qbc_litany is litany of Art Fine:
-	if current quip is art-hi:
-		enable the art-pomp quip;
-		enable the art-book quip;
-		enable the art-aes quip;
-	if current quip is art-aes:
-		superable art-tol;
-	if current quip is art-bye:
-		terminate the conversation;
-
-chapter Harmonic Phil
-
-Harmonic Phil is a baiter-aligned person in Discussion Block. description is "He's wearing a shirt with a band you never heard of."
-
-understand "gotsche" and "phil gotsche" as Harmonic Phil.
-
-litany of Harmonic Phil is the table of Harmonic Phil talk.
-
-table of hp - Harmonic Phil talk
-prompt	response	enabled	permit
-"Some place you got here!"	phil-hi	1	1
-"That sounded hella pompous."	phil-pomp	0	0
-"What is your aesthetic?"	phil-aes	0	1
-"So, what's with wax back there?"	phil-wax	0	1
-"Is there anything you can't tolerate?"	phil-tol	0	1
-"What do you think of the [bad-guy]?"	phil-baiter	1	1
-"[later-or-thanks]."	phil-bye	3	1
-
-table of quip texts (continued)
-quip	quiptext
-phil-hi	"'Indeed! Even if you do not appreciate our aesthetic fully, it cannot but rub off on you a bit.'"
-phil-pomp	--
-phil-aes	"'Indeed, how can one describe an aesthetic of good music? It just is. Except when it isn't. Good music--not rubbish noise--is music that convinces me to converse about it endlessly! I'm sure I've helped create more good music that way.'"
-phil-wax	"[wax-blab]"
-phil-tol	"'I enjoy any music that can be shown you have to be advanced to enjoy. It engenders discussion! Intelligent discussion! In fact, I only abhor pointless, constant noise.'"
-phil-baiter	"'Why, [bg]'s music criticism is even more wonderful to listen to than the music itself! Even a great piece of music remains the same, but his alternate opinions... the complexity, the variety of though. My, my! [bg]has clued me that he could not perform such mental gymnastics with mere literature. Not that there's anything wrong with it.'"
-phil-bye	"[enj-splend]"
-
-to say enj-splend:
-	say "'Enjoy the splendour of our sanctum of good, but not stuffy, taste.'[no line break]";
-
-after quipping when qbc_litany is litany of Harmonic Phil:
-	if current quip is phil-hi:
-		enable the phil-pomp quip;
-		enable the phil-aes quip;
-	if current quip is phil-aes:
-		superable phil-tol;
-	if current quip is phil-bye:
-		terminate the conversation;
-
-chapter book bank
-
-the book bank is scenery in Discussion Block. "Just filled with books! And interest!"
-
-book-ord is a number that varies.
-
-check examining book bank for the first time:
-	say "It's just filled with books! And interest! But no silly books by, say, Jerome K. Jerome.";
-
-check examining book bank:
-	increment book-ord;
-	if book-ord > number of rows in table of horrendous books:
-		if art fine is in Discussion Block:
-			say "Art Fine sighs. While he's obviously happy to reiterate his opinions on literature, he does need to let you know how kind he is to give his wisdom for free.[paragraph break]";
-		else:
-			say "You go back to the start of the book bank.[paragraph break]";
-		now book-ord is 1;
-	choose row book-ord in the table of horrendous books;
-	if Art Fine is in lalaland:
-		say "Let's see. [i][workname entry][r] by [authname entry]. Looks [one of]confusing[or]baffling[or]dreadfully important[or]best-seller-ish[in random order]." instead;
-	say "'Ah, yes,' drones Art Fine. '[i][workname entry][r]. A most [one of]about-everything-and-nothing-y[or]simple yet complex[or]iconic[or]transformative[or]edifying[or]scintillating[or]complex yet simple[or]zeitgeisty[in random order] read, providing you are a good reader. [authname entry]. A [one of]stirring treatise[or]vigorous discussion[or]tour de force[or]stunning perspective[at random] on [booksubj entry]. And more. [pompous-phrase]! More sensible than some jingle!'";
-	the rule succeeds;
-
-check taking book bank:
-	now Steal This Book is in lalaland;
-	say "You consider trying to Steal This Book, but then you picture the Stool Toad[if Judgment Pass is visited] or Officer Petty[end if] ready to [activation of steal this book]Book This Steal. Even without Art or Phil here to see you." instead;
-
-to say pompous-phrase:
-	say "[one of]Indeed[or]True art[or]Simple, yet complex[or]Quite so[or]Immaculate[or]Ah[or]Fascinating[or]Food for thought[in random order]"
-
-[it--it isn't just about itself. It's about other things, too!]
-
-section all the books
-
-chapter song torch
-
-a song torch is scenery in Discussion Block. "Tacky and glitzy and afire (sorry) with music you're supposed to be smart and worldly enough to appreciate, but you can't."
-
-song-ord is a number that varies.
-
-check examining song torch:
-	increment song-ord;
-	if song-ord > number of rows in table of horrendous songs:
-		if harmonic phil is in Discussion Block:
-			say "Harmonic Phil sighs. While he's obviously happy to reiterate his opinions on music, he does need to let you know how kind he is to give his wisdom for free.[paragraph break]";
-		else:
-			say "Hmm, the songs seem to be repeating.[paragraph break]";
-		now song-ord is 1;
-	choose row song-ord in the table of horrendous songs;
-	if Harmonic Phil is in lalaland:
-		say "You listen, and the song's lyrics seem to indicate it's [i][workname entry][r] by, you guess, [singername entry]. Ridiculous." instead;
-	say "'Ah, yes,' drones Harmonic Phil. '[i][workname entry][r]. A most [one of]titillating[or]sense-enhancing[or]transcending[or]pure-art[or]spine-tingling[in random order] experience, providing you are a good listener. [singername entry]. Such [one of]complex melodies[or]vigorous discussion[or]a tour de force[or]stunning perspective[at random] on [songsubj entry]. And more. [pompous-phrase]! It wouldn't be the same in print!'";
-	the rule succeeds;
-
-check taking song torch:
-	say "Maybe that could reduce a [activation of coals to newcastle]new castle to coals, but you're not sure that'd be a good idea even if you found one. Plus you don't need a light source anywhere in the Compound." instead;
-
-part Questions Field
-
-Questions Field is north of Speaking Plain. It is in Main Chunk. "North is what can only be the [bad-guy]'s lair: Freak Control. You can go back south to the Speaking Plain, [if reasoning circular is not off-stage]though Buddy Best probably won't welcome you back west[else]and also you can go west to [c-house][end if]."
-
-check going south in questions field when got-pop is true:
-	say "No. You've drunk the quiz pop, and it's time to face the [bad-guy]." instead;
-
-to say c-house:
-	say "[if contempt is visited]the Court of Contempt[else]a courthouse[end if]";
-
-check going nowhere in questions field:
-	if noun is inside:
-		say "There are two ways to go inside: north and west." instead;
-	if noun is outside:
-		say "You already are." instead;
-	if noun is east:
-		say "The path grows tangled and too intimidating. You might get lost." instead;
-
-qp-hint is a truth state that varies.
-
-to say bro-i-we:
-	say "[if bros-left is 1]I[else]We[end if]";
-
-check going north in Questions Field:
-	if bros-left > 0:
-		say "[random bro in Questions Field] wags a finger dolefully. [one of]'[bro-i-we] can't let you by to see the [bad-guy]. What was his joke?' He pauses. '[bro-i-we] had ONE JOB!'[or]'[bro-i-we] have one job.'[stopping][line break]'He wasn't being cruel. He's nice once you get to know him, we hear. But if he had to be nice to too many people, it'd get diluted.'" instead;
-	if cookie-eaten is true:
-		say "Bye-bye, Questions Field. A question mark pops out from the side and tries to hook you out of Freak Control, but that's a stupid trap. The exclamation mark that tries to bash you? A punch disables it.";
-		continue the action;
-	if off-eaten is true:
-		say "A question mark pops out from the side and tries to hook you, but you throw your shoulders up in exasperation just so--one arm knocks the question away, and the other deflects an exclamation mark coming from above. Weird. It's more motivation than ever just to get OUT of here, already.";
-		continue the action;
-	if greater-eaten is true:
-		say "A question mark pops out from the side and tries to hook you, but you reflexively throw an arm and knock it out without even looking. Same for an exclamation mark from above. Yup, YOU were listening when Guy Sweet was talking.";
-		continue the action;
-	if brownie-eaten is true:
-		say "A question mark pops out from the side and tries to hook you, and then an exclamation mark clubs you on the head. But it's soft and foamy, and you laugh a bit. 'You know,' you say, 'I need to learn to toughen up.'[paragraph break]'Dude! Someone willing to take a little hazing! It's about time!' Oh man! You've made a good first impression!";
-		continue the action;
-	if got-pop is false:
-		now qp-hint is true;
-		say "[one of]A question mark pops out from one side of the entry and hooks you back. Then an exclamation mark clubs you on the head. Dazed, you roll back. Questions ring through your head: what makes you think you deserve to confront the [bad-guy]? Or that you have any chance of success? Perhaps a minor stimulant could perk you up.[or]The ambush looms, and you don't have the confidence to deal with it yet. You need a stimulant of some sort. You know it's there, and you can't avoid it, and that's what's frustrating.[stopping]" instead;
-	else:
-		say "Right-o. Now you've had that quiz pop, you're not going to let any question-mark hooks or exclamation-mark clubs get to you. You can handle both. You duck instinctively, and--YES! The question mark that should've hooked your neck springs out, and the exclamation mark meant for your head whacks the question mark."
-
-chapter Keeper Brothers
-
-a bro is a kind of person.
-
-to decide what number is bros-left:
-	let Q be 0;
-	decide on the number of stillblocking people.
-
-definition: a person (called p) is stillblocking:
-	unless p is in Questions Field, decide no;
-	if p is a bro, decide yes;
-	decide no;
-
-for writing a paragraph about a person (called bro) in Questions Field:
-	if jump-level < 4:
-		say "[one of]Three brothers block the way ahead to the north. They're imposing, each in his own way. 'Greetings, Traveler. We are the [activation of brother's keepers]Keeper Brothers: Brother Big, Brother Blood, and Brother Soul. We must guard Freak Control, headquarters of the [bad-guy]. It is the job we are best suited for, and we are lucky the [bad-guy] has given it to us. He said we are free to do something clearly better if we can find it. We have not, yet.'[or][list of stillblocking people] block[if bros-left is 1]s[end if] your way north. '[if bros-left is 1]I'm[else]We're[end if] sorry. It's [if bros-left is 1]my[else]our[end if] job. Until [if bros-left is 1]I[else]we[end if] find a purpose.'[stopping]";
-	else:
-		say "The Keeper Brothers are gone now that you've jumped.";
-	now brother big is mentioned;
-	now brother blood is mentioned;
-	now brother soul is mentioned;
-
-section Brother Big
-
-Brother Big is a bro in Questions Field. description is "He is a foot taller than either of his brothers, but his eyes seem duller, and he frequently scratches his head."
-
-to check-left:
-	say "[line break]";
-	if bros-left is 2:
-		say "The two remaining brothers look jealously at their departed companion, then beseechingly at you. Maybe you can help them, too?";
-	if bros-left is 1:
-		say "[random bro in Questions Field] says, 'Well. Guess one of us had to be last. But...think you could help me, too?' You're pretty sure you can.";
-	if bros-left is 0:
-		say "Oh, man! The way north is free now! As the final brother leaves, he turns to say 'Beware...trap...question mark...exclamation mark...'";
-		unlock-verb "fancy";
-		if silly boris is in lalaland:
-			unlock-verb "notice";
-		annotize terry sally;
-		annotize fritz the on;
-		annotize stool toad;
-	increment the score;
-
-litany of Brother Big is the table of Brother Big talk.
-
-table of b1 - Brother Big talk
-prompt	response	enabled	permit
-"Hi. Having fun--guarding--whatever?"	big-hi	1	1
-"Your duty. What's he done for you?"	big-duty	0	1
-"That's sad. I wouldn't take that. Well, in theory, at least."	big-theory	0	1
-"[if big-go is talked-thru]So, anything that'd give you an excuse to move on[else]Any way I could give you a reason to take a vacation[end if]?"	big-go	0	1
-"What do you really think of the [bad-guy]?"	big-baiter	0	1
-"What about Brother Foster?"	big-foster	0	1
-"[later-or-thanks]."	big-bye	3	1
-
-table of quip texts (continued)
-quip	quiptext
-big-hi	"'Not really. But it is my duty. The [bad-guy] and [bfa] dictated it.'"
-big-duty	"'Well, they explained it was what I was best at. I asked what else and they laughed. Until I had to laugh. I forget why. But apparently I'm not good at laughing at myself. Despite his example, laughing at me or himself. But he always has smart stuff to say.'"
-big-theory	"'It's helping me, though. I'm just not smart enough to figure out why.'"
-big-go	"'Well, if you could help me feel smart. I mean, you seem smart, but I dunno if you could help me feel smart. It's like I'd like a book, not boring like a dictionary or too fluffy. But one that just helps me, you know?'"
-big-baiter	"'I figure I'll appreciate him more once or if I ever get smarter. He'd help me, but he's too busy.'"
-big-foster	"'[bro-fo]. I'm sure he had a clever reason for my own good.'"
-big-bye	"'Good-bye.'"
-
-after quipping when qbc_litany is litany of Brother Big:
-	if current quip is big-hi:
-		enable the big-duty quip;
-		enable the big-baiter quip;
-	if current quip is big-duty:
-		enable the big-theory quip;
-	if current quip is big-theory:
-		enable the big-go quip;
-	if current quip is big-hi:
-		enable the big-baiter quip;
-	if current quip is big-bye:
-		terminate the conversation;
-
-section Brother Soul
-
-Brother Soul is a bro in Questions Field. description is "His frowning and moping make him perfect for standing guard but not much else. He might not try to stop you if you passed by just him, but you'd feel guilty for doing so."
-
-litany of Brother Soul is the table of Brother Soul talk.
-
-table of b2 - Brother Soul talk
-prompt	response	enabled	permit
-"Hi there! Why are you moping here and not somewhere more soulful?"	soul-why	1	1
-"Why not get out and live? See people?"	soul-live	0	1
-"Maybe there's a quick fix?"	soul-fix	0	1
-"How's him being self-absorbed better than the same from you?"	soul-how	0	1
-"What if I found something to help your malaise or ennui or whatever?"	soul-what-if	0	1
-"What about Brother Foster?"	soul-foster	0	1
-"[later-or-thanks]."	soul-bye	3	1
-
-table of quip texts (continued)
-quip	quiptext
-soul-why	"'Well, it all started when [bfa] took me to the [bad-guy] to show what REAL soul was, and how he enjoyed life more, too. He said he'd give me weekly lessons and all I had to do was guard Freak Control to the north.'"
-soul-live	"'The [bad-guy] made it pretty clear that's what I should do, in an ideal world, and it'd help me, but it might not help the people I got out and saw. It'd be selfish. Well, he helped me get out of Idiot Village, and apparently the rest's up to me.'"
-soul-fix	"'Oh, if there was, I would've found it. And if I haven't, well, that's my own fault. For being more self-absorbed than I should be. It's totally different from the [bad-guy] being self-absorbed.'"
-soul-how	"'Well, when he's self-absorbed, it's really thinking about others, because they have fun hearing him talk about himself. Me, not so much. The only quick fixes are probably illegal and unhealthy. Woe is me!'"
-soul-what-if	"'Oh, it would be nice. But it would be too much to ask. Something to relieve the darkness and burden. I could never find it myself, though.'"
-soul-foster	"'[bro-fo]. It made me upset.'"
-soul-bye	"'Best of luck. It's nothing personal, blocking you, you know. It's not like I'm blocking you on Facebook or something.'"
-
-after quipping when qbc_litany is litany of Brother Soul:
-	if current quip is soul-why:
-		enable the soul-live quip;
-	if current quip is soul-live:
-		enable the soul-fix quip;
-	if current quip is soul-fix:
-		enable the soul-how quip;
-	if current quip is soul-how:
-		enable the soul-what-if quip;
-	if current quip is soul-bye:
-		if soul-what-if is talked-thru:
-			enable the soul-what-if quip;
-		terminate the conversation;
-
-section Brother Blood
-
-Brother Blood is a bro in Questions Field. description is "He jitters with rage for a few seconds, then takes a few breaths, whispers to calm himself down, then starts over again."
-
-litany of Brother Blood is the table of Brother Blood talk.
-
-table of b3 - Brother Blood talk
-prompt	response	enabled	permit
-"Whoah, hey, you seem tense."	blood-hi	1	1
-"Well, it might not be all you."	blood-maybe	0	1
-"The really smart people, they can be really manipulative. I been there."	blood-manip	0	1
-"Anything that might help you calm down?"	blood-calm	0	1
-"Well, hey, you got through all my questions without getting mad at me. That's a start."	blood-all	0	1
-"What about Brother Foster?"	blood-foster	0	1
-"[later-or-thanks]."	blood-bye	3	1
-
-table of quip texts (continued)
-quip	quiptext
-blood-hi	"'Yeah. Well, it started the first time Brother Foster introduced us to the [bad-guy]. He cracked a few self-depreciating jokes then gave me a few to laugh at. But I got all mad. Took a swing. He said he bet he wasn't the first I lashed out at. He was right.'"
-blood-maybe	"'Maybe not, but it's ENOUGH me, you know? And the [bad-guy] said maybe some inactivity might help me. Only lash out at people who deserve it. Like trespassers trying to bug him. If I hung around smart people, I might get angry at them. So I'm sort of more useful here.'"
-blood-manip	"'Yeah. The [bad-guy] says [bad-guy-2] can be even more manipulative. Makes me all agitated about what happens if I ever lose this post.'"
-blood-calm	"'Well, the [bad-guy] joked that even a stupid spiritual healing stone might not help me. If those things worked at all. Which they can't. I better not believe it since he took me away from Idiot Village.'"
-blood-foster	"'[bro-fo]. It made me mad.'"
-blood-all	"'Yeah. Not like they were really challenging or edgy, though. I mean, it feels nice to talk and stuff but the [bad-guy] said questions like yours weren't real nitty-gritty. No offense.'"
-blood-bye	"'Later. You, um, yeah, seem okay.'"
-
-foster-yet is a truth state that varies.
-
-to say bfa:
-	say "[activation of brother foster]Brother Foster";
-	if foster-yet is false:
-		now foster-yet is true;
-		choose row with response of blood-foster in table of b3;
-		now enabled entry is 1;
-		choose row with response of soul-foster in table of b2;
-		now enabled entry is 1;
-		choose row with response of big-foster in table of b1;
-		now enabled entry is 1;
-
-to say bro-fo:
-	say "He left us in Idiot Village after meeting the [bad-guy]. Cause we were getting jealous of him, and all he could do, and we--he--didn't need that";
-		choose row with response of blood-foster in table of b3;
-		now enabled entry is 0;
-		choose row with response of soul-foster in table of b2;
-		now enabled entry is 0;
-		choose row with response of big-foster in table of b1;
-		now enabled entry is 0;
-
-after quipping when qbc_litany is litany of Brother Blood:
-	if current quip is blood-hi:
-		enable the blood-maybe quip;
-	if current quip is blood-maybe:
-		enable the blood-manip quip;
-	if current quip is blood-manip:
-		enable the blood-calm quip;
-	if current quip is blood-calm:
-		if blood-all is not talked-thru:
-			enable the blood-all quip;
-	if current quip is blood-bye:
-		terminate the conversation;
-
-part Temper Keep
-
-Temper Keep is west of Speaking Plain. Temper Keep is in Main Chunk. "[if sal-sleepy is true]Temper Keep is nice and quiet and inoffensive-smelling now. Nothing much to do except go back east[else][one of]You find yourself hyperventilating as you enter, not due to any mind control, but because--well, it stinks[or]It still sort of stinks in here[stopping]. It would stink even worse if you couldn't go back east. [say-vent][end if]."
-
-check going nowhere in Temper Keep:
-	say "You're a bit annoyed to see there are no ways out except east. But then again, you'd also be annoyed if there was more to map. Annoying." instead;
-
-to say say-vent:
-	say "[one of]You look around for the cause, and you only see a vent shaped like a spleen[or]The spleen vent catches your eye[stopping]"
-
-Volatile Sal is a person in Temper Keep. "[if sal-sleepy is true]Volatile Sal is snoozing in a corner by [sp-vent]. It [op-jump].[else][one of]'Oh, man! [bad-guy] maybe finally sent someone to fix...' An angry looking man takes a sniff. 'You smell awful too! What is it with all these visitors? Anyway, I'm Volatile Sal. Nice to meet you. Be nicer if you smelled better.'[or]Volatile Sal paces around here anxiously, holding his nose every few seconds.[stopping][end if]"
-
-to say op-jump:
-	if jump-level is 4:
-		say "even smells nice, too";
-	else:
-		say "does smell nicer here after your operations"
-
-check putting pot on sal:
-	try giving poory pot to sal instead;
-
-understand "angry man" as Sal when player is in Temper Keep.
-
-description of Volatile Sal is "[if sal-sleepy is false]Sal paces around, grabbing at his hair or clothes and waving his hands as if to rid the stink. As you glance at him, he points at YOU.[else]He's curled up, happy and relaxed, dreaming better dreams than he probably deserves to.[end if]"
-
-sal-sleepy is a truth state that varies.
-
-The Spleen Vent is scenery in Temper Keep. "Carved into the vent is the phrase SPLEEN VENT. A [if sal-sleepy is true]weird but pleasant aroma[else]bad stench[end if] rises from it[if relief light is off-stage]. It looks like something's glowing behind it, but you'd have to open the vent to find out[end if]."
-
-check entering vent:
-	say "You're too big, but as you imagine being small enough to explore, you muse: boy, [activation of venturesome]you're some vent!" instead;
-
-check opening vent:
-	if sal-sleepy is false:
-		say "Not with Sal all anxious you aren't. He'd probably yell 'VANDALISM' or whatever. But you could fit something in there." instead;
-	if relief light is off-stage:
-		now player has relief light;
-		say "You open it and swing your arm around. Ah, there's something--the light source. It's got RELIEF scratched into it. You take it." instead;
-	say "You already did. There's nothing else in there." instead;
-
-to say sp-vent:
-	say "[if spleen vent is examined]the Spleen Vent[else]a vent[end if]";
-
-check talking to volatile sal:
-	say "[if sal-sleepy is true]You don't want to risk waking him. Who knows what new faults he might find?[else]'Um, yeah, um, back up. I really don't want to smell your breath. Just in case.' He curses the [bad-guy] for both not caring about the smell here and actively being the cause of it.[end if]" instead;
-
-check inserting it into (this is the put it in vent rule):
-	if second noun is spleen vent:
-		if noun is poetic wax:
-			say "It might calm Sal down, but you're not sure if it would be wasted on him. Or worse, he might write some of that manic poetry that's too much for you." instead;
-		if noun is wacker weed:
-			say "That might calm Sal down, but how would you explain things to Pusher Penn? Perhaps a different variety of...vegetation.";
-			now pot-not-weed is true instead;
-		if noun is poory pot:
-			now poory pot is in lalaland;
-			now sal-sleepy is true;
-			say "As you stuff the thin roll into the vent, it tumbles down to what you can only assume is an incinerator or air flow or something in Temper Keep's foundation you'd be better off not touching in normal circumstances.[paragraph break]The 'aromatics' of the poory pot seep into the air in Temper Keep. 'Is it just me, or is it not stinky in here? Yes! Yes! It is probably some combination of both!' You stand well out of the way as Sal continues to babble, his pseudo-philosophy becoming ever more pseudo- before...clonk. An [activation of sound asleep]asleep sound. You wait a minute to make sure. Yup, he's out.";
-			increment the score;
-			annotize pusher penn;
-			set the pronoun it to spleen vent;
-			the rule succeeds;
-		if noun is long string:
-			say "You fish in the vent with the string, but nothing comes up." instead;
-		say "That doesn't seem to fit." instead;
-
-section relief light
-
-The relief light is a thing. description of relief light is "It glows comfortingly. You feel happier and smarter, even if you don't understand how it works. Just looking at it and holding it makes you feel better, but maybe there's someone who needs it even more than you."
+book endgame bits
 
 part Freak Control
 
@@ -12457,7 +12469,7 @@ section judgment pass concepts
 
 career threatening is a concept in conceptville. Understand "threatening career" as career threatening. howto is "give Officer Petty the Reasoning Circular".
 
-pass the torch is a concept in conceptville. Understand "torch the pass" as pass the torch. howto is "[fill-in-here]".
+pass the torch is a concept in conceptville. Understand "torch the pass" as pass the torch. howto is "BURN anything in Judgment Pass".
 
 scofflaw is a concept in conceptville. Understand "scoff law" and "lawscoff/law-scoff/scoff-law" and "law scoff" as scofflaw. howto is "give Officer Petty the Reasoning Circular".
 
@@ -12614,6 +12626,8 @@ weed out is a concept in conceptville. Understand "out weed" as weed out. howto 
 section the belt below concepts
 
 Terminal Illness is a concept in conceptville. Understand "illness terminal" as terminal illness. howto is "defeat the Insanity Terminal".
+
+waste breath is a concept in conceptville. Understand "breadth/breath waste/waist" and "waist/wast breadth/breath" as waste breath. howto is "[x-it of energy waist] after defeating the Insanity Terminal".
 
 section freak control concepts
 
