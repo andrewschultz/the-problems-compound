@@ -932,6 +932,7 @@ sub compareRoomConcept
   my $tempStr;
   my $begunRooms = 0;
   my $doneRooms = 0;
+  my $explainOrdErrors = 0;
 
   my @toRead = @{$fileHash{$_[0]}};
 
@@ -988,10 +989,10 @@ sub compareRoomConcept
 	{
 	  chomp($line);
 	  $line = lc($line);
-	  if ($line =~ /\[start of /)
+	  if ($line =~ /\[start (of )?/)
 	  {
 	    $commentBit = $line;
-		$commentBit =~ s/.*\[start of //;
+		$commentBit =~ s/.*\[start (of )?//;
 		$commentBit =~ s/\].*//;
 	    $line =~ s/\t.*//;
 		$lastLine = $line;
@@ -999,14 +1000,16 @@ sub compareRoomConcept
 		if (!defined($roomIndex{$commentBit}) && !defined($roomIndex{$lastSortRoom}))
 		{
 		  warn("Line $. $commentBit/$lastSortRoom nothing defined. Probably forgot to initialize something.");
+		  $explainOrdErrors++;
 		}
 		else
 		{
-		if (!defined($roomIndex{$commentBit})) { if ($proofStr) { print "ERRORS $proofStr"; $proofStr = ""; } warn("Line $. ($commentBit) current comment has no room start.\n"); }
-		if (!defined($roomIndex{$lastSortRoom})) { if ($lastSortRoom) { if ($proofStr) { print "ERRORS $proofStr"; $proofStr = ""; } warn("Line $. ($lastSortRoom) last room has no room start.\n"); } }
+		if (!defined($roomIndex{$commentBit})) { if ($proofStr) { print "ERRORS $proofStr"; $proofStr = ""; } warn("Line $. ($commentBit) current comment has no room start.\n"); $explainOrdErrors++; }
+		if (!defined($roomIndex{$lastSortRoom})) { if ($lastSortRoom) { if ($proofStr) { print "ERRORS $proofStr"; $proofStr = ""; } warn("Line $. ($lastSortRoom) last room has no room start.\n"); $explainOrdErrors++; } }
 		elsif (defined($roomIndex{$commentBit}) && (!defined($roomIndex{$commentBit}) || ($roomIndex{$commentBit} < $roomIndex{$lastSortRoom})))
         {
 		  if ($proofStr) { print "ERRORS $proofStr"; $proofStr = ""; }
+		  $explainOrdErrors++;
 		  print "$.: room $commentBit(index " . (defined($roomIndex{$commentBit}) ? $roomIndex{$commentBit} : "N/A") . ") should be behind last room of $lastSortRoom(index $roomIndex{$lastSortRoom})";
 		  if (defined($roomIndex{$commentBit}))
 		  {
@@ -1030,7 +1033,7 @@ sub compareRoomConcept
       }
 	  elsif (cutArt($line) le cutArt($lastLine))
 	  {
-	    if (($commentBit eq "") && (!$initWarn)) { warn("Line $. forgot to initialize something.\n"); $initWarn = 1; }
+	    if (($commentBit eq "") && (!$initWarn)) { if ($proofStr) { print "ERRORS $proofStr"; $proofStr = ""; } warn("Line $. forgot to initialize something.\n"); $initWarn = 1; $explainOrdErrors++; }
 	    $line =~ s/\t.*//;
 		if ($proofStr) { print "ERRORS $proofStr"; $proofStr = ""; }
 	    printf("$.: %s alphabetically behind %s.\n", $line, $lastLine);
@@ -1056,6 +1059,8 @@ sub compareRoomConcept
     print "Oops, no concept lines are defined for $_[0], so it's not worth running a test.\n";
   }
 
+  if ($printTest) { print "TEST RESULTS:$_[0] explain order,$explainOrdErrors,0,0,(none)\n"; }
+
   my $banner = "CONCEPT DEFINITION ANALYSIS\n";
 
   for $conc (sort { $roomIndex{$a} <=> $roomIndex{$b} } keys %roomIndex)
@@ -1077,12 +1082,15 @@ sub compareRoomConcept
 
   if ($banner) { print "PASSED: $banner"; }
 
+  if ($printTest) { print "TEST RESULTS:$_[0]-conc-sort,$concSortFail,0,0\n"; }
+
+  my $conceptNoRooms = 0;
   for $conc (sort keys %conceptIndex)
   {
     if ($conc eq "general") { next; }
-    unless(defined($roomIndex{$conc})) { print "$conc($conceptIndex{$conc}) has section in concept index but no part in room index.\n"; }
+    unless(defined($roomIndex{$conc})) { print "$conc($conceptIndex{$conc}) has section in concept index but no part in room index.\n"; $conceptNoRooms++; }
   }
-  print "TEST RESULTS: $_[0]-conc-sort,$concSortFail,0,0\n";
+  if ($printTest) { print "TEST RESULTS:$_[0] concepts w/o rooms,$conceptNoRooms,0,0,n/a\n"; }
   close(A);
 }
 
