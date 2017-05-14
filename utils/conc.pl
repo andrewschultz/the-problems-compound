@@ -73,6 +73,7 @@ my %fileHash;
 
 my %roomIndex;
 my %conceptIndex;
+my %concToRoom;
 
 $tableDetHash{"Compound"} = "xxjmt,xxbgw";
 $tableDetHash{"Buck-the-Past"} = "!xxtia";
@@ -328,8 +329,15 @@ for my $x (sort keys %any)
   }
 }
 
-  if ($asterisks) { print "TEST RESULTS:asterisks-$_[0],0,$asterisks,0,$astString"; }
-  print "TEST RESULTS:concepts-$_[0],0,$fails,$totals,$errMsg\n";
+  if ($printTest)
+  {
+    print "TEST RESULTS:asterisks-$_[0],0,$asterisks,0,$astString";
+	print "TEST RESULTS:concepts-$_[0],0,$fails,$totals,$errMsg\n";
+  }
+  else
+  {
+    print "Asterisks: $astString\nErrors:$errMsg\n";
+  }
 
   if ($fails)
   {
@@ -376,7 +384,6 @@ for my $x (sort keys %any)
   }
   } else { print "No errors in this run for $_[0]. Nothing sent to clipboard.\n"; }
   if (!$errMsg) { $errMsg = "All okay!"; } else { $errMsg =~ s/\n/<br>/g; $errMsg =~ s/<br>$//g; }
-  $errMsg = "";
 }
 
 sub printGlobalResults
@@ -605,10 +612,14 @@ sub readConcept
 %conc = ();
 %any = ();
 %activ = ();
+my $curRoom = "general concepts";
 $asterisks = 0;
 $astString = "";
 
+my $tempRoom;
+
 my $inTable = 0;
+my $inRoomSect = 0;
 
 my @files = ("c:/games/inform/$_[0].inform/source/story.ni");
 my $file;
@@ -632,6 +643,11 @@ my $tmpVar;
 
 while ($lineIn = <X>)
 {
+  $tempRoom = "";
+  chomp($lineIn);
+  if ($lineIn =~ /\[end rooms\]/) { $inRoomSect = 0; next; }
+  if ($lineIn =~ /\[start rooms\]/) { $inRoomSect = 1; next; }
+  if ($lineIn =~ /\[temproom /) { $tempRoom = $lineIn; $tempRoom =~ s/.*temproom //; $tempRoom =~ s/\].*//; }
   if ($lineIn =~ /(EXPLANATIONS:|CONCEPTS:|fill-in-here throws)/) { push (@dumbErrors, $.); next; }
   if (($lineIn =~ /is a.* author\. pop/) && ($lineIn !~ /^\[/)) { $tmpVar = $lineIn; $tmpVar =~ s/ is (an|a) .*//g; chomp($tmpVar); if ($lineIn =~ /xp-text is /) { $gotText{$tmpVar} = 1; } elsif ($lineIn =~ /\"/) { print "Probable typo for $tmpVar.\n"; } $auth{$tmpVar} = $line; next; }
   if ($inAuthTable)
@@ -644,7 +660,7 @@ while ($lineIn = <X>)
   if ($lineIn =~ /xxauth/) { $inAuthTable = 1; <A>; $line++; next; }
   if ($lineIn =~ /^table of explanations.*concepts/) { $inTable = 1; <X>; next; }
   if ($lineIn !~ /[a-z]/i) { $inTable = 0; if ($inAdd) { $addEnd = $.; $inAdd = 0; } next; }
-  chomp($lineIn);
+  if (($lineIn =~ /^part /) && ($inRoomSect)) { $curRoom = lc($lineIn); $curRoom =~ s/^part +//; next; }
   $lineIn = cutArt($lineIn);
   if ($lineIn =~ /is a concept in (lalaland|conceptville)/) # concept definitions
   {
@@ -679,6 +695,18 @@ while ($lineIn = <X>)
 	$c =~ s/\].*//g;
 	if ($c eq "conc-name entry") { next; }
 	$c = wordtrim($c);
+	if ($tempRoom)
+	{
+	$concToRoom{$c} = $tempRoom;
+	}
+	elsif ($inRoomSect)
+	{
+	$concToRoom{$c} = $curRoom;
+	}
+	else
+	{
+	$concToRoom{$c} = "general concepts";
+	}
 	if (defined($activ{$c}) && !defined($okDup{$c})) { print "Warning line $. double defines $c from $lineNum{$c}.\n"; }
 	$activ{$c} = $.;
 	$any{$c} = $.;
@@ -933,7 +961,7 @@ sub compareRoomConcept
   my $begunRooms = 0;
   my $doneRooms = 0;
   my $explainOrdErrors = 0;
-
+  my $checkRoomMatchup;
   my @toRead = @{$fileHash{$_[0]}};
 
   $roomIndex{"general concepts"} = 1;
@@ -943,6 +971,7 @@ sub compareRoomConcept
   while ($line = <A>)
   {
 	if ($line =~ /^\[start rooms\]/i) { $begunRooms = 1; $doneRooms = 0; next; }
+	if ($line !~ /[a-z]/i) { $checkRoomMatchup = 0; next; }
     if (($line =~ /^part /i) && ($begunRooms) && (!$doneRooms))
 	{
 	  chomp($line);
@@ -983,8 +1012,9 @@ sub compareRoomConcept
 
   while ($line = <A>)
   {
+	if ($line =~ /\[xxadd\]/i) { $checkRoomMatchup = 1; }
     if ($line =~ /^table of explanations/) { $proofStr = "proofreading at line $. for $line"; <A>; $inExp = 1; $lastLine = ""; $lastSortRoom = ""; next; }
-	if ($line !~ /[a-z]/) { $inExp = 0; if ($proofStr) { print "PASSED $proofStr"; $proofStr = ""; } next; }
+	if ($line !~ /[a-z]/) { $checkRoomMatchup = 0; $inExp = 0; if ($proofStr) { print "PASSED $proofStr"; $proofStr = ""; } next; }
 	if ($inExp)
 	{
 	  chomp($line);
@@ -994,8 +1024,8 @@ sub compareRoomConcept
 	    $commentBit = $line;
 		$commentBit =~ s/.*\[start (of )?//;
 		$commentBit =~ s/\].*//;
-	    $line =~ s/\t.*//;
 		$lastLine = $line;
+	    $lastLine =~ s/\t.*//;
 		#for (sort keys %roomIndex) { print "$_ $roomIndex{$_}\n"; } die();
 		if (!defined($roomIndex{$commentBit}) && !defined($roomIndex{$lastSortRoom}))
 		{
@@ -1044,6 +1074,17 @@ sub compareRoomConcept
 	    $line =~ s/\t.*//;
 	  }
 	  $lastLine = $line;
+	  if ($checkRoomMatchup)
+	  {
+	    my $idea = $line; $idea =~ s/\t.*//; chomp($idea); $idea = cutArt($idea);
+		if ($concToRoom{$idea} ne $commentBit)
+		{
+		  print "$.: $idea seen as $concToRoom{$idea} but falls in $commentBit.\n";
+		}
+		else
+		{
+		}
+	  }
 	}
   }
 
