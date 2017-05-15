@@ -696,6 +696,8 @@ while ($lineIn = <X>)
 	$c =~ s/\].*//g;
 	if ($c eq "conc-name entry") { next; }
 	$c = wordtrim($c);
+	if (!defined($concToRoom{$c}))
+	{
 	if ($tempRoom)
 	{
 	$concToRoom{$c} = $tempRoom;
@@ -707,6 +709,7 @@ while ($lineIn = <X>)
 	else
 	{
 	$concToRoom{$c} = "general concepts";
+	}
 	}
 	if (defined($activ{$c}) && !defined($okDup{$c})) { print "Warning line $. double defines $c from $lineNum{$c}.\n"; }
 	$activ{$c} = $.;
@@ -963,6 +966,7 @@ sub compareRoomConcept
   my $doneRooms = 0;
   my $explainOrdErrors = 0;
   my $checkRoomMatchup;
+  my $explanationOrderDetail = 0;
   my @toRead = @{$fileHash{$_[0]}};
 
   $roomIndex{"general concepts"} = 1;
@@ -1008,6 +1012,8 @@ sub compareRoomConcept
   my $lastLine = 0;
   my $initWarn = 0;
   my $proofStr = "";
+  my %ideaHash;
+  my $detailLineToOpen = 0;
 
   open(A, $toRead[0]);
 
@@ -1081,14 +1087,19 @@ sub compareRoomConcept
 		if ($concToRoom{$idea} ne $commentBit)
 		{
 		  if ($proofStr) { print "ERRORS $proofStr"; $proofStr = ""; }
-		  print "$.: $idea seen as $concToRoom{$idea} but falls in $commentBit.\n";
-		}
-		else
-		{
+		  $explanationOrderDetail++;
+		  print "$.: $idea ($lineNum{$idea}) codesectioned to $concToRoom{$idea}" . (defined($roomIndex{$concToRoom{$idea}}) ? "" : " (UNDEFINED ROOM)") . " but defined as concept in $commentBit.\n";
+		  $ideaHash{$lineNum{$idea}}++;
+		  if ((!$detailLineToOpen) || ($detailLineToOpen > $lineNum{$idea}))
+		  {
+		    $detailLineToOpen = $lineNum{$idea};
+		  }
 		}
 	  }
 	}
   }
+
+  if ($detailLineToOpen && (!$fileLineErr{$toRead[0]})) { $fileLineErr{$toRead[0]} = $detailLineToOpen; } #detailLineToOpen is used so we open the first line number that fails when we show the list
 
   close(A);
 
@@ -1103,6 +1114,9 @@ sub compareRoomConcept
   }
 
   if ($printTest) { print "TEST RESULTS:$_[0] explain order,$explainOrdErrors,0,0,(none)\n"; }
+  my $temp = join(", ", map { "$_" . ($ideaHash{$_} > 1 ? "*" : "") } sort { $a <=> $b } keys %ideaHash);
+  if (scalar %ideaHash) { print "Fill in explanation text at " . join(", ", map { "$_" . ($ideaHash{$_} > 1 ? "*" : "") } sort { $a <=> $b } keys %ideaHash) . "\n"; }
+  if ($printTest) { print "TEST RESULTS:$_[0] explain order detail,$explanationOrderDetail,0,0,$temp\n"; }
 
   my $banner = "CONCEPT DEFINITION ANALYSIS\n";
 
