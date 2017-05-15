@@ -239,3 +239,61 @@ The Brothers are dispatched.
 People Power
 Alec didn't REALLY make a successful ending
 
+* bad-food-combos
+
+>gonear meal square
+>z
+
+>eat off cheese
+WRONG
+>eat greater cheese
+WRONG
+>undo
+>eat cutter cookie
+WRONG
+>undo
+>eat points brownie
+WRONG
+>undo
+>undo
+
+>eat greater cheese
+WRONG
+>eat off cheese
+WRONG
+>undo
+>eat cutter cookie
+WRONG
+>undo
+>eat points brownie
+WRONG
+>undo
+>undo
+
+>eat cutter cookie
+WRONG
+>eat greater cheese
+WRONG
+>undo
+>eat off cheese
+WRONG
+>undo
+>eat off cheese
+WRONG
+>undo
+>eat points brownie
+WRONG
+
+>eat points brownie
+WRONG
+>eat greater cheese
+WRONG
+>undo
+>eat cutter cookie
+WRONG
+>undo
+>eat off cheese
+WRONG
+>undo
+>undo
+

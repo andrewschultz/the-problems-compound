@@ -3440,6 +3440,7 @@ Boy Howdy	"Boy Howdy is a colloquial expression of surprise."
 fish out of water	"A fish out of water is someone or something out of place."
 meal ticket	"A meal ticket is something you own that will help you advance socially or economically. It could be physical, or a piece of knowledge, or clout."
 take a stand	"To take a stand is to have a firm moral position. To take the stand is slang for being summoned for interrogation in a court of law."
+time consuming	"Time consuming means something that takes a long time, though you eat quickly."
 apple pie order	"Apple-Pie Order means very well organized." [start of meal square]
 arch deluxe	"The Arch Deluxe was a menu item at McDonald's that was advertised heavily but sold poorly."
 Bowled Over	"Bowled over means unable to deal with things. Over-bold means too confident."
@@ -6481,6 +6482,12 @@ a badfood is a kind of thing. a badfood is usually edible.
 check taking a badfood:
 	try eating noun instead;
 
+check eating a badfood (this is the consuming time rule) :
+	unless accel-ending:
+		say "[i][activation of time consuming]Consuming time[r], you muse to yourself, ready to eat quickly.[paragraph break]";
+
+the consuming time rule is listed first in the check eating rules.
+
 to decide which thing is yourfood:
 	repeat with X running through badfoods:
 		if X is in lalaland:
@@ -6548,6 +6555,9 @@ check eating greater cheese:
 		say "Ugh! You've had enough cheese." instead;
 	if cookie-eaten is true:
 		say "Cookies and cheese? That's just weird." instead;
+	consider the too cool for dessert rule;
+	if the rule succeeded:
+		continue the action;
 	say "You pause a moment before eating the greater cheese. Perhaps you will not appreciate it fully, or you will appreciate it too much and become someone unrecognizable. ";
 	consider the tray b eating rule;
 	if the rule failed:
@@ -6572,6 +6582,9 @@ check eating off cheese:
 		say "You are above eating disgusting cheese. Unless it's tastefully disgusting, like what you just ate." instead;
 	if cookie-eaten is true:
 		say "Ugh! Now that you've eaten the cutter cookie, the off cheese looks even more gross than before. No way. You just want to leave." instead;
+	consider the too cool for dessert rule;
+	if the rule succeeded:
+		continue the action;
 	say "Hmm. It seems edible--well, eatable. You might not be the same person after eating it. ";
 	consider the tray b eating rule;
 	if the rule failed:
@@ -6586,23 +6599,6 @@ section cutter cookie
 a cutter cookie is a badfood on Tray B. description is "It looks like the worst sort of thing to give kids on Halloween. If it doesn't have any actual razor blades, it's pointy as a cookie should not be. It's also grey and oatmeal-y, which cookies should never be. I mean, I like oatmeal cookies, just not dingy grey ones. It seems like excellent food for if you want to be very nasty indeed."
 
 cookie-eaten is a truth state that varies.
-
-this is the tray b eating rule:
-	say "Try eating it anyway?";
-	if the player yes-consents:
-		say "Your [activation of snap decision]decision: SNAP!";
-		the rule succeeds;
-	else:
-		say "It's not the [activation of spur of the moment]moment of the spur. Well, not yet.";
-		the rule fails;
-
-this is the too cool for dessert rule:
-	if off-eaten is true:
-		say "Ugh. [dj] for babies.";
-		the rule succeeds;
-	if greater-eaten is true:
-		say "Pfft. [dj] not very refined.";
-		the rule succeeds;
 
 to say dj:
 	say "[activation of just deserts]Dessert's just"
@@ -6642,6 +6638,26 @@ check eating points brownie:
 	now points brownie is in lalaland;
 	bad-food-process false;
 	now brownie-eaten is true instead;
+
+section dessert rules
+
+this is the tray b eating rule:
+	say "Try eating it anyway?";
+	if the player yes-consents:
+		say "Your [activation of snap decision]decision: SNAP! [activation of time consuming]Consuming time!";
+		the rule succeeds;
+	else:
+		say "It's not the [activation of spur of the moment]moment of the spur. Well, not yet.";
+		the rule fails;
+
+this is the too cool for dessert rule:
+	if off-eaten is true:
+		say "Ugh. [dj] for babies.";
+		the rule succeeds;
+	if greater-eaten is true:
+		say "Pfft. [dj] not very refined.";
+		the rule succeeds;
+
 
 section general tray b eating stuff
 
@@ -12156,6 +12172,8 @@ Spur of the Moment is a concept in conceptville. Understand "moment of the spur"
 strike a balance is a concept in conceptville. howto is "try to take Tray A or Tray B".
 
 a thing called Thought for Food is a concept in conceptville. Understand "food for thought" as thought for food. howto is "visit Meal Square with Terry Sally around".
+
+time consuming is a concept in conceptville. Understand "consuming time" as time consuming. howto is "say yes to eating a Tray B food".
 
 Tray S is a concept in conceptville. howto is "enter Meal Square".
 
