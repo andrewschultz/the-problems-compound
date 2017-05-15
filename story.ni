@@ -1001,9 +1001,9 @@ check waiting (this is the caught napping rule):
 	if player is in down ground and slept-through is false:
 		say "[one of]You attempt to loiter in this seedy area in order to get in trouble or something, but no dice.[or]Still, nobody comes to break up your loitering.[or]You reflect if you want to get zapped for loitering, maybe you need to do better than just hang around.[or]Hm, you wonder what is even lazier than standing around.[stopping]" instead;
 	if player is in Meal Square:
-		say "You wait, but [activation of loaf around]a round loaf fails to appear." instead;
+		say "You wait, but [activation of loaf around]a round loaf fails to appear." instead; [temproom meal square]
 	if player is in Joint Strip:
-		say "With the Stool Toad around, you fear a booming [activation of do dope]DOPE, DO!" instead;
+		say "With the Stool Toad around, you fear a booming [activation of do dope]DOPE, DO!" instead; [temproom joint strip]
 	if player is in Soda Club:
 		say "Er, be." instead;
 	if player is in airy station:
@@ -1035,7 +1035,7 @@ the block burning rule is not listed in any rulebook.
 
 check burning:
 	if player is in judgment pass:
-		say "You have no matches with which to, err, [activation of pass the torch]torch the pass. Ha ha." instead;
+		say "You have no matches with which to, err, [activation of pass the torch]torch the pass. Ha ha." instead; [temproom judgment pass]
 	if noun is poory pot:
 		say "You don't have any matches. Or guts to try even the mild stuff." instead;
 	if noun is wacker weed:
@@ -1057,7 +1057,7 @@ check dropping face of loss:
 	say "You're frowning enough, probably, why make it worse?" instead;
 
 check dropping smokable:
-	say "[activation of roach dropping]Dropping a roach would be really, really unsanitary here." instead;
+	say "[activation of roach dropping]Dropping a roach would be really, really unsanitary here." instead; [temproom pot chamber]
 
 check dropping bad face:
 	say "You wonder if you should drop the act, but--it may not be a total act any more." instead;
@@ -1316,7 +1316,7 @@ carry out do-swearing:
 		if thoughts idol is in idiot village:
 			say "Before you can say it, or think it too long, the Thoughts Idol shakes its head at you." instead;
 	if player is in freak control:
-		say "That gets the [bad-guy]'s attention. 'DUDE!' he says. 'REALLY, dude! Some respect for authority? I mean, don't respect stupid authority but I *** need to *** concentrate, here. My job's not *** easy and anyone who just swears frivolously to grab attention--well, they don't GET IT, y'know? Besides, you sounded lame when you said that.' As you're pulled away by guards you hadn't seen before, the '[activation of freak out]OUT, FREAK' sign catches your eye. Perhaps there was another way to annoy him, without letting him be so self-righteous.";
+		say "That gets the [bad-guy]'s attention. 'DUDE!' he says. 'REALLY, dude! Some respect for authority? I mean, don't respect stupid authority but I *** need to *** concentrate, here. My job's not *** easy and anyone who just swears frivolously to grab attention--well, they don't GET IT, y'know? Besides, you sounded lame when you said that.' As you're pulled away by guards you hadn't seen before, the '[activation of freak out]OUT, FREAK' sign catches your eye. Perhaps there was another way to annoy him, without letting him be so self-righteous."; [temproom freak control]
 		ship-off in-dignity heap instead;
 	if mrlp is endings:
 		say "Don't give up! You're so close!" instead;
@@ -1345,7 +1345,7 @@ check sleeping:
 		go-to-dream;
 		the rule succeeds;
 	if player is in Down Ground:
-		say "You feel especially apathetic here. Yes, it's a good place to drift off[if slept-through is true], with no chance of another [activation of dream ticket]ticket dream[end if].";
+		say "You feel especially apathetic here. Yes, it's a good place to drift off[if slept-through is true], with no chance of another [activation of dream ticket]ticket dream[end if]."; [temproom down ground]
 		if last-dream-loc is visited:
 			say "[line break]You slip back into the old dream.";
 		go-to-dream;
@@ -1438,7 +1438,7 @@ before taking a person:
 
 check taking:
 	if noun is tray a or noun is tray b:
-		say "Man. It's heavy. That might cause a balance strike[activation of strike a balance]." instead;
+		say "Man. It's heavy. That might cause a balance strike[activation of strike a balance]." instead; [temproom meal square]
 	if noun is scenery or noun is fixed in place:
 		if noun is in freak control:
 			say "Vandalism, while direct, won't get rid of the guy running all the machines here." instead;
@@ -1461,7 +1461,7 @@ check climbing:
 	if noun is the nine yards hole:
 		say "No footholds or handholds. You'd be stuck.";
 	if noun is fright stage:
-		say "[if dutch is in plain]There's not room enough for you. Well, there is, but you'd get shouted down quickly. It's not that tall, but it's still a [activation of platform shoes]shoos platform.[else]You're too busy to shout platitudes right now. You could do better than Uncle Dutch and Turk Young, but really, you're thinking bigger than that[end if]." instead;
+		say "[if dutch is in speaking plain]There's not room enough for you. Well, there is, but you'd get shouted down quickly. It's not that tall, but it's still a [activation of platform shoes]shoos platform.[else]You're too busy to shout platitudes right now. You could do better than Uncle Dutch and Turk Young, but really, you're thinking bigger than that[end if]." instead; [temproom speaking plain]
 	if noun is thoughts idol:
 		say "No way. It probably has weird rays and stuff. Or anti-weird rays." instead;
 	if location of player is round lounge:
@@ -1636,12 +1636,12 @@ check listening (this is the listening in a place rule):
 			say "He says nothing." instead;
 		if noun is list bucket:
 			say "It's probably better to examine it[if list bucket is examined], as you already did[end if]." instead;
-		say "Each machines emits its own individualized [activation of grunt work]work grunt, you suspect, to impress visitors." instead;
+		say "Each machines emits its own individualized [activation of grunt work]work grunt, you suspect, to impress visitors." instead; [temproom freak control]
 	if player is in discussion block:
 		say "The song torch is playing.[line break]";
 		try examining song torch instead;
 	if player is in pot chamber:
-		say "You hear nothing. Were you expecting to hear a [activation of crack pipe]pipe crack?" instead;
+		say "You hear nothing. Were you expecting to hear a [activation of crack pipe]pipe crack?" instead; [temproom pot chamber]
 	if player is in out mist:
 		say "You can't hear anyone chasing you. That's good." instead;
 	if player is in airy station:
@@ -1676,12 +1676,12 @@ check eating:
 	if noun is earth of salt:
 		say "[taste-poor]." instead;
 	if noun is tickety:
-		say "It's not big enough to be a [activation of meal ticket]ticket meal." instead;
+		say "It's not big enough to be a [activation of meal ticket]ticket meal." instead; [temproom pressure pier]
 	if noun is lolly:
 		if lolly-eaten is true:
 			say "It--well, you don't it'd be as bad as you imagined." instead;
 		now lolly-eaten is true;
-		say "You gag on it. What did you expect? As you lose consciousness, you think you see two [activation of devil's food]food devils besides [toad-mb-know], snickering at your naivete, and that they actually CAUGHT someone with that.";
+		say "You gag on it. What did you expect? As you lose consciousness, you think you see two [activation of devil's food]food devils besides [toad-mb-know], snickering at your naivete, and that they actually CAUGHT someone with that."; [temproom meal square]
 		ship-off Maintenance High instead;
 	if noun is iron waffle:
 		say "No, it's iron." instead;
@@ -1788,7 +1788,7 @@ carry out taking inventory:
 
 check taking inventory (this is the new standard inventory rule):
 	if accel-ending:
-		say "You have a new outlook on life, and you're ready to show it. No more silly off face[activation of face off], either." instead;
+		say "You have a new outlook on life, and you're ready to show it. No more silly off face[activation of face off], either." instead; [temproom meal square]
 
 after taking inventory:
 	if player carries bad face:
@@ -1932,7 +1932,7 @@ check singing:
 	if player is in Discussion Block:
 		say "[if phil is in Discussion Block]You don't want to hear Phil's critique of your singing[else]You still can't compete with the song torch[end if]." instead;
 	if player has poetic wax:
-		say "It's poetic wax, not [activation of wax lyrical]lyrical wax." instead;
+		say "It's poetic wax, not [activation of wax lyrical]lyrical wax." instead; [temproom discussion block]
 	if player is in Classic Cult:
 		say "You sense singing may be overdoing it for the cult here." instead;
 	say "Once you scrunch up [activation of face the music]the music face needed, you realize never were the artsy type. And the songs you want to sing are always out of fashion." instead;
@@ -1979,7 +1979,7 @@ check drinking:
 			say "You think about swigging the pop, but the questions the Brothers have is for help, not facts." instead;
 		now got-pop is true;
 		now quiz pop is in lalaland;
-		say "Glug, glug. It tastes nasty. But suddenly your mind is whizzing with memories of people who out-talked you, and your realize how they did it and why. The quiz pop dissolves as you drink the last drop, leaving a paper scrap with a number to [activation of brass ring]RING BRASS in case of dissatisfaction and/or great need. It's a catchy number and no problem to remember." instead;
+		say "Glug, glug. It tastes nasty. But suddenly your mind is whizzing with memories of people who out-talked you, and your realize how they did it and why. The quiz pop dissolves as you drink the last drop, leaving a paper scrap with a number to [activation of brass ring]RING BRASS in case of dissatisfaction and/or great need. It's a catchy number and no problem to remember." instead; [temproom questions field]
 	if noun is haha brew:
 		say "You take a small sip. The foul sour taste is truly unfunny." instead;
 	if noun is cooler wine:
@@ -2156,7 +2156,7 @@ check attacking:
 		say "'Dude. REALLY? It's not like I don't have spares,' says the [bad-guy] as you pound away. 'No damage done? No. But it's the intent that matters. I don't know how you got in here but you'll be going somewhere far away.' Ouch--you needed to do something that didn't just kill one machine.";
 		ship-off Criminals' Harbor instead;
 	if noun is Percy:
-		say "You can't get close to him. '[activation of play it cool]Cool it! Play!' he mocks you." instead;
+		say "You can't get close to him. '[activation of play it cool]Cool it! Play!' he mocks you." instead; [temproom chipper wood]
 	if noun is Baiter:
 		say "Of course, with all those screens, he saw you well before you got close. He whirls and smacks you. Stunned, you offer no resistance as guards appear and take you away to where those who commit the worst crimes... 'Dude! If you wanted to talk, just TALK. I mean, you can't be too boring, but don't be all...' You don't hear the rest.";
 		ship-off Punishment Capitol instead;
@@ -2169,9 +2169,9 @@ check attacking:
 	if noun is list bucket:
 		say "You didn't come so far only to -- wait for it -- kick the bucket. Surely there's a better way to get the [bad-guy]'s attention." instead;
 	if noun is scenery and noun is in freak control:
-		say "[activation of breaking entering]Entering and breaking? Nah, there's a better way to get the [bad-guy]'s attention." instead;
+		say "[activation of breaking entering]Entering and breaking? Nah, there's a better way to get the [bad-guy]'s attention." instead; [temproom freak control]
 	if noun is Young Turk or noun is Uncle Dutch:
-		say "'[activation of hate speech]SPEECH HATE! SPEECH HATE!' Turk and Dutch cry in unison. You're no match for both of them, or the Stool Toad, who appears in short order. 'There's not much worse than speech hate, son. Even if it's not very effective. Looking at you, I had a bad feeling you might be full of it.' The Toad blathers on about how he really just hates your actions and not you, and it's almost a relief when you're dumped off...";
+		say "'[activation of hate speech]SPEECH HATE! SPEECH HATE!' Turk and Dutch cry in unison. You're no match for both of them, or the Stool Toad, who appears in short order. 'There's not much worse than speech hate, son. Even if it's not very effective. Looking at you, I had a bad feeling you might be full of it.' The Toad blathers on about how he really just hates your actions and not you, and it's almost a relief when you're dumped off..."; [temproom speaking plain]
 		ship-off Punishment Capitol instead;
 	if noun is a person:
 		if noun is female:
@@ -2638,7 +2638,7 @@ check giving Reasoning Circular to:
 	if second noun is Officer Petty:
 		now Officer Petty is in lalaland;
 		now the Reasoning Circular is in lalaland;
-		say "A tear starts to form in Officer Petty's eye. 'Really? I...well, this definitely isn't bribery! I've cultivated a nice [activation of scofflaw]law-scoff at people who get simple stuff wrong, but I always felt there was more. I could have more complex reasons to put people down. I really CAN follow a [activation of career threatening]Threatening Career! I CAN be clever and still play the Maybe I Didn't Go to a Fancy School card. Thank...' He looks at the Reasoning Circular again. 'Wait, wait. Maybe you wouldn't have gotten anything out of this invitation anyway. So it's not so generous.' Officer Petty beams at his newfound profundity before shuffling off.";
+		say "A tear starts to form in Officer Petty's eye. 'Really? I...well, this definitely isn't bribery! I've cultivated a nice [activation of scofflaw]law-scoff at people who get simple stuff wrong, but I always felt there was more. I could have more complex reasons to put people down. I really CAN follow a [activation of career threatening]Threatening Career! I CAN be clever and still play the Maybe I Didn't Go to a Fancy School card. Thank...' He looks at the Reasoning Circular again. 'Wait, wait. Maybe you wouldn't have gotten anything out of this invitation anyway. So it's not so generous.' Officer Petty beams at his newfound profundity before shuffling off."; [temproom judgment pass]
 		increment the score;
 		annotize officer petty;
 		the rule succeeds;
@@ -2713,11 +2713,11 @@ check giving the trap rattle to: [you can't get the trap rattle until you've got
 	if second noun is Sid Lew:
 		say "He recoils in fear for a second, then booms 'WHY WOULD I WANT THAT.' It's not really a question." instead;
 	if second noun is Lee Bull:
-		say "Sid Lew continues his abuse. At first Lee Bull seems to take it, but then--rattle, rattle. It distracts Sid Lew enough, Lee Bull finds his voice. Animated, he shows up every hole in Sid Lew's seductive but wrong arguments. He begins hitting Sid Lew on the head with the trap rattle until Sid Lew runs out, grousing Lee doesn't DESERVE [activation of right to privacy]privacy to write, and he won't USE it, but...";
+		say "Sid Lew continues his abuse. At first Lee Bull seems to take it, but then--rattle, rattle. It distracts Sid Lew enough, Lee Bull finds his voice. Animated, he shows up every hole in Sid Lew's seductive but wrong arguments. He begins hitting Sid Lew on the head with the trap rattle until Sid Lew runs out, grousing Lee doesn't DESERVE [activation of right to privacy]privacy to write, and he won't USE it, but..."; [temproom truth home]
 		wfak;
-		say "[line break]Lee Bull shakes the rattle some more. You see something fall out. '[activation of mass production]Production mass,' says Lee. 'It helps people with bottled up ideas see their way through to organize them, with their unique life view! I better star some [activation of assembly line]line assembly before it decays...' Lee begins to write. And write. He hands you the first page--and wow! All the clever life hacks you learn just from the introduction! It's too much, though. You fall asleep as your mind processes it all, with incidents from your own life suddenly making sense.";
+		say "[line break]Lee Bull shakes the rattle some more. You see something fall out. '[activation of mass production]Production mass,' says Lee. 'It helps people with bottled up ideas see their way through to organize them, with their unique life view! I better star some [activation of assembly line]line assembly before it decays...' Lee begins to write. And write. He hands you the first page--and wow! All the clever life hacks you learn just from the introduction! It's too much, though. You fall asleep as your mind processes it all, with incidents from your own life suddenly making sense."; [temproom truth home]
 		wfak;
-		say "[line break]When you wake up, Lee Bull has written several copies of a small, but fully bound book. He gives it to you and shakes your hand. THE TRADE OF TRICKS, it's called. '[activation of thp]Proof 200 is particularly intoxicating,' he says, 'but I'm too tired to explain it.' He leaves to his own private quarters.";
+		say "[line break]When you wake up, Lee Bull has written several copies of a small, but fully bound book. He gives it to you and shakes your hand. THE TRADE OF TRICKS, it's called. '[activation of thp]Proof 200 is particularly intoxicating,' he says, 'but I'm too tired to explain it.' He leaves to his own private quarters."; [temproom truth home]
 		now Lee Bull is in lalaland;
 		now Sid Lew is in lalaland;
 		now trap rattle is in lalaland;
@@ -2993,8 +2993,8 @@ carry out diging:
 		say "Doing that to a tension surface may release too much pressure. You're pretty good in science, so you worry about these things." instead;
 	if noun is poor dirt:
 		if dirt-dug is true:
-			say "'Enough, man[activation of man enough]!' says the Weasel, leaving you feeling not man enough." instead;
-		say "'Ah, the art of work[activation of work of art]!' the Weasel says as you begin. It throws on a few more aphorisms about exercise and experience and advice that, well, motivate you not to take breaks. 'You've paid off your debt now.'";
+			say "'Enough, man[activation of man enough]!' says the Weasel, leaving you feeling not man enough." instead; [temproom variety garden]
+		say "'Ah, the art of work[activation of work of art]!' the Weasel says as you begin. It throws on a few more aphorisms about exercise and experience and advice that, well, motivate you not to take breaks. 'You've paid off your debt now.'"; [temproom variety garden]
 		now dirt-dug is true;
 		the rule succeeds;
 	if noun is mouth mush:
@@ -3015,7 +3015,7 @@ carry out diging:
 		now permit entry is 1;
 		choose row with response of weasel-pick-hey in table of weasel talk;
 		now permit entry is 1;
-		say "With your pocket pick, the work is steady and clean, if arduous. Your cheap pocket pick starts splitting off--why couldn't the earth of salt been [activation of scum of earth]earth of scum or something easier to hack at?--and it snaps in two with the final blow.[paragraph break]Beneath is a thin plaque. But not just any plaque: a PROOF OF BURDEN. You wipe it off and pick it up, then you bury the pocket pick, which is not only broken but also rusted." instead;
+		say "With your pocket pick, the work is steady and clean, if arduous. Your cheap pocket pick starts splitting off--why couldn't the earth of salt been [activation of scum of earth]earth of scum or something easier to hack at?--and it snaps in two with the final blow.[paragraph break]Beneath is a thin plaque. But not just any plaque: a PROOF OF BURDEN. You wipe it off and pick it up, then you bury the pocket pick, which is not only broken but also rusted." instead; [temproom vision tunnel]
 	say "That's not soft enough." instead;
 	the rule succeeds.
 
@@ -3461,8 +3461,10 @@ Tray S	"Stray. In other words, it strayed from Meal Square."
 Tray T	"A tea tray. To go with food."
 Tray X	"It is an ex-tray."
 treat like dirt	"To treat someone like dirt is to be very nasty to them."
-Bum Beach	"A beach bum is someone who wanders on the beach. Maybe he lives there in a shack too." [start of down ground]
+brain trust	"A brain trust is a group of people that help make a decision. A trust-brain, though not an English phrase, might mean a mind that can't make its own decisions." [start of down ground]
+Bum Beach	"A beach bum is someone who wanders on the beach. Maybe he lives there in a shack too."
 clip joint	"A clip joint is a place that overcharges customers. A joint clip will help Fritz save on purchases so none is wasted."
+Double Jeopardy	"Double jeopardy is being tried for the same crime twice. Making your jeopardy double is just putting you at twice the risk."
 drag along	"To drag someone along is to take them with despite their reluctance."
 Dream Ticket	"A pair of candidates who, running together, have extremely broad appeal they wouldn't have alone. In Alec's dreams, he's often ganged up on by two people or groups who triangulate him rather differently."
 Grammar Police	"Grammar police are people who argue trivial grammar points when something is clear, or there's a much bigger cogent argument. In the Stool Toad's case, he deliberately uses bad grammar for emphasis, like on a 'hard-boiled' cop show."
@@ -3478,12 +3480,10 @@ advice	"Advice is, well, telling someone what they should or shouldn't do. A vic
 bullfrog	"A bullfrog is not quite a toad. And bull means nonsense. The Stool Toad is probably in no danger of being mistaken for Frog or Toad from Arnold Lobel's nice books."
 case a joint	"To case a joint is to search a place thoroughly."
 do dope	"To do dope is to use drugs."
-Double Jeopardy	"Double jeopardy is being tried for the same crime twice. Making your jeopardy double is just putting you at twice the risk."
 killer weed	"Killer weed is slang for especially good marijuana."
 Moral Support	"Moral support is helping someone even if you don't have concrete advice. SUPPORT MORAL is, well, a slogan that pushes people around."
 Pigeon English	"Pigeon English is broken, grammatically poor English."
 strip search	"To strip search someone is to remove their clothes to look for something on them, or in them."
-Trust Brain	"A brain trust is a group of people that help make a decision. A trust-brain, though not an English phrase, might mean a mind that can't make its own decisions."
 beer nuts	"Beer nuts is slang for peanuts." [start of soda club]
 boot licker	"A boot licker is someone who flatters too much."
 brew a plot	"To brew a plot is to plan something subversive."
@@ -3635,6 +3635,7 @@ Determined Bound	"Bound and determined means you're set on doing something. A de
 drive into the ground	"To drive something into the ground is to make the point far too obviously and long."
 Driving Crazy	"Driving someone crazy is usually not literal, but it means you are annoying them a lot, enough they may want to lash back."
 Watkins Glen	"Watkins Glen is a famous racecourse in upstate New York."
+wood pusher	"A wood pusher is a chessplayer who plays by rote, so, sort of a double whammy of no fun."
 sods law	"Sod's law says anything that can go wrong, will. It's often misstated as Murphy's Law, which is different." [start of standard bog]
 bum a cigarette	"To bum a cigarette is to ask someone for one of theirs. 'A cigarette bum' indicates Penn's disdain for more legal smokables." [start of pot chamber]
 crack pipe	"A crack pipe is used to smoke crack cocaine, which is even more illegal and risky than marijuana."
@@ -3734,7 +3735,7 @@ Trevor Noah	"Trevor Noah is the current (as of 2017) host of [i]The Daily Show[r
 Tucker Max	"Tucker Max was alleged to have spanwed the 'fratire' genre, which features cynical 'tell it like it is' writing full of sex and hedonism and self-centeredness. It's the reading equivalent of sitting next to a guy bragging at a bar for a long time. An intelligent guy, sure, but that just lets him bang on longer. Imagine PG Wodehouse's Bertie Wooster without any heart."
 Wallace Shawn	"Wallace Shawn is the actor who played Vizzini ('INCONCEIVABLE!') in The Princess Bride. He's also a critically acclaimed writer."
 Wire Fraud	"Wire fraud is a financial crime designed to cheat people out of money."
-zeroin	"To zero in is to focus, and you do, on getting out of the Break Jail." [start of out mist]
+zeroin	"To zero in is to focus, and you do, on getting out of the Break Jail."
 clear waivers	"To clear waivers in pro sports is when your team releases you and no other team signs you." [start of airy station]
 gangplank	"A gangplank leads out of a boat and into the sea. So it is a method of killing prisoners no longer useful." [start of criminals' harbor]
 hate crime	"Hate crime is an illegal act directed specifically against victims based on gender, sexual orientation, race or religion."
@@ -4201,7 +4202,7 @@ check going:
 		say "You don't often need to go down." instead;
 	if noun is up and the room up of location of player is nowhere:
 		if location of player is variety garden:
-			say "Even if you had wings, you'd probably fly into [activation of brush up]up brush that'd remind you you don't REALLY know how to use them.";
+			say "Even if you had wings, you'd probably fly into [activation of brush up]up brush that'd remind you you don't REALLY know how to use them."; [temproom variety garden]
 			the rule succeeds;
 		say "You don't often need to go up." instead;
 	if noun is outside:
@@ -6960,7 +6961,7 @@ understand "boo ticket" and "ticket" as boo tickety.
 
 drop-ticket is a truth state that varies.
 
-the dreadful penny is a thing. description is "It has a relief of the [bad-guy] on the front and back, with '[activation of trust brain]TRUST A BRAIN' on the back. You hope it's worth more than you think it is."
+the dreadful penny is a thing. description is "It has a relief of the [bad-guy] on the front and back, with '[activation of brain trust]TRUST A BRAIN' on the back. You hope it's worth more than you think it is."
 
 after examining dreadful penny:
 	now brain trust is in lalaland;
@@ -8884,7 +8885,7 @@ before talking to story fish:
 	if player is not in Discussion Block:
 		say "The fish opens a sleepy eye. 'Eh? Anyone with a [activation of fish for a compliment]compliment for a fish? Nope, nobody artsy enough.'" instead;
 	if art fine is in Discussion Block:
-		say "The fish eyes you sleepily but then sees the bookshelf, then Art Fine. 'Ah! Good sir! May I begin!' The fish's story is much funnier and shorter than you expected, because Art barely lasts five minutes before he runs away screaming. 'No more [activation of babel fish]fish babble! [safety-of]!' You pat the fish on the head and put it in the tie it to the Book Bank with the Long String--there, you even hid the string, so it looks extra neat.[paragraph break]";
+		say "The fish eyes you sleepily but then sees the bookshelf, then Art Fine. 'Ah! Good sir! May I begin!' The fish's story is much funnier and shorter than you expected, because Art barely lasts five minutes before he runs away screaming. 'No more [activation of babel fish]fish babble! [safety-of]!' You pat the fish on the head and put it in the tie it to the Book Bank with the Long String--there, you even hid the string, so it looks extra neat.[paragraph break]"; [temproom discussion block]
 		now long string is in lalaland;
 		now art fine is in lalaland;
 		now story fish is in Discussion Block;
@@ -8999,7 +9000,7 @@ after quipping when qbc_litany is litany of grace:
 
 chapter Mind of Peace
 
-the mind of peace is a thing. description is "Looking into it, you feel calmer. Better about past put-downs or failures, whether or not you have a plan to improve. Yet you also know, if it helped you so easily, it may be better for someone who needs it even more.[paragraph break]I suppose it could also be a [activation of trust brain]Trust Brain. Ba ba boom."
+the mind of peace is a thing. description is "Looking into it, you feel calmer. Better about past put-downs or failures, whether or not you have a plan to improve. Yet you also know, if it helped you so easily, it may be better for someone who needs it even more.[paragraph break]I suppose it could also be a [activation of brain trust]trust brain. Ba ba boom."
 
 understand "trust brain" and "trust/brain" as mind of peace.
 
@@ -9180,7 +9181,7 @@ after examining the finger index (this is the know what jerks are about rule) :
 
 understand "paper" as finger index.
 
-description of finger index is "FINGER INDEX (CONFIDENTIAL):[paragraph break][finger-say].[paragraph break]P.S. upgrade anyone who tries to tattle to the [activation of bookworm]Worm Book.".
+description of finger index is "FINGER INDEX (CONFIDENTIAL):[paragraph break][finger-say].[paragraph break]P.S. upgrade anyone who tries to tattle to the [activation of bookworm]Worm Book.". [temproom scheme pyramid]
 
 check examining finger index when finger index is not examined:
 	say "It looks like a list of customers--wait, no, it's a list of embarrassing secrets. The little brat!";
@@ -9665,7 +9666,7 @@ Walker Street is east of Speaking Plain. It is in Main Chunk. "A huge mistake gr
 
 check going inside in walker street:
 	if poory pot is in lalaland:
-		say "[one of]As you walk in, Pusher Penn asks if you enjoyed your 'payment.' But you manage to give a version of the truth that seems even more preposterous than if you'd actually sampled the stuff. 'THE THANKS I GET!' he booms. 'DON'T COME BACK.'[or]Pusher Penn really, really doesn't want to see you. But you don't want or need to see him.[stopping]" instead;
+		say "[one of]As you walk in, Pusher Penn looks up from his plans for [activation of wood pusher]Pusher Wood, his new resort, and asks if you enjoyed your 'payment.' But your truth truth that seems even more preposterous than if you'd actually sampled the stuff. 'THE THANKS I GET!' he booms. 'DON'T COME BACK.'[or]Pusher Penn really, really doesn't want to see you. But you don't want or need to see him.[stopping]" instead;
 
 the mistake grave is scenery in Walker Street. "It's illuminated oddly, as if a red light were flashing behind it, and reads: IN MEMORY OF [activation of watkins glen]GLEN WATKINS, THE IDIOT WHO WENT ONLY FIVE MILES OVER THE SPEED LIMIT AND DIDN'T HEAR THE JOYRIDERS GOING THIRTY FORTY OR FIFTY OVER THUS RUINING THIS PRIME [activation of driving crazy]CRAZY DRIVING ZONE FOR MORE EXCITING PEOPLE. -[bg][one of].[paragraph break]Well, the message isn't [activation of drive into the ground]ground into the [i]drive[r][or][stopping]."
 
@@ -9804,7 +9805,7 @@ penn-drugs	--
 penn-free	"'Ha ha. Well, not quite free. Just a little favor. Make a little delivery. Behind five-oh's back.'"
 penn-herb	"A lot less wishy washy than his sisters. Met [']em? [if classic cult is visited]Yeah[else]No[end if]? People probably start to NOT be like him. Also, I assure my customers I won't rat them to him. For just a small markup."
 penn-cops	--
-penn-changed	"Pusher Penn engages in some are-you-sure-no-are-you-really-sure and then waves you off. 'Enough of this nonsense. I have a business to run."
+penn-changed	"Pusher Penn engages in some are-you-sure-no-are-you-really-sure and then waves you off. 'Enough of this nonsense. I have a business to run.'"
 penn-baiter	"'Well, we had a confidential conversation, and he says he respects my business initiative, but I better not sell to anyone who matters. That's what got the [activation of pop pills]Pills Pop in trouble, but--too long a story, there.'"
 penn-bye	"[if player has weed]'Get my delivery done there, now.'[else if poory is not off-stage]'Enjoy the goods!'[else]'Well, if you need to do business, let me know.'[end if]" [ok]
 
@@ -10652,7 +10653,7 @@ to choose-final-room:
 			set the pronoun them to mentality crowd;
 			move player to Airy Station;
 		else:
-			say "'Where? In the BREAK JAIL[activation of break jail]!'[paragraph break]Could people who yell that loud REALLY be that wrong? You keep a straight face, even as he booms '[activation of zeroin]IN, ZERO!' Which helps you focus more than you thought you could on how to get out. You're way ahead of the guards when they give chase. There's a mist ahead--maybe they'll lose you! But you've done even better. 'The out mist!' they yell. 'People eventually leave there to get back to real life.'"; [temproom out mist]
+			say "'Where? In the BREAK JAIL[activation of break jail]!'[paragraph break]Could people who yell that loud REALLY be that wrong? You keep a straight face, even as he booms '[activation of zeroin]IN, ZERO!' Which helps you focus more than you thought you could on how to get out. You're way ahead of the guards when they give chase. There's a mist ahead--maybe they'll lose you! But you've done even better. 'The out mist!' they yell. 'People eventually leave there to get back to real life.'"; [temproom freak control]
 			set the pronoun it to worm ring;
 			move player to Out Mist;
 		annotize baiter master;
@@ -12169,9 +12170,13 @@ section down ground concepts
 to say w-fr:
 	say "give the weed to Fritz"
 
+brain trust is a concept in conceptville. Understand "trust brain" as brain trust. howto is "examine dreadful penny or mind of peace".
+
 Bum Beach is a concept in conceptville. Understand "beach bum" as Bum Beach. howto is "examine the bench in Down Ground".
 
 Clip Joint is a concept in conceptville. Understand "joint clip" as clip joint. howto is "listen to Fritz after giving him the weed".
+
+Double Jeopardy is a concept in conceptville. Understand "jeopardy double" as Double Jeopardy. howto is "get ticket for sleeping".
 
 drag along is a concept in conceptville. Understand "along drag" as drag along. howto is "[w-fr]".
 
@@ -12205,8 +12210,6 @@ case a joint is a concept in conceptville. Understand "joint a case" as case a j
 
 do dope is a concept in conceptville. Understand "dope do" as do dope. howto is "wait in Joint Strip".
 
-Double Jeopardy is a concept in conceptville. Understand "jeopardy double" as Double Jeopardy. howto is "get ticket for sleeping".
-
 killer weed is a concept in conceptville. Understand "weed killer" as killer weed. howto is "smell in the Joint Strip".
 
 Moral Support is a concept in conceptville. Understand "support moral" as moral support. howto is "[x-it of pigeon stool]".
@@ -12214,8 +12217,6 @@ Moral Support is a concept in conceptville. Understand "support moral" as moral 
 Pigeon English is a concept in conceptville. Understand "english pigeon" as pigeon english. howto is "[x-it of pigeon stool]".
 
 strip search is a concept in conceptville. Understand "search strip" as strip search. howto is "[nogo of Joint Strip]".
-
-Trust Brain is a concept in conceptville. Understand "brain trust" as trust brain. howto is "examine dreadful penny or mind of peace".
 
 section soda club concepts
 
@@ -12562,6 +12563,8 @@ Driving Crazy is a concept in conceptville. Understand "crazy driving" as drivin
 
 Watkins Glen is a concept in conceptville. Understand "glen watkins" as watkins glen. howto is "examine the mistake grave in Walker Street".
 
+wood pusher is a concept in conceptville. Understand "pusher wood" as wood pusher. howto is "enter Pot Chamber after putting Sal to sleep".
+
 section standard bog concepts
 
 sods law is a concept in conceptville. Understand "law sods" and "sod's law" as sods law. howto is "[nogo of standard bog]".
@@ -12653,7 +12656,7 @@ The Break Jail is a concept in conceptville. Understand "jail break" as Break Ja
 
 Break Monotony is a concept in conceptville. Understand "monotony break" as break monotony. howto is "wait for the [bad-guy] to go through his actions".
 
-breaking entering is a concept in conceptville. printed name is "breaking and entering". Understand "entering and breaking" and "breaking and entering" as breaking entering. howto is "attack scenery in Freak Control". [??]
+breaking entering is a concept in conceptville. printed name is "breaking and entering". Understand "entering and breaking" and "breaking and entering" as breaking entering. howto is "attack scenery in Freak Control".
 
 busy work is a concept in conceptville. Understand "work busy" as busy work. howto is "[fr-ran]".
 
@@ -12781,9 +12784,9 @@ Wallace Shawn is a concept in conceptville. Understand "shawn wallace" as wallac
 
 Wire Fraud is a concept in conceptville. Understand "fraud wire" as Wire Fraud. howto is "[bad-guy] dialog".
 
-section out mist concepts
-
 zeroin is a privately-named concept in conceptville. printed name is "zero in". Understand "in zero" and "zero in" as zeroin. howto is "[ok-end]".
+
+section out mist concepts
 
 section airy station concepts
 
