@@ -74,6 +74,7 @@ my %fileHash;
 my %roomIndex;
 my %conceptIndex;
 my %concToRoom;
+my %concTableLine;
 
 $tableDetHash{"Compound"} = "xxjmt,xxbgw";
 $tableDetHash{"Buck-the-Past"} = "!xxtia";
@@ -159,10 +160,12 @@ if ($readDupe) { readOkayDupes(); }
 
 for my $thisproj (@dirs)
 {
+  #die "$order $readConcepts $detailAlpha $roomConcCompare\n";
+  getRoomIndices($thisproj);
   if ($order) { checkOrder($thisproj); }
   if ($readConcepts) { readConcept($thisproj); }
   if ($detailAlpha) { checkTableDetail($thisproj); }
-  if ($roomConcCompare) { compareRoomConcept($thisproj); }
+  if ($roomConcCompare) { compareRoomIndex($thisproj); }
 }
 
 printGlobalResults();
@@ -919,7 +922,35 @@ sub findExplLine
   }
   close(B);
   }
-  printf("Couldn't find %s line for $_[0]/$actRoom in $_[1] files. May need \[start of $_[0]\] in %s.\n", $_[2] == 1 ? "room-concept-list" : "table-of-explanations start", $_[2] == 1 ? "room-concept-list" : "table-of-explanations start");
+  printf("Couldn't find %s line for $_[0]/$actRoom in $_[1] files. May need \[start of $actRoom\] in %s.\n", $_[2] == 1 ? "room-concept-list" : "table-of-explanations start", $_[2] != 1 ? "room-concept-list" : "table-of-explanations start");
+  my $highestBelow = 0;
+  my $lowestAbove = 0;
+  my $approxLine = $roomIndex{lc($actRoom)};
+  #for (sort keys %roomIndex) { print "$_ $roomIndex{$_}\n"; }
+  #for (sort keys %conceptIndex) { print "$_ $conceptIndex{$_}\n"; }
+  #die();
+  if ($_[2] == 1)
+  {
+  for (sort { $roomIndex{$a} <=> $roomIndex{$b} } keys %roomIndex)
+  {
+    if (($roomIndex{$_} > $approxLine) && defined($concTableLine{$_})) { return ($toRead[0], $concTableLine{$_}-2); }
+  }
+  for (sort { $roomIndex{$b} <=> $roomIndex{$a} } keys %roomIndex)
+  {
+    if (($roomIndex{$_} < $approxLine) && defined($concTableLine{$_})) { return ($toRead[0], $concTableLine{$_}-2); }
+  }
+  }
+  if ($_[2] == 2)
+  {
+  for (sort { $roomIndex{$a} <=> $roomIndex{$b} } keys %roomIndex)
+  {
+    if (($roomIndex{$_} > $approxLine) && defined($conceptIndex{$_})) { return ($toRead[0], $conceptIndex{$_}-2); }
+  }
+  for (sort { $roomIndex{$b} <=> $roomIndex{$a} } keys %roomIndex)
+  {
+    if (($roomIndex{$_} < $approxLine) && defined($conceptIndex{$_})) { return ($toRead[0], $conceptIndex{$_}-2); }
+  }
+  }
   return ($toRead[0], "????");
 }
 
@@ -952,21 +983,14 @@ sub readAux
   }
 }
 
-sub compareRoomConcept
+sub getRoomIndices
 {
-  my $conc;
-  my $lastConc = 0;
-  my $lastRoom = 0;
-  my $lastConcName = "";
-  my $concSortFail = 0;
   my $line;
   my $inConcepts = 0;
   my $tempStr;
   my $begunRooms = 0;
   my $doneRooms = 0;
-  my $explainOrdErrors = 0;
-  my $checkRoomMatchup;
-  my $explanationOrderDetail = 0;
+  my $inConceptTable = 0;
   my @toRead = @{$fileHash{$_[0]}};
 
   $roomIndex{"general concepts"} = 1;
@@ -975,8 +999,19 @@ sub compareRoomConcept
 
   while ($line = <A>)
   {
+    if ($line =~ /\[xxadd\]/i) { $inConceptTable = 1; <A>; next; }
+    if ($line !~ /[a-z]/i) { $inConceptTable = 0; next; }
+	if ($inConceptTable)
+	{
+	  if ($line =~ /\[start of/i)
+	  {
+	    my $idea = $line; $idea =~ s/.*\[start of //;
+		chomp($idea);
+		$idea =~ s/\].*//;
+		$concTableLine{$idea} = $.;
+	  }
+    }
 	if ($line =~ /^\[start rooms\]/i) { $begunRooms = 1; $doneRooms = 0; next; }
-	if ($line !~ /[a-z]/i) { $checkRoomMatchup = 0; next; }
     if (($line =~ /^part /i) && ($begunRooms) && (!$doneRooms))
 	{
 	  chomp($line);
@@ -1005,7 +1040,15 @@ sub compareRoomConcept
 	}
   }
   close(A);
+}
 
+sub compareRoomIndex
+{
+  my $explanationOrderDetail = 0;
+  my $explainOrdErrors = 0;
+  my $checkRoomMatchup = 0;
+  my $conc;
+  my $concSortFail = 0;
   my $inExp = 0;
   my $lastSortRoom = "";
   my $commentBit = "";
@@ -1014,6 +1057,13 @@ sub compareRoomConcept
   my $proofStr = "";
   my %ideaHash;
   my $detailLineToOpen = 0;
+
+  my $lastConc = 0;
+  my $lastRoom = 0;
+  my $lastConcName = "";
+
+  my $line;
+  my @toRead = @{$fileHash{$_[0]}};
 
   open(A, $toRead[0]);
 
