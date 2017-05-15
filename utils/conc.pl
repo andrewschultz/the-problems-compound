@@ -647,7 +647,8 @@ while ($lineIn = <X>)
   chomp($lineIn);
   if ($lineIn =~ /\[end rooms\]/) { $inRoomSect = 0; next; }
   if ($lineIn =~ /\[start rooms\]/) { $inRoomSect = 1; next; }
-  if ($lineIn =~ /\[temproom /) { $tempRoom = $lineIn; $tempRoom =~ s/.*temproom //; $tempRoom =~ s/\].*//; }
+  if ($lineIn =~ /\[temproom /i) { $tempRoom = $lineIn; $tempRoom =~ s/.*temproom //; $tempRoom =~ s/\].*//; }
+  if ($lineIn =~ /\[forceroom /i) { $curRoom = $lineIn; $curRoom =~ s/.*forceroom //; $tempRoom =~ s/\].*//; }
   if ($lineIn =~ /(EXPLANATIONS:|CONCEPTS:|fill-in-here throws)/) { push (@dumbErrors, $.); next; }
   if (($lineIn =~ /is a.* author\. pop/) && ($lineIn !~ /^\[/)) { $tmpVar = $lineIn; $tmpVar =~ s/ is (an|a) .*//g; chomp($tmpVar); if ($lineIn =~ /xp-text is /) { $gotText{$tmpVar} = 1; } elsif ($lineIn =~ /\"/) { print "Probable typo for $tmpVar.\n"; } $auth{$tmpVar} = $line; next; }
   if ($inAuthTable)
@@ -1079,6 +1080,7 @@ sub compareRoomConcept
 	    my $idea = $line; $idea =~ s/\t.*//; chomp($idea); $idea = cutArt($idea);
 		if ($concToRoom{$idea} ne $commentBit)
 		{
+		  if ($proofStr) { print "ERRORS $proofStr"; $proofStr = ""; }
 		  print "$.: $idea seen as $concToRoom{$idea} but falls in $commentBit.\n";
 		}
 		else
