@@ -3440,7 +3440,6 @@ Boy Howdy	"Boy Howdy is a colloquial expression of surprise."
 fish out of water	"A fish out of water is someone or something out of place."
 meal ticket	"A meal ticket is something you own that will help you advance socially or economically. It could be physical, or a piece of knowledge, or clout."
 take a stand	"To take a stand is to have a firm moral position. To take the stand is slang for being summoned for interrogation in a court of law."
-time consuming	"Time consuming means something that takes a long time, though you eat quickly."
 apple pie order	"Apple-Pie Order means very well organized." [start of meal square]
 arch deluxe	"The Arch Deluxe was a menu item at McDonald's that was advertised heavily but sold poorly."
 Bowled Over	"Bowled over means unable to deal with things. Over-bold means too confident."
@@ -3458,6 +3457,7 @@ Snap Decision	"A decision made reflexively, versus a conscious decision to snap 
 Spur of the Moment	"Spur of the moment means you're finally pushed to do something. If you wonder if it's the moment of the spur , you're probably thinking too hard for it to be the spur of the moment."
 strike a balance	"To strike a balance is to find a satisfactory compromise. A strike can alo mean--well, your balance went on strike, or you'd fall over."
 Thought for food	"Food for thought is something to think about."
+time consuming	"Time consuming means something that takes a long time, though you eat quickly."
 Tray S	"Stray. In other words, it strayed from Meal Square."
 Tray T	"A tea tray. To go with food."
 Tray X	"It is an ex-tray."
@@ -6481,10 +6481,6 @@ a badfood is a kind of thing. a badfood is usually edible.
 
 check taking a badfood:
 	try eating noun instead;
-
-check eating a badfood (this is the consuming time rule) :
-	unless accel-ending:
-		say "[i][activation of time consuming]Consuming time[r], you muse to yourself, ready to eat quickly.[paragraph break]";
 
 the consuming time rule is listed first in the check eating rules.
 

@@ -405,7 +405,7 @@ sub printGlobalResults
     print "Zap fill-in text at line(s) " . join(", ", @fillIn) . ".\n";
   }
 
-  if (scalar %fileLineErr)
+  if (scalar keys %fileLineErr)
   {
     if ($openStoryFile)
 	{
@@ -674,6 +674,7 @@ while ($lineIn = <X>)
   {
     $lineIn =~ s/ is a concept in lalaland.*//g;
 	$lineIn = wordtrim($lineIn);
+    if (!defined($concToRoom{$lineIn})) { $concToRoom{$lineIn} = "general concepts"; }
 	$conc{$lineIn} = 1;
 	$any{$lineIn} = 1;
 	if (!defined($lineNum{$lineIn})) { $lineNum{$lineIn} = $.; }
@@ -913,6 +914,7 @@ sub findExplLine
 	  }
 	  elsif ($_[2] == 1)
 	  {
+	  $a =~ s/\t.*//;
 	  #print "Checking $a vs $_[0]";
 	  if ($a !~ /[a-z]/i) { my $retVal = $.; close(B); return ($file, $retVal); }
 	  if ($a =~ /\[start of/i) { my $retVal = $.; close(B); return ($file, $retVal); }
@@ -1165,7 +1167,8 @@ sub compareRoomIndex
 
   if ($printTest) { print "TEST RESULTS:$_[0] explain order,$explainOrdErrors,0,0,(none)\n"; }
   my $temp = join(", ", map { "$_" . ($ideaHash{$_} > 1 ? "*" : "") } sort { $a <=> $b } keys %ideaHash);
-  if (scalar %ideaHash) { print "Fill in explanation text at " . join(", ", map { "$_" . ($ideaHash{$_} > 1 ? "*" : "") } sort { $a <=> $b } keys %ideaHash) . "\n"; }
+  if (scalar keys %ideaHash) { print "Fill in explanation text at " . join(", ", map { "$_" . ($ideaHash{$_} > 1 ? "*" : "") } sort { $a <=> $b } keys %ideaHash) . ", or " . (scalar keys %ideaHash) . " lines.\n"; }
+
   if ($printTest) { print "TEST RESULTS:$_[0] explain order detail,$explanationOrderDetail,0,0,$temp\n"; }
 
   my $banner = "CONCEPT DEFINITION ANALYSIS\n";

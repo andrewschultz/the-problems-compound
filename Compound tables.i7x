@@ -288,6 +288,8 @@ macho-boast
 "The [j-co] stage-whisper that [activation of teriyaki]Yacky Terri's conversation is neither spicy nor meaty."
 "The [j-co] [activation of terrapin]pin Tera as someone who needs to come out of her shell and live faster."
 "The [j-co] laugh at [activation of whistler's mother]mother whistlers who find true beauty in older females, like, over thirty."
+"The [j-co] unanimously decide whether Noel should be allowed in the group." [na]
+"The [j-co] mock Perry for lack of mechanical skill." [na]
 "The [j-co] agree Erwin is just a total loser name." [na]
 "The [j-co] argue pointlessly over if a girl is pretty plain or plain pretty." [na]
 
