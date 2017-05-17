@@ -642,6 +642,8 @@ my $inAdd = 0;
 my $lineIn;
 my $tmpVar;
 
+my $forceRoom = "";
+
 @dumbErrors = ();
 
 while ($lineIn = <X>)
@@ -650,8 +652,8 @@ while ($lineIn = <X>)
   chomp($lineIn);
   if ($lineIn =~ /\[end rooms\]/) { $inRoomSect = 0; next; }
   if ($lineIn =~ /\[start rooms\]/) { $inRoomSect = 1; next; }
-  if ($lineIn =~ /\[temproom (of )?/i) { $tempRoom = $lineIn; $tempRoom =~ s/.*\[temproom (of )?//; $tempRoom =~ s/\].*//; }
-  if ($lineIn =~ /\[forceroom /i) { $curRoom = $lineIn; $curRoom =~ s/.*\[forceroom //; $tempRoom =~ s/\].*//; }
+  if ($lineIn =~ /\[temproom (of )?/i) { $tempRoom = lc($lineIn); $tempRoom =~ s/.*\[temproom (of )?//; $tempRoom =~ s/\].*//; $forceRoom = ""; }
+  if ($lineIn =~ /\[forceroom /i) { $forceRoom = lc($lineIn); $forceRoom =~ s/.*\[forceroom //; $forceRoom =~ s/\].*//; }
   if ($lineIn =~ /(EXPLANATIONS:|CONCEPTS:|fill-in-here throws)/) { push (@dumbErrors, $.); next; }
   if (($lineIn =~ /is a.* author\. pop/) && ($lineIn !~ /^\[/)) { $tmpVar = $lineIn; $tmpVar =~ s/ is (an|a) .*//g; chomp($tmpVar); if ($lineIn =~ /xp-text is /) { $gotText{$tmpVar} = 1; } elsif ($lineIn =~ /\"/) { print "Probable typo for $tmpVar.\n"; } $auth{$tmpVar} = $line; next; }
   if ($inAuthTable)
@@ -664,7 +666,7 @@ while ($lineIn = <X>)
   if ($lineIn =~ /xxauth/) { $inAuthTable = 1; <A>; $line++; next; }
   if ($lineIn =~ /^table of explanations.*concepts/) { $inTable = 1; <X>; next; }
   if ($lineIn !~ /[a-z]/i) { $inTable = 0; if ($inAdd) { $addEnd = $.; $inAdd = 0; } next; }
-  if (($lineIn =~ /^part /) && ($inRoomSect)) { $curRoom = lc($lineIn); $curRoom =~ s/^part +//; next; }
+  if (($lineIn =~ /^part /) && ($inRoomSect)) { $curRoom = lc($lineIn); $curRoom =~ s/^part +//; $forceRoom = ""; next; }
   $lineIn = cutArt($lineIn);
   if ($lineIn =~ /is a concept in (lalaland|conceptville)/) # concept definitions
   {
@@ -709,6 +711,10 @@ while ($lineIn = <X>)
 	elsif ($inRoomSect)
 	{
 	$concToRoom{$c} = $curRoom;
+	}
+	elsif ($forceRoom)
+	{
+	$concToRoom{$c} = $forceRoom;
 	}
 	else
 	{
@@ -853,18 +859,26 @@ sub findExplLine
   my @toRead = @{$fileHash{$_[1]}};
   my $file;
   my $type = ($_[2] == 2 ? "concept definition" : "explanation");
+  my $line;
 
   OUTER:
   for $file (@toRead)
   {
   open(B, $file);
-  while ($a = <B>)
+  while ($line = <B>)
   {
-	if ($a =~ /^\[start rooms\]/i) { $begunRooms = 1; $doneRooms = 0; next; }
-    if (($a =~ /^part /i) && ($begunRooms) && (!$doneRooms)) { $a =~ s/ *\[.*//; $begunRooms = 1; $curRoom = $a; $curRoom =~ s/^part //i; next; }
-	$a =~ s/\*/ /g; # ugh, a bad hack but it will have to do to read asterisk'd files
-	if ($a =~ /^\[end rooms\]/i) { $doneRooms = 1; $curRoom = $defaultRoom; next; }
-	if ($a =~ /activation of $_[0]/i) { chomp($curRoom); $actRoom = $curRoom; close(B); last OUTER;}
+	if ($line =~ /^\[start rooms\]/i) { $begunRooms = 1; $doneRooms = 0; next; }
+    if (($line =~ /^part /i) && ($begunRooms) && (!$doneRooms)) { $line =~ s/ *\[.*//; $begunRooms = 1; $curRoom = $line; $curRoom =~ s/^part //i; next; }
+	$line =~ s/\*/ /g; # ugh, a bad hack but it will have to do to read asterisk'd files
+	if ($line =~ /^\[end rooms\]/i) { $doneRooms = 1; $curRoom = $defaultRoom; next; }
+	if ($line =~ /activation of $_[0]/i)
+	{
+	  chomp($curRoom);
+	  $actRoom = $curRoom;
+	  if ($line =~ /\[temproom/) { $actRoom = lc($line); chomp($actRoom); $actRoom =~ s/.*\[temproom +(of +)?//; $actRoom =~ s/\].*//; }
+	  close(B);
+	  last OUTER;
+    }
   }
 
   if (!$warnedYet)
@@ -902,6 +916,7 @@ sub findExplLine
 	}
 	if ($amClose)
 	{
+	  chomp($a);
 	  if ($_[2] == 2)
 	  {
 	  if  ($a =~ /^to say/) { <B>; next; }
@@ -915,7 +930,6 @@ sub findExplLine
 	  elsif ($_[2] == 1)
 	  {
 	  $a =~ s/\t.*//;
-	  #print "Checking $a vs $_[0]";
 	  if ($a !~ /[a-z]/i) { my $retVal = $.; close(B); return ($file, $retVal); }
 	  if ($a =~ /\[start of/i) { my $retVal = $.; close(B); return ($file, $retVal); }
 	  if (lc($a) ge lc($_[0])) { my $retVal = $.; close(B); return ($file, $retVal); }
@@ -933,13 +947,17 @@ sub findExplLine
   #die();
   if ($_[2] == 1)
   {
+  #look for the room just after the room your idea is in, then go there to insert your room in the table of explanations
   for (sort { $roomIndex{$a} <=> $roomIndex{$b} } keys %roomIndex)
   {
-    if (($roomIndex{$_} > $approxLine) && defined($concTableLine{$_})) { return ($toRead[0], $concTableLine{$_}-2); }
+  }
+  for (sort { $roomIndex{$a} <=> $roomIndex{$b} } keys %roomIndex)
+  {
+    if (($roomIndex{$_} > $approxLine) && defined($concTableLine{$_})) { return ($toRead[0], $concTableLine{$_}); }
   }
   for (sort { $roomIndex{$b} <=> $roomIndex{$a} } keys %roomIndex)
   {
-    if (($roomIndex{$_} < $approxLine) && defined($concTableLine{$_})) { return ($toRead[0], $concTableLine{$_}-2); }
+    if (($roomIndex{$_} < $approxLine) && defined($concTableLine{$_})) { return ($toRead[0], $concTableLine{$_}); }
   }
   }
   if ($_[2] == 2)
@@ -1007,7 +1025,7 @@ sub getRoomIndices
 	{
 	  if ($line =~ /\[start of/i)
 	  {
-	    my $idea = $line; $idea =~ s/.*\[start of //;
+	    my $idea = lc($line); $idea =~ s/.*\[start of //;
 		chomp($idea);
 		$idea =~ s/\].*//;
 		$concTableLine{$idea} = $.;
@@ -1125,7 +1143,9 @@ sub compareRoomIndex
 	    if (($commentBit eq "") && (!$initWarn)) { if ($proofStr) { print "ERRORS $proofStr"; $proofStr = ""; } warn("Line $. forgot to initialize something.\n"); $initWarn = 1; $explainOrdErrors++; }
 	    $line =~ s/\t.*//;
 		if ($proofStr) { print "ERRORS $proofStr"; $proofStr = ""; }
-	    printf("$.: %s alphabetically behind %s.\n", $line, $lastLine);
+		my $lastLineCut = $lastLine;
+		$lastLineCut =~ s/\t.*//;
+	    printf("$.: %s alphabetically behind %s.\n", $line, $lastLineCut);
 		$lastLine = $line;
 	  }
 	  else
