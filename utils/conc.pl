@@ -908,7 +908,17 @@ sub findExplLine
     if ($_[2] == 1)
 	{
     if ($a =~ /xxadd/) { $inXX = 1; }
-    if ($inXX && ($a =~ /\[start of $actRoom/i)) { $startSearch = $.; $amClose = 1; }
+    if ($inXX && ($a =~ /\[start of $actRoom/i))
+	{
+	  $startSearch = $.;
+	  $amClose = 1;
+	}
+	elsif ($inXX && $amClose && ($a =~ /\[start of /))
+	{
+	  my $retVal = $.;
+	  close(B);
+	  return ($file, $retVal);
+	}
 	}
 	else
 	{
@@ -922,7 +932,6 @@ sub findExplLine
 	  if  ($a =~ /^to say/) { <B>; next; }
 	  $a =~ s/^a thing called //i;
 	  $a =~ s/^the //i;
-	  #print "Close at line $. to $actRoom.\n";
 	  if ($a =~ /^(part|section|chapter|volume|book) /i)
 	  { my $retVal = $.; close(B); return ($file, $retVal); }
 	  if (lc($a) ge lc($_[0])) { my $retVal = $.; close(B); return ($file, $retVal); }
@@ -944,13 +953,9 @@ sub findExplLine
   my $approxLine = $roomIndex{lc($actRoom)};
   #for (sort keys %roomIndex) { print "$_ $roomIndex{$_}\n"; }
   #for (sort keys %conceptIndex) { print "$_ $conceptIndex{$_}\n"; }
-  #die();
   if ($_[2] == 1)
   {
   #look for the room just after the room your idea is in, then go there to insert your room in the table of explanations
-  for (sort { $roomIndex{$a} <=> $roomIndex{$b} } keys %roomIndex)
-  {
-  }
   for (sort { $roomIndex{$a} <=> $roomIndex{$b} } keys %roomIndex)
   {
     if (($roomIndex{$_} > $approxLine) && defined($concTableLine{$_})) { return ($toRead[0], $concTableLine{$_}); }

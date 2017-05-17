@@ -1533,9 +1533,9 @@ check smelling (this is the smelling a thing rule):
 	if noun is wacker weed:
 		say "It doesn't smell dangerous to brain cells, but it is." instead;
 	if noun is tray a:
-		say "Smells as nice as junk food can." instead;
+		say "Not distinctive, but Tray B..." instead;
 	if noun is tray b:
-		say "It doesn't smell terrible, but it reminds you of an expensive restaurant you didn't enjoy and your parents never let you forget that." instead;
+		say "It smells like a [activation of house special]special house you remember. Not good special." instead; [temproom meal square]
 	if noun is fish:
 		say "The story fish is thankfully not organic enough to stink, or boy, WOULD it." instead;
 	if noun is a person:
@@ -3448,6 +3448,7 @@ devil's food	"Devil's food is a rich chocolate layer cake."
 face off	"An off face probably doesn't look right, but a face off is when you challenge someone, like the game forces you to in the accelerated Tray B endings."
 Forgive	"Forgive is a clue as to whom to give the mint to, but the person must be forgivable."
 Growing Pains	"Growing pains are temporary setbacks that help you get going. Pain's growing is just a complaint."
+house special	"The house special is an item on the menu priced to attract people. It is different from the Specialty of the House."
 just deserts	"Just deserts means getting what you deserve. After eating the 'sophisticated' cheese, Alec doesn't deserve to enjoy other foods."
 loaf around	"To loaf around is to wait with no real purpose."
 pig out	"To pig out is to eat everything you see. The reverse is an admonishment to leave."
@@ -3462,6 +3463,7 @@ Tray S	"Stray. In other words, it strayed from Meal Square."
 Tray T	"A tea tray. To go with food."
 Tray X	"It is an ex-tray."
 treat like dirt	"To treat someone like dirt is to be very nasty to them."
+trefoil	"A trefoil is, for easiest visualization, a three-leaf clover."
 brain trust	"A brain trust is a group of people that help make a decision. A trust-brain, though not an English phrase, might mean a mind that can't make its own decisions." [start of down ground]
 Bum Beach	"A beach bum is someone who wanders on the beach. Maybe he lives there in a shack too."
 clip joint	"A clip joint is a place that overcharges customers. A joint clip will help Fritz save on purchases so none is wasted."
@@ -6399,7 +6401,7 @@ Meal Square is west of Pressure Pier. Meal Square is in Outer Bounds. "This is a
 
 the spoon table is scenery in Meal Square. "Many kinds of spoon: greasy, tea, wooden and silver, and that thick one must be a fed spoon. They are welded together to form a table one person can eat at, well--with a few holes. It's large but also largely decorative."
 
-Tray A is a supporter in Meal Square. description is "It's just a tray, really. Nothing special--[word-things of tray a] different unusual foods rest on tray A[if condition mint is on tray a]. Well, the condition mint isn't food, but it's the one you'd feel leasy guilty sneaking[end if]."
+Tray A is a supporter in Meal Square. description is "It's a [activation of trefoil]foil tray, but it's circular-shaped--[word-things of tray a] different unusual foods rest on tray A[if condition mint is on tray a]. Well, the condition mint isn't food, but it's the one you'd feel leasy guilty sneaking[end if]."
 
 Tray B is a supporter in Meal Square. description is "[if accel-ending]You still see [word-things of tray b] foods on Tray B, but you're pretty full[else]You're both scared and intrigued by Tray B, which reads, in large print, [activation of defeat]EAT DEF. You see [word-things of tray b] bizarre looking foods on it, labeled: [a list of things on tray b][end if]."
 
@@ -12151,6 +12153,8 @@ Forgive is a concept in conceptville. Understand "give for" as Forgive. howto is
 
 growing pains is a concept in conceptville. Understand "pain/pains growing" as growing pains. howto is "eat off-cheese".
 
+house special is a concept in conceptville. Understand "special house" as house special. howto is "smell Tray B".
+
 just deserts is a concept in conceptville. Understand "deserts just" as just deserts. howto is "try to eat the cookie or brownie after eating the cheese".
 
 Loaf Around is a concept in conceptville. Understand "around loaf" as loaf around. howto is "wait in Meal Square".
@@ -12178,6 +12182,8 @@ Tray T is a concept in conceptville. howto is "enter Meal Square".
 Tray X is a concept in conceptville. howto is "enter Meal Square".
 
 treat like dirt is a concept in conceptville. Understand "dirt like treat" as treat like dirt. howto is "[x-it of points brownie]".
+
+trefoil is a concept in conceptville. Understand "trefoil" as trefoil. howto is "[x-it of Tray A]".
 
 section down ground concepts
 
