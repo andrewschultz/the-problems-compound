@@ -650,8 +650,8 @@ while ($lineIn = <X>)
   chomp($lineIn);
   if ($lineIn =~ /\[end rooms\]/) { $inRoomSect = 0; next; }
   if ($lineIn =~ /\[start rooms\]/) { $inRoomSect = 1; next; }
-  if ($lineIn =~ /\[temproom /i) { $tempRoom = $lineIn; $tempRoom =~ s/.*temproom //; $tempRoom =~ s/\].*//; }
-  if ($lineIn =~ /\[forceroom /i) { $curRoom = $lineIn; $curRoom =~ s/.*forceroom //; $tempRoom =~ s/\].*//; }
+  if ($lineIn =~ /\[temproom (of )?/i) { $tempRoom = $lineIn; $tempRoom =~ s/.*\[temproom (of )?//; $tempRoom =~ s/\].*//; }
+  if ($lineIn =~ /\[forceroom /i) { $curRoom = $lineIn; $curRoom =~ s/.*\[forceroom //; $tempRoom =~ s/\].*//; }
   if ($lineIn =~ /(EXPLANATIONS:|CONCEPTS:|fill-in-here throws)/) { push (@dumbErrors, $.); next; }
   if (($lineIn =~ /is a.* author\. pop/) && ($lineIn !~ /^\[/)) { $tmpVar = $lineIn; $tmpVar =~ s/ is (an|a) .*//g; chomp($tmpVar); if ($lineIn =~ /xp-text is /) { $gotText{$tmpVar} = 1; } elsif ($lineIn =~ /\"/) { print "Probable typo for $tmpVar.\n"; } $auth{$tmpVar} = $line; next; }
   if ($inAuthTable)

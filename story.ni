@@ -6482,8 +6482,6 @@ a badfood is a kind of thing. a badfood is usually edible.
 check taking a badfood:
 	try eating noun instead;
 
-the consuming time rule is listed first in the check eating rules.
-
 to decide which thing is yourfood:
 	repeat with X running through badfoods:
 		if X is in lalaland:
@@ -6660,7 +6658,7 @@ section general tray b eating stuff
 to bad-food-process (as - a truth state):
 	if as is true:
 		if allow-swears is false:
-			say "Then, after a bit of thinking, you realize how lame it was to be stuffy about swears. You have stuff to swear ABOUT now, see? You didn't used to have it, or any emotional depth, but now, heck yeah! (Okay, you still need some practice.) You realize Hunter Savage was just a pseudonym, and you're pretty sure the Complex Messiah had a coler name, too.";
+			say "Then, after a bit of thinking, you realize how lame it was to be stuffy about swears. You have stuff to swear ABOUT now, see? You didn't used to have it, or any emotional depth, but now, heck yeah! (Okay, you still need some practice.) You realize Hunter Savage was just a pseudonym, and you're pretty sure the Complex Messiah had a cooler name, too.";
 			now allow-swears is true;
 	ital-say "This has caused an irreversible personality change in Alec. You may wish to UNDO and SAVE before trying to eat again to restore Normal Alec, even if that's not what he wants right now.";
 	now player has an opener eye;
@@ -7451,7 +7449,7 @@ ally-but	"'Well, everyone here is a bit smarter and maturer than normal, and any
 ally-haha	"[here-or-not]"
 ally-cooler	"[here-or-not]"
 ally-baiter	"'The [bg] lets me stay open for very reasonable shakedown fees. Much better than [bad-guy-2], I'm sure. He just, well, he just wants to know about all the patrons in here. Why, he drops in here himself and gets the good stuff. But he's very fair and balanced. He knows it's not how much you drink but how it affects you. Why, he's better at shaming unruly customers than I am! I'm just too good at the [activation of speakeasy]easy-speak you need to get along, I guess.'"
-ally-bye	"He goes back to mixing and serving drinks, to talking to some other customers about other customers[if allow-swears is true] and backhand-complimenting the rival [activation of striptease]Teas Strip[end if][one of]. You wonder if you're an other other customer, or if you're even that important[or][stopping]."
+ally-bye	"He goes back to mixing and serving drinks, to talking to some other customers about other customers[if allow-swears is true] and backhand-complimenting the rival [activation of striptease]Teas Strip[end if][one of]. You wonder if you're an other OTHER customer, or if you're even that important[or][stopping]."
 
 to say here-or-not:
 	if player has cooler or player has haha brew:
@@ -11605,13 +11603,15 @@ this is the swear-see rule:
 	say "[2da][bad-guy-2] is [stwid][bad-guy-2][stwid] instead."; [end smart street]
 	say "[2da]The game warns you might think (off) or say (on) a swear if you try to eat the dirt."; [end garden part]
 	say "[2da]Eating a food from Tray B forces swears on, if they were off, but you have a last moment before eating the Cutter Cookie.";
-	say "[2da]Letting .";	[end outskirts]
+	say "[2da]Saying good-bye to Ally gives the name of a rival bar with swears on."; [end outskirts]
 	say "[2da]The [jc-gc] is the [stwid][jc-gc][stwid] instead. Also, you feel a bit more foreboding, and everyone sheds a jerk-tear, and if you attack them, you get a 'special' message.";
+	say "[2da]DRAIN THE CIRCLE is available with swears on.";
+	say "[2da]You feel guilty just being AROUND jerks with swears on.";
 	say "[2da]The guys in the Fen discuss girls (rather badly) if you talk to them before reading the Finger Index. There aren't any profanities here, but they're kind of, well, juvenile. They also give an obscene gesture if you try to talk to them before reading the Finger Index.";
 	say "[2da]The guys in the Fen give an up groan or a jerk-tear if innuendo/profanity is off or on, respectively.";
 	say "[2da]Buddy Best is either a general attorney or a case/job nut.";
 	say "[2da]The Business Monkey's half-[abr] efforts are [stwid][abr][stwid] instead.";
-	say "[2da]The jerks consider a much racier pop than Quiz Pop with swears on.";
+	say "[2da]The jerks mention they're out of a much racier pop than Quiz Pop with swears on.";
 	consider the very-good-end rule;
 	if the rule succeeded:
 		say "[2da]HAMMER BLOW or the reverse gives a different response.";
