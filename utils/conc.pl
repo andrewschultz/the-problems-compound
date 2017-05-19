@@ -98,6 +98,7 @@ my $astString = "";
 my $nuline = 0;
 my $warnedYet = 0;
 my $gameObjTot = 0;
+my $needsAlf = 0;
 
 while ($count <= $#ARGV)
 {
@@ -231,7 +232,8 @@ sub checkTableDetail
 	}
     if (lc($a3) le lc($lastAlf))
 	{
-	  print "$a3 ($. $inTable) may be out of order vs $lastAlf. (talf.pl pc/sc/btp?)\n";
+	  $needsAlf = 1;
+	  print "$a3 ($. $inTable) may be out of order vs $lastAlf.\n";
 	  unless($openLowestLine && defined($fileLineErr{$file})) { $fileLineErr{$file} = $.; }
     }
 	}
@@ -240,6 +242,7 @@ sub checkTableDetail
   }
   close(A);
   }
+  if ($needsAlf) { print "To alphabetize automatically,  (talf.pl pc/sc/bt?).\n"; }
 }
 
 sub crankOutCode
@@ -308,7 +311,7 @@ for my $x (sort keys %any)
     ($fileToOpen, $nuline) = findExplLine($x, $_[0], 2);
 	if (($nuline ne "????") && ($nuline !~ /failed/)) { unless ($openLowestLine && defined($fileLineErr{$fileToOpen})) { $fileLineErr{$fileToOpen} = $nuline; } }
 	$errMsg .= "$xmod ($lineNum{$x}) needs concept definition" . (defined($fillConc{$x}) ? " filled in" : "") . ": guess = line $nuline\n";
-	if (!defined($conceptIndex{$concToRoom{$xmod}}))
+	if (!defined($conceptIndex{$concToRoom{$xmod}}) && ($concToRoom{$xmod} ne "general concepts")) # bad code but I can't figure a way to sort out general/concepts
 	{
 	$concErr .= "section $concToRoom{$xmod} concepts\n\n";
 	}
@@ -404,8 +407,16 @@ sub printGlobalResults
     print "#####################Remove error-text from line(s) " . join(", ", @dumbErrors) . ".\n";
   }
 
-  if (scalar keys %fillExpl) { print "Fill in explanation text at " . join(", ", map { "$fillExpl{$_}($_}" } sort keys %fillExpl) . "\n"; }
-  if (scalar keys %fillConc) { print "Fill in concept text at " . join(", ", map { "$fillConc{$_}($_}" } sort keys %fillConc) . "\n"; }
+  if (scalar keys %fillExpl)
+  {
+    print "Fill in explanation text at " . join(", ", map { "$fillExpl{$_}($_}" } sort keys %fillExpl) . "\n";
+	if ($printTest) { printf("TEST RESULTS: fillin-$_[0],(scalar keys %fillExpl),0,0,%s\n", join(", ", map { "$fillExpl{$_}" } sort keys %fillExpl)); }
+  }
+  if (scalar keys %fillConc)
+  {
+    print "Fill in concept text at " . join(", ", map { "$fillConc{$_}($_}" } sort keys %fillConc) . "\n";
+    if ($printTest) { printf("TEST RESULTS: fillin-$_[0],(scalar keys %fillExpl),0,0,%s\n", join(", ", map { "$fillExpl{$_}" } sort keys %fillExpl)); }
+  }
   if ($#fillIn > -1)
   {
     print "Zap fill-in text at line(s) " . join(", ", @fillIn) . ".\n";
@@ -1170,11 +1181,11 @@ sub compareRoomIndex
 	  if ($checkRoomMatchup)
 	  {
 	    my $idea = $line; $idea =~ s/\t.*//; chomp($idea); $idea = cutArt($idea);
-		if ($concToRoom{$idea} ne $commentBit)
+		if ((!defined($concToRoom{$idea})) || ($concToRoom{$idea} ne $commentBit))
 		{
 		  if ($proofStr) { print "ERRORS $proofStr"; $proofStr = ""; }
 		  $explanationOrderDetail++;
-		  print "$.: $idea ($lineNum{$idea}) codesectioned to $concToRoom{$idea}" . (defined($roomIndex{$concToRoom{$idea}}) ? "" : " (UNDEFINED ROOM)") . " but defined as concept in $commentBit.\n";
+		  print "$.: $idea (" . (defined($lineNum{$idea}) ? "$lineNum{$idea}" : "NO LINE NUM") . ") codesectioned to . " . (defined($concToRoom{$idea}) ? $concToRoom{$idea} : "(NO ROOM FOR CONCEPT)") . " " . (defined($concToRoom{$idea}) && defined($roomIndex{$concToRoom{$idea}}) ? "" : " (UNDEFINED ROOM)") . " but defined as concept in $commentBit.\n";
 		  $ideaHash{$lineNum{$idea}}++;
 		  if ((!$detailLineToOpen) || ($detailLineToOpen > $lineNum{$idea}))
 		  {
