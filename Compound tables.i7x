@@ -243,6 +243,7 @@ macho-boast
 "The [j-co] banter about when they will be able to buy alcohol with a fake ID, or even legally. Then everything's [activation of cirrhosis]Roses, sir!"
 "The [j-co] marvel at what a ladies['] man [activation of co-ed]Ed Coe is when he comes home from the military boarding school."
 "The [j-co] mention how [activation of cotton candy]Candy Cotton smacks down saccharine pickup lines."
+"One of the [j-co] says '[activation of defecate]Kate? Uh, def!' There's an awkward silence."
 "The [j-co] agree that [activation of electrocute]Cute Electra isn't, like, LETHALLY hot."
 "The [j-co] try to be charitable and think of girls ranked [activation of flounder]under Flo on their beauty scale."
 "A couple [j-co] feel sorry they [activation of fluoridated]dated Flora and listened to her conspiracy theories."
@@ -283,14 +284,14 @@ macho-boast
 "The [j-co] agree [activation of Ralph Lauren]Lauren Ralph would actually be really attractive with any fashion sense at all."
 "The [j-co] disagree on whether [activation of sharp barb]Barb Sharpe would be worth putting up with her lame gossip."
 "The [j-co] take a minute to [activation of shock jock]jock shock in general. It's very disturbing, but you can't put your finger on why."
-"The [j-co] act disgusted at the food they [activation of spotted dick]spotted Dick eating. Eat a cheeseburger, dude."
+"The [j-co] act disgusted at the food they [activation of spotted dick]Dick spotted someone eating. Eat a cheeseburger, dude."
 "The [j-co] deride [activation of Sweeney Todd]Todd Sweeney for his fear of horror movies."
 "The [j-co] mock [activation of sympathetic]Pathetic Sim for listening to girls whine about their breakups without getting their phone numbers."
 "The [j-co] start a [activation of tallywhacker]wacker tally of guys very likely to have no experience with women."
 "The [j-co] claim learning WAY too much about computers will come back to [activation of terabyte]bite Tara."
 "The [j-co] stage-whisper that [activation of teriyaki]Yacky Terri's conversation is neither spicy nor meaty."
 "The [j-co] [activation of terrapin]pin Tera as someone who needs to come out of her shell and live faster."
-"The [j-co] laugh at [activation of whistler's mother]mother whistlers who find true beauty in older females, like, over thirty."
+"The [j-co] laugh at [activation of whistler's mother]mother whistlers who find true beauty in older females, like, over thirty." [todo: slowin' homer]
 "The [j-co] agree Erwin is just a total loser name." [na]
 "The [j-co] argue pointlessly over if a girl is pretty plain or plain pretty." [na]
 "The [j-co] mock Perry for lack of mechanical skill." [na]

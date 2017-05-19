@@ -38,13 +38,13 @@ section compiler debug
 
 use MAX_ACTIONS of 210.
 
-use MAX_OBJECTS of 680.
+use MAX_OBJECTS of 750.
 
 use MAX_SYMBOLS of 24000.
 
 use MAX_STATIC_DATA of 200000.
 
-use MAX_PROP_TABLE_SIZE of 260000.
+use MAX_PROP_TABLE_SIZE of 300000.
 
 book includes
 
@@ -3453,6 +3453,7 @@ house special	"The house special is an item on the menu priced to attract people
 just deserts	"Just deserts means getting what you deserve. After eating the 'sophisticated' cheese, Alec doesn't deserve to enjoy other foods."
 loaf around	"To loaf around is to wait with no real purpose."
 pig out	"To pig out is to eat everything you see. The reverse is an admonishment to leave."
+potty	"A potty is a kids' word for where you go to the bathroom."
 quarter pounder	"A quarter pounder is a popular burger at McDonalds."
 Shame No	"No shame means a person isn't embarrassed by anything to the point where it's dangerous. The reverse (Shame? No!) is more, there's a healthier way to look at things than through shame."
 Snap Decision	"A decision made reflexively, versus a conscious decision to snap e.g. just quit holding back."
@@ -3529,6 +3530,7 @@ cirrhosis	"Cirrhosis is a disease of the liver, often bought on by drinking."
 clean break	"A clean break from something is leaving quickly and for good. The jerks haven't broken with their 'clean' secrets yet."
 co-ed	"Co-ed means having males and females in classes together."
 Cotton Candy	"Cotton candy is stringy sugary stuff, often bundled together in a soft ball. People eat it at circuses and fairs and movies a lot."
+defecate	"To defecate is, well, activity #2 in the bathroom."
 dirty word	"A dirty word is profanity. 'Word' on its own is slang for agreement."
 electrocute	"If someone is electrocuted, they're filled with an often lethal dose of electrical current."
 flounder	"To flounder is to try and fail without any progress. It's also the name of a fish."
@@ -6404,6 +6406,11 @@ check going west in pressure pier:
 			say "Terry Sally coughs. 'That's Meal Square. Nice if you've got a thought for food[activation of thought for food]. But there's better places to break the rules.' Nevertheless, he lets you go.";
 
 Meal Square is west of Pressure Pier. Meal Square is in Outer Bounds. "This is a small alcove with Pressure Pier back east. There's not much decoration except a picture of a dozen bakers."
+
+after printing the locale description for meal square when meal square is unvisited:
+	if allow-swears is true:
+		say "There's nothing to drink here, but then again, you'd be a bit worried if you saw a [activation of potty]teapot.";
+	continue the action;
 
 the spoon table is scenery in Meal Square. "Many kinds of spoon: greasy, tea, wooden and silver, and that thick one must be a fed spoon. They are welded together to form a table one person can eat at, well--with a few holes. It's large but also largely decorative."
 
@@ -10809,7 +10816,7 @@ understand "whole worm" and "worm whole" as a mistake ("It pretty much is a whol
 
 understand "worm bait" and "bait worm" as a mistake ("It's an inanimate worm, and -- well -- you might rather try fishing with things to do to a ring.") when player is in Out Mist.
 
-the worm ring is scenery in Out Mist.
+the worm ring is scenery in Out Mist. "[bug]"
 
 check opening worm ring:
 	say "It's not in the right state to open." instead;
@@ -10855,7 +10862,7 @@ every turn when player is in airy station (this is the hammer clue rule):
 
 section hammer mistakes
 
-the hammer is a thing in Airy Station. "A hammer lies nearby. It's the sort you use to knock in big spikes on a rail."
+the hammer is a thing in Airy Station. "A hammer lies nearby. It's the sort you use to knock in big spikes on a rail.". description is "[bug]".
 
 check dropping the hammer:
 	say "You already dropped the figurative hammer on the [bad-guy]. Now to do something constructive with the real hammer." instead;
@@ -12174,6 +12181,8 @@ Loaf Around is a concept in conceptville. Understand "around loaf" as loaf aroun
 
 pig out is a concept in conceptville. Understand "out pig" as pig out. howto is "TAKE ALL in Meal Square".
 
+potty is a concept in conceptville. Understand "pottea" and "teapot" and "pot tea" and "tea pot" as potty. howto is "[f-t of meal square] with innuendo on".
+
 quarter pounder is a concept in conceptville. Understand "pounder quarter" as quarter pounder. howto is "[nogo of Meal Square]".
 
 Shame No is a concept in conceptville. Understand "no shame" as Shame No. howto is "[x-it of condition mint]".
@@ -12344,6 +12353,8 @@ Clean Break is a concept in conceptville. Understand "break clean" as clean brea
 co-ed is a concept in conceptville. Understand "co-ed" as co-ed. howto is "[j-girl]".
 
 Cotton Candy is a concept in conceptville. Understand "candy cotton" as cotton candy. howto is "[j-girl]".
+
+defecate is a concept in conceptville. Understand "defecate" as defecate. howto is "[j-girl]".
 
 Dirty Word is a concept in conceptville. Understand "word dirty" as dirty word. howto is "go to the [jc]".
 
@@ -12966,9 +12977,11 @@ after reading a command:
 			note-thes;
 			replace the regular expression "\bthe\b" in the player's command with "";
 		if the player's command includes "ring":
-			if number of words in player's command is 1:
+			let temp be number of words in player's command;
+			if temp > 2 and the player's command includes "worm", decrement temp;
+			if temp is 1:
 				say "But what to do with the ring?";
-			else if number of words in player's command is 3:
+			else if temp > 2:
 				say "No, too complex. Just a one-word action.";
 			else:
 				if word number 1 in the player's command is "ring":
