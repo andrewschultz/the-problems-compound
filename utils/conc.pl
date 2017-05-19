@@ -231,7 +231,7 @@ sub checkTableDetail
 	}
     if (lc($a3) le lc($lastAlf))
 	{
-	  print "$a3 ($. $inTable) may be out of order vs $lastAlf.\n";
+	  print "$a3 ($. $inTable) may be out of order vs $lastAlf. (talf.pl pc/sc/btp?)\n";
 	  unless($openLowestLine && defined($fileLineErr{$file})) { $fileLineErr{$file} = $.; }
     }
 	}

@@ -3515,6 +3515,7 @@ bayou	"A bayou is a tributary (river leading to bigger water), and the reverse p
 bechdel	"The Bechdel test is if an author has two females talking about things other than men or sex. Del Beck fails miserably, of course."
 beer guts	"Beer guts are increased weight from drinking too much beer."
 benevolent	"Benevolent means doing things to help people."
+Bernoulli	"The Bernoulli family were famous and accomplished mathematicians and scientists from around 1700."
 Black Mark	"A black mark is something indicating bad behavior."
 body slamming	"Body slamming is a particularly painful wrestling move where you pretty much throw a person to the ground."
 bouncing betty	"Bouncing betty is slang for a land mine."
@@ -3575,6 +3576,7 @@ Polygamy	"Polygamy is having more than one mate."
 pop cherry	"To pop a cherry is to take someone's virginity."
 Potter Stewart	"Potter Stewart was a US Supreme who said he'd know obscenity when he saw it."
 pound meat	"To pound your meat is to, well, touch your genitals."
+quaalude	"A quaalude is a drug (methaquinone) now in low supply since it is illegal."
 Ralph Lauren	"Ralph Lauren is a fashion designer."
 ring finger	"The ring finger is the one between the middle and the pinky."
 sausage fest	"A sausage fest is a congregation of males with no females."
@@ -12315,6 +12317,8 @@ beer guts is a concept in conceptville. Understand "guts beer" as beer guts. how
 
 benevolent is a concept in conceptville. Understand "evelyn benn" and "benn evelyn" as benevolent. howto is "[j-girl]".
 
+bernoulli is a concept in conceptville. Understand "bernoulli" as bernoulli. howto is "[j-girl]".
+
 Black Mark is a concept in conceptville. Understand "mark black" as black mark. howto is "[x-it of quiz pop]".
 
 body slamming is a concept in conceptville. Understand "slamming body" as body slamming. howto is "[j-girl]".
@@ -12434,6 +12438,8 @@ pop cherry is a concept in conceptville. Understand "cherry pop" as pop cherry. 
 Potter Stewart is a concept in conceptville. Understand "stewart potter" as Potter Stewart. howto is "[j-girl]".
 
 pound meat is a concept in conceptville. Understand "meet pound" and "pound meet" as pound meat. howto is "[j-girl]".
+
+quaalude is a concept in conceptville. Understand "lewd quay" and "quay lewd" as quaalude. howto is "[j-girl]".
 
 Ralph Lauren is a concept in conceptville. Understand "lauren ralph" as ralph lauren. howto is "[j-girl]".
 
