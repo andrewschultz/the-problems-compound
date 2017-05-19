@@ -234,6 +234,7 @@ macho-boast
 "The [j-co] wrestle over the sensitivest way to compliment a girl on a [activation of body slamming]slamming body."
 "The [j-co] compare kid-style [activation of bouncing betty]beddy bouncing to adult-style, which is clearly the BOMB."
 "The [j-co] babble on about the [activation of box score]Score Box, where everyone except math obsessed nerds can hook up with a girl."
+"The [j-co] recount the epic junk food eating contest between [activation of broccoli]Lee Brock and [activation of kohlrabi]Robbie Cole."
 "The [j-co] brainstorm a [activation of call girl]girl call that will make you irresistible."
 "The [j-co] berate [activation of Cary Grant]Grant Carey and [activation of Spencer Tracy] for an unusual lack success with women."
 "The [j-co] claim to want to get to know [activation of casually]Julie Kaz better."
@@ -288,10 +289,10 @@ macho-boast
 "The [j-co] stage-whisper that [activation of teriyaki]Yacky Terri's conversation is neither spicy nor meaty."
 "The [j-co] [activation of terrapin]pin Tera as someone who needs to come out of her shell and live faster."
 "The [j-co] laugh at [activation of whistler's mother]mother whistlers who find true beauty in older females, like, over thirty."
-"The [j-co] unanimously decide whether Noel should be allowed in the group." [na]
-"The [j-co] mock Perry for lack of mechanical skill." [na]
 "The [j-co] agree Erwin is just a total loser name." [na]
 "The [j-co] argue pointlessly over if a girl is pretty plain or plain pretty." [na]
+"The [j-co] mock Perry for lack of mechanical skill." [na]
+"The [j-co] unanimously decide whether Noel should be allowed in the group." [na]
 
 part freak control
 
@@ -340,12 +341,12 @@ gad-act
 
 table of bad guy worries (continued) [divided so activations are always alphabetical] [xxbgw]
 gad-act
-"[odd-machine of shot screen] blinks a bit before changing its focus." [na]
+"The Language Sign flashes but you don't think it changed its message. Just reinforced it." [na]
+"The [bad-guy] gestures at [odd-machine-l of Incident Miner]. '[one of]Yup. It's always when they're being a little too nice, you gotta watch out[or]Some people never learn. Or they just learn wrong[or]Just because that wasn't clever doesn't mean it wasn't sneaky[or]They say THAT's no big deal, I say my snark's no big deal, they still feel ripped off. Sheesh[at random].'" [na]
+"The [bad-guy] laughs sardonically at [odd-machine-l of frenzy feed]. 'Hah, gonna love complaining about that with [random baiter-aligned person].'" [na]
 "[odd-machine of Twister Brain] spits out a page of data the [bad-guy] speed reads. He mutters 'Pfft. I already sort of knew that. Mostly. Still, need to keep an eye on [the random surveyable person].'" [na]
 "[odd-machine of Witness Eye] swivels around with a VVSSHHKK before changing the focus to [random mainchunk room]." [na]
-"The [bad-guy] laughs sardonically at [odd-machine-l of frenzy feed]. 'Hah, gonna love complaining about that with [random baiter-aligned person].'" [na]
-"The [bad-guy] gestures at [odd-machine-l of Incident Miner]. '[one of]Yup. It's always when they're being a little too nice, you gotta watch out[or]Some people never learn. Or they just learn wrong[or]Just because that wasn't clever doesn't mean it wasn't sneaky[or]They say THAT's no big deal, I say my snark's no big deal, they still feel ripped off. Sheesh[at random].'" [na]
-"The Language Sign flashes but you don't think it changed its message. Just reinforced it." [na]
+"[odd-machine of shot screen] blinks a bit before changing its focus." [na]
 
 [end rooms]
 

@@ -3439,6 +3439,7 @@ Bible Belt	"The Bible Belt is a very religious area of the USA." [start of press
 Boy Howdy	"Boy Howdy is a colloquial expression of surprise."
 fish out of water	"A fish out of water is someone or something out of place."
 meal ticket	"A meal ticket is something you own that will help you advance socially or economically. It could be physical, or a piece of knowledge, or clout."
+palatable	"Palatable means not too tasteless."
 take a stand	"To take a stand is to have a firm moral position. To take the stand is slang for being summoned for interrogation in a court of law."
 apple pie order	"Apple-Pie Order means very well organized." [start of meal square]
 arch deluxe	"The Arch Deluxe was a menu item at McDonald's that was advertised heavily but sold poorly."
@@ -3518,6 +3519,7 @@ Black Mark	"A black mark is something indicating bad behavior."
 body slamming	"Body slamming is a particularly painful wrestling move where you pretty much throw a person to the ground."
 bouncing betty	"Bouncing betty is slang for a land mine."
 box score	"A box score describes the basic individual statistics from a sporting event."
+broccoli	"Broccoli is a vegetable."
 call girl	"A call girl is a paid female escort."
 Cary Grant	"Cary Grant is a movie star from the 40s and 50s."
 casually	"Casually means not really in-depth."
@@ -3548,6 +3550,7 @@ joint committee	"A joint committee is a group of legislators from different part
 journeyman	"A journeyman is someone who is maybe not spectacular but who has paid his dues in his field."
 junk mail	"Junk mail means letters and fliers you didn't ask for that appear in your (physical or electronic) mailbox anyway."
 Keyser Soze	"Keyser Söze is the shadowy antagonist of the film [italic type]The Usual Suspects[roman type]."
+kohlrabi	"Kohlrabi is a vegetable."
 Laverne and Shirley	"Laverne and Shirley was a TV show from the 70s and 80s about two single female roommates."
 lily liver	"A lily-liver is someone who is afraid to go out and do risky things."
 Liverwurst	"Liverwurst is a sort of meat which I found tastes nice until it really doesn't, and it's a bit greasy, too. 'Worst liver' may be an exaggeration, but the jerks are not living well."
@@ -3665,6 +3668,7 @@ scofflaw	"A scofflaw is someone who breaks minor rules. Perhaps they jaywalk or 
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever." [start of idiot village]
 code monkey	"A code monkey is someone who writes programming code for a living."
 grease monkey	"A grease monkey is a manual laborer, especially with machines."
+serve you right	"'Serve(s) you right' means you got what you deserved."
 Admiral Vice	"A vice-(anything) is a next-in-line/assistant to an honorary position, but vice is also a personal failing, big or small." [start of freak control]
 artemis fowl	"Artemis fowl is the intelligent, cocky hero of Eoin Colfer's seven-book series. He's everything the [bad-guy] thinks he is, and more."
 autocratic	"Autocratic means having one person firmly in control."
@@ -6205,7 +6209,7 @@ part Pressure Pier
 
 Pressure Pier is north of Tension Surface. It is in Outer Bounds. "[one of]So, this is Pressure Pier. Off south is water--no way back to the Tension Surface[or]Water south, passage north[stopping]. You smell food to the west, and the land sinks a bit to the east. [one of]A side stand grabs your attention enough you notice it holds a book with the words BASHER on the front[or]The Basher Bible still rests on a side stand[stopping]."
 
-a side stand is scenery in Pressure Pier. "It's not actually blocking any direction to go in, but it's gaudy and shiny enough you won't be overlooking it."
+a side stand is scenery in Pressure Pier. "It's not actually blocking any direction to go in, but it's gaudy and shiny enough you won't be overlooking it. It's not really [activation of palatable]a table, pal."
 
 instead of taking side stand:
 	say "You couldn't [activation of take a stand]stand the take. A take? Either way, you've got enough of a trial without lugging something like that around."
@@ -10245,6 +10249,10 @@ chapter trap rattle
 
 the trap rattle is a thing. description is "It's tough to hold on to. It constantly seems to be trying to bite you, but if you try to clip it to your clothes, it doesn't even try to catch. You sense there's some logic to how it works, but you can't quite figure it out."
 
+chapter service memorial
+
+The service memorial is scenery. "It's made up of rubble from the Thoughts Idol, with snarky messages like '[activation of serve you right]RIGHT, [b]YOU[r] SERVE!'"
+
 part Service Community
 
 a direction has a number called orientation. the orientation of a direction is usually -1.
@@ -10341,6 +10349,7 @@ check going in service community:
 			now bad face is in lalaland;
 			now player has lifted face;
 			now thoughts idol is in lalaland;
+			now service memorial is in service community;
 			move player to idiot village, without printing a room description;
 			move crocked half to lalaland;
 			inc-max;
@@ -12133,6 +12142,8 @@ fish out of water is a concept in conceptville. Understand "water out of fish" a
 
 meal ticket is a concept in conceptville. Understand "ticket meal" as meal ticket. howto is "eat the boo tickety".
 
+palatable is a concept in conceptville. Understand "table pal" and "pal table" as palatable. howto is "[x-it of side stand]".
+
 take a stand is a concept in conceptville. Understand "stand a/the take" and "take the stand" as take a stand. howto is "try to take a/the side stand".
 
 section meal square concepts
@@ -12312,6 +12323,8 @@ bouncing betty is a concept in conceptville. Understand "betty/beddy bouncing" a
 
 box score is a concept in conceptville. Understand "score box" as box score. howto is "[j-girl]".
 
+broccoli is a concept in conceptville. Understand "broccoli" as broccoli. howto is "[j-girl]".
+
 call girl is a concept in conceptville. Understand "girl call" as call girl. howto is "[j-girl]".
 
 cary grant is a concept in conceptville. Understand "grant carey" and "carey grant" as cary grant. howto is "[j-girl]".
@@ -12371,6 +12384,8 @@ journeyman is a concept in conceptville. Understand "journeyman" as journeyman. 
 junk mail is a concept in conceptville. Understand "mail junk" as junk mail. howto is "listen to the [j-co] before figuring the Index puzzle".
 
 Keyser Soze is a concept in conceptville. Understand "suzy kaiser" and "kaiser suzy" as Keyser Soze. howto is "[j-girl]".
+
+kohlrabi is a concept in conceptville. Understand "kohlrabi" as kohlrabi. howto is "[j-girl]".
 
 a thing called Laverne and Shirley is a concept in conceptville. Understand "shirley and laverne" as Laverne and Shirley. howto is "[j-girl]".
 
@@ -12646,6 +12661,8 @@ Candidate Dummy is a concept in conceptville. Understand "dummy candidate" as Ca
 code monkey is a concept in conceptville. Understand "monkey code" as code monkey. howto is "talk to the Business Monkey".
 
 grease monkey is a concept in conceptville. Understand "monkey grease" as grease monkey. howto is "[x-it of Business Monkey]".
+
+serve you right is a concept in conceptville. Understand "right you serve" as serve you right. howto is "[x-it of service memorial]".
 
 section freak control concepts
 
@@ -14066,6 +14083,7 @@ this is the defeat-idol rule:
 	now player has bad face;
 	now face of loss is in lalaland;
 	now thoughts idol is in lalaland;
+	now service memorial is in service community;
 	the rule succeeds;
 
 this is the defeat-everyone rule:

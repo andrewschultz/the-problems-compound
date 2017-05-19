@@ -298,7 +298,9 @@ for my $x (sort keys %any)
     ($fileToOpen, $nuline) = findExplLine($x, $_[0], 1);
 	if (($nuline ne "????") && ($nuline !~ /failed/)) { unless ($openLowestLine && defined($fileLineErr{$fileToOpen})) { $fileLineErr{$fileToOpen} = $nuline; } }
     $errMsg .= "$xmod ($lineNum{$x}) needs explanation" . (defined($fillExpl{$x}) ? " filled in" : "") . ": guess = line $nuline\n";
-	$explErr .= "$xmod\t\"$xmod is when you [fill-in-here].\"\n";
+	$explErr .= "$xmod\t\"$xmod is when you [fill-in-here].\"";
+	if (!defined($concTableLine{$concToRoom{$xmod}})) { $explErr .= " \[start of $concToRoom{$xmod}\]"; }
+	$explErr .= "\n";
 	$fails++; $thisFailed = 1;
   }
   if (!$conc{$xmod})
@@ -306,16 +308,20 @@ for my $x (sort keys %any)
     ($fileToOpen, $nuline) = findExplLine($x, $_[0], 2);
 	if (($nuline ne "????") && ($nuline !~ /failed/)) { unless ($openLowestLine && defined($fileLineErr{$fileToOpen})) { $fileLineErr{$fileToOpen} = $nuline; } }
 	$errMsg .= "$xmod ($lineNum{$x}) needs concept definition" . (defined($fillConc{$x}) ? " filled in" : "") . ": guess = line $nuline\n";
+	if (!defined($conceptIndex{$concToRoom{$xmod}}))
+	{
+	$concErr .= "section $concToRoom{$xmod} concepts\n\n";
+	}
     if ($x =~ /\*/)
 	{
     $y1 = join(" ", reverse(split(/\*/, $x)));
     $y = join(" ", split(/\*/, $x));
-	$concErr .= "$xmod is a concept in conceptville. Understand \"$y\" and \"$y1\" as $xmod. howto is \"[fill-in-here]\".\n";
+	$concErr .= "$xmod is a concept in conceptville. Understand \"$y\" and \"$y1\" as $xmod. howto is \"[fill-in-here]\".\n\n";
 	}
 	else
 	{
     $y = join(" ", reverse(split(/ /, $x)));
-	$concErr .= "$xmod is a concept in conceptville. Understand \"$y\" as $xmod. howto is \"[fill-in-here]\".\n";
+	$concErr .= "$xmod is a concept in conceptville. Understand \"$y\" as $xmod. howto is \"[fill-in-here]\".\n\n";
 	}
 	$fails++; $thisFailed = 1;
   }
@@ -642,6 +648,7 @@ my $inAdd = 0;
 my $lineIn;
 my $tmpVar;
 
+my $everRoomSect = 0;
 my $forceRoom = "";
 
 @dumbErrors = ();
@@ -651,7 +658,8 @@ while ($lineIn = <X>)
   $tempRoom = "";
   chomp($lineIn);
   if ($lineIn =~ /\[end rooms\]/) { $inRoomSect = 0; next; }
-  if ($lineIn =~ /\[start rooms\]/) { $inRoomSect = 1; next; }
+  if ($lineIn =~ /\[start rooms\]/) { $inRoomSect = 1; $everRoomSect = 1; next; }
+  if ($lineIn =~ /^\[/) { next; }
   if ($lineIn =~ /\[temproom (of )?/i) { $tempRoom = lc($lineIn); $tempRoom =~ s/.*\[temproom (of )?//; $tempRoom =~ s/\].*//; $forceRoom = ""; }
   if ($lineIn =~ /\[forceroom /i) { $forceRoom = lc($lineIn); $forceRoom =~ s/.*\[forceroom //; $forceRoom =~ s/\].*//; }
   if ($lineIn =~ /(EXPLANATIONS:|CONCEPTS:|fill-in-here throws)/) { push (@dumbErrors, $.); next; }
@@ -757,6 +765,7 @@ while ($lineIn = <X>)
 }
 
 close(X);
+if (!$everRoomSect) { warn ("No room section start found."); }
 }
 
 printResults($_[0]);
@@ -969,11 +978,11 @@ sub findExplLine
   {
   for (sort { $roomIndex{$a} <=> $roomIndex{$b} } keys %roomIndex)
   {
-    if (($roomIndex{$_} > $approxLine) && defined($conceptIndex{$_})) { return ($toRead[0], $conceptIndex{$_}-2); }
+    if (($roomIndex{$_} > $approxLine) && defined($conceptIndex{$_})) { return ($toRead[0], $conceptIndex{$_}); }
   }
   for (sort { $roomIndex{$b} <=> $roomIndex{$a} } keys %roomIndex)
   {
-    if (($roomIndex{$_} < $approxLine) && defined($conceptIndex{$_})) { return ($toRead[0], $conceptIndex{$_}-2); }
+    if (($roomIndex{$_} < $approxLine) && defined($conceptIndex{$_})) { return ($toRead[0], $conceptIndex{$_}); }
   }
   }
   return ($toRead[0], "????");
