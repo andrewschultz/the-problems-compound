@@ -51,6 +51,7 @@ my $readDupe = 1;
 my $openLowestLine = 0;
 my $roomConcCompare = 0;
 my $rcVerbose = 0;
+my $verboseCutPaste = 0;
 
 #############################
 #hashes
@@ -131,6 +132,7 @@ while ($count <= $#ARGV)
     /^-?pc$/ && do { @dirs = ("Compound"); $count++; next; };
     /^-?sc$/ && do { @dirs = ("Slicker-City"); $count++; next; };
     /^-?(bp|btp)$/ && do { @dirs = ("Buck-the-Past"); $count++; next; };
+    /^-?vcp$/ && do { $verboseCutPaste = 1; $count++; next; };
     /^-?bs$/ && do { @dirs = ("btp-st"); $count++; next; };
     /^-?b2$/ && do { @dirs = ("Buck-the-Past", "btp-st"); $count++; next; };
 	/^-?as$/ && do { @dirs = ("Slicker-City", "Compound"); $count++; next; };
@@ -234,7 +236,8 @@ sub checkTableDetail
 	{
 	  $needsAlf = 1;
 	  print "$a3 ($. $inTable) may be out of order vs $lastAlf.\n";
-	  unless($openLowestLine && defined($fileLineErr{$file}) && ($fileLineErr{$file} < $.)) { $fileLineErr{$file} = $.; }
+	  unless($openLowestLine && defined($fileLineErr{$file}) && ($fileLineErr{$file} < $.))
+	  { $fileLineErr{$file} = $.; }
     }
 	}
 	$lastAlf = $a3;
@@ -300,7 +303,10 @@ for my $x (sort keys %any)
   {
     ($fileToOpen, $nuline) = findExplLine($x, $_[0], 1);
 	if (($nuline ne "????") && ($nuline !~ /failed/))
-	{ unless ($openLowestLine && defined($fileLineErr{$fileToOpen}) && ($fileLineErr{$fileToOpen} < $nuline)) { $fileLineErr{$fileToOpen} = $nuline; } }
+	{
+	  if (!defined($fileLineErr{$fileToOpen}) || (!$openLowestLine && ($fileLineErr{$fileToOpen} < $nuline)))
+	  { $fileLineErr{$fileToOpen} = $nuline; }
+	}
     $errMsg .= "$xmod ($lineNum{$x}) needs explanation" . (defined($fillExpl{$x}) ? " filled in" : "") . ": guess = line $nuline\n";
 	$explErr .= "$xmod\t\"$xmod is when you [fill-in-here].\"";
 	if (!defined($concTableLine{$concToRoom{$xmod}})) { $explErr .= " \[start of $concToRoom{$xmod}\]"; }
@@ -311,7 +317,9 @@ for my $x (sort keys %any)
   {
     ($fileToOpen, $nuline) = findExplLine($x, $_[0], 2);
 	if (($nuline ne "????") && ($nuline !~ /failed/))
-	{ unless ($openLowestLine && defined($fileLineErr{$fileToOpen}) && ($fileLineErr{$fileToOpen} < $nuline)) { $fileLineErr{$fileToOpen} = $nuline; } }
+	{
+	  if (!defined($fileLineErr{$fileToOpen}) || (!$openLowestLine && ($fileLineErr{$fileToOpen} < $nuline)))
+	  { $fileLineErr{$fileToOpen} = $nuline; } }
 	$errMsg .= "$xmod ($lineNum{$x}) needs concept definition" . (defined($fillConc{$x}) ? " filled in" : "") . ": guess = line $nuline\n";
 	if (!defined($conceptIndex{$concToRoom{$xmod}}) && ($concToRoom{$xmod} ne "general concepts")) # bad code but I can't figure a way to sort out general/concepts
 	{
@@ -382,11 +390,11 @@ for my $x (sort keys %any)
   if ($errMsg)
   {
   if ($printErrors) { print "$errMsg"; if (!$codeToClipboard) { print "Run with -c to put code to clipboard.\n"; } }
-  my $bigString = "Basic cut-and-paste (fill-in-here throws an error on purpose so I fix it) :\n";
-  if ($activErr) { $bigString .= "ACTIVATIONS:\n$activErr"; }
-  if ($explErr) { $bigString .= "EXPLANATIONS:\n$explErr"; }
-  if ($concErr) { $bigString .= "CONCEPTS:\n$concErr"; }
-  if ($authErr) { $bigString .= "AUTHORS:\n$authErr"; }
+  my $bigString = $verboseCutPaste ? "Basic cut-and-paste (fill-in-here throws an error on purpose so I fix it) :\n" : "";
+  if ($activErr) { $bigString .= ($verboseCutPaste ? "ACTIVATIONS:\n" : "") . $activErr; }
+  if ($explErr) { $bigString .= ($verboseCutPaste ? "EXPLANATIONS:\n" : "") . $explErr; }
+  if ($concErr) { $bigString .= ($verboseCutPaste ? "CONCEPTS:\n" : "") . $concErr; }
+  if ($authErr) { $bigString .= ($verboseCutPaste ? "AUTHORS:\n" : "") . $authErr; }
   if ($codeToClipboard)
   {
     $clip->Set($bigString);
@@ -558,7 +566,13 @@ sub checkOrder
 	  defined($co[$_]) ? "$co[$_] ($temp)" : "(nothing)");
 	  #defined($co[$_]) ? "$co[$_] ($lineNum{$co[$_]})" : "");
 	  }
-	  if (defined($co[$_])) { unless ($openLowestLine && defined($fileLineErr{$toRead[0]}) && ($fileLineErr{$toRead[0]} < $lineNum{$co[$_]})) { $fileLineErr{$toRead[0]} = $lineNum{$co[$_]}; } }
+	  if (defined($co[$_]))
+	  {
+	    if (!defined($fileLineErr{$toRead[0]}) || (!$openLowestLine && ($fileLineErr{$toRead[0]} < $lineNum{$co[$_]})))
+	    {
+		  $fileLineErr{$toRead[0]} = $lineNum{$co[$_]};
+        }
+	  }
 	  for my $match (0..$#co)
 	  {
 	    if (lc($ex[$_]) eq lc($co[$match]))
@@ -1267,6 +1281,7 @@ CONC.PL usage
 (any combination is okay too)
 -t = print with test results so nightly build can process it
 -nd = no allowed duplicates (-ed edits)
+-vcp = verbose cut paste (off by default, not recommended)
 (-)rc(v) = room coordination (v = verbose)
 (-)ps = print success
 (-)pc = PC only
