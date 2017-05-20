@@ -234,7 +234,7 @@ sub checkTableDetail
 	{
 	  $needsAlf = 1;
 	  print "$a3 ($. $inTable) may be out of order vs $lastAlf.\n";
-	  unless($openLowestLine && defined($fileLineErr{$file})) { $fileLineErr{$file} = $.; }
+	  unless($openLowestLine && defined($fileLineErr{$file}) && ($fileLineErr{$file} < $.)) { $fileLineErr{$file} = $.; }
     }
 	}
 	$lastAlf = $a3;
@@ -299,7 +299,8 @@ for my $x (sort keys %any)
   if (!$expl{$xmod})
   {
     ($fileToOpen, $nuline) = findExplLine($x, $_[0], 1);
-	if (($nuline ne "????") && ($nuline !~ /failed/)) { unless ($openLowestLine && defined($fileLineErr{$fileToOpen})) { $fileLineErr{$fileToOpen} = $nuline; } }
+	if (($nuline ne "????") && ($nuline !~ /failed/))
+	{ unless ($openLowestLine && defined($fileLineErr{$fileToOpen}) && ($fileLineErr{$fileToOpen} < $nuline)) { $fileLineErr{$fileToOpen} = $nuline; } }
     $errMsg .= "$xmod ($lineNum{$x}) needs explanation" . (defined($fillExpl{$x}) ? " filled in" : "") . ": guess = line $nuline\n";
 	$explErr .= "$xmod\t\"$xmod is when you [fill-in-here].\"";
 	if (!defined($concTableLine{$concToRoom{$xmod}})) { $explErr .= " \[start of $concToRoom{$xmod}\]"; }
@@ -309,7 +310,8 @@ for my $x (sort keys %any)
   if (!$conc{$xmod})
   {
     ($fileToOpen, $nuline) = findExplLine($x, $_[0], 2);
-	if (($nuline ne "????") && ($nuline !~ /failed/)) { unless ($openLowestLine && defined($fileLineErr{$fileToOpen})) { $fileLineErr{$fileToOpen} = $nuline; } }
+	if (($nuline ne "????") && ($nuline !~ /failed/))
+	{ unless ($openLowestLine && defined($fileLineErr{$fileToOpen}) && ($fileLineErr{$fileToOpen} < $nuline)) { $fileLineErr{$fileToOpen} = $nuline; } }
 	$errMsg .= "$xmod ($lineNum{$x}) needs concept definition" . (defined($fillConc{$x}) ? " filled in" : "") . ": guess = line $nuline\n";
 	if (!defined($conceptIndex{$concToRoom{$xmod}}) && ($concToRoom{$xmod} ne "general concepts")) # bad code but I can't figure a way to sort out general/concepts
 	{
@@ -556,7 +558,7 @@ sub checkOrder
 	  defined($co[$_]) ? "$co[$_] ($temp)" : "(nothing)");
 	  #defined($co[$_]) ? "$co[$_] ($lineNum{$co[$_]})" : "");
 	  }
-	  if (defined($co[$_])) { unless ($openLowestLine && defined($fileLineErr{$toRead[0]})) { $fileLineErr{$toRead[0]} = $lineNum{$co[$_]}; } }
+	  if (defined($co[$_])) { unless ($openLowestLine && defined($fileLineErr{$toRead[0]}) && ($fileLineErr{$toRead[0]} < $lineNum{$co[$_]})) { $fileLineErr{$toRead[0]} = $lineNum{$co[$_]}; } }
 	  for my $match (0..$#co)
 	  {
 	    if (lc($ex[$_]) eq lc($co[$match]))
@@ -1185,7 +1187,7 @@ sub compareRoomIndex
 		{
 		  if ($proofStr) { print "ERRORS $proofStr"; $proofStr = ""; }
 		  $explanationOrderDetail++;
-		  print "$.: $idea (" . (defined($lineNum{$idea}) ? "$lineNum{$idea}" : "NO LINE NUM") . ") codesectioned to . " . (defined($concToRoom{$idea}) ? $concToRoom{$idea} : "(NO ROOM FOR CONCEPT)") . " " . (defined($concToRoom{$idea}) && defined($roomIndex{$concToRoom{$idea}}) ? "" : " (UNDEFINED ROOM)") . " but defined as concept in $commentBit.\n";
+		  print "$.: $idea (" . (defined($lineNum{$idea}) ? "$lineNum{$idea}" : "NO LINE NUM") . ") codesectioned to " . (defined($concToRoom{$idea}) ? $concToRoom{$idea} : "(NO ROOM FOR CONCEPT)") . " " . (defined($concToRoom{$idea}) && defined($roomIndex{$concToRoom{$idea}}) ? "" : " (UNDEFINED ROOM)") . " but defined as concept in $commentBit.\n";
 		  $ideaHash{$lineNum{$idea}}++;
 		  if ((!$detailLineToOpen) || ($detailLineToOpen > $lineNum{$idea}))
 		  {

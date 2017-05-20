@@ -11622,6 +11622,7 @@ this is the swear-see rule:
 	say "[2da]The [bad-guy] is the [stwid][bad-guy][stwid] instead.";
 	say "[2da][bad-guy-2] is [stwid][bad-guy-2][stwid] instead."; [end smart street]
 	say "[2da]The game warns you might think (off) or say (on) a swear if you try to eat the dirt."; [end garden part]
+	say "[2da]You get an additional message on entering Meal Square.";
 	say "[2da]Eating a food from Tray B forces swears on, if they were off, but you have a last moment before eating the Cutter Cookie.";
 	say "[2da]Saying good-bye to Ally gives the name of a rival bar with swears on."; [end outskirts]
 	say "[2da]The [jc-gc] is the [stwid][jc-gc][stwid] instead. Also, you feel a bit more foreboding, and everyone sheds a jerk-tear, and if you attack them, you get a 'special' message.";
