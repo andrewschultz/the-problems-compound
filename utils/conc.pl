@@ -373,7 +373,7 @@ for my $x (sort keys %any)
     print "XXCV starts at $cvStart, ends at $cvEnd.\n";
 	printf("Test failed, $fails failure%s of $totals.", $fails==1 ? "" : "s");
   }
-  else { print "Test succeeded! All $totals passed."; }
+  else { print "Main concept-sorting test succeeded! All $totals passed."; }
 
   print "\n";
   my $needAlf = 0; my $authFail = 0; my $authsucc = 0;
@@ -391,6 +391,22 @@ for my $x (sort keys %any)
   if ($needAlf) { print "talf.pl may help straighten things out.\n"; }
 
   print "TEST RESULTS:$_[0] authors matching,0,$authFail,$authsucc,0,$numauth\n";
+  }
+
+  if (scalar keys %needSpace)
+  {
+    print "Add spaces to concept understanding at " . join(", ", map { "$needSpace{$_}($_}" } sort keys %needSpace) . "\n";
+	if ($printTest) { printf("TEST RESULTS: needspace-$_[0],%d,0,0,%s\n", scalar keys %needSpace, join(", ", map { "$needSpace{$_}" } sort keys %needSpace)); }
+  }
+  if (scalar keys %fillExpl)
+  {
+    print "Fill in explanation text at " . join(", ", map { "$fillExpl{$_}($_}" } sort keys %fillExpl) . "\n";
+	if ($printTest) { printf("TEST RESULTS: fillin-$_[0],%d,0,0,%s\n", scalar keys %fillExpl, join(", ", map { "$fillExpl{$_}" } sort keys %fillExpl)); }
+  }
+  if (scalar keys %fillConc)
+  {
+    print "Fill in concept text at " . join(", ", map { "$fillConc{$_}($_}" } sort keys %fillConc) . "\n";
+    if ($printTest) { printf("TEST RESULTS: fillin-$_[0],%d,0,0,%s\n", scalar keys %fillExpl, join(", ", map { "$fillExpl{$_}" } sort keys %fillExpl)); }
   }
 
   if ($errMsg)
@@ -423,21 +439,6 @@ sub printGlobalResults
     print "#####################Remove error-text from line(s) " . join(", ", @dumbErrors) . ".\n";
   }
 
-  if (scalar keys %needSpace)
-  {
-    print "Add spaces to concept understanding at " . join(", ", map { "$needSpace{$_}($_}" } sort keys %needSpace) . "\n";
-	if ($printTest) { printf("TEST RESULTS: needspace-$_[0],(scalar keys %needSpace),0,0,%s\n", join(", ", map { "$needSpace{$_}" } sort keys %needSpace)); }
-  }
-  if (scalar keys %fillExpl)
-  {
-    print "Fill in explanation text at " . join(", ", map { "$fillExpl{$_}($_}" } sort keys %fillExpl) . "\n";
-	if ($printTest) { printf("TEST RESULTS: fillin-$_[0],(scalar keys %fillExpl),0,0,%s\n", join(", ", map { "$fillExpl{$_}" } sort keys %fillExpl)); }
-  }
-  if (scalar keys %fillConc)
-  {
-    print "Fill in concept text at " . join(", ", map { "$fillConc{$_}($_}" } sort keys %fillConc) . "\n";
-    if ($printTest) { printf("TEST RESULTS: fillin-$_[0],(scalar keys %fillExpl),0,0,%s\n", join(", ", map { "$fillExpl{$_}" } sort keys %fillExpl)); }
-  }
   if ($#fillIn > -1)
   {
     print "Zap fill-in text at line(s) " . join(", ", @fillIn) . ".\n";
