@@ -69,6 +69,7 @@ my %fileLineErr;
 my %fillConc;
 my %fillExpl;
 my %needSpace;
+my %minorErrs;
 
 my %tableDetHash;
 
@@ -395,12 +396,12 @@ for my $x (sort keys %any)
 
   if (scalar keys %needSpace)
   {
-    print "Add spaces to concept understanding at " . join(", ", map { "$needSpace{$_}($_}" } sort keys %needSpace) . "\n";
+    printf("Add spaces to concept understanding at %s%s\n", join(", ", map { "$needSpace{$_}($_}" } sort { $needSpace{$a} <=> $needSpace{$b} } keys %needSpace), $launchMinorErrs ? "" : " (-m to launch)");
 	if ($printTest) { printf("TEST RESULTS: needspace-$_[0],%d,0,0,%s\n", scalar keys %needSpace, join(", ", map { "$needSpace{$_}" } sort keys %needSpace)); }
   }
   if (scalar keys %fillExpl)
   {
-    print "Fill in explanation text at " . join(", ", map { "$fillExpl{$_}($_}" } sort keys %fillExpl) . "\n";
+    printf("Fill in explanation text at %s%s\n", join(", ", map { "$fillExpl{$_}($_}" } sort { $fillExpl{$a} <=> $fillExpl{$b} } keys %fillExpl), $launchMinorErrs ? "" : " (-m to launch)");
 	if ($printTest) { printf("TEST RESULTS: fillin-$_[0],%d,0,0,%s\n", scalar keys %fillExpl, join(", ", map { "$fillExpl{$_}" } sort keys %fillExpl)); }
   }
   if (scalar keys %fillConc)
@@ -444,7 +445,7 @@ sub printGlobalResults
     print "Zap fill-in text at line(s) " . join(", ", @fillIn) . ".\n";
   }
 
-  if (scalar keys %fileLineErr)
+  if (scalar keys %fileLineErr || scalar keys %minorErrs)
   {
     if ($openStoryFile)
 	{
@@ -455,7 +456,16 @@ sub printGlobalResults
 	print "Running $cmd\n";
 	`$cmd`;
 	}
+	if ($launchMinorErrs)
+	{
+	for my $thisFile (keys %minorErrs)
+	{
+	if (defined($fileLineErr{$thisFile})) { next; }
+    my $cmd = "$np \"$thisFile\" -n$minorErrs{$thisFile}";
+	`$cmd`;
+	}
     }
+	}
 	else
 	{
 	  print "Use -l to launch the story file for direct editing.\n";
@@ -787,8 +797,16 @@ while ($lineIn = <X>)
   if (($lineIn =~ /is a (privately-named |risque |)?concept/) && ($lineIn !~ /\t/)) #prevents  "is a concept" in source text from false flag
   {
     $tmpVar = $lineIn; $tmpVar =~ s/ is a (privately-named |risque |)?concept.*//g; $tmpVar = wordtrim($tmpVar); $conc{$tmpVar} = $any{$tmpVar} = $.;
-	if ($lineIn =~ /fill-in-here/) { $fillExpl{$tmpVar} = $.; }
-	if ($lineIn =~ /\"[a-z]+\"[^\.]/i) { $needSpace{$tmpVar} = $.; }
+	if ($lineIn =~ /fill-in-here/)
+	{
+	  $fillExpl{$tmpVar} = $.;
+	  unless ($openLowestLine && defined($minorErrs{$tmpVar})) { $minorErrs{$file} = $.;}
+    }
+	if ($lineIn =~ /\"[a-z]+\"[^\.]/i)
+	{
+	  $needSpace{$tmpVar} = $.;
+	  unless ($openLowestLine && defined($minorErrs{$tmpVar})) { $minorErrs{$file} = $.; }
+    }
 	if (!defined($lineNum{$tmpVar})) { $lineNum{$tmpVar} = $.; }
 	if ($lineIn =~ /\[ac\]/) { $activ{$tmpVar} = $.; } # [ac] says it's activated somewhere else
 	next;
