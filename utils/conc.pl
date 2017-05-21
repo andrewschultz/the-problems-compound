@@ -52,6 +52,7 @@ my $openLowestLine = 0;
 my $roomConcCompare = 0;
 my $rcVerbose = 0;
 my $verboseCutPaste = 0;
+my $launchMinorErrs = 0;
 
 #############################
 #hashes
@@ -67,6 +68,7 @@ my %lineNum;
 my %fileLineErr;
 my %fillConc;
 my %fillExpl;
+my %needSpace;
 
 my %tableDetHash;
 
@@ -137,7 +139,7 @@ while ($count <= $#ARGV)
     /^-?b2$/ && do { @dirs = ("Buck-the-Past", "btp-st"); $count++; next; };
 	/^-?as$/ && do { @dirs = ("Slicker-City", "Compound"); $count++; next; };
 	/^-?a3$/ && do { @dirs = ("Slicker-City", "Compound", "Buck-the-Past", "btp-st"); $count++; next; };
-	/^-?[cv0nl]+$/ && do
+	/^-?[cv0nlm]+$/ && do
 	{
 	  $codeToClipboard = $printErrCode = $printErrors = 0;
 	  if ($a =~ /c/) { $codeToClipboard = 1; }
@@ -145,6 +147,7 @@ while ($count <= $#ARGV)
 	  if ($a =~ /v/) { $printErrors = 1; }
 	  if ($a =~ /n/) { $openStoryFile = 0; }
 	  if ($a =~ /l/) { $openStoryFile = 1; }
+	  if ($a =~ /m/) { $launchMinorErrs = 1; }
 	  $count++;
 	  next;
 	};
@@ -321,9 +324,12 @@ for my $x (sort keys %any)
 	  if (!defined($fileLineErr{$fileToOpen}) || (!$openLowestLine && ($fileLineErr{$fileToOpen} < $nuline)))
 	  { $fileLineErr{$fileToOpen} = $nuline; } }
 	$errMsg .= "$xmod ($lineNum{$x}) needs concept definition" . (defined($fillConc{$x}) ? " filled in" : "") . ": guess = line $nuline\n";
+	if (defined($concToRoom{$xmod}))
+	{
 	if (!defined($conceptIndex{$concToRoom{$xmod}}) && ($concToRoom{$xmod} ne "general concepts")) # bad code but I can't figure a way to sort out general/concepts
 	{
 	$concErr .= "section $concToRoom{$xmod} concepts\n\n";
+	}
 	}
     if ($x =~ /\*/)
 	{
@@ -417,6 +423,11 @@ sub printGlobalResults
     print "#####################Remove error-text from line(s) " . join(", ", @dumbErrors) . ".\n";
   }
 
+  if (scalar keys %needSpace)
+  {
+    print "Add spaces to concept understanding at " . join(", ", map { "$needSpace{$_}($_}" } sort keys %needSpace) . "\n";
+	if ($printTest) { printf("TEST RESULTS: needspace-$_[0],(scalar keys %needSpace),0,0,%s\n", join(", ", map { "$needSpace{$_}" } sort keys %needSpace)); }
+  }
   if (scalar keys %fillExpl)
   {
     print "Fill in explanation text at " . join(", ", map { "$fillExpl{$_}($_}" } sort keys %fillExpl) . "\n";
@@ -776,6 +787,7 @@ while ($lineIn = <X>)
   {
     $tmpVar = $lineIn; $tmpVar =~ s/ is a (privately-named |risque |)?concept.*//g; $tmpVar = wordtrim($tmpVar); $conc{$tmpVar} = $any{$tmpVar} = $.;
 	if ($lineIn =~ /fill-in-here/) { $fillExpl{$tmpVar} = $.; }
+	if ($lineIn =~ /\"[a-z]+\"[^\.]/i) { $needSpace{$tmpVar} = $.; }
 	if (!defined($lineNum{$tmpVar})) { $lineNum{$tmpVar} = $.; }
 	if ($lineIn =~ /\[ac\]/) { $activ{$tmpVar} = $.; } # [ac] says it's activated somewhere else
 	next;
@@ -994,7 +1006,7 @@ sub findExplLine
   #look for the room just after the room your idea is in, then go there to insert your room in the table of explanations
   for (sort { $roomIndex{$a} <=> $roomIndex{$b} } keys %roomIndex)
   {
-    if (($roomIndex{$_} > $approxLine) && defined($concTableLine{$_})) { return ($toRead[0], $concTableLine{$_}); }
+    if (($roomIndex{$_} > $approxLine) && defined($concTableLine{$_})) { return ($toRead[0], $concTableLine{$_}+1); }
   }
   for (sort { $roomIndex{$b} <=> $roomIndex{$a} } keys %roomIndex)
   {
@@ -1278,6 +1290,7 @@ CONC.PL usage
 -0 = print errors not error code
 -l/-n = launch story file (or not) after
 -v = verbosely print code
+-m = launch minor errors if there is no major error
 (any combination is okay too)
 -t = print with test results so nightly build can process it
 -nd = no allowed duplicates (-ed edits)

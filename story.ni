@@ -3673,8 +3673,7 @@ Candidate Dummy	"A dummy candidate is one who is there to give the illusion of d
 code monkey	"A code monkey is someone who writes programming code for a living."
 grease monkey	"A grease monkey is a manual laborer, especially with machines."
 serve you right	"'Serve(s) you right' means you got what you deserved."
-Admiral Vice	"A vice-(anything) is a next-in-line/assistant to an honorary position, but vice is also a personal failing, big or small." [start of freak control]
-artemis fowl	"Artemis fowl is the intelligent, cocky hero of Eoin Colfer's seven-book series. He's everything the [bad-guy] thinks he is, and more."
+artemis fowl	"Artemis fowl is the intelligent, cocky hero of Eoin Colfer's seven-book series. He's everything the [bad-guy] thinks he is, and more." [start of freak control]
 autocratic	"Autocratic means having one person firmly in control."
 beholder of the eye	"'Beauty is in the eye of the beholder' is a cliche meaning we see the nice things we want. Here Alec is worried he's seeing oppresion that gives him an excuse to fear."
 benefactor	"A benefactor is someone who provides support, emotional or financial."
@@ -3730,6 +3729,7 @@ putin	"Vladimir Putin is the autocratic leader of Russia as of 2017. He is also 
 race baiting	"Race baiting is when someone mocks another person for their ethnicity."
 reactionary	"Reactionary means aggressively wanting things to be how they were, or you thought they were."
 red alert	"Red alert is when an enemy attack appears imminent."
+relief	"Relief means a break from something, or it can also mean reenforcements."
 running gag	"A running gag is a joke that keeps popping up."
 salad days	"Salad days are a time when things are going well."
 scuzz bucket	"A scuzz, or scum, bucket is a person who is just plain dirty or disgusting. The [bad-guy] is not obviously physically like this."
@@ -10637,7 +10637,7 @@ bm-mug	"'Oh, it's Crisis Energy[activation of crisis energy]. For taking urgent 
 bm-bad2	"'It's--it's, well, tribute is what it is.'"
 bm-so-bad2	"'Oh, come on, you know the difference.'[wfk][line break]Your reply just slips out. 'Yeah, it's easy, there's not much of it.' Maybe you shouldn't have...but nothing happens..."
 bm-tribute	"'There will be. Just--first things first. Stability. We almost got there, until you stepped in.'"
-bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Well. I didn't want to do it, but you made me put on my [activation of face facts]facts face. Think you can do better? Have at it! You don't listen to your [activation of half right]right half...makes you miss obvious things others see immediately. Always have, always will. [activation of see you later]Later, you see...' The Baiter Master storms out, and he must have had a remote, because you're locked in![wfk][paragraph break]You search frantically. There must be some way to communicate...and you dig around until you find the [activation of wire fraud]Fraud Wire! Meant to 'remind' citizens they aren't as nice as they think they are, it now encourages them to get mad. The Goods get their cult to help. The [j-co] even chip in, too. Then, for kicks, you call [bad-guy-2] pretending to be the [bad-guy] and you prank him. And, of course, you remember the number to RING BRASS, from the Quiz Pop.[paragraph break]Mark Black is on his way--but so are the [bad-guy]'s allies! You hear Brother Foster say, well, I knew they were flaky, but that's what you GET when you try to give them an important position in life, and [activation of Admiral Vice]Admiral Vice will straighten out him--AND them.[wfk]Yes. That must be Admiral Vice.[paragraph break]'A danger not just to the Problems Compound but to Slicker City[activation of slicker city]! There's only one place for you.'[wfk]"
+bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Well. I didn't want to do it, but you made me put on my [activation of face facts]facts face. Think you can do better? Have at it! You don't listen to your [activation of half right]right half...makes you miss obvious things others see immediately. Always have, always will. [activation of see you later]Later, you see...' The Baiter Master storms out, and he must have had a remote, because you're locked in![wfk][paragraph break]You search frantically. There must be some way to communicate...and you dig around until you find the [activation of wire fraud]Fraud Wire! Meant to 'remind' citizens they aren't as nice as they think they are, it now encourages them to get mad. The Goods get their cult to help. The [j-co] even chip in, too. Then, for kicks, you call [bad-guy-2] pretending to be the [bad-guy] and you prank him. And, of course, you remember the number to RING BRASS, from the Quiz Pop.[paragraph break]Mark Black is on his way--but so are the [bad-guy]'s allies! You hear Brother Foster say, well, I knew they were flaky, but that's what you GET when you try to give them an important position in life, and [activation of relief]Leif Rhee will set things straight.[wfk]Yes. That must be him, now.[paragraph break]'A danger not just to the Problems Compound but to Slicker City[activation of slicker city]! There's only one place for you.'[wfk]"
 bm-bye	"'You're not going anywhere.' And he's right. But it's not out totally out of fear, now."
 
 already-good is a truth state that varies.
@@ -12245,7 +12245,7 @@ Sleeper Cell is a concept in conceptville. Understand "cell sleeper" as sleeper 
 
 section joint strip concepts
 
-advice is a concept in conceptville. Understand "advice" as advice. howto is "ask the Stool Toad about the Joint Strip".
+advice is a concept in conceptville. Understand "vice ad" as advice. howto is "ask the Stool Toad about the Joint Strip".
 
 bullfrog is a concept in conceptville. Understand "frog bull" and "bull frog" as bullfrog. howto is "ask the Stool Toad how to get in trouble".
 
@@ -12693,8 +12693,6 @@ to say fr-pb:
 to say ok-end:
 	say "defeat the [bad-guy] without rescuing Idiot Village"
 
-Admiral Vice is a concept in conceptville. Understand "vice admiral" as admiral vice. howto is "[bad-guy] dialog".
-
 artemis fowl is a concept in conceptville. Understand "foul miss artie" and "artie miss foul" as artemis fowl. howto is "[fr-ran]".
 
 autocratic is a concept in conceptville. Understand "craddock auto" and "auto craddock" as autocratic. howto is "[fr-ran]".
@@ -12806,6 +12804,8 @@ race baiting is a concept in conceptville. Understand "baiting race" as race bai
 reactionary is a concept in conceptville. Understand "airy reaction" and "reaction airy" as reactionary. howto is "talk to the [bad-guy] before guessing the right action".
 
 red alert is a concept in conceptville. Understand "alert red/read" and "read alert" as red alert. howto is "[fr-ran]".
+
+relief is a concept in conceptville. Understand "leif rhee" and "rhee leif" as relief. howto is "[bad-guy] dialog".
 
 running gag is a concept in conceptville. Understand "gag running" as running gag. howto is "go south twice in Freak Control".
 
