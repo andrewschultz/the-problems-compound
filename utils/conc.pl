@@ -11,6 +11,9 @@
 #
 #      -nt/-t toggles test result printing
 #called from talf
+#
+#todo: if word isn't split up, try to
+#
 
 use strict;
 use warnings;
@@ -396,17 +399,17 @@ for my $x (sort keys %any)
 
   if (scalar keys %needSpace)
   {
-    printf("Add spaces to concept understanding at %s%s\n", join(", ", map { "$needSpace{$_}($_}" } sort { $needSpace{$a} <=> $needSpace{$b} } keys %needSpace), $launchMinorErrs ? "" : " (-m to launch)");
+    printf("Add spaces (%d) or \[ok\] to understanding synonyms at %s%s\n", scalar keys %needSpace, join(", ", map { "$needSpace{$_}($_}" } sort { $needSpace{$a} <=> $needSpace{$b} } keys %needSpace), $launchMinorErrs ? "" : " (-lm to launch)");
 	if ($printTest) { printf("TEST RESULTS: needspace-$_[0],%d,0,0,%s\n", scalar keys %needSpace, join(", ", map { "$needSpace{$_}" } sort keys %needSpace)); }
   }
   if (scalar keys %fillExpl)
   {
-    printf("Fill in explanation text at %s%s\n", join(", ", map { "$fillExpl{$_}($_}" } sort { $fillExpl{$a} <=> $fillExpl{$b} } keys %fillExpl), $launchMinorErrs ? "" : " (-m to launch)");
+    printf("Fill in explanation text (%d) at %s%s\n", scalar keys %fillExpl, join(", ", map { "$fillExpl{$_}($_}" } sort { $fillExpl{$a} <=> $fillExpl{$b} } keys %fillExpl), $launchMinorErrs ? "" : " (-lm to launch)");
 	if ($printTest) { printf("TEST RESULTS: fillin-$_[0],%d,0,0,%s\n", scalar keys %fillExpl, join(", ", map { "$fillExpl{$_}" } sort keys %fillExpl)); }
   }
   if (scalar keys %fillConc)
   {
-    print "Fill in concept text at " . join(", ", map { "$fillConc{$_}($_}" } sort keys %fillConc) . "\n";
+    printf("Fill in concept text (%d) at %s%s\n", scalar keys %fillConc, join(", ", map { "$fillConc{$_}($_}" } sort { $fillConc{$a} <=> $fillConc{$b} } keys %fillConc), $launchMinorErrs ? "" : " (-lm to launch)");
     if ($printTest) { printf("TEST RESULTS: fillin-$_[0],%d,0,0,%s\n", scalar keys %fillExpl, join(", ", map { "$fillExpl{$_}" } sort keys %fillExpl)); }
   }
 
@@ -802,7 +805,7 @@ while ($lineIn = <X>)
 	  $fillExpl{$tmpVar} = $.;
 	  unless ($openLowestLine && defined($minorErrs{$tmpVar})) { $minorErrs{$file} = $.;}
     }
-	if ($lineIn =~ /\"[a-z]+\"[^\.]/i)
+	if (($lineIn =~ /\"[a-z]+\"[^\.]/i) && ($lineIn !~ /\[ok\]/))
 	{
 	  $needSpace{$tmpVar} = $.;
 	  unless ($openLowestLine && defined($minorErrs{$tmpVar})) { $minorErrs{$file} = $.; }
