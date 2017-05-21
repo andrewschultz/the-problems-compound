@@ -3453,7 +3453,7 @@ house special	"The house special is an item on the menu priced to attract people
 just deserts	"Just deserts means getting what you deserve. After eating the 'sophisticated' cheese, Alec doesn't deserve to enjoy other foods."
 loaf around	"To loaf around is to wait with no real purpose."
 pig out	"To pig out is to eat everything you see. The reverse is an admonishment to leave."
-potty	"A potty is a kids' word for where you go to the bathroom."
+potty	"A potty is a kids['] word for where you go to the bathroom."
 quarter pounder	"A quarter pounder is a popular burger at McDonalds."
 Shame No	"No shame means a person isn't embarrassed by anything to the point where it's dangerous. The reverse (Shame? No!) is more, there's a healthier way to look at things than through shame."
 Snap Decision	"A decision made reflexively, versus a conscious decision to snap e.g. just quit holding back."
@@ -3512,7 +3512,6 @@ air jordan	"Air Jordan is an expensive athletic shoe named after Michael Jordan,
 anapest	"Anapest is a common beat for a poem. It can seem singsong."
 Anne Frank	"Anne Frank wrote [i]The Diary of Anne Frank[r], a story about a Jewish family hiding from the Nazis in World War II."
 Bandanna	"A bandanna is a scarf you tie around your head. Some people find it rebellious, others not rebellious enough."
-bayou	"A bayou is a tributary (river leading to bigger water), and the reverse pronunciation is 'you buy.'"
 bechdel	"The Bechdel test is if an author has two females talking about things other than men or sex. Del Beck fails miserably, of course."
 beer guts	"Beer guts are increased weight from drinking too much beer."
 benevolent	"Benevolent means doing things to help people."
@@ -3594,6 +3593,7 @@ terabyte	"A terabyte is a large amount of memory: specifically, 2^40 bytes."
 teriyaki	"Teriyaki is a Japanese sauce, or it can be meat cooked in that sauce over an open grill."
 terrapin	"A terrapin is a fancy name for a turtle, which is slow and has a shell."
 whistler's mother	"Whistler's Mother is a famous painting of an old lady, the mother of the artist."
+you buy	"A bayou is a tributary (river leading to bigger water), and the reverse pronunciation is 'you buy.'"
 Character Assassination	"Character assassination is an attempt to tarnish someone's good reputation." [start of chipper wood]
 Play it Cool	"To play it cool is not to lose your temper. Of course, Percy's chase may make you want to lose your temper."
 Sweetheart Deal	"A sweetheart deal is something that works very well for both sides, often obtained unethically. Telling someone to deal often means they have to settle for being ripped off."
@@ -8020,7 +8020,7 @@ to check-jerks-done:
 
 to zap-the-jerks:
 	say "A fight's about to break out, until you tell them where you got this information from.[paragraph break]'You better be right about this,' [a random not minted client] says. They rush off. You hear whining in the distance. It's the Labor Child. He protests he was just trying to shame them into doing more practical things. They aren't buying it!";
-	say "[line break]The (ex-)[j-co]s arrive back, and [a random client] [if allow-swears is true]gives an [activation of grown up]up groan[else]wipes away a [activation of tear-jerk]jerk-tear[end if] before handing you a bottle of Quiz Pop. 'Man, you seem to know what's what, and you helped us see it was okay to be us. Here's some totally sweet contraband[if allow-swears is true]. We're out of [activation of pop cherry]cherry pop but this stuff is like good for people who figure stuff out[end if].'[paragraph break]Hmm. Interesting. Quiz Pop. As they walk away, you hear them deciding on a victory meal they can now afford at the [activation of bayou] bayou: [activation of sausage fest]fest sausage. With a [activation of joint committee]committee joint to top it off!";
+	say "[line break]The (ex-)[j-co]s arrive back, and [a random client] [if allow-swears is true]gives an [activation of grown up]up groan[else]wipes away a [activation of tear-jerk]jerk-tear[end if] before handing you a bottle of Quiz Pop. 'Man, you seem to know what's what, and you helped us see it was okay to be us. Here's some totally sweet contraband[if allow-swears is true]. We're out of [activation of pop cherry]cherry pop but this stuff is like good for people who figure stuff out[end if].'[paragraph break]Hmm. Interesting. Quiz Pop. As they walk away, you hear them deciding on a victory meal they can now afford at the [activation of you buy]bayou: [activation of sausage fest]fest sausage. With a [activation of joint committee]committee joint to top it off!";
 	it-take quiz pop;
 	increment the score;
 	now all clients are in lalaland;
@@ -12182,7 +12182,7 @@ Loaf Around is a concept in conceptville. Understand "around loaf" as loaf aroun
 
 pig out is a concept in conceptville. Understand "out pig" as pig out. howto is "TAKE ALL in Meal Square".
 
-potty is a concept in conceptville. Understand "pottea" and "teapot" and "pot tea" and "tea pot" as potty. howto is "[f-t of meal square] with innuendo on".
+potty is a concept in conceptville. Understand "pottea" and "teapot" and "pot tea" and "tea pot" as potty. howto is "[f-t of meal square] with innuendo on". [ok]
 
 quarter pounder is a concept in conceptville. Understand "pounder quarter" as quarter pounder. howto is "[nogo of Meal Square]".
 
@@ -12206,7 +12206,7 @@ Tray X is a concept in conceptville. howto is "enter Meal Square".
 
 treat like dirt is a concept in conceptville. Understand "dirt like treat" as treat like dirt. howto is "[x-it of points brownie]".
 
-trefoil is a concept in conceptville. Understand "trefoil" as trefoil. howto is "[x-it of Tray A]".
+trefoil is a concept in conceptville. Understand "foil tray" and "tray foil" as trefoil. howto is "[x-it of Tray A]".
 
 section down ground concepts
 
@@ -12300,7 +12300,7 @@ striptease is a concept in conceptville. Understand "strip teas" and "teas strip
 
 the Total T is a concept in conceptville. howto is "visit the Soda Club".
 
-Wine-U-Gen is a concept in conceptville. Understand "wine u gen" and "wineugen" as Wine-U-Gen. howto is "order the Cooler Wine"
+Wine-U-Gen is a concept in conceptville. Understand "gen u wine" and "wine u gen" as Wine-U-Gen. howto is "order the Cooler Wine"
 
 chapter main chunk concepts [left to right, then below]
 
@@ -12319,15 +12319,13 @@ anne frank is a concept in conceptville. Understand "frank anne" as anne frank. 
 
 Bandanna is a concept in conceptville. Understand "anna bandt/band" and "bandt/band anna" as bandanna. howto is "[j-girl]".
 
-bayou is a concept in conceptville. Understand "bayou" as bayou. howto is "[solve-j]".
-
 Bechdel is a concept in conceptville. Understand "del beck" and "beck del" as bechdel. howto is "[j-girl]".
 
 beer guts is a concept in conceptville. Understand "guts beer" as beer guts. howto is "[j-girl]".
 
 benevolent is a concept in conceptville. Understand "evelyn benn" and "benn evelyn" as benevolent. howto is "[j-girl]".
 
-bernoulli is a concept in conceptville. Understand "bernoulli" as bernoulli. howto is "[j-girl]".
+bernoulli is a concept in conceptville. Understand "newly burn" and "burn newly" as bernoulli. howto is "[j-girl]".
 
 Black Mark is a concept in conceptville. Understand "mark black" as black mark. howto is "[x-it of quiz pop]".
 
@@ -12337,7 +12335,7 @@ bouncing betty is a concept in conceptville. Understand "betty/beddy bouncing" a
 
 box score is a concept in conceptville. Understand "score box" as box score. howto is "[j-girl]".
 
-broccoli is a concept in conceptville. Understand "broccoli" as broccoli. howto is "[j-girl]".
+broccoli is a concept in conceptville. Understand "lee brock" and "brock lee" as broccoli. howto is "[j-girl]".
 
 call girl is a concept in conceptville. Understand "girl call" as call girl. howto is "[j-girl]".
 
@@ -12355,7 +12353,7 @@ co-ed is a concept in conceptville. Understand "co-ed" as co-ed. howto is "[j-gi
 
 Cotton Candy is a concept in conceptville. Understand "candy cotton" as cotton candy. howto is "[j-girl]".
 
-defecate is a concept in conceptville. Understand "defecate" as defecate. howto is "[j-girl]".
+defecate is a concept in conceptville. Understand "kate a def" and "def a kate" as defecate. howto is "[j-girl]".
 
 Dirty Word is a concept in conceptville. Understand "word dirty" as dirty word. howto is "go to the [jc]".
 
@@ -12365,7 +12363,9 @@ flounder is a concept in conceptville. Understand "flo under" and "under flo" as
 
 fluoridated is a concept in conceptville. Understand "dated flora" and "flora dated" as fluoridated. howto is "[j-girl]".
 
-gangbusters is a concept in conceptville. Understand "gangbusters" as gangbusters. howto is "[j-girl]".
+[todo: eliminate dashes that aren't relevant]
+
+gangbusters is a concept in conceptville. Understand "buster's/busters/buster gang" and "gang buster/busters/buster's" as gangbusters. howto is "[j-girl]".
 
 gorgeous is a concept in conceptville. Understand "jess gore" and "gore jess" as gorgeous. howto is "[j-girl]".
 
@@ -12395,13 +12395,13 @@ jim beam is a concept in conceptville. Understand "beam jim" as jim beam. howto 
 
 joint committee is a concept in conceptville. Understand "committee joint" as joint committee. howto is "[solve-j]".
 
-journeyman is a concept in conceptville. Understand "journeyman" as journeyman. howto is "[j-girl]".
+journeyman is a concept in conceptville. Understand "journey man" and "man journey" as journeyman. howto is "[j-girl]".
 
 junk mail is a concept in conceptville. Understand "mail junk" as junk mail. howto is "listen to the [j-co] before figuring the Index puzzle".
 
 Keyser Soze is a concept in conceptville. Understand "suzy kaiser" and "kaiser suzy" as Keyser Soze. howto is "[j-girl]".
 
-kohlrabi is a concept in conceptville. Understand "kohlrabi" as kohlrabi. howto is "[j-girl]".
+kohlrabi is a concept in conceptville. Understand "robbie cole" and "cole robbie" as kohlrabi. howto is "[j-girl]".
 
 a thing called Laverne and Shirley is a concept in conceptville. Understand "shirley and laverne" as Laverne and Shirley. howto is "[j-girl]".
 
@@ -12475,13 +12475,15 @@ tallywhacker is a concept in conceptville. Understand "tally wacker" and "wacker
 
 Tear-Jerk is a concept in conceptville. Understand "jerk-tear" and "tear jerk" and "jerk tear" as Tear-Jerk. howto is "solve the [j-co]['] puzzle".
 
-terabyte is a concept in conceptville. Understand "terabyte" as terabyte. howto is "[j-girl]".
+terabyte is a concept in conceptville. Understand "bite tara" and "tara bite" as terabyte. howto is "[j-girl]".
 
-teriyaki is a concept in conceptville. Understand "teriyaki" as teriyaki. howto is "[j-girl]".
+teriyaki is a concept in conceptville. Understand "yacky terri" and "terri yacky" as teriyaki. howto is "[j-girl]".
 
-terrapin is a concept in conceptville. Understand "terrapin" as terrapin. howto is "[j-girl]".
+terrapin is a concept in conceptville. Understand "pin tera" and "tera pin" as terrapin. howto is "[j-girl]".
 
 whistler's mother is a concept in conceptville. Understand "mother whistlers/whistler's/whistler" and "whistler/whitler's mother" as whistler's mother. howto is "[j-girl]".
+
+you buy is a concept in conceptville. Understand "you buy" and "bay you" as you buy. howto is "[solve-j]".
 
 to say solve-j:
 	say "solve the [j-co]['] puzzle"
@@ -12538,7 +12540,7 @@ thp is a privately-named concept in conceptville. printed name is "200 proof". U
 
 section scheme pyramid concepts
 
-age four is a concept in conceptville. Understand "four age" and "forage" as age four. howto is "decline the Labor Child's offer for help".
+age four is a concept in conceptville. Understand "four age" and "forage" as age four. howto is "decline the Labor Child's offer for help". [ok]
 
 Baby Boomer is a concept in conceptville. Understand "boomer baby" as baby boomer. howto is "enter the Scheme Pyramid".
 
@@ -12602,7 +12604,7 @@ attorney general is a concept in conceptville. Understand "general attorney" as 
 
 nutcase is a concept in conceptville. Understand "case/job nut" and "nut case/job" as nutcase. howto is "[f-t of Court of Contempt], innuendo on".
 
-prosecutor is a concept in conceptville. Understand "prosecutor" as prosecutor. howto is "talk to Buddy Best".
+prosecutor is a concept in conceptville. Understand "cuter prose" and "prose cuter" as prosecutor. howto is "talk to Buddy Best".
 
 readjust is a concept in conceptville. Understand "read just" and "just read" as readjust. howto is "talk to Buddy Best".
 
@@ -12632,7 +12634,7 @@ crack up is a concept in conceptville. Understand "up/down/joke crack" and "crac
 
 go to pot is a concept in conceptville. Understand "pot to go" as go to pot. howto is "[f-t of Pot Chamber]".
 
-kilo is a concept in conceptville. Understand "loki" as kilo. howto is "ask Pusher Penn about bad stuff".
+kilo is a concept in conceptville. Understand "loki" and "ki lo" and "lo ki" as kilo. howto is "ask Pusher Penn about bad stuff". [ok]
 
 pop pills is a concept in conceptville. Understand "pills pop" as pop pills. howto is "ask Pusher Penn about the [bad-guy]".
 
@@ -12642,7 +12644,7 @@ weed out is a concept in conceptville. Understand "out weed" as weed out. howto 
 
 section discussion block concepts
 
-artifact is a concept in conceptville. Understand "artifact" as artifact. howto is "[f-t of Discussion Block]".
+artifact is a concept in conceptville. Understand "fact art" and "art fact" as artifact. howto is "[f-t of Discussion Block]".
 
 babel fish is a concept in conceptville. Understand "fish babel/babble" and "babble fish" as babel fish. howto is "play the fish in Discussion Block".
 
@@ -12654,7 +12656,7 @@ Coals to Newcastle is a concept in conceptville. Understand "new castle to coals
 
 Elevator Music is a concept in conceptville. Understand "music elevator" as elevator music. howto is "[f-t of Discussion Block]".
 
-philistine is a concept in conceptville. Understand "philistine" as philistine. howto is "[f-t of Discussion Block]".
+philistine is a concept in conceptville. Understand "listen phil" and "phil listen" as philistine. howto is "[f-t of Discussion Block]".
 
 Play Dumb is a concept in conceptville. Understand "dumb play" as play dumb. howto is "[f-t of Discussion Block]".
 
@@ -12731,7 +12733,7 @@ disorder is a concept in conceptville. Understand "order dis" and "dis order" as
 
 dual vision is a concept in conceptville. Understand "vision duel" and "duel vision" as dual vision. howto is "[fr-ran]".
 
-elitist is a concept in conceptville. Understand "elitist" as elitist. howto is "[fr-ran]".
+elitist is a concept in conceptville. Understand "leetest e/ee/eee/eeee" and "eeee/eee/ee/e leetest" as elitist. howto is "[fr-ran]".
 
 evil eye is a concept in conceptville. Understand "i evil" and "evil i" as evil eye. howto is "[fr-ran]".
 
@@ -12739,7 +12741,7 @@ Ezra Pound is a concept in conceptville. Understand "pound ezra" as ezra pound. 
 
 face facts is a concept in conceptville. Understand "facts face" as face facts. howto is "talk to the [bad-guy]".
 
-fanatic is a concept in conceptville. Understand "fanatic" as fanatic. howto is "[fr-ran]".
+fanatic is a concept in conceptville. Understand "attic fan" and "fan attic" as fanatic. howto is "[fr-ran]".
 
 fatigue duty is a concept in conceptville. Understand "duty fatigue" as fatigue duty. howto is "[fr-ran]".
 
@@ -12757,7 +12759,7 @@ half right is a concept in conceptville. Understand "right half" as half right. 
 
 Howard Dean is a concept in conceptville. Understand "dean howard" as howard dean. howto is "[fr-ran]".
 
-Infomania is a concept in conceptville. Understand "infomania" as infomania. howto is "[fr-ran]".
+Infomania is a concept in conceptville. Understand "info mania" and "mania info" as infomania. howto is "[fr-ran]".
 
 informally is a concept in conceptville. Understand "ally inform" and "inform ally" as informally. howto is "[fr-ran]".
 
@@ -12775,9 +12777,9 @@ laughingstock is a concept in conceptville. Understand "laughing stock" and "sto
 
 Leading Question is a concept in conceptville. Understand "question leading" as leading question. howto is "[fr-ran]".
 
-mistruth is a concept in conceptville. Understand "mistruth" as mistruth. howto is "[fr-ran]".
+mistruth is a concept in conceptville. Understand "miss truth" and "truth miss" as mistruth. howto is "[fr-ran]".
 
-narcissist is a concept in conceptville. Understand "narcissist" as narcissist. howto is "[fr-ran]".
+narcissist is a concept in conceptville. Understand "assist narc" and "narc assist" as narcissist. howto is "[fr-ran]".
 
 Off the Record is a concept in conceptville. Understand "record the off" as off the record. howto is "[fr-ran]".
 
@@ -12787,7 +12789,7 @@ oscar wilde is a concept in conceptville. Understand "wilde/wild oscar" and "osc
 
 pad accounts is a concept in conceptville. Understand "accounts pad" as pad accounts. howto is "[fr-ran]".
 
-paddywagon is a concept in conceptville. Understand "paddywagon" as paddywagon. howto is "[fr-ran]".
+paddywagon is a concept in conceptville. Understand "waggin patty" and "patty waggin" as paddywagon. howto is "[fr-ran]". [?? check apostrophes]
 
 pharisee is a concept in conceptville. Understand "see farrah" and "farrah see" as pharisee. howto is "[fr-ran]".
 
@@ -12795,9 +12797,9 @@ polygraph is a concept in conceptville. Understand "graph polly" and "polly grap
 
 Power Trip is a concept in conceptville. Understand "trip power" as power trip. howto is "wait for the [bad-guy] to go through his actions".
 
-Psychoanalyst is a concept in conceptville. Understand "list anna" and "anna list" and "analyst" as psychoanalyst. howto is "[fr-ran]".
+Psychoanalyst is a concept in conceptville. Understand "list anna" and "anna list" and "analyst" as psychoanalyst. howto is "[fr-ran]". [ok]
 
-Putin is a concept in conceptville. Understand "input" as putin when freak control is visited. howto is "[fr-ran]".
+Putin is a concept in conceptville. Understand "input" and "put in" and "in put" as putin when freak control is visited. howto is "[fr-ran]". [ok]
 
 race baiting is a concept in conceptville. Understand "baiting race" as race baiting. howto is "[fr-ran]".
 
@@ -12823,7 +12825,7 @@ Slicker City is a concept in conceptville. Understand "city slicker" as Slicker 
 
 sly dog is a concept in conceptville. Understand "dog sly" as sly dog. howto is "[fr-ran]".
 
-Snipe Gutter is a concept in conceptville. Understand "guttersnipe" as Snipe Gutter. howto is "eat the off cheese and 'win'".
+Snipe Gutter is a concept in conceptville. Understand "guttersnipe" and "gutter snipe" as Snipe Gutter. howto is "eat the off cheese and 'win'". [ok]
 
 Stand out is a concept in conceptville. Understand "doubt stan" and "stan doubt" as stand out. howto is "[fr-ran]".
 
@@ -12851,7 +12853,7 @@ chapter fake death concepts
 
 section Criminals' Harbor concepts
 
-gangplank is a concept in conceptville. Understand "gang plank" and "plank gang" and "plankgang" as gangplank. howto is "[ch-end]".
+gangplank is a concept in conceptville. Understand "gang plank" and "plank gang" as gangplank. howto is "[ch-end]".
 
 hate crime is a concept in conceptville. Understand "crime hate" as hate crime. howto is "[ch-end]".
 
