@@ -3618,10 +3618,12 @@ age four	"Age four is, well, four years old. It is too young to forage." [start 
 baby boomer	"The Baby Boomers were the generation born just after World War II. Sometimes referred to as 'The Greatest Generation.'"
 bookworm	"A bookworm is someone who reads a lot. A worm is, well, unflattering to call someone."
 brat army	"An army brat is the child of a military officer. They would be more likely to move than most children."
+business casual	"Business casual is less dressy office wear, usually meaning no suit."
 child support	"Child support is what one separated spouse pays to another to take care of a child."
 labor of love	"A labor of love is something done for its own sake, not for worldly advancement."
 slush fund	"A slush fund is money raised for undesignated and often unethical purposes."
-Cry Uncle	"To cry uncle is to surrender, to give up." [start of speaking plain]
+code golf	"Code golf is when people are given a task to perform, writing in as few characters of code as possible." [start of speaking plain]
+Cry Uncle	"To cry uncle is to surrender, to give up."
 Dutch Act	"The Dutch Act is suicide[dutch-off]."
 Dutch Courage	"Dutch courage comes from alcoholic refreshment[dutch-off]."
 Dutch Reckoning	"Dutch Reckoning is a bill that's too high[dutch-off]."
@@ -9130,7 +9132,7 @@ check talking to labor child:
 		try giving contract to labor child instead;
 	say "'Look, I'll write you a reference if you need one.'" instead;
 
-The Labor Child wears the Deal Clothes. description of deal clothes is "The less said about them, the better. Whether tie or bow-tie, single-breasted or double-breasted, two- or three- piece, nobody has the courage to yell it's not really all that cute, especially when the wearer is a greedy little brat. Whether the clothes make them bratty or you have to be bratty to wear them, it's a depressing situation."
+The Labor Child wears the Deal Clothes. description of deal clothes is "They peg the wearer as above [activation of business casual]casual business. Whether tie or bow-tie, single-breasted or double-breasted, two- or three- piece, nobody has the courage to yell this sort of thing isn't really all that cute, especially when the wearer is a greedy little brat. Whether the clothes make them bratty or you have to be bratty to wear them, it's a depressing situation."
 
 the fund hedge is scenery in Scheme Pyramid. "The fund hedge has other seeds like the one you took, but you really only needed one."
 
@@ -9628,7 +9630,7 @@ check going nowhere in Court of Contempt:
 		try going east instead;
 	say "'So, you the sort of person who runs into walls a lot? Not that there's anything wrong with that.' Yup. Looks like back east's the only way out." instead;
 
-Buddy Best is a baiter-aligned person in Court of Contempt. "[one of]But wait! Someone here looks excited to see you! Not happy, but excited.[paragraph break]'Yah. Hi. I'm Buddy Best. You seem real nice. Nice enough not to waste too much of a [if allow-swears is true]dedicated lawyerly [activation of nutcase]case nut, job nut, whichever,[else][activation of attorney general]general attorney[end if] like me.'[paragraph break]Okay, never mind.[or]Buddy Best waits and taps his foot here.[stopping]". description is "Buddy Best has a half-smile on his face, which is totally a delicate balance of happiness and seriousness and not a sign of contempt, so stop saying that."
+Buddy Best is a baiter-aligned person in Court of Contempt. "[one of]But wait! Someone here looks excited to see you! Not happy, but excited.[paragraph break]'Yah. Hi. I'm Buddy Best. You seem real nice. Nice enough not to waste too much of a [if allow-swears is true]dedicated lawyerly [activation of nutcase]case head, case nut, job nut, whichever,[else][activation of attorney general]general attorney[end if] like me.'[paragraph break]Okay, never mind.[or]Buddy Best waits and taps his foot here.[stopping]". description is "Buddy Best has a half-smile on his face, which is totally a delicate balance of happiness and seriousness and not a sign of contempt, so stop saying that."
 
 the Reasoning Circular is a thing. description is "It's full of several pages why you're great if you think you are, unless you're lame, in which case you don't know what great means. There's a long tag stapled to it."
 
@@ -12548,6 +12550,8 @@ bookworm is a concept in conceptville. Understand "book worm" and "worm book" as
 
 Brat Army is a concept in conceptville. Understand "army brat" as brat army. howto is "enter the scheme pyramid".
 
+business casual is a concept in conceptville. Understand "casual business" as business casual. howto is "[x-it of deal clothes]".
+
 child support is a concept in conceptville. Understand "support child" as child support. howto is "talk to the Labor Child before gettiing the contract".
 
 Labor of Love is a concept in conceptville. Understand "love of labor" as labor of love. howto is "enter the Scheme Pyramid".
@@ -12561,6 +12565,8 @@ to say pl-wa:
 
 to say pl-all:
 	say "put up with all of the Business Show"
+
+code golf is a concept in conceptville. Understand "golf code" as code golf. howto is "[pl-wa]".
 
 cry uncle is a concept in conceptville. Understand "uncle cry" as cry uncle. howto is "[pl-wa]".
 
@@ -12602,7 +12608,7 @@ section court of contempt concepts
 
 attorney general is a concept in conceptville. Understand "general attorney" as attorney general. howto is "[f-t of Court of Contempt], innuendo off".
 
-nutcase is a concept in conceptville. Understand "case/job nut" and "nut case/job" as nutcase. howto is "[f-t of Court of Contempt], innuendo on".
+nutcase is a concept in conceptville. Understand "case/job nut" and "nut case/job" and "case head" and "head case" as nutcase. howto is "[f-t of Court of Contempt], innuendo on".
 
 prosecutor is a concept in conceptville. Understand "cuter prose" and "prose cuter" as prosecutor. howto is "talk to Buddy Best".
 
@@ -12614,9 +12620,9 @@ Determined Bound is a concept in conceptville. Understand "bound and determined"
 
 drive into the ground is a concept in conceptville. Understand "ground the into drive" as drive into the ground. howto is "[f-t of Walker Street]".
 
-Driving Crazy is a concept in conceptville. Understand "crazy driving" as driving crazy. howto is "examine the mistake grave in Walker Street".
+Driving Crazy is a concept in conceptville. Understand "crazy driving" as driving crazy. howto is "[x-it of mistake grave]".
 
-Watkins Glen is a concept in conceptville. Understand "glen watkins" as watkins glen. howto is "examine the mistake grave in Walker Street".
+Watkins Glen is a concept in conceptville. Understand "glen watkins" as watkins glen. howto is "[x-it of examine the mistake]".
 
 wood pusher is a concept in conceptville. Understand "pusher wood" as wood pusher. howto is "enter Pot Chamber after putting Sal to sleep".
 
@@ -12630,7 +12636,7 @@ bum a cigarette is a concept in conceptville. Understand "cigarette a bum" as bu
 
 crack pipe is a concept in conceptville. Understand "pipe crack" as crack pipe. howto is "listen in the Pot Chamber".
 
-crack up is a concept in conceptville. Understand "up/down/joke crack" and "crack joke/down" as crack up. howto is "ask Pusher Penn about bad stuff".
+crack up is a concept in conceptville. Understand "up/down/joke crack" and "crack joke/down" as crack up. howto is "ask Pusher Penn what's up".
 
 go to pot is a concept in conceptville. Understand "pot to go" as go to pot. howto is "[f-t of Pot Chamber]".
 

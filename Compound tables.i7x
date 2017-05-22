@@ -101,6 +101,7 @@ part speaking plain
 table of dutch-blab [xxdb]
 banter
 "Uncle Dutch mentions kids who have more potential than Turk who are destined to be screwups. Turk Young condemns adults who had more going for them than Uncle Dutch but predictably failed."
+"Uncle Dutch and Turk discuss the details of the [activation of code golf]golf code at length and how some people aren't cool enough for it."
 "Uncle Dutch mentions he's not trying to scare people, but if they are scared, that's his problem. All the same, he mentions one truly scary person he had to deal with the other week."
 "Uncle Dutch takes a moment to commend Turk Young's youthful enthusiasm, with which Turk Young takes a moment to commend Uncle Dutch's wisdom."
 "Uncle Dutch mentions things you'd better learn unless you're stupid. Turk Young mentions things you'd better already know if you're smart."
