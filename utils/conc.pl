@@ -13,7 +13,7 @@
 #called from talf
 #
 #todo: if word isn't split up, try to
-#
+#todo: flag for allowing no-space if there are understands with spaces
 
 use strict;
 use warnings;
@@ -400,17 +400,17 @@ for my $x (sort keys %any)
   if (scalar keys %needSpace)
   {
     printf("Add spaces (%d) or \[ok\] to understanding synonyms at %s%s\n", scalar keys %needSpace, join(", ", map { "$needSpace{$_}($_}" } sort { $needSpace{$a} <=> $needSpace{$b} } keys %needSpace), $launchMinorErrs ? "" : " (-lm to launch)");
-	if ($printTest) { printf("TEST RESULTS: needspace-$_[0],%d,0,0,%s\n", scalar keys %needSpace, join(", ", map { "$needSpace{$_}" } sort keys %needSpace)); }
+	if ($printTest) { printf("TEST RESULTS: needspace-$_[0],%d,0,0,%s\n", scalar keys %needSpace, join(" / ", map { "$needSpace{$_}" } sort keys %needSpace)); }
   }
   if (scalar keys %fillExpl)
   {
-    printf("Fill in explanation text (%d) at %s%s\n", scalar keys %fillExpl, join(", ", map { "$fillExpl{$_}($_}" } sort { $fillExpl{$a} <=> $fillExpl{$b} } keys %fillExpl), $launchMinorErrs ? "" : " (-lm to launch)");
-	if ($printTest) { printf("TEST RESULTS: fillin-$_[0],%d,0,0,%s\n", scalar keys %fillExpl, join(", ", map { "$fillExpl{$_}" } sort keys %fillExpl)); }
+    printf("Fill in explanation text (%d) at %s%s\n", scalar keys %fillExpl, join(", ", map { "$fillExpl{$_}($_}" } sort { $fillExpl{$a} <=> $fillExpl{$b} } sort keys %fillExpl), $launchMinorErrs ? "" : " (-lm to launch)");
+	if ($printTest) { printf("TEST RESULTS: fillin-expl-$_[0],%d,0,0,%s\n", scalar keys %fillExpl, join(" / ", map { "$fillExpl{$_}" } sort { $fillExpl{$a} <=> $fillExpl{$b} } keys %fillExpl)); }
   }
   if (scalar keys %fillConc)
   {
-    printf("Fill in concept text (%d) at %s%s\n", scalar keys %fillConc, join(", ", map { "$fillConc{$_}($_}" } sort { $fillConc{$a} <=> $fillConc{$b} } keys %fillConc), $launchMinorErrs ? "" : " (-lm to launch)");
-    if ($printTest) { printf("TEST RESULTS: fillin-$_[0],%d,0,0,%s\n", scalar keys %fillExpl, join(", ", map { "$fillExpl{$_}" } sort keys %fillExpl)); }
+    printf("Fill in concept text (%d) at %s%s\n", scalar keys %fillConc, join(", ", map { "$fillConc{$_}($_}" } sort { $fillConc{$a} <=> $fillConc{$b} } sort keys %fillConc), $launchMinorErrs ? "" : " (-lm to launch)");
+    if ($printTest) { printf("TEST RESULTS: fillin-conc-$_[0],%d,0,0,%s\n", scalar keys %fillConc, join(" / ", map { "$fillConc{$_}" } sort { $fillConc{$a} <=> $fillConc{$b} } keys %fillConc)); }
   }
 
   if ($errMsg)
@@ -802,7 +802,7 @@ while ($lineIn = <X>)
     $tmpVar = $lineIn; $tmpVar =~ s/ is a (privately-named |risque |)?concept.*//g; $tmpVar = wordtrim($tmpVar); $conc{$tmpVar} = $any{$tmpVar} = $.;
 	if ($lineIn =~ /fill-in-here/)
 	{
-	  $fillExpl{$tmpVar} = $.;
+	  $fillConc{$tmpVar} = $.;
 	  unless ($openLowestLine && defined($minorErrs{$tmpVar})) { $minorErrs{$file} = $.;}
     }
 	if (($lineIn =~ /\"[a-z]+\"[^\.]/i) && ($lineIn !~ /\[ok\]/))
@@ -1261,8 +1261,9 @@ sub compareRoomIndex
   }
 
   if ($printTest) { print "TEST RESULTS:$_[0] explain order,$explainOrdErrors,0,0,(none)\n"; }
-  my $temp = join(", ", map { "$_" . ($ideaHash{$_} > 1 ? "*" : "") } sort { $a <=> $b } keys %ideaHash);
-  if (scalar keys %ideaHash) { print "Fill in explanation text at " . join(", ", map { "$_" . ($ideaHash{$_} > 1 ? "*" : "") } sort { $a <=> $b } keys %ideaHash) . ", or " . (scalar keys %ideaHash) . " lines.\n"; }
+
+  my $temp = join(" / ", map { "$_" . ($ideaHash{$_} > 1 ? "*" : "") } sort { $a <=> $b } keys %ideaHash);
+  if (scalar keys %ideaHash) { print "Fill in explanation text at " . join(" / ", map { "$_" . ($ideaHash{$_} > 1 ? "*" : "") } sort { $a <=> $b } keys %ideaHash) . ", or " . (scalar keys %ideaHash) . " lines.\n"; }
 
   if ($printTest) { print "TEST RESULTS:$_[0] explain order detail,$explanationOrderDetail,0,0,$temp\n"; }
 
