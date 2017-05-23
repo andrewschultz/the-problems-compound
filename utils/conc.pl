@@ -56,6 +56,9 @@ my $roomConcCompare = 0;
 my $rcVerbose = 0;
 my $verboseCutPaste = 0;
 my $launchMinorErrs = 0;
+my $roomToFile = 0;
+my $launchRoomFile = 0;
+my $outputRoomFile = 0;
 
 #############################
 #hashes
@@ -131,6 +134,7 @@ while ($count <= $#ARGV)
     /^-?ps$/ && do { $printSuccess = 1; $count++; next; };
     /^-?nd$/ && do { $readDupe = 0; $count++; next; };
     /^--$/ && do { $openLowestLine = 0; $count++; next; };
+	/^-?f([lo]*)?$/ && do { $roomToFile = 1; $launchRoomFile = ($a =~ /l/); $outputRoomFile = ($a =~ /o/); $count++; next; };
     /^-?ed$/ && do { `$dupeFile`; exit(); };
     /^-?ng$/ && do { $defaultToGeneral = 0; $count++; next; };
     /^-?dg$/ && do { $defaultToGeneral = 1; $count++; next; };
@@ -168,14 +172,15 @@ readAux();
 
 if ($readDupe) { readOkayDupes(); }
 
-for my $thisproj (@dirs)
+for my $thisProj (@dirs)
 {
   #die "$order $readConcepts $detailAlpha $roomConcCompare\n";
-  getRoomIndices($thisproj);
-  if ($order) { checkOrder($thisproj); }
-  if ($readConcepts) { readConcept($thisproj); }
-  if ($detailAlpha) { checkTableDetail($thisproj); }
-  if ($roomConcCompare) { compareRoomIndex($thisproj); }
+  getRoomIndices($thisProj);
+  if ($roomToFile) { roomToFile($thisProj); }
+  if ($order) { checkOrder($thisProj); }
+  if ($readConcepts) { readConcept($thisProj); }
+  if ($detailAlpha) { checkTableDetail($thisProj); }
+  if ($roomConcCompare) { compareRoomIndex($thisProj); }
 }
 
 printGlobalResults();
@@ -243,8 +248,8 @@ sub checkTableDetail
 	{
 	  $needsAlf = 1;
 	  print "$a3 ($. $inTable) may be out of order vs $lastAlf.\n";
-	  unless($openLowestLine && defined($fileLineErr{$file}) && ($fileLineErr{$file} < $.))
-	  { $fileLineErr{$file} = $.; }
+	  unless($openLowestLine && defined($minorErrs{$file}) && ($minorErrs{$file} < $.))
+	  { $minorErrs{$file} = $.; }
     }
 	}
 	$lastAlf = $a3;
@@ -252,7 +257,7 @@ sub checkTableDetail
   }
   close(A);
   }
-  if ($needsAlf) { print "To alphabetize automatically,  (talf.pl pc/sc/bt?).\n"; }
+  if ($needsAlf) { print "To alphabetize automatically, (talf.pl pc/sc/bt?).\n"; }
 }
 
 sub crankOutCode
@@ -399,17 +404,17 @@ for my $x (sort keys %any)
 
   if (scalar keys %needSpace)
   {
-    printf("Add spaces (%d) or \[ok\] to understanding synonyms at %s%s\n", scalar keys %needSpace, join(", ", map { "$needSpace{$_}($_}" } sort { $needSpace{$a} <=> $needSpace{$b} } keys %needSpace), $launchMinorErrs ? "" : " (-lm to launch)");
+    printf("Add spaces or \[ok\] (%d total) to understanding synonyms at %s%s\n", scalar keys %needSpace, join(", ", map { "$needSpace{$_}($_}" } sort { $needSpace{$a} <=> $needSpace{$b} } keys %needSpace), $launchMinorErrs ? "" : " (-lm to launch)");
 	if ($printTest) { printf("TEST RESULTS: needspace-$_[0],%d,0,0,%s\n", scalar keys %needSpace, join(" / ", map { "$needSpace{$_}" } sort keys %needSpace)); }
   }
   if (scalar keys %fillExpl)
   {
-    printf("Fill in explanation text (%d) at %s%s\n", scalar keys %fillExpl, join(", ", map { "$fillExpl{$_}($_}" } sort { $fillExpl{$a} <=> $fillExpl{$b} } sort keys %fillExpl), $launchMinorErrs ? "" : " (-lm to launch)");
+    printf("Fill in explanation text (%d total) at %s%s\n", scalar keys %fillExpl, join(", ", map { "$fillExpl{$_}($_}" } sort { $fillExpl{$a} <=> $fillExpl{$b} } sort keys %fillExpl), $launchMinorErrs ? "" : " (-lm to launch)");
 	if ($printTest) { printf("TEST RESULTS: fillin-expl-$_[0],%d,0,0,%s\n", scalar keys %fillExpl, join(" / ", map { "$fillExpl{$_}" } sort { $fillExpl{$a} <=> $fillExpl{$b} } keys %fillExpl)); }
   }
   if (scalar keys %fillConc)
   {
-    printf("Fill in concept text (%d) at %s%s\n", scalar keys %fillConc, join(", ", map { "$fillConc{$_}($_}" } sort { $fillConc{$a} <=> $fillConc{$b} } sort keys %fillConc), $launchMinorErrs ? "" : " (-lm to launch)");
+    printf("Fill in concept text (%d total) at %s%s\n", scalar keys %fillConc, join(", ", map { "$fillConc{$_}($_}" } sort { $fillConc{$a} <=> $fillConc{$b} } sort keys %fillConc), $launchMinorErrs ? "" : " (-lm to launch)");
     if ($printTest) { printf("TEST RESULTS: fillin-conc-$_[0],%d,0,0,%s\n", scalar keys %fillConc, join(" / ", map { "$fillConc{$_}" } sort { $fillConc{$a} <=> $fillConc{$b} } keys %fillConc)); }
   }
 
@@ -436,8 +441,6 @@ for my $x (sort keys %any)
 
 sub printGlobalResults
 {
-
-
   if ($#dumbErrors > -1)
   {
     print "#####################Remove error-text from line(s) " . join(", ", @dumbErrors) . ".\n";
@@ -474,6 +477,8 @@ sub printGlobalResults
 	  print "Use -l to launch the story file for direct editing.\n";
     }
   }
+  if ((scalar keys %minorErrs) && (!scalar keys %fileLineErr) && (!$launchMinorErrs))
+  { print "Use -m to launch file lines for minor errors.\n"; }
 }
 
 sub checkOrder
@@ -591,7 +596,7 @@ sub checkOrder
 	  defined($co[$_]) ? "$co[$_] ($temp)" : "(nothing)");
 	  #defined($co[$_]) ? "$co[$_] ($lineNum{$co[$_]})" : "");
 	  }
-	  if (defined($co[$_]))
+	  if (defined($co[$_]) && defined($lineNum{$co[$_]}))
 	  {
 	    if (!defined($fileLineErr{$toRead[0]}) || (!$openLowestLine && ($fileLineErr{$toRead[0]} < $lineNum{$co[$_]})))
 	    {
@@ -1028,7 +1033,7 @@ sub findExplLine
   #look for the room just after the room your idea is in, then go there to insert your room in the table of explanations
   for (sort { $roomIndex{$a} <=> $roomIndex{$b} } keys %roomIndex)
   {
-    if (($roomIndex{$_} > $approxLine) && defined($concTableLine{$_})) { return ($toRead[0], $concTableLine{$_}+1); }
+    if (($roomIndex{$_} > $approxLine) && defined($concTableLine{$_})) { return ($toRead[0], $concTableLine{$_}); }
   }
   for (sort { $roomIndex{$b} <=> $roomIndex{$a} } keys %roomIndex)
   {
@@ -1300,6 +1305,19 @@ sub compareRoomIndex
   close(A);
 }
 
+sub roomToFile
+{
+  my $fullFile = "c:\\games\\inform\\$_[0].inform\\source\\file-order.txt";
+  open(A, ">$fullFile");
+  for (sort { $roomIndex{$a} <=> $roomIndex{$b} } keys %roomIndex)
+  {
+    print A "$_ line $roomIndex{$_}\n";
+    if ($outputRoomFile) { print "$_ line $roomIndex{$_}\n"; }
+  }
+  close(A);
+  if ($launchRoomFile) { `$fullFile`; }
+}
+
 sub usage
 {
 print<<EOT;
@@ -1313,6 +1331,7 @@ CONC.PL usage
 -0 = print errors not error code
 -l/-n = launch story file (or not) after
 -v = verbosely print code
+-f(l) = put rooms to file (l launches)
 -m = launch minor errors if there is no major error
 (any combination is okay too)
 -t = print with test results so nightly build can process it
