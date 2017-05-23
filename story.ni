@@ -3570,6 +3570,7 @@ Olive	"Black and green olives are the two main different kinds of olives."
 Pepper	"Black pepper is the ground-up stuff. Green and bell peppers are not especially spicy. Serrano peppers taste hotter."
 persephone	"Persephone is the princess of the mythological underworld."
 Plaintiff	"A plaintiff is the party bringing the charge in a court case."
+planetary	"Planetary relates to either the Earth, or all the planets in the Solar System."
 playboy	"Playboy is probably the most famous 'adult' magazine. It's not particularly raunchy, but people often joke they read it for the articles."
 pocket pool	"Pocket pool is a euphemism for self-pleasure."
 Pollyanna	"A Pollyanna is someone who is ridiculously optimistic."
@@ -3579,6 +3580,7 @@ Potter Stewart	"Potter Stewart was a US Supreme who said he'd know obscenity whe
 pound meat	"To pound your meat is to, well, touch your genitals."
 quaalude	"A quaalude is a drug (methaquinone) now in low supply since it is illegal."
 Ralph Lauren	"Ralph Lauren is a fashion designer."
+rectally	"Rectally means up the butt."
 ring finger	"The ring finger is the one between the middle and the pinky."
 sausage fest	"A sausage fest is a congregation of males with no females."
 Sharp Barb	"A sharp barb is a stinging, clever insult."
@@ -3587,7 +3589,7 @@ spencer tracy	"Spencer Tracy was a movie actor/leading man in the 1930's and 40'
 spotted dick	"Spotted dick is a sort of sweet pudding."
 sweeney todd	"Sweeney Todd was a fictitious murderous barber."
 sympathetic	"Sympathetic means caring and willing to listen."
-tallywhacker	"A tallywhacker is a male sexual organ."
+tallywhacker	"A tallywhacker is slang for a male sexual organ."
 tear-jerk	"The jerks['] tears may seem a bit fake, and a tear-jerker is something that tries to manipulate you into crying."
 terabyte	"A terabyte is a large amount of memory: specifically, 2^40 bytes."
 teriyaki	"Teriyaki is a Japanese sauce, or it can be meat cooked in that sauce over an open grill."
@@ -10291,7 +10293,7 @@ check entering idol:
 	say "No way. You can't even get near it." instead;
 
 before talking to idol:
-	say "Even if you had something profoundly defiant to say, it would probably stare you down quickly." instead;
+	say "It's not a [idle gossip]gossip idol. And even if you had something profoundly defiant to say, it would probably stare you down quickly." instead;
 
 stared-idol is a truth state that varies.
 
@@ -12439,6 +12441,8 @@ persephone is a concept in conceptville. Understand "phony percy" and "percy pho
 
 plaintiff is a concept in conceptville. Understand "tiff plain" and "plain tiff" as plaintiff. howto is "[j-girl]".
 
+planetary is a concept in conceptville. Understand "plain terry" and "terry plain" as planetary. howto is "[j-girl]".
+
 playboy is a concept in conceptville. Understand "boys/boy play" and "play boy/boys" as playboy. howto is "[j-girl]".
 
 pocket pool is a concept in conceptville. Understand "pool pocket" as pocket pool. howto is "[j-girl]".
@@ -12457,6 +12461,8 @@ quaalude is a concept in conceptville. Understand "lewd quay" and "quay lewd" as
 
 Ralph Lauren is a concept in conceptville. Understand "lauren ralph" as ralph lauren. howto is "[j-girl]".
 
+rectally is a concept in conceptville. Understand "ally wrecked" and "wrecked ally" as rectally. howto is "[j-girl]".
+
 ring finger is a concept in conceptville. Understand "finger ring" as ring finger. howto is "talk to the jerks before knowing their names, with swears on".
 
 sausage fest is a concept in conceptville. Understand "fest sausage" as sausage fest. howto is "[solve-j] with swears on".
@@ -12473,7 +12479,7 @@ sweeney todd is a concept in conceptville. Understand "todd sweeney" as sweeney 
 
 sympathetic is a concept in conceptville. Understand "sym pathetic" and "pathetic sym" as sympathetic. howto is "[j-girl]".
 
-tallywhacker is a concept in conceptville. Understand "tally wacker" and "wacker tally" as tallywhacker. howto is "[j-co]".
+tallywhacker is a concept in conceptville. Understand "tally wacker" and "wacker tally" as tallywhacker. howto is "[j-girl]".
 
 Tear-Jerk is a concept in conceptville. Understand "jerk-tear" and "tear jerk" and "jerk tear" as Tear-Jerk. howto is "solve the [j-co]['] puzzle".
 
