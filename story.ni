@@ -3531,6 +3531,7 @@ co-ed	"Co-ed means having males and females in classes together."
 Cotton Candy	"Cotton candy is stringy sugary stuff, often bundled together in a soft ball. People eat it at circuses and fairs and movies a lot."
 defecate	"To defecate is, well, activity #2 in the bathroom."
 dirty word	"A dirty word is profanity. 'Word' on its own is slang for agreement."
+dust up	"A dust up is a fight."
 electrocute	"If someone is electrocuted, they're filled with an often lethal dose of electrical current."
 flounder	"To flounder is to try and fail without any progress. It's also the name of a fish."
 fluoridated	"Fluoridated water is a subject of many silly conspiracy theories."
@@ -12360,6 +12361,8 @@ Cotton Candy is a concept in conceptville. Understand "candy cotton" as cotton c
 defecate is a concept in conceptville. Understand "kate a def" and "def a kate" as defecate. howto is "[j-girl]".
 
 Dirty Word is a concept in conceptville. Understand "word dirty" as dirty word. howto is "go to the [jc]".
+
+dust up is a concept in conceptville. Understand "up dust" as dust up. howto is "[j-girl]".
 
 electrocute is a concept in conceptville. Understand "cute electra" and "electra cute" as electrocute. howto is "[j-girl]".
 

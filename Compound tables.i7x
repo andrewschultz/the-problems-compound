@@ -245,6 +245,7 @@ macho-boast
 "The [j-co] marvel at what a ladies['] man [activation of co-ed]Ed Coe is when he comes home from the military boarding school."
 "The [j-co] mention how [activation of cotton candy]Candy Cotton smacks down saccharine pickup lines."
 "One of the [j-co] says '[activation of defecate]Kate? Uh, def!' There's an awkward silence."
+"The [j-co] whisper about a relaxing new drug called [activation of dust up]Up Dust."
 "The [j-co] agree that [activation of electrocute]Cute Electra isn't, like, LETHALLY hot."
 "The [j-co] try to be charitable and think of girls ranked [activation of flounder]under Flo on their beauty scale."
 "A couple [j-co] feel sorry they [activation of fluoridated]dated Flora and listened to her conspiracy theories."
@@ -297,6 +298,7 @@ macho-boast
 "The [j-co] laugh at [activation of whistler's mother]mother whistlers who find true beauty in older females, like, over thirty." [todo: slowin' homer]
 "The [j-co] agree Erwin is just a total loser name." [na]
 "The [j-co] argue pointlessly over if a girl is pretty plain or plain pretty." [na]
+"The [j-co] can't believe how low-maintenance Mandy is." [na]
 "The [j-co] mock Perry for lack of mechanical skill." [na]
 "The [j-co] unanimously decide whether Noel should be allowed in the group." [na]
 
