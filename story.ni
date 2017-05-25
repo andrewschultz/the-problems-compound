@@ -3488,6 +3488,7 @@ do dope	"To do dope is to use drugs."
 killer weed	"Killer weed is slang for especially good marijuana."
 Moral Support	"Moral support is helping someone even if you don't have concrete advice. SUPPORT MORAL is, well, a slogan that pushes people around."
 Pigeon English	"Pigeon English is broken, grammatically poor English."
+stop smoking	"To stop smoking is to quit smoking cigarettes. The Smoking Stop means a place where people can smoke without being harassed."
 strip search	"To strip search someone is to remove their clothes to look for something on them, or in them."
 beer nuts	"Beer nuts is slang for peanuts." [start of soda club]
 boot licker	"A boot licker is someone who flatters too much."
@@ -7135,7 +7136,7 @@ check going nowhere in Joint Strip:
 		try going south instead;
 	if noun is outside:
 		say "You already are." instead;
-	say "[one of]The Stool Toad booms 'Where you going, son? This isn't a [activation of strip search]search strip without the right outfit!' You consider asking him why he isn't searching, but you don't have the guts. Yet.[or]The Stool Toad blathers something about a final warning, because he sees you trying to sneak off.[or][toad-write-up][or]You already crossed the Stool Toad that way.[stopping]";
+	say "[one of]The Stool Toad booms 'Where you going, son? This isn't a [activation of strip search]search strip without the right outfit!' You consider asking him why he isn't searching, but you don't have the guts. But you bet if you try wandering off again, he might get up from his stool.[or]'Sneak off? Off, sneak!' The Stool Toad nods pointedly at you. He's going to take action if you try that again.[or][toad-write-up][or]You already crossed the Stool Toad that way.[stopping]";
 	the rule succeeds;
 
 off-the-path is a truth state that varies.
@@ -7251,7 +7252,7 @@ prompt	response	enabled	permit
 table of quip texts (continued)
 quip	quiptext
 toad-hi	"'They all say that. You're a bit less convincing than the rest. But you're also kind of more convincing at the same time, which also has me suspicious.'"
-toad-joint	"'Of course not! But they would be if I weren't here! In fact, there's just something ABOUT this place. Worse turpitude might fester without my imposing presence. Someone might even put up a [activation of advice]vice ad.'"
+toad-joint	"'Of course not! But they would be if I weren't here! In fact, there's just something ABOUT this place. Worse turpitude might fester without my imposing presence. Someone might even put up a [activation of advice]vice ad for the [activation of stop smoking]Smoking Stop.'"
 toad-troub	"'[bad-toad].'"
 toad-refresh	"'Y'mean you don't remember[one of][or], again[stopping]? [bad-toad].'"
 toad-pomp	--
@@ -12263,6 +12264,8 @@ killer weed is a concept in conceptville. Understand "weed killer" as killer wee
 Moral Support is a concept in conceptville. Understand "support moral" as moral support. howto is "[x-it of pigeon stool]".
 
 Pigeon English is a concept in conceptville. Understand "english pigeon" as pigeon english. howto is "[x-it of pigeon stool]".
+
+stop smoking is a concept in conceptville. Understand "smoking stop" as stop smoking. howto is "ask the Stool Toad about the Joint Strip".
 
 strip search is a concept in conceptville. Understand "search strip" as strip search. howto is "[nogo of Joint Strip]".
 
