@@ -3,8 +3,6 @@
 #
 #concept dredger for Alec Smart games
 #
-#usually I've just created [activation of] or written a new BTP book
-#
 #usage -o tracks order of concepts/tables
 #      -c to clipboard
 #      -pc/sc/btp runs (-a all)
@@ -13,7 +11,8 @@
 #called from talf
 #
 #todo: if word isn't split up, try to
-#todo: flag for allowing no-space if there are understands with spaces
+#todo: define a default outside of "my @dirs" below in conc-aux.txt
+#todo: also have spare file organize things better to ditch hard coded arrays
 
 use strict;
 use warnings;
@@ -22,7 +21,7 @@ use Win32::Clipboard;
 
 my $clip = Win32::Clipboard::new();
 
-my @dirs = ("Compound", "Slicker-City", "Buck-the-Past", "btp-st");
+my @dirs = ("Buck-the-Past");
 
 ##############could move this to a spare file but there are few enough for now
 
@@ -88,7 +87,6 @@ my %concTableLine;
 
 $tableDetHash{"Compound"} = "xxjmt,xxbgw";
 $tableDetHash{"Buck-the-Past"} = "!xxtia";
-$tableDetHash{"Buck-the-Past"} = "!xxtia";
 
 my $source = __FILE__;
 
@@ -145,8 +143,10 @@ while ($count <= $#ARGV)
     /^-?vcp$/ && do { $verboseCutPaste = 1; $count++; next; };
     /^-?bs$/ && do { @dirs = ("btp-st"); $count++; next; };
     /^-?b2$/ && do { @dirs = ("Buck-the-Past", "btp-st"); $count++; next; };
-	/^-?as$/ && do { @dirs = ("Slicker-City", "Compound"); $count++; next; };
-	/^-?a3$/ && do { @dirs = ("Slicker-City", "Compound", "Buck-the-Past", "btp-st"); $count++; next; };
+	/^-?a2$/ && do { @dirs = ("Slicker-City", "Compound"); $count++; next; };
+	/^-?a3$/ && do { @dirs = ("Slicker-City", "Compound", "Buck-the-Past"); $count++; next; };
+	/^-?a4$/ && do { @dirs = ("Compound", "Slicker-City", "Buck-the-Past", "btp-st"); $count++; next; };
+	/^-?as$/ && do { @dirs = ("Slicker-City", "Compound", "Buck-the-Past", "seeker-status"); $count++; next; };
 	/^-?[cv0nlm]+$/ && do
 	{
 	  $codeToClipboard = $printErrCode = $printErrors = 0;
@@ -1339,10 +1339,8 @@ CONC.PL usage
 -vcp = verbose cut paste (off by default, not recommended)
 (-)rc(v) = room coordination (v = verbose)
 (-)ps = print success
-(-)pc = PC only
-(-)sc = SC only
-(-)btp = BTP only
-(-)as = PC and SC and BTP (default)
+(-)pc = PC only, (-)sc = SC only, (-)btp = BTP only
+(-)a234 = PC and SC and BTP and BTP-spring (default)
 (-)o = check order, (-)r = read concepts order too
 CURRENT TESTS: conc.pl -pc, conc.pl -t -o -as, conc.pl -sc, conc.pl -t -o -sc
 EOT
