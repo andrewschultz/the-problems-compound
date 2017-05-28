@@ -801,7 +801,7 @@ while ($lineIn = <X>)
 	if (!defined($lineNum{$tmpVar})) { $lineNum{$tmpVar} = $.; }
 	next;
   }
-  if ($lineIn =~ /^a thing called /) { $lineIn =~ s/^a thing called //i; }
+  if ($lineIn =~ /^a (thing|concept) called /) { $lineIn =~ s/^a (thing|concept) called //i; }
   if (($lineIn =~ /is a (privately-named |risque |)?concept/) && ($lineIn !~ /\t/)) #prevents  "is a concept" in source text from false flag
   {
     $tmpVar = $lineIn; $tmpVar =~ s/ is a (privately-named |risque |)?concept.*//g; $tmpVar = wordtrim($tmpVar); $conc{$tmpVar} = $any{$tmpVar} = $.;

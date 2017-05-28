@@ -165,6 +165,7 @@ workname	authname	booksubj
 "War's Star"	"Lucas George"	"how some kid ignored his weenie father's humble advice and took over the galaxy"
 "Thrones of a Game"	"Martin George"	"three hundred pages of medieval Musical Chairs, with a secret deeper meaning careful readers can't miss"
 "The Cancer of Tropic"	"Miller Arthur"	"one ascetic's skin disease and the surprising poetry that lies therein. Even beyond [i]A Salesman of Death[r]"
+"Lost Paradise"	"Milton John"	"how people not willing to risk anything crazy got sent back to Boringville"
 "The World Beyond the Wood"	"Morris William"	"a muddled fellow moving on from silly fantasy novels to real-life gritty ones you can have louder arguments over"
 "Say, Pawns"	"Pascal Blaise"	"coffeehouse logic to make people feel better that they can't read REAL books. I mean, other than this one"
 "The Goer Movie"	"Percy Walker"	"how one man used motivational movies--or just movies with lots of rich stuff--to learn to fit in with people who matter"

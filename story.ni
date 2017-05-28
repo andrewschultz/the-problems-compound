@@ -6270,6 +6270,8 @@ the Basher Bible is scenery in Pressure Pier. "[one of]The Basher Bible labels s
 check taking Basher Bible:
 	say "That'd mean trouble if it's a [activation of bible belt] belt bible, too." instead;
 
+understand "belt bible" as a mistake ("The Baiter Master's personality cult is probably about how he does this sort of thing louder and more exciting than you, so, no.") when player is in Pressure Pier.
+
 understand "spoons" and "spoons table" as spoon table.
 
 bible-row is a number that varies. bible-row is usually 0.
