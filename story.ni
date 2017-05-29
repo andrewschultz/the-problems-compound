@@ -3618,6 +3618,7 @@ pathologic	"Pathologic behavior is compulsive and anti-social."
 psychotherapy	"Psychotherapy is seeing a trained professional for emotional and mental issues."
 right to privacy	"Right to privacy is considered a basic human right in democratic societies. It means you have the right to be left alone and not to be arrested for arbitrary reasons."
 thp	"Two hundred proof means pure grain alcohol."
+whole truth	"The whole truth means nothing left out from an explanation."
 age four	"Age four is, well, four years old. It is too young to forage." [start of scheme pyramid]
 baby boomer	"The Baby Boomers were the generation born just after World War II. Sometimes referred to as 'The Greatest Generation.'"
 bookworm	"A bookworm is someone who reads a lot. A worm is, well, unflattering to call someone."
@@ -9039,7 +9040,7 @@ understand "trust brain" and "trust/brain" as mind of peace.
 
 part Truth Home
 
-Truth Home is inside of Disposed Well. It is in Main Chunk. It is only-out. "Nothing feels wrong here, but it feels incredibly uncomfortable[if sid lew is in lalaland] even with Sid Lew gone[end if]. It's also a small home, with the only exit back out."
+Truth Home is inside of Disposed Well. It is in Main Chunk. It is only-out. "Nothing feels wrong here, but it feels incredibly uncomfortable[if sid lew is in lalaland] even with Sid Lew gone[end if]. It's also a small home, almost a [activation of whole truth]truth hole, with the only exit back out."
 
 check going nowhere in truth home:
 	say "The only way out is, well, out." instead;
@@ -12553,6 +12554,8 @@ psychotherapy is a concept in conceptville. Understand "psycho therapy" and "the
 right to privacy is a concept in conceptville. Understand "privacy to write" and "write to privacy" as right to privacy. howto is "give Lee the rattle".
 
 thp is a privately-named concept in conceptville. printed name is "200 proof". Understand "proof 200" as thp. howto is "give Lee the rattle".
+
+whole truth is a concept in conceptville. Understand "truth whole" as whole truth. howto is "[f-t of Truth Home]".
 
 section scheme pyramid concepts
 
