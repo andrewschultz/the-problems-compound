@@ -57,6 +57,7 @@ my $verboseCutPaste = 0;
 my $launchMinorErrs = 0;
 my $roomToFile = 0;
 my $launchRoomFile = 0;
+my $launchRoomFileNotepad = 0;
 my $outputRoomFile = 0;
 
 #############################
@@ -132,7 +133,15 @@ while ($count <= $#ARGV)
     /^-?ps$/ && do { $printSuccess = 1; $count++; next; };
     /^-?nd$/ && do { $readDupe = 0; $count++; next; };
     /^--$/ && do { $openLowestLine = 0; $count++; next; };
-	/^-?f([lo]*)?$/ && do { $roomToFile = 1; $launchRoomFile = ($a =~ /l/); $outputRoomFile = ($a =~ /o/); $count++; next; };
+	/^-?f([lon]*)?$/ && do
+	{
+	  $roomToFile = 1;
+	  $launchRoomFile = ($a =~ /l/);
+	  $outputRoomFile = ($a =~ /o/);
+	  $launchRoomFileNotepad = ($a =~ /n/);
+	  $count++;
+	  next;
+    };
     /^-?ed$/ && do { `$dupeFile`; exit(); };
     /^-?ng$/ && do { $defaultToGeneral = 0; $count++; next; };
     /^-?dg$/ && do { $defaultToGeneral = 1; $count++; next; };
@@ -1316,6 +1325,7 @@ sub roomToFile
   }
   close(A);
   if ($launchRoomFile) { `$fullFile`; }
+  if ($launchRoomFileNotepad) { `"start \"notepad\" \"$fullFile\""`; }
 }
 
 sub usage
@@ -1331,7 +1341,7 @@ CONC.PL usage
 -0 = print errors not error code
 -l/-n = launch story file (or not) after
 -v = verbosely print code
--f(l) = put rooms to file (l launches)
+-f(l)(o)(n) = put rooms to file (l launches) (o outputs to text) (n launches in notepad)
 -m = launch minor errors if there is no major error
 (any combination is okay too)
 -t = print with test results so nightly build can process it
