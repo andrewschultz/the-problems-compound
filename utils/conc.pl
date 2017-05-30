@@ -57,7 +57,7 @@ my $verboseCutPaste = 0;
 my $launchMinorErrs = 0;
 my $roomToFile = 0;
 my $launchRoomFile = 0;
-my $launchRoomFileNotepad = 0;
+my $launchRoomFileWindowsNP = 0;
 my $outputRoomFile = 0;
 
 #############################
@@ -82,6 +82,7 @@ my %tableDetHash;
 my %fileHash;
 
 my %roomIndex;
+my %regionIndex;
 my %conceptIndex;
 my %concToRoom;
 my %concTableLine;
@@ -138,7 +139,7 @@ while ($count <= $#ARGV)
 	  $roomToFile = 1;
 	  $launchRoomFile = ($a =~ /l/);
 	  $outputRoomFile = ($a =~ /o/);
-	  $launchRoomFileNotepad = ($a =~ /n/);
+	  $launchRoomFileWindowsNP = ($a =~ /n/);
 	  $count++;
 	  next;
     };
@@ -794,6 +795,7 @@ while ($lineIn = <X>)
 	{
 	$concToRoom{$c} = "general concepts";
 	}
+	#print "$. $c $concToRoom{$c}\n"; #debug to show the right activation line read in
 	}
 	if (defined($activ{$c}) && !defined($okDup{$c})) { print "Warning line $. double defines $c from $lineNum{$c}.\n"; }
 	$activ{$c} = $.;
@@ -1131,6 +1133,16 @@ sub getRoomIndices
 	  $roomIndex{$tempStr} = $.;
 	  next;
     }
+    if (($line =~ /^book /i) && ($begunRooms) && (!$doneRooms))
+	{
+	  chomp($line);
+	  $line =~ s/ *\[.*//;
+	  $begunRooms = 1;
+	  $tempStr = lc($line);
+	  $tempStr =~ s/^book //i;
+	  $regionIndex{$tempStr} = $.;
+	  next;
+    }
 	$line =~ s/\*/ /g; # ugh, a bad hack but it will have to do to read asterisk'd files
 	if ($line =~ /\[xxcv\]/) { $inConcepts = 1; next; }
 	if ($inConcepts)
@@ -1249,8 +1261,8 @@ sub compareRoomIndex
 		{
 		  if ($proofStr) { print "ERRORS $proofStr"; $proofStr = ""; }
 		  $explanationOrderDetail++;
-		  print "$.: $idea (" . (defined($lineNum{$idea}) ? "$lineNum{$idea}" : "NO LINE NUM") . ") codesectioned to " . (defined($concToRoom{$idea}) ? $concToRoom{$idea} : "(NO ROOM FOR CONCEPT)") . " " . (defined($concToRoom{$idea}) && defined($roomIndex{$concToRoom{$idea}}) ? "" : " (UNDEFINED ROOM)") . " but defined as concept in $commentBit.\n";
-		  $ideaHash{$lineNum{$idea}}++;
+		  print "$.: $idea (" . (defined($lineNum{$idea}) ? "$lineNum{$idea}" : "NO LINE NUM") . ") codesectioned to " . (defined($concToRoom{$idea}) ? $concToRoom{$idea} : "(NO ROOM FOR CONCEPT)") . (defined($concToRoom{$idea}) && defined($roomIndex{$concToRoom{$idea}}) ? "" : " (UNDEFINED ROOM)") . " but listed in table of explanations under $commentBit.\n";
+		  $ideaHash{$.}++;
 		  if ((!$detailLineToOpen) || ($detailLineToOpen > $lineNum{$idea}))
 		  {
 		    $detailLineToOpen = $lineNum{$idea};
@@ -1277,7 +1289,7 @@ sub compareRoomIndex
   if ($printTest) { print "TEST RESULTS:$_[0] explain order,$explainOrdErrors,0,0,(none)\n"; }
 
   my $temp = join(" / ", map { "$_" . ($ideaHash{$_} > 1 ? "*" : "") } sort { $a <=> $b } keys %ideaHash);
-  if (scalar keys %ideaHash) { print "Fill in explanation text at " . join(" / ", map { "$_" . ($ideaHash{$_} > 1 ? "*" : "") } sort { $a <=> $b } keys %ideaHash) . ", or " . (scalar keys %ideaHash) . " lines.\n"; }
+  if (scalar keys %ideaHash) { print "Reshuffle errant table stuff at " . join(" / ", map { "$_" . ($ideaHash{$_} > 1 ? "*" : "") } sort { $a <=> $b } keys %ideaHash) . ", or " . (scalar keys %ideaHash) . " lines.\n"; }
 
   if ($printTest) { print "TEST RESULTS:$_[0] explain order detail,$explanationOrderDetail,0,0,$temp\n"; }
 
@@ -1316,16 +1328,28 @@ sub compareRoomIndex
 
 sub roomToFile
 {
+  my %locHash = (%roomIndex, %regionIndex);
   my $fullFile = "c:\\games\\inform\\$_[0].inform\\source\\file-order.txt";
-  open(A, ">$fullFile");
-  for (sort { $roomIndex{$a} <=> $roomIndex{$b} } keys %roomIndex)
+
+  if ((scalar keys %locHash) != (scalar keys %roomIndex) + (scalar keys %regionIndex)) #tip: not scalar %hash
   {
-    print A "$_ line $roomIndex{$_}\n";
-    if ($outputRoomFile) { print "$_ line $roomIndex{$_}\n"; }
+    print "WARNING: the room and region indexes(indices) have overlapping elements.\n";
+  }
+  open(A, ">$fullFile");
+  for (sort { $locHash{$a} <=> $locHash{$b} } keys %locHash)
+  {
+    if (defined($regionIndex{$_}))
+	{
+	  print A "========REGION: ";
+	  if ($outputRoomFile) { print "========REGION: "; }
+    }
+    print A "$_ line $locHash{$_}\n";
+    if ($outputRoomFile) { print "$_ line $locHash{$_}\n"; }
   }
   close(A);
   if ($launchRoomFile) { `$fullFile`; }
-  if ($launchRoomFileNotepad) { `"start \"notepad\" \"$fullFile\""`; }
+  #if ($launchRoomFileWindowsNP) { `"start \"notepad\" \"$fullFile\""`; }
+  if ($launchRoomFileWindowsNP) { system("start \"\" notepad.exe \"$fullFile\""); }
 }
 
 sub usage
