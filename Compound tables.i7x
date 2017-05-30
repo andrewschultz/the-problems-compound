@@ -271,6 +271,7 @@ macho-boast
 "The [j-co] have to admit [activation of melodious]Odious Mel sure can sing!"
 "The [j-co] wonder if they should [activation of mike drop]drop Mike from their extended gang, starting a big argument."
 "The [j-co] harbor fantasies of [activation of mollycoddling]coddling, err, cuddling Molly, who is maybe not as wild as they pretend she is."
+"The [j-co] [activation of nihilist]list Neil among people with a real purpose."
 "The [j-co] despair that [activation of nose candy]Candi knows too little about how to party."
 "The [j-co] chuckle at the irreverence of the [activation of notre dame]Dame Noter."
 "The [j-co] argue that [activation of olive]Olive Black or Olive Green being more desirable is NOT a matter of taste."

@@ -3455,6 +3455,7 @@ loaf around	"To loaf around is to wait with no real purpose."
 pig out	"To pig out is to eat everything you see. The reverse is an admonishment to leave."
 potty	"A potty is a kids['] word for where you go to the bathroom."
 quarter pounder	"A quarter pounder is a popular burger at McDonalds."
+raising hell	"Raising hell means to complain in pretty much any available way."
 Shame No	"No shame means a person isn't embarrassed by anything to the point where it's dangerous. The reverse (Shame? No!) is more, there's a healthier way to look at things than through shame."
 Snap Decision	"A decision made reflexively, versus a conscious decision to snap e.g. just quit holding back."
 Spur of the Moment	"Spur of the moment means you're finally pushed to do something. If you wonder if it's the moment of the spur , you're probably thinking too hard for it to be the spur of the moment."
@@ -3565,6 +3566,7 @@ mascara	"Mascara is basic make-up for women."
 melodious	"Melodious means nice-sounding."
 mike drop	"Mike drop is an internet term meaning you've won the argument and there's nothing left to say."
 mollycoddling	"Mollycoddling is being overprotective of someone."
+nihilist	"A nihilist is someone who believes nothing matters."
 Nolan Ryan	"Nolan Ryan is the Major League Baseball career strikeouts and no-hitters leader."
 Nose Candy	"Nose candy is slang for cocaine."
 Notre Dame	"Notre Dame is a famous Catholic university."
@@ -6631,7 +6633,7 @@ check eating cutter cookie:
 	consider the tray b eating rule;
 	if the rule failed:
 		the rule succeeds;
-	say "[line break]You have to eat it carefully, because of its spikes, but it gives you...a sharp tongue. Suddenly you wonder why you spent so much time feeling [b-o]. You're ready to go off on pretty much anyone who's gotten in your way, or even not helped you enough[if allow-swears is false]. You'll show those punks you don't need to swear to kick butt![else].[end if]";
+	say "[line break]You have to eat it carefully, because of its spikes, but it gives you...a sharp tongue. [if allow-swears is true]And wait. Did you taste a [activation of raising hell]hell raisin? [end if]Suddenly you wonder why you spent so much time feeling [b-o]. You're ready to go off on pretty much anyone who's gotten in your way, or even not helped you enough[if allow-swears is false]. You'll show those punks you don't need to swear to kick butt![else].[end if]";
 	now cookie is in lalaland;
 	bad-food-process true;
 	now cookie-eaten is true instead;
@@ -12171,7 +12173,7 @@ apple pie order is a concept in conceptville. Understand "apple-pie order" and "
 
 arch deluxe is a concept in conceptville. Understand "deluxe arch" as arch deluxe. howto is "[nogo of Meal Square]".
 
-bowled over is a concept in conceptville. howto is "eat Tray B food".
+bowled over is a concept in conceptville. howto is "eat any Tray B food".
 
 defeat is a concept in conceptville. Understand "eat def" and "def eat" as defeat. howto is "[x-it of Tray B]".
 
@@ -12181,7 +12183,7 @@ face off is a concept in conceptville. howto is "take inventory after eating Tra
 
 Forgive is a concept in conceptville. Understand "give for" as Forgive. howto is "[x-it of condition mint]".
 
-growing pains is a concept in conceptville. Understand "pain/pains growing" as growing pains. howto is "eat off-cheese".
+growing pains is a concept in conceptville. Understand "pain/pains growing" as growing pains. howto is "eat the offcheese".
 
 house special is a concept in conceptville. Understand "special house" as house special. howto is "smell Tray B".
 
@@ -12194,6 +12196,8 @@ pig out is a concept in conceptville. Understand "out pig" as pig out. howto is 
 potty is a concept in conceptville. Understand "pottea" and "teapot" and "pot tea" and "tea pot" as potty. howto is "[f-t of meal square] with innuendo on". [ok]
 
 quarter pounder is a concept in conceptville. Understand "pounder quarter" as quarter pounder. howto is "[nogo of Meal Square]".
+
+raising hell is a concept in conceptville. Understand "hell raisin" and "raisin hell" as raising hell. howto is "eat the cutter cookie".
 
 Shame No is a concept in conceptville. Understand "no shame" as Shame No. howto is "[x-it of condition mint]".
 
@@ -12435,6 +12439,8 @@ melodious is a concept in conceptville. Understand "odious mel" and "mel odious"
 mike drop is a concept in conceptville. Understand "drop mike" as mike drop. howto is "[j-girl]".
 
 Mollycoddling is a concept in conceptville. Understand "coddling molly" as mollycoddling. howto is "[j-girl]".
+
+nihilist is a concept in conceptville. Understand "list neil" and "neil list" as nihilist. howto is "[j-girl]".
 
 Nolan Ryan is a concept in conceptville. Understand "ryan nolan" as nolan ryan. howto is "[j-girl]".
 
