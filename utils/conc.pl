@@ -14,8 +14,11 @@
 #todo: define a default outside of "my @dirs" below in conc-aux.txt
 #todo: also have spare file organize things better to ditch hard coded arrays
 
+#todo: [start of room x] 2 lines in a row
+
 use strict;
 use warnings;
+use File::Copy qw(copy);
 
 use Win32::Clipboard;
 
@@ -33,6 +36,8 @@ my $auxFile = __FILE__; $auxFile =~ s/.pl$/-aux.txt/;
 
 ###############################
 #options
+my $writeAfter = 0;
+my $dontCopySourceBack = 0;
 my $codeToClipboard = 0;
 my $printErrCode = 0;
 my $printErrors = 1;
@@ -76,6 +81,7 @@ my %fillConc;
 my %fillExpl;
 my %needSpace;
 my %minorErrs;
+my %addAfter;
 
 my %tableDetHash;
 
@@ -113,7 +119,7 @@ my $needsAlf = 0;
 while ($count <= $#ARGV)
 {
   $a = $ARGV[$count];
-  for ($a)
+  for (lc($a))
   {
     /^-?[or]+$/ && do {
 	  $order = ($a =~ /o/);
@@ -157,13 +163,15 @@ while ($count <= $#ARGV)
 	/^-?a3$/ && do { @dirs = ("Slicker-City", "Compound", "Buck-the-Past"); $count++; next; };
 	/^-?a4$/ && do { @dirs = ("Compound", "Slicker-City", "Buck-the-Past", "btp-st"); $count++; next; };
 	/^-?as$/ && do { @dirs = ("Slicker-City", "Compound", "Buck-the-Past", "seeker-status"); $count++; next; };
-	/^-?[cv0nlm]+$/ && do
+	/^-?[cv0nlmw]+$/ && do
 	{
 	  $codeToClipboard = $printErrCode = $printErrors = 0;
 	  if ($a =~ /c/) { $codeToClipboard = 1; }
 	  if ($a =~ /0/) { $printErrCode = 1; }
 	  if ($a =~ /v/) { $printErrors = 1; }
 	  if ($a =~ /n/) { $openStoryFile = 0; }
+	  if ($a =~ /w/i) { $writeAfter = 1; }
+	  if ($a =~ /W/) { $dontCopySourceBack = 1; }
 	  if ($a =~ /l/) { $openStoryFile = 1; }
 	  if ($a =~ /m/) { $launchMinorErrs = 1; }
 	  $count++;
@@ -310,6 +318,7 @@ my $authErr;
 my $y;
 my $y1;
 my $lastLine = 0;
+my $addString;
 
 #dumpHashes();
 my %gotyet;
@@ -329,10 +338,13 @@ for my $x (sort keys %any)
 	  if (!defined($fileLineErr{$fileToOpen}) || (!$openLowestLine && ($fileLineErr{$fileToOpen} < $nuline)))
 	  { $fileLineErr{$fileToOpen} = $nuline; }
 	}
-    $errMsg .= "$xmod ($lineNum{$x}) needs explanation" . (defined($fillExpl{$x}) ? " filled in" : "") . ": guess = line $nuline\n";
-	$explErr .= "$xmod\t\"$xmod is when you [fill-in-here].\"";
-	if (!defined($concTableLine{$concToRoom{$xmod}})) { $explErr .= " \[start of $concToRoom{$xmod}\]"; }
-	$explErr .= "\n";
+    $errMsg .= "$xmod ($lineNum{$x}, $concToRoom{$x}) needs explanation" . (defined($fillExpl{$x}) ? " filled in" : "") . ": guess = line $nuline\n";
+	$addString = "$xmod\t\"$xmod is when you [fill-in-here].\"";
+	##todo: we get a warning if we don't have an activation but we've defined a concept
+	if (!defined($concTableLine{$concToRoom{$xmod}})) { $addString .= " \[start of $concToRoom{$xmod}\]"; }
+	$addString .= "\n";
+	if ($writeAfter && defined($nuline)) { $addAfter{$nuline} .= $addString; }
+	$explErr .= $addString;
 	$fails++; $thisFailed = 1;
   }
   if (!$conc{$xmod})
@@ -342,25 +354,29 @@ for my $x (sort keys %any)
 	{
 	  if (!defined($fileLineErr{$fileToOpen}) || (!$openLowestLine && ($fileLineErr{$fileToOpen} < $nuline)))
 	  { $fileLineErr{$fileToOpen} = $nuline; } }
-	$errMsg .= "$xmod ($lineNum{$x}) needs concept definition" . (defined($fillConc{$x}) ? " filled in" : "") . ": guess = line $nuline\n";
+	$errMsg .= "$xmod ($lineNum{$x}, $concToRoom{$x}) needs concept definition" . (defined($fillConc{$x}) ? " filled in" : "") . ": guess = line $nuline\n";
+	$addString = "";
 	if (defined($concToRoom{$xmod}))
 	{
 	if (!defined($conceptIndex{$concToRoom{$xmod}}) && ($concToRoom{$xmod} ne "general concepts")) # bad code but I can't figure a way to sort out general/concepts
 	{
-	$concErr .= "section $concToRoom{$xmod} concepts\n\n";
+	$addString .= "section $concToRoom{$xmod} concepts\n\n";
 	}
 	}
+	my $howto =  "howto is \"[fill-in-here]" . (exists $concToRoom{$xmod} ? " $concToRoom{$xmod}" : "" ) . "\".";
     if ($x =~ /\*/)
 	{
     $y1 = join(" ", reverse(split(/\*/, $x)));
     $y = join(" ", split(/\*/, $x));
-	$concErr .= "$xmod is a concept in conceptville. Understand \"$y\" and \"$y1\" as $xmod. howto is \"[fill-in-here]\".\n\n";
+	$addString .= "$xmod is a concept in conceptville. Understand \"$y\" and \"$y1\" as $xmod. $howto\n\n";
 	}
 	else
 	{
     $y = join(" ", reverse(split(/ /, $x)));
-	$concErr .= "$xmod is a concept in conceptville. Understand \"$y\" as $xmod. howto is \"[fill-in-here]\".\n\n";
+	$addString .= "$xmod is a concept in conceptville. Understand \"$y\" as $xmod. $howto\n\n";
 	}
+	$concErr .= $addString;
+	if ($writeAfter && defined($nuline)) { $addAfter{$nuline} .= $addString; }
 	$fails++; $thisFailed = 1;
   }
   if (!$activ{$x})
@@ -447,6 +463,36 @@ for my $x (sort keys %any)
   }
   } else { print "No errors in this run for $_[0]. Nothing sent to clipboard.\n"; }
   if (!$errMsg) { $errMsg = "All okay!"; } else { $errMsg =~ s/\n/<br>/g; $errMsg =~ s/<br>$//g; }
+  if ($writeAfter)
+  {
+    if (scalar (keys %addAfter) == 0) { print "******** Write flag set, but nothing to write up.\n"; }
+	else
+	{
+    my $fi = "c:/games/inform/$_[0].inform/source/story.ni";
+    print "Rewriting $_[0], first writing to story.ni.2...\n";
+	open(A, "$fi") || die ("Uh oh no story");
+	open(B, ">$fi.2") || die ("Uh oh can't write");
+	my $extraLines = 0;
+	while ($a = <A>)
+	{
+	  if (exists $addAfter{$.})
+	  {
+	  print B $addAfter{$.};
+	  printf("Inserted text at line %d\n", $. + $extraLines);
+	  $extraLines += (() = $addAfter{$.} =~ /\n/g);
+	  }
+	  print B $a;
+	}
+	close(A);
+	close(B);
+	if ($dontCopySourceBack)
+	{
+	  die();
+    }
+	copy("$fi.2", $fi );
+	unlink "$fi.2" || die ("Failed to delete $fi.2");
+	}
+  }
 }
 
 sub printGlobalResults
@@ -1111,6 +1157,7 @@ sub getRoomIndices
   while ($line = <A>)
   {
     if ($line =~ /\[xxadd\]/i) { $inConceptTable = 1; <A>; next; }
+	if ($line =~ /\[xxcv\]/) { $inConcepts = 1; next; }
     if ($line !~ /[a-z]/i) { $inConceptTable = 0; next; }
 	if ($inConceptTable)
 	{
@@ -1144,7 +1191,6 @@ sub getRoomIndices
 	  next;
     }
 	$line =~ s/\*/ /g; # ugh, a bad hack but it will have to do to read asterisk'd files
-	if ($line =~ /\[xxcv\]/) { $inConcepts = 1; next; }
 	if ($inConcepts)
 	{
       if ($line =~ /^volume/i) { $inConcepts = 0; next; }
@@ -1218,7 +1264,7 @@ sub compareRoomIndex
         {
 		  if ($proofStr) { print "ERRORS $proofStr"; $proofStr = ""; }
 		  $explainOrdErrors++;
-		  print "$.: room $commentBit(index " . (defined($roomIndex{$commentBit}) ? $roomIndex{$commentBit} : "N/A") . ") should be behind last room of $lastSortRoom(index $roomIndex{$lastSortRoom})";
+		  print "$.: room $commentBit(L" . (defined($roomIndex{$commentBit}) ? $roomIndex{$commentBit} : "N/A") . ") should be behind last room of $lastSortRoom(index $roomIndex{$lastSortRoom})";
 		  if (defined($roomIndex{$commentBit}))
 		  {
 		  my $justAfterCandidate = "";
@@ -1352,6 +1398,13 @@ sub roomToFile
   if ($launchRoomFileWindowsNP) { system("start \"\" notepad.exe \"$fullFile\""); }
 }
 
+sub printDebugHash
+{
+no warnings;
+print "$_[0]: roomindex $roomIndex{$_[0]} regionIndex $regionIndex{$_[0]} conceptindex $conceptIndex{$_[0]} concToRoom $concToRoom{$_[0]} concTableLine $concTableLine{$_[0]}\n";
+use warnings;
+}
+
 sub usage
 {
 print<<EOT;
@@ -1365,6 +1418,7 @@ CONC.PL usage
 -0 = print errors not error code
 -l/-n = launch story file (or not) after
 -v = verbosely print code
+-w = write code out (-W bails before copying from backup file)
 -f(l)(o)(n) = put rooms to file (l launches) (o outputs to text) (n launches in notepad)
 -m = launch minor errors if there is no major error
 (any combination is okay too)

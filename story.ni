@@ -9749,7 +9749,7 @@ check going nowhere in standard bog:
 		say "You don't want to get...bogged down." instead;
 	if noun is outside:
 		try going south instead;
-	say "I'm worried you might run into the treacherous [activation of sods law]Law Sods...if you're lucky. It's really only safe to go back south." instead;
+	say "Not advisable. Even if you make it past the [activation of sods law]Law Sods, you'd starve in the [activation of sandwich]Witch Sand. It's really only safe to go back south." instead;
 
 The Language Machine is scenery in Standard Bog. "The language machine hums along [if wax is in lalaland]cheerfully[else]balefully[end if], its console spewing out [if wax is in lalaland]poetry, which isn't good, but it's not overblown[else]dolorous, leaden, formulated prose about, well, being stuck in a bog[end if] in its bottom half. In the top half is an LCD [fr-sm]."
 
