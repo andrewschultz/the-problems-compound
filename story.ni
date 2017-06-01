@@ -3412,7 +3412,7 @@ Sitting Duck	"A sitting duck is someone just waiting to be taking advantage of. 
 Spelling Disaster	"Disaster spelling is, well, consonants clumped together. Spelling disaster is leading to bad news."
 touch base	"To touch base is to get back to someone or return their call, especially if it's been a while. Versus a base touch, base being mean, so it's a bit more creepy."
 turn of phrase	"A turn of phrase is clever wording. A phrase of turn is, well, what's at the command prompt, or, any wording."
-a u-turn	"A u-turn is when a car swivels in a huge circle to reverse direction. So if something tries to turn you, it bounces back."
+u-turn	"A u-turn is when a car swivels in a huge circle to reverse direction. So if something tries to turn you, it bounces back."
 wait your turn	"This means not to do anything til someone else goes first. But in this case the game wants you to turn your wait into something else."
 wave a flag	"To wave a flag is to give up. To flag something is to note it as particularly productive or unproductive."
 acceptable	"Acceptable means good enough. Though sometimes it might not, if someone is just being diplomatic. Able, Except means you're pretty good but have big flaws. So both can feel like backhand compliments." [start of smart street]
@@ -3420,7 +3420,7 @@ beat off	"To beat off is to, well, pleasure oneself. People who are off-beat are
 Buster Ball	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure."
 Compound Problems	"Compound problems are problems that aren't simple or can't be dealt with simply, or that build together to leave someone totally overwhelmed."
 Games Confidence	"Confidence games are where someone gains someone else's trust to rip them off. It can be as simple as a shell game or as complex as an investment scheme. Of course, Alec has confidence with logic games but not much else."
-a Games Mind	"Mind games are messing with people's mind with lies or half-truths. A games mind might be more inclined to abstract puzzles."
+Games Mind	"Mind games are messing with people's mind with lies or half-truths. A games mind might be more inclined to abstract puzzles."
 good egg	"A good egg is a nice person. To egg, or egg on, is to bait someone into doing something you want them to."
 Hunter Savage	"A savage hunter is, well, someone with no mercy. Yup, I like the 'dirty' tangential bad guy better, too."
 knockwurst	"Knockwurst is a kind of sausage."
@@ -3523,6 +3523,7 @@ body slamming	"Body slamming is a particularly painful wrestling move where you 
 bouncing betty	"Bouncing betty is slang for a land mine."
 box score	"A box score describes the basic individual statistics from a sporting event."
 broccoli	"Broccoli is a vegetable."
+cacophony	"Cacophony is a loud noise.."
 call girl	"A call girl is a paid female escort."
 Cary Grant	"Cary Grant is a movie star from the 40s and 50s."
 casually	"Casually means not really in-depth."
@@ -3535,6 +3536,7 @@ defecate	"To defecate is, well, activity #2 in the bathroom."
 dirty word	"A dirty word is profanity. 'Word' on its own is slang for agreement."
 dust up	"A dust up is a fight."
 electrocute	"If someone is electrocuted, they're filled with an often lethal dose of electrical current."
+expat	"An ex-pat is someone who no longer lives in the country where they were born."
 flounder	"To flounder is to try and fail without any progress. It's also the name of a fish."
 fluoridated	"Fluoridated water is a subject of many silly conspiracy theories."
 gangbusters	"Gangbusters is outdated slang for awesome."
@@ -3560,6 +3562,7 @@ Laverne and Shirley	"Laverne and Shirley was a TV show from the 70s and 80s abou
 lily liver	"A lily-liver is someone who is afraid to go out and do risky things."
 Liverwurst	"Liverwurst is a sort of meat which I found tastes nice until it really doesn't, and it's a bit greasy, too. 'Worst liver' may be an exaggeration, but the jerks are not living well."
 lovelies	"Lovelies is a term of endearment."
+magnate	"A magnate is a powerful businessperson."
 manicured	"Manicured fingernails are generally for women, so Manny being cured of non-masculinity is contradictory."
 Mary Sue	"A Mary Sue is a character who is too unbelievably nice. It comes from the tour de force short story A Trekkie's Tale."
 mascara	"Mascara is basic make-up for women."
@@ -3579,6 +3582,7 @@ playboy	"Playboy is probably the most famous 'adult' magazine. It's not particul
 pocket pool	"Pocket pool is a euphemism for self-pleasure."
 Pollyanna	"A Pollyanna is someone who is ridiculously optimistic."
 Polygamy	"Polygamy is having more than one mate."
+polyphony	"Polyphony is music with two things happening at once."
 pop cherry	"To pop a cherry is to take someone's virginity."
 Potter Stewart	"Potter Stewart was a US Supreme who said he'd know obscenity when he saw it."
 pound meat	"To pound your meat is to, well, touch your genitals."
@@ -3655,7 +3659,8 @@ drive into the ground	"To drive something into the ground is to make the point f
 Driving Crazy	"Driving someone crazy is usually not literal, but it means you are annoying them a lot, enough they may want to lash back."
 Watkins Glen	"Watkins Glen is a famous racecourse in upstate New York."
 wood pusher	"A wood pusher is a chessplayer who plays by rote, so, sort of a double whammy of no fun."
-sods law	"Sod's law says anything that can go wrong, will. It's often misstated as Murphy's Law, which is different." [start of standard bog]
+sandwich	"A sandwich is putting something between two pieces of bread." [start of standard bog]
+sods law	"Sod's law says anything that can go wrong, will. It's often misstated as Murphy's Law, which is different."
 bum a cigarette	"To bum a cigarette is to ask someone for one of theirs. 'A cigarette bum' indicates Penn's disdain for more legal smokables." [start of pot chamber]
 crack pipe	"A crack pipe is used to smoke crack cocaine, which is even more illegal and risky than marijuana."
 crack up	"To crack up is to lose sanity. To crack down is to oppress someone, or arrest people for possession of contraband. To crack a joke is to tell a joke."
@@ -3682,6 +3687,7 @@ Candidate Dummy	"A dummy candidate is one who is there to give the illusion of d
 code monkey	"A code monkey is someone who writes programming code for a living."
 grease monkey	"A grease monkey is a manual laborer, especially with machines."
 serve you right	"'Serve(s) you right' means you got what you deserved."
+idle gossip	"Idle gossip is talking about others behind their backs, with no real purpose." [start of service community]
 artemis fowl	"Artemis fowl is the intelligent, cocky hero of Eoin Colfer's seven-book series. He's everything the [bad-guy] thinks he is, and more." [start of freak control]
 autocratic	"Autocratic means having one person firmly in control."
 beholder of the eye	"'Beauty is in the eye of the beholder' is a cliche meaning we see the nice things we want. Here Alec is worried he's seeing oppresion that gives him an excuse to fear."
@@ -9999,9 +10005,11 @@ prompt	response	enabled	permit
 "What do you think of the [bad-guy]?"	phil-baiter	1	1
 "[later-or-thanks]."	phil-bye	3	1
 
+[todo: phony polly and tory hiss are love interests]
+
 table of quip texts (continued)
 quip	quiptext
-phil-hi	"'Indeed! Even if you do not appreciate our aesthetic fully, it cannot but rub off on you a bit.'"
+phil-hi	"'Indeed! Even if you do not appreciate our aesthetic fully, it cannot but rub off on you a bit. Well, not enough to make music we'd appreciate.'"
 phil-pomp	--
 phil-aes	"'Indeed, how can one describe an aesthetic of good music? It just is. Except when it isn't. Good music--not rubbish noise--is music that convinces me to converse about it endlessly! I'm sure I've helped create more good music that way.'"
 phil-wax	"[wax-blab]"
@@ -10300,7 +10308,7 @@ check entering idol:
 	say "No way. You can't even get near it." instead;
 
 before talking to idol:
-	say "It's not a [idle gossip]gossip idol. And even if you had something profoundly defiant to say, it would probably stare you down quickly." instead;
+	say "It's not a [activation of idle gossip]gossip idol. And even if you had something profoundly defiant to say, it would probably stare you down quickly." instead;
 
 stared-idol is a truth state that varies.
 
@@ -12321,6 +12329,11 @@ chapter main chunk concepts [left to right, then below]
 
 section Nominal Fen concepts
 
+[todo: eliminate dashes that aren't relevant]
+
+to say solve-j:
+	say "solve the [j-co]['] puzzle"
+
 to say j-girl:
 	say "talk to the [j-co] [if allow-swears is false]with swears on [end if]before reading the Finger Index"
 
@@ -12352,6 +12365,8 @@ box score is a concept in conceptville. Understand "score box" as box score. how
 
 broccoli is a concept in conceptville. Understand "lee brock" and "brock lee" as broccoli. howto is "[j-girl]".
 
+cacophony is a concept in conceptville. Understand "coco phony" and "phony coco" as cacophony. howto is "[j-girl]".
+
 call girl is a concept in conceptville. Understand "girl call" as call girl. howto is "[j-girl]".
 
 cary grant is a concept in conceptville. Understand "grant carey" and "carey grant" as cary grant. howto is "[j-girl]".
@@ -12376,11 +12391,11 @@ dust up is a concept in conceptville. Understand "up dust" as dust up. howto is 
 
 electrocute is a concept in conceptville. Understand "cute electra" and "electra cute" as electrocute. howto is "[j-girl]".
 
+expat is a concept in conceptville. Understand "x pat" and "pat x" as expat. howto is "[j-girl]".
+
 flounder is a concept in conceptville. Understand "flo under" and "under flo" as flounder. howto is "[j-girl]".
 
 fluoridated is a concept in conceptville. Understand "dated flora" and "flora dated" as fluoridated. howto is "[j-girl]".
-
-[todo: eliminate dashes that aren't relevant]
 
 gangbusters is a concept in conceptville. Understand "buster's/busters/buster gang" and "gang buster/busters/buster's" as gangbusters. howto is "[j-girl]".
 
@@ -12428,6 +12443,8 @@ Liverwurst is a concept in conceptville. Understand "wurst/worst liver" and "liv
 
 Lovelies is a concept in conceptville. Understand "lies love" and "love lies" as Lovelies. howto is "listen to all the [j-co] have to say, with swearing on".
 
+magnate is a concept in conceptville. Understand "nate magg" and "magg nate" as magnate. howto is "[j-girl]".
+
 manicured is a concept in conceptville. Understand "cured manny" and "manny cured" as manicured. howto is "[j-girl]".
 
 Mary Sue is a concept in conceptville. Understand "sue merry" and "merry sue" as mary sue. howto is "[j-girl]".
@@ -12465,6 +12482,8 @@ pocket pool is a concept in conceptville. Understand "pool pocket" as pocket poo
 Pollyanna is a concept in conceptville. Understand "anna pauley" and "pauley anna" as pollyanna. howto is "[j-girl]".
 
 Polygamy is a concept in conceptville. Understand "gamy polly" and "polly gamy" as polygamy. howto is "[j-girl]".
+
+polyphony is a concept in conceptville. Understand "phony polly" and "polly phony" as polyphony. howto is "[j-girl]".
 
 pop cherry is a concept in conceptville. Understand "cherry pop" as pop cherry. howto is "[solve-j] with swears on".
 
@@ -12507,9 +12526,6 @@ terrapin is a concept in conceptville. Understand "pin tera" and "tera pin" as t
 whistler's mother is a concept in conceptville. Understand "mother whistlers/whistler's/whistler" and "whistler/whitler's mother" as whistler's mother. howto is "[j-girl]".
 
 you buy is a concept in conceptville. Understand "you buy" and "bay you" as you buy. howto is "[solve-j]".
-
-to say solve-j:
-	say "solve the [j-co]['] puzzle"
 
 section chipper wood concepts
 
@@ -12645,11 +12661,13 @@ drive into the ground is a concept in conceptville. Understand "ground the into 
 
 Driving Crazy is a concept in conceptville. Understand "crazy driving" as driving crazy. howto is "[x-it of mistake grave]".
 
-Watkins Glen is a concept in conceptville. Understand "glen watkins" as watkins glen. howto is "[x-it of examine the mistake]".
+Watkins Glen is a concept in conceptville. Understand "glen watkins" as watkins glen. howto is "[x-it of mistake grave]".
 
 wood pusher is a concept in conceptville. Understand "pusher wood" as wood pusher. howto is "enter Pot Chamber after putting Sal to sleep".
 
 section standard bog concepts
+
+sandwich is a concept in conceptville. Understand "witch sand" and "sand witch" as sandwich. howto is "[nogo of standard bog]".
 
 sods law is a concept in conceptville. Understand "law sods" and "sod's law" as sods law. howto is "[nogo of standard bog]".
 
@@ -12712,6 +12730,10 @@ code monkey is a concept in conceptville. Understand "monkey code" as code monke
 grease monkey is a concept in conceptville. Understand "monkey grease" as grease monkey. howto is "[x-it of Business Monkey]".
 
 serve you right is a concept in conceptville. Understand "right you serve" as serve you right. howto is "[x-it of service memorial]".
+
+section service community concepts
+
+idle gossip is a concept in conceptville. Understand "gossip idle" as idle gossip. howto is "[x-it of thoughts idol]".
 
 section freak control concepts
 
@@ -12882,21 +12904,21 @@ chapter fake death concepts
 
 section Criminals' Harbor concepts
 
+to say ch-end:
+	say "get sent to Criminals['] Harbor (e.g. vandalize scenery in Freak Control)"
+
 gangplank is a concept in conceptville. Understand "gang plank" and "plank gang" as gangplank. howto is "[ch-end]".
 
 hate crime is a concept in conceptville. Understand "crime hate" as hate crime. howto is "[ch-end]".
 
-to say ch-end:
-	say "get sent to Criminals['] Harbor (e.g. vandalize scenery in Freak Control)"
-
 section fight fair concepts
+
+to say ff-end:
+	say "visit Fight Fair (attack random person)"
 
 Boss Fight is a concept in conceptville. Understand "fight boss" as boss fight. howto is "[ff-end]".
 
 Sore Loser is a concept in conceptville. Understand "loser sore" as sore loser. howto is "[ff-end]".
-
-to say ff-end:
-	say "visit Fight Fair (attack random person)"
 
 section Hut Ten concepts
 
@@ -12916,14 +12938,14 @@ prisoners of war is a concept in conceptville. Understand "war of prisoners" as 
 
 section shape ship concepts
 
+to say ss-end:
+	say "visit Shape Ship (get fifth tickety outside of Soda Club)"
+
 Censorship is a concept in conceptville. Understand "ship censor" and "censor ship" as censorship. howto is "[ss-end]".
 
 Courtship is a concept in conceptville. Understand "court ship" and "ship court" as courtship. howto is "[ss-end]".
 
 Scholarship is a concept in conceptville. Understand "scholar ship" and "ship scholar" as scholarship. howto is "[ss-end]".
-
-to say ss-end:
-	say "visit Shape Ship (get fifth tickety outside of Soda Club)"
 
 chapter director's cut concepts
 
