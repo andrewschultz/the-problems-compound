@@ -338,6 +338,7 @@ for my $x (sort keys %any)
 	  if (!defined($fileLineErr{$fileToOpen}) || (!$openLowestLine && ($fileLineErr{$fileToOpen} < $nuline)))
 	  { $fileLineErr{$fileToOpen} = $nuline; }
 	}
+	$nuline++ if (exists $concToRoom{$x} && exists $concTableLine{$concToRoom{$x}} && $nuline == $concTableLine{$concToRoom{$x}}); #this un-sorts at the start, but the alternative is to chuck something in the wrong room if, say, we are adding "abc" and the first idea alphabetically in the room is "bcd"
     $errMsg .= "$xmod ($lineNum{$x}, $concToRoom{$x}) needs explanation" . (defined($fillExpl{$x}) ? " filled in" : "") . ": guess = line $nuline\n";
 	$addString = "$xmod\t\"$xmod is when you [fill-in-here]." . (defined($concToRoom{$x}) ? " $concToRoom{$x}" : "" ) . "\"";
 	##todo: we get a warning if we don't have an activation but we've defined a concept
@@ -471,8 +472,8 @@ for my $x (sort keys %any)
     my $fi = "c:/games/inform/$_[0].inform/source/story.ni";
     print "Rewriting $_[0], first writing to story.ni.2...\n";
 	open(A, "$fi") || die ("Uh oh no story");
-	binmode(B);
 	open(B, ">$fi.2") || die ("Uh oh can't write");
+	binmode(B);
 	my $extraLines = 0;
 	while ($a = <A>)
 	{
