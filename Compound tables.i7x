@@ -292,6 +292,7 @@ macho-boast
 "The [j-co] look forward to wild college spring breaks at [activation of quaalude]Lewd Quay."
 "The [j-co] agree [activation of Ralph Lauren]Lauren Ralph would actually be really attractive with any fashion sense at all."
 "The [j-co] recount how [activation of rectally]Ally wrecked some kid's supposititious argument."
+"The [j-co] wonder what the heck [activation of rosetta]Etta Rose babbles about."
 "The [j-co] disagree on whether [activation of sharp barb]Barb Sharpe would be worth putting up with her lame gossip."
 "The [j-co] take a minute to [activation of shock jock]jock shock in general. It's very disturbing, but you can't put your finger on why."
 "The [j-co] act disgusted at the food they [activation of spotted dick]Dick spotted someone eating. Eat a cheeseburger, dude."
@@ -305,7 +306,9 @@ macho-boast
 "The [j-co] agree Erwin is just a total loser name." [na]
 "The [j-co] argue pointlessly over if a girl is pretty plain or plain pretty." [na]
 "The [j-co] can't believe how low-maintenance Mandy is." [na]
+"The [j-co] mock Mundy for being too religious." [na]
 "The [j-co] mock Perry for lack of mechanical skill." [na]
+"The [j-co] recount how Murphy broke his femur." [na]
 "The [j-co] unanimously decide whether Noel should be allowed in the group." [na]
 
 part freak control
