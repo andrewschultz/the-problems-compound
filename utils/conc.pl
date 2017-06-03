@@ -514,7 +514,7 @@ sub printGlobalResults
     print "Zap fill-in text at line(s) " . join(", ", @fillIn) . ".\n";
   }
 
-  if (scalar keys %fileLineErr || scalar keys %minorErrs)
+  if (scalar (keys %fileLineErr) || scalar (keys %minorErrs))
   {
     if ($openStoryFile)
 	{
@@ -861,7 +861,11 @@ while ($lineIn = <X>)
 	$tmpVar =~ s/\t.*//g;
 	$tmpVar = wordtrim($tmpVar);
 	$expl{$tmpVar} = $any{$tmpVar} = 1;
-	if ($lineIn =~ /fill-in-here/) { $fillExpl{$tmpVar} = $.; }
+	if ($lineIn =~ /fill-in-here/)
+	{
+	  $fillExpl{$tmpVar} = $.;
+	  unless ($openLowestLine && defined($minorErrs{$file})) { $minorErrs{$file} = $.;}
+    }
 	if (!defined($lineNum{$tmpVar})) { $lineNum{$tmpVar} = $.; }
 	next;
   }
@@ -872,12 +876,12 @@ while ($lineIn = <X>)
 	if ($lineIn =~ /fill-in-here/)
 	{
 	  $fillConc{$tmpVar} = $.;
-	  unless ($openLowestLine && defined($minorErrs{$tmpVar})) { $minorErrs{$file} = $.;}
+	  unless ($openLowestLine && defined($minorErrs{$file})) { $minorErrs{$file} = $.;}
     }
 	if (($lineIn =~ /\"[a-z]+\"[^\.]/i) && ($lineIn !~ /\[ok\]/))
 	{
 	  $needSpace{$tmpVar} = $.;
-	  unless ($openLowestLine && defined($minorErrs{$tmpVar})) { $minorErrs{$file} = $.; }
+	  unless ($openLowestLine && defined($minorErrs{$file})) { $minorErrs{$file} = $.; }
     }
 	if (!defined($lineNum{$tmpVar})) { $lineNum{$tmpVar} = $.; }
 	if ($lineIn =~ /\[ac\]/) { $activ{$tmpVar} = $.; } # [ac] says it's activated somewhere else

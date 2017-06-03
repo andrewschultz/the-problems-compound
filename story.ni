@@ -3629,9 +3629,9 @@ right to privacy	"Right to privacy is considered a basic human right in democrat
 thp	"Two hundred proof means pure grain alcohol."
 whole truth	"The whole truth means nothing left out from an explanation."
 age four	"Age four is, well, four years old. It is too young to forage." [start of scheme pyramid]
+army brat	"An army brat is the child of a military officer. They would be more likely to move than most children."
 baby boomer	"The Baby Boomers were the generation born just after World War II. Sometimes referred to as 'The Greatest Generation.'"
 bookworm	"A bookworm is someone who reads a lot. A worm is, well, unflattering to call someone."
-brat army	"An army brat is the child of a military officer. They would be more likely to move than most children."
 business casual	"Business casual is less dressy office wear, usually meaning no suit."
 child support	"Child support is what one separated spouse pays to another to take care of a child."
 labor of love	"A labor of love is something done for its own sake, not for worldly advancement."
@@ -9140,7 +9140,7 @@ check going nowhere in scheme pyramid:
 		try going north instead;
 	say "This room is north-south. Maybe once the brat turns ten, he'll have a bigger office, but right now, it's only got the two exits." instead;
 
-The Labor Child is a baiter-aligned person in Scheme Pyramid. "[one of]Some overdressed little brat walks up to you and shakes your hand. 'Are you here to work for me? I hope you have [activation of labor of love]love of labor. Not as much as me. The Labor Child. If you think you have business savvy, get a seed from the Fund Hedge.'[or]The Labor Child paces about here[one of]plotting revenge against the [activation of baby boomer]Boomer Baby who humiliated him in pre-school[or], formulating his next business idea[one of], muttering he's outgrown his [activation of brat army]brat army. Time to move on[or][stopping][stopping].[stopping]"
+The Labor Child is a baiter-aligned person in Scheme Pyramid. "[one of]Some overdressed little brat walks up to you and shakes your hand. 'Are you here to work for me? I hope you have [activation of labor of love]love of labor. Not as much as me. The Labor Child. If you think you have business savvy, get a seed from the Fund Hedge.'[or]The Labor Child paces about here[one of]plotting revenge against the [activation of baby boomer]Boomer Baby who humiliated him in pre-school[or], formulating his next business idea[one of], muttering he's outgrown his [activation of army brat]brat army. Time to move on[or][stopping][stopping].[stopping]"
 
 understand "kid/brat" as Labor Child.
 
@@ -11038,7 +11038,7 @@ Fight Fair is a room in Bad Ends. "The [bad-guy] watches down from a video scree
 
 part Hut Ten
 
-Hut Ten is a room in Bad Ends. "Here you spend time in pointless military marches next to people who might be your friends in kinder environs. Apparently you're being trained for some sort of strike on [bad-guy-2]'s base, whoever he is. As time goes on, more recruits come in. You do well enough, to boss a few around. But people above you remind you that's still not good ENOUGH."
+Hut Ten is a room in Bad Ends. "Here you spend time in pointless military marches next to people who might be your friends in kinder environs. Apparently you're being trained for some sort of strike on [bad-guy-2]'s base, whoever he is. As time goes on, more recruits come in. You do well enough to boss a few around. But people above you, especially the [activation of generalist]List General who knows everyone's trivial faults, remind you that's still not good ENOUGH."
 
 part In-Dignity Heap
 
@@ -12623,11 +12623,11 @@ section scheme pyramid concepts
 
 age four is a concept in conceptville. Understand "four age" and "forage" as age four. howto is "decline the Labor Child's offer for help". [ok]
 
+Army Brat is a concept in conceptville. Understand "brat army" as army brat. howto is "enter the scheme pyramid".
+
 Baby Boomer is a concept in conceptville. Understand "boomer baby" as baby boomer. howto is "enter the Scheme Pyramid".
 
 bookworm is a concept in conceptville. Understand "book worm" and "worm book" as bookworm. howto is "[x-it of Finger Index]".
-
-Brat Army is a concept in conceptville. Understand "army brat" as brat army. howto is "enter the scheme pyramid".
 
 business casual is a concept in conceptville. Understand "casual business" as business casual. howto is "[x-it of deal clothes]".
 

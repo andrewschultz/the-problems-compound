@@ -79,6 +79,7 @@ part truth home
 
 table of incisive sid viewpoints [xxisv]
 sid-sez
+"Sid spews a [activation of showerproof]proof shower of all sorts of things that can't be true. You wipe a bit of his spittle off your arm."
 "Sid points out it's really probably better to be a jerk than not, because fake nice is really really creepy. Lee asks if it's the same for fake interesting. 'A-HA! I KNEW YOU WEREN'T NICE!'"
 "Sid puts down Lee and notes your silence is agreement. But Lee has a comeback--and Sid notes your silence (again) as disbelief."
 "Sid throws the old chestnut about how immovable objects and unstoppable forces can't both exist at once to prove an omniscient God is a contradiction."
