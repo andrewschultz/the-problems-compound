@@ -106,6 +106,7 @@ my @fillIn = ();
 my $fileToOpen = "";
 
 ######################counters
+my $alphabetizeWarnings = 0;
 my $objSuc = 0;
 my $count = 0;
 my $authFail = 0;
@@ -338,7 +339,11 @@ for my $x (sort keys %any)
 	  if (!defined($fileLineErr{$fileToOpen}) || (!$openLowestLine && ($fileLineErr{$fileToOpen} < $nuline)))
 	  { $fileLineErr{$fileToOpen} = $nuline; }
 	}
-	$nuline++ if (exists $concToRoom{$x} && exists $concTableLine{$concToRoom{$x}} && $nuline == $concTableLine{$concToRoom{$x}}); #this un-sorts at the start, but the alternative is to chuck something in the wrong room if, say, we are adding "abc" and the first idea alphabetically in the room is "bcd"
+	if (exists $concToRoom{$x} && exists $concTableLine{$concToRoom{$x}} && $nuline == $concTableLine{$concToRoom{$x}}) #this un-sorts at the start, but the alternative is to chuck something in the wrong room if, say, we are adding "abc" and the first idea alphabetically in the room is "bcd"
+	{
+	  $nuline++;
+	  $alphabetizeWarnings++;
+	}
     $errMsg .= "$xmod ($lineNum{$x}, $concToRoom{$x}) needs explanation" . (defined($fillExpl{$x}) ? " filled in" : "") . ": guess = line $nuline\n";
 	$addString = "$xmod\t\"$xmod is when you [fill-in-here]." . (defined($concToRoom{$x}) ? " $concToRoom{$x}" : "" ) . "\"";
 	##todo: we get a warning if we don't have an activation but we've defined a concept
@@ -1372,6 +1377,12 @@ sub compareRoomIndex
   }
   if ($printTest) { print "TEST RESULTS:$_[0] concepts w/o rooms,$conceptNoRooms,0,0,n/a\n"; }
   close(A);
+
+  if ($alphabetizeWarnings)
+  {
+    print "$alphabetizeWarnings line(s) may be off because the new ideas came before the first idea in a room, so you may wish to run...\n          talf.pl $_[0]\n";
+	$alphabetizeWarnings = 0;
+  }
 }
 
 sub roomToFile

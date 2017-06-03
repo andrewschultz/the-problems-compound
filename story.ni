@@ -3549,6 +3549,7 @@ hittite	"A Hittite is a now-extinct race of people in the Bible."
 Howard Stern	"Howard Stern is a long-time radio personality with loud provocative opinions."
 humphrey davy	"Humphrey Davy was an 18th century scientist."
 Jack London	"Jack London generally wrote about tales of the Wild, especially in Alaska."
+james dean	"James dean is an actor from the 50s, in such movies as [i]Rebel Without a Cause[r]"
 jeremiad	"A jeremiad is a prolonged rant."
 jerk around	"To jerk someone around is to pester them physically or mentally."
 jerk off	"To jerk off is to gratify oneself carnally."
@@ -3556,7 +3557,8 @@ jim beam	"Jim Beam is a brand of whiskey."
 joint committee	"A joint committee is a group of legislators from different parts of US Congress."
 journeyman	"A journeyman is someone who is maybe not spectacular but who has paid his dues in his field."
 junk mail	"Junk mail means letters and fliers you didn't ask for that appear in your (physical or electronic) mailbox anyway."
-Keyser Soze	"Keyser Söze is the shadowy antagonist of the film [italic type]The Usual Suspects[roman type]."
+kevin spacey	"Kevin spacey is the actor who played Keyser Söze in [u-sus]."
+Keyser Soze	"Keyser Söze is the shadowy antagonist of [u-sus]."
 kohlrabi	"Kohlrabi is a vegetable."
 Laverne and Shirley	"Laverne and Shirley was a TV show from the 70s and 80s about two single female roommates."
 lily liver	"A lily-liver is someone who is afraid to go out and do risky things."
@@ -3780,6 +3782,9 @@ Much Flatter	"If your world is much flatter, it isn't very exciting. But to flat
 People Power	"People power was a rallying cry in demonstrations against the authoritarianism of, well, power people."
 Received Wisdom	"Received wisdom is generally accepted knowledge which is often not true, such as how we only use 10% of our brain. Gustave Flaubert wrote a fun book called The Dictionary of Received Wisdom that makes fun of many such examples. For instance, a hamlet is always charming."
 Something Mean	"Mean something = talk or act with purpose. Something mean = well, nastiness."
+
+to say u-sus:
+	say "the film [italic type]The Usual Suspects[roman type]"
 
 to say dutch-off:
 	say "[one of]. This is viewed, according to idioms.freedictionary.com, as insulting to the Dutch. It certainly isn't flattering[or]. Again, potentially not the politest[stopping]"
@@ -12417,6 +12422,8 @@ humphrey davy is a concept in conceptville. Understand "davey humphrey" and "hum
 
 Jack London is a concept in conceptville. Understand "london jack" as jack london. howto is "[j-girl]".
 
+james dean is a concept in conceptville. Understand "dean james" as james dean. howto is "[j-girl]".
+
 jeremiad is a concept in conceptville. Understand "add jeremy" and "jeremy add" as jeremiad. howto is "[j-girl]".
 
 Jerk Around is a concept in conceptville. Understand "around jerk" as jerk around. howto is "enter the main area with profanity on".
@@ -12430,6 +12437,8 @@ joint committee is a concept in conceptville. Understand "committee joint" as jo
 journeyman is a concept in conceptville. Understand "journey man" and "man journey" as journeyman. howto is "[j-girl]".
 
 junk mail is a concept in conceptville. Understand "mail junk" as junk mail. howto is "listen to the [j-co] before figuring the Index puzzle".
+
+kevin spacey is a concept in conceptville. Understand "spacey kevin" as kevin spacey. howto is "[j-girl]".
 
 Keyser Soze is a concept in conceptville. Understand "suzy kaiser" and "kaiser suzy" as Keyser Soze. howto is "[j-girl]".
 
