@@ -11,6 +11,7 @@
 
 use strict;
 use warnings;
+use Win32;
 
 my $dicURLPrint = 1;
 
@@ -44,6 +45,21 @@ my $shouldAlphabetize = 0;
 my $count = 0;
 my $wordsAdded = 0;
 my $warn = 0;
+
+open(C, 'C:\Users\Andrew\AppData\Roaming\Notepad++\session.xml');
+my $c;
+while ($c = <C>) #this is to check if the file is in an unsaved state, which just got increasingly annoying over the years
+{
+  if ($c =~ /flip.txt/)
+  {
+    if ($c =~ /backupFilePath=\"c:/i)
+    {
+    Win32::MsgBox("Save wfl.txt before copying over", 0, "Less annoying than overwriting");
+    }
+    last;
+  }
+}
+close(C);
 
 while ($count <= $#ARGV)
 {
@@ -320,6 +336,7 @@ sub alfOut
   if (($lastStr !~ /=/) && ($foundAny)) { die "flip.txt is corrupt, bailing sorting routine. This probably means you need ====Found word(2/1) at the end\n"; }
   if ($cur =~ /[a-z]/i) { push(@bigAry, $cur); }
   #for (@bigAry) { my $x = $_; $x =~ s/\n.*//g; print "$x: " . crs($_) . "\n"; }
+
   print B sort { crs($a) <=> crs($b) } @bigAry;
   close(A);
   close(B);

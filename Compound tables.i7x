@@ -106,6 +106,7 @@ banter
 "Uncle Dutch mentions he's not trying to scare people, but if they are scared, that's his problem. All the same, he mentions one truly scary person he had to deal with the other week."
 "Uncle Dutch takes a moment to commend Turk Young's youthful enthusiasm, with which Turk Young takes a moment to commend Uncle Dutch's wisdom."
 "Uncle Dutch mentions things you'd better learn unless you're stupid. Turk Young mentions things you'd better already know if you're smart."
+"Turk mentions 'We've got facts, but we also have to [activation of show our work]WORK OUR SHOW.'"
 "'Should I rant about that?' asks Uncle Dutch. '[activation of cry uncle]Uncle, CRY!' says Turk Young."
 "'A voice says, [activation of dutch act]ACT, DUTCH, even though I might kill myself helping people...'"
 "'Some attendees claim our encouraging lectures are just fluff. That they are only about getting ahead in the world,' says Uncle Dutch. 'I've had teachers like that,' says Turk Young. 'They never tried more exciting encouragement themselves. But they still had to give me A's. And they're still...teachers.'"
@@ -276,6 +277,7 @@ macho-boast
 "The [j-co] have to admit [activation of melodious]Odious Mel sure can sing!"
 "The [j-co] wonder if they should [activation of mike drop]drop Mike from their extended gang, starting a big argument."
 "The [j-co] harbor fantasies of [activation of mollycoddling]coddling, err, cuddling Molly, who is maybe not as wild as they pretend she is."
+"The [j-co] agree [activation of Monte Carlo]Carlo Monty doesn't like leaving things to chance or doing the same thing over and over again."
 "The [j-co] [activation of nihilist]list Neil among people with a real purpose."
 "The [j-co] despair that [activation of nose candy]Candi knows too little about how to party."
 "The [j-co] chuckle at the irreverence of the [activation of notre dame]Dame Noter."
@@ -297,12 +299,14 @@ macho-boast
 "The [j-co] disagree on whether [activation of sharp barb]Barb Sharpe would be worth putting up with her lame gossip."
 "The [j-co] take a minute to [activation of shock jock]jock shock in general. It's very disturbing, but you can't put your finger on why."
 "The [j-co] act disgusted at the food they [activation of spotted dick]Dick spotted someone eating. Eat a cheeseburger, dude."
+"The [j-co] wish [activation of hidey hole]Whole Heidi would be less outgoing about her prudishness."
 "The [j-co] deride [activation of Sweeney Todd]Todd Sweeney for his fear of horror movies."
 "The [j-co] mock [activation of sympathetic]Pathetic Sim for listening to girls whine about their breakups without getting their phone numbers."
 "The [j-co] start a [activation of tallywhacker]wacker tally of guys very likely to have no experience with women."
 "The [j-co] claim learning WAY too much about computers will come back to [activation of terabyte]bite Tara."
 "The [j-co] stage-whisper that [activation of teriyaki]Yacky Terri's conversation is neither spicy nor meaty."
 "The [j-co] [activation of terrapin]pin Tera as someone who needs to come out of her shell and live faster."
+"The [j-co] wonder which brand of [activation of water sports]Sports Water gives you the most, uh, prowess."
 "The [j-co] laugh at [activation of whistler's mother]mother whistlers who find true beauty in older females, like, over thirty." [todo: slowin' homer]
 "The [j-co] agree Erwin is just a total loser name." [na]
 "The [j-co] argue pointlessly over if a girl is pretty plain or plain pretty." [na]
