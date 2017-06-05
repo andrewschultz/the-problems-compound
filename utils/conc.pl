@@ -14,6 +14,8 @@
 #todo: define a default outside of "my @dirs" below in conc-aux.txt
 #todo: also have spare file organize things better to ditch hard coded arrays
 
+#todo: warning if we switch, say, brother foster to foster brother
+
 #todo: [start of room x] 2 lines in a row
 
 use strict;
@@ -95,6 +97,8 @@ my %regionIndex;
 my %conceptIndex;
 my %concToRoom;
 my %concTableLine;
+
+my %extraLines;
 
 $tableDetHash{"Compound"} = "xxjmt,xxbgw";
 $tableDetHash{"Buck-the-Past"} = "!xxtia";
@@ -510,19 +514,21 @@ for my $x (sort keys %any)
 	open(A, "$fi") || die ("Uh oh no story");
 	open(B, ">$fi.2") || die ("Uh oh can't write");
 	binmode(B);
-	my $extraLines = 0;
+	my $xlines = 0;
 	while ($a = <A>)
 	{
 	  if (exists $addAfter{$.})
 	  {
 	  print B $addAfter{$.};
-	  printf("Inserted text at line %d\n", $. + $extraLines);
-	  $extraLines += (() = $addAfter{$.} =~ /\n/g);
+	  printf("Inserted text at line %d\n", $. + $xlines);
+	  $xlines += (() = $addAfter{$.} =~ /\n/g);
 	  }
 	  print B $a;
 	}
 	close(A);
 	close(B);
+	$extraLines{$fi} = $xlines;
+	print "$_[0] -> $xlines\n";
 	if ($dontCopySourceBack)
 	{
 	  die();
@@ -552,7 +558,8 @@ sub printGlobalResults
 	for my $thisFile (keys %fileLineErr)
 	{
 	if (!defined($fileLineErr{$thisFile}) || ($fileLineErr{$thisFile} !~ /[0-9]/)) { print "Maybe an error: $thisFile has a non numerical launch line.\n"; next; }
-    my $cmd = "$np \"$thisFile\" -n$fileLineErr{$thisFile}";
+	print "$fileLineErr{$thisFile} + $extraLines{$thisFile} = " . ($fileLineErr{$thisFile} + $extraLines{$thisFile}) . "\n";
+    my $cmd = "$np \"$thisFile\" -n" . ($fileLineErr{$thisFile} + $extraLines{$thisFile});
 	print "Running $cmd\n";
 	`$cmd`;
 	}
@@ -561,7 +568,7 @@ sub printGlobalResults
 	for my $thisFile (keys %minorErrs)
 	{
 	if (defined($fileLineErr{$thisFile})) { next; }
-    my $cmd = "$np \"$thisFile\" -n$minorErrs{$thisFile}";
+    my $cmd = "$np \"$thisFile\" -n" . ($minorErrs{$thisFile} + $extraLines{$thisFile});
 	`$cmd`;
 	}
     }
@@ -1482,13 +1489,34 @@ sub concDefCheck
   my @gtxtErrs = ();
   my $line;
   my $inConcept;
+  my $newRoom = "";
 
   my @toRead = @{$fileHash{$_[0]}};
 
   open(A, $toRead[0]) || die ("Can't open $toRead[0]");
   while ($line = <A>)
   {
-    if ($line =~ /\[activation of [^\]]*?\][a-z]/i) { print "WARNING $. has activation text that may need deletion\n"; }
+    if ($line =~ /^part /) { $newRoom = $line; chomp($newRoom); $newRoom =~ s/^part //; }
+    if ($line =~ /\[activation of [^\]]*?\][a-z]/i)
+	{
+	  if ($newRoom) { print "New room $newRoom\n"; }
+      print "($.) ";
+	  $newRoom = "";
+	  my $templine2 = $line;
+	  chomp($templine2);
+	  while ($templine2 =~ /\[activation of/o)
+	  {
+	    $templine2 =~ s/.*?\[activation of //o;
+		my $templine3 = $templine2;
+		$templine3 =~ s/\].*//;
+		my $templine4 = $templine2;
+		$templine4 =~ s/^[^\]]*\]//;
+		$templine4 =~ s/[\.\?!].*//;
+		$templine4 =~ s/\[activation of.*//;
+		print "$templine3 -> gtxt is \"$templine4\".\n";
+	  }
+	  #print "WARNING $. has activation text that may need deletion\n";
+    }
     if ($line =~ /xxcv/) { $inConcept = 1; next; }
 	if ($line =~ /(^volume|\[end concepts\])/) { $inConcept = 0; next; }
 	if ($inConcept && $line =~ /concept.in/)
@@ -1515,9 +1543,9 @@ sub concDefCheck
   }
   if ($printTest)
   {
-    printf("TEST RESULTS: howto-$_[0],0,%d,0,%s\n", scalar @howToErrs, join(", ", @howToErrs));
-    printf("TEST RESULTS: understand-$_[0],0,%d,0,%s\n", scalar @understandErrs, join(", ", @understandErrs));
-    printf("TEST RESULTS: gtxt-$_[0],0,%d,0,%s\n", scalar @gtxtErrs, join(", ", @gtxtErrs));
+    printf("TEST RESULTS: howto-$_[0],0,%d,0,%s\n", scalar @howToErrs, join(" / ", @howToErrs));
+    printf("TEST RESULTS: understand-$_[0],0,%d,0,%s\n", scalar @understandErrs, join(" / ", @understandErrs));
+    printf("TEST RESULTS: gtxt-$_[0],0,%d,0,%s\n", scalar @gtxtErrs, join(" / ", @gtxtErrs));
   }
 }
 
