@@ -1065,7 +1065,6 @@ sub findExplLine
   close(B);
   }
 
-
   if (!$actRoom)
   {#print "$_[0] FAILED / $defaultToGeneral / $. / $_[2] / $curRoom\n";
     return ("(failed)", "????");
@@ -1489,10 +1488,14 @@ sub concDefCheck
   open(A, $toRead[0]) || die ("Can't open $toRead[0]");
   while ($line = <A>)
   {
+    if ($line =~ /\[activation of [^\]]*?\][a-z]/i) { print "WARNING $. has activation text that may need deletion\n"; }
     if ($line =~ /xxcv/) { $inConcept = 1; next; }
 	if ($line =~ /(^volume|\[end concepts\])/) { $inConcept = 0; next; }
 	if ($inConcept && $line =~ /concept.in/)
 	{
+	  my $lineTemp = $line;
+	  $lineTemp =~ s/ *\[[^\[]*?\]$//;
+	  if ($lineTemp !~ /\.$/) { print "TRIVIA: line $. does not end in a period.\n"; }
 	  if ($line !~ /howto is/i)
 	  {
 	    if (!$printTest) { print "Missing howto line $.\n"; }

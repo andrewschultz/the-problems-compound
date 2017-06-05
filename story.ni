@@ -1045,7 +1045,7 @@ check dropping face of loss:
 	say "You're frowning enough, probably, why make it worse?" instead;
 
 check dropping smokable:
-	say "[activation of roach dropping]Dropping a roach[r] would be really, really unsanitary here." instead; [temproom pot chamber]
+	say "[activation of roach dropping] would be really, really unsanitary here." instead; [temproom pot chamber]
 
 check dropping bad face:
 	say "You wonder if you should drop the act, but--it may not be a total act any more." instead;
@@ -1231,7 +1231,7 @@ instead of thinking:
 	if think-score is false:
 		say "NOTE: THINK will redirect to SCORE in the future, unless you really only have one specific task remaining.[paragraph break]";
 		now think-score is true;
-	say "[one of]You take a [activation of second thought]thought-second[r]. Then you take another, but you reflect it wasn't as good. OR WAS IT? So you just[or]You[stopping] think about what you've accomplished...";
+	say "[one of]You take a [activation of second thought]. Then you take another, but you reflect it wasn't as good. OR WAS IT? So you just[or]You[stopping] think about what you've accomplished...";
 	try requesting the score instead;
 
 pot-not-weed is a truth state that varies.
@@ -1243,7 +1243,7 @@ the block waving hands rule is not listed in any rulebook.
 understand the command "wave [something]" as something new.
 
 carry out waving hands:
-	say "You [activation of wave a flag]flag a wave[r] as ineffective--yours never achieved the gravitas others['] seemed to have.";
+	say "You [activation of wave a flag] as ineffective--yours never achieved the gravitas others['] seemed to have.";
 	the rule succeeds;
 
 chapter swearing
@@ -1304,7 +1304,7 @@ carry out do-swearing:
 		if thoughts idol is in idiot village:
 			say "Before you can say it, or think it too long, the Thoughts Idol shakes its head at you." instead;
 	if player is in freak control:
-		say "That gets the [bad-guy]'s attention. 'DUDE!' he says. 'REALLY, dude! Some respect for authority? I mean, don't respect stupid authority but I *** need to *** concentrate, here. My job's not *** easy and anyone who just swears frivolously to grab attention--well, they don't GET IT, y'know? Besides, you sounded lame when you said that.' As you're pulled away by guards you hadn't seen before, the '[activation of freak out]OUT, FREAK[r]' sign catches your eye. Perhaps there was another way to annoy him, without letting him be so self-righteous."; [temproom freak control]
+		say "That gets the [bad-guy]'s attention. 'DUDE!' he says. 'REALLY, dude! Some respect for authority? I mean, don't respect stupid authority but I *** need to *** concentrate, here. My job's not *** easy and anyone who just swears frivolously to grab attention--well, they don't GET IT, y'know? Besides, you sounded lame when you said that.' As you're pulled away by guards you hadn't seen before, the '[activation of freak out]' sign catches your eye. Perhaps there was another way to annoy him, without letting him be so self-righteous."; [temproom freak control]
 		ship-off in-dignity heap instead;
 	if mrlp is endings:
 		say "Don't give up! You're so close!" instead;
@@ -1503,7 +1503,7 @@ check smelling (this is the smelling a thing rule):
 	if noun is the player:
 		say "That never works. People who smell bad are used to their own smells, but if you're caught sniffing yourself, whew." instead;
 	if noun is a client:
-		say "[one of]You can't quite catch it--wait--[activation of liverwurst]liverwurst. But of course[or]Liverwurst, still[stopping][if condition mint is not in lalaland]. Boy, you always need a pill or something after eating that[end if]." instead; [temproom nominal fen]
+		say "[one of]You can't quite catch it--wait--[activation of liverwurst]. But of course[or]Liverwurst, still[stopping][if condition mint is not in lalaland]. Boy, you always need a pill or something after eating that[end if]." instead; [temproom nominal fen]
 	if noun is poor dirt:
 		say "The dirt doesn't smell of anything much." instead;
 	if noun is poetic wax:
@@ -6066,7 +6066,7 @@ instead of doing something with the absence of leaves:
 the poor dirt is scenery in Variety Garden. "[bug]"
 
 to say taste-poor:
-	say "It would [activation of poor taste]taste poor enough to make you [if allow-swears is false]think[else]say[end if] a rude word"
+	say "It would [activation of poor taste] enough to make you [if allow-swears is false]think[else]say[end if] a rude word"
 
 instead of doing something with poor dirt:
 	if the current action is eating:
@@ -11002,7 +11002,7 @@ to go-back-home:
 	see-if-show-terminal;
 	if bros-left > 0:
 		d "[b]Uh oh. A test to clear the brothers from questions field may not have worked. [list of people in questions field] remain. Please check.[r]";
-	end the story finally saying "[activation of received wisdom]Wisdom Received!"; [temproom endgame]
+	end the story finally saying "[activation of received wisdom]!"; [temproom endgame]
 	the rule succeeds;
 
 to see-if-show-terminal:
@@ -11051,7 +11051,7 @@ Fight Fair is a room in Bad Ends. "The [bad-guy] watches down from a video scree
 
 part Hut Ten
 
-Hut Ten is a room in Bad Ends. "Here you spend time in pointless military marches next to people who might be your friends in kinder environs. Apparently you're being trained for some sort of strike on [bad-guy-2]'s base, whoever he is. As time goes on, more recruits come in. You do well enough to boss a few around. But people above you, especially the [activation of generalist]List General who knows everyone's trivial faults, remind you that's still not good ENOUGH."
+Hut Ten is a room in Bad Ends. "Here you spend time in pointless military marches next to people who might be your friends in kinder environs. Apparently you're being trained for some sort of strike on [bad-guy-2]'s base, whoever he is. As time goes on, more recruits come in. You do well enough to boss a few around. But people above you, especially the [activation of generalist] who knows everyone's trivial faults, remind you that's still not good ENOUGH."
 
 part In-Dignity Heap
 
@@ -12027,9 +12027,9 @@ Rule for printing a parser error when the latest parser error is the i beg your 
 	if p-c is true:
 		try waiting instead;
 	if qbc_litany is table of no conversation:
-		say "[activation of turn of phrase]I'll need a phrase of turn here.";
+		say "I'll need a [activation of turn of phrase] here.";
 	else:
-		say "[activation of break silence]Silence break?";
+		say "[activation of break silence]?";
 	the rule succeeds;
 
 Rule for printing a parser error when the latest parser error is the can't see any such thing error:
@@ -12117,7 +12117,7 @@ Advance Notice is a concept in conceptville. Understand "notice advance" as Adva
 
 Beaten Track is a concept in conceptville. Understand "track beaten" as Beaten Track. howto is "solve the [j-co] puzzle for the first time".
 
-break silence is a concept in conceptville. Understand "silence break" as break silence. howto is "give no command when you are in a conversation".
+break silence is a concept in conceptville. Understand "silence break" as break silence. howto is "give no command when you are in a conversation". gtxt is "Silence break".
 
 Captain Obvious is a concept in conceptville. Understand "obvious captain" as captain obvious. howto is "xyzzy".
 
@@ -12141,7 +12141,7 @@ Passing Fancy is a concept in conceptville. Understand "fancy passing" as Passin
 
 poke fun is a concept in conceptville. Understand "fun poke" as poke fun. howto is "touch someone, or try".
 
-second thought is a concept in conceptville. Understand "thought second" as second thought. howto is "THINK early on".
+second thought is a concept in conceptville. Understand "thought second" as second thought. howto is "THINK early on". gtxt is "thought second".
 
 Sitting Duck is a concept in conceptville. Understand "duck sitting" as Sitting Duck. howto is "get to Tension Surface".
 
@@ -12149,13 +12149,13 @@ Spelling Disaster is a concept in conceptville. Understand "disaster spelling" a
 
 touch base is a concept in conceptville. Understand "base touch" as touch base. howto is "touch someone, or try".
 
-turn of phrase is a concept in conceptville. Understand "phrase of turn" as turn of phrase. howto is "empty command".
+turn of phrase is a concept in conceptville. Understand "phrase of turn" as turn of phrase. howto is "empty command". gtxt is "phrase of turn".
 
 a u-turn is a concept in conceptville. Understand "u turn" as u-turn. howto is "turn an inanimate object".
 
-wait your turn is a concept in conceptville. Understand "turn your wait" as wait your turn. howto is "wait". gtxt is "Turn your wait"
+wait your turn is a concept in conceptville. Understand "turn your wait" as wait your turn. howto is "wait". gtxt is "Turn your wait".
 
-wave a flag is a concept in conceptville. Understand "flag a wave" as wave a flag. howto is "wave".
+wave a flag is a concept in conceptville. Understand "flag a wave" as wave a flag. howto is "wave". gtxt is "flag a wave".
 
 section smart street concepts
 
@@ -12197,7 +12197,7 @@ dirt nap is a concept in conceptville. Understand "nap dirt" as dirt nap. howto 
 
 man enough is a concept in conceptville. Understand "enough man" as man enough. howto is "dig twice with the pick in Variety Garden".
 
-poor taste is a concept in conceptville. Understand "taste poor" as poor taste. howto is "try to eat the poor dirt."
+poor taste is a concept in conceptville. Understand "taste poor" as poor taste. howto is "try to eat the poor dirt.". gtxt is "taste poor".
 
 sagebrush is a concept in conceptville. Understand "brush sage" and "sage brush" as sagebrush. howto is "examine all three types of brush in Variety Garden and try going up too".
 
@@ -12229,7 +12229,7 @@ apple pie order is a concept in conceptville. Understand "apple-pie order" and "
 
 arch deluxe is a concept in conceptville. Understand "deluxe arch" as arch deluxe. howto is "[nogo of Meal Square]".
 
-astray is a concept in conceptville. understand "tray s" and "s tray" as astray. howto is "enter Meal Square". gtxt is "Tray S"
+astray is a concept in conceptville. understand "tray s" and "s tray" as astray. howto is "enter Meal Square". gtxt is "Tray S".
 
 bowled over is a concept in conceptville. understand "over bold" and "bold over" as bowled over. howto is "eat any Tray B food".
 
@@ -12237,7 +12237,7 @@ defeat is a concept in conceptville. Understand "eat def" and "def eat" as defea
 
 devil's food is a concept in conceptville. Understand "food devil's" as devil's food. howto is "eat the gagging lolly".
 
-ex-tray is a concept in conceptville. understand "x/ex tray" and "tray x/ex" as ex-tray. howto is "enter Meal Square". gtxt is "Tray X"
+ex-tray is a concept in conceptville. understand "x/ex tray" and "tray x/ex" as ex-tray. howto is "enter Meal Square". gtxt is "Tray X".
 
 face off is a concept in conceptville. understand "off face" as face off. howto is "take inventory after eating Tray B food".
 
@@ -12249,7 +12249,7 @@ house special is a concept in conceptville. Understand "special house" as house 
 
 just deserts is a concept in conceptville. Understand "deserts just" as just deserts. howto is "try to eat the cookie or brownie after eating the cheese".
 
-Loaf Around is a concept in conceptville. Understand "a round loaf" as loaf around. howto is "wait in Meal Square". gtxt is "a round loaf"
+Loaf Around is a concept in conceptville. Understand "a round loaf" as loaf around. howto is "wait in Meal Square". gtxt is "a round loaf".
 
 pig out is a concept in conceptville. Understand "out pig" as pig out. howto is "TAKE ALL in Meal Square".
 
@@ -12267,7 +12267,7 @@ Spur of the Moment is a concept in conceptville. Understand "moment of the spur"
 
 strike a balance is a concept in conceptville. understand "balance a strike" as strike a balance. howto is "try to take Tray A or Tray B". gtxt is "balance a strike".
 
-tea tray is a concept in conceptville. understand "tray t/tea" and "t tray" as tea tray. howto is "enter Meal Square". gtxt is "Tray T"
+tea tray is a concept in conceptville. understand "tray t/tea" and "t tray" as tea tray. howto is "enter Meal Square". gtxt is "Tray T".
 
 a thing called Thought for Food is a concept in conceptville. Understand "food for thought" as thought for food. howto is "visit Meal Square with Terry Sally around".
 
@@ -12320,7 +12320,7 @@ bullfrog is a concept in conceptville. Understand "frog bull" and "bull frog" as
 
 case a joint is a concept in conceptville. Understand "joint a case" as case a joint. howto is "get ticket for exploring the stickweed".
 
-do dope is a concept in conceptville. Understand "dope do" as do dope. howto is "wait in Joint Strip". gtxt is "DOPE, DO"
+do dope is a concept in conceptville. Understand "dope do" as do dope. howto is "wait in Joint Strip". gtxt is "DOPE, DO".
 
 killer weed is a concept in conceptville. Understand "weed killer" as killer weed. howto is "smell in the Joint Strip".
 
@@ -12361,17 +12361,17 @@ Punch Sucker is a concept in conceptville. Understand "punch sucker" as punch su
 
 punch ticket is a concept in conceptville. Understand "ticket punch" as punch ticket. howto is "[ask-ally]".
 
-rum go is a concept in conceptville. understand "go rum" as rum go. howto is "ask Ally Stout about drinks". gtxt is "Go Rum"
+rum go is a concept in conceptville. understand "go rum" as rum go. howto is "ask Ally Stout about drinks". gtxt is "Go Rum".
 
 speakeasy is a concept in conceptville. Understand "easy speak" and "speak easy" as speakeasy. howto is "ask Ally Stout about the [bad-guy]".
 
 striptease is a concept in conceptville. Understand "strip teas" and "teas strip" as striptease. howto is "talk to Ally Stout and say good-bye".
 
-tea party is a concept in conceptville. understand "party t/tea" and "t party" as tea party. howto is "visit the Soda Club". gtxt is "Party T"
+tea party is a concept in conceptville. understand "party t/tea" and "t party" as tea party. howto is "visit the Soda Club". gtxt is "Party T".
 
-teetotal is a concept in conceptville. understand "total t" and "t total" as teetotal. howto is "visit the Soda Club". gtxt is "Total T"
+teetotal is a concept in conceptville. understand "total t" and "t total" as teetotal. howto is "visit the Soda Club". gtxt is "Total T".
 
-Wine-U-Gen is a concept in conceptville. Understand "gen u wine" and "wine u gen" as Wine-U-Gen. howto is "order the Cooler Wine"
+Wine-U-Gen is a concept in conceptville. Understand "gen u wine" and "wine u gen" as Wine-U-Gen. howto is "order the Cooler Wine".
 
 chapter main chunk concepts [left to right, then below]
 
@@ -12496,7 +12496,7 @@ a thing called Laverne and Shirley is a concept in conceptville. Understand "shi
 
 lily liver is a concept in conceptville. Understand "liver lily" as lily liver. howto is "[j-blab]".
 
-Liverwurst is a concept in conceptville. Understand "wurst/worst liver" and "liver wurst/worst" and "worstliver/wurstliver" as liverwurst. howto is "smell any of the [j-co], or SMELL in the [jc]"
+Liverwurst is a concept in conceptville. Understand "wurst/worst liver" and "liver wurst/worst" and "worstliver/wurstliver" as liverwurst. howto is "smell any of the [j-co], or SMELL in the [jc]". gtxt is "liverwurst".
 
 Lovelies is a concept in conceptville. Understand "lies love" and "love lies" as Lovelies. howto is "listen to all the [j-co] have to say, with swearing on".
 
@@ -12754,7 +12754,7 @@ kilo is a concept in conceptville. Understand "loki" and "ki lo" and "lo ki" as 
 
 pop pills is a concept in conceptville. Understand "pills pop" as pop pills. howto is "ask Pusher Penn about the [bad-guy]".
 
-roach dropping is a concept in conceptville. Understand "dropping roach" as roach dropping. howto is "drop the weed or pot".
+roach dropping is a concept in conceptville. Understand "dropping roach" as roach dropping. howto is "drop the weed or pot". gtxt is "dropping a roach".
 
 weed out is a concept in conceptville. Understand "out weed" as weed out. howto is "take Pusher Penn's wacker weed".
 
@@ -12871,7 +12871,7 @@ fatigue duty is a concept in conceptville. Understand "duty fatigue" as fatigue 
 
 fawn over is a concept in conceptville. Understand "over fawn" as fawn over. howto is "[fr-ran]".
 
-Freak Out is a concept in conceptville. Understand "out freak" as freak out. howto is "read the Language sign".
+Freak Out is a concept in conceptville. Understand "out freak" as freak out. howto is "read the Language sign". gtxt is "OUT, FREAK".
 
 gravy train is a concept in conceptville. Understand "train gravy" as gravy train. howto is "[fr-pb]".
 
@@ -12999,7 +12999,7 @@ section Hut Ten concepts
 
 corporal punishment is a concept in conceptville. Understand "punishment corporal" as corporal punishment. howto is "vandalize scenery/games before Freak Control".
 
-generalist is a concept in conceptville. Understand "general list" and "list general" as generalist. howto is "[f-t of hut ten]".
+generalist is a concept in conceptville. Understand "general list" and "list general" as generalist. howto is "[f-t of hut ten]". gtxt is "List General".
 
 section In-Dignity Heap concepts
 
@@ -13044,7 +13044,7 @@ Much Flatter is a concept in conceptville. Understand "flatter much" as Much Fla
 
 People Power is a concept in conceptville. Understand "power people" as People Power. howto is "eat the greater cheese and 'win'".
 
-Received Wisdom is a concept in conceptville. Understand "wisdom received" as received wisdom. howto is "get past Freak Control and get either good ending".
+Received Wisdom is a concept in conceptville. Understand "wisdom received" as received wisdom. howto is "get past Freak Control and get either good ending". gtxt is "Wisdom Received".
 
 Something Mean is a concept in conceptville. Understand "mean something" as Something Mean. howto is "eat the cutter cookie and 'win'".
 
