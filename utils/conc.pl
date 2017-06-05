@@ -66,6 +66,7 @@ my $roomToFile = 0;
 my $launchRoomFile = 0;
 my $launchRoomFileWindowsNP = 0;
 my $outputRoomFile = 0;
+my $concDefCheck = 0;
 
 #############################
 #hashes
@@ -158,6 +159,7 @@ while ($count <= $#ARGV)
     /^-?ng$/ && do { $defaultToGeneral = 0; $count++; next; };
     /^-?dg$/ && do { $defaultToGeneral = 1; $count++; next; };
     /^-?rc(v)?$/ && do { $roomConcCompare = 1; $rcVerbose = ($a =~ /v/); $count++; next; };
+    /^-?cdef?$/ && do { $concDefCheck = 1; $count++; next; };
     /^-?ac[0-9]*$/ && do
 	{
 	  $activationCheck = 1;
@@ -216,6 +218,7 @@ for my $thisProj (@dirs)
   if ($detailAlpha) { checkTableDetail($thisProj); }
   if ($roomConcCompare) { compareRoomIndex($thisProj); }
   if ($activationCheck) { checkUnmatchedActivations($thisProj); }
+  if ($concDefCheck) { concDefCheck($thisProj); }
 }
 
 printGlobalResults();
@@ -1417,6 +1420,8 @@ sub compareRoomIndex
   }
 }
 
+###############################below is deprecated since "activation" now italicizes if ITAL is on
+
 sub checkUnmatchedActivations
 {
   my @toRead = @{$fileHash{$_[0]}};
@@ -1467,6 +1472,50 @@ sub unmatchedActivations
     if ($btwnAct[$_] !~ /\[r\]/) { $forgotFormat++; }
   }
   return $forgotFormat;
+}
+
+###############################above is deprecated since "activation" now italicizes if ITAL is on
+
+sub concDefCheck
+{
+  my @howToErrs = ();
+  my @understandErrs = ();
+  my @gtxtErrs = ();
+  my $line;
+  my $inConcept;
+
+  my @toRead = @{$fileHash{$_[0]}};
+
+  open(A, $toRead[0]) || die ("Can't open $toRead[0]");
+  while ($line = <A>)
+  {
+    if ($line =~ /xxcv/) { $inConcept = 1; next; }
+	if ($line =~ /(^volume|\[end concepts\])/) { $inConcept = 0; next; }
+	if ($inConcept && $line =~ /concept.in/)
+	{
+	  if ($line !~ /howto is/i)
+	  {
+	    if (!$printTest) { print "Missing howto line $.\n"; }
+		push(@howToErrs, $.);
+	  }
+	  if ($line !~ /understand/i)
+	  {
+	    if (!$printTest) { print "Missing understand line $.\n"; }
+		push(@understandErrs, $.);
+	  }
+	  if ($line !~ /gtxt is/i)
+	  {
+	    if (!$printTest) { print "Missing gtxt line $.\n"; }
+		push(@gtxtErrs, $.);
+	  }
+	}
+  }
+  if ($printTest)
+  {
+    printf("TEST RESULTS: howto-$_[0],0,%d,0,%s\n", scalar @howToErrs, join(", ", @howToErrs));
+    printf("TEST RESULTS: understand-$_[0],0,%d,0,%s\n", scalar @understandErrs, join(", ", @understandErrs));
+    printf("TEST RESULTS: gtxt-$_[0],0,%d,0,%s\n", scalar @gtxtErrs, join(", ", @gtxtErrs));
+  }
 }
 
 sub roomToFile
