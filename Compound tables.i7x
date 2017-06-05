@@ -258,6 +258,7 @@ macho-boast
 "The [j-co] wish [activation of hidey hole]Whole Heidi would be less outgoing about her prudishness."
 "The[j-co] bemoan [activation of high fidelity]Fidelity High's ban on catchy music that distracts from learning, with extra punishment for trenchcoats and boomboxes."
 "The [j-co] formulate a [activation of hittite]'tight' hit (must be some new slang) on the Bible's legitimacy."
+"The [j-co] recount ways of [activation of homer winslow] from painting something else stupid and ordinary."
 "The [j-co] hope [activation of howard stern]stern Howard doesn't come by to moralize again."
 "The [j-co] laugh at how [activation of humphrey davy]Davey Humphrey beats up and makes fun of science nerds."
 "The [j-co] ooh and ahh at [activation of jack london]London Jack's stories of suave city life."
