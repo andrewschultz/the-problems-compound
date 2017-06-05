@@ -297,6 +297,7 @@ macho-boast
 "The [j-co] agree [activation of Ralph Lauren]Lauren Ralph would actually be really attractive with any fashion sense at all."
 "The [j-co] recount how [activation of rectally]Ally wrecked some kid's supposititious argument."
 "The [j-co] wonder what the heck [activation of rosetta]Etta Rose babbles about."
+"The [j-co] [activation of rusty nail]nail Rusty as someone you'd better not step on."
 "The [j-co] disagree on whether [activation of sharp barb]Barb Sharpe would be worth putting up with her lame gossip."
 "The [j-co] take a minute to [activation of shock jock]jock shock in general. It's very disturbing, but you can't put your finger on why."
 "The [j-co] act disgusted at the food they [activation of spotted dick]Dick spotted someone eating. Eat a cheeseburger, dude."
