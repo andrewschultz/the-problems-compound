@@ -1424,12 +1424,15 @@ sub checkUnmatchedActivations
   OUTER:
   for my $fi (@toRead)
   {
+    my $thisRun = 0;
     open(A, $fi);
     while ($a = <A>)
 	{
 	  if ($a =~ /\[activation of/i)
 	  {
 	    my $temp = unmatchedActivations($a);
+		if ($temp)
+		{
 		$totalBadAct += $temp;
 	    unless($openLowestLine && defined($minorErrs{$fi}) && ($minorErrs{$fi} < $.))
 		{
@@ -1442,9 +1445,14 @@ sub checkUnmatchedActivations
 		  close(A);
 		  last OUTER;
 		}
+		}
 	  }
 	}
 	close(A);
+  }
+  if ($totalBadAct)
+  {
+    print "$totalBadAct unmatched activations: " . join(", ", @badActLineAry) . "\n";
   }
 }
 

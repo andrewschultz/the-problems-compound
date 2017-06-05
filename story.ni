@@ -783,19 +783,6 @@ to decide what region is imr of (x - a thing):
 to decide what region is mrlp:
 	decide on map region of location of player.
 
-section formatting
-
-[ * standard i, r and b]
-
-to say r:
-	say "[roman type]";
-
-to say b:
-	say "[bold type]";
-
-to say i:
-	say "[italic type]";
-
 volume about the player
 
 Alec Smart is a person. the player is Alec Smart.
@@ -860,7 +847,7 @@ before cutting:
 		say "You don't have any sharp objects, and cutting someone down verbally is out." instead;
 	if noun is scenery and player is in freak control:
 		try attacking noun instead;
-	say "You have nothing with which to [activation of cut a deal]deal a cut." instead;
+	say "You have nothing with which to [activation of cut a deal]deal a cut[r]." instead;
 
 chapter throwing at
 
@@ -1001,14 +988,14 @@ check waiting (this is the caught napping rule):
 	if player is in down ground and slept-through is false:
 		say "[one of]You attempt to loiter in this seedy area in order to get in trouble or something, but no dice.[or]Still, nobody comes to break up your loitering.[or]You reflect if you want to get zapped for loitering, maybe you need to do better than just hang around.[or]Hm, you wonder what is even lazier than standing around.[stopping]" instead;
 	if player is in Meal Square:
-		say "You wait, but [activation of loaf around]a round loaf fails to appear." instead; [temproom meal square]
+		say "You wait, but [activation of loaf around]a round loaf[r] fails to appear." instead; [temproom meal square]
 	if player is in Joint Strip:
-		say "With the Stool Toad around, you fear a booming [activation of do dope]DOPE, DO!" instead; [temproom joint strip]
+		say "With the Stool Toad around, you fear a booming [activation of do dope]DOPE, DO[r]!" instead; [temproom joint strip]
 	if player is in Soda Club:
 		say "Er, be." instead;
 	if player is in airy station:
 		say "The mentality crowd cheers some more! They're glad you don't want to leave right away, and they know you'll figure what to do with the hammer, eventually." instead;
-	say "[activation of wait your turn]Turn your wait." instead;
+	say "[activation of wait your turn]Turn your wait[r]." instead;
 
 every turn when player is in tense past and tense present is not visited:
 	say "Torpor. You can't do much besides LOOK or WAIT or THINK.";
@@ -1035,7 +1022,7 @@ the block burning rule is not listed in any rulebook.
 
 check burning:
 	if player is in judgment pass:
-		say "You have no matches with which to, err, [activation of pass the torch]torch the pass. Ha ha." instead; [temproom judgment pass]
+		say "You have no matches with which to, err, [activation of pass the torch]torch the pass[r]. Ha ha." instead; [temproom judgment pass]
 	if noun is poory pot:
 		say "You don't have any matches. Or guts to try even the mild stuff." instead;
 	if noun is wacker weed:
@@ -1057,7 +1044,7 @@ check dropping face of loss:
 	say "You're frowning enough, probably, why make it worse?" instead;
 
 check dropping smokable:
-	say "[activation of roach dropping]Dropping a roach would be really, really unsanitary here." instead; [temproom pot chamber]
+	say "[activation of roach dropping]Dropping a roach[r] would be really, really unsanitary here." instead; [temproom pot chamber]
 
 check dropping bad face:
 	say "You wonder if you should drop the act, but--it may not be a total act any more." instead;
@@ -1243,7 +1230,7 @@ instead of thinking:
 	if think-score is false:
 		say "NOTE: THINK will redirect to SCORE in the future, unless you really only have one specific task remaining.[paragraph break]";
 		now think-score is true;
-	say "[one of]You take a [activation of second thought]thought-second. Then you take another, but you reflect it wasn't as good. OR WAS IT? So you just[or]You[stopping] think about what you've accomplished...";
+	say "[one of]You take a [activation of second thought]thought-second[r]. Then you take another, but you reflect it wasn't as good. OR WAS IT? So you just[or]You[stopping] think about what you've accomplished...";
 	try requesting the score instead;
 
 pot-not-weed is a truth state that varies.
@@ -1255,7 +1242,7 @@ the block waving hands rule is not listed in any rulebook.
 understand the command "wave [something]" as something new.
 
 carry out waving hands:
-	say "You [activation of wave a flag]flag a wave as ineffective--yours never achieved the gravitas others['] seemed to have.";
+	say "You [activation of wave a flag]flag a wave[r] as ineffective--yours never achieved the gravitas others['] seemed to have.";
 	the rule succeeds;
 
 chapter swearing
@@ -1316,7 +1303,7 @@ carry out do-swearing:
 		if thoughts idol is in idiot village:
 			say "Before you can say it, or think it too long, the Thoughts Idol shakes its head at you." instead;
 	if player is in freak control:
-		say "That gets the [bad-guy]'s attention. 'DUDE!' he says. 'REALLY, dude! Some respect for authority? I mean, don't respect stupid authority but I *** need to *** concentrate, here. My job's not *** easy and anyone who just swears frivolously to grab attention--well, they don't GET IT, y'know? Besides, you sounded lame when you said that.' As you're pulled away by guards you hadn't seen before, the '[activation of freak out]OUT, FREAK' sign catches your eye. Perhaps there was another way to annoy him, without letting him be so self-righteous."; [temproom freak control]
+		say "That gets the [bad-guy]'s attention. 'DUDE!' he says. 'REALLY, dude! Some respect for authority? I mean, don't respect stupid authority but I *** need to *** concentrate, here. My job's not *** easy and anyone who just swears frivolously to grab attention--well, they don't GET IT, y'know? Besides, you sounded lame when you said that.' As you're pulled away by guards you hadn't seen before, the '[activation of freak out]OUT, FREAK[r]' sign catches your eye. Perhaps there was another way to annoy him, without letting him be so self-righteous."; [temproom freak control]
 		ship-off in-dignity heap instead;
 	if mrlp is endings:
 		say "Don't give up! You're so close!" instead;
@@ -3544,6 +3531,7 @@ gorgeous	"Gorgeous is, well, beautiful."
 grown up	"Grown up means, well, you've learned and matured."
 hara-kiri	"Hara-kiri is Japanese ritual suicide."
 henry clay	"Henry Clay was a 19th century American statesman who did nearly everything except get elected President."
+hidey hole	"A hidey hole is somewhere you can go so you won't be found."
 High Fidelity	"High fidelity means music that is translated clearly. It's also a movie staring John Cusack with a famous scene I won't spoil."
 hittite	"A Hittite is a now-extinct race of people in the Bible."
 Howard Stern	"Howard Stern is a long-time radio personality with loud provocative opinions."
@@ -3571,6 +3559,7 @@ mascara	"Mascara is basic make-up for women."
 melodious	"Melodious means nice-sounding."
 mike drop	"Mike drop is an internet term meaning you've won the argument and there's nothing left to say."
 mollycoddling	"Mollycoddling is being overprotective of someone."
+monte carlo	"Monte Carlo is a place where you can go to gamble. A Monte Carlo simulation also runs random events many times when it is too hard to calculate probability directly."
 nihilist	"A nihilist is someone who believes nothing matters."
 Nolan Ryan	"Nolan Ryan is the Major League Baseball career strikeouts and no-hitters leader."
 Nose Candy	"Nose candy is slang for cocaine."
@@ -3605,6 +3594,7 @@ tear-jerk	"The jerks['] tears may seem a bit fake, and a tear-jerker is somethin
 terabyte	"A terabyte is a large amount of memory: specifically, 2^40 bytes."
 teriyaki	"Teriyaki is a Japanese sauce, or it can be meat cooked in that sauce over an open grill."
 terrapin	"A terrapin is a fancy name for a turtle, which is slow and has a shell."
+water sports	"Water sports is...well, visit Urban Dictionary to learn it's more than just water polo."
 whistler's mother	"Whistler's Mother is a famous painting of an old lady, the mother of the artist."
 you buy	"A bayou is a tributary (river leading to bigger water), and the reverse pronunciation is 'you buy.'"
 Character Assassination	"Character assassination is an attempt to tarnish someone's good reputation." [start of chipper wood]
@@ -3626,6 +3616,7 @@ mass production	"Mass production is a procedure of efficiently creating many of 
 pathologic	"Pathologic behavior is compulsive and anti-social."
 psychotherapy	"Psychotherapy is seeing a trained professional for emotional and mental issues."
 right to privacy	"Right to privacy is considered a basic human right in democratic societies. It means you have the right to be left alone and not to be arrested for arbitrary reasons."
+showerproof	"Showerproof means rain can't get through material."
 thp	"Two hundred proof means pure grain alcohol."
 whole truth	"The whole truth means nothing left out from an explanation."
 age four	"Age four is, well, four years old. It is too young to forage." [start of scheme pyramid]
@@ -3647,6 +3638,7 @@ hate speech	"Hate speech is talk disparaging someone based on gender, ethnicity,
 platform shoes	"Platform shoes have a big block under them to make you look taller."
 Show Business	"Show business is the act of entertainment, and the business show's is (purportedly) more practical."
 show off	"To show off is to brag about yourself, and the implication is an 'off' show (not as good as it should be) is bad without that."
+show our work	"If you show your work, you are showing all the steps to how you got your conclusion."
 Stand the Pace	"If you can't stand the pace, it's too fast for you. Turk and Dutch pace the stand because they need a break."
 sound asleep	"Sound asleep means, well, hard to wake up." [start of temper keep]
 venturesome	"Venturesome means willing to go places."
@@ -3677,6 +3669,7 @@ Block Arguments	"To block arguments is not to hear an opposing point of view."
 Block Creativity	"To block creativity is to get in the way of someone imagining things."
 Coals to Newcastle	"Coals to Newcastle means a pointless action. In this case, there are no dark rooms, so you don't need a torch. Reducing a new castle to coals is, of course, pointless, too."
 Elevator Music	"Elevator music is soft, boring, inoffensive music that plays in elevators. Phil and Art want the play to be a bit more exciting."
+lovecraft	"HP Lovecraft is an eponymous writer of horror stories."
 philistine	"A philistine is someone who doesn't appreciate the arts."
 Play Dumb	"To play dumb is to pretend you don't know something you do, to avoid criticism or to catch someone off-guard. Of course, Phil and Art, after saying this, treat you like you're kind of dumb. Or you can't even ask the name of the play."
 Steal This Book	"Steal This Book was a countercultural guide by Abbie Hoffman. Book this steal refers to 'booking' suspects for a transgression, e.g. a parking fine or ticket."
@@ -3742,6 +3735,7 @@ pea brain	"A pea brain is a mean name for someone who is not very smart."
 pharisee	"A pharisee is someone who gives the trappings of morality but is not."
 polygraph	"A polygraph is a lie detector. The [bad-guy] is probably looking for lies that aren't there."
 Power Trip	"A power trip is when someone is so overcome with their own power, they do mean things to show it off."
+pratfall	"A pratfall is a physical fall, or a humiliating error in general."
 psychoanalyst	"An analyst is someone who examines data and makes conclusions. Or it could be a psychoanalyst, who interprets a client's concerns and offers solutions.."
 putin	"Vladimir Putin is the autocratic leader of Russia as of 2017. He is also alleged to have helped Donald Trump's 2016 Presidential campaign. The tune being whistled is the Russian (former Soviet) national anthem."
 race baiting	"Race baiting is when someone mocks another person for their ethnicity."
@@ -3771,6 +3765,7 @@ hate crime	"Hate crime is an illegal act directed specifically against victims b
 Boss Fight	"A boss fight is a confrontation with an important adversary in a more traditional game, while the Fight Boss has you do stuff worse than level grinding." [start of fight fair]
 Sore Loser	"A sore loser is someone who is not gracious enough to admit defeat. A loser sore is often what you get when you lose a fight, especially one someone else started."
 corporal punishment	"Corporal punishment is any form of bodily physical punishment." [start of hut ten]
+generalist	"A generalist is someone who focuses on the big picture."
 steel will	"A steel will means you don't bend to others." [start of in-dignity heap]
 self sufficient	"Self-sufficient is when you can take care of yourself without outside help." [start of maintenance high]
 prisoners of war	"Prisoners of war are people captured in combat. Using prisoners to help with a war is not very Geneva Convention." [start of punishment capitol]
@@ -6955,7 +6950,7 @@ Down Ground is east of Pressure Pier. It is in Outer Bounds. "[one of]Walking ea
 
 after printing the locale description for down ground when down ground is unvisited:
 	say "You're reminded of the day you didn't get a permission slip signed to go to the roller coaster park at science class's year end. You wondered if you really deserved it, since you didn't do as well as you felt you could've.[line break]";
-	say "As you finish this thought, a large human-sized toad strolls in from the east. 'So! A new juvenile, eh? You's best not to SLIP. It ain't hard to avoid winding up mumbling and alone like Fritz the On, here. Whatever he smokes, can't be no [activation of joint statement]statement joint.' His [activation of grammar police]police grammar leaves you unable to say anything until he disappears back east.[paragraph break]Fritz the On mutters something about that oppressive Stool Toad."
+	say "As you finish this thought, a large human-sized toad strolls in from the east. 'So! A new juvenile, eh? You's best not to SLIP. It ain't hard to avoid winding up mumbling and alone like Fritz the On, here. Whatever he smokes, can't be no [activation of joint statement]statement joint. Doobie? BE! DO!' His [activation of grammar police]police grammar leaves you unable to say anything until he disappears back east.[paragraph break]Fritz the On mutters something about that oppressive Stool Toad."
 
 check going nowhere in Down Ground:
 	if noun is down:
@@ -12441,6 +12436,8 @@ Hara-Kiri is a concept in conceptville. Understand "keri harrah" and "harrah ker
 
 henry clay is a concept in conceptville. Understand "clay henry" as henry clay. howto is "[j-blab]".
 
+hidey hole is a concept in conceptville. Understand "hole hidey" as hidey hole. howto is "[j-blab]".
+
 high fidelity is a concept in conceptville. Understand "fidelity high" as high fidelity. howto is "[j-blab]".
 
 hittite is a concept in conceptville. Understand "tight hit" and "hit tight" as hittite. howto is "[j-blab]".
@@ -12494,6 +12491,8 @@ melodious is a concept in conceptville. Understand "odious mel" and "mel odious"
 mike drop is a concept in conceptville. Understand "drop mike" as mike drop. howto is "[j-blab]".
 
 Mollycoddling is a concept in conceptville. Understand "coddling molly" as mollycoddling. howto is "[j-blab]".
+
+monte carlo is a concept in conceptville. Understand "carlo monte" as monte carlo. howto is "[j-blab]".
 
 nihilist is a concept in conceptville. Understand "list neil" and "neil list" as nihilist. howto is "[j-blab]".
 
@@ -12563,6 +12562,8 @@ teriyaki is a concept in conceptville. Understand "yacky terri" and "terri yacky
 
 terrapin is a concept in conceptville. Understand "pin tera" and "tera pin" as terrapin. howto is "[j-blab]".
 
+water sports is a concept in conceptville. Understand "sports water" as water sports. howto is "[j-blab]".
+
 whistler's mother is a concept in conceptville. Understand "mother whistlers/whistler's/whistler" and "whistler/whitler's mother" as whistler's mother. howto is "[j-blab]".
 
 you buy is a concept in conceptville. Understand "you buy" and "bay you" as you buy. howto is "[solve-j]".
@@ -12615,6 +12616,8 @@ psychotherapy is a concept in conceptville. Understand "psycho therapy" and "the
 
 right to privacy is a concept in conceptville. Understand "privacy to write" and "write to privacy" as right to privacy. howto is "give Lee the rattle".
 
+showerproof is a concept in conceptville. Understand "shower proof" and "proof shower" as showerproof. howto is "listen to Sid Lew's advice (random)".
+
 thp is a privately-named concept in conceptville. printed name is "200 proof". Understand "proof 200" as thp. howto is "give Lee the rattle".
 
 whole truth is a concept in conceptville. Understand "truth whole" as whole truth. howto is "[f-t of Truth Home]".
@@ -12666,6 +12669,8 @@ platform shoes is a concept in conceptville. Understand "shoes platform" as plat
 Show Business is a concept in conceptville. Understand "business show" as show business. howto is "Go to the Speaking Plain without eating a Tray B food".
 
 show off is a concept in conceptville. Understand "off show" as show off. howto is "listen to all of the Business Show".
+
+show our work is a concept in conceptville. Understand "work our show" as show our work. howto is "[pl-wa]".
 
 Stand the Pace is a concept in conceptville. Understand "pace the stand" as stand the pace. howto is "[pl-all]".
 
@@ -12740,6 +12745,8 @@ Block Creativity is a concept in conceptville. Understand "creativity block" as 
 Coals to Newcastle is a concept in conceptville. Understand "new castle to coals" and "newcastle to coals" as Coals to Newcastle. howto is "take song torch".
 
 Elevator Music is a concept in conceptville. Understand "music elevator" as elevator music. howto is "[f-t of Discussion Block]".
+
+lovecraft is a concept in conceptville. Understand "love craft" and "craft love" as lovecraft. howto is "ask Art about the [bad-guy]".
 
 philistine is a concept in conceptville. Understand "listen phil" and "phil listen" as philistine. howto is "[f-t of Discussion Block]".
 
@@ -12844,7 +12851,7 @@ gravy train is a concept in conceptville. Understand "train gravy" as gravy trai
 
 grunt work is a concept in conceptville. Understand "work grunt" as grunt work. howto is "listen in Freak Control".
 
-half right is a concept in conceptville. Understand "right half" as half right. howto is "[fr-ran]".
+half right is a concept in conceptville. Understand "right half" as half right. howto is "[bad-guy] dialog".
 
 Howard Dean is a concept in conceptville. Understand "dean howard" as howard dean. howto is "[fr-ran]".
 
@@ -12887,6 +12894,8 @@ pharisee is a concept in conceptville. Understand "see farrah" and "farrah see" 
 polygraph is a concept in conceptville. Understand "graph polly" and "polly graph" as polygraph. howto is "[fr-ran]".
 
 Power Trip is a concept in conceptville. Understand "trip power" as power trip. howto is "wait for the [bad-guy] to go through his actions".
+
+pratfall is a concept in conceptville. Understand "prat fall" and "fall prat" as pratfall. howto is "[bad-guy] dialog".
 
 Psychoanalyst is a concept in conceptville. Understand "list anna" and "anna list" and "analyst" as psychoanalyst. howto is "[fr-ran]". [ok]
 
@@ -12963,6 +12972,8 @@ Sore Loser is a concept in conceptville. Understand "loser sore" as sore loser. 
 section Hut Ten concepts
 
 corporal punishment is a concept in conceptville. Understand "punishment corporal" as corporal punishment. howto is "vandalize scenery/games before Freak Control".
+
+generalist is a concept in conceptville. Understand "general list" and "list general" as generalist. howto is "[f-t of hut ten]".
 
 section In-Dignity Heap concepts
 
