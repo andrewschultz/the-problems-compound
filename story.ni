@@ -3422,7 +3422,7 @@ acceptable	"Acceptable means good enough. Though sometimes it might not, if some
 beat off	"To beat off is to, well, pleasure oneself. People who are off-beat are often accused of this, among other things, in high school."
 Buster Ball	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure."
 Compound Problems	"Compound problems are problems that aren't simple or can't be dealt with simply, or that build together to leave someone totally overwhelmed."
-Games Confidence	"Confidence games are where someone gains someone else's trust to rip them off. It can be as simple as a shell game or as complex as an investment scheme. Of course, Alec has confidence with logic games but not much else."
+Confidence Games	"Confidence games are where someone gains someone else's trust to rip them off. It can be as simple as a shell game or as complex as an investment scheme. Of course, Alec has confidence with logic games but not much else."
 Games Mind	"Mind games are messing with people's mind with lies or half-truths. A games mind might be more inclined to abstract puzzles."
 good egg	"A good egg is a nice person. To egg, or egg on, is to bait someone into doing something you want them to."
 Hunter Savage	"A savage hunter is, well, someone with no mercy. Yup, I like the 'dirty' tangential bad guy better, too."
@@ -3446,9 +3446,11 @@ palatable	"Palatable means not too tasteless."
 take a stand	"To take a stand is to have a firm moral position. To take the stand is slang for being summoned for interrogation in a court of law."
 apple pie order	"Apple-Pie Order means very well organized." [start of meal square]
 arch deluxe	"The Arch Deluxe was a menu item at McDonald's that was advertised heavily but sold poorly."
+astray	"Tray S is astray. In other words, it strayed from Meal Square."
 Bowled Over	"Bowled over means unable to deal with things. Over-bold means too confident."
 defeat	"Defeat is, well, a clue you'll lose the game existentially if you eat any of the foods on Tray B."
 devil's food	"Devil's food is a rich chocolate layer cake."
+ex-tray	"Tray X is an ex-tray."
 face off	"An off face probably doesn't look right, but a face off is when you challenge someone, like the game forces you to in the accelerated Tray B endings."
 Forgive	"Forgive is a clue as to whom to give the mint to, but the person must be forgivable."
 Growing Pains	"Growing pains are temporary setbacks that help you get going. Pain's growing is just a complaint."
@@ -3463,11 +3465,9 @@ Shame No	"No shame means a person isn't embarrassed by anything to the point whe
 Snap Decision	"A decision made reflexively, versus a conscious decision to snap e.g. just quit holding back."
 Spur of the Moment	"Spur of the moment means you're finally pushed to do something. If you wonder if it's the moment of the spur , you're probably thinking too hard for it to be the spur of the moment."
 strike a balance	"To strike a balance is to find a satisfactory compromise. A strike can alo mean--well, your balance went on strike, or you'd fall over."
+tea tray	"Trat T is a tea tray. To go with food."
 Thought for food	"Food for thought is something to think about."
 time consuming	"Time consuming means something that takes a long time, though you eat quickly."
-Tray S	"Stray. In other words, it strayed from Meal Square."
-Tray T	"A tea tray. To go with food."
-Tray X	"It is an ex-tray."
 treat like dirt	"To treat someone like dirt is to be very nasty to them."
 trefoil	"A trefoil is, for easiest visualization, a three-leaf clover."
 brain trust	"A brain trust is a group of people that help make a decision. A trust-brain, though not an English phrase, might mean a mind that can't make its own decisions." [start of down ground]
@@ -3498,19 +3498,19 @@ beer nuts	"Beer nuts is slang for peanuts." [start of soda club]
 boot licker	"A boot licker is someone who flatters too much."
 brew a plot	"To brew a plot is to plan something subversive."
 gin bar	"Gin bar can go to two things: to barge in, or a bargain."
-Go Rum	"A rum go is an unforeseen unusual experience, as opposed to 'GO' anything which indicates general motivation."
+Gin Rummy	"Gin Rummy is a card game, generally not the sort associated with wild binge drinking."
 Hip Rose	"Rose hips are ingredients found in tea, which is too non-alcoholic for the Soda Club. Hip is, of course, cool or desirable or with-it."
 hit the bottle	"To hit the bottle is to drink."
-Party T	"A tea party is usually non-alcoholic, and people mind their manners. Well, unless it's the political sort, but I won't touch that any further. I probably said too much, already."
 punch drunk	"Punch drunk is when you are stunned from physical blows."
 punch line	"The punch line is the final line in a joke."
 punch out	"To punch out someone is to beat them up."
 Punch Sucker	"A sucker punch is an unexpected hit."
 punch ticket	"To get your ticket punched, or punch your ticket, is to get killed."
-Rummy Gin	"Gin Rummy is a card game, generally not the sort associated with wild binge drinking."
+rum go	"A rum go is an unforeseen unusual experience, as opposed to 'GO' anything which indicates general motivation."
 speakeasy	"A speakeasy is a place where illegal alcohol is served."
 striptease	"A striptease is, well, what happens at a strip club, where someone slowly removes their clothes."
-Total T	"Teetotal means alcohol-free."
+tea party	"A tea party is usually non-alcoholic, and people mind their manners. Well, unless it's the political sort, but I won't touch that any further. I really don't want to. I've said enough already."
+teetotal	"Teetotal means alcohol-free."
 Wine-U-Gen	"Genuine is, well, real and true. Both Ally Stout and his drinks are superficial, as wine is generally not made by machine."
 adult content	"Adult content relates to nontrivial sex or violence." [start of Nominal Fen]
 air jordan	"Air Jordan is an expensive athletic shoe named after Michael Jordan, maybe the greatest basketball player ever."
@@ -3573,6 +3573,7 @@ manicured	"Manicured fingernails are generally for women, so Manny being cured o
 Mary Sue	"A Mary Sue is a character who is too unbelievably nice. It comes from the tour de force short story A Trekkie's Tale."
 mascara	"Mascara is basic make-up for women."
 melodious	"Melodious means nice-sounding."
+meretricious	"Meretricious means superficially attractive or insincere."
 mike drop	"Mike drop is an internet term meaning you've won the argument and there's nothing left to say."
 mollycoddling	"Mollycoddling is being overprotective of someone."
 monte carlo	"Monte Carlo is a place where you can go to gamble. A Monte Carlo simulation also runs random events many times when it is too hard to calculate probability directly."
@@ -6881,7 +6882,7 @@ check taking the thyme burger:
 chapter condition mint
 
 for writing a paragraph about a supporter in Meal Square:
-	say "Two trays sit here, labeled, semi-helpfully, Tray A and Tray B[one of]. You're not surprised [activation of tray s]Tray S or [activation of tray x]X is gone, but [activation of tray t]Tray T would've been nice[or][stopping].";
+	say "Two trays sit here, labeled, semi-helpfully, Tray A and Tray B[one of]. You're not surprised [activation of astray] or [activation of ex-tray] is gone, but [activation of tea tray] would've been nice[or][stopping].";
 	now all supporters in meal square are mentioned;
 
 a condition mint is an edible thing on Tray A. description is "It's one inch square, with [activation of shame no]SHAME? NO! [activation of forgive]GIVE, FOR... on it. Maybe there's be more, but it [i]is[r] a small mint."
@@ -7306,7 +7307,7 @@ after quipping when qbc_litany is litany of stool toad:
 
 part Soda Club
 
-Soda Club is south of Joint Strip. It is in Outer Bounds. "Maybe if it were past 1 AM, you'd see passages west, south, and east, making this place the [activation of total t]Total T--or maybe even the [activation of party t]Party T--instead. But if it were past 1 AM, you'd probably be home and asleep and not here. Or, at least, persuaded to leave a while ago.[paragraph break]The only way out is north."
+Soda Club is south of Joint Strip. It is in Outer Bounds. "Maybe if it were past 1 AM, you'd see passages west, south, and east, making this place the [activation of teetotal]--or maybe even the [activation of tea party]--instead. But if it were past 1 AM, you'd probably be home and asleep and not here. Or, at least, persuaded to leave a while ago.[paragraph break]The only way out is north."
 
 check going nowhere in Soda Club:
 	if noun is outside:
@@ -7492,7 +7493,7 @@ after printing the name of haha brew when taking inventory:
 table of quip texts (continued)
 quip	quiptext
 ally-punch	"'Whatever we give him, it goes down badly. [activation of punch out]Out Punch, he starts a fight. [activation of punch line]Line Punch, the stupid jokes he tells! [activation of punch ticket]Ticket Punch, he whines he's entitled, or worse, he isn't. And that night he snuck some [activation of punch drunk]drunk punch...'"
-ally-drinks	"'Well, you wouldn't be ready for the [activation of rummy gin]Rummy Gin or [activation of go rum]Go Rum. If we served it after-hours, of course. If we served it after-hours. And water's...troubled, in such an exciting place. But we have Haha Brew and Cooler Wine. Both so watered down, the Stool Toad won't nab you long as you drink it here.'"
+ally-drinks	"'Well, you wouldn't be ready for the [activation of gin rummy] or [activation of rum go]. If we served it after-hours, of course. If we served it after-hours. And water's...troubled, in such an exciting place. But we have Haha Brew and Cooler Wine. Both so watered down, the Stool Toad won't nab you long as you drink it here.'"
 ally-alco	"'Haha. No.'"
 ally-onrocks	"Ally pushes a button on an unseen machine. You hear ice cubes rattle. He holds up a glass, swirls it, and nods meaningfully before putting it away. Duh, now. Maybe you should've asked what Beechwood Aged or something meant, instead."
 ally-but	"'Well, everyone here is a bit smarter and maturer than normal, and anyway, this isn't the high-proof stuff. Plus the Stool Toad, we've paid him off. As long as nobody makes it obvious and walks out with a drink. Then he's pretty awesome. So what the hey.'"
@@ -12228,13 +12229,17 @@ apple pie order is a concept in conceptville. Understand "apple-pie order" and "
 
 arch deluxe is a concept in conceptville. Understand "deluxe arch" as arch deluxe. howto is "[nogo of Meal Square]".
 
-bowled over is a concept in conceptville. howto is "eat any Tray B food".
+astray is a concept in conceptville. understand "tray s" and "s tray" as astray. howto is "enter Meal Square". gtxt is "Tray S"
+
+bowled over is a concept in conceptville. understand "over bold" and "bold over" as bowled over. howto is "eat any Tray B food".
 
 defeat is a concept in conceptville. Understand "eat def" and "def eat" as defeat. howto is "[x-it of Tray B]".
 
 devil's food is a concept in conceptville. Understand "food devil's" as devil's food. howto is "eat the gagging lolly".
 
-face off is a concept in conceptville. howto is "take inventory after eating Tray B food".
+ex-tray is a concept in conceptville. understand "x/ex tray" and "tray x/ex" as ex-tray. howto is "enter Meal Square". gtxt is "Tray X"
+
+face off is a concept in conceptville. understand "off face" as face off. howto is "take inventory after eating Tray B food".
 
 Forgive is a concept in conceptville. Understand "give for" as Forgive. howto is "[x-it of condition mint]".
 
@@ -12262,15 +12267,11 @@ Spur of the Moment is a concept in conceptville. Understand "moment of the spur"
 
 strike a balance is a concept in conceptville. understand "balance a strike" as strike a balance. howto is "try to take Tray A or Tray B". gtxt is "balance a strike".
 
+tea tray is a concept in conceptville. understand "tray t/tea" and "t tray" as tea tray. howto is "enter Meal Square". gtxt is "Tray T"
+
 a thing called Thought for Food is a concept in conceptville. Understand "food for thought" as thought for food. howto is "visit Meal Square with Terry Sally around".
 
 time consuming is a concept in conceptville. Understand "consuming time" as time consuming. howto is "say yes to eating a Tray B food".
-
-Tray S is a concept in conceptville. howto is "enter Meal Square".
-
-Tray T is a concept in conceptville. howto is "enter Meal Square".
-
-Tray X is a concept in conceptville. howto is "enter Meal Square".
 
 treat like dirt is a concept in conceptville. Understand "dirt like treat" as treat like dirt. howto is "[x-it of points brownie]".
 
@@ -12344,13 +12345,11 @@ brew a plot is a concept in conceptville. Understand "plot a brew" as brew a plo
 
 gin bar is a concept in conceptville. Understand "bar gin" as gin bar. howto is "[nogo of soda club]".
 
-the Go Rum is a concept in conceptville. howto is "ask Ally Stout about drinks".
+gin rummy is a concept in conceptville. understand "rummy gin" as gin rummy. howto is "ask Ally Stout about drinks". gtxt is "Rummy Gin".
 
 Hip Rose is a concept in conceptville. Understand "rose hip/hips" as Hip Rose. howto is "visit the Soda Club".
 
 hit the bottle is a concept in conceptville. Understand "bottle the hit" as hit the bottle. howto is "attack Ally Stout".
-
-the Party T is a concept in conceptville. howto is "visit the Soda Club".
 
 punch drunk is a concept in conceptville. Understand "drunk punch" as punch drunk. howto is "[ask-ally]".
 
@@ -12362,13 +12361,15 @@ Punch Sucker is a concept in conceptville. Understand "punch sucker" as punch su
 
 punch ticket is a concept in conceptville. Understand "ticket punch" as punch ticket. howto is "[ask-ally]".
 
-Rummy Gin is a concept in conceptville. howto is "ask Ally Stout about drinks".
+rum go is a concept in conceptville. understand "go rum" as rum go. howto is "ask Ally Stout about drinks". gtxt is "Go Rum"
 
 speakeasy is a concept in conceptville. Understand "easy speak" and "speak easy" as speakeasy. howto is "ask Ally Stout about the [bad-guy]".
 
 striptease is a concept in conceptville. Understand "strip teas" and "teas strip" as striptease. howto is "talk to Ally Stout and say good-bye".
 
-the Total T is a concept in conceptville. howto is "visit the Soda Club".
+tea party is a concept in conceptville. understand "party t/tea" and "t party" as tea party. howto is "visit the Soda Club". gtxt is "Party T"
+
+teetotal is a concept in conceptville. understand "total t" and "t total" as teetotal. howto is "visit the Soda Club". gtxt is "Total T"
 
 Wine-U-Gen is a concept in conceptville. Understand "gen u wine" and "wine u gen" as Wine-U-Gen. howto is "order the Cooler Wine"
 
@@ -12508,6 +12509,8 @@ Mary Sue is a concept in conceptville. Understand "sue merry" and "merry sue" as
 mascara is a concept in conceptville. Understand "cara maas" and "maas cara" as mascara. howto is "[j-blab]".
 
 melodious is a concept in conceptville. Understand "odious mel" and "mel odious" as melodious. howto is "[j-blab]".
+
+meretricious is a concept in conceptville. Understand "tricias merit" and "merit tricias" as meretricious. howto is "[j-blab]".
 
 mike drop is a concept in conceptville. Understand "drop mike" as mike drop. howto is "[j-blab]".
 
