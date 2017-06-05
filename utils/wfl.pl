@@ -54,6 +54,7 @@ while ($c = <C>) #this is to check if the file is in an unsaved state, which jus
   {
     if ($c =~ /backupFilePath=\"c:/i)
     {
+	`$output`;
     Win32::MsgBox("Save wfl.txt before copying over", 0, "Less annoying than overwriting");
     }
     last;

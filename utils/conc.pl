@@ -36,6 +36,8 @@ my $auxFile = __FILE__; $auxFile =~ s/.pl$/-aux.txt/;
 
 ###############################
 #options
+my $activationCheck = 0;
+my $maxBadAct = 0;
 my $writeAfter = 0;
 my $dontCopySourceBack = 0;
 my $codeToClipboard = 0;
@@ -116,6 +118,8 @@ my $nuline = 0;
 my $warnedYet = 0;
 my $gameObjTot = 0;
 my $needsAlf = 0;
+my $totalBadAct = 0;
+my @badActLineAry = ();
 
 while ($count <= $#ARGV)
 {
@@ -154,6 +158,17 @@ while ($count <= $#ARGV)
     /^-?ng$/ && do { $defaultToGeneral = 0; $count++; next; };
     /^-?dg$/ && do { $defaultToGeneral = 1; $count++; next; };
     /^-?rc(v)?$/ && do { $roomConcCompare = 1; $rcVerbose = ($a =~ /v/); $count++; next; };
+    /^-?ac[0-9]*$/ && do
+	{
+	  $activationCheck = 1;
+	  if ($a =~ /[0-9]/)
+	  {
+	    my $temp = $a; $temp =~ s/^-?ac//;
+		$maxBadAct = $a;
+	  }
+	  $count++;
+	  next;
+    };
     /^-?pc$/ && do { @dirs = ("Compound"); $count++; next; };
     /^-?sc$/ && do { @dirs = ("Slicker-City"); $count++; next; };
     /^-?(bp|btp)$/ && do { @dirs = ("Buck-the-Past"); $count++; next; };
@@ -200,6 +215,7 @@ for my $thisProj (@dirs)
   if ($readConcepts) { readConcept($thisProj); }
   if ($detailAlpha) { checkTableDetail($thisProj); }
   if ($roomConcCompare) { compareRoomIndex($thisProj); }
+  if ($activationCheck) { checkUnmatchedActivations($thisProj); }
 }
 
 printGlobalResults();
@@ -448,6 +464,18 @@ for my $x (sort keys %any)
   {
     printf("Fill in concept text (%d total) at %s%s\n", scalar keys %fillConc, join(", ", map { "$fillConc{$_}($_}" } sort { $fillConc{$a} <=> $fillConc{$b} } sort keys %fillConc), $launchMinorErrs ? "" : " (-lm to launch)");
     if ($printTest) { printf("TEST RESULTS: fillin-conc-$_[0],%d,0,0,%s\n", scalar keys %fillConc, join(" / ", map { "$fillConc{$_}" } sort { $fillConc{$a} <=> $fillConc{$b} } keys %fillConc)); }
+  }
+
+  if ($totalBadAct)
+  {
+  if ($printTest)
+  {
+  print "TEST RESULTS:$_[0] activation format failures,0,$totalBadAct,0," . join(", ", @badActLineAry) . "<br />\n";
+  }
+  else
+  {
+  print "$totalBadAct total failures: " . join(", ", @badActLineAry) . "\n";
+  }
   }
 
   if ($errMsg)
@@ -1387,6 +1415,50 @@ sub compareRoomIndex
     print "$alphabetizeWarnings line(s) may be off because the new ideas came before the first idea in a room, so you may wish to run...\n          talf.pl $_[0]\n";
 	$alphabetizeWarnings = 0;
   }
+}
+
+sub checkUnmatchedActivations
+{
+  my @toRead = @{$fileHash{$_[0]}};
+
+  OUTER:
+  for my $fi (@toRead)
+  {
+    open(A, $fi);
+    while ($a = <A>)
+	{
+	  if ($a =~ /\[activation of/i)
+	  {
+	    my $temp = unmatchedActivations($a);
+		$totalBadAct += $temp;
+	    unless($openLowestLine && defined($minorErrs{$fi}) && ($minorErrs{$fi} < $.))
+		{
+		  $minorErrs{$fi} = $.;
+		}
+		push(@badActLineAry, $.);
+		if ($maxBadAct && $temp && ($totalBadAct > $maxBadAct))
+		{
+		  print "Hit the maximum number of failures.";
+		  close(A);
+		  last OUTER;
+		}
+	  }
+	}
+	close(A);
+  }
+}
+
+sub unmatchedActivations
+{
+  my $forgotFormat = 0;
+  if ($_[0] !~ /\[activation of/) { return 0; }
+  my @btwnAct = split(/\[activation of [^\]]*?\]/, $_[0]);
+
+  for (1..$#btwnAct)
+  {
+    if ($btwnAct[$_] !~ /\[r\]/) { $forgotFormat++; }
+  }
+  return $forgotFormat;
 }
 
 sub roomToFile
