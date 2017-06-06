@@ -234,6 +234,7 @@ macho-boast
 "The [j-co] rave about how  [activation of benevolent] is snarky to people for their own good."
 "The [j-co] take time to [activation of bernoulli] math and science dorks."
 "The [j-co] wrestle over the sensitivest way to compliment a girl on a [activation of body slamming]."
+"The [j-co] laud [activation of bognor regis] for his hilarious fake British accent."
 "The [j-co] compare kid-style [activation of bouncing betty] to adult-style, which is clearly the BOMB."
 "The [j-co] babble on about the [activation of box score], where everyone except math obsessed nerds can hook up with a girl."
 "The [j-co] recount the epic junk food eating contest between [activation of broccoli] and [activation of kohlrabi]."

@@ -3525,6 +3525,7 @@ benevolent	"Benevolent means doing things to help people."
 Bernoulli	"The Bernoulli family were famous and accomplished mathematicians and scientists from around 1700."
 Black Mark	"A black mark is something indicating bad behavior."
 body slamming	"Body slamming is a particularly painful wrestling move where you pretty much throw a person to the ground."
+bognor regis	"bognor regis is when you [fill-in-here]. nominal fen"
 bouncing betty	"Bouncing betty is slang for a land mine."
 box score	"A box score describes the basic individual statistics from a sporting event."
 broccoli	"Broccoli is a vegetable."
@@ -12427,6 +12428,8 @@ Black Mark is a concept in conceptville. Understand "mark black" as black mark. 
 
 body slamming is a concept in conceptville. Understand "slamming body" as body slamming. howto is "[j-blab]". gtxt is "slamming body".
 
+bognor regis is a concept in conceptville. Understand "regis bogner" and "bogner regis" as bognor regis. howto is "[j-blab]". gtxt is "Regis Bogner".
+
 bouncing betty is a concept in conceptville. Understand "betty/beddy bouncing" and "beddy bouncing" as bouncing betty. howto is "[j-blab]". gtxt is "beddy bouncing".
 
 box score is a concept in conceptville. Understand "score box" as box score. howto is "[j-blab]". gtxt is "Score Box".
@@ -14929,6 +14932,55 @@ carry out vuing:
 		if brief entry is "notice":
 			now vuc2 is false;
 	say "All verb-unlock found entries are now [vuc].";
+	the rule succeeds;
+
+chapter zping
+
+[*zp = power wait. This goes through everything in a table. ]
+
+zping is an action applying to nothing.
+
+understand the command "zp" as something new.
+
+understand "zp" as zping.
+
+books-not-song is a truth state that varies.
+
+carry out zping:
+	let waits be 0;
+	let myact be waiting;
+	if player is in fen, now waits is number of rows in table of jerk-macho-talk + 1;
+	if mrlp of player is Dream Sequence, now waits is number of rows in table of sleep stories * 3;
+	if player is in pressure pier:
+		now waits is number of rows in table of bible references + 1;
+		now myact is examining the basher bible;
+	if player is in Freak Control, now waits is number of rows in table of bad guy worries + 1;
+	if player is in Speaking Plain, now waits is number of rows in table of dutch-blab + 1;
+	if player is in Truth Home, now waits is number of rows in table of incisive sid viewpoints + 1;
+	if player is in Discussion block:
+		if books-not-song is true:
+			now myact is examining the book bank;
+			now waits is number of rows in table of horrendous books + 1;
+		else:
+			now myact is examining the song torch;
+			now waits is number of rows in table of horrendous songs + 1;
+	if waits is 0, say "Waiting does nothing special here." instead;
+	carry out the myact activity;
+	the rule succeeds;
+
+section zpting
+
+[* this toggles what to poke at in Discussion Block]
+
+zpting is an action applying to nothing.
+
+understand the command "zpt" as something new.
+
+understand "zpt" as zpting.
+
+carry out zpting:
+	now books-not-song is whether or not books-not-song is false;
+	say "Now searching for all the [if books-not-song is true]books[else]songs[end if] in Discussion Block.";
 	the rule succeeds;
 
 chapter jing
