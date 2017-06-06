@@ -1490,9 +1490,11 @@ sub concDefCheck
   my @howToErrs = ();
   my @understandErrs = ();
   my @gtxtErrs = ();
+  my @extraText = ();
   my $line;
   my $inConcept;
   my $newRoom = "";
+  my $roomDumpLine = "";
 
   my @toRead = @{$fileHash{$_[0]}};
 
@@ -1504,13 +1506,18 @@ sub concDefCheck
     if ($line =~ /^part /) { $newRoom = $line; chomp($newRoom); $newRoom =~ s/^part //; }
     if ($line =~ /\[activation of [^\]]*?\][a-z]/i)
 	{
-	  if ($newRoom) { print "\n========New room $newRoom\n"; }
+	  if ($newRoom)
+	  {
+        if ($roomDumpLine) { print "$roomDumpLine"; $roomDumpLine = ""; }
+	    print "\n========New room $newRoom\n";
+      }
       print "($.)\n";
 	  $newRoom = "";
 	  my $templine2 = $line;
 	  chomp($templine2);
 	  while ($templine2 =~ /\[activation of [^\]]+\][a-z]/i)
 	  {
+	    push(@extraText, $.);
 	    $templine2 =~ s/.*?\[activation of ([^\]]+\][a-z])/$1/i;
 		my $templine3 = $templine2;
 		$templine3 =~ s/\].*//;
@@ -1518,7 +1525,8 @@ sub concDefCheck
 		$templine4 =~ s/^[^\]]*\]//;
 		$templine4 =~ s/[\.\?!].*//;
 		$templine4 =~ s/\[activation of.*//;
-		print "$templine3\n gtxt is \"$templine4\".\n";
+		print "$templine3\n";
+		$roomDumpLine .= " gtxt is \"$templine4\".\n";
 	  }
 	  #print "WARNING $. has activation text that may need deletion\n";
     }
@@ -1547,9 +1555,11 @@ sub concDefCheck
 	}
   }
   close(A);
+  if ($roomDumpLine) { print "$roomDumpLine"; $roomDumpLine = ""; }
   }
   if ($printTest)
   {
+    printf("TEST RESULTS: extratext-$_[0],0,%d,0,%s\n", scalar @extraText, join(" / ", @extraText));
     printf("TEST RESULTS: howto-$_[0],0,%d,0,%s\n", scalar @howToErrs, join(" / ", @howToErrs));
     printf("TEST RESULTS: understand-$_[0],0,%d,0,%s\n", scalar @understandErrs, join(" / ", @understandErrs));
     printf("TEST RESULTS: gtxt-$_[0],0,%d,0,%s\n", scalar @gtxtErrs, join(" / ", @gtxtErrs));
