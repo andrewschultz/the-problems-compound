@@ -1664,7 +1664,7 @@ check eating:
 	if noun is earth of salt:
 		say "[taste-poor]." instead;
 	if noun is tickety:
-		say "It's not big enough to be a [activation of meal ticket]ticket meal." instead; [temproom pressure pier]
+		say "It's not big enough to be a [activation of meal ticket]." instead; [temproom pressure pier]
 	if noun is lolly:
 		if lolly-eaten is true:
 			say "It--well, you don't it'd be as bad as you imagined." instead;
@@ -2307,7 +2307,7 @@ check giving smokable to: [poory pot or wacker weed]
 	if second noun is Fritz the On:
 		if noun is poory pot:
 			say "'Whoah! That stuff doesn't do it for me any more,' mutters Fritz." instead;
-		say "You look every which way for the Stool Toad, then put your finger to your lips as you hand Fritz the packet. He's surprisingly quick converting it to something smokable and hands you a coin back--a dreadful penny. Proper payment for the cheap stuff. 'Dude! Once I find my lighter I totally won't hog off the high[activation of hoth] from you. Can't wait for my [activation of puff piece]peace puff...nothing beats it for feeling good!' You're not sure you want a [activation of joint role]joint role, but Fritz's gratitude seems genuine. 'I'd give you [activation of drag along]a long drag if i could light it...' After searching himself for a source of flame, Fritz mumbles an apology and runs off."; [temproom down ground]
+		say "You look every which way for the Stool Toad, then put your finger to your lips as you hand Fritz the packet. He's surprisingly quick converting it to something smokable and hands you a coin back--a dreadful penny. Proper payment for the cheap stuff. 'Dude! Once I find my lighter I totally won't hog off the high[activation of hoth] from you. Can't wait for my [activation of puff piece]...nothing beats it for feeling good!' You're not sure you want [activation of roll a joint], but Fritz's gratitude seems genuine. 'I'd give you [activation of drag along]a long drag if i could light it...' After searching himself for a source of flame, Fritz mumbles an apology and runs off."; [temproom down ground]
 		increment the score;
 		now wacker weed is in lalaland;
 		now fritz is in lalaland;
@@ -3448,6 +3448,7 @@ apple pie order	"Apple-Pie Order means very well organized." [start of meal squa
 arch deluxe	"The Arch Deluxe was a menu item at McDonald's that was advertised heavily but sold poorly."
 astray	"Tray S is astray. In other words, it strayed from Meal Square."
 Bowled Over	"Bowled over means unable to deal with things. Over-bold means too confident."
+coffee break	"A coffee break is when someone drinks coffee while away from work. Break Coffee is about getting very type a."
 defeat	"Defeat is, well, a clue you'll lose the game existentially if you eat any of the foods on Tray B."
 devil's food	"Devil's food is a rich chocolate layer cake."
 ex-tray	"Tray X is an ex-tray."
@@ -3460,6 +3461,7 @@ loaf around	"To loaf around is to wait with no real purpose."
 pig out	"To pig out is to eat everything you see. The reverse is an admonishment to leave."
 potty	"A potty is a kids['] word for where you go to the bathroom."
 quarter pounder	"A quarter pounder is a popular burger at McDonalds."
+quisling	"A quisling is a very uncomplimentary word named for Victor Quisling, who worked with the Nazis against his home country of Norway in World War II."
 raising hell	"Raising hell means to complain in pretty much any available way."
 Shame No	"No shame means a person isn't embarrassed by anything to the point where it's dangerous. The reverse (Shame? No!) is more, there's a healthier way to look at things than through shame."
 Snap Decision	"A decision made reflexively, versus a conscious decision to snap e.g. just quit holding back."
@@ -3470,8 +3472,8 @@ Thought for food	"Food for thought is something to think about."
 time consuming	"Time consuming means something that takes a long time, though you eat quickly."
 treat like dirt	"To treat someone like dirt is to be very nasty to them."
 trefoil	"A trefoil is, for easiest visualization, a three-leaf clover."
-brain trust	"A brain trust is a group of people that help make a decision. A trust-brain, though not an English phrase, might mean a mind that can't make its own decisions." [start of down ground]
-Bum Beach	"A beach bum is someone who wanders on the beach. Maybe he lives there in a shack too."
+Beach Bum	"A beach bum is someone who wanders on the beach. Maybe he lives there in a shack too." [start of down ground]
+brain trust	"A brain trust is a group of people that help make a decision. A trust-brain, though not an English phrase, might mean a mind that can't make its own decisions."
 clip joint	"A clip joint is a place that overcharges customers. A joint clip will help Fritz save on purchases so none is wasted."
 Double Jeopardy	"Double jeopardy is being tried for the same crime twice. Making your jeopardy double is just putting you at twice the risk."
 drag along	"To drag someone along is to take them with despite their reluctance."
@@ -3481,9 +3483,9 @@ ground up	"Ground up can mean making something from nothing, or modest resources
 high and dry	"High and dry means in a good safe position."
 high roller	"A high roller is someone with a lot of money and prestige."
 hoth	"High on the hog means living wealthily. To hog the high would be if Fritz didn't share his, um, stuff."
-joint role	"A joint role is something done together. Rolling a joint is the act of creating a marijuana cigarette."
 joint statement	"A joint statement is something made and agreed on by a group of people."
 puff piece	"A puff piece is a fawning newspaper article that makes someone out to be better than they really are. A peace puff from smoking marijuana is (we can assume) less socially motivated."
+roll a joint	"A joint role is something done together. Rolling a joint is the act of creating a marijuana cigarette."
 sleeper cell	"A group of people who blen into a community until they can commit an act of terrorism."
 advice	"Advice is, well, telling someone what they should or shouldn't do. A vice ad would be as well, only for the worse." [start of joint strip]
 bullfrog	"A bullfrog is not quite a toad. And bull means nonsense. The Stool Toad is probably in no danger of being mistaken for Frog or Toad from Arnold Lobel's nice books."
@@ -3494,24 +3496,24 @@ Moral Support	"Moral support is helping someone even if you don't have concrete 
 Pigeon English	"Pigeon English is broken, grammatically poor English."
 stop smoking	"To stop smoking is to quit smoking cigarettes. The Smoking Stop means a place where people can smoke without being harassed."
 strip search	"To strip search someone is to remove their clothes to look for something on them, or in them."
-beer nuts	"Beer nuts is slang for peanuts." [start of soda club]
+bargain	"Gin bar can go to two things: to barge in, or a bargain." [start of soda club]
+beer nuts	"Beer nuts is slang for peanuts."
 boot licker	"A boot licker is someone who flatters too much."
 brew a plot	"To brew a plot is to plan something subversive."
-gin bar	"Gin bar can go to two things: to barge in, or a bargain."
+genuine	"Genuine is, well, real and true. Both Ally Stout and his drinks are superficial, as wine is generally not made by machine."
 Gin Rummy	"Gin Rummy is a card game, generally not the sort associated with wild binge drinking."
 Hip Rose	"Rose hips are ingredients found in tea, which is too non-alcoholic for the Soda Club. Hip is, of course, cool or desirable or with-it."
 hit the bottle	"To hit the bottle is to drink."
 punch drunk	"Punch drunk is when you are stunned from physical blows."
 punch line	"The punch line is the final line in a joke."
 punch out	"To punch out someone is to beat them up."
-Punch Sucker	"A sucker punch is an unexpected hit."
 punch ticket	"To get your ticket punched, or punch your ticket, is to get killed."
 rum go	"A rum go is an unforeseen unusual experience, as opposed to 'GO' anything which indicates general motivation."
 speakeasy	"A speakeasy is a place where illegal alcohol is served."
 striptease	"A striptease is, well, what happens at a strip club, where someone slowly removes their clothes."
+Sucker Punch	"A sucker punch is an unexpected hit."
 tea party	"A tea party is usually non-alcoholic, and people mind their manners. Well, unless it's the political sort, but I won't touch that any further. I really don't want to. I've said enough already."
 teetotal	"Teetotal means alcohol-free."
-Wine-U-Gen	"Genuine is, well, real and true. Both Ally Stout and his drinks are superficial, as wine is generally not made by machine."
 adult content	"Adult content relates to nontrivial sex or violence." [start of Nominal Fen]
 air jordan	"Air Jordan is an expensive athletic shoe named after Michael Jordan, maybe the greatest basketball player ever."
 anapest	"Anapest is a common beat for a poem. It can seem singsong."
@@ -5128,7 +5130,7 @@ understand "notice advance" as noticeadvanceing.
 carry out noticeadvanceing:
 	if player is not in smart street:
 		say "Oh, man! Looking back, you totally see a shortcut you should've at least checked at, back in Smart Street. But it's too late to skip ahead like that now. You may wish to restart the game." instead;
-	say "[activation of advance notice]Guy Sweet yells 'Hey! What could you POSSIBLY... you can't just... someone a lot less lame must've showed you that, no offense...' "; [temproom general concepts]
+	say "Guy Sweet[activation of advance notice] yells 'Hey! What could you POSSIBLY... you can't just... someone a lot less lame must've showed you that, no offense...' "; [temproom general concepts]
 	write-undo "notice";
 	notice-advance;
 	the rule succeeds;
@@ -6177,7 +6179,7 @@ weasel-bye	"'Gosh! You're lucky I didn't charge you for all this cleverness!'"
 check going east when player is in variety garden:
 	if dirt-dug is false:
 		if player has pocket pick:
-			say "'This isn't [activation of dirt nap]nap dirt, here. It won't DIG itself while you're gone.'" instead;
+			say "'This isn't [activation of dirt nap], here. It won't DIG itself while you're gone.'" instead;
 		else:
 			say "'Well, let me know when you're ready to do business.'";
 
@@ -6250,10 +6252,10 @@ part Pressure Pier
 
 Pressure Pier is north of Tension Surface. It is in Outer Bounds. "[one of]So, this is Pressure Pier. Off south is water--no way back to the Tension Surface[or]Water south, passage north[stopping]. You smell food to the west, and the land sinks a bit to the east. [one of]A side stand grabs your attention enough you notice it holds a book with the words BASHER on the front[or]The Basher Bible still rests on a side stand[stopping]."
 
-a side stand is scenery in Pressure Pier. "It's not actually blocking any direction to go in, but it's gaudy and shiny enough you won't be overlooking it. It's not really [activation of palatable]a table, pal."
+a side stand is scenery in Pressure Pier. "It's not actually blocking any direction to go in, but it's gaudy and shiny enough you won't be overlooking it. It's not really [activation of palatable]."
 
 instead of taking side stand:
-	say "You couldn't [activation of take a stand]stand the take. A take? Either way, you've got enough of a trial without lugging something like that around."
+	say "You couldn't [activation of take a stand]. A take? Either way, you've got enough of a trial without lugging something like that around."
 
 pier-visited is a truth state that varies.
 
@@ -6274,7 +6276,7 @@ check going in Pressure Pier:
 		say "[line break]";
 		wfak;
 
-water-scen is privately-named scenery in Pressure Pier. "You notice the water: out of fish[activation of fish out of water]. It stretches quite a ways."
+water-scen is privately-named scenery in Pressure Pier. "You notice the [activation of fish out of water]. It stretches quite a ways."
 
 understand "water" as water-scen when player is in Pressure Pier.
 
@@ -6299,7 +6301,7 @@ instead of doing something with water-scen:
 the Basher Bible is scenery in Pressure Pier. "[one of]The Basher Bible labels seemingly contradictory things to want and to be: to be clever enough to cut down too-clever weirdos. To have enough interests you can almost empathize with obsessed nerds, but not quite. To know enough pop culture you can poke fun at people who care too much about it. To be nice enough adults are sure you'll go far, but not be some useless dweeb.[paragraph break]There's also something about how if you don't know how to balance those things and have to ask others, or if this triggers some oversensitivity, well, REALLY. And there's even a tip of the moment! You read it:[or]You read another passage from the Basher Bible: [stopping]"
 
 check taking Basher Bible:
-	say "That'd mean trouble if it's a [activation of bible belt] belt bible, too." instead;
+	say "That'd mean trouble if it's a [activation of bible belt], too." instead;
 
 understand "belt bible" as a mistake ("The Baiter Master's personality cult is probably about how he does this sort of thing louder and more exciting than you, so, no.") when player is in Pressure Pier.
 
@@ -6356,7 +6358,7 @@ instead of doing something with Basher Bible:
 
 section Terry Sally
 
-Terry Sally is a person in Pressure Pier. "[one of]A smiling fellow walks up to you and shakes your hand. 'I'm Terry Sally! The official [activation of boy howdy]Howdy Boy! Here to introduce new people to the Problems Compound! Smart or dumb, social or lame, well, someone needs to! But we don't let just anyone through to the Nominal Fen.' You shake hands, equally afraid you were too hard or soft. His enthusiasm quickly tails off, leaving you feeling it was your fault.[or]Terry Sally stands here, [if player has trail paper]and on seeing your trail paper, snaps his fingers and makes a 'gimme' gesture[else]looking disinterested now he's greeted you[end if].[stopping]"
+Terry Sally is a person in Pressure Pier. "[one of]A smiling fellow walks up to you and shakes your hand. 'I'm Terry Sally! The official [activation of boy howdy]! Here to introduce new people to the Problems Compound! Smart or dumb, social or lame, well, someone needs to! But we don't let just anyone through to the Nominal Fen.' You shake hands, equally afraid you were too hard or soft. His enthusiasm quickly tails off, leaving you feeling it was your fault.[or]Terry Sally stands here, [if player has trail paper]and on seeing your trail paper, snaps his fingers and makes a 'gimme' gesture[else]looking disinterested now he's greeted you[end if].[stopping]"
 
 description of Terry Sally is "Brightly dressed, smiling a bit too wide."
 
@@ -6661,7 +6663,7 @@ check eating cutter cookie:
 	consider the tray b eating rule;
 	if the rule failed:
 		the rule succeeds;
-	say "[line break]You have to eat it carefully, because of its spikes, but it gives you...a sharp tongue. [if allow-swears is true]And wait. Did you taste a [activation of raising hell]hell raisin? [end if]Suddenly you wonder why you spent so much time feeling [b-o]. You're ready to go off on pretty much anyone who's gotten in your way, or even not helped you enough[if allow-swears is false]. You'll show those punks you don't need to swear to kick butt![else].[end if]";
+	say "[line break]You have to eat it carefully, because of its spikes, but it gives you...a sharp tongue. [if allow-swears is true]And wait. Did you taste a [activation of raising hell]hell raisin? [end if]Suddenly you wonder why you spent so much time feeling [b-o]. Even though there should've been, but wasn't, [activation of coffee break], you're ready to go off on pretty much anyone who's gotten in your way, or even not helped you enough. To [activation of quisling] at people you used to be like[if allow-swears is false]. You'll show those punks you don't need to swear to kick butt![else].[end if]";
 	now cookie is in lalaland;
 	bad-food-process true;
 	now cookie-eaten is true instead;
@@ -6732,7 +6734,7 @@ speaking plain	0	"Oh geez. You can't take this. You really can't. All this obvio
 questions field	3	"Well, of COURSE the Brothers didn't leave a thank-you note. Ungrateful chumps. Next time you help someone, you'll demand a deposit of flattery up front, that's for sure."	"You expected no thanks, but you didn't expect to feel bad about getting no thanks. Hmph. Lesson learned!"	"'You had some wisdom to foist on the Brothers, but if they'd REALLY done their job, they'd have stayed. The heck with them! If they couldn't soak up knowledge from BEING around the [bg], they're hopeless."	"Well! You did something for the brothers, but just in case, you want to make sure the [bad-guy] isn't upset with you for stealing his employees away. You never thought of that before. Maybe if he's mad, you can make it up to him."
 questions field	4	"'Kinda jealous of your brothers, eh? Not jealous enough to DO anything about it.' The brother[plur-s] nod[sing-s] at your sterling logic. 'You gonna waste your whole life here? I can't help everyone. I'm not a charity, you know.' More hard hitting truth! Ba-bam!'[wfk]'Go on, now! Go! What's that? I'm even bossier than the [bad-guy]? Excellent! If I can change, so can you! And the guy bossier than the [bad-guy] is ORDERING you to do something useful with your life!'[paragraph break]They follow your orders. You remember being bossed around by someone dumber than you--and now you turned the tables! Pasta fazoo!"	"'Still guarding Freak Control, eh? Well, I think you'll see you don't need to guard it from ME any more. Take the day off! C'mon, you want to. Hey, [bg] might be mad if you don't.' You're surprised he DOES run off."	"'Hey! Sorry to separate you from the rest of your family. But--well, mind if I go by? I mean, if you let someone in who just wants to help, maybe you'll, like, get rewarded.' The [if bros-left is 1]remaining brother shrugs and leaves[else]two reamining brothers look at each other, shrug, say 'He DID say...' and walk off[end if]. Man! You just had to ask nicely!"
 questions field	5	"[qfifvis] brothers guard the way north. '[qfjs] standing around, eh? Nothing to do? Well, I've been out, y'know, DOING stuff. You might try it. Go along. Go. You wanna block me from seeing the [bad-guy]? I'll remember it once he's out of my way.' You're convincing enough, they rush along."	"You've done your share of standing around, but you're pretty sure you did a bit of thinking. 'Look,' you say, 'I just need to get through and get out of here. I'm not challenging anyone's authority. Just, I really don't want to be here.' [bro-consider]. You're free to continue."	"'So, yeah, you're here to guard the [bg] from chumps, right? Well, I'm not one. So you can make way.' And they do. Even though they're all bigger than you. Sweet!"	"'Hey, there! Any chance I can see the [bad-guy]? He seems like someone I should meet,' you say. The brother[plur-s] seem[sing-s] confused. Usually, anyone trying to get in has a complaint.[paragraph break]'Stay there a minute.' You do. When [he-they-bro] come[sing-s] back out, you're nodded through. You turn to wave and give a thumbs-up, but nobody's there. Gee, all you had to do was ask nicely!"
-freak control	0	"You speak first. 'Don't pretend you can't see me, with all those reflective panels and stuff.'[paragraph break]He turns around, visibly surprised.[paragraph break]'Leadership, schmeadership,' you say. You're worried for a moment he might call you out on how dumb that sounds. You're open-minded like that. But when he hesitates, you know the good insults will work even better. 'Really. Leaving the cutter cookie right where I could take it, and plow through, and expose you for the lame chump you are. Pfft. I could do better than that.'[paragraph break]He stutters a half-response.[paragraph break]'Maybe that's why [bad-guy-2] hasn't been dealt with, yet. You say all the right things, but you're not forceful enough. Things'll change once I'm in power.'[wfk]He has no response. You point outside. He goes. Settling in is easy--as a new leader of Freak Control, you glad-hand the important people and assure them you're a bit cleverer than the [bad-guy] was. Naturally, you keep a list of [bad-guy-2]'s atrocities, and they're pretty easy to rail against, and people respect you for it, and from what you've seen, it's not like they could really get together and do anything, so you're making their lame lives more exciting.[wfk]You settle into a routine, as you read case studies of kids a lot like you used to be. Maybe you'd help one or two, if they had initiative...but until then, you'd like to chill and just let people appreciate the wit they always knew you had.[paragraph break]Really, who can defeat you? Anyone of power or consequence is on your side. Even [bad-guy-2] gives you tribute of a cutter cookie now and then. One day, you drop one in Meal Square... but nobody is brave enough to eat one. Well, for a while."	"You speak first. Well, you sigh REALLY loudly first. 'Just--this is messed up. I want to leave.'[paragraph break]'Of course you do,' says the [bad-guy]. 'I don't blame you. If you're not in power here, it's not fun. It's sort of your fault, but not totally. Hey, you actually showed some personality to get here. Just--show me you're worthy of leaving.' You complain--more excitingly than you've ever complained before. Without flattering or insulting the [bad-guy] too much: fair and balanced. You let him interrupt you, and you even interrupt him--but only to agree with his complaints.[wfk]'You're okay, I guess. You seem to know your place. Here, have a trip to the [activation of snipe gutter]Snipe Gutter in Slicker City. Seems like just the place for you. The [bad-guy] pushes a button and gestures to an opening. It's a slide. You complain a bit, but he holds up his hand. 'You'll have a lot more to complain about if you don't go.' You're impressed by this logic, and you only wish you could've stayed longer to absorb more of it, and maybe you could complain even more interestingly. You learn the culture in the Snipe Gutter for a bit, outlasting some veterans, then one day you just get sick of the clueless newbies who don't know what they're doing.[wfk]Back home, people notice a difference. You're still upset about things, but you impress people with it now. You notice other kids who just kind of seem vaguely upset, like you were before the Compound, not even bothering with constructive criticism. They're not worth it, but everywhere you go, you're able to fall in with complainers who complain about such a wide variety of things, especially people too dense to realize how much there is to complain about! You've matured, from..."	"'Hey! It's me!' you yell. [bg] turns. 'You know, I probably skipped a lot of dumb stuff to get here. You think you could be a LITTLE impressed?'[paragraph break][wfk]But he isn't. 'You know? You're not the first. Still, so many people just sort of putter around. You're going to be okay in life.' You two have a good laugh about things--you're even able to laugh at yourself, which of course gives you the right to laugh at people who haven't figured things out yet. Humor helps you deal, well, if it doesn't suck. You realize how silly you were before with all your fears, and you try to communicate that to a few creeps who don't want to be social. But they just don't listen. You'd rather hang around more with-it types, and from now on, you do."	"You speak a bit loudly. 'Hey, man! I heard you could teach me stuff, and I was jealous at first, but I'm...er...[activation of see if i care]care if I see how you do it?'[paragraph break]'Dude! Everyone says that. Do you mean it?' You nod vigorously. 'Great,' he continues. 'We could use more attitudes like yours. Tell me what you've been up to. Oh, yes, the points brownie. Made with my special [activation of butter up]up butter. Say, there's more where that came from. But I can't just GIVE you it. You'll need some [activation of gravy train]train gravy to toughen up, then maybe you can appreciate my special [activation of salad days]daze salad more fully. It even has a rare [activation of pea brain]brain pea... but first, well, I'm getting a bit tired of Guy Sweet. I think you'd be an upgrade. Do well enough, and we'll maybe discuss another promotion over some of my sophisticated special cooking.'[wfk][line break]'What's that?'[wfk][line break]'Well, at first, you might need a little [activation of chowderhead]head chowder, which you won't appreciate fully right away, but when you do, you'll deserve my [activation of curry favor]favor curry. Of course, you'll never quite deserve my [activation of breadwinner], but...'[paragraph break]Your mouth waters. Something even better than that daze salad! You listen as the [bad-guy] describes your first task: tell Guy Sweet he's nice and all but he deserves a break. You're going to do it. And everyone's going to be happier when you do. Well, everyone who [i]wants[r] to be." [temproom freak control]
+freak control	0	"You speak first. 'Don't pretend you can't see me, with all those reflective panels and stuff.'[paragraph break]He turns around, visibly surprised.[paragraph break]'Leadership, schmeadership,' you say. You're worried for a moment he might call you out on how dumb that sounds. You're open-minded like that. But when he hesitates, you know the good insults will work even better. 'Really. Leaving the cutter cookie right where I could take it, and plow through, and expose you for the lame chump you are. Pfft. I could do better than that.'[paragraph break]He stutters a half-response.[paragraph break]'Maybe that's why [bad-guy-2] hasn't been dealt with, yet. You say all the right things, but you're not forceful enough. Things'll change once I'm in power.'[wfk]He has no response. You point outside. He goes. Settling in is easy--as a new leader of Freak Control, you glad-hand the important people and assure them you're a bit cleverer than the [bad-guy] was. Naturally, you keep a list of [bad-guy-2]'s atrocities, and they're pretty easy to rail against, and people respect you for it, and from what you've seen, it's not like they could really get together and do anything, so you're making their lame lives more exciting.[wfk]You settle into a routine, as you read case studies of kids a lot like you used to be. Maybe you'd help one or two, if they had initiative...but until then, you'd like to chill and just let people appreciate the wit they always knew you had.[paragraph break]Really, who can defeat you? Anyone of power or consequence is on your side. Even [bad-guy-2] gives you tribute of a cutter cookie now and then. One day, you drop one in Meal Square... but nobody is brave enough to eat one. Well, for a while."	"You speak first. Well, you sigh REALLY loudly first. 'Just--this is messed up. I want to leave.'[paragraph break]'Of course you do,' says the [bad-guy]. 'I don't blame you. If you're not in power here, it's not fun. It's sort of your fault, but not totally. Hey, you actually showed some personality to get here. Just--show me you're worthy of leaving.' You complain--more excitingly than you've ever complained before. Without flattering or insulting the [bad-guy] too much: fair and balanced. You let him interrupt you, and you even interrupt him--but only to agree with his complaints.[wfk]'You're okay, I guess. You seem to know your place. Here, have a trip to the [activation of snipe gutter]Snipe Gutter in Slicker City. Seems like just the place for you. The [bad-guy] pushes a button and gestures to an opening. It's a slide. You complain a bit, but he holds up his hand. 'You'll have a lot more to complain about if you don't go.' You're impressed by this logic, and you only wish you could've stayed longer to absorb more of it, and maybe you could complain even more interestingly. You learn the culture in the Snipe Gutter for a bit, outlasting some veterans, then one day you just get sick of the clueless newbies who don't know what they're doing.[wfk]Back home, people notice a difference. You're still upset about things, but you impress people with it now. You notice other kids who just kind of seem vaguely upset, like you were before the Compound, not even bothering with constructive criticism. They're not worth it, but everywhere you go, you're able to fall in with complainers who complain about such a wide variety of things, especially people too dense to realize how much there is to complain about! You've matured, from..."	"'Hey! It's me!' you yell. [bg] turns. 'You know, I probably skipped a lot of dumb stuff to get here. You think you could be a LITTLE impressed?'[paragraph break][wfk]But he isn't. 'You know? You're not the first. Still, so many people just sort of putter around. You're going to be okay in life.' You two have a good laugh about things--you're even able to laugh at yourself, which of course gives you the right to laugh at people who haven't figured things out yet. Humor helps you deal, well, if it doesn't suck. You realize how silly you were before with all your fears, and you try to communicate that to a few creeps who don't want to be social. But they just don't listen. You'd rather hang around more with-it types, and from now on, you do."	"You speak a bit loudly. 'Hey, man! I heard you could teach me stuff, and I was jealous at first, but I'm... err... [activation of see if i care] how you do it?'[paragraph break]'Dude! Everyone says that. Do you mean it?' You nod vigorously. 'Great,' he continues. 'We could use more attitudes like yours. Tell me what you've been up to. Oh, yes, the points brownie. Made with my special [activation of butter up]up butter. Say, there's more where that came from. But I can't just GIVE you it. You'll need some [activation of gravy train] to toughen up, then maybe you can appreciate my special [activation of salad days] more fully. It even has a rare [activation of pea brain]... but first, well, I'm getting a bit tired of Guy Sweet. I think you'd be an upgrade. Do well enough, and we'll maybe discuss another promotion over some of my sophisticated special cooking.'[wfk][line break]'What's that?'[wfk][line break]'Well, at first, you might need a little [activation of chowderhead]head chowder, which you won't appreciate fully right away, but when you do, you'll deserve my [activation of curry favor]favor curry. Of course, you'll never quite deserve my [activation of breadwinner], but...'[paragraph break]Your mouth waters. Something even better than that daze salad! You listen as the [bad-guy] describes your first task: tell Guy Sweet he's nice and all but he deserves a break. You're going to do it. And everyone's going to be happier when you do. Well, everyone who [i]wants[r] to be." [temproom freak control]
 
 to say he-they-bro:
 	if bros-left > 1:
@@ -6971,7 +6973,7 @@ Down Ground is east of Pressure Pier. It is in Outer Bounds. "[one of]Walking ea
 
 after printing the locale description for down ground when down ground is unvisited:
 	say "You're reminded of the day you didn't get a permission slip signed to go to the roller coaster park at science class's year end. You wondered if you really deserved it, since you didn't do as well as you felt you could've.[line break]";
-	say "As you finish this thought, a large human-sized toad strolls in from the east. 'So! A new juvenile, eh? You's best not to SLIP. It ain't hard to avoid winding up mumbling and alone like Fritz the On, here. Whatever he smokes, can't be no [activation of joint statement]statement joint. Doobie? BE! DO!' His [activation of grammar police]police grammar leaves you unable to say anything until he disappears back east.[paragraph break]Fritz the On mutters something about that oppressive Stool Toad."
+	say "As you finish this thought, a large human-sized toad strolls in from the east. 'So! A new juvenile, eh? You's best not to SLIP. It ain't hard to avoid winding up mumbling and alone like Fritz the On, here. Whatever he smokes, can't be no [activation of joint statement]. Doobie? BE! DO!' His [activation of grammar police] leaves you unable to say anything until he disappears back east.[paragraph break]Fritz the On mutters something about that oppressive Stool Toad."
 
 check going nowhere in Down Ground:
 	if noun is down:
@@ -6982,7 +6984,7 @@ check going nowhere in Down Ground:
 		say "Paths up to the east or west. So hard to decide which." instead;
 	say "It's too high a slope north or south. Plus, you're not sure if such [activation of ground up]up ground would be safe, though you do want to work from the, er, ground up." instead;
 
-the warmer bench is a supporter in Down Ground. "The Warmer Bench waits here. It may be fun to lie on.". description is "Originally painted on the bench: PROPERTY OF [activation of bum beach]BUM BEACH. Property Of is replaced by FORECLOSED FROM. You feel the heat coming from it. It makes you sleepy."
+the warmer bench is a supporter in Down Ground. "The Warmer Bench waits here. It may be fun to lie on.". description is "Originally painted on the bench: PROPERTY OF [activation of beach bum]BUM BEACH. Property Of is replaced by FORECLOSED FROM. You feel the heat coming from it. It makes you sleepy."
 
 after examining warmer bench:
 	now bum beach is in lalaland;
@@ -7169,13 +7171,13 @@ check going nowhere in Joint Strip:
 		try going south instead;
 	if noun is outside:
 		say "You already are." instead;
-	say "[one of]The Stool Toad booms 'Where you going, son? This isn't a [activation of strip search]search strip without the right outfit!' You consider asking him why he isn't searching, but you don't have the guts. But you bet if you try wandering off again, he might get up from his stool.[or]'Sneak off? Off, sneak!' The Stool Toad nods pointedly at you. He's going to take action if you try that again.[or][toad-write-up][or]You already crossed the Stool Toad that way.[stopping]";
+	say "[one of]The Stool Toad booms 'Where you going, son? This isn't a [activation of strip search] without the right outfit!' You consider asking him why he isn't searching, but you don't have the guts. But you bet if you try wandering off again, he might get up from his stool.[or]'Sneak off? Off, sneak!' The Stool Toad nods pointedly at you. He's going to take action if you try that again.[or][toad-write-up][or]You already crossed the Stool Toad that way.[stopping]";
 	the rule succeeds;
 
 off-the-path is a truth state that varies.
 
 to say toad-write-up:
-	say "As you stumble through the stickweed for the third time, you uncover--[activation of case a joint]a joint case! The Stool Toad, so passive with all the suspicious smells around, leaps into action as sunlight reflects off it and in his eyes.[paragraph break]'You're lucky it's empty. But I can still write you up for aggravated jaywalking.' He mutters about laws preventing him from writing you up for more[if your-tix > 0], before seeing you're a repeat offender[end if].";
+	say "As you stumble through the stickweed for the third time, you uncover--[activation of case a joint]! The Stool Toad, so passive with all the suspicious smells around, leaps into action as sunlight reflects off it and in his eyes.[paragraph break]'You're lucky it's empty. But I can still write you up for aggravated jaywalking.' He mutters about laws preventing him from writing you up for more[if your-tix > 0], before seeing you're a repeat offender[end if].";
 	now off-the-path is true;
 	get-ticketed "going off the path in the Joint Strip";
 
@@ -7231,7 +7233,7 @@ to say tix-adv:
 
 description of the Stool Toad is "Green, bloated and, oh yes, poisonous. He reminds you of a security guard at your high school whose every other sentence was 'YOUNG MAN!'"
 
-the pigeon stool is scenery in Joint Strip. "It's shaped like a curled up pigeon, though its head might be a bit too big and flat. It's kind of snazzy, and you'd actually sort of like one. You read the words [activation of moral support]SUPPORT MORAL on it and feel immediately depressed[one of]. You aren't an orinthologist, though you got accused of being one, but if you had to guess, it'd be an [activation of pigeon English]English Pigeon[or][stopping]."
+the pigeon stool is scenery in Joint Strip. "It's shaped like a curled up pigeon, though its head might be a bit too big and flat. It's kind of snazzy, and you'd actually sort of like one. You read the words [activation of moral support] on it and feel immediately depressed[one of]. You aren't an orinthologist, though you got accused of being one, but if you had to guess, it'd be an [activation of pigeon English][or][stopping]."
 
 does the player mean talking to stool toad when player is in joint strip: it is likely.
 
@@ -7285,7 +7287,7 @@ prompt	response	enabled	permit
 table of quip texts (continued)
 quip	quiptext
 toad-hi	"'They all say that. You're a bit less convincing than the rest. But you're also kind of more convincing at the same time, which also has me suspicious.'"
-toad-joint	"'Of course not! But they would be if I weren't here! In fact, there's just something ABOUT this place. Worse turpitude might fester without my imposing presence. Someone might even put up a [activation of advice]vice ad for the [activation of stop smoking]Smoking Stop.'"
+toad-joint	"'Of course not! But they would be if I weren't here! In fact, there's just something ABOUT this place. Worse turpitude might fester without my imposing presence. Someone might even put up a [activation of advice] for the [activation of stop smoking].'"
 toad-troub	"'[bad-toad].'"
 toad-refresh	"'Y'mean you don't remember[one of][or], again[stopping]? [bad-toad].'"
 toad-pomp	--
@@ -7297,7 +7299,7 @@ litter-clue is a truth state that varies.
 
 to say bad-toad:
 	now litter-clue is true;
-	say "Littering. Suppressing evidence of prior misconduct. Acting up in the bar. Minor in possession of alcohol. Aggravated loafing. Seeking out illicit activities. All manner of frog-bull[activation of bullfrog]"
+	say "Littering. Suppressing evidence of prior misconduct. Acting up in the bar. Minor in possession of alcohol. Aggravated loafing. Seeking out illicit activities. All manner of [activation of bullfrog]"
 
 after quipping when qbc_litany is litany of stool toad:
 	if current quip is toad-hi:
@@ -7315,7 +7317,7 @@ Soda Club is south of Joint Strip. It is in Outer Bounds. "Maybe if it were past
 check going nowhere in Soda Club:
 	if noun is outside:
 		try going north instead;
-	say "Maybe there's a [activation of gin bar]gin bar where they serve [activation of beer nuts]nuts beer behind a hidden passage. But you're not going to find it, or be told about it, so you'll have to continue with your adventure here." instead;
+	say "Maybe there's a cheap [activation of bargain] where they serve [activation of beer nuts] behind a hidden passage. But you're not going to find it, or be told about it, so you'll have to continue with your adventure here." instead;
 
 section Erin Sack
 
@@ -7331,11 +7333,10 @@ instead of doing something with rehearsal dress:
 	say "In this game, you can pretty much only examine the dress."
 
 after printing the locale description for Soda Club when Soda Club is unvisited:
-	say "The bartender calls you over. 'Say, new fella! Just use common sense, and you won't get the [activation of boot licker]liquor boot like the [activation of punch sucker]Punch Sucker.'";
+	say "The bartender calls you over. 'Say, new fella! Just use common sense, and you won't get the [activation of boot licker] like the [activation of sucker punch].'";
 	wfak;
-	say "'But hey, one thing. Can you give me a break from Erin Sack over there? She's--she's interesting at first, but when she's wearing that rehearsal dress she tends to repeat what she's already said. She's no [activation of hip rose]Hip Rose, but Rose is probably out of your league anyway. No offense. By the way, I'm Ally Stout.'";
+	say "'But hey, one thing. Can you give me a break from Erin Sack over there? She's--she's interesting at first, but when she's wearing that rehearsal dress she tends to repeat what she's already said. She's no [activation of hip rose], but Rose is probably out of your league anyway. No offense. By the way, I'm Ally Stout.'";
 	move Erin Sack to Soda Club;
-
 
 description of Erin Sack is "She is waiting for conversation in her rehearsal dress."
 
@@ -7495,15 +7496,15 @@ after printing the name of haha brew when taking inventory:
 
 table of quip texts (continued)
 quip	quiptext
-ally-punch	"'Whatever we give him, it goes down badly. [activation of punch out]Out Punch, he starts a fight. [activation of punch line]Line Punch, the stupid jokes he tells! [activation of punch ticket]Ticket Punch, he whines he's entitled, or worse, he isn't. And that night he snuck some [activation of punch drunk]drunk punch...'"
+ally-punch	"'Whatever we give him, it goes down badly. [activation of punch out], he starts a fight. [activation of punch line], the stupid jokes he tells! [activation of punch ticket], he whines he's entitled, or worse, he isn't. And that night he snuck some [activation of punch drunk]...'"
 ally-drinks	"'Well, you wouldn't be ready for the [activation of gin rummy] or [activation of rum go]. If we served it after-hours, of course. If we served it after-hours. And water's...troubled, in such an exciting place. But we have Haha Brew and Cooler Wine. Both so watered down, the Stool Toad won't nab you long as you drink it here.'"
 ally-alco	"'Haha. No.'"
 ally-onrocks	"Ally pushes a button on an unseen machine. You hear ice cubes rattle. He holds up a glass, swirls it, and nods meaningfully before putting it away. Duh, now. Maybe you should've asked what Beechwood Aged or something meant, instead."
 ally-but	"'Well, everyone here is a bit smarter and maturer than normal, and anyway, this isn't the high-proof stuff. Plus the Stool Toad, we've paid him off. As long as nobody makes it obvious and walks out with a drink. Then he's pretty awesome. So what the hey.'"
 ally-haha	"[here-or-not]"
 ally-cooler	"[here-or-not]"
-ally-baiter	"'The [bg] lets me stay open for very reasonable shakedown fees. Much better than [bad-guy-2], I'm sure. He just, well, he just wants to know about all the patrons in here. Why, he drops in here himself and gets the good stuff. But he's very fair and balanced. He knows it's not how much you drink but how it affects you. Why, he's better at shaming unruly customers than I am! I'm just too good at the [activation of speakeasy]easy-speak you need to get along, I guess.'"
-ally-bye	"He goes back to mixing and serving drinks, to talking to some other customers about other customers[if allow-swears is true] and backhand-complimenting the rival [activation of striptease]Teas Strip[end if][one of]. You wonder if you're an other OTHER customer, or if you're even that important[or][stopping]."
+ally-baiter	"'The [bg] lets me stay open for very reasonable shakedown fees. Much better than [bad-guy-2], I'm sure. He just, well, he just wants to know about all the patrons in here. Why, he drops in here himself and gets the good stuff. But he's very fair and balanced. He knows it's not how much you drink but how it affects you. Why, he's better at shaming unruly customers than I am! I'm just too good at the [activation of speakeasy] you need to get along, I guess.'"
+ally-bye	"He goes back to mixing and serving drinks, to talking to some other customers about other customers[if allow-swears is true] and backhand-complimenting the rival [activation of striptease][end if][one of]. You wonder if you're an other OTHER customer, or if you're even that important[or][stopping]."
 
 to say here-or-not:
 	if player has cooler or player has haha brew:
@@ -7514,11 +7515,11 @@ to say here-or-not:
 			say "You pause for a second. You've got quite a record, already. You don't need a fifth tickety. No, you'd better play it cool.[no line break]";
 			continue the action;
 		if current quip is ally-haha:
-			say "'Ah good. If you, like, laughed hard at the name, you'd get kicked out like the Punch Sucker. Maybe you'll even be refined enough for [activation of brew a plot]a plot brew some day.'[no line break]";
+			say "'Ah good. If you, like, laughed hard at the name, you'd get kicked out like the Punch Sucker. Maybe you'll even be refined enough for [activation of brew a plot] some day.'[no line break]";
 			now player has haha brew;
 			disable the ally-alco quip;
 		else:
-			say "'Let me crank up the [activation of wine-u-gen]Wine-U-Gen...'[no line break]";
+			say "'Let me crank up the [activation of genuine]...'[no line break]";
 			disable the ally-alco quip;
 			now player has cooler wine;
 
@@ -7554,9 +7555,9 @@ understand "drain the circle" and "drain circle" as a mistake ("Maybe you can fi
 
 after printing the locale description for Nominal Fen when Nominal Fen is unvisited:
 	unless accel-ending:
-		say "'[activation of dirty word]Word! Dirty! [activation of clean break]Break CLEAN!' the [j-co] gabble away. They're trying a bit too hard to show they're not lame.";
+		say "'[activation of dirty word]! [activation of clean break]!' the [j-co] gabble away. They're trying a bit too hard to show they're not lame.";
 		if allow-swears is true:
-			say "[line break]Man. You just feel oppressed just being [activation of jerk around]AROUND jerks.";
+			say "[line break]Man. You just feel oppressed just being [activation of jerk around].";
 	continue the action;
 
 check going nowhere in Nominal Fen:
@@ -7587,7 +7588,7 @@ Paul Kast is a client. clue-letter of Paul Kast is "K". description is "Dressed 
 
 Cain Reyes is a client. clue-letter of Cain Reyes is "*". description is "The loudest of the bunch."
 
-the bottle of Quiz Pop is a thing. "The [j-co] left a bottle of Quiz Pop here.". description is "It's typical ucky brown for pop, though it is fizzing furiously. The label proclaiming it Quiz Pop reveals no nutritional information, which may be for the better. It also provides a warning that it is therapeutic for people who don't always ask the questions they want to, but people who already ask loaded questions are at risk. It's from [activation of black mark]Mark Black industries."
+the bottle of Quiz Pop is a thing. "The [j-co] left a bottle of Quiz Pop here.". description is "It's typical ucky brown for pop, though it is fizzing furiously. The label proclaiming it Quiz Pop reveals no nutritional information, which may be for the better. It also provides a warning that it is therapeutic for people who don't always ask the questions they want to, but people who already ask loaded questions are at risk. It's from [activation of black mark] industries."
 
 understand "soda" as Quiz Pop
 
@@ -7631,7 +7632,7 @@ before talking to jerks (this is the ask jerks generally to get their names rule
 	if finger is not examined:
 		if allow-swears is false:
 			say "You don't know who would be least unpleasant to talk to first. Even if you did, it'd probably be too much. Maybe if you knew more about them some other way..." instead;
-		say "[one of]You mouth something, but they form a [activation of ring finger]finger ring, but using THAT finger, of course[or]Without anything specific to talk about, you don't want to bug them again[stopping]. So you just listen instead.[line break]";
+		say "[one of]You mouth something, but they form a [activation of ring finger], but using THAT finger, of course[or]Without anything specific to talk about, you don't want to bug them again[stopping]. So you just listen instead.[line break]";
 		try listening instead;
 	if know-jerks is true:
 		say "You should really pick an individual jerk to talk to, now you know their names." instead;
@@ -7642,7 +7643,7 @@ to jerk-blab:
 	increment jerk-macho-row;
 	d "Jerk dialogue: [jerk-macho-row]";
 	if jerk-macho-row > number of rows in table of jerk-macho-talk:
-		say "'[activation of lovelies]Lies: LOVE!' proclaims [random client in Nominal Fen]. The others agree. They then resume their...evaluations.";
+		say "'[activation of lovelies]!' proclaims [random client in Nominal Fen]. The others agree. They then resume their...evaluations.";
 		now jerk-macho-row is 0;
 		continue the action;
 	choose row jerk-macho-row in table of jerk-macho-talk;
@@ -8062,7 +8063,7 @@ to check-jerks-done:
 
 to zap-the-jerks:
 	say "A fight's about to break out, until you tell them where you got this information from.[paragraph break]'You better be right about this,' [a random not minted client] says. They rush off. You hear whining in the distance. It's the Labor Child. He protests he was just trying to shame them into doing more practical things. They aren't buying it!";
-	say "[line break]The (ex-)[j-co]s arrive back, and [a random client] [if allow-swears is true]gives an [activation of grown up]up groan[else]wipes away a [activation of tear-jerk]jerk-tear[end if] before handing you a bottle of Quiz Pop. 'Man, you seem to know what's what, and you helped us see it was okay to be us. Here's some totally sweet contraband[if allow-swears is true]. We're out of [activation of pop cherry]cherry pop but this stuff is like good for people who figure stuff out[end if].'[paragraph break]Hmm. Interesting. Quiz Pop. As they walk away, you hear them deciding on a victory meal they can now afford at the [activation of you buy]bayou: [activation of sausage fest]fest sausage. With a [activation of joint committee]committee joint to top it off!";
+	say "[line break]The (ex-)[j-co]s arrive back, and [a random client] [if allow-swears is true]gives an [activation of grown up][else]wipes away a [activation of tear-jerk][end if] before handing you a bottle of Quiz Pop. 'Man, you seem to know what's what, and you helped us see it was okay to be us. Here's some totally sweet contraband[if allow-swears is true]. We're out of [activation of pop cherry] but this stuff is like good for people who figure stuff out[end if].'[paragraph break]Hmm. Interesting. Quiz Pop. As they walk away, you hear them deciding on a victory meal they can now afford at the [activation of you buy]: [activation of sausage fest]. With a [activation of joint committee] to top it off!";
 	it-take quiz pop;
 	increment the score;
 	now all clients are in lalaland;
@@ -8109,7 +8110,7 @@ check going in chipper wood when p-c is false:
 		say "You can go east or west." instead;
 
 after going when player was in chipper wood and Cute Percy is in chipper wood:
-	say "'Not clever enough to catch me? [activation of sweetheart deal]Deal, sweetheart!' Percy's taunt echos.";
+	say "'Not clever enough to catch me? [activation of sweetheart deal]!' Percy's taunt echos.";
 	continue the action;
 
 you-y is a number that varies. you-x is a number that varies.
@@ -8476,7 +8477,7 @@ to say wfk:
 	say "[line break]";
 
 to say as-char:
-	say "[one of]You hear a rustle from behind. Someone slaps you on the left side of your neck--you look there but see no-one. Then you look right. Ah, there. You STILL hate when people do that.[paragraph break]'Hey. It's me, Cute Percy. The [activation of character assassination]assassination character, cuz the [bg], err, [bad-guy], says 'You're killing me!' at my little jokes and puzzles. AC for short. Or CP. What're you? AS? Pft, that's lame. Don't worry, I could make plenty of names for you.' He tries a few, guessing your middle name is Sheldon or Steve, and you rush at him, and he snickers.[wfk]'Temper, temper. Well, if you're not a lazy quitter, there's a cheat below.'[wfk]'Cheat?'[paragraph break]'Oop! Interested, eh? Guess you're not perfectly honest. Just ENTER the chase paper and give it a try. UNLESS YOU'RE CHICKEN.'[paragraph break]You wonder why you wouldn't fall through the chase paper if there was nothing under there, but the AC probably has an annoying response for that.[no line break][or]Cute Percy springs out of nowhere again, asking whether you are too chicken to get on the chase paper or maybe you want to be lazy and cheat but you're scared you'll fail.[no line break][stopping]"
+	say "[one of]You hear a rustle from behind. Someone slaps you on the left side of your neck--you look there but see no-one. Then you look right. Ah, there. You STILL hate when people do that.[paragraph break]'Hey. It's me, Cute Percy. The [activation of character assassination], cuz the [bg], err, [bad-guy], says 'You're killing me!' at my little jokes and puzzles. AC for short. Or CP. What're you? AS? Pft, that's lame. Don't worry, I could make plenty of names for you.' He tries a few, guessing your middle name is Sheldon or Steve, and you rush at him, and he snickers.[wfk]'Temper, temper. Well, if you're not a lazy quitter, there's a cheat below.'[wfk]'Cheat?'[paragraph break]'Oop! Interested, eh? Guess you're not perfectly honest. Just ENTER the chase paper and give it a try. UNLESS YOU'RE CHICKEN.'[paragraph break]You wonder why you wouldn't fall through the chase paper if there was nothing under there, but the AC probably has an annoying response for that.[no line break][or]Cute Percy springs out of nowhere again, asking whether you are too chicken to get on the chase paper or maybe you want to be lazy and cheat but you're scared you'll fail.[no line break][stopping]"
 
 does the player mean entering the chase paper: it is likely.
 
@@ -8603,7 +8604,7 @@ carry out abadfaceing:
 		say "[one of]The Insanity Terminal emits an ultrasound squeal that brings you to your knees. It's probably mad you made it solve the [j-co] for you and doesn't believe you solved its harder puzzle on your own. Or rather, its calculations lead it to suspect cheating[or]Nah. You don't want the Terminal to squeal at you again (note: on winning, you'll get a code where you can solve the terminal the right way and see what's below)[stopping]." instead;
 	if Insanity Terminal is in Belt Below:
 		open-bottom;
-		say "You hear a great rumbling as you put on -- well, a bad face -- and the Insanity Terminal coughs and sputters (I guess it was an [activation of terminal illness]Illness Terminal, too! That would explain its--well, as close to a mood as a computer can get) before cracking in half to reveal a tunnel further below. You feel like you could face a bad...well, you're not sure. But something bad.";
+		say "You hear a great rumbling as you put on -- well, a bad face -- and the Insanity Terminal coughs and sputters (I guess it was an [activation of terminal illness], too! That would explain its--well, as close to a mood as a computer can get) before cracking in half to reveal a tunnel further below. You feel like you could face a bad...well, you're not sure. But something bad.";
 		now player has a bad face;
 		now face of loss is in lalaland;
 		inc-max;
@@ -8621,7 +8622,7 @@ to open-bottom:
 
 chapter energy waist
 
-The Energy Waist is scenery in the belt below. "[if insanity terminal is in lalaland]Well, it no longer blinks around, but it's just as wide as before, so you can call it a [activation of waste breath]breadth waist (but it won't do any good, ha ha)[else]It blips about efficiently, you assume. You can't be sure. People have accused you of being better at electronics than you are, so you don't know the hows and whys[end if]."
+The Energy Waist is scenery in the belt below. "[if insanity terminal is in lalaland]Well, it no longer blinks around, but it's just as wide as before, so you can call it a [activation of waste breath] (but it won't do any good, ha ha)[else]It blips about efficiently, you assume. You can't be sure. People have accused you of being better at electronics than you are, so you don't know the hows and whys[end if]."
 
 instead of doing something with energy waist:
 	if action is procedural, continue the action;
@@ -9073,7 +9074,7 @@ understand "trust brain" and "trust/brain" as mind of peace.
 
 part Truth Home
 
-Truth Home is inside of Disposed Well. It is in Main Chunk. It is only-out. "Nothing feels wrong here, but it feels incredibly uncomfortable[if sid lew is in lalaland] even with Sid Lew gone[end if]. It's also a small home, almost a [activation of whole truth]truth hole, with the only exit back out."
+Truth Home is inside of Disposed Well. It is in Main Chunk. It is only-out. "Nothing feels wrong here, but it feels incredibly uncomfortable[if sid lew is in lalaland] even with Sid Lew gone[end if]. It's also a small home, almost a [activation of whole truth], with the only exit back out."
 
 check going nowhere in truth home:
 	say "The only way out is, well, out." instead;
@@ -9100,16 +9101,16 @@ twothird-sid-yet is a truth state that varies.
 every turn when player is in truth home and Sid Lew is in truth home:
 	increment sid-row;
 	if third-sid-yet is false and sid-row is number of rows in table of incisive sid viewpoints:
-		say "Sid takes a brief break. 'Boy! I could deserve good money as a [activation of psychotherapy]therapy psycho! You've only heard the half of my advice so far!'";
+		say "Sid takes a brief break. 'Boy! I could deserve good money as a [activation of psychotherapy]! You've only heard the half of my advice so far!'";
 		now third-sid-yet is true;
 		continue the action;
 	if twothird-sid-yet is false and sid-row is number of rows in table of incisive sid viewpoints:
-		say "Sid coughs then warms up for a song. '[activation of pathologic]Oh, logic path, oh logic path!' He's in the home stretch of ideas, now.";
+		say "Sid coughs then warms up for a song. '[activation of pathologic], oh logic path!' He's in the home stretch of ideas, now.";
 		now twothird-sid-yet is true;
 		continue the action;
 	if sid-row > number of rows in table of incisive sid viewpoints:
 		now sid-row is 0;
-		say "'[activation of ideological]Logical idea, logical idea, logical idea. How can you POSSIBLY disagree with me?' booms Sid. He pauses before starting again.";
+		say "'[activation of ideological], logical idea, logical idea. How can you POSSIBLY disagree with me?' booms Sid. He pauses before starting again.";
 		now twothird-sid-yet is false;
 		now third-sid-yet is false;
 		continue the action;
@@ -9156,7 +9157,7 @@ check going nowhere in scheme pyramid:
 		try going north instead;
 	say "This room is north-south. Maybe once the brat turns ten, he'll have a bigger office, but right now, it's only got the two exits." instead;
 
-The Labor Child is a baiter-aligned person in Scheme Pyramid. "[one of]Some overdressed little brat walks up to you and shakes your hand. 'Are you here to work for me? I hope you have [activation of labor of love]love of labor. Not as much as me. The Labor Child. If you think you have business savvy, get a seed from the Fund Hedge.'[or]The Labor Child paces about here[one of]plotting revenge against the [activation of baby boomer]Boomer Baby who humiliated him in pre-school[or], formulating his next business idea[one of], muttering he's outgrown his [activation of army brat]brat army. Time to move on[or][stopping][stopping].[stopping]"
+The Labor Child is a baiter-aligned person in Scheme Pyramid. "[one of]Some overdressed little brat walks up to you and shakes your hand. 'Are you here to work for me? I hope you have [activation of labor of love]. Not as much as me. The Labor Child. If you think you have business savvy, get a seed from the Fund Hedge.'[or]The Labor Child paces about here[one of]plotting revenge against the [activation of baby boomer] who humiliated him in pre-school[or], formulating his next business idea[one of], muttering he's outgrown his [activation of army brat]. Time to move on[or][stopping][stopping].[stopping]"
 
 understand "kid/brat" as Labor Child.
 
@@ -9164,7 +9165,7 @@ description of Labor Child is "He's dressed in abhorrently cutesy Deal Clothes, 
 
 check talking to labor child:
 	if contract is off-stage:
-		say "'I'm a busy kid. Almost as busy as the [bg]. In addition to delegating all my homework I am running a business! There's startup materials in the Fund Hedge. I'm not some silly [activation of child support]Support Child.'" instead;
+		say "'I'm a busy kid. Almost as busy as the [bg]. In addition to delegating all my homework I am running a business! There's startup materials in the Fund Hedge. I'm not some silly [activation of child support].'" instead;
 	if player has contract:
 		if contract-signed is false:
 			say "'The contract! Less talk! More do!' Oh, man, there's something you'd like to DO." instead;
@@ -9172,7 +9173,7 @@ check talking to labor child:
 		try giving contract to labor child instead;
 	say "'Look, I'll write you a reference if you need one.'" instead;
 
-The Labor Child wears the Deal Clothes. description of deal clothes is "They peg the wearer as above [activation of business casual]casual business. Whether tie or bow-tie, single-breasted or double-breasted, two- or three- piece, nobody has the courage to yell this sort of thing isn't really all that cute, especially when the wearer is a greedy little brat. Whether the clothes make them bratty or you have to be bratty to wear them, it's a depressing situation."
+The Labor Child wears the Deal Clothes. description of deal clothes is "They peg the wearer as above [activation of business casual]. Whether tie or bow-tie, single-breasted or double-breasted, two- or three- piece, nobody has the courage to yell this sort of thing isn't really all that cute, especially when the wearer is a greedy little brat. Whether the clothes make them bratty or you have to be bratty to wear them, it's a depressing situation."
 
 the fund hedge is scenery in Scheme Pyramid. "The fund hedge has other seeds like the one you took, but you really only needed one."
 
@@ -9186,7 +9187,7 @@ check examining the fund hedge:
 			now player has cold contract;
 			say "[line break]'Now, be sure you get that contract signed, now you have it.'";
 		else:
-			say "'Really, you're lucky I didn't make you search through [activation of slush fund]fund slush. You didn't learn to [activation of age four]FORAGE young, did you?'";
+			say "'Really, you're lucky I didn't make you search through [activation of slush fund]. You didn't learn to [activation of age four] young, did you?'";
 		the rule succeeds;
 
 the cold contract is a thing. description is "All the legal jargon is nothing to sneeze at. (Sorry.)[paragraph break]The main gist is that any person [if contract-signed is false](written extensively, instead of 'party') [end if]who signs it is probably screwed if they breathe wrong, and it's their fault if they missed something or didn't have access to someone who could read all the details.[paragraph break]It is currently [if contract-signed is false]unsigned[else]signed by the Business Monkey[end if]."
@@ -9248,7 +9249,7 @@ after examining the finger index (this is the know what jerks are about rule) :
 
 understand "paper" as finger index.
 
-description of finger index is "FINGER INDEX (CONFIDENTIAL):[paragraph break][finger-say].[paragraph break]P.S. upgrade anyone who tries to tattle to the [activation of bookworm]Worm Book.". [temproom scheme pyramid]
+description of finger index is "FINGER INDEX (CONFIDENTIAL):[paragraph break][finger-say].[paragraph break]P.S. upgrade anyone who tries to tattle to the [activation of bookworm].". [temproom scheme pyramid]
 
 check examining finger index when finger index is not examined:
 	say "It looks like a list of customers--wait, no, it's a list of embarrassing secrets. The little brat!";
@@ -9305,7 +9306,7 @@ check opening sound safe:
 		say "[one of]Uncle Dutch and Turk Young look momentarily shaken up! But they soon talk over the Sound Safe, congratulating each other on not getting rattled by it, unlike less practical types[or]It won't work better this time. Dutch and Turk are too goal-oriented for the safe to bother them[stopping]." instead;
 	if player is not in Discussion Block:
 		say "You crack it open, but it makes such a terrible noise you have to close it again. You wouldn't want to open it again unless you were around someone you really wanted to spite[if player does not have safe], and thing is, it felt a lot lighter than you thought it would as you opened it[end if]." instead;
-	say "The Sound Safe makes a brutal noise in the Discussion Block, made worse by the special acoustics. Harmonic Phil covers his ears. 'Not even [activation of world record]Record World would sell dreck like this! I can't even be clever about how this is so bad it's good!' he yells, running off. '[safety-of]!'[paragraph break]You put the safe down by the song torch."; [temproom discussion block]
+	say "The Sound Safe makes a brutal noise in the Discussion Block, made worse by the special acoustics. Harmonic Phil covers his ears. 'Not even [activation of world record] would sell dreck like this! I can't even be clever about how this is so bad it's good!' he yells, running off. '[safety-of]!'[paragraph break]You put the safe down by the song torch."; [temproom discussion block]
 	now sound safe is in Discussion Block;
 	now harmonic phil is in lalaland;
 	say "[line break][if art fine is in Discussion Block]Art Fine chuckles and nods approval. 'That's what you get for dabbling in art that's not intellectually robust.' Wow. Even before a line like that, you figured Art Fine had to go, too.[else]Well, that's Phil AND Art gone.[end if]";
@@ -9360,7 +9361,7 @@ every turn when Alec Smart is in Speaking Plain and Speaking Plain was visited a
 	increment dutch-blab;
 	if dutch-blab > number of rows in table of dutch-blab:
 		now dutch-blab is 1;
-		say "'THUS ENDS THE BUSINESS SHOW.' Uncle Dutch and Turk Young shout in unison before applauding each other. They then look to you and sigh when you fail to applaud. 'Despite all our flourishes, he dares insinuate it was an [activation of show off]OFF SHOW,' notes Uncle Dutch. They [activation of stand the pace] for a bit.[paragraph break][one of]You look back on all their advice and realize none of it could even conceivably help you with what you need to do, here. At least they're not stopping you from going anywhere.[or]They're going to start up again soon. But it can't be that bad the next time through.[stopping]";
+		say "'THUS ENDS THE BUSINESS SHOW.' Uncle Dutch and Turk Young shout in unison before applauding each other. They then look to you and sigh when you fail to applaud. 'Despite all our flourishes, he dares insinuate it was an [activation of show off],' notes Uncle Dutch. They [activation of stand the pace] for a bit.[paragraph break][one of]You look back on all their advice and realize none of it could even conceivably help you with what you need to do, here. At least they're not stopping you from going anywhere.[or]They're going to start up again soon. But it can't be that bad the next time through.[stopping]";
 	else:
 		choose row dutch-blab in table of dutch-blab;
 		say "[banter entry][line break]";
@@ -12146,7 +12147,7 @@ Force of Habit is a concept in conceptville. Understand "habit of force" as forc
 
 Hard Knock is a concept in conceptville. Understand "knock hard" as Hard Knock. howto is "get to Pressure Pier". gtxt is "".
 
-No-Nonsense is a concept in conceptville. Understand "no nonsense" and "nonsense no" as no-nonsense. howto is "xyzzy". gtxt is "Nonsense? No"
+No-Nonsense is a concept in conceptville. Understand "no nonsense" and "nonsense no" as no-nonsense. howto is "xyzzy". gtxt is "Nonsense? No".
 
 Passing Fancy is a concept in conceptville. Understand "fancy passing" as Passing Fancy. howto is "help all three Keeper Brothers".
 
@@ -12202,7 +12203,7 @@ brush up is a concept in conceptville. Understand "up brush" as brush up. howto 
 
 a thing called brush with greatness is a concept in conceptville. Understand "greatness with brush" as brush with greatness. howto is "examine any brush after becoming a brush sage".
 
-dirt nap is a concept in conceptville. Understand "nap dirt" as dirt nap. howto is "leave the garden without digging, or sleep when you have the pick".
+dirt nap is a concept in conceptville. Understand "nap dirt" as dirt nap. howto is "leave the garden without digging, or sleep when you have the pick". gtxt is "nap dirt".
 
 man enough is a concept in conceptville. Understand "enough man" as man enough. howto is "dig twice with the pick in Variety Garden".
 
@@ -12220,17 +12221,17 @@ chapter outer concepts
 
 section pressure pier concepts
 
-Bible Belt is a concept in conceptville. Understand "belt bible" as bible belt. howto is "try taking the Basher Bible".
+Bible Belt is a concept in conceptville. Understand "belt bible" as bible belt. howto is "try taking the Basher Bible". gtxt is "belt bible".
 
 Boy Howdy is a concept in conceptville. Understand "howdy boy" as Boy Howdy. howto is "get to Pressure Pier". gtxt is "Howdy Boy".
 
-fish out of water is a concept in conceptville. Understand "water out of fish" as fish out of water. howto is "examine the water in Pressure Pier".
+fish out of water is a concept in conceptville. Understand "water out of fish" as fish out of water. howto is "examine the water in Pressure Pier". gtxt is "water: out of fish".
 
-meal ticket is a concept in conceptville. Understand "ticket meal" as meal ticket. howto is "eat the boo tickety".
+meal ticket is a concept in conceptville. Understand "ticket meal" as meal ticket. howto is "eat the boo tickety". gtxt is "ticket meal".
 
-palatable is a concept in conceptville. Understand "table pal" and "pal table" as palatable. howto is "[x-it of side stand]".
+palatable is a concept in conceptville. Understand "table pal" and "pal table" as palatable. howto is "[x-it of side stand]". gtxt is "a table, pal".
 
-take a stand is a concept in conceptville. Understand "stand a/the take" and "take the stand" as take a stand. howto is "try to take a/the side stand".
+take a stand is a concept in conceptville. Understand "stand a/the take" and "take the stand" as take a stand. howto is "try to take a/the side stand". gtxt is "stand the take".
 
 section meal square concepts
 
@@ -12241,6 +12242,8 @@ arch deluxe is a concept in conceptville. Understand "deluxe arch" as arch delux
 astray is a concept in conceptville. understand "tray s" and "s tray" as astray. howto is "enter Meal Square". gtxt is "Tray S".
 
 bowled over is a concept in conceptville. understand "over bold" and "bold over" as bowled over. howto is "eat any Tray B food". gtxt is "over-bold".
+
+coffee break is a concept in conceptville. Understand "break coffee" as coffee break. howto is "eat the cutter cookie".
 
 defeat is a concept in conceptville. Understand "eat def" and "def eat" as defeat. howto is "[x-it of Tray B]". gtxt is "EAT DEF".
 
@@ -12265,6 +12268,8 @@ pig out is a concept in conceptville. Understand "out pig" as pig out. howto is 
 potty is a concept in conceptville. Understand "pottea" and "teapot" and "pot tea" and "tea pot" as potty. howto is "[f-t of meal square] with innuendo on". gtxt is "teapot". [ok]
 
 quarter pounder is a concept in conceptville. Understand "pounder quarter" as quarter pounder. howto is "[nogo of Meal Square]".
+
+quisling is a concept in conceptville. Understand "sling a quiz" and "quiz a sling" as quisling. howto is "eat the cutter cookie".
 
 raising hell is a concept in conceptville. Understand "hell raisin" and "raisin hell" as raising hell. howto is "eat the cutter cookie".
 
@@ -12291,9 +12296,10 @@ section down ground concepts
 to say w-fr:
 	say "give the weed to Fritz"
 
-brain trust is a concept in conceptville. Understand "trust brain" as brain trust. howto is "examine dreadful penny or mind of peace".
+[todo: two different things lead to brain trust]
+Beach Bum is a concept in conceptville. Understand "bum beach" as Beach Bum. howto is "examine the bench in Down Ground". gtxt is "BUM BEACH".
 
-Bum Beach is a concept in conceptville. Understand "beach bum" as Bum Beach. howto is "examine the bench in Down Ground".
+brain trust is a concept in conceptville. Understand "trust brain" as brain trust. howto is "examine dreadful penny or mind of peace". gtxt is "".
 
 Clip Joint is a concept in conceptville. Understand "joint clip" as clip joint. howto is "listen to Fritz after giving him the weed".
 
@@ -12303,84 +12309,84 @@ drag along is a concept in conceptville. Understand "along drag" as drag along. 
 
 Dream Ticket is a concept in conceptville. Understand "ticket dream" as dream ticket. howto is "sleep after you got a tickety". gtxt is "ticket dream".
 
-Grammar Police is a concept in conceptville. Understand "police grammar" as grammar police. howto is "[f-t of Down Ground]".
+Grammar Police is a concept in conceptville. Understand "police grammar" as grammar police. howto is "[f-t of Down Ground]". gtxt is "police grammar".
 
-ground up is a concept in conceptville. Understand "up ground" as ground up. howto is "go north or south in Down Ground".
+ground up is a concept in conceptville. Understand "up ground" as ground up. howto is "go north or south in Down Ground". gtxt is "up ground".
 
 a thing called High and Dry is a concept in conceptville. Understand "dry and high" as high and dry. howto is "listen to Fritz after getting past Pressure Pier but before giving him the weed".
 
-high roller is a concept in conceptville. Understand "roller high" as high roller. howto is "look around Down Ground for a bit".
+high roller is a concept in conceptville. Understand "roller high" as high roller. howto is "look around Down Ground for a bit". gtxt is "Roller High".
 
 hoth is a privately-named concept in conceptville. printed name is "high off the hog". Understand "hog on/off the high" and "high on/off the hog" as hoth. howto is "[w-fr]".
 
-joint role is a concept in conceptville. Understand "role/roll joint" and "role/roll a joint" as joint role. howto is "[w-fr]".
+joint statement is a concept in conceptville. Understand "statement joint" as joint statement. howto is " [f-t of down ground]". gtxt is "statement joint".
 
-joint statement is a concept in conceptville. Understand "statement joint" as joint statement. howto is " [f-t of down ground]".
+Puff Piece is a concept in conceptville. Understand "peace/piece puff" and "puff peace" as puff piece. howto is "[w-fr]". gtxt is "peace puff".
 
-Puff Piece is a concept in conceptville. Understand "peace/piece puff" and "puff peace" as puff piece. howto is "[w-fr]".
+roll a joint is a concept in conceptville. Understand "role/roll joint" and "role/roll a joint" as roll a joint. howto is "[w-fr]". gtxt is "a joint role".
 
 Sleeper Cell is a concept in conceptville. Understand "cell sleeper" as sleeper cell. howto is "sleep then wait in Down Ground".
 
 section joint strip concepts
 
-advice is a concept in conceptville. Understand "vice ad" as advice. howto is "ask the Stool Toad about the Joint Strip".
+advice is a concept in conceptville. Understand "vice ad" as advice. howto is "ask the Stool Toad about the Joint Strip". gtxt is "vice ad".
 
-bullfrog is a concept in conceptville. Understand "frog bull" and "bull frog" as bullfrog. howto is "ask the Stool Toad how to get in trouble".
+bullfrog is a concept in conceptville. Understand "frog bull" and "bull frog" as bullfrog. howto is "ask the Stool Toad how to get in trouble". gtxt is "frog-bull".
 
-case a joint is a concept in conceptville. Understand "joint a case" as case a joint. howto is "get ticket for exploring the stickweed".
+case a joint is a concept in conceptville. Understand "joint a case" as case a joint. howto is "get ticket for exploring the stickweed". gtxt is "a joint case".
 
 do dope is a concept in conceptville. Understand "dope do" as do dope. howto is "wait in Joint Strip". gtxt is "DOPE, DO".
 
 killer weed is a concept in conceptville. Understand "weed killer" as killer weed. howto is "smell in the Joint Strip". gtxt is "weed killer".
 
-Moral Support is a concept in conceptville. Understand "support moral" as moral support. howto is "[x-it of pigeon stool]".
+Moral Support is a concept in conceptville. Understand "support moral" as moral support. howto is "[x-it of pigeon stool]". gtxt is "SUPPORT MORAL".
 
-Pigeon English is a concept in conceptville. Understand "english pigeon" as pigeon english. howto is "[x-it of pigeon stool]".
+Pigeon English is a concept in conceptville. Understand "english pigeon" as pigeon english. howto is "[x-it of pigeon stool]". gtxt is "English Pigeon".
 
-stop smoking is a concept in conceptville. Understand "smoking stop" as stop smoking. howto is "ask the Stool Toad about the Joint Strip".
+stop smoking is a concept in conceptville. Understand "smoking stop" as stop smoking. howto is "ask the Stool Toad about the Joint Strip". gtxt is "Smoking Stop".
 
-strip search is a concept in conceptville. Understand "search strip" as strip search. howto is "[nogo of Joint Strip]".
+strip search is a concept in conceptville. Understand "search strip" as strip search. howto is "[nogo of Joint Strip]". gtxt is "search strip".
 
 section soda club concepts
 
 to say ask-ally:
 	say "Ask Ally Stout about the Punch Sucker"
 
-beer nuts is a concept in conceptville. Understand "nuts beer" as beer nuts. howto is "[nogo of soda club]".
+bargain is a concept in conceptville. Understand "bar gin" and "gin bar" and "bargin" as bargain. howto is "[nogo of soda club]". gtxt is "gin bar". [ok]
 
-boot licker is a concept in conceptville. Understand "licker/liquor boot" and "boot liquor" as boot licker. howto is "visit the Soda Club".
+beer nuts is a concept in conceptville. Understand "nuts beer" as beer nuts. howto is "[nogo of soda club]". gtxt is "nuts beer".
 
-brew a plot is a concept in conceptville. Understand "plot a brew" as brew a plot. howto is "order the Haha Brew in the Soda Club".
+boot licker is a concept in conceptville. Understand "licker/liquor boot" and "boot liquor" as boot licker. howto is "visit the Soda Club". gtxt is "liquor boot".
 
-gin bar is a concept in conceptville. Understand "bar gin" as gin bar. howto is "[nogo of soda club]".
+brew a plot is a concept in conceptville. Understand "plot a brew" as brew a plot. howto is "order the Haha Brew in the Soda Club". gtxt is "a plot brew".
+
+genuine is a concept in conceptville. Understand "gen u wine" and "wine u gen" as genuine. howto is "order the Cooler Wine". gtxt is "Wine-U-Gen".
 
 gin rummy is a concept in conceptville. understand "rummy gin" as gin rummy. howto is "ask Ally Stout about drinks". gtxt is "Rummy Gin".
 
-Hip Rose is a concept in conceptville. Understand "rose hip/hips" as Hip Rose. howto is "visit the Soda Club".
+Hip Rose is a concept in conceptville. Understand "rose hip/hips" as Hip Rose. howto is "visit the Soda Club". gtxt is "Hip Rose".
 
 hit the bottle is a concept in conceptville. Understand "bottle the hit" as hit the bottle. howto is "attack Ally Stout".
 
-punch drunk is a concept in conceptville. Understand "drunk punch" as punch drunk. howto is "[ask-ally]".
+punch drunk is a concept in conceptville. Understand "drunk punch" as punch drunk. howto is "[ask-ally]". gtxt is "drunk punch".
 
-punch line is a concept in conceptville. Understand "line punch" as punch line. howto is "[ask-ally]".
+punch line is a concept in conceptville. Understand "line punch" as punch line. howto is "[ask-ally]". gtxt is "Line Punch".
 
-punch out is a concept in conceptville. Understand "out punch" as punch out. howto is "[ask-ally]".
+punch out is a concept in conceptville. Understand "out punch" as punch out. howto is "[ask-ally]". gtxt is "Out Punch".
 
-Punch Sucker is a concept in conceptville. Understand "punch sucker" as punch sucker. howto is "visit the Soda Club".
-
-punch ticket is a concept in conceptville. Understand "ticket punch" as punch ticket. howto is "[ask-ally]".
+punch ticket is a concept in conceptville. Understand "ticket punch" as punch ticket. howto is "[ask-ally]". gtxt is "Ticket Punch".
 
 rum go is a concept in conceptville. understand "go rum" as rum go. howto is "ask Ally Stout about drinks". gtxt is "Go Rum".
 
-speakeasy is a concept in conceptville. Understand "easy speak" and "speak easy" as speakeasy. howto is "ask Ally Stout about the [bad-guy]".
+speakeasy is a concept in conceptville. Understand "easy speak" and "speak easy" as speakeasy. howto is "ask Ally Stout about the [bad-guy]". gtxt is "easy-speak".
 
-striptease is a concept in conceptville. Understand "strip teas" and "teas strip" as striptease. howto is "talk to Ally Stout and say good-bye".
+striptease is a concept in conceptville. Understand "strip teas" and "teas strip" as striptease. howto is "talk to Ally Stout and say good-bye". gtxt is "Teas Strip".
+
+Sucker Punch is a concept in conceptville. Understand "punch sucker" as sucker punch. howto is "visit the Soda Club". gtxt is "Punch Sucker".
 
 tea party is a concept in conceptville. understand "party t/tea" and "t party" as tea party. howto is "visit the Soda Club". gtxt is "Party T".
 
 teetotal is a concept in conceptville. understand "total t" and "t total" as teetotal. howto is "visit the Soda Club". gtxt is "Total T".
-
-Wine-U-Gen is a concept in conceptville. Understand "gen u wine" and "wine u gen" as Wine-U-Gen. howto is "order the Cooler Wine".
 
 chapter main chunk concepts [left to right, then below]
 
@@ -12415,7 +12421,7 @@ benevolent is a concept in conceptville. Understand "evelyn benn" and "benn evel
 
 bernoulli is a concept in conceptville. Understand "newly burn" and "burn newly" as bernoulli. howto is "[j-blab]".
 
-Black Mark is a concept in conceptville. Understand "mark black" as black mark. howto is "[x-it of quiz pop]".
+Black Mark is a concept in conceptville. Understand "mark black" as black mark. howto is "[x-it of quiz pop]". gtxt is "Mark Black".
 
 body slamming is a concept in conceptville. Understand "slamming body" as body slamming. howto is "[j-blab]".
 
@@ -12437,7 +12443,7 @@ category is a concept in conceptville. Understand "gory kate" and "kate gory" as
 
 cirrhosis is a concept in conceptville. Understand "roses sir" and "sir roses" as cirrhosis. howto is "[j-blab]".
 
-Clean Break is a concept in conceptville. Understand "break clean" as clean break. howto is "go to the [jc]".
+Clean Break is a concept in conceptville. Understand "break clean" as clean break. howto is "go to the [jc]". gtxt is "Break CLEAN".
 
 co-ed is a concept in conceptville. Understand "co-ed" as co-ed. howto is "[j-blab]".
 
@@ -12445,7 +12451,7 @@ Cotton Candy is a concept in conceptville. Understand "candy cotton" as cotton c
 
 defecate is a concept in conceptville. Understand "kate a def" and "def a kate" as defecate. howto is "[j-blab]".
 
-Dirty Word is a concept in conceptville. Understand "word dirty" as dirty word. howto is "go to the [jc]".
+Dirty Word is a concept in conceptville. Understand "word dirty" as dirty word. howto is "go to the [jc]". gtxt is "Word! Dirty".
 
 dust up is a concept in conceptville. Understand "up dust" as dust up. howto is "[j-blab]".
 
@@ -12461,7 +12467,7 @@ gangbusters is a concept in conceptville. Understand "buster's/busters/buster ga
 
 gorgeous is a concept in conceptville. Understand "jess gore" and "gore jess" as gorgeous. howto is "[j-blab]".
 
-grown up is a concept in conceptville. Understand "up groan" and "groan up" as grown up. howto is "[solve-j] with swears off".
+grown up is a concept in conceptville. Understand "up groan" and "groan up" as grown up. howto is "[solve-j] with swears off". gtxt is "up groan".
 
 Hara-Kiri is a concept in conceptville. Understand "keri harrah" and "harrah keri" as hara-kiri. howto is "[j-blab]".
 
@@ -12485,13 +12491,13 @@ james dean is a concept in conceptville. Understand "dean james" as james dean. 
 
 jeremiad is a concept in conceptville. Understand "add jeremy" and "jeremy add" as jeremiad. howto is "[j-blab]".
 
-Jerk Around is a concept in conceptville. Understand "around jerk" as jerk around. howto is "enter the main area with profanity on".
+Jerk Around is a concept in conceptville. Understand "around jerk" as jerk around. howto is "enter the main area with profanity on". gtxt is "AROUND jerks".
 
 Jerk Off is a concept in conceptville. Understand "off jerk" as jerk off. howto is "attack a jerk in swearing-on mode".
 
 jim beam is a concept in conceptville. Understand "beam jim" as jim beam. howto is "[j-blab]".
 
-joint committee is a concept in conceptville. Understand "committee joint" as joint committee. howto is "[solve-j]".
+joint committee is a concept in conceptville. Understand "committee joint" as joint committee. howto is "[solve-j]". gtxt is "committee joint to top it off".
 
 journeyman is a concept in conceptville. Understand "journey man" and "man journey" as journeyman. howto is "[j-blab]".
 
@@ -12509,7 +12515,7 @@ lily liver is a concept in conceptville. Understand "liver lily" as lily liver. 
 
 Liverwurst is a concept in conceptville. Understand "wurst/worst liver" and "liver wurst/worst" and "worstliver/wurstliver" as liverwurst. howto is "smell any of the [j-co], or SMELL in the [jc]". gtxt is "liverwurst".
 
-Lovelies is a concept in conceptville. Understand "lies love" and "love lies" as Lovelies. howto is "listen to all the [j-co] have to say, with swearing on".
+Lovelies is a concept in conceptville. Understand "lies love" and "love lies" as Lovelies. howto is "listen to all the [j-co] have to say, with swearing on". gtxt is "Lies: LOVE".
 
 magnate is a concept in conceptville. Understand "nate magg" and "magg nate" as magnate. howto is "[j-blab]".
 
@@ -12557,7 +12563,7 @@ Polygamy is a concept in conceptville. Understand "gamy polly" and "polly gamy" 
 
 polyphony is a concept in conceptville. Understand "phony polly" and "polly phony" as polyphony. howto is "[j-blab]".
 
-pop cherry is a concept in conceptville. Understand "cherry pop" as pop cherry. howto is "[solve-j] with swears on".
+pop cherry is a concept in conceptville. Understand "cherry pop" as pop cherry. howto is "[solve-j] with swears on". gtxt is "cherry pop".
 
 Potter Stewart is a concept in conceptville. Understand "stewart potter" as Potter Stewart. howto is "[j-blab]".
 
@@ -12569,13 +12575,13 @@ Ralph Lauren is a concept in conceptville. Understand "lauren ralph" as ralph la
 
 rectally is a concept in conceptville. Understand "ally wrecked" and "wrecked ally" as rectally. howto is "[j-blab]".
 
-ring finger is a concept in conceptville. Understand "finger ring" as ring finger. howto is "[j-b4]".
+ring finger is a concept in conceptville. Understand "finger ring" as ring finger. howto is "[j-b4]". gtxt is "finger ring".
 
 rosetta is a concept in conceptville. Understand "rose etta" and "etta rose" as rosetta. howto is "[j-blab]".
 
 rusty nail is a concept in conceptville. Understand "nail rusty" as rusty nail. howto is "[j-blab]".
 
-sausage fest is a concept in conceptville. Understand "fest sausage" as sausage fest. howto is "[solve-j] with swears on".
+sausage fest is a concept in conceptville. Understand "fest sausage" as sausage fest. howto is "[solve-j] with swears on". gtxt is "fest sausage".
 
 Sharp Barb is a concept in conceptville. Understand "barb sharp" as sharp barb. howto is "[j-blab]".
 
@@ -12591,7 +12597,7 @@ sympathetic is a concept in conceptville. Understand "sym pathetic" and "patheti
 
 tallywhacker is a concept in conceptville. Understand "tally wacker" and "wacker tally" as tallywhacker. howto is "[j-blab]".
 
-Tear-Jerk is a concept in conceptville. Understand "jerk-tear" and "tear jerk" and "jerk tear" as Tear-Jerk. howto is "solve the [j-co]['] puzzle".
+Tear-Jerk is a concept in conceptville. Understand "jerk-tear" and "tear jerk" and "jerk tear" as Tear-Jerk. howto is "solve the [j-co]['] puzzle". gtxt is "jerk-tear".
 
 terabyte is a concept in conceptville. Understand "bite tara" and "tara bite" as terabyte. howto is "[j-blab]".
 
@@ -12603,21 +12609,21 @@ water sports is a concept in conceptville. Understand "sports water" as water sp
 
 whistler's mother is a concept in conceptville. Understand "mother whistlers/whistler's/whistler" and "whistler/whitler's mother" as whistler's mother. howto is "[j-blab]".
 
-you buy is a concept in conceptville. Understand "you buy" and "bay you" as you buy. howto is "[solve-j]".
+you buy is a concept in conceptville. Understand "you buy" and "bay you" as you buy. howto is "[solve-j]". gtxt is "bayou".
 
 section chipper wood concepts
 
-character assassination is a concept in conceptville. Understand "assassination character" as character assassination. howto is "visit Chipper Wood".
+character assassination is a concept in conceptville. Understand "assassination character" as character assassination. howto is "visit Chipper Wood". gtxt is "assassination character".
 
 Play it Cool is a concept in conceptville. Understand "cool it play" as play it cool. howto is "attack Cute Percy".
 
-Sweetheart deal is a concept in conceptville. Understand "deal sweetheart" as sweetheart deal. howto is "run from Chipper Wood before catching Cute Percy".
+Sweetheart deal is a concept in conceptville. Understand "deal sweetheart" as sweetheart deal. howto is "run from Chipper Wood before catching Cute Percy". gtxt is "Deal, sweetheart".
 
 section the belt below concepts
 
-Terminal Illness is a concept in conceptville. Understand "illness terminal" as terminal illness. howto is "defeat the Insanity Terminal".
+Terminal Illness is a concept in conceptville. Understand "illness terminal" as terminal illness. howto is "defeat the Insanity Terminal". gtxt is "Illness Terminal".
 
-waste breath is a concept in conceptville. Understand "breadth/breath waste/waist" and "waist/wast breadth/breath" as waste breath. howto is "[x-it of energy waist] after defeating the Insanity Terminal".
+waste breath is a concept in conceptville. Understand "breadth/breath waste/waist" and "waist/wast breadth/breath" as waste breath. howto is "[x-it of energy waist] after defeating the Insanity Terminal". gtxt is "breadth waist".
 
 section disposed well concepts
 
@@ -12643,13 +12649,13 @@ section truth home concepts
 
 assembly line is a concept in conceptville. Understand "line assembly" as assembly line. howto is "give Lee the rattle".
 
-ideological is a concept in conceptville. Understand "logical idea" and "idea logical" as ideological. howto is "listen to all of Sid Lew's advice".
+ideological is a concept in conceptville. Understand "logical idea" and "idea logical" as ideological. howto is "listen to all of Sid Lew's advice". gtxt is "Logical idea".
 
 mass production is a concept in conceptville. Understand "production mass" as mass production. howto is "give Lee the rattle".
 
-pathologic is a concept in conceptville. Understand "path oh/o logic" and "logic oh/o path" as pathologic. howto is "listen to two-thirds of Sid Lew's advice".
+pathologic is a concept in conceptville. Understand "path oh/o logic" and "logic oh/o path" as pathologic. howto is "listen to two-thirds of Sid Lew's advice". gtxt is "Oh, logic path".
 
-psychotherapy is a concept in conceptville. Understand "psycho therapy" and "therapy psycho" as psychotherapy. howto is "listen to one-third of Sid Lew's advice".
+psychotherapy is a concept in conceptville. Understand "psycho therapy" and "therapy psycho" as psychotherapy. howto is "listen to one-third of Sid Lew's advice". gtxt is "therapy psycho".
 
 right to privacy is a concept in conceptville. Understand "privacy to write" and "write to privacy" as right to privacy. howto is "give Lee the rattle".
 
@@ -12657,25 +12663,25 @@ showerproof is a concept in conceptville. Understand "shower proof" and "proof s
 
 thp is a privately-named concept in conceptville. printed name is "200 proof". Understand "proof 200" as thp. howto is "give Lee the rattle".
 
-whole truth is a concept in conceptville. Understand "truth whole" as whole truth. howto is "[f-t of Truth Home]".
+whole truth is a concept in conceptville. Understand "truth whole" as whole truth. howto is "[f-t of Truth Home]". gtxt is "truth hole".
 
 section scheme pyramid concepts
 
-age four is a concept in conceptville. Understand "four age" and "forage" as age four. howto is "decline the Labor Child's offer for help". [ok]
+age four is a concept in conceptville. Understand "four age" and "forage" as age four. howto is "decline the Labor Child's offer for help". gtxt is "FORAGE". [ok]
 
-Army Brat is a concept in conceptville. Understand "brat army" as army brat. howto is "enter the scheme pyramid".
+Army Brat is a concept in conceptville. Understand "brat army" as army brat. howto is "enter the scheme pyramid". gtxt is "brat army".
 
-Baby Boomer is a concept in conceptville. Understand "boomer baby" as baby boomer. howto is "enter the Scheme Pyramid".
+Baby Boomer is a concept in conceptville. Understand "boomer baby" as baby boomer. howto is "enter the Scheme Pyramid". gtxt is "Boomer Baby".
 
-bookworm is a concept in conceptville. Understand "book worm" and "worm book" as bookworm. howto is "[x-it of Finger Index]".
+bookworm is a concept in conceptville. Understand "book worm" and "worm book" as bookworm. howto is "[x-it of Finger Index]". gtxt is "Worm Book".
 
-business casual is a concept in conceptville. Understand "casual business" as business casual. howto is "[x-it of deal clothes]".
+business casual is a concept in conceptville. Understand "casual business" as business casual. howto is "[x-it of deal clothes]". gtxt is "casual business".
 
-child support is a concept in conceptville. Understand "support child" as child support. howto is "talk to the Labor Child before gettiing the contract".
+child support is a concept in conceptville. Understand "support child" as child support. howto is "talk to the Labor Child before gettiing the contract". gtxt is "Support Child".
 
-Labor of Love is a concept in conceptville. Understand "love of labor" as labor of love. howto is "enter the Scheme Pyramid".
+Labor of Love is a concept in conceptville. Understand "love of labor" as labor of love. howto is "enter the Scheme Pyramid". gtxt is "love of labor".
 
-slush fund is a concept in conceptville. Understand "fund slush" as slush fund. howto is "decline the Labor Child's offer for help".
+slush fund is a concept in conceptville. Understand "fund slush" as slush fund. howto is "decline the Labor Child's offer for help". gtxt is "fund slush".
 
 section speaking plain concepts
 
@@ -12793,7 +12799,7 @@ Steal This Book is a concept in conceptville. Understand "book this steal" as St
 
 wax lyrical is a concept in conceptville. Understand "lyrical wax" as wax lyrical. howto is "sing while holding the poetic wax".
 
-world record is a concept in conceptville. Understand "record world" as world record. howto is "get rid of Phil".
+world record is a concept in conceptville. Understand "record world" as world record. howto is "get rid of Phil". gtxt is "Record World".
 
 section judgment pass concepts
 
@@ -12888,7 +12894,7 @@ fawn over is a concept in conceptville. Understand "over fawn" as fawn over. how
 
 Freak Out is a concept in conceptville. Understand "out freak" as freak out. howto is "read the Language sign". gtxt is "OUT, FREAK".
 
-gravy train is a concept in conceptville. Understand "train gravy" as gravy train. howto is "[fr-pb]".
+gravy train is a concept in conceptville. Understand "train gravy" as gravy train. howto is "[fr-pb]". gtxt is "train gravy".
 
 grunt work is a concept in conceptville. Understand "work grunt" as grunt work. howto is "listen in Freak Control".
 
@@ -12928,57 +12934,57 @@ oscar wilde is a concept in conceptville. Understand "wilde/wild oscar" and "osc
 
 pad accounts is a concept in conceptville. Understand "accounts pad" as pad accounts. howto is "[fr-ran]".
 
-paddywagon is a concept in conceptville. Understand "waggin patty" and "patty waggin" as paddywagon. howto is "[fr-ran]". [?? check apostrophes]
+paddywagon is a concept in conceptville. Understand "waggin patty" and "patty waggin" as paddywagon. howto is "[fr-ran]". gtxt is "Waggin['] Patty".
 
-pea brain is a concept in conceptville. Understand "brain pea" as pea brain. howto is "[fr-pb]".
+pea brain is a concept in conceptville. Understand "brain pea" as pea brain. howto is "[fr-pb]". gtxt is "brain pea".
 
-pharisee is a concept in conceptville. Understand "see farrah" and "farrah see" as pharisee. howto is "[fr-ran]".
+pharisee is a concept in conceptville. Understand "see farrah" and "farrah see" as pharisee. howto is "[fr-ran]". gtxt is "See, Farrah".
 
-polygraph is a concept in conceptville. Understand "graph polly" and "polly graph" as polygraph. howto is "[fr-ran]".
+polygraph is a concept in conceptville. Understand "graph polly" and "polly graph" as polygraph. howto is "[fr-ran]". gtxt is "graph Polly".
 
 Power Trip is a concept in conceptville. Understand "trip power" as power trip. howto is "wait for the [bad-guy] to go through his actions". gtxt is "POWER TRIP".
 
 pratfall is a concept in conceptville. Understand "prat fall" and "fall prat" as pratfall. howto is "[bad-guy] dialog". gtxt is "Fall, prat".
 
-Psychoanalyst is a concept in conceptville. Understand "list anna" and "anna list" and "analyst" as psychoanalyst. howto is "[fr-ran]". [ok]
+Psychoanalyst is a concept in conceptville. Understand "list anna" and "anna list" and "analyst" as psychoanalyst. howto is "[fr-ran]". gtxt is "list Anna: psycho". [ok]
 
-Putin is a concept in conceptville. Understand "input" and "put in" and "in put" as putin when freak control is visited. howto is "[fr-ran]". [ok]
+Putin is a concept in conceptville. Understand "input" and "put in" and "in put" as putin when freak control is visited. howto is "[fr-ran]". gtxt is "Input". [ok]
 
 race baiting is a concept in conceptville. Understand "baiting race" as race baiting. howto is "[fr-ran]". gtxt is "baiting race".
 
 reactionary is a concept in conceptville. Understand "airy reaction" and "reaction airy" as reactionary. howto is "talk to the [bad-guy] before guessing the right action". gtxt is "airy reaction".
 
-red alert is a concept in conceptville. Understand "alert red/read" and "read alert" as red alert. howto is "[fr-ran]".
+red alert is a concept in conceptville. Understand "alert red/read" and "read alert" as red alert. howto is "[fr-ran]". gtxt is "Alert? Read".
 
 relief is a concept in conceptville. Understand "leif rhee" and "rhee leif" as relief. howto is "[bad-guy] dialog". gtxt is "Leif Rhee".
 
 running gag is a concept in conceptville. Understand "gag running" as running gag. howto is "go south twice in Freak Control". gtxt is "Running! Gag".
 
-salad days is a concept in conceptville. Understand "daze salad" and "salad daze" as salad days. howto is "[fr-pb]".
+salad days is a concept in conceptville. Understand "daze salad" and "salad daze" as salad days. howto is "[fr-pb]". gtxt is "daze salad".
 
 scuzz bucket is a concept in conceptville. Understand "scum bucket" and "bucket scuzz/scum" as scuzz bucket. howto is "[x-it of list bucket]". gtxt is "bucket scuzz or scum".
 
-see if i care is a concept in conceptville. Understand "care i if see" as see if i care. howto is "[fr-pb]".
+see if i care is a concept in conceptville. Understand "care i if see" as see if i care. howto is "[fr-pb]". gtxt is "care if I see".
 
 see you later is a concept in conceptville. Understand "later you see" as see you later. howto is "[fr-ran]". gtxt is "Later, you see".
 
 serve one right is a concept in conceptville. Understand "right one serve" as serve one right. howto is "get the [bad-guy]'s attention". gtxt is "one right serve".
 
-sly dog is a concept in conceptville. Understand "dog sly" as sly dog. howto is "[fr-ran]".
+sly dog is a concept in conceptville. Understand "dog sly" as sly dog. howto is "[fr-ran]". gtxt is "dog Sly".
 
 Snipe Gutter is a concept in conceptville. Understand "guttersnipe" and "gutter snipe" as Snipe Gutter. howto is "eat the off cheese and 'win'". [ok]
 
-Stand out is a concept in conceptville. Understand "doubt stan" and "stan doubt" as stand out. howto is "[fr-ran]".
+Stand out is a concept in conceptville. Understand "doubt stan" and "stan doubt" as stand out. howto is "[fr-ran]". gtxt is "doubt Stan".
 
-stupor is a concept in conceptville. Understand "poor stu" and "stu poor" as stupor. howto is "[fr-ran]".
+stupor is a concept in conceptville. Understand "poor stu" and "stu poor" as stupor. howto is "[fr-ran]". gtxt is "poor Stu".
 
-taste buds is a concept in conceptville. Understand "bud's/buds taste" as taste buds. howto is "[fr-ran]".
+taste buds is a concept in conceptville. Understand "bud's/buds taste" as taste buds. howto is "[fr-ran]". gtxt is "Bud's taste".
 
-Trevor Noah is a concept in conceptville. Understand "noah trevor" as trevor noah. howto is "[fr-ran]".
+Trevor Noah is a concept in conceptville. Understand "noah trevor" as trevor noah. howto is "[fr-ran]". gtxt is "Noah Trevor".
 
-Tucker Max is a concept in conceptville. Understand "max tucker" as Tucker Max. howto is "[fr-ran]".
+Tucker Max is a concept in conceptville. Understand "max tucker" as Tucker Max. howto is "[fr-ran]". gtxt is "Max Tucker".
 
-Wallace Shawn is a concept in conceptville. Understand "shawn wallace" as wallace shawn. howto is "[fr-ran]".
+Wallace Shawn is a concept in conceptville. Understand "shawn wallace" as wallace shawn. howto is "[fr-ran]". gtxt is "Shawn Wallace said THAT".
 
 Wire Fraud is a concept in conceptville. Understand "fraud wire" as Wire Fraud. howto is "[bad-guy] dialog". gtxt is "Fraud Wire".
 

@@ -551,15 +551,17 @@ sub printGlobalResults
     print "Zap fill-in text at line(s) " . join(", ", @fillIn) . ".\n";
   }
 
+
   if (scalar (keys %fileLineErr) || scalar (keys %minorErrs))
   {
     if ($openStoryFile)
 	{
 	for my $thisFile (keys %fileLineErr)
 	{
+    my $thisXLine = defined($extraLines{$thisFile}) ? $extraLines{$thisFile} : 0;
 	if (!defined($fileLineErr{$thisFile}) || ($fileLineErr{$thisFile} !~ /[0-9]/)) { print "Maybe an error: $thisFile has a non numerical launch line.\n"; next; }
-	print "$fileLineErr{$thisFile} + $extraLines{$thisFile} = " . ($fileLineErr{$thisFile} + $extraLines{$thisFile}) . "\n";
-    my $cmd = "$np \"$thisFile\" -n" . ($fileLineErr{$thisFile} + $extraLines{$thisFile});
+	#print "$fileLineErr{$thisFile} + $extraLines{$thisFile} = " . ($fileLineErr{$thisFile} + $extraLines{$thisFile}) . "\n";
+    my $cmd = "$np \"$thisFile\" -n" . ($fileLineErr{$thisFile} + $thisXLine);
 	print "Running $cmd\n";
 	`$cmd`;
 	}
@@ -567,8 +569,9 @@ sub printGlobalResults
 	{
 	for my $thisFile (keys %minorErrs)
 	{
+    my $thisXLine = defined($extraLines{$thisFile}) ? $extraLines{$thisFile} : 0;
 	if (defined($fileLineErr{$thisFile})) { next; }
-    my $cmd = "$np \"$thisFile\" -n" . ($minorErrs{$thisFile} + $extraLines{$thisFile});
+    my $cmd = "$np \"$thisFile\" -n" . ($minorErrs{$thisFile} + $thisXLine);
 	`$cmd`;
 	}
     }
@@ -1493,27 +1496,29 @@ sub concDefCheck
 
   my @toRead = @{$fileHash{$_[0]}};
 
-  open(A, $toRead[0]) || die ("Can't open $toRead[0]");
+  for (@toRead)
+  {
+  open(A, $_) || die ("Can't open $_");
   while ($line = <A>)
   {
     if ($line =~ /^part /) { $newRoom = $line; chomp($newRoom); $newRoom =~ s/^part //; }
     if ($line =~ /\[activation of [^\]]*?\][a-z]/i)
 	{
-	  if ($newRoom) { print "New room $newRoom\n"; }
-      print "($.) ";
+	  if ($newRoom) { print "\n========New room $newRoom\n"; }
+      print "($.)\n";
 	  $newRoom = "";
 	  my $templine2 = $line;
 	  chomp($templine2);
-	  while ($templine2 =~ /\[activation of/o)
+	  while ($templine2 =~ /\[activation of [^\]]+\][a-z]/i)
 	  {
-	    $templine2 =~ s/.*?\[activation of //o;
+	    $templine2 =~ s/.*?\[activation of ([^\]]+\][a-z])/$1/i;
 		my $templine3 = $templine2;
 		$templine3 =~ s/\].*//;
 		my $templine4 = $templine2;
 		$templine4 =~ s/^[^\]]*\]//;
 		$templine4 =~ s/[\.\?!].*//;
 		$templine4 =~ s/\[activation of.*//;
-		print "$templine3 -> gtxt is \"$templine4\".\n";
+		print "$templine3\n gtxt is \"$templine4\".\n";
 	  }
 	  #print "WARNING $. has activation text that may need deletion\n";
     }
@@ -1540,6 +1545,8 @@ sub concDefCheck
 		push(@gtxtErrs, $.);
 	  }
 	}
+  }
+  close(A);
   }
   if ($printTest)
   {
