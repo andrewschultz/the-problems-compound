@@ -13089,6 +13089,8 @@ understand "put [thing]" as a mistake ("PUT is too vague for the parser. You nee
 book reading a command
 
 period-warn is a truth state that varies.
+dash-warn is a truth state that varies.
+apostrophe-warn is a truth state that varies.
 
 after reading a command:
 	if parser error flag is false:
@@ -13101,6 +13103,16 @@ after reading a command:
 				replace the regular expression "^answer " in the player's command with "";
 		if the player's command matches the regular expression "^talk to": [a hack for TALK TO vs TALK giving a non-awkward disambiguation]
 			replace the regular expression "^talk to" in the player's command with "talk";
+	if the player's command matches the text "-":
+		replace the text "-" in the player's command with " ";
+		if dash-warn is false:
+			now dash-warn is true;
+			say "(NOTE: Dashes aren't needed and will be changed to spaces.)[paragraph break]";
+	if the player's command matches the text "'":
+		replace the text "'" in the player's command with "";
+		if apostrophe-warn is false:
+			now apostrophe-warn is true;
+			say "(NOTE: Apostrophes aren't needed and will be changed to no character.)[paragraph break]";
 	if period-warn is false:
 		if the player's command matches the regular expression " ":
 			if the player's command matches the regular expression "\.":
@@ -14965,7 +14977,8 @@ carry out zping:
 			now myact is examining the song torch;
 			now waits is number of rows in table of horrendous songs + 1;
 	if waits is 0, say "Waiting does nothing special here." instead;
-	carry out the myact activity;
+	repeat with X running from 1 to waits:
+		carry out the myact activity;
 	the rule succeeds;
 
 section zpting

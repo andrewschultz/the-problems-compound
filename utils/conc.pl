@@ -1523,7 +1523,7 @@ sub concDefCheck
 		$templine3 =~ s/\].*//;
 		my $templine4 = $templine2;
 		$templine4 =~ s/^[^\]]*\]//;
-		$templine4 =~ s/[\.\?!].*//;
+		$templine4 =~ s/[\.\?!\"].*//;
 		$templine4 =~ s/\[activation of.*//;
 		print "$templine3\n";
 		$roomDumpLine .= " gtxt is \"$templine4\".\n";
@@ -1550,6 +1550,11 @@ sub concDefCheck
 	  if ($line !~ /gtxt is/i)
 	  {
 	    if (!$printTest) { print "Missing gtxt line $.\n"; }
+		push(@gtxtErrs, $.);
+	  }
+	  if ($line =~ /\.[a-z]/i)
+	  {
+	    if (!$printTest) { print "SUPERTRIVIA: bad spacing line $.\n"; }
 		push(@gtxtErrs, $.);
 	  }
 	}
