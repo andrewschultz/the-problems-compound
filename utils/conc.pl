@@ -1491,6 +1491,7 @@ sub concDefCheck
   my @understandErrs = ();
   my @gtxtErrs = ();
   my @extraText = ();
+  my @spaceErrs = ();
   my $line;
   my $inConcept;
   my $newRoom = "";
@@ -1555,7 +1556,7 @@ sub concDefCheck
 	  if ($line =~ /\.[a-z]/i)
 	  {
 	    if (!$printTest) { print "SUPERTRIVIA: bad spacing line $.\n"; }
-		push(@gtxtErrs, $.);
+		push(@spaceErrs, $.);
 	  }
 	}
   }
@@ -1564,11 +1565,17 @@ sub concDefCheck
   }
   if ($printTest)
   {
-    printf("TEST RESULTS: extratext-$_[0],0,%d,0,%s\n", scalar @extraText, join(" / ", @extraText));
-    printf("TEST RESULTS: howto-$_[0],0,%d,0,%s\n", scalar @howToErrs, join(" / ", @howToErrs));
-    printf("TEST RESULTS: understand-$_[0],0,%d,0,%s\n", scalar @understandErrs, join(" / ", @understandErrs));
-    printf("TEST RESULTS: gtxt-$_[0],0,%d,0,%s\n", scalar @gtxtErrs, join(" / ", @gtxtErrs));
+    printOneTestResult("extratext-$_[0]", " / ", \@extraText);
+    printOneTestResult("howto-$_[0]", " / ", \@howToErrs);
+    printOneTestResult("understand-$_[0]", " / ", \@understandErrs);
+    printOneTestResult("gtxt-$_[0]", " / ", \@gtxtErrs);
+    printOneTestResult("spacing-$_[0]", " / ", \@spaceErrs);
   }
+}
+
+sub printOneTestResult
+{
+  printf("TEST RESULTS: $_[0],0,%d,0,%s\n", scalar @{$_[2]}, join($_[1], @{$_[2]}));
 }
 
 sub roomToFile
