@@ -32,7 +32,7 @@ use American dialect.
 
 the release number is 3.
 
-section compiler debug
+section compiler limits
 
 [without these numbers being increased, the I7 would be translated to I6, but the I6 compiler would complain. That's what happens when a game gets bigger than intended. Often times I'll build in release to make sure things are okay, then I'll forget to build in debug, when things may go boom.]
 
@@ -45,6 +45,10 @@ use MAX_SYMBOLS of 24000.
 use MAX_STATIC_DATA of 200000.
 
 use MAX_PROP_TABLE_SIZE of 300000.
+
+section compiler debug limits - not for release
+
+use MAX_SYMBOLS of 27000.
 
 book includes
 
@@ -6321,7 +6325,7 @@ after examining basher bible:
 	say "[italic type][reference-blurb entry][line break]";
 	if bible-row is number of rows in table of Bible references:
 		say "[r][line break]LAST HINT. You'd better have learned something, but remember, you can push around people who don't matter by saying they aren't persistent enough or they are a bit obsessed. Often within five minutes of each other. Because it's important to see both sides.";
-	else if bible-row is 1:
+	else if bible-row is 1 and bible-cycled is false:
 		say "[line break][r]Of course, just internalizing this tip won't make you quite the guy the [bad-guy] is. Everyone can be right about some random thing. You need a variety of moves. To be a complete person!";
 	else:
 		say "[r]";
@@ -14958,27 +14962,34 @@ understand "zp" as zping.
 
 books-not-song is a truth state that varies.
 
-carry out zping:
+testact is an activity that varies.
+
+carry out zping: [this is hard coded but I hope that things work okay]
 	let waits be 0;
-	let myact be waiting;
 	if player is in fen, now waits is number of rows in table of jerk-macho-talk + 1;
-	if mrlp of player is Dream Sequence, now waits is number of rows in table of sleep stories * 3;
+	if mrlp is Dream Sequence, now waits is number of rows in table of sleep stories * 3;
 	if player is in pressure pier:
 		now waits is number of rows in table of bible references + 1;
-		now myact is examining the basher bible;
 	if player is in Freak Control, now waits is number of rows in table of bad guy worries + 1;
 	if player is in Speaking Plain, now waits is number of rows in table of dutch-blab + 1;
 	if player is in Truth Home, now waits is number of rows in table of incisive sid viewpoints + 1;
 	if player is in Discussion block:
 		if books-not-song is true:
-			now myact is examining the book bank;
 			now waits is number of rows in table of horrendous books + 1;
 		else:
-			now myact is examining the song torch;
 			now waits is number of rows in table of horrendous songs + 1;
 	if waits is 0, say "Waiting does nothing special here." instead;
 	repeat with X running from 1 to waits:
-		carry out the myact activity;
+		say "[bracket]Try [X][close bracket]:[line break]";
+		if player is in pressure pier:
+			try examining basher bible;
+		else if player is in discussion block:
+			if books-not-song is true:
+				try examining the book bank;
+			else:
+				try examining the song torch;
+		else:
+			try waiting;
 	the rule succeeds;
 
 section zpting

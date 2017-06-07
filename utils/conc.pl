@@ -817,6 +817,7 @@ my $forceRoom = "";
 while ($lineIn = <X>)
 {
   $tempRoom = "";
+  if (($inTable) && ($lineIn =~ /[a-z]\"/)) { print "Line $. needs ending punctuation: $lineIn"; }
   chomp($lineIn);
   if ($lineIn =~ /\[end rooms\]/) { $inRoomSect = 0; next; }
   if ($lineIn =~ /\[start rooms\]/) { $inRoomSect = 1; $everRoomSect = 1; next; }
