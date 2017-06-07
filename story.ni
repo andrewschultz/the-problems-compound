@@ -3495,6 +3495,7 @@ advice	"Advice is, well, telling someone what they should or shouldn't do. A vic
 bullfrog	"A bullfrog is not quite a toad. And bull means nonsense. The Stool Toad is probably in no danger of being mistaken for Frog or Toad from Arnold Lobel's nice books."
 case a joint	"To case a joint is to search a place thoroughly."
 do dope	"To do dope is to use drugs."
+job security	"Job security means you have a job it is hard to lose."
 killer weed	"Killer weed is slang for especially good marijuana."
 Moral Support	"Moral support is helping someone even if you don't have concrete advice. SUPPORT MORAL is, well, a slogan that pushes people around."
 Pigeon English	"Pigeon English is broken, grammatically poor English."
@@ -7292,7 +7293,7 @@ prompt	response	enabled	permit
 table of quip texts (continued)
 quip	quiptext
 toad-hi	"'They all say that. You're a bit less convincing than the rest. But you're also kind of more convincing at the same time, which also has me suspicious.'"
-toad-joint	"'Of course not! But they would be if I weren't here! In fact, there's just something ABOUT this place. Worse turpitude might fester without my imposing presence. Someone might even put up a [activation of advice] for the [activation of stop smoking].'"
+toad-joint	"'Of course not! But they would be if I weren't here! A [activation of job security] is tougher than it looks. There's just something ABOUT this place. Worse turpitude might fester without my imposing presence. Someone might even put up a [activation of advice] for the [activation of stop smoking].'"
 toad-troub	"'[bad-toad].'"
 toad-refresh	"'Y'mean you don't remember[one of][or], again[stopping]? [bad-toad].'"
 toad-pomp	--
@@ -12343,6 +12344,8 @@ bullfrog is a concept in conceptville. Understand "frog bull" and "bull frog" as
 case a joint is a concept in conceptville. Understand "joint a case" as case a joint. howto is "get ticket for exploring the stickweed". gtxt is "a joint case".
 
 do dope is a concept in conceptville. Understand "dope do" as do dope. howto is "wait in Joint Strip". gtxt is "DOPE, DO".
+
+job security is a concept in conceptville. Understand "security job" as job security. howto is "ask the Stool Toad about the Joint Strip". gtxt is "security job".
 
 killer weed is a concept in conceptville. Understand "weed killer" as killer weed. howto is "smell in the Joint Strip". gtxt is "weed killer".
 

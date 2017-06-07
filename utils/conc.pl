@@ -370,7 +370,7 @@ for my $x (sort keys %any)
     $errMsg .= "$xmod ($lineNum{$x}, $concToRoom{$x}) needs explanation" . (defined($fillExpl{$x}) ? " filled in" : "") . ": guess = line $nuline\n";
 	$addString = "$xmod\t\"$xmod is when you [fill-in-here]." . (defined($concToRoom{$x}) ? " $concToRoom{$x}" : "" ) . "\"";
 	##todo: we get a warning if we don't have an activation but we've defined a concept
-	if (!defined($concTableLine{$concToRoom{$xmod}})) { $addString .= " \[start of $concToRoom{$xmod}\]"; }
+	if (!defined($concTableLine{$concToRoom{$xmod}})) { $addString .= " \[start of $concToRoom{$xmod}\]"; $concTableLine{$concToRoom{$xmod}} = $.; }
 	$addString .= "\n";
 	if ($writeAfter && defined($nuline)) { $addAfter{$nuline} .= $addString; }
 	$explErr .= $addString;
