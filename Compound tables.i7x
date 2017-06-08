@@ -253,6 +253,7 @@ macho-boast
 "The [j-co] try to be charitable and think of girls ranked [activation of flounder] on their beauty scale."
 "A couple [j-co] feel sorry they [activation of fluoridated] and listened to her conspiracy theories."
 "The [j-co] are glad they're nowhere near as lame as [activation of gangbusters]. Not Buster Ball, of course."
+"The [j-co] express admiration for [activation of glenn beck]'s ability to shoot down crackpot conspiracy theories."
 "The [j-co] agree [activation of gorgeous] is not very attractive."
 "The [j-co] rave how full of life [activation of hara-kiri] is."
 "The [j-co] recount [activation of henry clay]'s prank on the dork figureheads in the school's student government."

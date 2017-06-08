@@ -3551,6 +3551,7 @@ expat	"An ex-pat is someone who no longer lives in the country where they were b
 flounder	"To flounder is to try and fail without any progress. It's also the name of a fish."
 fluoridated	"Fluoridated water is a subject of many silly conspiracy theories."
 gangbusters	"Gangbusters is outdated slang for awesome."
+glenn beck	"Glenn Beck is a commentator who was canned by Fox News for too many conspiracy theories."
 gorgeous	"Gorgeous is, well, beautiful."
 grown up	"Grown up means, well, you've learned and matured."
 hara-kiri	"Hara-kiri is Japanese ritual suicide."
@@ -12477,6 +12478,8 @@ fluoridated is a concept in conceptville. Understand "dated flora" and "flora da
 
 gangbusters is a concept in conceptville. Understand "buster's/busters/buster gang" and "gang buster/busters/buster's" as gangbusters. howto is "[j-blab]". gtxt is "Buster's Gang".
 
+Glenn Beck is a concept in conceptville. Understand "beck glenn" as glenn beck. howto is "[j-blab]". gtxt is "Beck Glenn".
+
 gorgeous is a concept in conceptville. Understand "jess gore" and "gore jess" as gorgeous. howto is "[j-blab]". gtxt is "Jess Gore".
 
 grown up is a concept in conceptville. Understand "up groan" and "groan up" as grown up. howto is "[solve-j] with swears off". gtxt is "up groan".
@@ -14964,8 +14967,6 @@ understand the command "zp" as something new.
 understand "zp" as zping.
 
 books-not-song is a truth state that varies.
-
-testact is an activity that varies.
 
 carry out zping: [this is hard coded but I hope that things work okay]
 	let waits be 0;
