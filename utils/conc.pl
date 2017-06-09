@@ -69,6 +69,7 @@ my $launchRoomFile = 0;
 my $launchRoomFileWindowsNP = 0;
 my $outputRoomFile = 0;
 my $concDefCheck = 0;
+my $overlookOptionClash = 0;
 
 #############################
 #hashes
@@ -179,6 +180,7 @@ while ($count <= $#ARGV)
     /^-?sc$/ && do { @dirs = ("Slicker-City"); $count++; next; };
     /^-?(bp|btp)$/ && do { @dirs = ("Buck-the-Past"); $count++; next; };
     /^-?vcp$/ && do { $verboseCutPaste = 1; $count++; next; };
+    /^-?bs$/ && do { $overlookOptionClash = 1; $count++; next; };
     /^-?bs$/ && do { @dirs = ("btp-st"); $count++; next; };
     /^-?b2$/ && do { @dirs = ("Buck-the-Past", "btp-st"); $count++; next; };
 	/^-?a2$/ && do { @dirs = ("Slicker-City", "Compound"); $count++; next; };
@@ -208,6 +210,7 @@ while ($count <= $#ARGV)
   }
 }
 
+checkOptionClash();
 readAux();
 
 if ($readDupe) { readOkayDupes(); }
@@ -402,7 +405,7 @@ for my $x (sort keys %any)
 	else
 	{
     $y = join(" ", reverse(split(/ /, $x)));
-	$addString .= "$xmod is a concept in conceptville. Understand \"$y\" as $xmod. $howto\n\n";
+	$addString .= "$xmod is a concept in conceptville. Understand \"$y\" as $xmod. $howto gtxtx is \"$y\".\n\n";
 	}
 	$concErr .= $addString;
 	if ($writeAfter && defined($nuline)) { $addAfter{$nuline} .= $addString; }
@@ -559,6 +562,7 @@ sub printGlobalResults
 	for my $thisFile (keys %fileLineErr)
 	{
     my $thisXLine = defined($extraLines{$thisFile}) ? $extraLines{$thisFile} : 0;
+	if ($openLowestLine) { $thisXLine = 0; }
 	if (!defined($fileLineErr{$thisFile}) || ($fileLineErr{$thisFile} !~ /[0-9]/)) { print "Maybe an error: $thisFile has a non numerical launch line.\n"; next; }
 	#print "$fileLineErr{$thisFile} + $extraLines{$thisFile} = " . ($fileLineErr{$thisFile} + $extraLines{$thisFile}) . "\n";
     my $cmd = "$np \"$thisFile\" -n" . ($fileLineErr{$thisFile} + $thisXLine);
@@ -892,7 +896,13 @@ while ($lineIn = <X>)
 	}
 	#print "$. $c $concToRoom{$c}\n"; #debug to show the right activation line read in
 	}
-	if (defined($activ{$c}) && !defined($okDup{$c})) { print "Warning line $. double defines $c from $lineNum{$c}.\n"; }
+	if (defined($activ{$c}) && !defined($okDup{$c}))
+	{
+	  if ($lineIn !~ /\[okdup\]/)
+	  {
+	  print "Warning line $. double defines $c from $lineNum{$c}. Write \[okdup\] in the code or note the activity in $dupeFile.\n";
+	  }
+    }
 	$activ{$c} = $.;
 	$any{$c} = $.;
 	$lineNum{$c} = $.;
@@ -1541,23 +1551,27 @@ sub concDefCheck
 	  if ($lineTemp !~ /\.$/) { print "TRIVIA: line $. does not end in a period.\n"; }
 	  if ($line !~ /howto is/i)
 	  {
-	    if (!$printTest) { print "Missing howto line $.\n"; }
+	    if (!$printTest) { print "Missing howto line $..\n"; }
 		push(@howToErrs, $.);
+		$minorErrs{$_} = $. unless($openLowestLine && defined($minorErrs{$_}) && ($minorErrs{$_} < $.))
 	  }
 	  if ($line !~ /understand/i)
 	  {
-	    if (!$printTest) { print "Missing understand line $.\n"; }
+	    if (!$printTest) { print "Missing understand line $..\n"; }
 		push(@understandErrs, $.);
+		$minorErrs{$_} = $. unless($openLowestLine && defined($minorErrs{$_}) && ($minorErrs{$_} < $.))
 	  }
 	  if ($line !~ /gtxt is/i)
 	  {
-	    if (!$printTest) { print "Missing gtxt line $.\n"; }
+	    if (!$printTest) { print "Missing gtxt " . ($line =~ /gtxtx/ ? "(edit generated code) " : "") . "line $..\n"; }
 		push(@gtxtErrs, $.);
+		$minorErrs{$_} = $. unless($openLowestLine && defined($minorErrs{$_}) && ($minorErrs{$_} < $.))
 	  }
 	  if ($line =~ /\.[a-z]/i)
 	  {
-	    if (!$printTest) { print "SUPERTRIVIA: bad spacing line $.\n"; }
+	    if (!$printTest) { print "SUPERTRIVIA: bad spacing line $..\n"; }
 		push(@spaceErrs, $.);
+		$minorErrs{$_} = $. unless($openLowestLine && defined($minorErrs{$_}) && ($minorErrs{$_} < $.))
 	  }
 	}
   }
@@ -1605,6 +1619,18 @@ sub roomToFile
   if ($launchRoomFileWindowsNP) { system("start \"\" notepad.exe \"$fullFile\""); }
 }
 
+sub checkOptionClash
+{
+  my $foundClash = 0;
+
+  if ($writeAfter && $codeToClipboard)
+  {
+    warn("You are writing to the clipboard and to a file.");
+	$foundClash = 1;
+  }
+  die "Re-run with -y to ignore option clashes." if ($foundClash && !$overlookOptionClash)
+}
+
 sub printDebugHash
 {
 no warnings;
@@ -1626,6 +1652,7 @@ CONC.PL usage
 -l/-n = launch story file (or not) after
 -v = verbosely print code
 -w = write code out (-W bails before copying from backup file)
+-y = overlook option clashes
 -f(l)(o)(n) = put rooms to file (l launches) (o outputs to text) (n launches in notepad)
 -m = launch minor errors if there is no major error
 (any combination is okay too)
