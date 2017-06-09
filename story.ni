@@ -3664,6 +3664,7 @@ Dutch Treat	"A Dutch treat is where everyone pays his own way[dutch-off]."
 fearlessness	"Fearlessness means scared of nothing. Lessness fear is being scared of becoming less."
 hate speech	"Hate speech is talk disparaging someone based on gender, ethnicity, religion or sexual orientation."
 platform shoes	"Platform shoes have a big block under them to make you look taller."
+Rust Belt	"The Rust Belt defines a working-class rural area in the Midwest, where slicksters like Dutch and Turk would not feel at home."
 Show Business	"Show business is the act of entertainment, and the business show's is (purportedly) more practical."
 show off	"To show off is to brag about yourself, and the implication is an 'off' show (not as good as it should be) is bad without that."
 show our work	"If you show your work, you are showing all the steps to how you got your conclusion."
@@ -3674,6 +3675,7 @@ brass ring	"To grab the brass ring is to achieve a dream goal. It refers to the 
 Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
 foster brother	"A foster brother is a brother not related by birth."
 attorney general	"An Attorney General is the highest ranking lawyer in a country or state." [start of court of contempt]
+fair enough	"Fair Enough is what you can say to tell someone you agree with them partially. It has a negative connotation."
 nutcase	"A nutcase is a pejorative term for someone who is crazy, clinical or otherwise, as opposed to Buddy Best's claims he just studies a lot."
 prosecutor	"A prosecutor is a lawyer who tries cases for people bringing a legal or civil complaint."
 readjust	"To readjust is to try to come to grips with a situation."
@@ -9693,7 +9695,7 @@ before doing something with a long tag:
 		try giving Reasoning Circular to the second noun instead;
 	say "You don't need to fiddle with the tag. It's part of the Circular. Plus, it's a ticket to somewhere that might help you get rid of someone." instead;
 
-the long tag is part of the Reasoning Circular. description is "It's stapled to the Reasoning Circular and reads:[paragraph break]By Order of the [bad-guy]:[paragraph break]The holder of this ticket is entitled, irregardless (I know, I'm being ironic and vernacular) of station or current responsibility, to visit Enough Fair (you know, that place newbies won't find), a whirlwind event of social skills where the bearer learns[paragraph break][2da]1. how to yell at others to stop complaining life's not fair AND still point how it's rigged against you[line break][2da]2. Of course, not trying to be too fair. People who overdo things are the worst![line break][2da]3. Lots more, but if we wrote everything, you wouldn't need to show up. Ha ha."
+A thing called a long tag is part of the Reasoning Circular. description is "It's stapled to the Reasoning Circular and reads:[paragraph break]By Order of the [bad-guy]:[paragraph break]The holder of this ticket is entitled, irregardless (I know, I'm being ironic and vernacular) of station or current responsibility, to visit [activation of fair enough] (you know, that place newbies won't find), a whirlwind event of social skills where the bearer learns[paragraph break][2da]1. how to yell at others to stop complaining life's not fair AND still point how it's rigged against you[line break][2da]2. Of course, not trying to be too fair. People who overdo things are the worst![line break][2da]3. Lots more, but if we wrote everything, you wouldn't need to show up. Ha ha."
 
 litany of buddy best is the table of Buddy Best talk.
 
@@ -12724,6 +12726,8 @@ hate speech is a concept in conceptville. Understand "speech hate" as hate speec
 
 platform shoes is a concept in conceptville. Understand "shoes platform" as platform shoes. howto is "climb the fright stage". gtxt is "shoos platform".
 
+Rust Belt is a concept in conceptville. Understand "belt rust" as rust belt. howto is "[pl-wa]". gtxt is "belt rust".
+
 Show Business is a concept in conceptville. Understand "business show" as show business. howto is "Go to the Speaking Plain without eating a Tray B food". gtxt is "BUSINESS SHOW".
 
 show off is a concept in conceptville. Understand "off show" as show off. howto is "listen to all of the Business Show". gtxt is "OFF SHOW".
@@ -12749,6 +12753,8 @@ foster brother is a concept in conceptville. Understand "brother foster" as fost
 section court of contempt concepts
 
 attorney general is a concept in conceptville. Understand "general attorney" as attorney general. howto is "[f-t of Court of Contempt], innuendo off". gtxt is "general attorney".
+
+fair enough is a concept in conceptville. Understand "enough fair" as fair enough. howto is "[x-it of Reasoning Circular]". gtxt is "Enough Fair".
 
 nutcase is a concept in conceptville. Understand "case/job nut" and "nut case/job" and "case head" and "head case" as nutcase. howto is "[f-t of Court of Contempt], innuendo on". gtxt is "case nut".
 
