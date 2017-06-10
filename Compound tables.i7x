@@ -131,6 +131,7 @@ workname	authname	booksubj
 "Arrow Times"	"Amos Martin"	"looking back to history and judging why everyone's a screw-up"
 "Beached Over"	"Arnold Matthew"	"totally gnarly fun with surf and sun, away from brooding losers"
 "Prejudice and Pride"	"Austin Jayne"	"someone learning, with humor and pathos, how and why his instincts about lesser people who think they're equal to him is right"
+"The Death of Denial"	"Becker Ernest"	-- [??]
 "The Convictions of Our Courage"	"Blair Anthony"	"the emotional and moral fulfillment a fellow who told on his friends to milquetoast seeming politicians who grovel shamefully before greater power"
 "Farm Animal"	"Blair Irick"	"how particularly common people never understand why they obviously need to be pushed aside, in fable form, no less"
 "The Melancholy of Anatomy"	"Burton Robert"	"reflections of two failed medical students who went in for art and something more lucrative"
@@ -179,6 +180,7 @@ workname	authname	booksubj
 "The Stone in the Sword"	"White Theodore"	"a kid learning to be king by doing all the things fantasy novels don't describe--like pushing people around, politics, and so forth"
 "The Stuff, Right?"	"Wolfie Thomas"	"some schlep's comical attempts to alchemize a 'good' drug and his failure to keep his feet on the ground" [p]
 
+
 [can't quite get to work:
 brooks walter: Freddy and (something) (dang it none of the 26 do anything cool. I mean the books are cool but they all have FREDDY in them which ruins things)
 Allan Woody: Ending Hollywood (was a movie)
@@ -199,6 +201,7 @@ workname	singername	songsubj
 "Motion? Loco"	"Eva Little"	"being very cool criticising the latest dance craze before everyone else gets sick of it"
 "The Light of Dying"	"The Machine Against Rage"	"admitting that there are smarter people than you who know what's best and if you care about society, maybe it's time to go, but don't, like, make a messy suicide. Even better than The Name in Killing"
 "Gabriel Peter"	"Frontiers Without Games"	"the right sort of ambition, material or social"
+"Murphy Eddy"	"Time the Party, All"	"how being outrageous too much, all the time, is uncool"
 "King of the Mountain Hall"	"Grieg Freidrich"	"something transcendent or other"
 "Life Is WHAT"	"Harrison George"	"a man too clever for all the constant love-is-life babble"
 "Ian Janus"	"Child Societies"	"why it's not very grown up to give too many handouts to people who haven't earned them."
@@ -267,11 +270,13 @@ macho-boast
 "The [j-co] ooh and ahh at [activation of jack london]'s stories of suave city life."
 "The [j-co] mock [activation of James Dean] for being unable to rebel in any meaningful or interesting way."
 "The [j-co] remember not to [activation of jeremiad] to parties. He can't keep up a clever conversation or rant."
+"The [j-co] mention [activation of jerry built] is very buff indeed!"
 "The [j-co] talk about getting in shape at the [activation of Jim Beam]."
 "Each of the [j-co] discusses a [activation of journeyman] he will take to be above average."
 "The [j-co] create a conspiracy theory for laughs: plain, quiet [activation of Keyser Soze] and [activation of Kevin Spacey] somehow ruthlessly control female and male social circles."
 "The [j-co] snicker over [activation of laverne and shirley]'s jokes about girls."
 "The [j-co] agree what a [activation of lily liver] is! She couldn't be exaggerating."
+"The [j-co] insinuate [activation of long johns] sleeps naked."
 "The [j-co] mock [activation of magnate]'s business sense."
 "The [j-co] mentioned how [activation of manicured] is of his lack of machismo."
 "The [j-co] appreciate how [activation of mary sue] reliably smacks down anyone who seems too nice."
@@ -285,6 +290,7 @@ macho-boast
 "The [j-co] despair that [activation of nose candy] too little about how to party."
 "The [j-co] chuckle at the irreverence of the [activation of notre dame]."
 "The [j-co] argue that [activation of olive] being more desirable is NOT a matter of taste."
+"The [j-co] lament how [activation of olive drab] couldn't even make war stories exciting."
 "The [j-co] agree that both [activation of pepper] are hotter than Pepper Serrano."
 "The [j-co] mock [activation of persephone]'s silly poems with their highfalutin literary allusions."
 "The [j-co] [activation of Peter Pan] for trying to seem more grown-up than he is."
