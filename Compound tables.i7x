@@ -287,6 +287,7 @@ macho-boast
 "The [j-co] argue that [activation of olive] being more desirable is NOT a matter of taste."
 "The [j-co] agree that both [activation of pepper] are hotter than Pepper Serrano."
 "The [j-co] mock [activation of persephone]'s silly poems with their highfalutin literary allusions."
+"The [j-co] [activation of Peter Pan] for trying to seem more grown-up than he is."
 "'[activation of plaintiff],' [random client in nominal fen] quips. The others agree, citing various elements of her personality."
 "The [j-co] marvel at how down to Earth [activation of planetary] is."
 "The [j-co] resolve to put [activation of playboy] behind for more grown-up, sophisticated things. Like, well, articles instead of pictures."

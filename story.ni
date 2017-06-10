@@ -3338,6 +3338,7 @@ Thoughts Idol	"Idle thoughts, e.g., a wandering mind, are what it purports to op
 Trap Rattle	"A rattle trap is a cheap car."	"This felt like the weakest of my items to barter until I realized what it could be used for. I like that, apparently, rattles are for babies, but it shuts up petulant attention-hogging."
 against rails	"If someone rails against something, they're upset with it."	"These were in the Variety Garden until release 2, when I realized they'd be better off somewhere more mechanical--oh, and I found the brush, too." [start of freak control]
 call curtain	"A curtain call is when someone comes back out after lots of applause."	--
+duty desk	"Desk duty is often what police officers are demoted to after a negative incident on the street."	--
 frenzy feed	"A feed(ing) frenzy is a vicious attack, physical or emotional, by animal predators or people."	--
 incident miner	"A minor incident is not a big deal, but the incident miner makes a big deal of small things."	--
 Language Sign	"Sign language is how people communicate with the deaf."	"The language sign is pretty forceful. Plus, I wanted another easy way to tell the player what to do, though they could look around if they wanted to."
@@ -3550,6 +3551,7 @@ electrocute	"If someone is electrocuted, they're filled with an often lethal dos
 expat	"An ex-pat is someone who no longer lives in the country where they were born."
 flounder	"To flounder is to try and fail without any progress. It's also the name of a fish."
 fluoridated	"Fluoridated water is a subject of many silly conspiracy theories."
+full grown	"Full grown means mature, physically or mentally."
 gangbusters	"Gangbusters is outdated slang for awesome."
 glenn beck	"Glenn Beck is a commentator who was canned by Fox News for too many conspiracy theories."
 gorgeous	"Gorgeous is, well, beautiful."
@@ -3594,6 +3596,7 @@ Notre Dame	"Notre Dame is a famous Catholic university."
 Olive	"Black and green olives are the two main different kinds of olives."
 Pepper	"Black pepper is the ground-up stuff. Green and bell peppers are not especially spicy. Serrano peppers taste hotter."
 persephone	"Persephone is the princess of the mythological underworld."
+Peter Pan	"Peter Pan is the hero of J. M. Barrie's novel and play, who never grows up."
 Plaintiff	"A plaintiff is the party bringing the charge in a court case."
 planetary	"Planetary relates to either the Earth, or all the planets in the Solar System."
 playboy	"Playboy is probably the most famous 'adult' magazine. It's not particularly raunchy, but people often joke they read it for the articles."
@@ -7557,7 +7560,7 @@ part Nominal Fen
 
 Nominal Fen is north of Pressure Pier. It is in Main Chunk. printed name of Nominal Fen is "[jc]". "[if silly boris is in lalaland]It's a bit more relaxed here without the [j-co]['] conversation[else][one of]This--well, it isn't a swamp, or a bog, or--well, you're not sure, and it's not particularly amazing, so yeah, call it a fen. [or][stopping]Seven [j-co] stand in a circle (okay, a heptagon) here, talking to and about others[end if]. It looks like there's forested area to the west, a narrow valley to the east, and things open up to the north. Nothing's stopping you going back south to Pressure Pier, either[if bros-left is 0], though you probably have nothing to do there with the Brothers gone[end if]."
 
-every turn when player is in Nominal Fen and Silly Boris is in Nominal Fen and allow-swears is true:
+every turn when player is in Nominal Fen and Silly Boris is in Nominal Fen:
 	jerk-blab;
 
 understand "drain the circle" and "drain circle" as a mistake ("Maybe you can find a way to make them feel drained.") when player is in Nominal fen and boris is in Nominal fen and allow-swears is true.
@@ -7649,6 +7652,11 @@ before talking to jerks (this is the ask jerks generally to get their names rule
 	now know-jerks is true instead;
 
 to jerk-blab:
+	if allow-swears is false:
+		if groanful-wait is 0, say "[line break]Boy! The groaners sure are [activation of full grown]! I can't repeat the details, with innuendo off.";
+		increment groanful-wait;
+		if groanful-wait is 10, now groanful-wait is 0;
+		continue the action;
 	increment jerk-macho-row;
 	d "Jerk dialogue: [jerk-macho-row]";
 	if jerk-macho-row > number of rows in table of jerk-macho-talk:
@@ -10551,7 +10559,7 @@ a list bucket is a thing in Freak Control. "[if accel-ending]A list bucket might
 check taking the bucket:
 	say "You would, but the [bad-guy] might turn around and ask if you really needed to steal a bucket, and no, the text isn't going to change if you pick it up, and so forth." instead;
 
-description of list bucket is "[one of]It's nice and clean, free of [activation of scuzz bucket]. Of course it is.[paragraph break][or][stopping][2da]The Language Sign should, um, y'know, make things obvious.[line break][2da]The Shot Screen: track various areas in the Compound[line break][2da]The Twister Brain: to see what people REALLY mean when they oppose you just a little[line break][2da]The Witness Eye provides tracking of several suspicious individuals[line break][2da]The Incident Miner processes fuller meaning of events the perpetrators wish were harmless.[line break][2da]The Call Curtain is somewhere the [bad-guy] better not have to go behind more than once a day.[line break][2da]The Frenzy Feed magnifies social violations people don't know they're making, or want to hide from others, and lets you feel fully outraged.[paragraph break]All this gadgetry is well and good, but the [bad-guy] probably knows it better than you. You may need some other way to overcome him."
+description of list bucket is "[one of]It's nice and clean, free of [activation of scuzz bucket]. Of course it is.[paragraph break][or][stopping][2da]The Language Sign should, um, y'know, make things obvious.[line break][2da]The Shot Screen: track various areas in the Compound[line break][2da]The Twister Brain: to see what people REALLY mean when they oppose you just a little[line break][2da]The Witness Eye provides tracking of several suspicious individuals[line break][2da]The Incident Miner processes fuller meaning of events the perpetrators wish were harmless.[line break][2da]The Call Curtain is somewhere the [bad-guy] better not have to go behind more than once a day.[line break][2da]The Frenzy Feed magnifies social violations people don't know they're making, or want to hide from others, and lets you feel fully outraged.[line break][2da]The Duty Desk isn't just there to look important. Really, it isn't![paragraph break]All this gadgetry is well and good, but the [bad-guy] probably knows it better than you. You may need some other way to overcome him."
 
 the frenzy feed is scenery in Freak Control. "It's whizzing out paper filled with oversized punctuation and question marks, SRSLY, WUT and OMG, and emoticons and so forth. You think you read something about [a random surveyable person] which is more harsh than it needs to be."
 
@@ -10562,6 +10570,8 @@ check opening call curtain:
 
 check entering call curtain:
 	say "The [bad-guy] wouldn't allow a repeat performance. Or any performance, really." instead;
+
+the duty desk is scenery in Freak Control. "It's important-looking, all right."
 
 the incident miner is scenery in Freak Control. "The incident miner churns and coughs. You see text like 'not as nice/interesting/worthwhile as he thinks' and 'passive aggressive but doesn't know it' and 'extraordinary lack of self awareness' spin by."
 
@@ -12478,6 +12488,8 @@ flounder is a concept in conceptville. Understand "flo under" and "under flo" as
 
 fluoridated is a concept in conceptville. Understand "dated flora" and "flora dated" as fluoridated. howto is "[j-blab]". gtxt is "dated Flora".
 
+full grown is a concept in conceptville. Understand "grown full" as full grown. howto is "[f-t of nominal fen]". gtxt is "groan-ful".
+
 gangbusters is a concept in conceptville. Understand "buster's/busters/buster gang" and "gang buster/busters/buster's" as gangbusters. howto is "[j-blab]". gtxt is "Buster's Gang".
 
 Glenn Beck is a concept in conceptville. Understand "beck glenn" as glenn beck. howto is "[j-blab]". gtxt is "Beck Glenn".
@@ -12565,6 +12577,8 @@ Olive is a concept in conceptville. Understand "olive green/black" and "green/bl
 Pepper is a concept in conceptville. Understand "pepper bell/black/serrano/green" and "bell/black/green/serrano pepper" as pepper. howto is "[j-blab]". gtxt is "Pepper Black, Pepper Bell AND Pepper Green".
 
 persephone is a concept in conceptville. Understand "phony percy" and "percy phony" as persephone. howto is "[j-blab]". gtxt is "Phony Percy".
+
+Peter Pan is a concept in conceptville. Understand "pan peter" as peter pan. howto is "[j-blab]". gtxt is "pan Peter".
 
 plaintiff is a concept in conceptville. Understand "tiff plain" and "plain tiff" as plaintiff. howto is "[j-blab]". gtxt is "Tiff? Plain".
 
