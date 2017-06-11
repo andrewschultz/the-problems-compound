@@ -793,6 +793,7 @@ $astString = "";
 my $tempRoom;
 
 my $inTable = 0;
+my $inRoomTable = 0;
 my $inRoomSect = 0;
 
 my @files = ("c:/games/inform/$_[0].inform/source/story.ni");
@@ -823,6 +824,10 @@ while ($lineIn = <X>)
   $tempRoom = "";
   if (($inTable) && ($lineIn =~ /[a-z]\"/)) { print "Line $. needs ending punctuation: $lineIn"; }
   chomp($lineIn);
+  if ($inRoomTable)
+  {
+    $tempRoom = lc($lineIn); $tempRoom =~ s/\t.*//;
+  }
   if ($lineIn =~ /\[end rooms\]/) { $inRoomSect = 0; next; }
   if ($lineIn =~ /\[start rooms\]/) { $inRoomSect = 1; $everRoomSect = 1; next; }
   if ($lineIn =~ /^\[/) { next; }
@@ -839,7 +844,8 @@ while ($lineIn = <X>)
   if ($lineIn =~ /xxcv/) { $cvStart = $.; }
   if ($lineIn =~ /xxauth/) { $inAuthTable = 1; <A>; $line++; next; }
   if ($lineIn =~ /^table of explanations.*concepts/) { $inTable = 1; <X>; next; }
-  if ($lineIn !~ /[a-z]/i) { $inTable = 0; if ($inAdd) { $addEnd = $.; $inAdd = 0; } next; }
+  if ($lineIn =~ /^table of unvisiteds/) { $inRoomTable = 1; <X>; next; }
+  if ($lineIn !~ /[a-z]/i) { $inTable = 0; $inRoomTable = 0; if ($inAdd) { $addEnd = $.; $inAdd = 0; } next; }
   if (($lineIn =~ /^part /) && ($inRoomSect)) { $curRoom = lc($lineIn); $curRoom =~ s/^part +//; $forceRoom = ""; next; }
   $lineIn = cutArt($lineIn);
   if ($lineIn =~ /is a concept in (lalaland|conceptville)/) # concept definitions
