@@ -1553,6 +1553,7 @@ sub concDefCheck
 	if ($inConcept && $line =~ /concept.in/)
 	{
 	  my $lineTemp = $line;
+	  if ($lineTemp =~ /\"\"/) { print "TRIVIA: temporary line $. has two quotes in a row.\n"; }
 	  $lineTemp =~ s/ *\[[^\[]*?\]$//;
 	  if ($lineTemp !~ /\.$/) { print "TRIVIA: line $. does not end in a period.\n"; }
 	  if ($line !~ /howto is/i)

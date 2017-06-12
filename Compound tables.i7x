@@ -305,6 +305,7 @@ macho-boast
 "The [j-co] look forward to wild college spring breaks at [activation of quaalude]."
 "The [j-co] agree [activation of Ralph Lauren] would actually be really attractive with any fashion sense at all."
 "The [j-co] recount how [activation of rectally] some kid's supposititious argument."
+"The [j-co] evaluate [activation of red rose] as too cool for wimpy gardening types."
 "The [j-co] wonder what the heck [activation of rosetta] babbles about."
 "The [j-co] [activation of rusty nail] as someone you'd better not step on."
 "The [j-co] disagree on whether [activation of sharp barb] would be worth putting up with her lame gossip."
