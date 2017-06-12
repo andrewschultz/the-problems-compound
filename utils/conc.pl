@@ -35,6 +35,7 @@ my $np = "\"C:\\Program Files (x86)\\Notepad++\\notepad++.exe\"";
 my $i7 = "C:\\Program Files (x86)\\Inform 7\\Inform7\\Extensions\\Andrew Schultz";
 my $dupeFile = __FILE__; $dupeFile =~ s/.pl$/-dupe.txt/;
 my $auxFile = __FILE__; $auxFile =~ s/.pl$/-aux.txt/;
+my $okUndFile = __FILE__; $okUndFile =~ s/.pl$/-uok.txt/;
 
 ###############################
 #options
@@ -70,6 +71,7 @@ my $launchRoomFileWindowsNP = 0;
 my $outputRoomFile = 0;
 my $concDefCheck = 0;
 my $overlookOptionClash = 0;
+my $understandProcess = 0;
 
 #############################
 #hashes
@@ -85,9 +87,11 @@ my %lineNum;
 my %fileLineErr;
 my %fillConc;
 my %fillExpl;
+my %gtxtx;
 my %needSpace;
 my %minorErrs;
 my %addAfter;
+my %okUnderstand;
 
 my %tableDetHash;
 
@@ -150,6 +154,8 @@ while ($count <= $#ARGV)
     /^-?d$/ && do { $defaultRoom = $ARGV[$count+1]; $defaultRoom =~ s/[-\._]/ /g; $count+= 2; next; };
     /^-?ps$/ && do { $printSuccess = 1; $count++; next; };
     /^-?nd$/ && do { $readDupe = 0; $count++; next; };
+    /^-?uo$/ && do { `$okUndFile`; exit(); };
+    /^-?up$/ && do { $understandProcess = 1; $count++; next; };
     /^--$/ && do { $openLowestLine = 0; $count++; next; };
 	/^-?f([lon]*)?$/ && do
 	{
@@ -214,6 +220,7 @@ checkOptionClash();
 readAux();
 
 if ($readDupe) { readOkayDupes(); }
+if ($understandProcess) { readOkayUnderstands(); }
 
 for my $thisProj (@dirs)
 {
@@ -226,6 +233,7 @@ for my $thisProj (@dirs)
   if ($roomConcCompare) { compareRoomIndex($thisProj); }
   if ($activationCheck) { checkUnmatchedActivations($thisProj); }
   if ($concDefCheck) { concDefCheck($thisProj); }
+  if ($understandProcess) { testUnderstands($thisProj); }
 }
 
 printGlobalResults();
@@ -418,7 +426,7 @@ for my $x (sort keys %any)
 	$fails++; $thisFailed = 1;
   }
   if (($thisFailed == 0) && ($printSuccess)) { print "$x succeeded.\n"; }
-  if (($thisFailed) && ($x !~ /[ \*]/))
+  if (($thisFailed) && ($x !~ /[ \*-]/))
   {
     print "You may want a space or asterisk in $x (line $any{$x}) to see where it can be divided. Asterisk disappears with the object name.\n";
   }
@@ -464,6 +472,11 @@ for my $x (sort keys %any)
   {
     printf("Add spaces or \[ok\] (%d total) to understanding synonyms at %s%s\n", scalar keys %needSpace, join(", ", map { "$needSpace{$_}($_}" } sort { $needSpace{$a} <=> $needSpace{$b} } keys %needSpace), $launchMinorErrs ? "" : " (-lm to launch)");
 	if ($printTest) { printf("TEST RESULTS: needspace-$_[0],%d,0,0,%s\n", scalar keys %needSpace, join(" / ", map { "$needSpace{$_}" } sort keys %needSpace)); }
+  }
+  if (scalar keys %gtxtx)
+  {
+    printf("Fill in explanation text (%d total) at %s%s\n", scalar keys %gtxtx, join(", ", map { "$gtxtx{$_}($_}" } sort { $gtxtx{$a} <=> $gtxtx{$b} } sort keys %gtxtx), $launchMinorErrs ? "" : " (-lm to launch)");
+	if ($printTest) { printf("TEST RESULTS: fillin-expl-$_[0],%d,0,0,%s\n", scalar keys %gtxtx, join(" / ", map { "$gtxtx{$_}" } sort { $gtxtx{$a} <=> $gtxtx{$b} } keys %gtxtx)); }
   }
   if (scalar keys %fillExpl)
   {
@@ -919,6 +932,11 @@ while ($lineIn = <X>)
 	$tmpVar =~ s/\t.*//g;
 	$tmpVar = wordtrim($tmpVar);
 	$expl{$tmpVar} = $any{$tmpVar} = 1;
+	if ($lineIn =~ /gtxtx/)
+	{
+	  $gtxtx{$tmpVar} = $.;
+	  unless ($openLowestLine && defined($minorErrs{$file})) { $minorErrs{$file} = $.;}
+    }
 	if ($lineIn =~ /fill-in-here/)
 	{
 	  $fillExpl{$tmpVar} = $.;
@@ -1177,6 +1195,92 @@ sub findExplLine
   }
   }
   return ($toRead[0], "????");
+}
+
+sub testUnderstands
+{
+
+  my $line;
+  my @ue;
+
+  my @toRead = @{$fileHash{$_[0]}};
+  my $fileToOpen = $toRead[0];
+
+  open(A, $fileToOpen) || die("Can't open $fileToOpen");
+
+  while ($line = <A>)
+  {
+  next if ($line !~ /concept.*understand.*gtxt/i);
+  chomp($line);
+
+  my @definitions = split(/\./, $line);
+
+  my $x = 0;
+
+  while ($x <= $#definitions)
+  {
+    $x++;
+    last if ($definitions[$x] =~ /understand /i)
+  }
+
+  next if $x > $#definitions; #this is a bit of a hack but "understand" will appear in the 2nd or 3rd sentence.
+
+  my $understand = $definitions[$x];
+
+  next if ($understand =~ /\" +and +\"/);
+
+  my $concept = lc($definitions[0]);
+  $concept =~ s/ is a.*//;
+  $concept =~ s/^a thing called //;
+  next if defined($okUnderstand{$concept});
+
+  my $und2 = $understand;
+  $und2 =~ s/^ *understand *\"//i;
+  my @unds = split(/\" as /, $und2);
+
+  if ($unds[0] !~ / /)
+  {
+    print "Possible error: UNDERSTAND only has one word at line $.: $unds[0]\n";
+	push(@ue, $.);
+	next;
+  }
+
+  my $undrev = join(" ", reverse(split(/ /, $unds[0])));
+
+  if (lc($unds[0]) eq lc($unds[1]))
+  {
+    print "Meaningless UNDERSTAND at line $.: $understand\n";
+	push(@ue, $.);
+	next;
+  }
+
+    next if (lc($undrev) eq lc($unds[1]));
+
+    print "$. ($definitions[$x]):\n";
+
+    $definitions[$x] = " Understand \"$unds[0]\" and \"$undrev\" as $unds[1]";
+    push(@ue, $.);
+
+  print join(".", @definitions) . "\n";
+  }
+
+    printOneTestResult("understand-as-$_[0]", " / ", \@ue);
+
+}
+
+sub readOkayUnderstands
+{
+  my $line;
+  open(A, $okUndFile) || die("Can't open $okUndFile.");
+
+  while ($line = <A>)
+  {
+    if ($line =~ /^#/) { next; }
+    if ($line =~ /^;/) { last; }
+    chomp($line);
+	$okUnderstand{lc($line)} = 1;
+  }
+  close(A);
 }
 
 sub readOkayDupes
@@ -1665,6 +1769,7 @@ CONC.PL usage
 (any combination is okay too)
 -t = print with test results so nightly build can process it
 -nd = no allowed duplicates (-ed edits)
+-up = understand text processing, -uo opens the file of concepts to ignore
 -vcp = verbose cut paste (off by default, not recommended)
 (-)rc(v) = room coordination (v = verbose)
 (-)ps = print success
