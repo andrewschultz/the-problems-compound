@@ -46,22 +46,6 @@ my $count = 0;
 my $wordsAdded = 0;
 my $warn = 0;
 
-open(C, 'C:\Users\Andrew\AppData\Roaming\Notepad++\session.xml');
-my $c;
-while ($c = <C>) #this is to check if the file is in an unsaved state, which just got increasingly annoying over the years
-{
-  if ($c =~ /flip.txt/)
-  {
-    if ($c =~ /backupFilePath=\"c:/i)
-    {
-	`$output`;
-    Win32::MsgBox("Save wfl.txt before copying over", 0, "Less annoying than overwriting");
-    }
-    last;
-  }
-}
-close(C);
-
 while ($count <= $#ARGV)
 {
 $a = $ARGV[$count];
@@ -205,6 +189,11 @@ sub readOneWord
 
 # force the URL only if we've seen it before. Otherwise it goes in the to-do list.
 if ($dicURL && $isDone{$flip}) { `\"$webapp\" http:\/\/idioms.thefreedictionary.com\/$flip`; }
+
+if (warnSaveBeforeCopying())
+{
+    Win32::MsgBox("Save wfl.txt before copying over", 0, "Less annoying than overwriting");
+}
 
 open(B, ">>$output");
 
@@ -536,6 +525,26 @@ sub wcexpand
 	}
 	splice(@flipAry, $aryIdx, 1);
   }
+}
+
+sub warnSaveBeforeCopying()
+{
+open(C, 'C:\Users\Andrew\AppData\Roaming\Notepad++\session.xml');
+my $c;
+while ($c = <C>) #this is to check if the file is in an unsaved state, which just got increasingly annoying over the years
+{
+  if ($c =~ /flip.txt/)
+  {
+    if ($c =~ /backupFilePath=\"c:/i)
+    {
+	close(C);
+	return 1;
+    }
+    last;
+  }
+}
+close(C);
+return 0;
 }
 
 sub usage

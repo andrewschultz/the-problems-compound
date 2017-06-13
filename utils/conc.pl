@@ -857,7 +857,7 @@ while ($lineIn = <X>)
   if ($lineIn =~ /xxcv/) { $cvStart = $.; }
   if ($lineIn =~ /xxauth/) { $inAuthTable = 1; <A>; $line++; next; }
   if ($lineIn =~ /^table of explanations.*concepts/) { $inTable = 1; <X>; next; }
-  if ($lineIn =~ /^table of unvisiteds/) { $inRoomTable = 1; <X>; next; }
+  if ($lineIn =~ /^table of (unvisiteds|nowheres)/i) { $inRoomTable = 1; <X>; next; }
   if ($lineIn !~ /[a-z]/i) { $inTable = 0; $inRoomTable = 0; if ($inAdd) { $addEnd = $.; $inAdd = 0; } next; }
   if (($lineIn =~ /^part /) && ($inRoomSect)) { $curRoom = lc($lineIn); $curRoom =~ s/^part +//; $forceRoom = ""; next; }
   $lineIn = cutArt($lineIn);

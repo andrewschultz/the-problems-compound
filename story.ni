@@ -3755,6 +3755,7 @@ face facts	"To face facts is to see the sad truth. In this case, the [bad-guy] i
 fanatic	"A fanatic is someone who is obsessed about something."
 fatigue duty	"Fatigue duty is the drudge work low-ranking members of the military get."
 fawn over	"To fawn over is to flatter someone."
+following my gut	"Following my gut means relying on instinct."
 Freak Out	"To freak out is to make a much bigger emotional display than seems really necessary."
 gravy train	"A gravy train is a method for getting rich."
 grunt work	"Grunt work is unchallenging work."
@@ -12584,7 +12585,7 @@ meretricious is a concept in conceptville. Understand "tricias merit" and "merit
 
 mike drop is a concept in conceptville. Understand "drop mike" as mike drop. howto is "[j-blab]". gtxt is "drop Mike".
 
-Mollycoddling is a concept in conceptville. Understand "coddling molly" as mollycoddling. howto is "[j-blab]". gtxt is "coddling, err, cuddling Molly".
+Mollycoddling is a concept in conceptville. Understand "coddling/cuddling molly" and "molly coddling/cuddling" as mollycoddling. howto is "[j-blab]". gtxt is "coddling, err, cuddling Molly".
 
 monte carlo is a concept in conceptville. Understand "carlo monte" as monte carlo. howto is "[j-blab]". gtxt is "Carlo Monty".
 
@@ -12956,6 +12957,8 @@ fanatic is a concept in conceptville. Understand "attic fan" and "fan attic" as 
 fatigue duty is a concept in conceptville. Understand "duty fatigue" as fatigue duty. howto is "[fr-ran]". gtxt is "Duty fatigue".
 
 fawn over is a concept in conceptville. Understand "over fawn" as fawn over. howto is "[fr-ran]". gtxt is "OVER Fawn".
+
+following my gut is a concept in conceptville. Understand "gut my following" as following my gut. howto is "get the [bad-guy]'s attention". gtxt is "gut my following".
 
 Freak Out is a concept in conceptville. Understand "out freak" as freak out. howto is "read the Language sign". gtxt is "OUT, FREAK".
 
