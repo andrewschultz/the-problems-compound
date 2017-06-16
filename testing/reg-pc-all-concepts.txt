@@ -1,0 +1,36 @@
+# reg-pc-all-concepts.txt: goes through all the bad ends
+# For a full description, see <http://eblong.com/zarf/plotex/regtest.html>
+
+** game: /home/andrew/prt/debug-compound.ulx
+** interpreter: /home/andrew/prt/glulxe -q
+
+*main
+>xp game shell
+
+>gonear fright stage
+>zp
+
+>gonear basher bible
+>zp
+
+>gonear warmer bench
+>zp
+#####forgot to write in special case where Stool Toad hasn't woken you up yet
+
+>gonear jerks
+>abstract finger index to lalaland
+>zp
+
+>gonear freak control
+>zp
+
+*end-2
+>gonear meal square
+>eat off cheese
+>e
+>n
+>n
+>n
+>n
+
+*end-1>gonear meal square>eat cutter cookie>e>n>n>n>n
