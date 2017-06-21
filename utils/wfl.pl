@@ -40,6 +40,7 @@ my $wa = "alf";
 ##################helper variables
 my %isDone;
 my %word;
+my $checkWarnYet = 0;
 my $addedSomething = 0;
 my $shouldAlphabetize = 0;
 my $count = 0;
@@ -190,8 +191,9 @@ sub readOneWord
 # force the URL only if we've seen it before. Otherwise it goes in the to-do list.
 if ($dicURL && $isDone{$flip}) { `\"$webapp\" http:\/\/idioms.thefreedictionary.com\/$flip`; }
 
-if (warnSaveBeforeCopying())
+if (!$checkWarnYet && warnSaveBeforeCopying())
 {
+  $checkWarnYet = 1;
     Win32::MsgBox("Save wfl.txt before copying over", 0, "Less annoying than overwriting");
 }
 
