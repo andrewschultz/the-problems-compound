@@ -2125,7 +2125,7 @@ check attacking:
 	if noun is fund hedge:
 		say "'Vandalism is subject to fines and incarceration,' the Labor Child warns you as you take a swing. You [if money seed is off-stage]can probably just take what you need[else]already got the money seed[end if]." instead;
 	if noun is pusher penn:
-		say "'What [activation of dopamine]! Fighting isn't a natural high! [activation of vice admiral]!' You are beaten up and turned over to the proper authorities.";
+		say "'What [activation of dopamine]! Fighting isn't a natural high! [activation of vice admiral]!' You are beaten up and turned over to the proper authorities."; [temproom pot chamber]
 		ship-off Fight Fair instead;
 	if noun is ally stout:
 		say "'[activation of hit the bottle]!' Ally yells. The Stool Toad rushes in to subdue and gaffle you. 'Doesn't look like he'd be rowdy. Or that it'd do much good. Still...off he goes.'"; [temproom soda club]
@@ -3425,7 +3425,6 @@ Spelling Disaster	"Disaster spelling is, well, consonants clumped together. Spel
 touch base	"To touch base is to get back to someone or return their call, especially if it's been a while. Versus a base touch, base being mean, so it's a bit more creepy."
 turn of phrase	"A turn of phrase is clever wording. A phrase of turn is, well, what's at the command prompt, or, any wording."
 u-turn	"A u-turn is when a car swivels in a huge circle to reverse direction. So if something tries to turn you, it bounces back."
-vice admiral	"A vice admiral is a high ranking military officer."
 wait your turn	"This means not to do anything til someone else goes first. But in this case the game wants you to turn your wait into something else."
 wave a flag	"To wave a flag is to give up. To flag something is to note it as particularly productive or unproductive."
 acceptable	"Acceptable means good enough. Though sometimes it might not, if someone is just being diplomatic. Able, Except means you're pretty good but have big flaws. So both can feel like backhand compliments." [start of smart street]
@@ -3705,6 +3704,7 @@ kilo	"A kilo (gram) is a measure of cocaine. It's a lot, especially since one gr
 pop pills	"To pop pills is to take them indiscriminately."
 roach dropping	"A roach is a marijuana cigarette or a bug that appears around dirt. A roach dropping, well, what the roach leaves behind."
 time capsule	"A time capsule is something people bury for others to dig up much later. A capsule is also what drugs can come in."
+vice admiral	"A vice admiral is a high ranking military officer."
 weed out	"To weed out people is to create a test to show they are inadequate."
 artifact	"An artifact is, in programming, something left over that can be gotten rid of." [start of discussion block]
 babel fish	"The babel fish is an item in The Hitchhiker's Guide to the Galaxy (the game and the book) which translates between galactic languages."
@@ -12179,8 +12179,6 @@ cut a deal is a concept in conceptville. Understand "deal a cut" as cut a deal. 
 
 Cut a Figure is a concept in conceptville. Understand "figure a cut" as cut a figure. howto is "get to Nominal Fen". gtxt is "Figure a Cut".
 
-dopamine is a concept in conceptville. Understand "mean dope" and "dope mean" as dopamine. howto is "attack Pusher Penn". gtxt is "a mean dope".
-
 Face the music is a concept in conceptville. Understand "music the face" as face the music. howto is "sing outside the cult or Discussion Block". gtxt is "the music face".
 
 Force of Habit is a concept in conceptville. Understand "habit of force" as force of habit. howto is "attack something inanimate you don't get arrested for". gtxt is "habit of force".
@@ -12204,8 +12202,6 @@ touch base is a concept in conceptville. Understand "base touch" as touch base. 
 turn of phrase is a concept in conceptville. Understand "phrase of turn" as turn of phrase. howto is "empty command". gtxt is "phrase of turn".
 
 a u-turn is a concept in conceptville. Understand "u turn" and "turn u" as u-turn. howto is "turn an inanimate object". gtxt is "turn you"
-
-vice admiral is a concept in conceptville. Understand "admiral vice" as vice admiral. howto is "attack Pusher Penn". gtxt is "admiral vice".
 
 wait your turn is a concept in conceptville. Understand "turn your wait" as wait your turn. howto is "wait". gtxt is "Turn your wait".
 
@@ -12829,6 +12825,8 @@ crack pipe is a concept in conceptville. Understand "pipe crack" as crack pipe. 
 
 crack up is a concept in conceptville. Understand "up/down/joke crack" and "crack joke/down" as crack up. howto is "ask Pusher Penn what's up". gtxt is "crack, up, down or even joke".
 
+dopamine is a concept in conceptville. Understand "mean dope" and "dope mean" as dopamine. howto is "attack Pusher Penn". gtxt is "a mean dope".
+
 go to pot is a concept in conceptville. Understand "pot to go" as go to pot. howto is "[f-t of Pot Chamber]". gtxt is "Pot to Go".
 
 kilo is a concept in conceptville. Understand "loki" and "ki lo" and "lo ki" as kilo. howto is "ask Pusher Penn about bad stuff". gtxt is "Loki". [ok]
@@ -12838,6 +12836,8 @@ pop pills is a concept in conceptville. Understand "pills pop" as pop pills. how
 roach dropping is a concept in conceptville. Understand "dropping roach" as roach dropping. howto is "drop the weed or pot". gtxt is "dropping a roach".
 
 time capsule is a concept in conceptville. Understand "capsule time" as time capsule. howto is "[bga of Pusher Penn]". gtxt is "capsule time".
+
+vice admiral is a concept in conceptville. Understand "admiral vice" as vice admiral. howto is "attack Pusher Penn". gtxt is "admiral vice".
 
 weed out is a concept in conceptville. Understand "out weed" as weed out. howto is "take Pusher Penn's wacker weed". gtxt is "out-weed".
 

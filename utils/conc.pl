@@ -75,6 +75,7 @@ my $understandProcess = 0;
 
 #############################
 #hashes
+my %altname;
 my %any;
 my %expl;
 my %auth;
@@ -288,7 +289,7 @@ sub checkTableDetail
       $lastFirstTab = $thisFirstTab;
     }
 	if ($needActive)
-	{
+	{ #this alphabetizes activations in a table
     if (($a !~ /activation of/) && ($needActive)) { print "Warning: line $. has no ACTIVATION OF.\n"; next; }
 	$a3 = "zzzzzz";
 	$a = lc($a);
@@ -315,12 +316,20 @@ sub checkTableDetail
 
 sub crankOutCode
 {
-  my $temp = $_[0]; $temp =~ s/-/ /g;
-  my $bkwd = join(" ", reverse(split(/ /, lc($temp))));
+  my $temp = $_[0];
+  $temp =~ s/-/ /g;
+
+  my $t2 = $temp;
+  $t2 = $altname{$temp} if defined $altname{$temp};
+  my $bkwd = join(" ", reverse(split(/ /, lc($t2))));
+  my $fwd = join(" ", reverse(split(/ /, lc($t2))));
   if ($a)
   {
     $a .= "\n";
-  $a .= "\[activation of +$temp\]\n$temp is a concept in conceptville. understand \"$bkwd\" as $temp. howto is \"\[fill-in-here\]\". \[search string: cv]\n$temp\t\"$temp is when you \[fill-in-here\].\" \[search string: xadd\]\n";
+  $a .= "\[activation of +$temp\]\n$temp is a concept in conceptville. understand \"$bkwd\"";
+  print "$temp: $fwd vs $bkwd vs $_[0]\n";
+  if (($fwd ne $bkwd) && ($fwd ne $_[0])) { $a .= " and \"$fwd\""; }
+  $a .= " as $temp. howto is \"\[fill-in-here\]\". \[search string: cv]\n$temp\t\"$temp is when you \[fill-in-here\].\" \[search string: xadd\]\n";
   $clip->Set($a);
   print "To clipboard:\n$a";
   }
@@ -412,8 +421,16 @@ for my $x (sort keys %any)
 	}
 	else
 	{
-    $y = join(" ", reverse(split(/ /, $x)));
-	$addString .= "$xmod is a concept in conceptville. Understand \"$y\" as $xmod. $howto gtxtx is \"$y\".\n\n";
+	my $x2 = $x;
+	$x2 = $altname{$x} if defined($altname{$x});
+    $y = join(" ", reverse(split(/ /, $x2)));
+    $y1 = join(" ", (split(/ /, $x2)));
+	$addString .= "$xmod is a concept in conceptville. Understand \"$y\"";
+	if (($y1 ne $xmod) && ($y1 ne $y))
+	{
+	  $addString .= " and \"$y1\"";
+	}
+	$addString .= " as $xmod. $howto gtxtx is \"$y\".\n\n";
 	}
 	$concErr .= $addString;
 	if ($writeAfter && defined($nuline)) { $addAfter{$nuline} .= $addString; }
@@ -533,6 +550,11 @@ for my $x (sort keys %any)
 	my $xlines = 0;
 	while ($a = <A>)
 	{
+	  if ($a =~ /activation of [^=\]]+=/) #trim any wild card stuff
+	  {
+	    my $old = $a;
+	    $a =~ s/(activation of [^=\]]+)=[^\]]+\]/$1\]/g;
+	  }
 	  if (exists $addAfter{$.})
 	  {
 	  print B $addAfter{$.};
@@ -880,6 +902,16 @@ while ($lineIn = <X>)
   while ($tmpVar =~ /\[activation of/) # "activation of" in source code
   {
     $tmpVar =~ s/.*?\[activation of //;
+	my $toRev = $tmpVar;
+	if ($tmpVar =~ /=/)
+	{
+	  my $tmpVar2 = $tmpVar;
+	  $tmpVar2 =~ s/\].*//;
+	  my @eq = split(/=/, $tmpVar2);
+	  $tmpVar2 = $eq[0];
+	  $toRev = $eq[1];
+	  $altname{$tmpVar2} = $toRev;
+	}
 	if ($tmpVar =~ /\*/)
 	{
 	  my $tmpVar2 = $tmpVar;
@@ -1762,7 +1794,7 @@ CONC.PL usage
 -0 = print errors not error code
 -l/-n = launch story file (or not) after
 -v = verbosely print code
--w = write code out (-W bails before copying from backup file)
+-w = write code out (-W bails before copying from backup file. Use this for testing.)
 -y = overlook option clashes
 -f(l)(o)(n) = put rooms to file (l launches) (o outputs to text) (n launches in notepad)
 -m = launch minor errors if there is no major error
