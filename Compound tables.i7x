@@ -179,17 +179,17 @@ workname	authname	booksubj
 "Jest? Knight, Fie, In"	"Wallace Foster David"	"a snappy fifty-page tour de force that's about nothing and everything--err, make that everything and nothing"
 "The Stone in the Sword"	"White Theodore"	"a kid learning to be king by doing all the things fantasy novels don't describe--like pushing people around, politics, and so forth"
 "The Stuff, Right?"	"Wolfie Thomas"	"some schlep's comical attempts to alchemize a 'good' drug and his failure to keep his feet on the ground" [p]
-
+"Sorrow and Silence of Worship"	"Lyle Carr-Thomas"	--
+"Eternity with Conversations"	"Hugo Victor"	--
+"Aunts, Deliver"	"Dickie James"	--
+"The Land of the Lay"	"Ford Richard"	--
+"When Now, Not If"	"Levi Primo"	--
 
 [can't quite get to work:
 brooks walter: Freddy and (something) (dang it none of the 26 do anything cool. I mean the books are cool but they all have FREDDY in them which ruins things)
-Allan Woody: Ending Hollywood (was a movie)
-Dickey James
 Armstrong Sperry
-Ford Richard The Land of the Lay?
 Wallace Stegner (never read)
 Richter Conrad: The Forest in the Light?
-Hugo Victor: Eternity with Conversations? (not really by Hugo)
 ]
 
 section all the songs
