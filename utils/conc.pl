@@ -279,7 +279,7 @@ sub checkTableDetail
   if ($a !~ /[a-z]/i) { $inTable = ""; $lastFirstTab = ""; next; }
   if ($inTable)
   {
-    if ($a =~ /\[na\]/) { next; }
+    if ($a =~ /\[na[^\]]*\]/) { next; }
     chomp($a);
     if ($a =~ /\t/)
 	{
@@ -417,12 +417,15 @@ for my $x (sort keys %any)
 	{
     $y1 = join(" ", reverse(split(/\*/, $x)));
     $y = join(" ", split(/\*/, $x));
-	$addString .= "$xmod is a concept in conceptville. Understand \"$y\" and \"$y1\" as $xmod. $howto\n\n";
+	$y1 =~ s/[-']//g;
+	$y =~ s/[-']//g;
+	$addString .= "$xmod is a concept in conceptville. Understand \"" . lc($y) . "\" and \"" . lc($y1) . "\" as $xmod. $howto\n\n";
 	}
 	else
 	{
-	my $x2 = $x;
-	$x2 = $altname{$x} if defined($altname{$x});
+	my $x2 = $xmod;
+	$x2 = $altname{$xmod} if defined($altname{$xmod});
+	$x2 =~ s/['-]//;
     $y = join(" ", reverse(split(/ /, $x2)));
     $y1 = join(" ", (split(/ /, $x2)));
 	$addString .= "$xmod is a concept in conceptville. Understand \"$y\"";
@@ -430,7 +433,7 @@ for my $x (sort keys %any)
 	{
 	  $addString .= " and \"$y1\"";
 	}
-	$addString .= " as $xmod. $howto gtxtx is \"$y\".\n\n";
+	$addString .= " as $xmod. $howto gtxtx is \"" . (defined($altname{$xmod}) ? $altname{$xmod} : $y) . "\".\n\n";
 	}
 	$concErr .= $addString;
 	if ($writeAfter && defined($nuline)) { $addAfter{$nuline} .= $addString; }
@@ -443,9 +446,9 @@ for my $x (sort keys %any)
 	$fails++; $thisFailed = 1;
   }
   if (($thisFailed == 0) && ($printSuccess)) { print "$x succeeded.\n"; }
-  if (($thisFailed) && ($x !~ /[ \*-]/))
+  if (($thisFailed) && ($x !~ /[ \*-]/) && !defined($altname{$x}))
   {
-    print "You may want a space or asterisk in $x (line $any{$x}) to see where it can be divided. Asterisk disappears with the object name.\n";
+    print "You may want a space or asterisk or = in $x (line $any{$x}) to see where it can be divided. = is preferred as it disappears with the -lw flag.\n";
   }
 }
 
@@ -542,10 +545,11 @@ for my $x (sort keys %any)
     if (scalar (keys %addAfter) == 0) { print "******** Write flag set, but nothing to write up.\n"; }
 	else
 	{
-    my $fi = "c:/games/inform/$_[0].inform/source/story.ni";
-    print "Rewriting $_[0], first writing to story.ni.2...\n";
-	open(A, "$fi") || die ("Uh oh no story");
-	open(B, ">$fi.2") || die ("Uh oh can't write");
+	for my $fi (@{$fileHash{$_[0]}})
+	{
+    print "Rewriting $fi, first writing to $fi.2...\n";
+	open(A, "$fi") || die ("Uh oh no $fi file");
+	open(B, ">$fi.2") || die ("Uh oh can't write to temp file $fi.2");
 	binmode(B);
 	my $xlines = 0;
 	while ($a = <A>)
@@ -569,10 +573,15 @@ for my $x (sort keys %any)
 	print "$_[0] -> $xlines\n";
 	if ($dontCopySourceBack)
 	{
-	  die();
+	  my $cmd = "start \"\" \"notepad++\" \"$fi.2\"";
+	  print "Starting $fi.2 to see output of test. wm story.ni story.ni.2 will show differences.";
+	  system($cmd);
+	  next;
     }
 	copy("$fi.2", $fi );
 	unlink "$fi.2" || die ("Failed to delete $fi.2");
+	}
+	die if ($dontCopySourceBack);
 	}
   }
 }
@@ -831,10 +840,9 @@ my $inTable = 0;
 my $inRoomTable = 0;
 my $inRoomSect = 0;
 
-my @files = ("c:/games/inform/$_[0].inform/source/story.ni");
-my $file;
+my @files = @{$fileHash{$_[0]}};
 
-if (lc($_[0]) eq "compound") { push(@files, "$i7\\compound tables.i7x"); }
+my $file;
 
 for $file (@files)
 {
@@ -865,9 +873,9 @@ while ($lineIn = <X>)
   }
   if ($lineIn =~ /\[end rooms\]/) { $inRoomSect = 0; next; }
   if ($lineIn =~ /\[start rooms\]/) { $inRoomSect = 1; $everRoomSect = 1; next; }
+  if ($lineIn =~ /\[forceroom /i) { $forceRoom = lc($lineIn); $forceRoom =~ s/.*\[forceroom (of )?//i; $forceRoom =~ s/\].*//; }
   if ($lineIn =~ /^\[/) { next; }
   if ($lineIn =~ /\[temproom (of )?/i) { $tempRoom = lc($lineIn); $tempRoom =~ s/.*\[temproom (of )?//; $tempRoom =~ s/\].*//; $forceRoom = ""; }
-  if ($lineIn =~ /\[forceroom /i) { $forceRoom = lc($lineIn); $forceRoom =~ s/.*\[forceroom //; $forceRoom =~ s/\].*//; }
   if ($lineIn =~ /(EXPLANATIONS:|CONCEPTS:|fill-in-here throws)/) { push (@dumbErrors, $.); next; }
   if (($lineIn =~ /is a.* author\. pop/) && ($lineIn !~ /^\[/)) { $tmpVar = $lineIn; $tmpVar =~ s/ is (an|a) .*//g; chomp($tmpVar); if ($lineIn =~ /xp-text is /) { $gotText{$tmpVar} = 1; } elsif ($lineIn =~ /\"/) { print "Probable typo for $tmpVar.\n"; } $auth{$tmpVar} = $line; next; }
   if ($inAuthTable)
@@ -924,7 +932,7 @@ while ($lineIn = <X>)
 	  }
     }
 	my $c = $tmpVar;
-	$c =~ s/\].*//g;
+	$c =~ s/[=\]].*//g;
 	if ($c eq "conc-name entry") { next; }
 	$c = wordtrim($c);
 	if (!defined($concToRoom{$c}))
@@ -986,7 +994,7 @@ while ($lineIn = <X>)
 	  $fillConc{$tmpVar} = $.;
 	  unless ($openLowestLine && defined($minorErrs{$file})) { $minorErrs{$file} = $.;}
     }
-	if (($lineIn =~ /\"[a-z]+\"[^\.]/i) && ($lineIn !~ /\[ok\]/))
+	if (($lineIn =~ /understand \"[a-z]+\"[^\.] as/i) && ($lineIn !~ /\[ok\]/))
 	{
 	  $needSpace{$tmpVar} = $.;
 	  unless ($openLowestLine && defined($minorErrs{$file})) { $minorErrs{$file} = $.; }
@@ -1007,7 +1015,7 @@ while ($lineIn = <X>)
 }
 
 close(X);
-if (!$everRoomSect) { warn ("No room section start found."); }
+if (!$everRoomSect && ($file =~ /story.ni/)) { warn ("No room section start found for $file."); }
 }
 
 printResults($_[0]);
@@ -1122,6 +1130,7 @@ sub findExplLine
     if (($line =~ /^part /i) && ($begunRooms) && (!$doneRooms)) { $line =~ s/ *\[.*//; $begunRooms = 1; $curRoom = $line; $curRoom =~ s/^part //i; next; }
 	$line =~ s/\*/ /g; # ugh, a bad hack but it will have to do to read asterisk'd files
 	if ($line =~ /^\[end rooms\]/i) { $doneRooms = 1; $curRoom = $defaultRoom; next; }
+	if ($line =~ /\[forceroom /) { $curRoom = $line; $curRoom =~ s/\[forceroom (of )?//i; $curRoom =~ s/\].*//; }
 	if ($line =~ /activation of $_[0]/i)
 	{
 	  chomp($curRoom);
@@ -1758,8 +1767,8 @@ sub roomToFile
   }
   close(A);
   if ($launchRoomFile) { `$fullFile`; }
-  #if ($launchRoomFileWindowsNP) { `"start \"notepad\" \"$fullFile\""`; }
-  if ($launchRoomFileWindowsNP) { system("start \"\" notepad.exe \"$fullFile\""); }
+
+  if ($launchRoomFileWindowsNP) { system("start \"\" notepad.exe \"$fullFile\""); } # use system so we don't freeze the cmd prompt
 }
 
 sub checkOptionClash
