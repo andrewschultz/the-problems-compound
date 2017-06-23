@@ -745,7 +745,7 @@ understand "pe" as peing.
 
 carry out peing:
 	now print-exits is whether or not print-exits is false;
-	say "The Problems Compound now [if print-exits is true]displays[else]does not display[end if] exits in the upper left of the header[if screen-read is true]. EXITS may be a better option if you are using a screen reader, though[end if][if mrlp is rejected rooms and screen-read is false]. This information may be redundant for the Director's Cut section, but it'll be there back in the agme proper[end if].";
+	say "The Problems Compound now [if print-exits is true]displays[else]does not display[end if] exits in the upper left of the header[if screen-read is true]. EXITS may be a better option if you are using a screen reader, though[end if][if mrlp is rejected rooms and screen-read is false]. This information may be redundant for the Director's Cut section, but it'll be there back in the game proper[end if].";
 	the rule succeeds;
 
 section procedurality
@@ -3436,6 +3436,7 @@ Hunter Savage	"A savage hunter is, well, someone with no mercy. Yup, I like the 
 knockwurst	"Knockwurst is a kind of sausage."
 Mind Games	"Mind games are messing with people's mind with lies or half-truths. A games mind might be more inclined to abstract puzzles."
 power games	"Power games are when people use manipulation to take charge, or when people struggle to control a business, often without voting involved."
+charity	"Charity is giving to others while expecting (in theory) nothing in return." [start of a round lounge]
 nose picking	"Nose picking is -- not the best habit. A picking nose would be a discerning sense of smell." [start of tension surface]
 Animal Welfare	"Animal welfare is concern for animals who often can't help themselves. Welfare has a slightly perjorative definition in the US these days, e.g. people on welfare are lazy, or someone giving it is very generous indeed, more than they need to be." [start of variety garden]
 brush up	"To brush up is to refresh your memory of something."
@@ -3530,11 +3531,13 @@ Anne Frank	"Anne Frank wrote [i]The Diary of Anne Frank[r], a story about a Jewi
 Bandanna	"A bandanna is a scarf you tie around your head. Some people find it rebellious, others not rebellious enough."
 bechdel	"The Bechdel test is if an author has two females talking about things other than men or sex. Del Beck fails miserably, of course."
 beer guts	"Beer guts are increased weight from drinking too much beer."
+Benedict Arnold	"Benedict Arnold was a traitor in the US Revolutionary War."
 benevolent	"Benevolent means doing things to help people."
 Bernoulli	"The Bernoulli family were famous and accomplished mathematicians and scientists from around 1700."
 Black Mark	"A black mark is something indicating bad behavior."
 body slamming	"Body slamming is a particularly painful wrestling move where you pretty much throw a person to the ground."
 bognor regis	"Bognor Regis is a town on the south coast of England."
+bonhomie	"Bonhomie is just generally being pleasant and fun to be around."
 bouncing betty	"Bouncing betty is slang for a land mine."
 box score	"A box score describes the basic individual statistics from a sporting event."
 broccoli	"Broccoli is a vegetable."
@@ -3547,6 +3550,7 @@ cirrhosis	"Cirrhosis is a disease of the liver, often bought on by drinking."
 clean break	"A clean break from something is leaving quickly and for good. The jerks haven't broken with their 'clean' secrets yet."
 co-ed	"Co-ed means having males and females in classes together."
 Cotton Candy	"Cotton candy is stringy sugary stuff, often bundled together in a soft ball. People eat it at circuses and fairs and movies a lot."
+covfefe	"Covfefe is a nonsense word tweeted out by Donald Trump, probably a typo for coverage."
 defecate	"To defecate is, well, activity #2 in the bathroom."
 dirty word	"A dirty word is profanity. 'Word' on its own is slang for agreement."
 dust up	"A dust up is a fight."
@@ -3563,6 +3567,7 @@ hara-kiri	"Hara-kiri is Japanese ritual suicide."
 henry clay	"Henry Clay was a 19th century American statesman who did nearly everything except get elected President."
 hidey hole	"A hidey hole is somewhere you can go so you won't be found."
 High Fidelity	"High fidelity means music that is translated clearly. It's also a movie staring John Cusack with a famous scene I won't spoil."
+Hillary	"Hillary refers to Hillary Clinton, here, and the conspiracy theories directed at her."
 hittite	"A Hittite is a now-extinct race of people in the Bible."
 homer winslow	"Homer Winslow was the painter of the famous [i]Whistler's Mother[r]."
 Howard Stern	"Howard Stern is a long-time radio personality with loud provocative opinions."
@@ -3581,6 +3586,8 @@ kevin spacey	"Kevin spacey is the actor who played Keyser Söze in [u-sus]."
 Keyser Soze	"Keyser Söze is the shadowy antagonist of [u-sus]."
 kohlrabi	"Kohlrabi is a vegetable."
 Laverne and Shirley	"Laverne and Shirley was a TV show from the 70s and 80s about two single female roommates."
+Leicester Square	"Leicester Square is in London."
+lie detector	"A lie detector is something that uses readings from your nerves to detect lies."
 lily liver	"A lily-liver is someone who is afraid to go out and do risky things."
 Liverwurst	"Liverwurst is a sort of meat which I found tastes nice until it really doesn't, and it's a bit greasy, too. 'Worst liver' may be an exaggeration, but the jerks are not living well."
 long johns	"Long johns are pajamas with legs."
@@ -3600,6 +3607,8 @@ Nose Candy	"Nose candy is slang for cocaine."
 Notre Dame	"Notre Dame is a famous Catholic university."
 Olive	"Black and green olives are the two main different kinds of olives."
 olive drab	"Olive drab is what army privates wear for basic training."
+Patrick Henry	"Patrick Henry was a martyr of the American Revolution."
+Paul Ryan	"Paul Ryan was the Speaker of the House as of 2017 in the USA."
 Pepper	"Black pepper is the ground-up stuff. Green and bell peppers are not especially spicy. Serrano peppers taste hotter."
 persephone	"Persephone is the princess of the mythological underworld."
 Peter Pan	"Peter Pan is the hero of J. M. Barrie's novel and play, who never grows up."
@@ -3632,6 +3641,7 @@ tear-jerk	"The jerks['] tears may seem a bit fake, and a tear-jerker is somethin
 terabyte	"A terabyte is a large amount of memory: specifically, 2^40 bytes."
 teriyaki	"Teriyaki is a Japanese sauce, or it can be meat cooked in that sauce over an open grill."
 terrapin	"A terrapin is a fancy name for a turtle, which is slow and has a shell."
+tiebreaker	"A tiebreaker is something used to separate two teams or people that are evenly matched."
 water sports	"Water sports is...well, visit Urban Dictionary to learn it's more than just water polo."
 whistler's mother	"Whistler's Mother is a famous painting of an old lady, the mother of the artist."
 you buy	"A bayou is a tributary (river leading to bigger water), and the reverse pronunciation is 'you buy.'"
@@ -5709,6 +5719,10 @@ check going inside in Round Lounge:
 chapter person chair
 
 the person chair is scenery in Round Lounge. the person chair is a supporter. "It's plain but sturdy[if player is on person chair] enough to hold your weight[end if], emblazoned with PERSON, probably to say it can only hold one. Not that there's another person around.".
+
+after examining person chair for the first time:
+	say "It's not an [activation of charity], but it still feels like someone gave it to you.";
+	continue the action;
 
 does the player mean entering the person chair: it is very likely.
 does the player mean climbing the person chair: it is very likely.
@@ -12236,6 +12250,10 @@ power games is a concept in conceptville. Understand "games power" as power game
 
 chapter surface concepts
 
+section a round lounge concepts
+
+charity is a concept in conceptville. Understand "chair itty" and "itty chair" as charity. howto is "[x-it of person chair]". gtxt is "itty chair".
+
 section tension surface concepts
 
 nose picking is a concept in conceptville. Understand "picking nose" as nose picking. howto is "smell the mush in Tension Surface". gtxt is "picking nose".
@@ -12464,6 +12482,8 @@ Bechdel is a concept in conceptville. Understand "del beck" and "beck del" as be
 
 beer guts is a concept in conceptville. Understand "guts beer" as beer guts. howto is "[j-blab]". gtxt is "Guts Beer".
 
+benedict arnold is a concept in conceptville. Understand "arnold benedict" as benedict arnold. howto is "[j-blab]". gtxt is "Arnold Benedict".
+
 benevolent is a concept in conceptville. Understand "evelyn benn" and "benn evelyn" as benevolent. howto is "[j-blab]". gtxt is "Evelyn Benn".
 
 bernoulli is a concept in conceptville. Understand "newly burn" and "burn newly" as bernoulli. howto is "[j-blab]". gtxt is "newly burn".
@@ -12473,6 +12493,8 @@ Black Mark is a concept in conceptville. Understand "mark black" as black mark. 
 body slamming is a concept in conceptville. Understand "slamming body" as body slamming. howto is "[j-blab]". gtxt is "slamming body".
 
 bognor regis is a concept in conceptville. Understand "regis bogner" and "bogner regis" as bognor regis. howto is "[j-blab]". gtxt is "Regis Bogner".
+
+bonhomie is a concept in conceptville. Understand "bo nommy" and "nommy bo" as bonhomie. howto is "[j-blab]". gtxt is "nommy bo".
 
 bouncing betty is a concept in conceptville. Understand "betty/beddy bouncing" and "beddy bouncing" as bouncing betty. howto is "[j-blab]". gtxt is "beddy bouncing".
 
@@ -12497,6 +12519,8 @@ Clean Break is a concept in conceptville. Understand "break clean" as clean brea
 co-ed is a concept in conceptville. Understand "ed coe" and "coe ed" as co-ed. howto is "[j-blab]". gtxt is "Ed Coe".
 
 Cotton Candy is a concept in conceptville. Understand "candy cotton" as cotton candy. howto is "[j-blab]". gtxt is "Candy Cotton".
+
+covfefe is a concept in conceptville. Understand "cove fefe" and "fefe cove" as covfefe. howto is "[j-blab]". gtxt is "Fefe Cove".
 
 defecate is a concept in conceptville. Understand "kate a def" and "def a kate" as defecate. howto is "[j-blab]". gtxt is "Kate? Uh, Def".
 
@@ -12529,6 +12553,8 @@ henry clay is a concept in conceptville. Understand "clay henry" as henry clay. 
 hidey hole is a concept in conceptville. Understand "hole hidey" as hidey hole. howto is "[j-blab]". gtxt is "Whole Heidi".
 
 high fidelity is a concept in conceptville. Understand "fidelity high" as high fidelity. howto is "[j-blab]". gtxt is "Fidelity High".
+
+hillary is a concept in conceptville. Understand "hill larry" and "larry hill" as hillary. howto is "[j-blab]". gtxt is "Larry Hill".
 
 hittite is a concept in conceptville. Understand "tight hit" and "hit tight" as hittite. howto is "[j-blab]". gtxt is "'tight' hit".
 
@@ -12565,6 +12591,10 @@ Keyser Soze is a concept in conceptville. Understand "suzy kaiser" and "kaiser s
 kohlrabi is a concept in conceptville. Understand "robbie cole" and "cole robbie" as kohlrabi. howto is "[j-blab]". gtxt is "Robbie Cole".
 
 a thing called Laverne and Shirley is a concept in conceptville. Understand "shirley and laverne" and "lee shore" and "vern love" and "shore lee" and "love vern" as Laverne and Shirley. howto is "[j-blab]". gtxt is "Lee Shore and Vern Love".
+
+leicester square is a concept in conceptville. Understand "lester square" and "square lester" as leicester square. howto is "[j-blab]". gtxt is "square Lester".
+
+lie detector is a concept in conceptville. Understand "ly detector" and "detector ly" as lie detector. howto is "[j-blab]". gtxt is "Detector Ly".
 
 lily liver is a concept in conceptville. Understand "liver lily" as lily liver. howto is "[j-blab]". gtxt is "LIVER Lily".
 
@@ -12603,6 +12633,10 @@ Notre Dame is a concept in conceptville. Understand "dame noter" and "noter dame
 Olive is a concept in conceptville. Understand "olive green/black" and "green/black olive" as olive. howto is "[j-blab]". gtxt is "Olive Black or Olive Green".
 
 olive drab is a concept in conceptville. Understand "drab olive" as olive drab. howto is "[j-blab]". gtxt is "drab Olive".
+
+Patrick Henry is a concept in conceptville. Understand "henry patrick" as Patrick Henry. howto is "[j-blab]". gtxt is "Henry Patrick".
+
+Paul Ryan is a concept in conceptville. Understand "ryan paul" as Paul Ryan. howto is "[j-blab]". gtxt is "Ryan Paul".
 
 Pepper is a concept in conceptville. Understand "pepper bell/black/serrano/green" and "bell/black/green/serrano pepper" as pepper. howto is "[j-blab]". gtxt is "Pepper Black, Pepper Bell AND Pepper Green".
 
@@ -12667,6 +12701,8 @@ terabyte is a concept in conceptville. Understand "bite tara" and "tara bite" as
 teriyaki is a concept in conceptville. Understand "yacky terri" and "terri yacky" as teriyaki. howto is "[j-blab]". gtxt is "Yacky Terri".
 
 terrapin is a concept in conceptville. Understand "pin tera" and "tera pin" as terrapin. howto is "[j-blab]". gtxt is "pin Tera".
+
+tiebreaker is a concept in conceptville. Understand "Ty Breaker" and "Breaker Ty" as tiebreaker. howto is "[j-blab]". gtxt is "Breaker Ty".
 
 water sports is a concept in conceptville. Understand "sports water" as water sports. howto is "[j-blab]". gtxt is "Sports Water".
 
