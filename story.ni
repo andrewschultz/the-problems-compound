@@ -3725,6 +3725,7 @@ Candidate Dummy	"A dummy candidate is one who is there to give the illusion of d
 code monkey	"A code monkey is someone who writes programming code for a living."
 grease monkey	"A grease monkey is a manual laborer, especially with machines."
 serve you right	"'Serve(s) you right' means you got what you deserved."
+village people	"The Village People were a disco band from the 70s. The message when you go west (one of their hit songs) refers to three of their other hit songs."
 idle gossip	"Idle gossip is talking about others behind their backs, with no real purpose." [start of service community]
 artemis fowl	"Artemis fowl is the intelligent, cocky hero of Eoin Colfer's seven-book series. He's everything the [bad-guy] thinks he is, and more." [start of freak control]
 autocratic	"Autocratic means having one person firmly in control."
@@ -10224,7 +10225,13 @@ after quipping when qbc_litany is litany of officer petty:
 
 part Idiot Village
 
-Idiot Village is east of Judgment Pass. It is in Main Chunk. "Idiot Village is surprisingly empty right now. It expands in all directions, though you'd feel safest going back west, especially with that creepy [one of]idol[or]Thoughts Idol[stopping] staring at you east-northeast-ish. You hear a chant."
+Idiot Village is east of Judgment Pass. It is in Main Chunk. "Idiot Village is [how-empty-iv] empty right now. It expands in all directions, though it's simplest to go back west, especially with that creepy [one of]idol[or]Thoughts Idol[stopping] staring at you east-northeast-ish. You hear a chant."
+
+check going west in idiot village for the first time:
+	say "[line break]It doesn't seem much of a [activation of village people]. Although you were able to go west, you didn't see any YMCA or place to sign up in the Navy, or even any macho man.";
+
+to say how-empty-iv:
+	say "[if business monkey is in lalaland and sly moore is in lalaland]complete[else if business monkey is in idiot village and sly moore is in idiot village]most[else]large[end if]ly"
 
 village-explored is a truth state that varies.
 
@@ -12884,6 +12891,8 @@ code monkey is a concept in conceptville. Understand "monkey code" as code monke
 grease monkey is a concept in conceptville. Understand "monkey grease" as grease monkey. howto is "[x-it of Business Monkey]". gtxt is "monkey grease".
 
 serve you right is a concept in conceptville. Understand "right you serve" as serve you right. howto is "[x-it of service memorial]". gtxt is "RIGHT, [b]YOU[r] SERVE".
+
+village people is a concept in conceptville. Understand "people village" as village people. howto is "go west in idiot village". gtxtx is "people village".
 
 section service community concepts
 
