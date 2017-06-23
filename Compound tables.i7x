@@ -144,10 +144,12 @@ workname	authname	booksubj
 "Life, MY"	"Clinton William"	"a poor uncharismatic schlub appalled with the complexity and speed of today's fast-paced world, especially politics"
 "The Stone Moon"	"Collins Wilkie"	"a short book of looting a temple to destroy a religion."
 "Gene the Selfish"	"Dawkins Richard"	"how someone cared too much about science for its own sake and not enough about his career, and how he had nobody but himself to blame for that"
+"Aunts, Deliver"	"Dickie James"	--
 "Fear of the Valley"	"Doyle Arthur"	"a story about a would-be sleuth who knows all sorts of useless facts but misses the obvious that anyone with gumption would've checked on."
 "The Half Second"	"Doyle Roddy"	"a literary type, Keen Roy, suddenly realizing how truly silly reading, writing and thinking about sports can be"
 "The Floss on the Mill"	"Elliot George"	"a family with nothing better to do than stay together, and how they think they're happy [']til they stagnate into loathing at the end"
 "Pay, Soldiers"	"Faulkner William"	"a soldier who returns from war uninjured and how people with medical exemptions proved he didn't try hard enough"
+"The Land of the Lay"	"Ford Richard"	--
 "The Matter of the Heart"	"Gerine Graham"	"an opaque plot almost as audacious and unreadably brilliant as [i]The Affair of the End[r]"
 "Willows in the Wind"	"Graham Kenneth"	"a toad who learns to leave behind his less clever animal friends and passe forest life for more advanced, luxurious society"
 "Let Her, Scarlet"	"Hawthorne Nathaniel"	"a woman everyone thought was exciting who turned out to be boring, and how people were fooled, but it worked out OK for them"
@@ -155,6 +157,7 @@ workname	authname	booksubj
 "Messiah Dune"	"Herbert Frank"	"a race of people who gave up on interstellar war to relax at the beach and concoct a religion forbidding spices"
 "The Parson Country"	"Herbert George"	"just how impractical and rubbish religion is, even when its trappings make people do good things"
 "Twenty To Catch"	"Hilaire Joseph"	"grinding down objectors with a variety of logic traps"
+"Eternity with Conversations"	"Hugo Victor"	--
 "The Sleepy Hollow of Legend"	"Irving Washington"	"how people learned and proved that silly old 'national treasures' don't hold any mysteries"
 "Command the Angels"	"Jacques Bryan"	"how and why evil pirates deserve to be richer and more interesting than boring sailors"
 "The Master of the Lesson"	"James Henry"	"an older literary critic who finds and mentors hopeless young fiction authors who'd be better suited to HIS career"
@@ -163,7 +166,9 @@ workname	authname	booksubj
 "Writing On"	"King Stephen"	"how society represses real writers from writing real books, with the 'Johnny Hears' chapter being especially relevant"
 "Lover Chatterly's Lady"	"L. H. David"	"a reformed rake who marries a social equal for scandalous reasons indeed"
 "A Mockingbird to Kill"	"Lee Harper"	"losers who try to imitate people less weird than them. Or don't EVEN try"
+"When Now, Not If"	"Levi Primo"	--
 "The Divorce: GREAT"	"Lewis S. Clive"	"how blatant infidelity is really about seeing all the world has to offer and making the most of things--well, if you're worth cheating with. It surpasses even [i]The Boy and His Horse[r] and [i]The Love of Allegory[r]"
+"Sorrow and Silence of Worship"	"Lyle Carr-Thomas"	--
 "Thrones of a Game"	"Martin George"	"three hundred pages of medieval Musical Chairs, with a secret deeper meaning careful readers can't miss"
 "The Cancer of Tropic"	"Miller Arthur"	"one ascetic's skin disease and the surprising poetry that lies therein. Even beyond [i]A Salesman of Death[r]"
 "Lost Paradise"	"Milton John"	"how people not willing to risk anything crazy got sent back to Boringville"
@@ -179,11 +184,6 @@ workname	authname	booksubj
 "Jest? Knight, Fie, In"	"Wallace Foster David"	"a snappy fifty-page tour de force that's about nothing and everything--err, make that everything and nothing"
 "The Stone in the Sword"	"White Theodore"	"a kid learning to be king by doing all the things fantasy novels don't describe--like pushing people around, politics, and so forth"
 "The Stuff, Right?"	"Wolfie Thomas"	"some schlep's comical attempts to alchemize a 'good' drug and his failure to keep his feet on the ground" [p]
-"Sorrow and Silence of Worship"	"Lyle Carr-Thomas"	--
-"Eternity with Conversations"	"Hugo Victor"	--
-"Aunts, Deliver"	"Dickie James"	--
-"The Land of the Lay"	"Ford Richard"	--
-"When Now, Not If"	"Levi Primo"	--
 
 [can't quite get to work:
 brooks walter: Freddy and (something) (dang it none of the 26 do anything cool. I mean the books are cool but they all have FREDDY in them which ruins things)
@@ -293,6 +293,7 @@ macho-boast
 "The [j-co] harbor fantasies of [activation of mollycoddling], who is maybe not as wild as they pretend she is."
 "The [j-co] agree [activation of Monte Carlo] doesn't like leaving things to chance or doing the same thing over and over again."
 "The [j-co] [activation of nihilist] among people with a real purpose."
+The [j-co] can't imagine the [activation of nookie] is a lot of fun."
 "The [j-co] despair that [activation of nose candy] too little about how to party."
 "The [j-co] chuckle at the irreverence of the [activation of notre dame]."
 "The [j-co] argue that [activation of olive] being more desirable is NOT a matter of taste."
@@ -338,7 +339,7 @@ macho-boast
 "The [j-co] don't find Tony terribly interesting." [na neato]
 "The [j-co] find Keesha solid." [na shaky]
 "The [j-co] find Noemi way too nice." [na mean-o]
-"The [j-co] give up respect for Keely's dry sense of humor."
+"The [j-co] give up respect for Keely's dry sense of humor." [na leaky]
 "The [j-co] like how Wary Flo doesn't use loaded words." [na flowery]
 "The [j-co] love how Tyra always looks her best." [na ratty]
 "The [j-co] marvel at Phoebe's weight room prowess." [na beefy]

@@ -3603,6 +3603,7 @@ mollycoddling	"Mollycoddling is being overprotective of someone."
 monte carlo	"Monte Carlo is a place where you can go to gamble. A Monte Carlo simulation also runs random events many times when it is too hard to calculate probability directly."
 nihilist	"A nihilist is someone who believes nothing matters."
 Nolan Ryan	"Nolan Ryan is the Major League Baseball career strikeouts and no-hitters leader."
+nookie	"Nookie is sexual activity."
 Nose Candy	"Nose candy is slang for cocaine."
 Notre Dame	"Notre Dame is a famous Catholic university."
 Olive	"Black and green olives are the two main different kinds of olives."
@@ -3693,9 +3694,11 @@ sound asleep	"Sound asleep means, well, hard to wake up." [start of temper keep]
 venturesome	"Venturesome means willing to go places."
 brass ring	"To grab the brass ring is to achieve a dream goal. It refers to the brass ring on merry-go-rounds." [start of questions field]
 Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing Abel. The implication is, why should I care about anyone else? The brothers are blackmailed into caring too much--or not being able to help each other just walk off."
+contempt of congress	"Contempt of Congress is when someone refuses to answer certain questions before Congress."
 foster brother	"A foster brother is a brother not related by birth."
 attorney general	"An Attorney General is the highest ranking lawyer in a country or state." [start of court of contempt]
 fair enough	"Fair Enough is what you can say to tell someone you agree with them partially. It has a negative connotation."
+lemon law	"A lemon law is something that lets you get your car back if it breaks down quickly after you buy it."
 nutcase	"A nutcase is a pejorative term for someone who is crazy, clinical or otherwise, as opposed to Buddy Best's claims he just studies a lot."
 prosecutor	"A prosecutor is a lawyer who tries cases for people bringing a legal or civil complaint."
 readjust	"To readjust is to try to come to grips with a situation."
@@ -3720,15 +3723,18 @@ artifact	"An artifact is, in programming, something left over that can be gotten
 babel fish	"The babel fish is an item in The Hitchhiker's Guide to the Galaxy (the game and the book) which translates between galactic languages."
 Block Arguments	"To block arguments is not to hear an opposing point of view."
 Block Creativity	"To block creativity is to get in the way of someone imagining things."
+chamber music	"Chamber music is music from an orchestra."
 Coals to Newcastle	"Coals to Newcastle means a pointless action. In this case, there are no dark rooms, so you don't need a torch. Reducing a new castle to coals is, of course, pointless, too."
 Elevator Music	"Elevator music is soft, boring, inoffensive music that plays in elevators. Phil and Art want the play to be a bit more exciting."
 lovecraft	"HP Lovecraft is an eponymous writer of horror stories."
 philistine	"A philistine is someone who doesn't appreciate the arts."
 Play Dumb	"To play dumb is to pretend you don't know something you do, to avoid criticism or to catch someone off-guard. Of course, Phil and Art, after saying this, treat you like you're kind of dumb. Or you can't even ask the name of the play."
+shelving the thought	"Shelving the thought means putting aside what you were thinking."
 Steal This Book	"Steal This Book was a countercultural guide by Abbie Hoffman. Book this steal refers to 'booking' suspects for a transgression, e.g. a parking fine or ticket."
 wax lyrical	"To wax lyrical is to talk endlessly and enthusiastically about something."
 world record	"A world record is the best or most someone's ever done something."
 career threatening	"Something career threatening may risk not only your job but your ability to get other equal or better jobs. A threatening career is--well, a bit of a racket." [start of judgment pass]
+countermand	"To countermand is to order against doing something."
 pass the torch	"To pass the torch is to hand off knowledge or responsibility to the next person."
 scofflaw	"A scofflaw is someone who breaks minor rules. Perhaps they jaywalk or litter."
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever." [start of idiot village]
@@ -8999,11 +9005,11 @@ before talking to story fish:
 	if player is not in Discussion Block:
 		say "The fish opens a sleepy eye. 'Eh? Anyone with a [activation of fish for a compliment]? Nope, nobody artsy enough.'" instead;
 	if art fine is in Discussion Block:
-		say "The fish eyes you sleepily but then sees the bookshelf, then Art Fine. 'Ah! Good sir! May I begin!' The fish's story is much funnier and shorter than you expected, because Art barely lasts five minutes before he runs away screaming. 'No more [activation of babel fish]! [safety-of]!' You pat the fish on the head and put it in the tie it to the Book Bank with the Long String--there, you even hid the string, so it looks extra neat.[paragraph break]"; [temproom discussion block]
+		say "The fish eyes you sleepily but then sees the bookshelf, then Art Fine. 'Ah! Good sir! May I begin!' The fish's story is much funnier and shorter than you expected, because Art barely lasts five minutes before he runs away screaming. 'No more [activation of babel fish]! [safety-of]!' You pat the fish on the head and put it in the Book Bank with the Long String--there, you even hid the string, so it looks extra neat.[paragraph break]"; [temproom discussion block]
 		now long string is in lalaland;
 		now art fine is in lalaland;
 		now story fish is in Discussion Block;
-		say "[if harmonic phil is in Discussion Block]Harmonic Phil snickers. 'Well, Art was smart and all, but he was getting kind of boring anyway. And he didn't know a THING about music.'[else]Well, that's Phil AND Art gone.[end if]";
+		say "[if harmonic phil is in Discussion Block]Harmonic Phil snickers. 'Well, Art was smart and all, but he was getting kind of boring anyway. And he didn't know a THING about music. Maybe now I can rename this place the [activation of chamber music]...'[else]Well, that's Phil AND Art gone.[end if]"; [temproom discussion block]
 		increment the score;
 		annotize art fine;
 		the rule succeeds;
@@ -9357,7 +9363,7 @@ check opening sound safe:
 	say "The Sound Safe makes a brutal noise in the Discussion Block, made worse by the special acoustics. Harmonic Phil covers his ears. 'Not even [activation of world record] would sell dreck like this! I can't even be clever about how this is so bad it's good!' he yells, running off. '[safety-of]!'[paragraph break]You put the safe down by the song torch."; [temproom discussion block]
 	now sound safe is in Discussion Block;
 	now harmonic phil is in lalaland;
-	say "[line break][if art fine is in Discussion Block]Art Fine chuckles and nods approval. 'That's what you get for dabbling in art that's not intellectually robust.' Wow. Even before a line like that, you figured Art Fine had to go, too.[else]Well, that's Phil AND Art gone.[end if]";
+	say "[line break][if art fine is in Discussion Block]Art Fine chuckles and nods approval. 'That's what you get for dabbling in art that's not intellectually robust. Perhaps this place should be [activation of shelving the thought], instead.'[paragraph break]Wow. Even before a line like that, you figured Art Fine had to go, too.[else]Well, that's Phil AND Art gone.[end if]"; [temproom discussion block]
 	increment the score;
 	annotize harmonic phil;
 	the rule succeeds;
@@ -9492,11 +9498,22 @@ part Questions Field
 
 Questions Field is north of Speaking Plain. It is in Main Chunk. "North is what can only be the [bad-guy]'s lair: Freak Control. You can go back south to the Speaking Plain, [if reasoning circular is not off-stage]though Buddy Best probably won't welcome you back west[else]and also you can go west to [c-house][end if]."
 
+to say c-house:
+	say "[if contempt is visited]the Court of Contempt[else]what looks like a courthouse[end if]";
+
+qp-hint is a truth state that varies.
+
+to say bro-i-we:
+	say "[if bros-left is 1]I[else]We[end if]";
+
+section when to block going
+
 check going south in questions field when got-pop is true:
 	say "No. You've drunk the quiz pop, and it's time to face the [bad-guy]." instead;
 
-to say c-house:
-	say "[if contempt is visited]the Court of Contempt[else]a courthouse[end if]";
+check going west in Questions Field:
+	if Reasoning Circular is not off-stage:
+		say "[one of]As you're about to enter, you hear Buddy Best raving about plans to create a whole [activation of contempt of congress], before a voice from a hidden loudspeaker booms 'Get better? Better GET!'[paragraph break]Buddy Best has seen enough of you. Hmm, come to think of it, you've seen enough of Buddy Best. You're surprised he even gave you the Reasoning Circular, and you proably couldn't explain why you [if player has circular]haven't used it yet[else]gave it to Officer Petty[end if], anyway[or]You don't want to interrupt Buddy Best's grand plans. For your sake and his. [if player has circular]Maybe figure what to do with the Reasoning Circular he gave you[else]His Reasoning Circular helped you enough[end if]." instead;
 
 check going nowhere in questions field:
 	if noun is inside:
@@ -9505,11 +9522,6 @@ check going nowhere in questions field:
 		say "You already are." instead;
 	if noun is east:
 		say "The path grows tangled and too intimidating. You might get lost." instead;
-
-qp-hint is a truth state that varies.
-
-to say bro-i-we:
-	say "[if bros-left is 1]I[else]We[end if]";
 
 check going north in Questions Field:
 	if bros-left > 0:
@@ -9719,7 +9731,9 @@ check going nowhere in Court of Contempt:
 		try going east instead;
 	say "'So, you the sort of person who runs into walls a lot? Not that there's anything wrong with that.' Yup. Looks like back east's the only way out." instead;
 
-Buddy Best is a baiter-aligned person in Court of Contempt. "[one of]But wait! Someone here looks excited to see you! Not happy, but excited.[paragraph break]'Yah. Hi. I'm Buddy Best. You seem real nice. Nice enough not to waste too much of a [if allow-swears is true]dedicated lawyerly case head, [activation of nutcase], job nut, whichever,[else][activation of attorney general][end if] like me.'[paragraph break]Okay, never mind.[or]Buddy Best waits and taps his foot here.[stopping]". description is "Buddy Best has a half-smile on his face, which is totally a delicate balance of happiness and seriousness and not a sign of contempt, so stop saying that."
+Buddy Best is a baiter-aligned person in Court of Contempt. "[one of]But wait! Someone here looks excited to see you! Not happy, but excited.[paragraph break]'Yah. Hi. I'm Buddy Best. You seem real nice. Nice enough not to waste too much of a [if allow-swears is true]dedicated lawyerly case head, [activation of nutcase], job nut, whichever,[else][activation of attorney general][end if] like me.'[paragraph break]Okay, never mind.[paragraph break]He goes back to sorting through his case basket.[or]Buddy Best waits and taps his foot and checks his case basket here.[stopping]".
+
+description of Buddy Best is "Sour, as if he'd just eaten--[activation of lemon law]. Or maybe it's totally a delicate balance of happiness and seriousness and not a sign of contempt, so stop saying that."
 
 the Reasoning Circular is a thing. description is "It's full of several pages why you're great if you think you are, unless you're lame, in which case you don't know what great means. There's a long tag stapled to it."
 
@@ -9754,10 +9768,6 @@ best-dirty	"'Y'know, that's shameful coming from you. Maybe someone said you wer
 best-baiter	"'Obviously [bg] knows what's what. We had a good long discussion on dorkery, nerdery and geekery, and how it's busted out since the Internet blew up. We can say that. We're both hip to nerd culture, but we need to keep less consequential dorks, nerds and geeks from defining the lot of us. Aggressively. He's really fair, though. He doesn't insult anyone else without insulting himself first. Just--others, well, without self-awareness.'"
 best-bye	"'Not very curious of you there. I'm an interesting fella, yet you...'"
 
-check going west in Questions Field:
-	if Reasoning Circular is not off-stage:
-		say "As you're about to enter, a voice from a hidden loudspeaker booms 'Get better? Better GET!'[paragraph break]Buddy Best has seen enough of you. Hmm, come to think of it, you've seen enough of Buddy Best. You're surprised he even gave you the Reasoning Circular, and you proably couldn't explain why you [if player has circular]haven't used it yet[else]gave it to Officer Petty[end if], anyway." instead;
-
 after quipping when qbc_litany is table of Buddy Best talk:
 	if current quip is best-law:
 		enable the best-int quip;
@@ -9775,6 +9785,10 @@ after quipping when qbc_litany is table of Buddy Best talk:
 		move player to Questions Field, without printing a room description;
 		say "[bold type]Questions Field[paragraph break][roman type]The [if bros-left is 3]Brothers look[else if bros-left is 2]remaining Brothers look[else]remaining Brother looks[end if] unsurprised you got thrown out. Well, at least you have this...Reasoning Circular now.";
 		annotize buddy best;
+
+section case basket
+
+the case basket is scenery in Court of Contempt. "Just looking at such an impressive office doodad, you know Buddy Best must socially and mentally with-it."
 
 part Walker Street
 
@@ -10000,7 +10014,10 @@ check going nowhere in discussion block:
 		say "No sense searching for Art or Phil or the Creativity Block. You might even get lost and stumble on the Arguments Block, which would be horrible." instead;
 	if art is in lalaland or phil is in lalaland:
 		say "Searching for Creativity Block, where [if art is in lalaland]Art[else]Phil[end if] went, would be counterproductive." instead;
-	say "Discussion Block also blocks you from going any way other than back west." instead;
+	say "'Looking for the culture counter? I don't think you have the knowledge,' says [a-p].[paragraph break]The only way is back west." instead;
+
+to say a-p
+	say "[one of]Art[or]Phil[in random order]"
 
 the poetic wax is in Discussion Block. "Poetic Wax, a whole ball of it, lies here behind [if number of waxblocking people is 0]where Art and Phil used to be[else][list of waxblocking people][end if]."
 
@@ -10198,7 +10215,7 @@ understand "fog petty" as a mistake ("Officer Petty is more likely to talk circl
 
 description of Officer Petty is "Officer Petty stares back at you, cracks his knuckles, and rubs a palm. He's bigger, stronger and fitter than you."
 
-the Intuition Counter is scenery in Judgment Pass. "It's labeled with all manner of dire motivational phrases I'm ashamed to spell out here."
+the Intuition Counter is scenery in Judgment Pass. "It's labeled with all manner of dire motivational phrases I'm ashamed to spell out here[if officer petty is in lalaland]. It's no longer a [activation of countermand] with Officer Petty gone[end if]."
 
 check going east in Judgment Pass:
 	if Officer Petty is in Judgment Pass:
@@ -12626,6 +12643,8 @@ nihilist is a concept in conceptville. Understand "list neil" and "neil list" as
 
 Nolan Ryan is a concept in conceptville. Understand "ryan nolan" as nolan ryan. howto is "[j-blab]". gtxt is "Ryan Nolan".
 
+nookie is a concept in conceptville. Understand "nookie" as nookie. howto is "[j-blab]". gtxt is "nookie".
+
 Nose Candy is a concept in conceptville. Understand "candy/candi nose/knows" and "nose/knows candy/candi" as nose candy. howto is "[j-blab]". gtxt is "Candi knows".
 
 Notre Dame is a concept in conceptville. Understand "dame noter" and "noter dame" as notre dame. howto is "[j-blab]". gtxt is "Dame Noter".
@@ -12830,6 +12849,8 @@ brass ring is a concept in conceptville. Understand "ring brass" as brass ring. 
 
 Brother's Keepers is a concept in conceptville. Understand "brother/brothers keeper/keepers" and "keeper/keepers brother/brothers" as Brother's Keepers. howto is "examine the brothers". gtxt is "Keepers Brothers".
 
+contempt of congress is a concept in conceptville. Understand "congress of contempt" as contempt of congress. howto is "try to re-visit Buddy Best after getting the Circular". gtxt is "Congress of Contempt".
+
 foster brother is a concept in conceptville. Understand "brother foster" as foster brother. howto is "talk to any of the brothers in Questions Field". gtxt is "Brother Foster".
 
 section court of contempt concepts
@@ -12837,6 +12858,8 @@ section court of contempt concepts
 attorney general is a concept in conceptville. Understand "general attorney" as attorney general. howto is "[f-t of Court of Contempt], innuendo off". gtxt is "general attorney".
 
 fair enough is a concept in conceptville. Understand "enough fair" as fair enough. howto is "[x-it of Reasoning Circular]". gtxt is "Enough Fair".
+
+lemon law is a concept in conceptville. Understand "law lemon" as lemon law. howto is "[x-it of buddy best]". gtxt is "law, a lemon".
 
 nutcase is a concept in conceptville. Understand "case/job nut" and "nut case/job" and "case head" and "head case" as nutcase. howto is "[f-t of Court of Contempt], innuendo on". gtxt is "case nut".
 
@@ -12894,6 +12917,8 @@ Block Arguments is a concept in conceptville. Understand "arguments block" as bl
 
 Block Creativity is a concept in conceptville. Understand "creativity block" as block creativity. howto is "get rid of one of Art and Phil". gtxt is "Creativity Block".
 
+chamber music is a concept in conceptville. Understand "music chamber" as chamber music. howto is "get rid of Art first in Discussion Block". gtxtx is "Music Chamber".
+
 Coals to Newcastle is a concept in conceptville. Understand "new castle to coals" and "newcastle to coals" as Coals to Newcastle. howto is "take song torch". gtxt is "new castle to coals".
 
 Elevator Music is a concept in conceptville. Understand "music elevator" as elevator music. howto is "[f-t of Discussion Block]". gtxt is "music elevator".
@@ -12904,6 +12929,8 @@ philistine is a concept in conceptville. Understand "listen phil" and "phil list
 
 Play Dumb is a concept in conceptville. Understand "dumb play" as play dumb. howto is "[f-t of Discussion Block]". gtxt is "Dumb play".
 
+shelving the thought is a concept in conceptville. Understand "thought shelving" as shelving the thought. howto is "get rid of Phil first in Discussion Block". gtxt is "the Thought Shelving".
+
 Steal This Book is a concept in conceptville. Understand "book this steal" as Steal This Book. howto is "take book bank". gtxt is "Book This Steal".
 
 wax lyrical is a concept in conceptville. Understand "lyrical wax" as wax lyrical. howto is "sing while holding the poetic wax". gtxt is "lyrical wax".
@@ -12913,6 +12940,8 @@ world record is a concept in conceptville. Understand "record world" as world re
 section judgment pass concepts
 
 career threatening is a concept in conceptville. Understand "threatening career" as career threatening. howto is "give Officer Petty the Reasoning Circular". gtxt is "Threatening career".
+
+countermand is a concept in conceptville. Understand "counter manned" and "manned counter" as countermand. howto is "[x-it of intuition counter] once Officer Petty is gone". gtxt is "manned counter".
 
 pass the torch is a concept in conceptville. Understand "torch the pass" as pass the torch. howto is "BURN anything in Judgment Pass". gtxt is "torch the pass".
 
@@ -12928,7 +12957,7 @@ grease monkey is a concept in conceptville. Understand "monkey grease" as grease
 
 serve you right is a concept in conceptville. Understand "right you serve" as serve you right. howto is "[x-it of service memorial]". gtxt is "RIGHT, [b]YOU[r] SERVE".
 
-village people is a concept in conceptville. Understand "people village" as village people. howto is "go west in idiot village". gtxtx is "people village".
+village people is a concept in conceptville. Understand "people village" as village people. howto is "go west in idiot village". gtxt is "people village".
 
 section service community concepts
 
