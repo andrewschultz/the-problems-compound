@@ -1167,6 +1167,7 @@ sub findExplLine
     if ($_[2] == 1)
 	{
     if ($a =~ /xxadd/) { $inXX = 1; }
+	if ($inXX && ($a =~ /\[start(?! of)/i)) { print "WARNING: start (room) instead of start of (room) at line $.\n"; }
     if ($inXX && ($a =~ /\[start of $actRoom/i))
 	{
 	  $startSearch = $.;

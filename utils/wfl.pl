@@ -24,6 +24,8 @@ my $chrome = "C:\\Users\\Andrew\\AppData\\Local\\Google\\Chrome\\Application\\ch
 my $ffox = "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe";
 my $opera = "C:\\Program Files (x86)\\Opera\\launcher.exe";
 
+my @cons = ('a', 'e', 'i', 'o', 'u');
+my @vow = ('b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z');
 #######################options
 my $shouldSort = 0;
 my $overlook = 0;
@@ -65,7 +67,8 @@ for ($a)
   /^-gc$/ && do { $webapp = $chrome; $count++; next; };
   /^-op$/ && do { $webapp = $opera; $count++; next; };
   /^-?i$/ && do { idiomSearch($ARGV[$count+1]); exit; };
-  /^-?l$/ && do { $wa = "word"; $count++; next; exit; };
+  /^-?l$/ && do { $wa = "word"; $count++; next; };
+  /^-?y$/ && do { push(@cons, 'y'); push(@vow, 'y'); $count++; next; };
   /^-?t$/ && do { runFileTest(); countChunks(); exit; };
   /^-2$/ && do { $override = 1; $count++; next; };
   /^(#|-|)[0-9]+$/ && do { my $temp = $ARGV[$count]; $temp =~ s/^[#-]//g; idiomSearch($temp); exit; };
@@ -89,7 +92,7 @@ for ($a)
 if (!$flipData) { print "Need a word to flip, but here are diagnostics:\n"; countChunks(); countURLs(); exit; }
 
 
-@flipAry = split(/[,\..]/, lc($flipData));
+@flipAry = split(/[,\..]/, $flipData);
 
 wcexpand();
 
@@ -104,6 +107,27 @@ for my $q (@flipAry)
   if ((!$override) && (length($q) <= 2)) { print "$q is too short. Use -2 to retry.\n"; next; }
   if ($dupCheck{$q}) { print "Tried $q twice on the command line. Skipping.\n"; next; }
   $dupCheck{$q} = 1;
+  if ($q =~ /V/)
+  {
+    for (@cons)
+	{
+	  my $temp = $q;
+	  $temp =~ s/V/$_/;
+	  readOneWord($temp);
+	}
+	next;
+  }
+  if ($q =~ /C/)
+  {
+    for (@vow)
+	{
+	  my $temp = $q;
+	  $temp =~ s/V/$_/;
+	  readOneWord($temp);
+	}
+	next;
+  }
+  if ($q =~ /[^a-z]/i) { print "$q has non letters. Skipping.\n"; next; }
 readOneWord($q);
 }
 
@@ -156,7 +180,7 @@ close(B);
 sub readOneWord
 {
   my $wordLength = 0;
-  my $t = $_[0];
+  my $t = lc($_[0]);
   my $flip;
 
   my $found = 0;
@@ -568,6 +592,7 @@ print<<EOT;
 -ff, -gc, -op picks web browser
 -l = sort words by length (brit-1word) vs by alphabetical
 -t = test how much is left to do big-picture (URLs and words)
+-y = add y to list (V or C, in caps, looks through all vowels/consonants)
 -? = this usage here
 EOT
 exit;
