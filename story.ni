@@ -3544,7 +3544,6 @@ boring	"Boring is, well, not interesting."
 bouncing betty	"Bouncing betty is slang for a land mine."
 box score	"A box score describes the basic individual statistics from a sporting event."
 broccoli	"Broccoli is a vegetable."
-jimmy buffett	"Jimmy Buffett is the sort of singer you either love or hate. He has made some catchy tunes."
 cacophony	"Cacophony is a loud noise."
 call girl	"A call girl is a paid female escort."
 Cary Grant	"Cary Grant is a movie star from the 40s and 50s."
@@ -3583,6 +3582,7 @@ jerk around	"To jerk someone around is to pester them physically or mentally."
 jerk off	"To jerk off is to gratify oneself carnally."
 jerry built	"Jerry-built means put together hastily."
 jim beam	"Jim Beam is a brand of whiskey."
+jimmy buffett	"Jimmy Buffett is the sort of singer you either love or hate. He has made some catchy tunes."
 joint committee	"A joint committee is a group of legislators from different parts of US Congress."
 journeyman	"A journeyman is someone who is maybe not spectacular but who has paid his dues in his field."
 junk mail	"Junk mail means letters and fliers you didn't ask for that appear in your (physical or electronic) mailbox anyway."
@@ -12529,8 +12529,6 @@ box score is a concept in conceptville. Understand "score box" as box score. how
 
 broccoli is a concept in conceptville. Understand "lee brock" and "brock lee" as broccoli. howto is "[j-blab]". gtxt is "Lee Brock".
 
-jimmy buffett is a concept in conceptville. Understand "buffet jimmy" and "jimmy buffet" as jimmy buffett. howto is "[j-blab]". gtxt is "buffet jimmy".
-
 cacophony is a concept in conceptville. Understand "coco phony" and "phony coco" as cacophony. howto is "[j-blab]". gtxt is "Phony Coco".
 
 call girl is a concept in conceptville. Understand "girl call" as call girl. howto is "[j-blab]". gtxt is "girl call".
@@ -12606,6 +12604,8 @@ Jerk Off is a concept in conceptville. Understand "off jerk" as jerk off. howto 
 jerry built is a concept in conceptville. Understand "built jerry" as jerry built. howto is "[j-blab]". gtxt is "built Jerry".
 
 jim beam is a concept in conceptville. Understand "beam jim" as jim beam. howto is "[j-blab]". gtxt is "Beam Gym".
+
+jimmy buffett is a concept in conceptville. Understand "buffet jimmy" and "jimmy buffet" as jimmy buffett. howto is "[j-blab]". gtxt is "buffet jimmy".
 
 joint committee is a concept in conceptville. Understand "committee joint" as joint committee. howto is "[solve-j]". gtxt is "committee joint to top it off".
 
