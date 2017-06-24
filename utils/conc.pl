@@ -495,7 +495,7 @@ for my $x (sort keys %any)
   }
   if (scalar keys %gtxtx)
   {
-    printf("Fill in explanation text (%d total) at %s%s\n", scalar keys %gtxtx, join(", ", map { "$gtxtx{$_}($_}" } sort { $gtxtx{$a} <=> $gtxtx{$b} } sort keys %gtxtx), $launchMinorErrs ? "" : " (-lm to launch)");
+    printf("Wipe out gtxtx (%d total) at %s%s\n", scalar keys %gtxtx, join(", ", map { "$gtxtx{$_}($_}" } sort { $gtxtx{$a} <=> $gtxtx{$b} } sort keys %gtxtx), $launchMinorErrs ? "" : " (-lm to launch)");
 	if ($printTest) { printf("TEST RESULTS: fillin-expl-$_[0],%d,0,0,%s\n", scalar keys %gtxtx, join(" / ", map { "$gtxtx{$_}" } sort { $gtxtx{$a} <=> $gtxtx{$b} } keys %gtxtx)); }
   }
   if (scalar keys %fillExpl)
@@ -907,6 +907,14 @@ while ($lineIn = <X>)
 	$activ{$lineIn} = $.;
   }
   $tmpVar = $lineIn;
+  if ($lineIn =~ /gtxtx/)
+  {
+    $tmpVar = $lineIn;
+	$tmpVar =~ s/ is.a.*//;
+	$tmpVar =~ s/^(a|the) concept called //;
+    $gtxtx{$tmpVar} = $.;
+    unless ($openLowestLine && defined($minorErrs{$file})) { $minorErrs{$file} = $.;}
+  }
   while ($tmpVar =~ /\[activation of/) # "activation of" in source code
   {
     $tmpVar =~ s/.*?\[activation of //;
@@ -972,11 +980,6 @@ while ($lineIn = <X>)
 	$tmpVar =~ s/\t.*//g;
 	$tmpVar = wordtrim($tmpVar);
 	$expl{$tmpVar} = $any{$tmpVar} = 1;
-	if ($lineIn =~ /gtxtx/)
-	{
-	  $gtxtx{$tmpVar} = $.;
-	  unless ($openLowestLine && defined($minorErrs{$file})) { $minorErrs{$file} = $.;}
-    }
 	if ($lineIn =~ /fill-in-here/)
 	{
 	  $fillExpl{$tmpVar} = $.;
@@ -1702,6 +1705,7 @@ sub concDefCheck
 	  if ($lineTemp =~ /\"\"/) { print "TRIVIA: temporary line $. has two quotes in a row.\n"; }
 	  $lineTemp =~ s/ *\[[^\[]*?\]$//;
 	  if ($lineTemp !~ /\.$/) { print "TRIVIA: line $. does not end in a period.\n"; }
+	  if ($lineTemp =~/\.\.$/) { print "TRIVIA: line $. ends in a double period.\n"; }
 	  if ($line !~ /howto is/i)
 	  {
 	    if (!$printTest) { print "Missing howto line $..\n"; }

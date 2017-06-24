@@ -3431,6 +3431,7 @@ acceptable	"Acceptable means good enough. Though sometimes it might not, if some
 beat off	"To beat off is to, well, pleasure oneself. People who are off-beat are often accused of this, among other things, in high school."
 Buster Ball	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure."
 Confidence Games	"Confidence games are where someone gains someone else's trust to rip them off. It can be as simple as a shell game or as complex as an investment scheme. Of course, Alec has confidence with logic games but not much else."
+first world problems	"The phrase 'first world problems' often is used to mock relatively small-seeming issues."
 good egg	"A good egg is a nice person. To egg, or egg on, is to bait someone into doing something you want them to."
 Hunter Savage	"A savage hunter is, well, someone with no mercy. Yup, I like the 'dirty' tangential bad guy better, too."
 knockwurst	"Knockwurst is a kind of sausage."
@@ -3538,10 +3539,13 @@ Black Mark	"A black mark is something indicating bad behavior."
 body slamming	"Body slamming is a particularly painful wrestling move where you pretty much throw a person to the ground."
 bognor regis	"Bognor Regis is a town on the south coast of England."
 bonhomie	"Bonhomie is just generally being pleasant and fun to be around."
+borat	"Borat is Sacha Baren-Cohen's fictitious character who sends up American and European culture."
+boring	"Boring is, well, not interesting."
 bouncing betty	"Bouncing betty is slang for a land mine."
 box score	"A box score describes the basic individual statistics from a sporting event."
 broccoli	"Broccoli is a vegetable."
-cacophony	"Cacophony is a loud noise.."
+jimmy buffett	"Jimmy Buffett is the sort of singer you either love or hate. He has made some catchy tunes."
+cacophony	"Cacophony is a loud noise."
 call girl	"A call girl is a paid female escort."
 Cary Grant	"Cary Grant is a movie star from the 40s and 50s."
 casually	"Casually means not really in-depth."
@@ -4806,7 +4810,7 @@ guy-flat	"'Well, that way is the Problems Compound. If you can figure out some b
 guy-names	"'I know what you really want to ask. It's not at all about twisting things back around and making them the opposite of what they should mean. It's about SEEING things at every angle. You'll meet people who do. You'll be a bit jealous they can, and that they're that well-adjusted. But if you pay attention, you'll learn. I have. Though I've got a way to go. But I want to learn!'"
 guy-problems	"'Well, it's a place where lots of people more social than you--or even me--pose real-life problems. Tough but fair. Lots of real interesting people. Especially the Baiter Master[if allow-swears is false]. Oops. You don't like swears? Okay. Call him the Complex Messiah[else]. AKA the Complex Messiah[end if]. But not [bg]. I haven't earned the right to. Or to enter Freak Control. It's guarded by a trap where a question mark hooks you, then an exclamation mark clobbers you.' He pauses, and you are about to speak...[wfk]'YEAH. He's really nice once you get to know him, I've heard, it's just, there's too many people might waste his time, or not deserve him or not appreciate him.' Guy stage-whispers. 'OR ALL THREE.'"
 guy-mess	"'Oh, the [bad-guy]. He certainly knows what's what, and that's that! He certainly does things differently! But not all weird-like. A bit of time around him, and you too will know a bit--not as much as he did. He teaches by example! He can [activation of good egg]. Just his way of caring. Much nicer than [bad-guy-2]. Remember, it's up to YOU what you make of his lessons! Some people--they just don't get him. Which is ironic. They're usually the type that claim society doesn't get THEM[if allow-swears is true].' Guy whispers. '[activation of beat off] types[end if].'"
-guy-bad2	"'[bad-guy-2]. Well, without the [bad-guy]'s snark, [bad-guy-2] would probably be in charge. Then things would get worse. You see, [bad-guy-2] is after our time and money. The [bad-guy] just likes to share a little snark. I remember that time he told me don't go thinking you're any everyman, or anything special! What? Don't frown, there. It was--well, the way he said it. Better than I did. So eye-opening, so motivational.'"
+guy-bad2	"'[bad-guy-2]. Well, without the [bad-guy]'s snark, [bad-guy-2] would probably be in charge. The guy at [activation of first world problems]. Yeah. Extra strict. The [bad-guy], though, just likes to share a little snark. I remember that time he told me don't go thinking I'm too insignificant for his snark, or too above! What? Ah, you don't GET it. It was--well, the way he said it. Better than I did. So eye-opening, so motivational.'"
 guy-bye	"'Whatever, dude.' [one of]It's--a bit harsh, you're not sure what you did to deserve that, but probably something[or]It's a bit less grating this time, but still[stopping]."
 
 to say bad-guy:
@@ -12255,6 +12259,8 @@ Buster Ball is a concept in conceptville. Understand "ball buster" as buster bal
 
 confidence games is a concept in conceptville. Understand "games/game confidence" and "confidence game" as confidence games. howto is "talk to Guy". gtxt is "games confidence"
 
+first world problems is a concept in conceptville. Understand "problems first world" and "world first problems" as first world problems. howto is "ask Guy about [bad-guy-2]". gtxt is "Problems First World".
+
 Good Egg is a concept in conceptville. Understand "egg good" as good egg. howto is "talk to Guy". gtxt is "egg GOOD".
 
 Hunter Savage is a concept in conceptville. Understand "savage hunter" as hunter savage. howto is "talking".
@@ -12513,11 +12519,17 @@ bognor regis is a concept in conceptville. Understand "regis bogner" and "bogner
 
 bonhomie is a concept in conceptville. Understand "bo nommy" and "nommy bo" as bonhomie. howto is "[j-blab]". gtxt is "nommy bo".
 
+borat is a concept in conceptville. Understand "bo rat" and "rat bo" as borat. howto is "[j-blab]". gtxt is "rat bo".
+
+boring is a concept in conceptville. Understand "bo ring" and "ring bo" as boring. howto is "[j-blab]". gtxt is "ring bo".
+
 bouncing betty is a concept in conceptville. Understand "betty/beddy bouncing" and "beddy bouncing" as bouncing betty. howto is "[j-blab]". gtxt is "beddy bouncing".
 
 box score is a concept in conceptville. Understand "score box" as box score. howto is "[j-blab]". gtxt is "Score Box".
 
 broccoli is a concept in conceptville. Understand "lee brock" and "brock lee" as broccoli. howto is "[j-blab]". gtxt is "Lee Brock".
+
+jimmy buffett is a concept in conceptville. Understand "buffet jimmy" and "jimmy buffet" as jimmy buffett. howto is "[j-blab]". gtxt is "buffet jimmy".
 
 cacophony is a concept in conceptville. Understand "coco phony" and "phony coco" as cacophony. howto is "[j-blab]". gtxt is "Phony Coco".
 
@@ -12917,7 +12929,7 @@ Block Arguments is a concept in conceptville. Understand "arguments block" as bl
 
 Block Creativity is a concept in conceptville. Understand "creativity block" as block creativity. howto is "get rid of one of Art and Phil". gtxt is "Creativity Block".
 
-chamber music is a concept in conceptville. Understand "music chamber" as chamber music. howto is "get rid of Art first in Discussion Block". gtxtx is "Music Chamber".
+chamber music is a concept in conceptville. Understand "music chamber" as chamber music. howto is "get rid of Art first in Discussion Block". gtxt is "Music Chamber".
 
 Coals to Newcastle is a concept in conceptville. Understand "new castle to coals" and "newcastle to coals" as Coals to Newcastle. howto is "take song torch". gtxt is "new castle to coals".
 
