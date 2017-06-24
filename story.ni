@@ -2183,6 +2183,8 @@ check attacking:
 		if allow-swears is true:
 			say "It'd take fifteen minutes to [activation of jerk off], and with seven, why, you'd feel indecent afterwards." instead; [temproom nominal fen]
 		say "You've been suckered into lashing out before, but these guys--well, you've faced more annoying, truth be told." instead;
+	if noun is return carriage:
+		say "The return carriage is an [activation of case insensitive]." instead; [temproom airy station]
 	if noun is ring:
 		say "BONG! You didn't expect anything so musical. Or so robust, or full. But it probably needs you to act on it more subtly." instead;
 	if mrlp is endings:
@@ -3637,6 +3639,7 @@ rusty nail	"Stepping on a rusty nail can give you tetanus."
 sausage fest	"A sausage fest is a congregation of males with no females."
 Sharp Barb	"A sharp barb is a stinging, clever insult."
 shock jock	"A shock jock is someone who provides deliberately insulting opinions to a wide audience, often on radio."
+six-pack	"A six-pack usually refers to six cans of beer held together by plastic rings."
 spencer tracy	"Spencer Tracy was a movie actor/leading man in the 1930's and 40's."
 spotted dick	"Spotted dick is a sort of sweet pudding."
 sweeney todd	"Sweeney Todd was a fictitious murderous barber."
@@ -3701,6 +3704,7 @@ Brother's Keepers	"'Am I my brother's keeper?' is what Cain said after killing A
 contempt of congress	"Contempt of Congress is when someone refuses to answer certain questions before Congress."
 foster brother	"A foster brother is a brother not related by birth."
 attorney general	"An Attorney General is the highest ranking lawyer in a country or state." [start of court of contempt]
+bosom buddy	"A bosom buddy is a best friend."
 fair enough	"Fair Enough is what you can say to tell someone you agree with them partially. It has a negative connotation."
 lemon law	"A lemon law is something that lets you get your car back if it breaks down quickly after you buy it."
 nutcase	"A nutcase is a pejorative term for someone who is crazy, clinical or otherwise, as opposed to Buddy Best's claims he just studies a lot."
@@ -3827,7 +3831,8 @@ Tucker Max	"Tucker Max was alleged to have spanwed the 'fratire' genre, which fe
 Wallace Shawn	"Wallace Shawn is the actor who played Vizzini ('INCONCEIVABLE!') in The Princess Bride. He's also a critically acclaimed writer."
 Wire Fraud	"Wire fraud is a financial crime designed to cheat people out of money."
 zeroin	"To zero in is to focus, and you do, on getting out of the Break Jail."
-clear waivers	"To clear waivers in pro sports is when your team releases you and no other team signs you." [start of airy station]
+case insensitive	"Case insensitive means not worrying if a letter is in upper or lower case. In other words, not needing caps-lock." [start of airy station]
+clear waivers	"To clear waivers in pro sports is when your team releases you and no other team signs you."
 gangplank	"A gangplank leads out of a boat and into the sea. So it is a method of killing prisoners no longer useful." [start of criminals' harbor]
 hate crime	"Hate crime is an illegal act directed specifically against victims based on gender, sexual orientation, race or religion."
 Boss Fight	"A boss fight is a confrontation with an important adversary in a more traditional game, while the Fight Boss has you do stuff worse than level grinding." [start of fight fair]
@@ -9765,11 +9770,11 @@ prompt	response	enabled	permit
 
 table of quip texts (continued)
 quip	quiptext
-best-law	"'Brilliant. Yeah. I kind of see the good side of people. Well, interesting people. They don't even have to be as interesting as [bg]. But they better be close.'"
+best-law	"'Brilliant deduction. Yeah. I kind of see the good side of people. Well, interesting people. They don't even have to be as interesting as [bg]. But they better be close.'"
 best-int	"'Oh, you know. People who break the rules. Break [']em creatively enough to be able to afford my fees. Nobody too square. No offense.'"
 best-good	"'Look, I already said I'm sure you're nice, and all. Whether or not you pick your nose too much. There. Happy with that? No? Well, I did my best. Can't do much more for ya.'"
 best-dirty	"'Y'know, that's shameful coming from you. Maybe someone said you were really weird, but it turned out you were only kind of weird? I'm doing the same thing. But for criminals. I mean, suspected criminals. Look, I can't have these accusations.'"
-best-baiter	"'Obviously [bg] knows what's what. We had a good long discussion on dorkery, nerdery and geekery, and how it's busted out since the Internet blew up. We can say that. We're both hip to nerd culture, but we need to keep less consequential dorks, nerds and geeks from defining the lot of us. Aggressively. He's really fair, though. He doesn't insult anyone else without insulting himself first. Just--others, well, without self-awareness.'"
+best-baiter	"'Obviously [bg] knows what's what. We had a good long discussion on dorkery, nerdery and geekery, and how it's busted out since the Internet blew up. We can say that. We're both hip to nerd culture, but we need to keep less consequential dorks, nerds and geeks from defining the lot of us. [activation of bosom buddy]. Aggressively. He's really fair, though. He doesn't insult anyone else without insulting himself first. Just--others, well, without self-awareness.'"
 best-bye	"'Not very curious of you there. I'm an interesting fella, yet you...'"
 
 after quipping when qbc_litany is table of Buddy Best talk:
@@ -12192,8 +12197,8 @@ to say x-it of (q - a thing):
 to say t2 of (q - a thing):
 	say "talk to [q]";
 
-to say bga of (p - a person):
-	say "ask [p] about the [bad-guy]"
+to say bga of (pe - a person):
+	say "ask [pe] about the [bad-guy]"
 
 conceptville is a privately-named room in meta-rooms. "You should never see this. If you do, it is a [bug]." [this is a cheesy hack, as concepts you haven't seen yet are here, and when you see them, they move to lalaland.]
 
@@ -12715,6 +12720,8 @@ Sharp Barb is a concept in conceptville. Understand "barb sharp" as sharp barb. 
 
 shock jock is a concept in conceptville. Understand "jock shock" as shock jock. howto is "[j-blab]". gtxt is "jock shock".
 
+six-pack is a concept in conceptville. Understand "pack six" and "six pack" as six-pack. howto is "[j-blab] nominal fen". gtxt is "Pack Six".
+
 spencer tracy is a concept in conceptville. Understand "tracy spencer" as spencer tracy. howto is "[j-blab]". gtxt is "Tracy Spencer".
 
 spotted dick is a concept in conceptville. Understand "dick spotted" as spotted dick. howto is "[j-blab]". gtxt is "Dick spotted".
@@ -12868,6 +12875,8 @@ foster brother is a concept in conceptville. Understand "brother foster" as fost
 section court of contempt concepts
 
 attorney general is a concept in conceptville. Understand "general attorney" as attorney general. howto is "[f-t of Court of Contempt], innuendo off". gtxt is "general attorney".
+
+bosom buddy is a concept in conceptville. Understand "buddy bosom" as bosom buddy. howto is "[bga of Buddy Best]". gtxt is "buddy bosom".
 
 fair enough is a concept in conceptville. Understand "enough fair" as fair enough. howto is "[x-it of Reasoning Circular]". gtxt is "Enough Fair".
 
@@ -13149,6 +13158,8 @@ zeroin is a privately-named concept in conceptville. printed name is "zero in". 
 section out mist concepts
 
 section airy station concepts
+
+case insensitive is a concept in conceptville. Understand "insensitive case" as case insensitive. howto is "attack the Return Carriage". gtxt is "insensitive case".
 
 clear waivers is a concept in conceptville. Understand "waivers/wavers clear" and "clear wavers" as clear waivers. howto is "try going any direction in Airy Station". gtxt is "Wavers, clear".
 
