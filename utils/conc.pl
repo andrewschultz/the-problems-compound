@@ -21,6 +21,7 @@
 use strict;
 use warnings;
 use File::Copy qw(copy);
+use File::Compare;
 
 use Win32::Clipboard;
 
@@ -579,7 +580,14 @@ for my $x (sort keys %any)
 	  system($cmd);
 	  next;
     }
+	if (compare($fi, "$fi.2"))
+	{
 	copy("$fi.2", $fi );
+	}
+	else
+	{
+	print "No changes to $fi, so I'm not copying back over.\n";
+	}
 	unlink "$fi.2" || die ("Failed to delete $fi.2");
 	}
 	die if ($dontCopySourceBack);

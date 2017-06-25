@@ -55,17 +55,17 @@ $a = $ARGV[$count];
 
 for ($a)
 {
-  /^-f$/ && do { $overlook = 1; $count++; next; };
-  /^-(uf|fu)$/ && do { $overlook = 1; $dicURL = 1; $count++; next; };
-  /^(-e|e)$/ && do { `\"c:\\Program Files (x86)\\Notepad++\\notepad++.exe\" $0 `; exit; };
-  /^-an$/ && do { $alphabetical = !$alphabetical; $count++; next; };
-  /^-ao$/ && do { alfOut(); exit; };
-  /^-at$/ && do { alfTrack(); exit; };
-  /^-ct$/ && do { countChunks(); exit; };
-  /^-?a$/ && do { alfOut(); alfTrack(); print "Sorting went ok for flip.txt and fliptrack.txt.\n"; exit; };
-  /^-ff$/ && do { $webapp = $ffox; $count++; next; };
-  /^-gc$/ && do { $webapp = $chrome; $count++; next; };
-  /^-op$/ && do { $webapp = $opera; $count++; next; };
+  /^-?f$/ && do { $overlook = 1; $count++; next; };
+  /^-?(uf|fu)$/ && do { $overlook = 1; $dicURL = 1; $count++; next; };
+  /^-?e$/ && do { `\"c:\\Program Files (x86)\\Notepad++\\notepad++.exe\" $0 `; exit; };
+  /^-?an$/ && do { $alphabetical = !$alphabetical; $count++; next; };
+  /^-?ao$/ && do { alfOut(); exit; };
+  /^-?at$/ && do { alfTrack(); exit; };
+  /^-?ct$/ && do { countChunks(); exit; };
+  /^-??a$/ && do { alfOut(); alfTrack(); print "Sorting went ok for flip.txt and fliptrack.txt.\n"; exit; };
+  /^-?ff$/ && do { $webapp = $ffox; $count++; next; };
+  /^-?gc$/ && do { $webapp = $chrome; $count++; next; };
+  /^-?op$/ && do { $webapp = $opera; $count++; next; };
   /^-?i$/ && do { idiomSearch($ARGV[$count+1]); exit; };
   /^-?l$/ && do { $wa = "word"; $count++; next; };
   /^-?y$/ && do { push(@cons, 'y'); push(@vow, 'y'); $count++; next; };
@@ -73,14 +73,14 @@ for ($a)
   /^-2$/ && do { $override = 1; $count++; next; };
   /^(#|-|)[0-9]+$/ && do { my $temp = $ARGV[$count]; $temp =~ s/^[#-]//g; idiomSearch($temp); exit; };
   /^-?d$/ && do { $dicURL = 1; $count++; next; };
-  /^-du$/ && do { trim(); exit; };
+  /^-?du$/ && do { trim(); exit; };
   /^-?o$/ && do { print "Opening $output.\n"; `$output`; exit; };
   /^-?oo$/ && do { print "Opening $track.\n"; `$track`; exit; };
-  /^-np$/ && do { $dicURLPrint = 0; $count++; next; };
-  /^-\!$/ && do { countChunks(); countURLs(); exit; };
+  /^-?np$/ && do { $dicURLPrint = 0; $count++; next; };
+  /^-?\!$/ && do { countChunks(); countURLs(); exit; };
   /^-?\?$/ && do { usage(); exit; };
   /^--/ && do { usage(); exit; };
-  /^-$/ && do { print "Bad flag.\n"; usage(); exit; };
+  /^-/ && do { print "Bad flag.\n"; usage(); exit; };
   if (length($a) == 1) { print ("Length must be at least 2. ? for help.\n"); exit; }
   if ((length($a) == 2) && (!$override)) { print ("-2 flag must be used for 2-letter word.\n"); exit; }
 
