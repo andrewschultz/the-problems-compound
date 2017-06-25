@@ -38,7 +38,7 @@ section compiler limits
 
 use MAX_ACTIONS of 210.
 
-use MAX_OBJECTS of 750.
+use MAX_OBJECTS of 770.
 
 use MAX_SYMBOLS of 24000.
 
@@ -48,7 +48,11 @@ use MAX_PROP_TABLE_SIZE of 300000.
 
 section compiler debug limits - not for release
 
+use MAX_OBJECTS of 810.
+
 use MAX_SYMBOLS of 27000.
+
+use MAX_PROP_TABLE_SIZE of 320000.
 
 book includes
 
@@ -3174,9 +3178,9 @@ carry out xring:
 
 section explaining rules
 
-[does the player mean explaining the player when debug-state is true: it is very likely.
+does the player mean explaining the player when debug-state is true: it is very likely.
 
-does the player mean explaining the location of the player when debug-state is false: it is likely.
+[does the player mean explaining the location of the player when debug-state is false: it is likely.
 
 does the player mean explaining the Insanity Terminal: it is very likely.
 does the player mean explaining the fright stage: it is unlikely.
@@ -3221,6 +3225,7 @@ definition: a thing (called x) is explainable:
 		if x is scen-home or x is scen-church, decide no;
 	if x is gen-brush or x is hole, decide no;
 	if x is nametag or x is bar-scen or x is writing, decide no;
+	if x is lcd frown, decide no;
 	if player carries x, decide yes;
 	if x is Baiter Master, decide yes;
 	if x is not off-stage:
@@ -3323,13 +3328,16 @@ Sound Safe	"Safe, sound means being out of trouble. Also, the safe isn't very so
 Fright Stage	"Stage fright is being scared to get out in front of a crowd."	"I've never been a fan of scaring someone into action. I often feel that people who say they are don't really want to help someone, or never learned it doesn't work." [start of speaking plain]
 relief light	"Light relief would be a silly joke."	-- [start of temper keep]
 Spleen Vent	"To vent one's spleen is to let our your anger."	"I knew you needed to stuff something down that vent for a while, but I didn't know what."
-long tag	"To tag along is to follow behind."	"Between this and a long string, I thought I overused long in the flips, so I was glad I found the Circular." [start of court of contempt]
+case basket	"A basket case is a slightly nasty term for someone who doesn't get out much and isn't very good socially." [start of court of contempt]
+long tag	"To tag along is to follow behind."	"Between this and a long string, I thought I overused long in the flips, so I was glad I found the Circular."
 the Reasoning Circular	"Circular Reasoning is, for instance, I'm smart because I'm clever because I'm smart."	"This might be my favorite flip. It means the obviousd of what you said, and also it rationalizes seeing what you want to see."
 Drug Gateway	"A gateway drug leads you to bigger drugs, but here, the gateway may be blocking you from them."	"Drug humor can be in iffy taste, and making Alec a mule felt iffy, but he does need to learn there are some rules worth breaking, or things worth trying. Besides, Fritz deserves a bit of help." [start of walker street]
 long string	"To string along someone is to keep them trying or asking for more."	"The string obviously had possibilities for moving somewhere. I thought about making a maze with a string, but Jim Aikin sort of did that in [i]The White Bull[r]."
 Mistake Grave	"A grave mistake is a very bad mistake indeed."	"The mistake grave is deliberately nasty to people who don't take enough risks. That's their fault, but it is also the fault of people who take a lot of risks and are jerks about it and set bad examples and convince you you have to be exciting to take big risks."
 Language Machine	"Machine Language is very low-level, unreadable (without training) code of bits. No English or anything."	"Some people objected to the machine as being about parser versus choice, but I tried largely to stay away from that. I just liked the image of making a machine happy. And in general I feel it's better to find what sort of game you can write that hasn't been written yet, instead of worrying what art can or should be. I hoped the general silliness would make this clear, but in release 2 I tried to touch things up to avoid misunderstandings." [start of standard bog]
+Law Sods	"Sod's Law is also known as Murphy's Law, especially in the UK. In other words, what can go wrong, will. However, Murphy's Law was really that people will always find a reasonable way to do something wrong, though people now use the two interchangeably in the US. TMYK!"
 Trick Hat	"A hat trick, in hockey or soccer, is scoring three times."	"This was originally just lying around, then you wore it to do something--but I wanted Alec not to have to rely on any tricks to beat the [bad-guy]."
+Witch Sand	"A sandwich is two pieces of bread with something in between."
 Poory Pot	"Potpourri, which smells good. Of course, I've read about pipe and cigar snobs who babble on about aromas and such, and apparently there are marijuana snobs too in this progressive time! Perhaps there always were."	"I'm aware of the mispronunciation, but when I was a kid, that's how I mispronounced it, too." [start of pot chamber]
 wacker weed	"A weed whacker is the slang for a gardening tool to cut weeds."	"I like the thought of poor Fritz reduced to buying generics, though I suspect he doesn't have a sophisticated palate. It took a while before I accepted that I was going to put drugs in my game, but the more I've learned of the War on Drugs, the more I've seen it's not really about health--and the dealers often aren't really concerned much with clients['] rights or safety."
 Book Bank	"A bankbook records numbers and is very un-literary."	"This was a book crack, but a bank feels more contrary to literature." [start of discussion block]
@@ -3339,6 +3347,7 @@ Intuition Counter	"Counterintuition means the opposite of what you'd expect. Wai
 Ability Suit	"Suitability means appropriateness. And the suit is not appropriate for the monkey."	"The suit is, of course, contrastable with the Labor Child's clothes as a bit of a hint." [start of idiot village]
 fourth-blossom	"To blossom fourth is to grow."	"I have a sense I left a few number pun/flips on the table, but I got this one, I think."
 lifted face	"Facelifted means you had surgery done on your face, though Alec's lifted more naturally."	--
+service memorial	"A memorial service is what is held to remember someone fondly."
 Thoughts Idol	"Idle thoughts, e.g., a wandering mind, are what it purports to oppose."	"I was disappointed the Compound didn't have enough surveillance, and I wanted to put it in the Village, but I didn't want it to just be there. And I wanted a way to beat it."
 Trap Rattle	"A rattle trap is a cheap car."	"This felt like the weakest of my items to barter until I realized what it could be used for. I like that, apparently, rattles are for babies, but it shuts up petulant attention-hogging."
 against rails	"If someone rails against something, they're upset with it."	"These were in the Variety Garden until release 2, when I realized they'd be better off somewhere more mechanical--oh, and I found the brush, too." [start of freak control]
@@ -3356,6 +3365,7 @@ hammer	"The hammer can be three things[ham-desc]."	"Figuring what the hammer sho
 lock caps	"I THINK YOU KNOW WHAT CAPS LOCK IS, BUT HERE'S A DEMONSTRATION OF WHAT HAPPENS IF YOU LEAVE IT ON."	"I love a joke about all caps, and I needed some way to prevent you from getting in the carriage immediately."
 mentality crowd	"Crowd mentality is when everyone believes and does the same thing."
 Return Carriage	"Carriage Return is going back to the start of a new line in a document with text. And you are sort of going back to the start, too."	"The Return Carriage was originally the Snowflake Special. That's a good phrase, but it didn't feel right here. The Carriage is obvious, for what it is."
+maple	"This is a bad one, with 'LE MAP' if you examine it. Yup. That's it." [start of muster pass]
 pen fountain	"A fountain pen is (these days) a typical pen. You don't have to dip it in ink to keep writing. It's less exotic than a pen fountain, of course." [start of Eternal Hope Springs]
 consciousness stream	"Stream of consciousness is a form of writing that relies heavily on inner monologue."	"It turns out that Nigel Jayne wrote a game called Gaia's Web which features a Consciousness Stream that actually blends into the game better, so you should definitely give that a check." [start of Brains Beat]
 View of Points	"Points of view are opinions." [start of Window Bay]
@@ -9529,7 +9539,7 @@ check going south in questions field when got-pop is true:
 
 check going west in Questions Field:
 	if Reasoning Circular is not off-stage:
-		say "[one of]As you're about to enter, you hear Buddy Best raving about plans to create a whole [activation of contempt of congress], before a voice from a hidden loudspeaker booms 'Get better? Better GET!'[paragraph break]Buddy Best has seen enough of you. Hmm, come to think of it, you've seen enough of Buddy Best. You're surprised he even gave you the Reasoning Circular, and you proably couldn't explain why you [if player has circular]haven't used it yet[else]gave it to Officer Petty[end if], anyway[or]You don't want to interrupt Buddy Best's grand plans. For your sake and his. [if player has circular]Maybe figure what to do with the Reasoning Circular he gave you[else]His Reasoning Circular helped you enough[end if]." instead;
+		say "[one of]As you're about to enter, you hear Buddy Best raving about plans to create a whole [activation of contempt of congress], before a voice from a hidden loudspeaker booms 'Get better? Better GET!'[paragraph break]Buddy Best has seen enough of you. Hmm, come to think of it, you've seen enough of Buddy Best. You're surprised he even gave you the Reasoning Circular, and you proably couldn't explain why you [if player has circular]haven't used it yet[else]gave it to Officer Petty[end if], anyway[or]You don't want to interrupt Buddy Best's grand plans. For your sake and his[stopping]. [if player has circular]Maybe figure what to do with the Reasoning Circular he gave you[else]His Reasoning Circular helped you enough[end if]." instead;
 
 check going nowhere in questions field:
 	if noun is inside:
@@ -10032,7 +10042,7 @@ check going nowhere in discussion block:
 		say "Searching for Creativity Block, where [if art is in lalaland]Art[else]Phil[end if] went, would be counterproductive." instead;
 	say "'Looking for the culture counter? I don't think you have the knowledge,' says [a-p].[paragraph break]The only way is back west." instead;
 
-to say a-p
+to say a-p:
 	say "[one of]Art[or]Phil[in random order]"
 
 the poetic wax is in Discussion Block. "Poetic Wax, a whole ball of it, lies here behind [if number of waxblocking people is 0]where Art and Phil used to be[else][list of waxblocking people][end if]."

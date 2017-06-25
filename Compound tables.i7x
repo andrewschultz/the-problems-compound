@@ -300,7 +300,7 @@ macho-boast
 "The [j-co] agree [activation of Monte Carlo] doesn't like leaving things to chance or doing the same thing over and over again."
 "The [j-co] agree [activation of mortify] is only iffy if you're easily offended."
 "The [j-co] [activation of nihilist] among people with a real purpose."
-The [j-co] can't imagine the [activation of nookie] is a lot of fun."
+"The [j-co] can't imagine the [activation of nookie] is a lot of fun."
 "The [j-co] despair that [activation of nose candy] too little about how to party."
 "The [j-co] chuckle at the irreverence of the [activation of notre dame]."
 "The [j-co] argue that [activation of olive] being more desirable is NOT a matter of taste."
