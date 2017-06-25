@@ -3532,6 +3532,7 @@ air jordan	"Air Jordan is an expensive athletic shoe named after Michael Jordan,
 anapest	"Anapest is a common beat for a poem. It can seem singsong."
 Anne Frank	"Anne Frank wrote [i]The Diary of Anne Frank[r], a story about a Jewish family hiding from the Nazis in World War II."
 Bandanna	"A bandanna is a scarf you tie around your head. Some people find it rebellious, others not rebellious enough."
+beaker	"A beaker is what you pour liquids into in a science experiment."
 bechdel	"The Bechdel test is if an author has two females talking about things other than men or sex. Del Beck fails miserably, of course."
 beer guts	"Beer guts are increased weight from drinking too much beer."
 Benedict Arnold	"Benedict Arnold was a traitor in the US Revolutionary War."
@@ -3549,6 +3550,7 @@ broccoli	"Broccoli is a vegetable."
 cacophony	"Cacophony is a loud noise."
 call girl	"A call girl is a paid female escort."
 Cary Grant	"Cary Grant is a movie star from the 40s and 50s."
+case sensitive	"Case sensitive means paying attention to capitalization."
 casually	"Casually means not really in-depth."
 category	"A category is a logical class to divide someone into. In here, Kate fits into an obvious one, but she doesn't quite live up or down to it."
 cirrhosis	"Cirrhosis is a disease of the liver, often bought on by drinking."
@@ -3557,6 +3559,7 @@ co-ed	"Co-ed means having males and females in classes together."
 Cotton Candy	"Cotton candy is stringy sugary stuff, often bundled together in a soft ball. People eat it at circuses and fairs and movies a lot."
 covfefe	"Covfefe is a nonsense word tweeted out by Donald Trump, probably a typo for coverage."
 defecate	"To defecate is, well, activity #2 in the bathroom."
+dilute	"Dilute means watered down or having lost power."
 dirty word	"A dirty word is profanity. 'Word' on its own is slang for agreement."
 dust up	"A dust up is a fight."
 electrocute	"If someone is electrocuted, they're filled with an often lethal dose of electrical current."
@@ -3607,6 +3610,7 @@ meretricious	"Meretricious means superficially attractive or insincere."
 mike drop	"Mike drop is an internet term meaning you've won the argument and there's nothing left to say."
 mollycoddling	"Mollycoddling is being overprotective of someone."
 monte carlo	"Monte Carlo is a place where you can go to gamble. A Monte Carlo simulation also runs random events many times when it is too hard to calculate probability directly."
+mortify	"To mortify someone is to shock their sensibilities."
 nihilist	"A nihilist is someone who believes nothing matters."
 Nolan Ryan	"Nolan Ryan is the Major League Baseball career strikeouts and no-hitters leader."
 nookie	"Nookie is sexual activity."
@@ -3632,7 +3636,9 @@ pound meat	"To pound your meat is to, well, touch your genitals."
 quaalude	"A quaalude is a drug (methaquinone) now in low supply since it is illegal."
 Ralph Lauren	"Ralph Lauren is a fashion designer."
 rectally	"Rectally means up the butt."
+recur	"To recur is to happen or appear continually."
 red rose	"A white, red, blue or black rose is something that might grow in a garden."
+restore	"To restore is to make something more like new, to remove its blemishes."
 ring finger	"The ring finger is the one between the middle and the pinky."
 rosetta	"The Rosetta Stone helped people translate ancient languages when it was unearthed."
 rusty nail	"Stepping on a rusty nail can give you tetanus."
@@ -3716,6 +3722,7 @@ Driving Crazy	"Driving someone crazy is usually not literal, but it means you ar
 Watkins Glen	"Watkins Glen is a famous racecourse in upstate New York."
 wood pusher	"A wood pusher is a chessplayer who plays by rote, so, sort of a double whammy of no fun."
 bog down	"If someone or something is bogged down, its progress (physical or mental) is slow or stuck." [start of standard bog]
+spell disaster	"To spell disaster is to mean a lot of trouble for someone."
 bum a cigarette	"To bum a cigarette is to ask someone for one of theirs. 'A cigarette bum' indicates Penn's disdain for more legal smokables." [start of pot chamber]
 crack pipe	"A crack pipe is used to smoke crack cocaine, which is even more illegal and risky than marijuana."
 crack up	"To crack up is to lose sanity. To crack down is to oppress someone, or arrest people for possession of contraband. To crack a joke is to tell a joke."
@@ -9871,7 +9878,7 @@ check going nowhere in standard bog:
 	if noun is outside:
 		try going south instead;
 	if noun is north:
-		say "You'd starve to death before you got anywhere, even without a disaster spell." instead;
+		say "You'd starve to death before you got anywhere, even if you weren't struck by a [activation of spell disaster]disaster spell." instead;
 	if noun is west or noun is east:
 		say "You'd probably take the silliest false step and sink into the Law Sods. But there's nowhere to go across the sods, anyway." instead;
 	say "It's really only safe to go back south." instead;
@@ -12506,6 +12513,8 @@ anne frank is a concept in conceptville. Understand "frank anne" as anne frank. 
 
 Bandanna is a concept in conceptville. Understand "anna bandt/band" and "bandt/band anna" as bandanna. howto is "[j-blab]". gtxt is "Anna Bandt".
 
+beaker is a concept in conceptville. Understand "kirby" as beaker. howto is "[j-blab]". gtxt is "Kirby".
+
 Bechdel is a concept in conceptville. Understand "del beck" and "beck del" as bechdel. howto is "[j-blab]". gtxt is "Del Beck".
 
 beer guts is a concept in conceptville. Understand "guts beer" as beer guts. howto is "[j-blab]". gtxt is "Guts Beer".
@@ -12540,6 +12549,8 @@ call girl is a concept in conceptville. Understand "girl call" as call girl. how
 
 cary grant is a concept in conceptville. Understand "grant carey" and "carey grant" as cary grant. howto is "[j-blab]". gtxt is "Grant Carey".
 
+case sensitive is a concept in conceptville. Understand "sensitive case" as case sensitive. howto is "[j-blab]". gtxt is "sensitive case".
+
 casually is a concept in conceptville. Understand "julie kaz" and "kaz julie" as casually. howto is "[j-blab]". gtxt is "Julie Kaz".
 
 category is a concept in conceptville. Understand "gory kate" and "kate gory" as category. howto is "[j-blab]". gtxt is "Gory Kate".
@@ -12555,6 +12566,8 @@ Cotton Candy is a concept in conceptville. Understand "candy cotton" as cotton c
 covfefe is a concept in conceptville. Understand "cove fefe" and "fefe cove" as covfefe. howto is "[j-blab]". gtxt is "Fefe Cove".
 
 defecate is a concept in conceptville. Understand "kate a def" and "def a kate" as defecate. howto is "[j-blab]". gtxt is "Kate? Uh, Def".
+
+dilute is a concept in conceptville. Understand "di lewd" and "lewd di" as dilute. howto is "[j-blab]". gtxt is "lewd Di".
 
 Dirty Word is a concept in conceptville. Understand "word dirty" as dirty word. howto is "go to the [jc]". gtxt is "Word! Dirty".
 
@@ -12656,6 +12669,8 @@ Mollycoddling is a concept in conceptville. Understand "coddling/cuddling molly"
 
 monte carlo is a concept in conceptville. Understand "carlo monte" as monte carlo. howto is "[j-blab]". gtxt is "Carlo Monty".
 
+mortify is a concept in conceptville. Understand "mort iffy" and "iffy mort" as mortify. howto is "[j-blab]". gtxt is "iffy Mort".
+
 nihilist is a concept in conceptville. Understand "list neil" and "neil list" as nihilist. howto is "[j-blab]". gtxt is "list Neil".
 
 Nolan Ryan is a concept in conceptville. Understand "ryan nolan" as nolan ryan. howto is "[j-blab]". gtxt is "Ryan Nolan".
@@ -12706,7 +12721,11 @@ Ralph Lauren is a concept in conceptville. Understand "lauren ralph" as ralph la
 
 rectally is a concept in conceptville. Understand "ally wrecked" and "wrecked ally" as rectally. howto is "[j-blab]". gtxt is "Ally wrecked".
 
+recur is a concept in conceptville. Understand "curry" as recur. howto is "[j-blab]". gtxt is "curry".
+
 red rose is a concept in conceptville. Understand "rose redd/red/white/blue/black" and "redd/red/white/blue/black" as red rose. howto is "[j-blab]". gtxt is "Rose Redd, Rose White, Rose Black, and especially Rose Blue".
+
+restore is a concept in conceptville. Understand "torres" as restore. howto is "[j-blab]". gtxt is "torres".
 
 ring finger is a concept in conceptville. Understand "finger ring" as ring finger. howto is "[j-b4]". gtxt is "finger ring".
 
@@ -12903,6 +12922,8 @@ wood pusher is a concept in conceptville. Understand "pusher wood" as wood pushe
 section standard bog concepts
 
 bog down is a concept in conceptville. Understand "down bog" as bog down. howto is "go down in Standard Bog". gtxt is "down bog".
+
+spell disaster is a concept in conceptville. Understand "disaster spell" as spell disaster. howto is "go north in Standard Bog". gtxt is "disaster spell".
 
 section pot chamber concepts
 
