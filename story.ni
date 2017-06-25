@@ -3572,7 +3572,9 @@ defecate	"To defecate is, well, activity #2 in the bathroom."
 dilute	"Dilute means watered down or having lost power."
 dirty word	"A dirty word is profanity. 'Word' on its own is slang for agreement."
 dust up	"A dust up is a fight."
+eBay	"Yes, eBay is not just a website where people sell things, but a verb."
 electrocute	"If someone is electrocuted, they're filled with an often lethal dose of electrical current."
+evidence	"Evidence is something that supports a conclusion: for instance, a fingerprint is evidence in a robbery or murder case."
 expat	"An ex-pat is someone who no longer lives in the country where they were born."
 flounder	"To flounder is to try and fail without any progress. It's also the name of a fish."
 fluoridated	"Fluoridated water is a subject of many silly conspiracy theories."
@@ -12583,7 +12585,11 @@ Dirty Word is a concept in conceptville. Understand "word dirty" as dirty word. 
 
 dust up is a concept in conceptville. Understand "up dust" as dust up. howto is "[j-blab]". gtxt is "Up Dust".
 
+eBay is a concept in conceptville. Understand "basie" as eBay. howto is "[j-blab]". gtxt is "Basie".
+
 electrocute is a concept in conceptville. Understand "cute electra" and "electra cute" as electrocute. howto is "[j-blab]". gtxt is "Cute Electra".
+
+evidence is a concept in conceptville. Understand "ev dense" and "dense ev" as evidence. howto is "[j-blab]". gtxt is "dense ev".
 
 expat is a concept in conceptville. Understand "x pat" and "pat x" as expat. howto is "[j-blab]". gtxt is "Pat X".
 

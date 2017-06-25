@@ -430,6 +430,7 @@ for my $x (sort keys %any)
 	$x2 =~ s/['-\?!]//;
     $y = join(" ", reverse(split(/ /, $x2)));
     $y1 = join(" ", (split(/ /, $x2)));
+	if ($xmod =~ / (and) /) { $addString .= "a thing called "; } # for concepts that may use reserved words/syntax
 	$addString .= "$xmod is a concept in conceptville. Understand \"$y\"";
 	if (($y1 ne $xmod) && ($y1 ne $y))
 	{
