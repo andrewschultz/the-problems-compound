@@ -419,6 +419,7 @@ for my $x (sort keys %any)
     $y = join(" ", split(/\*/, $x));
 	$y1 =~ s/[-']//g;
 	$y =~ s/[-']//g;
+	if ($xmod =~ / (and) /) { $addString .= "a thing called "; } # for concepts that may use reserved words/syntax
 	$addString .= "$xmod is a concept in conceptville. Understand \"" . lc($y) . "\" and \"" . lc($y1) . "\" as $xmod. $howto\n\n";
 	}
 	else
@@ -867,10 +868,7 @@ while ($lineIn = <X>)
   $tempRoom = "";
   if (($inTable) && ($lineIn =~ /[a-z]\"/)) { print "Line $. needs ending punctuation: $lineIn"; }
   chomp($lineIn);
-  if ($inRoomTable)
-  {
-    $tempRoom = lc($lineIn); $tempRoom =~ s/\t.*//;
-  }
+  if ($inRoomTable) { $tempRoom = lc($lineIn); $tempRoom =~ s/\t.*//; }
   if ($lineIn =~ /\[end rooms\]/) { $inRoomSect = 0; next; }
   if ($lineIn =~ /\[start rooms\]/) { $inRoomSect = 1; $everRoomSect = 1; next; }
   if ($lineIn =~ /\[forceroom /i) { $forceRoom = lc($lineIn); $forceRoom =~ s/.*\[forceroom (of )?//i; $forceRoom =~ s/\].*//; }
@@ -1111,6 +1109,7 @@ sub findExplLine
   my $begunRooms = 1;
   my $doneRooms = 0;
   my $anyRooms = 0;
+  my $inRoomTable = 0;
 
   if (!defined($fileHash{$_[1]}))
   {
@@ -1129,6 +1128,8 @@ sub findExplLine
   open(B, $file);
   while ($line = <B>)
   {
+    if ($line =~ /^table of (unvisiteds|nowheres)/i) { $inRoomTable = 1; <B>; next; }
+	if ($line !~ /[a-z]/i) { $inRoomTable = 0; }
 	if ($line =~ /^\[start rooms\]/i) { $begunRooms = 1; $doneRooms = 0; next; }
     if (($line =~ /^part /i) && ($begunRooms) && (!$doneRooms)) { $line =~ s/ *\[.*//; $begunRooms = 1; $curRoom = $line; $curRoom =~ s/^part //i; next; }
 	$line =~ s/\*/ /g; # ugh, a bad hack but it will have to do to read asterisk'd files
@@ -1136,6 +1137,7 @@ sub findExplLine
 	if ($line =~ /\[forceroom /) { $curRoom = $line; $curRoom =~ s/\[forceroom (of )?//i; $curRoom =~ s/\].*//; }
 	if ($line =~ /activation of $_[0]/i)
 	{
+      if ($inRoomTable) { $actRoom = $line; chomp($actRoom); $actRoom =~ s/\t.*//; close(B); last OUTER; }
 	  chomp($curRoom);
 	  $actRoom = $curRoom;
 	  if ($line =~ /\[temproom/) { $actRoom = lc($line); chomp($actRoom); $actRoom =~ s/.*\[temproom +(of +)?//; $actRoom =~ s/\].*//; }
