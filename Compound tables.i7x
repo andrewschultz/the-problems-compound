@@ -96,6 +96,7 @@ sid-sez
 "Sid wonders why computers haven't solved Checkers yet. When Lee informs him they already have, Sid wonders why there are still, apparently, checkers tournaments."
 "Sid belittles people who think we can go faster than the speed of light as unscientific and those who don't as uncreative."
 "Sid has harsh words for people who can do too much or too little math in their heads. He's--just about right. He knows, because, well, he has methods."
+"Sid mentions how he wants to go [activation of turing machine] at [activation of technology] so much more than Lee."
 
 part speaking plain
 
@@ -257,6 +258,7 @@ macho-boast
 "The [j-co] marvel at what a ladies['] man [activation of co-ed] is when he comes home from the military boarding school."
 "The [j-co] mention how [activation of cotton candy] smacks down saccharine pickup lines."
 "The [j-co] compliment [activation of covfefe]'s ability to see through nonsense."
+"The [j-co] agree: when in doubt, [activation of default]!"
 "One of the [j-co] says '[activation of defecate]!' There's an awkward silence."
 "The [j-co] lament that [activation of dilute]'s racy jokes don't have the oomph they used to."
 "The [j-co] whisper about a relaxing new drug called [activation of dust up]."
@@ -322,6 +324,7 @@ macho-boast
 "The [j-co] rave it's easy to hook up at the [activation of pound meat]."
 "The [j-co] look forward to wild college spring breaks at [activation of quaalude]."
 "The [j-co] agree [activation of Ralph Lauren] would actually be really attractive with any fashion sense at all."
+"The [j-co] marvel over a [activation of record keeper] that stuffy statistics and historical types won't appreciate."
 "The [j-co] recount how [activation of rectally] some kid's supposititious argument."
 "The [j-co] hate how security guard [activation of recur] just pops up everywhere."
 "The [j-co] evaluate [activation of red rose] as too cool for wimpy gardening types."

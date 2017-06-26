@@ -38,7 +38,7 @@ section compiler limits
 
 use MAX_ACTIONS of 210.
 
-use MAX_OBJECTS of 770.
+use MAX_OBJECTS of 780.
 
 use MAX_SYMBOLS of 24000.
 
@@ -48,7 +48,7 @@ use MAX_PROP_TABLE_SIZE of 300000.
 
 section compiler debug limits - not for release
 
-use MAX_OBJECTS of 810.
+use MAX_OBJECTS of 820.
 
 use MAX_SYMBOLS of 27000.
 
@@ -3568,6 +3568,7 @@ clean break	"A clean break from something is leaving quickly and for good. The j
 co-ed	"Co-ed means having males and females in classes together."
 Cotton Candy	"Cotton candy is stringy sugary stuff, often bundled together in a soft ball. People eat it at circuses and fairs and movies a lot."
 covfefe	"Covfefe is a nonsense word tweeted out by Donald Trump, probably a typo for coverage."
+default	"Default is what you do in the absence of anything else. It can also mean to go broke."
 defecate	"To defecate is, well, activity #2 in the bathroom."
 dilute	"Dilute means watered down or having lost power."
 dirty word	"A dirty word is profanity. 'Word' on its own is slang for agreement."
@@ -3647,6 +3648,7 @@ Potter Stewart	"Potter Stewart was a US Supreme who said he'd know obscenity whe
 pound meat	"To pound your meat is to, well, touch your genitals."
 quaalude	"A quaalude is a drug (methaquinone) now in low supply since it is illegal."
 Ralph Lauren	"Ralph Lauren is a fashion designer."
+record keeper	"A record keeper is someone who keeps track of facts and details."
 rectally	"Rectally means up the butt."
 recur	"To recur is to happen or appear continually."
 red rose	"A white, red, blue or black rose is something that might grow in a garden."
@@ -3679,6 +3681,7 @@ waste breath	"To waste breath is to speak in vain."
 Fish for a Compliment	"To fish for a compliment is to try to manipulate someone into saying something nice." [start of disposed well]
 Well Done	"Well done means good job, but 'done' is also a synonym for dead, because you'd fall down the well if you tried to enter it."
 cargo cult	"A cargo cult is when islanders cut off from the first world use various instruments and devices to try to get planes filled with material goods to land." [start of classic cult]
+crisis	"crisis is when you [fill-in-here]. classic cult"
 cult status	"Cult status is when a work of art (or person) achieves popularity among a narrow segment of the population. This may or may not be deserved."
 defrock	"To defrock is to remove someone's role as priest."
 good herb	"The good herb is slang for marijuana."
@@ -3691,7 +3694,9 @@ pathologic	"Pathologic behavior is compulsive and anti-social."
 psychotherapy	"Psychotherapy is seeing a trained professional for emotional and mental issues."
 right to privacy	"Right to privacy is considered a basic human right in democratic societies. It means you have the right to be left alone and not to be arrested for arbitrary reasons."
 showerproof	"Showerproof means rain can't get through material."
+technology	"Technology is, well, newer and better machines."
 thp	"Two hundred proof means pure grain alcohol."
+turing machine	"A Turing machine is, to oversimplify, a mathematical model of computation."
 whole truth	"The whole truth means nothing left out from an explanation."
 age four	"Age four is, well, four years old. It is too young to forage." [start of scheme pyramid]
 army brat	"An army brat is the child of a military officer. They would be more likely to move than most children."
@@ -9127,7 +9132,7 @@ prompt	response	enabled	permit
 
 table of quip texts (continued)
 quip	quiptext
-grace-hi	"'That is no matter,' they reply in unison. 'You are welcome here. Whether or not you are the one to repair our Googly Bowl. The [bad-guy] ordered it broken, and our brother [activation of good herb] performed the act.'"
+grace-hi	"'That is no matter,' they reply in unison. 'You are welcome here. Whether or not you are the one to repair our Googly Bowl. The [bad-guy] ordered it broken, and our brother [activation of good herb] performed the act and said [activation of crisis] less.'"
 grace-googly	"'It only contains three of the four vital elements it needs to create transcendent happiness, or at least provide relaxing aromas, so it is useless. The [bad-guy] deemed one of few pieces of [activation of cargo cult] not completely disposable. The metaphysics would take too long to explain, but... trust us.'"
 grace-herb	"'Herb says brainwashing is worse than drugs. Each gets in the way of appreciating the [bad-guy], but we are apparently more insidious.'"
 grace-restore	"'We hope not. We are a bit confused. The [bad-guy] said we didn't have anything close to the proper [activation of personality cult] to be a useful [activation of cult status], but all the same, we were using unfair tactics. Really, we just sit around and enjoy classic movies or cult movies without making too many snarky comments. But that's out of favor, thanks to the [bad-guy].'"
@@ -12577,6 +12582,8 @@ Cotton Candy is a concept in conceptville. Understand "candy cotton" as cotton c
 
 covfefe is a concept in conceptville. Understand "cove fefe" and "fefe cove" as covfefe. howto is "[j-blab]". gtxt is "Fefe Cove".
 
+default is a concept in conceptville. Understand "dee fault" and "fault dee" as default. howto is "[j-blab]". gtxt is "fault dee".
+
 defecate is a concept in conceptville. Understand "kate a def" and "def a kate" as defecate. howto is "[j-blab]". gtxt is "Kate? Uh, Def".
 
 dilute is a concept in conceptville. Understand "di lewd" and "lewd di" as dilute. howto is "[j-blab]". gtxt is "lewd Di".
@@ -12735,6 +12742,8 @@ quaalude is a concept in conceptville. Understand "lewd quay" and "quay lewd" as
 
 Ralph Lauren is a concept in conceptville. Understand "lauren ralph" as ralph lauren. howto is "[j-blab]". gtxt is "Lauren Ralph".
 
+record keeper is a concept in conceptville. Understand "keeper record" as record keeper. howto is "[j-blab]". gtxt is "keeper record".
+
 rectally is a concept in conceptville. Understand "ally wrecked" and "wrecked ally" as rectally. howto is "[j-blab]". gtxt is "Ally wrecked".
 
 recur is a concept in conceptville. Understand "curry" as recur. howto is "[j-blab]". gtxt is "curry".
@@ -12807,6 +12816,8 @@ section classic cult concepts
 
 cargo cult is a concept in conceptville. Understand "cult cargo" as cargo cult. howto is "talk to Grace". gtxt is "cult cargo".
 
+crisis is a concept in conceptville. Understand "crisis" as crisis. howto is "[fill-in-here] classic cult". gtxtx is "crisis".
+
 cult status is a concept in conceptville. Understand "status cult" as cult status. howto is "ask about restoring the googly bowl". gtxt is "status cult".
 
 Defrock is a concept in conceptville. Understand "rock def" and "def rock" as defrock. howto is "talk to Grace". gtxt is "rock DEF".
@@ -12833,7 +12844,11 @@ right to privacy is a concept in conceptville. Understand "privacy to write" and
 
 showerproof is a concept in conceptville. Understand "shower proof" and "proof shower" as showerproof. howto is "listen to Sid Lew's advice (random)". gtxt is "proof shower".
 
+technology is a concept in conceptville. Understand "tech y knowledge" and "knowledge y tech" as technology. howto is "listen to Sid Lew's advice (random)". gtxt is "knowledge y tech".
+
 thp is a privately-named concept in conceptville. printed name is "200 proof". Understand "proof 200" and "200 proof" as thp. howto is "give Lee the rattle". gtxt is "Proof 200".
+
+turing machine is a concept in conceptville. Understand "touring machine" and "machine touring" as turing machine. howto is "listen to Sid Lew's advice (random)". gtxt is "machine touring".
 
 whole truth is a concept in conceptville. Understand "truth whole" as whole truth. howto is "[f-t of Truth Home]". gtxt is "truth hole".
 
