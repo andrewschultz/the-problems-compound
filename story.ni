@@ -3566,6 +3566,8 @@ category	"A category is a logical class to divide someone into. In here, Kate fi
 cirrhosis	"Cirrhosis is a disease of the liver, often bought on by drinking."
 clean break	"A clean break from something is leaving quickly and for good. The jerks haven't broken with their 'clean' secrets yet."
 co-ed	"Co-ed means having males and females in classes together."
+cojones	"Cojones is guts--well, a foot below guts, for males. Having cojones means having courage."
+commie	"Commie is short for Communist--in this case, MeCom is a private business for your own profit, or the political opposite."
 Cotton Candy	"Cotton candy is stringy sugary stuff, often bundled together in a soft ball. People eat it at circuses and fairs and movies a lot."
 covfefe	"Covfefe is a nonsense word tweeted out by Donald Trump, probably a typo for coverage."
 default	"Default is what you do in the absence of anything else. It can also mean to go broke."
@@ -3681,7 +3683,7 @@ waste breath	"To waste breath is to speak in vain."
 Fish for a Compliment	"To fish for a compliment is to try to manipulate someone into saying something nice." [start of disposed well]
 Well Done	"Well done means good job, but 'done' is also a synonym for dead, because you'd fall down the well if you tried to enter it."
 cargo cult	"A cargo cult is when islanders cut off from the first world use various instruments and devices to try to get planes filled with material goods to land." [start of classic cult]
-crisis	"crisis is when you [fill-in-here]. classic cult"
+crisis	"A crisis is when things are going wrong and something needs to be done, or it will get even worse."
 cult status	"Cult status is when a work of art (or person) achieves popularity among a narrow segment of the population. This may or may not be deserved."
 defrock	"To defrock is to remove someone's role as priest."
 good herb	"The good herb is slang for marijuana."
@@ -6983,6 +6985,16 @@ definition: a client (called cli) is befriended:
 	if suspect entry is 2:
 		decide yes;
 	decide no;
+
+chapter charred pie
+
+The charred pie is an edible thing on Tray A. description is "It doesn't look very appetizing."
+
+check eating charred pie:
+	say "Ugh, no. You've settled for second best before, but this looks bland and nott very nutritious." instead;
+
+check taking charred pie:
+	say "It'd probably fall apart if you carried it anywhere." instead;
 
 chapter up gum
 
@@ -12578,6 +12590,10 @@ Clean Break is a concept in conceptville. Understand "break clean" as clean brea
 
 co-ed is a concept in conceptville. Understand "ed coe" and "coe ed" as co-ed. howto is "[j-blab]". gtxt is "Ed Coe".
 
+cojones is a concept in conceptville. Understand "jonesco" and "jones co" and "co jones" as cojones. howto is "[j-blab]". gtxt is "cojones".
+
+commie is a concept in conceptville. Understand "mecom" and "me com" and "com me" as commie. howto is "[j-blab]". gtxt is "MeCom".
+
 Cotton Candy is a concept in conceptville. Understand "candy cotton" as cotton candy. howto is "[j-blab]". gtxt is "Candy Cotton".
 
 covfefe is a concept in conceptville. Understand "cove fefe" and "fefe cove" as covfefe. howto is "[j-blab]". gtxt is "Fefe Cove".
@@ -12816,7 +12832,7 @@ section classic cult concepts
 
 cargo cult is a concept in conceptville. Understand "cult cargo" as cargo cult. howto is "talk to Grace". gtxt is "cult cargo".
 
-crisis is a concept in conceptville. Understand "crisis" as crisis. howto is "[fill-in-here] classic cult". gtxtx is "crisis".
+crisis is a concept in conceptville. Understand "sis cry" and "cry sis" as crisis. howto is "say hi to Grace". gtxt is "Sis, Cry".
 
 cult status is a concept in conceptville. Understand "status cult" as cult status. howto is "ask about restoring the googly bowl". gtxt is "status cult".
 

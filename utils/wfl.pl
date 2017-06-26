@@ -218,7 +218,8 @@ if ($dicURL && $isDone{$flip}) { `\"$webapp\" http:\/\/idioms.thefreedictionary.
 if (!$checkWarnYet && warnSaveBeforeCopying())
 {
   $checkWarnYet = 1;
-    Win32::MsgBox("Save wfl.txt before copying over", 0, "Less annoying than overwriting");
+  `$output`;
+  Win32::MsgBox("Save flip.txt before copying over", 0, "Less annoying than overwriting");
 }
 
 open(B, ">>$output");

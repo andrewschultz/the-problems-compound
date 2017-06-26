@@ -256,6 +256,8 @@ macho-boast
 "The [j-co] praise [activation of category] as less weird than she should be on paper."
 "The [j-co] banter about when they will be able to buy alcohol with a fake ID, or even legally. Then everything's [activation of cirrhosis]!"
 "The [j-co] marvel at what a ladies['] man [activation of co-ed] is when he comes home from the military boarding school."
+"The [j-co] mentiones [activation of cojones] sells such boring stuff. Jones is such a common last name!"
+"The [j-co] voice a wish to work for [activation of commie] one day. Opportunity!"
 "The [j-co] mention how [activation of cotton candy] smacks down saccharine pickup lines."
 "The [j-co] compliment [activation of covfefe]'s ability to see through nonsense."
 "The [j-co] agree: when in doubt, [activation of default]!"
