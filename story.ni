@@ -3477,8 +3477,10 @@ ex-tray	"Tray X is an ex-tray."
 face off	"An off face probably doesn't look right, but a face off is when you challenge someone, like the game forces you to in the accelerated Tray B endings."
 food for thought	"Food for thought is something to think about. Thought for food is thinking too much about food."
 Forgive	"Forgive is a clue as to whom to give the mint to, but the person must be forgivable."
+gobbling down	"Gobbling down is eating food quickly."
 Growing Pains	"Growing pains are temporary setbacks that help you get going. Pain's growing is just a complaint."
 house special	"The house special is an item on the menu priced to attract people. It is different from the Specialty of the House."
+impaler	"An impaler is someone who kills people with sharp objects like swords."
 just deserts	"Just deserts means getting what you deserve. After eating the 'sophisticated' cheese, Alec doesn't deserve to enjoy other foods."
 loaf around	"To loaf around is to wait with no real purpose."
 No-Shame	"No shame means a person isn't embarrassed by anything to the point where it's dangerous. The reverse (Shame? No!) is more, there's a healthier way to look at things than through shame."
@@ -3539,6 +3541,7 @@ tea party	"A tea party is usually non-alcoholic, and people mind their manners. 
 teetotal	"Teetotal means alcohol-free."
 adult content	"Adult content relates to nontrivial sex or violence." [start of Nominal Fen]
 air jordan	"Air Jordan is an expensive athletic shoe named after Michael Jordan, maybe the greatest basketball player ever."
+anal	"Anal is short for anal-retentive, or over worried about details."
 anapest	"Anapest is a common beat for a poem. It can seem singsong."
 Anne Frank	"Anne Frank wrote [i]The Diary of Anne Frank[r], a story about a Jewish family hiding from the Nazis in World War II."
 Bandanna	"A bandanna is a scarf you tie around your head. Some people find it rebellious, others not rebellious enough."
@@ -3612,6 +3615,7 @@ Keyser Soze	"Keyser Söze is the shadowy antagonist of [u-sus]."
 kohlrabi	"Kohlrabi is a vegetable."
 Laverne and Shirley	"Laverne and Shirley was a TV show from the 70s and 80s about two single female roommates."
 Leicester Square	"Leicester Square is in London."
+less well	"Less well means, well, not as good as something else. It's a slight mispronunciation of 'Wallace,' but not too much in context. I hope."
 lie detector	"A lie detector is something that uses readings from your nerves to detect lies."
 lily liver	"A lily-liver is someone who is afraid to go out and do risky things."
 Liverwurst	"Liverwurst is a sort of meat which I found tastes nice until it really doesn't, and it's a bit greasy, too. 'Worst liver' may be an exaggeration, but the jerks are not living well."
@@ -3662,6 +3666,7 @@ rosetta	"The Rosetta Stone helped people translate ancient languages when it was
 run by	"To run by is to talk to someone and not stay for long."
 rusty nail	"Stepping on a rusty nail can give you tetanus."
 sausage fest	"A sausage fest is a congregation of males with no females."
+says mo	"Says mo['] means someone says or talks more, as opposed to Moses being quiet."
 Sharp Barb	"A sharp barb is a stinging, clever insult."
 shock jock	"A shock jock is someone who provides deliberately insulting opinions to a wide audience, often on radio."
 six-pack	"A six-pack usually refers to six cans of beer held together by plastic rings."
@@ -6529,7 +6534,7 @@ check going west in pressure pier:
 	otherwise:
 		if meal square is unvisited:
 			now thought for food is in lalaland;
-			say "Terry Sally coughs. 'That's Meal Square. Nice if you've got a thought for food[activation of food for thought]. But there's better places to break the rules.' Nevertheless, he lets you go.";
+			say "Terry Sally coughs. 'That's Meal Square. Nice if you've got a thought for food[activation of food for thought]. Not much crazy to do there. That's why the [bad-guy] got rid of that [activation of impaler], the [activation of gobbling down].'";
 
 Meal Square is west of Pressure Pier. Meal Square is in Outer Bounds. "This is a small alcove with Pressure Pier back east. There's not much decoration except a picture of a dozen bakers."
 
@@ -12389,9 +12394,13 @@ a thing called Food for Thought is a concept in conceptville. Understand "though
 
 Forgive is a concept in conceptville. Understand "give for" and "for give" as Forgive. howto is "[x-it of condition mint]". gtxt is "GIVE, FOR".
 
+gobbling down is a concept in conceptville. Understand "goblin down" and "down goblin" as gobbling down. howto is "visit Meal Square with Terry Sally around". gtxt is "down goblin".
+
 growing pains is a concept in conceptville. Understand "pain/pains growing" and "growing pain" as growing pains. howto is "eat the offcheese". gtxt is "Pain's growing".
 
 house special is a concept in conceptville. Understand "special house" as house special. howto is "smell Tray B". gtxt is "special house".
+
+impaler is a concept in conceptville. Understand "imp paler" and "paler imp" as impaler. howto is "visit Meal Square with Terry Sally around". gtxt is "paler imp".
 
 just deserts is a concept in conceptville. Understand "deserts just" as just deserts. howto is "try to eat the cookie or brownie after eating the cheese". gtxt is "Dessert's just".
 
@@ -12541,6 +12550,8 @@ adult content is a concept in conceptville. Understand "content adult" as adult 
 
 air jordan is a concept in conceptville. Understand "jordan air" as air jordan. howto is "[j-blab]". gtxt is "Jordan Ayer".
 
+anal is a concept in conceptville. Understand "alan" as anal. howto is "[j-blab]". gtxt is "alan".
+
 anapest is a concept in conceptville. Understand "pest anna" and "anna pest" as anapest. howto is "[j-blab]". gtxt is "Pest Anna".
 
 anne frank is a concept in conceptville. Understand "frank anne" as anne frank. howto is "[j-blab]". gtxt is "Frank Ahn".
@@ -12687,6 +12698,8 @@ a thing called Laverne and Shirley is a concept in conceptville. Understand "shi
 
 leicester square is a concept in conceptville. Understand "lester square" and "square lester" as leicester square. howto is "[j-blab]". gtxt is "square Lester".
 
+less well is a concept in conceptville. Understand "wallace" as less well. howto is "[j-blab]". gtxt is "wallace".
+
 lie detector is a concept in conceptville. Understand "ly detector" and "detector ly" as lie detector. howto is "[j-blab]". gtxt is "Detector Ly".
 
 lily liver is a concept in conceptville. Understand "liver lily" as lily liver. howto is "[j-blab]". gtxt is "LIVER Lily".
@@ -12786,6 +12799,8 @@ run by is a concept in conceptville. Understand "byron" as run by. howto is "[j-
 rusty nail is a concept in conceptville. Understand "nail rusty" as rusty nail. howto is "[j-blab]". gtxt is "nail Rusty".
 
 sausage fest is a concept in conceptville. Understand "fest sausage" as sausage fest. howto is "[solve-j] with swears on". gtxt is "fest sausage".
+
+says mo is a concept in conceptville. Understand "moses" as says mo. howto is "[j-blab]". gtxt is "moses".
 
 Sharp Barb is a concept in conceptville. Understand "barb sharp" as sharp barb. howto is "[j-blab]". gtxt is "Barb Sharpe".
 

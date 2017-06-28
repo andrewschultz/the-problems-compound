@@ -231,6 +231,7 @@ table of jerk-macho-talk [xxjmt]
 macho-boast
 "The [j-co] muse how you can't be a [activation of adult content] without getting, well, serious ACTION."
 "The [j-co] laugh at how unathletic [activation of air jordan] and [activation of nolan ryan] are. They vow to actually start working out some day."
+"The [j-co] are upset what a stickler [activation of anal] is."
 "The [j-co] berate [activation of anapest] and her weird 'modern' poetry."
 "The [j-co] muse how [activation of Anne Frank] wouldn't have to write his diaries about being oppressed if he didn't write weird diaries in the first place."
 "The [j-co] argue over whether [activation of bandanna]'s clothes choices are really rebellious."
@@ -293,6 +294,7 @@ macho-boast
 "The [j-co] create a conspiracy theory for laughs: plain, quiet [activation of Keyser Soze] and [activation of Kevin Spacey] somehow ruthlessly control female and male social circles."
 "The [j-co] snicker over [activation of laverne and shirley]'s jokes about girls."
 "The [j-co] agree [activation of leicester square] is a person who won't get out to see the world"
+"The [j-co] rave how [activation of less well] keeps looking healthier and healthier."
 "The [j-co] wonder how [activation of lie detector] is so good at listen and see if there is something in your words until, well, there isn't."
 "The [j-co] agree what a [activation of lily liver] is! She couldn't be exaggerating."
 "The [j-co] insinuate [activation of long johns] sleeps naked."
@@ -336,6 +338,7 @@ macho-boast
 "The [j-co] wonder what the heck [activation of rosetta] babbles about."
 "The [j-co] wish [activation of run by] wouldn't hang around so long."
 "The [j-co] [activation of rusty nail] as someone you'd better not step on."
+"The [j-co] mention how quiet [activation of says mo] is."
 "The [j-co] disagree on whether [activation of sharp barb] would be worth putting up with her lame gossip."
 "The [j-co] take a minute to [activation of shock jock] in general. It's very disturbing, but you can't put your finger on why."
 "The [j-co] recount how [activation of six-pack] was the SQUAREST Cub Scout pack!"

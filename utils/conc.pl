@@ -119,7 +119,7 @@ my @fillIn = ();
 
 my $fileToOpen = "";
 
-######################counters
+######################counters/variables
 my $alphabetizeWarnings = 0;
 my $objSuc = 0;
 my $count = 0;
@@ -132,6 +132,7 @@ my $gameObjTot = 0;
 my $needsAlf = 0;
 my $totalBadAct = 0;
 my @badActLineAry = ();
+my $editActivations = 0;
 
 while ($count <= $#ARGV)
 {
@@ -545,7 +546,7 @@ for my $x (sort keys %any)
   if (!$errMsg) { $errMsg = "All okay!"; } else { $errMsg =~ s/\n/<br>/g; $errMsg =~ s/<br>$//g; }
   if ($writeAfter)
   {
-    if (scalar (keys %addAfter) == 0) { print "******** Write flag set, but nothing to write up.\n"; }
+    if ((scalar (keys %addAfter) == 0) && (!$editActivations)) { print "******** Write flag set, but nothing to write up.\n"; }
 	else
 	{
 	for my $fi (@{$fileHash{$_[0]}})
@@ -877,6 +878,7 @@ while ($lineIn = <X>)
   $tempRoom = "";
   if (($inTable) && ($lineIn =~ /[a-z]\"/)) { print "Line $. needs ending punctuation: $lineIn"; }
   chomp($lineIn);
+  if ($lineIn =~ /[activation of [^'\]]+=/) { $editActivations = 1; }
   if ($inRoomTable) { $tempRoom = lc($lineIn); $tempRoom =~ s/\t.*//; }
   if ($lineIn =~ /\[end rooms\]/) { $inRoomSect = 0; next; }
   if ($lineIn =~ /\[start rooms\]/) { $inRoomSect = 1; $everRoomSect = 1; next; }
