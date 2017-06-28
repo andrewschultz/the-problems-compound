@@ -3606,6 +3606,7 @@ jimmy buffett	"Jimmy Buffett is the sort of singer you either love or hate. He h
 joint committee	"A joint committee is a group of legislators from different parts of US Congress."
 journeyman	"A journeyman is someone who is maybe not spectacular but who has paid his dues in his field."
 junk mail	"Junk mail means letters and fliers you didn't ask for that appear in your (physical or electronic) mailbox anyway."
+keepin	"Keepin['] is, well, keeping, or letting someone stay."
 kevin spacey	"Kevin spacey is the actor who played Keyser Söze in [u-sus]."
 Keyser Soze	"Keyser Söze is the shadowy antagonist of [u-sus]."
 kohlrabi	"Kohlrabi is a vegetable."
@@ -3627,6 +3628,7 @@ mollycoddling	"Mollycoddling is being overprotective of someone."
 monte carlo	"Monte Carlo is a place where you can go to gamble. A Monte Carlo simulation also runs random events many times when it is too hard to calculate probability directly."
 mortify	"To mortify someone is to shock their sensibilities."
 nihilist	"A nihilist is someone who believes nothing matters."
+no-brew	"No brew means no alcohol."
 Nolan Ryan	"Nolan Ryan is the Major League Baseball career strikeouts and no-hitters leader."
 nookie	"Nookie is sexual activity."
 Nose Candy	"Nose candy is slang for cocaine."
@@ -3657,6 +3659,7 @@ red rose	"A white, red, blue or black rose is something that might grow in a gar
 restore	"To restore is to make something more like new, to remove its blemishes."
 ring finger	"The ring finger is the one between the middle and the pinky."
 rosetta	"The Rosetta Stone helped people translate ancient languages when it was unearthed."
+run by	"To run by is to talk to someone and not stay for long."
 rusty nail	"Stepping on a rusty nail can give you tetanus."
 sausage fest	"A sausage fest is a congregation of males with no females."
 Sharp Barb	"A sharp barb is a stinging, clever insult."
@@ -3759,6 +3762,8 @@ Block Arguments	"To block arguments is not to hear an opposing point of view."
 Block Creativity	"To block creativity is to get in the way of someone imagining things."
 chamber music	"Chamber music is music from an orchestra."
 Coals to Newcastle	"Coals to Newcastle means a pointless action. In this case, there are no dark rooms, so you don't need a torch. Reducing a new castle to coals is, of course, pointless, too."
+counterculture	"Counterculture is a group of people who live deliberately opposed to society at large."
+creative act	"A creative act is when you do something meaningful, spontaneous and unexpected."
 Elevator Music	"Elevator music is soft, boring, inoffensive music that plays in elevators. Phil and Art want the play to be a bit more exciting."
 lovecraft	"HP Lovecraft is an eponymous writer of horror stories."
 philistine	"A philistine is someone who doesn't appreciate the arts."
@@ -10059,7 +10064,7 @@ check going nowhere in discussion block:
 		say "No sense searching for Art or Phil or the Creativity Block. You might even get lost and stumble on the Arguments Block, which would be horrible." instead;
 	if art is in lalaland or phil is in lalaland:
 		say "Searching for Creativity Block, where [if art is in lalaland]Art[else]Phil[end if] went, would be counterproductive." instead;
-	say "'Looking for the culture counter? I don't think you have the knowledge,' says [a-p].[paragraph break]The only way is back west." instead;
+	say "A wall that way would block stumbling. You can only go back west." instead;
 
 to say a-p:
 	say "[one of]Art[or]Phil[in random order]"
@@ -10094,7 +10099,7 @@ check going to Discussion Block for the first time:
 	if jump-level < 4:
 		say "[art-phil] / [art-phil] [line break]";
 		wfak;
-		say "The arguers turn to you and introduce themselves as [hi-art-phil] and [hi-art-phil]. They ask if you prefer music or books. You shrug, so they go back to their own arguments.";
+		say "The arguers turn to you and ask if you're here to deliver the new [activation of counterculture]. introduce themselves as [hi-art-phil] and [hi-art-phil]. They ask if you prefer music or books. You shrug, and they mutter you can't even [activation of creative act]. So they go back to arguing.";
 		say "[line break]'[activation of play dumb]! Dumb play!' / 'Could've used a [activation of elevator music].'";
 		wfak;
 
@@ -12670,6 +12675,8 @@ journeyman is a concept in conceptville. Understand "journey man" and "man journ
 
 junk mail is a concept in conceptville. Understand "mail junk" as junk mail. howto is "listen to the [j-co] before figuring the Index puzzle". gtxt is "male junk".
 
+keepin is a concept in conceptville. Understand "pinkie" as keepin. howto is "[j-blab]". gtxt is "pinkie".
+
 kevin spacey is a concept in conceptville. Understand "spacey kevin" as kevin spacey. howto is "[j-blab]". gtxt is "spacy Kevin".
 
 Keyser Soze is a concept in conceptville. Understand "suzy kaiser" and "kaiser suzy" as Keyser Soze. howto is "[j-blab]". gtxt is "Suzy Kaiser".
@@ -12711,6 +12718,8 @@ monte carlo is a concept in conceptville. Understand "carlo monte" as monte carl
 mortify is a concept in conceptville. Understand "mort iffy" and "iffy mort" as mortify. howto is "[j-blab]". gtxt is "iffy Mort".
 
 nihilist is a concept in conceptville. Understand "list neil" and "neil list" as nihilist. howto is "[j-blab]". gtxt is "list Neil".
+
+a thing called no-brew is a concept in conceptville. Understand "bruno" as no-brew. printed name is "no brew". howto is "[j-blab]". gtxt is "Bruno".
 
 Nolan Ryan is a concept in conceptville. Understand "ryan nolan" as nolan ryan. howto is "[j-blab]". gtxt is "Ryan Nolan".
 
@@ -12771,6 +12780,8 @@ restore is a concept in conceptville. Understand "torres" as restore. howto is "
 ring finger is a concept in conceptville. Understand "finger ring" as ring finger. howto is "[j-b4]". gtxt is "finger ring".
 
 rosetta is a concept in conceptville. Understand "rose etta" and "etta rose" as rosetta. howto is "[j-blab]". gtxt is "Etta Rose".
+
+run by is a concept in conceptville. Understand "byron" as run by. howto is "[j-blab]". gtxt is "Byron".
 
 rusty nail is a concept in conceptville. Understand "nail rusty" as rusty nail. howto is "[j-blab]". gtxt is "nail Rusty".
 
@@ -13009,6 +13020,10 @@ Block Creativity is a concept in conceptville. Understand "creativity block" as 
 chamber music is a concept in conceptville. Understand "music chamber" as chamber music. howto is "get rid of Art first in Discussion Block". gtxt is "Music Chamber".
 
 Coals to Newcastle is a concept in conceptville. Understand "new castle to coals" and "newcastle to coals" as Coals to Newcastle. howto is "take song torch". gtxt is "new castle to coals".
+
+counterculture is a concept in conceptville. Understand "counter culture" and "culture counter" as counterculture. howto is "[f-t of discussion block]". gtxt is "Culture Counter".
+
+creative act is a concept in conceptville. Understand "act creative" as creative act. howto is "[f-t of discussion block]". gtxt is "act creative".
 
 Elevator Music is a concept in conceptville. Understand "music elevator" as elevator music. howto is "[f-t of Discussion Block]". gtxt is "music elevator".
 
