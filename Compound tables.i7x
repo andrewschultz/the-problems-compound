@@ -342,6 +342,7 @@ macho-boast
 "The [j-co] disagree on whether [activation of sharp barb] would be worth putting up with her lame gossip."
 "The [j-co] take a minute to [activation of shock jock] in general. It's very disturbing, but you can't put your finger on why."
 "The [j-co] recount how [activation of six-pack] was the SQUAREST Cub Scout pack!"
+"The [j-co] rave how [activation of social norms] enough to get away with being cra-a-a-azy!"
 "The [j-co] act disgusted at the food they [activation of spotted dick] someone eating. Eat a cheeseburger, dude."
 "The [j-co] deride [activation of Sweeney Todd] for his fear of horror movies and barbers."
 "The [j-co] mock [activation of sympathetic] for listening to girls whine about their breakups without getting their phone numbers."

@@ -1925,6 +1925,8 @@ chapter singing
 the block singing rule is not listed in any rulebook.
 
 check singing:
+	if player is in chipper wood:
+		say "It's a nice wood, but despite it being a [activation of woodstock], you aren't really inspired to sing." instead;
 	if player is in Discussion Block:
 		say "[if phil is in Discussion Block]You don't want to hear Phil's critique of your singing[else]You still can't compete with the song torch[end if]." instead;
 	if player has poetic wax:
@@ -3684,6 +3686,7 @@ says mo	"Says mo['] means someone says or talks more, as opposed to Moses being 
 Sharp Barb	"A sharp barb is a stinging, clever insult."
 shock jock	"A shock jock is someone who provides deliberately insulting opinions to a wide audience, often on radio."
 six-pack	"A six-pack usually refers to six cans of beer held together by plastic rings."
+social norms	"social norms is when you [fill-in-here]. nominal fen"
 spencer tracy	"Spencer Tracy was a movie actor/leading man in the 1930's and 40's."
 spotted dick	"Spotted dick is a sort of sweet pudding."
 sweeney todd	"Sweeney Todd was a fictitious murderous barber."
@@ -3700,6 +3703,7 @@ you buy	"A bayou is a tributary (river leading to bigger water), and the reverse
 Character Assassination	"Character assassination is an attempt to tarnish someone's good reputation." [start of chipper wood]
 Play it Cool	"To play it cool is not to lose your temper. Of course, Percy's chase may make you want to lose your temper."
 Sweetheart Deal	"A sweetheart deal is something that works very well for both sides, often obtained unethically. Telling someone to deal often means they have to settle for being ripped off."
+woodstock	"Woodstock was a big several day long music party back in 1970."
 Terminal Illness	"A terminal illness is one which is bound to be fatal. Illness can also mean full of insults, e.g. very 'ill,' as kids these days say. And said, even in my day!" [start of the belt below]
 waste breath	"To waste breath is to speak in vain."
 Fish for a Compliment	"To fish for a compliment is to try to manipulate someone into saying something nice." [start of disposed well]
@@ -11435,7 +11439,9 @@ to view-point:
 		now alt-view is false;
 		move the player to Window Bay, without printing a room description;
 		now the-view-room is map-pinged;
-	say "The vision blurs, and you look up from the View of Points, sadder but hopefully wiser."
+		say "The vision blurs, and you look up from the View of Points, sadder but hopefully wiser.";
+		if last-bad-room is smart street, say "[line break]Note: for rooms you don't stay in, you can type XB to see the explanation.";
+		now last-bad-room is the-view-room;
 
 before switching on the view of points:
 	if current-idea-room is switch-to-bad:
@@ -12314,6 +12320,8 @@ wait your turn is a concept in conceptville. Understand "turn your wait" as wait
 
 wave a flag is a concept in conceptville. Understand "flag a wave" as wave a flag. howto is "wave". gtxt is "flag a wave".
 
+woodstock is a concept in conceptville. Understand "wood stock" and "stock wood" as woodstock. howto is "[fill-in-here] general concepts". gtxt is "stock wood".
+
 section smart street concepts
 
 acceptable is a concept in conceptville. Understand "able except" and "except able" as acceptable. howto is "[x-it of gesture token]". gtxt is "Able... except".
@@ -12821,6 +12829,8 @@ Sharp Barb is a concept in conceptville. Understand "barb sharp" as sharp barb. 
 shock jock is a concept in conceptville. Understand "jock shock" as shock jock. howto is "[j-blab]". gtxt is "jock shock".
 
 six-pack is a concept in conceptville. Understand "pack six" and "six pack" as six-pack. howto is "[j-blab] nominal fen". gtxt is "Pack Six".
+
+social norms is a concept in conceptville. Understand "norms social" as social norms. howto is "[j-blab]". gtxt is "Norm's social".
 
 spencer tracy is a concept in conceptville. Understand "tracy spencer" as spencer tracy. howto is "[j-blab]". gtxt is "Tracy Spencer".
 
