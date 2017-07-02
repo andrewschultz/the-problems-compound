@@ -38,7 +38,7 @@ section compiler limits
 
 use MAX_ACTIONS of 210.
 
-use MAX_OBJECTS of 790.
+use MAX_OBJECTS of 800.
 
 use MAX_SYMBOLS of 24000.
 
@@ -48,7 +48,7 @@ use MAX_PROP_TABLE_SIZE of 310000.
 
 section compiler debug limits - not for release
 
-use MAX_OBJECTS of 820. [+40]
+use MAX_OBJECTS of 840. [+40]
 
 use MAX_SYMBOLS of 27000. [+3000]
 
@@ -807,6 +807,12 @@ check examining alec when accel-ending:
 description of Alec Smart is "[one of]You, Alec Smart, are just sort of average looking. You hope. You guess. But you know people who think they're average are below average, whether or not they know that bit of research.[paragraph break]In any case, looking at yourself tends to make you over-think, and you have enough thinking to do[or]You hope you're un-ugly enough to be a likable everyteen. Others take worse heat for their looks. Not that that makes you feel better[stopping]. You are pretty sure you've got a [if player has bad face]bad face[else]face of loss[end if] on."
 
 volume actions
+
+book meta verbs already in game
+
+report restoring the game:
+	say "Story restore![paragraph break]";
+	continue the action;
 
 book redefining verbs
 
@@ -1680,7 +1686,7 @@ check eating:
 		say "You gag on it. What did you expect? As you lose consciousness, you think you see two [activation of devil's food] besides [toad-mb-know], snickering at your naivete, and that they actually CAUGHT someone with that."; [temproom meal square]
 		ship-off Maintenance High instead;
 	if noun is iron waffle:
-		say "No, it's iron." instead;
+		say "No, it's iron. Plus, it's bigger than a whole pie, so how would it fit in your pie hole?" instead;
 	if noun is a person:
 		say "This isn't that sort of game." instead;
 	d "[noun]";
@@ -1926,7 +1932,7 @@ the block singing rule is not listed in any rulebook.
 
 check singing:
 	if player is in chipper wood:
-		say "It's a nice wood, but despite it being a [activation of woodstock], you aren't really inspired to sing." instead;
+		say "It's a nice wood, but despite it being a [activation of woodstock], you aren't really inspired to sing." instead; [temproom chipper wood]
 	if player is in Discussion Block:
 		say "[if phil is in Discussion Block]You don't want to hear Phil's critique of your singing[else]You still can't compete with the song torch[end if]." instead;
 	if player has poetic wax:
@@ -3686,7 +3692,7 @@ says mo	"Says mo['] means someone says or talks more, as opposed to Moses being 
 Sharp Barb	"A sharp barb is a stinging, clever insult."
 shock jock	"A shock jock is someone who provides deliberately insulting opinions to a wide audience, often on radio."
 six-pack	"A six-pack usually refers to six cans of beer held together by plastic rings."
-social norms	"social norms is when you [fill-in-here]. nominal fen"
+social norms	"Social norms are what is generally expected of people's behavior."
 spencer tracy	"Spencer Tracy was a movie actor/leading man in the 1930's and 40's."
 spotted dick	"Spotted dick is a sort of sweet pudding."
 sweeney todd	"Sweeney Todd was a fictitious murderous barber."
@@ -3697,6 +3703,7 @@ terabyte	"A terabyte is a large amount of memory: specifically, 2^40 bytes."
 teriyaki	"Teriyaki is a Japanese sauce, or it can be meat cooked in that sauce over an open grill."
 terrapin	"A terrapin is a fancy name for a turtle, which is slow and has a shell."
 tiebreaker	"A tiebreaker is something used to separate two teams or people that are evenly matched."
+turret	"turret is when you [fill-in-here]. nominal fen"
 water sports	"Water sports is...well, visit Urban Dictionary to learn it's more than just water polo."
 whistler's mother	"Whistler's Mother is a famous painting of an old lady, the mother of the artist."
 you buy	"A bayou is a tributary (river leading to bigger water), and the reverse pronunciation is 'you buy.'"
@@ -12320,8 +12327,6 @@ wait your turn is a concept in conceptville. Understand "turn your wait" as wait
 
 wave a flag is a concept in conceptville. Understand "flag a wave" as wave a flag. howto is "wave". gtxt is "flag a wave".
 
-woodstock is a concept in conceptville. Understand "wood stock" and "stock wood" as woodstock. howto is "[fill-in-here] general concepts". gtxt is "stock wood".
-
 section smart street concepts
 
 acceptable is a concept in conceptville. Understand "able except" and "except able" as acceptable. howto is "[x-it of gesture token]". gtxt is "Able... except".
@@ -12852,6 +12857,8 @@ terrapin is a concept in conceptville. Understand "pin tera" and "tera pin" as t
 
 tiebreaker is a concept in conceptville. Understand "Ty Breaker" and "Breaker Ty" as tiebreaker. howto is "[j-blab]". gtxt is "Breaker Ty".
 
+turret is a concept in conceptville. Understand "ritter" as turret. howto is "[fill-in-here] nominal fen". gtxt is "ritter".
+
 water sports is a concept in conceptville. Understand "sports water" as water sports. howto is "[j-blab]". gtxt is "Sports Water".
 
 whistler's mother is a concept in conceptville. Understand "mother whistlers/whistler's/whistler" and "whistler/whitler's mother" as whistler's mother. howto is "[j-blab]". gtxt is "mother whistlers".
@@ -12864,7 +12871,9 @@ character assassination is a concept in conceptville. Understand "assassination 
 
 Play it Cool is a concept in conceptville. Understand "cool it play" as play it cool. howto is "attack Cute Percy". gtxt is "Cool it! Play".
 
-Sweetheart deal is a concept in conceptville. Understand "deal sweetheart" as sweetheart deal. howto is "run from Chipper Wood before catching Cute Percy". gtxt is "Deal, sweetheart".
+sweetheart deal is a concept in conceptville. Understand "deal sweetheart" as sweetheart deal. howto is "run from Chipper Wood before catching Cute Percy". gtxt is "Deal, sweetheart".
+
+Woodstock is a concept in conceptville. Understand "wood stock" and "stock wood" as woodstock. howto is "[fill-in-here] general concepts". gtxt is "stock wood".
 
 section the belt below concepts
 

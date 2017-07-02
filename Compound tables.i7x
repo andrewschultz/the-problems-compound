@@ -351,6 +351,7 @@ macho-boast
 "The [j-co] stage-whisper that [activation of teriyaki]'s conversation is neither spicy nor meaty."
 "The [j-co] [activation of terrapin] as someone who needs to come out of her shell and live faster."
 "The [j-co] applaud [activation of tiebreaker] for beating up people who argue too long."
+"The [j-co] cluck at how [activation of turret] wants to live in a full castle."
 "The [j-co] wonder which brand of [activation of water sports] gives you the most, uh, prowess."
 "The [j-co] laugh at [activation of whistler's mother] who find true beauty in older females, like, over thirty." [todo: slowin' homer]
 "The [j-co] agree Erwin is just a total loser name." [na winner]
