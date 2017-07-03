@@ -3703,7 +3703,7 @@ terabyte	"A terabyte is a large amount of memory: specifically, 2^40 bytes."
 teriyaki	"Teriyaki is a Japanese sauce, or it can be meat cooked in that sauce over an open grill."
 terrapin	"A terrapin is a fancy name for a turtle, which is slow and has a shell."
 tiebreaker	"A tiebreaker is something used to separate two teams or people that are evenly matched."
-turret	"turret is when you [fill-in-here]. nominal fen"
+turret	"A turret is a small tower, or a side compartment to a plane."
 water sports	"Water sports is...well, visit Urban Dictionary to learn it's more than just water polo."
 whistler's mother	"Whistler's Mother is a famous painting of an old lady, the mother of the artist."
 you buy	"A bayou is a tributary (river leading to bigger water), and the reverse pronunciation is 'you buy.'"
@@ -3724,7 +3724,7 @@ grace period	"A grace period is time given for someone to learn or understand so
 personality cult	"A personality cult is when someone uses a forceful personality to control how others think. It is hard to leave. It can range in size from Jonestown to Stalin in the USSR."
 assembly line	"An assembly line is where each person or machine has a specific sub-job in creating a larger product." [start of truth home]
 ideological	"Ideological means fixated on specific political ideas and not willing to listen to others."
-loser	"loser is when you [fill-in-here]. truth home"
+loser	"A loser is someone who gets things wrong all the time."
 mass production	"Mass production is a procedure of efficiently creating many of the same thing using standardized design."
 pathologic	"Pathologic behavior is compulsive and anti-social."
 psychotherapy	"Psychotherapy is seeing a trained professional for emotional and mental issues."
@@ -3893,6 +3893,7 @@ Tucker Max	"Tucker Max was alleged to have spanwed the 'fratire' genre, which fe
 Wallace Shawn	"Wallace Shawn is the actor who played Vizzini ('INCONCEIVABLE!') in The Princess Bride. He's also a critically acclaimed writer."
 Wire Fraud	"Wire fraud is a financial crime designed to cheat people out of money."
 zeroin	"To zero in is to focus, and you do, on getting out of the Break Jail."
+mystify	"To mystify is to confuse someone greatly." [start of out mist]
 case insensitive	"Case insensitive means not worrying if a letter is in upper or lower case. In other words, not needing caps-lock." [start of airy station]
 clear waivers	"To clear waivers in pro sports is when your team releases you and no other team signs you."
 gangplank	"A gangplank leads out of a boat and into the sea. So it is a method of killing prisoners no longer useful." [start of criminals' harbor]
@@ -10983,7 +10984,7 @@ every turn when player is in out mist (this is the ring clue rule):
 		say "If you had a cell phone, maybe someone would call you with an idea. Whether it was on vibrate, or it was more audible.";
 
 check going nowhere in Out Mist:
-	say "No. This is the first place you stumbled on, and getting more or less lost both seem equally bad." instead;
+	say "It's not an [activation of mystify]. You might not find your way back, and the worm ring seems important." instead;
 
 check going inside in out mist:
 	try entering worm ring instead;
@@ -12860,7 +12861,7 @@ terrapin is a concept in conceptville. Understand "pin tera" and "tera pin" as t
 
 tiebreaker is a concept in conceptville. Understand "Ty Breaker" and "Breaker Ty" as tiebreaker. howto is "[j-blab]". gtxt is "Breaker Ty".
 
-turret is a concept in conceptville. Understand "ritter" as turret. howto is "[fill-in-here] nominal fen". gtxt is "ritter".
+turret is a concept in conceptville. Understand "ritter" as turret. howto is "[j-blab]". gtxt is "ritter".
 
 water sports is a concept in conceptville. Understand "sports water" as water sports. howto is "[j-blab]". gtxt is "Sports Water".
 
@@ -13292,6 +13293,8 @@ Wire Fraud is a concept in conceptville. Understand "fraud wire" as Wire Fraud. 
 zeroin is a privately-named concept in conceptville. printed name is "zero in". Understand "in zero" and "zero in" as zeroin. howto is "[ok-end]". gtxt is "IN, ZERO".
 
 section out mist concepts
+
+mystify is a concept in conceptville. Understand "mist iffy" and "iffy mist" as mystify. howto is "go nowhere in Out Mist". gtxt is "iffy mist".
 
 section airy station concepts
 
