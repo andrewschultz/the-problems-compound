@@ -398,8 +398,8 @@ sub alfTrack
 
 sub countChunks
 {
+  my %titles;
   my @sizes;
-  my @titles;
   my @actsizes;
   my @goodies;
   my $totalWords;
@@ -409,15 +409,16 @@ sub countChunks
   open(A, "$output");
   while ($a = <A>)
   {
-    if ($a =~ /==Found/i) { chomp($a); $b = $a; $b =~ s/.*for //g; $a =~ s/\/.*//g; $a =~ s/.* //g; push(@sizes, $a); push(@titles, $b); }
+    if ($a =~ /==Found/i) { chomp($a); $b = $a; $b =~ s/.*for //g; $a =~ s/\/.*//g; $a =~ s/.* //g; push(@sizes, $a); $titles{$b} = $a; }
   }
   close(A);
 
   if ($#sizes > -1)
   {
-    if ($alphabetical) { @titles = sort (@titles); }
-	my $temp = $#titles + 1;
-    print "Words to finagle ($temp): " . join(", ", @titles) . "\n";
+	my $temp = scalar keys %titles;
+	print "$temp total words.\n";
+    print "Alphabetical list: " . join(", ", sort keys %titles) . "\n";
+    print "By-size list: " . join(", ", sort { $titles{$a} <=> $titles{$b} } keys %titles) . "\n";
   }
 
   open(A, "$output");
@@ -492,19 +493,28 @@ sub idiomSearch
 
 sub countURLs
 {
-  my $urls = 0;
+  my %urls;
+  my $thisUrl;
+
   open(A, "$track");
   while ($a = <A>)
   {
-    if ($a =~ /idioms.thefreedictionary.com/) { $urls++; }
+    if ($a =~ /idioms.thefreedictionary.com/)
+	{
+	  chomp($a);
+	  $thisUrl = $a;
+	  $thisUrl =~ s/.*[\\\/]//;
+	  $urls{$thisUrl} = 1;
+    }
   }
-  if (!$urls)
+  my $temp = scalar keys %urls;
+  if ($temp == 0)
   {
     print "All URLs checked.\n";
   }
   else
   {
-    print "$urls total URLs to check.\n";
+    print "$temp total URLs to check: " . (join(", ", sort keys %urls)) . "\n";
   }
   close(A);
 }
