@@ -3893,7 +3893,8 @@ Tucker Max	"Tucker Max was alleged to have spanwed the 'fratire' genre, which fe
 Wallace Shawn	"Wallace Shawn is the actor who played Vizzini ('INCONCEIVABLE!') in The Princess Bride. He's also a critically acclaimed writer."
 Wire Fraud	"Wire fraud is a financial crime designed to cheat people out of money."
 zeroin	"To zero in is to focus, and you do, on getting out of the Break Jail."
-mystify	"To mystify is to confuse someone greatly." [start of out mist]
+mistracing	"Mistracing means to trace incorrectly. In this case, to trace your way back to the worm ring." [start of out mist]
+mystify	"To mystify is to confuse someone greatly."
 case insensitive	"Case insensitive means not worrying if a letter is in upper or lower case. In other words, not needing caps-lock." [start of airy station]
 clear waivers	"To clear waivers in pro sports is when your team releases you and no other team signs you."
 gangplank	"A gangplank leads out of a boat and into the sea. So it is a method of killing prisoners no longer useful." [start of criminals' harbor]
@@ -10984,7 +10985,7 @@ every turn when player is in out mist (this is the ring clue rule):
 		say "If you had a cell phone, maybe someone would call you with an idea. Whether it was on vibrate, or it was more audible.";
 
 check going nowhere in Out Mist:
-	say "It's not an [activation of mystify]. You might not find your way back, and the worm ring seems important." instead;
+	say "It's not an [activation of mystify]. You might not find your way back, since it's a [activation of mistracing] that swirls all over, and the worm ring seems important." instead;
 
 check going inside in out mist:
 	try entering worm ring instead;
@@ -13294,7 +13295,9 @@ zeroin is a privately-named concept in conceptville. printed name is "zero in". 
 
 section out mist concepts
 
-mystify is a concept in conceptville. Understand "mist iffy" and "iffy mist" as mystify. howto is "go nowhere in Out Mist". gtxt is "iffy mist".
+mistracing is a concept in conceptville. Understand "mist racing" and "racing mist" as mistracing. howto is "[nogo of Out Mist]". gtxt is "racing mist".
+
+mystify is a concept in conceptville. Understand "mist iffy" and "iffy mist" as mystify. howto is "[nogo of Out Mist]". gtxt is "iffy mist".
 
 section airy station concepts
 
@@ -13433,6 +13436,9 @@ after reading a command:
 			change the text of the player's command to "note [the player's command]";
 	if player is in out mist:
 		if the player's command includes "mist":
+			if word number 1 in the player's command is "take":
+				say "That's not easy, and it'd be, well, a mistake.";
+				reject the player's command;
 			unless the player's command includes "xp" or the player's command includes "explain":
 				say "The mist doesn't seem as important as the ring." instead;
 		if the player's command matches the regular expression "^ring<a-z>":
