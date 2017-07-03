@@ -87,6 +87,7 @@ sid-sez
 "Sid takes an annoying stance espousing a political view you're opposed to, then an almost as annoying stance explaining one you agree with. You feel biased not being as appalled the second time."
 "Sid argues TS Eliot really is toilets spelled backwards, because the TS should go together being in caps, and anyway, there aren't enough palindromes in the world."
 "Sid wonders why people would spend ten minutes listening to a sermon in church. You mentally calculate how long you've been around him, or worse, how long Lee has."
+"Sid wonders if he should be called something more formal, like [activation of loser]."
 "Sid is sure Ã‰variste Galois was smart to figure out all that stuff by the age of 21, but he was kind of dumb to get killed at 21 too, amirite?"
 "Sid wonders if maybe mathematicians are being lazy about finding a quintic formula, though he can't even remember the quadratic, and he remembers the cubic formula was really messy."
 "Sid doesn't fully believe in Godel's Incompleteness theorem. Perhaps mathematicians aren't trying hard enough to figure things out, or there's a conspiracy to keep cushy tenured jobs."

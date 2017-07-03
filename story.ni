@@ -40,7 +40,7 @@ use MAX_ACTIONS of 210.
 
 use MAX_OBJECTS of 800.
 
-use MAX_SYMBOLS of 24000.
+use MAX_SYMBOLS of 25000.
 
 use MAX_STATIC_DATA of 200000.
 
@@ -50,7 +50,7 @@ section compiler debug limits - not for release
 
 use MAX_OBJECTS of 840. [+40]
 
-use MAX_SYMBOLS of 27000. [+3000]
+use MAX_SYMBOLS of 28000. [+3000]
 
 use MAX_PROP_TABLE_SIZE of 330000. [+20000]
 
@@ -3724,6 +3724,7 @@ grace period	"A grace period is time given for someone to learn or understand so
 personality cult	"A personality cult is when someone uses a forceful personality to control how others think. It is hard to leave. It can range in size from Jonestown to Stalin in the USSR."
 assembly line	"An assembly line is where each person or machine has a specific sub-job in creating a larger product." [start of truth home]
 ideological	"Ideological means fixated on specific political ideas and not willing to listen to others."
+loser	"loser is when you [fill-in-here]. truth home"
 mass production	"Mass production is a procedure of efficiently creating many of the same thing using standardized design."
 pathologic	"Pathologic behavior is compulsive and anti-social."
 psychotherapy	"Psychotherapy is seeing a trained professional for emotional and mental issues."
@@ -10959,6 +10960,8 @@ part Out Mist
 
 Out Mist is a room in Endings. "It's very misty here, but you can still see a worm ring nearby. At the moment, it's cannibalizing itself too much to be whole.[paragraph break]It's silent here and tough to see, but you're pretty sure your pursuers aren't approaching any more."
 
+understand "tickle mist" as a mistake ("You don't feel anything deep or wonderful.") when player is in Out Mist.
+
 before talking to the ring:
 	say "The ring reveals no hints as to what it should be." instead;
 
@@ -12908,6 +12911,8 @@ section truth home concepts
 assembly line is a concept in conceptville. Understand "line assembly" as assembly line. howto is "give Lee the rattle". gtxt is "line assembly".
 
 ideological is a concept in conceptville. Understand "logical idea" and "idea logical" as ideological. howto is "listen to all of Sid Lew's advice". gtxt is "Logical idea".
+
+loser is a concept in conceptville. Understand "lew seer" and "seer lew" as loser. howto is "listen to Sid Lew's advice (random)". gtxt is "Seer Lew".
 
 mass production is a concept in conceptville. Understand "production mass" as mass production. howto is "give Lee the rattle". gtxt is "Production mass".
 
