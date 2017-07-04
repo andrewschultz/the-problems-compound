@@ -2173,6 +2173,8 @@ check attacking:
 	if noun is a bro:
 		say "'Silently, [noun] grabs you. [if bros-left is 1]Even without his brothers, it's a quick affair[else]His brothers hold you[end if]. He's apologetic--but he'd have liked to work with you, and violence is violence, and his job is his job. He realizes he is not so important, but anyone trying to break past him must have SOMETHING bad on their mind.";
 		ship-off Punishment Capitol instead;
+	if noun is spoon table:
+		say "Making a [activation of hash table] would not be [activation of order n]. Err, in order." instead; [temproom Meal Square]
 	if noun is list bucket:
 		say "You didn't come so far only to -- wait for it -- kick the bucket. Surely there's a better way to get the [bad-guy]'s attention." instead;
 	if noun is scenery and noun is in freak control:
@@ -3501,11 +3503,13 @@ food for thought	"Food for thought is something to think about. Thought for food
 Forgive	"Forgive is a clue as to whom to give the mint to, but the person must be forgivable."
 gobbling down	"Gobbling down is eating food quickly."
 Growing Pains	"Growing pains are temporary setbacks that help you get going. Pain's growing is just a complaint."
+hash table	"A hash table is used in computer programming as a way to relate non-number values quickly to other things, e.g. people to phone numbers--it's a bit more advanced than arrays."
 house special	"The house special is an item on the menu priced to attract people. It is different from the Specialty of the House."
 impaler	"An impaler is someone who kills people with sharp objects like swords."
 just deserts	"Just deserts means getting what you deserve. After eating the 'sophisticated' cheese, Alec doesn't deserve to enjoy other foods."
 loaf around	"To loaf around is to wait with no real purpose."
 No-Shame	"No shame means a person isn't embarrassed by anything to the point where it's dangerous. The reverse (Shame? No!) is more, there's a healthier way to look at things than through shame."
+order n	"Order n is computer science terminology for taking linear time. For instance, some sorting functions are array n-squared, and some are n log n."
 pig out	"To pig out is to eat everything you see. The reverse is an admonishment to leave."
 potty	"A potty is a kids['] word for where you go to the bathroom."
 quarter pounder	"A quarter pounder is a popular burger at McDonalds."
@@ -3588,6 +3592,7 @@ Cary Grant	"Cary Grant is a movie star from the 40s and 50s."
 case sensitive	"Case sensitive means paying attention to capitalization."
 casually	"Casually means not really in-depth."
 category	"A category is a logical class to divide someone into. In here, Kate fits into an obvious one, but she doesn't quite live up or down to it."
+caveman	"A caveman is a pejorative term for someone not very advanced, or someone who doesn't care about their appearance."
 cirrhosis	"Cirrhosis is a disease of the liver, often bought on by drinking."
 clean break	"A clean break from something is leaving quickly and for good. The jerks haven't broken with their 'clean' secrets yet."
 co-ed	"Co-ed means having males and females in classes together."
@@ -12430,6 +12435,8 @@ gobbling down is a concept in conceptville. Understand "goblin down" and "down g
 
 growing pains is a concept in conceptville. Understand "pain/pains growing" and "growing pain" as growing pains. howto is "eat the offcheese". gtxt is "Pain's growing".
 
+hash table is a concept in conceptville. Understand "table hash" as hash table. howto is "attack the spoon table in Meal Square". gtxt is "table hash".
+
 house special is a concept in conceptville. Understand "special house" as house special. howto is "smell Tray B". gtxt is "special house".
 
 impaler is a concept in conceptville. Understand "imp paler" and "paler imp" as impaler. howto is "visit Meal Square with Terry Sally around". gtxt is "paler imp".
@@ -12439,6 +12446,8 @@ just deserts is a concept in conceptville. Understand "deserts just" as just des
 Loaf Around is a concept in conceptville. Understand "round loaf" and "loaf round" as loaf around. howto is "wait in Meal Square". gtxt is "a round loaf".
 
 No-Shame is a concept in conceptville. printed name is "no shame". Understand "no shame" as No-Shame. howto is "[x-it of condition mint]". gtxt is "SHAME? NO".
+
+order n is a concept in conceptville. Understand "n order" as order n. howto is "attack the spoon table in Meal Square". gtxt is "n order".
 
 pig out is a concept in conceptville. Understand "out pig" as pig out. howto is "TAKE ALL in Meal Square". gtxt is "OUT, PIG".
 
@@ -12631,6 +12640,8 @@ case sensitive is a concept in conceptville. Understand "sensitive case" as case
 casually is a concept in conceptville. Understand "julie kaz" and "kaz julie" as casually. howto is "[j-blab]". gtxt is "Julie Kaz".
 
 category is a concept in conceptville. Understand "gory kate" and "kate gory" as category. howto is "[j-blab]". gtxt is "Gory Kate".
+
+caveman is a concept in conceptville. Understand "cave man" and "man cave" as caveman. howto is "[j-blab]". gtxt is "man cave".
 
 cirrhosis is a concept in conceptville. Understand "roses sir" and "sir roses" as cirrhosis. howto is "[j-blab]". gtxt is "Roses, sir".
 
@@ -12878,7 +12889,7 @@ Play it Cool is a concept in conceptville. Understand "cool it play" as play it 
 
 sweetheart deal is a concept in conceptville. Understand "deal sweetheart" as sweetheart deal. howto is "run from Chipper Wood before catching Cute Percy". gtxt is "Deal, sweetheart".
 
-Woodstock is a concept in conceptville. Understand "wood stock" and "stock wood" as woodstock. howto is "[fill-in-here] general concepts". gtxt is "stock wood".
+Woodstock is a concept in conceptville. Understand "wood stock" and "stock wood" as woodstock. howto is "sing in Chipper Wood". gtxt is "stock wood".
 
 section the belt below concepts
 

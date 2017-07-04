@@ -47,6 +47,7 @@ my $addedSomething = 0;
 my $shouldAlphabetize = 0;
 my $count = 0;
 my $wordsAdded = 0;
+my $urlsAdded = 0;
 my $warn = 0;
 
 while ($count <= $#ARGV)
@@ -138,9 +139,18 @@ if ($shouldSort || $autoSort)
   if ($shouldAlphabetize) { alfTrack(); }
   countChunks();
   countURLs();
-  print "$wordsAdded word";
-  if ($wordsAdded != 1) { print "s"; }
-  print " added total.\n";
+  if ($wordsAdded)
+  {
+    print "$wordsAdded word";
+    print "s" if ($wordsAdded != 1);
+    print " added total.\n";
+  }
+  if ($urlsAdded)
+  {
+    print "$urlsAdded URL";
+    print "s" if ($urlsAdded != 1);
+    print " added total.\n";
+  }
 }
 
 ###########################################
@@ -228,7 +238,7 @@ if (!$isDone{$flip})
 {
 open(C, ">>$track");
 print C "========$flip\n";
-if ($dicURLPrint) { print C "CHECK http:\/\/idioms.thefreedictionary.com\/$flip\n"; }
+if ($dicURLPrint) { print C "CHECK http:\/\/idioms.thefreedictionary.com\/$flip\n"; $urlsAdded++; }
 } else { print "Not adding $flip to fliptrack.txt.\n"; }
 
 close(C);
@@ -420,6 +430,10 @@ sub countChunks
     print "Alphabetical list: " . join(", ", sort keys %titles) . "\n";
     print "By-size list: " . join(", ", sort { $titles{$a} <=> $titles{$b} } keys %titles) . "\n";
   }
+  else
+  {
+    print "All words checked.\n";
+  }
 
   open(A, "$output");
   while ($a = <A>)
@@ -432,7 +446,7 @@ sub countChunks
   if ($#actsizes != $#sizes) { die "================\nWARNING: size arrays not equal. This shouldn't happen, but it did. Likely problem is deleting ===found line.\n================I can't read the data, so I'm bailing.\n================\n"; }
   if ($#sizes > -1)
   {
-    print "Chunk sizes: ";
+    print "Chunk sizes (2 words/1): ";
     for (0..$#actsizes)
 	{
       if ($_ > 0) { print ", "; }
@@ -495,10 +509,12 @@ sub countURLs
 {
   my %urls;
   my $thisUrl;
+  my $urlsFound = 0;
 
   open(A, "$track");
   while ($a = <A>)
   {
+    if ($a =~ /^=/) { $urlsFound++; }
     if ($a =~ /idioms.thefreedictionary.com/)
 	{
 	  chomp($a);
@@ -516,6 +532,7 @@ sub countURLs
   {
     print "$temp total URLs to check: " . (join(", ", sort keys %urls)) . "\n";
   }
+  print "$urlsFound total URLs found by this script.\n";
   close(A);
 }
 

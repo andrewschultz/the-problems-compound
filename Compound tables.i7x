@@ -256,6 +256,7 @@ macho-boast
 "The [j-co] mock a [activation of case sensitive]'s lousy, and randomly capitalized, poetry."
 "The [j-co] claim to want to get to know [activation of casually] better."
 "The [j-co] praise [activation of category] as less weird than she should be on paper."
+"The [j-co] ooh and ahh about a sophisticated [activation of caveman]."
 "The [j-co] banter about when they will be able to buy alcohol with a fake ID, or even legally. Then everything's [activation of cirrhosis]!"
 "The [j-co] marvel at what a ladies['] man [activation of co-ed] is when he comes home from the military boarding school."
 "The [j-co] mentiones [activation of cojones] sells such boring stuff. Jones is such a common last name!"
