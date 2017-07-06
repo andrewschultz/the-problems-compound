@@ -3307,6 +3307,7 @@ a side stand	"To stand aside is to get out of the way."	"I had trouble with what
 trail paper	"A paper trail is evidence in white-collar crimes. People often have to piece it together."	--
 assignment plum	"A plum assignment is giving someone a particularly prestigious, noticeable, easy or lucrative job. It's one everyone wants." [start of meal square]
 basted lamb	"To be lambasted is to be yelled at very loudly."
+charred pie	"A pie chart is a graphic that represents percents as part of a pie/circle divided into arcs."
 condition mint	"Mint condition is brand new."	"The mint was buggy until release 3, but it was one of the first foods that made me realize Meal Square could be an important location."
 cutter cookie	"Cookie-cutter means predictable and formulaic."	"I wound up getting rid of most of the foods I planned for release 1, but I added the whole 'Alec goes bad' on a whim and it went pretty well."
 gagging lolly	"Lollygagging is waiting around."	"This is one of the worst puns with the silliest deaths. I'm proud of it!"
@@ -3494,6 +3495,7 @@ apple pie order	"Apple-Pie Order means very well organized." [start of meal squa
 arch deluxe	"The Arch Deluxe was a menu item at McDonald's that was advertised heavily but sold poorly."
 astray	"Tray S is astray. In other words, it strayed from Meal Square."
 Bowled Over	"Bowled over means unable to deal with things. Over-bold means too confident."
+caveat	"caveat is when you [fill-in-here]. meal square"
 coffee break	"A coffee break is when someone drinks coffee while away from work. Break Coffee is about getting very type a."
 defeat	"Defeat is, well, a clue you'll lose the game existentially if you eat any of the foods on Tray B."
 devil's food	"Devil's food is a rich chocolate layer cake."
@@ -6569,7 +6571,7 @@ check going west in pressure pier:
 			now thought for food is in lalaland;
 			say "Terry Sally coughs. 'That's Meal Square. Nice if you've got a thought for food[activation of food for thought]. Not much crazy to do there. That's why the [bad-guy] got rid of that [activation of impaler], the [activation of gobbling down].'";
 
-Meal Square is west of Pressure Pier. Meal Square is in Outer Bounds. "This is a small alcove with Pressure Pier back east. There's not much decoration except a picture of a dozen bakers."
+Meal Square is west of Pressure Pier. Meal Square is in Outer Bounds. "This is a small alcove with Pressure Pier back east. You would call it an [activation of caveat], but ...[paragraph breka]There's not much decoration except a picture of a dozen bakers."
 
 after printing the locale description for meal square when meal square is unvisited:
 	if allow-swears is true:
@@ -12416,6 +12418,8 @@ arch deluxe is a concept in conceptville. Understand "deluxe arch" as arch delux
 astray is a concept in conceptville. understand "tray s" and "s tray" as astray. howto is "enter Meal Square". gtxt is "Tray S".
 
 bowled over is a concept in conceptville. understand "over bold" and "bold over" as bowled over. howto is "eat any Tray B food". gtxt is "over-bold".
+
+caveat is a concept in conceptville. Understand "cave eat" and "eat cave" as caveat. howto is "[f-t of meal square]". gtxt is "eat cave".
 
 coffee break is a concept in conceptville. Understand "break coffee" as coffee break. howto is "eat the cutter cookie". gtxt is "Break Coffee".
 
