@@ -81,6 +81,7 @@ table of incisive sid viewpoints [xxisv]
 sid-sez
 "Sid spews a [activation of showerproof] of all sorts of things that can't be true. You wipe a bit of his spittle off your arm."
 "Sid points out it's really probably better to be a jerk than not, because fake nice is really really creepy. Lee asks if it's the same for fake interesting. 'A-HA! I KNEW YOU WEREN'T NICE!'"
+"Sid mentions you can't call him [activation of Sid Vicious] because he keeps punks in line FAIRLY."
 "Sid puts down Lee and notes your silence is agreement. But Lee has a comeback--and Sid notes your silence (again) as disbelief."
 "Sid throws the old chestnut about how immovable objects and unstoppable forces can't both exist at once to prove an omniscient God is a contradiction."
 "Sid proves scientists are lazy because they just aren't making enough elements quick enough. Chiseling from the government, really. Also, scientists are arrogant because they name elements after other scientists and not, like, pop culture."
@@ -241,6 +242,7 @@ macho-boast
 "The [j-co] revel in how [activation of beer guts] helps you get out there and DO super man stuff."
 "The [j-co] sneer about how [activation of Benedict Arnold] is too square to rebel, like, EVER."
 "The [j-co] rave about how  [activation of benevolent] is snarky to people for their own good."
+"The [j-co] praise [activation of benjamin]'s dance shows."
 "The [j-co] take time to [activation of bernoulli] math and science dorks."
 "The [j-co] wrestle over the sensitivest way to compliment a girl on a [activation of body slamming]."
 "The [j-co] laud [activation of bognor regis] for his hilarious fake British accent."
@@ -258,6 +260,7 @@ macho-boast
 "The [j-co] praise [activation of category] as less weird than she should be on paper."
 "The [j-co] ooh and ahh about a sophisticated [activation of caveman]."
 "The [j-co] banter about when they will be able to buy alcohol with a fake ID, or even legally. Then everything's [activation of cirrhosis]!"
+"The [j-co] whistle at the smoothness of the total EXPERTS and MASTERS in the [activation of club players]."
 "The [j-co] marvel at what a ladies['] man [activation of co-ed] is when he comes home from the military boarding school."
 "The [j-co] mentiones [activation of cojones] sells such boring stuff. Jones is such a common last name!"
 "The [j-co] voice a wish to work for [activation of commie] one day. Opportunity!"
@@ -269,6 +272,7 @@ macho-boast
 "The [j-co] whisper about a relaxing new drug called [activation of dust up]."
 "The [j-co] mock [activation of ebay]'s idea for making money on the internet."
 "The [j-co] agree that [activation of electrocute] isn't, like, LETHALLY hot."
+"The [j-co] berate [activation of enhance] for never getting better."
 "The [j-co] wonder how [activation of evidence] can't take a hint."
 "The [j-co] wonder where the heck new kid [activation of expat] is from."
 "The [j-co] try to be charitable and think of girls ranked [activation of flounder] on their beauty scale."
@@ -276,6 +280,7 @@ macho-boast
 "The [j-co] are glad they're nowhere near as lame as [activation of gangbusters]. Not Buster Ball, of course."
 "The [j-co] express admiration for [activation of glenn beck]'s ability to shoot down crackpot conspiracy theories."
 "The [j-co] agree [activation of gorgeous] is not very attractive."
+"The [j-co] mock the dorks who tried to get into the oh-so-fun [activation of halfling]."
 "The [j-co] rave how full of life [activation of hara-kiri] is."
 "The [j-co] recount [activation of henry clay]'s prank on the dork figureheads in the school's student government."
 "The [j-co] wish [activation of hidey hole] would be less outgoing about her prudishness."
@@ -310,6 +315,7 @@ macho-boast
 "The [j-co] harbor fantasies of [activation of mollycoddling], who is maybe not as wild as they pretend she is."
 "The [j-co] agree [activation of Monte Carlo] doesn't like leaving things to chance or doing the same thing over and over again."
 "The [j-co] agree [activation of mortify] is only iffy if you're easily offended."
+"The [j-co] figure there won't be any crowding at [activation of musical chairs]."
 "The [j-co] [activation of nihilist] among people with a real purpose."
 "The [j-co] mention [activation of no-brew] as their hookup for alcohol."
 "The [j-co] can't imagine the [activation of nookie] is a lot of fun."
@@ -355,14 +361,17 @@ macho-boast
 "The [j-co] applaud [activation of tiebreaker] for beating up people who argue too long."
 "The [j-co] cluck at how [activation of turret] wants to live in a full castle."
 "The [j-co] wonder which brand of [activation of water sports] gives you the most, uh, prowess."
+"The [j-co] laugh it's [activation of Wesley So] to make fun of the really dedicated chess dorks."
 "The [j-co] laugh at [activation of whistler's mother] who find true beauty in older females, like, over thirty." [todo: slowin' homer]
 "The [j-co] agree Erwin is just a total loser name." [na winner]
 "The [j-co] agree Gerda would never knife you in the back." [na dagger]
 "The [j-co] applaud Roxy for being UNCOPYABLE." [na xerox]
 "The [j-co] are glad Becky is 100% American!" [na quebec]
 "The [j-co] are sorry, but they don't find Delma attractive." [na model]
+"The [j-co] argue pointlessly over if a girl is pretty plain or plain pretty." [na pretty plain]
 "The [j-co] can only WHISPER what Elaine likes." [na anal]
 "The [j-co] can't believe how low-maintenance Mandy is." [na demand]
+"The [j-co] debate the best time to play a certain MP3." [na 3pm]
 "The [j-co] don't find Tony terribly interesting." [na neato]
 "The [j-co] find Keesha solid." [na shaky]
 "The [j-co] find Noemi way too nice." [na mean-o]
@@ -394,7 +403,6 @@ macho-boast
 "The [j-co] wonder why Golda is so planless." [na da goal]
 "The [j-co] wonder why Patti likes silverware so much." [na teapot]
 "The [j-co], in a soft moment, talk up Elsie, the new animal in the zoo." [na seal]
-"The [j-co] argue pointlessly over if a girl is pretty plain or plain pretty." [na]
 
 part freak control
 

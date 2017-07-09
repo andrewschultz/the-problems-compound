@@ -3495,7 +3495,7 @@ apple pie order	"Apple-Pie Order means very well organized." [start of meal squa
 arch deluxe	"The Arch Deluxe was a menu item at McDonald's that was advertised heavily but sold poorly."
 astray	"Tray S is astray. In other words, it strayed from Meal Square."
 Bowled Over	"Bowled over means unable to deal with things. Over-bold means too confident."
-caveat	"caveat is when you [fill-in-here]. meal square"
+caveat	"A caveat is a stated warning or exception. In other words, something works well, except for certain cases."
 coffee break	"A coffee break is when someone drinks coffee while away from work. Break Coffee is about getting very type a."
 defeat	"Defeat is, well, a clue you'll lose the game existentially if you eat any of the foods on Tray B."
 devil's food	"Devil's food is a rich chocolate layer cake."
@@ -3505,6 +3505,7 @@ food for thought	"Food for thought is something to think about. Thought for food
 Forgive	"Forgive is a clue as to whom to give the mint to, but the person must be forgivable."
 gobbling down	"Gobbling down is eating food quickly."
 Growing Pains	"Growing pains are temporary setbacks that help you get going. Pain's growing is just a complaint."
+hallway	"A hallway is a connection between two rooms."
 hash table	"A hash table is used in computer programming as a way to relate non-number values quickly to other things, e.g. people to phone numbers--it's a bit more advanced than arrays."
 house special	"The house special is an item on the menu priced to attract people. It is different from the Specialty of the House."
 impaler	"An impaler is someone who kills people with sharp objects like swords."
@@ -3578,6 +3579,7 @@ bechdel	"The Bechdel test is if an author has two females talking about things o
 beer guts	"Beer guts are increased weight from drinking too much beer."
 Benedict Arnold	"Benedict Arnold was a traitor in the US Revolutionary War."
 benevolent	"Benevolent means doing things to help people."
+benjamin	"Benjamin is slang for a 100 dollar bill, which features Benjamin Frankin. Jammin['] is old slang for cool."
 Bernoulli	"The Bernoulli family were famous and accomplished mathematicians and scientists from around 1700."
 Black Mark	"A black mark is something indicating bad behavior."
 body slamming	"Body slamming is a particularly painful wrestling move where you pretty much throw a person to the ground."
@@ -3597,6 +3599,7 @@ category	"A category is a logical class to divide someone into. In here, Kate fi
 caveman	"A caveman is a pejorative term for someone not very advanced, or someone who doesn't care about their appearance."
 cirrhosis	"Cirrhosis is a disease of the liver, often bought on by drinking."
 clean break	"A clean break from something is leaving quickly and for good. The jerks haven't broken with their 'clean' secrets yet."
+club players	"Club player are pretty good at a sport or game, but they aren't really good."
 co-ed	"Co-ed means having males and females in classes together."
 cojones	"Cojones is guts--well, a foot below guts, for males. Having cojones means having courage."
 commie	"Commie is short for Communist--in this case, MeCom is a private business for your own profit, or the political opposite."
@@ -3609,6 +3612,7 @@ dirty word	"A dirty word is profanity. 'Word' on its own is slang for agreement.
 dust up	"A dust up is a fight."
 eBay	"Yes, eBay is not just a website where people sell things, but a verb."
 electrocute	"If someone is electrocuted, they're filled with an often lethal dose of electrical current."
+enhance	"To enhance is to make better."
 evidence	"Evidence is something that supports a conclusion: for instance, a fingerprint is evidence in a robbery or murder case."
 expat	"An ex-pat is someone who no longer lives in the country where they were born."
 flounder	"To flounder is to try and fail without any progress. It's also the name of a fish."
@@ -3618,6 +3622,7 @@ gangbusters	"Gangbusters is outdated slang for awesome."
 glenn beck	"Glenn Beck is a commentator who was canned by Fox News for too many conspiracy theories."
 gorgeous	"Gorgeous is, well, beautiful."
 grown up	"Grown up means, well, you've learned and matured."
+halfling	"A halfling is a D&D character class, half elf, half human, for instance."
 hara-kiri	"Hara-kiri is Japanese ritual suicide."
 henry clay	"Henry Clay was a 19th century American statesman who did nearly everything except get elected President."
 hidey hole	"A hidey hole is somewhere you can go so you won't be found."
@@ -3660,6 +3665,7 @@ mike drop	"Mike drop is an internet term meaning you've won the argument and the
 mollycoddling	"Mollycoddling is being overprotective of someone."
 monte carlo	"Monte Carlo is a place where you can go to gamble. A Monte Carlo simulation also runs random events many times when it is too hard to calculate probability directly."
 mortify	"To mortify someone is to shock their sensibilities."
+musical chairs	"Musical chairs is a game where X people run in circles til the music stops, then they try for X-1 chairs, until X is 1."
 nihilist	"A nihilist is someone who believes nothing matters."
 no-brew	"No brew means no alcohol."
 Nolan Ryan	"Nolan Ryan is the Major League Baseball career strikeouts and no-hitters leader."
@@ -3712,6 +3718,7 @@ terrapin	"A terrapin is a fancy name for a turtle, which is slow and has a shell
 tiebreaker	"A tiebreaker is something used to separate two teams or people that are evenly matched."
 turret	"A turret is a small tower, or a side compartment to a plane."
 water sports	"Water sports is...well, visit Urban Dictionary to learn it's more than just water polo."
+wesley so	"Wesley So became one of the youngest American chess grandmasters ever."
 whistler's mother	"Whistler's Mother is a famous painting of an old lady, the mother of the artist."
 you buy	"A bayou is a tributary (river leading to bigger water), and the reverse pronunciation is 'you buy.'"
 Character Assassination	"Character assassination is an attempt to tarnish someone's good reputation." [start of chipper wood]
@@ -3737,6 +3744,7 @@ pathologic	"Pathologic behavior is compulsive and anti-social."
 psychotherapy	"Psychotherapy is seeing a trained professional for emotional and mental issues."
 right to privacy	"Right to privacy is considered a basic human right in democratic societies. It means you have the right to be left alone and not to be arrested for arbitrary reasons."
 showerproof	"Showerproof means rain can't get through material."
+sid vicious	"Sid Vicious was bassist for the Sex Pistols."
 technology	"Technology is, well, newer and better machines."
 thp	"Two hundred proof means pure grain alcohol."
 turing machine	"A Turing machine is, to oversimplify, a mathematical model of computation."
@@ -6569,7 +6577,7 @@ check going west in pressure pier:
 	otherwise:
 		if meal square is unvisited:
 			now thought for food is in lalaland;
-			say "Terry Sally coughs. 'That's Meal Square. Nice if you've got a thought for food[activation of food for thought]. Not much crazy to do there. That's why the [bad-guy] got rid of that [activation of impaler], the [activation of gobbling down].'";
+			say "Terry Sally coughs. 'That's Meal Square. Nice if you've got a [activation of food for thought]. Not just some [activation of hallway], but nothing crazy. So the [bad-guy] got rid of that [activation of impaler], the [activation of gobbling down].'";
 
 Meal Square is west of Pressure Pier. Meal Square is in Outer Bounds. "This is a small alcove with Pressure Pier back east. You would call it an [activation of caveat], but ...[paragraph breka]There's not much decoration except a picture of a dozen bakers."
 
@@ -12439,6 +12447,8 @@ gobbling down is a concept in conceptville. Understand "goblin down" and "down g
 
 growing pains is a concept in conceptville. Understand "pain/pains growing" and "growing pain" as growing pains. howto is "eat the offcheese". gtxt is "Pain's growing".
 
+hallway is a concept in conceptville. Understand "hall whey" and "whey hall" as hallway. howto is "visit Meal Square with Terry Sally around". gtxt is "whey hall".
+
 hash table is a concept in conceptville. Understand "table hash" as hash table. howto is "attack the spoon table in Meal Square". gtxt is "table hash".
 
 house special is a concept in conceptville. Understand "special house" as house special. howto is "smell Tray B". gtxt is "special house".
@@ -12613,6 +12623,8 @@ benedict arnold is a concept in conceptville. Understand "arnold benedict" as be
 
 benevolent is a concept in conceptville. Understand "evelyn benn" and "benn evelyn" as benevolent. howto is "[j-blab]". gtxt is "Evelyn Benn".
 
+benjamin is a concept in conceptville. Understand "ben jammin" and "jammin ben" as benjamin. howto is "[j-blab]". gtxt is "jammin['] Ben".
+
 bernoulli is a concept in conceptville. Understand "newly burn" and "burn newly" as bernoulli. howto is "[j-blab]". gtxt is "newly burn".
 
 Black Mark is a concept in conceptville. Understand "mark black" as black mark. howto is "[x-it of quiz pop]". gtxt is "Mark Black".
@@ -12651,6 +12663,8 @@ cirrhosis is a concept in conceptville. Understand "roses sir" and "sir roses" a
 
 Clean Break is a concept in conceptville. Understand "break clean" as clean break. howto is "go to the [jc]". gtxt is "Break CLEAN".
 
+club players is a concept in conceptville. Understand "players club" as club players. howto is "[j-blab]". gtxt is "Players['] Club".
+
 co-ed is a concept in conceptville. Understand "ed coe" and "coe ed" as co-ed. howto is "[j-blab]". gtxt is "Ed Coe".
 
 cojones is a concept in conceptville. Understand "jonesco" and "jones co" and "co jones" as cojones. howto is "[j-blab]". gtxt is "cojones".
@@ -12675,6 +12689,8 @@ eBay is a concept in conceptville. Understand "basie" as eBay. howto is "[j-blab
 
 electrocute is a concept in conceptville. Understand "cute electra" and "electra cute" as electrocute. howto is "[j-blab]". gtxt is "Cute Electra".
 
+enhance is a concept in conceptville. Understand "hansen" as enhance. howto is "[j-blab]". gtxt is "Hansen".
+
 evidence is a concept in conceptville. Understand "ev dense" and "dense ev" as evidence. howto is "[j-blab]". gtxt is "dense ev".
 
 expat is a concept in conceptville. Understand "x pat" and "pat x" as expat. howto is "[j-blab]". gtxt is "Pat X".
@@ -12692,6 +12708,8 @@ Glenn Beck is a concept in conceptville. Understand "beck glenn" as glenn beck. 
 gorgeous is a concept in conceptville. Understand "jess gore" and "gore jess" as gorgeous. howto is "[j-blab]". gtxt is "Jess Gore".
 
 grown up is a concept in conceptville. Understand "up groan" and "groan up" as grown up. howto is "[solve-j] with swears off". gtxt is "up groan".
+
+halfling is a concept in conceptville. Understand "hall fling" and "fling hall" as halfling. howto is "[j-blab]". gtxt is "Fling Hall".
 
 Hara-Kiri is a concept in conceptville. Understand "keri harrah" and "harrah keri" as hara-kiri. howto is "[j-blab]". gtxt is "Keri Harrah".
 
@@ -12776,6 +12794,8 @@ Mollycoddling is a concept in conceptville. Understand "coddling/cuddling molly"
 monte carlo is a concept in conceptville. Understand "carlo monte" as monte carlo. howto is "[j-blab]". gtxt is "Carlo Monty".
 
 mortify is a concept in conceptville. Understand "mort iffy" and "iffy mort" as mortify. howto is "[j-blab]". gtxt is "iffy Mort".
+
+musical chairs is a concept in conceptville. Understand "musical chers" and "chers musical" as musical chairs. howto is "[j-blab]". gtxt is "Cher's musical".
 
 nihilist is a concept in conceptville. Understand "list neil" and "neil list" as nihilist. howto is "[j-blab]". gtxt is "list Neil".
 
@@ -12881,6 +12901,8 @@ turret is a concept in conceptville. Understand "ritter" as turret. howto is "[j
 
 water sports is a concept in conceptville. Understand "sports water" as water sports. howto is "[j-blab]". gtxt is "Sports Water".
 
+wesley so is a concept in conceptville. Understand "so wesley" as wesley so. howto is "[j-blab]". gtxt is "so Wesley".
+
 whistler's mother is a concept in conceptville. Understand "mother whistlers/whistler's/whistler" and "whistler/whitler's mother" as whistler's mother. howto is "[j-blab]". gtxt is "mother whistlers".
 
 you buy is a concept in conceptville. Understand "you buy" and "bay you" as you buy. howto is "[solve-j]". gtxt is "bayou".
@@ -12940,6 +12962,8 @@ psychotherapy is a concept in conceptville. Understand "psycho therapy" and "the
 right to privacy is a concept in conceptville. Understand "privacy to write" and "write to privacy" as right to privacy. howto is "give Lee the rattle". gtxt is "privacy to write".
 
 showerproof is a concept in conceptville. Understand "shower proof" and "proof shower" as showerproof. howto is "listen to Sid Lew's advice (random)". gtxt is "proof shower".
+
+sid vicious is a concept in conceptville. Understand "vicious sid" as sid vicious. howto is "listen to Sid Lew's advice (random)". gtxt is "Vicious Sid".
 
 technology is a concept in conceptville. Understand "tech y knowledge" and "knowledge y tech" as technology. howto is "listen to Sid Lew's advice (random)". gtxt is "knowledge y tech".
 
