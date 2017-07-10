@@ -1647,7 +1647,7 @@ check listening (this is the listening in a place rule):
 	if player is in out mist:
 		say "You can't hear anyone chasing you. That's good." instead;
 	if player is in airy station:
-		say "The cheering's nice, but--it's a bit old. You wonder if you've done THAT much." instead;
+		say "The crowd certainly makes their [activation of herd mentality]! The cheering's nice, but--it's a bit old. You wonder if you've done THAT much." instead;
 	say "There's a bit of nervous tension, but there always is. You're used to that now, well, almost." instead;
 
 chapter searching
@@ -3453,6 +3453,7 @@ Cut a Figure	"To cut a figure is to make a strong impression."
 face the music	"To face the music is to realize you've come up short."
 Force of Habit	"Force of habit is what causes you to do something with minimal thinking, for better or worse."
 Hard Knock	"A hard knock is physical wear and tear, or being hit hard, versus just knocking at a door."
+herd mentality	"A herd mentality is when everyone follows what everyone else is doing."
 No-Nonsense	"No-nonsense means, well, not taking any silliness."
 passing fancy	"A passing fancy is something that distracts you and is fun for a bit but you forget about it. To fancy passing means to want to go quickly, or fancy passing may just be something in sports."
 poke fun	"To poke fun is to make a joke, but poke can mean a lot of things--putter around, meddle, or maybe poke a friend to get their attention."
@@ -3573,10 +3574,12 @@ air jordan	"Air Jordan is an expensive athletic shoe named after Michael Jordan,
 anal	"Anal is short for anal-retentive, or over worried about details."
 anapest	"Anapest is a common beat for a poem. It can seem singsong."
 Anne Frank	"Anne Frank wrote [i]The Diary of Anne Frank[r], a story about a Jewish family hiding from the Nazis in World War II."
+ballets	"Ballets are dances that are not especially masculine to enjoy. 'Let's ball' refers to playing more aggressive, masculine sports."
 Bandanna	"A bandanna is a scarf you tie around your head. Some people find it rebellious, others not rebellious enough."
 beaker	"A beaker is what you pour liquids into in a science experiment."
 bechdel	"The Bechdel test is if an author has two females talking about things other than men or sex. Del Beck fails miserably, of course."
 beer guts	"Beer guts are increased weight from drinking too much beer."
+belial	"Belial is a fallen angel, in some cases, possibly Satan."
 Benedict Arnold	"Benedict Arnold was a traitor in the US Revolutionary War."
 benevolent	"Benevolent means doing things to help people."
 benjamin	"Benjamin is slang for a 100 dollar bill, which features Benjamin Frankin. Jammin['] is old slang for cool."
@@ -3640,6 +3643,7 @@ jerk off	"To jerk off is to gratify oneself carnally."
 jerry built	"Jerry-built means put together hastily."
 jim beam	"Jim Beam is a brand of whiskey."
 jimmy buffett	"Jimmy Buffett is the sort of singer you either love or hate. He has made some catchy tunes."
+johnny rotten	"Johnny Rotten was the lead singer of the Sex Pistols."
 joint committee	"A joint committee is a group of legislators from different parts of US Congress."
 journeyman	"A journeyman is someone who is maybe not spectacular but who has paid his dues in his field."
 junk mail	"Junk mail means letters and fliers you didn't ask for that appear in your (physical or electronic) mailbox anyway."
@@ -3666,12 +3670,14 @@ mollycoddling	"Mollycoddling is being overprotective of someone."
 monte carlo	"Monte Carlo is a place where you can go to gamble. A Monte Carlo simulation also runs random events many times when it is too hard to calculate probability directly."
 mortify	"To mortify someone is to shock their sensibilities."
 musical chairs	"Musical chairs is a game where X people run in circles til the music stops, then they try for X-1 chairs, until X is 1."
+nancy spungen	"Nancy Spungen was Sid Vicious's lover. He was the bassist for the Sex Pistols."
 nihilist	"A nihilist is someone who believes nothing matters."
 no-brew	"No brew means no alcohol."
 Nolan Ryan	"Nolan Ryan is the Major League Baseball career strikeouts and no-hitters leader."
 nookie	"Nookie is sexual activity."
 Nose Candy	"Nose candy is slang for cocaine."
 Notre Dame	"Notre Dame is a famous Catholic university."
+numb bore	"Barnum can become number or numb bore, each of which is less exciting than a carinval barker."
 Olive	"Black and green olives are the two main different kinds of olives."
 olive drab	"Olive drab is what army privates wear for basic training."
 Patrick Henry	"Patrick Henry was a martyr of the American Revolution."
@@ -12325,6 +12331,8 @@ Force of Habit is a concept in conceptville. Understand "habit of force" as forc
 
 Hard Knock is a concept in conceptville. Understand "knock hard" as Hard Knock. howto is "get to Pressure Pier". gtxt is "".
 
+herd mentality is a concept in conceptville. Understand "heard mentality" and "mentality heard" as herd mentality. howto is "listen in Airy Station". gtxt is "mentality heard".
+
 No-Nonsense is a concept in conceptville. Understand "no nonsense" and "nonsense no" as no-nonsense. howto is "xyzzy". gtxt is "Nonsense? No".
 
 Passing Fancy is a concept in conceptville. Understand "fancy passing" as Passing Fancy. howto is "help all three Keeper Brothers". gtxt is "".
@@ -12611,6 +12619,8 @@ anapest is a concept in conceptville. Understand "pest anna" and "anna pest" as 
 
 anne frank is a concept in conceptville. Understand "frank anne" as anne frank. howto is "[j-blab]". gtxt is "Frank Ahn".
 
+ballets is a concept in conceptville. Understand "ball lets" and "lets ball" as ballets. howto is "[j-blab]". gtxt is "Let's ball".
+
 Bandanna is a concept in conceptville. Understand "anna bandt/band" and "bandt/band anna" as bandanna. howto is "[j-blab]". gtxt is "Anna Bandt".
 
 beaker is a concept in conceptville. Understand "kirby" as beaker. howto is "[j-blab]". gtxt is "Kirby".
@@ -12618,6 +12628,8 @@ beaker is a concept in conceptville. Understand "kirby" as beaker. howto is "[j-
 Bechdel is a concept in conceptville. Understand "del beck" and "beck del" as bechdel. howto is "[j-blab]". gtxt is "Del Beck".
 
 beer guts is a concept in conceptville. Understand "guts beer" as beer guts. howto is "[j-blab]". gtxt is "Guts Beer".
+
+belial is a concept in conceptville. Understand "b lyle" and "lyle b" as belial. howto is "[j-blab]". gtxt is "Lyle B".
 
 benedict arnold is a concept in conceptville. Understand "arnold benedict" as benedict arnold. howto is "[j-blab]". gtxt is "Arnold Benedict".
 
@@ -12745,6 +12757,8 @@ jim beam is a concept in conceptville. Understand "beam jim" as jim beam. howto 
 
 jimmy buffett is a concept in conceptville. Understand "buffet jimmy" and "jimmy buffet" as jimmy buffett. howto is "[j-blab]". gtxt is "buffet jimmy".
 
+johnny rotten is a concept in conceptville. Understand "rotten johnny" as johnny rotten. howto is "[j-blab]". gtxt is "rottin['] Johnny".
+
 joint committee is a concept in conceptville. Understand "committee joint" as joint committee. howto is "[solve-j]". gtxt is "committee joint to top it off".
 
 journeyman is a concept in conceptville. Understand "journey man" and "man journey" as journeyman. howto is "[j-blab]". gtxt is "man-journey".
@@ -12797,6 +12811,8 @@ mortify is a concept in conceptville. Understand "mort iffy" and "iffy mort" as 
 
 musical chairs is a concept in conceptville. Understand "musical chers" and "chers musical" as musical chairs. howto is "[j-blab]". gtxt is "Cher's musical".
 
+nancy spungen is a concept in conceptville. Understand "spungen nancy" as nancy spungen. howto is "[j-blab]". gtxt is "spongin['] Nancy".
+
 nihilist is a concept in conceptville. Understand "list neil" and "neil list" as nihilist. howto is "[j-blab]". gtxt is "list Neil".
 
 a thing called no-brew is a concept in conceptville. Understand "bruno" as no-brew. printed name is "no brew". howto is "[j-blab]". gtxt is "Bruno".
@@ -12808,6 +12824,8 @@ nookie is a concept in conceptville. Understand "nookie" as nookie. howto is "[j
 Nose Candy is a concept in conceptville. Understand "candy/candi nose/knows" and "nose/knows candy/candi" as nose candy. howto is "[j-blab]". gtxt is "Candi knows".
 
 Notre Dame is a concept in conceptville. Understand "dame noter" and "noter dame" as notre dame. howto is "[j-blab]". gtxt is "Dame Noter".
+
+numb bore is a concept in conceptville. Understand "barnum" as numb bore. howto is "[j-blab]". gtxt is "Barnum".
 
 Olive is a concept in conceptville. Understand "olive green/black" and "green/black olive" as olive. howto is "[j-blab]". gtxt is "Olive Black or Olive Green".
 
