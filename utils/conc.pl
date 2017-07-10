@@ -551,7 +551,7 @@ for my $x (sort keys %any)
 	{
 	for my $fi (@{$fileHash{$_[0]}})
 	{
-    print "Rewriting $fi, first writing to $fi.2...\n";
+    print "Looking for changes in $fi...\n";
 	open(A, "$fi") || die ("Uh oh no $fi file");
 	open(B, ">$fi.2") || die ("Uh oh can't write to temp file $fi.2");
 	binmode(B);
@@ -574,7 +574,7 @@ for my $x (sort keys %any)
 	close(A);
 	close(B);
 	$extraLines{$fi} = $xlines;
-	print "$_[0] -> $xlines\n";
+	#print "$_[0] -> $xlines\n";
 	if ($dontCopySourceBack)
 	{
 	  my $cmd = "start \"\" \"notepad++\" \"$fi.2\"";
@@ -584,6 +584,7 @@ for my $x (sort keys %any)
     }
 	if (compare($fi, "$fi.2"))
 	{
+	print "Found changes in $fi. Copying back over.\n";
 	copy("$fi.2", $fi );
 	}
 	else
@@ -876,7 +877,7 @@ my $forceRoom = "";
 while ($lineIn = <X>)
 {
   $tempRoom = "";
-  if (($inTable) && ($lineIn =~ /[a-z]\"/)) { print "Line $. needs ending punctuation: $lineIn"; }
+  if (($inTable) && ($lineIn =~ /[a-z]\"/) && ($lineIn !~ /\[fill-in-here\]/)) { print "Line $. needs ending punctuation: $lineIn"; }
   chomp($lineIn);
   if ($lineIn =~ /[activation of [^'\]]+=/) { $editActivations = 1; }
   if ($inRoomTable) { $tempRoom = lc($lineIn); $tempRoom =~ s/\t.*//; }
