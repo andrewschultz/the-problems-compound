@@ -267,6 +267,7 @@ macho-boast
 "The [j-co] mentiones [activation of cojones] sells such boring stuff. Jones is such a common last name!"
 "The [j-co] voice a wish to work for [activation of commie] one day. Opportunity!"
 "The [j-co] mention how [activation of cotton candy] smacks down saccharine pickup lines."
+"The [j-co] hope they can do something cool to be allowed to [activation of court date]."
 "The [j-co] compliment [activation of covfefe]'s ability to see through nonsense."
 "The [j-co] agree: when in doubt, [activation of default]!"
 "One of the [j-co] says '[activation of defecate]!' There's an awkward silence."

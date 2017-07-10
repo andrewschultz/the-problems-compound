@@ -3607,6 +3607,7 @@ co-ed	"Co-ed means having males and females in classes together."
 cojones	"Cojones is guts--well, a foot below guts, for males. Having cojones means having courage."
 commie	"Commie is short for Communist--in this case, MeCom is a private business for your own profit, or the political opposite."
 Cotton Candy	"Cotton candy is stringy sugary stuff, often bundled together in a soft ball. People eat it at circuses and fairs and movies a lot."
+court date	"court date is when you [fill-in-here]. nominal fen"
 covfefe	"Covfefe is a nonsense word tweeted out by Donald Trump, probably a typo for coverage."
 default	"Default is what you do in the absence of anything else. It can also mean to go broke."
 defecate	"To defecate is, well, activity #2 in the bathroom."
@@ -9467,7 +9468,7 @@ check opening sound safe:
 	say "The Sound Safe makes a brutal noise in the Discussion Block, made worse by the special acoustics. Harmonic Phil covers his ears. 'Not even [activation of world record] would sell dreck like this! I can't even be clever about how this is so bad it's good!' he yells, running off. '[safety-of]!'[paragraph break]You put the safe down by the song torch."; [temproom discussion block]
 	now sound safe is in Discussion Block;
 	now harmonic phil is in lalaland;
-	say "[line break][if art fine is in Discussion Block]Art Fine chuckles and nods approval. 'That's what you get for dabbling in art that's not intellectually robust. Perhaps this place should be [activation of shelving the thought], instead.'[paragraph break]Wow. Even before a line like that, you figured Art Fine had to go, too.[else]Well, that's Phil AND Art gone.[end if]"; [temproom discussion block]
+	say "[line break][if art fine is in Discussion Block]Art Fine chuckles and nods approval. 'That's what you get for dabbling in art that's not intellectually robust. Perhaps this place should be [activation of shelving the thought], instead.'[paragraph break]Wow. Even before a line like that, you figured Art Fine had to go, too. How to get rid of him?[else]Well, that's Phil AND Art gone.[end if]"; [temproom discussion block]
 	increment the score;
 	annotize harmonic phil;
 	the rule succeeds;
@@ -12684,6 +12685,8 @@ cojones is a concept in conceptville. Understand "jonesco" and "jones co" and "c
 commie is a concept in conceptville. Understand "mecom" and "me com" and "com me" as commie. howto is "[j-blab]". gtxt is "MeCom".
 
 Cotton Candy is a concept in conceptville. Understand "candy cotton" as cotton candy. howto is "[j-blab]". gtxt is "Candy Cotton".
+
+court date is a concept in conceptville. Understand "date court" as court date. howto is "[j-blab]". gtxt is "Date Court".
 
 covfefe is a concept in conceptville. Understand "cove fefe" and "fefe cove" as covfefe. howto is "[j-blab]". gtxt is "Fefe Cove".
 

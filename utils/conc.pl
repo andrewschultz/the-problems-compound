@@ -405,7 +405,7 @@ for my $x (sort keys %any)
 	{
 	  if (!defined($fileLineErr{$fileToOpen}) || (!$openLowestLine && ($fileLineErr{$fileToOpen} < $nuline)))
 	  { $fileLineErr{$fileToOpen} = $nuline; } }
-	$errMsg .= "$xmod ($lineNum{$x}, $concToRoom{$x}) needs concept definition" . (defined($fillConc{$x}) ? " filled in" : "") . ": guess = line $nuline\n";
+	$errMsg .= "$xmod ($lineNum{$x}, " . (defined($concToRoom{$x}) ? $concToRoom{$x} : "NO ROOM DEFINED") . ") needs concept definition" . (defined($fillConc{$x}) ? " filled in" : "") . ": guess = line $nuline\n";
 	$addString = "";
 	if (defined($concToRoom{$xmod}))
 	{
@@ -1566,7 +1566,7 @@ sub compareRoomIndex
   if ($printTest) { print "TEST RESULTS:$_[0] explain order,$explainOrdErrors,0,0,(none)\n"; }
 
   my $temp = join(" / ", map { "$_" . ($ideaHash{$_} > 1 ? "*" : "") } sort { $a <=> $b } keys %ideaHash);
-  if (scalar keys %ideaHash) { print "Reshuffle errant table stuff at " . join(" / ", map { "$_" . ($ideaHash{$_} > 1 ? "*" : "") } sort { $a <=> $b } keys %ideaHash) . ", or " . (scalar keys %ideaHash) . " lines.\n"; }
+  if (scalar keys %ideaHash) { print "Reshuffle errant table stuff at " . join(" / ", map { "$_" . ($ideaHash{$_} > 1 ? "*" : "") } sort { $a <=> $b } keys %ideaHash) . ", or " . (scalar keys %ideaHash) . " lines, with talf.pl.\n"; }
 
   if ($printTest) { print "TEST RESULTS:$_[0] explain order detail,$explanationOrderDetail,0,0,$temp\n"; }
 
