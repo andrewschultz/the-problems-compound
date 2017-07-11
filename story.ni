@@ -574,6 +574,8 @@ chapter misc defs for later
 
 a concept is a kind of thing. description of a concept is usually "[bug]"
 
+a concept can be jerkish, siddy, nemmy or normal. a concept is usually normal.
+
 a concept has text called howto. howto of a concept is "(need text)".
 a concept has text called gtxt.
 
@@ -11647,8 +11649,10 @@ final question wording	only if victorious	topic	final response rule	final respon
 "see the [bi of sinseen]SINS[r] the [j-co] didn't commit"	true	"SINS"	sin-see rule	sinseeing
 "see the [bi of altseen](ALT)ERNATIVE[r] endings and commands"	true	"ALT/ALTERNATIVE"	alternative-see rule	altseeing
 "see how to get to each of the [bi of badendseen]BAD END[r] rooms"	true	"BAD/END/BADEND" or "BAD END"	bad-end-see rule	badendseeing
-"see any reversible [bi of conceptseen](CONC)EPTS[r] you missed, or [bi of conceptseen]ALL[r]"	true	"CONCEPTS/CONC"	concept-see rule	conceptseeing
---	true	"ALL"	concept-all rule	conceptseeing
+"see [bi of conceptseen](CONC)EPTS[r] you missed throughout the game, or everything from the JERKS, SID, or the [bg]"	true	"CONCEPTS/CONC"	concept-see rule	conceptseeing
+--	true	"JERKS"	concept-jerks rule	conceptseeing
+--	true	"SID"	concept-sid rule	conceptseeing
+--	true	"BM" or "CM"	concept-nemesis rule	conceptseeing
 "see all the [bi of dreamseen]DREAM[r] sequence stories"	true	"DREAM/DREAMS"	dream-see rule	dreamseeing
 "see the plausible [bi of missseen]MISSES[r] for the Terminal"	true	"MISSES"	alt-answer rule	altanswering
 
@@ -11767,20 +11771,47 @@ this is the concept-all rule:
 	consider the concept-see rule;
 	now see-all-concepts is false;
 
+this is the concept-sid rule:
+	let curcon be 0;
+	repeat through table of explanations:
+		if exp-thing entry is a concept:
+			if exp-thing entry is siddy:
+				say "[b][exp-text entry][r]: [exp-text entry][line break]";
+		increment curcon;
+		if the remainder after dividing curcon by 10 is 0:
+			wfak;
+
+this is the concept-nemesis rule:
+	let curcon be 0;
+	repeat through table of explanations:
+		if exp-thing entry is a concept:
+			if exp-thing entry is nemmy:
+				say "[b][exp-text entry][r]: [exp-text entry][line break]";
+		increment curcon;
+		if the remainder after dividing curcon by 10 is 0:
+			wfak;
+
+this is the concept-jerks rule:
+	let curcon be 0;
+	repeat through table of explanations:
+		if exp-thing entry is a concept:
+			if exp-thing entry is jerkish:
+				say "[b][exp-text entry][r]: [exp-text entry][line break]";
+		increment curcon;
+		if the remainder after dividing curcon by 10 is 0:
+			wfak;
+
 this is the concept-see rule:
 	now conceptseen is true;
 	if number of concepts in conceptville is 0 and see-all-concepts is false:
 		say "You found all the concepts. Very well done, indeed.";
 		the rule succeeds;
-	say "There are [if see-all-concepts is true][number of concepts] total concepts[else][number of concepts in conceptville] concepts you missed[end if]. I'll pause after every ten, and you can decide whether to continue.";
+	say "There are [if see-all-concepts is true][number of concepts] total concepts[else][number of normal concepts in conceptville] concepts you missed[end if]. I'll pause after every ten, and you can decide whether to continue.";
 	let curcon be 0;
-	repeat with X running through concepts:
-		unless X is an exp-thing listed in table of explanations:
-			say "[X] needs an explanation. BUG.";
-		else:
-			choose row with exp-thing of X in table of explanations;
-			if X is not in lalaland or see-all-concepts is true:
-				say "[b][X][r]: [exp-text entry] ([howto of X])[line break]";
+	repeat through table of explanations:
+		if exp-thing entry is a concept:
+			if exp-thing entry is normal:
+				say "[b][exp-text entry][r]: [exp-text entry][line break]";
 		increment curcon;
 		if the remainder after dividing curcon by 10 is 0:
 			wfak;
@@ -12612,325 +12643,325 @@ to say j-b4:
 to say j-blab:
 	say "listen to random [j-co] babble[if allow-swears is false] with swears on[end if]"
 
-adult content is a concept in conceptville. Understand "content adult" as adult content. howto is "[j-blab]". gtxt is "content adult".
+adult content is a jerkish concept in conceptville. Understand "content adult" as adult content. howto is "[j-blab]". gtxt is "content adult".
 
-air jordan is a concept in conceptville. Understand "jordan air" as air jordan. howto is "[j-blab]". gtxt is "Jordan Ayer".
+air jordan is a jerkish concept in conceptville. Understand "jordan air" as air jordan. howto is "[j-blab]". gtxt is "Jordan Ayer".
 
-anal is a concept in conceptville. Understand "alan" as anal. howto is "[j-blab]". gtxt is "alan".
+anal is a jerkish concept in conceptville. Understand "alan" as anal. howto is "[j-blab]". gtxt is "alan".
 
-anapest is a concept in conceptville. Understand "pest anna" and "anna pest" as anapest. howto is "[j-blab]". gtxt is "Pest Anna".
+anapest is a jerkish concept in conceptville. Understand "pest anna" and "anna pest" as anapest. howto is "[j-blab]". gtxt is "Pest Anna".
 
-anne frank is a concept in conceptville. Understand "frank anne" as anne frank. howto is "[j-blab]". gtxt is "Frank Ahn".
+anne frank is a jerkish concept in conceptville. Understand "frank anne" as anne frank. howto is "[j-blab]". gtxt is "Frank Ahn".
 
-ballets is a concept in conceptville. Understand "ball lets" and "lets ball" as ballets. howto is "[j-blab]". gtxt is "Let's ball".
+ballets is a jerkish concept in conceptville. Understand "ball lets" and "lets ball" as ballets. howto is "[j-blab]". gtxt is "Let's ball".
 
-Bandanna is a concept in conceptville. Understand "anna bandt/band" and "bandt/band anna" as bandanna. howto is "[j-blab]". gtxt is "Anna Bandt".
+Bandanna is a jerkish concept in conceptville. Understand "anna bandt/band" and "bandt/band anna" as bandanna. howto is "[j-blab]". gtxt is "Anna Bandt".
 
-beaker is a concept in conceptville. Understand "kirby" as beaker. howto is "[j-blab]". gtxt is "Kirby".
+beaker is a jerkish concept in conceptville. Understand "kirby" as beaker. howto is "[j-blab]". gtxt is "Kirby".
 
-Bechdel is a concept in conceptville. Understand "del beck" and "beck del" as bechdel. howto is "[j-blab]". gtxt is "Del Beck".
+Bechdel is a jerkish concept in conceptville. Understand "del beck" and "beck del" as bechdel. howto is "[j-blab]". gtxt is "Del Beck".
 
-beer guts is a concept in conceptville. Understand "guts beer" as beer guts. howto is "[j-blab]". gtxt is "Guts Beer".
+beer guts is a jerkish concept in conceptville. Understand "guts beer" as beer guts. howto is "[j-blab]". gtxt is "Guts Beer".
 
-belial is a concept in conceptville. Understand "b lyle" and "lyle b" as belial. howto is "[j-blab]". gtxt is "Lyle B".
+belial is a jerkish concept in conceptville. Understand "b lyle" and "lyle b" as belial. howto is "[j-blab]". gtxt is "Lyle B".
 
-benedict arnold is a concept in conceptville. Understand "arnold benedict" as benedict arnold. howto is "[j-blab]". gtxt is "Arnold Benedict".
+benedict arnold is a jerkish concept in conceptville. Understand "arnold benedict" as benedict arnold. howto is "[j-blab]". gtxt is "Arnold Benedict".
 
-benevolent is a concept in conceptville. Understand "evelyn benn" and "benn evelyn" as benevolent. howto is "[j-blab]". gtxt is "Evelyn Benn".
+benevolent is a jerkish concept in conceptville. Understand "evelyn benn" and "benn evelyn" as benevolent. howto is "[j-blab]". gtxt is "Evelyn Benn".
 
-benjamin is a concept in conceptville. Understand "ben jammin" and "jammin ben" as benjamin. howto is "[j-blab]". gtxt is "jammin['] Ben".
+benjamin is a jerkish concept in conceptville. Understand "ben jammin" and "jammin ben" as benjamin. howto is "[j-blab]". gtxt is "jammin['] Ben".
 
-bernoulli is a concept in conceptville. Understand "newly burn" and "burn newly" as bernoulli. howto is "[j-blab]". gtxt is "newly burn".
+bernoulli is a jerkish concept in conceptville. Understand "newly burn" and "burn newly" as bernoulli. howto is "[j-blab]". gtxt is "newly burn".
 
 Black Mark is a concept in conceptville. Understand "mark black" as black mark. howto is "[x-it of quiz pop]". gtxt is "Mark Black".
 
-body slamming is a concept in conceptville. Understand "slamming body" as body slamming. howto is "[j-blab]". gtxt is "slamming body".
+body slamming is a jerkish concept in conceptville. Understand "slamming body" as body slamming. howto is "[j-blab]". gtxt is "slamming body".
 
-bognor regis is a concept in conceptville. Understand "regis bogner" and "bogner regis" as bognor regis. howto is "[j-blab]". gtxt is "Regis Bogner".
+bognor regis is a jerkish concept in conceptville. Understand "regis bogner" and "bogner regis" as bognor regis. howto is "[j-blab]". gtxt is "Regis Bogner".
 
-bonhomie is a concept in conceptville. Understand "bo nommy" and "nommy bo" as bonhomie. howto is "[j-blab]". gtxt is "nommy bo".
+bonhomie is a jerkish concept in conceptville. Understand "bo nommy" and "nommy bo" as bonhomie. howto is "[j-blab]". gtxt is "nommy bo".
 
-borat is a concept in conceptville. Understand "bo rat" and "rat bo" as borat. howto is "[j-blab]". gtxt is "rat bo".
+borat is a jerkish concept in conceptville. Understand "bo rat" and "rat bo" as borat. howto is "[j-blab]". gtxt is "rat bo".
 
-boring is a concept in conceptville. Understand "bo ring" and "ring bo" as boring. howto is "[j-blab]". gtxt is "ring bo".
+boring is a jerkish concept in conceptville. Understand "bo ring" and "ring bo" as boring. howto is "[j-blab]". gtxt is "ring bo".
 
-bouncing betty is a concept in conceptville. Understand "betty/beddy bouncing" and "beddy bouncing" as bouncing betty. howto is "[j-blab]". gtxt is "beddy bouncing".
+bouncing betty is a jerkish concept in conceptville. Understand "betty/beddy bouncing" and "beddy bouncing" as bouncing betty. howto is "[j-blab]". gtxt is "beddy bouncing".
 
-box score is a concept in conceptville. Understand "score box" as box score. howto is "[j-blab]". gtxt is "Score Box".
+box score is a jerkish concept in conceptville. Understand "score box" as box score. howto is "[j-blab]". gtxt is "Score Box".
 
-broccoli is a concept in conceptville. Understand "lee brock" and "brock lee" as broccoli. howto is "[j-blab]". gtxt is "Lee Brock".
+broccoli is a jerkish concept in conceptville. Understand "lee brock" and "brock lee" as broccoli. howto is "[j-blab]". gtxt is "Lee Brock".
 
-cacophony is a concept in conceptville. Understand "coco phony" and "phony coco" as cacophony. howto is "[j-blab]". gtxt is "Phony Coco".
+cacophony is a jerkish concept in conceptville. Understand "coco phony" and "phony coco" as cacophony. howto is "[j-blab]". gtxt is "Phony Coco".
 
-call girl is a concept in conceptville. Understand "girl call" as call girl. howto is "[j-blab]". gtxt is "girl call".
+call girl is a jerkish concept in conceptville. Understand "girl call" as call girl. howto is "[j-blab]". gtxt is "girl call".
 
-cary grant is a concept in conceptville. Understand "grant carey" and "carey grant" as cary grant. howto is "[j-blab]". gtxt is "Grant Carey".
+cary grant is a jerkish concept in conceptville. Understand "grant carey" and "carey grant" as cary grant. howto is "[j-blab]". gtxt is "Grant Carey".
 
-case sensitive is a concept in conceptville. Understand "sensitive case" as case sensitive. howto is "[j-blab]". gtxt is "sensitive case".
+case sensitive is a jerkish concept in conceptville. Understand "sensitive case" as case sensitive. howto is "[j-blab]". gtxt is "sensitive case".
 
-casually is a concept in conceptville. Understand "julie kaz" and "kaz julie" as casually. howto is "[j-blab]". gtxt is "Julie Kaz".
+casually is a jerkish concept in conceptville. Understand "julie kaz" and "kaz julie" as casually. howto is "[j-blab]". gtxt is "Julie Kaz".
 
-category is a concept in conceptville. Understand "gory kate" and "kate gory" as category. howto is "[j-blab]". gtxt is "Gory Kate".
+category is a jerkish concept in conceptville. Understand "gory kate" and "kate gory" as category. howto is "[j-blab]". gtxt is "Gory Kate".
 
-caveman is a concept in conceptville. Understand "cave man" and "man cave" as caveman. howto is "[j-blab]". gtxt is "man cave".
+caveman is a jerkish concept in conceptville. Understand "cave man" and "man cave" as caveman. howto is "[j-blab]". gtxt is "man cave".
 
-cirrhosis is a concept in conceptville. Understand "roses sir" and "sir roses" as cirrhosis. howto is "[j-blab]". gtxt is "Roses, sir".
+cirrhosis is a jerkish concept in conceptville. Understand "roses sir" and "sir roses" as cirrhosis. howto is "[j-blab]". gtxt is "Roses, sir".
 
 Clean Break is a concept in conceptville. Understand "break clean" as clean break. howto is "go to the [jc]". gtxt is "Break CLEAN".
 
-club players is a concept in conceptville. Understand "players club" as club players. howto is "[j-blab]". gtxt is "Players['] Club".
+club players is a jerkish concept in conceptville. Understand "players club" as club players. howto is "[j-blab]". gtxt is "Players['] Club".
 
-co-ed is a concept in conceptville. Understand "ed coe" and "coe ed" as co-ed. howto is "[j-blab]". gtxt is "Ed Coe".
+co-ed is a jerkish concept in conceptville. Understand "ed coe" and "coe ed" as co-ed. howto is "[j-blab]". gtxt is "Ed Coe".
 
-cojones is a concept in conceptville. Understand "jonesco" and "jones co" and "co jones" as cojones. howto is "[j-blab]". gtxt is "cojones".
+cojones is a jerkish concept in conceptville. Understand "jonesco" and "jones co" and "co jones" as cojones. howto is "[j-blab]". gtxt is "cojones".
 
-commie is a concept in conceptville. Understand "mecom" and "me com" and "com me" as commie. howto is "[j-blab]". gtxt is "MeCom".
+commie is a jerkish concept in conceptville. Understand "mecom" and "me com" and "com me" as commie. howto is "[j-blab]". gtxt is "MeCom".
 
-Cotton Candy is a concept in conceptville. Understand "candy cotton" as cotton candy. howto is "[j-blab]". gtxt is "Candy Cotton".
+Cotton Candy is a jerkish concept in conceptville. Understand "candy cotton" as cotton candy. howto is "[j-blab]". gtxt is "Candy Cotton".
 
-court date is a concept in conceptville. Understand "date court" as court date. howto is "[j-blab]". gtxt is "Date Court".
+court date is a jerkish concept in conceptville. Understand "date court" as court date. howto is "[j-blab]". gtxt is "Date Court".
 
-covfefe is a concept in conceptville. Understand "cove fefe" and "fefe cove" as covfefe. howto is "[j-blab]". gtxt is "Fefe Cove".
+covfefe is a jerkish concept in conceptville. Understand "cove fefe" and "fefe cove" as covfefe. howto is "[j-blab]". gtxt is "Fefe Cove".
 
-default is a concept in conceptville. Understand "dee fault" and "fault dee" as default. howto is "[j-blab]". gtxt is "fault dee".
+default is a jerkish concept in conceptville. Understand "dee fault" and "fault dee" as default. howto is "[j-blab]". gtxt is "fault dee".
 
-defecate is a concept in conceptville. Understand "kate a def" and "def a kate" as defecate. howto is "[j-blab]". gtxt is "Kate? Uh, Def".
+defecate is a jerkish concept in conceptville. Understand "kate a def" and "def a kate" as defecate. howto is "[j-blab]". gtxt is "Kate? Uh, Def".
 
-dilute is a concept in conceptville. Understand "di lewd" and "lewd di" as dilute. howto is "[j-blab]". gtxt is "lewd Di".
+dilute is a jerkish concept in conceptville. Understand "di lewd" and "lewd di" as dilute. howto is "[j-blab]". gtxt is "lewd Di".
 
 Dirty Word is a concept in conceptville. Understand "word dirty" as dirty word. howto is "go to the [jc]". gtxt is "Word! Dirty".
 
-dust up is a concept in conceptville. Understand "up dust" as dust up. howto is "[j-blab]". gtxt is "Up Dust".
+dust up is a jerkish concept in conceptville. Understand "up dust" as dust up. howto is "[j-blab]". gtxt is "Up Dust".
 
-eBay is a concept in conceptville. Understand "basie" as eBay. howto is "[j-blab]". gtxt is "Basie".
+eBay is a jerkish concept in conceptville. Understand "basie" as eBay. howto is "[j-blab]". gtxt is "Basie".
 
-electrocute is a concept in conceptville. Understand "cute electra" and "electra cute" as electrocute. howto is "[j-blab]". gtxt is "Cute Electra".
+electrocute is a jerkish concept in conceptville. Understand "cute electra" and "electra cute" as electrocute. howto is "[j-blab]". gtxt is "Cute Electra".
 
-enhance is a concept in conceptville. Understand "hansen" as enhance. howto is "[j-blab]". gtxt is "Hansen".
+enhance is a jerkish concept in conceptville. Understand "hansen" as enhance. howto is "[j-blab]". gtxt is "Hansen".
 
-evidence is a concept in conceptville. Understand "ev dense" and "dense ev" as evidence. howto is "[j-blab]". gtxt is "dense ev".
+evidence is a jerkish concept in conceptville. Understand "ev dense" and "dense ev" as evidence. howto is "[j-blab]". gtxt is "dense ev".
 
-expat is a concept in conceptville. Understand "x pat" and "pat x" as expat. howto is "[j-blab]". gtxt is "Pat X".
+expat is a jerkish concept in conceptville. Understand "x pat" and "pat x" as expat. howto is "[j-blab]". gtxt is "Pat X".
 
-flounder is a concept in conceptville. Understand "flo under" and "under flo" as flounder. howto is "[j-blab]". gtxt is "under Flo".
+flounder is a jerkish concept in conceptville. Understand "flo under" and "under flo" as flounder. howto is "[j-blab]". gtxt is "under Flo".
 
-fluoridated is a concept in conceptville. Understand "dated flora" and "flora dated" as fluoridated. howto is "[j-blab]". gtxt is "dated Flora".
+fluoridated is a jerkish concept in conceptville. Understand "dated flora" and "flora dated" as fluoridated. howto is "[j-blab]". gtxt is "dated Flora".
 
 full grown is a concept in conceptville. Understand "grown full" as full grown. howto is "[f-t of nominal fen]". gtxt is "groan-ful".
 
-gangbusters is a concept in conceptville. Understand "buster's/busters/buster gang" and "gang buster/busters/buster's" as gangbusters. howto is "[j-blab]". gtxt is "Buster's Gang".
+gangbusters is a jerkish concept in conceptville. Understand "buster's/busters/buster gang" and "gang buster/busters/buster's" as gangbusters. howto is "[j-blab]". gtxt is "Buster's Gang".
 
-gelding is a concept in conceptville. Understand "dingell" as gelding. howto is "[j-blab]". gtxt is "Dingell".
+gelding is a jerkish concept in conceptville. Understand "dingell" as gelding. howto is "[j-blab]". gtxt is "Dingell".
 
-Glenn Beck is a concept in conceptville. Understand "beck glenn" as glenn beck. howto is "[j-blab]". gtxt is "Beck Glenn".
+Glenn Beck is a jerkish concept in conceptville. Understand "beck glenn" as glenn beck. howto is "[j-blab]". gtxt is "Beck Glenn".
 
-gorgeous is a concept in conceptville. Understand "jess gore" and "gore jess" as gorgeous. howto is "[j-blab]". gtxt is "Jess Gore".
+gorgeous is a jerkish concept in conceptville. Understand "jess gore" and "gore jess" as gorgeous. howto is "[j-blab]". gtxt is "Jess Gore".
 
 grown up is a concept in conceptville. Understand "up groan" and "groan up" as grown up. howto is "[solve-j] with swears off". gtxt is "up groan".
 
-halfling is a concept in conceptville. Understand "hall fling" and "fling hall" as halfling. howto is "[j-blab]". gtxt is "Fling Hall".
+halfling is a jerkish concept in conceptville. Understand "hall fling" and "fling hall" as halfling. howto is "[j-blab]". gtxt is "Fling Hall".
 
-Hara-Kiri is a concept in conceptville. Understand "keri harrah" and "harrah keri" as hara-kiri. howto is "[j-blab]". gtxt is "Keri Harrah".
+Hara-Kiri is a jerkish concept in conceptville. Understand "keri harrah" and "harrah keri" as hara-kiri. howto is "[j-blab]". gtxt is "Keri Harrah".
 
-henry clay is a concept in conceptville. Understand "clay henry" as henry clay. howto is "[j-blab]". gtxt is "Clay Henry".
+henry clay is a jerkish concept in conceptville. Understand "clay henry" as henry clay. howto is "[j-blab]". gtxt is "Clay Henry".
 
-hidey hole is a concept in conceptville. Understand "hole hidey" as hidey hole. howto is "[j-blab]". gtxt is "Whole Heidi".
+hidey hole is a jerkish concept in conceptville. Understand "hole hidey" as hidey hole. howto is "[j-blab]". gtxt is "Whole Heidi".
 
-high fidelity is a concept in conceptville. Understand "fidelity high" as high fidelity. howto is "[j-blab]". gtxt is "Fidelity High".
+high fidelity is a jerkish concept in conceptville. Understand "fidelity high" as high fidelity. howto is "[j-blab]". gtxt is "Fidelity High".
 
-hillary is a concept in conceptville. Understand "hill larry" and "larry hill" as hillary. howto is "[j-blab]". gtxt is "Larry Hill".
+hillary is a jerkish concept in conceptville. Understand "hill larry" and "larry hill" as hillary. howto is "[j-blab]". gtxt is "Larry Hill".
 
-hittite is a concept in conceptville. Understand "tight hit" and "hit tight" as hittite. howto is "[j-blab]". gtxt is "'tight' hit".
+hittite is a jerkish concept in conceptville. Understand "tight hit" and "hit tight" as hittite. howto is "[j-blab]". gtxt is "'tight' hit".
 
-homer winslow is a concept in conceptville. Understand "winslow homer" as homer winslow. howto is "[j-blab]". gtxt is "slowin['] Homer".
+homer winslow is a jerkish concept in conceptville. Understand "winslow homer" as homer winslow. howto is "[j-blab]". gtxt is "slowin['] Homer".
 
-Howard Stern is a concept in conceptville. Understand "stern howard" as Howard Stern. howto is "[j-blab]". gtxt is "stern Howard".
+Howard Stern is a jerkish concept in conceptville. Understand "stern howard" as Howard Stern. howto is "[j-blab]". gtxt is "stern Howard".
 
-humphrey davy is a concept in conceptville. Understand "davey humphrey" and "humphrey davey" as humphrey davy. howto is "[j-blab]". gtxt is "Davey Humphrey".
+humphrey davy is a jerkish concept in conceptville. Understand "davey humphrey" and "humphrey davey" as humphrey davy. howto is "[j-blab]". gtxt is "Davey Humphrey".
 
-Jack London is a concept in conceptville. Understand "london jack" as jack london. howto is "[j-blab]". gtxt is "London Jack".
+Jack London is a jerkish concept in conceptville. Understand "london jack" as jack london. howto is "[j-blab]". gtxt is "London Jack".
 
-james dean is a concept in conceptville. Understand "dean james" as james dean. howto is "[j-blab]". gtxt is "Dean James".
+james dean is a jerkish concept in conceptville. Understand "dean james" as james dean. howto is "[j-blab]". gtxt is "Dean James".
 
-jeremiad is a concept in conceptville. Understand "add jeremy" and "jeremy add" as jeremiad. howto is "[j-blab]". gtxt is "add Jeremy".
+jeremiad is a jerkish concept in conceptville. Understand "add jeremy" and "jeremy add" as jeremiad. howto is "[j-blab]". gtxt is "add Jeremy".
 
 Jerk Around is a concept in conceptville. Understand "around jerks" and "jerks around" as jerk around. howto is "enter the main area with profanity on". gtxt is "AROUND jerks".
 
 Jerk Off is a concept in conceptville. Understand "off jerk" as jerk off. howto is "attack a jerk in swearing-on mode". gtxt is "off a jerk".
 
-jerry built is a concept in conceptville. Understand "built jerry" as jerry built. howto is "[j-blab]". gtxt is "built Jerry".
+jerry built is a jerkish concept in conceptville. Understand "built jerry" as jerry built. howto is "[j-blab]". gtxt is "built Jerry".
 
-jim beam is a concept in conceptville. Understand "beam jim" as jim beam. howto is "[j-blab]". gtxt is "Beam Gym".
+jim beam is a jerkish concept in conceptville. Understand "beam jim" as jim beam. howto is "[j-blab]". gtxt is "Beam Gym".
 
-jimmy buffett is a concept in conceptville. Understand "buffet jimmy" and "jimmy buffet" as jimmy buffett. howto is "[j-blab]". gtxt is "buffet jimmy".
+jimmy buffett is a jerkish concept in conceptville. Understand "buffet jimmy" and "jimmy buffet" as jimmy buffett. howto is "[j-blab]". gtxt is "buffet jimmy".
 
-johnny rotten is a concept in conceptville. Understand "rotten johnny" as johnny rotten. howto is "[j-blab]". gtxt is "rottin['] Johnny".
+johnny rotten is a jerkish concept in conceptville. Understand "rotten johnny" as johnny rotten. howto is "[j-blab]". gtxt is "rottin['] Johnny".
 
 joint committee is a concept in conceptville. Understand "committee joint" as joint committee. howto is "[solve-j]". gtxt is "committee joint to top it off".
 
-journeyman is a concept in conceptville. Understand "journey man" and "man journey" as journeyman. howto is "[j-blab]". gtxt is "man-journey".
+journeyman is a jerkish concept in conceptville. Understand "journey man" and "man journey" as journeyman. howto is "[j-blab]". gtxt is "man-journey".
 
 junk mail is a concept in conceptville. Understand "mail junk" as junk mail. howto is "listen to the [j-co] before figuring the Index puzzle". gtxt is "male junk".
 
-keepin is a concept in conceptville. Understand "pinkie" as keepin. howto is "[j-blab]". gtxt is "pinkie".
+keepin is a jerkish concept in conceptville. Understand "pinkie" as keepin. howto is "[j-blab]". gtxt is "pinkie".
 
-kevin spacey is a concept in conceptville. Understand "spacey kevin" as kevin spacey. howto is "[j-blab]". gtxt is "spacy Kevin".
+kevin spacey is a jerkish concept in conceptville. Understand "spacey kevin" as kevin spacey. howto is "[j-blab]". gtxt is "spacy Kevin".
 
-Keyser Soze is a concept in conceptville. Understand "suzy kaiser" and "kaiser suzy" as Keyser Soze. howto is "[j-blab]". gtxt is "Suzy Kaiser".
+Keyser Soze is a jerkish concept in conceptville. Understand "suzy kaiser" and "kaiser suzy" as Keyser Soze. howto is "[j-blab]". gtxt is "Suzy Kaiser".
 
-kohlrabi is a concept in conceptville. Understand "robbie cole" and "cole robbie" as kohlrabi. howto is "[j-blab]". gtxt is "Robbie Cole".
+kohlrabi is a jerkish concept in conceptville. Understand "robbie cole" and "cole robbie" as kohlrabi. howto is "[j-blab]". gtxt is "Robbie Cole".
 
-a thing called Laverne and Shirley is a concept in conceptville. Understand "shirley and laverne" and "lee shore" and "vern love" and "shore lee" and "love vern" as Laverne and Shirley. howto is "[j-blab]". gtxt is "Lee Shore and Vern Love".
+a thing called Laverne and Shirley is a jerkish concept in conceptville. Understand "shirley and laverne" and "lee shore" and "vern love" and "shore lee" and "love vern" as Laverne and Shirley. howto is "[j-blab]". gtxt is "Lee Shore and Vern Love".
 
-leicester square is a concept in conceptville. Understand "lester square" and "square lester" as leicester square. howto is "[j-blab]". gtxt is "square Lester".
+leicester square is a jerkish concept in conceptville. Understand "lester square" and "square lester" as leicester square. howto is "[j-blab]". gtxt is "square Lester".
 
-less well is a concept in conceptville. Understand "wallace" as less well. howto is "[j-blab]". gtxt is "wallace".
+less well is a jerkish concept in conceptville. Understand "wallace" as less well. howto is "[j-blab]". gtxt is "wallace".
 
-lie detector is a concept in conceptville. Understand "ly detector" and "detector ly" as lie detector. howto is "[j-blab]". gtxt is "Detector Ly".
+lie detector is a jerkish concept in conceptville. Understand "ly detector" and "detector ly" as lie detector. howto is "[j-blab]". gtxt is "Detector Ly".
 
-lily liver is a concept in conceptville. Understand "liver lily" as lily liver. howto is "[j-blab]". gtxt is "LIVER Lily".
+lily liver is a jerkish concept in conceptville. Understand "liver lily" as lily liver. howto is "[j-blab]". gtxt is "LIVER Lily".
 
 Liverwurst is a concept in conceptville. Understand "wurst/worst liver" and "liver wurst/worst" and "worstliver/wurstliver" as liverwurst. howto is "smell any of the [j-co], or SMELL in the [jc]". gtxt is "liverwurst".
 
-long johns is a concept in conceptville. Understand "john long" and "long john" as long johns. howto is "[j-blab]". gtxt is "John Long".
+long johns is a jerkish concept in conceptville. Understand "john long" and "long john" as long johns. howto is "[j-blab]". gtxt is "John Long".
 
 Lovelies is a concept in conceptville. Understand "lies love" and "love lies" as Lovelies. howto is "listen to all the [j-co] have to say, with swearing on". gtxt is "Lies: LOVE".
 
-magnate is a concept in conceptville. Understand "nate magg" and "magg nate" as magnate. howto is "[j-blab]". gtxt is "Nate Magg".
+magnate is a jerkish concept in conceptville. Understand "nate magg" and "magg nate" as magnate. howto is "[j-blab]". gtxt is "Nate Magg".
 
-manicured is a concept in conceptville. Understand "cured manny" and "manny cured" as manicured. howto is "[j-blab]". gtxt is "cured Manny".
+manicured is a jerkish concept in conceptville. Understand "cured manny" and "manny cured" as manicured. howto is "[j-blab]". gtxt is "cured Manny".
 
-Mary Sue is a concept in conceptville. Understand "sue merry" and "merry sue" as mary sue. howto is "[j-blab]". gtxt is "Sue Merry".
+Mary Sue is a jerkish concept in conceptville. Understand "sue merry" and "merry sue" as mary sue. howto is "[j-blab]". gtxt is "Sue Merry".
 
-mascara is a concept in conceptville. Understand "cara maas" and "maas cara" as mascara. howto is "[j-blab]". gtxt is "Cara Maas".
+mascara is a jerkish concept in conceptville. Understand "cara maas" and "maas cara" as mascara. howto is "[j-blab]". gtxt is "Cara Maas".
 
-melodious is a concept in conceptville. Understand "odious mel" and "mel odious" as melodious. howto is "[j-blab]". gtxt is "Odious Mel".
+melodious is a jerkish concept in conceptville. Understand "odious mel" and "mel odious" as melodious. howto is "[j-blab]". gtxt is "Odious Mel".
 
-meretricious is a concept in conceptville. Understand "tricias merit" and "merit tricias" as meretricious. howto is "[j-blab]". gtxt is "Tricia's merit".
+meretricious is a jerkish concept in conceptville. Understand "tricias merit" and "merit tricias" as meretricious. howto is "[j-blab]". gtxt is "Tricia's merit".
 
-mike drop is a concept in conceptville. Understand "drop mike" as mike drop. howto is "[j-blab]". gtxt is "drop Mike".
+mike drop is a jerkish concept in conceptville. Understand "drop mike" as mike drop. howto is "[j-blab]". gtxt is "drop Mike".
 
-Mollycoddling is a concept in conceptville. Understand "coddling/cuddling molly" and "molly coddling/cuddling" as mollycoddling. howto is "[j-blab]". gtxt is "coddling, err, cuddling Molly".
+Mollycoddling is a jerkish concept in conceptville. Understand "coddling/cuddling molly" and "molly coddling/cuddling" as mollycoddling. howto is "[j-blab]". gtxt is "coddling, err, cuddling Molly".
 
-monte carlo is a concept in conceptville. Understand "carlo monte" as monte carlo. howto is "[j-blab]". gtxt is "Carlo Monty".
+monte carlo is a jerkish concept in conceptville. Understand "carlo monte" as monte carlo. howto is "[j-blab]". gtxt is "Carlo Monty".
 
-mortify is a concept in conceptville. Understand "mort iffy" and "iffy mort" as mortify. howto is "[j-blab]". gtxt is "iffy Mort".
+mortify is a jerkish concept in conceptville. Understand "mort iffy" and "iffy mort" as mortify. howto is "[j-blab]". gtxt is "iffy Mort".
 
-musical chairs is a concept in conceptville. Understand "musical chers" and "chers musical" as musical chairs. howto is "[j-blab]". gtxt is "Cher's musical".
+musical chairs is a jerkish concept in conceptville. Understand "musical chers" and "chers musical" as musical chairs. howto is "[j-blab]". gtxt is "Cher's musical".
 
-nancy spungen is a concept in conceptville. Understand "spungen nancy" as nancy spungen. howto is "[j-blab]". gtxt is "spongin['] Nancy".
+nancy spungen is a jerkish concept in conceptville. Understand "spungen nancy" as nancy spungen. howto is "[j-blab]". gtxt is "spongin['] Nancy".
 
-nihilist is a concept in conceptville. Understand "list neil" and "neil list" as nihilist. howto is "[j-blab]". gtxt is "list Neil".
+nihilist is a jerkish concept in conceptville. Understand "list neil" and "neil list" as nihilist. howto is "[j-blab]". gtxt is "list Neil".
 
-a thing called no-brew is a concept in conceptville. Understand "bruno" as no-brew. printed name is "no brew". howto is "[j-blab]". gtxt is "Bruno".
+a thing called no-brew is a jerkish concept in conceptville. Understand "bruno" as no-brew. printed name is "no brew". howto is "[j-blab]". gtxt is "Bruno".
 
-Nolan Ryan is a concept in conceptville. Understand "ryan nolan" as nolan ryan. howto is "[j-blab]". gtxt is "Ryan Nolan".
+Nolan Ryan is a jerkish concept in conceptville. Understand "ryan nolan" as nolan ryan. howto is "[j-blab]". gtxt is "Ryan Nolan".
 
-nookie is a concept in conceptville. Understand "nookie" as nookie. howto is "[j-blab]". gtxt is "nookie".
+nookie is a jerkish concept in conceptville. Understand "nookie" as nookie. howto is "[j-blab]". gtxt is "nookie".
 
-Nose Candy is a concept in conceptville. Understand "candy/candi nose/knows" and "nose/knows candy/candi" as nose candy. howto is "[j-blab]". gtxt is "Candi knows".
+Nose Candy is a jerkish concept in conceptville. Understand "candy/candi nose/knows" and "nose/knows candy/candi" as nose candy. howto is "[j-blab]". gtxt is "Candi knows".
 
-Notre Dame is a concept in conceptville. Understand "dame noter" and "noter dame" as notre dame. howto is "[j-blab]". gtxt is "Dame Noter".
+Notre Dame is a jerkish concept in conceptville. Understand "dame noter" and "noter dame" as notre dame. howto is "[j-blab]". gtxt is "Dame Noter".
 
-numb bore is a concept in conceptville. Understand "barnum" as numb bore. howto is "[j-blab]". gtxt is "Barnum".
+numb bore is a jerkish concept in conceptville. Understand "barnum" as numb bore. howto is "[j-blab]". gtxt is "Barnum".
 
-Olive is a concept in conceptville. Understand "olive green/black" and "green/black olive" as olive. howto is "[j-blab]". gtxt is "Olive Black or Olive Green".
+Olive is a jerkish concept in conceptville. Understand "olive green/black" and "green/black olive" as olive. howto is "[j-blab]". gtxt is "Olive Black or Olive Green".
 
-olive drab is a concept in conceptville. Understand "drab olive" as olive drab. howto is "[j-blab]". gtxt is "drab Olive".
+olive drab is a jerkish concept in conceptville. Understand "drab olive" as olive drab. howto is "[j-blab]". gtxt is "drab Olive".
 
-Patrick Henry is a concept in conceptville. Understand "henry patrick" as Patrick Henry. howto is "[j-blab]". gtxt is "Henry Patrick".
+Patrick Henry is a jerkish concept in conceptville. Understand "henry patrick" as Patrick Henry. howto is "[j-blab]". gtxt is "Henry Patrick".
 
-Paul Ryan is a concept in conceptville. Understand "ryan paul" as Paul Ryan. howto is "[j-blab]". gtxt is "Ryan Paul".
+Paul Ryan is a jerkish concept in conceptville. Understand "ryan paul" as Paul Ryan. howto is "[j-blab]". gtxt is "Ryan Paul".
 
-Pepper is a concept in conceptville. Understand "pepper bell/black/serrano/green" and "bell/black/green/serrano pepper" as pepper. howto is "[j-blab]". gtxt is "Pepper Black, Pepper Bell AND Pepper Green".
+Pepper is a jerkish concept in conceptville. Understand "pepper bell/black/serrano/green" and "bell/black/green/serrano pepper" as pepper. howto is "[j-blab]". gtxt is "Pepper Black, Pepper Bell AND Pepper Green".
 
-persephone is a concept in conceptville. Understand "phony percy" and "percy phony" as persephone. howto is "[j-blab]". gtxt is "Phony Percy".
+persephone is a jerkish concept in conceptville. Understand "phony percy" and "percy phony" as persephone. howto is "[j-blab]". gtxt is "Phony Percy".
 
-Peter Pan is a concept in conceptville. Understand "pan peter" as peter pan. howto is "[j-blab]". gtxt is "pan Peter".
+Peter Pan is a jerkish concept in conceptville. Understand "pan peter" as peter pan. howto is "[j-blab]". gtxt is "pan Peter".
 
-plaintiff is a concept in conceptville. Understand "tiff plain" and "plain tiff" as plaintiff. howto is "[j-blab]". gtxt is "Tiff? Plain".
+plaintiff is a jerkish concept in conceptville. Understand "tiff plain" and "plain tiff" as plaintiff. howto is "[j-blab]". gtxt is "Tiff? Plain".
 
-planetary is a concept in conceptville. Understand "plain terry" and "terry plain" as planetary. howto is "[j-blab]". gtxt is "Terry Plain".
+planetary is a jerkish concept in conceptville. Understand "plain terry" and "terry plain" as planetary. howto is "[j-blab]". gtxt is "Terry Plain".
 
-plant reproduction is a concept in conceptville. Understand "reproduction plant" as plant reproduction. howto is "[j-blab]". gtxt is "Reproduction Plant".
+plant reproduction is a jerkish concept in conceptville. Understand "reproduction plant" as plant reproduction. howto is "[j-blab]". gtxt is "Reproduction Plant".
 
-playboy is a concept in conceptville. Understand "boys/boy play" and "play boy/boys" as playboy. howto is "[j-blab]". gtxt is "boy play".
+playboy is a jerkish concept in conceptville. Understand "boys/boy play" and "play boy/boys" as playboy. howto is "[j-blab]". gtxt is "boy play".
 
-pocket pool is a concept in conceptville. Understand "pool pocket" as pocket pool. howto is "[j-blab]". gtxt is "Pool Pocket".
+pocket pool is a jerkish concept in conceptville. Understand "pool pocket" as pocket pool. howto is "[j-blab]". gtxt is "Pool Pocket".
 
-Pollyanna is a concept in conceptville. Understand "anna pauley" and "pauley anna" as pollyanna. howto is "[j-blab]". gtxt is "Anna Pauley".
+Pollyanna is a jerkish concept in conceptville. Understand "anna pauley" and "pauley anna" as pollyanna. howto is "[j-blab]". gtxt is "Anna Pauley".
 
-Polygamy is a concept in conceptville. Understand "gamy polly" and "polly gamy" as polygamy. howto is "[j-blab]". gtxt is "Gamy Polly".
+Polygamy is a jerkish concept in conceptville. Understand "gamy polly" and "polly gamy" as polygamy. howto is "[j-blab]". gtxt is "Gamy Polly".
 
-polyphony is a concept in conceptville. Understand "phony polly" and "polly phony" as polyphony. howto is "[j-blab]". gtxt is "Phony Polly".
+polyphony is a jerkish concept in conceptville. Understand "phony polly" and "polly phony" as polyphony. howto is "[j-blab]". gtxt is "Phony Polly".
 
 pop cherry is a concept in conceptville. Understand "cherry pop" as pop cherry. howto is "[solve-j] with swears on". gtxt is "cherry pop".
 
-Potter Stewart is a concept in conceptville. Understand "stewart potter" as Potter Stewart. howto is "[j-blab]". gtxt is "Stewart Potter".
+Potter Stewart is a jerkish concept in conceptville. Understand "stewart potter" as Potter Stewart. howto is "[j-blab]". gtxt is "Stewart Potter".
 
-pound meat is a concept in conceptville. Understand "meet pound" and "pound meet" as pound meat. howto is "[j-blab]". gtxt is "Meet Pound".
+pound meat is a jerkish concept in conceptville. Understand "meet pound" and "pound meet" as pound meat. howto is "[j-blab]". gtxt is "Meet Pound".
 
-quaalude is a concept in conceptville. Understand "lewd quay" and "quay lewd" as quaalude. howto is "[j-blab]". gtxt is "Lewd Quay".
+quaalude is a jerkish concept in conceptville. Understand "lewd quay" and "quay lewd" as quaalude. howto is "[j-blab]". gtxt is "Lewd Quay".
 
-Ralph Lauren is a concept in conceptville. Understand "lauren ralph" as ralph lauren. howto is "[j-blab]". gtxt is "Lauren Ralph".
+Ralph Lauren is a jerkish concept in conceptville. Understand "lauren ralph" as ralph lauren. howto is "[j-blab]". gtxt is "Lauren Ralph".
 
-record keeper is a concept in conceptville. Understand "keeper record" as record keeper. howto is "[j-blab]". gtxt is "keeper record".
+record keeper is a jerkish concept in conceptville. Understand "keeper record" as record keeper. howto is "[j-blab]". gtxt is "keeper record".
 
-rectally is a concept in conceptville. Understand "ally wrecked" and "wrecked ally" as rectally. howto is "[j-blab]". gtxt is "Ally wrecked".
+rectally is a jerkish concept in conceptville. Understand "ally wrecked" and "wrecked ally" as rectally. howto is "[j-blab]". gtxt is "Ally wrecked".
 
-recur is a concept in conceptville. Understand "curry" as recur. howto is "[j-blab]". gtxt is "curry".
+recur is a jerkish concept in conceptville. Understand "curry" as recur. howto is "[j-blab]". gtxt is "curry".
 
-red rose is a concept in conceptville. Understand "rose redd/red/white/blue/black" and "redd/red/white/blue/black" as red rose. howto is "[j-blab]". gtxt is "Rose Redd, Rose White, Rose Black, and especially Rose Blue".
+red rose is a jerkish concept in conceptville. Understand "rose redd/red/white/blue/black" and "redd/red/white/blue/black" as red rose. howto is "[j-blab]". gtxt is "Rose Redd, Rose White, Rose Black, and especially Rose Blue".
 
-restore is a concept in conceptville. Understand "torres" as restore. howto is "[j-blab]". gtxt is "torres".
+restore is a jerkish concept in conceptville. Understand "torres" as restore. howto is "[j-blab]". gtxt is "torres".
 
 ring finger is a concept in conceptville. Understand "finger ring" as ring finger. howto is "[j-b4]". gtxt is "finger ring".
 
-rosetta is a concept in conceptville. Understand "rose etta" and "etta rose" as rosetta. howto is "[j-blab]". gtxt is "Etta Rose".
+rosetta is a jerkish concept in conceptville. Understand "rose etta" and "etta rose" as rosetta. howto is "[j-blab]". gtxt is "Etta Rose".
 
-run by is a concept in conceptville. Understand "byron" as run by. howto is "[j-blab]". gtxt is "Byron".
+run by is a jerkish concept in conceptville. Understand "byron" as run by. howto is "[j-blab]". gtxt is "Byron".
 
-rusty nail is a concept in conceptville. Understand "nail rusty" as rusty nail. howto is "[j-blab]". gtxt is "nail Rusty".
+rusty nail is a jerkish concept in conceptville. Understand "nail rusty" as rusty nail. howto is "[j-blab]". gtxt is "nail Rusty".
 
 sausage fest is a concept in conceptville. Understand "fest sausage" as sausage fest. howto is "[solve-j] with swears on". gtxt is "fest sausage".
 
-says mo is a concept in conceptville. Understand "moses" as says mo. howto is "[j-blab]". gtxt is "moses".
+says mo is a jerkish concept in conceptville. Understand "moses" as says mo. howto is "[j-blab]". gtxt is "moses".
 
-Sharp Barb is a concept in conceptville. Understand "barb sharp" as sharp barb. howto is "[j-blab]". gtxt is "Barb Sharpe".
+Sharp Barb is a jerkish concept in conceptville. Understand "barb sharp" as sharp barb. howto is "[j-blab]". gtxt is "Barb Sharpe".
 
-shock jock is a concept in conceptville. Understand "jock shock" as shock jock. howto is "[j-blab]". gtxt is "jock shock".
+shock jock is a jerkish concept in conceptville. Understand "jock shock" as shock jock. howto is "[j-blab]". gtxt is "jock shock".
 
-six-pack is a concept in conceptville. Understand "pack six" and "six pack" as six-pack. howto is "[j-blab] nominal fen". gtxt is "Pack Six".
+six-pack is a jerkish concept in conceptville. Understand "pack six" and "six pack" as six-pack. howto is "[j-blab] nominal fen". gtxt is "Pack Six".
 
-social norms is a concept in conceptville. Understand "norms social" as social norms. howto is "[j-blab]". gtxt is "Norm's social".
+social norms is a jerkish concept in conceptville. Understand "norms social" as social norms. howto is "[j-blab]". gtxt is "Norm's social".
 
-spencer tracy is a concept in conceptville. Understand "tracy spencer" as spencer tracy. howto is "[j-blab]". gtxt is "Tracy Spencer".
+spencer tracy is a jerkish concept in conceptville. Understand "tracy spencer" as spencer tracy. howto is "[j-blab]". gtxt is "Tracy Spencer".
 
-spotted dick is a concept in conceptville. Understand "dick spotted" as spotted dick. howto is "[j-blab]". gtxt is "Dick spotted".
+spotted dick is a jerkish concept in conceptville. Understand "dick spotted" as spotted dick. howto is "[j-blab]". gtxt is "Dick spotted".
 
-sweeney todd is a concept in conceptville. Understand "todd sweeney" as sweeney todd. howto is "[j-blab]". gtxt is "Todd Sweeney".
+sweeney todd is a jerkish concept in conceptville. Understand "todd sweeney" as sweeney todd. howto is "[j-blab]". gtxt is "Todd Sweeney".
 
-sympathetic is a concept in conceptville. Understand "sym pathetic" and "pathetic sym" as sympathetic. howto is "[j-blab]". gtxt is "Pathetic Sim".
+sympathetic is a jerkish concept in conceptville. Understand "sym pathetic" and "pathetic sym" as sympathetic. howto is "[j-blab]". gtxt is "Pathetic Sim".
 
-tallywhacker is a concept in conceptville. Understand "tally wacker" and "wacker tally" as tallywhacker. howto is "[j-blab]". gtxt is "wacker tally".
+tallywhacker is a jerkish concept in conceptville. Understand "tally wacker" and "wacker tally" as tallywhacker. howto is "[j-blab]". gtxt is "wacker tally".
 
 Tear-Jerk is a concept in conceptville. Understand "jerk-tear" and "tear jerk" and "jerk tear" as Tear-Jerk. howto is "solve the [j-co]['] puzzle". gtxt is "jerk-tear".
 
-terabyte is a concept in conceptville. Understand "bite tara" and "tara bite" as terabyte. howto is "[j-blab]". gtxt is "bite Tara".
+terabyte is a jerkish concept in conceptville. Understand "bite tara" and "tara bite" as terabyte. howto is "[j-blab]". gtxt is "bite Tara".
 
-teriyaki is a concept in conceptville. Understand "yacky terri" and "terri yacky" as teriyaki. howto is "[j-blab]". gtxt is "Yacky Terri".
+teriyaki is a jerkish concept in conceptville. Understand "yacky terri" and "terri yacky" as teriyaki. howto is "[j-blab]". gtxt is "Yacky Terri".
 
-terrapin is a concept in conceptville. Understand "pin tera" and "tera pin" as terrapin. howto is "[j-blab]". gtxt is "pin Tera".
+terrapin is a jerkish concept in conceptville. Understand "pin tera" and "tera pin" as terrapin. howto is "[j-blab]". gtxt is "pin Tera".
 
-tiebreaker is a concept in conceptville. Understand "Ty Breaker" and "Breaker Ty" as tiebreaker. howto is "[j-blab]". gtxt is "Breaker Ty".
+tiebreaker is a jerkish concept in conceptville. Understand "Ty Breaker" and "Breaker Ty" as tiebreaker. howto is "[j-blab]". gtxt is "Breaker Ty".
 
-turret is a concept in conceptville. Understand "ritter" as turret. howto is "[j-blab]". gtxt is "ritter".
+turret is a jerkish concept in conceptville. Understand "ritter" as turret. howto is "[j-blab]". gtxt is "ritter".
 
-water sports is a concept in conceptville. Understand "sports water" as water sports. howto is "[j-blab]". gtxt is "Sports Water".
+water sports is a jerkish concept in conceptville. Understand "sports water" as water sports. howto is "[j-blab]". gtxt is "Sports Water".
 
-wesley so is a concept in conceptville. Understand "so wesley" as wesley so. howto is "[j-blab]". gtxt is "so Wesley".
+wesley so is a jerkish concept in conceptville. Understand "so wesley" as wesley so. howto is "[j-blab]". gtxt is "so Wesley".
 
-whistler's mother is a concept in conceptville. Understand "mother whistlers/whistler's/whistler" and "whistler/whitler's mother" as whistler's mother. howto is "[j-blab]". gtxt is "mother whistlers".
+whistler's mother is a jerkish concept in conceptville. Understand "mother whistlers/whistler's/whistler" and "whistler/whitler's mother" as whistler's mother. howto is "[j-blab]". gtxt is "mother whistlers".
 
 you buy is a concept in conceptville. Understand "you buy" and "bay you" as you buy. howto is "[solve-j]". gtxt is "bayou".
 

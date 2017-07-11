@@ -452,7 +452,7 @@ for my $x (sort keys %any)
   if (($thisFailed == 0) && ($printSuccess)) { print "$x succeeded.\n"; }
   if (($thisFailed) && ($x !~ /[ \*-]/) && !defined($altname{$x}))
   {
-    print "You may want a space or asterisk or = in $x (line $any{$x}) to see where it can be divided. = is preferred as it disappears with the -lw flag.\n";
+    #print "You may want a space or asterisk or = in $x (line $any{$x}) to see where it can be divided. = is preferred as it disappears with the -lw flag.\n";
   }
 }
 
@@ -901,13 +901,13 @@ while ($lineIn = <X>)
   if ($lineIn !~ /[a-z]/i) { $inTable = 0; $inRoomTable = 0; if ($inAdd) { $addEnd = $.; $inAdd = 0; } next; }
   if (($lineIn =~ /^part /) && ($inRoomSect)) { $curRoom = lc($lineIn); $curRoom =~ s/^part +//; $forceRoom = ""; next; }
   $lineIn = cutArt($lineIn);
-  if ($lineIn =~ /is a concept in (lalaland|conceptville)/) # concept definitions
+  if ($lineIn =~ /is a (jerkish )?concept in (lalaland|conceptville)/) # concept definitions
   {
     $cvEnd = $.;
   }
-  if ($lineIn =~ /is a concept in lalaland/) # concept definitions
+  if ($lineIn =~ /is a (jerkish )?concept in lalaland/) # concept definitions
   {
-    $lineIn =~ s/ is a concept in lalaland.*//g;
+    $lineIn =~ s/ is a (jerkish )?concept in lalaland.*//g;
 	$lineIn = wordtrim($lineIn);
     if (!defined($concToRoom{$lineIn})) { $concToRoom{$lineIn} = "general concepts"; }
 	$conc{$lineIn} = 1;
@@ -999,9 +999,9 @@ while ($lineIn = <X>)
 	next;
   }
   if ($lineIn =~ /^a (thing|concept) called /) { $lineIn =~ s/^a (thing|concept) called //i; }
-  if (($lineIn =~ /is a (privately-named |risque |)?concept/) && ($lineIn !~ /\t/)) #prevents  "is a concept" in source text from false flag
+  if (($lineIn =~ /is a (privately-named |risque |)?(jerkish )?concept/) && ($lineIn !~ /\t/)) #prevents  "is a concept" in source text from false flag
   {
-    $tmpVar = $lineIn; $tmpVar =~ s/ is a (privately-named |risque |)?concept.*//g; $tmpVar = wordtrim($tmpVar); $conc{$tmpVar} = $any{$tmpVar} = $.;
+    $tmpVar = $lineIn; $tmpVar =~ s/ is a (privately-named |risque |)?(jerkish )?concept.*//g; $tmpVar = wordtrim($tmpVar); $conc{$tmpVar} = $any{$tmpVar} = $.;
 	if ($lineIn =~ /fill-in-here/)
 	{
 	  $fillConc{$tmpVar} = $.;
