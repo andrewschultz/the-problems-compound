@@ -281,6 +281,7 @@ macho-boast
 "The [j-co] try to be charitable and think of girls ranked [activation of flounder] on their beauty scale."
 "A couple [j-co] feel sorry they [activation of fluoridated] and listened to her conspiracy theories."
 "The [j-co] are glad they're nowhere near as lame as [activation of gangbusters]. Not Buster Ball, of course."
+"The [j-co] mention how [activation of gelding] sure has balls."
 "The [j-co] express admiration for [activation of glenn beck]'s ability to shoot down crackpot conspiracy theories."
 "The [j-co] agree [activation of gorgeous] is not very attractive."
 "The [j-co] mock the dorks who tried to get into the oh-so-fun [activation of halfling]."
@@ -336,6 +337,7 @@ macho-boast
 "The [j-co] [activation of Peter Pan] for trying to seem more grown-up than he is."
 "'[activation of plaintiff],' [random client in nominal fen] quips. The others agree, citing various elements of her personality."
 "The [j-co] marvel at how down to Earth [activation of planetary] is."
+"The [j-co] have never been to the [activation of plant reproduction], but they bet it's really animated."
 "The [j-co] resolve to put [activation of playboy] behind for more grown-up, sophisticated things. Like, well, articles instead of pictures."
 "The [j-co] whisper rumors of the louche goings-on at the [activation of pocket pool]. It's unclear if it's water or table pool."
 "The [j-co] recount [activation of pollyanna]'s greatest hits making fun of overoptimism. She always comes through!"
@@ -409,6 +411,7 @@ macho-boast
 "The [j-co] wonder why Golda is so planless." [na da goal]
 "The [j-co] wonder why Patti likes silverware so much." [na teapot]
 "The [j-co], in a soft moment, talk up Elsie, the new animal in the zoo." [na seal]
+"The [j-co] don't like how Denny is always needin[']." [na]
 
 part freak control
 

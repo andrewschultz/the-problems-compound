@@ -38,17 +38,17 @@ section compiler limits
 
 use MAX_ACTIONS of 210.
 
-use MAX_OBJECTS of 800.
+use MAX_OBJECTS of 820.
 
 use MAX_SYMBOLS of 25000.
 
 use MAX_STATIC_DATA of 200000.
 
-use MAX_PROP_TABLE_SIZE of 310000.
+use MAX_PROP_TABLE_SIZE of 330000.
 
 section compiler debug limits - not for release
 
-use MAX_OBJECTS of 840. [+40]
+use MAX_OBJECTS of 860. [+40]
 
 use MAX_SYMBOLS of 28000. [+3000]
 
@@ -3607,7 +3607,7 @@ co-ed	"Co-ed means having males and females in classes together."
 cojones	"Cojones is guts--well, a foot below guts, for males. Having cojones means having courage."
 commie	"Commie is short for Communist--in this case, MeCom is a private business for your own profit, or the political opposite."
 Cotton Candy	"Cotton candy is stringy sugary stuff, often bundled together in a soft ball. People eat it at circuses and fairs and movies a lot."
-court date	"court date is when you [fill-in-here]. nominal fen"
+court date	"A court date is when you appear before a judge for a trial."
 covfefe	"Covfefe is a nonsense word tweeted out by Donald Trump, probably a typo for coverage."
 default	"Default is what you do in the absence of anything else. It can also mean to go broke."
 defecate	"To defecate is, well, activity #2 in the bathroom."
@@ -3623,6 +3623,7 @@ flounder	"To flounder is to try and fail without any progress. It's also the nam
 fluoridated	"Fluoridated water is a subject of many silly conspiracy theories."
 full grown	"Full grown means mature, physically or mentally."
 gangbusters	"Gangbusters is outdated slang for awesome."
+gelding	"A gelding is an animal that has been neutered, usually a horse."
 glenn beck	"Glenn Beck is a commentator who was canned by Fox News for too many conspiracy theories."
 gorgeous	"Gorgeous is, well, beautiful."
 grown up	"Grown up means, well, you've learned and matured."
@@ -3688,6 +3689,7 @@ persephone	"Persephone is the princess of the mythological underworld."
 Peter Pan	"Peter Pan is the hero of J. M. Barrie's novel and play, who never grows up."
 Plaintiff	"A plaintiff is the party bringing the charge in a court case."
 planetary	"Planetary relates to either the Earth, or all the planets in the Solar System."
+plant reproduction	"Plant reproduction is a form of biology that is less immediately exciting than, well, the reverse."
 playboy	"Playboy is probably the most famous 'adult' magazine. It's not particularly raunchy, but people often joke they read it for the articles."
 pocket pool	"Pocket pool is a euphemism for self-pleasure."
 Pollyanna	"A Pollyanna is someone who is ridiculously optimistic."
@@ -6586,7 +6588,7 @@ check going west in pressure pier:
 			now thought for food is in lalaland;
 			say "Terry Sally coughs. 'That's Meal Square. Nice if you've got a [activation of food for thought]. Not just some [activation of hallway], but nothing crazy. So the [bad-guy] got rid of that [activation of impaler], the [activation of gobbling down].'";
 
-Meal Square is west of Pressure Pier. Meal Square is in Outer Bounds. "This is a small alcove with Pressure Pier back east. You would call it an [activation of caveat], but ...[paragraph breka]There's not much decoration except a picture of a dozen bakers."
+Meal Square is west of Pressure Pier. Meal Square is in Outer Bounds. "This is a small alcove with Pressure Pier back east. You would call it an [activation of caveat], but ...[paragraph break]There's not much decoration except a picture of a dozen bakers."
 
 after printing the locale description for meal square when meal square is unvisited:
 	if allow-swears is true:
@@ -12718,6 +12720,8 @@ full grown is a concept in conceptville. Understand "grown full" as full grown. 
 
 gangbusters is a concept in conceptville. Understand "buster's/busters/buster gang" and "gang buster/busters/buster's" as gangbusters. howto is "[j-blab]". gtxt is "Buster's Gang".
 
+gelding is a concept in conceptville. Understand "dingell" as gelding. howto is "[j-blab]". gtxt is "Dingell".
+
 Glenn Beck is a concept in conceptville. Understand "beck glenn" as glenn beck. howto is "[j-blab]". gtxt is "Beck Glenn".
 
 gorgeous is a concept in conceptville. Understand "jess gore" and "gore jess" as gorgeous. howto is "[j-blab]". gtxt is "Jess Gore".
@@ -12847,6 +12851,8 @@ Peter Pan is a concept in conceptville. Understand "pan peter" as peter pan. how
 plaintiff is a concept in conceptville. Understand "tiff plain" and "plain tiff" as plaintiff. howto is "[j-blab]". gtxt is "Tiff? Plain".
 
 planetary is a concept in conceptville. Understand "plain terry" and "terry plain" as planetary. howto is "[j-blab]". gtxt is "Terry Plain".
+
+plant reproduction is a concept in conceptville. Understand "reproduction plant" as plant reproduction. howto is "[j-blab]". gtxt is "Reproduction Plant".
 
 playboy is a concept in conceptville. Understand "boys/boy play" and "play boy/boys" as playboy. howto is "[j-blab]". gtxt is "boy play".
 
