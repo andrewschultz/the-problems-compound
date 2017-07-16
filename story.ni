@@ -3731,11 +3731,13 @@ turret	"A turret is a small tower, or a side compartment to a plane."
 water sports	"Water sports is...well, visit Urban Dictionary to learn it's more than just water polo."
 wesley so	"Wesley So became one of the youngest American chess grandmasters ever."
 whistler's mother	"Whistler's Mother is a famous painting of an old lady, the mother of the artist."
+whole foods	"Whole Foods is a store that sells super organic foods at a huge markup."
 you buy	"A bayou is a tributary (river leading to bigger water), and the reverse pronunciation is 'you buy.'"
 Character Assassination	"Character assassination is an attempt to tarnish someone's good reputation." [start of chipper wood]
 Play it Cool	"To play it cool is not to lose your temper. Of course, Percy's chase may make you want to lose your temper."
 Sweetheart Deal	"A sweetheart deal is something that works very well for both sides, often obtained unethically. Telling someone to deal often means they have to settle for being ripped off."
 woodstock	"Woodstock was a big several day long music party back in 1970."
+you mad	"'U mad' is a taunt on the Internet that originated from a guest on The O'Reilly Factor mocking the host."
 Terminal Illness	"A terminal illness is one which is bound to be fatal. Illness can also mean full of insults, e.g. very 'ill,' as kids these days say. And said, even in my day!" [start of the belt below]
 waste breath	"To waste breath is to speak in vain."
 Fish for a Compliment	"To fish for a compliment is to try to manipulate someone into saying something nice." [start of disposed well]
@@ -3853,9 +3855,11 @@ butter up	"To butter someone up is to flatter them."
 carry over	"To carry over is to do or be more than your initial impression."
 chowderhead	"A chowderhead is someone who makes silly mistakes."
 City Slicker	"A city slicker is what rural people may call someone more urban. It's also the reverse of the name of the sequel to PC."
+critical thinking	"Critical thinking means being skeptical of stuff that seems obvious."
 cruise control	"Cruise control is when you set a car to go at a certain speed. A person on cruise control is going through life and not trying anything new."
 curry favor	"To curry favor is to try to get on someone's good side."
 Daily Show	"The Daily Show is a very popular comedy/political commentary show on Comedy Central."
+david brent	"David Brent was the main character in the British version of [i]The Office[r]. He tried to get all his employees to like him."
 degenerate	"Degenerate means without moral values. D is short for defense."
 difference of opinion	"A difference of opinion means people disagree but not violently. The [bad-guy] is emphasizing he doesn't think much of you."
 disorder	"Disorder means a mess, while an order is telling someone what to do and a dis is an insult. Basically, the [bad-guy] is saying, insulting people for being disorganized helps them get organized. Well, it never helped me."
@@ -3894,6 +3898,7 @@ pad accounts	"To pad accounts is to perform an illegal or unethical manipulation
 paddywagon	"A paddywagon is a police car that carries arrested people."
 pea brain	"A pea brain is a mean name for someone who is not very smart."
 pharisee	"A pharisee is someone who gives the trappings of morality but is not."
+police state	"A police state is where the police have extra power to oppress citizens."
 polygraph	"A polygraph is a lie detector. The [bad-guy] is probably looking for lies that aren't there."
 Power Trip	"A power trip is when someone is so overcome with their own power, they do mean things to show it off."
 pratfall	"A pratfall is a physical fall, or a humiliating error in general."
@@ -8242,6 +8247,9 @@ chapter jerk talking
 part Chipper Wood
 
 Chipper Wood is west of Nominal Fen. It is in Main Chunk. "The path cuts east-west here, the wood being too thick elsewhere. [if chase paper is in Chipper wood][say-paper][else]You can go down where the chase paper was[end if]."
+
+check going nowhere in chipper wood:
+	say "The thought of running into a [activation of you mad] leaves you seeing red." instead;
 
 to say say-paper:
 	say "[one of]But this path is clear, with an odd large paper grid. It's five by five, with fainter diagonal lines too[or]The chase paper is still there, taunting you with its apparent simplicity[stopping]";
@@ -12963,6 +12971,8 @@ wesley so is a jerkish concept in conceptville. Understand "so wesley" as wesley
 
 whistler's mother is a jerkish concept in conceptville. Understand "mother whistlers/whistler's/whistler" and "whistler/whitler's mother" as whistler's mother. howto is "[j-blab]". gtxt is "mother whistlers".
 
+Whole Foods is a jerkish concept in conceptville. Understand "hole foods" and "foods hole" as whole foods. howto is "[j-blab]". gtxt is "Foods Hole".
+
 you buy is a concept in conceptville. Understand "you buy" and "bay you" as you buy. howto is "[solve-j]". gtxt is "bayou".
 
 section chipper wood concepts
@@ -12974,6 +12984,8 @@ Play it Cool is a concept in conceptville. Understand "cool it play" as play it 
 sweetheart deal is a concept in conceptville. Understand "deal sweetheart" as sweetheart deal. howto is "run from Chipper Wood before catching Cute Percy". gtxt is "Deal, sweetheart".
 
 Woodstock is a concept in conceptville. Understand "wood stock" and "stock wood" as woodstock. howto is "sing in Chipper Wood". gtxt is "stock wood".
+
+you mad is a concept in conceptville. Understand "yew mad" and "mad yew" as you mad. howto is "[nogo of Chipper Wood]". gtxt is "mad yew".
 
 section the belt below concepts
 
@@ -13230,13 +13242,13 @@ to say fr-pb:
 to say ok-end:
 	say "defeat the [bad-guy] without rescuing Idiot Village"
 
-artemis fowl is a concept in conceptville. Understand "foul miss artie" and "artie miss foul" as artemis fowl. howto is "[fr-ran]". gtxt is "Foul miss, Artie".
+artemis fowl is a nemmy concept in conceptville. Understand "foul miss artie" and "artie miss foul" as artemis fowl. howto is "[fr-ran]". gtxt is "Foul miss, Artie".
 
-autocratic is a concept in conceptville. Understand "craddock auto" and "auto craddock" as autocratic. howto is "[fr-ran]". gtxt is "Craddock Auto".
+autocratic is a nemmy concept in conceptville. Understand "craddock auto" and "auto craddock" as autocratic. howto is "[fr-ran]". gtxt is "Craddock Auto".
 
 beholder of the eye is a concept in conceptville. Understand "eye the of beholder" as beholder of the eye. howto is "[x-it of Witness Eye]". gtxt is "beholder of the eye".
 
-benefactor is a concept in conceptville. Understand "factor benny" and "benny factor" as benefactor. howto is "[fr-ran]". gtxt is "factor BENNY".
+benefactor is a nemmy concept in conceptville. Understand "factor benny" and "benny factor" as benefactor. howto is "[fr-ran]". gtxt is "factor BENNY".
 
 Beyond Belief is a concept in conceptville. Understand "belief beyond" as Beyond Belief. howto is "get the [bad-guy]'s attention". gtxt is "belief beyond".
 
@@ -13248,21 +13260,25 @@ Break Monotony is a concept in conceptville. Understand "monotony break" as brea
 
 a thing called breaking and entering is a concept in conceptville. Understand "entering and breaking" as breaking and entering. howto is "attack scenery in Freak Control". gtxt is "Entering and breaking".
 
-busy work is a concept in conceptville. Understand "work busy" as busy work. howto is "[fr-ran]". gtxt is "Work ... busy ...".
+busy work is a nemmy concept in conceptville. Understand "work busy" as busy work. howto is "[fr-ran]". gtxt is "Work ... busy ...".
 
 butter up is a concept in conceptville. Understand "up butter" as butter up. howto is "[fr-pb]". gtxt is "up butter".
 
-carry over is a concept in conceptville. Understand "over carry" as carry over. howto is "[fr-ran]". gtxt is "over Carrie".
+carry over is a nemmy concept in conceptville. Understand "over carry" as carry over. howto is "[fr-ran]". gtxt is "over Carrie".
 
 chowderhead is a concept in conceptville. Understand "chowder head" and "head chowder" as chowderhead. howto is "[fr-pb]". gtxt is "head chowder".
 
 City Slicker is a concept in conceptville. Understand "slicker city" as City Slicker. howto is "[bad-guy] dialog". gtxt is "Slicker City".
 
-Cruise Control is a concept in conceptville. Understand "control cruise" as cruise control. howto is "[fr-ran]". gtxt is "Control Cruise".
+critical thinking is a concept in conceptville. Understand "thinking critical" as critical thinking. howto is "[fr-ran] freak control". gtxt is "thinking critical".
+
+Cruise Control is a nemmy concept in conceptville. Understand "control cruise" as cruise control. howto is "[fr-ran]". gtxt is "Control Cruise".
 
 curry favor is a concept in conceptville. Understand "favor curry" as curry favor. howto is "[fr-pb]". gtxt is "favor curry".
 
 Daily Show is a concept in conceptville. Understand "show daily" as daily show. howto is "[fr-ran]". gtxt is "show daily".
+
+David Brent is a concept in conceptville. Understand "brent david" as david brent. howto is "[fr-ran]". gtxt is "Brent David".
 
 degenerate is a concept in conceptville. Understand "d generate" and "generate d" as degenerate. howto is "[fr-ran]". gtxt is "generate D".
 
@@ -13339,6 +13355,8 @@ paddywagon is a concept in conceptville. Understand "waggin patty" and "patty wa
 pea brain is a concept in conceptville. Understand "brain pea" as pea brain. howto is "[fr-pb]". gtxt is "brain pea".
 
 pharisee is a concept in conceptville. Understand "see farrah" and "farrah see" as pharisee. howto is "[fr-ran]". gtxt is "See, Farrah".
+
+police state is a concept in conceptville. Understand "state police" as police state. howto is "[fr-ran]". gtxt is "state police".
 
 polygraph is a concept in conceptville. Understand "graph polly" and "polly graph" as polygraph. howto is "[fr-ran]". gtxt is "graph Polly".
 

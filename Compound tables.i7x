@@ -80,6 +80,7 @@ part truth home
 table of incisive sid viewpoints [xxisv]
 sid-sez
 "Sid spews a [activation of showerproof] of all sorts of things that can't be true. You wipe a bit of his spittle off your arm."
+"Sid notes how some people are true but strange, but he's all about strange but true."
 "Sid points out it's really probably better to be a jerk than not, because fake nice is really really creepy. Lee asks if it's the same for fake interesting. 'A-HA! I KNEW YOU WEREN'T NICE!'"
 "Sid mentions you can't call him [activation of Sid Vicious] because he keeps punks in line FAIRLY."
 "Sid puts down Lee and notes your silence is agreement. But Lee has a comeback--and Sid notes your silence (again) as disbelief."
@@ -371,8 +372,10 @@ macho-boast
 "The [j-co] wonder which brand of [activation of water sports] gives you the most, uh, prowess."
 "The [j-co] laugh it's [activation of Wesley So] to make fun of the really dedicated chess dorks."
 "The [j-co] laugh at [activation of whistler's mother] who find true beauty in older females, like, over thirty." [todo: slowin' homer]
+"The [j-co] rave about the wonderfully greasy options at [activation of whole foods]."
 "The [j-co] agree Erwin is just a total loser name." [na winner]
 "The [j-co] agree Gerda would never knife you in the back." [na dagger]
+"The [j-co] agree that Diener is massively cool." [na nerdy]
 "The [j-co] applaud Roxy for being UNCOPYABLE." [na xerox]
 "The [j-co] are glad Becky is 100% American!" [na quebec]
 "The [j-co] are sorry, but they don't find Delma attractive." [na model]
@@ -422,8 +425,10 @@ gad-act
 "'Geez, it's a pain to [activation of benefactor]. I'm not, like, MEAN to him.'"
 "'[activation of busy work] work ... busy,' says the [bad-guy], pacing back and forth."
 "The [bad-guy] mentions he is [activation of carry over] several times."
+"The [bad-guy] lists a few people who hate him for always [activation of critical thinking]."
 "The [bad-guy] mutters plans about the monthly [activation of cruise control] coming up, a nice support group for people almost tired of being in power."
 "The [bad-guy] groans how [activation of John Stewart] and [activation of John Oliver] and [activation of trevor noah] [activation of daily show] how unfunny and irrelevant and socially aloof they are."
+"The [bad-guy] reminds himself to call [activation of david brent] for no-nonsense management tips. That guy doesn't worry if ANYBODY likes him!"
 "'We need to [activation of degenerate], here, against [bad-guy-2]!'"
 "'[random surveyable person] just needs a good [activation of disorder] to put [']em line. Or two. Or three.'"
 "'[activation of elitist]!' boasts the [bad-guy], establishing several layers of irony, you're pretty sure."
@@ -446,13 +451,14 @@ gad-act
 "The [bad-guy] mumbles 'Now, where'd I put my [activation of pad accounts]?'"
 "The [bad-guy] mumbles about how [activation of paddywagon] is a good snitch. Um, observer."
 "'[activation of pharisee],' the [bad-guy] mutters to no girl in particular."
+"The [bad-guy] makes plans to spruce up the [activation of police state]."
 "'Yeah, if we [activation of polygraph], she's lying without lying.'"
 "The [bad-guy] reminds himself how to [activation of psychoanalyst], even if there's not enough data/proof yet."
 "'[activation of putin], input, input,' mutters the [bad-guy]. 'The more I get, the more I'm in charge.' He proceeds to whistle a jaunty marching dirge you feel you should know the title of."
 "The [bad-guy] picks up a paper, shrugs, and throws it away. '[activation of red alert]...'"
 "'I'll need to [activation of sly dog] his magic tricks aren't anything special, now that he can actually do a few.'"
 "'That's why we need to [activation of stand out], not just because he's different...'"
-"'[activation of stupor],' the [bad-guy] says, almonst genuinely concerned, before scoffing himself out of a daze."
+"'[activation of stupor],' the [bad-guy] says, almost genuinely concerned, before scoffing himself out of a daze."
 "The [bad-guy] snorts at [activation of taste buds]."
 "The [bad-guy] snickers at [activation of Tucker Max]'s boring diaries that are well-written and all but don't have a trace of REAL self-awareness in them."
 "'[activation of Wallace Shawn] said THAT? Conceivable.'"
