@@ -110,6 +110,11 @@ my %extraLines;
 $tableDetHash{"Compound"} = "xxjmt,xxbgw";
 $tableDetHash{"Buck-the-Past"} = "!xxtia";
 
+my %conceptMatch = (
+  "nemmy" => "fr-ran",
+  "jerkish" => "j-blab"
+  );
+
 my $source = __FILE__;
 
 #################################
@@ -901,13 +906,13 @@ while ($lineIn = <X>)
   if ($lineIn !~ /[a-z]/i) { $inTable = 0; $inRoomTable = 0; if ($inAdd) { $addEnd = $.; $inAdd = 0; } next; }
   if (($lineIn =~ /^part /) && ($inRoomSect)) { $curRoom = lc($lineIn); $curRoom =~ s/^part +//; $forceRoom = ""; next; }
   $lineIn = cutArt($lineIn);
-  if ($lineIn =~ /is a (jerkish )?concept in (lalaland|conceptville)/) # concept definitions
+  if ($lineIn =~ /is a (jerkish |nemmy )?concept in (lalaland|conceptville)/) # concept definitions
   {
     $cvEnd = $.;
   }
-  if ($lineIn =~ /is a (jerkish )?concept in lalaland/) # concept definitions
+  if ($lineIn =~ /is a (jerkish |nemmy )?concept in lalaland/) # concept definitions
   {
-    $lineIn =~ s/ is a (jerkish )?concept in lalaland.*//g;
+    $lineIn =~ s/ is a (jerkish |nemmy )?concept in lalaland.*//g;
 	$lineIn = wordtrim($lineIn);
     if (!defined($concToRoom{$lineIn})) { $concToRoom{$lineIn} = "general concepts"; }
 	$conc{$lineIn} = 1;
@@ -924,6 +929,17 @@ while ($lineIn = <X>)
 	$tmpVar =~ s/^(a|the) concept called //;
     $gtxtx{$tmpVar} = $.;
     unless ($openLowestLine && defined($minorErrs{$file})) { $minorErrs{$file} = $.;}
+  }
+  if ($lineIn =~ /gtxt(x)? is/) # I could move this to a concept-specific block of code but it's good enough.
+  {
+    for my $adj (keys %conceptMatch)
+    {
+      if (($lineIn =~ /$adj/i) + ($lineIn =~ /$conceptMatch{$adj}/) == 1)
+      {
+        print "Line $. needs to match $adj/$conceptMatch{$adj}.\n";
+	    last;
+      }
+    }
   }
   while ($tmpVar =~ /\[activation of/) # "activation of" in source code
   {
@@ -998,10 +1014,10 @@ while ($lineIn = <X>)
 	if (!defined($lineNum{$tmpVar})) { $lineNum{$tmpVar} = $.; }
 	next;
   }
-  if ($lineIn =~ /^a (thing|concept) called /) { $lineIn =~ s/^a (thing|concept) called //i; }
-  if (($lineIn =~ /is a (privately-named |risque |)?(jerkish )?concept/) && ($lineIn !~ /\t/)) #prevents  "is a concept" in source text from false flag
+  $lineIn =~ s/^a (thing|concept) called //i if $lineIn =~ /^a (thing|concept) called /;
+  if (($lineIn =~ /is a (privately-named |risque |)?(jerkish |nemmy )?concept/) && ($lineIn !~ /\t/)) #prevents  "is a concept" in source text from false flag
   {
-    $tmpVar = $lineIn; $tmpVar =~ s/ is a (privately-named |risque |)?(jerkish )?concept.*//g; $tmpVar = wordtrim($tmpVar); $conc{$tmpVar} = $any{$tmpVar} = $.;
+    $tmpVar = $lineIn; $tmpVar =~ s/ is a (privately-named |risque |)?(jerkish |nemmy )?concept.*//g; $tmpVar = wordtrim($tmpVar); $conc{$tmpVar} = $any{$tmpVar} = $.;
 	if ($lineIn =~ /fill-in-here/)
 	{
 	  $fillConc{$tmpVar} = $.;
