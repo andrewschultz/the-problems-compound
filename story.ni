@@ -13270,39 +13270,39 @@ chowderhead is a concept in conceptville. Understand "chowder head" and "head ch
 
 City Slicker is a concept in conceptville. Understand "slicker city" as City Slicker. howto is "[bad-guy] dialog". gtxt is "Slicker City".
 
-critical thinking is a concept in conceptville. Understand "thinking critical" as critical thinking. howto is "[fr-ran] freak control". gtxt is "thinking critical".
+critical thinking is a nemmy concept in conceptville. Understand "thinking critical" as critical thinking. howto is "[fr-ran] freak control". gtxt is "thinking critical".
 
 Cruise Control is a nemmy concept in conceptville. Understand "control cruise" as cruise control. howto is "[fr-ran]". gtxt is "Control Cruise".
 
 curry favor is a concept in conceptville. Understand "favor curry" as curry favor. howto is "[fr-pb]". gtxt is "favor curry".
 
-Daily Show is a concept in conceptville. Understand "show daily" as daily show. howto is "[fr-ran]". gtxt is "show daily".
+Daily Show is a nemmy concept in conceptville. Understand "show daily" as daily show. howto is "[fr-ran]". gtxt is "show daily".
 
-David Brent is a concept in conceptville. Understand "brent david" as david brent. howto is "[fr-ran]". gtxt is "Brent David".
+David Brent is a nemmy concept in conceptville. Understand "brent david" as david brent. howto is "[fr-ran]". gtxt is "Brent David".
 
-degenerate is a concept in conceptville. Understand "d generate" and "generate d" as degenerate. howto is "[fr-ran]". gtxt is "generate D".
+degenerate is a nemmy concept in conceptville. Understand "d generate" and "generate d" as degenerate. howto is "[fr-ran]". gtxt is "generate D".
 
 difference of opinion is a concept in conceptville. Understand "opinion of difference" as difference of opinion. howto is "get the [bad-guy]'s attention". gtxt is "opinion of difference".
 
-disorder is a concept in conceptville. Understand "order dis" and "dis order" as disorder. howto is "[fr-ran]". gtxt is "Order Dis".
+disorder is a nemmy concept in conceptville. Understand "order dis" and "dis order" as disorder. howto is "[fr-ran]". gtxt is "Order Dis".
 
-dual vision is a concept in conceptville. Understand "vision duel" and "duel vision" as dual vision. howto is "[fr-ran]". gtxt is "vision duel".
+dual vision is a nemmy concept in conceptville. Understand "vision duel" and "duel vision" as dual vision. howto is "[fr-ran]". gtxt is "vision duel".
 
-elitist is a concept in conceptville. Understand "leetest e/ee/eee/eeee" and "eeee/eee/ee/e leetest" as elitist. howto is "[fr-ran]". gtxt is "Leetest! Eeee".
+elitist is a nemmy concept in conceptville. Understand "leetest e/ee/eee/eeee" and "eeee/eee/ee/e leetest" as elitist. howto is "[fr-ran]". gtxt is "Leetest! Eeee".
 
 energy crisis is a concept in conceptville. Understand "crisis energy" as energy crisis. howto is "get the [bad-guy]'s attention". gtxt is "Crisis Energy".
 
-evil eye is a concept in conceptville. Understand "i evil" and "evil i" as evil eye. howto is "[fr-ran]". gtxt is "I?!? Evil".
+evil eye is a nemmy concept in conceptville. Understand "i evil" and "evil i" as evil eye. howto is "[fr-ran]". gtxt is "I?!? Evil".
 
-Ezra Pound is a concept in conceptville. Understand "pound ezra" as ezra pound. howto is "[fr-ran]". gtxt is "pound Ezra".
+Ezra Pound is a nemmy concept in conceptville. Understand "pound ezra" as ezra pound. howto is "[fr-ran]". gtxt is "pound Ezra".
 
 face facts is a concept in conceptville. Understand "facts face" as face facts. howto is "talk to the [bad-guy]". gtxt is "facts face".
 
-fanatic is a concept in conceptville. Understand "attic fan" and "fan attic" as fanatic. howto is "[fr-ran]". gtxt is "attic fan".
+fanatic is a nemmy concept in conceptville. Understand "attic fan" and "fan attic" as fanatic. howto is "[fr-ran]". gtxt is "attic fan".
 
-fatigue duty is a concept in conceptville. Understand "duty fatigue" as fatigue duty. howto is "[fr-ran]". gtxt is "Duty fatigue".
+fatigue duty is a nemmy concept in conceptville. Understand "duty fatigue" as fatigue duty. howto is "[fr-ran]". gtxt is "Duty fatigue".
 
-fawn over is a concept in conceptville. Understand "over fawn" as fawn over. howto is "[fr-ran]". gtxt is "OVER Fawn".
+fawn over is a nemmy concept in conceptville. Understand "over fawn" as fawn over. howto is "[fr-ran]". gtxt is "OVER Fawn".
 
 following my gut is a concept in conceptville. Understand "gut my following" as following my gut. howto is "get the [bad-guy]'s attention". gtxt is "gut my following".
 
@@ -13316,63 +13316,63 @@ guttersnipe is a concept in conceptville. Understand "snipe gutter" and "gutter 
 
 half right is a concept in conceptville. Understand "right half" as half right. howto is "[bad-guy] dialog". gtxt is "right half".
 
-Howard Dean is a concept in conceptville. Understand "dean howard" as howard dean. howto is "[fr-ran]". gtxt is "Dean Howard".
+Howard Dean is a nemmy concept in conceptville. Understand "dean howard" as howard dean. howto is "[fr-ran]". gtxt is "Dean Howard".
 
-Infomania is a concept in conceptville. Understand "info mania" and "mania info" as infomania. howto is "[fr-ran]". gtxt is "Mania Info".
+Infomania is a nemmy concept in conceptville. Understand "info mania" and "mania info" as infomania. howto is "[fr-ran]". gtxt is "Mania Info".
 
-informally is a concept in conceptville. Understand "ally inform" and "inform ally" as informally. howto is "[fr-ran]". gtxt is "Ally, Inform".
+informally is a nemmy concept in conceptville. Understand "ally inform" and "inform ally" as informally. howto is "[fr-ran]". gtxt is "Ally, Inform".
 
-John Hancock is a concept in conceptville. Understand "hancock john" as john hancock. howto is "[fr-ran]". gtxt is "Hancock john".
+John Hancock is a nemmy concept in conceptville. Understand "hancock john" as john hancock. howto is "[fr-ran]". gtxt is "Hancock john".
 
-John Oliver is a concept in conceptville. Understand "oliver jahn" and "jahn oliver" as john oliver. howto is "[fr-ran]". gtxt is "Stewart Jahn".
+John Oliver is a nemmy concept in conceptville. Understand "oliver jahn" and "jahn oliver" as john oliver. howto is "[fr-ran]". gtxt is "Stewart Jahn".
 
-John Stewart is a concept in conceptville. Understand "stewart jahn" and "jahn stewart" as john stewart. howto is "[fr-ran]". gtxt is "Oliver Jahn".
+John Stewart is a nemmy concept in conceptville. Understand "stewart jahn" and "jahn stewart" as john stewart. howto is "[fr-ran]". gtxt is "Oliver Jahn".
 
-Johns Hopkins is a concept in conceptville. Understand "hopkins johns" as johns hopkins. howto is "[fr-ran]". gtxt is "Hopkins johns".
+Johns Hopkins is a nemmy concept in conceptville. Understand "hopkins johns" as johns hopkins. howto is "[fr-ran]". gtxt is "Hopkins johns".
 
-King Henry is a concept in conceptville. Understand "henry king" as king henry. howto is "[fr-ran]". gtxt is "Henry King got one".
+King Henry is a nemmy concept in conceptville. Understand "henry king" as king henry. howto is "[fr-ran]". gtxt is "Henry King got one".
 
 laughingstock is a concept in conceptville. Understand "laughing stock" and "stock laughing" as laughingstock. howto is "talk to the [bad-guy]". gtxt is "stock laughing".
 
-Leading Question is a concept in conceptville. Understand "question leading" as leading question. howto is "[fr-ran]". gtxt is "question leading".
+Leading Question is a nemmy concept in conceptville. Understand "question leading" as leading question. howto is "[fr-ran]". gtxt is "question leading".
 
-mistruth is a concept in conceptville. Understand "miss truth" and "truth miss" as mistruth. howto is "[fr-ran]". gtxt is "Ruth missed so much by not listening to the exciting stories I offered to share to her".
+mistruth is a nemmy concept in conceptville. Understand "miss truth" and "truth miss" as mistruth. howto is "[fr-ran]". gtxt is "Ruth missed so much by not listening to the exciting stories I offered to share to her".
 
 mug shot is a concept in conceptville. Understand "shot mug" as mug shot. howto is "get the [bad-guy]'s attention". gtxt is "shot mug".
 
-narcissist is a concept in conceptville. Understand "assist narc" and "narc assist" as narcissist. howto is "[fr-ran]". gtxt is "assist-narc".
+narcissist is a nemmy concept in conceptville. Understand "assist narc" and "narc assist" as narcissist. howto is "[fr-ran]". gtxt is "assist-narc".
 
-Off the Record is a concept in conceptville. Understand "record the off" as off the record. howto is "[fr-ran]". gtxt is "record the off".
+Off the Record is a nemmy concept in conceptville. Understand "record the off" as off the record. howto is "[fr-ran]". gtxt is "record the off".
 
-order of operations is a concept in conceptville. Understand "operations of order" as order of operations. howto is "[fr-ran]". gtxt is "operations of order".
+order of operations is a nemmy concept in conceptville. Understand "operations of order" as order of operations. howto is "[fr-ran]". gtxt is "operations of order".
 
-oscar wilde is a concept in conceptville. Understand "wilde/wild oscar" and "oscar wild" as oscar wilde. howto is "[fr-ran]". gtxt is "Wild Oscar".
+oscar wilde is a nemmy concept in conceptville. Understand "wilde/wild oscar" and "oscar wild" as oscar wilde. howto is "[fr-ran]". gtxt is "Wild Oscar".
 
-pad accounts is a concept in conceptville. Understand "accounts pad" as pad accounts. howto is "[fr-ran]". gtxt is "accounts pad".
+pad accounts is a nemmy concept in conceptville. Understand "accounts pad" as pad accounts. howto is "[fr-ran]". gtxt is "accounts pad".
 
-paddywagon is a concept in conceptville. Understand "waggin patty" and "patty waggin" as paddywagon. howto is "[fr-ran]". gtxt is "Waggin['] Patty".
+paddywagon is a nemmy concept in conceptville. Understand "waggin patty" and "patty waggin" as paddywagon. howto is "[fr-ran]". gtxt is "Waggin['] Patty".
 
 pea brain is a concept in conceptville. Understand "brain pea" as pea brain. howto is "[fr-pb]". gtxt is "brain pea".
 
-pharisee is a concept in conceptville. Understand "see farrah" and "farrah see" as pharisee. howto is "[fr-ran]". gtxt is "See, Farrah".
+pharisee is a nemmy concept in conceptville. Understand "see farrah" and "farrah see" as pharisee. howto is "[fr-ran]". gtxt is "See, Farrah".
 
-police state is a concept in conceptville. Understand "state police" as police state. howto is "[fr-ran]". gtxt is "state police".
+police state is a nemmy concept in conceptville. Understand "state police" as police state. howto is "[fr-ran]". gtxt is "state police".
 
-polygraph is a concept in conceptville. Understand "graph polly" and "polly graph" as polygraph. howto is "[fr-ran]". gtxt is "graph Polly".
+polygraph is a nemmy concept in conceptville. Understand "graph polly" and "polly graph" as polygraph. howto is "[fr-ran]". gtxt is "graph Polly".
 
 Power Trip is a concept in conceptville. Understand "trip power" as power trip. howto is "wait for the [bad-guy] to go through his actions". gtxt is "POWER TRIP".
 
 pratfall is a concept in conceptville. Understand "prat fall" and "fall prat" as pratfall. howto is "[bad-guy] dialog". gtxt is "Fall, prat".
 
-Psychoanalyst is a concept in conceptville. Understand "list anna" and "anna list" and "analyst" as psychoanalyst. howto is "[fr-ran]". gtxt is "list Anna: psycho". [ok]
+Psychoanalyst is a nemmy concept in conceptville. Understand "list anna" and "anna list" and "analyst" as psychoanalyst. howto is "[fr-ran]". gtxt is "list Anna: psycho". [ok]
 
-Putin is a concept in conceptville. Understand "input" and "put in" and "in put" as putin when freak control is visited. howto is "[fr-ran]". gtxt is "Input". [ok]
+Putin is a nemmy concept in conceptville. Understand "input" and "put in" and "in put" as putin when freak control is visited. howto is "[fr-ran]". gtxt is "Input". [ok]
 
-race baiting is a concept in conceptville. Understand "baiting race" as race baiting. howto is "[fr-ran]". gtxt is "baiting race".
+race baiting is a nemmy concept in conceptville. Understand "baiting race" as race baiting. howto is "[fr-ran]". gtxt is "baiting race".
 
 reactionary is a concept in conceptville. Understand "airy reaction" and "reaction airy" as reactionary. howto is "talk to the [bad-guy] before guessing the right action". gtxt is "airy reaction".
 
-red alert is a concept in conceptville. Understand "alert red/read" and "read alert" as red alert. howto is "[fr-ran]". gtxt is "Alert? Read".
+red alert is a nemmy concept in conceptville. Understand "alert red/read" and "read alert" as red alert. howto is "[fr-ran]". gtxt is "Alert? Read".
 
 relief is a concept in conceptville. Understand "leif rhee" and "rhee leif" as relief. howto is "[bad-guy] dialog". gtxt is "Leif Rhee".
 
@@ -13384,25 +13384,25 @@ scuzz bucket is a concept in conceptville. Understand "scum bucket" and "bucket 
 
 see if i care is a concept in conceptville. Understand "care i if see" as see if i care. howto is "[fr-pb]". gtxt is "care if I see".
 
-see you later is a concept in conceptville. Understand "later you see" as see you later. howto is "[fr-ran]". gtxt is "Later, you see".
+see you later is a nemmy concept in conceptville. Understand "later you see" as see you later. howto is "[fr-ran]". gtxt is "Later, you see".
 
 serve one right is a concept in conceptville. Understand "right one serve" as serve one right. howto is "get the [bad-guy]'s attention". gtxt is "one right serve".
 
-sly dog is a concept in conceptville. Understand "dog sly" as sly dog. howto is "[fr-ran]". gtxt is "dog Sly".
+sly dog is a nemmy concept in conceptville. Understand "dog sly" as sly dog. howto is "[fr-ran]". gtxt is "dog Sly".
 
 stake a claim is a concept in conceptville. Understand "acclaim stake" and "stake acclaim" as stake a claim. howto is "[fr-pb]". gtxt is "acclaim stake".
 
-Stand out is a concept in conceptville. Understand "doubt stan" and "stan doubt" as stand out. howto is "[fr-ran]". gtxt is "doubt Stan".
+Stand out is a nemmy concept in conceptville. Understand "doubt stan" and "stan doubt" as stand out. howto is "[fr-ran]". gtxt is "doubt Stan".
 
-stupor is a concept in conceptville. Understand "poor stu" and "stu poor" as stupor. howto is "[fr-ran]". gtxt is "poor Stu".
+stupor is a nemmy concept in conceptville. Understand "poor stu" and "stu poor" as stupor. howto is "[fr-ran]". gtxt is "poor Stu".
 
-taste buds is a concept in conceptville. Understand "bud's/buds taste" and "taste bud's" as taste buds. howto is "[fr-ran]". gtxt is "Bud's taste"
+taste buds is a nemmy concept in conceptville. Understand "bud's/buds taste" and "taste bud's" as taste buds. howto is "[fr-ran]". gtxt is "Bud's taste"
 
-Trevor Noah is a concept in conceptville. Understand "noah trevor" as trevor noah. howto is "[fr-ran]". gtxt is "Noah Trevor".
+Trevor Noah is a nemmy concept in conceptville. Understand "noah trevor" as trevor noah. howto is "[fr-ran]". gtxt is "Noah Trevor".
 
-Tucker Max is a concept in conceptville. Understand "max tucker" as Tucker Max. howto is "[fr-ran]". gtxt is "Max Tucker".
+Tucker Max is a nemmy concept in conceptville. Understand "max tucker" as Tucker Max. howto is "[fr-ran]". gtxt is "Max Tucker".
 
-Wallace Shawn is a concept in conceptville. Understand "shawn wallace" as wallace shawn. howto is "[fr-ran]". gtxt is "Shawn Wallace said THAT".
+Wallace Shawn is a nemmy concept in conceptville. Understand "shawn wallace" as wallace shawn. howto is "[fr-ran]". gtxt is "Shawn Wallace said THAT".
 
 Wire Fraud is a concept in conceptville. Understand "fraud wire" as Wire Fraud. howto is "[bad-guy] dialog". gtxt is "Fraud Wire".
 

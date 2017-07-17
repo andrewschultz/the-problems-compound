@@ -23,6 +23,7 @@ use warnings;
 use File::Copy qw(copy);
 use File::Compare;
 
+use lib "c:\\writing\\scripts";
 use i7;
 
 use Win32::Clipboard;
@@ -76,6 +77,7 @@ my $outputRoomFile = 0;
 my $concDefCheck = 0;
 my $overlookOptionClash = 0;
 my $understandProcess = 0;
+my $modifyConcepts = 0;
 
 #############################
 #hashes
@@ -205,6 +207,7 @@ while ($count <= $#ARGV)
 	/^-?a3$/ && do { @dirs = ("Slicker-City", "Compound", "Buck-the-Past"); $count++; next; };
 	/^-?a4$/ && do { @dirs = ("Compound", "Slicker-City", "Buck-the-Past", "btp-st"); $count++; next; };
 	/^-?as$/ && do { @dirs = ("Slicker-City", "Compound", "Buck-the-Past", "seeker-status"); $count++; next; };
+	/^-?cc$/ && do { $modifyConcepts = 1; $count++; next; };
 	/^-?[cv0nlmw]+$/ && do
 	{
 	  $codeToClipboard = $printErrCode = $printErrors = 0;
@@ -239,6 +242,7 @@ if ($understandProcess) { readOkayUnderstands(); }
 
 for my $thisProj (@dirs)
 {
+  if ($modifyConcepts) { modifyConcepts($thisProj); next; }
   #die "$order $readConcepts $detailAlpha $roomConcCompare\n";
   getRoomIndices($thisProj);
   if ($roomToFile) { roomToFile($thisProj); }
@@ -1818,6 +1822,48 @@ sub printDebugHash
 no warnings;
 print "$_[0]: roomindex $roomIndex{$_[0]} regionIndex $regionIndex{$_[0]} conceptindex $conceptIndex{$_[0]} concToRoom $concToRoom{$_[0]} concTableLine $concTableLine{$_[0]}\n";
 use warnings;
+}
+
+sub modifyConcepts
+{
+  my @toRead = @{$fileHash{$_[0]}};
+  my $line;
+  my $fi = @toRead[0];
+  my $fi2 = "$fi.2";
+
+  open(A, @toRead[0]);
+  open(B, ">$fi2");
+  while($line = <A>)
+  {
+    if ($line =~ /concept in .*howto is/)
+	{
+	  for (keys %conceptMatch)
+	  {
+	    my $findsCount = 0;
+		$findsCount += ($line =~ /$_ concept in/);
+		$findsCount += ($line =~ /howto is \"\[$conceptMatch{$_}/);
+		if ($findsCount == 1)
+		{
+		  print "Editing line $.\n";
+		  $line =~ s/howto is \"[^\"]?\"/howto is \"\[$conceptMatch{$_}\]\"/i;
+		  $line =~ s/(?!($_ ) )concept in /$_ concept in /i;
+		}
+	  }
+	}
+    print B $line;
+  }
+  close(A);
+  close(B);
+  if (compare($fi, "$fi.2"))
+  {
+    print "Found changes in $fi. Copying back over.\n";
+    copy("$fi.2", $fi );
+  }
+  else
+  {
+    print "No changes to $fi, so I'm not copying back over.\n";
+  }
+  unlink "$fi.2" || die ("Failed to delete $fi.2");
 }
 
 sub usage
