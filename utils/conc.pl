@@ -23,11 +23,14 @@ use warnings;
 use File::Copy qw(copy);
 use File::Compare;
 
+use i7;
+
 use Win32::Clipboard;
 
 my $clip = Win32::Clipboard::new();
 
-my @dirs = ("Buck-the-Past");
+my @dirDefault = ("Buck-the-Past");
+my @dirs = ();
 
 ##############could move this to a spare file but there are few enough for now
 
@@ -142,6 +145,7 @@ my $editActivations = 0;
 while ($count <= $#ARGV)
 {
   $a = $ARGV[$count];
+  if (defined($i7x{$a})) { push(@dirs, $i7x{$a}); next; }
   for (lc($a))
   {
     /^-?[or]+$/ && do {
@@ -204,6 +208,7 @@ while ($count <= $#ARGV)
 	/^-?[cv0nlmw]+$/ && do
 	{
 	  $codeToClipboard = $printErrCode = $printErrors = 0;
+	  if ($a =~ /(\w).?(\1)/) { print "Bailing, double character $1 in combined flag $_."; exit(); }
 	  if ($a =~ /c/) { $codeToClipboard = 1; }
 	  if ($a =~ /0/) { $printErrCode = 1; }
 	  if ($a =~ /v/) { $printErrors = 1; }
@@ -223,6 +228,8 @@ while ($count <= $#ARGV)
 	usage();
   }
 }
+
+if ($#dirs == -1) { @dirs = @dirDefault; }
 
 checkOptionClash();
 readAux();
@@ -1058,18 +1065,6 @@ sub wordtrim
   $temp =~ s/^a thing called //g;
   $temp =~ s/^a //g;
   $temp =~ s/\*/ /g;
-  return $temp;
-}
-
-#################################
-#cutArt cuts the leading article off
-#
-sub cutArt
-{
-  my $die = 0;
-  my $temp = $_[0];
-  if ($temp =~ /^a (thing\t|for )/) { return $_[0]; } #A for effort is a special case
-  $temp =~ s/^(a thing called |a |the )//gi;
   return $temp;
 }
 
