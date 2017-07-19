@@ -52,7 +52,7 @@ use MAX_OBJECTS of 860. [+40]
 
 use MAX_SYMBOLS of 28000. [+3000]
 
-use MAX_PROP_TABLE_SIZE of 330000. [+20000]
+use MAX_PROP_TABLE_SIZE of 350000. [+20000]
 
 book includes
 
@@ -2136,6 +2136,8 @@ check attacking:
 		say "[if mush is in Tension Surface]Maybe you could do a flying karate-leap to touch the arch, but you'd fall into the mouth mush, so no[else]You should really just ENTER it now[end if]." instead;
 	if noun is gen-brush or noun is off brush or noun is back brush or noun is aside brush:
 		say "Beating that brush would be beating around the brush." instead;
+	if noun is basher bible:
+		say "This doesn't seem like the place to [activation of Bible Belt]." instead;
 	if noun is fund hedge:
 		say "'Vandalism is subject to fines and incarceration,' the Labor Child warns you as you take a swing. You [if money seed is off-stage]can probably just take what you need[else]already got the money seed[end if]." instead;
 	if noun is pusher penn:
@@ -2199,6 +2201,8 @@ check attacking:
 		if allow-swears is true:
 			say "It'd take fifteen minutes to [activation of jerk off], and with seven, why, you'd feel indecent afterwards." instead; [temproom nominal fen]
 		say "You've been suckered into lashing out before, but these guys--well, you've faced more annoying, truth be told." instead;
+	if noun is lock caps:
+		say "Your plain old hammer doesn't do much." instead;
 	if noun is return carriage:
 		say "The return carriage is an [activation of case insensitive]." instead; [temproom airy station]
 	if noun is ring:
@@ -3682,6 +3686,7 @@ nookie	"Nookie is sexual activity."
 Nose Candy	"Nose candy is slang for cocaine."
 Notre Dame	"Notre Dame is a famous Catholic university."
 numb bore	"Barnum can become number or numb bore, each of which is less exciting than a carinval barker."
+oj simpson	"oj simpson is when you [fill-in-here]. nominal fen"
 Olive	"Black and green olives are the two main different kinds of olives."
 olive drab	"Olive drab is what army privates wear for basic training."
 Patrick Henry	"Patrick Henry was a martyr of the American Revolution."
@@ -6447,10 +6452,10 @@ instead of doing something with water-scen:
 		continue the action;
 	say "The water goes on a ways."
 
-the Basher Bible is scenery in Pressure Pier. "[one of]The Basher Bible labels seemingly contradictory things to want and to be: to be clever enough to cut down too-clever weirdos. To have enough interests you can almost empathize with obsessed nerds, but not quite. To know enough pop culture you can poke fun at people who care too much about it. To be nice enough adults are sure you'll go far, but not be some useless dweeb.[paragraph break]There's also something about how if you don't know how to balance those things and have to ask others, or if this triggers some oversensitivity, well, REALLY. And there's even a tip of the moment! You read it:[or]You read another passage from the Basher Bible: [stopping]"
+the Basher Bible is scenery in Pressure Pier. "[one of]The Basher Bible labels seemingly contradictory things to want and to be: to be clever enough to cut down too-clever weirdos. To have enough interests you can almost empathize with obsessed nerds, but not quite. To know enough pop culture you can poke fun at people who care too much about it. To be nice enough adults are sure you'll go far, but not be some useless dweeb.[paragraph break]There's also something about how if you don't know how to balance those things and have to ask others, or if this triggers some oversensitivity, well, REALLY. It's nonviolent, not a [activation of bible thumper], but [i]ITS IDEAS ARE POWERFUL[r].[pargagraph break]And there's even a tip of the moment! You read it:[or]You read another passage from the Basher Bible: [stopping]"
 
 check taking Basher Bible:
-	say "That'd mean trouble if it's a [activation of bible belt], too." instead;
+	say "A small voice says '[activation of buy bull]!' You don't have any money, but you can probably just read it." instead;
 
 understand "belt bible" as a mistake ("The Baiter Master's personality cult is probably about how he does this sort of thing louder and more exciting than you, so, no.") when player is in Pressure Pier.
 
@@ -11142,9 +11147,6 @@ check entering Return Carriage:
 check opening Return Carriage:
 	say "You need to get the locks off, somehow." instead;
 
-check attacking lock caps:
-	say "Your plain old hammer doesn't do much." instead;
-
 instead of doing something with lock caps:
 	if current action is attacking or action is undrastic:
 		continue the action;
@@ -12872,6 +12874,8 @@ Nose Candy is a jerkish concept in conceptville. Understand "candy/candi nose/kn
 Notre Dame is a jerkish concept in conceptville. Understand "dame noter" and "noter dame" as notre dame. howto is "[j-blab]". gtxt is "Dame Noter".
 
 numb bore is a jerkish concept in conceptville. Understand "barnum" as numb bore. howto is "[j-blab]". gtxt is "Barnum".
+
+oj simpson is a concept in conceptville. Understand "oj" as oj simpson. howto is "[fill-in-here] nominal fen". gtxtx is "oj".
 
 Olive is a jerkish concept in conceptville. Understand "olive green/black" and "green/black olive" as olive. howto is "[j-blab]". gtxt is "Olive Black or Olive Green".
 

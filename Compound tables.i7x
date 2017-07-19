@@ -329,6 +329,7 @@ macho-boast
 "The [j-co] despair that [activation of nose candy] too little about how to party."
 "The [j-co] chuckle at the irreverence of the [activation of notre dame]."
 "The [j-co] chatter how [activation of numb bore] makes you feel alive more than stuffy math ever will."
+"The [j-co] debate the worst thing [activation of oj simpson] did."
 "The [j-co] argue that [activation of olive] being more desirable is NOT a matter of taste."
 "The [j-co] lament how [activation of olive drab] couldn't even make war stories exciting."
 "The [j-co] recount what a chicken [activation of Patrick Henry] is about his principles."
