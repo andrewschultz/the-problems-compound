@@ -30,7 +30,7 @@ use Win32::Clipboard;
 
 my $clip = Win32::Clipboard::new();
 
-my @dirDefault = ("Buck-the-Past");
+my @dirDefault = ("buck-the-past");
 my @dirs = ();
 
 ##############could move this to a spare file but there are few enough for now
@@ -147,7 +147,13 @@ my $editActivations = 0;
 while ($count <= $#ARGV)
 {
   $a = $ARGV[$count];
-  if (defined($i7x{$a})) { push(@dirs, $i7x{$a}); next; }
+  my $amod = lc($a);
+  $amod =~ s/^-//;
+
+  #print "Reading argument $count: $a\n";
+
+  if (defined($i7x{$amod}) || defined($i7x{lc($amod)})) { push(@dirs, lc($i7x{$amod})); $count++; next; }
+
   for (lc($a))
   {
     /^-?[or]+$/ && do {
@@ -1828,10 +1834,11 @@ sub modifyConcepts
 {
   my @toRead = @{$fileHash{$_[0]}};
   my $line;
-  my $fi = @toRead[0];
+  my $fi = $toRead[0];
   my $fi2 = "$fi.2";
+  my $conceptsChanged = 0;
 
-  open(A, @toRead[0]);
+  open(A, $toRead[0]);
   open(B, ">$fi2");
   while($line = <A>)
   {
@@ -1844,6 +1851,7 @@ sub modifyConcepts
 		$findsCount += ($line =~ /howto is \"\[$conceptMatch{$_}/);
 		if ($findsCount == 1)
 		{
+		  $conceptsChanged++;
 		  print "Editing line $.\n";
 		  $line =~ s/howto is \"[^\"]?\"/howto is \"\[$conceptMatch{$_}\]\"/i;
 		  $line =~ s/(?!($_ ) )concept in /$_ concept in /i;
@@ -1854,6 +1862,9 @@ sub modifyConcepts
   }
   close(A);
   close(B);
+
+  print "Total concepts flagged for change in $fi: $conceptsChanged\n" if $conceptsChanged;
+
   if (compare($fi, "$fi.2"))
   {
     print "Found changes in $fi. Copying back over.\n";
