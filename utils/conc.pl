@@ -112,13 +112,11 @@ my %concTableLine;
 
 my %extraLines;
 
-$tableDetHash{"Compound"} = "xxjmt,xxbgw";
-$tableDetHash{"Buck-the-Past"} = "!xxtia";
+$tableDetHash{"compound"} = "xxjmt,xxbgw";
+$tableDetHash{"buck-the-past"} = "!xxtia";
 
-my %conceptMatch = (
-  "nemmy" => "fr-ran",
-  "jerkish" => "j-blab"
-  );
+my %conceptMatch;
+my %conceptMatchProj;
 
 my $source = __FILE__;
 
@@ -243,8 +241,9 @@ if ($#dirs == -1) { @dirs = @dirDefault; }
 checkOptionClash();
 readAux();
 
-if ($readDupe) { readOkayDupes(); }
-if ($understandProcess) { readOkayUnderstands(); }
+readOkayDupes() if $readDupe;
+readOkayUnderstands() if $understandProcess;
+readConceptMods() if $modifyConcepts;
 
 for my $thisProj (@dirs)
 {
@@ -957,6 +956,17 @@ while ($lineIn = <X>)
 	    last;
       }
     }
+	if (defined($conceptMatchProj{$_[0]}))
+	{
+    for my $adj (keys %conceptMatchProj)
+    {
+      if (($lineIn =~ /$adj/i) + ($lineIn =~ /$conceptMatchProj{$_[0]}{$adj}/) == 1)
+      {
+        print "Line $. needs to match $adj/$conceptMatchProj{$_[0]}{$adj} (specific to $_[0]).\n";
+	    last;
+      }
+    }
+	}
   }
   while ($tmpVar =~ /\[activation of/) # "activation of" in source code
   {
@@ -1840,6 +1850,7 @@ sub modifyConcepts
 
   open(A, $toRead[0]);
   open(B, ">$fi2");
+  binmode(B);
   while($line = <A>)
   {
     if ($line =~ /concept in .*howto is/)
@@ -1875,6 +1886,39 @@ sub modifyConcepts
     print "No changes to $fi, so I'm not copying back over.\n";
   }
   unlink "$fi.2" || die ("Failed to delete $fi.2");
+}
+
+sub readConceptMods
+{
+  my $line;
+  my @ary;
+  my $match = __FILE__;
+  $match =~ s/.pl$/-match.txt/i;
+  my $project = "";
+
+  open(A, "$match");
+  while ($line = <A>)
+  {
+    if ($line =~ /^#/) { next; }
+    if ($line =~ /^;/) { last; }
+    chomp($line);
+    if ($line =~ /^PROJ(ECT)?=/i)
+	{
+	  $line =~ s/^PROJ(ECT)?=//i;
+	  $project = $line;
+	  next;
+	}
+	die ("Line in $match needs tab: $line") if ($line !~ /\t/);
+	@ary = split(/\t/, $line);
+	if ($project)
+	{ # doing this backwards because "a[0] concept. text is [a[1]]" is the syntax
+	  $conceptMatchProj{$ary[1]} = $ary[0];
+	}
+	else
+	{
+	  $conceptMatch{$ary[1]} = $ary[0];
+	}
+  }
 }
 
 sub usage
