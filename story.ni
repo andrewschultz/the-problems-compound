@@ -38,7 +38,7 @@ section compiler limits
 
 use MAX_ACTIONS of 210.
 
-use MAX_OBJECTS of 820.
+use MAX_OBJECTS of 830.
 
 use MAX_SYMBOLS of 25000.
 
@@ -48,7 +48,7 @@ use MAX_PROP_TABLE_SIZE of 330000.
 
 section compiler debug limits - not for release
 
-use MAX_OBJECTS of 860. [+40]
+use MAX_OBJECTS of 870. [+40]
 
 use MAX_SYMBOLS of 28000. [+3000]
 
@@ -3493,7 +3493,9 @@ sagebrush	"Sagebrush is another form of brush. It's often found in the desert."
 work of art	"A work of art is something nice and beautiful. The art of work is--well, the term can be abused to make work seem more exciting than it is."
 scum of earth	"Scum of earth is the worst possible person or close to it." [start of vision tunnel]
 Bible Belt	"The Bible Belt is a very religious area of the USA." [start of pressure pier]
+bible thumper	"bible thumper is when you [fill-in-here]. pressure pier"
 Boy Howdy	"Boy Howdy is a colloquial expression of surprise."
+buy bull	"buy bull is when you [fill-in-here]. pressure pier"
 fish out of water	"A fish out of water is someone or something out of place."
 meal ticket	"A meal ticket is something you own that will help you advance socially or economically. It could be physical, or a piece of knowledge, or clout."
 palatable	"Palatable means not too tasteless."
@@ -6452,7 +6454,7 @@ instead of doing something with water-scen:
 		continue the action;
 	say "The water goes on a ways."
 
-the Basher Bible is scenery in Pressure Pier. "[one of]The Basher Bible labels seemingly contradictory things to want and to be: to be clever enough to cut down too-clever weirdos. To have enough interests you can almost empathize with obsessed nerds, but not quite. To know enough pop culture you can poke fun at people who care too much about it. To be nice enough adults are sure you'll go far, but not be some useless dweeb.[paragraph break]There's also something about how if you don't know how to balance those things and have to ask others, or if this triggers some oversensitivity, well, REALLY. It's nonviolent, not a [activation of bible thumper], but [i]ITS IDEAS ARE POWERFUL[r].[pargagraph break]And there's even a tip of the moment! You read it:[or]You read another passage from the Basher Bible: [stopping]"
+the Basher Bible is scenery in Pressure Pier. "[one of]The Basher Bible labels seemingly contradictory things to want and to be: to be clever enough to cut down too-clever weirdos. To have enough interests you can almost empathize with obsessed nerds, but not quite. To know enough pop culture you can poke fun at people who care too much about it. To be nice enough adults are sure you'll go far, but not be some useless dweeb.[paragraph break]There's also something about how if you don't know how to balance those things and have to ask others, or if this triggers some oversensitivity, well, REALLY. It's nonviolent, not a [activation of bible thumper], but [i]ITS IDEAS ARE POWERFUL[r].[paragraph break]And there's even a tip of the moment! You read it:[or]You read another passage from the Basher Bible: [stopping]"
 
 check taking Basher Bible:
 	say "A small voice says '[activation of buy bull]!' You don't have any money, but you can probably just read it." instead;
@@ -12457,9 +12459,13 @@ chapter outer concepts
 
 section pressure pier concepts
 
-Bible Belt is a concept in conceptville. Understand "belt bible" as bible belt. howto is "try taking the Basher Bible". gtxt is "belt bible".
+Bible Belt is a concept in conceptville. Understand "belt bible" as bible belt. howto is "attack the Basher Bible". gtxt is "belt bible".
+
+bible thumper is a concept in conceptville. Understand "thumper bible" as bible thumper. howto is "[x-it of Basher Bible]". gtxt is "thumper bible".
 
 Boy Howdy is a concept in conceptville. Understand "howdy boy" as Boy Howdy. howto is "get to Pressure Pier". gtxt is "Howdy Boy".
+
+buy bull is a concept in conceptville. Understand "bull buy" as buy bull. howto is "try taking the Basher Bible". gtxt is "Bull! Buy".
 
 fish out of water is a concept in conceptville. Understand "water out of fish" as fish out of water. howto is "examine the water in Pressure Pier". gtxt is "water: out of fish".
 
@@ -12875,7 +12881,7 @@ Notre Dame is a jerkish concept in conceptville. Understand "dame noter" and "no
 
 numb bore is a jerkish concept in conceptville. Understand "barnum" as numb bore. howto is "[j-blab]". gtxt is "Barnum".
 
-oj simpson is a concept in conceptville. Understand "oj" as oj simpson. howto is "[fill-in-here] nominal fen". gtxtx is "oj".
+oj simpson is a concept in conceptville. Understand "oj" and "jo" as oj simpson. howto is "[j-blab]". gtxt is "oj".
 
 Olive is a jerkish concept in conceptville. Understand "olive green/black" and "green/black olive" as olive. howto is "[j-blab]". gtxt is "Olive Black or Olive Green".
 
