@@ -79,6 +79,7 @@ my $concDefCheck = 0;
 my $overlookOptionClash = 0;
 my $understandProcess = 0;
 my $modifyConcepts = 0;
+my $debug = 0;
 
 #############################
 #hashes
@@ -162,6 +163,7 @@ while ($count <= $#ARGV)
 	  next;
 	  };
     /^-?a$/ && do { $printAllDiff = 1; $count++; next; };
+    /^-?db$/ && do { $debug = 1; $count++; next; };
 	####start editing
     /^-?e$/ && do { `start \"\" $np $source`; exit(); };
     /^-?ea$/ && do { `$auxFile`; exit(); };
@@ -884,6 +886,13 @@ my $tempRoom;
 my $inTable = 0;
 my $inRoomTable = 0;
 my $inRoomSect = 0;
+
+my %tempConc;
+$tempConc{$_} = $conceptMatch{$_} for keys %conceptMatch;
+if (defined $conceptMatchProj{$_[0]})
+{
+$tempConc{$_} = $conceptMatchProj{$_[0]}{$_} for keys $conceptMatchProj{$_[0]};
+}
 
 my @files = @{$fileHash{$_[0]}};
 
@@ -1861,31 +1870,41 @@ sub modifyConcepts
   my $fi2 = "$fi.2";
   my $conceptsChanged = 0;
 
-  open(A, $toRead[0]);
-  open(B, ">$fi2");
-  binmode(B);
-  while($line = <A>)
+  open(RF, $toRead[0]);
+  open(WF, ">$fi2");
+  binmode(WF);
+
+  my %tempConc;
+  $tempConc{$_} = $conceptMatch{$_} for keys %conceptMatch;
+  if (defined $conceptMatchProj{$_[0]})
+  {
+  $tempConc{$_} = $conceptMatchProj{$_[0]}{$_} for keys $conceptMatchProj{$_[0]};
+  }
+
+  while($line = <RF>)
   {
     if ($line =~ /concept in .*howto is/)
 	{
-	  for (keys %conceptMatch)
+	  for (keys %tempConc)
 	  {
 	    my $findsCount = 0;
-		$findsCount += ($line =~ /$_ concept in/);
-		$findsCount += ($line =~ /howto is \"\[$conceptMatch{$_}/);
+		$findsCount += ($line =~ /$tempConc{$_} concept in/);
+		$findsCount += ($line =~ /howto is \"\[$_/);
+		if ($line =~ /howto is \"\[$tempConc{$_}/) { die("Switched howto/concept type: $line"); }
+		if ($line =~ /$_ concept in /) { die("Switched howto/concept type: $line"); }
 		if ($findsCount == 1)
 		{
 		  $conceptsChanged++;
 		  print "Editing line $.\n";
-		  $line =~ s/howto is \"[^\"]?\"/howto is \"\[$conceptMatch{$_}\]\"/i;
-		  $line =~ s/(?!($_ ) )concept in /$_ concept in /i;
+		  $line =~ s/howto is \"[^\"]?\"/howto is \"\[$_\]\"/i;
+		  $line =~ s/(?!($_ ) )concept in /$tempConc{$_} concept in /i;
 		}
 	  }
 	}
-    print B $line;
+    print WF $line;
   }
-  close(A);
-  close(B);
+  close(RF);
+  close(WF);
 
   print "Total concepts flagged for change in $fi: $conceptsChanged\n" if $conceptsChanged;
 
@@ -1923,13 +1942,16 @@ sub readConceptMods
 	@ary = split(/\t/, $line);
 	if ($project)
 	{ # doing this backwards because "a[0] concept. text is [a[1]]" is the syntax
-	  $conceptMatchProj{$ary[1]} = $ary[0];
+	  print "Mapping concept match $ary[1] to $ary[0]\n" if $debug;
+	  $conceptMatchProj{$project}{$ary[1]} = $ary[0];
 	}
 	else
 	{
 	  $conceptMatch{$ary[1]} = $ary[0];
 	}
   }
+  close(A);
+  #die(keys $conceptMatchProj{$_[0]});
 }
 
 sub usageEdit
@@ -1953,7 +1975,9 @@ CONC.PL usage
 ===================================
 -- = open with first line error instead of last
 -a = show all errors even likely redundant consecutive ones
+-db = debug
 -e = edit source (e? shows others)
+-cc = modify concepts according to conc-match.txt
 (START COMBINEABLE OPTIONS)
 -c = error code to clipboard
 -0 = print errors not error code
