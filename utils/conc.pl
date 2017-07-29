@@ -889,9 +889,11 @@ my $inRoomSect = 0;
 
 my %tempConc;
 $tempConc{$_} = $conceptMatch{$_} for keys %conceptMatch;
+
 if (defined $conceptMatchProj{$_[0]})
 {
-$tempConc{$_} = $conceptMatchProj{$_[0]}{$_} for keys $conceptMatchProj{$_[0]};
+  my $refhash = $conceptMatchProj{$_[0]};
+  $tempConc{$_} = $conceptMatchProj{$_[0]}{$_} for keys %$refhash;
 }
 
 my @files = @{$fileHash{$_[0]}};
@@ -943,22 +945,19 @@ while ($lineIn = <X>)
   if ($lineIn !~ /[a-z]/i) { $inTable = 0; $inRoomTable = 0; if ($inAdd) { $addEnd = $.; $inAdd = 0; } next; }
   if (($lineIn =~ /^part /) && ($inRoomSect)) { $curRoom = lc($lineIn); $curRoom =~ s/^part +//; $forceRoom = ""; next; }
   $lineIn = cutArt($lineIn);
-  if ($lineIn =~ /is a (jerkish |nemmy )?concept in (lalaland|conceptville)/) # concept definitions
+  if ($lineIn =~ /is a (jerkish |nemmy |browny |xable )?concept in (lalaland|conceptville)/) # concept definitions !!?? note: change to a better regex w/qr when I get the chance
   {
     $cvEnd = $.;
+    $tmpVar = $lineIn;
+    $tmpVar =~ s/ is a (jerkish |nemmy |browny |xable )?concept in (lalaland|conceptville).*//g;
+	$tmpVar = wordtrim($tmpVar);
+    if (!defined($concToRoom{$tmpVar})) { $concToRoom{$tmpVar} = "general concepts"; }
+	$conc{$tmpVar} = 1;
+	$any{$tmpVar} = 1;
+	if (!defined($lineNum{$tmpVar})) { $lineNum{$tmpVar} = $.; }
+	# the concept is activated by default if it's dumped to Lalaland, so we need to add this line.
+	$activ{$tmpVar} = $. if ($lineIn =~ /lalaland/);
   }
-  if ($lineIn =~ /is a (jerkish |nemmy )?concept in lalaland/) # concept definitions
-  {
-    $lineIn =~ s/ is a (jerkish |nemmy )?concept in lalaland.*//g;
-	$lineIn = wordtrim($lineIn);
-    if (!defined($concToRoom{$lineIn})) { $concToRoom{$lineIn} = "general concepts"; }
-	$conc{$lineIn} = 1;
-	$any{$lineIn} = 1;
-	if (!defined($lineNum{$lineIn})) { $lineNum{$lineIn} = $.; }
-	# the concept is activated by default, so we need to add this line.
-	$activ{$lineIn} = $.;
-  }
-  $tmpVar = $lineIn;
   if ($lineIn =~ /gtxtx/)
   {
     $tmpVar = $lineIn;
@@ -967,6 +966,7 @@ while ($lineIn = <X>)
     $gtxtx{$tmpVar} = $.;
     unless ($openLowestLine && defined($minorErrs{$file})) { $minorErrs{$file} = $.;}
   }
+  $tmpVar = $lineIn;
   if ($lineIn =~ /gtxt(x)? is/) # I could move this to a concept-specific block of code but it's good enough.
   {
     for my $adj (keys %conceptMatch)
@@ -1063,9 +1063,9 @@ while ($lineIn = <X>)
 	next;
   }
   $lineIn =~ s/^a (thing|concept) called //i if $lineIn =~ /^a (thing|concept) called /;
-  if (($lineIn =~ /is a (privately-named |risque |)?(jerkish |nemmy )?concept/) && ($lineIn !~ /\t/)) #prevents  "is a concept" in source text from false flag
+  if (($lineIn =~ /is a (privately-named |risque |)?(jerkish |nemmy |brownie| xable )?concept/) && ($lineIn !~ /\t/)) #prevents  "is a concept" in source text from false flag
   {
-    $tmpVar = $lineIn; $tmpVar =~ s/ is a (privately-named |risque |)?(jerkish |nemmy )?concept.*//g; $tmpVar = wordtrim($tmpVar); $conc{$tmpVar} = $any{$tmpVar} = $.;
+    $tmpVar = $lineIn; $tmpVar =~ s/ is a (privately-named |risque |)?(jerkish |nemmy |brownie| xable )?concept.*//g; $tmpVar = wordtrim($tmpVar); $conc{$tmpVar} = $any{$tmpVar} = $.;
 	if ($lineIn =~ /fill-in-here/)
 	{
 	  $fillConc{$tmpVar} = $.;
@@ -1878,7 +1878,8 @@ sub modifyConcepts
   $tempConc{$_} = $conceptMatch{$_} for keys %conceptMatch;
   if (defined $conceptMatchProj{$_[0]})
   {
-  $tempConc{$_} = $conceptMatchProj{$_[0]}{$_} for keys $conceptMatchProj{$_[0]};
+  my $refhash = $conceptMatchProj{$_[0]};
+  $tempConc{$_} = $conceptMatchProj{$_[0]}{$_} for keys %$refhash;
   }
 
   while($line = <RF>)
@@ -1895,7 +1896,7 @@ sub modifyConcepts
 		if ($findsCount == 1)
 		{
 		  $conceptsChanged++;
-		  print "Editing line $.\n";
+		  print "Editing line $.\n" if $debug;
 		  $line =~ s/howto is \"[^\"]?\"/howto is \"\[$_\]\"/i;
 		  $line =~ s/(?!($_ ) )concept in /$tempConc{$_} concept in /i;
 		}
