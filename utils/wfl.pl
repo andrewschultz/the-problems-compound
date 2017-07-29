@@ -52,9 +52,10 @@ my $warn = 0;
 
 while ($count <= $#ARGV)
 {
-$a = $ARGV[$count];
+my $a1 = $ARGV[$count];
+my $a2 = defined($ARGV[$count+1]) ? $ARGV[$count+1] : "";
 
-for ($a)
+for ($a1)
 {
   /^-?f$/ && do { $overlook = 1; $count++; next; };
   /^-?(uf|fu)$/ && do { $overlook = 1; $dicURL = 1; $count++; next; };
@@ -67,7 +68,7 @@ for ($a)
   /^-?ff$/ && do { $webapp = $ffox; $count++; next; };
   /^-?gc$/ && do { $webapp = $chrome; $count++; next; };
   /^-?op$/ && do { $webapp = $opera; $count++; next; };
-  /^-?i$/ && do { idiomSearch($ARGV[$count+1]); exit; };
+  /^-?i$/ && do { idiomSearch($a2); exit; };
   /^-?l$/ && do { $wa = "word"; $count++; next; };
   /^-?y$/ && do { push(@cons, 'y'); push(@vow, 'y'); $count++; next; };
   /^-?t$/ && do { runFileTest(); countChunks(); exit; };
@@ -82,16 +83,15 @@ for ($a)
   /^-?\?$/ && do { usage(); exit; };
   /^--/ && do { usage(); exit; };
   /^-/ && do { print "Bad flag.\n"; usage(); exit; };
-  if (length($a) == 1) { print ("Length must be at least 2. ? for help.\n"); exit; }
-  if ((length($a) == 2) && (!$override)) { print ("-2 flag must be used for 2-letter word.\n"); exit; }
+  if (length($a1) == 1) { print ("Length must be at least 2. ? for help.\n"); exit; }
+  if ((length($a1) == 2) && (!$override)) { print ("-2 flag must be used for 2-letter word.\n"); exit; }
 
-  if ($flipData) { if (!$warn) { print "Usually, we use comma separators, but I'll let it slide.\n"; $warn = 1; } $flipData .= ",$a"; $count++; next; } else { $flipData = $a; $count++; next; }
+  if ($flipData) { if (!$warn) { print "Usually, we use comma separators, but I'll let it slide.\n"; $warn = 1; } $flipData .= ",$a"; $count++; next; } else { $flipData = $a1; $count++; next; }
   print "Bad flag, $a.\n"; usage();
 }
 }
 
-if (!$flipData) { print "Need a word to flip, but here are diagnostics:\n"; countChunks(); countURLs(); exit; }
-
+if (!$flipData) { print "You need a word to flip. Without one, I'll just spew diagnostics:\n"; countChunks(); countURLs(); exit; }
 
 @flipAry = split(/[,\..]/, $flipData);
 
@@ -103,6 +103,7 @@ initDupeRead();
 $autoSort = 0;
 
 my %dupCheck;
+
 for my $q (@flipAry)
 {
   if ((!$override) && (length($q) <= 2)) { print "$q is too short. Use -2 to retry.\n"; next; }
@@ -123,7 +124,7 @@ for my $q (@flipAry)
     for (@vow)
 	{
 	  my $temp = $q;
-	  $temp =~ s/V/$_/;
+	  $temp =~ s/C/$_/;
 	  readOneWord($temp);
 	}
 	next;
@@ -234,15 +235,6 @@ if (!$checkWarnYet && warnSaveBeforeCopying())
 
 open(B, ">>$output");
 
-if (!$isDone{$flip})
-{
-open(C, ">>$track");
-print C "========$flip\n";
-if ($dicURLPrint) { print C "CHECK http:\/\/idioms.thefreedictionary.com\/$flip\n"; $urlsAdded++; }
-} else { print "Not adding $flip to fliptrack.txt.\n"; }
-
-close(C);
-
 my $bigLongBit = "";
 my $endBit = "";
 my $thisLine = "";
@@ -289,7 +281,16 @@ print B "====Found $found/$wordy for $flip\n";
 print "====Found $found/$wordy for $flip\n";
 $addedSomething = 1;
 $wordsAdded++;
-} else { print "====found nothing for $flip, so I'm adding nothing to the file.\n"; }
+
+if (!$isDone{$flip})
+{
+open(C, ">>$track");
+print C "========$flip\n";
+if ($dicURLPrint) { print C "CHECK http:\/\/idioms.thefreedictionary.com\/$flip\n"; $urlsAdded++; }
+close(C);
+} else { print "Not adding $flip to fliptrack.txt.\n"; }
+
+} else { print "====found nothing for $flip, so I'm adding nothing to the output or tracking file.\n"; }
 close(B);
 }
 

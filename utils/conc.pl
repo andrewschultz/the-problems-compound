@@ -200,17 +200,17 @@ while ($count <= $#ARGV)
 	  $count++;
 	  next;
     };
-    /^-?pc$/ && do { @dirs = ("Compound"); $count++; next; };
-    /^-?sc$/ && do { @dirs = ("Slicker-City"); $count++; next; };
-    /^-?(bp|btp)$/ && do { @dirs = ("Buck-the-Past"); $count++; next; };
+    /^-?pc$/ && do { @dirs = ("compound"); $count++; next; };
+    /^-?sc$/ && do { @dirs = ("slicker-city"); $count++; next; };
+    /^-?(bp|btp)$/ && do { @dirs = ("buck-the-past"); $count++; next; };
     /^-?vcp$/ && do { $verboseCutPaste = 1; $count++; next; };
     /^-?bs$/ && do { $overlookOptionClash = 1; $count++; next; };
     /^-?bs$/ && do { @dirs = ("btp-st"); $count++; next; };
-    /^-?b2$/ && do { @dirs = ("Buck-the-Past", "btp-st"); $count++; next; };
-	/^-?a2$/ && do { @dirs = ("Slicker-City", "Compound"); $count++; next; };
-	/^-?a3$/ && do { @dirs = ("Slicker-City", "Compound", "Buck-the-Past"); $count++; next; };
-	/^-?a4$/ && do { @dirs = ("Compound", "Slicker-City", "Buck-the-Past", "btp-st"); $count++; next; };
-	/^-?as$/ && do { @dirs = ("Slicker-City", "Compound", "Buck-the-Past", "seeker-status"); $count++; next; };
+    /^-?b2$/ && do { @dirs = ("buck-the-past", "btp-st"); $count++; next; };
+	/^-?a2$/ && do { @dirs = ("slicker-city", "compound"); $count++; next; };
+	/^-?a3$/ && do { @dirs = ("slicker-city", "compound", "buck-the-past"); $count++; next; };
+	/^-?a4$/ && do { @dirs = ("compound", "slicker-city", "buck-the-past", "btp-st"); $count++; next; };
+	/^-?as$/ && do { @dirs = ("slicker-city", "compound", "buck-the-past", "seeker-status"); $count++; next; };
 	/^-?cc$/ && do { $modifyConcepts = 1; $count++; next; };
 	/^-?[cv0nlmw]+$/ && do
 	{
@@ -237,6 +237,8 @@ while ($count <= $#ARGV)
 }
 
 if ($#dirs == -1) { @dirs = @dirDefault; }
+
+for (@dirs) { $_ = lc($_); }
 
 checkOptionClash();
 readAux();
@@ -1410,6 +1412,7 @@ sub getRoomIndices
   my $begunRooms = 0;
   my $doneRooms = 0;
   my $inConceptTable = 0;
+
   my @toRead = @{$fileHash{$_[0]}};
 
   $roomIndex{"general concepts"} = 1;

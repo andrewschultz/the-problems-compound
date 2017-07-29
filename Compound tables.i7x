@@ -323,7 +323,7 @@ macho-boast
 "The [j-co] agree [activation of mortify] is only iffy if you're easily offended."
 "The [j-co] figure there won't be any crowding at [activation of musical chairs]."
 "The [j-co] wonder why [activation of nancy spungen] is allowed to hang around more exciting girls."
-"The [j-co] agree that [activation of nerdsh=dishner] is a cool guy."
+"The [j-co] agree that [activation of nerdish] is a cool guy."
 "The [j-co] [activation of nihilist] among people with a real purpose."
 "The [j-co] mention [activation of no-brew] as their hookup for alcohol."
 "The [j-co] can't imagine the [activation of nookie] is a lot of fun."
