@@ -3493,9 +3493,9 @@ sagebrush	"Sagebrush is another form of brush. It's often found in the desert."
 work of art	"A work of art is something nice and beautiful. The art of work is--well, the term can be abused to make work seem more exciting than it is."
 scum of earth	"Scum of earth is the worst possible person or close to it." [start of vision tunnel]
 Bible Belt	"The Bible Belt is a very religious area of the USA." [start of pressure pier]
-bible thumper	"bible thumper is when you [fill-in-here]. pressure pier"
+bible thumper	"A Bible thumper is someone who preaches the Bible's saying at the slightest provocation."
 Boy Howdy	"Boy Howdy is a colloquial expression of surprise."
-buy bull	"buy bull is when you [fill-in-here]. pressure pier"
+buy bull	"The Bible is the main reference book for Christianity."
 fish out of water	"A fish out of water is someone or something out of place."
 meal ticket	"A meal ticket is something you own that will help you advance socially or economically. It could be physical, or a piece of knowledge, or clout."
 palatable	"Palatable means not too tasteless."
@@ -3519,6 +3519,7 @@ hash table	"A hash table is used in computer programming as a way to relate non-
 house special	"The house special is an item on the menu priced to attract people. It is different from the Specialty of the House."
 impaler	"An impaler is someone who kills people with sharp objects like swords."
 just deserts	"Just deserts means getting what you deserve. After eating the 'sophisticated' cheese, Alec doesn't deserve to enjoy other foods."
+layer cake	"A layer cake is a cake where filling (often very sweet) divides the doughy bits into layers."
 loaf around	"To loaf around is to wait with no real purpose."
 No-Shame	"No shame means a person isn't embarrassed by anything to the point where it's dangerous. The reverse (Shame? No!) is more, there's a healthier way to look at things than through shame."
 order n	"Order n is computer science terminology for taking linear time. For instance, some sorting functions are array n-squared, and some are n log n."
@@ -3681,7 +3682,7 @@ monte carlo	"Monte Carlo is a place where you can go to gamble. A Monte Carlo si
 mortify	"To mortify someone is to shock their sensibilities."
 musical chairs	"Musical chairs is a game where X people run in circles til the music stops, then they try for X-1 chairs, until X is 1."
 nancy spungen	"Nancy Spungen was Sid Vicious's lover. He was the bassist for the Sex Pistols."
-nerdish	"nerdish is when you [fill-in-here]. nominal fen"
+nerdish	"Nerdish means uncool and socially inadequate."
 nihilist	"A nihilist is someone who believes nothing matters."
 no-brew	"No brew means no alcohol."
 Nolan Ryan	"Nolan Ryan is the Major League Baseball career strikeouts and no-hitters leader."
@@ -3689,7 +3690,7 @@ nookie	"Nookie is sexual activity."
 Nose Candy	"Nose candy is slang for cocaine."
 Notre Dame	"Notre Dame is a famous Catholic university."
 numb bore	"Barnum can become number or numb bore, each of which is less exciting than a carinval barker."
-oj simpson	"oj simpson is when you [fill-in-here]. nominal fen"
+OJ Simpson	"OJ Simpson is a disgraced former US footballer. He was acquited of killing his wife in the court of law but not of public opinion."
 Olive	"Black and green olives are the two main different kinds of olives."
 olive drab	"Olive drab is what army privates wear for basic training."
 Patrick Henry	"Patrick Henry was a martyr of the American Revolution."
@@ -3721,6 +3722,7 @@ run by	"To run by is to talk to someone and not stay for long."
 rusty nail	"Stepping on a rusty nail can give you tetanus."
 sausage fest	"A sausage fest is a congregation of males with no females."
 says mo	"Says mo['] means someone says or talks more, as opposed to Moses being quiet."
+sequins	"sequins are small glisteny cheap things that make an outfit shine. They are not seen as high fashion."
 Sharp Barb	"A sharp barb is a stinging, clever insult."
 shock jock	"A shock jock is someone who provides deliberately insulting opinions to a wide audience, often on radio."
 six-pack	"A six-pack usually refers to six cans of beer held together by plastic rings."
@@ -3802,7 +3804,7 @@ attorney general	"An Attorney General is the highest ranking lawyer in a country
 bosom buddy	"A bosom buddy is a best friend."
 fair enough	"Fair Enough is what you can say to tell someone you agree with them partially. It has a negative connotation."
 lemon law	"A lemon law is something that lets you get your car back if it breaks down quickly after you buy it."
-lime disease	"lime disease is when you [fill-in-here]. court of contempt"
+Lyme disease	"Lyme disease is inflammation caused by a tick's bite."
 nutcase	"A nutcase is a pejorative term for someone who is crazy, clinical or otherwise, as opposed to Buddy Best's claims he just studies a lot."
 prosecutor	"A prosecutor is a lawyer who tries cases for people bringing a legal or civil complaint."
 readjust	"To readjust is to try to come to grips with a situation."
@@ -3916,7 +3918,7 @@ putin	"Vladimir Putin is the autocratic leader of Russia as of 2017. He is also 
 race baiting	"Race baiting is when someone mocks another person for their ethnicity."
 reactionary	"Reactionary means aggressively wanting things to be how they were, or you thought they were."
 red alert	"Red alert is when an enemy attack appears imminent."
-regime change	"regime change is when you [fill-in-here]. freak control"
+regime change	"Regime change is when a leader of a country is ousted against their will. It often refers to powerful countries doing this to the less powerful."
 relief	"Relief means a break from something, or it can also mean reenforcements."
 running gag	"A running gag is a joke that keeps popping up."
 salad days	"Salad days are a time when things are going well."
@@ -3924,7 +3926,7 @@ scuzz bucket	"A scuzz, or scum, bucket is a person who is just plain dirty or di
 see if i care	"See if I Care is said to show indifference to a bully or nuisance."
 see you later	"See you later is a way to say good-bye."
 serve one right	"To serve one right is to give someone what they deserved, usually to their detriment."
-sidekick	"sidekick is when you [fill-in-here]. freak control"
+sidekick	"A sidekick is an assistant, often to an action hero/villain."
 sly dog	"'You sly dog' is a compliment for someone who is very subtly clever."
 stake a claim	"To stake a claim is to claim ownership of something."
 stand out	"To stand out is to be different from the rest."
@@ -6607,6 +6609,9 @@ check going west in pressure pier:
 			say "Terry Sally coughs. 'That's Meal Square. Nice if you've got a [activation of food for thought]. Not just some [activation of hallway], but nothing crazy. So the [bad-guy] got rid of that [activation of impaler], the [activation of gobbling down].'";
 
 Meal Square is west of Pressure Pier. Meal Square is in Outer Bounds. "This is a small alcove with Pressure Pier back east. You would call it an [activation of caveat], but ...[paragraph break]There's not much decoration except a picture of a dozen bakers."
+
+check going down in meal square:
+	say "Greedy, greedy. There's no [activation of layer cake] below." instead;
 
 after printing the locale description for meal square when meal square is unvisited:
 	if allow-swears is true:
@@ -9861,7 +9866,7 @@ check going nowhere in Court of Contempt:
 
 Buddy Best is a baiter-aligned person in Court of Contempt. "[one of]But wait! Someone here looks excited to see you! Not happy, but excited.[paragraph break]'Yah. Hi. I'm Buddy Best. You seem real nice. Nice enough not to waste too much of a [if allow-swears is true]dedicated lawyerly case head, [activation of nutcase], job nut, whichever,[else][activation of attorney general][end if] like me.'[paragraph break]Okay, never mind.[paragraph break]He goes back to sorting through his case basket.[or]Buddy Best waits and taps his foot and checks his case basket here.[stopping]".
 
-description of Buddy Best is "Sour, as if he'd just eaten--[activation of lemon law]--or a [activation of lime disease]. Or maybe it's totally a delicate balance of happiness and seriousness and not a sign of contempt, so stop saying that."
+description of Buddy Best is "Sour, as if he'd just eaten--[activation of lemon law]--or a [activation of lyme disease]. Or maybe it's totally a delicate balance of happiness and seriousness and not a sign of contempt, so stop saying that."
 
 the Reasoning Circular is a thing. description is "It's full of several pages why you're great if you think you are, unless you're lame, in which case you don't know what great means. There's a long tag stapled to it."
 
@@ -12519,6 +12524,8 @@ impaler is a concept in conceptville. Understand "imp paler" and "paler imp" as 
 
 just deserts is a concept in conceptville. Understand "deserts just" as just deserts. howto is "try to eat the cookie or brownie after eating the cheese". gtxt is "Dessert's just".
 
+layer cake is a concept in conceptville. Understand "lair cake" and "cake lair" as layer cake. howto is "go down in meal square". gtxt is "cake lair".
+
 Loaf Around is a concept in conceptville. Understand "round loaf" and "loaf round" as loaf around. howto is "wait in Meal Square". gtxt is "a round loaf".
 
 No-Shame is a concept in conceptville. printed name is "no shame". Understand "no shame" as No-Shame. howto is "[x-it of condition mint]". gtxt is "SHAME? NO".
@@ -12871,7 +12878,7 @@ musical chairs is a jerkish concept in conceptville. Understand "musical chers" 
 
 nancy spungen is a jerkish concept in conceptville. Understand "spungen nancy" as nancy spungen. howto is "[j-blab]". gtxt is "spongin['] Nancy".
 
-nerdish is a concept in conceptville. Understand "dishner" as nerdish. howto is "[fill-in-here] nominal fen". gtxtx is "dishner".
+nerdish is a concept in conceptville. Understand "dishner" as nerdish. howto is "[j-blab]". gtxt is "dishner".
 
 nihilist is a jerkish concept in conceptville. Understand "list neil" and "neil list" as nihilist. howto is "[j-blab]". gtxt is "list Neil".
 
@@ -12950,6 +12957,8 @@ rusty nail is a jerkish concept in conceptville. Understand "nail rusty" as rust
 sausage fest is a concept in conceptville. Understand "fest sausage" as sausage fest. howto is "[solve-j] with swears on". gtxt is "fest sausage".
 
 says mo is a jerkish concept in conceptville. Understand "moses" as says mo. howto is "[j-blab]". gtxt is "moses".
+
+sequins is a concept in conceptville. Understand "quincy" and "sequin" as sequins. howto is "[j-blab]". gtxt is "quincy".
 
 Sharp Barb is a jerkish concept in conceptville. Understand "barb sharp" as sharp barb. howto is "[j-blab]". gtxt is "Barb Sharpe".
 
@@ -13139,7 +13148,7 @@ fair enough is a concept in conceptville. Understand "enough fair" as fair enoug
 
 lemon law is a concept in conceptville. Understand "law lemon" as lemon law. howto is "[x-it of buddy best]". gtxt is "law, a lemon".
 
-lime disease is a concept in conceptville. Understand "disease lime" as lime disease. howto is "[fill-in-here] court of contempt". gtxtx is "disease lime".
+Lyme Disease is a concept in conceptville. Understand "disease lime" and "lime disease" as lyme disease. howto is "[x-it of buddy best]". gtxt is "disease lime".
 
 nutcase is a concept in conceptville. Understand "case/job nut" and "nut case/job" and "case head" and "head case" as nutcase. howto is "[f-t of Court of Contempt], innuendo on". gtxt is "case nut".
 
@@ -13392,7 +13401,7 @@ reactionary is a concept in conceptville. Understand "airy reaction" and "reacti
 
 red alert is a nemmy concept in conceptville. Understand "alert red/read" and "read alert" as red alert. howto is "[fr-ran]". gtxt is "Alert? Read".
 
-regime change is a concept in conceptville. Understand "change regime" as regime change. howto is "[fill-in-here] freak control". gtxtx is "change regime".
+regime change is a concept in conceptville. Understand "change regime" as regime change. howto is "[fr-pb]". gtxt is "change regime".
 
 relief is a concept in conceptville. Understand "leif rhee" and "rhee leif" as relief. howto is "[bad-guy] dialog". gtxt is "Leif Rhee".
 
@@ -13408,7 +13417,7 @@ see you later is a nemmy concept in conceptville. Understand "later you see" as 
 
 serve one right is a concept in conceptville. Understand "right one serve" as serve one right. howto is "get the [bad-guy]'s attention". gtxt is "one right serve".
 
-sidekick is a concept in conceptville. Understand "aside kick" and "kick aside" as sidekick. howto is "[fill-in-here] freak control". gtxtx is "kick aside".
+sidekick is a concept in conceptville. Understand "aside kick" and "kick aside" as sidekick. howto is "[fr-pb]". gtxt is "kick aside".
 
 sly dog is a nemmy concept in conceptville. Understand "dog sly" as sly dog. howto is "[fr-ran]". gtxt is "dog Sly".
 

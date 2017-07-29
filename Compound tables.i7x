@@ -358,6 +358,7 @@ macho-boast
 "The [j-co] wish [activation of run by] wouldn't hang around so long."
 "The [j-co] [activation of rusty nail] as someone you'd better not step on."
 "The [j-co] mention how quiet [activation of says mo] is."
+"The [j-co] agree [activation of sequins] focuses and doesn't get distracted by shiny things."
 "The [j-co] disagree on whether [activation of sharp barb] would be worth putting up with her lame gossip."
 "The [j-co] take a minute to [activation of shock jock] in general. It's very disturbing, but you can't put your finger on why."
 "The [j-co] recount how [activation of six-pack] was the SQUAREST Cub Scout pack!"
