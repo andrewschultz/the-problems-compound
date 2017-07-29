@@ -41,6 +41,7 @@ my $i7 = "C:\\Program Files (x86)\\Inform 7\\Inform7\\Extensions\\Andrew Schultz
 my $dupeFile = __FILE__; $dupeFile =~ s/.pl$/-dupe.txt/;
 my $auxFile = __FILE__; $auxFile =~ s/.pl$/-aux.txt/;
 my $okUndFile = __FILE__; $okUndFile =~ s/.pl$/-uok.txt/;
+my $matchFile = __FILE__; $matchFile =~ s/.pl$/-match.txt/i;
 
 ###############################
 #options
@@ -161,18 +162,19 @@ while ($count <= $#ARGV)
 	  next;
 	  };
     /^-?a$/ && do { $printAllDiff = 1; $count++; next; };
-    /^-?e$/ && do
-	{
-	  my $cmd = "start \"\" $np $source";
-	  `$cmd`;
-	  exit();
-    };
+	####start editing
+    /^-?e$/ && do { `start \"\" $np $source`; exit(); };
+    /^-?ea$/ && do { `$auxFile`; exit(); };
+    /^-?ed$/ && do { `$dupeFile`; exit(); };
+    /^-?em$/ && do { `$matchFile`; exit(); };
+    /^-?eu$/ && do { `$okUndFile`; exit(); };
+    /^-?e\?$/ && do { usageEdit(); exit(); };
+	#### end editing
     /^-?nt$/ && do { $printTest = 0; $count++; next; };
     /^-?t$/ && do { $printTest = 1; $count++; next; };
     /^-?d$/ && do { $defaultRoom = $ARGV[$count+1]; $defaultRoom =~ s/[-\._]/ /g; $count+= 2; next; };
     /^-?ps$/ && do { $printSuccess = 1; $count++; next; };
     /^-?nd$/ && do { $readDupe = 0; $count++; next; };
-    /^-?uo$/ && do { `$okUndFile`; exit(); };
     /^-?up$/ && do { $understandProcess = 1; $count++; next; };
     /^--$/ && do { $openLowestLine = 0; $count++; next; };
 	/^-?f([lon]*)?$/ && do
@@ -184,7 +186,6 @@ while ($count <= $#ARGV)
 	  $count++;
 	  next;
     };
-    /^-?ed$/ && do { `$dupeFile`; exit(); };
     /^-?ng$/ && do { $defaultToGeneral = 0; $count++; next; };
     /^-?dg$/ && do { $defaultToGeneral = 1; $count++; next; };
     /^-?rc(v)?$/ && do { $roomConcCompare = 1; $rcVerbose = ($a =~ /v/); $count++; next; };
@@ -232,7 +233,16 @@ while ($count <= $#ARGV)
 	  print "Note that this assumes the idiom written properly e.g. show business vs business show.";
 	  my @cranks = split(/,/, $ARGV[0]); foreach my $mycon (@cranks) { crankOutCode($mycon); } exit;
 	};
-	usage();
+	if ($a =~ /^-?e/)
+	{
+	  print("$a is not a valid editing option. Going to editing usage.\n");
+	  print("For general usage, try -? or an unrecognized command not starting with e.\n");
+	  usageEdit();
+	}
+	else
+	{
+	  usage();
+	}
   }
 }
 
@@ -1895,11 +1905,9 @@ sub readConceptMods
 {
   my $line;
   my @ary;
-  my $match = __FILE__;
-  $match =~ s/.pl$/-match.txt/i;
   my $project = "";
 
-  open(A, "$match");
+  open(A, "$matchFile") || die("No $matchFile");
   while ($line = <A>)
   {
     if ($line =~ /^#/) { next; }
@@ -1911,7 +1919,7 @@ sub readConceptMods
 	  $project = $line;
 	  next;
 	}
-	die ("Line in $match needs tab: $line") if ($line !~ /\t/);
+	die ("Line in $matchFile needs tab: $line") if ($line !~ /\t/);
 	@ary = split(/\t/, $line);
 	if ($project)
 	{ # doing this backwards because "a[0] concept. text is [a[1]]" is the syntax
@@ -1924,6 +1932,20 @@ sub readConceptMods
   }
 }
 
+sub usageEdit
+{
+print<<EOT;
+EDIT OPTIONS
+-e =  edit source
+-ea = edit auxiliary file (project mapped to files)
+-ed = edits file of OK duplicates (can be activated twice in source)
+-em = edits match file conc-match.txt (what sort of concept for what sort of text)
+-eu = edits understands-error-ignore file conc-und.txt
+-e? = show this
+EOT
+exit;
+}
+
 sub usage
 {
 print<<EOT;
@@ -1931,8 +1953,8 @@ CONC.PL usage
 ===================================
 -- = open with first line error instead of last
 -a = show all errors even likely redundant consecutive ones
--e = edit source
-(can combine below)
+-e = edit source (e? shows others)
+(START COMBINEABLE OPTIONS)
 -c = error code to clipboard
 -0 = print errors not error code
 -l/-n = launch story file (or not) after
@@ -1941,10 +1963,10 @@ CONC.PL usage
 -y = overlook option clashes
 -f(l)(o)(n) = put rooms to file (l launches) (o outputs to text) (n launches in notepad)
 -m = launch minor errors if there is no major error
-(any combination is okay too)
+(END COMBINEABLE OPTIONS)
 -t = print with test results so nightly build can process it
--nd = no allowed duplicates (-ed edits)
--up = understand text processing, -uo opens the file of concepts to ignore
+-nd = no allowed duplicates
+-up = 'understand x as concept' text processing
 -vcp = verbose cut paste (off by default, not recommended)
 (-)rc(v) = room coordination (v = verbose)
 (-)ps = print success
