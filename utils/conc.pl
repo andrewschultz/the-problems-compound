@@ -539,12 +539,12 @@ for my $x (sort keys %any)
   }
   if (scalar keys %fillExpl)
   {
-    printf("Fill in explanation text (%d total) at %s%s\n", scalar keys %fillExpl, join(", ", map { "$fillExpl{$_}($_}" } sort { $fillExpl{$a} <=> $fillExpl{$b} } sort keys %fillExpl), $launchMinorErrs ? "" : " (-lm to launch)");
+    printf("Fill in concept explanation text (%d total) at %s%s\n", scalar keys %fillExpl, join(", ", map { "$fillExpl{$_}($_}" } sort { $fillExpl{$a} <=> $fillExpl{$b} } sort keys %fillExpl), $launchMinorErrs ? "" : " (-lm to launch)");
 	if ($printTest) { printf("TEST RESULTS: fillin-expl-$_[0],%d,0,0,%s\n", scalar keys %fillExpl, join(" / ", map { "$fillExpl{$_}" } sort { $fillExpl{$a} <=> $fillExpl{$b} } keys %fillExpl)); }
   }
   if (scalar keys %fillConc)
   {
-    printf("Fill in concept text (%d total) at %s%s\n", scalar keys %fillConc, join(", ", map { "$fillConc{$_}($_}" } sort { $fillConc{$a} <=> $fillConc{$b} } sort keys %fillConc), $launchMinorErrs ? "" : " (-lm to launch)");
+    printf("Fill in concept howto text (%d total) at %s%s\n", scalar keys %fillConc, join(", ", map { "$fillConc{$_}($_}" } sort { $fillConc{$a} <=> $fillConc{$b} } sort keys %fillConc), $launchMinorErrs ? "" : " (-lm to launch)");
     if ($printTest) { printf("TEST RESULTS: fillin-conc-$_[0],%d,0,0,%s\n", scalar keys %fillConc, join(" / ", map { "$fillConc{$_}" } sort { $fillConc{$a} <=> $fillConc{$b} } keys %fillConc)); }
   }
 
@@ -980,7 +980,7 @@ while ($lineIn = <X>)
     {
       if (($lineIn =~ /$adj/i) + ($lineIn =~ /$tempConc{$adj}/) == 1)
       {
-        print "Line $. needs to match $adj/$tempConc{$adj}.\n";
+        print "Line $. needs to match $adj/$tempConc{$adj}. Run conc.pl cc $_[0].\n";
 	    last;
       }
     }
@@ -1887,14 +1887,14 @@ sub modifyConcepts
 	  {
 	    my $findsCount = 0;
 		$findsCount += ($line =~ /$tempConc{$_} concept in/);
-		$findsCount += ($line =~ /howto is \"\[$_/);
+		$findsCount += ($line =~ /howto is \"$_/);
 		if ($line =~ /howto is \"\[$tempConc{$_}/) { die("Switched howto/concept type: $line"); }
 		if ($line =~ /$_ concept in /) { die("Switched howto/concept type: $line"); }
 		if ($findsCount == 1)
 		{
 		  $conceptsChanged++;
 		  print "Editing line $.\n" if $debug;
-		  $line =~ s/howto is \"[^\"]?\"/howto is \"\[$_\]\"/i;
+		  $line =~ s/howto is \"[^\"]?\"/howto is \"$_ ??\]\"/i;
 		  $line =~ s/(?!($_ ) )concept in /$tempConc{$_} concept in /i;
 		}
 	  }

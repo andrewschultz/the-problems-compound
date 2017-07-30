@@ -572,16 +572,26 @@ before examining a client when know-jerks is false:
 
 chapter misc defs for later
 
+section contexts
+
+context is a kind of value. the contexts are jerkish, siddy, nemmy, xable, cantgo, firstvis, browny and normal. A context is usually normal.
+
+section concepts
+
 a concept is a kind of thing. description of a concept is usually "[bug]"
 
-a concept can be jerkish, siddy, nemmy, xable, cantgo, firstvis, browny or normal. a concept is usually normal.
+a concept has a context. a concept is usually normal.
 
 a concept has text called howto. howto of a concept is "(need text)".
+
 a concept has text called gtxt.
 
 a concept can be explained. a concept is usually not explained.
 
+section other things to lump for rule purposes
+
 a drinkable is a kind of thing.
+
 does the player mean drinking a drinkable: it is very likely.
 
 a smokable is a kind of thing.
@@ -11670,10 +11680,7 @@ final question wording	only if victorious	topic	final response rule	final respon
 "see the [bi of sinseen]SINS[r] the [j-co] didn't commit"	true	"SINS"	sin-see rule	sinseeing
 "see the [bi of altseen](ALT)ERNATIVE[r] endings and commands"	true	"ALT/ALTERNATIVE"	alternative-see rule	altseeing
 "see how to get to each of the [bi of badendseen]BAD END[r] rooms"	true	"BAD/END/BADEND" or "BAD END"	bad-end-see rule	badendseeing
-"see [bi of conceptseen](CONC)EPTS[r] you missed throughout the game, or everything from the JERKS, SID, or the [bg]"	true	"CONCEPTS/CONC"	concept-see rule	conceptseeing
---	true	"JERKS"	concept-jerks rule	conceptseeing
---	true	"SID"	concept-sid rule	conceptseeing
---	true	"BM" or "CM"	concept-nemesis rule	conceptseeing
+"see [bi of conceptseen](CONC)EPTS[r] you missed throughout the game: [list of contexts]"	true	"CONCEPTS/CONC [context]"	concept-spec rule	--
 "see all the [bi of dreamseen]DREAM[r] sequence stories"	true	"DREAM/DREAMS"	dream-see rule	dreamseeing
 "see the plausible [bi of missseen]MISSES[r] for the Terminal"	true	"MISSES"	alt-answer rule	altanswering
 
@@ -11783,40 +11790,23 @@ this is the dream-see rule:
 
 chapter concept
 
-conceptseeing is an activity.
+conceptseeing something is an activity on contexts.
 
 see-all-concepts is a truth state that varies.
 
-this is the concept-all rule:
-	now see-all-concepts is true;
-	consider the concept-see rule;
-	now see-all-concepts is false;
-
-this is the concept-sid rule:
+this is the concept-spec rule:
+	let x be siddy;
+	let got-one be false;
+	repeat with co running through contexts:
+		if the player's command matches the text "[co]":
+			now x is co;
+			now got-one is true;
+			break;
+	if got-one is false, say "NOTE: I should've gotten something but didn't, so I'm going with the default.";
 	let curcon be 0;
 	repeat through table of explanations:
 		if exp-thing entry is a concept:
-			if exp-thing entry is siddy:
-				say "[b][exp-text entry][r]: [exp-text entry][line break]";
-		increment curcon;
-		if the remainder after dividing curcon by 10 is 0:
-			wfak;
-
-this is the concept-nemesis rule:
-	let curcon be 0;
-	repeat through table of explanations:
-		if exp-thing entry is a concept:
-			if exp-thing entry is nemmy:
-				say "[b][exp-text entry][r]: [exp-text entry][line break]";
-		increment curcon;
-		if the remainder after dividing curcon by 10 is 0:
-			wfak;
-
-this is the concept-jerks rule:
-	let curcon be 0;
-	repeat through table of explanations:
-		if exp-thing entry is a concept:
-			if exp-thing entry is jerkish:
+			if context of exp-thing entry is browny:
 				say "[b][exp-text entry][r]: [exp-text entry][line break]";
 		increment curcon;
 		if the remainder after dividing curcon by 10 is 0:
