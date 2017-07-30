@@ -257,7 +257,7 @@ readAux();
 
 readOkayDupes() if $readDupe;
 readOkayUnderstands() if $understandProcess;
-readConceptMods() if $modifyConcepts;
+readConceptMods();
 
 for my $thisProj (@dirs)
 {
@@ -896,6 +896,10 @@ if (defined $conceptMatchProj{$_[0]})
   $tempConc{$_} = $conceptMatchProj{$_[0]}{$_} for keys %$refhash;
 }
 
+my $regexp = " is a \(privately-named \)?\(" . join(' |', map {$tempConc{$_}} keys %tempConc) . " \)?concept in (lalaland|conceptville)";
+
+print "Using regex $regexp\n" if $debug;
+
 my @files = @{$fileHash{$_[0]}};
 
 my $file;
@@ -945,17 +949,20 @@ while ($lineIn = <X>)
   if ($lineIn !~ /[a-z]/i) { $inTable = 0; $inRoomTable = 0; if ($inAdd) { $addEnd = $.; $inAdd = 0; } next; }
   if (($lineIn =~ /^part /) && ($inRoomSect)) { $curRoom = lc($lineIn); $curRoom =~ s/^part +//; $forceRoom = ""; next; }
   $lineIn = cutArt($lineIn);
-  if ($lineIn =~ /is a (jerkish |nemmy |browny |xable )?concept in (lalaland|conceptville)/) # concept definitions !!?? note: change to a better regex w/qr when I get the chance
+  #if ($lineIn =~ /$regexp/gc) { print "$./$regexp/$lineIn\n"; die(); }
+  #if ($lineIn =~ /$regexp/) { print "!!$./$regexp/$lineIn\n"; die(); }
+  if ($lineIn =~ /$regexp/) # concept definitions !!?? note: change to a better regex w/qr when I get the chance
   {
     $cvEnd = $.;
     $tmpVar = $lineIn;
-    $tmpVar =~ s/ is a (jerkish |nemmy |browny |xable )?concept in (lalaland|conceptville).*//g;
+    $tmpVar =~ s/$regexp.*//g;
 	$tmpVar = wordtrim($tmpVar);
-    if (!defined($concToRoom{$tmpVar})) { $concToRoom{$tmpVar} = "general concepts"; }
+    if (!defined($concToRoom{$tmpVar}) && ($lineIn =~ /lalaland/)) { $concToRoom{$tmpVar} = "general concepts"; }
 	$conc{$tmpVar} = 1;
 	$any{$tmpVar} = 1;
 	if (!defined($lineNum{$tmpVar})) { $lineNum{$tmpVar} = $.; }
 	# the concept is activated by default if it's dumped to Lalaland, so we need to add this line.
+	print "Adding $tmpVar at $.\n" if $debug;
 	$activ{$tmpVar} = $. if ($lineIn =~ /lalaland/);
   }
   if ($lineIn =~ /gtxtx/)
@@ -969,25 +976,14 @@ while ($lineIn = <X>)
   $tmpVar = $lineIn;
   if ($lineIn =~ /gtxt(x)? is/) # I could move this to a concept-specific block of code but it's good enough.
   {
-    for my $adj (keys %conceptMatch)
+    for my $adj (keys %tempConc)
     {
-      if (($lineIn =~ /$adj/i) + ($lineIn =~ /$conceptMatch{$adj}/) == 1)
+      if (($lineIn =~ /$adj/i) + ($lineIn =~ /$tempConc{$adj}/) == 1)
       {
-        print "Line $. needs to match $adj/$conceptMatch{$adj}.\n";
+        print "Line $. needs to match $adj/$tempConc{$adj}.\n";
 	    last;
       }
     }
-	if (defined($conceptMatchProj{$_[0]}))
-	{
-    for my $adj (keys %conceptMatchProj)
-    {
-      if (($lineIn =~ /$adj/i) + ($lineIn =~ /$conceptMatchProj{$_[0]}{$adj}/) == 1)
-      {
-        print "Line $. needs to match $adj/$conceptMatchProj{$_[0]}{$adj} (specific to $_[0]).\n";
-	    last;
-      }
-    }
-	}
   }
   while ($tmpVar =~ /\[activation of/) # "activation of" in source code
   {
@@ -1063,9 +1059,9 @@ while ($lineIn = <X>)
 	next;
   }
   $lineIn =~ s/^a (thing|concept) called //i if $lineIn =~ /^a (thing|concept) called /;
-  if (($lineIn =~ /is a (privately-named |risque |)?(jerkish |nemmy |brownie| xable )?concept/) && ($lineIn !~ /\t/)) #prevents  "is a concept" in source text from false flag
+  if (($lineIn =~ /is a (privately-named |risque |)?(cantgo |jerkish |nemmy |brownie| xable )?concept/) && ($lineIn !~ /\t/)) #prevents  "is a concept" in source text from false flag
   {
-    $tmpVar = $lineIn; $tmpVar =~ s/ is a (privately-named |risque |)?(jerkish |nemmy |brownie| xable )?concept.*//g; $tmpVar = wordtrim($tmpVar); $conc{$tmpVar} = $any{$tmpVar} = $.;
+    $tmpVar = $lineIn; $tmpVar =~ s/ is a (privately-named |risque |)?(cantgo |jerkish |nemmy |brownie| xable )?concept.*//g; $tmpVar = wordtrim($tmpVar); $conc{$tmpVar} = $any{$tmpVar} = $.;
 	if ($lineIn =~ /fill-in-here/)
 	{
 	  $fillConc{$tmpVar} = $.;
@@ -1092,6 +1088,7 @@ while ($lineIn = <X>)
 }
 
 close(X);
+
 if (!$everRoomSect && ($file =~ /story.ni/)) { warn ("No room section start found for $file."); }
 }
 
