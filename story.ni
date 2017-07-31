@@ -3938,6 +3938,7 @@ see you later	"See you later is a way to say good-bye."
 serve one right	"To serve one right is to give someone what they deserved, usually to their detriment."
 sidekick	"A sidekick is an assistant, often to an action hero/villain."
 sly dog	"'You sly dog' is a compliment for someone who is very subtly clever."
+spin off	"A spin-off is a show related to a previous show."
 stake a claim	"To stake a claim is to claim ownership of something."
 stand out	"To stand out is to be different from the rest."
 stupor	"A stupor is when you are conscious but not really aware of what's going on."
@@ -11467,6 +11468,8 @@ part Window Bay
 
 Window Bay is north of Madness March. Window Bay is in Rejected Rooms. "It seems like your vision is sharper here than elsewhere. To keep you busy, a small structure labeled 'VIEW OF POINTS' is here."
 
+understand "watch bay" as a mistake ("No attractive lifeguard appears, alas.") when player is in Window Bay.
+
 check going nowhere in window bay:
 	say "The water is too deep anywhere but back south." instead;
 
@@ -11634,6 +11637,11 @@ biglaff	anyrule
 "HAMMER BAN, HAMMER BLOW, DROP HAMMER, HAMMER JACK, MAN HAMMER, HAMMER NINNY, HAMMER SLEDGE, HAMMER TIME, HAMMER TOE or HAMMER YELLOW in Airy Station?"	very-good-end rule
 "WORM ROUND in the Out Mist?"	good-end rule
 "LET RING or MASTER RING in the Out Mist?"	good-end rule
+"WATCH BAY in Window Bay?"	visit-bay rule
+
+this is the visit-bay rule:
+	if window bay is visited, the rule succeeds;
+	the rule fails;
 
 this is the degen-true rule:
 	the rule succeeds;
@@ -11676,13 +11684,16 @@ book continuing
 
 Table of Final Question Options (continued)
 final question wording	only if victorious	topic	final response rule	final response activity
-"see where minor [bi of swearseen]SWEARS[r] change"	true	"SWEARS"	swear-see rule	swearseeing
-"see the [bi of sinseen]SINS[r] the [j-co] didn't commit"	true	"SINS"	sin-see rule	sinseeing
-"see the [bi of altseen](ALT)ERNATIVE[r] endings and commands"	true	"ALT/ALTERNATIVE"	alternative-see rule	altseeing
-"see how to get to each of the [bi of badendseen]BAD END[r] rooms"	true	"BAD/END/BADEND" or "BAD END"	bad-end-see rule	badendseeing
-"see [bi of conceptseen](CONC)EPTS[r] you missed throughout the game: [list of contexts]"	true	"CONCEPTS/CONC [context]"	concept-spec rule	--
-"see all the [bi of dreamseen]DREAM[r] sequence stories"	true	"DREAM/DREAMS"	dream-see rule	dreamseeing
-"see the plausible [bi of missseen]MISSES[r] for the Terminal"	true	"MISSES"	alt-answer rule	altanswering
+"see where minor [bi of swearseen]SWEARS[r] change"	true	"SWEARS"	swear-see rule	mainendlisting
+"see the [bi of sinseen]SINS[r] the [j-co] didn't commit"	true	"SINS"	sin-see rule	mainendlisting
+"see the [bi of altseen](ALT)ERNATIVE[r] endings and commands"	true	"ALT/ALTERNATIVE"	alternative-see rule	mainendlisting
+"see how to get to each of the [bi of badendseen]BAD END[r] rooms"	true	"BAD/END/BADEND" or "BAD END"	bad-end-see rule	mainendlisting
+"see [bi of conceptseen](CONC)EPTS[r] you missed throughout the game: [list of contexts]"	true	"CONCEPTS/CONC [context]"	concept-spec rule	mainendlisting
+--	true	"CONCEPTS/CONC"	concept-all rule	mainendlisting
+"see all the [bi of dreamseen]DREAM[r] sequence stories"	true	"DREAM/DREAMS"	dream-see rule	mainendlisting
+"see the plausible [bi of missseen]MISSES[r] for the Terminal"	true	"MISSES"	alt-answer rule	mainendlisting
+
+mainendlisting is an activity.
 
 amuseseen is a truth state that varies.
 swearseen is a truth state that varies.
@@ -11746,8 +11757,6 @@ This is the print the modified final question rule:
 
 chapter dream
 
-dreamseeing is an activity.
-
 to decide which number is read-stories:
 	let temp be 0;
 	repeat through table of sleep stories:
@@ -11790,12 +11799,22 @@ this is the dream-see rule:
 
 chapter concept
 
-conceptseeing something is an activity on contexts.
-
 see-all-concepts is a truth state that varies.
 
+to decide which number is concept-num of (co - a context):
+	let total be 0;
+	repeat with Q running through concepts:
+		if context of Q is co, increment total;
+	decide on total.
+
+this is the concept-all rule:
+	repeat with co running through contexts:
+		let Q be concept-num of co;
+		say "[co]: [Q] total concepts.";
+	the rule succeeds;
+
 this is the concept-spec rule:
-	let x be siddy;
+	let x be normal;
 	let got-one be false;
 	repeat with co running through contexts:
 		if the player's command matches the text "[co]":
@@ -11806,8 +11825,8 @@ this is the concept-spec rule:
 	let curcon be 0;
 	repeat through table of explanations:
 		if exp-thing entry is a concept:
-			if context of exp-thing entry is browny:
-				say "[b][exp-text entry][r]: [exp-text entry][line break]";
+			if context of exp-thing entry is x:
+				say "[b][exp-thing entry] ([howto of exp-thing entry])[r]: [exp-text entry][line break]";
 		increment curcon;
 		if the remainder after dividing curcon by 10 is 0:
 			wfak;
@@ -11822,14 +11841,12 @@ this is the concept-see rule:
 	repeat through table of explanations:
 		if exp-thing entry is a concept:
 			if exp-thing entry is normal:
-				say "[b][exp-text entry][r]: [exp-text entry][line break]";
+				say "[b][exp-thing entry] ([howto of exp-thing entry])[r]: [exp-text entry][line break]";
 		increment curcon;
 		if the remainder after dividing curcon by 10 is 0:
 			wfak;
 
 chapter bad end
-
-badendseeing is an activity.
 
 this is the bad-end-see rule:
 	now badendseen is true;
@@ -11852,8 +11869,6 @@ Punishment Capitol	"Attacking the [bad-guy], Officer Petty, or the Stool Toad."
 Shape Ship	"Get your fifth ticket outside A Beer Pound."
 
 chapter special
-
-altseeing is an activity.
 
 this is the alternative-see rule:
 	now altseen is true;
@@ -11891,8 +11906,6 @@ change hollow tone]
 
 chapter sins
 
-sinseeing is an activity.
-
 this is the sin-see rule:
 	now sinseen is true;
 	say "None of the [j-co] was so square that he...[line break]";
@@ -11902,8 +11915,6 @@ this is the sin-see rule:
 	say "Not that there's anything wrong with any of the above. Or there would be, if the [j-co] were guilty. Um, interested. But you knew that. And, uh, I know that, too. Really!"
 
 chapter swearing
-
-swearseeing is an activity.
 
 this is the swear-see rule:
 	now swearseen is true;
@@ -12436,7 +12447,7 @@ section variety garden concepts
 
 Animal Welfare is a concept in conceptville. Understand "welfare animal" as animal welfare. howto is "get the Weasel to sign the Burden". gtxt is "welfare animal".
 
-brush up is a concept in conceptville. Understand "up brush" as brush up. howto is "go up in Variety Garden". gtxt is "up brush that'd remind you you don't REALLY know how to use them".
+brush up is a cantgo concept in conceptville. Understand "up brush" as brush up. howto is "go up in Variety Garden". gtxt is "up brush that'd remind you you don't REALLY know how to use them".
 
 a thing called brush with greatness is a concept in conceptville. Understand "greatness with brush" as brush with greatness. howto is "examine any brush after becoming a brush sage". gtxt is "greatness with brush".
 
@@ -12514,7 +12525,7 @@ impaler is a concept in conceptville. Understand "imp paler" and "paler imp" as 
 
 just deserts is a concept in conceptville. Understand "deserts just" as just deserts. howto is "try to eat the cookie or brownie after eating the cheese". gtxt is "Dessert's just".
 
-layer cake is a concept in conceptville. Understand "lair cake" and "cake lair" as layer cake. howto is "go down in meal square". gtxt is "cake lair".
+layer cake is a cantgo concept in conceptville. Understand "lair cake" and "cake lair" as layer cake. howto is "go down in meal square". gtxt is "cake lair".
 
 Loaf Around is a concept in conceptville. Understand "round loaf" and "loaf round" as loaf around. howto is "wait in Meal Square". gtxt is "a round loaf".
 
@@ -12566,7 +12577,7 @@ Dream Ticket is a concept in conceptville. Understand "ticket dream" as dream ti
 
 Grammar Police is a firstvis concept in conceptville. Understand "police grammar" as grammar police. howto is "[f-t of Down Ground]". gtxt is "police grammar".
 
-ground up is a concept in conceptville. Understand "up ground" as ground up. howto is "go north or south in Down Ground". gtxt is "up ground".
+ground up is a cantgo concept in conceptville. Understand "up ground" as ground up. howto is "go north or south in Down Ground". gtxt is "up ground".
 
 a thing called High and Dry is a concept in conceptville. Understand "dry and high" as high and dry. howto is "listen to Fritz after getting past Pressure Pier but before giving him the weed". gtxt is "dry and high".
 
@@ -12574,7 +12585,7 @@ a thing called high off the hog is a concept in conceptville. Understand "hog on
 
 high roller is a concept in conceptville. Understand "roller high" as high roller. howto is "look around Down Ground for a bit". gtxt is "Roller High".
 
-joint statement is a firstvis concept in conceptville. Understand "statement joint" as joint statement. howto is " [f-t of down ground]". gtxt is "statement joint".
+joint statement is a firstvis concept in conceptville. Understand "statement joint" as joint statement. howto is "[f-t of down ground]". gtxt is "statement joint".
 
 Puff Piece is a concept in conceptville. Understand "peace/piece puff" and "puff peace" as puff piece. howto is "[w-fr]". gtxt is "peace puff".
 
@@ -13148,7 +13159,7 @@ readjust is a concept in conceptville. Understand "read just" and "just read" as
 
 section walker street concepts
 
-a thing called Bound and Determined is a concept in conceptville. Understand "bound determined" and "determined bound" as Bound and Determined. howto is "go south in Walker Street". gtxt is "determined bound".
+a thing called Bound and Determined is a cantgo concept in conceptville. Understand "bound determined" and "determined bound" as Bound and Determined. howto is "go south in Walker Street". gtxt is "determined bound".
 
 drive into the ground is a firstvis concept in conceptville. Understand "ground the into drive" as drive into the ground. howto is "[f-t of Walker Street]". gtxt is "ground into the drive".
 
@@ -13160,9 +13171,9 @@ wood pusher is a concept in conceptville. Understand "pusher wood" as wood pushe
 
 section standard bog concepts
 
-bog down is a concept in conceptville. Understand "down bog" as bog down. howto is "go down in Standard Bog". gtxt is "down bog".
+bog down is a cantgo concept in conceptville. Understand "down bog" as bog down. howto is "go down in Standard Bog". gtxt is "down bog".
 
-spell disaster is a concept in conceptville. Understand "disaster spell" as spell disaster. howto is "go north in Standard Bog". gtxt is "disaster spell".
+spell disaster is a cantgo concept in conceptville. Understand "disaster spell" as spell disaster. howto is "go north in Standard Bog". gtxt is "disaster spell".
 
 section pot chamber concepts
 
@@ -13242,7 +13253,7 @@ grease monkey is a xable concept in conceptville. Understand "monkey grease" as 
 
 serve you right is a xable concept in conceptville. Understand "right you serve" as serve you right. howto is "[x-it of service memorial]". gtxt is "RIGHT, [b]YOU[r] SERVE".
 
-village people is a concept in conceptville. Understand "people village" as village people. howto is "go west in idiot village". gtxt is "people village".
+village people is a cantgo concept in conceptville. Understand "people village" as village people. howto is "go west in idiot village". gtxt is "people village".
 
 section service community concepts
 
@@ -13395,7 +13406,7 @@ regime change is a browny concept in conceptville. Understand "change regime" as
 
 relief is a concept in conceptville. Understand "leif rhee" and "rhee leif" as relief. howto is "[bad-guy] dialog". gtxt is "Leif Rhee".
 
-running gag is a concept in conceptville. Understand "gag running" as running gag. howto is "go south twice in Freak Control". gtxt is "Running! Gag".
+running gag is a cantgo concept in conceptville. Understand "gag running" as running gag. howto is "go south twice in Freak Control". gtxt is "Running! Gag".
 
 salad days is a browny concept in conceptville. Understand "daze salad" and "salad daze" as salad days. howto is "[fr-pb]". gtxt is "daze salad".
 
@@ -13410,6 +13421,8 @@ serve one right is a concept in conceptville. Understand "right one serve" as se
 sidekick is a browny concept in conceptville. Understand "aside kick" and "kick aside" as sidekick. howto is "[fr-pb]". gtxt is "kick aside".
 
 sly dog is a nemmy concept in conceptville. Understand "dog sly" as sly dog. howto is "[fr-ran]". gtxt is "dog Sly".
+
+spin off is a nemmy concept in conceptville. Understand "off spin" as spin off. howto is "[fr-ran]". gtxt is "off spin".
 
 stake a claim is a browny concept in conceptville. Understand "acclaim stake" and "stake acclaim" as stake a claim. howto is "[fr-pb]". gtxt is "acclaim stake".
 

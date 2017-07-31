@@ -461,6 +461,7 @@ gad-act
 "The [bad-guy] picks up a paper, shrugs, and throws it away. '[activation of red alert]...'"
 "The [bad-guy] can't imagine any [activation of regime change] better than his."
 "'I'll need to [activation of sly dog] his magic tricks aren't anything special, now that he can actually do a few.'"
+"The [bad-guy] practices some [activation of spin off] to make weird people feel unoriginal."
 "'That's why we need to [activation of stand out], not just because he's different...'"
 "'[activation of stupor],' the [bad-guy] says, almost genuinely concerned, before scoffing himself out of a daze."
 "The [bad-guy] snorts at [activation of taste buds]."

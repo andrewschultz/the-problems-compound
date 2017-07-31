@@ -1896,6 +1896,7 @@ sub modifyConcepts
 		  print "Editing line $.\n" if $debug;
 		  $line =~ s/howto is \"[^\"]?\"/howto is \"$_ ??\]\"/i;
 		  $line =~ s/(?!($_ ) )concept in /$tempConc{$_} concept in /i;
+		  last;
 		}
 	  }
 	}
@@ -1923,6 +1924,7 @@ sub readConceptMods
   my $line;
   my @ary;
   my $project = "";
+  my %target;
 
   open(A, "$matchFile") || die("No $matchFile");
   while ($line = <A>)
@@ -1934,10 +1936,13 @@ sub readConceptMods
 	{
 	  $line =~ s/^PROJ(ECT)?=//i;
 	  $project = $line;
+	  die ("$matchFile has undefined project $project.") if !defined($fileHash{$project});
 	  next;
 	}
 	die ("Line in $matchFile needs tab: $line") if ($line !~ /\t/);
 	@ary = split(/\t/, $line);
+	die ("$ary[0] dup-defined in $matchFile--I can't work with that right now. You'll need a more complex regex.") if defined $target{$ary[0]};
+	$target{$ary[0]} = 1;
 	if ($project)
 	{ # doing this backwards because "a[0] concept. text is [a[1]]" is the syntax
 	  print "Mapping concept match $ary[1] to $ary[0]\n" if $debug;
