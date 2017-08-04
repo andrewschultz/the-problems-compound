@@ -978,7 +978,7 @@ while ($lineIn = <X>)
   {
     for my $adj (keys %tempConc)
     {
-      if (($lineIn =~ /$adj/i) + ($lineIn =~ /$tempConc{$adj}/) == 1)
+      if (($lineIn =~ /\"$adj/i) + ($lineIn =~ /$tempConc{$adj}/) == 1)
       {
         print "Line $. needs to match $adj/$tempConc{$adj}. Run conc.pl cc $_[0].\n";
 	    last;
@@ -1887,7 +1887,7 @@ sub modifyConcepts
 	  {
 	    my $findsCount = 0;
 		$findsCount += ($line =~ /$tempConc{$_} concept in/);
-		$findsCount += ($line =~ /howto is \"$_/);
+		$findsCount += ($line =~ /howto is \"$_[\]\" ]/);
 		if ($line =~ /howto is \"\[$tempConc{$_}/) { die("Switched howto/concept type: $line"); }
 		if ($line =~ /$_ concept in /) { die("Switched howto/concept type: $line"); }
 		if ($findsCount == 1)

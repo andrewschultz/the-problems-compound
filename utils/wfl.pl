@@ -86,8 +86,8 @@ for ($a1)
   if (length($a1) == 1) { print ("Length must be at least 2. ? for help.\n"); exit; }
   if ((length($a1) == 2) && (!$override)) { print ("-2 flag must be used for 2-letter word.\n"); exit; }
 
-  if ($flipData) { if (!$warn) { print "Usually, we use comma separators, but I'll let it slide.\n"; $warn = 1; } $flipData .= ",$a"; $count++; next; } else { $flipData = $a1; $count++; next; }
-  print "Bad flag, $a.\n"; usage();
+  if ($flipData) { if (!$warn) { print "Usually, we use comma separators, but I'll let it slide.\n"; $warn = 1; } $flipData .= ",$a1"; $count++; next; } else { $flipData = $a1; $count++; next; }
+  print "Bad flag, $a1.\n"; usage();
 }
 }
 
