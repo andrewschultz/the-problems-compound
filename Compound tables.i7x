@@ -135,7 +135,7 @@ workname	authname	booksubj
 "Arrow Times"	"Amos Martin"	"looking back to history and judging why everyone's a screw-up"
 "Beached Over"	"Arnold Matthew"	"totally gnarly fun with surf and sun, away from brooding losers"
 "Prejudice and Pride"	"Austin Jayne"	"someone learning, with humor and pathos, how and why his instincts about lesser people who think they're equal to him is right"
-"The Death of Denial"	"Becker Ernest"	-- [??]
+"The Death of Denial"	"Becker Ernest"	"why believing you're greater than others works, unless it doesn't, in which case you did something wrong"
 "The Convictions of Our Courage"	"Blair Anthony"	"the emotional and moral fulfillment a fellow who told on his friends to milquetoast seeming politicians who grovel shamefully before greater power"
 "Farm Animal"	"Blair Irick"	"how particularly common people never understand why they obviously need to be pushed aside, in fable form, no less"
 "The Melancholy of Anatomy"	"Burton Robert"	"reflections of two failed medical students who went in for art and something more lucrative"
@@ -154,6 +154,7 @@ workname	authname	booksubj
 "The Floss on the Mill"	"Elliot George"	"a family with nothing better to do than stay together, and how they think they're happy [']til they stagnate into loathing at the end"
 "Pay, Soldiers"	"Faulkner William"	"a soldier who returns from war uninjured and how people with medical exemptions proved he didn't try hard enough"
 "The Land of the Lay"	"Ford Richard"	--
+"Richard Poor's Almanac"	"Franklin Benjamin"	"a collection of advice on not just doing well, but doing better than others"
 "The Matter of the Heart"	"Gerine Graham"	"an opaque plot almost as audacious and unreadably brilliant as [i]The Affair of the End[r]"
 "Willows in the Wind"	"Graham Kenneth"	"a toad who learns to leave behind his less clever animal friends and passe forest life for more advanced, luxurious society"
 "Let Her, Scarlet"	"Hawthorne Nathaniel"	"a woman everyone thought was exciting who turned out to be boring, and how people were fooled, but it worked out OK for them"
@@ -285,6 +286,7 @@ macho-boast
 "The [j-co] mention how [activation of gelding] sure has balls."
 "The [j-co] express admiration for [activation of glenn beck]'s ability to shoot down crackpot conspiracy theories."
 "The [j-co] agree [activation of gorgeous] is not very attractive."
+"The [j-co] disparage lame children's shows and second-rate swearing, [activation of gumby]."
 "The [j-co] mock the dorks who tried to get into the oh-so-fun [activation of halfling]."
 "The [j-co] rave how full of life [activation of hara-kiri] is."
 "The [j-co] recount [activation of henry clay]'s prank on the dork figureheads in the school's student government."
@@ -372,6 +374,7 @@ macho-boast
 "The [j-co] [activation of terrapin] as someone who needs to come out of her shell and live faster."
 "The [j-co] applaud [activation of tiebreaker] for beating up people who argue too long."
 "The [j-co] cluck at how [activation of turret] wants to live in a full castle."
+"The [j-co] praise [activation of wanking] as the best at getting girls."
 "The [j-co] wonder which brand of [activation of water sports] gives you the most, uh, prowess."
 "The [j-co] laugh it's [activation of Wesley So] to make fun of the really dedicated chess dorks."
 "The [j-co] laugh at [activation of whistler's mother] who find true beauty in older females, like, over thirty." [todo: slowin' homer]
@@ -453,6 +456,7 @@ gad-act
 "'[activation of Oscar Wilde]? Pff, so full of vapid one-liners.'"
 "The [bad-guy] mumbles 'Now, where'd I put my [activation of pad accounts]?'"
 "The [bad-guy] mumbles about how [activation of paddywagon] is a good snitch. Um, observer."
+"The [bad-guy] outlines an ethos of [activation of participation ribbon]: learning to take jokes builds character! Especially tough jokes!"
 "'[activation of pharisee],' the [bad-guy] mutters to no girl in particular."
 "The [bad-guy] makes plans to spruce up the [activation of police state]."
 "'Yeah, if we [activation of polygraph], she's lying without lying.'"

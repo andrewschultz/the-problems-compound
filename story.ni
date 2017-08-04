@@ -3646,6 +3646,7 @@ gelding	"A gelding is an animal that has been neutered, usually a horse."
 glenn beck	"Glenn Beck is a commentator who was canned by Fox News for too many conspiracy theories."
 gorgeous	"Gorgeous is, well, beautiful."
 grown up	"Grown up means, well, you've learned and matured."
+gumby	"Gumby is a Claymation character who had his own show in the 1950s."
 halfling	"A halfling is a D&D character class, half elf, half human, for instance."
 hara-kiri	"Hara-kiri is Japanese ritual suicide."
 henry clay	"Henry Clay was a 19th century American statesman who did nearly everything except get elected President."
@@ -3748,6 +3749,7 @@ teriyaki	"Teriyaki is a Japanese sauce, or it can be meat cooked in that sauce o
 terrapin	"A terrapin is a fancy name for a turtle, which is slow and has a shell."
 tiebreaker	"A tiebreaker is something used to separate two teams or people that are evenly matched."
 turret	"A turret is a small tower, or a side compartment to a plane."
+wanking	"Wanking is, well, self-pleasure."
 water sports	"Water sports is...well, visit Urban Dictionary to learn it's more than just water polo."
 wesley so	"Wesley So became one of the youngest American chess grandmasters ever."
 whistler's mother	"Whistler's Mother is a famous painting of an old lady, the mother of the artist."
@@ -3917,6 +3919,7 @@ order of operations	"Order of operations is how, for instance, a calculator or p
 oscar wilde	"Oscar Wilde was a wit and playwright known for one-liners that poked fun at the human condition."
 pad accounts	"To pad accounts is to perform an illegal or unethical manipulation of a company's money, to give yourself more."
 paddywagon	"A paddywagon is a police car that carries arrested people."
+participation ribbon	"A participation ribbon is when someone gets an award just for doing something, even if they do it badly."
 pea brain	"A pea brain is a mean name for someone who is not very smart."
 pharisee	"A pharisee is someone who gives the trappings of morality but is not."
 police state	"A police state is where the police have extra power to oppress citizens."
@@ -12787,6 +12790,8 @@ gorgeous is a jerkish concept in conceptville. Understand "jess gore" and "gore 
 
 grown up is a concept in conceptville. Understand "up groan" and "groan up" as grown up. howto is "[solve-j] with swears off". gtxt is "up groan".
 
+gumby is a jerkish concept in conceptville. Understand "gum by" and "by gum" as gumby. howto is "[j-blab]". gtxt is "by gum".
+
 halfling is a jerkish concept in conceptville. Understand "hall fling" and "fling hall" as halfling. howto is "[j-blab]". gtxt is "Fling Hall".
 
 Hara-Kiri is a jerkish concept in conceptville. Understand "keri harrah" and "harrah keri" as hara-kiri. howto is "[j-blab]". gtxt is "Keri Harrah".
@@ -12990,6 +12995,8 @@ terrapin is a jerkish concept in conceptville. Understand "pin tera" and "tera p
 tiebreaker is a jerkish concept in conceptville. Understand "Ty Breaker" and "Breaker Ty" as tiebreaker. howto is "[j-blab]". gtxt is "Breaker Ty".
 
 turret is a jerkish concept in conceptville. Understand "ritter" as turret. howto is "[j-blab]". gtxt is "ritter".
+
+wanking is a jerkish concept in conceptville. Understand "juan king" and "king juan" as wanking. howto is "[j-blab]". gtxt is "King Juan".
 
 water sports is a jerkish concept in conceptville. Understand "sports water" as water sports. howto is "[j-blab]". gtxt is "Sports Water".
 
@@ -13379,6 +13386,8 @@ oscar wilde is a nemmy concept in conceptville. Understand "wilde/wild oscar" an
 pad accounts is a nemmy concept in conceptville. Understand "accounts pad" as pad accounts. howto is "[fr-ran]". gtxt is "accounts pad".
 
 paddywagon is a nemmy concept in conceptville. Understand "waggin patty" and "patty waggin" as paddywagon. howto is "[fr-ran]". gtxt is "Waggin['] Patty".
+
+participation ribbon is a nemmy concept in conceptville. Understand "participation ribbin" and "ribbin participation" as participation ribbon. howto is "[fr-ran]". gtxt is "ribbin['] participation".
 
 pea brain is a browny concept in conceptville. Understand "brain pea" as pea brain. howto is "[fr-pb]". gtxt is "brain pea".
 
