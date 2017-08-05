@@ -42,6 +42,7 @@ my $dupeFile = __FILE__; $dupeFile =~ s/.pl$/-dupe.txt/;
 my $auxFile = __FILE__; $auxFile =~ s/.pl$/-aux.txt/;
 my $okUndFile = __FILE__; $okUndFile =~ s/.pl$/-uok.txt/;
 my $matchFile = __FILE__; $matchFile =~ s/.pl$/-match.txt/i;
+my $projMapFile = __FILE__; $projMapFile =~ s/.pl$/-proj-map.txt/i;
 
 ###############################
 #options
@@ -111,6 +112,7 @@ my %regionIndex;
 my %conceptIndex;
 my %concToRoom;
 my %concTableLine;
+my %specialProjMap;
 
 my %extraLines;
 
@@ -144,6 +146,8 @@ my $totalBadAct = 0;
 my @badActLineAry = ();
 my $editActivations = 0;
 
+readProjectMapFile();
+
 while ($count <= $#ARGV)
 {
   $a = $ARGV[$count];
@@ -169,6 +173,7 @@ while ($count <= $#ARGV)
     /^-?ea$/ && do { `$auxFile`; exit(); };
     /^-?ed$/ && do { `$dupeFile`; exit(); };
     /^-?em$/ && do { `$matchFile`; exit(); };
+    /^-?ep$/ && do { `$projMapFile`; exit(); };
     /^-?eu$/ && do { `$okUndFile`; exit(); };
     /^-?e\?$/ && do { usageEdit(); exit(); };
 	#### end editing
@@ -203,17 +208,8 @@ while ($count <= $#ARGV)
 	  $count++;
 	  next;
     };
-    /^-?pc$/ && do { @dirs = ("compound"); $count++; next; };
-    /^-?sc$/ && do { @dirs = ("slicker-city"); $count++; next; };
-    /^-?(bp|btp)$/ && do { @dirs = ("buck-the-past"); $count++; next; };
     /^-?vcp$/ && do { $verboseCutPaste = 1; $count++; next; };
     /^-?bs$/ && do { $overlookOptionClash = 1; $count++; next; };
-    /^-?bs$/ && do { @dirs = ("btp-st"); $count++; next; };
-    /^-?b2$/ && do { @dirs = ("buck-the-past", "btp-st"); $count++; next; };
-	/^-?a2$/ && do { @dirs = ("slicker-city", "compound"); $count++; next; };
-	/^-?a3$/ && do { @dirs = ("slicker-city", "compound", "buck-the-past"); $count++; next; };
-	/^-?a4$/ && do { @dirs = ("compound", "slicker-city", "buck-the-past", "btp-st"); $count++; next; };
-	/^-?as$/ && do { @dirs = ("slicker-city", "compound", "buck-the-past", "seeker-status"); $count++; next; };
 	/^-?cc$/ && do { $modifyConcepts = 1; $count++; next; };
 	/^-?[cv0nlmw]+$/ && do
 	{
@@ -230,6 +226,8 @@ while ($count <= $#ARGV)
 	  $count++;
 	  next;
 	};
+	if ($i7x{$a}) { push(@dirs, $i7x{$a}); next; }
+	if ($specialProjMap{$a}) { @dirs = (@dirs, split(/,/, $specialProjMap{$a})); next; }
 	/^[a-z][a-z-]+$/i && do
 	{
 	  print "Note that this assumes the idiom written properly e.g. show business vs business show.";
@@ -1957,6 +1955,32 @@ sub readConceptMods
   #die(keys $conceptMatchProj{$_[0]});
 }
 
+sub readProjectMapFile
+{
+  open(A, $projMapFile) || do { print("Can't open project mapping file $projMapFile. You may not be able to use some abbreviations.\n"); return; };
+  while ($a = <A>)
+  {
+    if ($a =~ /=/)
+	{
+	  chomp($a);
+	  my @x = split(/=/, $a);
+	  my @y = split(/,/, $x[1]);
+	  if (defined($i7x{$x[0]})) { print ("WARNING $x[0] already defined in i7.pm.\n"); next; }
+	  $specialProjMap{$x[0]} = $x[1];
+	}
+  }
+  close(A);
+  for (@ARGV)
+  {
+    if ($_ =~ /^-?pcm/)
+	{
+	  print "List of special project macros:\n";
+	  for (sort keys %specialProjMap) { print "$_ => $specialProjMap{$_}\n"; }
+	  exit();
+	}
+  }
+}
+
 sub usageEdit
 {
 print<<EOT;
@@ -1965,6 +1989,7 @@ EDIT OPTIONS
 -ea = edit auxiliary file (project mapped to files)
 -ed = edits file of OK duplicates (can be activated twice in source)
 -em = edits match file conc-match.txt (what sort of concept for what sort of text)
+-ep = edits project map file conc-proj-map.txt (e.g. sts = sa + roi)
 -eu = edits understands-error-ignore file conc-und.txt
 -e? = show this
 EOT
