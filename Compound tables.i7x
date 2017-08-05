@@ -148,12 +148,12 @@ workname	authname	booksubj
 "Life, MY"	"Clinton William"	"a poor uncharismatic schlub appalled with the complexity and speed of today's fast-paced world, especially politics"
 "The Stone Moon"	"Collins Wilkie"	"a short book of looting a temple to destroy a religion."
 "Gene the Selfish"	"Dawkins Richard"	"how someone cared too much about science for its own sake and not enough about his career, and how he had nobody but himself to blame for that"
-"Aunts, Deliver"	"Dickie James"	--
+"Aunts, Deliver"	"Dickie James"	"a gripping fast-paced cosmpolitan web of fear and intrigue and murder in a big city"
 "Fear of the Valley"	"Doyle Arthur"	"a story about a would-be sleuth who knows all sorts of useless facts but misses the obvious that anyone with gumption would've checked on."
 "The Half Second"	"Doyle Roddy"	"a literary type, Keen Roy, suddenly realizing how truly silly reading, writing and thinking about sports can be"
 "The Floss on the Mill"	"Elliot George"	"a family with nothing better to do than stay together, and how they think they're happy [']til they stagnate into loathing at the end"
 "Pay, Soldiers"	"Faulkner William"	"a soldier who returns from war uninjured and how people with medical exemptions proved he didn't try hard enough"
-"The Land of the Lay"	"Ford Richard"	--
+"The Land of the Lay"	"Ford Richard"	"[n-e-s]."
 "Richard Poor's Almanac"	"Franklin Benjamin"	"a collection of advice on not just doing well, but doing better than others"
 "The Matter of the Heart"	"Gerine Graham"	"an opaque plot almost as audacious and unreadably brilliant as [i]The Affair of the End[r]"
 "Willows in the Wind"	"Graham Kenneth"	"a toad who learns to leave behind his less clever animal friends and passe forest life for more advanced, luxurious society"
@@ -162,7 +162,7 @@ workname	authname	booksubj
 "Messiah Dune"	"Herbert Frank"	"a race of people who gave up on interstellar war to relax at the beach and concoct a religion forbidding spices"
 "The Parson Country"	"Herbert George"	"just how impractical and rubbish religion is, even when its trappings make people do good things"
 "Twenty To Catch"	"Hilaire Joseph"	"grinding down objectors with a variety of logic traps"
-"Eternity with Conversations"	"Hugo Victor"	--
+"Eternity with Conversations"	"Hugo Victor"	"[n-e-s]."
 "The Sleepy Hollow of Legend"	"Irving Washington"	"how people learned and proved that silly old 'national treasures' don't hold any mysteries"
 "Command the Angels"	"Jacques Bryan"	"how and why evil pirates deserve to be richer and more interesting than boring sailors"
 "The Master of the Lesson"	"James Henry"	"an older literary critic who finds and mentors hopeless young fiction authors who'd be better suited to HIS career"
@@ -171,9 +171,9 @@ workname	authname	booksubj
 "Writing On"	"King Stephen"	"how society represses real writers from writing real books, with the 'Johnny Hears' chapter being especially relevant"
 "Lover Chatterly's Lady"	"L. H. David"	"a reformed rake who marries a social equal for scandalous reasons indeed"
 "A Mockingbird to Kill"	"Lee Harper"	"losers who try to imitate people less weird than them. Or don't EVEN try"
-"When Now, Not If"	"Levi Primo"	--
+"When Now, Not If"	"Levi Primo"	"[n-e-s]."
 "The Divorce: GREAT"	"Lewis S. Clive"	"how blatant infidelity is really about seeing all the world has to offer and making the most of things--well, if you're worth cheating with. It surpasses even [i]The Boy and His Horse[r] and [i]The Love of Allegory[r]"
-"Sorrow and Silence of Worship"	"Lyle Carr-Thomas"	--
+"Sorrow and Silence of Worship"	"Lyle Carr-Thomas"	"[n-e-s]."
 "Thrones of a Game"	"Martin George"	"three hundred pages of medieval Musical Chairs, with a secret deeper meaning careful readers can't miss"
 "The Cancer of Tropic"	"Miller Arthur"	"one ascetic's skin disease and the surprising poetry that lies therein. Even beyond [i]A Salesman of Death[r]"
 "Lost Paradise"	"Milton John"	"how people not willing to risk anything crazy got sent back to Boringville"
@@ -184,11 +184,15 @@ workname	authname	booksubj
 "On Death After Life"	"Ross Kubler"	"how and why to truth-bomb the terminally ill with stuff they better learn before they peg out"
 "Mannering Guy"	"Scott Walter"	"a man eschewing a life of travel and adventure for simple pleasures like putting neighbors in their place"
 "Pepper's Little Five"	"Sidney Margaret"	"how growing up isn't fun, but telling people growing up isn't fun CAN be"
+"Dolls of the Valley"	"Suzanne Jacqueline"	"how being poor yet virtuous is a bummer, for 1000 long delicious pages"
 "Rings of the Lord"	"T. R. R. John"	"one person's quest to help some insanely rich person gain a full collection of rich jewels and why it was character building"
 "And Dominion Shall Have No Death"	"Thomas Dylan"	"a New World Order of smart poetic people that properly keeps the rabble scared of death and all that"
 "Jest? Knight, Fie, In"	"Wallace Foster David"	"a snappy fifty-page tour de force that's about nothing and everything--err, make that everything and nothing"
 "The Stone in the Sword"	"White Theodore"	"a kid learning to be king by doing all the things fantasy novels don't describe--like pushing people around, politics, and so forth"
 "The Stuff, Right?"	"Wolfie Thomas"	"some schlep's comical attempts to alchemize a 'good' drug and his failure to keep his feet on the ground" [p]
+
+to say n-e-s:
+	say "so many universal things I'd bore you[one of] (okay, fourth wall time, I just saw the title and author, here)[or stopping]"
 
 [can't quite get to work:
 brooks walter: Freddy and (something) (dang it none of the 26 do anything cool. I mean the books are cool but they all have FREDDY in them which ruins things)
@@ -378,6 +382,7 @@ macho-boast
 "The [j-co] wonder which brand of [activation of water sports] gives you the most, uh, prowess."
 "The [j-co] laugh it's [activation of Wesley So] to make fun of the really dedicated chess dorks."
 "The [j-co] laugh at [activation of whistler's mother] who find true beauty in older females, like, over thirty." [todo: slowin' homer]
+"The [j-co] debate that comic strip by [activation of white guys]."
 "The [j-co] rave about the wonderfully greasy options at [activation of whole foods]."
 "The [j-co] agree Erwin is just a total loser name." [na winner]
 "The [j-co] agree Gerda would never knife you in the back." [na dagger]

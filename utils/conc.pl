@@ -437,7 +437,8 @@ for my $x (sort keys %any)
 	if (($nuline ne "????") && ($nuline !~ /failed/))
 	{
 	  if (!defined($fileLineErr{$fileToOpen}) || (!$openLowestLine && ($fileLineErr{$fileToOpen} < $nuline)))
-	  { $fileLineErr{$fileToOpen} = $nuline; } }
+	  { $fileLineErr{$fileToOpen} = $nuline; }
+     }
 	$errMsg .= "$xmod ($lineNum{$x}, " . (defined($concToRoom{$x}) ? $concToRoom{$x} : "NO ROOM DEFINED") . ") needs concept definition" . (defined($fillConc{$x}) ? " filled in" : "") . ": guess = line $nuline\n";
 	$addString = "";
 	if (defined($concToRoom{$xmod}))
@@ -894,7 +895,7 @@ if (defined $conceptMatchProj{$_[0]})
   $tempConc{$_} = $conceptMatchProj{$_[0]}{$_} for keys %$refhash;
 }
 
-my $regexp = " is a \(privately-named \)?\(" . join(' |', map {$tempConc{$_}} keys %tempConc) . " \)?concept in (lalaland|conceptville)";
+my $regexp = " is a \(risque |privately-named \)?\(" . join(' |', map {$tempConc{$_}} keys %tempConc) . " \)?concept in (lalaland|conceptville)";
 
 print "Using regex $regexp\n" if $debug;
 

@@ -3541,6 +3541,7 @@ raising hell	"Raising hell means to complain in pretty much any available way."
 Snap Decision	"A decision made reflexively, versus a conscious decision to snap e.g. just quit holding back."
 Spur of the Moment	"Spur of the moment means you're finally pushed to do something. If you wonder if it's the moment of the spur , you're probably thinking too hard for it to be the spur of the moment."
 strike a balance	"To strike a balance is to find a satisfactory compromise. A strike can alo mean--well, your balance went on strike, or you'd fall over."
+stuff your face	"To stuff your face is to eat a lot."
 tea tray	"Trat T is a tea tray. To go with food."
 time consuming	"Time consuming means something that takes a long time, though you eat quickly."
 treat like dirt	"To treat someone like dirt is to be very nasty to them."
@@ -3753,6 +3754,7 @@ wanking	"Wanking is, well, self-pleasure."
 water sports	"Water sports is...well, visit Urban Dictionary to learn it's more than just water polo."
 wesley so	"Wesley So became one of the youngest American chess grandmasters ever."
 whistler's mother	"Whistler's Mother is a famous painting of an old lady, the mother of the artist."
+white guys	"White guys is a pun on Guisewhite, for Cathy Guisewhite's comic strip [i]Cathy[r]."
 whole foods	"Whole Foods is a store that sells super organic foods at a huge markup."
 you buy	"A bayou is a tributary (river leading to bigger water), and the reverse pronunciation is 'you buy.'"
 Character Assassination	"Character assassination is an attempt to tarnish someone's good reputation." [start of chipper wood]
@@ -6886,7 +6888,9 @@ this is the too cool for dessert rule:
 	if greater-eaten is true:
 		say "Pfft. [dj] not very refined.";
 		the rule succeeds;
-
+	if cookie-eaten is true or brownie-eaten is true:
+		say "No, now's the time to [activation of stuff your face].";
+		the rule succeeds;
 
 section general tray b eating stuff
 
@@ -12552,6 +12556,8 @@ Spur of the Moment is a concept in conceptville. Understand "moment of the spur"
 
 strike a balance is a concept in conceptville. understand "balance a strike" as strike a balance. howto is "try to take Tray A or Tray B". gtxt is "balance a strike".
 
+stuff your face is a concept in conceptville. Understand "face your stuff" as stuff your face. howto is "eat a second Tray B food in Meal Square". gtxt is "face your stuff".
+
 tea tray is a concept in conceptville. understand "tray t/tea" and "t tray" as tea tray. howto is "enter Meal Square". gtxt is "Tray T".
 
 time consuming is a concept in conceptville. Understand "consuming time" as time consuming. howto is "say yes to eating a Tray B food". gtxt is "Consuming time".
@@ -13003,6 +13009,8 @@ water sports is a jerkish concept in conceptville. Understand "sports water" as 
 wesley so is a jerkish concept in conceptville. Understand "so wesley" as wesley so. howto is "[j-blab]". gtxt is "so Wesley".
 
 whistler's mother is a jerkish concept in conceptville. Understand "mother whistlers/whistler's/whistler" and "whistler/whitler's mother" as whistler's mother. howto is "[j-blab]". gtxt is "mother whistlers".
+
+white guys is a jerkish concept in conceptville. Understand "white guise" and "guise white" and "guisewhite" and "whiteguise" as white guys. howto is "[j-blab]". gtxt is "Guisewhite".
 
 Whole Foods is a jerkish concept in conceptville. Understand "hole foods" and "foods hole" as whole foods. howto is "[j-blab]". gtxt is "Foods Hole".
 
