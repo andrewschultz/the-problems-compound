@@ -889,7 +889,9 @@ $astString = "";
 
 my $tempRoom;
 
-my $inTable = 0;
+my $inPuncTable = 0;
+
+my $inConcTable = 0;
 my $inRoomTable = 0;
 my $inRoomSect = 0;
 
@@ -933,7 +935,7 @@ my $forceRoom = "";
 while ($lineIn = <X>)
 {
   $tempRoom = "";
-  if (($inTable) && ($lineIn =~ /[a-z]\"/) && ($lineIn !~ /\[fill-in-here\]/)) { print "Line $. needs ending punctuation: $lineIn"; }
+  if (($inPuncTable) && ($lineIn =~ /[a-z]\"/i) && ($lineIn !~ /\[fill-in-here\]/)) { print "Line $. needs ending punctuation: $lineIn"; }
   chomp($lineIn);
   if ($lineIn =~ /[activation of [^'\]]+=/) { $editActivations = 1; }
   if ($inRoomTable) { $tempRoom = lc($lineIn); $tempRoom =~ s/\t.*//; }
@@ -952,9 +954,10 @@ while ($lineIn = <X>)
   if ($lineIn =~ /xxadd/) { $addStart = $.; $inAdd = 1; }
   if ($lineIn =~ /xxcv/) { $cvStart = $.; }
   if ($lineIn =~ /xxauth/) { $inAuthTable = 1; <A>; $line++; next; }
-  if ($lineIn =~ /^table of explanations.*concepts/) { $inTable = 1; <X>; next; }
+  if ($lineIn =~ /^table of jerk/) { $inPuncTable = 1; <X>; next; }
+  if ($lineIn =~ /^table of explanations.*concepts/) { $inPuncTable = $inConcTable = 1; <X>; next; }
   if ($lineIn =~ /^table of (unvisiteds|nowheres)/i) { $inRoomTable = 1; <X>; next; }
-  if ($lineIn !~ /[a-z]/i) { $inTable = 0; $inRoomTable = 0; if ($inAdd) { $addEnd = $.; $inAdd = 0; } next; }
+  if ($lineIn !~ /[a-z]/i) { $inConcTable = $inPuncTable = $inRoomTable = 0; if ($inAdd) { $addEnd = $.; $inAdd = 0; } next; }
   if (($lineIn =~ /^part /) && ($inRoomSect)) { $curRoom = lc($lineIn); $curRoom =~ s/^part +//; $forceRoom = ""; next; }
   $lineIn = cutArt($lineIn);
   #if ($lineIn =~ /$regexp/gc) { print "$./$regexp/$lineIn\n"; die(); }
@@ -1053,7 +1056,7 @@ while ($lineIn = <X>)
 	$any{$c} = $.;
 	$lineNum{$c} = $.;
   }
-  if ($inTable)
+  if ($inConcTable)
   {
     $tmpVar = $lineIn;
 	$tmpVar =~ s/\t.*//g;

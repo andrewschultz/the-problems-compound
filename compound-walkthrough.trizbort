@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<trizbort version="1.5.9.5">
+<trizbort version="1.6.0.0">
 	<info>
 		<title>The Problems Compound walkthrough</title>
 		<author>Andrew Schultz</author>
 		<description>This is a Trizbort-style walkthrough for The Problems Compound. It shows a sort of flowchart for the critical commands to win the game.</description>
 	</info>
 	<map>
-		<room id="1" name="Talk to Guy, play a game, enter Flat" subtitle="" x="-544" y="-224" w="96" h="64" region="very start" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" isStartRoom="yes" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
+		<room id="1" name="Talk to Guy, play a game, enter House" subtitle="" x="-544" y="-224" w="96" h="64" region="very start" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" isStartRoom="yes" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<room id="2" name="Make tee, hit hatch" subtitle="Round Lounge" x="-800" y="-224" w="96" h="64" region="very start" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="" />
 		<room id="4" name="Pressure Pier/Meal Square/Down Ground/Joint Strip/Soda Club" subtitle="" x="-672" y="-32" w="96" h="256" region="very start" handDrawn="yes" allcornersequal="yes" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects at="wsw">Give weasel token|Dig for burden|Give to weasel|Give to mush</objects>
@@ -255,7 +255,6 @@
 	<settings>
 		<colors>
 			<canvas>White</canvas>
-			<fill>White</fill>
 			<border>Black</border>
 			<line>Black</line>
 			<selectedLine>Gold</selectedLine>
@@ -265,6 +264,7 @@
 			<lineText>Black</lineText>
 			<grid>#F5F5F5</grid>
 			<startRoom>GreenYellow</startRoom>
+			<endRoom>Red</endRoom>
 		</colors>
 		<regions>
 			<_x0034_____of____7 Name="4 of 7" TextColor="Black">Lime</_x0034_____of____7>
@@ -290,7 +290,6 @@
 		</grid>
 		<lines>
 			<width>2</width>
-			<handDrawn>no</handDrawn>
 			<arrowSize>12</arrowSize>
 			<textOffset>4</textOffset>
 		</lines>

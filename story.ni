@@ -44,7 +44,7 @@ use MAX_SYMBOLS of 25000.
 
 use MAX_STATIC_DATA of 200000.
 
-use MAX_PROP_TABLE_SIZE of 330000.
+use MAX_PROP_TABLE_SIZE of 340000.
 
 section compiler debug limits - not for release
 
@@ -52,7 +52,7 @@ use MAX_OBJECTS of 880. [+40]
 
 use MAX_SYMBOLS of 28000. [+3000]
 
-use MAX_PROP_TABLE_SIZE of 350000. [+20000]
+use MAX_PROP_TABLE_SIZE of 360000. [+20000]
 
 book includes
 
@@ -980,12 +980,15 @@ the block waking rule is not listed in any rulebook.
 the block waking up rule is not listed in any rulebook.
 
 before waking:
+	if noun is volatile sal:
+		say "He's happier asleep. He needs the rest." instead;
 	if noun is not player:
 		say "You can't wake anyone else up." instead;
 	try waking up instead;
 
 before waking up:
 	if mrlp is dream sequence:
+		if allow-swears is true and up yours is not in lalaland, say "A voice booms '[activation of up yours]' repeatedly.[paragraph break]";
 		say "[one of]As you wake up, someone walks by and mentions how people who sleep on benches just encourage robbers, and if they had nothing worth taking, that's lazy too[or]You wake up, expecting that horrible person from the first time, again, but there's nothing[stopping].";
 		leave-dream;
 		the rule succeeds;
@@ -3480,6 +3483,7 @@ Spelling Disaster	"Disaster spelling is, well, consonants clumped together. Spel
 touch base	"To touch base is to get back to someone or return their call, especially if it's been a while. Versus a base touch, base being mean, so it's a bit more creepy."
 turn of phrase	"A turn of phrase is clever wording. A phrase of turn is, well, what's at the command prompt, or, any wording."
 u-turn	"A u-turn is when a car swivels in a huge circle to reverse direction. So if something tries to turn you, it bounces back."
+up yours	"'Up yours' is a crude expression where 'yours' refers to someone's butt."
 wait your turn	"This means not to do anything til someone else goes first. But in this case the game wants you to turn your wait into something else."
 wave a flag	"To wave a flag is to give up. To flag something is to note it as particularly productive or unproductive."
 acceptable	"Acceptable means good enough. Though sometimes it might not, if someone is just being diplomatic. Able, Except means you're pretty good but have big flaws. So both can feel like backhand compliments." [start of smart street]
@@ -3487,6 +3491,7 @@ beat off	"To beat off is to, well, pleasure oneself. People who are off-beat are
 Buster Ball	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure."
 Confidence Games	"Confidence games are where someone gains someone else's trust to rip them off. It can be as simple as a shell game or as complex as an investment scheme. Of course, Alec has confidence with logic games but not much else."
 first world problems	"The phrase 'first world problems' often is used to mock relatively small-seeming issues."
+flat broke	"Flat broke means totally without possessions or assets. The broke flat is...well, a roof over your head."
 good egg	"A good egg is a nice person. To egg, or egg on, is to bait someone into doing something you want them to."
 Hunter Savage	"A savage hunter is, well, someone with no mercy. Yup, I like the 'dirty' tangential bad guy better, too."
 knockwurst	"Knockwurst is a kind of sausage."
@@ -3746,6 +3751,7 @@ spotted dick	"Spotted dick is a sort of sweet pudding."
 sweeney todd	"Sweeney Todd was a fictitious murderous barber."
 sympathetic	"Sympathetic means caring and willing to listen."
 tallywhacker	"A tallywhacker is slang for a male sexual organ."
+taradiddle	"taradiddle is when you [fill-in-here]. nominal fen"
 tear-jerk	"The jerks['] tears may seem a bit fake, and a tear-jerker is something that tries to manipulate you into crying."
 telephony	"Telephony is hearing something from a distance."
 terabyte	"A terabyte is a large amount of memory: specifically, 2^40 bytes."
@@ -5040,7 +5046,7 @@ check going inside when player is in Smart Street:
 			say "A final salvo from Guy Sweet: [guy-sez entry][paragraph break]";
 			wfak;
 			check-babble;
-			say "As you enter the Fly House, you hear a lock click--from the outside. There's no way out except down to a basement and a tunnel. At a dead end, you push a wall, which swivels and clicks again as you tumble into a lighted room. You push the wall again, but whatever passage was there isn't now.";
+			say "As you enter the Fly House, you hear a lock click--from the outside. It's...well, it's not so neat on the inside. You hear a booming voice. A man towers over you. 'Kind of a [activation of flat broke] inside, eh? Well, it's a lot better than nothing!' At a dead end, you push a wall, which swivels and clicks again as you tumble into a lighted room. You push the wall again, but whatever passage was there isn't now."; [??The Building Character/challenge decline]
 			continue the action;
 	say "Guy Sweet remains quiet. He should not.";
 	annotize game shell;
@@ -12403,6 +12409,8 @@ turn of phrase is a concept in conceptville. Understand "phrase of turn" as turn
 
 a u-turn is a concept in conceptville. Understand "u turn" and "turn u" as u-turn. howto is "turn an inanimate object". gtxt is "turn you"
 
+up yours is a concept in conceptville. Understand "up yores" and "yores up" as up yours. howto is "wake up, innuendo on". gtxt is "Yore's up".
+
 wait your turn is a concept in conceptville. Understand "turn your wait" as wait your turn. howto is "wait". gtxt is "Turn your wait".
 
 wave a flag is a concept in conceptville. Understand "flag a wave" as wave a flag. howto is "wave". gtxt is "flag a wave".
@@ -12418,6 +12426,8 @@ Buster Ball is a concept in conceptville. Understand "ball buster" as buster bal
 confidence games is a concept in conceptville. Understand "games/game confidence" and "confidence game" as confidence games. howto is "talk to Guy". gtxt is "games confidence"
 
 first world problems is a concept in conceptville. Understand "problems first world" and "world first problems" as first world problems. howto is "ask Guy about [bad-guy-2]". gtxt is "Problems First World".
+
+flat broke is a concept in conceptville. Understand "broke flat" as flat broke. howto is "enter the Fly House". gtxt is "broke flat".
 
 Good Egg is a concept in conceptville. Understand "egg good" as good egg. howto is "talk to Guy". gtxt is "egg GOOD".
 
@@ -12980,6 +12990,8 @@ sweeney todd is a jerkish concept in conceptville. Understand "todd sweeney" as 
 sympathetic is a jerkish concept in conceptville. Understand "sym pathetic" and "pathetic sym" as sympathetic. howto is "[j-blab]". gtxt is "Pathetic Sim".
 
 tallywhacker is a jerkish concept in conceptville. Understand "tally wacker" and "wacker tally" as tallywhacker. howto is "[j-blab]". gtxt is "wacker tally".
+
+taradiddle is a jerkish concept in conceptville. Understand "tara diddle" and "diddle tara" as taradiddle. howto is "[j-blab]". gtxt is "diddle Tara".
 
 Tear-Jerk is a concept in conceptville. Understand "jerk-tear" and "tear jerk" and "jerk tear" as Tear-Jerk. howto is "solve the [j-co]['] puzzle". gtxt is "jerk-tear".
 
