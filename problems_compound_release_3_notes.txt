@@ -26,6 +26,7 @@ The major stuff is here.
 --two new jump verbs to get by just the jerks or just the brothers.
 --the very good ending is now implemented better.
 --Bottom Rock is now A Great Den.
+--Broke Flat is now a Fly House. Well, until you enter it.
 
 The user-friendliness stuff is here.
 --SKIP replaces GLIB as a verb. TESTJUMP (not seen in the release) is now the testing verb.
@@ -39,7 +40,7 @@ The user-friendliness stuff is here.
 --PDF walkthrough tweaked to separate introductory regions (now with jump-verb spoilers too) and also to use Trizbort's new (as of 1.5.9.5) custom text offset feature, so item placing looks look neater.
 
 There's random stuff, too:
---you can now play Hangman with Guy Sweet
+--you can now play Hangman and FreeCell with Guy Sweet
 --many extra silly concepts added. Up to 519, from 66 in release 2. Many of these are sort of double-counted in the tables below, but this is how many concepts are defined in the source. It's probably too hard to find them all, but the game lists them at the end. Plus you can search for "table of explanations" in the source to see the goods.
 --game text added here and there. As per usual for a post-release.
 --it's now easier to get sent to the Ship if you mess up. The first time you re-visit an area, you go there.
@@ -50,7 +51,7 @@ There's random stuff, too:
 --new books (61, up from 38).
 --XYZZY in Freak Control now gives a horribly silly side story I just couldn't pass up.
 --Uncle Dutch and Turk Young now have 17 bits of wisdom, up from 8.
---the jerks/groaners now have 189 "grown-up" discussions, if swearing is on, including a final lament, with 194 total gossip subjects. They don't actually swear, but...well, they're kind of nasty teenagers. So, yeah, they're a bit uncouth.
+--the jerks/groaners now have 191 "grown-up" discussions, if swearing is on, including a final lament, with 196 total gossip subjects. They don't actually swear, but...well, they're kind of nasty teenagers. So, yeah, they're a bit uncouth.
 --more silly mistakes in either good ending now fixed.
 --there are now 20 sleep stories, up from 15
 --there are now 30 Basher Bible references, up from 29

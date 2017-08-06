@@ -3,10 +3,11 @@ out=problems-compound-invisiclues.htm
 ->c:/games/inform/Compound Materials/Release
 >INTRODUCTION
 >>Smart Street
-?What is the flat for?
-You can enter it, eventually.
+?What is the Fly House for?
+You can enter it, but not right away.
 But you should probably look around first.
 Okay, the game sort of forces you to.
+You only need to play one of Guy's games once to enter the Fly House.
 ?What is the shell for?
 It features a lot of canonical puzzles.
 You can PLAY them in any order.
@@ -18,7 +19,7 @@ No. You only need to solve one.
 A lot of bluster, really.
 He'll let you know about the main bad guy and about some other characters.
 He also seems--well, subservient to the other characters, and a bit mean to you. Sort of an authorial warning that you don't want to be like this.
-And he'll let you know about the broke flat. So you have some information before you enter.
+And he'll harangue you about the Fly House. So you have some information before you enter. Not helpful information, mind.
 He's no help at all with the puzzles. You understand them better than he does.
 ?Hey! I'm sort of interested in the puzzles. Alec knows them, but I don't.
 Most of them are easily Google-able.

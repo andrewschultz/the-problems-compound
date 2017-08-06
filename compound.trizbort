@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<trizbort version="1.5.9.8">
+<trizbort version="1.6.0.0">
 	<info>
 		<title>The Problems Compound</title>
 		<author>Andrew Schultz</author>
@@ -10,7 +10,7 @@
 	</info>
 	<map>
 		<room id="1" name="Smart Street" subtitle="" x="192" y="288" w="96" h="64" region="Entry" handDrawn="yes" allcornersequal="no" ellipse="yes" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" isStartRoom="yes" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects custom="yes" customRight="-24" customDown="0">Broke Flat|Game Shell|Guy Sweet</objects>
+			<objects custom="yes" customRight="-24" customDown="0">Fly House|Game Shell|Guy Sweet</objects>
 		</room>
 		<room id="2" name="A Round Lounge" subtitle="" x="32" y="288" w="96" h="64" region="Entry" handDrawn="yes" allcornersequal="no" ellipse="yes" roundedCorners="no" octagonal="no" cornerTopLeft="15" cornerTopRight="15" cornerBottomLeft="15" cornerBottomRight="15" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects custom="yes" customRight="-28" customDown="0">A round stick|A round screw|Person Chair|Plan Hatch</objects>
@@ -70,7 +70,7 @@
 			<objects custom="yes" customRight="-24" customDown="0">Notes Crib|  Crocked Half|  Legend of Stuff</objects>
 		</room>
 		<room id="23" name="Judgment Pass" subtitle="" x="192" y="-96" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
-			<objects custom="yes" customRight="-24" customDown="0">Officer Petty|Intuition Counter</objects>
+			<objects custom="yes" customRight="-44" customDown="0">Officer Petty|Intuition Counter</objects>
 		</room>
 		<room id="24" name="Idiot Village" subtitle="" x="352" y="-96" w="96" h="64" region="Main Area" handDrawn="yes" allcornersequal="no" ellipse="no" roundedCorners="no" octagonal="no" cornerTopLeft="1" cornerTopRight="1" cornerBottomLeft="1" cornerBottomRight="1" borderstyle="Solid" description="" roomFill="" secondFill="" secondFillLocation="Bottom" roomBorder="" roomLargeText="" roomSmallText="">
 			<objects custom="yes" customRight="-28" customDown="0">Business Monkey|Sly Moore|Thoughts Idol</objects>
@@ -244,7 +244,7 @@
 			<dock index="1" id="36" port="sw" />
 		</line>
 		<line id="108" name="" description="" startText="SLEEP" endText="WAKE">
-			<dock index="0" id="8" port="ne" />
+			<dock index="0" id="8" port="n" />
 			<dock index="1" id="11" port="w" />
 		</line>
 		<line id="109" name="" description="" style="dashed">

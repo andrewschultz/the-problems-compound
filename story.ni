@@ -3256,7 +3256,7 @@ definition: a thing (called x) is explainable:
 	if x is in bullpen, decide yes; [bullpen is for items 'lost' during sleep]
 	if x is in lalaland, decide yes;
 	if x is in conceptville and debug-state is true, decide yes; [can it ever be in play? In debug, we need to know]
-	if x is part of towers of hanoi or x is part of broke flat or x is part of games counter or x is games counter or x is games, decide no;
+	if x is part of towers of hanoi or x is part of Fly House or x is part of games counter or x is games counter or x is games, decide no;
 	if x is t-surf, decide no;
 	if x is stool toad and down ground is visited, decide yes; [he does show up before you get to Joint Strip]
 	if x is in pressure pier:
@@ -3285,7 +3285,7 @@ after explaining out puzzle: [just below, the dots explanation asks a question, 
 table of explanations [toe] [alfbyroom]
 exp-thing	exp-text	exp-anno
 bad knot	"A bad knot is hard to untangle. You wouldn't say it's not bad to untangle. And 'not bad' can have several connotations, itself, from strong to faint praise. So you can tie yourself up thinking of what it means."	--
-Broke Flat	"Flat Broke means out of money."	"This was originally a location until I discovered A Round Lounge."
+Fly House	"A house fly is a dirty nuisance."	"The Fly House was Broke Flat, but I wanted somewhere more appetizing to enter."
 chess board	"Despite being a really good chess player, this always fooled me. I started with a queen in the corner as a kid and got run around, but then as an adult I recognized the virtue of going for an easy solution (no queens in the center) and seeing why it didn't work."	"Starting by disallowing the center 16 squares helped a lot--by sheer number, that's 21/23 squares each queen sees, not 25/27, and then placing any of the queens in the four 2x2 corners makes rows 3-6 unable to match up. Also, I didn't understand symmetry arguments e.g. it's useful to see if we can have a queen 2 from any corner, or one 3 from a corner. It's important not to think of this as 'laziness' if we can start building general principles or eliminate enough cases."
 face of loss	"Loss of face means humiliation or loss of respect. A face of loss isn't an official idiom, but here it means you're just sad. You've lost some fun and curiosity."	"This is something I didn't discover until release 2. What's the best way for Alec to seem upset? In retrospect, 'a bad face' should've clicked things earlier, but it happened eventually."
 Game Shell	"A shell game is where an operator and possibly an assistant rig a game so that mugs think it's an easy win, but they can't. The most popular one is when they hide a bean under a hollowed shell and shift them around."	"The game shell is a shell game of its own. No matter how much you solve, you won't impress Guy Sweet, and you won't--well--figure the real puzzles you want to, beyond logic etc."
@@ -4863,11 +4863,11 @@ to say bad-eaten:
 
 part Smart Street
 
-Smart Street is a room in Beginning. "This isn't a busy street[one of], but there's a shell-like structure featuring all manner of odd games[or] though the Game Shell takes a good deal of space[stopping]. While you can leave in any direction, you'd probably get lost quickly.[paragraph break][if Broke Flat is examined]Broke Flat lies[else]The shell seems in much better condition than the flat[end if] a bit further away."
+Smart Street is a room in Beginning. "This isn't a busy street[one of], but there's a shell-like structure featuring all manner of odd games[or] though the Game Shell takes a good deal of space[stopping]. While you can leave in any direction, you'd probably get lost quickly.[paragraph break]The Fly House lies a bit further away."
 
 after looking in Smart Street when Guy Sweet is not in Smart Street:
 	move Guy Sweet to Smart Street;
-	say "A loud, hearty voice from the shell. 'Howdy! I'm Guy Sweet! You look like a fella with a [activation of mind games]! Why not come over to the Game Shell and have a TALK?'";
+	say "A loud, hearty voice from the shell. 'Howdy! I'm Guy Sweet! You look like a fella with a [activation of mind games]! Why not come over to the Game Shell and have a TALK before you enter the Fly House?'";
 	say "[line break]";
 	ital-say "you may wish to see the verbs for The Problems Compound by typing VERB at any time.";
 
@@ -4883,7 +4883,7 @@ instead of doing something with games:
 	say "There are a whole bunch: [the list of logic-games]. You can PLAY them one at a time, but not all at once."
 
 check going nowhere in Smart Street:
-	say "You don't have your bearings. Maybe you can go into the Broke Flat, but that's about it. You certainly can't see your room in any direction." instead;
+	say "You don't have your bearings. Maybe you can go into the Fly House, but that's about it. You certainly can't see your room in any direction." instead;
 
 section Guy Sweet
 
@@ -4900,7 +4900,7 @@ prompt	response	enabled	permit
 "So. What are these games for?"	guy-games	1	1
 "How'd you get stuck here?"	guy-stuck	1	1
 "Any advice on any of the games?"	guy-advice	1	1
-"So. What's in [b-f]?"	guy-flat	1	1
+"So. What's in the Fly House?"	guy-fly-house	1	1
 "The Problems Compound?"	guy-problems	0	1
 "The [bad-guy]?"	guy-mess	0	1
 "[bad-guy-2]?"	guy-bad2	0	1
@@ -4935,7 +4935,7 @@ quip	quiptext
 guy-games	"'They're for people who don't like re	gular fun social games. Sort of like IQ tests. You look like you'd enjoy them more than most. No offense. Hey, I'm saying you have [g-c].'"
 guy-stuck	"'Well, yeah, I used to be kind of a dork. And by kind of a dork I mean really a dork. Probably even worse than you. Hey, I'm showing some serious humility here. I mean, starting at the bottom, as a greeter, until I'm an interesting enough person to join the Problems Compound.'"
 guy-advice	"'Hm, well, if I give you too much advice, you won't enjoy solving them. And if I don't give you enough, you'll be kind of mad at me. So I'm doing you a favor, saying just go ahead and PLAY.'"
-guy-flat	"'Well, that way is the Problems Compound. If you can figure out some basic stuff, you'll make it to Pressure Pier. Then--oh, the people you'll meet!'"
+guy-fly-house	"'It's certainly a place to be, well, if you deserve to be there. If not, you might, like, have some character building experience. If you're lucky.'"
 guy-names	"'I know what you really want to ask. It's not at all about twisting things back around and making them the opposite of what they should mean. It's about SEEING things at every angle. You'll meet people who do. You'll be a bit jealous they can, and that they're that well-adjusted. But if you pay attention, you'll learn. I have. Though I've got a way to go. But I want to learn!'"
 guy-problems	"'Well, it's a place where lots of people more social than you--or even me--pose real-life problems. Tough but fair. Lots of real interesting people. Especially the Baiter Master[if allow-swears is false]. Oops. You don't like swears? Okay. Call him the Complex Messiah[else]. AKA the Complex Messiah[end if]. But not [bg]. I haven't earned the right to. Or to enter Freak Control. It's guarded by a trap where a question mark hooks you, then an exclamation mark clobbers you.' He pauses, and you are about to speak...[wfk]'YEAH. He's really nice once you get to know him, I've heard, it's just, there's too many people might waste his time, or not deserve him or not appreciate him.' Guy stage-whispers. 'OR ALL THREE.'"
 guy-mess	"'Oh, the [bad-guy]. He certainly knows what's what, and that's that! He certainly does things differently! But not all weird-like. A bit of time around him, and you too will know a bit--not as much as he did. He teaches by example! He can [activation of good egg]. Just his way of caring. Much nicer than [bad-guy-2]. Remember, it's up to YOU what you make of his lessons! Some people--they just don't get him. Which is ironic. They're usually the type that claim society doesn't get THEM[if allow-swears is true].' Guy whispers. '[activation of beat off] types[end if].'"
@@ -4958,7 +4958,7 @@ to say a-word:
 	say "[if allow-swears is true]ass[else]***[end if]"
 
 after quipping when qbc_litany is table of guy sweet talk:
-	if current quip is guy-flat or current quip is guy-stuck:
+	if current quip is guy-fly-house or current quip is guy-stuck:
 		if guy-problems is not talked-thru:
 			enable the guy-problems quip;
 	else if current quip is guy-problems:
@@ -4984,7 +4984,7 @@ to check-babble:
 			continue the action;
 	if qbc_litany is table of gs: [e.g. just talked to guy]
 		say "Well. That conversation with Guy was...thorough. But you wonder if you needed [i]all[r] the details. You imagine a babbling brook--then, wait...could you? Maybe you could ... BROOK BABBLING instead of TALKing, to just focus on the main stuff, because people aren't going to, like, [i]quiz[r] you. Yes. You think you see how, in the future.";
-	else: [entering Broke Flat]
+	else: [entering Fly House]
 		say "You feel slight guilt you didn't ask Guy about everything, but not really, after that cheapo. Maybe--well, you don't need to feel forced to listen to everything others say. You can maybe BROOK BABBLING before TALKing so you're not swamped by unwanted details.";
 		wfak;
 	now know-babble is true;
@@ -5027,8 +5027,8 @@ to say g-c: [this appears several places, so simplify the code]
 check going inside when player is in Smart Street:
 	if guy-games is not talked-thru and guy sweet is not babbled-out:
 		say "'Hey! You anti-social or something? Have, y'know, meaningful conversation before exploring there!'" instead;
-	if guy-flat is not talked-thru and guy sweet is not babbled-out:
-		say "You don't know anything about Broke Flat. It might be really dangerous. Maybe you should ask someone about it. Even if the only someone around is Guy Sweet." instead;
+	if guy-fly-house is not talked-thru and guy sweet is not babbled-out:
+		say "You don't know anything about Fly House. It might be really dangerous. Maybe you should ask someone about it. Even if the only someone around is Guy Sweet." instead;
 	if your-game-wins is 0:
 		say "'Dude! We need to, like, make sure you at least have [g-c] before you go in there. Try one of these games, or something!'" instead;
 	repeat through table of guy taunts:
@@ -5036,7 +5036,7 @@ check going inside when player is in Smart Street:
 			say "A final salvo from Guy Sweet: [guy-sez entry][paragraph break]";
 			wfak;
 			check-babble;
-			say "As you enter the flat, you hear a lock click--from the outside. There's no way out except down to a basement and a tunnel. At a dead end, you push a wall, which swivels and clicks again as you tumble into a lighted room. You push the wall again, but whatever passage was there isn't now.";
+			say "As you enter the Fly House, you hear a lock click--from the outside. There's no way out except down to a basement and a tunnel. At a dead end, you push a wall, which swivels and clicks again as you tumble into a lighted room. You push the wall again, but whatever passage was there isn't now.";
 			continue the action;
 	say "Guy Sweet remains quiet. He should not.";
 	annotize game shell;
@@ -5051,33 +5051,12 @@ total-wins	guy-sez
 20	"'Whoah! You really do need some social well-roundedness to go with that knowing. No offense.'"
 999	"'Boy! With all you learned about puzzles, you probably DIDN'T have time for common sensical stuff. Maybe you'll find it in there...or not.'"
 
-section Broke Flat
+section Fly House
 
-Broke Flat is scenery in Smart Street. "[one of]It's--well, it's marked BROKE FLAT. And there's a lot that's broke(n). Windows, the foundation, etc. The pavement around it. None of which is worth looking at, but you're guessing any security system would also be broken, so you can enter pretty easily if you want[or]It's somewhere to go besides the endless expanse of urban waste to get lost in[stopping]."
+the Fly House is scenery in Smart Street. "It's--well, it's marked Fly House. And man, does it look snazzy and clean! You know nothing about real estate or housecleaning, but this--well, it's obviously a place to be, better than Smart Street."
 
-to say n-w-flat:
-	say "It's not worth your time to nitpick the things that make Broke Flat broke. It's not, well, hazardous"
-
-the flat's windows are part of Broke Flat. description is "[bug]"
-
-instead of doing something with the flat's windows:
-	say "[n-w-flat]."
-
-the flat's pavement are part of Broke Flat. description is "[bug]"
-
-instead of doing something with the flat's pavement:
-	say "[n-w-flat]."
-
-the flat's foundation are part of Broke Flat. description is "[bug]"
-
-instead of doing something with the flat's foundation:
-	say "[n-w-flat]."
-
-check entering Broke Flat:
+check entering Fly House:
 	try going inside instead;
-
-to say b-f:
-	say "[if broke flat is not examined]the flat[else]Broke Flat[end if]"
 
 section hide the logic games
 
@@ -5155,7 +5134,7 @@ understand "duck sitting" as ducksitting.
 carry out ducksitting:
 	if player is not in smart street:
 		say "Boy! Knowing then what you know now, you'd have liked to duck sitting in [if player is in round lounge]this[else]some[end if] lounge and getting to action back in Smart Street. (NOTE: you need to RESTART to use this)." instead;
-	say "You[activation of sitting duck] open the door to Broke Flat slowly, looking inside for people waiting in ambush. Nobody. You skulk around a bit more--hmm, a passage you'd've missed if you just ran through. You think you see your bathroom up ahead. Wait, no, it's another weird warp. "; [temproom general concepts]
+	say "You[activation of sitting duck] open the door to the Fly House slowly, looking inside for people waiting in ambush. Nobody. You skulk around a bit more--hmm, a passage you'd've missed if you just ran through. You think you see your bathroom up ahead. Wait, no, it's another weird warp. "; [temproom general concepts]
 	write-undo "duck";
 	duck-sitting;
 	the rule succeeds;
@@ -5183,12 +5162,12 @@ understand "knock hard" as knockharding.
 
 carry out knockharding:
 	if player is in questions field:
-		say "That would've gotten you into Broke Flat and beyond, but it won't do much to get into Freak Control." instead;
+		say "That would've gotten you into Fly House and beyond, but it won't do much to get into Freak Control." instead;
 	if player is in joint strip:
 		say "There's no secret knock or password. Either you can get in the Soda Club, or you can't." instead;
 	if player is not in smart street:
-		say "There's nothing to knock hard at. Or nothing it seems you should knock hard at. Not like Broke Flat back in Smart Street[if pressure pier is unvisited]--you'd need to RESTART to try that[end if]." instead;
-	say "You stride up to Broke Flat with purpose. You knock, hard,[activation of hard knock] hoping to avoid a hard knock--and you do! You are escorted through a maze of hallways that eventually open up to a wide area with water behind: Pressure Pier. "; [temproom general concepts]
+		say "There's nothing to knock hard at. Or nothing it seems you should knock hard at. Not like Fly House back in Smart Street[if pressure pier is unvisited]--you'd need to RESTART to try that[end if]." instead;
+	say "You stride up to Fly House with purpose. You knock, hard,[activation of hard knock] hoping to avoid a hard knock--and you do! You are escorted through a maze of hallways that eventually open up to a wide area with water behind: Pressure Pier. "; [temproom general concepts]
 	write-undo "knock";
 	knock-hard;
 	the rule succeeds;
@@ -5218,7 +5197,7 @@ to say jump-reject-2:
 carry out figureacuting:
 	if player is not in smart street:
 		say "[jump-reject-2]." instead;
-	say "Guy Sweet yells[activation of cut a figure] 'Hey! Where are you going? I mean, you're probably like accelerated in school but if you think you're accelerated at life...' You ignore him. You don't need to be taught a same lesson twice. Well, not this one. You rattle the doorknob just so--and you recognize a few odd passages in Broke Flat--and bam! You fall through an invisible slide to the [jc]. "; [temproom general concepts]
+	say "Guy Sweet yells[activation of cut a figure] 'Hey! Where are you going? I mean, you're probably like accelerated in school but if you think you're accelerated at life...' You ignore him. You don't need to be taught a same lesson twice. Well, not this one. You rattle the doorknob just so--and you recognize a few odd passages in Fly House--and bam! You fall through an invisible slide to the [jc]. "; [temproom general concepts]
 	write-undo "figure";
 	figure-cut;
 	the rule succeeds;
@@ -5796,8 +5775,8 @@ to check-win-chat:
 
 table of win chat
 win-check	achieved	guy-banter
-3	false	"'Oh, yeah, hey, if you were expecting a new gift, I heard these puzzles are their own reward for, uh, you people. What?! C'mon, now. You'll need thicker skin than that to get to the [bad-guy] through Broke Flat over there.'"
-6	false	"'Wow. You have, like, aptitude or something. You're gonna go far in life. Well, unless you use your smarts or memory on silly games like these. Or use [']em to put off bigger challenges. Like in Broke Flat over there.'"
+3	false	"'Oh, yeah, hey, if you were expecting a new gift, I heard these puzzles are their own reward for, uh, you people. What?! C'mon, now. You'll need thicker skin than that to get to the [bad-guy] through Fly House over there.'"
+6	false	"'Wow. You have, like, aptitude or something. You're gonna go far in life. Well, unless you use your smarts or memory on silly games like these. Or use [']em to put off bigger challenges. Like in Fly House over there.'"
 10	false	"'All these wins are most impressive! I'm sure your skills will come in handy in a technical field. Not enough to be a high-level manager, but yeah. Boy. You need the [bad-guy]'s snark even more. If a brain like yours fell into [bad-guy-2]'s clutches...'"
 15	false	"'Hey, you've shown some heavy-duty smarts, I guess! Uh, yeah, I'm totally yawning because my brain is tired, not because I am.'"
 99	false	"'Gee. That's the end. Impressive. If you had the social skills to match, why, it'd be YOU defending us against [bad-guy-2], not the [bad-guy].'"
@@ -5847,7 +5826,7 @@ carry out playing:
 
 part A Round Lounge
 
-There is a room called A Round Lounge. Round Lounge is in Beginning. A Round Lounge is inside of Smart Street. "Well, this is about as dumpy as you'd expect, for a place in Broke Flat.[paragraph break]There's just one piece of furniture here: [if person chair is not examined]a chair helpfully labelled PERSON CHAIR[else]the person chair[end if][if player is on chair] (which you're on)[end if] and [if plan hatch is not examined]a hatch above that appears to be written on[else]the plan hatch above[end if]."
+There is a room called A Round Lounge. Round Lounge is in Beginning. A Round Lounge is inside of Smart Street. "Well, this is about as dumpy as you'd expect, for a place in Fly House.[paragraph break]There's just one piece of furniture here: [if person chair is not examined]a chair helpfully labelled PERSON CHAIR[else]the person chair[end if][if player is on chair] (which you're on)[end if] and [if plan hatch is not examined]a hatch above that appears to be written on[else]the plan hatch above[end if]."
 
 after printing the locale description for Round Lounge when Round Lounge is unvisited:
 	say "Well, this looks like a more practical brain teaser than in Smart Street. You're reminded of how in Boy Scouts, the older kids gave you brain teasers with a pool of water by a bleeding man or a man hanged from the ceiling. You looked up more at the library that weekend and then quit the troop after the next round of teasers, because you realized you failed to learn anything practical in Scouts."
@@ -8296,7 +8275,7 @@ Rule for supplying a missing noun while entering (this is the yup paper rule):
 	if player is in chipper wood and chase paper is in chipper wood:
 		now the noun is the chase paper;
 	else if player is in smart street:
-		now the noun is broke flat;
+		now the noun is Fly House;
 	else if player is on the chair:
 		now the noun is hatch;
 	else if player is in round lounge:
