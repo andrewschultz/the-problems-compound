@@ -422,10 +422,17 @@ for my $x (sort keys %any)
 	  $nuline++;
 	  $alphabetizeWarnings++;
 	}
-    $errMsg .= "$xmod ($lineNum{$x}, $concToRoom{$x}) needs explanation" . (defined($fillExpl{$x}) ? " filled in" : "") . ": guess = line $nuline\n";
+    $errMsg .= "$xmod (" . (defined($lineNum{$x}) ? $lineNum{$x} : "no-line") . ", " . (defined($concToRoom{$x}) ? $concToRoom{$x} : "no-room") . ") needs explanation" . (defined($fillExpl{$x}) ? " filled in" : "") . ": guess = line $nuline\n";
 	$addString = "$xmod\t\"$xmod is when you [fill-in-here]." . (defined($concToRoom{$x}) ? " $concToRoom{$x}" : "" ) . "\"";
 	##todo: we get a warning if we don't have an activation but we've defined a concept
+	if (defined($concToRoom{$xmod}))
+	{
 	if (!defined($concTableLine{$concToRoom{$xmod}})) { $addString .= " \[start of $concToRoom{$xmod}\]"; $concTableLine{$concToRoom{$xmod}} = $.; }
+	}
+	else
+	{
+	$addString .= " UNDEFINED ROOM";
+	}
 	$addString .= "\n";
 	if ($writeAfter && defined($nuline)) { $addAfter{$nuline} .= $addString; }
 	$explErr .= $addString;
@@ -903,6 +910,8 @@ my @files = @{$fileHash{$_[0]}};
 
 my $file;
 
+my $runCC = 0;
+
 for $file (@files)
 {
 open(X, $file) || do { print "No source file $file.\n"; return; };
@@ -979,7 +988,8 @@ while ($lineIn = <X>)
     {
       if (($lineIn =~ /\"$adj/i) + ($lineIn =~ /$tempConc{$adj}/) == 1)
       {
-        print "Line $. needs to match $adj/$tempConc{$adj}. Run conc.pl cc $_[0].\n";
+        print "Line $. needs to match $adj/$tempConc{$adj}.\n";
+		$runCC = 1;
 	    last;
       }
     }
@@ -1090,6 +1100,8 @@ close(X);
 
 if (!$everRoomSect && ($file =~ /story.ni/)) { warn ("No room section start found for $file."); }
 }
+
+print "Run conc.pl cc $_[0] to match concept types.\n" if $runCC;
 
 printResults($_[0]);
 
@@ -1567,7 +1579,14 @@ sub compareRoomIndex
       }
 	  elsif (cutArt($line) le cutArt($lastLine))
 	  {
-	    if (($commentBit eq "") && (!$initWarn)) { if ($proofStr) { print "ERRORS $proofStr"; $proofStr = ""; } warn("Line $. forgot to initialize something.\n"); $initWarn = 1; $explainOrdErrors++; }
+	    if (($commentBit eq "") && (!$initWarn))
+		{
+		  if ($proofStr) { print "ERRORS $proofStr"; $proofStr = ""; }
+		  my $tempLine = $line;
+		  $tempLine =~ s/\t.*//;
+		  warn("Line $. has incorrect alphabetization, $tempLine vs. $lastLine.\n");
+		  $initWarn = 1; $explainOrdErrors++;
+        }
 	    $line =~ s/\t.*//;
 		if ($proofStr) { print "ERRORS $proofStr"; $proofStr = ""; }
 		my $lastLineCut = $lastLine;
