@@ -3282,12 +3282,12 @@ after explaining out puzzle: [just below, the dots explanation asks a question, 
 	else:
 		say "Okay."
 
-table of explanations [toe] [alfbyroom]
+table of explanations [xxtoe] [alfbyroom]
 exp-thing	exp-text	exp-anno
-bad knot	"A bad knot is hard to untangle. You wouldn't say it's not bad to untangle. And 'not bad' can have several connotations, itself, from strong to faint praise. So you can tie yourself up thinking of what it means."	--
-Fly House	"A house fly is a dirty nuisance."	"The Fly House was Broke Flat, but I wanted somewhere more appetizing to enter."
+bad knot	"A bad knot is hard to untangle. You wouldn't say it's not bad to untangle. And 'not bad' can have several connotations, itself, from strong to faint praise. So you can tie yourself up thinking of what it means."	"I figured this out pretty late in release 3 when I wanted an insignia for the token." [start of smart street]
 chess board	"Despite being a really good chess player, this always fooled me. I started with a queen in the corner as a kid and got run around, but then as an adult I recognized the virtue of going for an easy solution (no queens in the center) and seeing why it didn't work."	"Starting by disallowing the center 16 squares helped a lot--by sheer number, that's 21/23 squares each queen sees, not 25/27, and then placing any of the queens in the four 2x2 corners makes rows 3-6 unable to match up. Also, I didn't understand symmetry arguments e.g. it's useful to see if we can have a queen 2 from any corner, or one 3 from a corner. It's important not to think of this as 'laziness' if we can start building general principles or eliminate enough cases."
 face of loss	"Loss of face means humiliation or loss of respect. A face of loss isn't an official idiom, but here it means you're just sad. You've lost some fun and curiosity."	"This is something I didn't discover until release 2. What's the best way for Alec to seem upset? In retrospect, 'a bad face' should've clicked things earlier, but it happened eventually."
+Fly House	"A house fly is a dirty nuisance."	"The Fly House was Broke Flat, but I wanted somewhere more appetizing to enter."
 Game Shell	"A shell game is where an operator and possibly an assistant rig a game so that mugs think it's an easy win, but they can't. The most popular one is when they hide a bean under a hollowed shell and shift them around."	"The game shell is a shell game of its own. No matter how much you solve, you won't impress Guy Sweet, and you won't--well--figure the real puzzles you want to, beyond logic etc."
 gesture token	"A token gesture is something done as a bare minimum of acknowledgement."	"There were all sorts of tokens this could have been. I decided on gesture because, well, you get something for doing the bare minimum."
 hangman	"The strategy of hangman always interested me. I enjoyed finding tough words or even seeing how people squabbled over the rules: how many misses, etc. Of course, there is One Best Strategy, well, until you are up against people who know tricky words."	"Hangman was a late edition to release 3. I remember feeling guilty writing a PERL script to see what words were remaining when I had one guess left in an online game, but it was educational, for all that. And so I think it may be rather neat to look at in any case."
@@ -3411,9 +3411,9 @@ pen fountain	"A fountain pen is (these days) a typical pen. You don't have to di
 consciousness stream	"Stream of consciousness is a form of writing that relies heavily on inner monologue."	"It turns out that Nigel Jayne wrote a game called Gaia's Web which features a Consciousness Stream that actually blends into the game better, so you should definitely give that a check." [start of Brains Beat]
 View of Points	"Points of view are opinions." [start of Window Bay]
 
-table of explanations (continued) [toe] [alfbyroom] [the people]
+table of explanations (continued) [xxtoe] [alfbyroom] [the people]
 exp-thing	exp-text	exp-anno
-Alec Smart	"A smart alec is someone who always has a clever quip."	-- [start of smart street]
+Alec Smart	"A smart alec is someone who always has a clever quip."	"I didn't have a character for a while until I heard the phrase 'smart alec.' Once I did, I saw how it could work--he just liked being called Alec, but he had an unfortunate last name. A bit later I realized AS was Andrew Schultz." [start of Smart Street]
 Guy Sweet	"Guy Sweet is more of a candy-[a-word] than a sweet guy, but 'sweet guy' is such a terrible compliment as-is. To yourself or others."	--
 Word Weasel	"A weasel word is something that seems to mean more than it should."	"I like stories with talking animals, and at Alec's age, people look down on them, so it made sense to subvert that with a mean talking animal." [start of variety garden]
 Terry Sally	"Terry Sally has two possible translations: salutary or solitary. He is sort of in between salutary (greeting) and solitary (alone) which fits in with how he probably doesn't get to see many people, but he's social when he does."	"Terry Sally was just the Howdy Boy before release 3. But I wanted to make the Compound a bit more personable." [start of pressure pier]
@@ -3666,6 +3666,7 @@ jerk off	"To jerk off is to gratify oneself carnally."
 jerry built	"Jerry-built means put together hastily."
 jim beam	"Jim Beam is a brand of whiskey."
 jimmy buffett	"Jimmy Buffett is the sort of singer you either love or hate. He has made some catchy tunes."
+john 3:16	"John 3:16 is a famous verse where people hold up its sign at sporting events."
 johnny rotten	"Johnny Rotten was the lead singer of the Sex Pistols."
 joint committee	"A joint committee is a group of legislators from different parts of US Congress."
 journeyman	"A journeyman is someone who is maybe not spectacular but who has paid his dues in his field."
@@ -3745,6 +3746,7 @@ sweeney todd	"Sweeney Todd was a fictitious murderous barber."
 sympathetic	"Sympathetic means caring and willing to listen."
 tallywhacker	"A tallywhacker is slang for a male sexual organ."
 tear-jerk	"The jerks['] tears may seem a bit fake, and a tear-jerker is something that tries to manipulate you into crying."
+telephony	"Telephony is hearing something from a distance."
 terabyte	"A terabyte is a large amount of memory: specifically, 2^40 bytes."
 teriyaki	"Teriyaki is a Japanese sauce, or it can be meat cooked in that sauce over an open grill."
 terrapin	"A terrapin is a fancy name for a turtle, which is slow and has a shell."
@@ -3816,6 +3818,7 @@ contempt of congress	"Contempt of Congress is when someone refuses to answer cer
 foster brother	"A foster brother is a brother not related by birth."
 attorney general	"An Attorney General is the highest ranking lawyer in a country or state." [start of court of contempt]
 bosom buddy	"A bosom buddy is a best friend."
+daddy issues	"Daddy issues are a denial of any connection to one's father."
 fair enough	"Fair Enough is what you can say to tell someone you agree with them partially. It has a negative connotation."
 lemon law	"A lemon law is something that lets you get your car back if it breaks down quickly after you buy it."
 Lyme disease	"Lyme disease is inflammation caused by a tick's bite."
@@ -9861,7 +9864,7 @@ check going nowhere in Court of Contempt:
 		try going east instead;
 	say "'So, you the sort of person who runs into walls a lot? Not that there's anything wrong with that.' Yup. Looks like back east's the only way out." instead;
 
-Buddy Best is a baiter-aligned person in Court of Contempt. "[one of]But wait! Someone here looks excited to see you! Not happy, but excited.[paragraph break]'Yah. Hi. I'm Buddy Best. You seem real nice. Nice enough not to waste too much of a [if allow-swears is true]dedicated lawyerly case head, [activation of nutcase], job nut, whichever,[else][activation of attorney general][end if] like me.'[paragraph break]Okay, never mind.[paragraph break]He goes back to sorting through his case basket.[or]Buddy Best waits and taps his foot and checks his case basket here.[stopping]".
+Buddy Best is a baiter-aligned person in Court of Contempt. "[one of]But wait! Someone here looks excited to see you! Not happy, but excited.[paragraph break]'Yah. Hi. I'm Buddy Best. You seem real nice. Nice enough not to waste too much of my time. See, I'm [if allow-swears is true]dedicated lawyerly case head, [activation of nutcase], job nut, whichever, and I'm [end if]working hard to be an [activation of daddy issues] and not just some [activation of attorney general].'[paragraph break]Okay, never mind.[paragraph break]He goes back to sorting through his case basket.[or]Buddy Best waits and taps his foot and checks his case basket here.[stopping]".
 
 description of Buddy Best is "Sour, as if he'd just eaten--[activation of lemon law]--or a [activation of lyme disease]. Or maybe it's totally a delicate balance of happiness and seriousness and not a sign of contempt, so stop saying that."
 
@@ -12813,6 +12816,8 @@ jim beam is a jerkish concept in conceptville. Understand "beam jim" as jim beam
 
 jimmy buffett is a jerkish concept in conceptville. Understand "buffet jimmy" and "jimmy buffet" as jimmy buffett. howto is "[j-blab]". gtxt is "buffet jimmy".
 
+john 3:16 is a jerkish concept in conceptville. Understand "316/163 john" and "john 163" and "john 3 16" and "john 16 3" and "3 16 john" and "16 3 john" as john 3:16. howto is "[j-blab]". gtxt is "16-3, John".
+
 johnny rotten is a jerkish concept in conceptville. Understand "rotten johnny" as johnny rotten. howto is "[j-blab]". gtxt is "rottin['] Johnny".
 
 joint committee is a concept in conceptville. Understand "committee joint" as joint committee. howto is "[solve-j]". gtxt is "committee joint to top it off".
@@ -12970,6 +12975,8 @@ sympathetic is a jerkish concept in conceptville. Understand "sym pathetic" and 
 tallywhacker is a jerkish concept in conceptville. Understand "tally wacker" and "wacker tally" as tallywhacker. howto is "[j-blab]". gtxt is "wacker tally".
 
 Tear-Jerk is a concept in conceptville. Understand "jerk-tear" and "tear jerk" and "jerk tear" as Tear-Jerk. howto is "solve the [j-co]['] puzzle". gtxt is "jerk-tear".
+
+telephony is a jerkish concept in conceptville. Understand "telly phony" and "phony telly" as telephony. howto is "[j-blab]". gtxt is "phony Telly".
 
 terabyte is a jerkish concept in conceptville. Understand "bite tara" and "tara bite" as terabyte. howto is "[j-blab]". gtxt is "bite Tara".
 
@@ -13135,9 +13142,11 @@ foster brother is a concept in conceptville. Understand "brother foster" as fost
 
 section court of contempt concepts
 
-attorney general is a firstvis concept in conceptville. Understand "general attorney" as attorney general. howto is "[f-t of Court of Contempt], innuendo off". gtxt is "general attorney".
+attorney general is a firstvis concept in conceptville. Understand "general attorney" as attorney general. howto is "[f-t of Court of Contempt]". gtxt is "general attorney".
 
 bosom buddy is a concept in conceptville. Understand "buddy bosom" as bosom buddy. howto is "[bga of Buddy Best]". gtxt is "buddy bosom".
+
+daddy issues is a firstvis concept in conceptville. Understand "issues daddy" as daddy issues. howto is "[f-t of court of contempt]". gtxt is "Issues Daddy".
 
 fair enough is a xable concept in conceptville. Understand "enough fair" as fair enough. howto is "[x-it of Reasoning Circular]". gtxt is "Enough Fair".
 
