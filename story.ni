@@ -38,7 +38,7 @@ section compiler limits
 
 use MAX_ACTIONS of 210.
 
-use MAX_OBJECTS of 830.
+use MAX_OBJECTS of 840.
 
 use MAX_SYMBOLS of 25000.
 
@@ -48,7 +48,7 @@ use MAX_PROP_TABLE_SIZE of 330000.
 
 section compiler debug limits - not for release
 
-use MAX_OBJECTS of 870. [+40]
+use MAX_OBJECTS of 880. [+40]
 
 use MAX_SYMBOLS of 28000. [+3000]
 
@@ -3288,6 +3288,7 @@ bad knot	"A bad knot is hard to untangle. You wouldn't say it's not bad to untan
 chess board	"Despite being a really good chess player, this always fooled me. I started with a queen in the corner as a kid and got run around, but then as an adult I recognized the virtue of going for an easy solution (no queens in the center) and seeing why it didn't work."	"Starting by disallowing the center 16 squares helped a lot--by sheer number, that's 21/23 squares each queen sees, not 25/27, and then placing any of the queens in the four 2x2 corners makes rows 3-6 unable to match up. Also, I didn't understand symmetry arguments e.g. it's useful to see if we can have a queen 2 from any corner, or one 3 from a corner. It's important not to think of this as 'laziness' if we can start building general principles or eliminate enough cases."
 face of loss	"Loss of face means humiliation or loss of respect. A face of loss isn't an official idiom, but here it means you're just sad. You've lost some fun and curiosity."	"This is something I didn't discover until release 2. What's the best way for Alec to seem upset? In retrospect, 'a bad face' should've clicked things earlier, but it happened eventually."
 Fly House	"A house fly is a dirty nuisance."	"The Fly House was Broke Flat, but I wanted somewhere more appetizing to enter."
+FreeCell	"FreeCell is that game on Windows that was put in to help progammers learn about interfaces. It grew its own fan base, being winnable in almost any formation but still challenging."	"I wrote a text-based FreeCell game to learn Python after IFComp 2016, and as I did, it struck me how much I'd procrastinated with FreeCell over the years when it would've been more fun or challenging to write a game. I've used it to learn other languages, too. But it is like a drug--letting you win just enough to feel smart, tempting you to play again whether you won quickly (doesn't really count as wasting time...) or it took a while (need to end on a good note, winning quickly). So it didn't show up until release 3."
 Game Shell	"A shell game is where an operator and possibly an assistant rig a game so that mugs think it's an easy win, but they can't. The most popular one is when they hide a bean under a hollowed shell and shift them around."	"The game shell is a shell game of its own. No matter how much you solve, you won't impress Guy Sweet, and you won't--well--figure the real puzzles you want to, beyond logic etc."
 gesture token	"A token gesture is something done as a bare minimum of acknowledgement."	"There were all sorts of tokens this could have been. I decided on gesture because, well, you get something for doing the bare minimum."
 hangman	"The strategy of hangman always interested me. I enjoyed finding tough words or even seeing how people squabbled over the rules: how many misses, etc. Of course, there is One Best Strategy, well, until you are up against people who know tricky words."	"Hangman was a late edition to release 3. I remember feeling guilty writing a PERL script to see what words were remaining when I had one guess left in an online game, but it was educational, for all that. And so I think it may be rather neat to look at in any case."
@@ -3413,7 +3414,7 @@ View of Points	"Points of view are opinions." [start of Window Bay]
 
 table of explanations (continued) [xxtoe] [alfbyroom] [the people]
 exp-thing	exp-text	exp-anno
-Alec Smart	"A smart alec is someone who always has a clever quip."	"I didn't have a character for a while until I heard the phrase 'smart alec.' Once I did, I saw how it could work--he just liked being called Alec, but he had an unfortunate last name. A bit later I realized AS was Andrew Schultz." [start of Smart Street]
+Alec Smart	"A smart alec is someone who always has a clever quip."	"I didn't have a character for a while until I heard the phrase 'smart alec.' Once I did, I saw how it could work--he just liked being called Alec, but he had an unfortunate last name. A bit later I realized AS was Andrew Schultz." [start of smart street]
 Guy Sweet	"Guy Sweet is more of a candy-[a-word] than a sweet guy, but 'sweet guy' is such a terrible compliment as-is. To yourself or others."	--
 Word Weasel	"A weasel word is something that seems to mean more than it should."	"I like stories with talking animals, and at Alec's age, people look down on them, so it made sense to subvert that with a mean talking animal." [start of variety garden]
 Terry Sally	"Terry Sally has two possible translations: salutary or solitary. He is sort of in between salutary (greeting) and solitary (alone) which fits in with how he probably doesn't get to see many people, but he's social when he does."	"Terry Sally was just the Howdy Boy before release 3. But I wanted to make the Compound a bit more personable." [start of pressure pier]
@@ -5532,6 +5533,11 @@ to recap-babble (pe - a person):
 			say "[line break]You also remember you got [the babble-reward entry][if babble-reward entry is in lalaland], which you figured how to use, so yay[end if].";
 		the rule succeeds;
 
+section FreeCell
+
+FreeCell is a logic-game in smart street. description is "A pile of fifty-two cards, ready to shuffle, deal and return to the foundation."
+
+understand "free cell" and "free/cell/freecell" and "cell free" as FreeCell.
 
 section chessboard
 
@@ -5549,13 +5555,15 @@ section hangman
 
 hangman is a logic-game in Smart Street. description is "Well, it's not an actual structure, just a bunch of blanks for you to guess the right letters."
 
-understand "hang man" as hangman.
+understand "hang man" and "man hang" as hangman.
 
 section peg solitaire
 
 Peg Solitaire is a logic-game in Smart Street. description is "It's an intersection of 3x7 rectangles with a hole in the middle. You know, where you jump a peg over another until--hopefully--they're all gone, except for one in the center. It makes you think of a lonely girl you should've asked out, for some reason."
 
 understand "pegs" as peg solitaire
+
+understand "solitaire peg" as a mistake ("This isn't a game where you find the girl.") when player is in Smart Street.
 
 section gallon jugs
 
@@ -5666,6 +5674,10 @@ towers of hanoi	5	"Good lord, no. You know it's going to take all of 63 moves. A
 match sticks	0	"You re-organize, from memory, a few matchsticks to reverse a fish and a martini glass and a triangle.[paragraph break]'What's the matter? These not fun for you? Okay, okay, got some harder ones.'"
 match sticks	1	"You rearrange a few matchsticks to change false equations into real ones. These are puzzles you hadn't seen, but then, there are only so many possibilities. 'Dude! Lame! I saw you pointing at where the matchsticks should go, brute-forcing them. I thought you had, like, intuition and stuff.'"
 match sticks	2	"'Sorry, dude. I'm all out of matchstick puzzles. And are matchstick puzzles really what life's all about? You know, if you were more social I bet you could find more matchstick puzzles. Though there's better things to do in social circles than matchstick puzzles. But hey, whatever.'"
+FreeCell	0	"You win. It's not that hard. It's better than Klondike. Guy shrugs. 'Not bad. Whether or not you're a FreeCell addict.'"
+FreeCell	1	"You win again. 'Dude, I'm worried how quick you are at it. Sure you don't waste a lot of time playing FreeCell? Hey, no disrespect, we all have our addictions. Some more interesting than others.'"
+FreeCell	2	"'Great, great. You're probably smart enough to actually program a game. What? You haven't tried? Well, even if you did, that'd be kind of dorky, too.'"
+FreeCell	3	"'Dude, I get the point. You're good at FreeCell. Look, you don't even know how to shuffle properly, which would help with, like, more social card games, and I'm kinda getting tired of it.'"
 hangman	0	"Guy gives you a few long words, which you recognize as easy. You try for the E-T-O-A-N three times in a row, but he calls you out for being boring. Good thing you don't remember the next five most popular letters in the alphabet."
 hangman	1	"It's a bit tougher this time. Guy uses a few words with weird letters. You even trip up and guess a letter twice, and Guy insists that counts as something wrong, and you're never going to win that argument. But you pull everything out in the end. You move on to I and D and R and S to start, actually thinking after each move."
 hangman	2	"It gets tenser and tenser as the words get down to six and seven letters. On WAXWING Guy asks you if you know what it means (you don't dare to ask back,) and then HAZING almost gets you. Guy keeps asking if you're actually good at, well, using these words? You finally slip on JINXED, where Guy claims you really should've done better after getting off to such a good start."

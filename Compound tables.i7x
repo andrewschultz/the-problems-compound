@@ -192,7 +192,7 @@ workname	authname	booksubj
 "The Stuff, Right?"	"Wolfie Thomas"	"some schlep's comical attempts to alchemize a 'good' drug and his failure to keep his feet on the ground" [p]
 
 to say n-e-s:
-	say "so many universal things I'd bore you[one of] (okay, fourth wall time, I just saw the title and author, here)[or stopping]"
+	say "so many universal things I'd bore you[one of] (okay, fourth wall time, I just saw the title and author, here)[or][stopping]"
 
 [can't quite get to work:
 brooks walter: Freddy and (something) (dang it none of the 26 do anything cool. I mean the books are cool but they all have FREDDY in them which ruins things)
