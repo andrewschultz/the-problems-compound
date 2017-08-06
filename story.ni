@@ -11229,7 +11229,7 @@ to go-back-home:
 to see-if-show-terminal:
 	if terminal is in lalaland, continue the action;
 	if got-terminal-almost is true, continue the action;
-	choose row with final response activity of altanswering in the table of final question options;
+	choose row with final response rule of alt-answer rule in the table of final question options;
 	blank out the final question wording entry;
 
 to print-replay-message:
@@ -11622,6 +11622,7 @@ biglaff	anyrule
 "Kissing the Language Machine?"	--
 "Drinking someone?"	--
 "Going west/north/south in the Variety Garden?"	--
+"Looking for SOLITAIRE PEG in Smart Street?"	--
 "GIVEing Pusher Penn's 'merchandise' to the Stool Toad or Officer Petty?"	--
 "GIVEing Minimum Bear to anyone except Fritz the On?"	--
 "GIVEng Minimum Bear to Fritz with Terry Sally gone? Or with four ticketies?"	--
@@ -11662,10 +11663,6 @@ this is the very-good-end rule:
 
 book altanswering
 
-altanswering is an activity.
-
-[rule for altanswering:]
-
 this is the alt-answer rule:
 	now missseen is true;
 	if terminal is in belt below:
@@ -11685,16 +11682,14 @@ book continuing
 
 Table of Final Question Options (continued)
 final question wording	only if victorious	topic	final response rule	final response activity
-"see where minor [bi of swearseen]SWEARS[r] change"	true	"SWEARS"	swear-see rule	mainendlisting
-"see the [bi of sinseen]SINS[r] the [j-co] didn't commit"	true	"SINS"	sin-see rule	mainendlisting
-"see the [bi of altseen](ALT)ERNATIVE[r] endings and commands"	true	"ALT/ALTERNATIVE"	alternative-see rule	mainendlisting
-"see how to get to each of the [bi of badendseen]BAD END[r] rooms"	true	"BAD/END/BADEND" or "BAD END"	bad-end-see rule	mainendlisting
-"see [bi of conceptseen](CONC)EPTS[r] you missed throughout the game: [list of contexts]"	true	"CONCEPTS/CONC [context]"	concept-spec rule	mainendlisting
---	true	"CONCEPTS/CONC"	concept-all rule	mainendlisting
-"see all the [bi of dreamseen]DREAM[r] sequence stories"	true	"DREAM/DREAMS"	dream-see rule	mainendlisting
-"see the plausible [bi of missseen]MISSES[r] for the Terminal"	true	"MISSES"	alt-answer rule	mainendlisting
-
-mainendlisting is an activity.
+"see where minor [bi of swearseen]SWEARS[r] change"	true	"SWEARS"	swear-see rule	--
+"see the [bi of sinseen]SINS[r] the [j-co] didn't commit"	true	"SINS"	sin-see rule	--
+"see the [bi of altseen](ALT)ERNATIVE[r] endings and commands"	true	"ALT/ALTERNATIVE"	alternative-see rule	--
+"see how to get to each of the [bi of badendseen]BAD END[r] rooms"	true	"BAD/END/BADEND" or "BAD END"	bad-end-see rule	--
+"see [bi of conceptseen](CONC)EPTS[r] you missed throughout the game: [list of contexts]"	true	"CONCEPTS/CONC [context]"	concept-spec rule	--
+--	true	"CONCEPTS/CONC"	concept-all rule	--
+"see all the [bi of dreamseen]DREAM[r] sequence stories"	true	"DREAM/DREAMS"	dream-see rule	--
+"see the plausible [bi of missseen]MISSES[r] for the Terminal"	true	"MISSES"	alt-answer rule	--
 
 amuseseen is a truth state that varies.
 swearseen is a truth state that varies.
@@ -11919,7 +11914,7 @@ chapter swearing
 
 this is the swear-see rule:
 	now swearseen is true;
-	say "This list goes from the start of the game to the end.";
+	say "This list goes roughly from the start of the game to the end, sweeping from west to east in the main area.";
 	say "[2da](general) If you actually swear, obscenely or mildly (BOTHER)--there's a small inner dialogue for swearing with swears off.";
 	say "[2da]EXPLAIN Guy Sweet has a slight difference.";
 	say "[2da]Guy Sweet warns of off-beat types, with profanity on, when you ask about the [bad-guy].";
@@ -11931,13 +11926,13 @@ this is the swear-see rule:
 	say "[2da]Eating a food from Tray B forces swears on, if they were off, but you have a last moment before eating the Cutter Cookie.";
 	say "[2da]Saying good-bye to Ally gives the name of a rival bar with swears on."; [end outskirts]
 	say "[2da]The [jc-gc] is the [stwid][jc-gc][stwid] instead. Also, you feel a bit more foreboding, and everyone sheds a jerk-tear, and if you attack them, you get a 'special' message.";
-	say "[2da]DRAIN THE CIRCLE is available with swears on.";
-	say "[2da]You feel guilty just being AROUND jerks with swears on.";
+	say "[2da]DRAIN THE CIRCLE is available in the Fen with swears on.";
+	say "[2da]You feel guilty just being AROUND the guys in the Fen with swears on.";
 	say "[2da]The guys in the Fen discuss girls (rather badly) if you talk to them before reading the Finger Index. There aren't any profanities here, but they're kind of, well, juvenile. They also give an obscene gesture if you try to talk to them before reading the Finger Index.";
 	say "[2da]The guys in the Fen give an up groan or a jerk-tear if innuendo/profanity is off or on, respectively.";
-	say "[2da]Buddy Best is either a general attorney or a case/job nut.";
+	say "[2da]Buddy Best calls himself a case/job nut with innuendo on.";
 	say "[2da]The Business Monkey's half-[abr] efforts are [stwid][abr][stwid] instead.";
-	say "[2da]The jerks mention they're out of a much racier pop than Quiz Pop with swears on.";
+	say "[2da]The guys in the Fen mention they're out of a much racier pop than Quiz Pop with swears on.";
 	consider the very-good-end rule;
 	if the rule succeeded:
 		say "[2da]HAMMER BLOW or the reverse gives a different response.";
