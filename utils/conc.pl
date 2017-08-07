@@ -262,8 +262,13 @@ readConceptMods();
 
 for my $thisProj (@dirs)
 {
+  if ($modifyConcepts)
+  {
+    modifyConcepts($thisProj);
+    if ($exportUnremarkable) { exportUnremarkable($thisProj); }
+	next;
+  }
   if ($exportUnremarkable) { exportUnremarkable($thisProj); }
-  if ($modifyConcepts) { modifyConcepts($thisProj); next; }
   #die "$order $readConcepts $detailAlpha $roomConcCompare\n";
   getRoomIndices($thisProj);
   if ($roomToFile) { roomToFile($thisProj); }
@@ -1951,7 +1956,7 @@ sub modifyConcepts
 		  $conceptsChanged++;
 		  print "Editing line $.\n" if $debug;
 		  $line =~ s/howto is \"[^\"]?\"/howto is \"$_ ??\]\"/i;
-		  $line =~ s/(?!($_ ) )concept in /$tempConc{$_} concept in /i;
+		  $line =~ s/(?!($_ ) )concept in /$tempConc{$_} concept in /i if ($line !~ /$tempConc{$_} concept in /i);
 		  last;
 		}
 	  }

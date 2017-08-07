@@ -232,12 +232,12 @@ You will get it, somehow, some way. You hope.
 >play
 >play
 >play
-Guy pauses to count on his fingers a bit. "Oh, yeah, hey, if you were expecting a new gift, I heard these puzzles are their own reward for, uh, you people. What?! C'mon, now. You'll need thicker skin than that to get to the Baiter Master through Broke Flat over there."
+Guy pauses to count on his fingers a bit. "Oh, yeah, hey, if you were expecting a new gift, I heard these puzzles are their own reward for, uh, you people. What?! C'mon, now. You'll need thicker skin than that to get to the Baiter Master through fly house over there."
 
 >play
 >play
 >play
-Guy pauses to count on his fingers a bit. "Wow. You have, like, aptitude or something. You're gonna go far in life. Well, unless you use your smarts or memory on silly games like these. Or use 'em to put off bigger challenges. Like in Broke Flat over there."
+Guy pauses to count on his fingers a bit. "Wow. You have, like, aptitude or something. You're gonna go far in life. Well, unless you use your smarts or memory on silly games like these. Or use 'em to put off bigger challenges. Like in fly house over there."
 
 >play
 >play
@@ -275,62 +275,62 @@ You scrunch your eyes. You've already played and won everything.
 
 "Bored? Me too! How 'bout that?" snarks Guy.
 
->enter broke flat
+>enter fly house
 A final salvo from Guy Sweet: "Boy! With all you learned about puzzles, you probably DIDN'T have time for common sensical stuff. Maybe you'll find it in there...or not."
 >undo
 
 >gq 301
->enter broke flat
+>enter fly house
 A final salvo from Guy Sweet: "Thanks for not wasting my time with these dumb brain teasers too much, but all the same, doing the bare minimum..."
 >undo
 
 >gq 302
->enter broke flat
+>enter fly house
 A final salvo from Guy Sweet: "I guess you're prepared and stuff. Or not."
 >undo
 
 >gq 305
->enter broke flat
+>enter fly house
 A final salvo from Guy Sweet: "Nice job and all, but the puzzles are a bit more social in there. You know, talking to other people? Just a tip."
 >undo
 
 >gq 306
->enter broke flat
+>enter fly house
 A final salvo from Guy Sweet: "Nice job and all, but the puzzles are a bit more social in there. You know, talking to other people? Just a tip."
 >undo
 
 >gq 307
->enter broke flat
+>enter fly house
 A final salvo from Guy Sweet: "Smart enough to get that many puzzles, you're smart enough to know how much they don't mean in the real world, eh? Without, like, people skills.
 >undo
 
 >gq 310
->enter broke flat
+>enter fly house
 A final salvo from Guy Sweet: "Smart enough to get that many puzzles, you're smart enough to know how much they don't mean in the real world, eh? Without, like, people skills.
 >undo
 
 >gq 311
->enter broke flat
+>enter fly house
 A final salvo from Guy Sweet: "You know, if you were more social, you'd be a total showoff. So you need to watch for that, if you get a clue in the Compound."
 >undo
 
 >gq 315
->enter broke flat
+>enter fly house
 A final salvo from Guy Sweet: "You know, if you were more social, you'd be a total showoff. So you need to watch for that, if you get a clue in the Compound."
 >undo
 
 >gq 316
->enter broke flat
+>enter fly house
 A final salvo from Guy Sweet: "Whoah! You really do need some social well-roundedness to go with that knowing. No offense."
 >undo
 
 >gq 320
->enter broke flat
+>enter fly house
 A final salvo from Guy Sweet: "Whoah! You really do need some social well-roundedness to go with that knowing. No offense."
 >undo
 
 >gq 321
->enter broke flat
+>enter fly house
 A final salvo from Guy Sweet: "Boy! With all you learned about puzzles, you probably DIDN'T have time for common sensical stuff. Maybe you'll find it in there...or not."
 >undo
 
