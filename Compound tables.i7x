@@ -258,6 +258,7 @@ macho-boast
 "The [j-co] hate how [activation of borat] is not clearly serious or joking. So hard to tell!"
 "The [j-co] know to [activation of boring] for an exciting time."
 "The [j-co] compare kid-style [activation of bouncing betty] to adult-style, which is clearly the BOMB."
+"The [j-co] recount an argument between [activation of bourne shell] and a computer science teacher."
 "The [j-co] babble on about the [activation of box score], where everyone except math obsessed nerds can hook up with a girl."
 "The [j-co] recount the epic junk food eating contest between [activation of broccoli] and [activation of kohlrabi]."
 "The [j-co] debate whether [activation of cacophony] or [activation of polyphony] sings more annoyingly catchy pop songs."
@@ -428,7 +429,10 @@ macho-boast
 "The [j-co] wonder why Golda is so planless." [na da goal]
 "The [j-co] wonder why Patti likes silverware so much." [na teapot]
 "The [j-co], in a soft moment, talk up Elsie, the new animal in the zoo." [na seal]
+"The [j-co] agree Rozier is really all that." [na]
+"The [j-co] are unanimous: Vijay is ready for the big leagues." [na]
 "The [j-co] don't like how Denny is always needin[']." [na]
+"The [j-co] praise how awesome Obie's cologne smells." [na]
 
 part freak control
 
