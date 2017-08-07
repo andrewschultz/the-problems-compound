@@ -937,7 +937,8 @@ while ($lineIn = <X>)
   $tempRoom = "";
   if (($inPuncTable) && ($lineIn =~ /[a-z]\"/i) && ($lineIn !~ /\[fill-in-here\]/)) { print "Line $. needs ending punctuation: $lineIn"; }
   chomp($lineIn);
-  if ($lineIn =~ /[activation of [^'\]]+=/) { $editActivations = 1; }
+  if ($lineIn =~ /\[activation(?!( of))/) { print "Need 'of' after activation: $lineIn"; }
+  if ($lineIn =~ /\[activation of [^\]]+=/) { $editActivations = 1; }
   if ($inRoomTable) { $tempRoom = lc($lineIn); $tempRoom =~ s/\t.*//; }
   if ($lineIn =~ /\[end rooms\]/) { $inRoomSect = 0; next; }
   if ($lineIn =~ /\[start rooms\]/) { $inRoomSect = 1; $everRoomSect = 1; next; }

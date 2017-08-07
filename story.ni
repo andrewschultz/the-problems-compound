@@ -3751,7 +3751,7 @@ spotted dick	"Spotted dick is a sort of sweet pudding."
 sweeney todd	"Sweeney Todd was a fictitious murderous barber."
 sympathetic	"Sympathetic means caring and willing to listen."
 tallywhacker	"A tallywhacker is slang for a male sexual organ."
-taradiddle	"taradiddle is when you [fill-in-here]. nominal fen"
+taradiddle	"Taradiddle is general nonsense."
 tear-jerk	"The jerks['] tears may seem a bit fake, and a tear-jerker is something that tries to manipulate you into crying."
 telephony	"Telephony is hearing something from a distance."
 terabyte	"A terabyte is a large amount of memory: specifically, 2^40 bytes."
@@ -5038,18 +5038,23 @@ check going inside when player is in Smart Street:
 	if guy-games is not talked-thru and guy sweet is not babbled-out:
 		say "'Hey! You anti-social or something? Have, y'know, meaningful conversation before exploring there!'" instead;
 	if guy-fly-house is not talked-thru and guy sweet is not babbled-out:
-		say "You don't know anything about Fly House. It might be really dangerous. Maybe you should ask someone about it. Even if the only someone around is Guy Sweet." instead;
+		say "You don't know anything about the Fly House. It might be really dangerous. Maybe you should ask someone about it. Even if the only someone around is Guy Sweet." instead;
 	if your-game-wins is 0:
 		say "'Dude! We need to, like, make sure you at least have [g-c] before you go in there. Try one of these games, or something!'" instead;
 	repeat through table of guy taunts:
 		if your-game-wins <= total-wins entry:
 			say "A final salvo from Guy Sweet: [guy-sez entry][paragraph break]";
-			wfak;
-			check-babble;
-			say "As you enter the Fly House, you hear a lock click--from the outside. It's...well, it's not so neat on the inside. You hear a booming voice. A man towers over you. 'Kind of a [activation of flat broke] inside, eh? Well, it's a lot better than nothing!' At a dead end, you push a wall, which swivels and clicks again as you tumble into a lighted room. You push the wall again, but whatever passage was there isn't now."; [??The Building Character/challenge decline]
+			enter-fly-house;
 			continue the action;
-	say "Guy Sweet remains quiet. He should not.";
-	annotize game shell;
+	say "Guy Sweet remains quiet. He should not. This is a BUG, and I'd like to know how it happened, but let's go forward...";
+	enter-fly-house;
+
+to enter-fly-house:
+		wfak;
+		check-babble;
+		say "As you enter the Fly House, you hear a lock click--from the outside. It's...well, it's not so neat on the inside. You hear a booming voice. A man towers over you. 'Kind of a [activation of flat broke] inside, eh? Well, it's a lot better than nothing!' He introduces himself as the [activation of Building Character] and begins a laundry list of all the condescending aphorisms you heard from adults, and you reflexively run away. 'Wimping out, kid? That way's [activation of decline the challenge]!'";
+		wfak;
+		say "And it's steep. You tumble down. There are some obvious holes, and you roll this way and that. But you don't notice a wall until it's too late. You hit the wall, and it spins around...you take a breath, stand up and look around."
 
 table of guy taunts
 total-wins	guy-sez
