@@ -46,6 +46,8 @@ my $projMapFile = __FILE__; $projMapFile =~ s/.pl$/-proj-map.txt/i;
 
 ###############################
 #options
+my $exportUnremarkable = 0;
+my $launchUnremarkable = 0;
 my $activationCheck = 0;
 my $maxBadAct = 0;
 my $writeAfter = 0;
@@ -211,6 +213,7 @@ while ($count <= $#ARGV)
     /^-?vcp$/ && do { $verboseCutPaste = 1; $count++; next; };
     /^-?bs$/ && do { $overlookOptionClash = 1; $count++; next; };
 	/^-?cc$/ && do { $modifyConcepts = 1; $count++; next; };
+	/^-?xu(l)?$/ && do { $exportUnremarkable = 1; $launchUnremarkable = ($a =~ /l/); $count++; next; };
 	/^-?[cv0nlmw]+$/ && do
 	{
 	  $codeToClipboard = $printErrCode = $printErrors = 0;
@@ -259,6 +262,7 @@ readConceptMods();
 
 for my $thisProj (@dirs)
 {
+  if ($exportUnremarkable) { exportUnremarkable($thisProj); }
   if ($modifyConcepts) { modifyConcepts($thisProj); next; }
   #die "$order $readConcepts $detailAlpha $roomConcCompare\n";
   getRoomIndices($thisProj);
@@ -275,6 +279,36 @@ for my $thisProj (@dirs)
 printGlobalResults();
 
 ##############################################subroutines
+
+sub exportUnremarkable
+{
+  my $outFile = "c:\\games\\inform\\$_[0].inform\\source\\unrem.txt";
+  my $unattached = 0;
+
+  for (@{$fileHash{$_[0]}})
+  {
+    print "$_\n";
+    if ($_ !~ /story.ni/) { next; }
+	open(A, $_);
+    open(B, ">$outFile");
+	while ($a = <A>)
+	{
+	  if ($a =~ /concept.*howto.*gtxt/)
+	  {
+	    if ($a =~ /a(n)? (privately-named |risque )*concept/ && ($a !~ /\[norm(al)?\]/))
+		{
+		  print B "$.: $a";
+		  $unattached++;
+		}
+	  }
+	}
+  }
+  close(A);
+  close(B);
+  print "$unattached unattached total.\n";
+  if ($launchUnremarkable) { `$outFile`; }
+  exit();
+}
 
 sub checkTableDetail
 {
@@ -2042,6 +2076,7 @@ CONC.PL usage
 (END COMBINEABLE OPTIONS)
 -t = print with test results so nightly build can process it
 -nd = no allowed duplicates
+-xu(l) = export "unremarkable" concepts to (source directory)\normconc.txt
 -up = 'understand x as concept' text processing
 -vcp = verbose cut paste (off by default, not recommended)
 (-)rc(v) = room coordination (v = verbose)
