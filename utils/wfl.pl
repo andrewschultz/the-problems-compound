@@ -24,8 +24,8 @@ my $chrome = "C:\\Users\\Andrew\\AppData\\Local\\Google\\Chrome\\Application\\ch
 my $ffox = "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe";
 my $opera = "C:\\Program Files (x86)\\Opera\\launcher.exe";
 
-my @cons = ('a', 'e', 'i', 'o', 'u');
-my @vow = ('b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z');
+my @cons = ('a', 'e', 'i', 'o', 'u', 'y');
+my @vow = ('b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z');
 #######################options
 my $shouldSort = 0;
 my $overlook = 0;
@@ -34,6 +34,7 @@ my $dicURL = 0;
 my $alphabetical = 1;
 my $flipData;
 my @flipAry;
+my $ignoreY = 0;
 
 my $webapp = $ffox;
 
@@ -70,7 +71,7 @@ for ($a1)
   /^-?op$/ && do { $webapp = $opera; $count++; next; };
   /^-?i$/ && do { idiomSearch($a2); exit; };
   /^-?l$/ && do { $wa = "word"; $count++; next; };
-  /^-?y$/ && do { push(@cons, 'y'); push(@vow, 'y'); $count++; next; };
+  /^-?n?y$/ && do { $ignoreY = 1; $count++; next; };
   /^-?t$/ && do { runFileTest(); countChunks(); exit; };
   /^-2$/ && do { $override = 1; $count++; next; };
   /^(#|-|)[0-9]+$/ && do { my $temp = $ARGV[$count]; $temp =~ s/^[#-]//g; idiomSearch($temp); exit; };
@@ -95,14 +96,18 @@ if (!$flipData) { print "You need a word to flip. Without one, I'll just spew di
 
 @flipAry = split(/[,\..]/, $flipData);
 
-wcexpand();
-
 initWordCheck();
 initDupeRead();
 
 $autoSort = 0;
 
 my %dupCheck;
+
+if ($ignoreY)
+{
+  @cons = grep {$_ ne 'y'} @cons;
+  @vow = grep {$_ ne 'y'} @vow;
+}
 
 for my $q (@flipAry)
 {
@@ -544,44 +549,6 @@ if ($_[0] =~ /^========/) { $total--; } # ignore the line starting with ========
 return $total;
 }
 
-sub wcexpand
-{
-  my $wcsub;
-  my $tempwc;
-  my $rchar;
-  my $aryIdx = 0;
-  my @backflipAry  = @flipAry;
-  my $wc;
-  for $wc (@backflipAry)
-  {
-    if ($wc !~ /[\*\/\\]/) { $aryIdx++; next; }
-	if ($wc =~ /[\*\/\\]\*[\*\/\\]/){ print "$wc has too many wild cards.\n"; return; }
-	if ($wc =~ /\*/)
-	{
-	  for $rchar ('a' .. 'z')
-	  {
-	    $tempwc = $wc; $tempwc =~ s/\*/$rchar/;
-		push(@flipAry, $tempwc);
-	  }
-	}
-	if ($wc =~ /\//)
-	{
-	  for $rchar(('a', 'e', 'i', 'o', 'u', 'y'))
-	  {
-	    $tempwc = $wc; $tempwc =~ s/\//$rchar/; push(@flipAry, $tempwc);
-	  }
-	}
-	if ($wc =~ /\\/)
-	{
-	  for $rchar(('b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'))
-	  {
-	    $tempwc = $wc; $tempwc =~ s/\\/$rchar/; push(@flipAry, $tempwc);
-	  }
-	}
-	splice(@flipAry, $aryIdx, 1);
-  }
-}
-
 sub warnSaveBeforeCopying()
 {
 open(C, 'C:\Users\Andrew\AppData\Roaming\Notepad++\session.xml');
@@ -621,7 +588,7 @@ print<<EOT;
 -ff, -gc, -op picks web browser
 -l = sort words by length (brit-1word) vs by alphabetical
 -t = test how much is left to do big-picture (URLs and words)
--y = add y to list (V or C, in caps, looks through all vowels/consonants)
+-(n)y = remove y from list (V or C, in caps, looks through all vowels/consonants)
 -? = this usage here
 EOT
 exit;
