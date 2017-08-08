@@ -147,6 +147,7 @@ my $needsAlf = 0;
 my $totalBadAct = 0;
 my @badActLineAry = ();
 my $editActivations = 0;
+my @contexts = ();
 
 readProjectMapFile();
 
@@ -943,7 +944,7 @@ if (defined $conceptMatchProj{$_[0]})
   $tempConc{$_} = $conceptMatchProj{$_[0]}{$_} for keys %$refhash;
 }
 
-my $regexp = " is a \(risque |privately-named \)?\(" . join(' |', map {$tempConc{$_}} keys %tempConc) . " \)?concept in (lalaland|conceptville)";
+my $regexp = " is a \(risque |privately-named \)?\(" . join(' |', @contexts) . " \)?concept in (lalaland|conceptville)";
 
 print "Using regex $regexp\n" if $debug;
 
@@ -1958,7 +1959,7 @@ sub modifyConcepts
 	  {
 	    my $findsCount = 0;
 		$findsCount += ($line =~ /$tempConc{$_} concept in/);
-		$findsCount += ($line =~ /howto is \"$_[\]\" ]/);
+		$findsCount += ($line =~ /howto is \"$_[\]\" -]/);
 		if ($line =~ /howto is \"\[$tempConc{$_}/) { die("Switched howto/concept type: $line"); }
 		if ($line =~ /$_ concept in /) { die("Switched howto/concept type: $line"); }
 		if ($findsCount == 1)
@@ -1996,6 +1997,7 @@ sub readConceptMods
   my @ary;
   my $project = "";
   my %target;
+  @contexts = ();
 
   open(A, "$matchFile") || die("No $matchFile");
   while ($line = <A>)
@@ -2018,10 +2020,12 @@ sub readConceptMods
 	{ # doing this backwards because "a[0] concept. text is [a[1]]" is the syntax
 	  print "Mapping concept match $ary[1] to $ary[0]\n" if $debug;
 	  $conceptMatchProj{$project}{$ary[1]} = $ary[0];
+	  push(@contexts, $ary[0]);
 	}
 	else
 	{
 	  $conceptMatch{$ary[1]} = $ary[0];
+	  push(@contexts, $ary[0]);
 	}
   }
   close(A);
