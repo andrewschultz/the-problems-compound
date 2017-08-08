@@ -390,10 +390,12 @@ macho-boast
 "The [j-co] rave about the wonderfully greasy options at [activation of whole foods]."
 "The [j-co] agree Erwin is just a total loser name." [na winner]
 "The [j-co] agree Gerda would never knife you in the back." [na dagger]
+"The [j-co] agree Rozier is really all that." [na zero]
 "The [j-co] agree that Diener is massively cool." [na nerdy]
 "The [j-co] applaud Roxy for being UNCOPYABLE." [na xerox]
 "The [j-co] are glad Becky is 100% American!" [na quebec]
 "The [j-co] are sorry, but they don't find Delma attractive." [na model]
+"The [j-co] are unanimous: Vijay is ready for the big leagues." [na jayvee/jv]
 "The [j-co] argue pointlessly over if a girl is pretty plain or plain pretty." [na pretty plain]
 "The [j-co] can only WHISPER what Elaine likes." [na anal]
 "The [j-co] can't believe how low-maintenance Mandy is." [na demand]
@@ -408,6 +410,7 @@ macho-boast
 "The [j-co] marvel at Theresa's recollections of weird dates." [na easter]
 "The [j-co] marvel over how Lida keeps things exciting." [na dully]
 "The [j-co] mention Betty and Chelsey's fear of travel." [na tibet / seychelles]
+"The [j-co] mention how Perske's ideas never last." [na keepers]
 "The [j-co] mention how low-maintenance Porsha is." [na shopper]
 "The [j-co] mention how unsubtle Jenna is." [na nudgin]
 "The [j-co] mention what a follower Dahlia is." [na leader/leadah]
@@ -416,6 +419,7 @@ macho-boast
 "The [j-co] mock Perry for lack of mechanical skill." [na repair]
 "The [j-co] ooh and ahh at Pinky's generosity." [na keepin']
 "The [j-co] praise Dori for having more in her life than books." [na reader]
+"The [j-co] praise how awesome Obie's cologne smells." [na b o]
 "The [j-co] rate Rosie a clear 10." [na zero]
 "The [j-co] reaffirm Teena's sanity." [na nutty]
 "The [j-co] recount how Murphy broke his one bone." [na femur]
@@ -429,10 +433,7 @@ macho-boast
 "The [j-co] wonder why Golda is so planless." [na da goal]
 "The [j-co] wonder why Patti likes silverware so much." [na teapot]
 "The [j-co], in a soft moment, talk up Elsie, the new animal in the zoo." [na seal]
-"The [j-co] agree Rozier is really all that." [na]
-"The [j-co] are unanimous: Vijay is ready for the big leagues." [na]
 "The [j-co] don't like how Denny is always needin[']." [na]
-"The [j-co] praise how awesome Obie's cologne smells." [na]
 
 part freak control
 

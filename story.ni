@@ -1946,6 +1946,8 @@ chapter singing
 the block singing rule is not listed in any rulebook.
 
 check singing:
+	if player is in joint strip:
+		say "The Stool toad probably wouldn't appreciate [activation of bum rap]." instead; [temproom joint strip]
 	if player is in chipper wood:
 		say "It's a nice wood, but despite it being a [activation of woodstock], you aren't really inspired to sing." instead; [temproom chipper wood]
 	if player is in Discussion Block:
@@ -3571,6 +3573,7 @@ roll a joint	"A joint role is something done together. Rolling a joint is the ac
 sleeper cell	"A group of people who blen into a community until they can commit an act of terrorism."
 advice	"Advice is, well, telling someone what they should or shouldn't do. A vice ad would be as well, only for the worse." [start of joint strip]
 bullfrog	"A bullfrog is not quite a toad. And bull means nonsense. The Stool Toad is probably in no danger of being mistaken for Frog or Toad from Arnold Lobel's nice books."
+bum rap	"A bum rap means a police charge that is false."
 case a joint	"To case a joint is to search a place thoroughly."
 do dope	"To do dope is to use drugs."
 job security	"Job security means you have a job it is hard to lose."
@@ -4876,7 +4879,7 @@ to say bad-eaten:
 
 part Smart Street
 
-Smart Street is a room in Beginning. "This isn't a busy street[one of], but there's a shell-like structure featuring all manner of odd games[or] though the Game Shell takes a good deal of space[stopping]. While you can leave in any direction, you'd probably get lost quickly.[paragraph break][one of]An impressive looking house[else]The Fly House[end if] lies a bit further away."
+Smart Street is a room in Beginning. "This isn't a busy street[one of], but there's a shell-like structure featuring all manner of odd games[or] though the Game Shell takes a good deal of space[stopping]. While you can leave in any direction, you'd probably get lost quickly.[paragraph break][one of]An impressive looking house[or]The Fly House[stopping] lies a bit further away."
 
 after looking in Smart Street when Guy Sweet is not in Smart Street:
 	move Guy Sweet to Smart Street;
@@ -7487,7 +7490,7 @@ prompt	response	enabled	permit
 
 table of quip texts (continued)
 quip	quiptext
-toad-hi	"'They all say that. You're a bit less convincing than the rest. But you're also kind of more convincing at the same time, which also has me suspicious.'"
+toad-hi	"'They all say that. You're a bit less convincing than the rest. But you're also kind of more convincing at the same time, which also has me suspicious. I'll [activation of bum rap] if they're messing around. Or about to.'" [okdup]
 toad-joint	"'Of course not! But they would be if I weren't here! A [activation of job security] is tougher than it looks. There's just something ABOUT this place. Worse turpitude might fester without my imposing presence. Someone might even put up a [activation of advice] for the [activation of stop smoking].'"
 toad-troub	"'[bad-toad].'"
 toad-refresh	"'Y'mean you don't remember[one of][or], again[stopping]? [bad-toad].'"
@@ -12618,9 +12621,11 @@ Sleeper Cell is a concept in conceptville. Understand "cell sleeper" as sleeper 
 
 section joint strip concepts
 
-advice is a concept in conceptville. Understand "vice ad" and "ad vice" as advice. howto is "ask the Stool Toad about the Joint Strip". gtxt is "vice ad".
+advice is a dialoguey concept in conceptville. Understand "vice ad" and "ad vice" as advice. howto is "[t2 of stool toad] about the Joint Strip". gtxt is "vice ad".
 
-bullfrog is a concept in conceptville. Understand "frog bull" and "bull frog" as bullfrog. howto is "ask the Stool Toad how to get in trouble". gtxt is "frog-bull".
+bullfrog is a dialoguey concept in conceptville. Understand "frog bull" and "bull frog" as bullfrog. howto is "[t2 of stool toad] about trouble". gtxt is "frog-bull".
+
+bum rap is a dialoguey concept in conceptville. Understand "rap a bum" as bum rap. howto is "[t2 of Stool Toad] or sing around him". gtxt is "[if qbc_litany is table of no conversation]a rap[else]rap a[end if] bum".
 
 case a joint is a concept in conceptville. Understand "joint a case" as case a joint. howto is "get ticket for exploring the stickweed". gtxt is "a joint case".
 
@@ -13132,33 +13137,33 @@ to say pl-wa:
 to say pl-all:
 	say "put up with all of the Business Show"
 
-code golf is a concept in conceptville. Understand "golf code" as code golf. howto is "[pl-wa]". gtxt is "golf code".
+code golf is a rando concept in conceptville. Understand "golf code" as code golf. howto is "[pl-wa]". gtxt is "golf code".
 
-cry uncle is a concept in conceptville. Understand "uncle cry" as cry uncle. howto is "[pl-wa]". gtxt is "Uncle, CRY".
+cry uncle is a rando concept in conceptville. Understand "uncle cry" as cry uncle. howto is "[pl-wa]". gtxt is "Uncle, CRY".
 
-Dutch Act is a concept in conceptville. Understand "act dutch" as dutch act. howto is "[pl-wa]". gtxt is "ACT, DUTCH".
+Dutch Act is a rando concept in conceptville. Understand "act dutch" as dutch act. howto is "[pl-wa]". gtxt is "ACT, DUTCH".
 
-Dutch Courage is a concept in conceptville. Understand "courage dutch" as dutch courage. howto is "[pl-wa]". gtxt is "COURAGE, Dutch".
+Dutch Courage is a rando concept in conceptville. Understand "courage dutch" as dutch courage. howto is "[pl-wa]". gtxt is "COURAGE, Dutch".
 
-Dutch Reckoning is a concept in conceptville. Understand "reckoning dutch" as dutch reckoning. howto is "[pl-wa]". gtxt is "reckoning, Dutch".
+Dutch Reckoning is a rando concept in conceptville. Understand "reckoning dutch" as dutch reckoning. howto is "[pl-wa]". gtxt is "reckoning, Dutch".
 
 Dutch Treat is a concept in conceptville. Understand "treat dutch" as dutch treat. howto is "type TREAT DUTCH around Uncle Dutch". gtxt is "treat Uncle Dutch".
 
-Fearlessness is a concept in conceptville. Understand "lessness fear" and "fear lessness" as fearlessness. howto is "[pl-wa]". gtxt is "lessness-fear".
+Fearlessness is a rando concept in conceptville. Understand "lessness fear" and "fear lessness" as fearlessness. howto is "[pl-wa]". gtxt is "lessness-fear".
 
 hate speech is a violent concept in conceptville. Understand "speech hate" as hate speech. howto is "attack Turk or Dutch". gtxt is "SPEECH HATE".
 
 platform shoes is a concept in conceptville. Understand "shoes platform" as platform shoes. howto is "climb the fright stage". gtxt is "shoos platform".
 
-Rust Belt is a concept in conceptville. Understand "belt rust" as rust belt. howto is "[pl-wa]". gtxt is "belt rust".
+Rust Belt is a rando concept in conceptville. Understand "belt rust" as rust belt. howto is "[pl-wa]". gtxt is "belt rust".
 
 Show Business is a concept in conceptville. Understand "business show" as show business. howto is "Go to the Speaking Plain without eating a Tray B food". gtxt is "BUSINESS SHOW".
 
 show off is a concept in conceptville. Understand "off show" as show off. howto is "listen to all of the Business Show". gtxt is "OFF SHOW".
 
-show our work is a concept in conceptville. Understand "work our show" as show our work. howto is "[pl-wa]". gtxt is "WORK OUR SHOW".
+show our work is a rando concept in conceptville. Understand "work our show" as show our work. howto is "[pl-wa]". gtxt is "WORK OUR SHOW".
 
-Stand the Pace is a concept in conceptville. Understand "pace the stand" as stand the pace. howto is "[pl-all]". gtxt is "pace the stand".
+Stand the Pace is a rando concept in conceptville. Understand "pace the stand" as stand the pace. howto is "[pl-all]". gtxt is "pace the stand".
 
 section temper keep concepts
 
