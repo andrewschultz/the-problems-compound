@@ -5071,7 +5071,7 @@ total-wins	guy-sez
 
 section Fly House
 
-the Fly House is scenery in Smart Street. "It's--well, it's marked Fly House. And man, does it look snazzy and clean! You know nothing about real estate or housecleaning, but this--well, it's obviously a place to be, better than Smart Street."
+the Fly House is scenery in Smart Street. "It's--well, Guy Sweet called it the Fly House. And man, does it look snazzy and clean! You know nothing about real estate or architecture, but this--well, it's obviously a place to be, better than Smart Street, or anywhere you could hope to live when you grow up."
 
 check entering Fly House:
 	try going inside instead;
@@ -12380,7 +12380,7 @@ Advance Notice is a firstvis concept in conceptville. Understand "notice advance
 
 Beaten Track is a concept in conceptville. Understand "track beaten" as Beaten Track. howto is "solve the [j-co] puzzle for the first time". gtxt is "".
 
-break silence is a concept in conceptville. Understand "silence break" as break silence. howto is "empty command when you are in a conversation". gtxt is "Silence break".
+break silence is a oddverby concept in conceptville. Understand "silence break" as break silence. howto is "empty command when you are in a conversation". gtxt is "Silence break".
 
 Captain Obvious is a oddverby concept in conceptville. Understand "obvious captain" as captain obvious. howto is "xyzzy". gtxt is "Obvious, Captain".
 
@@ -12416,7 +12416,7 @@ Spelling Disaster is a oddverby concept in conceptville. Understand "disaster sp
 
 touch base is a concept in conceptville. Understand "base touch" as touch base. howto is "touch someone, or try". gtxt is "base touch".
 
-turn of phrase is a concept in conceptville. Understand "phrase of turn" as turn of phrase. howto is "empty command". gtxt is "phrase of turn".
+turn of phrase is a oddverby concept in conceptville. Understand "phrase of turn" as turn of phrase. howto is "empty command". gtxt is "phrase of turn".
 
 a u-turn is a concept in conceptville. Understand "u turn" and "turn u" as u-turn. howto is "turn an inanimate object". gtxt is "turn you"
 

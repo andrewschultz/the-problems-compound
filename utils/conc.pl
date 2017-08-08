@@ -1029,9 +1029,12 @@ while ($lineIn = <X>)
   {
     for my $adj (keys %tempConc)
     {
-      if (($lineIn =~ /\"$adj/i) + ($lineIn =~ /$tempConc{$adj}/) == 1)
+	  next if ($adj eq "*");
+      if (($lineIn =~ /howto is \"$adj/i) + ($lineIn =~ /$tempConc{$adj} concept/) == 1)
       {
-        print "Line $. needs to match $adj/$tempConc{$adj}.\n";
+	    my $var1 = ($lineIn =~ /howto is \"$adj/i);
+	    my $var2 = ($lineIn =~ /$tempConc{$adj} concept/i);
+		print "Line $. " . manfa($var1) . " howto is \"$adj // " . manfa(!$var1) . " $tempConc{$adj} concept\n";
 		$runCC = 1;
 	    last;
       }
@@ -1148,6 +1151,11 @@ print "Run conc.pl cc $_[0] to match concept types.\n" if $runCC;
 
 printResults($_[0]);
 
+}
+
+sub manfa
+{
+  return ($_[0] ? "managed" : "failed") . " to match";
 }
 
 sub wordtrim
@@ -1939,6 +1947,8 @@ sub modifyConcepts
   my $refhash = $conceptMatchProj{$_[0]};
   $tempConc{$_} = $conceptMatchProj{$_[0]}{$_} for keys %$refhash;
   }
+
+  delete $tempConc{"*"} if defined($tempConc{"*"});
 
   while($line = <RF>)
   {
