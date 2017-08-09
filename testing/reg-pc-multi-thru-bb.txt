@@ -1,5 +1,5 @@
 # reg-pc-multi-thru-bb.txt: tests "brief" walkthrough with all sorts of skips and jumps and shuffling the Brothers orders
-# For a full description, see <http://eblong.com/zarf/plotex/regtest.html> 
+# For a full description, see <http://eblong.com/zarf/plotex/regtest.html>
 
 ** game: /home/andrew/prt/debug-compound.ulx
 ** interpreter: /home/andrew/prt/glulxe -q
@@ -107,7 +107,7 @@ by one point
 >n
 >give mind to brother blood
 by one point
-Brother Blood takes the mind and gazes at it from all different angles. He smiles. 
+Brother Blood takes the mind and gazes at it from all different angles. He smiles.
 >s
 >s
 Nominal Fen

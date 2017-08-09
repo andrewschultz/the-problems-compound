@@ -64,7 +64,7 @@ Responding with is an action applying to one number.
 Understand "[number]" or "say [number]" as responding with when RQ is active.
 
 [This rule Can't Run, as the Understand commands stand..]
-[Carry out responding with when the pertinent quip is quip_null (this is the can't talk out of conversations rule): 
+[Carry out responding with when the pertinent quip is quip_null (this is the can't talk out of conversations rule):
   say "[bracket]BUG: Responded despite there being no conversation options available![close bracket]".]
 
 [Likewise, this test is redundant.]
@@ -96,39 +96,39 @@ The block asking rule is not listed in any rulebook.
 The block telling rule is not listed in any rulebook.
 The block answering rule is not listed in any rulebook.
 
-Carry out an actor asking someone about something (This is the RQ asking about rule): 
+Carry out an actor asking someone about something (This is the RQ asking about rule):
 	repeat through Table of Ask Results:
 		if the noun is the NPC entry:
 			if the topic understood includes topic entry:
 				deliver the result entry quip;
-				rule succeeds; 
+				rule succeeds;
 	if the noun is a person:
-		say "[quiptext of the default ask quip of the noun][paragraph break]"; 
-		rule succeeds; 
+		say "[quiptext of the default ask quip of the noun][paragraph break]";
+		rule succeeds;
 	say "[bracket]BUG: Managed to talk to [a noun], who is not a person![close bracket]";
 	rule succeeds.
 
-Carry out an actor telling someone about something (this is the RQ telling about rule): 
+Carry out an actor telling someone about something (this is the RQ telling about rule):
 	repeat through Table of Tell Results:
 		if the noun is the NPC entry:
 			if the topic understood includes topic entry:
 				deliver the result entry quip;
-				rule succeeds; 
+				rule succeeds;
 	if the noun is a person:
-		say "[quiptext of the default tell quip of the noun][paragraph break]"; 
-		rule succeeds; 
+		say "[quiptext of the default tell quip of the noun][paragraph break]";
+		rule succeeds;
 	say "[bracket]BUG: Managed to talk to [a noun], who is not a person![close bracket][paragraph break]";
 	rule succeeds.
 
-Carry out an actor answering someone that something (this is the RQ answering that rule): 
+Carry out an actor answering someone that something (this is the RQ answering that rule):
 	repeat through Table of Tell Results:
 		if the noun is the NPC entry:
 			if the topic understood includes topic entry:
 				deliver the result entry quip;
-				rule succeeds; 
+				rule succeeds;
 	if the noun is a person:
-		say "[quiptext of the default tell quip of the noun][paragraph break]"; 
-		rule succeeds; 
+		say "[quiptext of the default tell quip of the noun][paragraph break]";
+		rule succeeds;
 	say "[bracket]BUG: Managed to talk to [a noun], who is not a person![close bracket][paragraph break]";
 	rule succeeds.
 
@@ -155,7 +155,7 @@ Section 4 - Straightening out the parser
 
 Before printing a parser error when RQ is active and the latest parser error is the didn't understand that number error:
 	now the latest parser error is the didn't understand error.
-  
+
 Section 5 - Text overrides
 
 The generic ask quip is some text that varies. The generic ask quip is usually "You can't think of anything to say on that topic.".

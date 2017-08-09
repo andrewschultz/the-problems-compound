@@ -25,7 +25,7 @@ To clue talking:
 Section 2 - Member fields and default values
 
 A person has a quip called a greeting.  The greeting of a person is usually quip_null.
-A person has a table-name called the litany.  The litany of a person is usually the Table of No Conversation.  
+A person has a table-name called the litany.  The litany of a person is usually the Table of No Conversation.
 
 [added by me]
 
@@ -76,8 +76,8 @@ Understand "talk to" as talking to.
 Understand "talk with" as talking to.
 Understand "t" as talking to.
 
-Check talking to (this is the can only talk to talkables rule): 
-	if the noun provides the property litany and the noun provides the property greeting, continue the action; 
+Check talking to (this is the can only talk to talkables rule):
+	if the noun provides the property litany and the noun provides the property greeting, continue the action;
 	if the noun is Minimum Bear, say "You're too old for that." instead;
 	if the noun is the insanity terminal,  say "If you want to answer the puzzle, type the eight answers, a-f, in a row." instead;
 	otherwise say "Mostly, you'll want to talk to people or animals, and in some cases a machine capable of receiving input." instead.

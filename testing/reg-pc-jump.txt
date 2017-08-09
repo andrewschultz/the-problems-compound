@@ -7,7 +7,7 @@
 * duck sitting
 
 >duck sitting
-You open the door to Broke Flat slowly, looking inside for people waiting in ambush. Nobody. You skulk around a bit more--hmm, a passage you'd've missed if you just ran through. You think you see your bathroom up ahead. Wait, no, it's another weird warp. 
+You open the door to the Fly House slowly, looking inside for people waiting in ambush. Nobody. You skulk around a bit more--hmm, a passage you'd've missed if you just ran through. You think you see your bathroom up ahead. Wait, no, it's another weird warp.
 
 Tension Surface
 
@@ -46,7 +46,7 @@ You have currently helped all of the Keeper Brothers.
 * figure a cut
 
 >figure a cut
-Guy Sweet yells "Hey! Where are you going? I mean, you're probably like accelerated in school but if you think you're accelerated at life..." You ignore him. You don't need to be taught a same lesson twice. Well, not this one. You rattle the doorknob just so--and you recognize a few odd passages in Broke Flat--and bam! You fall through an invisible slide to the Nominal Fen. 
+Guy Sweet yells "Hey! Where are you going? I mean, you're probably like accelerated in school but if you think you're accelerated at life..." You ignore him. You don't need to be taught a same lesson twice. Well, not this one. You rattle the doorknob just so--and you recognize a few odd passages in the Fly House--and bam! You fall through an invisible slide to the Nominal Fen.
 
 >i
 You're not carrying anything.
@@ -64,7 +64,7 @@ NOTE: THINK will redirect to SCORE in the future, unless you really only have on
 * notice advance
 
 >notice advance
-Guy Sweet yells "Hey! What could you POSSIBLY... you can't just... someone a lot less lame must've showed you that, no offense..." 
+Guy Sweet yells "Hey! What could you POSSIBLY... you can't just... someone a lot less lame must've showed you that, no offense..."
 
 Questions Field
 
@@ -101,7 +101,7 @@ You're wearing a face of loss, and there's that thought of school kicking around
 
 > knock hard
 
-You stride up to Broke Flat with purpose. You knock, hard, hoping to avoid a hard knock--and you do! You are escorted through a maze of hallways that eventually open up to a wide area with water behind: Pressure Pier. 
+You stride up to the Fly House with purpose. You knock, hard, hoping to avoid a hard knock--and you do! You are escorted through a maze of hallways that eventually open up to a wide area with water behind: Pressure Pier.
 
 Pressure Pier
 
@@ -132,12 +132,12 @@ Oh, man! Looking back, you totally see a shortcut you should've at least checked
 Oh, man! Looking back, you totally see a shortcut you should've at least checked at, back in Smart Street. But it's too late to skip ahead like that now. Maybe if you somehow restart things and wind up back at Smart Street, you could. But, eh, you already made it to the Nominal Fen.
 
 >knock hard
-There's nothing to knock hard at. Or nothing it seems you should knock hard at. Not like Broke Flat back in Smart Street--you'd need to RESTART to try that.
+There's nothing to knock hard at. Or nothing it seems you should knock hard at. Not like the Fly House back in Smart Street--you'd need to RESTART to try that.
 
 >gonear questions field
 
 >knock hard
-That would've gotten you into Broke Flat and beyond, but it won't do much to get into Freak Control.
+That would've gotten you into the Fly House and beyond, but it won't do much to get into Freak Control.
 
 >undo
 >gonear joint strip
@@ -147,7 +147,7 @@ There's no secret knock or password. Either you can get in the Soda Club, or you
 >undo
 >gonear pressure pier
 >knock hard
-There's nothing to knock hard at. Or nothing it seems you should knock hard at. Not like Broke Flat back in Smart Street.
+There's nothing to knock hard at. Or nothing it seems you should knock hard at. Not like the Fly House back in Smart Street.
 
 >notice advance
 Oh, man! Looking back, you totally see a shortcut you should've at least checked at, back in Smart Street. But it's too late to skip ahead like that now. You may wish to restart the game.

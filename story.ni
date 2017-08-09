@@ -9960,7 +9960,7 @@ check going inside in walker street:
 	if poory pot is in lalaland:
 		say "[one of]As you walk in, Pusher Penn looks up from his plans for [activation of wood pusher], his new resort, and asks if you enjoyed your 'payment.' But your truth truth that seems even more preposterous than if you'd actually sampled the stuff. 'THE THANKS I GET!' he booms. 'DON'T COME BACK.'[or]Pusher Penn really, really doesn't want to see you. But you don't want or need to see him.[stopping]" instead;
 
-the mistake grave is scenery in Walker Street. "It's illuminated oddly, as if a red light were flashing behind it, and reads: IN MEMORY OF [activation of watkins glen], THE IDIOT WHO WENT ONLY FIVE MILES OVER THE SPEED LIMIT AND DIDN'T HEAR THE JOYRIDERS GOING THIRTY FORTY OR FIFTY OVER THUS RUINING THIS PRIME [activation of driving crazy] ZONE FOR MORE EXCITING PEOPLE. -[bg][one of].[paragraph break]Well, the message isn't [activation of drive into the ground][or][stopping]."
+the mistake grave is scenery in Walker Street. "It's a weird light red color. It reads: IN MEMORY OF [activation of watkins glen], THE IDIOT WHO WENT ONLY FIVE MILES OVER THE SPEED LIMIT AND DIDN'T HEAR THE JOYRIDERS GOING THIRTY FORTY OR FIFTY OVER THUS RUINING THIS PRIME [activation of driving crazy] ZONE FOR MORE EXCITING PEOPLE. -[bg][one of].[paragraph break]Well, the message isn't [activation of drive into the ground][or][stopping]."
 
 check going nowhere in Walker Street:
 	if noun is south:

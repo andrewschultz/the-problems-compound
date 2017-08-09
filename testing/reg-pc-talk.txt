@@ -440,10 +440,10 @@ DEBUG: Jerk dialogue: 3
 
 >n
 >talk to dutch
-He'd be intimidating enough even if he weren't up there on the Fright Stage. Between 
+He'd be intimidating enough even if he weren't up there on the Fright Stage. Between
 
 >talk to turk
-He'd be intimidating enough even if he weren't up there on the Fright Stage. Between 
+He'd be intimidating enough even if he weren't up there on the Fright Stage. Between
 
 >n
 
@@ -506,7 +506,7 @@ You don't have anything left to say except hello, good-bye. But here's a summary
 >talk to monkey
 The Business Monkey opens its pockets and smiles before clawing at the dirt and making a rising-up gesture with one paw.
 
-The would-be magician 
+The would-be magician
 
 >bb
 The would-be magician haltingly asks if you found anything that could help him be less klutzy? He needs it a bit more than you. Um, a lot.
@@ -765,7 +765,7 @@ Get my delivery done
 >e
 >in
 >talk to penn
-"Most excellent! It's not the profit so much as the trust. Now, you look like you haven't tried the good herb before. No 
+"Most excellent! It's not the profit so much as the trust. Now, you look like you haven't tried the good herb before. No
 
 >out
 >w
