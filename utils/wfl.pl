@@ -19,6 +19,7 @@ my $autoSort = 1;
 
 my $output = "c:\\games\\inform\\compound.inform\\source\\flip.txt";
 my $track = "c:\\games\\inform\\compound.inform\\source\\fliptrack.txt";
+my $sz = "c:\\games\\inform\\compound.inform\\source\\wfl-sz.txt";
 
 my $chrome = "C:\\Users\\Andrew\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe";
 my $ffox = "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe";
@@ -50,6 +51,7 @@ my $count = 0;
 my $wordsAdded = 0;
 my $urlsAdded = 0;
 my $warn = 0;
+my $addToFound = 0;
 
 while ($count <= $#ARGV)
 {
@@ -62,6 +64,7 @@ for ($a1)
   /^-?(uf|fu)$/ && do { $overlook = 1; $dicURL = 1; $count++; next; };
   /^-?e$/ && do { `\"c:\\Program Files (x86)\\Notepad++\\notepad++.exe\" $0 `; exit; };
   /^-?an$/ && do { $alphabetical = !$alphabetical; $count++; next; };
+  /^-?dlog$/ && do { dailyLog(); exit; };
   /^-?ao$/ && do { alfOut(); exit; };
   /^-?at$/ && do { alfTrack(); exit; };
   /^-?ct$/ && do { countChunks(); exit; };
@@ -157,6 +160,70 @@ if ($shouldSort || $autoSort)
     print "s" if ($urlsAdded != 1);
     print " added total.\n";
   }
+}
+
+if ($addToFound)
+{
+  open(A, $sz) || die ("Can't add to found.");
+  open(B, ">$sz.bak");
+  while ($a = <A>)
+  {
+    if ($a =~ /^incr/)
+	{
+	  my $newTot = $a;
+	  $newTot =~ s/.*=//;
+	  $newTot += $addToFound;
+	  print B "incr=$newTot\n";
+    }
+    else
+    {
+      print B $a;
+    }
+  }
+  close(A);
+  close(B);
+  `copy $sz.bak $sz`;
+}
+
+sub dailyLog
+{
+  print("Logging line in $sz.\n";
+  my $wflsz = wflSize();
+  open(A, $sz);
+  open(B, ">$sz.bak");
+  while ($a = <A>)
+  {
+    if ($a =~ /^incr/)
+	{
+	  print B "incr=0\n";
+    }
+	elsif ($a =~ /^size/)
+	{
+	  print B "size=$wflsz\n";
+	}
+    else
+    {
+      print B $a;
+    }
+  }
+  print B "#" . scalar localtime(time()) . " has $wflsz\n";
+  close(A);
+  close(B);
+  `copy $sz.bak $sz`;
+  exit();
+}
+
+sub wflSize
+{
+  my $c;
+  my $eq = 0;
+  open(C, $output);
+  while ($c = <C>)
+  {
+    if ($c =~ /^=/) { $eq++; }
+  }
+  my $temp = $.- $eq;
+  return $temp;
 }
 
 ###########################################
@@ -284,6 +351,8 @@ print B $firstLine;
 print B $bigLongBit;
 print B "====Found $found/$wordy for $flip\n";
 print "====Found $found/$wordy for $flip\n";
+$addToFound += $found;
+
 $addedSomething = 1;
 $wordsAdded++;
 
