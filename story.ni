@@ -574,7 +574,7 @@ chapter misc defs for later
 
 section contexts
 
-context is a kind of value. the contexts are culinary, jerkish, missable, dialoguey, punishy, snarky, oddverby, rando, chatty, siddy, nemmy, xable, smelly, cantgo, firstvis, browny, missable, violent, and normal. A context is usually normal.
+context is a kind of value. the contexts are badendy, culinary, exhaustive, listeny, jerkish, missable, dialoguey, punishy, snarky, oddverby, rando, chatty, siddy, nemmy, xable, smelly, cantgo, firstvis, browny, missable, violent, and normal. A context is usually normal.
 
 section concepts
 
@@ -6468,13 +6468,16 @@ check going in Pressure Pier:
 		say "[line break]";
 		wfak;
 
-water-scen is privately-named scenery in Pressure Pier. "You notice the [activation of fish out of water]. It stretches quite a ways."
+water-scen is privately-named scenery in Pressure Pier. "You notice the [activation of fish out of water]. It stretches quite a ways.". printed name is "the water[in-pier]".
+
+to say in-pier:
+	say "[if player is not in pressure pier] in pressure pier[end if]"
 
 understand "water" as water-scen when player is in Pressure Pier.
 
 understand "swim" and "swim [text]" as a mistake("You're not a terrible swimmer, but you also remember hearing about undertows and that sort of thing. You'd hate to die like that.")
 
-stall-scen is privately-named scenery in Pressure Pier. "It's a pretty large stall. But you won't be able to see what's in it [']til you go west."
+stall-scen is privately-named scenery in Pressure Pier. "It's a pretty large stall. But you won't be able to see what's in it [']til you go west.". printed name is "the stall[in-pier]".
 
 instead of doing something with stall-scen:
 	if action is procedural:
@@ -12362,6 +12365,9 @@ to say f-t of (my-r - a room):
 to say nogo of (my-r - a room):
 	say "go nowhere in [my-r]"
 
+to say li of (my-r - a room):
+	say "listen in [my-r]"
+
 to say x-it of (q - a thing):
 	say "examine [the q]";
 
@@ -12384,81 +12390,81 @@ abuse testing is a oddverby concept in conceptville. Understand "testing abuse" 
 
 Advance Notice is a firstvis concept in conceptville. Understand "notice advance" as Advance Notice. howto is "[f-t of Freak Control]". gtxt is "".
 
-Beaten Track is a concept in conceptville. Understand "track beaten" as Beaten Track. howto is "solve the [j-co] puzzle for the first time". gtxt is "".
+Beaten Track is a concept in conceptville. Understand "track beaten" as Beaten Track. howto is "solve the [j-co] puzzle for the first time". gtxt is "". [norm]
 
 break silence is a oddverby concept in conceptville. Understand "silence break" as break silence. howto is "empty command when you are in a conversation". gtxt is "Silence break".
 
 Captain Obvious is a oddverby concept in conceptville. Understand "obvious captain" as captain obvious. howto is "xyzzy". gtxt is "Obvious, Captain".
 
-clouds of suspicion is a concept in conceptville. Understand "suspicion of clouds/cloud" and "cloud of suspicion" as clouds of suspicion. howto is "X U". gtxt is "suspicion of clouds".
+clouds of suspicion is a missable concept in conceptville. Understand "suspicion of clouds/cloud" and "cloud of suspicion" as clouds of suspicion. howto is "X U". gtxt is "suspicion of clouds".
 
 Comedy of Errors is a oddverby concept in conceptville. Understand "errors of comedy" as comedy of errors. howto is "xyzzy". gtxt is "Errors of comedy".
 
-compound problems is a concept in lalaland. Understand "problems compound" and "compound problem" as compound problems. howto is "very start". gtxt is "Problems Compound".
+compound problems is a concept in lalaland. Understand "problems compound" and "compound problem" as compound problems. howto is "very start". gtxt is "Problems Compound". [norm]
 
-cut a deal is a concept in conceptville. Understand "deal a cut" as cut a deal. howto is "cut any inanimate thing before Freak Control". gtxt is "deal a cut".
+cut a deal is a snarky concept in conceptville. Understand "deal a cut" as cut a deal. howto is "cut any inanimate thing before Freak Control". gtxt is "deal a cut".
 
 Cut a Figure is a firstvis concept in conceptville. Understand "figure a cut" as cut a figure. howto is "[f-t of Nominal Fen]". gtxt is "Figure a Cut".
 
-Face the music is a concept in conceptville. Understand "music the face" as face the music. howto is "sing outside the cult or Discussion Block". gtxt is "the music face".
+Face the music is a snarky concept in conceptville. Understand "music the face" as face the music. howto is "sing outside the cult or Discussion Block". gtxt is "the music face".
 
 Force of Habit is a violent concept in conceptville. Understand "habit of force" as force of habit. howto is "attack something inanimate you don't get arrested for". gtxt is "habit of force".
 
 Hard Knock is a firstvis concept in conceptville. Understand "knock hard" as Hard Knock. howto is "[f-t of Pressure Pier]". gtxt is "".
 
-herd mentality is a concept in conceptville. Understand "heard mentality" and "mentality heard" as herd mentality. howto is "listen in Airy Station". gtxt is "mentality heard".
+herd mentality is a snarky concept in conceptville. Understand "heard mentality" and "mentality heard" as herd mentality. howto is "listen in Airy Station". gtxt is "mentality heard".
 
 No-Nonsense is a oddverby concept in conceptville. Understand "no nonsense" and "nonsense no" as no-nonsense. howto is "xyzzy". gtxt is "Nonsense? No".
 
-Passing Fancy is a concept in conceptville. Understand "fancy passing" as Passing Fancy. howto is "help all three Keeper Brothers". gtxt is "".
+Passing Fancy is a concept in conceptville. Understand "fancy passing" as Passing Fancy. howto is "help all three Keeper Brothers". gtxt is "". [norm]
 
-poke fun is a concept in conceptville. Understand "fun poke" as poke fun. howto is "touch someone, or try". gtxt is "fun poke".
+poke fun is a snarky concept in conceptville. Understand "fun poke" as poke fun. howto is "touch someone, or try". gtxt is "fun poke".
 
-second thought is a concept in conceptville. Understand "thought second" as second thought. howto is "THINK early on". gtxt is "thought second".
+second thought is a missable concept in conceptville. Understand "thought second" as second thought. howto is "THINK early on". gtxt is "thought second".
 
 Sitting Duck is a firstvis concept in conceptville. Understand "duck sitting" as Sitting Duck. howto is "[f-t of Tension Surface]". gtxt is "".
 
 Spelling Disaster is a oddverby concept in conceptville. Understand "disaster spelling" as spelling disaster. howto is "xyzzy". gtxt is "Disaster spelling".
 
-touch base is a concept in conceptville. Understand "base touch" as touch base. howto is "touch someone, or try". gtxt is "base touch".
+touch base is a snarky concept in conceptville. Understand "base touch" as touch base. howto is "touch someone, or try". gtxt is "base touch".
 
 turn of phrase is a oddverby concept in conceptville. Understand "phrase of turn" as turn of phrase. howto is "empty command". gtxt is "phrase of turn".
 
-a u-turn is a concept in conceptville. Understand "u turn" and "turn u" as u-turn. howto is "turn an inanimate object". gtxt is "turn you"
+a u-turn is a snarky concept in conceptville. Understand "u turn" and "turn u" as u-turn. howto is "turn an inanimate object". gtxt is "turn you"
 
-up yours is a concept in conceptville. Understand "up yores" and "yores up" as up yours. howto is "wake up, innuendo on". gtxt is "Yore's up".
+up yours is a missable concept in conceptville. Understand "up yores" and "yores up" as up yours. howto is "wake up, innuendo on". gtxt is "Yore's up".
 
-wait your turn is a concept in conceptville. Understand "turn your wait" as wait your turn. howto is "wait". gtxt is "Turn your wait".
+wait your turn is a missable concept in conceptville. Understand "turn your wait" as wait your turn. howto is "wait". gtxt is "Turn your wait".
 
-wave a flag is a concept in conceptville. Understand "flag a wave" as wave a flag. howto is "wave". gtxt is "flag a wave".
+wave a flag is a snarky concept in conceptville. Understand "flag a wave" as wave a flag. howto is "wave". gtxt is "flag a wave".
 
 section smart street concepts
 
 acceptable is a xable concept in conceptville. Understand "able except" and "except able" as acceptable. howto is "[x-it of gesture token]". gtxt is "Able... except".
 
-Armstrong is a concept in conceptville. Understand "strongarm" and "arm strong" and "strong arm" as armstrong. howto is "talking".
+Armstrong is a concept in conceptville. Understand "strongarm" and "arm strong" and "strong arm" as armstrong. howto is "talking". [norm]
 
 Beat Off is a dialoguey concept in conceptville. Understand "off beat" as beat off. howto is "[t2 of Guy]". gtxt is "OFF-BEAT".
 
-Buster Ball is a concept in conceptville. Understand "ball buster" as buster ball. howto is "talking".
+Buster Ball is a concept in conceptville. Understand "ball buster" as buster ball. howto is "talking". [norm]
 
 confidence games is a dialoguey concept in conceptville. Understand "games/game confidence" and "confidence game" as confidence games. howto is "[t2 of Guy]". gtxt is "games confidence"
 
 decline the challenge is a concept in conceptville. Understand "the challenge decline" as decline the challenge. howto is "enter Fly House". gtxt is "the CHALLENGE decline". [norm]
 
-first world problems is a concept in conceptville. Understand "problems first world" and "world first problems" as first world problems. howto is "ask Guy about [bad-guy-2]". gtxt is "Problems First World".
+first world problems is a dialoguey concept in conceptville. Understand "problems first world" and "world first problems" as first world problems. howto is "[t2 of Guy] about [bad-guy-2]". gtxt is "Problems First World".
 
 flat broke is a concept in conceptville. Understand "broke flat" as flat broke. howto is "enter Fly House". gtxt is "broke flat". [norm]
 
 Good Egg is a dialoguey concept in conceptville. Understand "egg good" as good egg. howto is "[t2 of Guy]". gtxt is "egg GOOD".
 
-knockwurst is a concept in conceptville. Understand "knock worst" and "worst knock" as knockwurst. howto is "knock any way other than hard in Smart Street". gtxt is "worst knock".
+knockwurst is a snarky concept in conceptville. Understand "knock worst" and "worst knock" as knockwurst. howto is "knock any way other than hard in Smart Street". gtxt is "worst knock".
 
-mind games is a concept in conceptville. Understand "games mind" as mind games. howto is "very start". gtxt is "games mind".
+mind games is a concept in conceptville. Understand "games mind" as mind games. howto is "very start". gtxt is "games mind". [norm]
 
 palace is a concept in conceptville. Understand "pal ace" and "ace pal" as palace. howto is "enter Fly House". gtxt is "ace pal". [norm]
 
-power games is a concept in conceptville. Understand "games power" as power games. howto is "win your first logic game against Guy Sweet". gtxt is "games power".
+power games is a concept in conceptville. Understand "games power" as power games. howto is "win your first logic game against Guy Sweet". gtxt is "games power". [norm]
 
 chapter surface concepts
 
@@ -12472,25 +12478,25 @@ nose picking is a smelly concept in conceptville. Understand "picking nose" as n
 
 section variety garden concepts
 
-Animal Welfare is a concept in conceptville. Understand "welfare animal" as animal welfare. howto is "get the Weasel to sign the Burden". gtxt is "welfare animal".
+Animal Welfare is a concept in conceptville. Understand "welfare animal" as animal welfare. howto is "get the Weasel to sign the Burden". gtxt is "welfare animal". [norm]
 
 brush up is a cantgo concept in conceptville. Understand "up brush" as brush up. howto is "go up in Variety Garden". gtxt is "up brush that'd remind you you don't REALLY know how to use them".
 
-a thing called brush with greatness is a concept in conceptville. Understand "greatness with brush" as brush with greatness. howto is "examine any brush after becoming a brush sage". gtxt is "greatness with brush".
+a thing called brush with greatness is a missable concept in conceptville. Understand "greatness with brush" as brush with greatness. howto is "examine any brush after becoming a brush sage". gtxt is "greatness with brush".
 
-dirt nap is a concept in conceptville. Understand "nap dirt" as dirt nap. howto is "leave the garden without digging, or sleep when you have the pick". gtxt is "nap dirt".
+dirt nap is a missable concept in conceptville. Understand "nap dirt" as dirt nap. howto is "leave the garden without digging, or sleep when you have the pick". gtxt is "nap dirt".
 
-man enough is a concept in conceptville. Understand "enough man" as man enough. howto is "dig twice with the pick in Variety Garden". gtxt is "Enough, man".
+man enough is a missable concept in conceptville. Understand "enough man" as man enough. howto is "dig twice with the pick in Variety Garden". gtxt is "Enough, man".
 
-poor taste is a concept in conceptville. Understand "taste poor" as poor taste. howto is "try to eat the poor dirt.". gtxt is "taste poor".
+poor taste is a snarky concept in conceptville. Understand "taste poor" as poor taste. howto is "try to eat the poor dirt.". gtxt is "taste poor".
 
-sagebrush is a concept in conceptville. Understand "brush sage" and "sage brush" as sagebrush. howto is "examine all three types of brush in Variety Garden and try going up too". gtxt is "brush sage".
+sagebrush is a missable concept in conceptville. Understand "brush sage" and "sage brush" as sagebrush. howto is "examine all three types of brush in Variety Garden and try going up too". gtxt is "brush sage".
 
 work of art is a concept in conceptville. Understand "art of work" as work of art. howto is "dig once with the pick in Variety Garden". gtxt is "art of work". [norm]
 
 section vision tunnel concepts
 
-scum of earth is a concept in conceptville. Understand "earth of scum" as scum of earth. howto is "dig the earth of salt". gtxt is "earth of scum".
+scum of earth is a concept in conceptville. Understand "earth of scum" as scum of earth. howto is "dig the earth of salt". gtxt is "earth of scum". [norm]
 
 chapter outer concepts
 
@@ -12502,19 +12508,19 @@ bible thumper is a xable concept in conceptville. Understand "thumper bible" as 
 
 Boy Howdy is a firstvis concept in conceptville. Understand "howdy boy" as Boy Howdy. howto is "[f-t of Pressure Pier]". gtxt is "Howdy Boy".
 
-buy bull is a concept in conceptville. Understand "bull buy" as buy bull. howto is "try taking the Basher Bible". gtxt is "Bull! Buy".
+buy bull is a missable concept in conceptville. Understand "bull buy" as buy bull. howto is "try taking the Basher Bible". gtxt is "Bull! Buy".
 
-fish out of water is a concept in conceptville. Understand "water out of fish" as fish out of water. howto is "examine the water in Pressure Pier". gtxt is "water: out of fish".
+fish out of water is a xable concept in conceptville. Understand "water out of fish" as fish out of water. howto is "[x-it of water-scen]". gtxt is "water: out of fish".
 
 meal ticket is a culinary concept in conceptville. Understand "ticket meal" as meal ticket. howto is "eat the boo tickety". gtxt is "ticket meal".
 
 palatable is a xable concept in conceptville. Understand "table pal" and "pal table" as palatable. howto is "[x-it of side stand]". gtxt is "a table, pal".
 
-take a stand is a concept in conceptville. Understand "stand a/the take" and "take the stand" as take a stand. howto is "try to take a/the side stand". gtxt is "stand the take".
+take a stand is a missable concept in conceptville. Understand "stand a/the take" and "take the stand" as take a stand. howto is "try to take a/the side stand". gtxt is "stand the take".
 
 section meal square concepts
 
-apple pie order is a concept in conceptville. Understand "apple-pie order" and "order apple pie" as apple pie order. howto is "examine both Tray A and Tray B". gtxt is "order apple pie".
+apple pie order is a xable concept in conceptville. Understand "apple-pie order" and "order apple pie" as apple pie order. howto is "[x-it of Tray A] and Tray B". gtxt is "order apple pie".
 
 arch deluxe is a cantgo concept in conceptville. Understand "deluxe arch" as arch deluxe. howto is "[nogo of Meal Square]". gtxt is "deluxe arch".
 
@@ -12532,35 +12538,35 @@ devil's food is a culinary concept in conceptville. Understand "food devil's" as
 
 ex-tray is a firstvis concept in conceptville. understand "x/ex tray" and "tray x/ex" as ex-tray. howto is "[f-t of Meal Square]". gtxt is "Tray X".
 
-face off is a concept in conceptville. understand "off face" as face off. howto is "take inventory after eating Tray B food". gtxt is "off face".
+face off is a badendy concept in conceptville. understand "off face" as face off. howto is "take inventory after eating Tray B food". gtxt is "off face".
 
-a thing called Food for Thought is a concept in conceptville. Understand "thought for food" as food for thought. howto is "visit Meal Square with Terry Sally around". gtxt is "thought for food".
+a thing called Food for Thought is a missable concept in conceptville. Understand "thought for food" as food for thought. howto is "visit Meal Square with Terry Sally around". gtxt is "thought for food".
 
 Forgive is a xable concept in conceptville. Understand "give for" and "for give" as Forgive. howto is "[x-it of condition mint]". gtxt is "GIVE, FOR".
 
-gobbling down is a concept in conceptville. Understand "goblin down" and "down goblin" as gobbling down. howto is "visit Meal Square with Terry Sally around". gtxt is "down goblin".
+gobbling down is a missable concept in conceptville. Understand "goblin down" and "down goblin" as gobbling down. howto is "visit Meal Square with Terry Sally around". gtxt is "down goblin".
 
 growing pains is a culinary concept in conceptville. Understand "pain/pains growing" and "growing pain" as growing pains. howto is "eat the offcheese". gtxt is "Pain's growing".
 
-hallway is a concept in conceptville. Understand "hall whey" and "whey hall" as hallway. howto is "visit Meal Square with Terry Sally around". gtxt is "whey hall".
+hallway is a missable concept in conceptville. Understand "hall whey" and "whey hall" as hallway. howto is "visit Meal Square with Terry Sally around". gtxt is "whey hall".
 
 hash table is a violent concept in conceptville. Understand "table hash" as hash table. howto is "[at of spoon table]". gtxt is "table hash".
 
 house special is a smelly concept in conceptville. Understand "special house" as house special. howto is "smell Tray B". gtxt is "special house".
 
-impaler is a concept in conceptville. Understand "imp paler" and "paler imp" as impaler. howto is "visit Meal Square with Terry Sally around". gtxt is "paler imp".
+impaler is a missable concept in conceptville. Understand "imp paler" and "paler imp" as impaler. howto is "visit Meal Square with Terry Sally around". gtxt is "paler imp".
 
-just deserts is a concept in conceptville. Understand "deserts just" as just deserts. howto is "try to eat the cookie or brownie after eating the cheese". gtxt is "Dessert's just".
+just deserts is a badendy concept in conceptville. Understand "deserts just" as just deserts. howto is "try to eat the cookie or brownie after eating the cheese". gtxt is "Dessert's just".
 
 layer cake is a cantgo concept in conceptville. Understand "lair cake" and "cake lair" as layer cake. howto is "go down in meal square". gtxt is "cake lair".
 
-Loaf Around is a concept in conceptville. Understand "round loaf" and "loaf round" as loaf around. howto is "wait in Meal Square". gtxt is "a round loaf".
+Loaf Around is a missable concept in conceptville. Understand "round loaf" and "loaf round" as loaf around. howto is "wait in Meal Square". gtxt is "a round loaf".
 
 No-Shame is a xable concept in conceptville. printed name is "no shame". Understand "no shame" as No-Shame. howto is "[x-it of condition mint]". gtxt is "SHAME? NO".
 
 order n is a violent concept in conceptville. Understand "n order" as order n. howto is "[at of spoon table]". gtxt is "n order".
 
-pig out is a concept in conceptville. Understand "out pig" as pig out. howto is "TAKE ALL in Meal Square". gtxt is "OUT, PIG".
+pig out is a missable concept in conceptville. Understand "out pig" as pig out. howto is "TAKE ALL in Meal Square". gtxt is "OUT, PIG".
 
 potty is a firstvis concept in conceptville. Understand "pottea" and "teapot" and "pot tea" and "tea pot" as potty. howto is "[f-t of meal square] with innuendo on". gtxt is "teapot". [ok]
 
@@ -12570,17 +12576,17 @@ quisling is a culinary concept in conceptville. Understand "sling a quiz" and "q
 
 raising hell is a culinary concept in conceptville. Understand "hell raisin" and "raisin hell" as raising hell. howto is "eat the cutter cookie". gtxt is "hell raisin".
 
-snap decision is a concept in conceptville. Understand "decision snap" as snap decision. howto is "say yes to eating a Tray B food". gtxt is "decision: SNAP".
+snap decision is a badendy concept in conceptville. Understand "decision snap" as snap decision. howto is "say yes to eating a Tray B food". gtxt is "decision: SNAP".
 
-Spur of the Moment is a concept in conceptville. Understand "moment of the spur" as spur of the moment. howto is "say no to eating a Tray B food". gtxt is "moment of the spur".
+Spur of the Moment is a missable concept in conceptville. Understand "moment of the spur" as spur of the moment. howto is "say no to eating a Tray B food". gtxt is "moment of the spur".
 
-strike a balance is a concept in conceptville. understand "balance a strike" as strike a balance. howto is "try to take Tray A or Tray B". gtxt is "balance a strike".
+strike a balance is a missable concept in conceptville. understand "balance a strike" as strike a balance. howto is "try to take Tray A or Tray B". gtxt is "balance a strike".
 
 stuff your face is a culinary concept in conceptville. Understand "face your stuff" as stuff your face. howto is "eat a second Tray B food in Meal Square". gtxt is "face your stuff".
 
 tea tray is a firstvis concept in conceptville. understand "tray t/tea" and "t tray" as tea tray. howto is "[f-t of Meal Square]". gtxt is "Tray T".
 
-time consuming is a concept in conceptville. Understand "consuming time" as time consuming. howto is "say yes to eating a Tray B food". gtxt is "Consuming time".
+time consuming is a badendy concept in conceptville. Understand "consuming time" as time consuming. howto is "say yes to eating a Tray B food". gtxt is "Consuming time".
 
 treat like dirt is a xable concept in conceptville. Understand "dirt like treat" as treat like dirt. howto is "[x-it of points brownie]". gtxt is "dirt-like treat".
 
@@ -12592,49 +12598,49 @@ to say w-fr:
 	say "give the weed to Fritz"
 
 [todo: two different things lead to brain trust]
-Beach Bum is a concept in conceptville. Understand "bum beach" as Beach Bum. howto is "examine the bench in Down Ground". gtxt is "BUM BEACH".
+Beach Bum is a xable concept in conceptville. Understand "bum beach" as Beach Bum. howto is "[x-it of warmer bench]". gtxt is "BUM BEACH".
 
-brain trust is a concept in conceptville. Understand "trust brain" as brain trust. howto is "examine dreadful penny or mind of peace". gtxt is "[if the item described is dreadful penny]TRUST A BRAIN[else]trust brain[end if]".
+brain trust is a xable concept in conceptville. Understand "trust brain" as brain trust. howto is "[x-it of dreadful penny] or mind of peace". gtxt is "[if the item described is dreadful penny]TRUST A BRAIN[else]trust brain[end if]".
 
-Clip Joint is a concept in conceptville. Understand "joint clip" as clip joint. howto is "listen to Fritz after giving him the weed". gtxt is "joint clip".
+Clip Joint is a listeny concept in conceptville. Understand "joint clip" as clip joint. howto is "[li of down ground] after giving Fritz the weed". gtxt is "joint clip".
 
-Double Jeopardy is a concept in conceptville. Understand "jeopardy double" as Double Jeopardy. howto is "get ticket for sleeping". gtxt is "jeopardy double".
+Double Jeopardy is a missable concept in conceptville. Understand "jeopardy double" as Double Jeopardy. howto is "get ticket for sleeping". gtxt is "jeopardy double".
 
-drag along is a concept in conceptville. Understand "along drag" as drag along. howto is "[w-fr]". gtxt is "a long drag".
+drag along is a concept in conceptville. Understand "along drag" as drag along. howto is "[w-fr]". gtxt is "a long drag". [norm]
 
-Dream Ticket is a concept in conceptville. Understand "ticket dream" as dream ticket. howto is "sleep after you got a tickety". gtxt is "ticket dream".
+Dream Ticket is a missable concept in conceptville. Understand "ticket dream" as dream ticket. howto is "sleep after you got a tickety". gtxt is "ticket dream".
 
 Grammar Police is a firstvis concept in conceptville. Understand "police grammar" as grammar police. howto is "[f-t of Down Ground]". gtxt is "police grammar".
 
 ground up is a cantgo concept in conceptville. Understand "up ground" as ground up. howto is "go north or south in Down Ground". gtxt is "up ground".
 
-a thing called High and Dry is a concept in conceptville. Understand "dry and high" as high and dry. howto is "listen to Fritz after getting past Pressure Pier but before giving him the weed". gtxt is "dry and high".
+a thing called High and Dry is a listeny concept in conceptville. Understand "dry and high" as high and dry. howto is "[li of Down Ground] after getting past Pressure Pier but before giving Fritz the weed". gtxt is "dry and high".
 
-a thing called high off the hog is a concept in conceptville. Understand "hog on/off the high" and "high on/off the hog" as high off the hog. howto is "[w-fr]". gtxt is "hog off the high".
+a thing called high off the hog is a concept in conceptville. Understand "hog on/off the high" and "high on/off the hog" as high off the hog. howto is "[w-fr]". gtxt is "hog off the high". [norm]
 
-high roller is a concept in conceptville. Understand "roller high" as high roller. howto is "look around Down Ground for a bit". gtxt is "Roller High".
+high roller is a missable concept in conceptville. Understand "roller high" as high roller. howto is "examine Fritz the On twice". gtxt is "Roller High".
 
 joint statement is a firstvis concept in conceptville. Understand "statement joint" as joint statement. howto is "[f-t of down ground]". gtxt is "statement joint".
 
-Puff Piece is a concept in conceptville. Understand "peace/piece puff" and "puff peace" as puff piece. howto is "[w-fr]". gtxt is "peace puff".
+Puff Piece is a concept in conceptville. Understand "peace/piece puff" and "puff peace" as puff piece. howto is "[w-fr]". gtxt is "peace puff". [norm]
 
-roll a joint is a concept in conceptville. Understand "role/roll joint" and "role/roll a joint" as roll a joint. howto is "[w-fr]". gtxt is "a joint role".
+roll a joint is a concept in conceptville. Understand "role/roll joint" and "role/roll a joint" as roll a joint. howto is "[w-fr]". gtxt is "a joint role". [norm]
 
-Sleeper Cell is a concept in conceptville. Understand "cell sleeper" as sleeper cell. howto is "sleep then wait in Down Ground". gtxt is "cell sleeper".
+Sleeper Cell is a missable concept in conceptville. Understand "cell sleeper" as sleeper cell. howto is "sleep then wait in Down Ground". gtxt is "cell sleeper".
 
 section joint strip concepts
 
-advice is a dialoguey concept in conceptville. Understand "vice ad" and "ad vice" as advice. howto is "[t2 of stool toad] about the Joint Strip". gtxt is "vice ad".
+advice is a dialoguey concept in conceptville. Understand "vice ad" and "ad vice" as advice. howto is "[t2 of stool toad]". gtxt is "vice ad".
 
-bullfrog is a dialoguey concept in conceptville. Understand "frog bull" and "bull frog" as bullfrog. howto is "[t2 of stool toad] about trouble". gtxt is "frog-bull".
+bullfrog is a dialoguey concept in conceptville. Understand "frog bull" and "bull frog" as bullfrog. howto is "[t2 of stool toad]". gtxt is "frog-bull".
 
 bum rap is a dialoguey concept in conceptville. Understand "rap a bum" as bum rap. howto is "[t2 of Stool Toad] or sing around him". gtxt is "[if qbc_litany is table of no conversation]a rap[else]rap a[end if] bum".
 
-case a joint is a concept in conceptville. Understand "joint a case" as case a joint. howto is "get ticket for exploring the stickweed". gtxt is "a joint case".
+case a joint is a missable concept in conceptville. Understand "joint a case" as case a joint. howto is "get ticket for exploring the stickweed". gtxt is "a joint case".
 
-do dope is a concept in conceptville. Understand "dope do" as do dope. howto is "wait in Joint Strip". gtxt is "DOPE, DO".
+do dope is a missable concept in conceptville. Understand "dope do" as do dope. howto is "wait in Joint Strip". gtxt is "DOPE, DO".
 
-job security is a concept in conceptville. Understand "security job" as job security. howto is "ask the Stool Toad about the Joint Strip". gtxt is "security job".
+job security is a dialoguey concept in conceptville. Understand "security job" as job security. howto is "[t2 of Stool Toad]". gtxt is "security job".
 
 killer weed is a smelly concept in conceptville. Understand "weed killer" as killer weed. howto is "smell in the Joint Strip". gtxt is "weed killer".
 
@@ -12642,50 +12648,50 @@ Moral Support is a xable concept in conceptville. Understand "support moral" as 
 
 Pigeon English is a xable concept in conceptville. Understand "english pigeon" as pigeon english. howto is "[x-it of pigeon stool]". gtxt is "English Pigeon".
 
-stop smoking is a concept in conceptville. Understand "smoking stop" as stop smoking. howto is "ask the Stool Toad about the Joint Strip". gtxt is "Smoking Stop".
+stop smoking is a dialoguey concept in conceptville. Understand "smoking stop" as stop smoking. howto is "[t2 of Stool Toad]". gtxt is "Smoking Stop".
 
 strip search is a cantgo concept in conceptville. Understand "search strip" as strip search. howto is "[nogo of Joint Strip]". gtxt is "search strip".
 
 section soda club concepts
 
-to say ask-ally:
+to say ally-ap:
 	say "Ask Ally Stout about the Punch Sucker"
 
 bargain is a cantgo concept in conceptville. Understand "bar gin" and "gin bar" and "bargin" as bargain. howto is "[nogo of soda club]". gtxt is "gin bar". [ok]
 
 beer nuts is a cantgo concept in conceptville. Understand "nuts beer" as beer nuts. howto is "[nogo of soda club]". gtxt is "nuts beer".
 
-boot licker is a concept in conceptville. Understand "licker/liquor boot" and "boot liquor" as boot licker. howto is "visit the Soda Club". gtxt is "liquor boot".
+boot licker is a firstvis concept in conceptville. Understand "licker/liquor boot" and "boot liquor" as boot licker. howto is "[f-t of Soda Club]". gtxt is "liquor boot".
 
-brew a plot is a concept in conceptville. Understand "plot a brew" as brew a plot. howto is "order the Haha Brew in the Soda Club". gtxt is "a plot brew".
+brew a plot is a missable concept in conceptville. Understand "plot a brew" as brew a plot. howto is "order the Haha Brew in the Soda Club". gtxt is "a plot brew".
 
-genuine is a concept in conceptville. Understand "gen u wine" and "wine u gen" as genuine. howto is "order the Cooler Wine". gtxt is "Wine-U-Gen".
+genuine is a missable concept in conceptville. Understand "gen u wine" and "wine u gen" as genuine. howto is "order the Cooler Wine in the Soda Club". gtxt is "Wine-U-Gen".
 
-gin rummy is a concept in conceptville. understand "rummy gin" as gin rummy. howto is "ask Ally Stout about drinks". gtxt is "Rummy Gin".
+gin rummy is a dialoguey concept in conceptville. understand "rummy gin" as gin rummy. howto is "[t2 of Ally Stout]". gtxt is "Rummy Gin".
 
-Hip Rose is a concept in conceptville. Understand "rose hip/hips" as Hip Rose. howto is "visit the Soda Club". gtxt is "Hip Rose".
+Hip Rose is a firstvis concept in conceptville. Understand "rose hip/hips" as Hip Rose. howto is "[f-t of Soda Club]". gtxt is "Hip Rose".
 
 hit the bottle is a violent concept in conceptville. Understand "bottle the hit" as hit the bottle. howto is "[at of Ally Stout]". gtxt is "Bottle the hit".
 
-punch drunk is a concept in conceptville. Understand "drunk punch" as punch drunk. howto is "[ask-ally]". gtxt is "drunk punch".
+punch drunk is a dialoguey concept in conceptville. Understand "drunk punch" as punch drunk. howto is "[t2 of ally stout]". gtxt is "drunk punch".
 
-punch line is a concept in conceptville. Understand "line punch" as punch line. howto is "[ask-ally]". gtxt is "Line Punch".
+punch line is a dialoguey concept in conceptville. Understand "line punch" as punch line. howto is "[t2 of ally stout]". gtxt is "Line Punch".
 
-punch out is a concept in conceptville. Understand "out punch" as punch out. howto is "[ask-ally]". gtxt is "Out Punch".
+punch out is a dialoguey concept in conceptville. Understand "out punch" as punch out. howto is "[t2 of ally stout]". gtxt is "Out Punch".
 
-punch ticket is a concept in conceptville. Understand "ticket punch" as punch ticket. howto is "[ask-ally]". gtxt is "Ticket Punch".
+punch ticket is a dialoguey concept in conceptville. Understand "ticket punch" as punch ticket. howto is "[t2 of ally stout]". gtxt is "Ticket Punch".
 
-rum go is a concept in conceptville. understand "go rum" as rum go. howto is "ask Ally Stout about drinks". gtxt is "Go Rum".
+rum go is a dialoguey concept in conceptville. understand "go rum" as rum go. howto is "[t2 of ally stout]". gtxt is "Go Rum".
 
 speakeasy is a dialoguey concept in conceptville. Understand "easy speak" and "speak easy" as speakeasy. howto is "[bga of Ally Stout]". gtxt is "easy-speak".
 
-striptease is a concept in conceptville. Understand "strip teas" and "teas strip" as striptease. howto is "talk to Ally Stout and say good-bye". gtxt is "Teas Strip".
+striptease is a dialoguey concept in conceptville. Understand "strip teas" and "teas strip" as striptease. howto is "[t2 of ally stout] and say good-bye". gtxt is "Teas Strip".
 
-Sucker Punch is a concept in conceptville. Understand "punch sucker" as sucker punch. howto is "visit the Soda Club". gtxt is "Punch Sucker".
+Sucker Punch is a firstvis concept in conceptville. Understand "punch sucker" as sucker punch. howto is "[f-t of Soda Club]". gtxt is "Punch Sucker".
 
-tea party is a concept in conceptville. understand "party t/tea" and "t party" as tea party. howto is "visit the Soda Club". gtxt is "Party T".
+tea party is a firstvis concept in conceptville. understand "party t/tea" and "t party" as tea party. howto is "[f-t of Soda Club]". gtxt is "Party T".
 
-teetotal is a concept in conceptville. understand "total t" and "t total" as teetotal. howto is "visit the Soda Club". gtxt is "Total T".
+teetotal is a firstvis concept in conceptville. understand "total t" and "t total" as teetotal. howto is "[f-t of Soda Club]". gtxt is "Total T".
 
 chapter main chunk concepts [left to right, then below]
 
@@ -12768,7 +12774,7 @@ caveman is a jerkish concept in conceptville. Understand "cave man" and "man cav
 
 cirrhosis is a jerkish concept in conceptville. Understand "roses sir" and "sir roses" as cirrhosis. howto is "[j-blab]". gtxt is "Roses, sir".
 
-Clean Break is a concept in conceptville. Understand "break clean" as clean break. howto is "go to the [jc]". gtxt is "Break CLEAN".
+Clean Break is a firstvis concept in conceptville. Understand "break clean" as clean break. howto is "[f-t of Nominal Fen]". gtxt is "Break CLEAN".
 
 club players is a jerkish concept in conceptville. Understand "players club" as club players. howto is "[j-blab]". gtxt is "Players['] Club".
 
@@ -12790,7 +12796,7 @@ defecate is a jerkish concept in conceptville. Understand "kate a def" and "def 
 
 dilute is a jerkish concept in conceptville. Understand "di lewd" and "lewd di" as dilute. howto is "[j-blab]". gtxt is "lewd Di".
 
-Dirty Word is a concept in conceptville. Understand "word dirty" as dirty word. howto is "go to the [jc]". gtxt is "Word! Dirty".
+Dirty Word is a firstvis concept in conceptville. Understand "word dirty" as dirty word. howto is "[f-t of Nominal Fen]". gtxt is "Word! Dirty".
 
 dust up is a jerkish concept in conceptville. Understand "up dust" as dust up. howto is "[j-blab]". gtxt is "Up Dust".
 
@@ -12818,7 +12824,7 @@ Glenn Beck is a jerkish concept in conceptville. Understand "beck glenn" as glen
 
 gorgeous is a jerkish concept in conceptville. Understand "jess gore" and "gore jess" as gorgeous. howto is "[j-blab]". gtxt is "Jess Gore".
 
-grown up is a concept in conceptville. Understand "up groan" and "groan up" as grown up. howto is "[solve-j] with swears off". gtxt is "up groan".
+grown up is a concept in conceptville. Understand "up groan" and "groan up" as grown up. howto is "[solve-j] with swears off". gtxt is "up groan". [norm]
 
 gumby is a jerkish concept in conceptville. Understand "gum by" and "by gum" as gumby. howto is "[j-blab]". gtxt is "by gum".
 
@@ -12848,7 +12854,7 @@ james dean is a jerkish concept in conceptville. Understand "dean james" as jame
 
 jeremiad is a jerkish concept in conceptville. Understand "add jeremy" and "jeremy add" as jeremiad. howto is "[j-blab]". gtxt is "add Jeremy".
 
-Jerk Around is a firstvis concept in conceptville. Understand "around jerks" and "jerks around" as jerk around. howto is "[f-t of Nominal Fen] with profanity on". gtxt is "AROUND jerks".
+Jerk Around is a missable concept in conceptville. Understand "around jerks" and "jerks around" as jerk around. howto is "with innuendo on, [f-t of Nominal Fen]". gtxt is "AROUND jerks".
 
 Jerk Off is a violent concept in conceptville. Understand "off jerk" as jerk off. howto is "attack a jerk in swearing-on mode". gtxt is "off a jerk".
 
@@ -12862,11 +12868,11 @@ john 3:16 is a jerkish concept in conceptville. Understand "316/163 john" and "j
 
 johnny rotten is a jerkish concept in conceptville. Understand "rotten johnny" as johnny rotten. howto is "[j-blab]". gtxt is "rottin['] Johnny".
 
-joint committee is a concept in conceptville. Understand "committee joint" as joint committee. howto is "[solve-j]". gtxt is "committee joint to top it off".
+joint committee is a concept in conceptville. Understand "committee joint" as joint committee. howto is "[solve-j]". gtxt is "committee joint to top it off". [norm]
 
 journeyman is a jerkish concept in conceptville. Understand "journey man" and "man journey" as journeyman. howto is "[j-blab]". gtxt is "man-journey".
 
-junk mail is a concept in conceptville. Understand "mail junk" as junk mail. howto is "listen to the [j-co] before figuring the Index puzzle". gtxt is "male junk".
+junk mail is a listeny concept in conceptville. Understand "mail junk" as junk mail. howto is "[li of nominal fen] before figuring the Index puzzle". gtxt is "male junk".
 
 keepin is a jerkish concept in conceptville. Understand "pinkie" as keepin. howto is "[j-blab]". gtxt is "pinkie".
 
@@ -12890,7 +12896,7 @@ Liverwurst is a smelly concept in conceptville. Understand "wurst/worst liver" a
 
 long johns is a jerkish concept in conceptville. Understand "john long" and "long john" as long johns. howto is "[j-blab]". gtxt is "John Long".
 
-Lovelies is a concept in conceptville. Understand "lies love" and "love lies" as Lovelies. howto is "listen to all the [j-co] have to say, with swearing on". gtxt is "Lies: LOVE".
+Lovelies is a missable concept in conceptville. Understand "lies love" and "love lies" as Lovelies. howto is "listen to all the [j-co] have to say, with swearing on". gtxt is "Lies: LOVE".
 
 magnate is a jerkish concept in conceptville. Understand "nate magg" and "magg nate" as magnate. howto is "[j-blab]". gtxt is "Nate Magg".
 
@@ -12964,7 +12970,7 @@ Polygamy is a jerkish concept in conceptville. Understand "gamy polly" and "poll
 
 polyphony is a jerkish concept in conceptville. Understand "phony polly" and "polly phony" as polyphony. howto is "[j-blab]". gtxt is "Phony Polly".
 
-pop cherry is a concept in conceptville. Understand "cherry pop" as pop cherry. howto is "[solve-j] with swears on". gtxt is "cherry pop".
+pop cherry is a concept in conceptville. Understand "cherry pop" as pop cherry. howto is "[solve-j] with swears on". gtxt is "cherry pop". [norm]
 
 Potter Stewart is a jerkish concept in conceptville. Understand "stewart potter" as Potter Stewart. howto is "[j-blab]". gtxt is "Stewart Potter".
 
@@ -12984,7 +12990,7 @@ red rose is a jerkish concept in conceptville. Understand "rose redd/red/white/b
 
 restore is a jerkish concept in conceptville. Understand "torres" as restore. howto is "[j-blab]". gtxt is "torres".
 
-ring finger is a concept in conceptville. Understand "finger ring" as ring finger. howto is "[j-b4]". gtxt is "finger ring".
+ring finger is a snarky concept in conceptville. Understand "finger ring" as ring finger. howto is "[j-b4]". gtxt is "finger ring".
 
 rosetta is a jerkish concept in conceptville. Understand "rose etta" and "etta rose" as rosetta. howto is "[j-blab]". gtxt is "Etta Rose".
 
@@ -12992,7 +12998,7 @@ run by is a jerkish concept in conceptville. Understand "byron" as run by. howto
 
 rusty nail is a jerkish concept in conceptville. Understand "nail rusty" as rusty nail. howto is "[j-blab]". gtxt is "nail Rusty".
 
-sausage fest is a concept in conceptville. Understand "fest sausage" as sausage fest. howto is "[solve-j] with swears on". gtxt is "fest sausage".
+sausage fest is a concept in conceptville. Understand "fest sausage" as sausage fest. howto is "[solve-j] with swears on". gtxt is "fest sausage". [norm]
 
 says mo is a jerkish concept in conceptville. Understand "moses" as says mo. howto is "[j-blab]". gtxt is "moses".
 
@@ -13018,7 +13024,7 @@ tallywhacker is a jerkish concept in conceptville. Understand "tally wacker" and
 
 taradiddle is a jerkish concept in conceptville. Understand "tara diddle" and "diddle tara" as taradiddle. howto is "[j-blab]". gtxt is "diddle Tara".
 
-Tear-Jerk is a concept in conceptville. Understand "jerk-tear" and "tear jerk" and "jerk tear" as Tear-Jerk. howto is "solve the [j-co]['] puzzle". gtxt is "jerk-tear".
+Tear-Jerk is a concept in conceptville. Understand "jerk-tear" and "tear jerk" and "jerk tear" as Tear-Jerk. howto is "solve the [j-co]['] puzzle". gtxt is "jerk-tear". [norm]
 
 telephony is a jerkish concept in conceptville. Understand "telly phony" and "phony telly" as telephony. howto is "[j-blab]". gtxt is "phony Telly".
 
@@ -13044,79 +13050,85 @@ white guys is a jerkish concept in conceptville. Understand "white guise" and "g
 
 Whole Foods is a jerkish concept in conceptville. Understand "hole foods" and "foods hole" as whole foods. howto is "[j-blab]". gtxt is "Foods Hole".
 
-you buy is a concept in conceptville. Understand "you buy" and "bay you" as you buy. howto is "[solve-j]". gtxt is "bayou".
+you buy is a concept in conceptville. Understand "you buy" and "bay you" as you buy. howto is "[solve-j]". gtxt is "bayou". [norm]
 
 section chipper wood concepts
 
-character assassination is a concept in conceptville. Understand "assassination character" as character assassination. howto is "visit Chipper Wood". gtxt is "assassination character".
+character assassination is a firstvis concept in conceptville. Understand "assassination character" as character assassination. howto is "[f-t of Chipper Wood]". gtxt is "assassination character".
 
 Play it Cool is a violent concept in conceptville. Understand "cool it play" as play it cool. howto is "[at of Cute Percy]". gtxt is "Cool it! Play".
 
-sweetheart deal is a concept in conceptville. Understand "deal sweetheart" as sweetheart deal. howto is "run from Chipper Wood before catching Cute Percy". gtxt is "Deal, sweetheart".
+sweetheart deal is a missable concept in conceptville. Understand "deal sweetheart" as sweetheart deal. howto is "run from Chipper Wood before catching Cute Percy". gtxt is "Deal, sweetheart".
 
-Woodstock is a concept in conceptville. Understand "wood stock" and "stock wood" as woodstock. howto is "sing in Chipper Wood". gtxt is "stock wood".
+Woodstock is a snarky concept in conceptville. Understand "wood stock" and "stock wood" as woodstock. howto is "sing in Chipper Wood". gtxt is "stock wood".
 
 you mad is a cantgo concept in conceptville. Understand "yew mad" and "mad yew" as you mad. howto is "[nogo of Chipper Wood]". gtxt is "mad yew".
 
 section the belt below concepts
 
-Terminal Illness is a concept in conceptville. Understand "illness terminal" as terminal illness. howto is "defeat the Insanity Terminal". gtxt is "Illness Terminal".
+Terminal Illness is a missable concept in conceptville. Understand "illness terminal" as terminal illness. howto is "defeat the Insanity Terminal". gtxt is "Illness Terminal".
 
 waste breath is a xable concept in conceptville. Understand "breadth/breath waste/waist" and "waist/wast breadth/breath" as waste breath. howto is "[x-it of energy waist] after defeating the Insanity Terminal". gtxt is "breadth waist".
 
 section disposed well concepts
 
-Fish for a Compliment is a concept in conceptville. Understand "compliment for a fish" as fish for a compliment. howto is "talk to the story fish with nobody else around". gtxt is "compliment for a fish".
+Fish for a Compliment is a snarky concept in conceptville. Understand "compliment for a fish" as fish for a compliment. howto is "talk to the story fish with nobody else around". gtxt is "compliment for a fish".
 
-Well Done is a concept in conceptville. Understand "done well" as well done. howto is "try entering the Disposed Well". gtxt is "Done Well".
+Well Done is a missable concept in conceptville. Understand "done well" as well done. howto is "try entering the Disposed Well". gtxt is "Done Well".
 
 section classic cult concepts
 
 cargo cult is a dialoguey concept in conceptville. Understand "cult cargo" as cargo cult. howto is "[t2 of Grace]". gtxt is "cult cargo".
 
-crisis is a concept in conceptville. Understand "sis cry" and "cry sis" as crisis. howto is "say hi to Grace". gtxt is "Sis, Cry".
+crisis is a dialoguey concept in conceptville. Understand "sis cry" and "cry sis" as crisis. howto is "[t2 of Grace]". gtxt is "Sis, Cry".
 
-cult status is a concept in conceptville. Understand "status cult" as cult status. howto is "ask about restoring the googly bowl". gtxt is "status cult".
+cult status is a dialoguey concept in conceptville. Understand "status cult" as cult status. howto is "[t2 of Grace]". gtxt is "status cult".
 
 Defrock is a dialoguey concept in conceptville. Understand "rock def" and "def rock" as defrock. howto is "[t2 of Grace]". gtxt is "rock DEF".
 
-good herb is a concept in conceptville. Understand "herb good/goode" and "herb good" as good herb. howto is "talk to Pusher Penn or the Goode sisters". gtxt is "Herb[if player is not in classic cult] Goode[end if]".
+good herb is a dialoguey concept in conceptville. Understand "herb good/goode" and "herb good" as good herb. howto is "[t2 of Grace] or Pusher Penn". gtxt is "Herb[if player is not in classic cult] Goode[end if]".
 
 grace period is a dialoguey concept in conceptville. Understand "period grace" as grace period. howto is "[bga of Grace Goode]". gtxt is "PERIOD, Grace".
 
-personality cult is a concept in conceptville. Understand "cult personality" as personality cult. howto is "ask Grace about restoring her cult". gtxt is "cult personality".
+personality cult is a dialoguey concept in conceptville. Understand "cult personality" as personality cult. howto is "[t2 of Grace Goode]". gtxt is "cult personality".
 
 section truth home concepts
 
-assembly line is a concept in conceptville. Understand "line assembly" as assembly line. howto is "give Lee the rattle". gtxt is "line assembly".
+to say pl-sid:
+	say "listen to some of Sid Lew's advice"
 
-ideological is a concept in conceptville. Understand "logical idea" and "idea logical" as ideological. howto is "listen to all of Sid Lew's advice". gtxt is "Logical idea".
+to say pl-sid-all:
+	say "listen to all of Sid Lew's advice"
 
-loser is a concept in conceptville. Understand "lew seer" and "seer lew" as loser. howto is "listen to Sid Lew's advice (random)". gtxt is "Seer Lew".
+assembly line is a concept in conceptville. Understand "line assembly" as assembly line. howto is "give Lee the rattle". gtxt is "line assembly". [norm]
 
-mass production is a concept in conceptville. Understand "production mass" as mass production. howto is "give Lee the rattle". gtxt is "Production mass".
+ideological is a rando concept in conceptville. Understand "logical idea" and "idea logical" as ideological. howto is "[pl-sid-all]". gtxt is "Logical idea".
 
-pathologic is a concept in conceptville. Understand "path oh/o logic" and "logic oh/o path" as pathologic. howto is "listen to two-thirds of Sid Lew's advice". gtxt is "Oh, logic path".
+loser is a rando concept in conceptville. Understand "lew seer" and "seer lew" as loser. howto is "[pl-sid]". gtxt is "Seer Lew".
 
-psychotherapy is a concept in conceptville. Understand "psycho therapy" and "therapy psycho" as psychotherapy. howto is "listen to one-third of Sid Lew's advice". gtxt is "therapy psycho".
+mass production is a concept in conceptville. Understand "production mass" as mass production. howto is "give Lee the rattle". gtxt is "Production mass". [norm]
 
-right to privacy is a concept in conceptville. Understand "privacy to write" and "write to privacy" as right to privacy. howto is "give Lee the rattle". gtxt is "privacy to write".
+pathologic is a rando concept in conceptville. Understand "path oh/o logic" and "logic oh/o path" as pathologic. howto is "[pl-sid]". gtxt is "Oh, logic path".
 
-showerproof is a concept in conceptville. Understand "shower proof" and "proof shower" as showerproof. howto is "listen to Sid Lew's advice (random)". gtxt is "proof shower".
+psychotherapy is a rando concept in conceptville. Understand "psycho therapy" and "therapy psycho" as psychotherapy. howto is "[pl-sid]". gtxt is "therapy psycho".
 
-sid vicious is a concept in conceptville. Understand "vicious sid" as sid vicious. howto is "listen to Sid Lew's advice (random)". gtxt is "Vicious Sid".
+right to privacy is a concept in conceptville. Understand "privacy to write" and "write to privacy" as right to privacy. howto is "give Lee the rattle". gtxt is "privacy to write". [norm]
 
-technology is a concept in conceptville. Understand "tech y knowledge" and "knowledge y tech" as technology. howto is "listen to Sid Lew's advice (random)". gtxt is "knowledge y tech".
+showerproof is a rando concept in conceptville. Understand "shower proof" and "proof shower" as showerproof. howto is "[pl-sid]". gtxt is "proof shower".
 
-thp is a privately-named concept in conceptville. printed name is "200 proof". Understand "proof 200" and "200 proof" as thp. howto is "give Lee the rattle". gtxt is "Proof 200".
+sid vicious is a rando concept in conceptville. Understand "vicious sid" as sid vicious. howto is "[pl-sid]". gtxt is "Vicious Sid".
 
-turing machine is a concept in conceptville. Understand "touring machine" and "machine touring" as turing machine. howto is "listen to Sid Lew's advice (random)". gtxt is "machine touring".
+technology is a rando concept in conceptville. Understand "tech y knowledge" and "knowledge y tech" as technology. howto is "[pl-sid]". gtxt is "knowledge y tech".
+
+thp is a privately-named concept in conceptville. printed name is "200 proof". Understand "proof 200" and "200 proof" as thp. howto is "give Lee the rattle". gtxt is "Proof 200". [norm]
+
+turing machine is a rando concept in conceptville. Understand "touring machine" and "machine touring" as turing machine. howto is "[pl-sid]". gtxt is "machine touring".
 
 whole truth is a firstvis concept in conceptville. Understand "truth whole" as whole truth. howto is "[f-t of Truth Home]". gtxt is "truth hole".
 
 section scheme pyramid concepts
 
-age four is a concept in conceptville. Understand "four age" and "forage" as age four. howto is "decline the Labor Child's offer for help". gtxt is "FORAGE". [ok]
+age four is a dialoguey concept in conceptville. Understand "four age" and "forage" as age four. howto is "[t2 of Labor Child], decline help". gtxt is "FORAGE". [ok]
 
 Army Brat is a firstvis concept in conceptville. Understand "brat army" as army brat. howto is "[f-t of the scheme pyramid]". gtxt is "brat army".
 
@@ -13126,11 +13138,11 @@ bookworm is a xable concept in conceptville. Understand "book worm" and "worm bo
 
 business casual is a xable concept in conceptville. Understand "casual business" as business casual. howto is "[x-it of deal clothes]". gtxt is "casual business".
 
-child support is a concept in conceptville. Understand "support child" as child support. howto is "talk to the Labor Child before gettiing the contract". gtxt is "Support Child".
+child support is a missable concept in conceptville. Understand "support child" as child support. howto is "bug the Labor Child before getting the contract". gtxt is "Support Child".
 
 Labor of Love is a firstvis concept in conceptville. Understand "love of labor" as labor of love. howto is "[f-t of the scheme pyramid]". gtxt is "love of labor".
 
-slush fund is a concept in conceptville. Understand "fund slush" as slush fund. howto is "decline the Labor Child's offer for help". gtxt is "fund slush".
+slush fund is a dialoguey concept in conceptville. Understand "fund slush" as slush fund. howto is "[t2 of Labor Child], decline help". gtxt is "fund slush".
 
 section speaking plain concepts
 
@@ -13150,19 +13162,19 @@ Dutch Courage is a rando concept in conceptville. Understand "courage dutch" as 
 
 Dutch Reckoning is a rando concept in conceptville. Understand "reckoning dutch" as dutch reckoning. howto is "[pl-wa]". gtxt is "reckoning, Dutch".
 
-Dutch Treat is a concept in conceptville. Understand "treat dutch" as dutch treat. howto is "type TREAT DUTCH around Uncle Dutch". gtxt is "treat Uncle Dutch".
+Dutch Treat is a snarky concept in conceptville. Understand "treat dutch" as dutch treat. howto is "type TREAT DUTCH around Uncle Dutch". gtxt is "treat Uncle Dutch".
 
 Fearlessness is a rando concept in conceptville. Understand "lessness fear" and "fear lessness" as fearlessness. howto is "[pl-wa]". gtxt is "lessness-fear".
 
 hate speech is a violent concept in conceptville. Understand "speech hate" as hate speech. howto is "attack Turk or Dutch". gtxt is "SPEECH HATE".
 
-platform shoes is a concept in conceptville. Understand "shoes platform" as platform shoes. howto is "climb the fright stage". gtxt is "shoos platform".
+platform shoes is a snarky concept in conceptville. Understand "shoes platform" as platform shoes. howto is "climb the fright stage". gtxt is "shoos platform".
 
 Rust Belt is a rando concept in conceptville. Understand "belt rust" as rust belt. howto is "[pl-wa]". gtxt is "belt rust".
 
-Show Business is a concept in conceptville. Understand "business show" as show business. howto is "Go to the Speaking Plain without eating a Tray B food". gtxt is "BUSINESS SHOW".
+Show Business is a firstvis concept in conceptville. Understand "business show" as show business. howto is "[f-t of Speaking Plain] without eating a Tray B food". gtxt is "BUSINESS SHOW".
 
-show off is a concept in conceptville. Understand "off show" as show off. howto is "listen to all of the Business Show". gtxt is "OFF SHOW".
+show off is a rando concept in conceptville. Understand "off show" as show off. howto is "[pl-all]". gtxt is "OFF SHOW".
 
 show our work is a rando concept in conceptville. Understand "work our show" as show our work. howto is "[pl-wa]". gtxt is "WORK OUR SHOW".
 
@@ -13170,19 +13182,19 @@ Stand the Pace is a rando concept in conceptville. Understand "pace the stand" a
 
 section temper keep concepts
 
-sound asleep is a concept in conceptville. Understand "asleep sound" as sound asleep. howto is "put the pot in the vent". gtxt is "asleep sound".
+sound asleep is a concept in conceptville. Understand "asleep sound" as sound asleep. howto is "put the pot in the vent". gtxt is "asleep sound". [norm]
 
-venturesome is a concept in conceptville. Understand "you're/youre some vent" and "some vent" as venturesome. howto is "enter the spleen vent". gtxt is "you're some vent".
+venturesome is a missable concept in conceptville. Understand "you're/youre some vent" and "some vent" as venturesome. howto is "enter the spleen vent". gtxt is "you're some vent".
 
 section questions field concepts
 
-brass ring is a concept in conceptville. Understand "ring brass" as brass ring. howto is "drink the Quiz Pop". gtxt is "RING BRASS".
+brass ring is a concept in conceptville. Understand "ring brass" as brass ring. howto is "drink the Quiz Pop". gtxt is "RING BRASS". [norm]
 
-Brother's Keepers is a concept in conceptville. Understand "brother/brothers keeper/keepers" and "keeper/keepers brother/brothers" as Brother's Keepers. howto is "examine the brothers". gtxt is "Keepers Brothers".
+Brother's Keepers is a xable concept in conceptville. Understand "brother/brothers keeper/keepers" and "keeper/keepers brother/brothers" as Brother's Keepers. howto is "[x-it of brother big], Soul, or Blood". gtxt is "Keepers Brothers".
 
-contempt of congress is a concept in conceptville. Understand "congress of contempt" as contempt of congress. howto is "try to re-visit Buddy Best after getting the Circular". gtxt is "Congress of Contempt".
+contempt of congress is a missable concept in conceptville. Understand "congress of contempt" as contempt of congress. howto is "try to re-visit Buddy Best after getting the Circular". gtxt is "Congress of Contempt".
 
-foster brother is a concept in conceptville. Understand "brother foster" as foster brother. howto is "talk to any of the brothers in Questions Field". gtxt is "Brother Foster".
+foster brother is a dialoguey concept in conceptville. Understand "brother foster" as foster brother. howto is "[t2 of brother big], Soul, or Blood". gtxt is "Brother Foster".
 
 section court of contempt concepts
 
@@ -13214,7 +13226,7 @@ Driving Crazy is a xable concept in conceptville. Understand "crazy driving" as 
 
 Watkins Glen is a xable concept in conceptville. Understand "glen watkins" as watkins glen. howto is "[x-it of mistake grave]". gtxt is "GLEN WATKINS".
 
-wood pusher is a concept in conceptville. Understand "pusher wood" as wood pusher. howto is "enter Pot Chamber after putting Sal to sleep". gtxt is "Pusher Wood".
+wood pusher is a missable concept in conceptville. Understand "pusher wood" as wood pusher. howto is "enter Pot Chamber after putting Sal to sleep". gtxt is "Pusher Wood".
 
 section standard bog concepts
 
@@ -13224,21 +13236,21 @@ spell disaster is a cantgo concept in conceptville. Understand "disaster spell" 
 
 section pot chamber concepts
 
-bum a cigarette is a concept in conceptville. Understand "cigarette a bum" as bum a cigarette. howto is "ask Pusher Penn what's up". gtxt is "a cigarette bum".
+bum a cigarette is a dialoguey concept in conceptville. Understand "cigarette a bum" as bum a cigarette. howto is "[t2 of Pusher Penn]". gtxt is "a cigarette bum".
 
-crack pipe is a concept in conceptville. Understand "pipe crack" as crack pipe. howto is "listen in the Pot Chamber". gtxt is "pipe crack".
+crack pipe is a listeny concept in conceptville. Understand "pipe crack" as crack pipe. howto is "[li of Pot Chamber]". gtxt is "pipe crack".
 
-crack up is a concept in conceptville. Understand "up/down/joke crack" and "crack joke/down" as crack up. howto is "ask Pusher Penn what's up". gtxt is "crack, up, down or even joke".
+crack up is a dialoguey concept in conceptville. Understand "up/down/joke crack" and "crack joke/down" as crack up. howto is "[t2 of Pusher Penn]". gtxt is "crack, up, down or even joke".
 
 dopamine is a violent concept in conceptville. Understand "mean dope" and "dope mean" as dopamine. howto is "[at of Pusher Penn]". gtxt is "a mean dope".
 
 go to pot is a firstvis concept in conceptville. Understand "pot to go" as go to pot. howto is "[f-t of Pot Chamber]". gtxt is "Pot to Go".
 
-kilo is a concept in conceptville. Understand "loki" and "ki lo" and "lo ki" as kilo. howto is "ask Pusher Penn about bad stuff". gtxt is "Loki". [ok]
+kilo is a dialoguey concept in conceptville. Understand "loki" and "ki lo" and "lo ki" as kilo. howto is "[t2 of Pusher Penn]". gtxt is "Loki". [ok]
 
 pop pills is a dialoguey concept in conceptville. Understand "pills pop" as pop pills. howto is "[bga of Pusher Penn]". gtxt is "Pills Pop".
 
-roach dropping is a concept in conceptville. Understand "dropping roach" as roach dropping. howto is "drop the weed or pot". gtxt is "dropping a roach".
+roach dropping is a snarky concept in conceptville. Understand "dropping roach" as roach dropping. howto is "drop the weed or pot". gtxt is "dropping a roach".
 
 time capsule is a dialoguey concept in conceptville. Understand "capsule time" as time capsule. howto is "[bga of Pusher Penn]". gtxt is "capsule time".
 
@@ -13258,7 +13270,7 @@ Block Creativity is a concept in conceptville. Understand "creativity block" as 
 
 chamber music is a missable concept in conceptville. Understand "music chamber" as chamber music. howto is "get rid of Art first in Discussion Block". gtxt is "Music Chamber".
 
-Coals to Newcastle is a concept in conceptville. Understand "new castle to coals" and "newcastle to coals" as Coals to Newcastle. howto is "take song torch". gtxt is "new castle to coals".
+Coals to Newcastle is a missable concept in conceptville. Understand "new castle to coals" and "newcastle to coals" as Coals to Newcastle. howto is "take song torch". gtxt is "new castle to coals".
 
 counterculture is a firstvis concept in conceptville. Understand "counter culture" and "culture counter" as counterculture. howto is "[f-t of discussion block]". gtxt is "Culture Counter".
 
@@ -13274,7 +13286,7 @@ Play Dumb is a firstvis concept in conceptville. Understand "dumb play" as play 
 
 shelving the thought is a missable concept in conceptville. Understand "thought shelving" as shelving the thought. howto is "get rid of Phil first in Discussion Block". gtxt is "the Thought Shelving".
 
-Steal This Book is a snarky concept in conceptville. Understand "book this steal" as Steal This Book. howto is "take book bank". gtxt is "Book This Steal".
+Steal This Book is a missable concept in conceptville. Understand "book this steal" as Steal This Book. howto is "take book bank". gtxt is "Book This Steal".
 
 wax lyrical is a snarky concept in conceptville. Understand "lyrical wax" as wax lyrical. howto is "sing while holding the poetic wax". gtxt is "lyrical wax".
 
@@ -13282,13 +13294,13 @@ world record is a concept in conceptville. Understand "record world" as world re
 
 section judgment pass concepts
 
-career threatening is a concept in conceptville. Understand "threatening career" as career threatening. howto is "give Officer Petty the Reasoning Circular". gtxt is "Threatening career".
+career threatening is a concept in conceptville. Understand "threatening career" as career threatening. howto is "give Officer Petty the Reasoning Circular". gtxt is "Threatening career". [norm]
 
 countermand is a xable concept in conceptville. Understand "counter manned" and "manned counter" as countermand. howto is "[x-it of intuition counter] once Officer Petty is gone". gtxt is "manned counter".
 
-pass the torch is a concept in conceptville. Understand "torch the pass" as pass the torch. howto is "BURN anything in Judgment Pass". gtxt is "torch the pass".
+pass the torch is a snarky concept in conceptville. Understand "torch the pass" as pass the torch. howto is "BURN anything in Judgment Pass". gtxt is "torch the pass".
 
-scofflaw is a concept in conceptville. Understand "scoff law" and "lawscoff/law-scoff/scoff-law" and "law scoff" as scofflaw. howto is "give Officer Petty the Reasoning Circular". gtxt is "law-scoff".
+scofflaw is a concept in conceptville. Understand "scoff law" and "lawscoff/law-scoff/scoff-law" and "law scoff" as scofflaw. howto is "give Officer Petty the Reasoning Circular". gtxt is "law-scoff". [norm]
 
 section idiot village concepts
 
@@ -13331,9 +13343,9 @@ blow the final is a dialoguey concept in conceptville. Understand "final the blo
 
 breadwinner is a browny concept in conceptville. Understand "winner bread" and "winner bread" as breadwinner. howto is "[fr-pb]". gtxt is "winner bread".
 
-The Break Jail is a concept in conceptville. Understand "jail break" as Break Jail. howto is "[ok-end]". gtxt is "BREAK JAIL".
+The Break Jail is a missable concept in conceptville. Understand "jail break" as Break Jail. howto is "[ok-end]". gtxt is "BREAK JAIL".
 
-Break Monotony is a concept in conceptville. Understand "monotony break" as break monotony. howto is "wait for the [bad-guy] to go through his actions". gtxt is "monotony break".
+Break Monotony is a missable concept in conceptville. Understand "monotony break" as break monotony. howto is "wait for the [bad-guy] to go through his actions". gtxt is "monotony break".
 
 a thing called breaking and entering is a violent concept in conceptville. Understand "entering and breaking" as breaking and entering. howto is "attack scenery in Freak Control". gtxt is "Entering and breaking".
 
@@ -13373,7 +13385,7 @@ evil eye is a nemmy concept in conceptville. Understand "i evil" and "evil i" as
 
 Ezra Pound is a nemmy concept in conceptville. Understand "pound ezra" as ezra pound. howto is "[fr-ran]". gtxt is "pound Ezra".
 
-face facts is a concept in conceptville. Understand "facts face" as face facts. howto is "talk to the [bad-guy]". gtxt is "facts face".
+face facts is a dialoguey concept in conceptville. Understand "facts face" as face facts. howto is "[t2 of baiter master]". gtxt is "facts face".
 
 fanatic is a nemmy concept in conceptville. Understand "attic fan" and "fan attic" as fanatic. howto is "[fr-ran]". gtxt is "attic fan".
 
@@ -13383,13 +13395,13 @@ fawn over is a nemmy concept in conceptville. Understand "over fawn" as fawn ove
 
 following my gut is a concept in conceptville. Understand "gut my following" as following my gut. howto is "get the [bad-guy]'s attention". gtxt is "gut my following". [norm]
 
-Freak Out is a concept in conceptville. Understand "out freak" as freak out. howto is "read the Language sign". gtxt is "OUT, FREAK".
+Freak Out is a xable concept in conceptville. Understand "out freak" as freak out. howto is "[x-it of Language Sign]". gtxt is "OUT, FREAK".
 
 general principle is a dialoguey concept in conceptville. Understand "general principal" and "principal general" as general principle. howto is "[bad-guy] dialog". gtxt is "Principal General".
 
 gravy train is a browny concept in conceptville. Understand "train gravy" as gravy train. howto is "[fr-pb]". gtxt is "train gravy".
 
-grunt work is a concept in conceptville. Understand "work grunt" as grunt work. howto is "listen in Freak Control". gtxt is "work grunt".
+grunt work is a listeny concept in conceptville. Understand "work grunt" as grunt work. howto is "[li of Freak Control]". gtxt is "work grunt".
 
 guttersnipe is a culinary concept in conceptville. Understand "snipe gutter" and "gutter snipe" as guttersnipe. howto is "eat the off cheese and 'win'". gtxt is "Snipe Gutter". [ok]
 
@@ -13411,7 +13423,7 @@ Johns Hopkins is a nemmy concept in conceptville. Understand "hopkins johns" as 
 
 King Henry is a nemmy concept in conceptville. Understand "henry king" as king henry. howto is "[fr-ran]". gtxt is "Henry King got one".
 
-laughingstock is a concept in conceptville. Understand "laughing stock" and "stock laughing" as laughingstock. howto is "talk to the [bad-guy]". gtxt is "stock laughing".
+laughingstock is a dialoguey concept in conceptville. Understand "laughing stock" and "stock laughing" as laughingstock. howto is "[t2 of baiter master]". gtxt is "stock laughing".
 
 Leading Question is a nemmy concept in conceptville. Understand "question leading" as leading question. howto is "[fr-ran]". gtxt is "question leading".
 
@@ -13441,7 +13453,7 @@ police state is a nemmy concept in conceptville. Understand "state police" as po
 
 polygraph is a nemmy concept in conceptville. Understand "graph polly" and "polly graph" as polygraph. howto is "[fr-ran]". gtxt is "graph Polly".
 
-Power Trip is a concept in conceptville. Understand "trip power" as power trip. howto is "wait for the [bad-guy] to go through his actions". gtxt is "POWER TRIP".
+Power Trip is a missable concept in conceptville. Understand "trip power" as power trip. howto is "wait for the [bad-guy] to go through his actions". gtxt is "POWER TRIP".
 
 pratfall is a dialoguey concept in conceptville. Understand "prat fall" and "fall prat" as pratfall. howto is "[bad-guy] dialog". gtxt is "Fall, prat".
 
@@ -13451,7 +13463,7 @@ Putin is a nemmy concept in conceptville. Understand "input" and "put in" and "i
 
 race baiting is a nemmy concept in conceptville. Understand "baiting race" as race baiting. howto is "[fr-ran]". gtxt is "baiting race".
 
-reactionary is a concept in conceptville. Understand "airy reaction" and "reaction airy" as reactionary. howto is "talk to the [bad-guy] before guessing the right action". gtxt is "airy reaction".
+reactionary is a missable concept in conceptville. Understand "airy reaction" and "reaction airy" as reactionary. howto is "bug the [bad-guy] before guessing the right action". gtxt is "airy reaction".
 
 red alert is a nemmy concept in conceptville. Understand "alert red/read" and "read alert" as red alert. howto is "[fr-ran]". gtxt is "Alert? Read".
 
@@ -13507,7 +13519,7 @@ section airy station concepts
 
 case insensitive is a violent concept in conceptville. Understand "insensitive case" as case insensitive. howto is "[at of Return Carriage]". gtxt is "insensitive case".
 
-clear waivers is a concept in conceptville. Understand "waivers/wavers clear" and "clear wavers" as clear waivers. howto is "try going any direction in Airy Station". gtxt is "Wavers, clear".
+clear waivers is a cantgo concept in conceptville. Understand "waivers/wavers clear" and "clear wavers" as clear waivers. howto is "[nogo of Airy Station]". gtxt is "Wavers, clear".
 
 chapter fake death concepts
 
@@ -13531,13 +13543,13 @@ Sore Loser is a punishy concept in conceptville. Understand "loser sore" as sore
 
 section Hut Ten concepts
 
-corporal punishment is a concept in conceptville. Understand "punishment corporal" as corporal punishment. howto is "vandalize scenery/games before Freak Control". gtxt is "Punishment Corporal".
+corporal punishment is a violent concept in conceptville. Understand "punishment corporal" as corporal punishment. howto is "attack scenery/games before Freak Control". gtxt is "Punishment Corporal".
 
 generalist is a firstvis concept in conceptville. Understand "general list" and "list general" as generalist. howto is "[f-t of hut ten]". gtxt is "List General".
 
 section In-Dignity Heap concepts
 
-steel will is a concept in conceptville. Understand "will steel" as steel will. howto is "swear around an authority figure". gtxt is "Will Steele".
+steel will is a snarky concept in conceptville. Understand "will steel" as steel will. howto is "swear around an authority figure". gtxt is "Will Steele".
 
 section Maintenance High concepts
 
@@ -13562,7 +13574,7 @@ chapter director's cut concepts
 
 section rage road concepts
 
-road pizza is a concept in conceptville. Understand "pizza road" as road pizza. howto is "visit Rage Road in the Directors['] Cut". gtxt is "Pizza Road".
+road pizza is a firstvis concept in conceptville. Understand "pizza road" as road pizza. howto is "[f-t of Rage Road] (Directors['] Cut)". gtxt is "Pizza Road".
 
 chapter lalaland concepts
 
@@ -13574,7 +13586,7 @@ Much Flatter is a culinary concept in conceptville. Understand "flatter much" as
 
 People Power is a culinary concept in conceptville. Understand "power people" as People Power. howto is "eat the greater cheese and 'win'". gtxt is "Power People".
 
-Received Wisdom is a concept in conceptville. Understand "wisdom received" as received wisdom. howto is "get past Freak Control and get either good ending". gtxt is "Wisdom Received".
+Received Wisdom is a concept in conceptville. Understand "wisdom received" as received wisdom. howto is "get past Freak Control and get either good ending". gtxt is "Wisdom Received". [norm]
 
 Something Mean is a culinary concept in conceptville. Understand "mean something" as Something Mean. howto is "eat the cutter cookie and 'win'". gtxt is "Mean Something".
 
