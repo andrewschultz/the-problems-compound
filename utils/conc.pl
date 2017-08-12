@@ -125,6 +125,8 @@ $tableDetHash{"buck-the-past"} = "!xxtia";
 
 my %conceptMatch;
 my %conceptMatchProj;
+my %conceptMatchPriority;
+my %conceptMatchProjPriority;
 
 my $source = __FILE__;
 
@@ -947,12 +949,17 @@ my $inRoomTable = 0;
 my $inRoomSect = 0;
 
 my %tempConc;
+my %tempPriority;
 $tempConc{$_} = $conceptMatch{$_} for keys %conceptMatch;
+$tempPriority{$_} = $conceptMatchPriority{$_} for keys %conceptMatchPriority;
 
 if (defined $conceptMatchProj{$_[0]})
 {
   my $refhash = $conceptMatchProj{$_[0]};
   $tempConc{$_} = $conceptMatchProj{$_[0]}{$_} for keys %$refhash;
+
+  $refhash = $conceptMatchProjPriority{$_[0]};
+  $tempPriority{$_} = $conceptMatchProjPriority{$_[0]}{$_} for keys %$refhash;
 }
 
 my $regexp = " is a(n)? \(risque |privately-named \)?\(" . join(' |', @contexts) . " \)?concept in (lalaland|conceptville)";
@@ -1058,7 +1065,7 @@ while ($lineIn = <X>)
   $tmpVar = $lineIn;
   if ($lineIn =~ /gtxt(x)? is/) # I could move this to a concept-specific block of code but it's good enough.
   {
-    for my $adj (keys %tempConc)
+    for my $adj (sort { $tempPriority{$a} <=> $tempPriority{$b} } keys %tempConc)
     {
 	  next if ($adj eq "*");
       if (($lineIn =~ /howto is \"$adj/i) + ($lineIn =~ /$tempConc{$adj} concept/) == 1)
@@ -2048,17 +2055,19 @@ sub readConceptMods
 	}
 	die ("Line in $matchFile needs tab: $line") if ($line !~ /\t/);
 	@ary = split(/\t/, $line);
-	die ("$ary[0] dup-defined in $matchFile--I can't work with that right now. You'll need a more complex regex.") if defined $genTarget{$ary[0]};
+	die ("$ary[0] in $matchFile is duplicate-defined. We don't overwrite yet, so I'm killing the program.") if defined $genTarget{$ary[0]};
 	if ($project)
 	{ # doing this backwards because "a[0] concept. text is [a[1]]" is the syntax
 	  print "Mapping concept match $ary[1] to $ary[0]\n" if $debug;
-	  $conceptMatchProj{$project}{$ary[1]} = $ary[0];
+	  $conceptMatchProj{$project}{$ary[2]} = $ary[0];
+	  $conceptMatchProjPriority{$project}{$ary[2]} = $ary[1];
 	  push(@contexts, $ary[0]);
 	}
 	else
 	{
 	  $genTarget{$ary[0]} = 1;
-	  $conceptMatch{$ary[1]} = $ary[0];
+	  $conceptMatch{$ary[2]} = $ary[0];
+	  $conceptMatchPriority{$ary[2]} = $ary[1];
 	  push(@contexts, $ary[0]);
 	}
   }
