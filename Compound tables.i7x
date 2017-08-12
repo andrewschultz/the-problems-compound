@@ -389,6 +389,7 @@ macho-boast
 "The [j-co] debate that comic strip by [activation of white guys]."
 "The [j-co] rave about the wonderfully greasy options at [activation of whole foods]."
 "The [j-co] agree Erwin is just a total loser name." [na winner]
+"The [j-co] mock Hunter Savage for being a much bigger wimp than you'd think."
 "The [j-co] agree Gerda would never knife you in the back." [na dagger]
 "The [j-co] agree Rozier is really all that." [na zero]
 "The [j-co] agree that Diener is massively cool." [na nerdy]
@@ -485,6 +486,7 @@ gad-act
 "The [bad-guy] snickers at [activation of Tucker Max]'s boring diaries that are well-written and all but don't have a trace of REAL self-awareness in them."
 "'[activation of Wallace Shawn] said THAT? Conceivable.'"
 "The [bad-guy] clucks: 'I have to admit: I'm standing grand without grandstanding!'" [na]
+"The [bad-guy] complains there's no gadget for census sussin[']." [na]
 "The [bad-guy] loud-whispers how those wimps Willis Bruce and Norris Charles need attending to by his...associates." [na]
 
 table of bad guy worries (continued) [divided so activations are always alphabetical] [xxbgw]

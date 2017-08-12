@@ -3047,7 +3047,7 @@ carry out diging:
 		now permit entry is 1;
 		choose row with response of weasel-pick-hey in table of weasel talk;
 		now permit entry is 1;
-		say "With your pocket pick, the work is steady and clean, if arduous. Your cheap pocket pick starts splitting off--why couldn't the earth of salt been [activation of scum of earth] or something easier to hack at?--and it snaps in two with the final blow.[paragraph break]Beneath is a thin plaque. But not just any plaque: a PROOF OF BURDEN. You wipe it off and pick it up, then you bury the pocket pick, which is not only broken but also rusted." instead; [temproom vision tunnel]
+		say "With your pocket pick, the work is steady and clean, if arduous. Your cheap pocket pick starts splitting off--why couldn't the earth of salt been [activation of scum of earth] or something easier to hack at?--and it snaps in two as you hit something even harder.[paragraph break]Beneath is a thin plaque. But not just any plaque: a PROOF OF BURDEN. You wipe it off and pick it up, then you bury the pocket pick, which is not only broken but also rusted." instead; [temproom vision tunnel]
 	say "That's not soft enough." instead;
 	the rule succeeds.
 
@@ -3496,7 +3496,7 @@ decline the challenge	"To decline the challenge is to avoid something difficult.
 first world problems	"The phrase 'first world problems' often is used to mock relatively small-seeming issues."
 flat broke	"Flat broke means totally without possessions or assets. The broke flat is...well, a roof over your head."
 good egg	"A good egg is a nice person. To egg, or egg on, is to bait someone into doing something you want them to."
-Hunter Savage	"A savage hunter is, well, someone with no mercy. Yup, I like the 'dirty' tangential bad guy better, too."
+Armstrong	"To strongarm someone is to get them to do what they don't want."
 knockwurst	"Knockwurst is a kind of sausage."
 Mind Games	"Mind games are messing with people's mind with lies or half-truths. A games mind might be more inclined to abstract puzzles."
 palace	"A palace is a big, expensive, (usually) well-kept-up place."
@@ -4962,10 +4962,10 @@ to say bad-guy:
 	say "[if allow-swears is true]Baiter Master[else]Complex Messiah[end if]"
 
 to say bad-guy-2:
-	say "[if allow-swears is true][activation of buster ball]Buster Ball[else][activation of hunter savage]Hunter Savage[end if]";
+	say "[if allow-swears is true][activation of buster ball]Buster Ball[else][activation of Armstrong]Armstrong[end if]";
 
 to say bad-guy-2-c:
-	say "[if allow-swears is true][activation of buster ball]BUSTER BALL[else][activation of hunter savage]HUNTER SAVAGE[end if]";
+	say "[if allow-swears is true][activation of buster ball]BUSTER BALL[else][activation of Armstrong]ARMSTRONG[end if]";
 
 to say bg:
 	say "[if allow-swears is true]BM[else]CM[end if]"
@@ -6908,7 +6908,7 @@ section general tray b eating stuff
 to bad-food-process (as - a truth state):
 	if as is true:
 		if allow-swears is false:
-			say "Then, after a bit of thinking, you realize how lame it was to be stuffy about swears. You have stuff to swear ABOUT now, see? You didn't used to have it, or any emotional depth, but now, heck yeah! (Okay, you still need some practice.) You realize Hunter Savage was just a pseudonym, and you're pretty sure the Complex Messiah had a cooler name, too.";
+			say "Then, after a bit of thinking, you realize how lame it was to be stuffy about swears. You have stuff to swear ABOUT now, see? You didn't used to have it, or any emotional depth, but now, heck yeah! (Okay, you still need some practice.) You realize Armstrong was probably just a puppet for someone more with-it, and you're pretty sure the Complex Messiah had a cooler name, too.";
 			now allow-swears is true;
 	ital-say "This has caused an irreversible personality change in Alec. You may wish to UNDO and SAVE before trying to eat again to restore Normal Alec, even if that's not what he wants right now.";
 	now player has an opener eye;
@@ -10939,7 +10939,7 @@ bm-mug	"'Oh, it's Crisis Energy[activation of energy crisis]. For taking urgent 
 bm-bad2	"'It's--it's, well, tribute is what it is.'"
 bm-so-bad2	"'Oh, come on, you know the difference.'[wfk][line break]Your reply just slips out. 'Yeah, it's easy, there's not much of it.' Maybe you shouldn't have...but nothing happens..."
 bm-tribute	"'There will be. Just--first things first. Stability. We almost got there, until you stepped in.'"
-bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Well. I didn't want to do it, but you made me put on my [activation of face facts]. You'll never [activation of following my gut]! You don't listen to your [activation of half right]...makes you miss obvious things others see immediately. Always have, always will. [activation of see you later]...' The Baiter Master storms out, and he must have had a remote, because you're locked in![wfk][paragraph break]You search frantically. There must be some way to communicate...and you dig around until you find the [activation of wire fraud]! Meant to 'remind' citizens they aren't as nice as they think they are, it now encourages them to get mad. The Goods get their cult to help. The [j-co] even chip in, too. Then, for kicks, you call [bad-guy-2] pretending to be the [bad-guy] and you prank him. And, of course, you remember the number to RING BRASS, from the Quiz Pop.[paragraph break]Mark Black is on his way--but so are the [bad-guy]'s allies! You hear Brother Foster say, well, I knew they were flaky, but that's what you GET when you try to give them an important position in life, and [activation of relief] will set things straight.[wfk]Yes. That must be him, now.[paragraph break]'A danger not just to the Problems Compound but to [activation of city slicker]! [activation of pratfall]!' he booms, tripping over his feet slightly.[wfk]"
+bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Well. I didn't want to do it, but you made me put on my [activation of face facts]. You'll never [activation of following my gut]! You don't listen to your [activation of half right]...makes you miss obvious things others see immediately. Always have, always will. [activation of see you later]...' The Baiter Master storms out, and he must have had a remote, because you're locked in![wfk][paragraph break]You search frantically. There must be some way to communicate...and you dig around until you find the [activation of wire fraud]! Meant to 'remind' citizens they aren't as nice as they think they are, it now encourages them to get mad. The Goods get their cult to help. The [j-co] even chip in, too. Then, for kicks, you call [bad-guy-2] pretending to be the [bad-guy] and you prank him. And, of course, you remember the number to RING BRASS, from the Quiz Pop.[paragraph break]Mark Black is on his way--but so are the [bad-guy]'s allies! You hear Brother Foster say, well, I knew they were flaky, but that's what you GET when you try to give them an important position in life, and [activation of relief] will set things straight. He's my [activation of general principle=principal general] I just hired.[wfk]Yes. That must be him, now.[paragraph break]'A danger not just to the Problems Compound but to [activation of city slicker]! [activation of pratfall]!' he booms, tripping over his feet slightly. 'Face the [activation of surge protector]!'[wfk]"
 bm-bye	"'You're not going anywhere.' And he's right. But it's not out totally out of fear, now."
 
 already-good is a truth state that varies.
@@ -10985,7 +10985,7 @@ to choose-final-room:
 			set the pronoun them to mentality crowd;
 			move player to Airy Station;
 		else:
-			say "'Where? In the [activation of break jail]!'[paragraph break]Could people who yell that loud REALLY be that wrong? You keep a straight face, even as he booms '[activation of zeroin]!' Which helps you focus more than you thought you could on how to get out. You're way ahead of the guards when they give chase. There's a mist ahead--maybe they'll lose you! But you've done even better. 'The out mist!' they yell. 'People eventually leave there to get back to real life.' Leif Rhee booms his troops have enough out steak to last a while."; [temproom freak control]
+			say "'Where? In the [activation of break jail]!'[paragraph break]Could people who yell that loud REALLY be that wrong? You keep a straight face, even as he booms '[activation of zeroin]! For [activation of blow the final]!' Which helps you focus more than you thought you could on how to get out. You're way ahead of the guards when they give chase. There's a mist ahead--maybe they'll lose you! But you've done even better. 'The out mist!' they yell. 'People eventually leave there to get back to real life.' Leif Rhee booms his troops have enough out steak to last a while."; [temproom freak control]
 			set the pronoun it to worm ring;
 			move player to Out Mist;
 		annotize baiter master;
@@ -12447,7 +12447,7 @@ flat broke is a concept in conceptville. Understand "broke flat" as flat broke. 
 
 Good Egg is a dialoguey concept in conceptville. Understand "egg good" as good egg. howto is "[t2 of Guy]". gtxt is "egg GOOD".
 
-Hunter Savage is a concept in conceptville. Understand "savage hunter" as hunter savage. howto is "talking".
+Armstrong is a concept in conceptville. Understand "strongarm" and "arm strong" and "strong arm" as armstrong. howto is "talking".
 
 knockwurst is a concept in conceptville. Understand "knock worst" and "worst knock" as knockwurst. howto is "knock any way other than hard in Smart Street". gtxt is "worst knock".
 
