@@ -48,6 +48,8 @@ my $projMapFile = __FILE__; $projMapFile =~ s/.pl$/-proj-map.txt/i;
 #options
 my $exportUnremarkable = 0;
 my $launchUnremarkable = 0;
+my $launchUnremarkableLine = 0;
+my $getLatestUnremarkable = 0;
 my $activationCheck = 0;
 my $maxBadAct = 0;
 my $writeAfter = 0;
@@ -215,7 +217,7 @@ while ($count <= $#ARGV)
     /^-?vcp$/ && do { $verboseCutPaste = 1; $count++; next; };
     /^-?bs$/ && do { $overlookOptionClash = 1; $count++; next; };
 	/^-?cc$/ && do { $modifyConcepts = 1; $count++; next; };
-	/^-?xu(l)?$/ && do { $exportUnremarkable = 1; $launchUnremarkable = ($a =~ /l/); $count++; next; };
+	/^-?xu(lse)*$/ && do { $exportUnremarkable = 1; $launchUnremarkable = ($a =~ /l/); $launchUnremarkableLine = ($a =~ /s/); $getLatestUnremarkable = ($a =~ /e/); $count++; next; };
 	/^-?[cv0nlmw]+$/ && do
 	{
 	  $codeToClipboard = $printErrCode = $printErrors = 0;
@@ -291,11 +293,12 @@ sub exportUnremarkable
 {
   my $outFile = "c:\\games\\inform\\$_[0].inform\\source\\unrem.txt";
   my $unattached = 0;
+  my $lineToOpen = 0;
 
-  for (@{$fileHash{$_[0]}})
+  for (@{$fileHash{$_[0]}}) #ok, we could just look for x[0] right now but in case things get more complex...
   {
-    print "$_\n";
     if ($_ !~ /story.ni/) { next; }
+    print "Looking for unremarkables in $_...\n";
 	open(A, $_);
     open(B, ">$outFile");
 	while ($a = <A>)
@@ -304,6 +307,7 @@ sub exportUnremarkable
 	  {
 	    if ($a =~ /a(n)? (privately-named |risque )*concept/ && ($a !~ /\[norm(al)?\]/))
 		{
+		  if (!$lineToOpen || $getLatestUnremarkable) { $lineToOpen = $.; }
 		  print B "$.: $a";
 		  $unattached++;
 		}
@@ -312,8 +316,14 @@ sub exportUnremarkable
   }
   close(A);
   close(B);
-  print "$unattached unattached total.\n";
-  if ($launchUnremarkable) { `$outFile`; }
+  print "$unattached unremarkable concepts total. Remember [norm] makes one normal.\n";
+  if ($launchUnremarkable && $lineToOpen)
+  {
+    my $cmd = "$outFile";
+	$cmd = "start \"\" $np @{$fileHash{$_[0]}}[0] -n$lineToOpen" if $launchUnremarkableLine;
+	print "Running $cmd\n";
+	`$cmd`;
+  }
   exit();
 }
 
@@ -945,7 +955,7 @@ if (defined $conceptMatchProj{$_[0]})
   $tempConc{$_} = $conceptMatchProj{$_[0]}{$_} for keys %$refhash;
 }
 
-my $regexp = " is a \(risque |privately-named \)?\(" . join(' |', @contexts) . " \)?concept in (lalaland|conceptville)";
+my $regexp = " is a(n)? \(risque |privately-named \)?\(" . join(' |', @contexts) . " \)?concept in (lalaland|conceptville)";
 
 print "Using regex $regexp\n" if $debug;
 
@@ -1956,6 +1966,7 @@ sub modifyConcepts
   my $fi = $toRead[0];
   my $fi2 = "$fi.2";
   my $conceptsChanged = 0;
+  my $wrongHowto = 0;
 
   open(RF, $toRead[0]);
   open(WF, ">$fi2");
@@ -1979,15 +1990,18 @@ sub modifyConcepts
 	  {
 	    my $findsCount = 0;
 		$findsCount += ($line =~ /$tempConc{$_} concept in/);
-		$findsCount += ($line =~ /howto is \"$_[\]\" -]/);
+		$wrongHowto = ($line =~ /howto is \"$_[\]\" -]/i);
+		$findsCount += $wrongHowto;
 		if ($line =~ /howto is \"\[$tempConc{$_}/) { die("Switched howto/concept type: $line"); }
 		if ($line =~ /$_ concept in /) { die("Switched howto/concept type: $line"); }
 		if ($findsCount == 1)
 		{
+		  print "Line $. has wrong howto, guess is $_.\n";
 		  $conceptsChanged++;
 		  print "Editing line $.\n" if $debug;
-		  $line =~ s/howto is \"[^\"]?\"/howto is \"$_ ??\]\"/i;
-		  $line =~ s/(?!($_ ) )concept in /$tempConc{$_} concept in /i if ($line !~ /$tempConc{$_} concept in /i);
+		  print WF "$_\n" if $line !~ /howto is \"$_[\]\" -]/i;
+		  #$line =~ s/howto is \"[^\"]*?\"/howto is \"$_ ??\]\"/i if $line !~ /howto is \"$_[\]\" -]/i;
+		  $line =~ s/(?!($_ ) )concept in /$tempConc{$_} concept in /i if $line !~ /$tempConc{$_} concept in /i;
 		  last;
 		}
 	  }
@@ -2016,7 +2030,7 @@ sub readConceptMods
   my $line;
   my @ary;
   my $project = "";
-  my %target;
+  my %genTarget;
   @contexts = ();
 
   open(A, "$matchFile") || die("No $matchFile");
@@ -2034,8 +2048,7 @@ sub readConceptMods
 	}
 	die ("Line in $matchFile needs tab: $line") if ($line !~ /\t/);
 	@ary = split(/\t/, $line);
-	die ("$ary[0] dup-defined in $matchFile--I can't work with that right now. You'll need a more complex regex.") if defined $target{$ary[0]};
-	$target{$ary[0]} = 1;
+	die ("$ary[0] dup-defined in $matchFile--I can't work with that right now. You'll need a more complex regex.") if defined $genTarget{$ary[0]};
 	if ($project)
 	{ # doing this backwards because "a[0] concept. text is [a[1]]" is the syntax
 	  print "Mapping concept match $ary[1] to $ary[0]\n" if $debug;
@@ -2044,6 +2057,7 @@ sub readConceptMods
 	}
 	else
 	{
+	  $genTarget{$ary[0]} = 1;
 	  $conceptMatch{$ary[1]} = $ary[0];
 	  push(@contexts, $ary[0]);
 	}
@@ -2115,7 +2129,8 @@ CONC.PL usage
 (END COMBINEABLE OPTIONS)
 -t = print with test results so nightly build can process it
 -nd = no allowed duplicates
--xu(l) = export "unremarkable" concepts to (source directory)\normconc.txt
+-xu(l)(s)(e) = export "unremarkable" concepts to (source directory)\unrem.txt
+    l=launch e=end first s=launch a line
 -up = 'understand x as concept' text processing
 -vcp = verbose cut paste (off by default, not recommended)
 (-)rc(v) = room coordination (v = verbose)
