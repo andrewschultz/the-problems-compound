@@ -389,7 +389,6 @@ macho-boast
 "The [j-co] debate that comic strip by [activation of white guys]."
 "The [j-co] rave about the wonderfully greasy options at [activation of whole foods]."
 "The [j-co] agree Erwin is just a total loser name." [na winner]
-"The [j-co] mock Hunter Savage for being a much bigger wimp than you'd think."
 "The [j-co] agree Gerda would never knife you in the back." [na dagger]
 "The [j-co] agree Rozier is really all that." [na zero]
 "The [j-co] agree that Diener is massively cool." [na nerdy]
@@ -435,6 +434,7 @@ macho-boast
 "The [j-co] wonder why Patti likes silverware so much." [na teapot]
 "The [j-co], in a soft moment, talk up Elsie, the new animal in the zoo." [na seal]
 "The [j-co] don't like how Denny is always needin[']." [na]
+"The [j-co] mock Hunter Savage for being a much bigger wimp than you'd think." [na]
 
 part freak control
 

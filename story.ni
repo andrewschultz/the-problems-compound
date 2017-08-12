@@ -3489,6 +3489,7 @@ up yours	"'Up yours' is a crude expression where 'yours' refers to someone's but
 wait your turn	"This means not to do anything til someone else goes first. But in this case the game wants you to turn your wait into something else."
 wave a flag	"To wave a flag is to give up. To flag something is to note it as particularly productive or unproductive."
 acceptable	"Acceptable means good enough. Though sometimes it might not, if someone is just being diplomatic. Able, Except means you're pretty good but have big flaws. So both can feel like backhand compliments." [start of smart street]
+Armstrong	"To strongarm someone is to get them to do what they don't want."
 beat off	"To beat off is to, well, pleasure oneself. People who are off-beat are often accused of this, among other things, in high school."
 Buster Ball	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure."
 Confidence Games	"Confidence games are where someone gains someone else's trust to rip them off. It can be as simple as a shell game or as complex as an investment scheme. Of course, Alec has confidence with logic games but not much else."
@@ -3496,7 +3497,6 @@ decline the challenge	"To decline the challenge is to avoid something difficult.
 first world problems	"The phrase 'first world problems' often is used to mock relatively small-seeming issues."
 flat broke	"Flat broke means totally without possessions or assets. The broke flat is...well, a roof over your head."
 good egg	"A good egg is a nice person. To egg, or egg on, is to bait someone into doing something you want them to."
-Armstrong	"To strongarm someone is to get them to do what they don't want."
 knockwurst	"Knockwurst is a kind of sausage."
 Mind Games	"Mind games are messing with people's mind with lies or half-truths. A games mind might be more inclined to abstract puzzles."
 palace	"A palace is a big, expensive, (usually) well-kept-up place."
@@ -3887,6 +3887,7 @@ autocratic	"Autocratic means having one person firmly in control."
 beholder of the eye	"'Beauty is in the eye of the beholder' is a cliche meaning we see the nice things we want. Here Alec is worried he's seeing oppresion that gives him an excuse to fear."
 benefactor	"A benefactor is someone who provides support, emotional or financial."
 Beyond Belief	"Beyond belief means something you can't possibly believe in, but belief beyond means more faith than you thought you could have."
+blow the final	"To blow the final is to do badly on a final exam."
 breadwinner	"A breadwinner is the member of the family who makes all or most of the money."
 Break Jail	"A jailbreak means getting out of jail. Though to break someone is to destroy their spirit."
 Break Monotony	"To break (the) monotony is to get a change from something boring."
@@ -3915,6 +3916,7 @@ fatigue duty	"Fatigue duty is the drudge work low-ranking members of the militar
 fawn over	"To fawn over is to flatter someone."
 following my gut	"Following my gut means relying on instinct."
 Freak Out	"To freak out is to make a much bigger emotional display than seems really necessary."
+general principle	"General principle means something you believe in that guides how to act and think."
 gravy train	"A gravy train is a method for getting rich."
 grunt work	"Grunt work is unchallenging work."
 guttersnipe	"A guttersnipe is someone of the lowest class, brought up in squalor. To snipe is to take cheap shots, and if you're in the gutter, so much the worse."
@@ -3963,6 +3965,7 @@ spin off	"A spin-off is a show related to a previous show."
 stake a claim	"To stake a claim is to claim ownership of something."
 stand out	"To stand out is to be different from the rest."
 stupor	"A stupor is when you are conscious but not really aware of what's going on."
+surge protector	"A surge protector is used so a bunch of power sources can be plugged in at once without overloading."
 taste buds	"Taste buds are what you use to experience the sensation of taste."
 Trevor Noah	"Trevor Noah is the current (as of 2017) host of [i]The Daily Show[r], which has become a staple of political satire and commentary."
 Tucker Max	"Tucker Max was alleged to have spanwed the 'fratire' genre, which features cynical 'tell it like it is' writing full of sex and hedonism and self-centeredness. It's the reading equivalent of sitting next to a guy bragging at a bar for a long time. An intelligent guy, sure, but that just lets him bang on longer. Imagine PG Wodehouse's Bertie Wooster without any heart."
@@ -4965,7 +4968,7 @@ to say bad-guy-2:
 	say "[if allow-swears is true][activation of buster ball]Buster Ball[else][activation of Armstrong]Armstrong[end if]";
 
 to say bad-guy-2-c:
-	say "[if allow-swears is true][activation of buster ball]BUSTER BALL[else][activation of Armstrong]ARMSTRONG[end if]";
+	say "[if allow-swears is true][activation of buster ball]BUSTER BALL[else][activation of Armstrong]ARMSTRONG[end if]"; [okdup]
 
 to say bg:
 	say "[if allow-swears is true]BM[else]CM[end if]"
@@ -10939,7 +10942,7 @@ bm-mug	"'Oh, it's Crisis Energy[activation of energy crisis]. For taking urgent 
 bm-bad2	"'It's--it's, well, tribute is what it is.'"
 bm-so-bad2	"'Oh, come on, you know the difference.'[wfk][line break]Your reply just slips out. 'Yeah, it's easy, there's not much of it.' Maybe you shouldn't have...but nothing happens..."
 bm-tribute	"'There will be. Just--first things first. Stability. We almost got there, until you stepped in.'"
-bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Well. I didn't want to do it, but you made me put on my [activation of face facts]. You'll never [activation of following my gut]! You don't listen to your [activation of half right]...makes you miss obvious things others see immediately. Always have, always will. [activation of see you later]...' The Baiter Master storms out, and he must have had a remote, because you're locked in![wfk][paragraph break]You search frantically. There must be some way to communicate...and you dig around until you find the [activation of wire fraud]! Meant to 'remind' citizens they aren't as nice as they think they are, it now encourages them to get mad. The Goods get their cult to help. The [j-co] even chip in, too. Then, for kicks, you call [bad-guy-2] pretending to be the [bad-guy] and you prank him. And, of course, you remember the number to RING BRASS, from the Quiz Pop.[paragraph break]Mark Black is on his way--but so are the [bad-guy]'s allies! You hear Brother Foster say, well, I knew they were flaky, but that's what you GET when you try to give them an important position in life, and [activation of relief] will set things straight. He's my [activation of general principle=principal general] I just hired.[wfk]Yes. That must be him, now.[paragraph break]'A danger not just to the Problems Compound but to [activation of city slicker]! [activation of pratfall]!' he booms, tripping over his feet slightly. 'Face the [activation of surge protector]!'[wfk]"
+bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Well. I didn't want to do it, but you made me put on my [activation of face facts]. You'll never [activation of following my gut]! You don't listen to your [activation of half right]...makes you miss obvious things others see immediately. Always have, always will. [activation of see you later]...' The Baiter Master storms out, and he must have had a remote, because you're locked in![wfk][paragraph break]You search frantically. There must be some way to communicate...and you dig around until you find the [activation of wire fraud]! Meant to 'remind' citizens they aren't as nice as they think they are, it now encourages them to get mad. The Goods get their cult to help. The [j-co] even chip in, too. Then, for kicks, you call [bad-guy-2] pretending to be the [bad-guy] and you prank him. And, of course, you remember the number to RING BRASS, from the Quiz Pop.[paragraph break]Mark Black is on his way--but so are the [bad-guy]'s allies! You hear Brother Foster say, well, I knew they were flaky, but that's what you GET when you try to give them an important position in life, and [activation of relief] will set things straight. He's my [activation of general principle] I just hired.[wfk]Yes. That must be him, now.[paragraph break]'A danger not just to the Problems Compound but to [activation of city slicker]! [activation of pratfall]!' booms a man dressed in [activation of surge protector], tripping over his feet slightly.[wfk]"
 bm-bye	"'You're not going anywhere.' And he's right. But it's not out totally out of fear, now."
 
 already-good is a truth state that varies.
@@ -12433,6 +12436,8 @@ section smart street concepts
 
 acceptable is a xable concept in conceptville. Understand "able except" and "except able" as acceptable. howto is "[x-it of gesture token]". gtxt is "Able... except".
 
+Armstrong is a concept in conceptville. Understand "strongarm" and "arm strong" and "strong arm" as armstrong. howto is "talking".
+
 Beat Off is a dialoguey concept in conceptville. Understand "off beat" as beat off. howto is "[t2 of Guy]". gtxt is "OFF-BEAT".
 
 Buster Ball is a concept in conceptville. Understand "ball buster" as buster ball. howto is "talking".
@@ -12446,8 +12451,6 @@ first world problems is a concept in conceptville. Understand "problems first wo
 flat broke is a concept in conceptville. Understand "broke flat" as flat broke. howto is "enter Fly House". gtxt is "broke flat". [norm]
 
 Good Egg is a dialoguey concept in conceptville. Understand "egg good" as good egg. howto is "[t2 of Guy]". gtxt is "egg GOOD".
-
-Armstrong is a concept in conceptville. Understand "strongarm" and "arm strong" and "strong arm" as armstrong. howto is "talking".
 
 knockwurst is a concept in conceptville. Understand "knock worst" and "worst knock" as knockwurst. howto is "knock any way other than hard in Smart Street". gtxt is "worst knock".
 
@@ -13297,7 +13300,7 @@ grease monkey is a xable concept in conceptville. Understand "monkey grease" as 
 
 serve you right is a xable concept in conceptville. Understand "right you serve" as serve you right. howto is "[x-it of service memorial]". gtxt is "RIGHT, [b]YOU[r] SERVE".
 
-village people is a cantgo concept in conceptville. Understand "people village" as village people. howto is "go west in idiot village". gtxt is "people village".
+village people is a concept in conceptville. Understand "people village" as village people. howto is "retreat west in Idiot Village". gtxt is "people village". [norm]
 
 section service community concepts
 
@@ -13323,6 +13326,8 @@ beholder of the eye is a xable concept in conceptville. Understand "eye the of b
 benefactor is a nemmy concept in conceptville. Understand "factor benny" and "benny factor" as benefactor. howto is "[fr-ran]". gtxt is "factor BENNY".
 
 Beyond Belief is a concept in conceptville. Understand "belief beyond" as Beyond Belief. howto is "get the [bad-guy]'s attention". gtxt is "belief beyond". [norm]
+
+blow the final is a dialoguey concept in conceptville. Understand "final the blow" as blow the final. howto is "[bad-guy] dialog". gtxt is "the final blow".
 
 breadwinner is a browny concept in conceptville. Understand "winner bread" and "winner bread" as breadwinner. howto is "[fr-pb]". gtxt is "winner bread".
 
@@ -13379,6 +13384,8 @@ fawn over is a nemmy concept in conceptville. Understand "over fawn" as fawn ove
 following my gut is a concept in conceptville. Understand "gut my following" as following my gut. howto is "get the [bad-guy]'s attention". gtxt is "gut my following". [norm]
 
 Freak Out is a concept in conceptville. Understand "out freak" as freak out. howto is "read the Language sign". gtxt is "OUT, FREAK".
+
+general principle is a dialoguey concept in conceptville. Understand "general principal" and "principal general" as general principle. howto is "[bad-guy] dialog". gtxt is "Principal General".
 
 gravy train is a browny concept in conceptville. Understand "train gravy" as gravy train. howto is "[fr-pb]". gtxt is "train gravy".
 
@@ -13460,7 +13467,7 @@ scuzz bucket is a xable concept in conceptville. Understand "scum bucket" and "b
 
 see if i care is a browny concept in conceptville. Understand "care i if see" as see if i care. howto is "[fr-pb]". gtxt is "care if I see".
 
-see you later is a nemmy concept in conceptville. Understand "later you see" as see you later. howto is "[fr-ran]". gtxt is "Later, you see".
+see you later is a dialoguey concept in conceptville. Understand "later you see" as see you later. howto is "[bad-guy] dialog". gtxt is "Later, you see".
 
 serve one right is a concept in conceptville. Understand "right one serve" as serve one right. howto is "get the [bad-guy]'s attention". gtxt is "one right serve". [norm]
 
@@ -13475,6 +13482,8 @@ stake a claim is a browny concept in conceptville. Understand "acclaim stake" an
 Stand out is a nemmy concept in conceptville. Understand "doubt stan" and "stan doubt" as stand out. howto is "[fr-ran]". gtxt is "doubt Stan".
 
 stupor is a nemmy concept in conceptville. Understand "poor stu" and "stu poor" as stupor. howto is "[fr-ran]". gtxt is "poor Stu".
+
+surge protector is a dialoguey concept in conceptville. Understand "protector serge" and "serge protector" as surge protector. howto is "[bad-guy] dialog". gtxt is "protector surge".
 
 taste buds is a nemmy concept in conceptville. Understand "bud's/buds taste" and "taste bud's" as taste buds. howto is "[fr-ran]". gtxt is "Bud's taste"
 
