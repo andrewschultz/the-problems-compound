@@ -150,6 +150,7 @@ my $editActivations = 0;
 my @contexts = ();
 
 readProjectMapFile();
+readAux();
 
 while ($count <= $#ARGV)
 {
@@ -230,7 +231,8 @@ while ($count <= $#ARGV)
 	  $count++;
 	  next;
 	};
-	if ($i7x{$a}) { push(@dirs, $i7x{$a}); next; }
+	if ($fileHash{$a}) { push(@dirs, $a); $count++; next; }
+	if ($i7x{$a}) { push(@dirs, $i7x{$a}); $count++; next; }
 	if ($specialProjMap{$a}) { @dirs = (@dirs, split(/,/, $specialProjMap{$a})); next; }
 	/^[a-z][a-z-]+$/i && do
 	{
@@ -255,7 +257,6 @@ if ($#dirs == -1) { @dirs = @dirDefault; }
 for (@dirs) { $_ = lc($_); }
 
 checkOptionClash();
-readAux();
 
 readOkayDupes() if $readDupe;
 readOkayUnderstands() if $understandProcess;
@@ -365,7 +366,7 @@ sub checkTableDetail
     }
 	if ($needActive)
 	{ #this alphabetizes activations in a table
-    if (($a !~ /activation of/) && ($needActive)) { print "Warning: line $. has no ACTIVATION OF.\n"; next; }
+    if (($a !~ /activation of/) && ($needActive)) { print "Warning: line $. of $file has no ACTIVATION OF / [na].\n"; next; }
 	$a3 = "zzzzzz";
 	$a = lc($a);
 	while ($a =~ /activation of /)
