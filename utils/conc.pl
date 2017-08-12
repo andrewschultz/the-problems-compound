@@ -970,6 +970,8 @@ my $tmpVar;
 my $everRoomSect = 0;
 my $forceRoom = "";
 
+my $autoActivations = 0;
+
 @dumbErrors = ();
 
 while ($lineIn = <X>)
@@ -979,6 +981,8 @@ while ($lineIn = <X>)
   chomp($lineIn);
   if ($lineIn =~ /\[activation(?!( of))/) { print "Need 'of' after activation: $lineIn"; }
   if ($lineIn =~ /\[activation of [^\]]+=/) { $editActivations = 1; }
+  if ($lineIn =~ /\[startact\]/) { $autoActivations = 1; next; }
+  if ($lineIn !~ /[a-z]/i) { $autoActivations = $inConcTable = $inPuncTable = $inRoomTable = 0; if ($inAdd) { $addEnd = $.; $inAdd = 0; } next; }
   if ($inRoomTable) { $tempRoom = lc($lineIn); $tempRoom =~ s/\t.*//; }
   if ($lineIn =~ /\[end rooms\]/) { $inRoomSect = 0; next; }
   if ($lineIn =~ /\[start rooms\]/) { $inRoomSect = 1; $everRoomSect = 1; next; }
@@ -987,10 +991,26 @@ while ($lineIn = <X>)
   if ($lineIn =~ /\[temproom (of )?/i) { $tempRoom = lc($lineIn); $tempRoom =~ s/.*\[temproom (of )?//; $tempRoom =~ s/\].*//; $forceRoom = ""; }
   if ($lineIn =~ /(EXPLANATIONS:|CONCEPTS:|fill-in-here throws)/) { push (@dumbErrors, $.); next; }
   if (($lineIn =~ /is a.* author\. pop/) && ($lineIn !~ /^\[/)) { $tmpVar = $lineIn; $tmpVar =~ s/ is (an|a) .*//g; chomp($tmpVar); if ($lineIn =~ /xp-text is /) { $gotText{$tmpVar} = 1; } elsif ($lineIn =~ /\"/) { print "Probable typo for $tmpVar.\n"; } $auth{$tmpVar} = $line; next; }
+  if ($autoActivations)
+  {
+    my $entry = $lineIn;
+	$entry =~ s/((false|true)\t)*//;
+	$entry =~ s/(\t(false|true))*//;
+	my $temp = $curRoom;
+	$temp = $forceRoom if $forceRoom;
+    $concToRoom{$entry} = $temp;
+	$activ{$entry} = $.;
+	$any{$entry} = $.;
+	$lineNum{$entry} = $.;
+	#print "$entry = $temp\n";
+  }
   if ($inAuthTable)
   {
-    if ($lineIn !~ /[a-z]/i) { $inAuthTable = 0; next; }
-    $tmpVar = $lineIn; chomp($tmpVar); $tmpVar =~ s/\t.*//g; $authTab{$tmpVar} = $line; next;
+    $tmpVar = $lineIn;
+	chomp($tmpVar);
+	$tmpVar =~ s/\t.*//g;
+	$authTab{$tmpVar} = $line;
+	next;
   }
   if ($lineIn =~ /xxadd/) { $addStart = $.; $inAdd = 1; }
   if ($lineIn =~ /xxcv/) { $cvStart = $.; }
@@ -998,7 +1018,6 @@ while ($lineIn = <X>)
   if ($lineIn =~ /^table of jerk/) { $inPuncTable = 1; <X>; next; }
   if ($lineIn =~ /^table of explanations.*concepts/) { $inPuncTable = $inConcTable = 1; <X>; next; }
   if ($lineIn =~ /^table of (unvisiteds|nowheres)/i) { $inRoomTable = 1; <X>; next; }
-  if ($lineIn !~ /[a-z]/i) { $inConcTable = $inPuncTable = $inRoomTable = 0; if ($inAdd) { $addEnd = $.; $inAdd = 0; } next; }
   if (($lineIn =~ /^part /) && ($inRoomSect)) { $curRoom = lc($lineIn); $curRoom =~ s/^part +//; $forceRoom = ""; next; }
   $lineIn = cutArt($lineIn);
   #if ($lineIn =~ /$regexp/gc) { print "$./$regexp/$lineIn\n"; die(); }
@@ -1041,7 +1060,7 @@ while ($lineIn = <X>)
       }
     }
   }
-  while ($tmpVar =~ /\[activation of/) # "activation of" in source code
+  while ($tmpVar =~ /\[activation of/ && ($tmpVar !~ /\[skipcode\]/)) # "activation of" in source code
   {
     $tmpVar =~ s/.*?\[activation of //;
 	my $toRev = $tmpVar;
