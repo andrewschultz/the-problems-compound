@@ -187,7 +187,7 @@ if ($addToFound)
 
 sub dailyLog
 {
-  print("Logging line in $sz.\n";
+  print "Logging line in $sz.\n";
   my $wflsz = wflSize();
   open(A, $sz);
   open(B, ">$sz.bak");

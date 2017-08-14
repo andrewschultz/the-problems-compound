@@ -963,6 +963,7 @@ if (defined $conceptMatchProj{$_[0]})
 }
 
 my $regexp = " is a(n)? \(risque |privately-named \)?\(" . join(' |', @contexts) . " \)?concept in (lalaland|conceptville)";
+my $regexp2 = " is a(n)? \(risque |privately-named \)?[a-z]+ concept in (lalaland|conceptville)";
 
 print "Using regex $regexp\n" if $debug;
 
@@ -1040,11 +1041,26 @@ while ($lineIn = <X>)
   $lineIn = cutArt($lineIn);
   #if ($lineIn =~ /$regexp/gc) { print "$./$regexp/$lineIn\n"; die(); }
   #if ($lineIn =~ /$regexp/) { print "!!$./$regexp/$lineIn\n"; die(); }
-  if ($lineIn =~ /$regexp/) # concept definitions !!?? note: change to a better regex w/qr when I get the chance
+  if ($lineIn =~ /$regexp/) # concept definitions
   {
     $cvEnd = $.;
     $tmpVar = $lineIn;
-    $tmpVar =~ s/$regexp.*//g;
+    $tmpVar =~ s/$regexp.*//gi;
+	$tmpVar = wordtrim($tmpVar);
+    if (!defined($concToRoom{$tmpVar}) && ($lineIn =~ /lalaland/)) { $concToRoom{$tmpVar} = "general concepts"; }
+	$conc{$tmpVar} = 1;
+	$any{$tmpVar} = 1;
+	if (!defined($lineNum{$tmpVar})) { $lineNum{$tmpVar} = $.; }
+	# the concept is activated by default if it's dumped to Lalaland, so we need to add this line.
+	print "Adding $tmpVar at $.\n" if $debug;
+	$activ{$tmpVar} = $. if ($lineIn =~ /lalaland/);
+  }
+  elsif ($lineIn =~ /$regexp2/)
+  {
+    print "====================NOTE: may have undefined/bad context at line $.\n";
+	$cvEnd = $.;
+	$tmpVar = $lineIn;
+	$tmpVar =~ s/$regexp2.*//gi;
 	$tmpVar = wordtrim($tmpVar);
     if (!defined($concToRoom{$tmpVar}) && ($lineIn =~ /lalaland/)) { $concToRoom{$tmpVar} = "general concepts"; }
 	$conc{$tmpVar} = 1;
