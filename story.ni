@@ -12872,7 +12872,7 @@ joint committee is a concept in conceptville. Understand "committee joint" as jo
 
 journeyman is a jerkish concept in conceptville. Understand "journey man" and "man journey" as journeyman. howto is "[j-blab]". gtxt is "man-journey".
 
-junk mail is a listeny concept in conceptville. Understand "mail junk" as junk mail. howto is "[li of nominal fen] before figuring the Index puzzle". gtxt is "male junk".
+junk mail is a listeny concept in conceptville. Understand "male junk" and "junk male" as junk mail. howto is "[li of nominal fen] before figuring the Index puzzle". gtxt is "male junk".
 
 keepin is a jerkish concept in conceptville. Understand "pinkie" as keepin. howto is "[j-blab]". gtxt is "pinkie".
 

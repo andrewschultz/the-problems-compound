@@ -65,12 +65,13 @@ for ($a1)
   /^-?e$/ && do { `\"c:\\Program Files (x86)\\Notepad++\\notepad++.exe\" $0 `; exit; };
   /^-?an$/ && do { $alphabetical = !$alphabetical; $count++; next; };
   /^-?dlog$/ && do { dailyLog(); exit; };
+  /^-?el$/ && do { `$sz`; exit; };
   /^-?ao$/ && do { alfOut(); exit; };
   /^-?at$/ && do { alfTrack(); exit; };
   /^-?ct$/ && do { countChunks(); exit; };
   /^-??a$/ && do { alfOut(); alfTrack(); print "Sorting went ok for flip.txt and fliptrack.txt.\n"; exit; };
   /^-?ff$/ && do { $webapp = $ffox; $count++; next; };
-  /^-?gc$/ && do { $webapp = $chrome; $count++; next; };
+  /^-?(gc|ch)$/ && do { $webapp = $chrome; $count++; next; };
   /^-?op$/ && do { $webapp = $opera; $count++; next; };
   /^-?i$/ && do { idiomSearch($a2); exit; };
   /^-?l$/ && do { $wa = "word"; $count++; next; };
@@ -80,7 +81,7 @@ for ($a1)
   /^(#|-|)[0-9]+$/ && do { my $temp = $ARGV[$count]; $temp =~ s/^[#-]//g; idiomSearch($temp); exit; };
   /^-?d$/ && do { $dicURL = 1; $count++; next; };
   /^-?du$/ && do { trim(); exit; };
-  /^-?o$/ && do { print "Opening $output.\n"; `$output`; exit; };
+  /^-?e?o$/ && do { print "Opening $output.\n"; `$output`; exit; };
   /^-?oo$/ && do { print "Opening $track.\n"; `$track`; exit; };
   /^-?np$/ && do { $dicURLPrint = 0; $count++; next; };
   /^-?\!$/ && do { countChunks(); countURLs(); exit; };
@@ -189,16 +190,20 @@ sub dailyLog
 {
   print "Logging line in $sz.\n";
   my $wflsz = wflSize();
+  my $incr = 0;
+  my $origSize = 0;
   open(A, $sz);
   open(B, ">$sz.bak");
   while ($a = <A>)
   {
     if ($a =~ /^incr/)
 	{
+	  $incr = $a; $incr =~ s/.*=//;
 	  print B "incr=0\n";
     }
 	elsif ($a =~ /^size/)
 	{
+	  $origSize = $a; $origSize =~ s/.*=//;
 	  print B "size=$wflsz\n";
 	}
     else
@@ -649,15 +654,15 @@ print<<EOT;
 -a = organizes both (-at + -ao) & counts chunks
 -du = trim duplicates in fliptrack.txt
 -d = find idiom at the free dictionary
--e = edit the source
 -f = force trying and overlook if it's there
 -np = don't print URL to tracking file (default is on)
--o = open the output file
--oo = open the tracking file
--ff, -gc, -op picks web browser
+-ff, -(gc/ch), -op picks web browser
 -l = sort words by length (brit-1word) vs by alphabetical
 -t = test how much is left to do big-picture (URLs and words)
 -(n)y = remove y from list (V or C, in caps, looks through all vowels/consonants)
+-e = edit the source, -el = edit the log,
+-o/-eo = open the output file
+-oo = open the tracking file
 -? = this usage here
 EOT
 exit;
