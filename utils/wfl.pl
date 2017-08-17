@@ -28,6 +28,7 @@ my $opera = "C:\\Program Files (x86)\\Opera\\launcher.exe";
 my @cons = ('a', 'e', 'i', 'o', 'u', 'y');
 my @vow = ('b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z');
 #######################options
+my $bailLog = 0;
 my $shouldSort = 0;
 my $overlook = 0;
 my $override = 0;
@@ -64,7 +65,7 @@ for ($a1)
   /^-?(uf|fu)$/ && do { $overlook = 1; $dicURL = 1; $count++; next; };
   /^-?e$/ && do { `\"c:\\Program Files (x86)\\Notepad++\\notepad++.exe\" $0 `; exit; };
   /^-?an$/ && do { $alphabetical = !$alphabetical; $count++; next; };
-  /^-?dlog$/ && do { dailyLog(); exit; };
+  /^-?(dl|dlog)(x)?$/ && do { $bailLog = ($a1 =~ /x/); dailyLog(); exit; };
   /^-?el$/ && do { `$sz`; exit; };
   /^-?ao$/ && do { alfOut(); exit; };
   /^-?at$/ && do { alfTrack(); exit; };
@@ -188,10 +189,11 @@ if ($addToFound)
 
 sub dailyLog
 {
-  print "Logging line in $sz.\n";
+  print "Logging line in $sz. Use -x to bail.\n";
   my $wflsz = wflSize();
   my $incr = 0;
   my $origSize = 0;
+  my $chg = 0;
   open(A, $sz);
   open(B, ">$sz.bak");
   while ($a = <A>)
@@ -208,10 +210,17 @@ sub dailyLog
 	}
     else
     {
+	  if ($a =~ / has /)
+	  {
+	  $chg = $a; chomp($chg);
+	  $chg =~ s/.* //g;
+	  }
       print B $a;
     }
   }
-  print B "#" . scalar localtime(time()) . " has $wflsz\n";
+  $chg = $origSize - $wflsz + $incr;
+  die( "#" . scalar localtime(time()) . " changed $chg has $wflsz\n") if ($bailLog);
+  print B "#" . scalar localtime(time()) . " changed $chg has $wflsz\n";
   close(A);
   close(B);
   `copy $sz.bak $sz`;
@@ -660,7 +669,8 @@ print<<EOT;
 -l = sort words by length (brit-1word) vs by alphabetical
 -t = test how much is left to do big-picture (URLs and words)
 -(n)y = remove y from list (V or C, in caps, looks through all vowels/consonants)
--e = edit the source, -el = edit the log,
+-e = edit the source, -el = edit the log
+-dl/dlog = send to daily log wfl-sz.txt, reset so-far (usually done in a script) (x = bail)
 -o/-eo = open the output file
 -oo = open the tracking file
 -? = this usage here
