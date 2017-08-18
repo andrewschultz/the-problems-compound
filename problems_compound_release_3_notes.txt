@@ -49,7 +49,7 @@ There's random stuff, too:
 --the bad guy now sounds off on individual people and ideas outside of those in the game proper. Some are a bit topical, but they're in the general knowledge realm. If nothing else, you can Google them. He's up to 54 random important administrative and philosophical matters overall, too. Busy, well-rounded fellow!
 --flexible maximum in score e.g. 0/(18-21) so the player knows if they're close, or they need to do more.
 --new songs (25, up from 13).
---new books (61, up from 38).
+--new books (62, up from 38).
 --XYZZY in Freak Control now gives a horribly silly side story I just couldn't pass up.
 --Uncle Dutch and Turk Young now have 17 bits of wisdom, up from 8.
 --the jerks/groaners now have 198 "grown-up" discussions, if swearing is on, including a final lament, with 203 total gossip subjects. They don't actually swear, but...well, they're kind of nasty teenagers. So, yeah, they're a bit uncouth.

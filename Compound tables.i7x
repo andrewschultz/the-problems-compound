@@ -170,6 +170,7 @@ workname	authname	booksubj
 "Wake, Finnegans"	"Joyce James"	"(he pauses) matters likely too complex for you."
 "Writing On"	"King Stephen"	"how society represses real writers from writing real books, with the 'Johnny Hears' chapter being especially relevant"
 "Lover Chatterly's Lady"	"L. H. David"	"a reformed rake who marries a social equal for scandalous reasons indeed"
+"The Colossus Knew"	"Lazarus Emma"	"how some people haven't quite EARNED freedom and stuff, yet"
 "A Mockingbird to Kill"	"Lee Harper"	"losers who try to imitate people less weird than them. Or don't EVEN try"
 "When Now, Not If"	"Levi Primo"	"[n-e-s]."
 "The Divorce: GREAT"	"Lewis S. Clive"	"how blatant infidelity is really about seeing all the world has to offer and making the most of things--well, if you're worth cheating with. It surpasses even [i]The Boy and His Horse[r] and [i]The Love of Allegory[r]"

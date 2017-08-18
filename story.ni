@@ -10030,7 +10030,7 @@ check going nowhere in standard bog:
 	if noun is outside:
 		try going south instead;
 	if noun is north:
-		say "You'd starve to death before you got anywhere, even if you weren't struck by a [activation of spell disaster]disaster spell." instead;
+		say "You'd starve to death in the Witch Sand before you got anywhere, even if you weren't struck by a [activation of spell disaster]disaster spell." instead;
 	if noun is west or noun is east:
 		say "You'd probably take the silliest false step and sink into the Law Sods. But there's nowhere to go across the sods, anyway." instead;
 	say "It's really only safe to go back south." instead;

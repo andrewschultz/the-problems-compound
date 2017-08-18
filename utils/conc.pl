@@ -470,6 +470,7 @@ for my $x (sort keys %any)
 	  if (!defined($fileLineErr{$fileToOpen}) || (!$openLowestLine && ($fileLineErr{$fileToOpen} < $nuline)))
 	  { $fileLineErr{$fileToOpen} = $nuline; }
 	}
+	print "$concToRoom{$x} $concTableLine{$concToRoom{$x}} $nuline\n";
 	if (exists $concToRoom{$x} && exists $concTableLine{$concToRoom{$x}} && $nuline == $concTableLine{$concToRoom{$x}}) #this un-sorts at the start, but the alternative is to chuck something in the wrong room if, say, we are adding "abc" and the first idea alphabetically in the room is "bcd"
 	{
 	  $nuline++;
@@ -1312,7 +1313,7 @@ sub findExplLine
 	$line =~ s/\*/ /g; # ugh, a bad hack but it will have to do to read asterisk'd files
 	if ($line =~ /^\[end rooms\]/i) { $doneRooms = 1; $curRoom = $defaultRoom; next; }
 	if ($line =~ /\[forceroom /) { $curRoom = $line; $curRoom =~ s/\[forceroom (of )?//i; $curRoom =~ s/\].*//; }
-	if ($line =~ /activation of $_[0]/i)
+	if ($line =~ /(activation of |\t)$_[0]/i) # this is not great. The code may be in a table in the header file, or in [activation of]
 	{
       if ($inRoomTable) { $actRoom = $line; chomp($actRoom); $actRoom =~ s/\t.*//; close(B); last OUTER; }
 	  chomp($curRoom);
@@ -1322,6 +1323,7 @@ sub findExplLine
 	  last OUTER;
     }
   }
+
 
   if (!$warnedYet)
   {
