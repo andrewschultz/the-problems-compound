@@ -113,7 +113,7 @@ banter
 "Uncle Dutch mentions things you'd better learn unless you're stupid. Turk Young mentions things you'd better already know if you're smart."
 "Turk mentions 'We've got facts, but we also have to [activation of show our work].'"
 "'Should I rant about that?' asks Uncle Dutch. '[activation of cry uncle]!' says Turk Young."
-"'A voice says, [activation of dutch act], even though I might kill myself helping people...'"
+"'A voice inside me says, [activation of dutch act], even though I might kill myself helping people...'"
 "'Some attendees claim our encouraging lectures are just fluff. That they are only about getting ahead in the world,' says Uncle Dutch. 'I've had teachers like that,' says Turk Young. 'They never tried more exciting encouragement themselves. But they still had to give me A's. And they're still...teachers.'"
 "'That's some [activation of dutch reckoning]! More than I thought possible!'"
 "'I'm equally hard on squares who don't drink and punks who drink too much.' / 'That's [activation of dutch courage]!'"
