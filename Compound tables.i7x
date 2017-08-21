@@ -304,6 +304,7 @@ macho-boast
 "The [j-co] hope [activation of howard stern] doesn't come by to moralize again."
 "The [j-co] laugh at how [activation of humphrey davy] beats up and makes fun of science nerds."
 "The [j-co] ooh and ahh at [activation of jack london]'s stories of suave city life."
+"The [j-co] applaud [activation of jackhole] for his universally brilliant critiques."
 "The [j-co] mock [activation of James Dean] for being unable to rebel in any meaningful or interesting way."
 "The [j-co] remember not to [activation of jeremiad] to parties. He can't keep up a clever conversation or rant."
 "The [j-co] mention [activation of jerry built] is very buff indeed!"
@@ -327,6 +328,7 @@ macho-boast
 "The [j-co] have to admit [activation of melodious] sure can sing!"
 "The [j-co] applaud [activation of meretricious]."
 "The [j-co] wonder if they should [activation of mike drop] from their extended gang, starting a big argument."
+"The [j-co] recount good times yelling '[activation of mimicry]' at a girl who was just different.|
 "The [j-co] harbor fantasies of [activation of mollycoddling], who is maybe not as wild as they pretend she is."
 "The [j-co] agree [activation of Monte Carlo] doesn't like leaving things to chance or doing the same thing over and over again."
 "The [j-co] agree [activation of mortify] is only iffy if you're easily offended."

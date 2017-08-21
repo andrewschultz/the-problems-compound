@@ -2348,10 +2348,12 @@ check giving smokable to: [poory pot or wacker weed]
 		say "That's probably not the sort of incense or decoration they want to use[if fourth-blossom is in lalaland]. You restored the blossom, anyway[else]. The bowl seems more for flowers[end if]." instead;
 	if second noun is Pusher Penn:
 		say "[if noun is weed]'Nope. No reneging.'[else]'Nonsense. That's your pay.'[end if]" instead;
+	if second noun is ally stout:
+		say "He mentions you should keep it. A killer buzz might help you be less of a buzz killer. Not that you're much of one." instead;
 	if second noun is Fritz the On:
 		if noun is poory pot:
 			say "'Whoah! That stuff doesn't do it for me any more,' mutters Fritz." instead;
-		say "You look every which way for the Stool Toad, then put your finger to your lips as you hand Fritz the packet. He's surprisingly quick converting it to something smokable and hands you a coin back--a dreadful penny. Proper payment for the cheap stuff. 'Dude! Once I find my lighter I totally won't [activation of high off the hog] from you. Can't wait for my [activation of puff piece]...nothing beats it for feeling good!' You're not sure you want [activation of roll a joint], but Fritz's gratitude seems genuine. 'I'd give you [activation of drag along] if i could light it...' After searching himself for a source of flame, Fritz mumbles an apology and runs off."; [temproom down ground]
+		say "You look every which way for the Stool Toad, then put your finger to your lips as you hand Fritz the packet. He's surprisingly quick converting it to something smokable and hands you a coin back--a dreadful penny. Proper payment for the cheap stuff. 'Dude! Once I find my lighter I totally won't [activation of high off the hog] from you. Can't wait for my [activation of puff piece]...nothing beats it to start an [activation of trip up]!' You're not sure you want [activation of roll a joint], but Fritz's gratitude seems genuine. 'I'd give you [activation of drag along] if i could light it...' After searching himself for a source of flame, Fritz mumbles an apology and runs off."; [temproom down ground]
 		increment the score;
 		now wacker weed is in lalaland;
 		now fritz is in lalaland;
@@ -3571,6 +3573,7 @@ joint statement	"A joint statement is something made and agreed on by a group of
 puff piece	"A puff piece is a fawning newspaper article that makes someone out to be better than they really are. A peace puff from smoking marijuana is (we can assume) less socially motivated."
 roll a joint	"A joint role is something done together. Rolling a joint is the act of creating a marijuana cigarette."
 sleeper cell	"A group of people who blen into a community until they can commit an act of terrorism."
+trip up	"To trip someone up is to get in their way."
 advice	"Advice is, well, telling someone what they should or shouldn't do. A vice ad would be as well, only for the worse." [start of joint strip]
 bullfrog	"A bullfrog is not quite a toad. And bull means nonsense. The Stool Toad is probably in no danger of being mistaken for Frog or Toad from Arnold Lobel's nice books."
 bum rap	"A bum rap means a police charge that is false."
@@ -3671,6 +3674,7 @@ homer winslow	"Homer Winslow was the painter of the famous [i]Whistler's Mother[
 Howard Stern	"Howard Stern is a long-time radio personality with loud provocative opinions."
 humphrey davy	"Humphrey Davy was an 18th century scientist."
 Jack London	"Jack London generally wrote about tales of the Wild, especially in Alaska."
+jackhole	"A jackhole is a portmanteau that leaves out 'ass' in the middle."
 james dean	"James dean is an actor from the 50s, in such movies as [i]Rebel Without a Cause[r]."
 jeremiad	"A jeremiad is a prolonged rant."
 jerk around	"To jerk someone around is to pester them physically or mentally."
@@ -3702,6 +3706,7 @@ mascara	"Mascara is basic make-up for women."
 melodious	"Melodious means nice-sounding."
 meretricious	"Meretricious means superficially attractive or insincere."
 mike drop	"Mike drop is an internet term meaning you've won the argument and there's nothing left to say."
+mimicry	"mimicry is when you [fill-in-here]. nominal fen"
 mollycoddling	"Mollycoddling is being overprotective of someone."
 monte carlo	"Monte Carlo is a place where you can go to gamble. A Monte Carlo simulation also runs random events many times when it is too hard to calculate probability directly."
 mortify	"To mortify someone is to shock their sensibilities."
@@ -12628,6 +12633,8 @@ roll a joint is a concept in conceptville. Understand "role/roll joint" and "rol
 
 Sleeper Cell is a missable concept in conceptville. Understand "cell sleeper" as sleeper cell. howto is "sleep then wait in Down Ground". gtxt is "cell sleeper".
 
+trip up is a concept in conceptville. Understand "up trip" as trip up. howto is "[w-fr]". gtxt is "up trip".
+
 section joint strip concepts
 
 advice is a dialoguey concept in conceptville. Understand "vice ad" and "ad vice" as advice. howto is "[t2 of stool toad]". gtxt is "vice ad".
@@ -12850,6 +12857,8 @@ humphrey davy is a jerkish concept in conceptville. Understand "davey humphrey" 
 
 Jack London is a jerkish concept in conceptville. Understand "london jack" as jack london. howto is "[j-blab]". gtxt is "London Jack".
 
+jackhole is a jerkish concept in conceptville. Understand "jack whole" and "whole jack" as jackhole. howto is "[j-blab]". gtxt is "whole Jack".
+
 james dean is a jerkish concept in conceptville. Understand "dean james" as james dean. howto is "[j-blab]". gtxt is "Dean James".
 
 jeremiad is a jerkish concept in conceptville. Understand "add jeremy" and "jeremy add" as jeremiad. howto is "[j-blab]". gtxt is "add Jeremy".
@@ -12911,6 +12920,8 @@ melodious is a jerkish concept in conceptville. Understand "odious mel" and "mel
 meretricious is a jerkish concept in conceptville. Understand "tricias merit" and "merit tricias" as meretricious. howto is "[j-blab]". gtxt is "Tricia's merit".
 
 mike drop is a jerkish concept in conceptville. Understand "drop mike" as mike drop. howto is "[j-blab]". gtxt is "drop Mike".
+
+mimicry is a jerkish concept in conceptville. Understand "mimicry" as mimicry. howto is "[j-blab]". gtxtx is "Cry, Mimi".
 
 Mollycoddling is a jerkish concept in conceptville. Understand "coddling/cuddling molly" and "molly coddling/cuddling" as mollycoddling. howto is "[j-blab]". gtxt is "coddling, err, cuddling Molly".
 
