@@ -3610,6 +3610,7 @@ anapest	"Anapest is a common beat for a poem. It can seem singsong."
 Anne Frank	"Anne Frank wrote [i]The Diary of Anne Frank[r], a story about a Jewish family hiding from the Nazis in World War II."
 ballets	"Ballets are dances that are not especially masculine to enjoy. 'Let's ball' refers to playing more aggressive, masculine sports."
 Bandanna	"A bandanna is a scarf you tie around your head. Some people find it rebellious, others not rebellious enough."
+bea arthur	"Bea Arthur was the star of [i]Golden Girls[r], a sitcom about retired women."
 beaker	"A beaker is what you pour liquids into in a science experiment."
 bechdel	"The Bechdel test is if an author has two females talking about things other than men or sex. Del Beck fails miserably, of course."
 beer guts	"Beer guts are increased weight from drinking too much beer."
@@ -3618,6 +3619,7 @@ Benedict Arnold	"Benedict Arnold was a traitor in the US Revolutionary War."
 benevolent	"Benevolent means doing things to help people."
 benjamin	"Benjamin is slang for a 100 dollar bill, which features Benjamin Frankin. Jammin['] is old slang for cool."
 Bernoulli	"The Bernoulli family were famous and accomplished mathematicians and scientists from around 1700."
+beryllium	"Beryllium is an element early in the atomic table, often referred to in Star Trek."
 Black Mark	"A black mark is something indicating bad behavior."
 body slamming	"Body slamming is a particularly painful wrestling move where you pretty much throw a person to the ground."
 bognor regis	"Bognor Regis is a town on the south coast of England."
@@ -3706,7 +3708,7 @@ mascara	"Mascara is basic make-up for women."
 melodious	"Melodious means nice-sounding."
 meretricious	"Meretricious means superficially attractive or insincere."
 mike drop	"Mike drop is an internet term meaning you've won the argument and there's nothing left to say."
-mimicry	"mimicry is when you [fill-in-here]. nominal fen"
+mimicry	"Mimicry is imitating someone else."
 mollycoddling	"Mollycoddling is being overprotective of someone."
 monte carlo	"Monte Carlo is a place where you can go to gamble. A Monte Carlo simulation also runs random events many times when it is too hard to calculate probability directly."
 mortify	"To mortify someone is to shock their sensibilities."
@@ -12729,6 +12731,8 @@ ballets is a jerkish concept in conceptville. Understand "ball lets" and "lets b
 
 Bandanna is a jerkish concept in conceptville. Understand "anna bandt/band" and "bandt/band anna" as bandanna. howto is "[j-blab]". gtxt is "Anna Bandt".
 
+bea arthur is a jerkish concept in conceptville. Understand "bee arthur" and "arthur bee" as bea arthur. howto is "[j-blab]". gtxt is "arthur bee".
+
 beaker is a jerkish concept in conceptville. Understand "kirby" as beaker. howto is "[j-blab]". gtxt is "Kirby".
 
 Bechdel is a jerkish concept in conceptville. Understand "del beck" and "beck del" as bechdel. howto is "[j-blab]". gtxt is "Del Beck".
@@ -12744,6 +12748,8 @@ benevolent is a jerkish concept in conceptville. Understand "evelyn benn" and "b
 benjamin is a jerkish concept in conceptville. Understand "ben jammin" and "jammin ben" as benjamin. howto is "[j-blab]". gtxt is "jammin['] Ben".
 
 bernoulli is a jerkish concept in conceptville. Understand "newly burn" and "burn newly" as bernoulli. howto is "[j-blab]". gtxt is "newly burn".
+
+beryllium is a jerkish concept in conceptville. Understand "burry liam" and "liam burry" as beryllium. howto is "[j-blab]". gtxt is "liam burry".
 
 Black Mark is a xable concept in conceptville. Understand "mark black" as black mark. howto is "[x-it of quiz pop]". gtxt is "Mark Black".
 
@@ -12921,7 +12927,7 @@ meretricious is a jerkish concept in conceptville. Understand "tricias merit" an
 
 mike drop is a jerkish concept in conceptville. Understand "drop mike" as mike drop. howto is "[j-blab]". gtxt is "drop Mike".
 
-mimicry is a jerkish concept in conceptville. Understand "mimicry" as mimicry. howto is "[j-blab]". gtxtx is "Cry, Mimi".
+mimicry is a jerkish concept in conceptville. Understand "mimi cry" and "cry mimi" as mimicry. howto is "[j-blab]". gtxt is "Cry, Mimi".
 
 Mollycoddling is a jerkish concept in conceptville. Understand "coddling/cuddling molly" and "molly coddling/cuddling" as mollycoddling. howto is "[j-blab]". gtxt is "coddling, err, cuddling Molly".
 
