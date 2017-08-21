@@ -84,6 +84,7 @@ my $concDefCheck = 0;
 my $overlookOptionClash = 0;
 my $understandProcess = 0;
 my $modifyConcepts = 0;
+my $proceedAfterModifyConcepts = 0;
 my $debug = 0;
 
 #############################
@@ -218,7 +219,7 @@ while ($count <= $#ARGV)
     };
     /^-?vcp$/ && do { $verboseCutPaste = 1; $count++; next; };
     /^-?bs$/ && do { $overlookOptionClash = 1; $count++; next; };
-	/^-?cc$/ && do { $modifyConcepts = 1; $count++; next; };
+	/^-?cc([op])?$/ && do { $modifyConcepts = 1; $proceedAfterModifyConcepts = ($a =~ /p/) - ($a =~ /o/); $count++; next; };
 	/^-?xu(lse)*$/ && do { $exportUnremarkable = 1; $launchUnremarkable = ($a =~ /l/); $launchUnremarkableLine = ($a =~ /s/); $getLatestUnremarkable = ($a =~ /e/); $count++; next; };
 	/^-?[cv0nlmw]+$/ && do
 	{
@@ -270,9 +271,19 @@ for my $thisProj (@dirs)
 {
   if ($modifyConcepts)
   {
-    modifyConcepts($thisProj);
+    my $anyChanges = modifyConcepts($thisProj);
     if ($exportUnremarkable) { exportUnremarkable($thisProj); }
-	next;
+	if ($proceedAfterModifyConcepts == -1)
+	{
+	  print "-o forced end of project. Use -p to ignore this or no flag to continue if nothing is modified.\n";
+	  next;
+	}
+	if ($anyChanges && $proceedAfterModifyConcepts == 0)
+	{
+	  print "Skipping rest of project tests. Use -p to keep going.";
+	  next;
+	}
+	print "Continuing after running checking concepts. Use -o to force end of project.\n";
   }
   if ($exportUnremarkable) { exportUnremarkable($thisProj); }
   #die "$order $readConcepts $detailAlpha $roomConcCompare\n";
@@ -389,7 +400,7 @@ sub checkTableDetail
     if (lc($a3) le lc($lastAlf))
 	{
 	  $needsAlf = 1;
-	  print "$a3 ($. $inTable) may be out of order vs $lastAlf.\n";
+	  print "$a3 ($. $inTable) may be out of order vs $lastAlf. Run talf.pl $_[0].\n";
 	  unless($openLowestLine && defined($minorErrs{$file}) && ($minorErrs{$file} < $.))
 	  { $minorErrs{$file} = $.; }
     }
@@ -470,7 +481,7 @@ for my $x (sort keys %any)
 	  if (!defined($fileLineErr{$fileToOpen}) || (!$openLowestLine && ($fileLineErr{$fileToOpen} < $nuline)))
 	  { $fileLineErr{$fileToOpen} = $nuline; }
 	}
-	print "$concToRoom{$x} $concTableLine{$concToRoom{$x}} $nuline\n";
+	# print "$concToRoom{$x} $concTableLine{$concToRoom{$x}} $nuline\n";
 	if (exists $concToRoom{$x} && exists $concTableLine{$concToRoom{$x}} && $nuline == $concTableLine{$concToRoom{$x}}) #this un-sorts at the start, but the alternative is to chuck something in the wrong room if, say, we are adding "abc" and the first idea alphabetically in the room is "bcd"
 	{
 	  $nuline++;
@@ -737,7 +748,7 @@ sub printGlobalResults
     }
   }
   if ((scalar keys %minorErrs) && (!scalar keys %fileLineErr) && (!$launchMinorErrs))
-  { print "Use -m to launch file lines for minor errors.\n"; }
+  { print "Use -lm to launch file lines for minor errors.\n"; }
 }
 
 sub checkOrder
@@ -2048,6 +2059,7 @@ sub modifyConcepts
     print "No changes to $fi, so I'm not copying back over.\n";
   }
   unlink "$fi.2" || die ("Failed to delete $fi.2");
+  return $conceptsChanged;
 }
 
 sub readConceptMods
@@ -2144,6 +2156,7 @@ CONC.PL usage
 -db = debug
 -e = edit source (e? shows others)
 -cc = modify concepts according to conc-match.txt
+    (ccp always proceeds after doing so, cco only runs this test)
 (START COMBINEABLE OPTIONS)
 -c = error code to clipboard
 -0 = print errors not error code
