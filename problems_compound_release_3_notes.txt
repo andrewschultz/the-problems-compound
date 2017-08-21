@@ -28,6 +28,7 @@ The major stuff is here.
 --Bottom Rock is now A Great Den.
 --Broke Flat is now a Fly House. Well, until you enter it.
 --Hunter Savage is now Armstrong.
+--the Basher Bible now rests on a side stand or something a bit more risque in innuendo mode.
 
 The user-friendliness stuff is here.
 --SKIP replaces GLIB as a verb. TESTJUMP (not seen in the release) is now the testing verb.

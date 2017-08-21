@@ -330,7 +330,7 @@ macho-boast
 "The [j-co] have to admit [activation of melodious] sure can sing!"
 "The [j-co] applaud [activation of meretricious]."
 "The [j-co] wonder if they should [activation of mike drop] from their extended gang, starting a big argument."
-"The [j-co] recount good times yelling '[activation of mimicry]' at a girl who was just different.|
+"The [j-co] recount good times yelling '[activation of mimicry]' at a girl who was just different."
 "The [j-co] harbor fantasies of [activation of mollycoddling], who is maybe not as wild as they pretend she is."
 "The [j-co] agree [activation of Monte Carlo] doesn't like leaving things to chance or doing the same thing over and over again."
 "The [j-co] agree [activation of mortify] is only iffy if you're easily offended."

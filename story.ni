@@ -38,9 +38,9 @@ section compiler limits
 
 use MAX_ACTIONS of 210.
 
-use MAX_OBJECTS of 850.
+use MAX_OBJECTS of 860.
 
-use MAX_SYMBOLS of 25000.
+use MAX_SYMBOLS of 26000.
 
 use MAX_STATIC_DATA of 200000.
 
@@ -48,9 +48,9 @@ use MAX_PROP_TABLE_SIZE of 340000.
 
 section compiler debug limits - not for release
 
-use MAX_OBJECTS of 890. [+40]
+use MAX_OBJECTS of 900. [+40]
 
-use MAX_SYMBOLS of 28000. [+3000]
+use MAX_SYMBOLS of 29000. [+3000]
 
 use MAX_PROP_TABLE_SIZE of 360000. [+20000]
 
@@ -280,6 +280,10 @@ when play begins (this is the main story introduction and initialization rule):
 	force-status;
 	say "The Problems Compound may contain minor profanity/innuendo that is not critical to the story. Type Y or YES if this is okay. Typing N or NO will provide alternate text.";
 	choose-swearing;
+	if allow-swears is false:
+		move a side stand to pressure pier;
+	else:
+		move a stool sample to pressure pier;
 	wfak;
 	say "Also, The Problems Compound has minimal support for screen readers. In particular, it makes one puzzle less nightmarish. Are you using a screen reader?";
 	if the player no-consents:
@@ -785,6 +789,15 @@ to decide whether the action is procedural: [aip]
 	if dropping, yes;
 	if looking, yes;
 	if listening, yes;
+	no;
+
+to decide whether the action is touchy: [ait]
+	if dropping, decide yes;
+	if pushing, decide yes;
+	if pulling, decide yes;
+	if taking, decide yes;
+	if touching, decide yes;
+	if attacking, decide yes;
 	no;
 
 to decide whether the action is undrastic:
@@ -3327,6 +3340,7 @@ picture hole	"Seeing the whole picture means you see everything."	--
 Poor Dirt	"Dirt poor means especially not rich."	--
 Basher Bible	"A bible basher is someone who quotes scripture too much. The reverse means a compendium of ways to try and gain power over people and put them down."	"I simply can't believe this one took so much to find! The idea is, people who sell you on your own inadequacy are at least as destructive as, well, Bible-Bashers. But they put on a show and make their audience glad THEY'RE not the ones being cut down, yet." [start of pressure pier]
 boo tickety	"Tickety-boo means okay, all right, etc."	"I like the contrast of being told 'Boo!' with the horrible places you're shipped off to, elsewhere. Also, it makes it clear small mistakes are okay."
+a sample stool	"A stool sample is a piece of matter from inside your butt."	"This came up late in release 3. I was reading a Twitter thread, the subject of which I won't reveal. A side stand seemed a bit too vanilla, and I was glad to have something to balance it."
 a side stand	"To stand aside is to get out of the way."	"I had trouble with what was supporting the Basher Bible, until I stumbled on this. I'd thought of a stand for a while, but it seemed like there were too many choices. Then I realized I could just give a different figure of speech if you tried different things."
 trail paper	"A paper trail is evidence in white-collar crimes. People often have to piece it together."	--
 assignment plum	"A plum assignment is giving someone a particularly prestigious, noticeable, easy or lucrative job. It's one everyone wants." [start of meal square]
@@ -6449,12 +6463,22 @@ Outer Bounds is a region.
 
 part Pressure Pier
 
-Pressure Pier is north of Tension Surface. It is in Outer Bounds. "[one of]So, this is Pressure Pier. Off south is water--no way back to the Tension Surface[or]Water south, passage north[stopping]. You smell food to the west, and the land sinks a bit to the east. [one of]A side stand grabs your attention enough you notice it holds a book with the words BASHER on the front[or]The Basher Bible still rests on a side stand[stopping]."
+Pressure Pier is north of Tension Surface. It is in Outer Bounds. "[one of]So, this is Pressure Pier. Off south is water--no way back to the Tension Surface[or]Water south, passage north[stopping]. You smell food to the west, and the land sinks a bit to the east. [one of]A [ss-ss] grabs your attention enough you notice it holds a book with the words BASHER on the front[or]The Basher Bible still rests on a [ss-ss][stopping]."
+
+to say ss-ss:
+	say "[if allow-swears is false]side stand[else]sample stool[end if]"
 
 a side stand is scenery in Pressure Pier. "It's not actually blocking any direction to go in, but it's gaudy and shiny enough you won't be overlooking it. It's not really [activation of palatable]."
 
+a sample stool is scenery in pressure pier. description is "It isn't fancy, but it just looks nice. It is an interesting and very appropriate shade of brown, too."
+
 instead of taking side stand:
 	say "You couldn't [activation of take a stand]. A take? Either way, you've got enough of a trial without lugging something like that around."
+
+instead of doing something with sample stool:
+	if the action is procedural, continue the action;
+	if the action is touchy, say "No way! It's just so shiny and clean, you'd feel guilty touching it without rubber gloves." instead;
+	say "You don't need to do much with the stool, but you can READ the bible for fun if you want.";
 
 pier-visited is a truth state that varies.
 
@@ -11952,6 +11976,7 @@ this is the swear-see rule:
 	say "[2da]The [bad-guy] is the [stwid][bad-guy][stwid] instead.";
 	say "[2da][bad-guy-2] is [stwid][bad-guy-2][stwid] instead."; [end smart street]
 	say "[2da]The game warns you might think (off) or say (on) a swear if you try to eat the dirt."; [end garden part]
+	say "[2da]A [ss-ss] is a [stwid][ss-ss][stwid] instead.";
 	say "[2da]You get an additional message on entering Meal Square.";
 	say "[2da]Eating a food from Tray B forces swears on, if they were off, but you have a last moment before eating the Cutter Cookie.";
 	say "[2da]Saying good-bye to Ally gives the name of a rival bar with swears on."; [end outskirts]
@@ -14460,13 +14485,19 @@ chapter swearing
 
 swearing is an action out of world.
 
-understand the command "swear" as something new.
+understand the command "swt" as something new.
 
-understand "swear" as swearing.
+understand "swt" as swearing.
 
 carry out swearing:
 	now allow-swears is whether or not allow-swears is false;
 	say "Swearing is [on-off of allow-swears].";
+	if a side stand is in pressure pier:
+		now sample stool is in pressure pier;
+		now a side stand is off-stage;
+	else:
+		now sample stool is off-stage;
+		now a side stand is in pressure pier;
 	the rule succeeds;
 
 chapter gqing
