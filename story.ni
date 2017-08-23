@@ -3518,6 +3518,7 @@ Mind Games	"Mind games are messing with people's mind with lies or half-truths. 
 palace	"A palace is a big, expensive, (usually) well-kept-up place."
 power games	"Power games are when people use manipulation to take charge, or when people struggle to control a business, often without voting involved."
 charity	"Charity is giving to others while expecting (in theory) nothing in return." [start of a round lounge]
+hatch act	"hatch act is when you [fill-in-here]. a round lounge"
 nose picking	"Nose picking is -- not the best habit. A picking nose would be a discerning sense of smell." [start of tension surface]
 Animal Welfare	"Animal welfare is concern for animals who often can't help themselves. Welfare has a slightly perjorative definition in the US these days, e.g. people on welfare are lazy, or someone giving it is very generous indeed, more than they need to be." [start of variety garden]
 brush up	"To brush up is to refresh your memory of something."
@@ -3587,6 +3588,7 @@ joint statement	"A joint statement is something made and agreed on by a group of
 puff piece	"A puff piece is a fawning newspaper article that makes someone out to be better than they really are. A peace puff from smoking marijuana is (we can assume) less socially motivated."
 roll a joint	"A joint role is something done together. Rolling a joint is the act of creating a marijuana cigarette."
 sleeper cell	"A group of people who blen into a community until they can commit an act of terrorism."
+tone police	"Tone police are people who comment not on the content of what one says but how they say it. It's often used as an insult by people who need tone policing."
 trip up	"To trip someone up is to get in their way."
 advice	"Advice is, well, telling someone what they should or shouldn't do. A vice ad would be as well, only for the worse." [start of joint strip]
 bullfrog	"A bullfrog is not quite a toad. And bull means nonsense. The Stool Toad is probably in no danger of being mistaken for Frog or Toad from Arnold Lobel's nice books."
@@ -6016,12 +6018,15 @@ check opening tee:
 
 chapter hatch
 
+check talking to hatch:
+	say "'[activation of hatch act]!' you imagine yourself saying, but political activity doesn't seem right here. Maybe something more physical." instead;
+
 check attacking the hatch:
 	if player is on the chair:
 		if player has the screw or player has the stick:
 			say "Wham! So close! You take a whack with the [screw-or-stick] but just miss. If only it were extended a bit." instead;
 		if player has off tee:
-			say "Wham! You swing at the hatch with your off tee. It catches just between the hatch and the ceiling. The hatch hinges down, and a fold-out ladder falls out from it. Which is handy, but unfortunately, it's also handsy, so you sort of have to drop the off-tee. You unscrew it, too, for the next person who might get stuck in here, before climbing up to somewhere completely different from Smart Street...";
+			say "Wham! You swing at the hatch with your off tee. It catches just between the hatch and the ceiling. The hatch hinges down, and a fold-out ladder falls out from it. Which is handy, but unfortunately, it's also handsy, so you sort of have to drop the off-tee. You unscrew the hatch, too, for the next person who might get stuck in here, before climbing up to somewhere completely different from Smart Street...";
 			wfak;
 			now off tee is in lalaland;
 			move player to Tension Surface;
@@ -7214,7 +7219,7 @@ Down Ground is east of Pressure Pier. It is in Outer Bounds. "[one of]Walking ea
 
 after printing the locale description for down ground when down ground is unvisited:
 	say "You're reminded of the day you didn't get a permission slip signed to go to the roller coaster park at science class's year end. You wondered if you really deserved it, since you didn't do as well as you felt you could've.[line break]";
-	say "As you finish this thought, a large human-sized toad strolls in from the east. 'So! A new juvenile, eh? You's best not to SLIP. It ain't hard to avoid winding up mumbling and alone like Fritz the On, here. Whatever he smokes, can't be no [activation of joint statement]. Doobie? BE! DO!' His [activation of grammar police] leaves you unable to say anything until he disappears back east.[paragraph break]Fritz the On mutters something about that oppressive Stool Toad."
+	say "As you finish this thought, a large human-sized toad strolls in from the east. 'So! A new juvenile, eh? You's best not to SLIP. It ain't hard to avoid winding up mumbling and alone like Fritz the On, here. Whatever he smokes, can't be no [activation of joint statement]. Doobie? BE! DO!' His [activation of grammar police] and [activation of tone police] leave you unable to say anything until he disappears back east.[paragraph break]Fritz the On mutters something about that oppressive Stool Toad."
 
 check going nowhere in Down Ground:
 	if noun is down:
@@ -12504,6 +12509,8 @@ section a round lounge concepts
 
 charity is a xable concept in conceptville. Understand "chair itty" and "itty chair" as charity. howto is "[x-it of person chair]". gtxt is "itty chair".
 
+hatch act is a dialoguey concept in conceptville. Understand "act hatch" as hatch act. howto is "[t2 of plan hatch]". gtxtx is "Act, hatch".
+
 section tension surface concepts
 
 nose picking is a smelly concept in conceptville. Understand "picking nose" as nose picking. howto is "smell the mush in Tension Surface". gtxt is "picking nose".
@@ -12659,6 +12666,8 @@ Puff Piece is a concept in conceptville. Understand "peace/piece puff" and "puff
 roll a joint is a concept in conceptville. Understand "role/roll joint" and "role/roll a joint" as roll a joint. howto is "[w-fr]". gtxt is "a joint role". [norm]
 
 Sleeper Cell is a missable concept in conceptville. Understand "cell sleeper" as sleeper cell. howto is "sleep then wait in Down Ground". gtxt is "cell sleeper".
+
+tone police is a firstvis concept in conceptville. Understand "police tone" as tone police. howto is "[f-t of down ground]". gtxt is "police tone".
 
 trip up is a concept in conceptville. Understand "up trip" as trip up. howto is "[w-fr]". gtxt is "up trip".
 
