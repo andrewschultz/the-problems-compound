@@ -3319,7 +3319,7 @@ Nim	"Nim was always the toughest to prove, and my 8th-grade self wiped out in Be
 out puzzle	"These aren't a pun, but it's something mathy people see a lot of, and motivational speakers tend to abuse it. If you'd like the solution to the four lines to draw to connect all the points, and even other smart-aleck answers, say yes."	--
 river boat	"I remember being fooled by the river boat as a kid and then realizing the moves were forced. I was glad to find some variations and even make a decent one in my experimental game Turn Around for the Apollo 18 tribute. It's not big on story, but I like the puzzles and tricks."	--
 Rubik's Cube	"The Rubik's Cube is always something I was supposed to be good at. My sister three years older than me bought a solving book I figured I'd be old enough to look at in three years. I never did. Not til I was an adult did I see the methods, and I was surprised how piecemeal and orderly it was. I also remember being very very jealous of Will Smith solving it in an episode of Fresh Prince of Bel Air."	"The Rubik's Cube also has a theme of two things flipped making a big, big difference. That last pair is always a tricky one."
-thought of school	"A school of thought is a particular way of thinking held by a specific group. Alec doesn't fit in with any, and so his thought of school is a bit intimidating. Also, a thought of school is generally not about the more philosophical things. If schools do focus on that, people tend not to think too hard about them. They just go ahead and do."
+thought of school	"A school of thought is a particular way of thinking held by a specific group. Alec doesn't fit in with any, and so his thought of school is a bit intimidating. Also, a thought of school is generally not about the more philosophical things. If schools do focus on that, people tend not to think too hard about them. They just go ahead and do."	--
 Towers of Hanoi	"ToH is a basic computer science problem, and I remember someone I respected raving how hard it was, and being disappointed how easy the recursive solution was: N to peg X = n-1 to peg Y, bottom to peg X, n-1 to peg Z. That said, it's just awful in practice."	--
 off tee	"To tee off is to yell or punch out at someone."	-- [start of a round lounge]
 person chair	"A chairperson is someone in charge of things. The person chair is, on the other hand, anonymous and plain."	--
@@ -3338,16 +3338,16 @@ earth of salt	"Salt of the earth means a great person. It's from back when salt 
 Flower Wall	"A wallflower is someone who doesn't participate socially."	"I had trouble with what this should be in the Vision Tunnel, but when I found it I realized it showed Alec being social."
 picture hole	"Seeing the whole picture means you see everything."	--
 Poor Dirt	"Dirt poor means especially not rich."	--
-Basher Bible	"A bible basher is someone who quotes scripture too much. The reverse means a compendium of ways to try and gain power over people and put them down."	"I simply can't believe this one took so much to find! The idea is, people who sell you on your own inadequacy are at least as destructive as, well, Bible-Bashers. But they put on a show and make their audience glad THEY'RE not the ones being cut down, yet." [start of pressure pier]
+Basher Bible	"A bible basher is someone who quotes scripture too much. The reverse means a compendium of ways to try and gain power over people and put them down."	"I simply can't believe this one took so much to find! The idea is, people who sell you on your own inadequacy are at least as destructive as, well, Bible-Bashers. But they put on a show and make their audience glad THEY'RE not the ones being cut down, yet."	-- [start of pressure pier]
 boo tickety	"Tickety-boo means okay, all right, etc."	"I like the contrast of being told 'Boo!' with the horrible places you're shipped off to, elsewhere. Also, it makes it clear small mistakes are okay."
 a sample stool	"A stool sample is a piece of matter from inside your butt."	"This came up late in release 3. I was reading a Twitter thread, the subject of which I won't reveal. A side stand seemed a bit too vanilla, and I was glad to have something to balance it."
 a side stand	"To stand aside is to get out of the way."	"I had trouble with what was supporting the Basher Bible, until I stumbled on this. I'd thought of a stand for a while, but it seemed like there were too many choices. Then I realized I could just give a different figure of speech if you tried different things."
 trail paper	"A paper trail is evidence in white-collar crimes. People often have to piece it together."	--
-assignment plum	"A plum assignment is giving someone a particularly prestigious, noticeable, easy or lucrative job. It's one everyone wants." [start of meal square]
-basted lamb	"To be lambasted is to be yelled at very loudly."
-charred pie	"A pie chart is a graphic that represents percents as part of a pie/circle divided into arcs."
-condition mint	"Mint condition is brand new."	"The mint was buggy until release 3, but it was one of the first foods that made me realize Meal Square could be an important location."
-cutter cookie	"Cookie-cutter means predictable and formulaic."	"I wound up getting rid of most of the foods I planned for release 1, but I added the whole 'Alec goes bad' on a whim and it went pretty well."
+assignment plum	"A plum assignment is giving someone a particularly prestigious, noticeable, easy or lucrative job. It's one everyone wants."	-- [start of meal square]
+basted lamb	"To be lambasted is to be yelled at very loudly."	--
+charred pie	"A pie chart is a graphic that represents percents as part of a pie/circle divided into arcs."	--
+condition mint	"Mint condition is brand new."	"The mint was buggy until release 3, but it was one of the first foods that made me realize Meal Square could be an important location."	--
+cutter cookie	"Cookie-cutter means predictable and formulaic."	"I wound up getting rid of most of the foods I planned for release 1, but I added the whole 'Alec goes bad' on a whim and it went pretty well."	--
 gagging lolly	"Lollygagging is waiting around."	"This is one of the worst puns with the silliest deaths. I'm proud of it!"
 greater cheese	"A cheese grater chops up cheese. Also, you do become a bit of a grater if you eat it."	"This was the second of the post-comp bad foods added. It occurred to me that there are lots of ways to be a jerk."
 iron waffle	"A waffle iron is what you put batter in to make a waffle. But a waffle is also what you use when you don't know what to say. An iron waffle, then, would be something to say when you don't know what to say--but it is hard to take down."	"Alec of course would not have the confidence to make or use an iron waffle."
@@ -4028,7 +4028,7 @@ to say dutch-off:
 	say "[one of]. This is viewed, according to idioms.freedictionary.com, as insulting to the Dutch. It certainly isn't flattering[or]. Again, potentially not the politest[stopping]"
 
 table of room explanations [tore]
-room-to-exp	exp-text	exp-anno
+room-to-exp	exp-text
 Smart Street	"Street Smart means knowing your way around tricky people and situations. Alec is not, to start."
 A Round Lounge	"To lounge around is to sit and do nothing--the opposite of what you want to do here."
 Tension Surface	"Surface Tension is a scientific phenomenon where water can stay over the top of a glass."
@@ -5499,28 +5499,29 @@ to decide whether (pe - a person) is part-talked:
 			decide yes;
 	decide no;
 
+[what's going on here is that babble-recap backs up convo-recap. convo-recap is TALK TO but babble-recap is BROOK BABBLING]
 table of npc talk summaries
 babbler	babble-content	babble-recap	convo-recap	babble-reward
 Word Weasel	"Something about how the weasel's willing to give you its signature, which is very valuable indeed helping you move on in the world. It [if player has gesture token]seems interested in a swap[else]got you to trade your token plus some work for the pick[end if]."	"[weasel-babble]"	--	a thing [p]
-Guy Sweet	"Guy Sweet blinks at you. 'Whoah! You're, like, more accelerated than most people at this whole social thing. Here, play a game, any game. It's sort of an aptitude test thing.'"	"Guy seemed impressed you took initiative and weren't intimidated[if gesture token is off-stage], but he's still waiting for you to play a game[else], and he even gave you that gesture token, too[end if]."	"Guy talked about the [bad-guy] and how you'd have to be very clever to meet him, and when you did, you'd better not waste his time."
-Mouth Mush	"The mouth mush harangues you about needing certification to go through the arch to the north. This isn't a big area, so it can't be far."	"The mouth mush wanted some sort of document."
+Guy Sweet	"Guy Sweet blinks at you. 'Whoah! You're, like, more accelerated than most people at this whole social thing. Here, play a game, any game. It's sort of an aptitude test thing.'"	"Guy seemed impressed you took initiative and weren't intimidated[if gesture token is off-stage], but he's still waiting for you to play a game[else], and he even gave you that gesture token, too[end if]."	"Guy talked about the [bad-guy] and how you'd have to be very clever to meet him, and when you did, you'd better not waste his time."	--
+Mouth Mush	"The mouth mush harangues you about needing certification to go through the arch to the north. This isn't a big area, so it can't be far."	"The mouth mush wanted some sort of document."	--	--
 Fritz	"Many variants on 'Whoah dude whoah,' mumbling about the friend he lost[if fritz has minimum bear]--and you found[end if]."	"He was pretty incoherent, mumbling about a lost friend[if fritz has minimum bear] that you found[end if]."	--	--
-Stool Toad	"The usual ordering to keep your nose clean, don't go off the beaten path, or litter, or annoy people, or have illicit substances."	"Ugh. You have had enough of officious adults telling you you seem like a good kid so that's EXTRA reason how you better keep clean."	"You sat through a disturbingly long lecture about what you'd better not do, and you felt guilty at both what you heard before and what you didn't."
+Stool Toad	"The usual ordering to keep your nose clean, don't go off the beaten path, or litter, or annoy people, or have illicit substances."	"Ugh. You have had enough of officious adults telling you you seem like a good kid so that's EXTRA reason how you better keep clean."	"You sat through a disturbingly long lecture about what you'd better not do, and you felt guilty at both what you heard before and what you didn't."	--
 Ally Stout	"He mentions all the places he's been and all the exciting people he's met, so much more exciting than here, no offense, you'll be exciting one day. Why, a bit of alcohol might help! [ally-offer]"	"Something about how exciting he was, and you could be, maybe. It doesn't feel so warm, in retrospect. [ally-offer]"	"Ally Stout certainly had a lot to say, but you get the feeling it was just minimal banter. [ally-offer]"	-- [p]
-Erin Sack	"She--well, she seems to be making sense, but you feel obliged to agree with her without thinking in order to show her you're thoughtful. You notice she doesn't have a drink."	"She doesn't seem up for small talk, but she grabs an imaginary drink and swirls it."	"It was pretty head-spinning, but then, maybe it was just all bluster. She seems disinterested in you."
-Terry Sally	"The usual greetings, as he exhorts you to be good--not too good, though. Maybe if you have some proof you're not totally boring and squeaky clean, you'll be bare-knuckle enough for the Compound proper. [if your-tix is 0]You'll--well, you'll know what, once you start picking up demerits[else]Probably the boo ticketies[end if]."	"Terry Sally wanted some sort of document[if your-tix is 4], maybe like that trail paper you've got[else if your-tix > 0], and your ticketies don't quite make one yet[end if]."
+Erin Sack	"She--well, she seems to be making sense, but you feel obliged to agree with her without thinking in order to show her you're thoughtful. You notice she doesn't have a drink."	"She doesn't seem up for small talk, but she grabs an imaginary drink and swirls it."	"It was pretty head-spinning, but then, maybe it was just all bluster. She seems disinterested in you."	--
+Terry Sally	"The usual greetings, as he exhorts you to be good--not too good, though. Maybe if you have some proof you're not totally boring and squeaky clean, you'll be bare-knuckle enough for the Compound proper. [if your-tix is 0]You'll--well, you'll know what, once you start picking up demerits[else]Probably the boo ticketies[end if]."	"Terry Sally wanted some sort of document[if your-tix is 4], maybe like that trail paper you've got[else if your-tix > 0], and your ticketies don't quite make one yet[end if]."	--	--
 Buddy Best	"Buddy Best begins talking a mile a minute about Big Things, and it's impressive all right, and you're not sure how much you should interrupt to say so. You don't at all, and eventually he gets bored of you staring at him and hands you something called a Reasoning Circular and boots you back east."	"BUG. This should not happen."	--	Reasoning Circular
 Pusher Penn	"He drones on about exciting business opportunities and pushes some wacker weed on you to help you, apparently, get a taste of cutting-edge business."	"[if wacker weed is in lalaland]'Business, eh?'[else]He rubs his hand and makes a 'come here' gesture.[end if][penn-ask]"	"[if wacker weed is in lalaland]Pusher Penn wanted you to run an errand, and you did. He seems pretty disinterested in you now[else if player has wacker weed]You still need to find whom to give the weed to[else]You get the feeling Pusher Penn is all business[end if]."	wacker weed [p]
-Art Fine	"Art goes to town on the superiority of unwritten art to written art. You guess it's persuasive, but you wonder if Phil would've been even more persuasive, if his views were switched."	"He was pretty convincing about spontaneous art versus art restricted by the written word."
-Harmonic Phil	"Phil goes to town on the superiority of unwritten art to written art. You guess it's persuasive, but you wonder if Art would've been even more persuasive, if his views were switched."	"He was pretty convincing about intellectual art versus art that might appeal to less clever people."
-Sly Moore	"[sly-s] haltingly asks if you found anything that could help him be less klutzy? He needs it a bit more than you. Um, a lot."	"He wanted something to help him be less klutzy."	--
-Officer Petty	"Officer Petty boomingly proclaims a need for theoretical knowledge to augment his robust practical knowledge: 'NOTHING FOUND YET? DIDN'T THINK SO. STILL, I CAN HOPE. I COULD USE SOME HIGHBROW FINESSE, I ADMIT IT.'"	"Officer Petty needed something to expand his skills beyond shouting and intimidation."	--
-Grace Goode	"She mentions how having a flower for the googly bowl [if fourth-blossom is in lalaland]is so[else]would be[end if] nice."	"[if fourth-blossom is in lalaland]'Thank you for returning the flower to the bowl.'[else]'Have you found a flower for the googly bowl?'[end if]"	"[if fourth-blossom is in lalaland]There's no need for words now that the flower is back in the googly bowl[else]She was hoping for a flower for the googly bowl[end if]."
-generic-jerk	"Each [j-g] seems to be hiding something for all his bluster."	"Each [j-g] put up a good face but there was something wrong about all the bragging."	--
-Brother Big	"Brother Big mutters about how he's not very clever and he'd like to change that."	"Brother Big asked for something to make him cleverer."	--
-Brother Soul	"Brother Soul frowns and pines for something to cheer him up."	"Brother Soul asked for something to cheer him up."	--
-Brother Blood	"Brother Blood moans about how he thinks more violent thoughts than he should, and he wants to change that, and not just to look or seem better."	"Brother Blood seemed upset at how upset he was about things."	--
-Baiter Master	"[bug] -- you should be forced to see all the conversation."	"[bug] -- you should be forced to see all the conversation."	--
+Art Fine	"Art goes to town on the superiority of unwritten art to written art. You guess it's persuasive, but you wonder if Phil would've been even more persuasive, if his views were switched."	"He was pretty convincing about spontaneous art versus art restricted by the written word."	--	--
+Harmonic Phil	"Phil goes to town on the superiority of unwritten art to written art. You guess it's persuasive, but you wonder if Art would've been even more persuasive, if his views were switched."	"He was pretty convincing about intellectual art versus art that might appeal to less clever people."	--	--
+Sly Moore	"[sly-s] haltingly asks if you found anything that could help him be less klutzy? He needs it a bit more than you. Um, a lot."	"He wanted something to help him be less klutzy."	--	--
+Officer Petty	"Officer Petty boomingly proclaims a need for theoretical knowledge to augment his robust practical knowledge: 'NOTHING FOUND YET? DIDN'T THINK SO. STILL, I CAN HOPE. I COULD USE SOME HIGHBROW FINESSE, I ADMIT IT.'"	"Officer Petty needed something to expand his skills beyond shouting and intimidation."	--	--
+Grace Goode	"She mentions how having a flower for the googly bowl [if fourth-blossom is in lalaland]is so[else]would be[end if] nice."	"[if fourth-blossom is in lalaland]'Thank you for returning the flower to the bowl.'[else]'Have you found a flower for the googly bowl?'[end if]"	"[if fourth-blossom is in lalaland]There's no need for words now that the flower is back in the googly bowl[else]She was hoping for a flower for the googly bowl[end if]."	--
+generic-jerk	"Each [j-g] seems to be hiding something for all his bluster."	"Each [j-g] put up a good face but there was something wrong about all the bragging."	--	--
+Brother Big	"Brother Big mutters about how he's not very clever and he'd like to change that."	"Brother Big asked for something to make him cleverer."	--	--
+Brother Soul	"Brother Soul frowns and pines for something to cheer him up."	"Brother Soul asked for something to cheer him up."	--	--
+Brother Blood	"Brother Blood moans about how he thinks more violent thoughts than he should, and he wants to change that, and not just to look or seem better."	"Brother Blood seemed upset at how upset he was about things."	--	--
+Baiter Master	"[bug] -- you should be forced to see all the conversation."	"[bug] -- you should be forced to see all the conversation."	--	--
 
 to say weasel-babble:
 	if player has gesture token:
@@ -10944,7 +10945,7 @@ control-turns	time-taunt
 5	"'Wondered if you were going to do something.'"
 10	"'Gosh! Was it awkward for you, waiting, too?'"
 15	"'Well, yes, I saw you first thing. Finally had the guts...'"
---	"'You know, you're lucky I didn't have you arrested for loitering.'"
+-1	"'You know, you're lucky I didn't have you arrested for loitering.'"
 
 table of bm stuff brags
 times-failed	what-to-say
@@ -11076,7 +11077,7 @@ to begin-endgame:
 
 to master-welcome-taunt:
 	repeat through table of distract time:
-		if there is no control-turns entry or freak-control-turns <= control-turns entry:
+		if control-turns entry is -1 or freak-control-turns <= control-turns entry:
 			say "[time-taunt entry][line break]";
 			the rule succeeds;
 
@@ -12048,69 +12049,69 @@ book in-game map
 
 table of map coordinates (continued)
 rm	x	y	l1	l2	indir	outdir	updir	downdir	view-rule
-Smart Street	5	6	"SMART"	"STREE"	west
-Round Lounge	4	6	"ROUND"	"LOUNG"	--	--	north
-Tension Surface	4	5	"TENSI"	"SURFA"
-Variety Garden	3	5	"VARIE"	"GARDN"
-Vision Tunnel	5	5	"VISIO"	"TUNNL"
-Soda Club	6	5	"SODA "	"CLUB "
-Tense Future	7	0	"TENSE"	"FUTUR"
-Tense Present	7	1	"TENSE"	"PRESE"
-Tense Past	7	2	"TENSE"	"PAST "
-Out Mist	3	0	" OUT "	"MIST "
-Freak Control	4	0	"FREAK"	"CNTRL"
-Airy Station	5	0	"AIRY "	"STATN"
-Accountable Hold	2	1	"ACCOU"	"HOLD "
-Court of Contempt	3	1	"COURT"	"CONTE"
-Questions Field	4	1	"QUEST"	"FIELD"
-Standard Bog	5	1	"STAND"	"-BOG-"
-Pot Chamber	6	1	"-POT-"	"CHAMB"
-Truth Home	1	2	"TRUTH"	"HOME "
-Scheme Pyramid	2	2	"SCHEM"	"PYRAM"
-Temper Keep	3	2	"TEMPR"	"KEEP "
-Speaking Plain	4	2	"SPEAK"	"PLAIN"
-Walker Street	5	2	"WALKR"	"STREE"
-Discussion Block	6	2	"DISCU"	"BLOCK"
-Classic Cult	1	3	"CLASS"	"CULT "
-Disposed Well	2	3	"DISPO"	"WELL "
-Chipper Wood	3	3	"CHIPR"	"WOOD "
-Nominal Fen	4	3	"[if silly boris is in lalaland]MELLO[else]NOMIN[end if]"	"[if silly boris is in lalaland]MARSH[else] FEN [end if]"
-Judgment Pass	5	3	"JGMNT"	"PASS "
-Idiot Village	6	3	"IDIOT"	"VILLG"
-Service Community	7	3	"SERVC"	"COMMU"
-A Great Den	1	4	"BOTTM"	"ROCK "
-Belt Below	2	4	"BELT "	"BELOW"
-Meal Square	3	4	"MEAL "	"SQUAR"
-Pressure Pier	4	4	"PRESS"	"PIER "
-Down Ground	5	4	"DOWN "	"GROUN"
-Joint Strip	6	4	"JOINT"	"STRIP" [end actual game locs]
-Window Bay	0	4	"WINDO"	" BAY " [meta locs you can visit]
-Madness March	0	5	"MADNS"	"MARCH"
-Eternal Hope Springs	1	5	"ETERN"	"SPRNG"
-Brains Beat	2	5	"BRAIN"	"BEAT "
-Humor Gallows	0	6	"HUMOR"	"GALLO"
-Chicken Free Range	1	6	"CHCKN"	"RANGE"
-Tuff Butt Fair	2	6	"TUFF "	"FAIR "
-Ill Falls	3	6	" ILL "	"FALLS"
-Mine Land	0	7	"MINE "	"LAND "
-Rage Road	1	7	"RAGE "	"ROAD "
-Muster Pass	2	7	"MUSTR"	"PASS "
-One Route	3	7	" ONE "	"ROUTE"
-Shoulder Square	0	0	"EXPEC"	"MEET " [unused locs]
-Everything Hold	1	0	"EVERY"	"HOLD "
-Perilous Siege	2	0	"SHOUL"	"SQUAR"
-Camp Concentration	3	0	"PERIL"	"SIEGE"
-Space of Waste	1	1	"SPACE"	"WASTE"
-Clown Class	0	2	"CLOWN"	"CLASS"
-Robbery Highway	0	3	"ROBRY"	"HIWAY"
-In-Dignity Heap	7	4	"INDIG"	"HEAP "	["death" rooms]
-Beer Pound	7	5	"BEER "	"POUND"
-Shape Ship	6	6	"SHAPE"	"SHIP "
-Fight Fair	7	6	"FIGHT"	"FAIR "
-Criminals' Harbor	4	7	"CRIMN"	"HARBR"
-Punishment Capitol	5	7	"PUNSH"	"CAPIT"
-Maintenance High	6	7	"MAINT"	"HIGH "
-Hut Ten	7	7	" HUT "	" TEN "
+Smart Street	5	6	"SMART"	"STREE"	west	--	--	--	--
+Round Lounge	4	6	"ROUND"	"LOUNG"	--	--	north	--	--
+Tension Surface	4	5	"TENSI"	"SURFA"	--	--	--	--	--
+Variety Garden	3	5	"VARIE"	"GARDN	--	--	--	--	--"
+Vision Tunnel	5	5	"VISIO"	"TUNNL"	--	--	--	--	--
+Soda Club	6	5	"SODA "	"CLUB "	--	--	--	--	--
+Tense Future	7	0	"TENSE"	"FUTUR"	--	--	--	--	--
+Tense Present	7	1	"TENSE"	"PRESE"	--	--	--	--	--
+Tense Past	7	2	"TENSE"	"PAST "	--	--	--	--	--
+Out Mist	3	0	" OUT "	"MIST "	--	--	--	--	--
+Freak Control	4	0	"FREAK"	"CNTRL"	--	--	--	--	--
+Airy Station	5	0	"AIRY "	"STATN"	--	--	--	--	--
+Accountable Hold	2	1	"ACCOU"	"HOLD "	--	--	--	--	--
+Court of Contempt	3	1	"COURT"	"CONTE"	--	--	--	--	--
+Questions Field	4	1	"QUEST"	"FIELD"	--	--	--	--	--
+Standard Bog	5	1	"STAND"	"-BOG-"	--	--	--	--	--
+Pot Chamber	6	1	"-POT-"	"CHAMB"	--	--	--	--	--
+Truth Home	1	2	"TRUTH"	"HOME "	--	--	--	--	--
+Scheme Pyramid	2	2	"SCHEM"	"PYRAM"	--	--	--	--	--
+Temper Keep	3	2	"TEMPR"	"KEEP "	--	--	--	--	--
+Speaking Plain	4	2	"SPEAK"	"PLAIN"	--	--	--	--	--
+Walker Street	5	2	"WALKR"	"STREE"	--	--	--	--	--
+Discussion Block	6	2	"DISCU"	"BLOCK"	--	--	--	--	--
+Classic Cult	1	3	"CLASS"	"CULT "	--	--	--	--	--
+Disposed Well	2	3	"DISPO"	"WELL "	--	--	--	--	--
+Chipper Wood	3	3	"CHIPR"	"WOOD "	--	--	--	--	--
+Nominal Fen	4	3	"[if silly boris is in lalaland]MELLO[else]NOMIN[end if]"	"[if silly boris is in lalaland]MARSH[else] FEN [end if]"	--	--	--	--	--
+Judgment Pass	5	3	"JGMNT"	"PASS "	--	--	--	--	--
+Idiot Village	6	3	"IDIOT"	"VILLG"	--	--	--	--	--
+Service Community	7	3	"SERVC"	"COMMU"	--	--	--	--	--
+A Great Den	1	4	"GREAT"	" DEN "	--	--	--	--	--
+Belt Below	2	4	"BELT "	"BELOW"	--	--	--	--	--
+Meal Square	3	4	"MEAL "	"SQUAR"	--	--	--	--	--
+Pressure Pier	4	4	"PRESS"	"PIER "	--	--	--	--	--
+Down Ground	5	4	"DOWN "	"GROUN"	--	--	--	--	--
+Joint Strip	6	4	"JOINT"	"STRIP"	--	--	--	--	-- [end actual game locs]
+Window Bay	0	4	"WINDO"	" BAY "	--	--	--	--	-- [meta locs you can visit]
+Madness March	0	5	"MADNS"	"MARCH"	--	--	--	--	--
+Eternal Hope Springs	1	5	"ETERN"	"SPRNG"	--	--	--	--	--
+Brains Beat	2	5	"BRAIN"	"BEAT "	--	--	--	--	--
+Humor Gallows	0	6	"HUMOR"	"GALLO"	--	--	--	--	--
+Chicken Free Range	1	6	"CHCKN"	"RANGE"	--	--	--	--	--
+Tuff Butt Fair	2	6	"TUFF "	"FAIR "	--	--	--	--	--
+Ill Falls	3	6	" ILL "	"FALLS"	--	--	--	--	--
+Mine Land	0	7	"MINE "	"LAND "	--	--	--	--	--
+Rage Road	1	7	"RAGE "	"ROAD "	--	--	--	--	--
+Muster Pass	2	7	"MUSTR"	"PASS "	--	--	--	--	--
+One Route	3	7	" ONE "	"ROUTE"	--	--	--	--	--
+Shoulder Square	0	0	"EXPEC"	"MEET "	--	--	--	--	-- [unused locs]
+Everything Hold	1	0	"EVERY"	"HOLD "	--	--	--	--	--
+Perilous Siege	2	0	"PERIL"	"SIEGE"	--	--	--	--	--
+Camp Concentration	3	0	"CAMP "	"CONC "	--	--	--	--	--
+Space of Waste	1	1	"SPACE"	"WASTE"	--	--	--	--	--
+Clown Class	0	2	"CLOWN"	"CLASS"	--	--	--	--	--
+Robbery Highway	0	3	"ROBRY"	"HIWAY"	--	--	--	--	--
+In-Dignity Heap	7	4	"INDIG"	"HEAP "	--	--	--	--	--	["death" rooms]
+Beer Pound	7	5	"BEER "	"POUND"	--	--	--	--	--
+Shape Ship	6	6	"SHAPE"	"SHIP "	--	--	--	--	--
+Fight Fair	7	6	"FIGHT"	"FAIR "	--	--	--	--	--
+Criminals' Harbor	4	7	"CRIMN"	"HARBR"	--	--	--	--	--
+Punishment Capitol	5	7	"PUNSH"	"CAPIT"	--	--	--	--	--
+Maintenance High	6	7	"MAINT"	"HIGH "	--	--	--	--	--
+Hut Ten	7	7	" HUT "	" TEN "	--	--	--	--	--
 
 book Inform IDE inits
 
