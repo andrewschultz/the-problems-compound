@@ -3518,7 +3518,7 @@ Mind Games	"Mind games are messing with people's mind with lies or half-truths. 
 palace	"A palace is a big, expensive, (usually) well-kept-up place."
 power games	"Power games are when people use manipulation to take charge, or when people struggle to control a business, often without voting involved."
 charity	"Charity is giving to others while expecting (in theory) nothing in return." [start of a round lounge]
-hatch act	"hatch act is when you [fill-in-here]. a round lounge"
+hatch act	"The Hatch Act is an Americal law regulating political activities by elected officials."
 nose picking	"Nose picking is -- not the best habit. A picking nose would be a discerning sense of smell." [start of tension surface]
 Animal Welfare	"Animal welfare is concern for animals who often can't help themselves. Welfare has a slightly perjorative definition in the US these days, e.g. people on welfare are lazy, or someone giving it is very generous indeed, more than they need to be." [start of variety garden]
 brush up	"To brush up is to refresh your memory of something."
@@ -3540,6 +3540,7 @@ take a stand	"To take a stand is to have a firm moral position. To take the stan
 apple pie order	"Apple-Pie Order means very well organized." [start of meal square]
 arch deluxe	"The Arch Deluxe was a menu item at McDonald's that was advertised heavily but sold poorly."
 astray	"Tray S is astray. In other words, it strayed from Meal Square."
+bottom feeder	"A bottom feeder is someone who profits from others['] misfortunes."
 Bowled Over	"Bowled over means unable to deal with things. Over-bold means too confident."
 caveat	"A caveat is a stated warning or exception. In other words, something works well, except for certain cases."
 coffee break	"A coffee break is when someone drinks coffee while away from work. Break Coffee is about getting very type a."
@@ -3593,12 +3594,14 @@ trip up	"To trip someone up is to get in their way."
 advice	"Advice is, well, telling someone what they should or shouldn't do. A vice ad would be as well, only for the worse." [start of joint strip]
 bullfrog	"A bullfrog is not quite a toad. And bull means nonsense. The Stool Toad is probably in no danger of being mistaken for Frog or Toad from Arnold Lobel's nice books."
 bum rap	"A bum rap means a police charge that is false."
+carrier pigeon	"A carrier pigeon flies away and sends messages."
 case a joint	"To case a joint is to search a place thoroughly."
 do dope	"To do dope is to use drugs."
 job security	"Job security means you have a job it is hard to lose."
 killer weed	"Killer weed is slang for especially good marijuana."
 Moral Support	"Moral support is helping someone even if you don't have concrete advice. SUPPORT MORAL is, well, a slogan that pushes people around."
 Pigeon English	"Pigeon English is broken, grammatically poor English."
+pigeonhole	"To pigeonhole someone is to put them in a corner, semantically or physically."
 stop smoking	"To stop smoking is to quit smoking cigarettes. The Smoking Stop means a place where people can smoke without being harassed."
 strip search	"To strip search someone is to remove their clothes to look for something on them, or in them."
 bargain	"Gin bar can go to two things: to barge in, or a bargain." [start of soda club]
@@ -6680,7 +6683,7 @@ check going west in pressure pier:
 Meal Square is west of Pressure Pier. Meal Square is in Outer Bounds. "This is a small alcove with Pressure Pier back east. You would call it an [activation of caveat], but ...[paragraph break]There's not much decoration except a picture of a dozen bakers."
 
 check going down in meal square:
-	say "Greedy, greedy. There's no [activation of layer cake] below." instead;
+	say "Greedy, greedy. There's no [if accel-ending][activation of bottom feeder][else][activation of layer cake][end if] below." instead;
 
 after printing the locale description for meal square when meal square is unvisited:
 	if allow-swears is true:
@@ -7488,6 +7491,8 @@ does the player mean doing something with the pigeon stool when player is in joi
 instead of doing something with pigeon stool:
 	if action is undrastic:
 		continue the action;
+	if current action is taking:
+		say "Even if it weren't under the Stool Toad, you'd be limited what you could do with a [activation of pigeonhole].[paragraph break]Plus you don't have a [activation of carrier pigeon]." instead;
 	say "Since it's under the Stool Toad, there's not much you can do with it."
 
 toad-got-you is a truth state that varies.
@@ -12509,7 +12514,7 @@ section a round lounge concepts
 
 charity is a xable concept in conceptville. Understand "chair itty" and "itty chair" as charity. howto is "[x-it of person chair]". gtxt is "itty chair".
 
-hatch act is a dialoguey concept in conceptville. Understand "act hatch" as hatch act. howto is "[t2 of plan hatch]". gtxtx is "Act, hatch".
+hatch act is a dialoguey concept in conceptville. Understand "act hatch" as hatch act. howto is "[t2 of plan hatch]". gtxt is "Act, hatch".
 
 section tension surface concepts
 
@@ -12564,6 +12569,8 @@ apple pie order is a xable concept in conceptville. Understand "apple-pie order"
 arch deluxe is a cantgo concept in conceptville. Understand "deluxe arch" as arch deluxe. howto is "[nogo of Meal Square]". gtxt is "deluxe arch".
 
 astray is a firstvis concept in conceptville. understand "tray s" and "s tray" as astray. howto is "[f-t of Meal Square]". gtxt is "Tray S".
+
+bottom feeder is a cantgo concept in conceptville. Understand "feeder bottom" as bottom feeder. howto is "go down in Meal Square after eating a bad food". gtxt is "feeder bottom".
 
 bowled over is a culinary concept in conceptville. understand "over bold" and "bold over" as bowled over. howto is "eat any Tray B food". gtxt is "over-bold".
 
@@ -12679,6 +12686,8 @@ bullfrog is a dialoguey concept in conceptville. Understand "frog bull" and "bul
 
 bum rap is a dialoguey concept in conceptville. Understand "rap a bum" as bum rap. howto is "[t2 of Stool Toad] or sing around him". gtxt is "[if qbc_litany is table of no conversation]a rap[else]rap a[end if] bum".
 
+carrier pigeon is a concept in conceptville. Understand "pigeon carrier" as carrier pigeon. howto is "take the Stool Pigeon". gtxt is "pigeon carrier".
+
 case a joint is a missable concept in conceptville. Understand "joint a case" as case a joint. howto is "get ticket for exploring the stickweed". gtxt is "a joint case".
 
 do dope is a missable concept in conceptville. Understand "dope do" as do dope. howto is "wait in Joint Strip". gtxt is "DOPE, DO".
@@ -12690,6 +12699,8 @@ killer weed is a smelly concept in conceptville. Understand "weed killer" as kil
 Moral Support is a xable concept in conceptville. Understand "support moral" as moral support. howto is "[x-it of pigeon stool]". gtxt is "SUPPORT MORAL".
 
 Pigeon English is a xable concept in conceptville. Understand "english pigeon" as pigeon english. howto is "[x-it of pigeon stool]". gtxt is "English Pigeon".
+
+pigeonhole is a missable concept in conceptville. Understand "pigeon whole" and "whole pigeon" as pigeonhole. howto is "take the Stool Pigeon". gtxt is "whole pigeon".
 
 stop smoking is a dialoguey concept in conceptville. Understand "smoking stop" as stop smoking. howto is "[t2 of Stool Toad]". gtxt is "Smoking Stop".
 
