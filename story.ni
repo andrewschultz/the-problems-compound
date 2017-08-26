@@ -3338,7 +3338,7 @@ earth of salt	"Salt of the earth means a great person. It's from back when salt 
 Flower Wall	"A wallflower is someone who doesn't participate socially."	"I had trouble with what this should be in the Vision Tunnel, but when I found it I realized it showed Alec being social."
 picture hole	"Seeing the whole picture means you see everything."	--
 Poor Dirt	"Dirt poor means especially not rich."	--
-Basher Bible	"A bible basher is someone who quotes scripture too much. The reverse means a compendium of ways to try and gain power over people and put them down."	"I simply can't believe this one took so much to find! The idea is, people who sell you on your own inadequacy are at least as destructive as, well, Bible-Bashers. But they put on a show and make their audience glad THEY'RE not the ones being cut down, yet."	-- [start of pressure pier]
+Basher Bible	"A bible basher is someone who quotes scripture too much. The reverse means a compendium of ways to try and gain power over people and put them down."	"I simply can't believe this one took so much to find! The idea is, people who sell you on your own inadequacy are at least as destructive as, well, Bible-Bashers. But they put on a show and make their audience glad THEY'RE not the ones being cut down, yet." [start of pressure pier]
 boo tickety	"Tickety-boo means okay, all right, etc."	"I like the contrast of being told 'Boo!' with the horrible places you're shipped off to, elsewhere. Also, it makes it clear small mistakes are okay."
 a sample stool	"A stool sample is a piece of matter from inside your butt."	"This came up late in release 3. I was reading a Twitter thread, the subject of which I won't reveal. A side stand seemed a bit too vanilla, and I was glad to have something to balance it."
 a side stand	"To stand aside is to get out of the way."	"I had trouble with what was supporting the Basher Bible, until I stumbled on this. I'd thought of a stand for a while, but it seemed like there were too many choices. Then I realized I could just give a different figure of speech if you tried different things."
@@ -3346,8 +3346,8 @@ trail paper	"A paper trail is evidence in white-collar crimes. People often have
 assignment plum	"A plum assignment is giving someone a particularly prestigious, noticeable, easy or lucrative job. It's one everyone wants."	-- [start of meal square]
 basted lamb	"To be lambasted is to be yelled at very loudly."	--
 charred pie	"A pie chart is a graphic that represents percents as part of a pie/circle divided into arcs."	--
-condition mint	"Mint condition is brand new."	"The mint was buggy until release 3, but it was one of the first foods that made me realize Meal Square could be an important location."	--
-cutter cookie	"Cookie-cutter means predictable and formulaic."	"I wound up getting rid of most of the foods I planned for release 1, but I added the whole 'Alec goes bad' on a whim and it went pretty well."	--
+condition mint	"Mint condition is brand new."	"The mint was buggy until release 3, but it was one of the first foods that made me realize Meal Square could be an important location."
+cutter cookie	"Cookie-cutter means predictable and formulaic."	"I wound up getting rid of most of the foods I planned for release 1, but I added the whole 'Alec goes bad' on a whim and it went pretty well."
 gagging lolly	"Lollygagging is waiting around."	"This is one of the worst puns with the silliest deaths. I'm proud of it!"
 greater cheese	"A cheese grater chops up cheese. Also, you do become a bit of a grater if you eat it."	"This was the second of the post-comp bad foods added. It occurred to me that there are lots of ways to be a jerk."
 iron waffle	"A waffle iron is what you put batter in to make a waffle. But a waffle is also what you use when you don't know what to say. An iron waffle, then, would be something to say when you don't know what to say--but it is hard to take down."	"Alec of course would not have the confidence to make or use an iron waffle."
@@ -3777,6 +3777,7 @@ sequins	"Sequins are small glisteny cheap things that make an outfit shine. They
 Sharp Barb	"A sharp barb is a stinging, clever insult."
 shock jock	"A shock jock is someone who provides deliberately insulting opinions to a wide audience, often on radio."
 six-pack	"A six-pack usually refers to six cans of beer held together by plastic rings."
+slugs of liquor	"A slug of liquor is a brief quick drink."
 social norms	"Social norms are what is generally expected of people's behavior."
 spencer tracy	"Spencer Tracy was a movie actor/leading man in the 1930's and 40's."
 spotted dick	"Spotted dick is a sort of sweet pudding."
@@ -3902,6 +3903,7 @@ career threatening	"Something career threatening may risk not only your job but 
 countermand	"To countermand is to order against doing something."
 pass the torch	"To pass the torch is to hand off knowledge or responsibility to the next person."
 scofflaw	"A scofflaw is someone who breaks minor rules. Perhaps they jaywalk or litter."
+terrorist	"A terrorist is someone who plans or executs attacks that injure civilians, in order to spread fear."
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever." [start of idiot village]
 code monkey	"A code monkey is someone who writes programming code for a living."
 grease monkey	"A grease monkey is a manual laborer, especially with machines."
@@ -10417,7 +10419,7 @@ check going nowhere in judgment pass:
 	if noun is inside or noun is outside or noun is north or noun is south:
 		say "The only passage is east-west." instead;
 
-Officer Petty is an enforcing person in Judgment Pass. "[one of]The officer stares down at the intuition counter for a moment. 'NOPE,' he yells. 'Sure as my name's Officer Petty, no good reason for you to go to Idiot Village.'[or]Officer Petty regards you with contempt.[stopping]"
+Officer Petty is an enforcing person in Judgment Pass. "[one of]The officer stares down at the intuition counter for a moment. 'NOPE,' he yells. 'Sure as my name's Officer Petty, no good reason for you to go to Idiot Village. If you're dumb, you'll never find a smart reason, and if you're smart, all you'll find is a dumb reason.'[or]Officer Petty continues to regard you with contempt.[stopping]"
 
 understand "coat petty" as a mistake ("Officer Petty raps on the Intuition Counter, then looks at you for a moment. 'You look like one of those closet perverts. I can't arrest you for that, but I have freedom of speech, y'know.'") when player is in Judgment Pass and Petty is in Judgment Pass.
 
@@ -10429,7 +10431,7 @@ the Intuition Counter is scenery in Judgment Pass. "It's labeled with all manner
 
 check going east in Judgment Pass:
 	if Officer Petty is in Judgment Pass:
-		say "'Whoah! On the one hand, anyone who wants to go to Idiot Village, deserves to go there, no matter how smart. But on the other hand, anyone who wants to put up with Idiot Village must have a dumb reason for going there. When I'm right, I'm right, eh?'" instead;
+		say "You're sure Officer Petty would grab you and pull you back with a [activation of terrorist] move or something, to instill proper fear of the law." instead;
 
 litany of officer petty is the table of officer petty talk.
 
@@ -13073,6 +13075,8 @@ shock jock is a jerkish concept in conceptville. Understand "jock shock" as shoc
 
 six-pack is a jerkish concept in conceptville. Understand "pack six" and "six pack" as six-pack. howto is "[j-blab] nominal fen". gtxt is "Pack Six".
 
+slugs of liquor is a jerkish concept in conceptville. Understand "slugs of licker" and "licker of slugs" as slugs of liquor. howto is "[j-blab]". gtxt is "licker of slugs".
+
 social norms is a jerkish concept in conceptville. Understand "norms social" as social norms. howto is "[j-blab]". gtxt is "Norm's social".
 
 spencer tracy is a jerkish concept in conceptville. Understand "tracy spencer" as spencer tracy. howto is "[j-blab]". gtxt is "Tracy Spencer".
@@ -13364,6 +13368,8 @@ countermand is a xable concept in conceptville. Understand "counter manned" and 
 pass the torch is a snarky concept in conceptville. Understand "torch the pass" as pass the torch. howto is "BURN anything in Judgment Pass". gtxt is "torch the pass".
 
 scofflaw is a concept in conceptville. Understand "scoff law" and "lawscoff/law-scoff/scoff-law" and "law scoff" as scofflaw. howto is "give Officer Petty the Reasoning Circular". gtxt is "law-scoff". [norm]
+
+terrorist is a cantgo concept in conceptville. Understand "tearer wrist" and "wrist tearer" as terrorist. howto is "go east in Judgment Pass with Officer Petty present". gtxt is "wrist tearer".
 
 section idiot village concepts
 

@@ -375,6 +375,7 @@ macho-boast
 "The [j-co] disagree on whether [activation of sharp barb] would be worth putting up with her lame gossip."
 "The [j-co] take a minute to [activation of shock jock] in general. It's very disturbing, but you can't put your finger on why."
 "The [j-co] recount how [activation of six-pack] was the SQUAREST Cub Scout pack!"
+"The [j-co] think anyone who's never tried drugs is a [activation of slugs of liquor]."
 "The [j-co] rave how [activation of social norms] enough to get away with being cra-a-a-azy!"
 "The [j-co] act disgusted at the food they [activation of spotted dick] someone eating. Eat a cheeseburger, dude."
 "The [j-co] deride [activation of Sweeney Todd] for his fear of horror movies and barbers."
@@ -394,22 +395,28 @@ macho-boast
 "The [j-co] debate that comic strip by [activation of white guys]."
 "The [j-co] rave about the wonderfully greasy options at [activation of whole foods]."
 "The [j-co] agree Erwin is just a total loser name." [na winner]
+"The [j-co] agree Fearin['] Mick leaves you worrying and not being happy." [na mcferrin, bobby]
 "The [j-co] agree Gerda would never knife you in the back." [na dagger]
-"The [j-co] agree Rozier is really all that." [na zero]
+"The [j-co] agree Rozier is really all that." [na zero l]
 "The [j-co] agree that Diener is massively cool." [na nerdy]
 "The [j-co] applaud Roxy for being UNCOPYABLE." [na xerox]
+"The [j-co] applaud Terry for not being caught dead with a book." [na reader m]
 "The [j-co] are glad Becky is 100% American!" [na quebec]
 "The [j-co] are sorry, but they don't find Delma attractive." [na model]
 "The [j-co] are unanimous: Vijay is ready for the big leagues." [na jayvee/jv]
 "The [j-co] argue pointlessly over if a girl is pretty plain or plain pretty." [na pretty plain]
 "The [j-co] can only WHISPER what Elaine likes." [na anal]
+"The [j-co] can't believe how low LeRoy is on the social ladder." [na royal]
 "The [j-co] can't believe how low-maintenance Mandy is." [na demand]
 "The [j-co] debate the best time to play a certain MP3." [na 3pm]
+"The [j-co] discuss how Lyle raps." [na illy]
 "The [j-co] don't find Tony terribly interesting." [na neato]
+"The [j-co] dream of a trip to Camp Mellon, where authority never wins!" [na mellencamp]
 "The [j-co] find Keesha solid." [na shaky]
 "The [j-co] find Noemi way too nice." [na mean-o]
 "The [j-co] give up respect for Keely's dry sense of humor." [na leaky]
 "The [j-co] like how Wary Flo doesn't use loaded words." [na flowery]
+"The [j-co] love how Damon lives for the weekend." [na monday]
 "The [j-co] love how Tyra always looks her best." [na ratty]
 "The [j-co] marvel at Phoebe's weight room prowess." [na beefy]
 "The [j-co] marvel at Theresa's recollections of weird dates." [na easter]
@@ -421,21 +428,21 @@ macho-boast
 "The [j-co] mention what a follower Dahlia is." [na leader/leadah]
 "The [j-co] moan what a prude Reba is." [na bare]
 "The [j-co] mock Mindy Mundy for being too religious." [na demon]
+"The [j-co] mock Norman's dumpy house." [na manor]
 "The [j-co] mock Perry for lack of mechanical skill." [na repair]
 "The [j-co] ooh and ahh at Pinky's generosity." [na keepin']
-"The [j-co] praise Dori for having more in her life than books." [na reader]
+"The [j-co] praise Dori for having more in her life than books." [na reader f]
 "The [j-co] praise how awesome Obie's cologne smells." [na b o]
-"The [j-co] rate Rosie a clear 10." [na zero]
-"The [j-co] reaffirm Teena's sanity." [na nutty]
+"The [j-co] rate Rosie a clear 10." [na zero f]
 "The [j-co] recount how Murphy broke his one bone." [na femur]
 "The [j-co] remind each other it's mean to sneak up behind Dara. She never suspects it." [na radar]
 "The [j-co] say, boy, Teena sure is sensible!" [na nutty]
 "The [j-co] still can't figure why Pansy is so good at computer stuff." [na cpan]
+"The [j-co] think McKinney has a robust workout regimen." [na anemic]
 "The [j-co] unanimously decide whether Noel should be allowed in the group." [na hell/'ell no]
 "The [j-co] wish Golda would be more results oriented." [na da goal]
 "The [j-co] wonder what Kerstyn does to smell so nice." [na stinker]
 "The [j-co] wonder what wonderful perfume Kerri wears." [na reeker]
-"The [j-co] wonder why Golda is so planless." [na da goal]
 "The [j-co] wonder why Patti likes silverware so much." [na teapot]
 "The [j-co], in a soft moment, talk up Elsie, the new animal in the zoo." [na seal]
 "The [j-co] don't like how Denny is always needin[']." [na]
