@@ -314,6 +314,7 @@ macho-boast
 "The [j-co] vow to [activation of jimmy buffett] for his musical taste."
 "The [j-co] discuss some sporting event or other that ended [activation of john 3:16]."
 "The [j-co] dub [activation of johnny rotten] a waste of human life for wasting away and never trying to rebel."
+"The [j-co] agree it's no fun to be [activation of jollying around]."
 "Each of the [j-co] discusses a [activation of journeyman] he will take to be above average."
 "The [j-co] sure are glad they kicked [activation of keepin] out of the group long ago."
 "The [j-co] create a conspiracy theory for laughs: plain, quiet [activation of Keyser Soze] and [activation of Kevin Spacey] somehow ruthlessly control female and male social circles."
@@ -409,9 +410,11 @@ macho-boast
 "The [j-co] can't believe how low LeRoy is on the social ladder." [na royal]
 "The [j-co] can't believe how low-maintenance Mandy is." [na demand]
 "The [j-co] debate the best time to play a certain MP3." [na 3pm]
+"The [j-co] discuss how Kirby is never prepared for science class." [na beaker]
 "The [j-co] discuss how Lyle raps." [na illy]
 "The [j-co] don't find Tony terribly interesting." [na neato]
 "The [j-co] dream of a trip to Camp Mellon, where authority never wins!" [na mellencamp]
+"The [j-co] figure Peavy will go far in politics." [na VP]
 "The [j-co] find Keesha solid." [na shaky]
 "The [j-co] find Noemi way too nice." [na mean-o]
 "The [j-co] give up respect for Keely's dry sense of humor." [na leaky]
@@ -425,6 +428,7 @@ macho-boast
 "The [j-co] mention how Perske's ideas never last." [na keepers]
 "The [j-co] mention how low-maintenance Porsha is." [na shopper]
 "The [j-co] mention how unsubtle Jenna is." [na nudgin]
+"The [j-co] mention what a cool nice teacher Hollis is." [na asshole]
 "The [j-co] mention what a follower Dahlia is." [na leader/leadah]
 "The [j-co] moan what a prude Reba is." [na bare]
 "The [j-co] mock Mindy Mundy for being too religious." [na demon]
@@ -441,8 +445,10 @@ macho-boast
 "The [j-co] think McKinney has a robust workout regimen." [na anemic]
 "The [j-co] unanimously decide whether Noel should be allowed in the group." [na hell/'ell no]
 "The [j-co] wish Golda would be more results oriented." [na da goal]
+"The [j-co] wonder what Bruno has against alcohol." [na no brew]
 "The [j-co] wonder what Kerstyn does to smell so nice." [na stinker]
 "The [j-co] wonder what wonderful perfume Kerri wears." [na reeker]
+"The [j-co] wonder why Lowell never greets anyone." [na Ello]
 "The [j-co] wonder why Patti likes silverware so much." [na teapot]
 "The [j-co], in a soft moment, talk up Elsie, the new animal in the zoo." [na seal]
 "The [j-co] don't like how Denny is always needin[']." [na]

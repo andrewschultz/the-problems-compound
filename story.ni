@@ -3706,6 +3706,7 @@ jimmy buffett	"Jimmy Buffett is the sort of singer you either love or hate. He h
 john 3:16	"John 3:16 is a famous verse where people hold up its sign at sporting events."
 johnny rotten	"Johnny Rotten was the lead singer of the Sex Pistols."
 joint committee	"A joint committee is a group of legislators from different parts of US Congress."
+jollying around	"Jollying around is cheering someone up, often really condescendingly, by forcing them to be happy."
 journeyman	"A journeyman is someone who is maybe not spectacular but who has paid his dues in his field."
 junk mail	"Junk mail means letters and fliers you didn't ask for that appear in your (physical or electronic) mailbox anyway."
 keepin	"Keepin['] is, well, keeping, or letting someone stay."
@@ -3892,6 +3893,7 @@ Coals to Newcastle	"Coals to Newcastle means a pointless action. In this case, t
 counterculture	"Counterculture is a group of people who live deliberately opposed to society at large."
 creative act	"A creative act is when you do something meaningful, spontaneous and unexpected."
 Elevator Music	"Elevator music is soft, boring, inoffensive music that plays in elevators. Phil and Art want the play to be a bit more exciting."
+les miserables	"[i]Les Miserables[r] was a long book by Victor Hugo that was made into a musical"
 lovecraft	"HP Lovecraft is an eponymous writer of horror stories."
 philistine	"A philistine is someone who doesn't appreciate the arts."
 Play Dumb	"To play dumb is to pretend you don't know something you do, to avoid criticism or to catch someone off-guard. Of course, Phil and Art, after saying this, treat you like you're kind of dumb. Or you can't even ask the name of the play."
@@ -10292,7 +10294,7 @@ table of quip texts (continued)
 quip	quiptext
 art-hi	"'It is. Phil[if phil is off-stage], wherever he is,[end if] and I have worked hard to make it a paragon of good taste!'"
 art-pomp	--
-art-aes	"'Well, closed-mindedness. I'll never like that in people. But in art? Ah, I can appreciate anything. Even stuff that's so bad it's good. Especially in the presence of other aficionados. Unless it's just drivel. Of course.'"
+art-aes	"'Well, I despise closed-mindedness. But I can appreciate anything. Even stuff that's so bad it's good. Especially in the presence of other aficionados. Unless it's just drivel. Of course. I'm the opposite of [activation of les miserables] that way.'"
 art-book	"'This is not a library! However, if you so choose, you may marvel at the titles, record them for your pleasure, and check them out at your nearest library.' Art mumbles something about you not being able to pay the interest back with exciting criticism of your own. You're pretty sure he meant you to hear it."
 art-tol	"'Drivel so dreary, from a mind so banal. I shudder to think. It would make me run screaming.'"
 art-wax	"[wax-blab]"
@@ -12933,6 +12935,8 @@ johnny rotten is a jerkish concept in conceptville. Understand "rotten johnny" a
 
 joint committee is a concept in conceptville. Understand "committee joint" as joint committee. howto is "[solve-j]". gtxt is "committee joint to top it off". [norm]
 
+jollying around is a jerkish concept in conceptville. Understand "jolyon around" and "around jolyon" as jollying around. howto is "[j-blab]". gtxt is "around Jolyon".
+
 journeyman is a jerkish concept in conceptville. Understand "journey man" and "man journey" as journeyman. howto is "[j-blab]". gtxt is "man-journey".
 
 junk mail is a listeny concept in conceptville. Understand "male junk" and "junk male" as junk mail. howto is "[li of nominal fen] before figuring the Index puzzle". gtxt is "male junk".
@@ -13344,6 +13348,8 @@ counterculture is a firstvis concept in conceptville. Understand "counter cultur
 creative act is a firstvis concept in conceptville. Understand "act creative" as creative act. howto is "[f-t of discussion block]". gtxt is "act creative".
 
 Elevator Music is a firstvis concept in conceptville. Understand "music elevator" as elevator music. howto is "[f-t of Discussion Block]". gtxt is "music elevator".
+
+les miserables is a dialoguey concept in conceptville. Understand "les miserable" and "miserable/miserables les" as les miserables. howto is "[t2 of art fine]". gtxt is "miserable Les".
 
 lovecraft is a dialoguey concept in conceptville. Understand "love craft" and "craft love" as lovecraft. howto is "[bga of Art Fine]". gtxt is "craft love".
 
