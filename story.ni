@@ -38,21 +38,21 @@ section compiler limits
 
 use MAX_ACTIONS of 210.
 
-use MAX_OBJECTS of 860.
+use MAX_OBJECTS of 870.
 
 use MAX_SYMBOLS of 26000.
 
 use MAX_STATIC_DATA of 200000.
 
-use MAX_PROP_TABLE_SIZE of 340000.
+use MAX_PROP_TABLE_SIZE of 350000.
 
 section compiler debug limits - not for release
 
-use MAX_OBJECTS of 900. [+40]
+use MAX_OBJECTS of 910. [+40]
 
 use MAX_SYMBOLS of 29000. [+3000]
 
-use MAX_PROP_TABLE_SIZE of 360000. [+20000]
+use MAX_PROP_TABLE_SIZE of 370000. [+20000]
 
 book includes
 
@@ -2685,7 +2685,7 @@ check giving Reasoning Circular to:
 	if second noun is Officer Petty:
 		now Officer Petty is in lalaland;
 		now the Reasoning Circular is in lalaland;
-		say "A tear starts to form in Officer Petty's eye. 'Really? I...well, this definitely isn't bribery! I've cultivated a nice [activation of scofflaw] at people who get simple stuff wrong, but I always felt there was more. I could have more complex reasons to put people down. I really CAN follow a [activation of career threatening]! I CAN be clever and still play the Maybe I Didn't Go to a Fancy School card. Thank...' He looks at the Reasoning Circular again. 'Wait, wait. Maybe you wouldn't have gotten anything out of this invitation anyway. So it's not so generous.' Officer Petty beams at his newfound profundity before shuffling off."; [temproom judgment pass]
+		say "A tear starts to form in Officer Petty's eye. 'Really? I...well, this definitely isn't bribery! I've cultivated a nice [activation of scofflaw] at people who get simple stuff wrong, but I always felt there was more. I could have more complex reasons to put people down. I really CAN follow a [activation of career threatening]! I CAN be clever and still play the Maybe I Didn't Go to a Fancy School card. And wow, looking at this map, it's right nearby in the [activation of plainclothes]. Thank...' He looks at the Reasoning Circular again. 'Wait, wait. Maybe you wouldn't have gotten anything out of this invitation anyway. So it's not so generous.' Officer Petty beams at his newfound profundity before shuffling off."; [temproom judgment pass]
 		increment the score;
 		annotize officer petty;
 		the rule succeeds;
@@ -3893,7 +3893,7 @@ Coals to Newcastle	"Coals to Newcastle means a pointless action. In this case, t
 counterculture	"Counterculture is a group of people who live deliberately opposed to society at large."
 creative act	"A creative act is when you do something meaningful, spontaneous and unexpected."
 Elevator Music	"Elevator music is soft, boring, inoffensive music that plays in elevators. Phil and Art want the play to be a bit more exciting."
-les miserables	"[i]Les Miserables[r] was a long book by Victor Hugo that was made into a musical"
+les miserables	"[i]Les Miserables[r] was a long book by Victor Hugo that was made into a popular musical."
 lovecraft	"HP Lovecraft is an eponymous writer of horror stories."
 philistine	"A philistine is someone who doesn't appreciate the arts."
 Play Dumb	"To play dumb is to pretend you don't know something you do, to avoid criticism or to catch someone off-guard. Of course, Phil and Art, after saying this, treat you like you're kind of dumb. Or you can't even ask the name of the play."
@@ -3904,6 +3904,7 @@ world record	"A world record is the best or most someone's ever done something."
 career threatening	"Something career threatening may risk not only your job but your ability to get other equal or better jobs. A threatening career is--well, a bit of a racket." [start of judgment pass]
 countermand	"To countermand is to order against doing something."
 pass the torch	"To pass the torch is to hand off knowledge or responsibility to the next person."
+plainclothes	"plainclothes is when you [fill-in-here]. judgment pass"
 scofflaw	"A scofflaw is someone who breaks minor rules. Perhaps they jaywalk or litter."
 terrorist	"A terrorist is someone who plans or executs attacks that injure civilians, in order to spread fear."
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever." [start of idiot village]
@@ -3961,6 +3962,7 @@ Johns Hopkins	"Johns Hopkins is a university with a prestigious medical school a
 King Henry	"King Henry VIII of England had six wives."
 laughingstock	"A laughingstock is someone everyone laughs at. But stock laughing is canned laughter, reflexive laughter at a joke you heard before, or maybe even a laugh track."
 Leading Question	"A leading question is one designed to provoke a certain answer. The term is usually used in a court of law."
+missed a spot	"missed a spot is when you [fill-in-here]. freak control"
 mistruth	"A mistruth is, well, a statement that's false."
 mug shot	"The shot mug may look shot, or beaten-up, but mug shots--photographs of apprehended suspects--are generally very unflattering. Hence the flattering portrait of the [bad-guy] on the mug."
 narcissist	"A narcissist is someone that puts their own needs too far ahead of others. This can mean hogging attention or shutting other people who rely on them out."
@@ -11037,7 +11039,7 @@ to choose-final-room:
 			set the pronoun them to mentality crowd;
 			move player to Airy Station;
 		else:
-			say "'Where? In the [activation of break jail]!'[paragraph break]Could people who yell that loud REALLY be that wrong? You keep a straight face, even as he booms '[activation of zeroin]! For [activation of blow the final]!' Which helps you focus more than you thought you could on how to get out. You're way ahead of the guards when they give chase. There's a mist ahead--maybe they'll lose you! But you've done even better. 'The out mist!' they yell. 'People eventually leave there to get back to real life.' Leif Rhee booms his troops have enough out steak to last a while."; [temproom freak control]
+			say "'Where? In the [activation of break jail]!'[paragraph break]Could people who yell that loud REALLY be that wrong? You keep a straight face, even as he booms '[activation of zeroin]! For [activation of blow the final]!' Which helps you focus more than you thought you could on how to get out. You're way ahead of the guards when they give chase. But you're too easy to pick out, until you look around carefully and [activation of missed a spot]. 'The out mist!' they yell, as you run inside. 'People eventually leave there to get back to real life.' Leif Rhee booms his troops have enough out steak to last a while."; [temproom freak control]
 			set the pronoun it to worm ring;
 			move player to Out Mist;
 		annotize baiter master;
@@ -13373,6 +13375,8 @@ countermand is a xable concept in conceptville. Understand "counter manned" and 
 
 pass the torch is a snarky concept in conceptville. Understand "torch the pass" as pass the torch. howto is "BURN anything in Judgment Pass". gtxt is "torch the pass".
 
+plainclothes is a concept in conceptville. Understand "plain close" and "close plain" as plainclothes. howto is "give Officer Petty the Reasoning Circular". gtxt is "Close Plain".
+
 scofflaw is a concept in conceptville. Understand "scoff law" and "lawscoff/law-scoff/scoff-law" and "law scoff" as scofflaw. howto is "give Officer Petty the Reasoning Circular". gtxt is "law-scoff". [norm]
 
 terrorist is a cantgo concept in conceptville. Understand "tearer wrist" and "wrist tearer" as terrorist. howto is "go east in Judgment Pass with Officer Petty present". gtxt is "wrist tearer".
@@ -13501,6 +13505,8 @@ King Henry is a nemmy concept in conceptville. Understand "henry king" as king h
 laughingstock is a dialoguey concept in conceptville. Understand "laughing stock" and "stock laughing" as laughingstock. howto is "[t2 of baiter master]". gtxt is "stock laughing".
 
 Leading Question is a nemmy concept in conceptville. Understand "question leading" as leading question. howto is "[fr-ran]". gtxt is "question leading".
+
+missed a spot is a concept in conceptville. Understand "mist a spot" and "spot a mist" as missed a spot. howto is "[ok-end]". gtxt is "spot a mist".
 
 mistruth is a nemmy concept in conceptville. Understand "miss truth" and "truth miss" as mistruth. howto is "[fr-ran]". gtxt is "Ruth missed so much by not listening to the exciting stories I offered to share to her".
 
