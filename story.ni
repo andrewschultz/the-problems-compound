@@ -3782,6 +3782,7 @@ slugs of liquor	"A slug of liquor is a brief quick drink."
 social norms	"Social norms are what is generally expected of people's behavior."
 spencer tracy	"Spencer Tracy was a movie actor/leading man in the 1930's and 40's."
 spotted dick	"Spotted dick is a sort of sweet pudding."
+Strangers with Candy	"Strangers with Candy was a TV show that made fun of well-meaningly didactic after-school specials. It starred Stephen Colbert and Amy Sedaris, who was made deliberately less attractive for the role of a 46--err, 47 year old high school freshman."
 sweeney todd	"Sweeney Todd was a fictitious murderous barber."
 sympathetic	"Sympathetic means caring and willing to listen."
 tallywhacker	"A tallywhacker is slang for a male sexual organ."
@@ -3904,7 +3905,7 @@ world record	"A world record is the best or most someone's ever done something."
 career threatening	"Something career threatening may risk not only your job but your ability to get other equal or better jobs. A threatening career is--well, a bit of a racket." [start of judgment pass]
 countermand	"To countermand is to order against doing something."
 pass the torch	"To pass the torch is to hand off knowledge or responsibility to the next person."
-plainclothes	"plainclothes is when you [fill-in-here]. judgment pass"
+plainclothes	"Plainclothes is when an officer is on duty but out of uniform."
 scofflaw	"A scofflaw is someone who breaks minor rules. Perhaps they jaywalk or litter."
 terrorist	"A terrorist is someone who plans or executs attacks that injure civilians, in order to spread fear."
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever." [start of idiot village]
@@ -3962,7 +3963,7 @@ Johns Hopkins	"Johns Hopkins is a university with a prestigious medical school a
 King Henry	"King Henry VIII of England had six wives."
 laughingstock	"A laughingstock is someone everyone laughs at. But stock laughing is canned laughter, reflexive laughter at a joke you heard before, or maybe even a laugh track."
 Leading Question	"A leading question is one designed to provoke a certain answer. The term is usually used in a court of law."
-missed a spot	"missed a spot is when you [fill-in-here]. freak control"
+missed a spot	"Missed a spot means you didn't quite see everything when cleaning."
 mistruth	"A mistruth is, well, a statement that's false."
 mug shot	"The shot mug may look shot, or beaten-up, but mug shots--photographs of apprehended suspects--are generally very unflattering. Hence the flattering portrait of the [bad-guy] on the mug."
 narcissist	"A narcissist is someone that puts their own needs too far ahead of others. This can mean hogging attention or shutting other people who rely on them out."
@@ -11284,7 +11285,7 @@ to go-back-home:
 		say "Yay! This worked. I am blocking the ending so you can try again.";
 		continue the action;
 	score-now;
-	say "The door leads to your closet and vanishes when you walk through. You're hungry after all that running around. Downstairs you find some old cereal you got sick of--certainly not killer cereal (ha ha) but now you realize it could be Procrastination Cereal, Moping Cereal, Complainer Cereal, or even something goofy like Monogamy Cereal. Maybe if it's really old you can pretend it's Pest Cereal, especially when you've put off asking someone about something. That little reverse will feel fresh for a while.";
+	say "The door leads to your closet and vanishes when you walk through. You're hungry after all that running around. Downstairs you find some old cereal you got sick of--certainly not killer cereal (ha ha) but now you realize it could be Procrastination Cereal, Moping Cereal, Complainer Cereal, or even something goofy like Monogamy or Numbers Cereal. Maybe if it's really old you can pretend it's Pest Cereal, or if it tastes awful, Fraud Cereal. That little reverse will feel fresh for a while.";
 	wfak;
 	say "You laugh at your own joke, which brings your parents out, complaining your late night moping is worse than ever. You promise them it'll get better.";
 	wfak;
@@ -13088,6 +13089,8 @@ social norms is a jerkish concept in conceptville. Understand "norms social" as 
 spencer tracy is a jerkish concept in conceptville. Understand "tracy spencer" as spencer tracy. howto is "[j-blab]". gtxt is "Tracy Spencer".
 
 spotted dick is a jerkish concept in conceptville. Understand "dick spotted" as spotted dick. howto is "[j-blab]". gtxt is "Dick spotted".
+
+strangers with candy is a jerkish concept in conceptville. Understand "candy with strangers" as strangers with candy. howto is "[j-blab]". gtxt is "Candy with Strangers".
 
 sweeney todd is a jerkish concept in conceptville. Understand "todd sweeney" as sweeney todd. howto is "[j-blab]". gtxt is "Todd Sweeney".
 

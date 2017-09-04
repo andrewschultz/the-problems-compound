@@ -379,6 +379,7 @@ macho-boast
 "The [j-co] think anyone who's never tried drugs is a [activation of slugs of liquor]."
 "The [j-co] rave how [activation of social norms] enough to get away with being cra-a-a-azy!"
 "The [j-co] act disgusted at the food they [activation of spotted dick] someone eating. Eat a cheeseburger, dude."
+"The [j-co] hope to get their hands on the hot tape [activation of strangers with candy]."
 "The [j-co] deride [activation of Sweeney Todd] for his fear of horror movies and barbers."
 "The [j-co] mock [activation of sympathetic] for listening to girls whine about their breakups without getting their phone numbers."
 "The [j-co] start a [activation of tallywhacker] of guys very likely to have no experience with women."
@@ -444,6 +445,7 @@ macho-boast
 "The [j-co] still can't figure why Pansy is so good at computer stuff." [na cpan]
 "The [j-co] think McKinney has a robust workout regimen." [na anemic]
 "The [j-co] unanimously decide whether Noel should be allowed in the group." [na hell/'ell no]
+"The [j-co] wish Becky would move out of the country." [na quebec]
 "The [j-co] wish Golda would be more results oriented." [na da goal]
 "The [j-co] wonder what Bruno has against alcohol." [na no brew]
 "The [j-co] wonder what Kerstyn does to smell so nice." [na stinker]
