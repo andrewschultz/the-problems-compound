@@ -243,6 +243,7 @@ macho-boast
 "The [j-co] are upset what a stickler [activation of anal] is."
 "The [j-co] berate [activation of anapest] and her weird 'modern' poetry."
 "The [j-co] muse how [activation of Anne Frank] wouldn't have to write his diaries about being oppressed if he didn't write weird diaries in the first place."
+"The [j-co] mention a [activation of antimatter=madder auntie] who despises science fiction."
 "'[activation of ballets]!' boom the [j-co], making sure it sounds extra manly."
 "The [j-co] argue over whether [activation of bandanna]'s clothes choices are really rebellious."
 "The [j-co] rehash [activation of bea arthur]'s wit about old people over, like, thirty."
@@ -255,6 +256,7 @@ macho-boast
 "The [j-co] praise [activation of benjamin]'s dance shows."
 "The [j-co] take time to [activation of bernoulli] math and science dorks."
 "The [j-co] love how [activation of beryllium] makes fun of science fiction loving dorks who know too much of the periodic table."
+"The [j-co] consider making a [activation of bill maher=marble] statue to their favorite snarky commentator."
 "The [j-co] wrestle over the sensitivest way to compliment a girl on a [activation of body slamming]."
 "The [j-co] laud [activation of bognor regis] for his hilarious fake British accent."
 "The [j-co] are sad [activation of bonhomie] just likes to eat and eat."
@@ -262,8 +264,10 @@ macho-boast
 "The [j-co] know to [activation of boring] for an exciting time."
 "The [j-co] compare kid-style [activation of bouncing betty] to adult-style, which is clearly the BOMB."
 "The [j-co] recount an argument between [activation of bourne shell] and a computer science teacher."
+"The [j-co] figure [activation of bowled bradman=bold man brad] is too good just for sports accomplishments."
 "The [j-co] babble on about the [activation of box score], where everyone except math obsessed nerds can hook up with a girl."
 "The [j-co] recount the epic junk food eating contest between [activation of broccoli] and [activation of kohlrabi]."
+"The [j-co] mention what an eyesort old [activation of brooke shields=shields brook] is."
 "The [j-co] debate whether [activation of cacophony] or [activation of polyphony] sings more annoyingly catchy pop songs."
 "The [j-co] brainstorm a [activation of call girl] that will make you irresistible."
 "The [j-co] berate [activation of Cary Grant] and [activation of Spencer Tracy] for an unusual lack success with women."
@@ -271,6 +275,7 @@ macho-boast
 "The [j-co] claim to want to get to know [activation of casually] better."
 "The [j-co] praise [activation of category] as less weird than she should be on paper."
 "The [j-co] ooh and ahh about a sophisticated [activation of caveman]."
+"The [j-co] can't imagine how [activation of chip dip] always eats healthy food."
 "The [j-co] banter about when they will be able to buy alcohol with a fake ID, or even legally. Then everything's [activation of cirrhosis]!"
 "The [j-co] whistle at the smoothness of the total EXPERTS and MASTERS in the [activation of club players]."
 "The [j-co] marvel at what a ladies['] man [activation of co-ed] is when he comes home from the military boarding school."
@@ -326,6 +331,7 @@ macho-boast
 "The [j-co] insinuate [activation of long johns] sleeps naked."
 "The [j-co] mock [activation of magnate]'s business sense."
 "The [j-co] mentioned how [activation of manicured] is of his lack of machismo."
+"The [j-co] pan [activation of martin luther]'s commitment to religious orthodoxy."
 "The [j-co] appreciate how [activation of mary sue] reliably smacks down anyone who seems too nice."
 "The [j-co] discuss how [activation of mascara] would be pretty if she just TRIED."
 "The [j-co] have to admit [activation of melodious] sure can sing!"
@@ -362,6 +368,7 @@ macho-boast
 "The [j-co] snicker at [activation of Potter Stewart], who couldn't recognize a kickass profane putdown if he saw it."
 "The [j-co] rave it's easy to hook up at the [activation of pound meat]."
 "The [j-co] look forward to wild college spring breaks at [activation of quaalude]."
+"The [j-co] marvel at how [activation of radio=odie ray] always knows the latest sound devices."
 "The [j-co] agree [activation of Ralph Lauren] would actually be really attractive with any fashion sense at all."
 "The [j-co] marvel over a [activation of record keeper] that stuffy statistics and historical types won't appreciate."
 "The [j-co] recount how [activation of rectally] some kid's supposititious argument."
@@ -410,6 +417,7 @@ macho-boast
 "The [j-co] can only WHISPER what Elaine likes." [na anal]
 "The [j-co] can't believe how low LeRoy is on the social ladder." [na royal]
 "The [j-co] can't believe how low-maintenance Mandy is." [na demand]
+"The [j-co] can't imagine Herby ever not seeming manly." [na be her]
 "The [j-co] debate the best time to play a certain MP3." [na 3pm]
 "The [j-co] discuss how Kirby is never prepared for science class." [na beaker]
 "The [j-co] discuss how Lyle raps." [na illy]
@@ -440,11 +448,13 @@ macho-boast
 "The [j-co] praise how awesome Obie's cologne smells." [na b o]
 "The [j-co] rate Rosie a clear 10." [na zero f]
 "The [j-co] recount how Murphy broke his one bone." [na femur]
+"The [j-co] remember that time Aaron thought he'd make a decent DJ." [na on air]
 "The [j-co] remind each other it's mean to sneak up behind Dara. She never suspects it." [na radar]
 "The [j-co] say, boy, Teena sure is sensible!" [na nutty]
 "The [j-co] still can't figure why Pansy is so good at computer stuff." [na cpan]
 "The [j-co] think McKinney has a robust workout regimen." [na anemic]
 "The [j-co] unanimously decide whether Noel should be allowed in the group." [na hell/'ell no]
+"The [j-co] want to kick Si for completely stupid predictions."
 "The [j-co] wish Becky would move out of the country." [na quebec]
 "The [j-co] wish Golda would be more results oriented." [na da goal]
 "The [j-co] wonder what Bruno has against alcohol." [na no brew]
@@ -452,6 +462,7 @@ macho-boast
 "The [j-co] wonder what wonderful perfume Kerri wears." [na reeker]
 "The [j-co] wonder why Lowell never greets anyone." [na Ello]
 "The [j-co] wonder why Patti likes silverware so much." [na teapot]
+"The [j-co] wouldn't let Curly join. He'd let all sorts of secrets out." [na leaker]
 "The [j-co], in a soft moment, talk up Elsie, the new animal in the zoo." [na seal]
 "The [j-co] don't like how Denny is always needin[']." [na]
 "The [j-co] mock Hunter Savage for being a much bigger wimp than you'd think." [na]
