@@ -167,13 +167,19 @@ while ( $count <= $#ARGV ) {
   $a = $ARGV[$count];
   my $amod = lc($a);
   $amod =~ s/^-//;
+  $amod = $i7x{$amod} if ( defined( $i7x{$amod} ) );
 
-  #print "Reading argument $count: $a\n";
+  # print "Reading argument $count: $a/$amod\n";
 
-  if ( defined( $i7x{$amod} ) || defined( $i7x{ lc($amod) } ) ) {
-    push( @dirs, lc( $i7x{$amod} ) );
+  if ( defined( $fileHash{$amod} ) ) {
+    push( @dirs, lc($amod) );
     $count++;
     next;
+  }
+  elsif ( defined( $i7x{ lc($a) } ) ) {
+    print(
+"$a/$amod is defined as a project in i7.pm, but not an Alec Smart one, so searching for a flag.\n"
+    );
   }
 
   for ( lc($a) ) {
@@ -298,7 +304,20 @@ readOkayDupes()       if $readDupe;
 readOkayUnderstands() if $understandProcess;
 readConceptMods();
 
+my $gotAnyFileArrays = 0;
 for my $thisProj (@dirs) {
+  $gotAnyFileArrays += defined( $fileHash{$thisProj} );
+}
+
+die( "Found no file/directory hashes in " . join( ', ', @dirs ) )
+  if !$gotAnyFileArrays;
+
+for my $thisProj (@dirs) {
+  if ( !defined( $fileHash{$thisProj} ) ) {
+    print "Project $thisProj doesn't have any array files defined.\n"
+      ; # this shouldn't happen with the checks above, but...let's be robust about error checking.
+    next;
+  }
   if ($modifyConcepts) {
     my $anyChanges = modifyConcepts($thisProj);
     if ($exportUnremarkable) { exportUnremarkable($thisProj); }
@@ -1353,8 +1372,10 @@ sub readConcept {
       if ( $lineIn =~ /gtxt(x)? is/
         ) # I could move this to a concept-specific block of code but it's good enough.
       {
-        for my $adj ( sort { $tempPriority{$a} <=> $tempPriority{$b} }
-          keys %tempConc )
+        for my $adj (
+          sort { $tempPriority{$a} <=> $tempPriority{$b} }
+          keys %tempConc
+          )
         {
           next if ( $adj eq "*" );
           if ( ( $lineIn =~ /howto is \"$adj/i ) +
@@ -2033,7 +2054,8 @@ sub compareRoomIndex {
               . (
               defined( $roomIndex{$commentBit} )
               ? $roomIndex{$commentBit}
-              : "N/A" )
+              : "N/A"
+              )
               . ") should be behind last room of $lastSortRoom(index $roomIndex{$lastSortRoom})";
             if ( defined( $roomIndex{$commentBit} ) ) {
               my $justAfterCandidate = "";
@@ -2094,11 +2116,13 @@ sub compareRoomIndex {
             . ") codesectioned to "
             . (
             defined( $concToRoom{$idea} ) ? $concToRoom{$idea}
-            : "(NO ROOM FOR CONCEPT)" )
-            . ( defined( $concToRoom{$idea} )
+            : "(NO ROOM FOR CONCEPT)"
+            )
+            . (
+            defined( $concToRoom{$idea} )
               && defined( $roomIndex{ $concToRoom{$idea} } ) ? ""
-            : " (UNDEFINED ROOM)" )
-            . " but listed in table of explanations under $commentBit.\n";
+            : " (UNDEFINED ROOM)"
+            ) . " but listed in table of explanations under $commentBit.\n";
           $ideaHash{$.}++;
           if ( ( !$detailLineToOpen )
             || ( $detailLineToOpen > $lineNum{$idea} ) )
