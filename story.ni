@@ -3627,6 +3627,7 @@ air jordan	"Air Jordan is an expensive athletic shoe named after Michael Jordan,
 anal	"Anal is short for anal-retentive, or over worried about details."
 anapest	"Anapest is a common beat for a poem. It can seem singsong."
 Anne Frank	"Anne Frank wrote [i]The Diary of Anne Frank[r], a story about a Jewish family hiding from the Nazis in World War II."
+antimatter	"Antimatter is stuff we're pretty sure exists in space, but we haven't seen."
 ballets	"Ballets are dances that are not especially masculine to enjoy. 'Let's ball' refers to playing more aggressive, masculine sports."
 Bandanna	"A bandanna is a scarf you tie around your head. Some people find it rebellious, others not rebellious enough."
 bea arthur	"Bea Arthur was the star of [i]Golden Girls[r], a sitcom about retired women."
@@ -3639,6 +3640,7 @@ benevolent	"Benevolent means doing things to help people."
 benjamin	"Benjamin is slang for a 100 dollar bill, which features Benjamin Frankin. Jammin['] is old slang for cool."
 Bernoulli	"The Bernoulli family were famous and accomplished mathematicians and scientists from around 1700."
 beryllium	"Beryllium is an element early in the atomic table, often referred to in Star Trek."
+bill maher	"Bill Maher has hosted shows with edgy political humor."
 Black Mark	"A black mark is something indicating bad behavior."
 body slamming	"Body slamming is a particularly painful wrestling move where you pretty much throw a person to the ground."
 bognor regis	"Bognor Regis is a town on the south coast of England."
@@ -3647,8 +3649,10 @@ borat	"Borat is Sacha Baren-Cohen's fictitious character who sends up American a
 boring	"Boring is, well, not interesting."
 bouncing betty	"Bouncing betty is slang for a land mine."
 bourne shell	"Bourne, Korn and bash are the three major shells for Unix."
+bowled bradman	"If you bowled Bradman, you are very good indeed at cricket."
 box score	"A box score describes the basic individual statistics from a sporting event."
 broccoli	"Broccoli is a vegetable."
+brooke shields	"Brooke Shields was a popular model in the 1980s."
 cacophony	"Cacophony is a loud noise."
 call girl	"A call girl is a paid female escort."
 Cary Grant	"Cary Grant is a movie star from the 40s and 50s."
@@ -3656,6 +3660,7 @@ case sensitive	"Case sensitive means paying attention to capitalization."
 casually	"Casually means not really in-depth."
 category	"A category is a logical class to divide someone into. In here, Kate fits into an obvious one, but she doesn't quite live up or down to it."
 caveman	"A caveman is a pejorative term for someone not very advanced, or someone who doesn't care about their appearance."
+chip dip	"Chip dip is what people put potato chips or corn chips in to give extra flavor. It is almost never nutritious."
 cirrhosis	"Cirrhosis is a disease of the liver, often bought on by drinking."
 clean break	"A clean break from something is leaving quickly and for good. The jerks haven't broken with their 'clean' secrets yet."
 club players	"Club player are pretty good at a sport or game, but they aren't really good."
@@ -3723,7 +3728,8 @@ long johns	"Long johns are pajamas with legs."
 lovelies	"Lovelies is a term of endearment."
 magnate	"A magnate is a powerful businessperson."
 manicured	"Manicured fingernails are generally for women, so Manny being cured of non-masculinity is contradictory."
-Mary Sue	"A Mary Sue is a character who is too unbelievably nice. It comes from the tour de force short story A Trekkie's Tale."
+martin luther	"Martin Luther's writings formed the basis of Protestantism, a break from the Catholic church."
+Mary Sue	"A Mary Sue is a character who is too unbelievably nice. It comes from the tour de force short story [i]A Trekkie's Tale[r]."
 mascara	"Mascara is basic make-up for women."
 melodious	"Melodious means nice-sounding."
 meretricious	"Meretricious means superficially attractive or insincere."
@@ -3762,6 +3768,7 @@ pop cherry	"To pop a cherry is to take someone's virginity."
 Potter Stewart	"Potter Stewart was a US Supreme who said he'd know obscenity when he saw it."
 pound meat	"To pound your meat is to, well, touch your genitals."
 quaalude	"A quaalude is a drug (methaquinone) now in low supply since it is illegal."
+radio	"A radio is, well, that thing with the dials that you can switch to different frequencies to hear different shows."
 Ralph Lauren	"Ralph Lauren is a fashion designer."
 record keeper	"A record keeper is someone who keeps track of facts and details."
 rectally	"Rectally means up the butt."
@@ -3906,6 +3913,7 @@ career threatening	"Something career threatening may risk not only your job but 
 countermand	"To countermand is to order against doing something."
 pass the torch	"To pass the torch is to hand off knowledge or responsibility to the next person."
 plainclothes	"Plainclothes is when an officer is on duty but out of uniform."
+point guard	"A point guard is usually the smallest, quickest player in the starting five of a basketball team."
 scofflaw	"A scofflaw is someone who breaks minor rules. Perhaps they jaywalk or litter."
 terrorist	"A terrorist is someone who plans or executs attacks that injure civilians, in order to spread fear."
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever." [start of idiot village]
@@ -10452,7 +10460,7 @@ prompt	response	enabled	permit
 
 table of quip texts (continued)
 quip	quiptext
-petty-biz	"'Just keeping [']em sequestered in Idiot Village. Not really where I hoped my career would go, but it's a job.'"
+petty-biz	"'Just keeping [']em sequestered in Idiot Village. Not really where I hoped my career would go, but it's a job. I'm the right sort for it. Can't have someone small and wimpy at the [activation of point guard]!'" [temproom judgment pass]
 petty-career	"'Well, I used to enjoy just shouting at people and pushing them around, but lots of my friends have got better at that psychological stuff. I been trying, but I can't work it out.'"
 petty-village	"'Smart fella like you doesn't belong there. And no offense, but you're not the sort to whip [']em into line. So I can't let you past.'"
 petty-break	"'No sir, no sir, no sir!' You wonder if you should call him sir, but you'd probably lose a sir-off. 'Unless there's an official opportunity for career skills enhancement!'"
@@ -12780,6 +12788,8 @@ anapest is a jerkish concept in conceptville. Understand "pest anna" and "anna p
 
 anne frank is a jerkish concept in conceptville. Understand "frank anne" as anne frank. howto is "[j-blab]". gtxt is "Frank Ahn".
 
+antimatter is a jerkish concept in conceptville. Understand "auntie madder" and "madder auntie" as antimatter. howto is "[j-blab]". gtxt is "madder auntie".
+
 ballets is a jerkish concept in conceptville. Understand "ball lets" and "lets ball" as ballets. howto is "[j-blab]". gtxt is "Let's ball".
 
 Bandanna is a jerkish concept in conceptville. Understand "anna bandt/band" and "bandt/band anna" as bandanna. howto is "[j-blab]". gtxt is "Anna Bandt".
@@ -12804,6 +12814,8 @@ bernoulli is a jerkish concept in conceptville. Understand "newly burn" and "bur
 
 beryllium is a jerkish concept in conceptville. Understand "burry liam" and "liam burry" as beryllium. howto is "[j-blab]". gtxt is "liam burry".
 
+bill maher is a jerkish concept in conceptville. Understand "marble" as bill maher. howto is "[j-blab]". gtxt is "marble".
+
 Black Mark is a xable concept in conceptville. Understand "mark black" as black mark. howto is "[x-it of quiz pop]". gtxt is "Mark Black".
 
 body slamming is a jerkish concept in conceptville. Understand "slamming body" as body slamming. howto is "[j-blab]". gtxt is "slamming body".
@@ -12820,9 +12832,13 @@ bouncing betty is a jerkish concept in conceptville. Understand "betty/beddy bou
 
 bourne shell is a jerkish concept in conceptville. Understand "shelbourne" as bourne shell. howto is "[j-blab]". gtxt is "shelbourne".
 
+bowled bradman is a jerkish concept in conceptville. Understand "brad man bold" and "bold man brad" as bowled bradman. howto is "[j-blab". gtxt is "bold man brad".
+
 box score is a jerkish concept in conceptville. Understand "score box" as box score. howto is "[j-blab]". gtxt is "Score Box".
 
 broccoli is a jerkish concept in conceptville. Understand "lee brock" and "brock lee" as broccoli. howto is "[j-blab]". gtxt is "Lee Brock".
+
+brooke shields is a jerkish concept in conceptville. Understand "brook shields" and "shields brook" as brooke shields. howto is "[j-blab]". gtxt is "shields brook".
 
 cacophony is a jerkish concept in conceptville. Understand "coco phony" and "phony coco" as cacophony. howto is "[j-blab]". gtxt is "Phony Coco".
 
@@ -12837,6 +12853,8 @@ casually is a jerkish concept in conceptville. Understand "julie kaz" and "kaz j
 category is a jerkish concept in conceptville. Understand "gory kate" and "kate gory" as category. howto is "[j-blab]". gtxt is "Gory Kate".
 
 caveman is a jerkish concept in conceptville. Understand "cave man" and "man cave" as caveman. howto is "[j-blab]". gtxt is "man cave".
+
+chip dip is a jerkish concept in conceptville. Understand "dip chip" as chip dip. howto is "[j-blab]". gtxt is "dip Chip".
 
 cirrhosis is a jerkish concept in conceptville. Understand "roses sir" and "sir roses" as cirrhosis. howto is "[j-blab]". gtxt is "Roses, sir".
 
@@ -12972,6 +12990,8 @@ magnate is a jerkish concept in conceptville. Understand "nate magg" and "magg n
 
 manicured is a jerkish concept in conceptville. Understand "cured manny" and "manny cured" as manicured. howto is "[j-blab]". gtxt is "cured Manny".
 
+martin luther is a jerkish concept in conceptville. Understand "luther martin" as martin luther. howto is "[j-blab]". gtxt is "Luther Martin".
+
 Mary Sue is a jerkish concept in conceptville. Understand "sue merry" and "merry sue" as mary sue. howto is "[j-blab]". gtxt is "Sue Merry".
 
 mascara is a jerkish concept in conceptville. Understand "cara maas" and "maas cara" as mascara. howto is "[j-blab]". gtxt is "Cara Maas".
@@ -13049,6 +13069,8 @@ Potter Stewart is a jerkish concept in conceptville. Understand "stewart potter"
 pound meat is a jerkish concept in conceptville. Understand "meet pound" and "pound meet" as pound meat. howto is "[j-blab]". gtxt is "Meet Pound".
 
 quaalude is a jerkish concept in conceptville. Understand "lewd quay" and "quay lewd" as quaalude. howto is "[j-blab]". gtxt is "Lewd Quay".
+
+radio is a jerkish concept in conceptville. Understand "ray odie" and "odie ray" as radio. howto is "[j-blab]". gtxt is "Odie Ray".
 
 Ralph Lauren is a jerkish concept in conceptville. Understand "lauren ralph" as ralph lauren. howto is "[j-blab]". gtxt is "Lauren Ralph".
 
@@ -13379,6 +13401,8 @@ countermand is a xable concept in conceptville. Understand "counter manned" and 
 pass the torch is a snarky concept in conceptville. Understand "torch the pass" as pass the torch. howto is "BURN anything in Judgment Pass". gtxt is "torch the pass".
 
 plainclothes is a concept in conceptville. Understand "plain close" and "close plain" as plainclothes. howto is "give Officer Petty the Reasoning Circular". gtxt is "Close Plain".
+
+point guard is a dialoguey concept in conceptville. Understand "guard point" as point guard. howto is "[t2 of Officer Petty]". gtxt is "guard point".
 
 scofflaw is a concept in conceptville. Understand "scoff law" and "lawscoff/law-scoff/scoff-law" and "law scoff" as scofflaw. howto is "give Officer Petty the Reasoning Circular". gtxt is "law-scoff". [norm]
 
