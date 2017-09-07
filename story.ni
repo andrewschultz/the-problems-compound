@@ -1539,7 +1539,7 @@ chapter smelling
 the block smelling rule is not listed in any rulebook.
 
 before smelling when accel-ending:
-	say "You give a disdainful sniff." instead;
+	say "You give a [activation of sniff test]. Nope, things aren't quite good enough for you." instead;
 
 check smelling (this is the smelling a thing rule):
 	if noun is the player:
@@ -1555,7 +1555,7 @@ check smelling (this is the smelling a thing rule):
 	if noun is mouth mush or noun is earth of salt:
 		say "It doesn't smell horrible, though you don't have a very [activation of nose picking]." instead; [temproom tension surface]
 	if noun is fritz:
-		say "You'd rather not risk it." instead;
+		say "He seems nice enough, but you don't need a whiff of [activation of stinkpot]." instead;
 	if noun is bear:
 		say "It smells kind of dirty." instead;
 	if noun is poory pot:
@@ -1715,6 +1715,8 @@ check eating:
 		ship-off Maintenance High instead;
 	if noun is iron waffle:
 		say "No, it's iron. Plus, it's bigger than a whole pie, so how would it fit in your pie hole?" instead;
+	if noun is a smokable:
+		say "That's not the right way to use [the noun]. In fact, the right way to use [the noun] isn't the right way, or doable, in this game." instead;
 	if noun is a person:
 		say "This isn't that sort of game." instead;
 	d "[noun]";
@@ -3497,7 +3499,9 @@ passing fancy	"A passing fancy is something that distracts you and is fun for a 
 poke fun	"To poke fun is to make a joke, but poke can mean a lot of things--putter around, meddle, or maybe poke a friend to get their attention."
 second thought	"A second thought is looking at something another way, whether to your aid or detriment."
 Sitting Duck	"A sitting duck is someone just waiting to be taking advantage of. But if you duck sitting, you aren't waiting."
+sniff test	"A sniff test means general quick evaluation of a situation to see if things are really off-base."
 Spelling Disaster	"Disaster spelling is, well, consonants clumped together. Spelling disaster is leading to bad news."
+stinkpot	"A stinkpot is a nasty person."
 touch base	"To touch base is to get back to someone or return their call, especially if it's been a while. Versus a base touch, base being mean, so it's a bit more creepy."
 turn of phrase	"A turn of phrase is clever wording. A phrase of turn is, well, what's at the command prompt, or, any wording."
 u-turn	"A u-turn is when a car swivels in a huge circle to reverse direction. So if something tries to turn you, it bounces back."
@@ -12482,7 +12486,11 @@ second thought is a missable concept in conceptville. Understand "thought second
 
 Sitting Duck is a firstvis concept in conceptville. Understand "duck sitting" as Sitting Duck. howto is "[f-t of Tension Surface]". gtxt is "".
 
+sniff test is a badendy concept in conceptville. Understand "test sniff" as sniff test. try smelling after eating a bad food". gtxt is "sniff test". [?? after eating a bad food = badendy and put it ahead in priority]
+
 Spelling Disaster is a oddverby concept in conceptville. Understand "disaster spelling" as spelling disaster. howto is "xyzzy". gtxt is "Disaster spelling".
+
+stinkpot is a smelly concept in conceptville. Understand "stink pot" and "pot stink" as stinkpot. howto is "smell Fritz". gtxt is "pot stink".
 
 touch base is a snarky concept in conceptville. Understand "base touch" as touch base. howto is "touch someone, or try". gtxt is "base touch".
 
