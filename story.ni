@@ -237,6 +237,7 @@ when play begins (this is the sort ALL the tables rule) :
 	sort the table of horrendous books in random order;
 	sort the table of horrendous songs in random order;
 	sort the table of jerk-macho-talk in random order;
+	sort the table of jerk-macho-talk in unact order;
 	continue the action;
 
 when play begins (this is the initialize bad room viewing rule):
@@ -2198,6 +2199,8 @@ check attacking:
 		ship-off Criminals' Harbor instead;
 	if noun is Percy:
 		say "You can't get close to him. '[activation of play it cool]!' he mocks you." instead; [temproom chipper wood]
+	if noun is business monkey:
+		say "You're worried he might have a friend like the [activation of guerilla tactics] who wouldn't need to be too subtle." instead; [temproom idiot village]
 	if noun is Baiter:
 		say "Of course, with all those screens, he saw you well before you got close. He whirls and smacks you. Stunned, you offer no resistance as guards appear and take you away to where those who commit the worst crimes... 'Dude! If you wanted to talk, just TALK. I mean, you can't be too boring, but don't be all...' You don't hear the rest.";
 		ship-off Punishment Capitol instead;
