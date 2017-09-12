@@ -98,6 +98,8 @@ while ( $count <= $#ARGV ) {
     /^-?du$/ && do { trim(); exit; };
     /^-?e?o$/ && do { print "Opening $output.\n"; `$output`; exit; };
     /^-?oo$/  && do { print "Opening $track.\n";  `$track`;  exit; };
+    /^-?oof$/
+      && do { print "Fixing tracking file.\n"; fixTrackingFile(); exit; };
     /^-?np$/ && do { $dicURLPrint = 0; $count++; next; };
     /^-?\!$/ && do { countChunks();       countURLs(); exit; };
     /^-?\?$/ && do { usage();             exit; };
@@ -748,6 +750,28 @@ sub warnSaveBeforeCopying() {
   return 0;
 }
 
+sub fixTrackingFile {
+  my %trax;
+
+  open( A, "$track" );
+  open( B, ">$track.out" );
+  while ( $a = <A> ) {
+    if ( $trax{$a} ) { print "Removed duplicate line $.: $a"; }
+    else {
+      print B $a;
+      $trax{$a} = 1;
+    }
+  }
+  close(A);
+  close(B);
+  if ( -s $track != -s "$track.out" ) {
+    `copy $track.out $track`;
+  }
+  else {
+    print "Nothing changed, not copying back over.\n";
+  }
+}
+
 sub usage {
   print <<EOT;
 -2 = override 2-letter word
@@ -767,7 +791,7 @@ sub usage {
 -e = edit the source, -el = edit the log
 -dl/dlog = send to daily log wfl-sz.txt, reset so-far (usually done in a script) (x = bail)
 -o/-eo = open the output file
--oo = open the tracking file
+-oo = open the tracking file, oof = fix it
 -? = this usage here
 EOT
   exit;
