@@ -69,7 +69,8 @@ while ( $count <= $#ARGV ) {
     /^-?e$/
       && do { `\"c:\\Program Files (x86)\\Notepad++\\notepad++.exe\" $0 `; exit; };
     /^-?an$/ && do { $alphabetical = !$alphabetical; $count++; next; };
-    /^-?(dl|dlog)(x)?$/ && do { $bailLog = ( $a1 =~ /x/ ); dailyLog(); exit; };
+    /^-?(dl|dlq|dlog)(x)?$/
+      && do { $bailLog = ( $a1 =~ /x/ ); dailyLog( $a1 !~ /q/ ); exit; };
     /^-?el$/ && do { `$sz`;         exit; };
     /^-?ao$/ && do { alfOut();      exit; };
     /^-?at$/ && do { alfTrack();    exit; };
@@ -233,23 +234,27 @@ if ($addToFound) {
 
 sub dailyLog {
   print "Logging line in $sz. Use -x to bail.\n";
-  my $wflsz    = wflSize();
-  my $incr     = 0;
-  my $origSize = 0;
-  my $chg      = 0;
+  my $wflsz     = wflSize();
+  my $incr      = 0;
+  my $origSize  = 0;
+  my $chg       = 0;
+  my $writeToSz = $_[0];
+
   open( A, $sz );
-  open( B, ">$sz.bak" );
+  open( B, ">$sz.bak" ) if $writeToSz;
   while ( $a = <A> ) {
 
     if ( $a =~ /^incr/ ) {
       $incr = $a;
       $incr =~ s/.*=//;
-      print B "incr=0\n";
+      chomp($incr);
+      print B "incr=0\n" if $writeToSz;
     }
     elsif ( $a =~ /^size/ ) {
       $origSize = $a;
       $origSize =~ s/.*=//;
-      print B "size=$wflsz\n";
+      chomp($origSize);
+      print B "size=$wflsz\n" if $writeToSz;
     }
     else {
       if ( $a =~ / has / ) {
@@ -257,14 +262,20 @@ sub dailyLog {
         chomp($chg);
         $chg =~ s/.* //g;
       }
-      print B $a;
+      print B $a if $writeToSz;
     }
   }
+  close(A);
   $chg = $origSize - $wflsz + $incr;
+  if ( !$writeToSz ) {
+    print(
+"$incr added, $origSize day start, $wflsz current size, total delta today is $chg.\n"
+    );
+    return;
+  }
   die( "#" . scalar localtime( time() ) . " changed $chg has $wflsz\n" )
     if ($bailLog);
   print B "#" . scalar localtime( time() ) . " changed $chg has $wflsz\n";
-  close(A);
   close(B);
   `copy $sz.bak $sz`;
   exit();
@@ -789,9 +800,10 @@ sub usage {
 -t = test how much is left to do big-picture (URLs and words)
 -(n)y = remove y from list (V or C, in caps, looks through all vowels/consonants)
 -e = edit the source, -el = edit the log
--dl/dlog = send to daily log wfl-sz.txt, reset so-far (usually done in a script) (x = bail)
+-dl/dlog = send to daily log wfl-sz.txt, reset so-far (usually done in a script) (x = bail) (dlq = show total)
 -o/-eo = open the output file
 -oo = open the tracking file, oof = fix it
+-sz = show size file so far
 -? = this usage here
 EOT
   exit;
