@@ -71,7 +71,7 @@ my $addStart                   = 0;
 my $cvStart                    = 0;
 my $addEnd                     = 0;
 my $cvEnd                      = 0;
-my $detailAlpha                = 1;
+my $detailAlpha                = 0;
 my $openStoryFile              = 0;
 my $printAllDiff               = 0;
 my $defaultToGeneral           = 1;
@@ -208,7 +208,13 @@ while ( $count <= $#ARGV ) {
       $count += 2;
       next;
     };
-    /^-?ps$/ && do { $printSuccess      = 1; $count++; next; };
+    /^-?ps$/ && do { $printSuccess = 1; $count++; next; };
+    /^-?da$/ && do {
+      $detailAlpha = 1;
+      $count++;
+      print "WARNING: this is largely superseded by talf.pl.\n";
+      next;
+    };
     /^-?nd$/ && do { $readDupe          = 0; $count++; next; };
     /^-?up$/ && do { $understandProcess = 1; $count++; next; };
     /^--$/   && do { $openLowestLine    = 0; $count++; next; };
@@ -421,11 +427,12 @@ sub checkTableDetail {
     while ( $a = <A> ) {
       if ( $a =~ /^table/ ) {
         for (@stuff) {
-          if ( $a =~ /$_/ ) {
+          if ( $a =~ /$_/i ) {
             $inTable = $_;
             <A>;
             $lastAlf    = "";
             $needActive = ( $needActHash{$_} == 1 );
+            print "$inTable in table, need-active = $needActive\n";
             next OUTER;
           }
         }
@@ -436,6 +443,7 @@ sub checkTableDetail {
         chomp($a);
         if ( $a =~ /\t/ ) {
           $thisFirstTab = $a;
+          $thisFirstTab =~ s/^(false|true)\t//;
           $thisFirstTab =~ s/\t.*//;
           if ( $thisFirstTab lt $lastFirstTab ) {
             print "BAD ORDER: $.: $thisFirstTab vs $lastFirstTab\n";
@@ -2596,6 +2604,7 @@ CONC.PL usage
 -e = edit source (e? shows others)
 -cc = modify concepts according to conc-match.txt
     (ccp always proceeds after doing so, cco only runs this test)
+-da = detail alphabetization (sort of broken, just run talf.pl to fix instead)
 (START COMBINEABLE OPTIONS)
 -c = error code to clipboard
 -0 = print errors not error code

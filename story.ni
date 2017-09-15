@@ -3926,6 +3926,7 @@ terrorist	"A terrorist is someone who plans or executs attacks that injure civil
 Candidate Dummy	"A dummy candidate is one who is there to give the illusion of dissent or choice, or one who siphons off votes from the chosen opponent. The person may, in fact, be quite clever." [start of idiot village]
 code monkey	"A code monkey is someone who writes programming code for a living."
 grease monkey	"A grease monkey is a manual laborer, especially with machines."
+guerilla tactics	"Guerilla tactics are moving in quickly to do small damage, then disappearing. It's used when you're at a physical disadvantage."
 serve you right	"'Serve(s) you right' means you got what you deserved."
 village people	"The Village People were a disco band from the 70s. The message when you go west (one of their hit songs) refers to three of their other hit songs."
 idle gossip	"Idle gossip is talking about others behind their backs, with no real purpose." [start of service community]
@@ -13426,6 +13427,8 @@ Candidate Dummy is a dialoguey concept in conceptville. Understand "dummy candid
 code monkey is a dialoguey concept in conceptville. Understand "monkey code" as code monkey. howto is "[t2 of Business Monkey]". gtxt is "monkey code".
 
 grease monkey is a xable concept in conceptville. Understand "monkey grease" as grease monkey. howto is "[x-it of Business Monkey]". gtxt is "monkey grease".
+
+guerilla tactics is a violent concept in conceptville. Understand "tactics gorilla" and "gorilla tactics" as guerilla tactics. howto is "[at of Business Monkey]". gtxt is "Tactics Gorilla".
 
 serve you right is a xable concept in conceptville. Understand "right you serve" as serve you right. howto is "[x-it of service memorial]". gtxt is "RIGHT, [b]YOU[r] SERVE".
 
