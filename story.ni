@@ -1488,7 +1488,7 @@ check climbing:
 	if noun is chase paper or noun is hatch or noun is person chair:
 		try entering noun instead;
 	if noun is intuition counter:
-		say "[if petty is in judgment pass]Oh, Officer Petty would get you for that one![else][one of]You climb on the Intuition Counter, and suddenly, stuff that seemed clear for years is all muddled and confused. You quickly step down, and your thoughts return to normal.[or]No way. Not again.[stopping]" instead;
+		say "[if petty is in judgment pass]Oh, Officer Petty would get you for that one! It would become quite the [activation of counterexample], for sure.[else][one of]You climb on the Intuition Counter, and suddenly, stuff that seemed clear for years is all muddled and confused. Yes means no, and no means yes, except when it doesn't. You quickly step down, and your thoughts return to normal.[or]No way. Not again.[stopping]" instead; [temproom judgment pass]
 	if noun is the nine yards hole:
 		say "No footholds or handholds. You'd be stuck.";
 	if noun is fright stage:
@@ -2161,6 +2161,8 @@ check attacking:
 		say "With the pressure of defeating the [bad-guy] off, you don't feel violent in the slightest." instead;
 	if noun is tee:
 		say "Instead of breaking the tee, maybe you can use it to break something else." instead;
+	if noun is intuition counter:
+		say "Before you do so, you take time to appreciate what a [activation of counterstriking] it is." instead; [temproom judgment pass]
 	if noun is mouth mush:
 		say "How? By stepping on it and falling into it? Smooth." instead;
 	if noun is arch:
@@ -3917,7 +3919,9 @@ Steal This Book	"Steal This Book was a countercultural guide by Abbie Hoffman. B
 wax lyrical	"To wax lyrical is to talk endlessly and enthusiastically about something."
 world record	"A world record is the best or most someone's ever done something."
 career threatening	"Something career threatening may risk not only your job but your ability to get other equal or better jobs. A threatening career is--well, a bit of a racket." [start of judgment pass]
+counterexample	"A counterexample is a case that shows a general theory doesn't always work."
 countermand	"To countermand is to order against doing something."
+counterstriking	"Counterstriking is hitting back."
 pass the torch	"To pass the torch is to hand off knowledge or responsibility to the next person."
 plainclothes	"Plainclothes is when an officer is on duty but out of uniform."
 point guard	"A point guard is usually the smallest, quickest player in the starting five of a basketball team."
@@ -13408,7 +13412,11 @@ section judgment pass concepts
 
 career threatening is a concept in conceptville. Understand "threatening career" as career threatening. howto is "give Officer Petty the Reasoning Circular". gtxt is "Threatening career". [norm]
 
+counterexample is a snarky concept in conceptville. Understand "counter example" and "example counter" as counterexample. howto is "climb on the intuition counter with Officer Petty present". gtxt is "example counter".
+
 countermand is a xable concept in conceptville. Understand "counter manned" and "manned counter" as countermand. howto is "[x-it of intuition counter] once Officer Petty is gone". gtxt is "manned counter".
+
+counterstriking is a violent concept in conceptville. Understand "counter striking" and "striking counter" as counterstriking. howto is "[at of intuition counter]". gtxt is "striking counter".
 
 pass the torch is a snarky concept in conceptville. Understand "torch the pass" as pass the torch. howto is "BURN anything in Judgment Pass". gtxt is "torch the pass".
 
