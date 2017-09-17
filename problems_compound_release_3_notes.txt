@@ -53,7 +53,7 @@ There's random stuff, too:
 --new books (63, up from 38).
 --XYZZY in Freak Control now gives a horribly silly side story I just couldn't pass up.
 --Uncle Dutch and Turk Young now have 17 bits of wisdom, up from 8.
---the jerks/groaners now have 228 "grown-up" discussions, if swearing is on, including a final lament, with 233 total gossip subjects. They don't actually swear, but...well, they're kind of nasty teenagers. So, yeah, they're a bit uncouth.
+--the jerks/groaners now have 229 "grown-up" discussions, if swearing is on, including a final lament, with 234 total gossip subjects. They don't actually swear, but...well, they're kind of nasty teenagers. So, yeah, they're a bit uncouth.
 --more silly mistakes in either good ending now fixed.
 --there are now 20 sleep stories, up from 15
 --there are now 30 Basher Bible references, up from 29

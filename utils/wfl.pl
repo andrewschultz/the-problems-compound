@@ -177,7 +177,7 @@ for my $q (@flipAry) {
   if ( $q =~ /V/ ) {
     for (@cons) {
       my $temp = $q;
-      $temp =~ s/V/$_/;
+      $temp =~ s/V/$_/g;
       readOneWord($temp);
     }
     next;
@@ -185,7 +185,7 @@ for my $q (@flipAry) {
   if ( $q =~ /C/ ) {
     for (@vow) {
       my $temp = $q;
-      $temp =~ s/C/$_/;
+      $temp =~ s/C/$_/g;
       readOneWord($temp);
     }
     next;
