@@ -207,6 +207,7 @@ section all the songs
 
 table of hs - horrendous songs [xxhs]
 workname	singername	songsubj
+"Cow, Wholly"	"Carrie Harry"	"why sports are a completely unimportant thing to get worked up about even if you enjoy it"
 "My Mind on Georgia"	"Charles Ray"	"cutting reflections on why certain places hate progress"
 "Knife the Mack"	"Darin Bobby"	"harsh punishment for some dude with no game trying to impress women out of his league"
 "Motion? Loco"	"Eva Little"	"being very cool criticising the latest dance craze before everyone else gets sick of it"

@@ -40,6 +40,10 @@ use MAX_ACTIONS of 210.
 
 use MAX_OBJECTS of 870.
 
+use MAX_DICT_ENTRIES of 2000.
+
+use MAX_NUM_STATIC_STRINGS of 20000. [+2000?]
+
 use MAX_SYMBOLS of 26000.
 
 use MAX_STATIC_DATA of 200000.
@@ -48,7 +52,13 @@ use MAX_PROP_TABLE_SIZE of 350000.
 
 section compiler debug limits - not for release
 
+use MAX_ACTIONS of 220. [+10?]
+
 use MAX_OBJECTS of 910. [+40]
+
+use MAX_DICT_ENTRIES of 2100. [+100?]
+
+use MAX_NUM_STATIC_STRINGS of 22000. [+2000?]
 
 use MAX_SYMBOLS of 29000. [+3000]
 
@@ -3301,7 +3311,7 @@ definition: a thing (called x) is explainable:
 	if location of x is visited, decide yes;
 	decide no;
 
-understand "explain [text]" and "xp [text]" as a mistake ("You've come across nothing like that, yet. Or perhaps it is way in the past by now.")
+understand "explain [text]" and "xp [text]" as a mistake ("You've come across nothing like that, yet. Or perhaps it is way in the past by now[if location of player is nominal fen and true-jerk-yet is true]. Or maybe it's a bit too obscure for explanations, and if the jerks said it, you can look at the source[end if].")
 
 after explaining out puzzle: [just below, the dots explanation asks a question, if you want it spoiled]
 	if the player yes-consents:
@@ -7920,6 +7930,8 @@ before talking to jerks (this is the ask jerks generally to get their names rule
 
 groanful-wait is a number that varies.
 
+true-jerk-yet is a truth state that varies.
+
 to jerk-blab:
 	if allow-swears is false:
 		if groanful-wait is 0, say "[line break]Boy! The groaners sure are [activation of full grown]! I can't repeat the details, with innuendo off.";
@@ -7937,6 +7949,9 @@ to jerk-blab:
 	if jerk-macho-yet is false:
 		say "[line break]You have a vague suspicion they don't know as much about girls as they say they do, but if you called them on it, they'd say you didn't, either, so hypocrisy.";
 		now jerk-macho-yet is true;
+	if true-jerk-yet is false and unact entry is true:
+		say "[line break]FOURTH WALL NOTE: the rest of these are sort of obscure, and you may want to look at the source for anything you can figure out.";
+		now true-jerk-yet is true;
 
 for writing a paragraph about a client (called jrk) in Nominal Fen:
 	if cookie-eaten is true:
@@ -12494,7 +12509,7 @@ second thought is a missable concept in conceptville. Understand "thought second
 
 Sitting Duck is a firstvis concept in conceptville. Understand "duck sitting" as Sitting Duck. howto is "[f-t of Tension Surface]". gtxt is "".
 
-sniff test is a badendy concept in conceptville. Understand "test sniff" as sniff test. try smelling after eating a bad food". gtxt is "sniff test". [?? after eating a bad food = badendy and put it ahead in priority]
+sniff test is a badendy concept in conceptville. Understand "test sniff" as sniff test. howto is "try smelling after eating a bad food". gtxt is "sniff test". [?? after eating a bad food = badendy and put it ahead in priority]
 
 Spelling Disaster is a oddverby concept in conceptville. Understand "disaster spelling" as spelling disaster. howto is "xyzzy". gtxt is "Disaster spelling".
 
@@ -12848,7 +12863,7 @@ bouncing betty is a jerkish concept in conceptville. Understand "betty/beddy bou
 
 bourne shell is a jerkish concept in conceptville. Understand "shelbourne" as bourne shell. howto is "[j-blab]". gtxt is "shelbourne".
 
-bowled bradman is a jerkish concept in conceptville. Understand "brad man bold" and "bold man brad" as bowled bradman. howto is "[j-blab". gtxt is "bold man brad".
+bowled bradman is a jerkish concept in conceptville. Understand "brad man bold" and "bold man brad" as bowled bradman. howto is "[j-blab]". gtxt is "bold man brad".
 
 box score is a jerkish concept in conceptville. Understand "score box" as box score. howto is "[j-blab]". gtxt is "Score Box".
 
@@ -13128,7 +13143,7 @@ spencer tracy is a jerkish concept in conceptville. Understand "tracy spencer" a
 
 spotted dick is a jerkish concept in conceptville. Understand "dick spotted" as spotted dick. howto is "[j-blab]". gtxt is "Dick spotted".
 
-strangers with candy is a jerkish concept in conceptville. Understand "candy with strangers" as strangers with candy. howto is "[j-blab]". gtxt is "Candy with Strangers".
+a thing called strangers with candy is a jerkish concept in conceptville. Understand "candy with strangers" as strangers with candy. howto is "[j-blab]". gtxt is "Candy with Strangers".
 
 sweeney todd is a jerkish concept in conceptville. Understand "todd sweeney" as sweeney todd. howto is "[j-blab]". gtxt is "Todd Sweeney".
 
