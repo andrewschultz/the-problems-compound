@@ -294,7 +294,7 @@ when play begins (this is the main story introduction and initialization rule):
 	if allow-swears is false:
 		move a side stand to pressure pier;
 	else:
-		move a stool sample to pressure pier;
+		move sample stool to pressure pier;
 	wfak;
 	say "Also, The Problems Compound has minimal support for screen readers. In particular, it makes one puzzle less nightmarish. Are you using a screen reader?";
 	if the player no-consents:
@@ -1122,7 +1122,7 @@ check dropping boo tickety:
 		get-ticketed "dropping a ticket you had";
 		do nothing instead;
 	else:
-		say "Either the Stool Toad will have given up on you, or he'll really get to bust you for a repeat offense. Neither seems to help you." instead;
+		say "You feel terribly unoriginal doing that again. Besides, you might get busted extra for a repeat offense." instead;
 
 check dropping long string:
 	if player is in disposed well:
@@ -1471,10 +1471,9 @@ the can't take what's fixed in place rule is not listed in any rulebook.
 the can't take scenery rule is not listed in any rulebook.
 
 before taking a person:
-	if noun is weasel:
-		say "It is too small and mobile." instead;
-	if noun is monkey:
-		say "It neither needs or deserves that." instead;
+	if noun is weasel, say "It is too small and mobile." instead;
+	if noun is monkey, say "It neither needs or deserves that." instead;
+	if noun is mush, say "No way you could take it all." instead;
 	say "You're not strong enough for the sort of WWF moves required to move a person." instead;
 
 check taking:
@@ -1859,6 +1858,8 @@ chapter kissing
 the block kissing rule is not listed in any rulebook.
 
 check kissing:
+	if noun is minimum bear:
+		say "You're way too old for that." instead;
 	if noun is erin:
 		say "The Stool Toad would probably be on you like a cheap suit." instead;
 	if noun is Ally Stout:
@@ -1869,7 +1870,7 @@ check kissing:
 		say "He needs something to hold, yes, but more like an object." instead;
 	if noun is labor child:
 		say "He's probably had enough people pinch his cheeks, and besides, he'd probably delegate bullies to get revenge on you." instead;
-	if noun is officer or noun is toad:
+	if noun is officer petty or noun is toad:
 		say "Ugh, no." instead;
 	if noun is baiter master:
 		say "Someone more clever and ironic than you could skeeve the you know what out of him, and it'd be fun, but you can't." instead;
@@ -2216,12 +2217,6 @@ check attacking:
 	if noun is Baiter:
 		say "Of course, with all those screens, he saw you well before you got close. He whirls and smacks you. Stunned, you offer no resistance as guards appear and take you away to where those who commit the worst crimes... 'Dude! If you wanted to talk, just TALK. I mean, you can't be too boring, but don't be all...' You don't hear the rest.";
 		ship-off Punishment Capitol instead;
-	if noun is enforcing:
-		say "'ATTACKING A LAW ENFORCEMENT OFFICER?' Ouch. You should've known better. And [the noun] lets you know that in utterly needless detail, explaining just because you had no chance of beating him up doesn't mean it's not a very serious crime indeed.[paragraph break]It's almost a relief when he has finished shipping you off.";
-		ship-off Punishment Capitol instead;
-	if noun is a bro:
-		say "'Silently, [noun] grabs you. [if bros-left is 1]Even without his brothers, it's a quick affair[else]His brothers hold you[end if]. He's apologetic--but he'd have liked to work with you, and violence is violence, and his job is his job. He realizes he is not so important, but anyone trying to break past him must have SOMETHING bad on their mind.";
-		ship-off Punishment Capitol instead;
 	if noun is spoon table:
 		say "Making a [activation of hash table] would not be [activation of order n]. Err, in order." instead; [temproom Meal Square]
 	if noun is list bucket:
@@ -2231,7 +2226,15 @@ check attacking:
 	if noun is Young Turk or noun is Uncle Dutch:
 		say "'[activation of hate speech]! SPEECH HATE!' Turk and Dutch cry in unison. You're no match for both of them, or the Stool Toad, who appears in short order. 'There's not much worse than speech hate, son. Even if it's not very effective. Looking at you, I had a bad feeling you might be full of it.' The Toad blathers on about how he really just hates your actions and not you, and it's almost a relief when you're dumped off..."; [temproom speaking plain]
 		ship-off Punishment Capitol instead;
+	if noun is fly house:
+		say "[activation of house breaking] is a little more off-putting than elsewhere, here in the Problems Compound." instead; [temproom smart street]
 	if noun is a person:
+		if noun is enforcing:
+			say "'ATTACKING A LAW ENFORCEMENT OFFICER?' Ouch. You should've known better. And [the noun] lets you know that in utterly needless detail, explaining just because you had no chance of beating him up doesn't mean it's not a very serious crime indeed.[paragraph break]It's almost a relief when he has finished shipping you off.";
+			ship-off Punishment Capitol instead;
+		if noun is a bro:
+			say "'Silently, [noun] grabs you. [if bros-left is 1]Even without his brothers, it's a quick affair[else]His brothers hold you[end if]. He's apologetic--but he'd have liked to work with you, and violence is violence, and his job is his job. He realizes he is not so important, but anyone trying to break past him must have SOMETHING bad on their mind.";
+			ship-off Punishment Capitol instead;
 		if noun is female:
 			say "Attacking people unprovoked is uncool, but attacking females is doubly uncool. You may not feel big and strong, but with that recent growth spurt, you're bigger than you used to be. The Stool Toad's quick on the scene, and while his knight-in-shining-armor act goes way overboard, to the point [noun] says that's enough--well, that doesn't change what you did.";
 			ship-off Criminals' Harbor instead;
@@ -3047,14 +3050,11 @@ rule for supplying a missing noun when diging:
 			now noun is arch;
 
 carry out diging:
-	if noun is Fritz:
-		say "You were warned about trying to dig people like Fritz, but you fail to do so, so--no harm, no foul." instead;
-	if noun is a person:
-		say "Yeah, that's the problem, you don't quite dig other people, but you'd like to." instead;
-	if player does not have pocket pick:
-		say "You have nothing to dig with." instead;
-	if noun is t-surf:
-		say "Doing that to a tension surface may release too much pressure. You're pretty good in science, so you worry about these things." instead;
+	if noun is Fritz, say "You were warned about trying to dig people like Fritz, but you fail to do so, so--no harm, no foul." instead;
+	if noun is a person, say "You can't force liking yourself, you've learned." instead;
+	if player does not carry pocket pick, say "You have nothing to dig with." instead;
+	if noun is pick, say "You dig being able to dig, for a second." instead;
+	if noun is t-surf, say "Doing that to a tension surface may release too much pressure. You're pretty good in science, so you worry about these things." instead;
 	if noun is poor dirt:
 		if dirt-dug is true:
 			say "'[activation of man enough]!' says the Weasel, leaving you feeling not man enough." instead; [temproom variety garden]
@@ -3063,10 +3063,8 @@ carry out diging:
 		the rule succeeds;
 	if noun is mouth mush:
 		say "[one of]Before you can strike, the mouth mush coughs so forcefully, it blows you back. While its breath is surprisingly fresh, it's pretty clear you can't use the pick as a weapon.[or]The mouth mush can defend itself well enough.[stopping]" instead;
-	if noun is arch:
-		say "It's too big for the pick to make a dent." instead;
-	if noun is flower wall:
-		say "The flower wall is too pretty to damage. Plus it might collapse." instead;
+	if noun is arch, say "It's too big for the pick to make a dent." instead;
+	if noun is flower wall, say "The flower wall is too pretty to damage. Plus it might collapse." instead;
 	if noun is earth of salt:
 		now player has the proof of burden;
 		choose row with response of weasel-sign in table of weasel talk;
@@ -3081,7 +3079,6 @@ carry out diging:
 		now permit entry is 1;
 		say "With your pocket pick, the work is steady and clean, if arduous. Your cheap pocket pick starts splitting off--why couldn't the earth of salt been [activation of scum of earth] or something easier to hack at?--and it snaps in two as you hit something even harder.[paragraph break]Beneath is a thin plaque. But not just any plaque: a PROOF OF BURDEN. You wipe it off and pick it up, then you bury the pocket pick, which is not only broken but also rusted." instead; [temproom vision tunnel]
 	say "That's not soft enough." instead;
-	the rule succeeds.
 
 chapter italing
 
@@ -3526,12 +3523,13 @@ wave a flag	"To wave a flag is to give up. To flag something is to note it as pa
 acceptable	"Acceptable means good enough. Though sometimes it might not, if someone is just being diplomatic. Able, Except means you're pretty good but have big flaws. So both can feel like backhand compliments." [start of smart street]
 Armstrong	"To strongarm someone is to get them to do what they don't want."
 beat off	"To beat off is to, well, pleasure oneself. People who are off-beat are often accused of this, among other things, in high school."
-Buster Ball	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure."
+Ball Buster	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure."
 Confidence Games	"Confidence games are where someone gains someone else's trust to rip them off. It can be as simple as a shell game or as complex as an investment scheme. Of course, Alec has confidence with logic games but not much else."
 decline the challenge	"To decline the challenge is to avoid something difficult."
 first world problems	"The phrase 'first world problems' often is used to mock relatively small-seeming issues."
 flat broke	"Flat broke means totally without possessions or assets. The broke flat is...well, a roof over your head."
 good egg	"A good egg is a nice person. To egg, or egg on, is to bait someone into doing something you want them to."
+house breaking	"House breaking an animal means to potty train them."
 knockwurst	"Knockwurst is a kind of sausage."
 Mind Games	"Mind games are messing with people's mind with lies or half-truths. A games mind might be more inclined to abstract puzzles."
 palace	"A palace is a big, expensive, (usually) well-kept-up place."
@@ -3721,6 +3719,7 @@ humphrey davy	"Humphrey Davy was an 18th century scientist."
 Jack London	"Jack London generally wrote about tales of the Wild, especially in Alaska."
 jackhole	"A jackhole is a portmanteau that leaves out 'ass' in the middle."
 james dean	"James dean is an actor from the 50s, in such movies as [i]Rebel Without a Cause[r]."
+james randi	"James Randi is a magician/illusionist who also debunks paranormal theories."
 jeremiad	"A jeremiad is a prolonged rant."
 jerk around	"To jerk someone around is to pester them physically or mentally."
 jerk off	"To jerk off is to gratify oneself carnally."
@@ -3804,6 +3803,7 @@ sequins	"Sequins are small glisteny cheap things that make an outfit shine. They
 Sharp Barb	"A sharp barb is a stinging, clever insult."
 shock jock	"A shock jock is someone who provides deliberately insulting opinions to a wide audience, often on radio."
 six-pack	"A six-pack usually refers to six cans of beer held together by plastic rings."
+skip school	"To skip school is not to attend even though you are physically able to."
 slugs of liquor	"A slug of liquor is a brief quick drink."
 social norms	"Social norms are what is generally expected of people's behavior."
 spencer tracy	"Spencer Tracy was a movie actor/leading man in the 1930's and 40's."
@@ -4508,7 +4508,7 @@ check going:
 		say "You don't often need to go down." instead;
 	if noun is up and the room up of location of player is nowhere:
 		if location of player is variety garden:
-			say "Even if you had wings, you'd probably fly into [activation of brush up] that'd remind you you don't REALLY know how to use them."; [temproom variety garden]
+			say "Even if you had wings, you'd probably fly into [activation of brush up]."; [temproom variety garden]
 			the rule succeeds;
 		say "You don't often need to go up." instead;
 	if noun is outside:
@@ -4527,10 +4527,10 @@ check going:
 to check-all-brush:
 	if sagebrush is in lalaland:
 		if brush with greatness is not in lalaland:
-			say "[line break]The more you look at the brush, the more you realize you'll never achieve any [activation of brush with greatness]. Time to [if pocket pick is off-stage]see what the Weasel wants[else]get along with whatever you need to do[end if]."; [temproom variety garden]
+			say "The more you look at the brush, the more you realize you'll never achieve any [activation of brush with greatness]. Time to [if pocket pick is off-stage]see what the Weasel wants[else]get along with whatever you need to do[end if]."; [temproom variety garden]
 		continue the action;
 	if off brush is examined and back brush is examined and aside brush is examined and up brush is in lalaland:
-		say "[line break]Wow! You know so much about brush, you're a [activation of sagebrush], now. The knowledge is a bit dry, but you're glad to have it, all the same."; [temproom variety garden]
+		say "Wow! You know so much about brush, you're a [activation of sagebrush], now. The knowledge is a bit dry, but you're glad to have it, all the same."; [temproom variety garden]
 
 volume dialogues
 
@@ -4909,6 +4909,9 @@ a lifted face is an expr. description is "You're feeling pretty good about yours
 
 an opener eye is an expr. description is "You can't see it, but it's helping you see things a bit more clearly now you ate the [bad-eaten].".
 
+does the player mean giving an expr to: it is unlikely. [?? need both?]
+does the player mean doing something with an expr: it is unlikely.
+
 understand "face [text]" and "[text] face" as a mistake ("You can't do much to change your face. Well, it can't last. You may need to do something big.") when player does not have opener eye.
 
 understand "eye [text]" and "[text] eye" as a mistake ("You're already a lot more aware than before you ate the [bad-eaten].") when player has opener eye.
@@ -5028,10 +5031,12 @@ to say bad-guy:
 	say "[if allow-swears is true]Baiter Master[else]Complex Messiah[end if]"
 
 to say bad-guy-2:
-	say "[if allow-swears is true][activation of buster ball]Buster Ball[else][activation of Armstrong]Armstrong[end if]";
+	say "[if allow-swears is true][activation of ball buster][else][activation of Armstrong]Armstrong[end if]";
 
 to say bad-guy-2-c:
-	say "[if allow-swears is true][activation of buster ball]BUSTER BALL[else][activation of Armstrong]ARMSTRONG[end if]"; [okdup]
+	now ball-caps is true;
+	say bad-guy-2;
+	now ball-caps is false;
 
 to say bg:
 	say "[if allow-swears is true]BM[else]CM[end if]"
@@ -5518,7 +5523,7 @@ to babble-out (pe - a person):
 			if pe is buddy best:
 				move player to questions field;
 			if ever-babbled is false:
-				say "[line break]Well. Now that you, err, abridged the conversation, you feel as though you can abridge how you think of it. Instead of [b]BROOK BABBLING[r], well, [b]B[sr-space]B[r] (with or without a space) would work.";
+				say "[line break]Well. Now that you, err, abridged the conversation, you feel as though you can abridge how you think of abridging it. Instead of [b]BROOK BABBLING[r], well, [b]B[sr-space]B[r] (with or without a space) would work.";
 				now ever-babbled is true;
 			if pe is sly moore:
 				say "Oh. You also find his name. Sly Moore.";
@@ -5928,7 +5933,7 @@ part A Round Lounge
 There is a room called A Round Lounge. Round Lounge is in Beginning. A Round Lounge is inside of Smart Street. "Well, this is about as dumpy as you'd expect, for a place in Fly House.[paragraph break]There's just one piece of furniture here: [if person chair is not examined]a chair helpfully labelled PERSON CHAIR[else]the person chair[end if][if player is on chair] (which you're on)[end if] and [if plan hatch is not examined]a hatch above that appears to be written on[else]the plan hatch above[end if]."
 
 after printing the locale description for Round Lounge when Round Lounge is unvisited:
-	say "Well, this looks like a more practical brain teaser than in Smart Street. You're reminded of how in Boy Scouts, the older kids gave you brain teasers with a pool of water by a bleeding man or a man hanged from the ceiling. You looked up more at the library that weekend and then quit the troop after the next round of teasers, because you realized you failed to learn anything practical in Scouts."
+	say "Well, this looks like a more practical brain teaser than in Smart Street. You're reminded of how in Boy Scouts, the older kids gave you brain teasers with a pool of water by a bleeding man or a man hanged from the ceiling. You found a book full at the library that weekend and then quit the troop after the next round of teasers. They bemoaned how you could learn that stuff but not basic common sense."
 
 check going inside in Round Lounge:
 	say "It's more up that you need to go to get out." instead;
@@ -5936,6 +5941,8 @@ check going inside in Round Lounge:
 chapter person chair
 
 the person chair is scenery in Round Lounge. the person chair is a supporter. "It's plain but sturdy[if player is on person chair] enough to hold your weight[end if], emblazoned with PERSON, probably to say it can only hold one. Not that there's another person around.".
+
+check taking person chair: say "That'd require both hands. It'd be even harder to get through the hatch, then." instead;
 
 after examining person chair for the first time:
 	say "It's not an [activation of charity], but it still feels like someone gave it to you.";
@@ -6015,17 +6022,20 @@ for writing a paragraph about a thing (called rou) in A Round Lounge:
 
 check going nowhere in A Round Lounge:
 	if noun is up:
+		set the pronoun it to plan hatch;
 		say "You look up at the hatch. [hatch-far][if player is not on chair], especially here on the ground[end if]." instead;
 	if noun is down:
 		if player is on chair:
 			try exiting instead;
 		say "You're already down enough." instead;
-	say "Even if you had your bearings, each (planar) direction would lead into a wall." instead;
+	say "Even if you had your bearings, each (planar) direction would lead into a wall. A wall with no cool secret doors." instead;
 
 check exiting when player is on person chair:
 	say "You jump off.";
 	move player to round lounge, without printing a room description;
 	the rule succeeds;
+
+does the player mean inserting something into itself: it is unlikely.
 
 to make-tee:
 	say "You twist the round screw into the hole in the round stick. The result is a slightly asymmetrical T. Yes, you could call it an off tee. In fact, it's best to think of it that way from now on, and not as the screw and/or stick it was.";
@@ -6169,9 +6179,11 @@ Tension Surface is a room in beginning. it is inside of A Round Lounge. "While t
 
 after printing the locale description for Tension Surface when Tension Surface is unvisited:
 	if Round Lounge is visited:
-		say "Well. You start to feel good about figuring the way out of Round Lounge, then you realize that, logically, there was only one. You remember the times you heard you had no common sense, and you realize...you didn't really show THEM, whoever THEY are. 'Not enough common sense.'";
+		say "Well. You start to feel good about figuring the way out of Round Lounge, then you realize that, logically, there was only one. You remember the times you heard you had no common sense, and you realize...you didn't really show THEM, whoever THEY are. 'Still not ENOUGH common sense,' you hear, in your mind.";
 	unlock-verb "duck";
 	continue the action;
+
+does the player mean diging t-surf: it is likely.
 
 t-surf is privately-named scenery in tension surface. Understand "surface" as t-surf. printed name of t-surf is "the surface". "It feels like it could burst at any minute. The longer it doesn't, the sillier you feel for worrying in the first place."
 
@@ -6362,7 +6374,7 @@ check going in variety garden:
 
 carry out going west in Tension Surface:
 	if variety garden is unvisited:
-		say "A small animal bounds up to you. 'Hi! I'm the Word Weasel! Now that you know my name, you're on your guard, so I won't be able to sucker you in any way. This is my Variety Garden!'[paragraph break]'There's not much...'[paragraph break]'Well, you haven't noticed the absence of leaves! It's an absence of pretty much every leaf that was! And so much poor dirt! And all the brush!'";
+		say "A small animal bounds up to you. 'Hi! I'm the Word Weasel! Now that you know my unfortunate name, you're prejudiced enough against me that I won't be able to sucker you in any way. This is my Variety Garden!'[paragraph break]'There's not much...'[paragraph break]'Well, you haven't noticed the absence of leaves! It's an absence of pretty much every leaf that was! And so much poor dirt! And all the brush!'";
 
 chapter word weasel
 
@@ -6472,6 +6484,8 @@ check going nowhere in vision tunnel:
 
 the picture hole is scenery in vision tunnel. description is "[one of]You peek into the picture hole in the flower wall, and it looks like a bunch of swirls until you stare at it right. A whole story takes shape. [or][stopping]You recognize [one of]a stick figure[or]yourself, again[stopping] finding a ticket in a book, climbing a chair to reach a hatch, digging by a bunch of flowers, depositing a document in the ground--and then being blocked by three stick figures--blue, red and tall.[paragraph break][one of]You blink, and the picture degenerates back into swirls. But you can always look again, if you want[or]The picture scrambles again once you blink[stopping]."
 
+understand "small hole" as picture hole.
+
 understand "vision" as picture hole when player is in Vision Tunnel and flower wall is examined.
 
 understand "vision" as flower wall when player is in Vision Tunnel and flower wall is not examined.
@@ -6514,9 +6528,9 @@ Pressure Pier is north of Tension Surface. It is in Outer Bounds. "[one of]So, t
 to say ss-ss:
 	say "[if allow-swears is false]side stand[else]sample stool[end if]"
 
-a side stand is scenery in Pressure Pier. "It's not actually blocking any direction to go in, but it's gaudy and shiny enough you won't be overlooking it. It's not really [activation of palatable]."
+a side stand is scenery. "It's not actually blocking any direction to go in, but it's gaudy and shiny enough you won't be overlooking it. It's not really [activation of palatable]."
 
-a sample stool is scenery in pressure pier. description is "It isn't fancy, but it just looks nice. It is an interesting and very appropriate shade of brown, too."
+a sample stool is scenery. description is "It isn't fancy, but it just looks nice. It is an interesting and very appropriate shade of brown, too."
 
 instead of taking side stand:
 	say "You couldn't [activation of take a stand]. A take? Either way, you've got enough of a trial without lugging something like that around."
@@ -7271,7 +7285,7 @@ check going nowhere in Down Ground:
 		say "Paths up to the east or west. So hard to decide which." instead;
 	say "It's too high a slope north or south. Plus, you're not sure if such [activation of ground up] would be safe, though you do want to work from the, er, ground up." instead;
 
-the warmer bench is a supporter in Down Ground. "The Warmer Bench waits here. It may be fun to lie on.". description is "Originally painted on the bench: PROPERTY OF [activation of beach bum]. Property Of is replaced by FORECLOSED FROM. You feel the heat coming from it. It makes you sleepy."
+the warmer bench is a supporter in Down Ground. "The Warmer Bench waits here. It may be fun to lie on.". description is "Originally painted on the bench: PROPERTY OF [activation of beach bum]. Property Of is replaced by FORECLOSED FROM. You feel the heat coming from it. It makes you sleepy." [note the init appearance doesn't matter since warmer bench priority = 0 anyway]
 
 after examining warmer bench:
 	now bum beach is in lalaland;
@@ -7326,14 +7340,14 @@ to terry-sug:
 	let ff be first-ticket of 0;
 	if ff > 0:
 		choose row ff in table of tickety suggestions;
-		say "Terry Sally nods, semi-impressed, but wonders aloud if you considered [ticket-ref entry]. You shake your head.[line break]";
+		say "Terry Sally nods, semi-impressed, but wonders aloud if you considered [ticket-ref entry]. You shake your head.";
 		continue the action;
 	let ff be first-ticket of 2;
 	if ff > 0:
 		choose row ff in table of tickety suggestions;
-		say "Terry Sally nods, semi-impressed, but wonders aloud if you considered [ticket-ref entry]. You say you did, but really, it didn't seem as fun or expedient as what you did.";
+		say "[line break]Terry Sally nods, semi-impressed, but wonders aloud if you considered [ticket-ref entry]. You say you did, but really, it didn't seem as fun or expedient as what you did.";
 		continue the action;
-	say "Terry Sally whistles. 'Wow! Somehow, you managed to do seven things when you only needed to do four. That's probably due to a BUG, but impressive, nonetheless.'"
+	say "[line break]Terry Sally whistles. 'Wow! Somehow, you managed to do seven things when you only needed to do four. That's probably due to a BUG, but impressive, nonetheless.'"
 
 table of tickety suggestions
 ticket-ref	ticket-done
@@ -7427,13 +7441,12 @@ check entering stickweed:
 
 the fly bar is scenery in Joint Strip. "[if soda club is visited]It isn't labeled, but there's not a bouncer or anything[else]The Soda Club seems much less mysterious now you've been in it[end if]."
 
-instead of entering bar:
-	try going south.
-
-instead of doing something with the bar:
+instead of doing something with the fly bar:
+	if current action is entering:
+		try going south instead;
 	if action is undrastic:
 		continue the action;
-	say "You can't do much with the bar other than enter it."
+	say "You can't do much with the bar except enter it. But on the bright side, you can probably do more once you're in the bar." instead;
 
 check going south in joint strip:
 	if jump-level > 2:
@@ -7467,15 +7480,6 @@ to say toad-write-up:
 	say "As you stumble through the stickweed for the third time, you uncover--[activation of case a joint]! The Stool Toad, so passive with all the suspicious smells around, leaps into action as sunlight reflects off it and in his eyes.[paragraph break]'You're lucky it's empty. But I can still write you up for aggravated jaywalking.' He mutters about laws preventing him from writing you up for more[if your-tix > 0], before seeing you're a repeat offender[end if].";
 	now off-the-path is true;
 	get-ticketed "going off the path in the Joint Strip";
-
-bar-scen is privately-named scenery in Joint Strip. "It seems unobtrusive, with no obviously tacky paraphernalia or neon signs or whatever."
-
-instead of doing something with bar-scen:
-	if current action is entering:
-		try going south instead;
-	if action is undrastic:
-		continue the action;
-	say "You can't do much with the bar except enter it. But on the bright side, you can probably do more once you're in the bar." instead;
 
 section minimum bear
 
@@ -7624,7 +7628,7 @@ instead of doing something with rehearsal dress:
 after printing the locale description for Soda Club when Soda Club is unvisited:
 	say "The bartender calls you over. 'Say, new fella! Just use common sense, and you won't get the [activation of boot licker] like the [activation of sucker punch].'";
 	wfak;
-	say "'But hey, one thing. Can you give me a break from Erin Sack over there? She's--she's interesting at first, but when she's wearing that rehearsal dress she tends to repeat what she's already said. She's no [activation of hip rose], but Rose is probably out of your league anyway. No offense. By the way, I'm Ally Stout.'";
+	say "[line break]'But hey, one thing. Can you give me a break from Erin Sack over there? She's--she's interesting at first, but when she's wearing that rehearsal dress she tends to repeat what she's already said. She's no [activation of hip rose], but Rose is probably out of your league anyway. No offense. By the way, I'm Ally Stout.'";
 	move Erin Sack to Soda Club;
 
 description of Erin Sack is "She is waiting for conversation in her rehearsal dress."
@@ -10459,7 +10463,7 @@ check going nowhere in judgment pass:
 	if noun is inside or noun is outside or noun is north or noun is south:
 		say "The only passage is east-west." instead;
 
-Officer Petty is an enforcing person in Judgment Pass. "[one of]The officer stares down at the intuition counter for a moment. 'NOPE,' he yells. 'Sure as my name's Officer Petty, no good reason for you to go to Idiot Village. If you're dumb, you'll never find a smart reason, and if you're smart, all you'll find is a dumb reason.'[or]Officer Petty continues to regard you with contempt.[stopping]"
+Officer Petty is an enforcing person in Judgment Pass. "[one of]The officer stares down at the intuition counter for a moment. 'NOPE,' he yells. 'Sure as my name's Officer Petty, no good reason for you to go to Idiot Village. If you're dumb, you'll never find a smart reason, and if you're smart, you'll have a dumb reason, which'll make you dumber, and you don't want that.'[or]Officer Petty continues to regard you with contempt.[stopping]"
 
 understand "coat petty" as a mistake ("Officer Petty raps on the Intuition Counter, then looks at you for a moment. 'You look like one of those closet perverts. I can't arrest you for that, but I have freedom of speech, y'know.'") when player is in Judgment Pass and Petty is in Judgment Pass.
 
@@ -12401,7 +12405,7 @@ Rule for printing a parser error when the latest parser error is the nothing to 
 	if current action is dropping:
 		say "You don't need to drop anything in the game, much less all your possessions.";
 	else:
-		say "Sorry, but right now ALL doesn't encompass anything you need to take. Though, don't worry, this game doesn't require you to mess with a ton of stuff in any one location." instead.
+		say "Sorry, but right now ALL doesn't encompass anything you need to take[one of]. And no location (I hope) is flooded with enough stuff so you'll need to use ALL[or][stopping]." instead.
 
 Rule for printing a parser error when the latest parser error is the noun did not make sense in that context error:
 	say "The verb was ok, but I couldn't place the noun."
@@ -12531,11 +12535,11 @@ section smart street concepts
 
 acceptable is a xable concept in conceptville. Understand "able except" and "except able" as acceptable. howto is "[x-it of gesture token]". gtxt is "Able... except".
 
-Armstrong is a concept in conceptville. Understand "strongarm" and "arm strong" and "strong arm" as armstrong. howto is "talking". [norm]
+Armstrong is a concept in conceptville. Understand "strongarm" and "arm strong" and "strong arm" as armstrong. howto is "talking". gtxt is "[if ball-caps is true]ARMSTRONG[else]Armstrong[end if]". [norm]
 
 Beat Off is a dialoguey concept in conceptville. Understand "off beat" as beat off. howto is "[t2 of Guy]". gtxt is "OFF-BEAT".
 
-Buster Ball is a concept in conceptville. Understand "ball buster" as buster ball. howto is "talking". [norm]
+Ball Buster is a concept in conceptville. Understand "buster ball" as ball buster. howto is "talking". gtxt is "[if ball-caps is true]BUSTER BALL[else]Buster Ball[end if]". [norm]
 
 confidence games is a dialoguey concept in conceptville. Understand "games/game confidence" and "confidence game" as confidence games. howto is "[t2 of Guy]". gtxt is "games confidence"
 
@@ -12546,6 +12550,8 @@ first world problems is a dialoguey concept in conceptville. Understand "problem
 flat broke is a concept in conceptville. Understand "broke flat" as flat broke. howto is "enter Fly House". gtxt is "broke flat". [norm]
 
 Good Egg is a dialoguey concept in conceptville. Understand "egg good" as good egg. howto is "[t2 of Guy]". gtxt is "egg GOOD".
+
+house breaking is a violent concept in conceptville. Understand "breaking house" as house breaking. howto is "[at of Fly House]". gtxt is "Breaking a house".
 
 knockwurst is a snarky concept in conceptville. Understand "knock worst" and "worst knock" as knockwurst. howto is "knock any way other than hard in Smart Street". gtxt is "worst knock".
 
@@ -12969,6 +12975,8 @@ jackhole is a jerkish concept in conceptville. Understand "jack whole" and "whol
 
 james dean is a jerkish concept in conceptville. Understand "dean james" as james dean. howto is "[j-blab]". gtxt is "Dean James".
 
+james randi is a jerkish concept in conceptville. Understand "randy james" and "james randy" as james randi. howto is "[j-blab]". gtxt is "Randy James".
+
 jeremiad is a jerkish concept in conceptville. Understand "add jeremy" and "jeremy add" as jeremiad. howto is "[j-blab]". gtxt is "add Jeremy".
 
 Jerk Around is a missable concept in conceptville. Understand "around jerks" and "jerks around" as jerk around. howto is "with innuendo on, [f-t of Nominal Fen]". gtxt is "AROUND jerks".
@@ -13133,7 +13141,9 @@ Sharp Barb is a jerkish concept in conceptville. Understand "barb sharp" as shar
 
 shock jock is a jerkish concept in conceptville. Understand "jock shock" as shock jock. howto is "[j-blab]". gtxt is "jock shock".
 
-six-pack is a jerkish concept in conceptville. Understand "pack six" and "six pack" as six-pack. howto is "[j-blab] nominal fen". gtxt is "Pack Six".
+six-pack is a jerkish concept in conceptville. Understand "pack six" and "six pack" as six-pack. howto is "[j-blab]". gtxt is "Pack Six".
+
+skip school is a jerkish concept in conceptville. Understand "school skip" as skip school. howto is "[j-blab]". gtxt is "school Skip".
 
 slugs of liquor is a jerkish concept in conceptville. Understand "slugs of licker" and "licker of slugs" as slugs of liquor. howto is "[j-blab]". gtxt is "licker of slugs".
 

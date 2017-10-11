@@ -209,6 +209,7 @@ table of hs - horrendous songs [xxhs]
 workname	singername	songsubj
 "Cow, Wholly"	"Carrie Harry"	"why sports are a completely unimportant thing to get worked up about even if you enjoy it"
 "My Mind on Georgia"	"Charles Ray"	"cutting reflections on why certain places hate progress"
+"Missing Worth Ain't He"	"Keith Toby"	"someone who failed but it still worth thinking about as a counterexample"
 "Knife the Mack"	"Darin Bobby"	"harsh punishment for some dude with no game trying to impress women out of his league"
 "Motion? Loco"	"Eva Little"	"being very cool criticising the latest dance craze before everyone else gets sick of it"
 "The Light of Dying"	"The Machine Against Rage"	"admitting that there are smarter people than you who know what's best and if you care about society, maybe it's time to go, but don't, like, make a messy suicide. Even better than The Name in Killing"
