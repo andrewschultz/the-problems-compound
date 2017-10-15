@@ -3521,9 +3521,8 @@ up yours	"'Up yours' is a crude expression where 'yours' refers to someone's but
 wait your turn	"This means not to do anything til someone else goes first. But in this case the game wants you to turn your wait into something else."
 wave a flag	"To wave a flag is to give up. To flag something is to note it as particularly productive or unproductive."
 acceptable	"Acceptable means good enough. Though sometimes it might not, if someone is just being diplomatic. Able, Except means you're pretty good but have big flaws. So both can feel like backhand compliments." [start of smart street]
-Armstrong	"To strongarm someone is to get them to do what they don't want."
-beat off	"To beat off is to, well, pleasure oneself. People who are off-beat are often accused of this, among other things, in high school."
 Ball Buster	"A ball buster is someone who really presses you hard, verbally or physically. Because the groin is the worst place to have pressure."
+beat off	"To beat off is to, well, pleasure oneself. People who are off-beat are often accused of this, among other things, in high school."
 Confidence Games	"Confidence games are where someone gains someone else's trust to rip them off. It can be as simple as a shell game or as complex as an investment scheme. Of course, Alec has confidence with logic games but not much else."
 decline the challenge	"To decline the challenge is to avoid something difficult."
 first world problems	"The phrase 'first world problems' often is used to mock relatively small-seeming issues."
@@ -3534,6 +3533,7 @@ knockwurst	"Knockwurst is a kind of sausage."
 Mind Games	"Mind games are messing with people's mind with lies or half-truths. A games mind might be more inclined to abstract puzzles."
 palace	"A palace is a big, expensive, (usually) well-kept-up place."
 power games	"Power games are when people use manipulation to take charge, or when people struggle to control a business, often without voting involved."
+Quick Buck	"To make a quick buck usually means to make money unethically."
 charity	"Charity is giving to others while expecting (in theory) nothing in return." [start of a round lounge]
 hatch act	"The Hatch Act is an Americal law regulating political activities by elected officials."
 nose picking	"Nose picking is -- not the best habit. A picking nose would be a discerning sense of smell." [start of tension surface]
@@ -3993,6 +3993,7 @@ Johns Hopkins	"Johns Hopkins is a university with a prestigious medical school a
 King Henry	"King Henry VIII of England had six wives."
 laughingstock	"A laughingstock is someone everyone laughs at. But stock laughing is canned laughter, reflexive laughter at a joke you heard before, or maybe even a laugh track."
 Leading Question	"A leading question is one designed to provoke a certain answer. The term is usually used in a court of law."
+menace	"A menace is something that is a dangerous to others."
 missed a spot	"Missed a spot means you didn't quite see everything when cleaning."
 mistruth	"A mistruth is, well, a statement that's false."
 mug shot	"The shot mug may look shot, or beaten-up, but mug shots--photographs of apprehended suspects--are generally very unflattering. Hence the flattering portrait of the [bad-guy] on the mug."
@@ -5031,7 +5032,7 @@ to say bad-guy:
 	say "[if allow-swears is true]Baiter Master[else]Complex Messiah[end if]"
 
 to say bad-guy-2:
-	say "[if allow-swears is true][activation of ball buster][else][activation of Armstrong]Armstrong[end if]";
+	say "[if allow-swears is true][activation of ball buster][else][activation of Quick Buck]Buck Quick[end if]";
 
 to say bad-guy-2-c:
 	now ball-caps is true;
@@ -7005,7 +7006,7 @@ section general tray b eating stuff
 to bad-food-process (as - a truth state):
 	if as is true:
 		if allow-swears is false:
-			say "Then, after a bit of thinking, you realize how lame it was to be stuffy about swears. You have stuff to swear ABOUT now, see? You didn't used to have it, or any emotional depth, but now, heck yeah! (Okay, you still need some practice.) You realize Armstrong was probably just a puppet for someone more with-it, and you're pretty sure the Complex Messiah had a cooler name, too.";
+			say "Then, after a bit of thinking, you realize how lame it was to be stuffy about swears. You have stuff to swear ABOUT now, see? You didn't used to have it, or any emotional depth, but now, heck yeah! (Okay, you still need some practice.) You realize Buck Quick was probably just a puppet for someone more with-it, and you're pretty sure the Complex Messiah had a cooler name, too.";
 			now allow-swears is true;
 	ital-say "This has caused an irreversible personality change in Alec. You may wish to UNDO and SAVE before trying to eat again to restore Normal Alec, even if that's not what he wants right now.";
 	now player has an opener eye;
@@ -11033,7 +11034,7 @@ bm-mug	"'Oh, it's Crisis Energy[activation of energy crisis]. For taking urgent 
 bm-bad2	"'It's--it's, well, tribute is what it is.'"
 bm-so-bad2	"'Oh, come on, you know the difference.'[wfk][line break]Your reply just slips out. 'Yeah, it's easy, there's not much of it.' Maybe you shouldn't have...but nothing happens..."
 bm-tribute	"'There will be. Just--first things first. Stability. We almost got there, until you stepped in.'"
-bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Well. I didn't want to do it, but you made me put on my [activation of face facts]. You'll never [activation of following my gut]! You don't listen to your [activation of half right]...makes you miss obvious things others see immediately. Always have, always will. [activation of see you later]...' The Baiter Master storms out, and he must have had a remote, because you're locked in![wfk][paragraph break]You search frantically. There must be some way to communicate...and you dig around until you find the [activation of wire fraud]! Meant to 'remind' citizens they aren't as nice as they think they are, it now encourages them to get mad. The Goods get their cult to help. The [j-co] even chip in, too. Then, for kicks, you call [bad-guy-2] pretending to be the [bad-guy] and you prank him. And, of course, you remember the number to RING BRASS, from the Quiz Pop.[paragraph break]Mark Black is on his way--but so are the [bad-guy]'s allies! You hear Brother Foster say, well, I knew they were flaky, but that's what you GET when you try to give them an important position in life, and [activation of relief] will set things straight. He's my [activation of general principle] I just hired.[wfk]Yes. That must be him, now.[paragraph break]'A danger not just to the Problems Compound but to [activation of city slicker]! [activation of pratfall]!' booms a man dressed in [activation of surge protector], tripping over his feet slightly.[wfk]" [p]
+bm-fear	"You just mention, they're smart enough, but they can fool themselves. With being impressed by stupid propaganda, or misplaced confidence, or people who claim things are--well--back to front. They get used to it. They let things mean the opposite of what they mean. You've been there...[wfk][line break]'Whatever.'[paragraph break]'See? Just like that.'[paragraph break]There's a long silence. 'Well. I didn't want to do it, but you made me put on my [activation of face facts]. You'll never [activation of following my gut]! You don't listen to your [activation of half right]...makes you miss obvious things others see immediately. Always have, always will. [activation of see you later]...' The Baiter Master storms out, and he must have had a remote, because you're locked in![wfk][paragraph break]You search frantically. There must be some way to communicate...and you dig around until you find the [activation of wire fraud]! Meant to 'remind' citizens they aren't as nice as they think they are, it now encourages them to get mad. The Goods get their cult to help. The [j-co] even chip in, too. Then, for kicks, you call [bad-guy-2] pretending to be the [bad-guy] and you prank him. And, of course, you remember the number to RING BRASS, from the Quiz Pop.[paragraph break]Mark Black is on his way--but so are the [bad-guy]'s allies! You hear Brother Foster say, well, I knew they were flaky, but that's what you GET when you try to give them an important position in life, and [activation of relief] and his [activation of menace] will set things straight. He's my [activation of general principle] I just hired.[wfk]Yes. That must be him, now.[paragraph break]'A danger not just to the Problems Compound but to [activation of city slicker]! [activation of pratfall]!' booms a man dressed in [activation of surge protector], tripping over his feet slightly.[wfk]" [p]
 bm-bye	"'You're not going anywhere.' And he's right. But it's not out totally out of fear, now."
 
 already-good is a truth state that varies.
@@ -12535,11 +12536,9 @@ section smart street concepts
 
 acceptable is a xable concept in conceptville. Understand "able except" and "except able" as acceptable. howto is "[x-it of gesture token]". gtxt is "Able... except".
 
-Armstrong is a concept in conceptville. Understand "strongarm" and "arm strong" and "strong arm" as armstrong. howto is "talking". gtxt is "[if ball-caps is true]ARMSTRONG[else]Armstrong[end if]". [norm]
+Ball Buster is a concept in conceptville. Understand "buster ball" as ball buster. howto is "talking". gtxt is "[if ball-caps is true]BUSTER BALL[else]Buster Ball[end if]". [norm]
 
 Beat Off is a dialoguey concept in conceptville. Understand "off beat" as beat off. howto is "[t2 of Guy]". gtxt is "OFF-BEAT".
-
-Ball Buster is a concept in conceptville. Understand "buster ball" as ball buster. howto is "talking". gtxt is "[if ball-caps is true]BUSTER BALL[else]Buster Ball[end if]". [norm]
 
 confidence games is a dialoguey concept in conceptville. Understand "games/game confidence" and "confidence game" as confidence games. howto is "[t2 of Guy]". gtxt is "games confidence"
 
@@ -12560,6 +12559,8 @@ mind games is a concept in conceptville. Understand "games mind" as mind games. 
 palace is a concept in conceptville. Understand "pal ace" and "ace pal" as palace. howto is "enter Fly House". gtxt is "ace pal". [norm]
 
 power games is a concept in conceptville. Understand "games power" as power games. howto is "win your first logic game against Guy Sweet". gtxt is "games power". [norm]
+
+Quick Buck is a concept in conceptville. Understand "buck quick" as Quick Buck. howto is "talking". gtxt is "[if ball-caps is true]BUCK QUICK[else]Buck Quick[end if]". [norm]
 
 chapter surface concepts
 
@@ -13579,6 +13580,8 @@ King Henry is a nemmy concept in conceptville. Understand "henry king" as king h
 laughingstock is a dialoguey concept in conceptville. Understand "laughing stock" and "stock laughing" as laughingstock. howto is "[t2 of baiter master]". gtxt is "stock laughing".
 
 Leading Question is a nemmy concept in conceptville. Understand "question leading" as leading question. howto is "[fr-ran]". gtxt is "question leading".
+
+menace is a dialoguey concept in conceptville. Understand "ace men" and "men ace" as menace. howto is "[t2 of baiter master". gtxt is "Ace Men".
 
 missed a spot is a concept in conceptville. Understand "mist a spot" and "spot a mist" as missed a spot. howto is "[ok-end]". gtxt is "spot a mist".
 
