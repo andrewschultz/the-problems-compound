@@ -2477,7 +2477,10 @@ sub modifyConcepts {
           die("Switched howto/concept type: $line");
         }
         if ( $findsCount == 1 ) {
-          print "Line $. has wrong howto, guess is $_.\n";
+          my $wrongh = $line;
+          $wrongh =~ s/.*howto is \"//;
+          $wrongh =~ s/\".*//;
+          print "Line $. has wrong howto ($wrongh), guess is $_.\n";
           $conceptsChanged++;
           print "Editing line $.\n" if $debug;
           print WF "$_\n" if $line !~ /howto is \"$_[\]\" -]/i;

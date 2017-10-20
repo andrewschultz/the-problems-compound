@@ -3298,7 +3298,7 @@ definition: a thing (called x) is explainable:
 	if x is in disposed well:
 		if x is scen-home or x is scen-church, decide no;
 	if x is gen-brush or x is hole, decide no;
-	if x is nametag or x is bar-scen or x is writing, decide no;
+	if x is nametag or x is writing, decide no;
 	if x is lcd frown, decide no;
 	if player carries x, decide yes;
 	if x is Baiter Master, decide yes;
@@ -3597,8 +3597,10 @@ clip joint	"A clip joint is a place that overcharges customers. A joint clip wil
 Double Jeopardy	"Double jeopardy is being tried for the same crime twice. Making your jeopardy double is just putting you at twice the risk."
 drag along	"To drag someone along is to take them with despite their reluctance."
 Dream Ticket	"A pair of candidates who, running together, have extremely broad appeal they wouldn't have alone. In Alec's dreams, he's often ganged up on by two people or groups who triangulate him rather differently."
+get a fix	"To get a fix is to take some drugs or eat some junk food for a quick emotional pickup."
 Grammar Police	"Grammar police are people who argue trivial grammar points when something is clear, or there's a much bigger cogent argument. In the Stool Toad's case, he deliberately uses bad grammar for emphasis, like on a 'hard-boiled' cop show."
 ground up	"Ground up can mean making something from nothing, or modest resources. But it also means physically ground up, like putting food in a blender."
+harmony	"Harmony is when everyone or most everyone is happy and cooperates together."
 high and dry	"High and dry means in a good safe position."
 high off the hog	"High on the hog means living wealthily. To hog the high would be if Fritz didn't share his, um, stuff."
 high roller	"A high roller is someone with a lot of money and prestige."
@@ -5034,6 +5036,8 @@ to say bad-guy:
 to say bad-guy-2:
 	say "[if allow-swears is true][activation of ball buster][else][activation of Quick Buck]Buck Quick[end if]";
 
+ball-caps is a truth state that varies.
+
 to say bad-guy-2-c:
 	now ball-caps is true;
 	say bad-guy-2;
@@ -6036,7 +6040,7 @@ check exiting when player is on person chair:
 	move player to round lounge, without printing a room description;
 	the rule succeeds;
 
-does the player mean inserting something into itself: it is unlikely.
+does the player mean inserting noun into noun: it is unlikely.
 
 to make-tee:
 	say "You twist the round screw into the hole in the round stick. The result is a slightly asymmetrical T. Yes, you could call it an off tee. In fact, it's best to think of it that way from now on, and not as the screw and/or stick it was.";
@@ -6124,7 +6128,6 @@ report taking round screw:
 
 to say got-stick-screw:
 	say "[one of]It feels light but sturdy[or]The stick and screw are easy to carry, but it'd still be nice to have a hand free, somehow[stopping]";
-
 
 waited-yet is a truth state that varies.
 
@@ -7015,7 +7018,6 @@ to bad-food-process (as - a truth state):
 	if player has face of loss:
 		now face of loss is in lalaland;
 
-
 table of accel-text
 accel-place	alt-num	accel-cookie	accel-off	accel-greater	accel-brownie
 meal square	-1	"Pfft. None of the other foods look close to as good as the cookie you ate. Time to get going back east."	"Ugh. The sight of the remaining food turns your stomach. You just want to get going."	"You're sure you're meant for better things than pigging out and getting fat on food that probably doesn't taste that great, anyway."	"This is a neat place, and it'd be wonderful if there were people to eat with here, but there aren't, so maybe you just need to find people to be social to. Um, with."
@@ -7309,6 +7311,10 @@ check entering bench:
 section Fritz the On
 
 Fritz the On is a surveyable person in Down Ground. "[one of]A fellow a bit older, but likely not wiser, than you sits cross-legged next to the Warmer Bench.[or][fritz-mumb].[stopping]"
+
+check talking to fritz the on:
+	if minimum bear is in lalaland or your-tix >= 4, say "Fritz mumbles about how the Stool Toad is always looking to [activation of get a fix]." instead;
+	if wacker weed is in lalaland, say "Fritz mumbles about all the [activation of harmony] in society today." instead;
 
 to say fritz-mumb:
 	say "[one of]Fritz the On still mumbles, sitting cross-legged[or]Fritz the On mumbles something incoherent about founding a consciousness-expanding school called [activation of high roller][stopping]"
@@ -8761,7 +8767,6 @@ to decide whether you-near-Percy:
 	unless ac-y - you-y is 3 or ac-y - you-y is -3:
 		decide no;
 	decide yes;
-
 
 p-c is a truth state that varies.
 
@@ -11198,7 +11203,6 @@ to say r-m-l:
 		now x is word number 2 in the player's command;
 	say "[x]";
 
-
 understand "worm glow" and "glow worm" as a mistake ("If you needed to find it, it might help. But now, you need to get inside it. You probably need to fix the ring shape.[ring-clue]") when player is in Out Mist.
 
 understand "round worm" and "worm round" as a mistake ("You consider worming around, but you're not very good at flattery, and there's nobody to flatter. Not that it's worth being good at flattery.[ring-clue]") when player is in Out Mist.
@@ -12710,9 +12714,13 @@ drag along is a concept in conceptville. Understand "along drag" as drag along. 
 
 Dream Ticket is a missable concept in conceptville. Understand "ticket dream" as dream ticket. howto is "sleep after you got a tickety". gtxt is "ticket dream".
 
+get a fix is a dialoguey concept in conceptville. Understand "fix a git" and "git a fix" as get a fix. howto is "[t2 of fritz the on] before giving him the weed". gtxt is "fix a git".
+
 Grammar Police is a firstvis concept in conceptville. Understand "police grammar" as grammar police. howto is "[f-t of Down Ground]". gtxt is "police grammar".
 
 ground up is a cantgo concept in conceptville. Understand "up ground" as ground up. howto is "go north or south in Down Ground". gtxt is "up ground".
+
+harmony is a dialoguey concept in conceptville. Understand "harm money" and "money harm" as harmony. howto is "[t2 of Fritz the On] after giving him the weed". gtxt is "money harm".
 
 a thing called High and Dry is a listeny concept in conceptville. Understand "dry and high" as high and dry. howto is "[li of Down Ground] after getting past Pressure Pier but before giving Fritz the weed". gtxt is "dry and high".
 
@@ -13581,7 +13589,7 @@ laughingstock is a dialoguey concept in conceptville. Understand "laughing stock
 
 Leading Question is a nemmy concept in conceptville. Understand "question leading" as leading question. howto is "[fr-ran]". gtxt is "question leading".
 
-menace is a dialoguey concept in conceptville. Understand "ace men" and "men ace" as menace. howto is "[t2 of baiter master". gtxt is "Ace Men".
+menace is a dialoguey concept in conceptville. Understand "ace men" and "men ace" as menace. howto is "[t2 of baiter master]". gtxt is "Ace Men".
 
 missed a spot is a concept in conceptville. Understand "mist a spot" and "spot a mist" as missed a spot. howto is "[ok-end]". gtxt is "spot a mist".
 
@@ -13967,7 +13975,6 @@ to decide which number is right-adj:
 	if the player's command matches the regular expression "\baway\b":
 		decide on 3;
 	decide on 0;
-
 
 table of hammer tries [xxtht]
 wordtry	tryresp
