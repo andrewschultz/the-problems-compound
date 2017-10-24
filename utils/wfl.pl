@@ -27,10 +27,10 @@ my $chrome =
 my $ffox  = "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe";
 my $opera = "C:\\Program Files (x86)\\Opera\\launcher.exe";
 
-my @cons = ( 'a', 'e', 'i', 'o', 'u', 'y' );
+my @cons = ( '', 'a', 'e', 'i', 'o', 'u', 'y' );
 my @vow = (
-  'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p',
-  'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'
+  '',  'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n',
+  'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'
 );
 #######################options
 my $bailLog      = 0;
@@ -41,7 +41,8 @@ my $dicURL       = 0;
 my $alphabetical = 1;
 my $flipData;
 my @flipAry;
-my $ignoreY = 0;
+my $ignoreY     = 0;
+my $ignoreBlank = 0;
 
 my $webapp = $ffox;
 
@@ -85,8 +86,9 @@ while ( $count <= $#ARGV ) {
     /^-?(gc|ch)$/ && do { $webapp = $chrome; $count++; next; };
     /^-?op$/      && do { $webapp = $opera;  $count++; next; };
     /^-?i$/ && do { idiomSearch($a2); exit; };
-    /^-?l$/   && do { $wa      = "word"; $count++; next; };
-    /^-?n?y$/ && do { $ignoreY = 1;      $count++; next; };
+    /^-?l$/   && do { $wa          = "word"; $count++; next; };
+    /^-?n?y$/ && do { $ignoreY     = 1;      $count++; next; };
+    /^-?nb$/  && do { $ignoreBlank = 1;      $count++; next; };
     /^-?t$/ && do { runFileTest(); countChunks(); exit; };
     /^-2$/ && do { $override = 1; $count++; next; };
     /^(#|-|)[0-9]+$/ && do {
@@ -162,6 +164,11 @@ my %dupCheck;
 if ($ignoreY) {
   @cons = grep { $_ ne 'y' } @cons;
   @vow  = grep { $_ ne 'y' } @vow;
+}
+
+if ($ignoreBlank) {
+  @cons = grep { $_ ne '' } @cons;
+  @vow  = grep { $_ ne '' } @vow;
 }
 
 for my $q (@flipAry) {
@@ -798,7 +805,7 @@ sub usage {
 -ff, -(gc/ch), -op picks web browser
 -l = sort words by length (brit-1word) vs by alphabetical
 -t = test how much is left to do big-picture (URLs and words)
--(n)y = remove y from list (V or C, in caps, looks through all vowels/consonants)
+-(n)y = remove y from list (V or C, in caps, looks through all vowels/consonants) (-nb ignores blanks)
 -e = edit the source, -el = edit the log
 -dl/dlog = send to daily log wfl-sz.txt, reset so-far (usually done in a script) (x = bail) (dlq = show total)
 -o/-eo = open the output file
