@@ -11794,6 +11794,10 @@ this is the alt-answer rule:
 			say "[line break]";
 	the rule succeeds;
 
+this is the show-rejected rule:
+	say "Fidel the Second, Hunter Savage (actually removed from release 2), ARMSTRONG, Hosin' Leader, Dread Hun, Elephant White, and Joe Glass were names I couldn't quite get to work, but I think they're amusing enough. I hope you do, too.
+	the rule succeeds;
+
 book continuing
 
 Table of Final Question Options (continued)
@@ -11806,6 +11810,7 @@ final question wording	only if victorious	topic	final response rule	final respon
 --	true	"CONCEPTS/CONC"	concept-all rule	--
 "see all the [bi of dreamseen]DREAM[r] sequence stories"	true	"DREAM/DREAMS"	dream-see rule	--
 "see the plausible [bi of missseen]MISSES[r] for the Terminal"	true	"MISSES"	alt-answer rule	--
+"see [bi of rejectseen](REJ)ECTED[r] non-innuendo names for the non-bad-guy"	true	"REJ/REJECT/TEJECTED"	show-rejected rule	--
 
 amuseseen is a truth state that varies.
 swearseen is a truth state that varies.
@@ -11815,6 +11820,7 @@ badendseen is a truth state that varies.
 conceptseen is a truth state that varies.
 dreamseen is a truth state that varies.
 missseen is a truth state that varies.
+rejectseen is a truth state that varies.
 
 to decide whether got-all-meta:
 	if amuseseen is false, decide no;
@@ -11825,6 +11831,7 @@ to decide whether got-all-meta:
 	if conceptseen is false, decide no;
 	if dreamseen is false, decide no;
 	if missseen is false, decide no;
+	if rejectseen is false, decide no;
 	decide yes;
 
 the print the modified final question rule is listed before the print the final prompt rule in before handling the final question.
