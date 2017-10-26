@@ -33,6 +33,7 @@ my @vow = (
   'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'
 );
 #######################options
+my %didSoFar;
 my $bailLog      = 0;
 my $shouldSort   = 0;
 my $overlook     = 0;
@@ -170,6 +171,8 @@ if ($ignoreBlank) {
   @cons = grep { $_ ne '' } @cons;
   @vow  = grep { $_ ne '' } @vow;
 }
+
+# we should maybe preprocess the array for duplicates BEFORE trying anything else.
 
 for my $q (@flipAry) {
   if ( ( !$override ) && ( length($q) <= 2 ) ) {
@@ -343,6 +346,12 @@ sub readOneWord {
   my $found = 0;
   my $wordy = 0;
 
+  if ( defined( $didSoFar{ $_[0] } ) ) {
+    print "Tried to redo $_[0] from cmd line input. Skipping.\n";
+    return;
+  }
+  $didSoFar{ $_[0] } = 1;
+
   if ( $isDone{ $_[0] } ) {
     if ($overlook) {
       open( Q, "$output" );
@@ -357,20 +366,26 @@ sub readOneWord {
       print "Redoing $t, found in line $isDone{$t} in flip.txt.\n";
     }
     else {
-      print
-        "$t repeated, line $isDone{$t} in fliptrack.txt. Use -f to override.\n";
+      print "$t repeated, "
+        . ( $isDone{$_} == -1
+        ? "earlier this run"
+        : "line $isDone{$t} in fliptrack.txt" )
+        . ". Use -f to override.\n";
       return;
     }
   }
-  else { $shouldAlphabetize = 1; print "$t not done yet.\n"; }
+  else {
+    $shouldAlphabetize = 1;
+    print "$t not done yet.\n";
+  }
   $shouldSort = 1;
   $flip       = $t;
   for my $q ( sort keys %isDone ) {
     if ( ( $t =~ /$q/ ) && ( $_[0] ne $q ) ) {
-      print "$t contains already-done word $q\n";
+      print "$t contains already-done word $q ($isDone{$q}).\n";
     }
     if ( ( $q =~ /$t/ ) && ( $_[0] ne $q ) ) {
-      print "$t contained by already-done word $q\n";
+      print "$t contained by already-done word $q ($isDone{$q}).\n";
     }
   }
 
