@@ -143,17 +143,46 @@ if ( !$flipData ) {
 
 @flipAry = split( /[,\..]/, $flipData );
 
-my %dupWordCheck;
+my @flipAry2 = ();
 
-for (@flipAry) {
-  if ( defined( $dupWordCheck{$_} ) && ( $dupWordCheck{$_} == 1 ) ) {
-    print "Weeding out duplicate $_\n";
-    $dupWordCheck{$_} = 2;
+my $temp;
+
+for my $toFlip (@flipAry) {
+  if ( $toFlip =~ /C/ ) {
+    for (@cons) {
+      $temp = $toFlip;
+      $temp =~ s/C/$_/;
+      push( @flipAry2, $temp );
+    }
   }
-  $dupWordCheck{$_} = 1;
+  elsif ( $toFlip =~ /V/ ) {
+    for (@vow) {
+      $temp = $toFlip;
+      $temp =~ s/V/$_/;
+      push( @flipAry2, $temp );
+    }
+  }
+  else {
+    push( @flipAry2, $toFlip );
+  }
 }
 
-@flipAry = uniq(@flipAry);
+my %flipDupeChecker;
+
+@flipAry = uniq(@flipAry2);
+
+if ( $#flipAry < $#flipAry2 ) {
+  for (@flipAry2) {
+    $flipDupeChecker{$_}++;
+  }
+  my @flipDupes =
+    grep { $flipDupeChecker{$_} > 1 } ( sort keys %flipDupeChecker );
+  print "Weeded out "
+    . ( $#flipAry2 - $#flipAry )
+    . " duplicates: "
+    . join( " ", map { "$_(" . ( $flipDupeChecker{$_} - 1 ) . ")" } @flipDupes )
+    . ".\n";
+}
 
 initWordCheck();
 initDupeRead();
@@ -183,24 +212,6 @@ for my $q (@flipAry) {
     print "Tried $q twice on the command line. Skipping.\n";
     next;
   }
-  $dupCheck{$q} = 1;
-  if ( $q =~ /V/ ) {
-    for (@cons) {
-      my $temp = $q;
-      $temp =~ s/V/$_/g;
-      readOneWord($temp);
-    }
-    next;
-  }
-  if ( $q =~ /C/ ) {
-    for (@vow) {
-      my $temp = $q;
-      $temp =~ s/C/$_/g;
-      readOneWord($temp);
-    }
-    next;
-  }
-  if ( $q =~ /[^a-z]/i ) { print "$q has non letters. Skipping.\n"; next; }
   readOneWord($q);
 }
 
@@ -367,10 +378,12 @@ sub readOneWord {
     }
     else {
       print "$t repeated, "
-        . ( $isDone{$_} == -1
+        . (
+        defined( $isDone{ $_[0] } )
+          && ( $isDone{ $_[0] } == -1 )
         ? "earlier this run"
-        : "line $isDone{$t} in fliptrack.txt" )
-        . ". Use -f to override.\n";
+        : "line $isDone{$t} in fliptrack.txt"
+        ) . ". Use -f to override.\n";
       return;
     }
   }
