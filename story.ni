@@ -320,8 +320,7 @@ when play begins (this is the main story introduction and initialization rule):
 
 to say lhs:
 	say "[location of player]";
-	if print-exits is false:
-		continue the action;
+	if print-exits is false, continue the action;
 	say ":";
 	if player is in service community:
 		say " NW NE SE SW N S E W";
@@ -526,8 +525,7 @@ to unlock-verb (t - text):
 		now j is "[brief entry]";
 		if j matches the regular expression "[t]":
 			prep-action j;
-			if found entry is true:
-				continue the action;
+			if found entry is true, continue the action;
 			if expound entry is true:
 				if brief entry is "notice":
 					ital-say "you've also unlocked NOTICE ADVANCE, to clear both the jerks and brothers on restart.";
@@ -543,8 +541,7 @@ to decide whether (t - text) is unlock-verified:
 	repeat through table of verb-unlocks:
 		if brief entry matches the regular expression "[t]":
 			if found entry is false:
-				if in-verbs is true:
-					decide no;
+				if in-verbs is true, decide no;
 				say "You don't seem to have unlocked [t in upper case] yet. Are you sure you wish to go ahead?";
 				unless the player yes-consents:
 					say "OK. You can try this again, if you want. There's no penalty.";
@@ -561,8 +558,7 @@ crocking relates one thing to another.
 a thing can be helpy. a thing is usually not helpy.
 
 check taking a helpy thing:
-	if number of carried helpy things > 0:
-		say "You can only carry one item from the stall at a time." instead;
+	if number of carried helpy things > 0, say "You can only carry one item from the stall at a time." instead;
 
 a room can be only-out. a room is usually not only-out.
 
@@ -717,37 +713,27 @@ section printing exits
 print-exits is a truth state that varies.
 
 definition: a direction (called myd) is viable:
-	if the player is in freak control:
-		decide no;
+	if the player is in freak control, decide no;
 	if the player is in round lounge:
-		if myd is up:
-			decide yes;
+		if myd is up, decide yes;
 		decide no;
 	if player is in tension surface:
-		if myd is outside:
-			decide no;
+		if myd is outside, decide no;
 	if player is in pressure pier: [outer bounds]
-		if myd is south:
-			decide no;
+		if myd is south, decide no;
 	if player is in joint strip:
-		if myd is south and Terry Sally is in lalaland:
-			decide no;
+		if myd is south and Terry Sally is in lalaland, decide no;
 	if player is in questions field :
-		if myd is west and circular is not off-stage:
-			decide no;
+		if myd is west and circular is not off-stage, decide no;
 	if player is in scheme pyramid and contract-signed is false:
-		if myd is north:
-			decide no;
+		if myd is north, decide no;
 	if player is in idiot village:
 		if player has bad face and idol is not in lalaland:
-			if myd is east or myd is northeast:
-				decide yes;
+			if myd is east or myd is northeast, decide yes;
 	if player is in service community:
-		if noun is inside or noun is outside or noun is up or noun is down:
-			decide no;
+		if noun is inside or noun is outside or noun is up or noun is down, decide no;
 		decide yes;
-	if the room myd of the location of the player is nowhere:
-		decide no;
+	if the room myd of the location of the player is nowhere, decide no;
 	decide yes;
 
 exits-mentioned is a truth state that varies.
@@ -821,8 +807,7 @@ section shorthand regions
 [* to save space on variables later ]
 
 to decide what region is imr of (x - a thing):
-	if x is off-stage:
-		decide on nothing;
+	if x is off-stage, decide on nothing;
 	decide on map region of location of x;
 
 to decide what region is mrlp:
@@ -833,12 +818,9 @@ volume about the player
 Alec Smart is a person. the player is Alec Smart.
 
 check examining alec when accel-ending:
-	if cookie-eaten is true:
-		say "Well, you know looks don't matter now. You're pretty sure you can take either tack. 'Even a guy looking like ME can have confidence' or, well, just having confidence.[paragraph break]Still, probably above average. Yup." instead;
-	else if greater-eaten is true:
-		say "You look like you deserve to look better than you do, which is pretty good." instead;
-	else if off-eaten is true:
-		say "You scowl to yourself that looks don't matter, but you''d rather hang around people who scowl as much as you. Unless they're trying to imitate you." instead;
+	if cookie-eaten is true, say "Well, you know looks don't matter now. You're pretty sure you can take either tack. 'Even a guy looking like ME can have confidence' or, well, just having confidence.[paragraph break]Still, probably above average. Yup." instead;
+	if greater-eaten is true, say "You look like you deserve to look better than you do, which is pretty good." instead;
+	if off-eaten is true, say "You scowl to yourself that looks don't matter, but you''d rather hang around people who scowl as much as you. Unless they're trying to imitate you." instead;
 
 description of Alec Smart is "[one of]You, Alec Smart, are just sort of average looking. You hope. You guess. But you know people who think they're average are below average, whether or not they know that bit of research.[paragraph break]In any case, looking at yourself tends to make you over-think, and you have enough thinking to do[or]You hope you're un-ugly enough to be a likable everyteen. Others take worse heat for their looks. Not that that makes you feel better[stopping]. You are pretty sure you've got a [if player has bad face]bad face[else]face of loss[end if] on."
 
@@ -888,16 +870,11 @@ chapter cutting
 the block cutting rule is not listed in any rulebook.
 
 before cutting:
-	if noun is worm:
-		say "Its outside shell is too hard. Maybe work at it from the inside, or metaphorically." instead;
-	if noun is caps:
-		say "You need to transform the hammer so it can break the lock caps." instead;
-	if noun is wax:
-		say "You're not terribly musical. Well, you're not down with funky music." instead;
-	if noun is a person:
-		say "You don't have any sharp objects, and cutting someone down verbally is out." instead;
-	if noun is scenery and player is in freak control:
-		try attacking noun instead;
+	if noun is worm, say "Its outside shell is too hard. Maybe work at it from the inside, or metaphorically." instead;
+	if noun is caps, say "You need to transform the hammer so it can break the lock caps." instead;
+	if noun is wax, say "You're not terribly musical. Well, you're not down with funky music." instead;
+	if noun is a person, say "You don't have any sharp objects, and cutting someone down verbally is out." instead;
+	if noun is scenery and player is in freak control, try attacking noun instead;
 	say "You have nothing with which to [activation of cut a deal]." instead;
 
 chapter throwing at
@@ -911,8 +888,7 @@ check throwing it at:
 			say "You don't need to throw it--you can just take a good swing!";
 			try attacking hatch instead;
 		say "Thunk! The [noun] hits the hatch, which wobbles a bit, but doesn't jar it loose. As you pick it up, you wonder[one of][or] again[stopping]: you could--but maybe if you were a bit closer..." instead;
-	if second noun is chair:
-		say "The chair isn't blocking your way. The hatch is." instead;
+	if second noun is chair, say "The chair isn't blocking your way. The hatch is." instead;
 	say "Throwing stuff generally won't work in this game."
 
 chapter score
@@ -941,14 +917,10 @@ to say terminal-2:
 		say ". Also, I got the idea for this puzzle from something else even tougher and more clever. XP TERMINAL to see the details";
 
 check requesting the score:
-	if greater-eaten is true:
-		say "You're more worried about scoring points with the right people than in some silly game." instead;
-	if cookie-eaten is true:
-		say "It's probably pretty good, but you're too cool for numbery nonsense." instead;
-	if off-eaten is true:
-		say "Oh man. You don't need yet another number assigned to your performance." instead;
-	if greater-eaten is true:
-		say "Whatever your score is, you have intangibles above that." instead;
+	if greater-eaten is true, say "You're more worried about scoring points with the right people than in some silly game." instead;
+	if cookie-eaten is true, say "It's probably pretty good, but you're too cool for numbery nonsense." instead;
+	if off-eaten is true, say "Oh man. You don't need yet another number assigned to your performance." instead;
+	if greater-eaten is true, say "Whatever your score is, you have intangibles above that." instead;
 	if mrlp is rejected rooms:
 		let uan be number of unvisited rooms in mrlp;
 		say "You have [uan in words] rejected room[if uan is not 1]s[end if] to visit here (JUMP back once you're finished,) and ";
@@ -957,45 +929,32 @@ check requesting the score:
 		else:
 			say "you've seen [number of visited rooms in just ideas now in words] rooms in the view of points.";
 		the rule succeeds;
-	if player is in smart street:
-		say "You don't need to worry about score yet. You've just got here." instead;
-	if player is in round lounge:
-		say "Score isn't as important as finding a way out. So you could say you've got 0 for 1 right now." instead;
+	if player is in smart street, say "You don't need to worry about score yet. You've just got here." instead;
+	if player is in round lounge, say "Score isn't as important as finding a way out. So you could say you've got 0 for 1 right now." instead;
 	if mrlp is beginning:
-		if tension surface is visited and variety garden is visited:
-			say "You need to go forward from the tension surface somehow." instead;
+		if tension surface is visited and variety garden is visited, say "You need to go forward from the tension surface somehow." instead;
 		say "You've got a task or two, but still not enough to really keep score of what you're doing yet." instead;
-	if mrlp is Dream Sequence:
-		say "This is one of those nightmares where your score may be negative, if that's possible." instead;
+	if mrlp is Dream Sequence, say "This is one of those nightmares where your score may be negative, if that's possible." instead;
 	if mrlp is outer:
 		if Terry Sally is not in lalaland:
-			if your-tix is 4:
-				say "The trail paper is probably what Terry Sally wants." instead;
-			if your-tix > 0:
-				say "You have [your-tix in words] of the four boo-ticketies you need." instead;
+			if your-tix is 4, say "The trail paper is probably what Terry Sally wants." instead;
+			if your-tix > 0, say "You have [your-tix in words] of the four boo-ticketies you need." instead;
 			say "You need to go looking for trouble. I mean, not too much, but enough to show you're not square." instead;
 	say "You have scored [score] point[if score is not 1]s[end if] and need [maximum score] to win[if maximum score < maximum-maximum], or [maximum-maximum] for[else] with[end if] the best ending";
 	if number of map-pinged rooms > 1:
 		say ", and you've also been to [number of map-pinged rooms] or [number of rooms in bad ends] rooms";
 	say ".";
 	say "[line break]";
-	if player is in out mist:
-		say "You need to modify the worm ring somehow." instead;
-	if player is in airy station:
-		say "You need to modify the hammer somehow." instead;
-	if Questions Field is unvisited:
-		say "You haven't gotten near the [bad-guy]'s hideout yet. So maybe you need to explore a bit more." instead;
-	if qp-hint is true and quiz pop is not in lalaland:
-		say "You need some way to get past the question/exclamation mark guard combination. It's like--I don't know. A big ol['] pop quiz or something." instead;
-	if player has crocked half and thoughts idol is not in lalaland:
-		say "You haven't found what the crocked half's clue is, either." instead;
+	if player is in out mist, say "You need to modify the worm ring somehow." instead;
+	if player is in airy station, say "You need to modify the hammer somehow." instead;
+	if Questions Field is unvisited, say "You haven't gotten near the [bad-guy]'s hideout yet. So maybe you need to explore a bit more." instead;
+	if qp-hint is true and quiz pop is not in lalaland, say "You need some way to get past the question/exclamation mark guard combination. It's like--I don't know. A big ol['] pop quiz or something." instead;
+	if player has crocked half and thoughts idol is not in lalaland, say "You haven't found what the crocked half's clue is, either." instead;
 	if player is in freak control:
 		say "[if qbc_litany is table of no conversation]You need to get the [bad-guy]'s attention somehow[else]Don't worry. There's no way to 'lose' this conversation[end if].";
-	if bros-left is 0 and boris is in lalaland:
-		say "You've helped the Brothers and [j-co]. It's time to meet the [bad-guy][if score < 20 and player does not have legend of stuff], unless you want to take care of a few special things first[end if]." instead;
+	if bros-left is 0 and boris is in lalaland, say "You've helped the Brothers and [j-co]. It's time to meet the [bad-guy][if score < 20 and player does not have legend of stuff], unless you want to take care of a few special things first[end if]." instead;
 	say "You have currently helped [if bros-left is 3]none[else if bros-left is 0]all[else][3 - bros-left in words][end if] of the Keeper Brothers[if idol is in lalaland], and you've rid Idiot Village of the Thoughts Idol, too![else].[end if]";
-	if number of endfound rooms > 0:
-		say "Also, if you're keeping track of that sort of thing, you've found [number of endfound rooms] bad end[if number of endfound rooms is not 1]s[end if] out of [number of rooms in Bad Ends]: [list of endfound rooms]." instead;
+	if number of endfound rooms > 0, say "Also, if you're keeping track of that sort of thing, you've found [number of endfound rooms] bad end[if number of endfound rooms is not 1]s[end if] out of [number of rooms in Bad Ends]: [list of endfound rooms]." instead;
 	the rule succeeds;
 
 chapter waking verb
@@ -1004,10 +963,8 @@ the block waking rule is not listed in any rulebook.
 the block waking up rule is not listed in any rulebook.
 
 before waking:
-	if noun is volatile sal:
-		say "He's happier asleep. He needs the rest." instead;
-	if noun is not player:
-		say "You can't wake anyone else up." instead;
+	if noun is volatile sal, say "He's happier asleep. He needs the rest." instead;
+	if noun is not player, say "You can't wake anyone else up." instead;
 	try waking up instead;
 
 before waking up:
@@ -1035,20 +992,13 @@ to leave-dream:
 chapter waiting
 
 check waiting (this is the caught napping rule):
-	if p-c is true:
-		say "Percy takes a pause, too." instead;
-	if mrlp is dream sequence:
-		move-dream-ahead instead;
-	if player is in down ground and slept-through is false:
-		say "[one of]You attempt to loiter in this seedy area in order to get in trouble or something, but no dice.[or]Still, nobody comes to break up your loitering.[or]You reflect if you want to get zapped for loitering, maybe you need to do better than just hang around.[or]Hm, you wonder what is even lazier than standing around.[stopping]" instead;
-	if player is in Meal Square:
-		say "You wait, but [activation of loaf around] fails to appear." instead; [temproom meal square]
-	if player is in Joint Strip:
-		say "With the Stool Toad around, you fear a booming [activation of do dope]!" instead; [temproom joint strip]
-	if player is in Soda Club:
-		say "Er, be." instead;
-	if player is in airy station:
-		say "The mentality crowd cheers some more! They're glad you don't want to leave right away, and they know you'll figure what to do with the hammer, eventually." instead;
+	if p-c is true, say "Percy takes a pause, too." instead;
+	if mrlp is dream sequence, move-dream-ahead instead;
+	if player is in down ground and slept-through is false, say "[one of]You attempt to loiter in this seedy area in order to get in trouble or something, but no dice.[or]Still, nobody comes to break up your loitering.[or]You reflect if you want to get zapped for loitering, maybe you need to do better than just hang around.[or]Hm, you wonder what is even lazier than standing around.[stopping]" instead;
+	if player is in Meal Square, say "You wait, but [activation of loaf around] fails to appear." instead; [temproom meal square]
+	if player is in Joint Strip, say "With the Stool Toad around, you fear a booming [activation of do dope]!" instead; [temproom joint strip]
+	if player is in Soda Club, say "Er, be." instead;
+	if player is in airy station, say "The mentality crowd cheers some more! They're glad you don't want to leave right away, and they know you'll figure what to do with the hammer, eventually." instead;
 	say "[activation of wait your turn]." instead;
 
 every turn when player is in tense past and tense present is not visited:
@@ -1075,12 +1025,9 @@ chapter burning
 the block burning rule is not listed in any rulebook.
 
 check burning:
-	if player is in judgment pass:
-		say "You have no matches with which to, err, [activation of pass the torch]. Ha ha." instead; [temproom judgment pass]
-	if noun is poory pot:
-		say "You don't have any matches. Or guts to try even the mild stuff." instead;
-	if noun is wacker weed:
-		say "You don't have any matches. Or guts to defy Pusher Penn." instead;
+	if player is in judgment pass, say "You have no matches with which to, err, [activation of pass the torch]. Ha ha." instead; [temproom judgment pass]
+	if noun is poory pot, say "You don't have any matches. Or guts to try even the mild stuff." instead;
+	if noun is wacker weed, say "You don't have any matches. Or guts to defy Pusher Penn." instead;
 	say "You have neither matches nor pyromaniac desires." instead;
 
 chapter dropping
@@ -1915,8 +1862,7 @@ before turning:
 		say "If you turned it, you still wouldn't be able to get inside it. You'll need to do something else to the worm--well, the ring." instead;
 	if noun is a person:
 		say "You are worried enough about changing yourself. No time to try to change other people[tnn]." instead;
-	else:
-		say "Weird. It feels like [the noun] tries to [activation of u-turn][tnn]."
+	say "Weird. It feels like [the noun] tries to [activation of u-turn][tnn]." instead;
 
 to say tnn:
 	say "[one of] (TURN is not needed in The Problems Compound)[or][stopping]";
@@ -3133,7 +3079,7 @@ definition: a room (called mr) is xpable:
 
 expl-hint is a truth state that varies.
 
-told-xpoff is a truth state that varies;
+told-xpoff is a truth state that varies.
 
 check explaining when player is in freak control (this is the don't explain when you can clue in FC rule) :
 	if noun is power trip or noun is freak out:
@@ -4961,9 +4907,9 @@ after looking in Smart Street when Guy Sweet is not in Smart Street:
 
 the player is in Smart Street.
 
-rule for clarifying the parser's choice of games: do nothing;
+rule for clarifying the parser's choice of games: do nothing.
 
-games are plural-named scenery in Smart Street. description of games is "[bug]";
+games are plural-named scenery in Smart Street. description of games is "[bug]".
 
 instead of doing something with games:
 	if current action is playing:
@@ -5947,7 +5893,7 @@ chapter person chair
 
 the person chair is scenery in Round Lounge. the person chair is a supporter. "It's plain but sturdy[if player is on person chair] enough to hold your weight[end if], emblazoned with PERSON, probably to say it can only hold one. Not that there's another person around.".
 
-check taking person chair: say "That'd require both hands. It'd be even harder to get through the hatch, then." instead;
+check taking person chair: say "That'd require both hands. It'd be even harder to get through the hatch, then." instead.
 
 after examining person chair for the first time:
 	say "It's not an [activation of charity], but it still feels like someone gave it to you.";
@@ -8166,7 +8112,7 @@ carry out shorting:
 
 chapter generic jerk
 
-generic-jerk is a privately-named person. description is "[bug]";
+generic-jerk is a privately-named person. description is "[bug]".
 
 after doing something with generic-jerk:
 	set the pronoun them to jerks;
@@ -8804,7 +8750,7 @@ There is a room called The Belt Below. It is in Main Chunk. "You're in a cylindr
 check going nowhere in belt below:
 	say "You can only go back up[if terminal is in belt], or maybe beating the terminal will lead elsewhere[else] or down[end if]." instead;
 
-The Insanity Terminal is scenery in the Belt Below. description is "[bug]";
+The Insanity Terminal is scenery in the Belt Below. description is "[bug]".
 
 understand "puzzle" as terminal when player is in belt below.
 
@@ -9037,7 +8983,7 @@ stuff-bye	"Enough studying. Time for action!"
 
 already-clued is a truth state that varies.
 
-last-clue is a number that varies;
+last-clue is a number that varies.
 
 after quipping when qbc_litany is table of Legend of Stuff talk:
 	d "OK, hinting here.";
@@ -11795,7 +11741,7 @@ this is the alt-answer rule:
 	the rule succeeds;
 
 this is the show-rejected rule:
-	say "Fidel the Second, Hunter Savage (actually removed from release 2), ARMSTRONG, Hosin' Leader, Dread Hun, Elephant White, and Joe Glass were names I couldn't quite get to work, but I think they're amusing enough. I hope you do, too.
+	say "Fidel the Second, Hunter Savage (actually removed from release 2), ARMSTRONG, Hosin' Leader, Dread Hun, Elephant White, and Joe Glass were names I couldn't quite get to work, but I think they're amusing enough. I hope you do, too.";
 	the rule succeeds;
 
 book continuing
@@ -12424,7 +12370,7 @@ Rule for printing a parser error when the latest parser error is the noun did no
 
 volume weird stuff
 
-to force-status: (- DrawStatusLine(); -);
+to force-status: (- DrawStatusLine(); -).
 
 to debug-freeze: [this is so, in case I want to freeze the game, it doesn't seep into release mode. I should probably put this into my general tools module at some point, along with other things.]
 	if debug-state is true:
@@ -14855,8 +14801,8 @@ carry out nu-testjumping:
 		say "Note that any bugs you may find after making this jump may be a testing artifact and not a problem with the game. That's probably because this is a command to test something specific. I'll verify if the bug would happen in an actual game, if it pops up.";
 	the rule succeeds;
 
-block-other is a truth state that varies;
-block-pier is a truth state that varies;
+block-other is a truth state that varies.
+block-pier is a truth state that varies.
 
 check going south in Nominal Fen when block-pier is true:
 	say "You don't need to go back here for focused testing." instead;
