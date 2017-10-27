@@ -821,6 +821,7 @@ check examining alec when accel-ending:
 	if cookie-eaten is true, say "Well, you know looks don't matter now. You're pretty sure you can take either tack. 'Even a guy looking like ME can have confidence' or, well, just having confidence.[paragraph break]Still, probably above average. Yup." instead;
 	if greater-eaten is true, say "You look like you deserve to look better than you do, which is pretty good." instead;
 	if off-eaten is true, say "You scowl to yourself that looks don't matter, but you''d rather hang around people who scowl as much as you. Unless they're trying to imitate you." instead;
+	if brownie-eaten is true, say "You look pretty cool, but probably not as cool as certain people you need to emulate." instead;
 
 description of Alec Smart is "[one of]You, Alec Smart, are just sort of average looking. You hope. You guess. But you know people who think they're average are below average, whether or not they know that bit of research.[paragraph break]In any case, looking at yourself tends to make you over-think, and you have enough thinking to do[or]You hope you're un-ugly enough to be a likable everyteen. Others take worse heat for their looks. Not that that makes you feel better[stopping]. You are pretty sure you've got a [if player has bad face]bad face[else]face of loss[end if] on."
 
@@ -920,7 +921,7 @@ check requesting the score:
 	if greater-eaten is true, say "You're more worried about scoring points with the right people than in some silly game." instead;
 	if cookie-eaten is true, say "It's probably pretty good, but you're too cool for numbery nonsense." instead;
 	if off-eaten is true, say "Oh man. You don't need yet another number assigned to your performance." instead;
-	if greater-eaten is true, say "Whatever your score is, you have intangibles above that." instead;
+	if brownie-eaten is true, say "Whatever your score is, you have intangibles above that. But you need to find cool people who can help you do even better!" instead;
 	if mrlp is rejected rooms:
 		let uan be number of unvisited rooms in mrlp;
 		say "You have [uan in words] rejected room[if uan is not 1]s[end if] to visit here (JUMP back once you're finished,) and ";
@@ -6398,11 +6399,7 @@ weasel-pick-oops	"'Good thing I didn't charge you a deposit, eh?'"
 weasel-bye	"'Gosh! You're lucky I didn't charge you for all this cleverness!'"
 
 check going east when player is in variety garden:
-	if dirt-dug is false:
-		if player has pocket pick:
-			say "'This isn't [activation of dirt nap], here. It won't DIG itself while you're gone.'" instead;
-		else:
-			say "'Well, let me know when you're ready to do business.'";
+	if dirt-dug is false, say "'[if player has pocket pick]This isn't [activation of dirt nap], here. It won't DIG itself while you're gone[else]Well, let me know when you're ready to do business[end if].'" instead;
 
 section pocket pick
 
@@ -6830,8 +6827,7 @@ before going when accel-ending:
 		say "Nothing that-a-way." instead;
 	if the room noun of the location of player is visited:
 		say "You look [noun]. Pfft. Why would you want to go back? You're more focused after having an invigorating meal." instead;
-	else:
-		say "[if off-eaten is true]You really don't want to get lost among whatever weird people are [noun]. You're not up to it. You just want to talk to anyone who can get you out of here.[else if brownie-eaten is true]You'd like to go [noun], but the [bad-guy] sounds like the person to meet for REAL.[else]Pfft. Nothing important enough to the [noun]! Maybe before you'd eaten, you'd have spent time wandering about, but not now. North to Freak Control![end if]" instead;
+	say "[if off-eaten is true]You really don't want to get lost among whatever weird people are [noun]. You're not up to it. You just want to talk to anyone who can get you out of here.[else if brownie-eaten is true]You'd like to go [noun], but the [bad-guy] sounds like the person to meet for REAL.[else]Pfft. Nothing important enough to the [noun]! Maybe before you'd eaten, you'd have spent time wandering about, but not now. North to Freak Control![end if]" instead;
 
 section greater cheese
 
@@ -7172,8 +7168,7 @@ carry out gumtaking:
 	say "This is slightly ambiguous. It may mean taking the gum, or it may mean you want to exit. Do you wish to eat the gum?";
 	if the player yes-consents:
 		try eating gum instead;
-	else:
-		try going east instead;
+	try going east instead;
 
 check taking some up gum:
 	if accel-ending:
@@ -7181,8 +7176,7 @@ check taking some up gum:
 	say "You tend to just put gum in your pocket and forget about it. If you want to chew it, you should probably do so now. Have a chew?";
 	if the player yes-consents:
 		try eating some up gum instead;
-	else:
-		say "OK." instead;
+	say "OK." instead;
 
 check eating some up gum:
 	if accel-ending:
@@ -7251,8 +7245,7 @@ check entering bench:
 	say "If you do, you know you'll just fall asleep. Do so anyway?";
 	if the player yes-consents:
 		try sleeping instead;
-	else:
-		say "OK." instead;
+	say "OK." instead;
 
 section Fritz the On
 
@@ -8067,9 +8060,8 @@ to decide whether (myguess - a number) is mint-guessed-wrong:
 			[say "[temp-jerk]: ones = [myguess] / [mydiv] = [ones], should be [quippos of my-quip entry].";]
 			if ones is quippos of my-quip entry:
 				decide no;
-			else:
-				now onesguess is ones;
-				decide yes;
+			now onesguess is ones;
+			decide yes;
 		now mydiv is mydiv / 10;
 		now temp-jerk is next-c of temp-jerk;
 	say "BUG. No jerk was marked as eating the mint, but I still tried to look for one.";
@@ -8725,8 +8717,7 @@ description of Cute Percy is "He's--he's actually shorter and fatter than you, a
 check talking to Cute Percy:
 	if p-c is true:
 		say "You aren't going to win a taunting war. You wonder if getting under the paper chase is really worth it. He said it wasn't NECESSARY. But he also said there might be a big help." instead;
-	else:
-		say "You've got no chance of winning an insult war. But maybe if you catch him on the Chase Paper...he said he might help you. Or help you get close to help. Probably the second." instead;
+	say "You've got no chance of winning an insult war. But maybe if you catch him on the Chase Paper...he said he might help you. Or help you get close to help. Probably the second." instead;
 
 check going inside when player is in chipper wood and p-c is false:
 	if chase paper is in Chipper wood:
@@ -9276,11 +9267,8 @@ instead of doing something when second noun is faith goode:
 	continue the action;
 
 instead of doing something with faith goode:
-	if action is undrastic:
-		continue the action;
-	else:
-		now noun is grace goode;
-		continue the action;
+	unless action is undrastic, now noun is grace goode;
+	continue the action;
 
 does the player mean talking to grace goode: it is very likely.
 does the player mean giving to grace goode: it is very likely.
