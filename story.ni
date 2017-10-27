@@ -1055,10 +1055,8 @@ check dropping gesture token:
 	say "It seems worthless, but you never know. Anyway, it's harmless at worst in your pocket." instead;
 
 check dropping when player is in Round Lounge:
-	if noun is off tee:
-		say "But you made it with your own hands! It must be useful for something. You hope." instead;
-	if noun is stick or noun is screw:
-		say "You can't think of any reason to drop that. It seems no better or worse than the [if noun is screw]stick[else]screw[end if] to help you get out of here." instead;
+	if noun is off tee, say "But you made it with your own hands! It must be useful for something. You hope." instead;
+	if noun is stick or noun is screw, say "You can't think of any reason to drop that. It seems no better or worse than the [if noun is screw]stick[else]screw[end if] to help you get out of here." instead;
 
 check dropping the proof of burden:
 	say "No. There's a part of you that always sort of believed what the proof said, even if it's said kind of snide. Most of the time, you just hear disbelief you're smart and you can't deal, but there may be help here." instead;
@@ -1078,14 +1076,10 @@ check dropping long string:
 		try inserting long string into yards hole instead;
 
 check dropping (this is the general dropping rule):
-	if noun is pocket pick:
-		say "'Aw, c'mon,' you hear the Word Weasel say, in your head[if player is in variety garden]. You think it was in your head[end if]." instead;
-	if noun is dreadful penny:
-		say "The penny doesn't drop on any puzzle you want to solve." instead;
-	if noun is minimum bear:
-		say "No. It's just cute enough not to abandon[if your-tix < 4 and litter-clue is true], and dropping it wouldn't feel like LITTERING[end if]. It's somebody's. But whose?" instead;
-	if noun is trail paper:
-		say "No way. You should return that to Terry Sally!" instead;
+	if noun is pocket pick, say "'Aw, c'mon,' you hear the Word Weasel say, in your head[if player is in variety garden]. You think it was in your head[end if]." instead;
+	if noun is dreadful penny, say "The penny doesn't drop on any puzzle you want to solve." instead;
+	if noun is minimum bear, say "No. It's just cute enough not to abandon[if your-tix < 4 and litter-clue is true], and dropping it wouldn't feel like LITTERING[end if]. It's somebody's. But whose?" instead;
+	if noun is trail paper, say "No way. You should return that to Terry Sally!" instead;
 	if noun is cooler or noun is haha:
 		if your-tix >= 4:
 			say "Now you're living on the edge with four ticketies, you're confident you can get away with dropping a drink to avoid getting busted by the Stool Toad.";
@@ -1093,32 +1087,18 @@ check dropping (this is the general dropping rule):
 		if Erin is in lalaland:
 			say "You don't want to drink it, and nobody else seems to want it. So you throw it away, instead.";
 			now noun is in lalaland instead;
-	if noun is story fish:
-		say "Maybe you could PLAY it at the right moment to annoy someone who deserves it." instead;
-	if noun is mind of peace or noun is relief light or noun is trade of tricks:
-		say "No! This is too valuable. It might not be yours, but someone can use it." instead;
-	if noun is cold contract:
-		say "It's yours. You're bound to [if contract-signed is true]it [']til you sign it or find someone who can[else]return it, now it's signed[end if]. The Labor Child has records in triplicate." instead;
-	if noun is money seed:
-		say "It'd vanish." instead;
-	if noun is sound safe:
-		say "It'd probably make a terrible clang." instead;
-	if noun is reasoning circular:
-		say "You don't want to drop it because it is probably valuable, and it's probably valuable because you don't want to drop it." instead;
-	if noun is a smokable:
-		say "Your fingerprints would be on it, and you'd probably get busted." instead;
-	if noun is poetic wax:
-		say "It'd be tough to wipe off your fingers, and it'd be a mess just lying around." instead;
-	if noun is fourth-blossom:
-		say "It would probably die, not being whole." instead;
-	if noun is legend of stuff:
-		say "It just won't let you. Weird." instead;
-	if noun is crocked half:
-		say "Nah, why litter." instead;
-	if noun is rattle:
-		if player is in truth home:
-			say "It'd make a bit of noise that way, but not enough." instead;
-		say "You'd like to ditch the rattle, but you wonder if it might annoy someone else even more." instead;
+	if noun is story fish, say "Maybe you could PLAY it at the right moment to annoy someone who deserves it." instead;
+	if noun is mind of peace or noun is relief light or noun is trade of tricks, say "No! This is too valuable. It might not be yours, but someone can use it." instead;
+	if noun is cold contract, say "It's yours. You're bound to [if contract-signed is true]it [']til you sign it or find someone who can[else]return it, now it's signed[end if]. The Labor Child has records in triplicate." instead;
+	if noun is money seed, say "It'd vanish." instead;
+	if noun is sound safe, say "It'd probably make a terrible clang." instead;
+	if noun is reasoning circular, say "You don't want to drop it because it is probably valuable, and it's probably valuable because you don't want to drop it." instead;
+	if noun is a smokable, say "Your fingerprints would be on it, and you'd probably get busted." instead;
+	if noun is poetic wax, say "It'd be tough to wipe off your fingers, and it'd be a mess just lying around." instead;
+	if noun is fourth-blossom, say "It would probably die, not being whole." instead;
+	if noun is legend of stuff, say "It just won't let you. Weird." instead;
+	if noun is crocked half, say "Nah, why litter." instead;
+	if noun is rattle, say "[if player is in truth home]It'd make a bit of noise that way, but not enough[else]You'd like to ditch the rattle, but you wonder if it might annoy someone else even more[end if]." instead;
 	say "You don't need to leave anything lying around. In fact, you shouldn't[if your-tix < 4 and litter-clue is true], unless you want to annoy authority figures who may not actually care about the environment anyway[end if]." instead;
 
 chapter buying
@@ -1131,18 +1111,12 @@ to say n-dr:
 	say "[if cooler is in lalaland or brew is in lalaland]nother[end if]"
 
 check buying:
-	if noun is officer petty:
-		say "He can probably be paid off, but the question is, with what?" instead;
-	if noun is stool toad:
-		say "He can probably be paid off, but not by you." instead;
-	if noun is female:
-		say "Just the suggestion is horrible. Really. I felt skanky even coding this reject." instead;
-	if noun is a person:
-		say "Everyone seems richer than you. Anyway, you always sort of hated politicians buying stuff." instead;
-	if noun is baiter master:
-		say "His currency is flattery, which you can't do right." instead;
-	if noun is a logic-game:
-		say "'Nonsense! And deprive the next person who needs help? Besides, you'd get bored of it. Unless you're REALLY lame.'" instead;
+	if noun is officer petty, say "He can probably be paid off, but the question is, with what?" instead;
+	if noun is stool toad, say "He can probably be paid off, but not by you." instead;
+	if noun is female, say "Just the suggestion is horrible. Really. I felt skanky even coding this reject." instead;
+	if noun is a person, say "Everyone seems richer than you. Anyway, you always sort of hated politicians buying stuff." instead;
+	if noun is baiter master, say "His currency is flattery, which you can't do right." instead;
+	if noun is a logic-game, say "'Nonsense! And deprive the next person who needs help? Besides, you'd get bored of it. Unless you're REALLY lame.'" instead;
 	say "You might need to GIVE someone an item to get something, but BUYing is not necessary." instead;
 
 chapter burning
@@ -1155,8 +1129,7 @@ understand "smoke [something]" as burning.
 
 check burning:
 	if noun is a smokable:
-		if player is in temper keep and noun is poory pot:
-			say "Might be better to get the pot into the room's air flow somehow." instead;
+		if player is in temper keep and noun is poory pot, say "Might be better to get the pot into the room's air flow somehow." instead;
 		say "Even if you had something to light it with, which you don't and won't, you know you apparently need to keep the smoke in longer than a real cigarette. Too much. Anyway, the Compound has been trippy enough" instead;
 	say "A fit of pyromania won't exactly set the Compound on fire, especially since you don't have--and won't find--the tools." instead;
 
@@ -1166,15 +1139,11 @@ understand "smoke with [person]" as smoking.
 
 check smoking:
 	if noun is fritz:
-		if player has weed:
-			say "You'll probably want to GIVE the weed to Fritz." instead;
-		if weed is off-stage:
-			say "Nothing to smoke." instead;
+		if player has weed, say "You'll probably want to GIVE the weed to Fritz." instead;
+		if weed is off-stage, say "Nothing to smoke." instead;
 		say "Pusher Penn only gave him enough for one person. Plus, you'd probably do it wrong." instead;
-	if noun is pusher penn:
-		say "The acute social observer Oshea Jackson once posited that the main barriers to success for someone in Pusher Penn's position was getting high off one's own supply." instead;
-	if noun is enforcing:
-		say "That's a bad idea. For your health and your freedom." instead;
+	if noun is pusher penn, say "The acute social observer Oshea Jackson once posited that the main barriers to success for someone in Pusher Penn's position was getting high off one's own supply." instead;
+	if noun is enforcing, say "That's a bad idea. For your health and your freedom." instead;
 
 chapter jumping
 
@@ -1184,19 +1153,16 @@ jump-to-room is a room that varies. jump-to-room is One Route.
 
 instead of jumping:
 	if player is in round lounge:
-		if player is on person chair:
-			say "[ev-ju]You're actually worried you might hit your head on the ceiling. You consider jumping to grab the crack in the hatch and swing it open Indiana Jones style, but...no. You'd need to push it open a bit more first[one of].[paragraph break]NOTE: if you want to jump off, just EXIT or DOWN works[or][stopping]." instead;
+		if player is on person chair, say "[ev-ju]You're actually worried you might hit your head on the ceiling. You consider jumping to grab the crack in the hatch and swing it open Indiana Jones style, but...no. You'd need to push it open a bit more first[one of].[paragraph break]NOTE: if you want to jump off, just EXIT or DOWN works[or][stopping]." instead;
 		say "[ev-ju]You jump for the hatch, but you don't get close." instead;
-	if player is in tension surface:
-		say "[ev-ju][if mush is in lalaland]You can just enter the arch[else]No, it's too far to jump over the mouth[end if]." instead;
+	if player is in tension surface, say "[ev-ju][if mush is in lalaland]You can just enter the arch[else]No, it's too far to jump over the mouth[end if]." instead;
 	if player is in disposed well:
 		if anno-allow is true:
 			say "No, not in the well. To somewhere far away.[paragraph break]";
 		else:
 			try entering yards hole instead;
 	if anno-allow is true:
-		if accel-ending:
-			say "That [bad-eaten] you ate was enough of a mental jump. You don't have time for silly details--well, not until you restart the game." instead;
+		if accel-ending, say "That [bad-eaten] you ate was enough of a mental jump. You don't have time for silly details--well, not until you restart the game." instead;
 		say "[one of]You jump farther than you could've imagined[or]You've got the hang of jumping, now[stopping].";
 		if mrlp is Rejected:
 			now jump-to-room is location of player;
@@ -1224,8 +1190,7 @@ chapter thinking
 think-score is a truth state that varies.
 
 instead of thinking:
-	if mrlp is dream sequence:
-		move-dream-ahead instead;
+	if mrlp is dream sequence, move-dream-ahead instead;
 	if finger index is examined and silly boris is in Nominal Fen:
 		say "Hmm. You remember the finger index[if know-jerks is true] and the seven [j-co], [list of clients in nominal fen][end if].";
 		say "[finger-say]." instead;
@@ -1281,14 +1246,10 @@ carry out do-swearing:
 			say "It's almost getting a bit boring breaking the rules again.";
 		if hypoc-swear < 2:
 			increment hypoc-swear;
-	if player is in Soda Club:
-		say "You reckon that's how people are supposed to cuss in a bar, er, club, but you can't give that word the right oomph." instead;
-	if player is in Classic Cult:
-		say "That'd be extra rude in a place like this." instead;
-	if player is in chipper wood and Cute Percy is in chipper wood:
-		say "Percy smirks[if p-c is true]. 'That won't do any good!'[else].[end if]" instead;
-	if player is in belt and terminal is in belt:
-		say "Sorry, man. I didn't mean for it to be THIS hard." instead;
+	if player is in Soda Club, say "You reckon that's how people are supposed to cuss in a bar, er, club, but you can't give that word the right oomph." instead;
+	if player is in Classic Cult, say "That'd be extra rude in a place like this." instead;
+	if player is in chipper wood and Cute Percy is in chipper wood, say "Percy smirks[if p-c is true]. 'That won't do any good!'[else].[end if]" instead;
+	if player is in belt and terminal is in belt, say "Sorry, man. I didn't mean for it to be THIS hard." instead;
 	if player is in joint strip:
 		if toad-swear is false:
 			now toad-swear is true;
@@ -1302,15 +1263,12 @@ carry out do-swearing:
 		say "'It's a damn shame, kid probably scared of doing anything useful, can't even understand a warning.'";
 		ship-off in-dignity heap instead;
 	if player is in idiot village or player is in service community:
-		if thoughts idol is in idiot village:
-			say "Before you can say it, or think it too long, the Thoughts Idol shakes its head at you." instead;
+		if thoughts idol is in idiot village, say "Before you can say it, or think it too long, the Thoughts Idol shakes its head at you." instead;
 	if player is in freak control:
 		say "That gets the [bad-guy]'s attention. 'DUDE!' he says. 'REALLY, dude! Some respect for authority? I mean, don't respect stupid authority but I *** need to *** concentrate, here. My job's not *** easy and anyone who just swears frivolously to grab attention--well, they don't GET IT, y'know? Besides, you sounded lame when you said that.' As you're pulled away by guards you hadn't seen before, the '[activation of freak out]' sign catches your eye. Perhaps there was another way to annoy him, without letting him be so self-righteous."; [temproom freak control]
 		ship-off in-dignity heap instead;
-	if mrlp is endings:
-		say "Don't give up! You're so close!" instead;
-	if big-swear is false:
-		say "That's a wishy-washy swear--it wouldn't seem to do you any good if you [if allow-swears is true]dis[else]en[end if]abled profanity in this game." instead;
+	if mrlp is endings, say "Don't give up! You're so close!" instead;
+	if big-swear is false, say "That's a wishy-washy swear--it wouldn't seem to do you any good if you [if allow-swears is true]dis[else]en[end if]abled profanity in this game." instead;
 	say "[if allow-swears is false]You mumble a swear under your breath, remembering full well you didn't want to hear it from others[else]Much as you'd like it to, your profanity has no oomph[end if]." instead;
 
 chapter thinking
@@ -1327,8 +1285,7 @@ understand "lie" and "lie down" as sleeping.
 
 check sleeping:
 	tick-up;
-	if mrlp is Dream Sequence:
-		say "You already are. You may want to wake up, instead. Or maybe if you wait, things will shift." instead;
+	if mrlp is Dream Sequence, say "You already are. You may want to wake up, instead. Or maybe if you wait, things will shift." instead;
 	if player is on warmer bench:
 		say "The bench feels good. You drift [if last-dream-loc is visited]back [end if]off.";
 		go-to-dream;
@@ -1343,26 +1300,16 @@ check sleeping:
 		say "Man! It's almost too comfy here... when you wake up, a weird frog-shaped humanoid is shaking you. 'Boy! Some of [']em never get this far! Coulda died of cold, or laziness-related poverty or -- well, something. But there's a place for you, where you'll LEARN from this.'";
 		ship-off Maintenance High;
 		the rule succeeds;
-	if mrlp is rejected rooms:
-		say "Oh no, this extra material isn't THAT boring, is it?" instead;
-	if player is in classic cult:
-		say "It's relaxing here, but not that relaxing." instead;
-	if player is in temper keep and sal-sleepy is true:
-		say "You don't want to join Sal." instead;
-	if player is in truth home and Sid Lew is in truth home:
-		say "Tough with all that noise." instead;
-	if Down Ground is unvisited and jump-level < 2:
-		say "You're nowhere near tired. You're curious what could be ahead." instead;
-	if player is in A Great Den:
-		say "The crib's too small for sleeping." instead;
-	if player is in freak control:
-		say "But the excitement is close!" instead;
-	if player is in service community:
-		say "Not with the idol staring you down!" instead;
-	if player is in out mist:
-		say "Maybe sleep and your bedroom are just ahead." instead;
-	if player is in airy station:
-		say "Too much adulation is tiring, but not that tiring." instead;
+	if mrlp is rejected rooms, say "Oh no, this extra material isn't THAT boring, is it?" instead;
+	if player is in classic cult, say "It's relaxing here, but not that relaxing." instead;
+	if player is in temper keep and sal-sleepy is true, say "You don't want to join Sal." instead;
+	if player is in truth home and Sid Lew is in truth home, say "Tough with all that noise." instead;
+	if Down Ground is unvisited and jump-level < 2, say "You're nowhere near tired. You're curious what could be ahead." instead;
+	if player is in A Great Den, say "The crib's too small for sleeping." instead;
+	if player is in freak control, say "But the excitement is close!" instead;
+	if player is in service community, say "Not with the idol staring you down!" instead;
+	if player is in out mist, say "Maybe sleep and your bedroom are just ahead." instead;
+	if player is in airy station, say "Too much adulation is tiring, but not that tiring." instead;
 	say "This doesn't look like the place to retreat for a nap. In fact, not many places do." instead;
 
 to go-to-dream:
@@ -3568,6 +3515,7 @@ killer weed	"Killer weed is slang for especially good marijuana."
 Moral Support	"Moral support is helping someone even if you don't have concrete advice. SUPPORT MORAL is, well, a slogan that pushes people around."
 Pigeon English	"Pigeon English is broken, grammatically poor English."
 pigeonhole	"To pigeonhole someone is to put them in a corner, semantically or physically."
+road trip	"A road trip is when you go somewhere for a few days. To trip is also to fall over or to take LSD, which generally renders you unwilling to move."
 stop smoking	"To stop smoking is to quit smoking cigarettes. The Smoking Stop means a place where people can smoke without being harassed."
 strip search	"To strip search someone is to remove their clothes to look for something on them, or in them."
 bargain	"Gin bar can go to two things: to barge in, or a bargain." [start of soda club]
@@ -7417,7 +7365,7 @@ check going nowhere in Joint Strip:
 		try going south instead;
 	if noun is outside:
 		say "You already are." instead;
-	say "[one of]The Stool Toad booms 'Where you going, son? This isn't a [activation of strip search] without the right outfit!' You consider asking him why he isn't searching, but you don't have the guts. But you bet if you try wandering off again, he might get up from his stool.[or]'Sneak off? Off, sneak!' The Stool Toad nods pointedly at you. He's going to take action if you try that again.[or][toad-write-up][or]You already crossed the Stool Toad that way.[stopping]";
+	say "[one of]The Stool Toad booms 'Where you going, son? This isn't a [activation of strip search] without the right outfit!' You consider asking him why he isn't searching, but you don't have the guts. But you bet if you try wandering off again, he might get up from his stool.[or]'Sneak off? Off, sneak! [activation of road trip] isn't the adventure you think it is!' The Stool Toad nods pointedly at you. He's going to take action if you try that again.[or][toad-write-up][or]You already crossed the Stool Toad that way.[stopping]";
 	the rule succeeds;
 
 off-the-path is a truth state that varies.
@@ -12704,6 +12652,8 @@ Moral Support is a xable concept in conceptville. Understand "support moral" as 
 Pigeon English is a xable concept in conceptville. Understand "english pigeon" as pigeon english. howto is "[x-it of pigeon stool]". gtxt is "English Pigeon".
 
 pigeonhole is a missable concept in conceptville. Understand "pigeon whole" and "whole pigeon" as pigeonhole. howto is "take the Stool Pigeon". gtxt is "whole pigeon".
+
+road trip is a cantgo concept in conceptville. Understand "trip road" as road trip. howto is "[nogo of joint strip] twice". gtxt is "Trip Road".
 
 stop smoking is a dialoguey concept in conceptville. Understand "smoking stop" as stop smoking. howto is "[t2 of Stool Toad]". gtxt is "Smoking Stop".
 
