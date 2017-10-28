@@ -33,11 +33,6 @@ my @cons = (
   'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'
 );
 my @alllet = sort( uniq( ( @cons, @vow ) ) );
-my @consnb = @cons;
-shift(@consnb);
-my @vownb = @vow;
-shift(@vownb);
-
 #######################options
 my %didSoFar;
 my $bailLog      = 0;
@@ -126,7 +121,7 @@ while ( $count <= $#ARGV ) {
     }
     my $vowelCount = ( $a1 =~ tr/CVB// );
     if ( $vowelCount > 2 ) {
-      print( "You can only have two of CVB--$a1 has more than one. Bailing." );
+      print("You can only have two of CVB--$a1 has more than one. Bailing.");
       exit;
     }
 
@@ -158,6 +153,21 @@ my @flipAry2 = ();
 
 my $temp;
 
+if ($ignoreY) {
+  @cons = grep { $_ ne 'y' } @cons;
+  @vow  = grep { $_ ne 'y' } @vow;
+}
+
+if ($ignoreBlank) {
+  @cons = grep { $_ ne '' } @cons;
+  @vow  = grep { $_ ne '' } @vow;
+}
+
+my @consnb = @cons;
+shift(@consnb);
+my @vownb = @vow;
+shift(@vownb);
+
 for my $toFlip (@flipAry) {
   if ( $toFlip =~ /[CVB]/ ) {
     @flipAry2 = ( @flipAry2, fullArray($toFlip) );
@@ -166,6 +176,8 @@ for my $toFlip (@flipAry) {
     push( @flipAry2, $toFlip );
   }
 }
+
+die( join( ' ', @flipAry2 ) . "\nTotal: " . ( scalar @flipAry2 ) );
 
 my %flipDupeChecker;
 
@@ -190,18 +202,6 @@ initDupeRead();
 $autoSort = 0;
 
 my %dupCheck;
-
-if ($ignoreY) {
-  @cons = grep { $_ ne 'y' } @cons;
-  @vow  = grep { $_ ne 'y' } @vow;
-}
-
-if ($ignoreBlank) {
-  @cons = grep { $_ ne '' } @cons;
-  @vow  = grep { $_ ne '' } @vow;
-}
-
-# we should maybe preprocess the array for duplicates BEFORE trying anything else.
 
 for my $q (@flipAry) {
   if ( ( !$override ) && ( length($q) <= 2 ) ) {
@@ -826,33 +826,25 @@ sub fullArray {
   my $tempParam = "";
   my $temp      = "";
 
-  if ( $_[0] =~ /B/ ) {
-    for $temp (@alllet) {
-      $tempParam = $_[0];
-      $tempParam =~ s/B/$temp/;
-      @tempArray = ( @tempArray, fullArray($tempParam) );
-    }
-    return @tempArray;
-  }
+  ( my $focusString = $_[0] ) =~ s/^[a-z]*//;
+  $focusString =~ s/[a-z].*//;
 
-  if ( $_[0] =~ /C/ ) {
-    for $temp (@cons) {
-      $tempParam = $_[0];
-      $tempParam =~ s/C/$temp/;
-      @tempArray = ( @tempArray, fullArray($tempParam) );
-    }
-    return @tempArray;
-  }
+  my @sprayArray = ();
 
-  if ( $_[0] =~ /V/ ) {
-    for $temp (@vow) {
-      $tempParam = $_[0];
-      $tempParam =~ s/V/$temp/;
-      @tempArray = ( @tempArray, fullArray($tempParam) );
-    }
-    return @tempArray;
-  }
+  @sprayArray = @alllet if $focusString =~ /B/;
+  @sprayArray = @cons   if $focusString =~ /C/;
+  @sprayArray = @vow    if $focusString =~ /V/;
+  @sprayArray = grep { $_ ne 'y' } @sprayArray if $focusString =~ /^[BCV]-/;
+  @sprayArray = grep { $_ ne '' } @sprayArray  if $focusString =~ /^[BCV]=/;
+  @sprayArray = grep { $_ ne '' && $_ ne 'y' } @sprayArray
+    if $focusString =~ /^[BCV]\//;
 
+  for $temp (@sprayArray) {
+    $tempParam = $_[0];
+    $tempParam =~ s/[VCB]([=\/-])?/$temp/;
+    @tempArray = ( @tempArray, fullArray($tempParam) );
+  }
+  return @tempArray;
 }
 
 sub usage {
