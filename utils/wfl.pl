@@ -27,11 +27,17 @@ my $chrome =
 my $ffox  = "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe";
 my $opera = "C:\\Program Files (x86)\\Opera\\launcher.exe";
 
-my @cons = ( '', 'a', 'e', 'i', 'o', 'u', 'y' );
-my @vow = (
+my @vow = ( '', 'a', 'e', 'i', 'o', 'u', 'y' );
+my @cons = (
   '',  'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n',
   'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'
 );
+my @alllet = sort( uniq( ( @cons, @vow ) ) );
+my @consnb = @cons;
+shift(@consnb);
+my @vownb = @vow;
+shift(@vownb);
+
 #######################options
 my %didSoFar;
 my $bailLog      = 0;
@@ -118,6 +124,11 @@ while ( $count <= $#ARGV ) {
       print("-2 flag must be used for 2-letter word.\n");
       exit;
     }
+    my $vowelCount = ( $a1 =~ tr/CVB// );
+    if ( $vowelCount > 2 ) {
+      print( "You can only have two of CVB--$a1 has more than one. Bailing." );
+      exit;
+    }
 
     if ($flipData) {
       if ( !$warn ) {
@@ -148,19 +159,8 @@ my @flipAry2 = ();
 my $temp;
 
 for my $toFlip (@flipAry) {
-  if ( $toFlip =~ /C/ ) {
-    for (@cons) {
-      $temp = $toFlip;
-      $temp =~ s/C/$_/;
-      push( @flipAry2, $temp );
-    }
-  }
-  elsif ( $toFlip =~ /V/ ) {
-    for (@vow) {
-      $temp = $toFlip;
-      $temp =~ s/V/$_/;
-      push( @flipAry2, $temp );
-    }
+  if ( $toFlip =~ /[CVB]/ ) {
+    @flipAry2 = ( @flipAry2, fullArray($toFlip) );
   }
   else {
     push( @flipAry2, $toFlip );
@@ -816,6 +816,43 @@ sub fixTrackingFile {
   else {
     print "Nothing changed, not copying back over.\n";
   }
+}
+
+sub fullArray {
+
+  return ( $_[0] ) if $_[0] !~ /[VCB]/;
+
+  my @tempArray = ();
+  my $tempParam = "";
+  my $temp      = "";
+
+  if ( $_[0] =~ /B/ ) {
+    for $temp (@alllet) {
+      $tempParam = $_[0];
+      $tempParam =~ s/B/$temp/;
+      @tempArray = ( @tempArray, fullArray($tempParam) );
+    }
+    return @tempArray;
+  }
+
+  if ( $_[0] =~ /C/ ) {
+    for $temp (@cons) {
+      $tempParam = $_[0];
+      $tempParam =~ s/C/$temp/;
+      @tempArray = ( @tempArray, fullArray($tempParam) );
+    }
+    return @tempArray;
+  }
+
+  if ( $_[0] =~ /V/ ) {
+    for $temp (@vow) {
+      $tempParam = $_[0];
+      $tempParam =~ s/V/$temp/;
+      @tempArray = ( @tempArray, fullArray($tempParam) );
+    }
+    return @tempArray;
+  }
+
 }
 
 sub usage {
