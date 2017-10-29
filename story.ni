@@ -3578,6 +3578,7 @@ sidekick	"A sidekick is an assistant, often to an action hero/villain."
 sly dog	"'You sly dog' is a compliment for someone who is very subtly clever."
 spin off	"A spin-off is a show related to a previous show."
 stake a claim	"To stake a claim is to claim ownership of something."
+stake out	"A stake out is when people wait for someone who has hidden to reappear, often encircling where that person must be."
 stand out	"To stand out is to be different from the rest."
 stupor	"A stupor is when you are conscious but not really aware of what's going on."
 surge protector	"A surge protector is used so a bunch of power sources can be plugged in at once without overloading."
@@ -3587,7 +3588,8 @@ Tucker Max	"Tucker Max was alleged to have spanwed the 'fratire' genre, which fe
 Wallace Shawn	"Wallace Shawn is the actor who played Vizzini ('INCONCEIVABLE!') in The Princess Bride. He's also a critically acclaimed writer."
 Wire Fraud	"Wire fraud is a financial crime designed to cheat people out of money."
 zeroin	"To zero in is to focus, and you do, on getting out of the Break Jail."
-mistracing	"Mistracing means to trace incorrectly. In this case, to trace your way back to the worm ring." [start of out mist]
+figure out	"To figure out something is to see how and why it works, or how and why to make an obstacle not matter." [start of out mist]
+mistracing	"Mistracing means to trace incorrectly. In this case, to trace your way back to the worm ring."
 mystify	"To mystify is to confuse someone greatly."
 case insensitive	"Case insensitive means not worrying if a letter is in upper or lower case. In other words, not needing caps-lock." [start of airy station]
 clear waivers	"To clear waivers in pro sports is when your team releases you and no other team signs you."
@@ -10349,7 +10351,7 @@ to choose-final-room:
 			set the pronoun them to mentality crowd;
 			move player to Airy Station;
 		else:
-			say "'Where? In the [activation of break jail]!'[paragraph break]Could people who yell that loud REALLY be that wrong? You keep a straight face, even as he booms '[activation of zeroin]! For [activation of blow the final]!' Which helps you focus more than you thought you could on how to get out. You're way ahead of the guards when they give chase. But you're too easy to pick out, until you look around carefully and [activation of missed a spot]. 'The out mist!' they yell, as you run inside. 'People eventually leave there to get back to real life.' Leif Rhee booms his troops have enough out steak to last a while."; [temproom freak control]
+			say "'Where? In the [activation of break jail]!'[paragraph break]Could people who yell that loud REALLY be that wrong? You keep a straight face, even as he booms '[activation of zeroin]! For [activation of blow the final]!' Which helps you focus more than you thought you could on how to get out. You're way ahead of the guards when they give chase. But you're too easy to pick out, until you look around carefully and [activation of missed a spot]. 'The out mist!' they yell, as you run inside. 'People eventually leave there to get back to real life.' Leif Rhee booms his troops have enough [activation of stake out] to last a while."; [temproom freak control]
 			set the pronoun it to worm ring;
 			move player to Out Mist;
 		annotize baiter master;
@@ -10407,7 +10409,7 @@ Out Mist is a room in Endings. "It's very misty here, but you can still see a wo
 
 understand "tickle mist" as a mistake ("You don't feel anything deep or wonderful.") when player is in Out Mist.
 
-before talking to the ring:
+before talking to the worm ring:
 	say "The ring reveals no hints as to what it should be." instead;
 
 mist-turns is a number that varies.
@@ -10428,7 +10430,7 @@ every turn when player is in out mist (this is the ring clue rule):
 		say "If you had a cell phone, maybe someone would call you with an idea. Whether it was on vibrate, or it was more audible.";
 
 check going nowhere in Out Mist:
-	say "It's not an [activation of mystify]. You might not find your way back, since it's a [activation of mistracing] that swirls all over, and the worm ring seems important." instead;
+	say "Whoah. It's kind of an [activation of mystify], even a [activation of mistracing] that swirls all over. You also think you see a menacing [activation of figure out] beyond, which scares you into saying, yeah, I'd rather do something with the worm ring." instead;
 
 check going inside in out mist:
 	try entering worm ring instead;
@@ -10568,10 +10570,8 @@ rule for supplying a missing noun when dropping:
 
 check going in Airy Station:
 	if noun is inside, say "You need to figure how to open the Return Carriage first." instead;
-	else if noun is up or noun is down:
-		say "No tricky directions here. Into the Return Carriage." instead;
-	else:
-		say "You consider saying '[activation of clear waivers]' and pushing through, but you know you need to LEAVE the big time in the Return Carriage. There'll be enough to do." instead;
+	if noun is up or noun is down, say "No tricky directions here. Into the Return Carriage." instead;
+	say "You consider saying '[activation of clear waivers]' and pushing through, but you know you need to LEAVE the big time in the Return Carriage. There'll be enough to do." instead;
 
 book merged ending
 
@@ -12854,7 +12854,7 @@ Leading Question is a nemmy concept in conceptville. Understand "question leadin
 
 menace is a dialoguey concept in conceptville. Understand "ace men" and "men ace" as menace. howto is "[t2 of baiter master]". gtxt is "Ace Men".
 
-missed a spot is a concept in conceptville. Understand "mist a spot" and "spot a mist" as missed a spot. howto is "[ok-end]". gtxt is "spot a mist".
+missed a spot is a missable concept in conceptville. Understand "mist a spot" and "spot a mist" as missed a spot. howto is "[ok-end]". gtxt is "spot a mist".
 
 mistruth is a nemmy concept in conceptville. Understand "miss truth" and "truth miss" as mistruth. howto is "[fr-ran]". gtxt is "Ruth missed so much by not listening to the exciting stories I offered to share to her".
 
@@ -12920,6 +12920,8 @@ spin off is a nemmy concept in conceptville. Understand "off spin" as spin off. 
 
 stake a claim is a browny concept in conceptville. Understand "acclaim stake" and "stake acclaim" as stake a claim. howto is "[fr-pb]". gtxt is "acclaim stake".
 
+stake out is a missable concept in conceptville. Understand "out steak" and "steak out" as stake out. howto is "[ok-end]". gtxt is "out steak".
+
 Stand out is a nemmy concept in conceptville. Understand "doubt stan" and "stan doubt" as stand out. howto is "[fr-ran]". gtxt is "doubt Stan".
 
 stupor is a nemmy concept in conceptville. Understand "poor stu" and "stu poor" as stupor. howto is "[fr-ran]". gtxt is "poor Stu".
@@ -12936,9 +12938,11 @@ Wallace Shawn is a nemmy concept in conceptville. Understand "shawn wallace" as 
 
 Wire Fraud is a dialoguey concept in conceptville. Understand "fraud wire" as Wire Fraud. howto is "[bad-guy] dialog". gtxt is "Fraud Wire".
 
-zeroin is a privately-named concept in conceptville. printed name is "zero in". Understand "in zero" and "zero in" as zeroin. howto is "[ok-end]". gtxt is "IN, ZERO". [norm]
+zeroin is a privately-named missable concept in conceptville. printed name is "zero in". Understand "in zero" and "zero in" as zeroin. howto is "[ok-end]". gtxt is "IN, ZERO". [norm]
 
 section out mist concepts
+
+figure out is a cantgo concept in conceptville. Understand "out figure" as figure out. howto is "[nogo of Out Mist]". gtxt is "out figure".
 
 mistracing is a cantgo concept in conceptville. Understand "mist racing" and "racing mist" as mistracing. howto is "[nogo of Out Mist]". gtxt is "racing mist".
 
@@ -13181,10 +13185,12 @@ wordtry	tryresp
 "let"	"Your hair curls at the thought of such passivity."
 "like"	"You sort of like the ring the way it is, but you'd like it much better another way."
 "master"	"[r-m-l]."
+"read"	"[ring-x]."
 "right"	"That has the right ring, but maybe not quite the right note, or melody."
 "ring"	"You hear in your head the sound from an old rotary phone. It's so different these days when someone calls you up."
 "true"	"You know your Tolkein, but somehow, you think, showing up its falsehood might be the way to go."
 "x"	"[ring-x]."
+"up"	"The ring is too heavy. Moving it might ring YOU up."
 
 to say ring-x:
 	say "It's circular and seems to be almost eating itself, Ouroborous-style, though it looks a bit slushy on the inside that you can see. You can't quite enter it, but maybe if it straightened out into a regular worm...or if you made it less fat, or thick, or dense, or maybe wide, with the hole being too small...so many possibilities, but maybe the right thing (or things) to do will be simple"
