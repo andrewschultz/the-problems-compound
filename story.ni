@@ -19,8 +19,7 @@ to search through this file, two x's at the start of a comment will delinate maj
   if you are searching for how concepts are triggered, search for activation of, with a left bracket before it.
 ]
 
-to say fill-in-here:
-	say "!!";
+to say fill-in-here, say "!!"; [unused]
 
 volume initialization
 
@@ -3805,8 +3804,7 @@ understand "commands" as verbing.
 to say 2da:
 	say "[if screen-read is false]--[end if]";
 
-to say equal-line:
-	say "[if screen-read is false]==========[end if]";
+to say equal-line, say "[if screen-read is false]==========[end if]";
 
 in-verbs is a truth state that varies.
 
@@ -10064,16 +10062,6 @@ to decide which number is idol-off:
 		now temp is temp - 8;
 	decide on temp;
 
-to say to-away:
-	if debug-state is true:
-		say "[idol-off]";
-	say "[if idol-off < 5]away from[else]towards[end if]"
-
-to say back-along:
-	if debug-state is true:
-		say "[idol-off]";
-	say "[if idol-off < 5]along[else]back[end if]"
-
 to say rt-idol:
 	say "You make a right turn [if idol-off is 7]towards[else]away from[end if] the idol, but an audible whirr makes you look up. When you stop, it's already looking where you meant to go. It locks down a stare. You've gotten that before. You feel compelled to head back to Idiot Village under its gaze"
 
@@ -10085,7 +10073,7 @@ to say idol-straight-away:
 
 table of idol smackdowns
 smackdown
-"You feel particularly helpless running back and forth. The idol shakes its head, as if to let you know that just won't do, and it's tired of telling lesser things, or people, or whatever, that." [3, backwards]
+"You feel particularly helpless running back and forth. The idol shakes its head, as if to let you know that just won't do, and it's tired of telling lesser things, or people, or whatever, that." [1, backwards]
 "You make a sharp zigzag, but somehow, the idol was ready for it. You dance back and forth, and the idol shakes its head at you. You stare at the ground and plod back to Idiot Village." [2]
 "[rt-idol]." [3]
 "[zz-idol]." [4]
@@ -11056,7 +11044,7 @@ this is the alt-answer rule:
 	the rule succeeds;
 
 this is the show-rejected rule:
-	say "Fidel the Second, Hunter Savage (actually removed from release 2), ARMSTRONG, Hosin' Leader, Dread Hun, Elephant White, and Joe Glass were names I couldn't quite get to work, but I think they're amusing enough. I hope you do, too.";
+	say "Fidel the Second, Hunter Savage (actually removed from release 2), ARMSTRONG, Killer Payne, Hosin' Leader, Dread Hun, Elephant White, and Joe Glass were names I couldn't quite get to work, but I think they're amusing enough. I hope you do, too.";
 	the rule succeeds;
 
 book continuing

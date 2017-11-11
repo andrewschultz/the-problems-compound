@@ -177,7 +177,7 @@ for my $toFlip (@flipAry) {
   }
 }
 
-die( join( ' ', @flipAry2 ) . "\nTotal: " . ( scalar @flipAry2 ) );
+# die( join( ' ', @flipAry2 ) . "\nTotal: " . ( scalar @flipAry2 ) );
 
 my %flipDupeChecker;
 

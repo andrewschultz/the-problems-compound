@@ -231,6 +231,7 @@ workname	singername	songsubj
 "Fruity Tootie"	"Richard Little"	"increasingly strong evidence and examples why a girl currently in the closet should, in this day and age, just come out already or she obviously hates herself"
 "You: On, Stuck"	"Richie Lionel"	"creative and poetic ways schleps should just get over, well, whatever"
 "Bound Homeward"	"Simon Paul"	"someone who wants to get out more but his stupid artsy worries get in the way"
+"Robinson Misses"	"Simon Paul"	"a misguided twentysomething who tries to seduce older women who aren't even in his league"
 "Train Downtown"	"Stewart Rodd"	"a man rightfully too busy advancing his career prospects to spend time with his woman"
 "My Mind in Carolina"	"Taylor James"	"getting away from one's backward past and entering sophistication"
 "Gold of Heart"	"Young Neil"	"someone who understands finding someone with money is important, but only to support a blocked artist like himself."
