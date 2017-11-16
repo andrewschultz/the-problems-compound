@@ -11053,8 +11053,10 @@ final question wording	only if victorious	topic	final response rule	final respon
 "see the [bi of sinseen]SINS[r] the [j-co] didn't commit"	true	"SINS"	sin-see rule	--
 "see the [bi of altseen](ALT)ERNATIVE[r] endings and commands"	true	"ALT/ALTERNATIVE"	alternative-see rule	--
 "see how to get to each of the [bi of badendseen]BAD END[r] rooms"	true	"BAD/END/BADEND" or "BAD END"	bad-end-see rule	--
-"see [bi of conceptseen](CONC)EPTS[r] you missed throughout the game: [list of contexts]"	true	"CONCEPTS/CONC [context]"	concept-spec rule	--
---	true	"CONCEPTS/CONC"	concept-all rule	--
+"see LIST of flips (L 1-[number of rows in table of context rewrites] or LN or LP for next/previos)"	true	"LIST"	list-flips rule	listfliping
+--	true	"LN"	next-list rule	nextlisting
+--	true	"LP"	prev-list rule	prevlisting
+--	true	"L [number]"	list-num rule	numlisting
 "see all the [bi of dreamseen]DREAM[r] sequence stories"	true	"DREAM/DREAMS"	dream-see rule	--
 "see the plausible [bi of missseen]MISSES[r] for the Terminal"	true	"MISSES"	alt-answer rule	--
 "see [bi of rejectseen](REJ)ECTED[r] non-innuendo names for the non-bad-guy"	true	"REJ/REJECT/TEJECTED"	show-rejected rule	--
@@ -11121,7 +11123,7 @@ This is the print the modified final question rule:
 						say "[if pure-metas is 0]or [end if][final question wording entry][if pure-metas is 0].[else], [end if]";
 	say "[line break]";
 
-chapter dream
+book dream
 
 to decide which number is read-stories:
 	let temp be 0;
@@ -11162,56 +11164,48 @@ this is the dream-see rule:
 				if Q is 81 or Q is 113, the rule succeeds;
 				say "[line break]";
 
-chapter concept
+book listfliping
 
-see-all-concepts is a truth state that varies.
+listfliping is an activity.
+nextlisting is an activity.
+prevlisting is an activity.
+numlisting is an activity.
 
-to decide which number is concept-num of (co - a context):
-	let total be 0;
-	repeat with Q running through concepts:
-		if context of Q is co, increment total;
-	decide on total.
+current-end-list is a number that varies.
 
-this is the concept-all rule:
-	repeat with co running through contexts:
-		let Q be concept-num of co;
-		say "[co]: [Q] total concepts.";
-	the rule succeeds;
+this is the list-flips rule:
+	let count be 0
+	repeat through table of context rewrites:
+		increment count;
+		say "[count]: [ctext-exp entry] ([number of concepts with context of ctxt entry])[line break]";
+	say "[if current-end-list is 0]You haven't seen a list yet[else]The current list is [current-end-list][end if]."
 
-this is the concept-spec rule:
-	let x be normal;
-	let got-one be false;
-	repeat with co running through contexts:
-		if the player's command matches the text "[co]":
-			now x is co;
-			now got-one is true;
-			break;
-	if got-one is false, say "NOTE: I should've gotten something but didn't, so I'm going with the default.";
-	let curcon be 0;
+this is the next-list rule:
+	increment current-end-list;
+	if current-end-list > number of rows in table of context rewrites:
+		now current-end-list is 1;
+		say "Cycling back to first table element..."
+	write-end-stuff-up;
+
+this is the prev-list rule:
+	decrement current-end-list;
+	if current-end-list is 0:
+		now current-end-list is number of rows in table of context rewrites;
+		say "Cycling up to last table element(#[number of rows in table of context rewrites])..."
+	write-end-stuff-up;
+
+this is the list-num rule:
+	now current-end-list is number understood;
+	write-end-stuff-up;
+
+to write-end-stuff-up:
+	choose row currend-end-list in table of context rewrites;
+	now cur-concept is ctxt entry;
 	repeat through table of explanations:
-		if exp-thing entry is a concept:
-			if context of exp-thing entry is x:
-				say "[b][exp-thing entry] ([howto of exp-thing entry])[r]: [exp-text entry][line break]";
-		increment curcon;
-		if the remainder after dividing curcon by 10 is 0:
-			wfak;
+		if exp-thing entry is a concept and context of exp-thing entry is cur-concept:
+			say "[b][exp-thing][r]: [exp-text entry][line break]"
 
-this is the concept-see rule:
-	now conceptseen is true;
-	if number of concepts in conceptville is 0 and see-all-concepts is false:
-		say "You found all the concepts. Very well done, indeed.";
-		the rule succeeds;
-	say "There are [if see-all-concepts is true][number of concepts] total concepts[else][number of normal concepts in conceptville] concepts you missed[end if]. I'll pause after every ten, and you can decide whether to continue.";
-	let curcon be 0;
-	repeat through table of explanations:
-		if exp-thing entry is a concept:
-			if exp-thing entry is normal:
-				say "[b][exp-thing entry] ([howto of exp-thing entry])[r]: [exp-text entry][line break]";
-		increment curcon;
-		if the remainder after dividing curcon by 10 is 0:
-			wfak;
-
-chapter bad end
+book bad end
 
 this is the bad-end-see rule:
 	now badendseen is true;
@@ -11233,7 +11227,7 @@ Maintenance High	"Choke on the gagging lolly."
 Punishment Capitol	"Attacking the [bad-guy], Officer Petty, or the Stool Toad."
 Shape Ship	"Get your fifth ticket outside A Beer Pound."
 
-chapter special
+book special
 
 this is the alternative-see rule:
 	now altseen is true;
@@ -11266,10 +11260,7 @@ to say other-ring-change:
 	else if end-index is 3:
 		say "CHANGE/HOLLOW";
 
-[lock home away
-change hollow tone]
-
-chapter sins
+book sins
 
 this is the sin-see rule:
 	now sinseen is true;
@@ -11279,7 +11270,7 @@ this is the sin-see rule:
 			say " ... [blackmail entry][line break]";
 	say "Not that there's anything wrong with any of the above. Or there would be, if the [j-co] were guilty. Um, interested. But you knew that. And, uh, I know that, too. Really!"
 
-chapter swearing
+book swearing
 
 this is the swear-see rule:
 	now swearseen is true;
@@ -11307,6 +11298,8 @@ this is the swear-see rule:
 	if the rule succeeded:
 		say "[2da]HAMMER BLOW or the reverse gives a different response.";
 	say "That's not a ton. I planned to have a lot more, but I just got sidetracked with silly stuff like bug fixing and adding to the story, which hopefully gave you less occasion to use profanity. So I hope that balances out."
+
+book tweaks to core to make things work
 
 escape mode is a truth state that varies.
 
