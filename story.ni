@@ -1,7 +1,5 @@
 "The Problems Compound" by Andrew Schultz
 
-ê
-
 the story headline is "A Direction of Sense: changing what's-thats to that's-whats"
 
 [Compound Tables.i7x now has a list of a lot of the random text in this game that was originally in the main file. It should be included with the GitHub project, or with the bundled release.
@@ -19,7 +17,7 @@ to search through this file, two x's at the start of a comment will delinate maj
   if you are searching for how concepts are triggered, search for activation of, with a left bracket before it.
 ]
 
-to say fill-in-here, say "!!"; [unused]
+to say fill-in-here: say "!!"; [unused]
 
 volume initialization
 
@@ -586,7 +584,7 @@ chapter misc defs for later
 
 section contexts
 
-context is a kind of value. the contexts are badendy, culinary, exhaustive, listeny, jerkish, missable, dialoguey, punishy, snarky, oddverby, rando, chatty, siddy, nemmy, xable, smelly, cantgo, firstvis, browny, missable, violent, and normal. A context is usually normal.
+context is a kind of value. the contexts are badendy, culinary, exhaustive, listeny, jerkish, missable, dialoguey, punishy, snarky, oddverby, rando, chatty, siddy, nemmy, xable, smelly, cantgo, firstvis, browny, violent, and normal. A context is usually normal.
 
 section concepts
 
@@ -3804,7 +3802,7 @@ understand "commands" as verbing.
 to say 2da:
 	say "[if screen-read is false]--[end if]";
 
-to say equal-line, say "[if screen-read is false]==========[end if]";
+to say equal-line: say "[if screen-read is false]==========[end if]";
 
 in-verbs is a truth state that varies.
 

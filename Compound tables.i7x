@@ -538,6 +538,30 @@ gad-act
 
 [end rooms]
 
+table of context rewrites [xxtcw]
+ctxt		ctxt-exp
+badendy	"only in Alec's bad ends"
+culinary	"Meal Square specific"
+exhaustive	"sitting through all random dialogue"
+listeny	"listening"
+jerkish	"from jerks['] random chatter"
+missable	"available, but not obvious or necessary"
+dialoguey	"found during dialogue"
+punishy	"found in the punishment areas only"
+snarky	"rejects for snarky verb tries"
+oddverby	"found if you try odd verbs"
+rando	"found during random text events"
+chatty	""
+siddy	"found in Sid's random dialogues"
+nemmy	"found in the [bad-guy]'s random dialogues"
+xable	"found when examining something"
+smelly	"found while smelling"
+cantgo	"'can't go that way' replacement"
+firstvis	"given on first visiting a room"
+browny	"only in the Points Brownie bad ending"
+violent	"attacking rejects"
+normal	"found during a minimal walkthrough"
+
 Compound tables ends here.
 
 ---- DOCUMENTATION ----
