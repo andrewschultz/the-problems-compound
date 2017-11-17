@@ -7,6 +7,8 @@ final question wording	only if victorious	topic	final response rule	final respon
 --	true	"LP"	prev-list rule	mainendlisting
 --	true	"L [number]"	list-num rule	mainendlisting
 
+mainendlisting is an activity.
+
 current-end-list is a number that varies.
 
 list-seen is a truth state that varies.

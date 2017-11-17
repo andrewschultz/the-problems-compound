@@ -584,7 +584,7 @@ chapter misc defs for later
 
 section contexts
 
-context is a kind of value. the contexts are badendy, culinary, exhaustive, listeny, jerkish, missable, dialoguey, punishy, snarky, oddverby, rando, chatty, siddy, nemmy, xable, smelly, cantgo, firstvis, browny, violent, and normal. A context is usually normal.
+context is a kind of value. the contexts are badendy, culinary, exhaustive, listeny, jerkish, missable, dialoguey, punishy, snarky, oddverby, showy, siddy, nemmy, xable, smelly, cantgo, firstvis, browny, violent, and normal. A context is usually normal.
 
 section concepts
 
@@ -3836,9 +3836,9 @@ carry out verbing:
 	say "[one of]The Problems Compound has tried to avoid guess-the-verb situations and keep the parser simple.[line break][or][stopping]Verbs needed in The Problems Compound include:[paragraph break]";
 	now in-verbs is true;
 	if player is in smart street:
-		say "[2da]PLAY/TRY any of the games in the shell.";
+		say "[2da][b]PLAY/TRY[r] any of the games in the shell.";
 	say "[2da]directions ([b]N, S, E, W, IN, OUT, ENTER[r] something, and occasionally [b]U[r] and [b]D[r])[line break]";
-	say "[2da][b]OPEN X[r] (no WITH second noun needed)[line break]";
+	say "[2da][b]OPEN X[r] (no [b]WITH[r] second noun needed)[line break]";
 	say "[2da][b]GT[r] or [b]GO TO[r] lets you go to a room you've been to.[line break]";
 	say "[2da][b]GIVE X TO Y[r] for people, [b]PUT X ON/IN Y[r] or [b]ATTACH X TO Y[r] for inanimate objects.[line break]";
 	say "[2da][b]TALK/T[r] talks to the only other person in the room. [b]TALK TO X[r] is needed if there is more than one.[line break]";
@@ -3853,9 +3853,9 @@ carry out verbing:
 		say "[2da]X 1-8 is a shortcut to read an individual question in the Insanity Terminal's puzzle.";
 	say "[2da]specific items may mention a verb to use in [b]CAPS[r], e.g 'You can [b]SHOOT[r] the gun' or 'You can [b]SHOOT[r] the gun [b]AT[r] something,' but otherwise, prepositions aren't necessary.";
 	say "[2da]conversations use numbered options, and you often need to end them before using standard verbs. [b]RECAP[r] shows your options.";
-	say "[2da]other standard parser verbs apply, and some may provide alternate solutions, but you should be able to win without them.";
 	say "[2da][b]EXITS[r] shows the exits. While these should be displayed in the room text, you can see where they lead if you've been there. [b]PE[r] also toggles showing them in the header.";
 	say "[2da][b]META[r] describes additional commands not critical to winning the game[if verbs-unlocked], and V[sr-sp]X gives verbs you unlocked[end if], but this list is long enough.";
+	say "[2da]other standard parser verbs apply, and some may provide alternate solutions, but you should be able to win without them.";
 	if in-beta is true:
 		say "Beta testers have debug commands. See debug commands too?";
 		if the player yes-consents:
@@ -8737,11 +8737,11 @@ twothird-sid-yet is a truth state that varies.
 
 every turn when player is in truth home and Sid Lew is in truth home:
 	increment sid-row;
-	if third-sid-yet is false and sid-row is number of rows in table of incisive sid viewpoints:
+	if third-sid-yet is false and sid-row is number of rows in table of incisive sid viewpoints / 3:
 		say "Sid takes a brief break. 'Boy! I could deserve good money as a [activation of psychotherapy]! You've only heard the half of my advice so far!'";
 		now third-sid-yet is true;
 		continue the action;
-	if twothird-sid-yet is false and sid-row is number of rows in table of incisive sid viewpoints:
+	if twothird-sid-yet is false and sid-row is 2 * number of rows in table of incisive sid viewpoints / 3:
 		say "Sid coughs then warms up for a song. '[activation of pathologic], oh logic path!' He's in the home stretch of ideas, now.";
 		now twothird-sid-yet is true;
 		continue the action;
@@ -11049,17 +11049,15 @@ book continuing
 
 Table of Final Question Options (continued)
 final question wording	only if victorious	topic	final response rule	final response activity
-"see where minor [bi of swearseen]SWEARS[r] change"	true	"SWEARS"	swear-see rule	--
-"see the [bi of sinseen]SINS[r] the [j-co] didn't commit"	true	"SINS"	sin-see rule	--
-"see the [bi of altseen](ALT)ERNATIVE[r] endings and commands"	true	"ALT/ALTERNATIVE"	alternative-see rule	--
-"see how to get to each of the [bi of badendseen]BAD END[r] rooms"	true	"BAD/END/BADEND" or "BAD END"	bad-end-see rule	--
-"see LIST of flips (L 1-[number of rows in table of context rewrites] or LN or LP for next/previos)"	true	"LIST"	list-flips rule	listfliping
---	true	"LN"	next-list rule	nextlisting
---	true	"LP"	prev-list rule	prevlisting
---	true	"L [number]"	list-num rule	numlisting
-"see all the [bi of dreamseen]DREAM[r] sequence stories"	true	"DREAM/DREAMS"	dream-see rule	--
-"see the plausible [bi of missseen]MISSES[r] for the Terminal"	true	"MISSES"	alt-answer rule	--
-"see [bi of rejectseen](REJ)ECTED[r] non-innuendo names for the non-bad-guy"	true	"REJ/REJECT/TEJECTED"	show-rejected rule	--
+"see where minor [bi of swearseen]SWEARS[r] change"	true	"SWEARS"	swear-see rule	placeholding
+"see the [bi of sinseen]SINS[r] the [j-co] didn't commit"	true	"SINS"	sin-see rule	placeholding
+"see the [bi of altseen](ALT)ERNATIVE[r] endings and commands"	true	"ALT/ALTERNATIVE"	alternative-see rule	placeholding
+"see how to get to each of the [bi of badendseen]BAD END[r] rooms"	true	"BAD/END/BADEND" or "BAD END"	bad-end-see rule	placeholding
+"see all the [bi of dreamseen]DREAM[r] sequence stories"	true	"DREAM/DREAMS"	dream-see rule	placeholding
+"see the plausible [bi of missseen]MISSES[r] for the Terminal"	true	"MISSES"	alt-answer rule	placeholding
+"see [bi of rejectseen](REJ)ECTED[r] non-innuendo names for the non-bad-guy"	true	"REJ/REJECT/REJECTED"	show-rejected rule	placeholding
+
+placeholding is an activity.
 
 amuseseen is a truth state that varies.
 swearseen is a truth state that varies.
@@ -11166,44 +11164,7 @@ this is the dream-see rule:
 
 book listfliping
 
-listfliping is an activity.
-nextlisting is an activity.
-prevlisting is an activity.
-numlisting is an activity.
-
-current-end-list is a number that varies.
-
-this is the list-flips rule:
-	let count be 0
-	repeat through table of context rewrites:
-		increment count;
-		say "[count]: [ctext-exp entry] ([number of concepts with context of ctxt entry])[line break]";
-	say "[if current-end-list is 0]You haven't seen a list yet[else]The current list is [current-end-list][end if]."
-
-this is the next-list rule:
-	increment current-end-list;
-	if current-end-list > number of rows in table of context rewrites:
-		now current-end-list is 1;
-		say "Cycling back to first table element..."
-	write-end-stuff-up;
-
-this is the prev-list rule:
-	decrement current-end-list;
-	if current-end-list is 0:
-		now current-end-list is number of rows in table of context rewrites;
-		say "Cycling up to last table element(#[number of rows in table of context rewrites])..."
-	write-end-stuff-up;
-
-this is the list-num rule:
-	now current-end-list is number understood;
-	write-end-stuff-up;
-
-to write-end-stuff-up:
-	choose row currend-end-list in table of context rewrites;
-	now cur-concept is ctxt entry;
-	repeat through table of explanations:
-		if exp-thing entry is a concept and context of exp-thing entry is cur-concept:
-			say "[b][exp-thing][r]: [exp-text entry][line break]"
+include Alec Smart Endgame Lists by Andrew Schultz.
 
 book bad end
 
@@ -12276,7 +12237,7 @@ Liverwurst is a smelly concept in conceptville. Understand "wurst/worst liver" a
 
 long johns is a jerkish concept in conceptville. Understand "john long" and "long john" as long johns. howto is "[j-blab]". gtxt is "John Long".
 
-Lovelies is a missable concept in conceptville. Understand "lies love" and "love lies" as Lovelies. howto is "listen to all the [j-co] have to say, with swearing on". gtxt is "Lies: LOVE".
+Lovelies is an exhaustive concept in conceptville. Understand "lies love" and "love lies" as Lovelies. howto is "listen to all the [j-co] have to say, with swearing on". gtxt is "Lies: LOVE".
 
 magnate is a jerkish concept in conceptville. Understand "nate magg" and "magg nate" as magnate. howto is "[j-blab]". gtxt is "Nate Magg".
 
@@ -12494,27 +12455,27 @@ to say pl-sid-all:
 
 assembly line is a concept in conceptville. Understand "line assembly" as assembly line. howto is "give Lee the rattle". gtxt is "line assembly". [norm]
 
-ideological is a rando concept in conceptville. Understand "logical idea" and "idea logical" as ideological. howto is "[pl-sid-all]". gtxt is "Logical idea".
+ideological is an exhaustive concept in conceptville. Understand "logical idea" and "idea logical" as ideological. howto is "[pl-sid-all]". gtxt is "Logical idea".
 
-loser is a rando concept in conceptville. Understand "lew seer" and "seer lew" as loser. howto is "[pl-sid]". gtxt is "Seer Lew".
+loser is a siddy concept in conceptville. Understand "lew seer" and "seer lew" as loser. howto is "[pl-sid]". gtxt is "Seer Lew".
 
 mass production is a concept in conceptville. Understand "production mass" as mass production. howto is "give Lee the rattle". gtxt is "Production mass". [norm]
 
-pathologic is a rando concept in conceptville. Understand "path oh/o logic" and "logic oh/o path" as pathologic. howto is "[pl-sid]". gtxt is "Oh, logic path".
+pathologic is a siddy concept in conceptville. Understand "path oh/o logic" and "logic oh/o path" as pathologic. howto is "[pl-sid]". gtxt is "Oh, logic path".
 
-psychotherapy is a rando concept in conceptville. Understand "psycho therapy" and "therapy psycho" as psychotherapy. howto is "[pl-sid]". gtxt is "therapy psycho".
+psychotherapy is a siddy concept in conceptville. Understand "psycho therapy" and "therapy psycho" as psychotherapy. howto is "[pl-sid]". gtxt is "therapy psycho".
 
 right to privacy is a concept in conceptville. Understand "privacy to write" and "write to privacy" as right to privacy. howto is "give Lee the rattle". gtxt is "privacy to write". [norm]
 
-showerproof is a rando concept in conceptville. Understand "shower proof" and "proof shower" as showerproof. howto is "[pl-sid]". gtxt is "proof shower".
+showerproof is a siddy concept in conceptville. Understand "shower proof" and "proof shower" as showerproof. howto is "[pl-sid]". gtxt is "proof shower".
 
-sid vicious is a rando concept in conceptville. Understand "vicious sid" as sid vicious. howto is "[pl-sid]". gtxt is "Vicious Sid".
+sid vicious is a siddy concept in conceptville. Understand "vicious sid" as sid vicious. howto is "[pl-sid]". gtxt is "Vicious Sid".
 
-technology is a rando concept in conceptville. Understand "tech y knowledge" and "knowledge y tech" as technology. howto is "[pl-sid]". gtxt is "knowledge y tech".
+technology is a siddy concept in conceptville. Understand "tech y knowledge" and "knowledge y tech" as technology. howto is "[pl-sid]". gtxt is "knowledge y tech".
 
 thp is a privately-named concept in conceptville. printed name is "200 proof". Understand "proof 200" and "200 proof" as thp. howto is "give Lee the rattle". gtxt is "Proof 200". [norm]
 
-turing machine is a rando concept in conceptville. Understand "touring machine" and "machine touring" as turing machine. howto is "[pl-sid]". gtxt is "machine touring".
+turing machine is a siddy concept in conceptville. Understand "touring machine" and "machine touring" as turing machine. howto is "[pl-sid]". gtxt is "machine touring".
 
 whole truth is a firstvis concept in conceptville. Understand "truth whole" as whole truth. howto is "[f-t of Truth Home]". gtxt is "truth hole".
 
@@ -12544,33 +12505,33 @@ to say pl-wa:
 to say pl-all:
 	say "put up with all of the Business Show"
 
-code golf is a rando concept in conceptville. Understand "golf code" as code golf. howto is "[pl-wa]". gtxt is "golf code".
+code golf is a showy concept in conceptville. Understand "golf code" as code golf. howto is "[pl-wa]". gtxt is "golf code".
 
-cry uncle is a rando concept in conceptville. Understand "uncle cry" as cry uncle. howto is "[pl-wa]". gtxt is "Uncle, CRY".
+cry uncle is a showy concept in conceptville. Understand "uncle cry" as cry uncle. howto is "[pl-wa]". gtxt is "Uncle, CRY".
 
-Dutch Act is a rando concept in conceptville. Understand "act dutch" as dutch act. howto is "[pl-wa]". gtxt is "ACT, DUTCH".
+Dutch Act is a showy concept in conceptville. Understand "act dutch" as dutch act. howto is "[pl-wa]". gtxt is "ACT, DUTCH".
 
-Dutch Courage is a rando concept in conceptville. Understand "courage dutch" as dutch courage. howto is "[pl-wa]". gtxt is "COURAGE, Dutch".
+Dutch Courage is a showy concept in conceptville. Understand "courage dutch" as dutch courage. howto is "[pl-wa]". gtxt is "COURAGE, Dutch".
 
-Dutch Reckoning is a rando concept in conceptville. Understand "reckoning dutch" as dutch reckoning. howto is "[pl-wa]". gtxt is "reckoning, Dutch".
+Dutch Reckoning is a showy concept in conceptville. Understand "reckoning dutch" as dutch reckoning. howto is "[pl-wa]". gtxt is "reckoning, Dutch".
 
 Dutch Treat is a snarky concept in conceptville. Understand "treat dutch" as dutch treat. howto is "type TREAT DUTCH around Uncle Dutch". gtxt is "treat Uncle Dutch".
 
-Fearlessness is a rando concept in conceptville. Understand "lessness fear" and "fear lessness" as fearlessness. howto is "[pl-wa]". gtxt is "lessness-fear".
+Fearlessness is a showy concept in conceptville. Understand "lessness fear" and "fear lessness" as fearlessness. howto is "[pl-wa]". gtxt is "lessness-fear".
 
 hate speech is a violent concept in conceptville. Understand "speech hate" as hate speech. howto is "attack Turk or Dutch". gtxt is "SPEECH HATE".
 
 platform shoes is a snarky concept in conceptville. Understand "shoes platform" as platform shoes. howto is "climb the fright stage". gtxt is "shoos platform".
 
-Rust Belt is a rando concept in conceptville. Understand "belt rust" as rust belt. howto is "[pl-wa]". gtxt is "belt rust".
+Rust Belt is a showy concept in conceptville. Understand "belt rust" as rust belt. howto is "[pl-wa]". gtxt is "belt rust".
 
 Show Business is a firstvis concept in conceptville. Understand "business show" as show business. howto is "[f-t of Speaking Plain] without eating a Tray B food". gtxt is "BUSINESS SHOW".
 
-show off is a rando concept in conceptville. Understand "off show" as show off. howto is "[pl-all]". gtxt is "OFF SHOW".
+show off is an exhaustive concept in conceptville. Understand "off show" as show off. howto is "[pl-all]". gtxt is "OFF SHOW".
 
-show our work is a rando concept in conceptville. Understand "work our show" as show our work. howto is "[pl-wa]". gtxt is "WORK OUR SHOW".
+show our work is a showy concept in conceptville. Understand "work our show" as show our work. howto is "[pl-wa]". gtxt is "WORK OUR SHOW".
 
-Stand the Pace is a rando concept in conceptville. Understand "pace the stand" as stand the pace. howto is "[pl-all]". gtxt is "pace the stand".
+Stand the Pace is an exhaustive concept in conceptville. Understand "pace the stand" as stand the pace. howto is "[pl-all]". gtxt is "pace the stand".
 
 section temper keep concepts
 
@@ -13769,7 +13730,7 @@ beta-zap-room is a room that varies. beta-zap-room is lalaland.
 after printing the locale description when mrlp is endings and location of player is unvisited:
 	if player is in airy station:
 		say "[line break]";
-	say "NOTE TO BETA TESTERS: the EST command lets you toggle whether or not a winning command ends the game, so you don't have to keep UNDOing if you want to try to guess all three wins, here, or just beat the game up. Whatever you can try is a big help.";
+	say "NOTE TO BETA TESTERS: the [b]EST[r] command lets you toggle whether or not a winning command ends the game, so you don't have to keep UNDOing if you want to try to guess all three wins, here, or just beat the game up. Whatever you can try is a big help.[line break]You can also type [b]VIC[r] for the good ending and [b]VICX[r] for the great one, as this is what most needs checking";
 
 after printing the locale description when player is in beta-zap-room and beta-zap-room is unvisited (this is the stop the game before I'm embarrassed by implementation rule) :
 	if debug-state is false:
@@ -13788,6 +13749,38 @@ when play begins (this is the force tester wherever rule):
 		try switching the story transcript on;
 		say "Transcripts can be sent to blurglecruncheon@gmail.com. Any punctuation before the comment is okay, e.g. *TYPO or ;typo or :typo.";
 	continue the action;
+
+chapter vicing
+
+[* forces victory ]
+
+vicing is an action out of world.
+
+understand the command "vic" as something new.
+
+understand "vic" as vicing.
+
+carry out vicing:
+	move the player to out mist, without printing a room description;
+	end the story finally saying "LISTS CHECK (GOOD ENDING)";
+	consider the shutdown rules;
+	the rule succeeds;
+
+chapter vicxing
+
+[* forces very good ending]
+
+vicxing is an action out of world.
+
+understand the command "vicx" as something new.
+
+understand "vicx" as vicxing.
+
+carry out vicxing:
+	move the player to airy station, without printing a room description;
+	end the story finally saying "LISTS CHECK (VERY GOOD ENDING)";
+	consider the shutdown rules;
+	the rule succeeds;
 
 chapter jcing
 
@@ -14584,38 +14577,6 @@ after printing the locale description when location of player is unvisited:
 	if amap-on is true:
 		try maping;
 	continue the action;
-
-chapter vicing
-
-[* forces victory ]
-
-vicing is an action out of world.
-
-understand the command "vic" as something new.
-
-understand "vic" as vicing.
-
-carry out vicing:
-	move the player to out mist, without printing a room description;
-	end the story finally saying "LISTS CHECK (GOOD ENDING)";
-	consider the shutdown rules;
-	the rule succeeds;
-
-chapter vicxing
-
-[* forces very good ending]
-
-vicxing is an action out of world.
-
-understand the command "vicx" as something new.
-
-understand "vicx" as vicxing.
-
-carry out vicxing:
-	move the player to airy station, without printing a room description;
-	end the story finally saying "LISTS CHECK (VERY GOOD ENDING)";
-	consider the shutdown rules;
-	the rule succeeds;
 
 chapter bcing
 
