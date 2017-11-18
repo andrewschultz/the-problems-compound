@@ -3869,7 +3869,7 @@ to decide whether verbs-unlocked: [I could probably check "duck sitting" but bes
 	decide no;
 
 to list-debug-cmds:
-	say "[line break]DEBUG COMMANDS: ================[line break][2da]J jumps you to the next bit from the Street, Lounge, Surface or Pier.[line break][2da]MONTY toggles every-move actions like listening and smelling. It may be more for programming testing[line break][2da]ACBYE/CTC/CTP gets rid of Cute Percy and chase paper.[line break][2da]JERK tells you what to do with the [j-co].[line break][2da]JFIX fixes the [j-co] puzzle[line break][2da]JGO gets rid of them[line break][2da]BROBYE kicks the Keeper Brothers out.[2da]VIC gives regular victory, VICX gives extra good victory[line break][2da]FIN shows the finger-index cheat code for the [j-co][line break]";
+	say "[line break]DEBUG COMMANDS: ================[line break][2da][b]J[r] jumps you to the next bit from the Street, Lounge, Surface or Pier.[line break][2da][b]MONTY[r] toggles every-move actions like listening and smelling. It may be more for programming testing[line break][2da][b]ACBYE/CTC/CTP[r] gets rid of Cute Percy and the chase paper without having to run through the puzzle.[line break][2da][b]JERK[r] tells you what to do with the [j-co].[line break][2da][b]JFIX[r] fixes the [j-co] puzzle[line break][2da][b]JGO[r] gets rid of them[line break][2da][b]BROBYE[r] kicks the Keeper Brothers out.[2da][b]VIC[r] gives good ending (out mist/worm ring), [b]VICX[r] gives great ending (airy station/return carriage)[line break][2da][b]FIN[r] shows the finger-index cheat code for the [j-co][line break]";
 
 chapter vxing
 
@@ -11042,7 +11042,7 @@ this is the alt-answer rule:
 	the rule succeeds;
 
 this is the show-rejected rule:
-	say "Fidel the Second, Hunter Savage (actually removed from release 2), ARMSTRONG, Killer Payne, Hosin' Leader, Dread Hun, Elephant White, and Joe Glass were names I couldn't quite get to work, but I think they're amusing enough. I hope you do, too.";
+	say "Fidel the Second, Hunter Savage (actually removed from release 2), ARMSTRONG, Killer Payne, Hosin' Leader, Hood Man, Dread Hun, Elephant White, and Joe Glass were names I couldn't quite get to work, but I think they're amusing enough. I hope you do, too.";
 	the rule succeeds;
 
 book continuing

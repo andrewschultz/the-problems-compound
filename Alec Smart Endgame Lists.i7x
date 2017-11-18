@@ -41,8 +41,11 @@ this is the prev-list rule:
 	write-end-stuff-up;
 
 this is the list-num rule:
-	now current-end-list is number understood;
-	write-end-stuff-up;
+	if number understood > number of rows in table of context rewrites or number understood < 1:
+		say "I need a number between 1 and [number of rows in table of context rewrites].";
+	else:
+		now current-end-list is number understood;
+		write-end-stuff-up;
 
 to write-end-stuff-up:
 	now list-seen is true;
@@ -72,7 +75,7 @@ This is the modified respond to final question rule:
 					if there is a final response rule entry, abide by final response rule entry;
 					otherwise carry out the final response activity entry activity;
 					rule succeeds;
-	say "I didn't recognize that. You can hit RETURN to see everything again."
+	say "I didn't recognize that. [run paragraph on]"
 
 Alec Smart Endgame Lists ends here.
 
