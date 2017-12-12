@@ -23,7 +23,10 @@ this is the list-flips rule:
 	let count be 0;
 	repeat through table of context rewrites:
 		increment count;
-		say "[count]: [ctxt-exp entry] ([concept-num of ctxt entry])[line break]";
+		if concept-num of ctxt entry > 0:
+			say "[count]: [ctxt-exp entry] ([concept-num of ctxt entry])[line break]";
+		else if debug-state is true:
+			say "DEBUG WARNING: [ctxt-exp entry] has no concepts.";
 	say "[if current-end-list is 0]You haven't seen a list yet[else]The current list is [current-end-list][end if]."
 
 this is the next-list rule:
@@ -50,17 +53,22 @@ this is the list-num rule:
 to write-end-stuff-up:
 	now list-seen is true;
 	choose row current-end-list in table of context rewrites;
-	say "[b]FULL LIST OF [ctxt-exp entry in upper case] CONCEPTS:[r][paragraph break]";
 	let cur-concept be ctxt entry;
 	let cn be concept-num of cur-concept;
+	if cn is 0:
+		say "No concept is found by [ctxt-exp entry].";
+		continue the action;
+	say "[b]FULL LIST OF [ctxt-exp entry in upper case] CONCEPTS:[r][paragraph break]";
 	let count be 0;
 	repeat through table of explanations:
 		if exp-thing entry is a concept and context of exp-thing entry is cur-concept:
 			say "[b][exp-thing entry][r] ([i][gtxt of exp-thing entry]/[howto of exp-thing entry][r]): [exp-text entry][line break]";
 			increment count;
 			if the remainder after dividing count by 10 is 0 and count is not cn:
-				say "([count]/[cn], push any key for next concepts)";
-				wfak;
+				say "([count]/[cn], push any key for next concepts or Q to quit)";
+				if debug-state is false:
+					let Q be the chosen letter;
+					if Q is 81 or Q is 113, continue the action;
 
 The standard respond to final question rule is not listed in for handling the final question.
 
