@@ -119,10 +119,13 @@ while ( $count <= $#ARGV ) {
       print("-2 flag must be used for 2-letter word.\n");
       exit;
     }
-    my $vowelCount = ( $a1 =~ tr/CVB// );
-    if ( $vowelCount > 2 ) {
-      print("You can only have two of CVB--$a1 has more than one. Bailing.");
-      exit;
+    my @csvArray = split( /,/, $a1 );
+    for my $csv (@csvArray) {
+      my $vowelCount = ( $csv =~ tr/CVB// );
+      if ( $vowelCount > 2 ) {
+        print("You can only have two of CVB--$a1 has more than one. Bailing.");
+        exit;
+      }
     }
 
     if ($flipData) {
@@ -147,7 +150,8 @@ if ( !$flipData ) {
   exit;
 }
 
-@flipAry = split( /[,\..]/, $flipData );
+print("NOTE: . converted to ,\n") if $flipData =~ /\./;
+@flipAry = split( /[,\.]/, $flipData );
 
 my @flipAry2 = ();
 
