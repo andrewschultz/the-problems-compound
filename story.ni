@@ -9078,7 +9078,10 @@ check going south in questions field when got-pop is true:
 	say "No. You've drunk the quiz pop, and it's time to face the [bad-guy]." instead;
 
 check going west in Questions Field:
-	if Reasoning Circular is not off-stage, say "[one of]As you're about to enter, you hear Buddy Best raving about plans to create a whole [activation of contempt of congress], before a voice from a hidden loudspeaker booms 'Get better? Better GET!'[paragraph break]Buddy Best has seen enough of you. Hmm, come to think of it, you've seen enough of Buddy Best. You're surprised he even gave you the Reasoning Circular, and you probably couldn't explain why you [if player has circular]haven't used it yet[else]gave it to Officer Petty[end if], anyway[or]You don't want to interrupt Buddy Best's grand plans. For your sake and his[stopping]. [if player has circular]Maybe figure what to do with the Reasoning Circular he gave you[else]His Reasoning Circular helped you enough[end if]." instead;
+	if Reasoning Circular is not off-stage:
+		say "As you walk in, Buddy Best looks up from studying important law cases. He's mumbling about [3-law].";
+		say "[paragraph break]He pushes a button, and a hidden loudspeaker booms 'Get better? Better GET!'[paragraph break]Buddy Best has seen enough of you. Hmm, come to think of it, you've seen enough of Buddy Best. You're surprised he even gave you the Reasoning Circular, and you probably couldn't explain why you [if player has circular]haven't used it yet[else]gave it to Officer Petty[end if], anyway.";
+		say "[paragraph break]You don't want to interrupt Buddy Best's grand plans. For your sake and his[stopping]. [if player has circular]Maybe figure what to do with the Reasoning Circular he gave you[else]His Reasoning Circular helped you enough[end if].";
 
 check going nowhere in questions field:
 	if noun is inside, say "There are two ways to go inside: north and west." instead;
@@ -9291,7 +9294,28 @@ check going nowhere in Court of Contempt:
 	if noun is outside, try going east instead;
 	say "'So, you the sort of person who runs into walls a lot? Not that there's anything wrong with that.' Yup. Looks like back east's the only way out." instead;
 
-Buddy Best is a baiter-aligned person in Court of Contempt. "[one of]But wait! Someone here looks excited to see you! Not happy, but excited.[paragraph break]'Yah. Hi. I'm Buddy Best. You seem real nice. Nice enough not to waste too much of my time. See, I'm [if allow-swears is true]dedicated lawyerly case head, [activation of nutcase], job nut, whichever, and I'm [end if]working hard to be an [activation of daddy issues] and not just some [activation of attorney general].'[paragraph break]Okay, never mind.[paragraph break]He goes back to sorting through his case basket.[or]Buddy Best waits and taps his foot and checks his case basket here.[stopping]".
+Buddy Best is a baiter-aligned person in Court of Contempt. "[one of]But wait! Someone here looks excited to see you! Not happy, but excited.[paragraph break]'Yah. Hi. I'm Buddy Best. You seem real nice. Nice enough not to waste too much of my time. See, I'm [if allow-swears is true]dedicated lawyerly case head, [activation of nutcase], job nut, whichever, and I'm [end if]working hard to be an [activation of daddy issues] and not just some [activation of attorney general]. One day I will make this a [activation of contempt of congress].'[paragraph break]Okay, never mind.[paragraph break]He goes back to sorting through his case basket.[or]Buddy Best waits and taps his foot and checks his case basket here.[stopping]".
+
+the case basket is scenery in Court of Contempt. description is "You see evidence of important law cases: [3-law]."
+
+bud-cur-case is a number that varies.
+
+to say 3-law:
+	if bud-cur-case / 6 is (number of rows in table of first-last names) / 6:
+		now bud-cur-case is 1;
+	say "[bud-case], [bud-case] and [bud-case]"
+
+to say bud-case:
+	choose row bud-case in table of first-last names;
+	let Q1 be the-name entry;
+	choose row bud-case in table of first-last names;
+	let Q2 be the-name entry;
+	increase bud-cur-case by 2;
+	say "[Q1] [Q2] vs. [Q2] [Q1]."
+
+instead of doing something wth the case basket:
+	if action is procedural, continue the action;
+	say "That's Buddy Best's. You don't need it."
 
 description of Buddy Best is "Sour, as if he'd just eaten--[activation of lemon law]--or a [activation of lyme disease]. Or maybe it's totally a delicate balance of happiness and seriousness and not a sign of contempt, so stop saying that."
 

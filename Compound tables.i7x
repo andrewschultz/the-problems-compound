@@ -33,8 +33,6 @@ b4-nar	now-nar	af-nar	b4-done	now-done	af-done
 
 part pressure pier
 
-volume basher bible tables
-
 table of Bible reflections
 looknum	reflection
 1	"Well, you do need to be more dynamic in conversations. But that doesn't seem right. You wonder if you're just being lazy or unsocial or antisocial."
@@ -74,6 +72,52 @@ reference-blurb
 "Tell someone they're clear when they're unclear, and vice versa."
 "Understand how flattery and the golden rule interact, unless someone is fishing for approval."
 "Pick out someone creepy with a valid criticism and go ad hominem."
+
+part court of contempt
+
+table of first-last names [xxfln]
+the-name
+"aaron"
+"abbey"
+"abdul"
+"abel"
+"abraham"
+"ada"
+"adolph"
+"adrian"
+"ahmed"
+"albert"
+"albertine"
+"alexander"
+"alexandria"
+"alfred"
+"ali"
+"allan"
+"allison"
+"alma"
+"alphonse"
+"alvaro"
+"alvin"
+"amber"
+"ambrose"
+"amos"
+"anderson"
+"andreas"
+"andrew"
+"angelo"
+"anthony"
+"april"
+"ariel"
+"arline"
+"armand"
+"arnold"
+"arthur"
+"ashley"
+"aubrey"
+"augustine"
+"austin"
+"avery"
+"bailey"
 
 part truth home
 
