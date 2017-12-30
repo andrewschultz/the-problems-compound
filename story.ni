@@ -216,6 +216,7 @@ when play begins (this is the initialize jerks rule):
 		[d "[jerky-guy entry] = [blackmail entry].";]
 	sort table of fingerings in random order;
 	choose row 7 in table of fingerings;
+	sort table of first-last names in random order;
 	let f-cur-row be 0;
 	let first-cli be a random client;
 	now first-cli is ordered;
@@ -9079,9 +9080,11 @@ check going south in questions field when got-pop is true:
 
 check going west in Questions Field:
 	if Reasoning Circular is not off-stage:
+		increment bug-buddy;
 		say "As you walk in, Buddy Best looks up from studying important law cases. He's mumbling about [3-law].";
-		say "[paragraph break]He pushes a button, and a hidden loudspeaker booms 'Get better? Better GET!'[paragraph break]Buddy Best has seen enough of you. Hmm, come to think of it, you've seen enough of Buddy Best. You're surprised he even gave you the Reasoning Circular, and you probably couldn't explain why you [if player has circular]haven't used it yet[else]gave it to Officer Petty[end if], anyway.";
-		say "[paragraph break]You don't want to interrupt Buddy Best's grand plans. For your sake and his[stopping]. [if player has circular]Maybe figure what to do with the Reasoning Circular he gave you[else]His Reasoning Circular helped you enough[end if].";
+		say "[line break]He pushes a button, and a hidden loudspeaker booms 'Get better? Better GET!'[paragraph break]Buddy Best has seen enough of you. Hmm, come to think of it, you've seen enough of Buddy Best. You're surprised he even gave you the Reasoning Circular, and you probably couldn't explain why you [if player has circular]haven't used it yet[else]gave it to Officer Petty[end if], anyway.";
+		say "[line break][one of][or]You don't want to interrupt Buddy Best's grand plans. For your sake and his. [stopping][if player has circular]Maybe figure what to do with the Reasoning Circular he gave you[else]His Reasoning Circular helped you enough[end if].";
+		the rule succeeds;
 
 check going nowhere in questions field:
 	if noun is inside, say "There are two ways to go inside: north and west." instead;
@@ -9296,27 +9299,6 @@ check going nowhere in Court of Contempt:
 
 Buddy Best is a baiter-aligned person in Court of Contempt. "[one of]But wait! Someone here looks excited to see you! Not happy, but excited.[paragraph break]'Yah. Hi. I'm Buddy Best. You seem real nice. Nice enough not to waste too much of my time. See, I'm [if allow-swears is true]dedicated lawyerly case head, [activation of nutcase], job nut, whichever, and I'm [end if]working hard to be an [activation of daddy issues] and not just some [activation of attorney general]. One day I will make this a [activation of contempt of congress].'[paragraph break]Okay, never mind.[paragraph break]He goes back to sorting through his case basket.[or]Buddy Best waits and taps his foot and checks his case basket here.[stopping]".
 
-the case basket is scenery in Court of Contempt. description is "You see evidence of important law cases: [3-law]."
-
-bud-cur-case is a number that varies.
-
-to say 3-law:
-	if bud-cur-case / 6 is (number of rows in table of first-last names) / 6:
-		now bud-cur-case is 1;
-	say "[bud-case], [bud-case] and [bud-case]"
-
-to say bud-case:
-	choose row bud-case in table of first-last names;
-	let Q1 be the-name entry;
-	choose row bud-case in table of first-last names;
-	let Q2 be the-name entry;
-	increase bud-cur-case by 2;
-	say "[Q1] [Q2] vs. [Q2] [Q1]."
-
-instead of doing something wth the case basket:
-	if action is procedural, continue the action;
-	say "That's Buddy Best's. You don't need it."
-
 description of Buddy Best is "Sour, as if he'd just eaten--[activation of lemon law]--or a [activation of lyme disease]. Or maybe it's totally a delicate balance of happiness and seriousness and not a sign of contempt, so stop saying that."
 
 the Reasoning Circular is a thing. description is "It's full of several pages why you're great if you think you are, unless you're lame, in which case you don't know what great means. There's a long tag stapled to it."
@@ -9371,7 +9353,47 @@ after quipping when qbc_litany is table of Buddy Best talk:
 
 section case basket
 
-the case basket is scenery in Court of Contempt. "Just looking at such an impressive office doodad, you know Buddy Best must socially and mentally with-it."
+the case basket is scenery in Court of Contempt. description of case basket is "[one of]It's the sort of impressive organizer that makes you worried someone would buy you one and wonder how you STILL can't get organized.[paragraph break][or][stopping]You see summaries and discussion of important law cases: [3-law]."
+
+bud-cur-case is a number that varies. bud-cur-case is 1.
+
+law-warn is a truth state that varies.
+
+case-exam is a number that varies.
+
+bug-buddy is a number that varies.
+
+check examining case basket: increment case-exam;
+
+to say 3-law:
+	say "[bud-cur-case], [bud-cur-case] and [bud-cur-case]";
+	if law-warn is false and the story has not ended finally:
+		if case-exam is 3 or bug-buddy is 3:
+			now law-warn is true;
+			say " (note: if you're plowing through to see them all, there are [number of rows in table of first-last names / 6] random triads before this cycles, but they're all listed at the end)";
+	if bud-cur-case / 6 is (number of rows in table of first-last names) / 6:
+		say " (fourth wall note: these are the last ones";
+		let Q be the remainder after dividing bud-cur-case by 6;
+		say "[if Q is 1]--the odd name out is [else if q is 2]--the odd names out are[end if]";
+		while bud-cur-case <= number of rows in table of first-last names:
+			if bud-cur-case is number of rows in table of first-last names and Q > 1, say " and";
+			choose row bud-cur-case in table of first-last names;
+			say " [the-name entry]";
+			if bud-cur-case < number of rows in table of first-last names - 1, say ", ";
+			increment bud-cur-case;
+		now bud-cur-case is 1;
+
+to say bud-cur-case:
+	choose row bud-cur-case in table of first-last names;
+	let Q1 be the-name entry;
+	choose row bud-cur-case + 1 in table of first-last names;
+	let Q2 be the-name entry;
+	say "[Q1] [Q2] vs. [Q2] [Q1]";
+	increase bud-cur-case by 2;
+
+instead of doing something with the case basket:
+	if action is procedural, continue the action;
+	say "That's Buddy Best's. You don't need it."
 
 part Walker Street
 
