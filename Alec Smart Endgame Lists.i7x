@@ -27,7 +27,11 @@ this is the list-flips rule:
 			say "[count]: [ctxt-exp entry] ([concept-num of ctxt entry])[line break]";
 		else if debug-state is true:
 			say "DEBUG WARNING: [ctxt-exp entry] has no concepts.";
-	say "[if current-end-list is 0]You haven't seen a list yet[else]The current list is [current-end-list][end if]."
+	if current-end-list > 0:
+		choose row current-end-list in table of context rewrites;
+		say "The current list is [current-end-list] ([ctxt-exp entry]).";
+	else:
+		say "You haven't seen a list yet.";
 
 this is the next-list rule:
 	increment current-end-list;

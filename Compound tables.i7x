@@ -965,7 +965,7 @@ gad-act
 [end rooms]
 
 table of context rewrites [xxtcw]
-ctxt		ctxt-exp
+ctxt	ctxt-exp
 badendy	"only in Alec's bad ends"
 culinary	"Meal Square specific"
 exhaustive	"sitting through all random dialogue"
