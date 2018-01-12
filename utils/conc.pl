@@ -18,6 +18,8 @@
 
 #todo: [start of room x] 2 lines in a row
 
+#todo: with 2 concept types in a row in the definition, conc ignores it
+
 use strict;
 use warnings;
 use File::Copy qw(copy);
@@ -1016,7 +1018,7 @@ sub checkOrder {
         }
         if ( $a =~ /concept.in/ ) {
           chomp($a);
-          $a =~ s/ is a .*concept.*//g;
+          $a =~ s/ is a(n)? .*concept.*//g;
           $a = lc( cutArt($a) );
           push( @co, $a );
           if ( $a le $lastConcept ) {
@@ -1066,7 +1068,7 @@ sub checkOrder {
           $temp = defined( $lineNum{ $co[$_] } ) ? $lineNum{ $co[$_] } : "none";
         }
         printf(
-          "$_ ($ordFail): $ex[$_] %s vs %s",
+          "$_ ($ordFail): $ex[$_] %s EXPECTED %s FOUND",
           defined( $lineNum{ $ex[$_] } )
             && $lineNum{ $ex[$_] } ? "($lineNum{$ex[$_]})" : "",
           defined( $co[$_] ) ? "$co[$_] ($temp)" : "(nothing)"
@@ -2483,7 +2485,8 @@ sub modifyConcepts {
           print "Line $. has wrong howto ($wrongh), guess is $_.\n";
           $conceptsChanged++;
           print "Editing line $.\n" if $debug;
-          print WF "$_\n" if $line !~ /howto is \"$_[\]\" -]/i;
+          print WF "\[SUGGESTED EDIT TO HOWTO: $_\]\n"
+            if $line !~ /howto is \"$_[\]\" -]/i;
 
 #$line =~ s/howto is \"[^\"]*?\"/howto is \"$_ ??\]\"/i if $line !~ /howto is \"$_[\]\" -]/i;
           $line =~ s/(?!($_ ) )concept in /$tempConc{$_} concept in /i
