@@ -74,7 +74,7 @@ include Compound Tables by Andrew Schultz.
 
 include In-Game Mapping by Andrew Schultz.
 
-include Trivial Niceties Glulx by Andrew Schultz.
+include Trivial Niceties by Andrew Schultz.
 
 chapter quips
 

@@ -61,6 +61,7 @@ my $wordsAdded        = 0;
 my $urlsAdded         = 0;
 my $warn              = 0;
 my $addToFound        = 0;
+my $addActWords       = 0;
 
 while ( $count <= $#ARGV ) {
   my $a1 = $ARGV[$count];
@@ -229,7 +230,8 @@ if ( $shouldSort || $autoSort ) {
   if ($wordsAdded) {
     print "$wordsAdded word";
     print "s" if ( $wordsAdded != 1 );
-    print " added total.\n";
+    print
+      " added total, $addToFound tries added, $addActWords good-bet words.\n";
   }
   if ($urlsAdded) {
     print "$urlsAdded URL";
@@ -387,7 +389,7 @@ sub readOneWord {
           && ( $isDone{ $_[0] } == -1 )
         ? "earlier this run"
         : "line $isDone{$t} in fliptrack.txt"
-        ) . ". Use -f to override.\n";
+        ) . ". Use -f to override, -fu/-uf to add idiom URL search.\n";
       return;
     }
   }
@@ -471,7 +473,8 @@ sub readOneWord {
     print B $bigLongBit;
     print B "====Found $found/$wordy for $flip\n";
     print "====Found $found/$wordy for $flip\n";
-    $addToFound += $found;
+    $addToFound  += $found;
+    $addActWords += $wordy;
 
     $addedSomething = 1;
     $wordsAdded++;
