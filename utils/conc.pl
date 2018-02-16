@@ -94,6 +94,7 @@ my $understandProcess          = 0;
 my $modifyConcepts             = 0;
 my $proceedAfterModifyConcepts = 0;
 my $debug                      = 0;
+my $hidePassed                 = 0;
 
 #############################
 #hashes
@@ -202,8 +203,9 @@ while ( $count <= $#ARGV ) {
     /^-?eu$/  && do { `$okUndFile`;             exit(); };
     /^-?e\?$/ && do { usageEdit();              exit(); };
     #### end editing
-    /^-?nt$/ && do { $printTest = 0; $count++; next; };
-    /^-?t$/  && do { $printTest = 1; $count++; next; };
+    /^-?hp$/ && do { $hidePassed = 1; $count++; next; };
+    /^-?nt$/ && do { $printTest  = 0; $count++; next; };
+    /^-?t$/  && do { $printTest  = 1; $count++; next; };
     /^-?d$/  && do {
       $defaultRoom = $ARGV[ $count + 1 ];
       $defaultRoom =~ s/[-\._]/ /g;
@@ -2017,7 +2019,8 @@ sub compareRoomIndex {
     if ( $line !~ /[a-z]/ ) {
       $checkRoomMatchup = 0;
       $inExp            = 0;
-      if ($proofStr) { print "PASSED $proofStr"; $proofStr = ""; }
+      print "PASSED $hidePassed $proofStr" if $proofStr && !$hidePassed;
+      $proofStr = "";
       next;
     }
     if ($inExp) {
@@ -2207,7 +2210,7 @@ sub compareRoomIndex {
     $lastConcName = $conc;
   }
 
-  if ($banner) { print "PASSED: $banner"; }
+  print "PASSED: $banner" if $banner && !$hidePassed;
 
   if ($printTest) { print "TEST RESULTS:$_[0]-conc-sort,$concSortFail,0,0\n"; }
 
@@ -2615,6 +2618,7 @@ CONC.PL usage
 -c = error code to clipboard
 -0 = print errors not error code
 -l/-n = launch story file (or not) after
+-hp = hide passed tests
 -v = verbosely print code
 -w = write code out (-W bails before copying from backup file. Use this for testing.)
 -y = overlook option clashes
@@ -2633,6 +2637,7 @@ CONC.PL usage
 (-)a234 = PC and SC and BTP and BTP-spring (default)
 (-)o = check order, (-)r = read concepts order too
 CURRENT TESTS: conc.pl -pc, conc.pl -t -o -as, conc.pl -sc, conc.pl -t -o -sc
+  conc.pl -btp -m -ln (
 EOT
   exit;
 }
