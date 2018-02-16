@@ -4600,7 +4600,7 @@ the Game Shell is scenery in Smart Street. "It's shaped like a carved-out turtle
 
 the out puzzle is part of the game shell. Understand "square" and "nine" and "nine dots" as out puzzle when player is in smart street. description is "[one of]It's the old puzzle where you have nine dots in a square and four lines and the solution is a diagonal arrow that goes outside the square. Everyone knows it, and in fact you understand the 'cheat' solutions of wrapping the paper around for one line, or treating the dots as having actual height, but somehow, you never felt you had the gravitas to explain how and why it's been done before, and you don't want to re-over-think why, now[or]Nine dots, four lines. Everyone sort of knows it[stopping]."
 
-the printed name of out puzzle is "the 'out' puzzle".
+the printed name of out puzzle is "'out' puzzle".
 
 instead of doing something with the out puzzle:
 	if current action is not explaining and current action is not examining, say "No. You know the Out Puzzle. You forget if you got it when you saw it, but people made you feel awkward for actually knowing it. Best not to dwell--concentrate on Guy's, instead." instead;
@@ -6190,34 +6190,21 @@ after pielooking:
 		say "Wow, that's a lot of food! You won't even need to [activation of apple pie order] as dessert.";
 	continue the action;
 
-outpigging is an action applying to two things.
-
-understand "eat [things]" as outpigging when player is in meal square.
-
-Definition: a thing is matched if it is listed in the multiple object list.
-
-carry out outpigging:
-	let L be the list of matched things;
-	if number of entries in L > 1:
-		say "[pig-out].";
-		the rule succeeds;
-	try eating a random matched thing instead;
+understand "eat [things]" as eating when player is in meal square.
 
 rule for deciding whether all includes a thing when eating:
+	if noun is nothing, decide no; [I'm not sure why this happens but it is a bug if I define eating instead of outpigging.]
 	if player is in meal square:
 		if noun is on tray a or noun is on tray b, decide yes;
 		decide no;
 	decide yes;
 
-to say pig-out:
-	say "A booming voice yells, '[activation of pig out]!' Looks like you should concentrate on one food or tray at a time"
-
 This is the pig rule:
 	if the number of entries in the multiple object list is greater than 1:
-		let q be entry 1 of the multiple object list;
-		if q is tray a or q is tray b or q is on tray a or q is on tray b: [this could be better, but it does the job]
-			say "[pig-out].";
-			stop the action.
+		repeat with Q running through multiple object list:
+			if q is tray a or q is tray b or q is on tray a or q is on tray b:
+				say "A booming voice yells, '[activation of pig out]!' Looks like you should concentrate on one food or tray at a time.";
+				stop the action.
 
 The pig rule is listed before the generate action rule in the turn sequence rules.
 
@@ -8544,7 +8531,6 @@ check entering scen-home:
 
 instead of doing something with scen-home:
 	if action is undrastic, continue the action;
-	d "[current action].";
 	if current action is entering, try going inside instead;
 	say "You can't do much except enter or examine the home."
 
@@ -10565,7 +10551,7 @@ every turn when player is in airy station (this is the hammer clue rule):
 
 section hammer mistakes
 
-the hammer is a thing in Airy Station. "A hammer lies nearby. It's the sort you use to knock in big spikes on a rail.". description is "[bug]".
+the hammer is a thing in Airy Station. "A hammer lies nearby. It's the sort you use to knock in big spikes on a rail, not the claw type.". description is "[bug]".
 
 check dropping the hammer:
 	say "You already dropped the figurative hammer on the [bad-guy]. Now to do something constructive with the real hammer." instead;
@@ -11275,11 +11261,13 @@ this is the alternative-see rule:
 
 to say other-hammer-change:
 	if end-index is 1:
-		say "HOME/AWAY";
+		say "HOME/AWAY/OUT";
 	else if end-index is 2:
-		say "LOCK/AWAY";
+		say "LOCK/AWAY/OUT";
 	else if end-index is 3:
-		say "HOME/LOCK";
+		say "HOME/LOCK/OUT";
+	else if end-index is 4:
+		say "HOME/LOCK/AWAY";
 
 to say other-ring-change:
 	if end-index is 1:
@@ -11652,6 +11640,9 @@ rule for printing a parser error when the latest parser error is the didn't unde
 		say ", but you can type VERB or VERBS to see them all.";
 	reject the player's command;
 
+Rule for printing a parser error when the latest parser error is the can't use multiple objects error:
+	say "You don't need to do something to multiple objects, though you can TAKE them all, and you may wish to USE one object on another."
+
 Rule for printing a parser error when the latest parser error is the i beg your pardon error:
 	if p-c is true, try waiting instead;
 	if qbc_litany is table of no conversation:
@@ -11678,10 +11669,11 @@ Rule for printing a parser error when the latest parser error is the can't see a
 	say "You see nothing there like that. You may want to check for typos or excess words or prepositions."
 
 Rule for printing a parser error when the latest parser error is the nothing to do error:
-	if current action is dropping:
-		say "You don't need to drop anything in the game, much less all your possessions.";
+	if drop-warn is true:
+		say "You don't need to make a mess like that! There's only one place in this game where dropping is useful, anyway[if terry sally is in lalaland], and you've already passed it[end if].";
+		now drop-warn is false;
 	else:
-		say "Sorry, but right now ALL doesn't encompass anything you need to take[one of]. And no location (I hope) is flooded with enough stuff so you'll need to use ALL[or][stopping]." instead.
+		say "Sorry, but I couldn't find anything to use ALL on[one of]. And no location (I hope) is flooded with enough stuff so you'll need to do more than TAKE ALL once or twice[or][stopping]." instead.
 
 Rule for printing a parser error when the latest parser error is the noun did not make sense in that context error:
 	say "The verb was ok, but I couldn't place the noun."
@@ -13235,6 +13227,8 @@ to best-end:
 		say "The hammer glows a bit. You feel it pulling your arm up. The hammer crackles a bit, and you slam it down on the lock caps, which fall quickly.";
 	else if q is 3:
 		say "The hammer glows a bit. You feel it swinging side to side, and before it touches the lock caps, they crack open and fall to the ground.";
+	else if q is 4:
+		say "The hammer glows a bit. You tap it around the side of the lock caps, and wham! It smashes their heads to the side, and they fall off.";
 	else:
 		say "Oops. Bug. This should never happen. But it won't stop you winning the game. I would like to know what command you used, though: [email].";
 	say "[line break]The door to the Return Carriage creaks open. You wave to the crowd as you enter the Return Carriage. You think of all the people you helped, the smart-alecks you didn't let get you down. The clues won't be as obvious back home, but you see some people are full of hot air, and you can overcome them, and that's a relief.";
@@ -13245,6 +13239,7 @@ to decide which number is right-adj:
 	if the player's command matches the regular expression "\block\b", decide on 1;
 	if the player's command matches the regular expression "\bhome\b", decide on 2;
 	if the player's command matches the regular expression "\baway\b", decide on 3;
+	if the player's command matches the regular expression "\bout\b", decide on 4;
 	decide on 0;
 
 table of hammer tries [xxtht]
