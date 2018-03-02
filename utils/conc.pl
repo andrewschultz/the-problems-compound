@@ -130,7 +130,7 @@ my %specialProjMap;
 
 my %extraLines;
 
-$tableDetHash{"compound"}      = "xxjmt,xxbgw";
+$tableDetHash{"compound"}      = "xxjmt,xxbgw1,xxbgw2";
 $tableDetHash{"buck-the-past"} = "!xxtia";
 
 my %conceptMatch;

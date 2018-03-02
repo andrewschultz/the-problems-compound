@@ -635,20 +635,19 @@ table of hs - horrendous songs [xxhs]
 workname	singername	songsubj
 "Cow, Wholly"	"Carrie Harry"	"why sports are a completely unimportant thing to get worked up about even if you enjoy it"
 "My Mind on Georgia"	"Charles Ray"	"cutting reflections on why certain places hate progress"
-"Missing Worth Ain't He"	"Keith Toby"	"someone who failed but it still worth thinking about as a counterexample"
 "Knife the Mack"	"Darin Bobby"	"harsh punishment for some dude with no game trying to impress women out of his league"
 "Motion? Loco"	"Eva Little"	"being very cool criticising the latest dance craze before everyone else gets sick of it"
-"The Light of Dying"	"The Machine Against Rage"	"admitting that there are smarter people than you who know what's best and if you care about society, maybe it's time to go, but don't, like, make a messy suicide. Even better than The Name in Killing"
-"Gabriel Peter"	"Frontiers Without Games"	"the right sort of ambition, material or social"
-"Murphy Eddy"	"Time the Party, All"	"how being outrageous too much, all the time, is uncool"
+"Frontiers Without Games"	"Gabriel Peter"	"the right sort of ambition, material or social"
 "King of the Mountain Hall"	"Grieg Freidrich"	"something transcendent or other"
 "Life Is WHAT"	"Harrison George"	"a man too clever for all the constant love-is-life babble"
-"Ian Janus"	"Child Societies"	"why it's not very grown up to give too many handouts to people who haven't earned them."
+"Child Societies"	"Ian Janus"	"why it's not very grown up to give too many handouts to people who haven't earned them."
 "Out Movin[']"	"Joel Billey"	"someone who finds value in a more stressful life"
 "Girl Island"	"John Elton"	"the first really cool song about men finding paradise among REAL women"
+"Missing Worth Ain't He"	"Keith Toby"	"someone who failed but it still worth thinking about as a counterexample"
 "Losers? Beautiful"	"Keon Leonard"	"winning arguments or life and not feeling sorry"
 "Lies Little"	"Mac Fleetwood"	"how it's fun to cheat on someone dumb enough to tell the truth too much"
 "Figure Father"	"Michael George"	"a kid who doesn't want guidance but just wants to mess with his superior's head"
+"Time the Party, All"	"Murphy Eddy"	"how being outrageous too much, all the time, is uncool"
 "Off, Get"	"Nelson Rogers Prince"	"people without enough social nous to have a sexual partner and why they deserve no fun"
 "Work Fire"	"Perry Keady"	"having everyday up and at em for the things you deserve to do (if you're smart) or better do to survive (if you're dumb)"
 "Stop Believing, Don't"	"Perry Steven"	"people who already tried enough and should stop embarrassing themselves"
@@ -660,6 +659,7 @@ workname	singername	songsubj
 "Robinson Misses"	"Simon Paul"	"a misguided twentysomething who tries to seduce older women who aren't even in his league"
 "Train Downtown"	"Stewart Rodd"	"a man rightfully too busy advancing his career prospects to spend time with his woman"
 "My Mind in Carolina"	"Taylor James"	"getting away from one's backward past and entering sophistication"
+"The Light of Dying"	"The Machine Against Rage"	"admitting that there are smarter people than you who know what's best and if you care about society, maybe it's time to go, but don't, like, make a messy suicide. Even better than The Name in Killing"
 "Gold of Heart"	"Young Neil"	"someone who understands finding someone with money is important, but only to support a blocked artist like himself."
 
 part nominal fen
@@ -835,8 +835,6 @@ false	"The [j-co] laugh it's [activation of Wesley So] to make fun of the really
 false	"The [j-co] laugh at [activation of whistler's mother] who find true beauty in older females, like, over thirty." [todo: slowin' homer]
 false	"The [j-co] debate that comic strip by [activation of white guys]."
 false	"The [j-co] rave about the wonderfully greasy options at [activation of whole foods]."
-true	"The [j-co] don't like how Denny is always needin[']." [na]
-true	"The [j-co] mock Hunter Savage for being a much bigger wimp than you'd think." [na]
 true	"The [j-co] debate the best time to play a certain MP3." [na 3pm]
 true	"The [j-co] can only WHISPER what Elaine likes." [na anal]
 true	"The [j-co] think McKinney has a robust workout regimen." [na anemic]
@@ -899,10 +897,12 @@ true	"The [j-co] agree Erwin is just a total loser name." [na winner]
 true	"The [j-co] applaud Roxy for being UNCOPYABLE." [na xerox]
 true	"The [j-co] rate Rosie a clear 10." [na zero f]
 true	"The [j-co] agree Rozier is really all that." [na zero l]
+true	"The [j-co] don't like how Denny is always needin[']." [na]
+true	"The [j-co] mock Hunter Savage for being a much bigger wimp than you'd think." [na]
 
 part freak control
 
-table of bad guy worries [xxbgw]
+table of bad guy worries [xxbgw1]
 gad-act
 "'Think you're clever? [activation of Artemis Fowl],' the [bad-guy] chides."
 "The [bad-guy] plans out a trip to [activation of autocratic] for a bulletproof limo."
@@ -953,14 +953,14 @@ gad-act
 "The [bad-guy] complains there's no gadget for census sussin[']." [na]
 "The [bad-guy] loud-whispers how those wimps Willis Bruce and Norris Charles need attending to by his...associates." [na]
 
-table of bad guy worries (continued) [divided so activations are always alphabetical] [xxbgw]
+table of bad guy worries (continued) [divided so activations are always alphabetical] [xxbgw2]
 gad-act
-"The Language Sign flashes but you don't think it changed its message. Just reinforced it." [na]
-"The [bad-guy] gestures at [odd-machine-l of Incident Miner]. '[one of]Yup. It's always when they're being a little too nice, you gotta watch out[or]Some people never learn. Or they just learn wrong[or]Just because that wasn't clever doesn't mean it wasn't sneaky[or]They say THAT's no big deal, I say my snark's no big deal, they still feel ripped off. Sheesh[at random].'" [na]
-"The [bad-guy] laughs sardonically at [odd-machine-l of frenzy feed]. 'Hah, gonna love complaining about that with [random baiter-aligned person].'" [na]
+"[odd-machine of shot screen] blinks a bit before changing its focus." [na]
 "[odd-machine of Twister Brain] spits out a page of data the [bad-guy] speed reads. He mutters 'Pfft. I already sort of knew that. Mostly. Still, need to keep an eye on [the random surveyable person].'" [na]
 "[odd-machine of Witness Eye] swivels around with a VVSSHHKK before changing the focus to [random mainchunk room]." [na]
-"[odd-machine of shot screen] blinks a bit before changing its focus." [na]
+"The [bad-guy] gestures at [odd-machine-l of Incident Miner]. '[one of]Yup. It's always when they're being a little too nice, you gotta watch out[or]Some people never learn. Or they just learn wrong[or]Just because that wasn't clever doesn't mean it wasn't sneaky[or]They say THAT's no big deal, I say my snark's no big deal, they still feel ripped off. Sheesh[at random].'" [na]
+"The [bad-guy] laughs sardonically at [odd-machine-l of frenzy feed]. 'Hah, gonna love complaining about that with [random baiter-aligned person].'" [na]
+"The Language Sign flashes but you don't think it changed its message. Just reinforced it." [na]
 
 [end rooms]
 
