@@ -2091,7 +2091,7 @@ check giving smokable to: [poory pot or wacker weed]
 	if second noun is Pusher Penn, say "[if noun is weed]'Nope. No reneging.'[else]'Nonsense. That's your pay.'[end if]" instead;
 	if second noun is ally stout, say "He mentions you should keep it. A killer buzz might help you be less of a buzz killer. Not that you're much of one." instead;
 	if second noun is Fritz the On:
-		if noun is poory pot, say "'Whoah! That stuff doesn't do it for me any more,' mutters Fritz." instead;
+		if noun is poory pot, say "'Whoah! That was okay when I was younger, but I need something that gets me [activation of moron],' mutters Fritz." instead;
 		say "You look every which way for the Stool Toad, then put your finger to your lips as you hand Fritz the packet. He's surprisingly quick converting it to something smokable and hands you a coin back--a dreadful penny. Proper payment for the cheap stuff. 'Dude! Once I find my lighter I totally won't [activation of high off the hog] from you. Can't wait for my [activation of puff piece]...nothing beats it to start an [activation of trip up]!' You're not sure you want [activation of roll a joint], but Fritz's gratitude seems genuine. 'I'd give you [activation of drag along] if i could light it...' After searching himself for a source of flame, Fritz mumbles an apology and runs off."; [temproom down ground]
 		increment the score;
 		now wacker weed is in lalaland;
@@ -3054,6 +3054,7 @@ face the music	"To face the music is to realize you've come up short."
 Force of Habit	"Force of habit is what causes you to do something with minimal thinking, for better or worse."
 Hard Knock	"A hard knock is physical wear and tear, or being hit hard, versus just knocking at a door."
 herd mentality	"A herd mentality is when everyone follows what everyone else is doing."
+moron	"A moron is a derogatory name for someone who's not very smart."
 No-Nonsense	"No-nonsense means, well, not taking any silliness."
 passing fancy	"A passing fancy is something that distracts you and is fun for a bit but you forget about it. To fancy passing means to want to go quickly, or fancy passing may just be something in sports."
 poke fun	"To poke fun is to make a joke, but poke can mean a lot of things--putter around, meddle, or maybe poke a friend to get their attention."
@@ -11770,6 +11771,8 @@ Force of Habit is a violent concept in conceptville. Understand "habit of force"
 Hard Knock is a firstvis concept in conceptville. Understand "knock hard" as Hard Knock. howto is "[f-t of Pressure Pier]". gtxt is "".
 
 herd mentality is a snarky concept in conceptville. Understand "heard mentality" and "mentality heard" as herd mentality. howto is "listen in Airy Station". gtxt is "mentality heard".
+
+moron is a concept in conceptville. Understand "more on" and "on more" as moron. howto is "give Fritz the poory pot". gtxt is "ON more".
 
 No-Nonsense is a oddverby concept in conceptville. Understand "no nonsense" and "nonsense no" as no-nonsense. howto is "xyzzy". gtxt is "Nonsense? No".
 

@@ -195,13 +195,14 @@ while ( $count <= $#ARGV ) {
     /^-?a$/  && do { $printAllDiff = 1; $count++; next; };
     /^-?db$/ && do { $debug        = 1; $count++; next; };
     ####start editing
-    /^-?e$/   && do { `start \"\" $np $source`; exit(); };
-    /^-?ea$/  && do { `$auxFile`;               exit(); };
-    /^-?ed$/  && do { `$dupeFile`;              exit(); };
-    /^-?em$/  && do { `$matchFile`;             exit(); };
-    /^-?ep$/  && do { `$projMapFile`;           exit(); };
-    /^-?eu$/  && do { `$okUndFile`;             exit(); };
-    /^-?e\?$/ && do { usageEdit();              exit(); };
+    /^-?e$/    && do { `start \"\" $np $source`; exit(); };
+    /^-?ea$/   && do { `$auxFile`;               exit(); };
+    /^-?ed$/   && do { `$dupeFile`;              exit(); };
+    /^-?em$/   && do { `$matchFile`;             exit(); };
+    /^-?ep$/   && do { `$projMapFile`;           exit(); };
+    /^-?eu$/   && do { `$okUndFile`;             exit(); };
+    /^-?e\?$/  && do { usageEdit();              exit(); };
+    /^-?ux\?$/ && do { useExamples();            exit(); };
     #### end editing
     /^-?hp$/ && do { $hidePassed = 1; $count++; next; };
     /^-?nt$/ && do { $printTest  = 0; $count++; next; };
@@ -2603,6 +2604,19 @@ EOT
   exit;
 }
 
+sub useExamples {
+  print <<EOT;
+CURRENT TESTS:
+  conc.pl -pc = runthrough for problems compound
+  conc.pl -pc = runthrough for slicker city
+  conc.pl -pc = runthrough for buck the past
+  conc.pl -t -o -as = check all the Alec Smart games
+  conc.pl -btp -w = write out any [activation of] defining code not present yet
+  conc.pl -btp -l -m (launch/launch minor errors if no major)
+EOT
+  exit;
+}
+
 sub usage {
   print <<EOT;
 CONC.PL usage
@@ -2636,8 +2650,7 @@ CONC.PL usage
 (-)pc = PC only, (-)sc = SC only, (-)btp = BTP only
 (-)a234 = PC and SC and BTP and BTP-spring (default)
 (-)o = check order, (-)r = read concepts order too
-CURRENT TESTS: conc.pl -pc, conc.pl -t -o -as, conc.pl -sc, conc.pl -t -o -sc
-  conc.pl -btp -m -ln (
+(-)ux = show usage examples
 EOT
   exit;
 }
