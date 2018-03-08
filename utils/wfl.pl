@@ -12,6 +12,7 @@
 use strict;
 use warnings;
 use Win32;
+use Win32::Clipboard;
 use List::MoreUtils qw(uniq);
 
 my $dicURLPrint = 1;
@@ -41,7 +42,7 @@ my $overlook     = 0;
 my $override     = 0;
 my $dicURL       = 0;
 my $alphabetical = 1;
-my $flipData;
+my $flipData     = "";
 my @flipAry;
 my $ignoreY     = 0;
 my $ignoreBlank = 0;
@@ -62,6 +63,7 @@ my $urlsAdded         = 0;
 my $warn              = 0;
 my $addToFound        = 0;
 my $addActWords       = 0;
+my $clipboard         = 0;
 
 while ( $count <= $#ARGV ) {
   my $a1 = $ARGV[$count];
@@ -75,11 +77,12 @@ while ( $count <= $#ARGV ) {
     /^-?an$/ && do { $alphabetical = !$alphabetical; $count++; next; };
     /^-?(dl|dlq|dlog)(x)?$/
       && do { $bailLog = ( $a1 =~ /x/ ); dailyLog( $a1 !~ /q/ ); exit; };
-    /^-?el$/ && do { `$sz`;         exit; };
-    /^-?ao$/ && do { alfOut();      exit; };
-    /^-?at$/ && do { alfTrack();    exit; };
-    /^-?ct$/ && do { countChunks(); exit; };
-    /^-??a$/ && do {
+    /^-?el$/ && do { `$sz`; exit; };
+    /^-?(c|b|cb)$/ && do { scourClipboard(); $clipboard = 1; $count++; next; };
+    /^-?ao$/       && do { alfOut();         exit; };
+    /^-?at$/       && do { alfTrack();       exit; };
+    /^-?ct$/       && do { countChunks();    exit; };
+    /^-??a$/       && do {
       alfOut();
       alfTrack();
       print "Sorting went ok for flip.txt and fliptrack.txt.\n";
@@ -144,7 +147,7 @@ while ( $count <= $#ARGV ) {
   }
 }
 
-if ( !$flipData ) {
+if ( !$flipData && ( $#flipAry == -1 ) ) {
   print "You need a word to flip. Without one, I'll just spew diagnostics:\n";
   countChunks();
   countURLs();
@@ -152,7 +155,7 @@ if ( !$flipData ) {
 }
 
 print("NOTE: . converted to ,\n") if $flipData =~ /\./;
-@flipAry = split( /[,\.]/, $flipData );
+@flipAry = split( /[,\.]/, $flipData ) if !$clipboard;
 
 my @flipAry2 = ();
 
@@ -210,7 +213,12 @@ my %dupCheck;
 
 for my $q (@flipAry) {
   if ( ( !$override ) && ( length($q) <= 2 ) ) {
-    print "$q is too short. Use -2 to retry.\n";
+    print ""
+      . (
+      length($q) == 0
+      ? "(skipping blank entry)"
+      : "$q is too short. Use -2 to retry." )
+      . "\n";
     next;
   }
   if ( $dupCheck{$q} ) {
@@ -493,7 +501,7 @@ sub readOneWord {
   }
   else {
     print
-"====found nothing for $flip, so I'm adding nothing to the output or tracking file.\n";
+"====found nothing for $flip\nso I'm adding nothing to the output or tracking file.\n";
   }
   close(B);
 }
@@ -854,6 +862,13 @@ sub fullArray {
   return @tempArray;
 }
 
+sub scourClipboard {
+  my $clip = Win32::Clipboard::new();
+  my $x    = $clip->Get();
+  @flipAry = ( @flipAry, split( /[, \n\r]+/, $x ) );
+
+}
+
 sub usage {
   print <<EOT;
 -2 = override 2-letter word
@@ -862,6 +877,7 @@ sub usage {
 -ao = organizes flip.txt by size
 -ct = count chunks in outfile
 -a = organizes both (-at + -ao) & counts chunks
+-c/-b/-cb = clipboard
 -du = trim duplicates in fliptrack.txt
 -d = find idiom at the free dictionary
 -f = force trying and overlook if it's there
