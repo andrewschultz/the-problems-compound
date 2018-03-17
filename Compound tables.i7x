@@ -771,6 +771,7 @@ false	"The [j-co] wonder if they should [activation of mike drop] from their ext
 false	"The [j-co] recount good times yelling '[activation of mimicry]' at a girl who was just different."
 false	"The [j-co] harbor fantasies of [activation of mollycoddling], who is maybe not as wild as they pretend she is."
 false	"The [j-co] agree [activation of Monte Carlo] doesn't like leaving things to chance or doing the same thing over and over again."
+false	"The [j-co] laud the funky new moves of [activation of morris dancing]."
 false	"The [j-co] agree [activation of mortify] is only iffy if you're easily offended."
 false	"The [j-co] figure there won't be any crowding at [activation of musical chairs]."
 false	"The [j-co] wonder why [activation of nancy spungen] is allowed to hang around more exciting girls."

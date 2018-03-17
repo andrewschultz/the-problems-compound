@@ -195,14 +195,14 @@ while ( $count <= $#ARGV ) {
     /^-?a$/  && do { $printAllDiff = 1; $count++; next; };
     /^-?db$/ && do { $debug        = 1; $count++; next; };
     ####start editing
-    /^-?e$/    && do { `start \"\" $np $source`; exit(); };
-    /^-?ea$/   && do { `$auxFile`;               exit(); };
-    /^-?ed$/   && do { `$dupeFile`;              exit(); };
-    /^-?em$/   && do { `$matchFile`;             exit(); };
-    /^-?ep$/   && do { `$projMapFile`;           exit(); };
-    /^-?eu$/   && do { `$okUndFile`;             exit(); };
-    /^-?e\?$/  && do { usageEdit();              exit(); };
-    /^-?ux\?$/ && do { useExamples();            exit(); };
+    /^-?e$/       && do { `start \"\" $np $source`; exit(); };
+    /^-?ea$/      && do { `$auxFile`;               exit(); };
+    /^-?ed$/      && do { `$dupeFile`;              exit(); };
+    /^-?em$/      && do { `$matchFile`;             exit(); };
+    /^-?ep$/      && do { `$projMapFile`;           exit(); };
+    /^-?eu$/      && do { `$okUndFile`;             exit(); };
+    /^-?e(\?)?$/  && do { usageEdit();              exit(); };
+    /^-?ux(\?)?$/ && do { useExamples();            exit(); };
     #### end editing
     /^-?hp$/ && do { $hidePassed = 1; $count++; next; };
     /^-?nt$/ && do { $printTest  = 0; $count++; next; };

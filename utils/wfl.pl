@@ -156,6 +156,8 @@ if ( !$flipData && ( $#flipAry == -1 ) ) {
 
 print("NOTE: . converted to ,\n") if $flipData =~ /\./;
 @flipAry = split( /[,\.]/, $flipData ) if !$clipboard;
+@flipAry = sort(@flipAry);
+die(@flipAry);
 
 my @flipAry2 = ();
 
@@ -217,8 +219,8 @@ for my $q (@flipAry) {
       . (
       length($q) == 0
       ? "(skipping blank entry)"
-      : "$q is too short. Use -2 to retry." )
-      . "\n";
+      : "$q is too short. Use -2 to retry."
+      ) . "\n";
     next;
   }
   if ( $dupCheck{$q} ) {
