@@ -96,6 +96,13 @@ a quip can be jerky. a quip is usually not jerky.
 
 Include (- Switches z; -) after "ICL Commands" in "Output.i6t".
 
+to decide whether (th - a thing) is moot:
+	if th is in lalaland, yes; [ic]
+	no;
+
+to moot (th - a thing):
+	moot th;
+
 section yes no stub
 
 [this is for custom yes/no responses]
@@ -375,7 +382,7 @@ to say your-mood:
 				say "[your-tix]/4 ticketies";
 		else if terry sally is in pressure pier:
 			say "[if player is in pressure pier]By[else]Go See[end if] Terry";
-		else if wacker weed is in lalaland:
+		else if wacker weed is moot:
 			say "Not much here";
 		else:
 			say "1 task here?";
@@ -479,45 +486,45 @@ brief (indexed text)	what-to-do (rule)
 "great"	wis-rec rule
 
 this is the ducksit rule:
-	move sitting duck to lalaland;
+	moot sitting duck;
 
 this is the knockhard rule:
-	move hard knock to lalaland;
+	moot hard knock;
 
 this is the figurecut rule:
-	move cut a figure to lalaland;
+	moot cut a figure;
 
 this is the fancypass rule:
-	move passing fancy to lalaland;
+	moot passing fancy;
 
 this is the trackbeaten rule:
-	move beaten track to lalaland;
+	moot beaten track;
 
 this is the advnot rule:
-	move advance notice to lalaland;
+	moot advance notice;
 
 this is the cookie-ate rule:
-	move Snap Decision to lalaland;
-	move Something Mean to lalaland;
+	moot Snap Decision;
+	moot Something Mean;
 
 this is the off-ate rule:
-	move guttersnipe to lalaland;
-	move Snap Decision to lalaland;
-	move Complain Cant to lalaland;
+	moot guttersnipe;
+	moot Snap Decision;
+	moot Complain Cant;
 
 this is the brownie-ate rule:
-	move curry favor to lalaland;
-	move salad days to lalaland;
-	move chowderhead to lalaland;
-	move gravy train to lalaland;
-	move much flatter to lalaland;
+	moot curry favor;
+	moot salad days;
+	moot chowderhead;
+	moot gravy train;
+	moot much flatter;
 
 this is the greater-ate rule:
-	move Snap Decision to lalaland;
-	move People Power to lalaland;
+	moot Snap Decision;
+	moot People Power;
 
 this is the wis-rec rule:
-	move received wisdom to lalaland;
+	moot received wisdom;
 
 to unlock-verb (t - text):
 	let j be indexed text;
@@ -722,13 +729,13 @@ definition: a direction (called myd) is viable:
 	if player is in pressure pier: [outer bounds]
 		if myd is south, decide no;
 	if player is in joint strip:
-		if myd is south and Terry Sally is in lalaland, decide no;
+		if myd is south and Terry Sally is moot, decide no;
 	if player is in questions field :
 		if myd is west and circular is not off-stage, decide no;
 	if player is in scheme pyramid and contract-signed is false:
 		if myd is north, decide no;
 	if player is in idiot village:
-		if player has bad face and idol is not in lalaland:
+		if player has bad face and idol is not moot:
 			if myd is east or myd is northeast, decide yes;
 	if player is in service community:
 		if noun is inside or noun is outside or noun is up or noun is down, decide no;
@@ -895,7 +902,7 @@ check throwing it at:
 chapter score
 
 to decide what number is abc:
-	decide on the number of people in lalaland;
+	decide on the number of moot people;
 
 the maximum score is 18.
 
@@ -937,7 +944,7 @@ check requesting the score:
 		say "You've got a task or two, but still not enough to really keep score of what you're doing yet." instead;
 	if mrlp is Dream Sequence, say "This is one of those nightmares where your score may be negative, if that's possible." instead;
 	if mrlp is outer:
-		if Terry Sally is not in lalaland:
+		if Terry Sally is not moot:
 			if your-tix is 4, say "The trail paper is probably what Terry Sally wants." instead;
 			if your-tix > 0, say "You have [your-tix in words] of the four boo-ticketies you need." instead;
 			say "You need to go looking for trouble. I mean, not too much, but enough to show you're not square." instead;
@@ -949,12 +956,12 @@ check requesting the score:
 	if player is in out mist, say "You need to modify the worm ring somehow." instead;
 	if player is in airy station, say "You need to modify the hammer somehow." instead;
 	if Questions Field is unvisited, say "You haven't gotten near the [bad-guy]'s hideout yet. So maybe you need to explore a bit more." instead;
-	if qp-hint is true and quiz pop is not in lalaland, say "You need some way to get past the question/exclamation mark guard combination. It's like--I don't know. A big ol['] pop quiz or something." instead;
-	if player has crocked half and thoughts idol is not in lalaland, say "You haven't found what the crocked half's clue is, either." instead;
+	if qp-hint is true and quiz pop is not moot, say "You need some way to get past the question/exclamation mark guard combination. It's like--I don't know. A big ol['] pop quiz or something." instead;
+	if player has crocked half and thoughts idol is not moot, say "You haven't found what the crocked half's clue is, either." instead;
 	if player is in freak control:
 		say "[if qbc_litany is table of no conversation]You need to get the [bad-guy]'s attention somehow[else]Don't worry. There's no way to 'lose' this conversation[end if].";
-	if bros-left is 0 and boris is in lalaland, say "You've helped the Brothers and [j-co]. It's time to meet the [bad-guy][if score < 20 and player does not have legend of stuff], unless you want to take care of a few special things first[end if]." instead;
-	say "You have currently helped [if bros-left is 3]none[else if bros-left is 0]all[else][3 - bros-left in words][end if] of the Keeper Brothers[if idol is in lalaland], and you've rid Idiot Village of the Thoughts Idol, too![else].[end if]";
+	if bros-left is 0 and boris is moot, say "You've helped the Brothers and [j-co]. It's time to meet the [bad-guy][if score < 20 and player does not have legend of stuff], unless you want to take care of a few special things first[end if]." instead;
+	say "You have currently helped [if bros-left is 3]none[else if bros-left is 0]all[else][3 - bros-left in words][end if] of the Keeper Brothers[if idol is moot], and you've rid Idiot Village of the Thoughts Idol, too![else].[end if]";
 	if number of endfound rooms > 0, say "Also, if you're keeping track of that sort of thing, you've found [number of endfound rooms] bad end[if number of endfound rooms is not 1]s[end if] out of [number of rooms in Bad Ends]: [list of endfound rooms]." instead;
 	the rule succeeds;
 
@@ -970,7 +977,7 @@ before waking:
 
 before waking up:
 	if mrlp is dream sequence:
-		if allow-swears is true and up yours is not in lalaland, say "A voice booms '[activation of up yours]' repeatedly.[paragraph break]";
+		if allow-swears is true and up yours is not moot, say "A voice booms '[activation of up yours]' repeatedly.[paragraph break]";
 		say "[one of]As you wake up, someone walks by and mentions how people who sleep on benches just encourage robbers, and if they had nothing worth taking, that's lazy too[or]You wake up, expecting that horrible person from the first time, again, but there's nothing[stopping].";
 		leave-dream;
 		the rule succeeds;
@@ -1083,10 +1090,10 @@ check dropping (this is the general dropping rule):
 	if noun is cooler or noun is haha:
 		if your-tix >= 4:
 			say "Now you're living on the edge with four ticketies, you're confident you can get away with dropping a drink to avoid getting busted by the Stool Toad.";
-			now noun is in lalaland instead;
-		if Erin is in lalaland:
+			now noun is moot instead;
+		if Erin is moot:
 			say "You don't want to drink it, and nobody else seems to want it. So you throw it away, instead.";
-			now noun is in lalaland instead;
+			now noun is moot instead;
 	if noun is story fish, say "Maybe you could PLAY it at the right moment to annoy someone who deserves it." instead;
 	if noun is mind of peace or noun is relief light or noun is trade of tricks, say "No! This is too valuable. It might not be yours, but someone can use it." instead;
 	if noun is cold contract, say "It's yours. You're bound to [if contract-signed is true]it [']til you sign it or find someone who can[else]return it, now it's signed[end if]. The Labor Child has records in triplicate." instead;
@@ -1108,7 +1115,7 @@ the block buying rule is not listed in any rulebook.
 understand "buy [text]" as a mistake ("If you want a[n-dr] drink, you'll need to talk to Ally Stout.") when player is in Soda Club.
 
 to say n-dr:
-	say "[if cooler is in lalaland or brew is in lalaland]nother[end if]"
+	say "[if cooler is moot or brew is moot]nother[end if]"
 
 check buying:
 	if noun is officer petty, say "He can probably be paid off, but the question is, with what?" instead;
@@ -1155,7 +1162,7 @@ instead of jumping:
 	if player is in round lounge:
 		if player is on person chair, say "[ev-ju]You're actually worried you might hit your head on the ceiling. You consider jumping to grab the crack in the hatch and swing it open Indiana Jones style, but...no. You'd need to push it open a bit more first[one of].[paragraph break]NOTE: if you want to jump off, just EXIT or DOWN works[or][stopping]." instead;
 		say "[ev-ju]You jump for the hatch, but you don't get close." instead;
-	if player is in tension surface, say "[ev-ju][if mush is in lalaland]You can just enter the arch[else]No, it's too far to jump over the mouth[end if]." instead;
+	if player is in tension surface, say "[ev-ju][if mush is moot]You can just enter the arch[else]No, it's too far to jump over the mouth[end if]." instead;
 	if player is in disposed well:
 		if anno-allow is true:
 			say "No, not in the well. To somewhere far away.[paragraph break]";
@@ -1428,7 +1435,7 @@ before smelling when accel-ending:
 
 check smelling (this is the smelling a thing rule):
 	if noun is the player, say "That never works. People who smell bad are used to their own smells, but if you're caught sniffing yourself, whew." instead;
-	if noun is a client, say "[one of]You can't quite catch it--wait--[activation of liverwurst]. But of course[or]Liverwurst, still[stopping][if condition mint is not in lalaland]. Boy, you always need a pill or something after eating that[end if]." instead; [temproom nominal fen]
+	if noun is a client, say "[one of]You can't quite catch it--wait--[activation of liverwurst]. But of course[or]Liverwurst, still[stopping][if condition mint is not moot]. Boy, you always need a pill or something after eating that[end if]." instead; [temproom nominal fen]
 	if noun is poor dirt, say "The dirt doesn't smell of anything much." instead;
 	if noun is poetic wax, say "You're sure you've smelled it before, and it's good and bad and a bit beyond you." instead;
 	if noun is flower wall, say "Smells nice. Cancels out the [if earth of salt is in Vision Tunnel]now-gone salt[else]salt, almost[end if]." instead;
@@ -1444,7 +1451,7 @@ check smelling (this is the smelling a thing rule):
 
 check smelling (this is the smelling a place rule): [see above for people]
 	if player is in Nominal Fen:
-		if silly boris is in lalaland, say "No more queasy smell." instead;
+		if silly boris is moot, say "No more queasy smell." instead;
 		try smelling silly boris instead;
 	if player is in down ground, say "It smells okay here, but maybe that's because you're not too close to Fritz the On." instead;
 	if player is in temper keep, say "[if sal-sleepy is false]You can understand why Volatile Sal is upset about smells, but you don't understand why he thinks it's other people.[else]Much nicer now with the poory pot in the vent.[end if]" instead;
@@ -1652,7 +1659,7 @@ after taking inventory:
 		say "You're expressionless, which is a BUG";
 	now thought of school is mentioned;
 	say ", and there's that thought of school kicking around, too.";
-	if quiz pop is in lalaland and baiter is not in lalaland:
+	if quiz pop is moot and baiter is not moot:
 		say "[line break]You also remember that ring-brass number from the Quiz Pop bottle. It may come in handy.[line break]";
 	continue the action;
 
@@ -1679,9 +1686,9 @@ check kissing:
 chapter talking
 
 check talking to alec:
-	if cookie is in lalaland, say "You take time to discuss to yourself how people are dumber than they used to be before you had that Cutter Cookie." instead;
-	if greater cheese is in lalaland, say "You mutter to yourself about how lame your self-talk used to be." instead;
-	if off cheese is in lalaland, say "You grumble to yourself. You feel real hard to hang with." instead;
+	if cookie is moot, say "You take time to discuss to yourself how people are dumber than they used to be before you had that Cutter Cookie." instead;
+	if greater cheese is moot, say "You mutter to yourself about how lame your self-talk used to be." instead;
+	if off cheese is moot, say "You grumble to yourself. You feel real hard to hang with." instead;
 	say "You've already taken heat for talking to yourself, especially from people who give themselves pep talks before the big game. But with people around or no, it's a bad habit. Socially, at least." instead;
 
 understand "ask [person]" as talking to.
@@ -1792,7 +1799,7 @@ check drinking:
 		if player is not in Questions Field, say "You don't feel any great challenge coming on. That stuff looks potent. You don't want to waste it." instead;
 		if bros-left > 0, say "You think about swigging the pop, but the questions the Brothers have is for help, not facts." instead;
 		now got-pop is true;
-		now quiz pop is in lalaland;
+		now quiz pop is moot;
 		say "Glug, glug. It tastes nasty. But suddenly your mind is whizzing with memories of people who out-talked you, and your realize how they did it and why. The quiz pop dissolves as you drink the last drop, leaving a paper scrap with a number to [activation of brass ring] in case of dissatisfaction and/or great need. It's a catchy number and no problem to remember." instead; [temproom questions field]
 	if noun is haha brew, say "You take a small sip. The foul sour taste is truly unfunny." instead;
 	if noun is cooler wine, say "You take a small sip. It doesn't taste so hot. But it's probably better than breadfruit, whatever that is." instead;
@@ -1841,13 +1848,13 @@ carry out gotoing:
 	if player is in Soda Club:
 		if player has a drinkable, try going north instead;
 	if noun is service community:
-		if idol is in lalaland, say "No need to go back." instead;
+		if idol is moot, say "No need to go back." instead;
 		say "You'll need to navigate that by yourself." instead;
 	if player is in service community, say "So many ways to go! The Service Community expands everywhere. You need to just pick a direction." instead;
 	if noun is service community:
-		say "[if idol is in lalaland]No need, now you've dispatched the Thoughts Idol[else]You need to plan a path to get rid of the Thoughts Idol[end if].";
+		say "[if idol is moot]No need, now you've dispatched the Thoughts Idol[else]You need to plan a path to get rid of the Thoughts Idol[end if].";
 	if bros-left is 0 and mrlg is outer bounds, say "You don't need to go that far back. You're close to Freak Control, you know it." instead;
-	if noun is Soda Club and player is not in joint strip, say "You'll have to walk by that nosy Stool Toad directly[if trail paper is in lalaland], not that you need to go back[end if]." instead;
+	if noun is Soda Club and player is not in joint strip, say "You'll have to walk by that nosy Stool Toad directly[if trail paper is moot], not that you need to go back[end if]." instead;
 	if noun is not a room, say "You need to specify a room or a thing." instead;
 	if noun is court of contempt and reasoning circular is not off-stage, say "You can't go back. You could, but Buddy Best would scream you back outside." instead;
 	if noun is unvisited, say "You haven't visited [noun] yet." instead;
@@ -1964,7 +1971,7 @@ check attacking:
 			ship-off shape ship instead;
 		say "You begin to lash out, but [if know-jerks is true]the [j-g][else][the noun][end if] says 'Hey! What's your problem?' [toad-mb-know] blusters over. 'YOU! THE NEW KID!' You flinch. 'SUDDEN MOVEMENTS, EH? THERE'S ONLY ONE PLACE TO REFORM VIOLENT TYPES LIKE YOU.' You--you should've KNOWN better than to lash out, but...";
 		ship-off Fight Fair instead;
-	if noun is language machine, say "[if wax is in lalaland]After you were so nice to it? That's rough, man[else]No, it needs compassion, here[end if]." instead;
+	if noun is language machine, say "[if wax is moot]After you were so nice to it? That's rough, man[else]No, it needs compassion, here[end if]." instead;
 	if noun is jerks or noun is a client:
 		if allow-swears is true, say "It'd take fifteen minutes to [activation of jerk off], and with seven, why, you'd feel indecent afterwards." instead; [temproom nominal fen]
 		say "You've been suckered into lashing out before, but these guys--well, you've faced more annoying, truth be told." instead;
@@ -2035,7 +2042,7 @@ before giving to (this is the warn against giving to nonperson rule):
 			now give-obj-warn is true;
 
 before giving to the rogue arch (this is the arch not mush rule):
-	if mouth mush is in lalaland, say "You've paid your way through. You can just enter the arch." instead;
+	if mouth mush is moot, say "You've paid your way through. You can just enter the arch." instead;
 	say "The rogue arch hasn't paid any attention to you, so you give [the noun] to the mouth mush instead.";
 	try giving noun to mouth mush instead;
 
@@ -2087,15 +2094,15 @@ check giving smokable to: [poory pot or wacker weed]
 	if second noun is Sid Lew, say "That might mellow him out, but it also might start him lecturing on anti-pot laws. Which you don't want, regardless of his stance." instead;
 	if second noun is Sly Moore, say "'That might help my audience enjoy my tricks more, but I'd wind up doing [']em a bit worse.'" instead;
 	if second noun is Lee Bull, say "Lee shrugs helplessly. That's not active enough to disrupt Sid's barrage of chatter." instead;
-	if second noun is faith or second noun is grace, say "That's probably not the sort of incense or decoration they want to use[if fourth-blossom is in lalaland]. You restored the blossom, anyway[else]. The bowl seems more for flowers[end if]." instead;
+	if second noun is faith or second noun is grace, say "That's probably not the sort of incense or decoration they want to use[if fourth-blossom is moot]. You restored the blossom, anyway[else]. The bowl seems more for flowers[end if]." instead;
 	if second noun is Pusher Penn, say "[if noun is weed]'Nope. No reneging.'[else]'Nonsense. That's your pay.'[end if]" instead;
 	if second noun is ally stout, say "He mentions you should keep it. A killer buzz might help you be less of a buzz killer. Not that you're much of one." instead;
 	if second noun is Fritz the On:
 		if noun is poory pot, say "'Whoah! That was okay when I was younger, but I need something that gets me [activation of moron],' mutters Fritz." instead;
 		say "You look every which way for the Stool Toad, then put your finger to your lips as you hand Fritz the packet. He's surprisingly quick converting it to something smokable and hands you a coin back--a dreadful penny. Proper payment for the cheap stuff. 'Dude! Once I find my lighter I totally won't [activation of high off the hog] from you. Can't wait for my [activation of puff piece]...nothing beats it to start an [activation of trip up]!' You're not sure you want [activation of roll a joint], but Fritz's gratitude seems genuine. 'I'd give you [activation of drag along] if i could light it...' After searching himself for a source of flame, Fritz mumbles an apology and runs off."; [temproom down ground]
 		increment the score;
-		now wacker weed is in lalaland;
-		now fritz is in lalaland;
+		now wacker weed is moot;
+		now fritz is moot;
 		it-take dreadful penny;
 		the rule succeeds;
 
@@ -2107,7 +2114,7 @@ check giving drinkable to:
 		unless erin-hi is talked-thru or Erin is babbled-out, say "Erin ignores your offer. Perhaps if you talked to her first, she might be more receptive." instead;
 		say "Erin looks outraged. 'This?! Are you trying to make me boring like you?! Plus you got that drink for free, so some GIFT! HONESTLY! After I opened my heart to you!' She takes your drink and sloshes it in your face before running off.";
 		wfak;
-		now noun is in lalaland;
+		now noun is moot;
 		activate-drink-check;
 		chase-erin instead;
 	say "This is a BUG. You shouldn't be able to carry liquor out of the Soda Club." instead;
@@ -2122,7 +2129,7 @@ check giving bad face to:
 
 check giving gesture token to:
 	if second noun is weasel:
-		now gesture token is in lalaland;
+		now gesture token is moot;
 		annotize gesture token;
 		now player has the pocket pick;
 		set the pronoun it to weasel;
@@ -2144,8 +2151,8 @@ check giving burden to:
 	if second noun is mush:
 		if burden-signed is true:
 			say "With a horrible SCHLURP, the mouth mush vacuums the signed burden away from you. You hear digestive noises, then a burp, and an 'Ah!'[paragraph break]'That'll do. Okay, you stupid arch, stay put. And YOU--wait a few seconds before walking through. I'm just as alive as you are.' You're too stunned to step right away, and after the mush burbles into plain ground, you take a few seconds to make sure the Rogue Arch is motionless.";
-			now burden is in lalaland;
-			now mouth mush is in lalaland;
+			now burden is moot;
+			now mouth mush is moot;
 			set the pronoun it to rogue arch;
 			the rule succeeds;
 		say "'It's not properly signed! And it's not officially a proof [']til it is!'" instead;
@@ -2172,7 +2179,7 @@ check giving the condition mint to:
 	if second noun is buddy best, say "'Look, I know from dinner mints. I steal [']em all the time when I go out to eat. I deserve to. And that's a pretty lame dinner mint.'" instead;
 	if second noun is art or second noun is phil, say "He sniffs. 'I'm sure it's perfectly tasty for SOME people.'" instead;
 	if second noun is language machine, try inserting mint into machine instead;
-	if second noun is grace goode, say "Refreshing mints belong in a bowl and all, but the googly bowl [if fourth-blossom is in lalaland]already has[else]needs[end if] something a bit more." instead;
+	if second noun is grace goode, say "Refreshing mints belong in a bowl and all, but the googly bowl [if fourth-blossom is moot]already has[else]needs[end if] something a bit more." instead;
 	if second noun is labor child, say "He's too big to get excited over candy. Especially cheap candy like that." instead;
 	if second noun is a bro, say "'Mmm. That might help me feel a bit better. But not for long enough. I...well, save it for someone who'd appreciate its taste.'" instead;
 	if second noun is terry sally, say "'Ooh, brave. ANYONE can steal a cheap mint.'" instead;
@@ -2181,7 +2188,7 @@ check giving the condition mint to:
 	if second noun is mentality crowd, say "You did pretty well, but you have no idea how to split the one mint among such a large crowd." instead;
 	if second noun is sly moore:
 		if talked-to-sly is true, say "Maybe it would've been a good way to break the ice, but he doesn't need that now." instead;
-		now mint is in lalaland;
+		now mint is moot;
 		now talked-to-sly is true;
 		say "'Oh, hey, thanks! I'm Sly Moore.'" instead;
 	if second noun is not a person, say "No way for the mint to be digested." instead;
@@ -2195,7 +2202,7 @@ check giving the condition mint to:
 	if suspect entry is 1, say "[second noun] is a bit too nervous around you, as you already figured his secret." instead;
 	say "[second noun] accepts your offer gratefully, and you discuss the list with him. 'Oh dear,' he says, 'I must be [clue-letter of second noun].'[paragraph break]You assure him his secret is safe with you.";
 	now second noun is minted;
-	now mint is in lalaland;
+	now mint is moot;
 	now suspect entry is 2;
 	the rule succeeds;
 
@@ -2204,7 +2211,7 @@ check giving minimum bear to (this is the fun stuff if you give the bear to some
 	if second noun is Fritz the On:
 		say "'Dude! Minimum Bear!' he says, snatching it from you. 'I--I gotta give you something to thank you.' And he does. 'Here's a boo tickety I got for, like, not minding right. I've got so many, I won't miss it.'";
 		now Fritz has minimum bear;
-		if Terry Sally is in lalaland, say "[line break]Fritz starts mumbling about the generosity of someone coming back to do nice things for the sake of being nice and starts complaining so much about how people DON'T do this sort of thing enough, you wind up wishing you hadn't." instead;
+		if Terry Sally is moot, say "[line break]Fritz starts mumbling about the generosity of someone coming back to do nice things for the sake of being nice and starts complaining so much about how people DON'T do this sort of thing enough, you wind up wishing you hadn't." instead;
 		if your-tix >= 4:
 			say "[line break]Before you can decline Fritz's offer because you have too many already, he begins mumbling something about a revolution of the oppressed. It's enough to alert the Stool Toad.";
 		if your-tix is 3:
@@ -2227,13 +2234,13 @@ check giving tickety to:
 check giving the trail paper to:
 	if second noun is Fritz, say "'That's not the kind of trips I go in for, dude.'" instead;
 	if second noun is Terry Sally:
-		now trail paper is in lalaland;
+		now trail paper is moot;
 		choose row with response of terry-west in table of Terry Sally talk;
 		now enabled entry is 0;
 		terry-sug;
 		say "'Eh, you've done enough. Here, I'll shred the evidence. So you don't get caught later. Say, after all that goofing around, you might be hungry. Look around in Meal Square. There's some food that'll fix you quick. Need anything else? No? Okay.' He walks off.";
 		unlock-verb "figure";
-		now Terry Sally is in lalaland;
+		now Terry Sally is moot;
 		annotize erin sack;
 		annotize ally stout;
 		the rule succeeds;
@@ -2247,14 +2254,14 @@ check giving dreadful penny to:
 	if second noun is faith or second noun is grace, say "'We need no monetary donations. Big or small. [goo-heal].'" instead;
 	if second noun is pusher penn:
 		now player has poory pot;
-		now penny is in lalaland;
+		now penny is moot;
 		say "'Most excellent! It's not the profit so much as the trust. Now, you look like you haven't tried the good herb before. No offense. So let's start you with the...' he sniffs, 'aromatic stuff. It's poor-y pot, but it'll do. Seller assumes no liability if user is too wussy to keep smoke in lungs for effective amount of time, yada, yada.' You try to say you weren't intending to smoke it, anyway.";
 		increment the score;
 		set the pronoun it to the poory pot;
 		the rule succeeds;
 
 to say goo-heal:
-	say "The googly bowl [unless fourth-blossom is in lalaland]must be[else]is[end if] healed, and that is most important"
+	say "The googly bowl [unless fourth-blossom is moot]must be[else]is[end if] healed, and that is most important"
 
 check giving quiz pop to: [couldn't figure where to put this]
 	say "No. The pop seems...unusual. You worked to get it." instead;
@@ -2270,8 +2277,8 @@ check giving the fish to:
 
 check giving mind of peace to:
 	if second noun is Brother Blood:
-		now mind of peace is in lalaland;
-		now brother blood is in lalaland;
+		now mind of peace is moot;
+		now brother blood is moot;
 		say "Brother Blood takes the mind and gazes at it from all different angles. He smiles. 'Yeah...yeah. Some people are just mean. Nothing you can do to brush [']em off but brush [']em off. I mean, I knew that, but I KNOW it now.'[paragraph break]'Thank you!' he says, squeezing your arm a bit too hard. 'Oops, sorry, let's try that again.' The other arm works better. 'I'm--I'm not just good for snarling and yelling at people and pushing them around, like the [bad-guy] said. I'm more than that. So I guess I need to go find myself or something.'";
 		check-left;
 		annotize brother blood;
@@ -2279,8 +2286,8 @@ check giving mind of peace to:
 
 check giving trade of tricks to:
 	if second noun is Brother Big:
-		now brother big is in lalaland;
-		now trade of tricks is in lalaland;
+		now brother big is moot;
+		now trade of tricks is moot;
 		say "'Wow! All these things I never learned before! Was it really--did people really--yes, they did.' You read through with him, [if trade of tricks is examined]re-[end if]appreciating all the things you'd fallen for and won't again.[paragraph break]'I won't be suckered again. Well, not as badly, or as often.'";
 		check-left;
 		annotize brother big;
@@ -2299,7 +2306,7 @@ check giving money seed to:
 		increment the score;
 		now player has the fourth-blossom;
 		set the pronoun it to the business monkey;
-		now money seed is in lalaland;
+		now money seed is moot;
 		the rule succeeds;
 
 to say abr:
@@ -2314,7 +2321,7 @@ check giving cold contract to:
 
 check giving the cold contract to the business monkey:
 	if contract-signed is true, say "You already did." instead;
-	if money seed is not in lalaland, say "The monkey looks at it, smiles and shrugs. It seems to trust you, but not enough to sign a contract, yet." instead;
+	if money seed is not moot, say "The monkey looks at it, smiles and shrugs. It seems to trust you, but not enough to sign a contract, yet." instead;
 	say "You feel only momentary guilt at having the business monkey sign such a contract. After all, it binds the [i]person[r] to the terms. And is a monkey a person? Corporations, maybe, but monkeys, certainly not, despite any genetic similarities! The monkey eagerly pulls a pen from an inside pocket, then signs and returns the contract.";
 	set the pronoun it to the business monkey;
 	increment the score;
@@ -2323,15 +2330,15 @@ check giving the cold contract to the business monkey:
 
 check giving the cold contract to the labor child:
 	if contract-signed is false, say "'Trying to exploit a defenseless kid! Shame on you! I need that signature, and I need it NOW!'" instead;
-	now cold contract is in lalaland;
+	now cold contract is moot;
 	say "'Excellent! You now have a customer in your pipeline. You will receive 5% of whatever he buys from us in the future. Oh, and you may go IN to the back room.'" instead;
 
 section giving items from north
 
 check giving relief light to:
 	if second noun is Brother Soul:
-		now relief light is in lalaland;
-		now brother soul is in lalaland;
+		now relief light is moot;
+		now brother soul is moot;
 		say "'Thank you! My soul is less heavy and dark now. I believe I have a higher purpose than just blocking people.'";
 		check-left;
 		annotize brother soul;
@@ -2345,8 +2352,8 @@ check giving Reasoning Circular to:
 	if second noun is dutch or second noun is turk or second noun is child, say "Oh, he's long since mastered THAT." instead;
 	if second noun is Stool Toad, say "'BASIC TRAINING! I completed that long ago. Some of my colleagues haven't, yet.'" instead;
 	if second noun is Officer Petty:
-		now Officer Petty is in lalaland;
-		now the Reasoning Circular is in lalaland;
+		now Officer Petty is moot;
+		now the Reasoning Circular is moot;
 		say "A tear starts to form in Officer Petty's eye. 'Really? I...well, this definitely isn't bribery! I've cultivated a nice [activation of scofflaw] at people who get simple stuff wrong, but I always felt there was more. I could have more complex reasons to put people down. I really CAN follow a [activation of career threatening]! I CAN be clever and still play the Maybe I Didn't Go to a Fancy School card. And wow, looking at this map, it's right nearby in the [activation of plainclothes]. Thank...' He looks at the Reasoning Circular again. 'Wait, wait. Maybe you wouldn't have gotten anything out of this invitation anyway. So it's not so generous.' Officer Petty beams at his newfound profundity before shuffling off."; [temproom judgment pass]
 		increment the score;
 		annotize officer petty;
@@ -2363,9 +2370,9 @@ check giving trick hat to:
 		say "[line break]'Can...can I keep the hat?' You nod. It was sort of tough to carry, and it didn't really suit you. Sly shakes your hand. 'Thanks so much! Oh, hey, here's a gift for you. From a far-off exotic place. A trap-rattle.'[paragraph break]You accept it without thought. Sly tries a trick with the hat (got it,) then without it (almost, but much better,) then excuses himself to brush up on magic tricks.";
 		wfak;
 		it-take trap rattle;
-		now trick hat is in lalaland;
+		now trick hat is moot;
 		increment the score;
-		now sly moore is in lalaland;
+		now sly moore is moot;
 		say "[line break]And once you take a step, thought is hard. Rattle, rattle. But you can't give it back, now. Still, maybe it'll be more useful for you than Sly.";
 		annotize Sly Moore;
 		the rule succeeds;
@@ -2405,9 +2412,9 @@ check giving the trap rattle to: [you can't get the trap rattle until you've got
 		say "[line break]Lee Bull shakes the rattle some more. You see something fall out. '[activation of mass production],' says Lee. 'It helps people with bottled up ideas see their way through to organize them, with their unique life view! I better star some [activation of assembly line] before it decays...' Lee begins to write. And write. He hands you the first page--and wow! All the clever life hacks you learn just from the introduction! It's too much, though. You fall asleep as your mind processes it all, with incidents from your own life suddenly making sense."; [temproom truth home]
 		wfak;
 		say "[line break]When you wake up, Lee Bull has written several copies of a small, but fully bound book. He gives it to you and shakes your hand. THE TRADE OF TRICKS, it's called. '[activation of thp] is particularly intoxicating,' he says, 'but I'm too tired to explain it.' He leaves to his own private quarters."; [temproom truth home]
-		now Lee Bull is in lalaland;
-		now Sid Lew is in lalaland;
-		now trap rattle is in lalaland;
+		now Lee Bull is moot;
+		now Sid Lew is moot;
+		now trap rattle is moot;
 		it-take trade of tricks;
 		increment the score;
 		annotize lee bull;
@@ -2439,7 +2446,7 @@ check giving legend of stuff to:
 check giving crocked half to:
 	if second noun is idol, say "The idol seems to shake a bit as you wave the crocked half at it." instead;
 	if player is in out mist, say "Maybe you could've used the crocked half earlier, somewhere." instead;
-	if thoughts idol is in lalaland:
+	if thoughts idol is moot:
 		say "The crocked half is useless now you've beaten the idol, but nah, keep it. It has sentimental value";
 	else:
 		say "[if second noun is a baiter-aligned person]Don't let it fall in the wrong hands. You went through a lot to get it[else]It's yours, to figure what to do with[end if]";
@@ -2481,7 +2488,7 @@ check giving (this is the default for giving to people organized by room rule) :
 		if noun is token, say "'No, I don't want [if noun is gesture token]it back. I have plenty. You might need it[else]that. Or anything from you, really. I'm here to help YOU[end if].'" instead; [second noun must be Guy Sweet]
 		say "There's some awkward gesturing before and after you realize Guy doesn't particularly need or want [the noun]." instead;
 	if second noun is arch: [tension surface]
-		if mush is in lalaland, say "The arch doesn't react. Which is sort of a good thing." instead;
+		if mush is moot, say "The arch doesn't react. Which is sort of a good thing." instead;
 		say "As you try, the mush coughs, somehow." instead;
 		try giving noun to mush instead;
 	if second noun is weasel, say "'I don't know what I can do with that. I suppose I could re-sell it at a markup, if it were worth anything, which I don't think it is. No offense.'" instead; [variety garden]
@@ -2511,7 +2518,7 @@ check giving (this is the default for giving to people organized by room rule) :
 	if second noun is Brother Big, say "'Alas, that is not educational enough for me.'" instead;
 	if second noun is Brother Soul, say "'No, I need something to dispel this sad darkness in my soul.'" instead;
 	if second noun is language machine:
-		if poetic wax is in lalaland, say "[no-pos]." instead;
+		if poetic wax is moot, say "[no-pos]." instead;
 		say "The language machine has no arms, so you decide to PUT it ON.";
 		try putting noun on language machine instead;
 	if second noun is Officer Petty, say "'NO BRIBERY! Besides, that's not worth anything. But, uh, it's perfectly legal to give me something that might help my career.'" instead;
@@ -2588,7 +2595,7 @@ understand "dig" as diging.
 does the player mean diging the poor dirt: it is likely.
 does the player mean diging the earth of salt: it is likely.
 does the player mean diging the mouth mush: it is likely.
-does the player mean diging the t-surf when mouth mush is in lalaland: it is likely.
+does the player mean diging the t-surf when mouth mush is moot: it is likely.
 
 dirt-dug is a truth state that varies.
 
@@ -2626,9 +2633,9 @@ carry out diging:
 		choose row with response of weasel-sign in table of weasel talk;
 		now weasel is not babbled-out;
 		now enabled entry is 1;
-		now earth of salt is in lalaland;
+		now earth of salt is moot;
 		set the pronoun it to proof of burden;
-		now pocket pick is in lalaland;
+		now pocket pick is moot;
 		choose row with response of weasel-pick-oops in table of weasel talk;
 		now permit entry is 1;
 		choose row with response of weasel-pick-hey in table of weasel talk;
@@ -2836,7 +2843,7 @@ definition: a thing (called x) is explainable:
 	if x is a direction, decide no;
 	if debug-state is true and x is off-stage, decide yes; [it is going on stage at some point]
 	if x is in bullpen, decide yes; [bullpen is for items 'lost' during sleep]
-	if x is in lalaland, decide yes;
+	if x is moot, decide yes;
 	if x is in conceptville and debug-state is true, decide yes; [can it ever be in play? In debug, we need to know]
 	if x is part of towers of hanoi or x is part of Fly House or x is part of games counter or x is games counter or x is games, decide no;
 	if x is t-surf, decide no;
@@ -2934,7 +2941,7 @@ Rehearsal Dress	"A dress rehearsal is the final staging of the play before the a
 chase paper	"A paper chase is excessive paperwork. In this case, work not strictly needed to reach Cute Percy."	"I love puns riffing on bureaucracy, and this was a good one. I'm pleased with this puzzle because it's a simple parity one based on actual physical reality. Too often you can go diagonally 1.4 times as fast as straight. This is neat for Reti's endgame puzzle, but not physically realistic. And I liked having a realistic puzzle in the middle of the abstract murk." [start of chipper wood]
 bad face	"The bad face will help you face a bad...something. Also, 'bad' in the Michael Jackson sense of, I did/can do something cool."	"This is meant to show Alec's emotional development. He's figured out something tough, and he's confident about that. But he also doesn't need this to go through the Compound." [start of the belt below]
 energy waist	"To waste energy is to do something without positive result. Or it can mean a machine is inefficient."
-Insanity Terminal	"Terminal insanity is having no chance to regain sanity[if terminal is in lalaland]. As for the puzzle: it is inspired by Jim Propp's Self-Referential Aptitude Test, which is well worth a look (http://faculty.uml.edu/jpropp/srat.html is one place to find it,) but a good deal more complex[end if]."	"I always wanted to write a puzzle like this, but yeah, in release 1, it was dropped in there."
+Insanity Terminal	"Terminal insanity is having no chance to regain sanity[if terminal is moot]. As for the puzzle: it is inspired by Jim Propp's Self-Referential Aptitude Test, which is well worth a look (http://faculty.uml.edu/jpropp/srat.html is one place to find it,) but a good deal more complex[end if]."	"I always wanted to write a puzzle like this, but yeah, in release 1, it was dropped in there."
 crocked half	"Half-crocked means drunk."	"This was a bugging doodle for a while until I found something better. You need a lot of placements like that, sometimes." [start of A Great Den]
 legend of stuff	"The Stuff of Legend means a book about great tales of yore, as opposed to the scribble-hint-book you get."	"This was another thing that sounded great but didn't seem to fit in anywhere--or seemed too obvious--until I decided to go ahead with the puzzle. It appeared in release 2, taking the functionality of the notes crib."
 notes crib	"To crib notes is to copy from someone who was at a lecture."	--
@@ -3014,7 +3021,7 @@ Silly Boris	"Bore us silly."	--
 Warm Luke	"Lukewarm is not really warm."	--
 Warner Dyer	"A dire warner has a message for you to keep away."	--
 Wash White	"To whitewash is to wipe clean."	--
-Cute Percy	"To persecute someone is to make them suffer for who they are[if cute percy is in lalaland]and right per se means literally right, but that's not what matters[end if]."	"Percy was the Assassination Character pre-release 3, but the problem is, he never got close to killing anyone. Still, the name gave me laughs." [start of chipper wood]
+Cute Percy	"To persecute someone is to make them suffer for who they are[if cute percy is moot]and right per se means literally right, but that's not what matters[end if]."	"Percy was the Assassination Character pre-release 3, but the problem is, he never got close to killing anyone. Still, the name gave me laughs." [start of chipper wood]
 Faith Goode	"Good faith."	"Coding Faith and Grace as doing the same thing was something I didn't do in release 1, but then it was a matter of saying if the second noun is Grace, then the second noun is Faith. Or is it the other way around? Well, in either case, if I'd given myself the time, I'd have figured it out." [start of classic cult]
 Grace Goode	"Good grace."	--
 Lee Bull	"A bully is someone who hurts others physically or emotionally. The opposite of Lee Bull. Sid Lew is referring to 'bull' as his last name as what is to be made fun of. Also, fool-proof means no way to break it, but a Proof Fool could be someone who relies too much on a sure thing before doing anything."	"I kept the Truth Home names abstract and was pleased when Lee Bull dropped out." [start of truth home]
@@ -3307,6 +3314,7 @@ mike drop	"Mike drop is an Internet term meaning you've won the argument and the
 mimicry	"Mimicry is imitating someone else."
 mollycoddling	"Mollycoddling is being overprotective of someone."
 monte carlo	"Monte Carlo is a place where you can go to gamble. A Monte Carlo simulation also runs random events many times when it is too hard to calculate probability directly."
+morris dancing	"Morris dancing from medieval times, and thus not very trendy and hip."
 mortify	"To mortify someone is to shock their sensibilities."
 musical chairs	"Musical chairs is a game where X people run in circles [']til the music stops, then they try for X-1 chairs, until X is 1."
 nancy spungen	"Nancy Spungen was Sid Vicious's lover. He was the bassist for the Sex Pistols."
@@ -3631,7 +3639,7 @@ Meal Square	"A square meal is a full meal."
 Down Ground	"Ground down means worn out."
 Joint Strip	"A strip joint is a gentlemen's club. Under 18 are not let in, and it's not just because of alcohol."
 Soda Club	"Club soda is tonic water e.g. water with bubbles and no flavoring."
-Nominal Fen	"Phenomenal means really awesome. But the fen is pretty plain[if boris is in lalaland]. Marshmallow means soft[end if]."
+Nominal Fen	"Phenomenal means really awesome. But the fen is pretty plain[if boris is moot]. Marshmallow means soft[end if]."
 Chipper Wood	"A wood chipper puts in logs and spits out small wood chips. It's hard to be chipper (happy) if you get stuck in one." [west-ish]
 Disposed Well	"To be well disposed is to be agreeable."
 Truth Home	"A home truth is an unpleasant fact about oneself."
@@ -3846,7 +3854,7 @@ carry out verbing:
 	say "[2da][b]TALK/T[r] talks to the only other person in the room. [b]TALK TO X[r] is needed if there is more than one.[line break]";
 	if "anno" is unlock-verified or anno-check is true:
 		say "[2da][b]ANNO[r] toggles annotations, which are currently [on-off of anno-check], [b]NOTE[r] lets you recall an area or item, and [b]JUMP[r] will send you between the director's cut area and the main area.";
-	if jerk-who-short is true and silly boris is not in lalaland:
+	if jerk-who-short is true and silly boris is not moot:
 		say "[2da][b]WHO[r] tells the [j-co]['] names. [b]THINK[r] reminds you who likes what. [b]SKIP[r] skips to the next jerk to accuse.";
 		say "[2da][b]SHORT[r] abbreviates the conversation topics.";
 	if know-babble is true:
@@ -4065,11 +4073,11 @@ check going:
 	if the room noun of location of player is nowhere, say "You can't go that way." instead;
 
 to check-all-brush:
-	if sagebrush is in lalaland:
-		if brush with greatness is not in lalaland:
+	if sagebrush is moot:
+		if brush with greatness is not moot:
 			say "The more you look at the brush, the more you realize you'll never achieve any [activation of brush with greatness]. Time to [if pocket pick is off-stage]see what the Weasel wants[else]get along with whatever you need to do[end if]."; [temproom variety garden]
 		continue the action;
-	if off brush is examined and back brush is examined and aside brush is examined and up brush is in lalaland:
+	if off brush is examined and back brush is examined and aside brush is examined and up brush is moot:
 		say "Wow! You know so much about brush, you're a [activation of sagebrush], now. The knowledge is a bit dry, but you're glad to have it, all the same."; [temproom variety garden]
 
 volume dialogues
@@ -4098,7 +4106,7 @@ check talking to (this is the make sure of small talk rule):
 		else:
 			say "[babble-recap entry][line break]";
 		if there is a babble-reward entry:
-			say "[line break]You also got a [babble-reward entry], which you [if babble-reward entry is in lalaland]dealt with, yay[else]need to figure what to do with[end if].";
+			say "[line break]You also got a [babble-reward entry], which you [if babble-reward entry is moot]dealt with, yay[else]need to figure what to do with[end if].";
 		the rule succeeds;
 	now anything-said-yet is false;
 
@@ -4414,7 +4422,7 @@ to say long-school:
 
 check examining thought of school:
 	if accel-ending:
-		if brownie is in lalaland:
+		if brownie is moot:
 			say "Boy! School will be a lot more fun now that you can learn whom to please and not be grumpy.";
 		else:
 			say "Boy! There were some real bums at school, but you think you know how to deal with them, now.";
@@ -4464,7 +4472,7 @@ instead of doing something with an expr:
 	say "You can't do much with or to the [noun]. It's part of you.";
 
 to say bad-eaten:
-	say "[random badfood in lalaland]"
+	say "[random moot badfood]"
 
 [start rooms]
 
@@ -4686,33 +4694,33 @@ to move-puzzlies-and-jerks:
 	move-puzzlies;
 
 to send-bros:
-	move brother big to lalaland;
-	move brother soul to lalaland;
-	move brother blood to lalaland;
+	moot brother big;
+	moot brother soul;
+	moot brother blood;
 
 to move-puzzlies:
 	if in-beta is true:
 		say "DEBUG NOTE: if you see someone or something astray, let me know.";
 	now sal-sleepy is true;
-	move Lee Bull to lalaland;
-	move Sid Lew to lalaland;
-	move harmonic phil to lalaland;
-	move long string to lalaland;
-	move poory pot to lalaland;
-	move art fine to lalaland;
-	move poetic wax to lalaland;
-	move officer petty to lalaland;
-	move sly moore to lalaland;
-	move money seed to lalaland;
-	move cold contract to lalaland;
-	move trade of tricks to lalaland;
-	move wacker weed to lalaland;
-	move Fritz the On to lalaland;
-	move Terry Sally to lalaland;
-	move trail paper to lalaland;
-	move boo tickety to lalaland;
-	move fourth-blossom to lalaland;
-	move reasoning circular to lalaland; [this blocks Court of Contempt]
+	moot Lee Bull;
+	moot Sid Lew;
+	moot harmonic phil;
+	moot long string;
+	moot poory pot;
+	moot art fine;
+	moot poetic wax;
+	moot officer petty;
+	moot sly moore;
+	moot money seed;
+	moot cold contract;
+	moot trade of tricks;
+	moot wacker weed;
+	moot Fritz the On;
+	moot Terry Sally;
+	moot trail paper;
+	moot boo tickety;
+	moot fourth-blossom;
+	moot reasoning circular; [this blocks Court of Contempt]
 
 section write-undo
 
@@ -4777,7 +4785,7 @@ carry out knockharding:
 to knock-hard:
 	now jump-level is 2;
 	move player to pressure pier;
-	now gesture token is in lalaland;
+	now gesture token is moot;
 	open-babble;
 
 section figure a cut [get to the Nominal Fen]
@@ -4805,7 +4813,7 @@ carry out figureacuting:
 	open-babble;
 
 to disable-ticketies:
-	now minimum bear is in lalaland;
+	now minimum bear is moot;
 	now off-the-path is true;
 	now your-tix is 4;
 	now caught-sleeping is true;
@@ -4814,9 +4822,9 @@ to figure-cut:
 	now jump-level is 3;
 	disable-ticketies;
 	move player to Nominal Fen;
-	now trail paper is in lalaland;
-	now Terry Sally is in lalaland;
-	now gesture token is in lalaland;
+	now trail paper is moot;
+	now Terry Sally is moot;
+	now gesture token is moot;
 	open-babble;
 
 chapter trackbeatening [lets you know the jerks solution]
@@ -4837,7 +4845,7 @@ to say periodly:
 		say ".";
 
 carry out trackbeatening:
-	if boris is in lalaland, say "You already figured the [j-co]['] secrets, but after that episode, you realize that other people's secrets may be there, if you know where to look. That leaves potential for abuse but also it's good to know everyone else isn't ten times as impervious as you to misfortune. Wait, no, not strictly good. But you feel less odd." instead;
+	if boris is moot, say "You already figured the [j-co]['] secrets, but after that episode, you realize that other people's secrets may be there, if you know where to look. That leaves potential for abuse but also it's good to know everyone else isn't ten times as impervious as you to misfortune. Wait, no, not strictly good. But you feel less odd." instead;
 	if secrets-open is true, say "You've already made a commitment to track the beaten[if finger index is not off-stage], and you can re-read everyone in full on the Finger Index back in Accountable Hold[else], though you haven't uncovered any specific evidence, yet[end if]." instead;
 	say "[activation of beaten track][if finger index is examined]You take some time to track the possible names on the Finger Index. And you remember pieces of conversation from the [j-co]. One guy was too hesitant, or too eager, to dismiss this or that, or he knew too much about this subject, or played too dumb about that subject. Oh goodness. You've missed or dismissed those clues before in other situations. And you're a bit embarrassed the Labor Child figured things out so young. But--well, there were clues. You see that now[else]Nothing happens, or seems to. But you just feel you're more open to what people may be saying, or doing, and putting clues together so you're not in the dark about certain things[end if][periodly]"; [temproom general concepts]
 	now secrets-open is true;
@@ -4865,7 +4873,7 @@ to fancy-pass:
 	now jump-level is 4;
 	move player to questions field;
 	now the score is 16;
-	now gesture token is in lalaland;
+	now gesture token is moot;
 	open-babble;
 
 section notice advance [skips you to the endgame before the BM, Nominal Fen solved]
@@ -4895,7 +4903,7 @@ to notice-advance:
 	send-bros;
 	now the score is 17;
 	now last notified score is 17;
-	now gesture token is in lalaland;
+	now gesture token is moot;
 	open-babble;
 
 section brookbabbling
@@ -5016,7 +5024,7 @@ to babble-out (pe - a person):
 			if there is a babble-reward entry:
 				now player has babble-reward entry;
 				if pe is word weasel:
-					now gesture token is in lalaland;
+					now gesture token is moot;
 			if pe is buddy best:
 				move player to questions field;
 			if ever-babbled is false:
@@ -5049,12 +5057,12 @@ Ally Stout	"He mentions all the places he's been and all the exciting people he'
 Erin Sack	"She--well, she seems to be making sense, but you feel obliged to agree with her without thinking in order to show her you're thoughtful. You notice she doesn't have a drink."	"She doesn't seem up for small talk, but she grabs an imaginary drink and swirls it."	"It was pretty head-spinning, but then, maybe it was just all bluster. She seems disinterested in you."	--
 Terry Sally	"The usual greetings, as he exhorts you to be good--not too good, though. Maybe if you have some proof you're not totally boring and squeaky clean, you'll be bare-knuckle enough for the Compound proper. [if your-tix is 0]You'll--well, you'll know what, once you start picking up demerits[else]Probably the boo ticketies[end if]."	"Terry Sally wanted some sort of document[if your-tix is 4], maybe like that trail paper you've got[else if your-tix > 0], and your ticketies don't quite make one yet[end if]."	--	--
 Buddy Best	"Buddy Best begins talking a mile a minute about Big Things, and it's impressive all right, and you're not sure how much you should interrupt to say so. You don't at all, and eventually he gets bored of you staring at him and hands you something called a Reasoning Circular and boots you back east."	"BUG. This should not happen."	--	Reasoning Circular
-Pusher Penn	"He drones on about exciting business opportunities and pushes some wacker weed on you to help you, apparently, get a taste of cutting-edge business."	"[if wacker weed is in lalaland]'Business, eh?'[else]He rubs his hand and makes a 'come here' gesture.[end if][penn-ask]"	"[if wacker weed is in lalaland]Pusher Penn wanted you to run an errand, and you did. He seems pretty disinterested in you now[else if player has wacker weed]You still need to find whom to give the weed to[else]You get the feeling Pusher Penn is all business[end if]."	wacker weed [p]
+Pusher Penn	"He drones on about exciting business opportunities and pushes some wacker weed on you to help you, apparently, get a taste of cutting-edge business."	"[if wacker weed is moot]'Business, eh?'[else]He rubs his hand and makes a 'come here' gesture.[end if][penn-ask]"	"[if wacker weed is moot]Pusher Penn wanted you to run an errand, and you did. He seems pretty disinterested in you now[else if player has wacker weed]You still need to find whom to give the weed to[else]You get the feeling Pusher Penn is all business[end if]."	wacker weed [p]
 Art Fine	"Art goes to town on the superiority of unwritten art to written art. You guess it's persuasive, but you wonder if Phil would've been even more persuasive, if his views were switched."	"He was pretty convincing about spontaneous art versus art restricted by the written word."	--	--
 Harmonic Phil	"Phil goes to town on the superiority of unwritten art to written art. You guess it's persuasive, but you wonder if Art would've been even more persuasive, if his views were switched."	"He was pretty convincing about intellectual art versus art that might appeal to less clever people."	--	--
 Sly Moore	"[sly-s] haltingly asks if you found anything that could help him be less klutzy? He needs it a bit more than you. Um, a lot."	"He wanted something to help him be less klutzy."	--	--
 Officer Petty	"Officer Petty boomingly proclaims a need for theoretical knowledge to augment his robust practical knowledge: 'NOTHING FOUND YET? DIDN'T THINK SO. STILL, I CAN HOPE. I COULD USE SOME HIGHBROW FINESSE, I ADMIT IT.'"	"Officer Petty needed something to expand his skills beyond shouting and intimidation."	--	--
-Grace Goode	"She mentions how having a flower for the googly bowl [if fourth-blossom is in lalaland]is so[else]would be[end if] nice."	"[if fourth-blossom is in lalaland]'Thank you for returning the flower to the bowl.'[else]'Have you found a flower for the googly bowl?'[end if]"	"[if fourth-blossom is in lalaland]There's no need for words now that the flower is back in the googly bowl[else]She was hoping for a flower for the googly bowl[end if]."	--
+Grace Goode	"She mentions how having a flower for the googly bowl [if fourth-blossom is moot]is so[else]would be[end if] nice."	"[if fourth-blossom is moot]'Thank you for returning the flower to the bowl.'[else]'Have you found a flower for the googly bowl?'[end if]"	"[if fourth-blossom is moot]There's no need for words now that the flower is back in the googly bowl[else]She was hoping for a flower for the googly bowl[end if]."	--
 generic-jerk	"Each [j-g] seems to be hiding something for all his bluster."	"Each [j-g] put up a good face but there was something wrong about all the bragging."	--	--
 Brother Big	"Brother Big mutters about how he's not very clever and he'd like to change that."	"Brother Big asked for something to make him cleverer."	--	--
 Brother Soul	"Brother Soul frowns and pines for something to cheer him up."	"Brother Soul asked for something to cheer him up."	--	--
@@ -5087,7 +5095,7 @@ to say penn-ask:
 			say "You wonder who else will take it."
 
 to say ally-offer:
-	if cooler is in lalaland and brew is in lalaland:
+	if cooler is moot and brew is moot:
 		say "'Oh, and I'm out of free drinks, kid.'";
 	else if your-tix is 4:
 		say "You decline the offer of a free drink. You're on the edge enough.";
@@ -5102,7 +5110,7 @@ to say ally-offer:
 	else:
 		say "'Want the other drink, kid?'";
 		if the player yes-consents:
-			let Z be a random drinkable not in lalaland;
+			let Z be a random not moot drinkable;
 			now the player has Z;
 			say "Ally Stout hands you [the Z].";
 
@@ -5115,7 +5123,7 @@ to recap-babble (pe - a person):
 		else:
 			say "You forget the details, but it went a little something like this:[paragraph break][babble-recap entry][line break]";
 		if there is a babble-reward entry:
-			say "[line break]You also remember you got [the babble-reward entry][if babble-reward entry is in lalaland], which you figured how to use, so yay[end if].";
+			say "[line break]You also remember you got [the babble-reward entry][if babble-reward entry is moot], which you figured how to use, so yay[end if].";
 		the rule succeeds;
 
 section FreeCell
@@ -5511,8 +5519,8 @@ does the player mean inserting noun into noun: it is unlikely.
 
 to make-tee:
 	say "You twist the round screw into the hole in the round stick. The result is a slightly asymmetrical T. Yes, you could call it an off tee. In fact, it's best to think of it that way from now on, and not as the screw and/or stick it was.";
-	now stick is in lalaland;
-	now screw is in lalaland;
+	now stick is moot;
+	now screw is moot;
 	it-take off tee;
 
 section round stick
@@ -5549,7 +5557,7 @@ check attacking the hatch:
 		if player has off tee:
 			say "Wham! You swing at the hatch with your off tee. It catches just between the hatch and the ceiling. The hatch hinges down, and a fold-out ladder falls out from it. Which is handy, but unfortunately, it's also handsy, so you sort of have to drop the off-tee. You unscrew the hatch, too, for the next person who might get stuck in here, before climbing up to somewhere completely different from Smart Street...";
 			wfak;
-			now off tee is in lalaland;
+			now off tee is moot;
 			move player to Tension Surface;
 			annotize round stick;
 			the rule succeeds;
@@ -5655,7 +5663,7 @@ instead of doing something with t-surf:
 	say "You can't do much except examine it."
 
 check going when player is in Tension Surface (this is the fraidy-tension rule) :
-	if burden is in lalaland:
+	if burden is moot:
 		if noun is east or noun is west:
 			say "You imagine the arch laughing at you as you walk away, even though you know it's motionless now."
 
@@ -5689,7 +5697,7 @@ to say r-a:
 
 section Rogue Arch
 
-the Rogue Arch is scenery in Tension Surface. "It is rectangular, maybe 6 feet wide by 9 tall. When you look, you can see a much different area beyond the arch than to the side of it. [if mush is in lalaland]It's not dancing back and forth any more.[else]It's dancing back and forth, as if daring you to try to enter. [one of]The [m-m] jabbers 'Looks interesting in there, eh? I'll need documentation to let you past! Documentation that the land beyond will help you!'[talk-back][or]The [m-m] smirks, again.[stopping]"
+the Rogue Arch is scenery in Tension Surface. "It is rectangular, maybe 6 feet wide by 9 tall. When you look, you can see a much different area beyond the arch than to the side of it. [if mush is moot]It's not dancing back and forth any more.[else]It's dancing back and forth, as if daring you to try to enter. [one of]The [m-m] jabbers 'Looks interesting in there, eh? I'll need documentation to let you past! Documentation that the land beyond will help you!'[talk-back][or]The [m-m] smirks, again.[stopping]"
 
 to say m-m:
 	say "[if mouth mush is not examined]mush in front[else]mouth mush[end if]"
@@ -5698,7 +5706,7 @@ after doing something with the arch:
 	set the pronoun it to the arch;
 
 check talking to Rogue Arch:
-	if mouth mush is in lalaland, say "The Arch is silent." instead;
+	if mouth mush is moot, say "The Arch is silent." instead;
 	if conv-left of noun is 1, say "The arch has nothing to say, and you look down to the mush, but you've had your chat with it, too." instead;
 	say "'Psst! Down here!' says the [m-m].";
 	try talking to mouth mush instead;
@@ -6085,7 +6093,7 @@ Terry Sally is a person in Pressure Pier. "[one of]A smiling fellow walks up to 
 description of Terry Sally is "Brightly dressed, smiling a bit too wide."
 
 check talking to Terry Sally:
-	if trail paper is in lalaland, say "'You don't need anyone to greet you any more. [if Nominal Fen is unvisited]Go on! See what's north[else]You've already visited what's beyond[end if][if meal square is not visited]. Oh, and check out to the west, too[end if].'" instead;
+	if trail paper is moot, say "'You don't need anyone to greet you any more. [if Nominal Fen is unvisited]Go on! See what's north[else]You've already visited what's beyond[end if][if meal square is not visited]. Oh, and check out to the west, too[end if].'" instead;
 
 the litany of Terry Sally is table of Terry Sally talk.
 
@@ -6136,14 +6144,14 @@ to superable (q - a quip):
 	now enabled entry is 2;
 
 check going north in Pressure Pier:
-	if Terry Sally is in lalaland, continue the action;
-	if trail paper is in lalaland:
+	if Terry Sally is moot, continue the action;
+	if trail paper is moot:
 		say "Terry Sally gestures you through. 'Well, you did okay, I guess. Go have fun, or your idea of it[if meal square is not visited]. Oh, and maybe stop off west Meal Square, if you want[end if].'";
 		continue the action;
 	if player has trail paper:
 		say "Terry Sally snaps his fingers and points at your trail paper.";
 		try giving trail paper to Terry Sally;
-		if trail paper is in lalaland, continue the action;
+		if trail paper is moot, continue the action;
 		the rule succeeds;
 	choose row with response of terry-north in table of Terry Sally talk;
 	now enabled entry is 2;
@@ -6157,11 +6165,11 @@ the trail paper is a thing. description is "It looks pretty official. It's made 
 part Meal Square
 
 check going west in pressure pier:
-	if trail paper is in lalaland:
+	if trail paper is moot:
 		do nothing;
 	otherwise:
 		if meal square is unvisited:
-			now thought for food is in lalaland;
+			now thought for food is moot;
 			say "Terry Sally coughs. 'That's Meal Square. Nice if you've got a [activation of food for thought]. Not just some [activation of hallway], but nothing crazy. So the [bad-guy] got rid of that [activation of impaler], the [activation of gobbling down].'";
 
 Meal Square is west of Pressure Pier. Meal Square is in Outer Bounds. "This is a small alcove with Pressure Pier back east. You would call it an [activation of caveat], but ...[paragraph break]There's not much decoration except a picture of a dozen bakers."
@@ -6187,7 +6195,7 @@ to say word-things of (q - a supporter):
 examining tray b is pielooking. examining tray a is pielooking.
 
 after pielooking:
-	if tray a is examined and tray b is examined and apple pie order is not in lalaland:
+	if tray a is examined and tray b is examined and apple pie order is not moot:
 		say "Wow, that's a lot of food! You won't even need to [activation of apple pie order] as dessert.";
 	continue the action;
 
@@ -6246,7 +6254,7 @@ check taking a badfood:
 
 to decide which thing is yourfood:
 	repeat with X running through badfoods:
-		if X is in lalaland, decide on X;
+		if X is moot, decide on X;
 	decide on Alec Smart;
 
 to decide whether accel-ending:
@@ -6310,13 +6318,13 @@ check eating greater cheese:
 	consider the tray b eating rule;
 	if the rule failed, the rule succeeds;
 	say "You manage to appreciate the cheese and feel superior to those who don't. You have a new outlook on life! No longer will you feel [b-o]!";
-	now greater cheese is in lalaland;
+	now greater cheese is moot;
 	bad-food-process true;
 	now greater-eaten is true instead;
 
 to say b-o:
 	say "bowled over";
-	now bowled over is in lalaland;
+	now bowled over is moot;
 
 section off cheese
 
@@ -6333,7 +6341,7 @@ check eating off cheese:
 	consider the tray b eating rule;
 	if the rule failed, the rule succeeds;
 	say "Ugh. Bleah. It feels and tastes awful--but if you sat through this, you can sit through an awkward conversation. Not that you'll be [activation of bowled over] and cause a few. [activation of growing pains]... pain's growing...";
-	now off cheese is in lalaland;
+	now off cheese is moot;
 	bad-food-process true;
 	now off-eaten is true instead;
 
@@ -6354,7 +6362,7 @@ check eating cutter cookie:
 	consider the tray b eating rule;
 	if the rule failed, the rule succeeds;
 	say "[line break]You have to eat it carefully, because of its spikes, but it gives you...a sharp tongue. [if allow-swears is true]And wait. Did you taste a [activation of raising hell]? [end if]Suddenly you wonder why you spent so much time feeling [b-o]. Even though there should've been, but wasn't, [activation of coffee break], you're ready to go off on pretty much anyone who's gotten in your way, or even not helped you enough. To [activation of quisling] at people you used to be like[if allow-swears is false]. You'll show those punks you don't need to swear to kick butt![else].[end if]";
-	now cookie is in lalaland;
+	now cookie is moot;
 	bad-food-process true;
 	now cookie-eaten is true instead;
 
@@ -6372,7 +6380,7 @@ check eating points brownie:
 	consider the tray b eating rule;
 	if the rule failed, the rule succeeds;
 	say "[line break]You have to eat it carefully, because of its spikes, but it gives you...a sharp tongue. Suddenly you wonder why you spent so much time feeling [b-o]. You're ready to go off on pretty much anyone who's gotten in your way, or even not helped you enough[if allow-swears is false]. You'll show those punks you don't need to swear to kick butt![else].[end if]";
-	now points brownie is in lalaland;
+	now points brownie is moot;
 	bad-food-process false;
 	now brownie-eaten is true instead;
 
@@ -6408,14 +6416,14 @@ to bad-food-process (as - a truth state):
 	ital-say "This has caused an irreversible personality change in Alec. You may wish to UNDO and SAVE before trying to eat again to restore Normal Alec, even if that's not what he wants right now.";
 	now player has an opener eye;
 	if player has bad face:
-		now bad face is in lalaland;
+		now bad face is moot;
 	if player has face of loss:
-		now face of loss is in lalaland;
+		now face of loss is moot;
 
 table of accel-text
 accel-place	alt-num	accel-cookie	accel-off	accel-greater	accel-brownie
 meal square	-1	"Pfft. None of the other foods look close to as good as the cookie you ate. Time to get going back east."	"Ugh. The sight of the remaining food turns your stomach. You just want to get going."	"You're sure you're meant for better things than pigging out and getting fat on food that probably doesn't taste that great, anyway."	"This is a neat place, and it'd be wonderful if there were people to eat with here, but there aren't, so maybe you just need to find people to be social to. Um, with."
-pressure pier	0	"You take a moment to sneer at [if Terry Sally is in lalaland]the memory of the [end if]Terry Sally. 'Is this your JOB? Man, that's SAD. The stupid stuff you want people to do to show you they're cool? Little league stuff. I mean, thanks for the start and all, but SERIOUSLY.' He gapes, shocked, then flees before your wrath.[paragraph break]Man! You've never won an argument before. And you didn't expect to win that conclusively. Oh, wait, yes you did."	"You give an exasperated sigh. 'I'm not here because I want to be. I got suckered into it. Do you think I could...?'[paragraph break]'You know, some people don't even ASK. Or if they do, it's all unforceful. You're okay. You can go through.' [if Terry Sally is in lalaland]You blame Terry Sally for not being around to listen to your whining[else]Terry Sally bows slightly--you don't care if it's sarcastic or not--and you walk past. You turn around, but he's not there[end if]."	"[if Terry Sally is in lalaland]You're sad Terry Sally is gone. You'd be giving HIM advice, now.[else]'Oh, hey! Still here? I'm moving ahead in life!' you say to Terry Sally, who runs off in embarrassment.[end if]"	"[if Terry Sally is in lalaland]You were going to compliment him on what a good job he was doing vetting people, but dang it, he's gone[else]'Wow! You're doing a really good job of, like, guarding stuff. You totally deserve a break!'[paragraph break]'Gosh! You think so too?'[paragraph break]'Well, if the [bad-guy] does...'[paragraph break]'No, you're right. Hey, I thought you were just another of, well, them, but you're all right. More than all right. Go on through.' Terry Sally walks [where-howdy][end if]."
+pressure pier	0	"You take a moment to sneer at [if Terry Sally is moot]the memory of the [end if]Terry Sally. 'Is this your JOB? Man, that's SAD. The stupid stuff you want people to do to show you they're cool? Little league stuff. I mean, thanks for the start and all, but SERIOUSLY.' He gapes, shocked, then flees before your wrath.[paragraph break]Man! You've never won an argument before. And you didn't expect to win that conclusively. Oh, wait, yes you did."	"You give an exasperated sigh. 'I'm not here because I want to be. I got suckered into it. Do you think I could...?'[paragraph break]'You know, some people don't even ASK. Or if they do, it's all unforceful. You're okay. You can go through.' [if Terry Sally is moot]You blame Terry Sally for not being around to listen to your whining[else]Terry Sally bows slightly--you don't care if it's sarcastic or not--and you walk past. You turn around, but he's not there[end if]."	"[if Terry Sally is moot]You're sad Terry Sally is gone. You'd be giving HIM advice, now.[else]'Oh, hey! Still here? I'm moving ahead in life!' you say to Terry Sally, who runs off in embarrassment.[end if]"	"[if Terry Sally is moot]You were going to compliment him on what a good job he was doing vetting people, but dang it, he's gone[else]'Wow! You're doing a really good job of, like, guarding stuff. You totally deserve a break!'[paragraph break]'Gosh! You think so too?'[paragraph break]'Well, if the [bad-guy] does...'[paragraph break]'No, you're right. Hey, I thought you were just another of, well, them, but you're all right. More than all right. Go on through.' Terry Sally walks [where-howdy][end if]."
 Nominal Fen	1	"'Hey, move it, I'm on a quest here!' They look shocked. You proceed to berate them for, is this all they ever do? Is it their purpose in life? Do they have anyone better to talk to? If so, what a waste. If not, sad.[paragraph break]Before this terrifying onslaught of hard-hitting language and lucid, back-to-basics logic, the [j-co] recognize how minor-league they are. They run off to chat or commiserate elsewhere.[paragraph break]Bam! Seven at one blow!"	"'Hey, what you all talking about?' you ask. 'Gossip, eh?' You try to join in, but--they seem a bit jealous of how good your grumbling is, and they excuse themselves."	"'Oh! Hey! You all talking about something interesting? I won't disturb you. Which way is the [bg]?' They look shocked you...USED HIS INITIALS. They point north. 'I KNOW,' you boom. They scatter."	"'Hey, guys! What's up?' you ask. They shuffle and mutter and walk away. Well, they probably had negative attitudes anyway. It feels more relaxed, now!"
 lalaland	2	"Oh, boy. Looking back, you didn't need all that reasoning to get past them. You could've probably just acted a little exasperated, said you were SURE someone could help, and wham! Well, it's good to have all this space, but you need to be going north."	"You sniff at the memory of the [j-co] you helped. They weren't properly grateful, and they weren't even good at being [j-co]. Maybe you should've gone into business with the Labor Child[if scheme pyramid is unvisited] they grumbled about[end if]. You'd figure how to backstab him later. Still, you learned a lot from that. Perhaps you can find ways to keep tabs on people, probe their weaknesses. Makes up for earlier memories of your own."	"You look back at the silliness and all you did to get around the [j-co] when really you could've just shown them what was what the way you are now. You're--BETTER than those logic puzzles."	"Wow! The [j-co] were cool and interesting and all, but no way they're as levelheaded as the guy you need to see. The things you could learn from him!"
 speaking plain	0	"Oh geez. You can't take this. You really can't. All this obvious improvement stuff. You lash out, do they think people REALLY don't know this? Do they think hearing it again will help? Uncle Dutch and Turk Young revile you as a purveyor of negative energy. No, they won't go on with all this cynicism around. But you will be moving on soon enough. They go away for a break for a bit. Maybe more than a bit. You don't want to hang around to find out."	"'FRAUDS!!!' you yell at Uncle Dutch and Turk Young. 'ANYONE CAN SPOUT PLATITUDES!' You break it down sumpin['] sumpin['] real contrarian on them, twisting their generalities. A crowd gathers around. They applaud your snark! You yell at them that applause is all well and good, but there's DOING. They ooh and ahh further. After a brief speech about the dork you used to be, and if you can get better, anyone can, you wave away the performers, then the crowd that followed them."	"You give a pre-emptive 'Oh, I KNOW,' before Turk and Dutch can say any more. 'But you're doing a pretty good job. I mean, almost as good as I could if I weren't destined for better things. Just--take a break to hone your act. Not that it's THAT stale...' They look at each other, nod, and walk away."	"You sit and listen a lot, and more importantly, give positive feedback for all their helpful advice. 'Wow! You guys, it's like, you're saying it straight, but it's really profound!' And they are. If you just had faith and weren't a sourpuss, why, you could learn a lot. Their show finished, they quickly thank you and explain they forgot they had another place to be, and they need to get started early."
@@ -6437,7 +6445,7 @@ say-old-you is a truth state that varies.
 
 to check-fast-track:
 	if say-old-you is false:
-		if brownie is in lalaland:
+		if brownie is moot:
 			say "[line break]Wow! It's pretty cool being around people a little more socially acceptable than you. You're learning so fast!";
 		else:
 			say "[line break]Yup. You're not messing around. Chumps need to get out of your WAY. Maybe the Old You, before you ate the [bad-eaten], would've gotten bogged down in a silly puzzle or fetch quest or something, thinking some nonsense like it's the journey that mattered. But the new you--nope, Nope, NOPE.";
@@ -6480,24 +6488,24 @@ to deal-with-loc:
 		else:
 			say "[accel-brownie entry][line break]";
 	if player is in pressure pier: [cleanup]
-		if Terry Sally is not in lalaland:
+		if Terry Sally is not moot:
 			check-fast-track;
-		now Terry Sally is in lalaland;
+		now Terry Sally is moot;
 		say "[line break]Better get started going north, then.";
 	if player is in Nominal Fen:
-		if silly boris is not in lalaland:
+		if silly boris is not moot:
 			check-fast-track;
 		now all clients are in lalaland;
 		say "[line break]Need to keep going, here.";
 	if player is in speaking plain:
 		check-fast-track;
-		now turk is in lalaland;
-		now dutch is in lalaland;
+		now turk is moot;
+		now dutch is moot;
 		say "[line break]Can't be much longer.";
 	if player is in questions field:
-		now brother soul is in lalaland;
-		now brother blood is in lalaland;
-		now brother big is in lalaland;
+		now brother soul is moot;
+		now brother blood is moot;
+		now brother big is moot;
 		say "[line break]All right, this should be about it.";
 	if player is in freak control:
 		if cookie-eaten is true:
@@ -6582,8 +6590,8 @@ a condition mint is an edible thing on Tray A. description is "It's one inch squ
 indefinite article of condition mint is "a".
 
 check eating the condition mint:
-	if silly boris is in lalaland:
-		now condition mint is in lalaland;
+	if silly boris is moot:
+		now condition mint is moot;
 		say "You think about the jerks. Maybe they'd have liked it. Then you gulp down the mint in their memory. You look at all the machinery--maybe one has a clue what to do." instead;
 	say "No, it's the sort you gift to someone else[if player does not have mint], but you can take it, to give it to someone else[end if]." instead;
 
@@ -6673,7 +6681,7 @@ check going nowhere in Down Ground:
 the warmer bench is a supporter in Down Ground. "The Warmer Bench waits here. It may be fun to lie on.". description is "Originally painted on the bench: PROPERTY OF [activation of beach bum]. Property Of is replaced by FORECLOSED FROM. You feel the heat coming from it. It makes you sleepy." [note the init appearance doesn't matter since warmer bench priority = 0 anyway]
 
 after examining warmer bench:
-	now bum beach is in lalaland;
+	now bum beach is moot;
 	continue the action;
 
 check taking bench:
@@ -6693,8 +6701,8 @@ section Fritz the On
 Fritz the On is a surveyable person in Down Ground. "[one of]A fellow a bit older, but likely not wiser, than you sits cross-legged next to the Warmer Bench.[or][fritz-mumb].[stopping]"
 
 check talking to fritz the on:
-	if minimum bear is in lalaland or your-tix >= 4, say "Fritz mumbles about how the Stool Toad is always looking to [activation of get a fix]." instead;
-	if wacker weed is in lalaland, say "Fritz mumbles about all the [activation of harmony] in society today." instead;
+	if minimum bear is moot or your-tix >= 4, say "Fritz mumbles about how the Stool Toad is always looking to [activation of get a fix]." instead;
+	if wacker weed is moot, say "Fritz mumbles about all the [activation of harmony] in society today." instead;
 
 to say fritz-mumb:
 	say "[one of]Fritz the On still mumbles, sitting cross-legged[or]Fritz the On mumbles something incoherent about founding a consciousness-expanding school called [activation of high roller][stopping]"
@@ -6718,7 +6726,7 @@ drop-ticket is a truth state that varies.
 the dreadful penny is a thing. description is "It has a relief of the [bad-guy] on the front and back, with '[activation of brain trust]' on the back. You hope it's worth more than you think it is."
 
 after examining dreadful penny:
-	now brain trust is in lalaland;
+	now brain trust is moot;
 	continue the action;
 
 your-tix is a number that varies.
@@ -6773,7 +6781,7 @@ to get-ticketed (ttext - text):
 		decrement your-tix;
 	else if your-tix is 4:
 		say "[line break]You have the fourth and final boo tickety you need! Using some origami skills you felt would never be practical, you fold them to form a coherent document: a trail paper!";
-		now boo tickety is in lalaland;
+		now boo tickety is moot;
 		now player has trail paper;
 		if player has a drinkable:
 			say "[line break]Uh oh. You look at the drink in your hand. You're a hardened lawbreaker, now, and if the Stool Toad caught you with it, he'd have reason to send you off somewhere no good. You should probably DROP the [if player has brew]brew[else]cooler[end if].";
@@ -6834,7 +6842,7 @@ instead of doing something with the fly bar:
 
 check going south in joint strip:
 	if jump-level > 2, say "[one of]'There's something about you, young man. Like you've been shifty before. I can't trust you. So you better use some common sense. Or I'll use it for you!' booms the Stool Toad.[paragraph break]On further reflection, you figure there probably wasn't much in there. Much you need any more, anyway. Also, his last little put-down didn't make any sense. But it still hurt.[or]You don't want to be told off by the Stool Toad again. Whether or not he makes sense the next time.[stopping]" instead;
-	if Terry Sally is in lalaland, say "You had your 'fun,' or an attempt at it, anyway. You don't want to go [if soda club is visited]back there[else]anywhere too crazy[end if]." instead;
+	if Terry Sally is moot, say "You had your 'fun,' or an attempt at it, anyway. You don't want to go [if soda club is visited]back there[else]anywhere too crazy[end if]." instead;
 	if jump-level > 0 and soda club is unvisited:
 		say "The Stool Toad eyes you suspiciously. 'Don't know what you're up to, but ... it's something too clever for your own good. You--you cheated to get here, somehow.'";
 	else if soda club is unvisited:
@@ -6918,9 +6926,9 @@ check going north in Soda Club:
 		if toad-got-you is false:
 			say "'HALT! FREEZE! A MINOR WITH ALCOHOL!' booms the Stool Toad. He takes your drink and throws it off to the side. 'THAT'S AN INFRACTION!'[paragraph break]He looks around in his pockets but only finds a diagonal scrap of paper. 'Well, this'll do, for a boo tickety. Remember, you're warned.' You feel sort of rebellious--good rebellious--as he [if your-tix >= 4]counts your infractions on his fingers. Uh oh. Maybe you could've DROPped the booze before leaving[else]goes back to his pigeon stool[end if].";
 			if player has haha brew:
-				now haha brew is in lalaland;
+				now haha brew is moot;
 			else:
-				now cooler wine is in lalaland;
+				now cooler wine is moot;
 			get-ticketed "taking alcohol out of the Soda Club";
 			activate-drink-check;
 			now toad-got-you is true;
@@ -6931,10 +6939,10 @@ check going north in Soda Club:
 		say "The Stool Toad looks you up and down as you exit. He nods. 'Better stay clean, or you'll get a boo tickety.'";
 
 to activate-drink-check:
-	if cooler wine is not in lalaland:
+	if cooler wine is not moot:
 		choose row with response of ally-cooler in table of Ally Stout talk;
 		now enabled entry is 1;
-	if haha brew is not in lalaland:
+	if haha brew is not moot:
 		choose row with response of ally-haha in table of Ally Stout talk;
 		now enabled entry is 1;
 
@@ -7050,10 +7058,10 @@ to say erin-creep:
 		if player has a drinkable:
 			say "Ally Stout takes your drink away from you, too.";
 			if player has haha brew:
-				now haha brew is in lalaland;
+				now haha brew is moot;
 			if player has cooler wine:
-				now cooler wine is in lalaland;
-		now Erin is in lalaland;
+				now cooler wine is moot;
+		now Erin is moot;
 		get-ticketed "being too awkward to speak in the Soda Club";
 
 to say erin-sez:
@@ -7092,7 +7100,7 @@ after quipping when qbc_litany is table of Erin talk:
 
 to chase-erin:
 	say "Ally Stout sidles over. 'Sorry, champ. Looks like you did something to chase off a good patron. By the moral authority vested in me by the [bad-guy], it is my pleasure and duty to issue a boo-tickety.'";
-	now Erin is in lalaland;
+	now Erin is moot;
 	get-ticketed "offering a sophisticated girl insultingly weak alcohol";
 
 section Ally Stout
@@ -7121,7 +7129,7 @@ rule for supplying a missing noun while talking to:
 		say "There's more than one person here to talk with or to.";
 	reject the player's command;
 
-check talking to Ally Stout when Erin is in lalaland and conv-left of Ally Stout > 1:
+check talking to Ally Stout when Erin is moot and conv-left of Ally Stout > 1:
 	say "Ally Stout flashes you a tense smile. 'Still around? Well, I can't make you leave, and I sort of needed a break from her chatter, I guess. Eh, I've dealt with worse.'";
 
 understand "bartender" as Ally Stout.
@@ -7211,7 +7219,7 @@ Main Chunk is a region.
 
 part Nominal Fen
 
-Nominal Fen is north of Pressure Pier. It is in Main Chunk. printed name of Nominal Fen is "[jc]". "[if silly boris is in lalaland]It's a bit more relaxed here without the [j-co]['] conversation[else][one of]This--well, it isn't a swamp, or a bog, or--well, you're not sure, and it's not particularly amazing, so yeah, call it a fen. [or][stopping]Seven [j-co] stand in a circle (okay, a heptagon) here, talking to and about others[end if]. It looks like there's forested area to the west, a narrow valley to the east, and things open up to the north. Nothing's stopping you going back south to Pressure Pier, either[if bros-left is 0], though you probably have nothing to do there with the Brothers gone[end if]."
+Nominal Fen is north of Pressure Pier. It is in Main Chunk. printed name of Nominal Fen is "[jc]". "[if silly boris is moot]It's a bit more relaxed here without the [j-co]['] conversation[else][one of]This--well, it isn't a swamp, or a bog, or--well, you're not sure, and it's not particularly amazing, so yeah, call it a fen. [or][stopping]Seven [j-co] stand in a circle (okay, a heptagon) here, talking to and about others[end if]. It looks like there's forested area to the west, a narrow valley to the east, and things open up to the north. Nothing's stopping you going back south to Pressure Pier, either[if bros-left is 0], though you probably have nothing to do there with the Brothers gone[end if]."
 
 every turn when player is in Nominal Fen and Silly Boris is in Nominal Fen:
 	jerk-blab;
@@ -7232,11 +7240,11 @@ check going south in Nominal Fen (this is the block pier in endgame rule):
 	if bros-left is 0, say "No. You don't need to go back. The brothers are gone. You're close to what you need to do." instead;
 
 to say jc:
-	say "[if silly boris is in lalaland]Mellow Marsh[else]Nominal Fen[end if]"
+	say "[if silly boris is moot]Mellow Marsh[else]Nominal Fen[end if]"
 
 understand "groan collective" as jerks when allow-swears is false.
 
-understand "mellow marsh" and "mellow/marsh" as Nominal Fen when silly boris is in lalaland.
+understand "mellow marsh" and "mellow/marsh" as Nominal Fen when silly boris is moot.
 
 Dandy Jim is a client. clue-letter of Dandy Jim is "J". description is "He's well dressed, but not some yuppie or preppie or anything."
 
@@ -7259,7 +7267,7 @@ understand "soda" as Quiz Pop
 does the player mean drinking Quiz Pop: it is very likely.
 
 after examining Quiz Pop:
-	now black mark is in lalaland;
+	now black mark is moot;
 	continue the action;
 
 to say j-co:
@@ -7398,7 +7406,7 @@ whoing is an action applying to nothing.
 
 understand the command "who" as something new.
 
-understand "who" as whoing when jerk-who-short is true and silly boris is not in lalaland.
+understand "who" as whoing when jerk-who-short is true and silly boris is not moot.
 
 carry out whoing:
 	if qbc_litany is table of jt:
@@ -7421,12 +7429,12 @@ understand the command "guess" as something new.
 
 numjerking is an action applying to one number.
 
-understand "guess [number]" as numjerking when jerk-who-short is true and silly boris is not in lalaland and player is in Nominal Fen.
+understand "guess [number]" as numjerking when jerk-who-short is true and silly boris is not moot and player is in Nominal Fen.
 
 carry out numjerking:
 	let z be number understood;
 	if z < 1000000:
-		if z > 100000 and mint is in lalaland, say "You gave the mint to [random minted client], but you still need to guess him. That would be digit #[mint-away], which should be [mint-guess]." instead;
+		if z > 100000 and mint is moot, say "You gave the mint to [random minted client], but you still need to guess him. That would be digit #[mint-away], which should be [mint-guess]." instead;
 		say "You need to guess all seven [j-co]." instead;
 	if z > 9999999, say "That's too many numbers. You only need seven." instead;
 	let y be z;
@@ -7464,7 +7472,7 @@ to decide which number is mint-guess:
 
 to decide whether (myguess - a number) is mint-guessed-wrong:
 	let ones be 0;
-	if mint is not in lalaland, decide no;
+	if mint is not moot, decide no;
 	let mydiv be 1000000;
 	let temp-jerk be last-jerk;
 	repeat with count running from 1 to 7:
@@ -7506,7 +7514,7 @@ shorting is an action out of world.
 
 understand the command "short" as something new.
 
-understand "short" as shorting when jerk-who-short is true and silly boris is not in lalaland.
+understand "short" as shorting when jerk-who-short is true and silly boris is not moot.
 
 short-jerk is a truth state that varies.
 
@@ -7624,7 +7632,7 @@ to decide what number is jerks-scared:
 	let temp be 0;
 	repeat through table of fingerings:
 		increase temp by suspect entry;
-	if condition mint is in lalaland:
+	if condition mint is moot:
 		now temp is temp - 2;
 	decide on temp;
 
@@ -7731,7 +7739,7 @@ to zap-the-jerks:
 	annotize jerks;
 
 check going north when player is in Disposed Well:
-	if silly boris is in lalaland, say "[one of]Hmm. That's odd. You hear the [j-co] in there, marveling at the depth of the Labor Child's 'business interests.' You're glad you uncovered this, but maybe you should leave the Labor Child to the [j-co] and tackle the [bad-guy] instead.[or]No, you don't need or want to go back there. The Labor Child's in for it enough, and the [j-co] are investigating rigorously.[stopping]" instead;
+	if silly boris is moot, say "[one of]Hmm. That's odd. You hear the [j-co] in there, marveling at the depth of the Labor Child's 'business interests.' You're glad you uncovered this, but maybe you should leave the Labor Child to the [j-co] and tackle the [bad-guy] instead.[or]No, you don't need or want to go back there. The Labor Child's in for it enough, and the [j-co] are investigating rigorously.[stopping]" instead;
 
 chapter jerk talking
 
@@ -8085,8 +8093,8 @@ to bye-paper:
 	open-below;
 
 to open-below:
-	now Cute Percy is in lalaland;
-	now chase paper is in lalaland;
+	now Cute Percy is moot;
+	now chase paper is moot;
 	now belt below is below chipper wood;
 	now chipper wood is above belt below;
 	inc-max;
@@ -8110,7 +8118,7 @@ p-c is a truth state that varies.
 
 Cute Percy is a baiter-aligned person in Chipper Wood. initial appearance is "[if player was in chipper wood]Cute Percy sticks his tongue out, daring you to catch him.[else][as-char][end if]"
 
-understand "percy wright" as cute percy when cute percy is in lalaland.
+understand "percy wright" as cute percy when cute percy is moot.
 
 description of Cute Percy is "He's--he's actually shorter and fatter than you, and that makes you sort of jealous he's better at insults than you, too. Then you think maybe he had to be, and you wonder how people treated hi... 'Geez! Quit starin['], you freak!'"
 
@@ -8134,7 +8142,7 @@ understand "cp/ac/char/ass/character/assassin" and "assassin/assassination chara
 
 part The Belt Below
 
-There is a room called The Belt Below. It is in Main Chunk. "You're in a cylindrical sort of room where instead of walls an energy waist [if insanity terminal is in lalaland]no longer [end if]blips around[if insanity terminal is in belt]. [one of]And look, there's a sort of odd faux-retro mainframe-ish computer[or]The Insanity Terminal waits for your answer[stopping][end if]."
+There is a room called The Belt Below. It is in Main Chunk. "You're in a cylindrical sort of room where instead of walls an energy waist [if insanity terminal is moot]no longer [end if]blips around[if insanity terminal is in belt]. [one of]And look, there's a sort of odd faux-retro mainframe-ish computer[or]The Insanity Terminal waits for your answer[stopping][end if]."
 
 check going nowhere in belt below:
 	say "You can only go back up[if terminal is in belt], or maybe beating the terminal will lead elsewhere[else] or down[end if]." instead;
@@ -8252,7 +8260,7 @@ carry out abadfaceing:
 		open-bottom;
 		say "You hear a great rumbling as you put on -- well, a bad face -- and the Insanity Terminal coughs and sputters (I guess it was an [activation of terminal illness], too! That would explain its--well, as close to a mood as a computer can get) before cracking in half to reveal a tunnel further below. You feel like you could face a bad...well, you're not sure. But something bad.";
 		now player has a bad face;
-		now face of loss is in lalaland;
+		now face of loss is moot;
 		inc-max;
 		say "[line break]";
 		the rule succeeds;
@@ -8263,12 +8271,12 @@ carry out abadfaceing:
 to open-bottom:
 	now A Great Den is below Belt Below;
 	now Belt Below is above A Great Den;
-	now Insanity Terminal is in lalaland;
+	now Insanity Terminal is moot;
 	annotize insanity terminal;
 
 chapter energy waist
 
-The Energy Waist is scenery in the belt below. "[if insanity terminal is in lalaland]Well, it no longer blinks around, but it's just as wide as before, so you can call it a [activation of waste breath] (but it won't do any good, ha ha)[else]It blips about efficiently, you assume. You can't be sure. People have accused you of being better at electronics than you are, so you don't know the hows and whys[end if]."
+The Energy Waist is scenery in the belt below. "[if insanity terminal is moot]Well, it no longer blinks around, but it's just as wide as before, so you can call it a [activation of waste breath] (but it won't do any good, ha ha)[else]It blips about efficiently, you assume. You can't be sure. People have accused you of being better at electronics than you are, so you don't know the hows and whys[end if]."
 
 instead of doing something with energy waist:
 	if action is procedural, continue the action;
@@ -8279,7 +8287,7 @@ part A Great Den
 There is a room called A Great Den. It is in Main Chunk. "Wow, it's really big and impressive here, but somehow, you feel someone is watching you and laughing at you, and you don't really belong. It's not possible to go any further down, or, in fact, any direction other than up."
 
 after printing the locale description for A Great Den:
-	say "A voice in your mind says [if player has legend of stuff or player has crocked half]'Hoping for a welcome back gift? Heh.'[else if thoughts idol is in lalaland and bros-left is 0]'Really, there's no point being here...'[else if A Great Den is unvisited]'Need help, eh?'[else]'Still can't decide if you want to cheat?'";
+	say "A voice in your mind says [if player has legend of stuff or player has crocked half]'Hoping for a welcome back gift? Heh.'[else if thoughts idol is moot and bros-left is 0]'Really, there's no point being here...'[else if A Great Den is unvisited]'Need help, eh?'[else]'Still can't decide if you want to cheat?'";
 	continue the action;
 
 to say cheat-not-have:
@@ -8304,7 +8312,7 @@ check entering crib:
 
 report taking a hintable:
 	say "As you take the [noun], the notes crib schlurps up the [random not carried hintable]. Well, you've still got something helpful and useful. You hope.";
-	now random not carried hintable is in lalaland;
+	now random not carried hintable is moot;
 	the rule succeeds;
 
 before examining a hintable (this is the fuzz out but hint taking rule):
@@ -8322,7 +8330,7 @@ understand "flipbook" and "flip book" and "flip/book" as Legend of Stuff.
 
 stuff-talk is a truth state that varies.
 
-check taking legend of stuff when Thoughts Idol is in lalaland:
+check taking legend of stuff when Thoughts Idol is moot:
 	say "You hear a very low voice tell you to feel very very guilty for taking the Legend of Stuff for puzzles easier than getting rid of the Thoughts Idol. A voice...like you'd expect from the Thoughts Idol. Which you just destroyed. You imagine NOT taking the Legend of Stuff and hearing the Idol also asking if you're too good to ask for help, and--well, that does it.";
 
 check examining the Legend of Stuff:
@@ -8393,7 +8401,7 @@ to set-clue (x - a number): [set-clue numbers are arbitrary but unique]
 	now last-clue is x;
 
 to hint-blue:
-	if relief light is in lalaland:
+	if relief light is moot:
 		say "The blue area morphs to Brother Soul smiling for a moment.";
 	else if wacker weed is off-stage:
 		say "You see yourself engaged in a business transaction with someone shady.";
@@ -8432,7 +8440,7 @@ this is the red-big-together rule:
 		say "You see yourself in conversation in a court of law.";
 		set-clue 8;
 		the rule succeeds;
-	if officer petty is not in lalaland:
+	if officer petty is not moot:
 		say "You see yourself handing a paper to a police officer.";
 		set-clue 9;
 		the rule succeeds;
@@ -8448,7 +8456,7 @@ this is the red-big-together rule:
 	the rule fails; [in other words we didn't find a clue that applies to red and big]
 
 to hint-red:
-	if mind of peace is in lalaland:
+	if mind of peace is moot:
 		say "The red area morphs to Brother Blood smiling for a moment.";
 		continue the action;
 	consider the red-big-together rule;
@@ -8462,7 +8470,7 @@ to hint-red:
 	say "[line break]";
 
 to hint-big:
-	if trade of tricks is in lalaland:
+	if trade of tricks is moot:
 		say "The big area morphs to Brother Big smiling for a moment.";
 		continue the action;
 	consider the red-big-together rule;
@@ -8479,13 +8487,13 @@ to hint-big:
 	else if story fish is off-stage:
 		say "You see yourself dropping a long string in the well.";
 		set-clue 17;
-	else if art fine is not in lalaland:
+	else if art fine is not moot:
 		say "You see yourself playing a fish around some artwork.";
 		set-clue 18;
-	else if harmonic phil is not in lalaland:
+	else if harmonic phil is not moot:
 		say "You see yourself opening the safe around some artwork.";
 		set-clue 19;
-	else if poetic wax is not in lalaland:
+	else if poetic wax is not moot:
 		say "You see yourself glopping something gooey on some sort of computer.";
 		set-clue 20;
 	else if trap rattle is off-stage:
@@ -8518,7 +8526,7 @@ to say upper:
 
 part Disposed Well
 
-Disposed Well is west of Chipper Wood. It is in Main Chunk. "A crumbling well marks the center of this clearing.[paragraph break]You may go west to [if classic cult is visited]the Classic Cult[else]some sort of church[end if] or back east to the Chipper Wood. To the north, [if boris is in lalaland]the Scheme Pyramid has been closed[else if scheme pyramid is visited]the Scheme Pyramid[else]a business[end if]. [if truth home is visited]You can go back inside to the Truth Home, too[else]There's also a small home you could go inside[end if]."
+Disposed Well is west of Chipper Wood. It is in Main Chunk. "A crumbling well marks the center of this clearing.[paragraph break]You may go west to [if classic cult is visited]the Classic Cult[else]some sort of church[end if] or back east to the Chipper Wood. To the north, [if boris is moot]the Scheme Pyramid has been closed[else if scheme pyramid is visited]the Scheme Pyramid[else]a business[end if]. [if truth home is visited]You can go back inside to the Truth Home, too[else]There's also a small home you could go inside[end if]."
 
 check going outside from disposed well:
 	say "You already are outside." instead;
@@ -8582,8 +8590,8 @@ before talking to story fish:
 	if player is not in Discussion Block, say "The fish opens a sleepy eye. 'Eh? Anyone with a [activation of fish for a compliment]? Nope, nobody artsy enough.'" instead;
 	if art fine is in Discussion Block:
 		say "The fish eyes you sleepily but then sees the bookshelf, then Art Fine. 'Ah! Good sir! May I begin!' The fish's story is much funnier and shorter than you expected, because Art barely lasts five minutes before he runs away screaming. 'No more [activation of babel fish]! [safety-of]!' You pat the fish on the head and put it in the Book Bank with the Long String--there, you even hid the string, so it looks extra neat.[paragraph break]"; [temproom discussion block]
-		now long string is in lalaland;
-		now art fine is in lalaland;
+		now long string is moot;
+		now art fine is moot;
 		now story fish is in Discussion Block;
 		say "[if harmonic phil is in Discussion Block]Harmonic Phil snickers. 'Well, Art was smart and all, but he was getting kind of boring anyway. And he didn't know a THING about music. Maybe now I can rename this place the [activation of chamber music]...'[else]Well, that's Phil AND Art gone.[end if]"; [temproom discussion block]
 		increment the score;
@@ -8594,7 +8602,7 @@ before talking to story fish:
 
 part Classic Cult
 
-Classic Cult is west of Disposed Well. It is in Main Chunk. "Light OMs can be heard all over. The lighting, the decor--it's too much like a classic cult, which means it's fooling nobody, which is why you're not surprised there are only two people here, and there are no exits except back out.[paragraph break]A googly bowl rests here, [if fourth-blossom is in lalaland]full of blossoms[else]three-quarters full of blossoms[end if]."
+Classic Cult is west of Disposed Well. It is in Main Chunk. "Light OMs can be heard all over. The lighting, the decor--it's too much like a classic cult, which means it's fooling nobody, which is why you're not surprised there are only two people here, and there are no exits except back out.[paragraph break]A googly bowl rests here, [if fourth-blossom is moot]full of blossoms[else]three-quarters full of blossoms[end if]."
 
 check going nowhere in Classic Cult:
 	if noun is outside, try going east instead;
@@ -8608,9 +8616,9 @@ for writing a paragraph about a person (called fgg) in Classic Cult:
 the blossoms are scenery in classic cult. description is "[bug]"
 
 instead of doing something with blossoms:
-	say "They're only for looking, and you think they'd make you feel some blah, but they don't. Currently they're [if fourth-blossom is in lalaland]restored[else]only covering 75% of the bowl[end if]." instead;
+	say "They're only for looking, and you think they'd make you feel some blah, but they don't. Currently they're [if fourth-blossom is moot]restored[else]only covering 75% of the bowl[end if]." instead;
 
-the googly bowl is scenery in Classic Cult. "[if fourth-blossom is in lalaland]It looks balanced, beautiful, proper.[else]It looks lopsided--one more flower or whatever in the bowl might fix that.[end if]"
+the googly bowl is scenery in Classic Cult. "[if fourth-blossom is moot]It looks balanced, beautiful, proper.[else]It looks lopsided--one more flower or whatever in the bowl might fix that.[end if]"
 
 check inserting fourth-blossom into googly bowl:
 	say "Faith and Grace take it from you.";
@@ -8623,12 +8631,12 @@ check inserting into googly bowl:
 	try giving noun to faith instead;
 
 check taking googly bowl:
-	say "It surely means more to the Goodes than to you[if fourth-blossom is in lalaland], especially now it's fixed[end if]." instead;
+	say "It surely means more to the Goodes than to you[if fourth-blossom is moot], especially now it's fixed[end if]." instead;
 
 to get-mind:
 	say "Faith and Grace place the blossom and spin it, and when it slows, the flowers are changed so you can't remember which was which. 'This is the least we can do for you. Have this mind of peace.' It's beautiful, but not gaudy.";
 	now player has mind of peace;
-	now fourth-blossom is in lalaland;
+	now fourth-blossom is moot;
 	set the pronoun it to googly bowl;
 	increment the score;
 
@@ -8653,7 +8661,7 @@ check talking to Faith:
 	try talking to Grace Goode instead;
 
 check talking to Grace:
-	if fourth-blossom is in lalaland, say "You exchange views on inner peace, finding yourself, achievement, and so forth. She's not particularly persuasive, so you sense whatever cult she had or will have won't be charismatic or forceful enough to give anyone any crazy ideas. But you still feel better for the chat, for all that." instead;
+	if fourth-blossom is moot, say "You exchange views on inner peace, finding yourself, achievement, and so forth. She's not particularly persuasive, so you sense whatever cult she had or will have won't be charismatic or forceful enough to give anyone any crazy ideas. But you still feel better for the chat, for all that." instead;
 
 does the player mean talking to Grace when player is in Classic Cult: it is very likely.
 
@@ -8699,7 +8707,7 @@ understand "trust brain" and "trust/brain" as mind of peace.
 
 part Truth Home
 
-Truth Home is inside of Disposed Well. It is in Main Chunk. It is only-out. "Nothing feels wrong here, but it feels incredibly uncomfortable[if sid lew is in lalaland] even with Sid Lew gone[end if]. It's also a small home, almost a [activation of whole truth], with the only exit back out."
+Truth Home is inside of Disposed Well. It is in Main Chunk. It is only-out. "Nothing feels wrong here, but it feels incredibly uncomfortable[if sid lew is moot] even with Sid Lew gone[end if]. It's also a small home, almost a [activation of whole truth], with the only exit back out."
 
 check going nowhere in truth home:
 	say "The only way out is, well, out." instead;
@@ -8917,12 +8925,12 @@ after taking Sound Safe:
 description of Sound Safe is "[if sound safe is in Discussion Block]It sits there as a memorial to Art Fine[else if safe is in accountable hold]It looks the part, but on closer inspection, you don't see how it locks. You can probably OPEN it at will[else if player has safe]It's much lighter than expected, and you can probably OPEN it at the right time[end if]."
 
 check opening sound safe:
-	if harmonic phil is in lalaland, say "You don't need to, again." instead;
+	if harmonic phil is moot, say "You don't need to, again." instead;
 	if player is in speaking plain, say "[one of]Uncle Dutch and Turk Young look momentarily shaken up! But they soon talk over the Sound Safe, congratulating each other on not getting rattled by it, unlike less practical types[or]It won't work better this time. Dutch and Turk are too goal-oriented for the safe to bother them[stopping]." instead;
 	if player is not in Discussion Block, say "You crack it open, but it makes such a terrible noise you have to close it again. You wouldn't want to open it again unless you were around someone you really wanted to spite[if player does not have safe], and thing is, it felt a lot lighter than you thought it would as you opened it[end if]." instead;
 	say "The Sound Safe makes a brutal noise in the Discussion Block, made worse by the special acoustics. Harmonic Phil covers his ears. 'Not even [activation of world record] would sell dreck like this! I can't even be clever about how this is so bad it's good!' he yells, running off. '[safety-of]!'[paragraph break]You put the safe down by the song torch."; [temproom discussion block]
 	now sound safe is in Discussion Block;
-	now harmonic phil is in lalaland;
+	now harmonic phil is moot;
 	say "[line break][if art fine is in Discussion Block]Art Fine chuckles and nods approval. 'That's what you get for dabbling in art that's not intellectually robust. Perhaps this place should be [activation of shelving the thought], instead.'[paragraph break]Wow. Even before a line like that, you figured Art Fine had to go, too. How to get rid of him?[else]Well, that's Phil AND Art gone.[end if]"; [temproom discussion block]
 	increment the score;
 	annotize harmonic phil;
@@ -9034,7 +9042,7 @@ check inserting it into (this is the put it in vent rule):
 			say "That might calm Sal down, but how would you explain things to Pusher Penn? Perhaps a different variety of...vegetation.";
 			now pot-not-weed is true instead;
 		if noun is poory pot:
-			now poory pot is in lalaland;
+			now poory pot is moot;
 			now sal-sleepy is true;
 			say "As you stuff the thin roll into the vent, it tumbles down to what you can only assume is an incinerator or air flow or something in Temper Keep's foundation you'd be better off not touching in normal circumstances.[paragraph break]The 'aromatics' of the poory pot seep into the air in Temper Keep. 'Is it just me, or is it not stinky in here? Yes! Yes! It is probably some combination of both!' You stand well out of the way as Sal continues to babble, his pseudo-philosophy becoming ever more pseudo- before...clonk. An [activation of sound asleep]. You wait a minute to make sure. Yup, he's out.";
 			increment the score;
@@ -9133,7 +9141,7 @@ to check-left:
 	if bros-left is 0:
 		say "Oh, man! The way north is free now! As the final brother leaves, he turns to say 'Beware...trap...question mark...exclamation mark...'";
 		unlock-verb "fancy";
-		if silly boris is in lalaland:
+		if silly boris is moot:
 			unlock-verb "notice";
 		annotize terry sally;
 		annotize fritz the on;
@@ -9387,7 +9395,7 @@ part Walker Street
 Walker Street is east of Speaking Plain. It is in Main Chunk. "A huge mistake grave blocks passage south, but to the north is [if standard bog is visited]the Standard Bog[else]some swamp or something[end if], east is some sort of museum, and you can go inside [gateway-desc]. Or you can go back west to the Speaking Plain."
 
 check going inside in walker street:
-	if poory pot is in lalaland, say "[one of]As you walk in, Pusher Penn looks up from his plans for [activation of wood pusher], his new resort, and asks if you enjoyed your 'payment.' But your truth truth that seems even more preposterous than if you'd actually sampled the stuff. 'THE THANKS I GET!' he booms. 'DON'T COME BACK.'[or]Pusher Penn really, really doesn't want to see you. But you don't want or need to see him.[stopping]" instead;
+	if poory pot is moot, say "[one of]As you walk in, Pusher Penn looks up from his plans for [activation of wood pusher], his new resort, and asks if you enjoyed your 'payment.' But your truth truth that seems even more preposterous than if you'd actually sampled the stuff. 'THE THANKS I GET!' he booms. 'DON'T COME BACK.'[or]Pusher Penn really, really doesn't want to see you. But you don't want or need to see him.[stopping]" instead;
 
 the mistake grave is scenery in Walker Street. "It's a weird light red color. It reads: IN MEMORY OF [activation of watkins glen], THE IDIOT WHO WENT ONLY FIVE MILES OVER THE SPEED LIMIT AND DIDN'T HEAR THE JOYRIDERS GOING THIRTY FORTY OR FIFTY OVER THUS RUINING THIS PRIME [activation of driving crazy] ZONE FOR MORE EXCITING PEOPLE. -[bg][one of].[paragraph break]Well, the message isn't [activation of drive into the ground][or][stopping]."
 
@@ -9425,7 +9433,7 @@ does the player mean entering drug gateway: it is very likely.
 
 part Standard Bog
 
-Standard Bog is north of Walker Street. It is in Main Chunk. "This is a pretty standard bog. It's really slimy and probably has lots of quicksand traps you can't see until it's too late, and... [one of]well, the machine off to the side is not so standard. It seems to be mumbling, trying different ways to express itself. Yes, to use language. A language machine.[or]the Language Machine, still [if wax is in lalaland]burbling poems[else]grinding out dreary sentences[end if].[stopping][paragraph break]Magical glinting witch sand makes the way north too dangerous, and law sods to the east and west  all ways back except south."
+Standard Bog is north of Walker Street. It is in Main Chunk. "This is a pretty standard bog. It's really slimy and probably has lots of quicksand traps you can't see until it's too late, and... [one of]well, the machine off to the side is not so standard. It seems to be mumbling, trying different ways to express itself. Yes, to use language. A language machine.[or]the Language Machine, still [if wax is moot]burbling poems[else]grinding out dreary sentences[end if].[stopping][paragraph break]Magical glinting witch sand makes the way north too dangerous, and law sods to the east and west  all ways back except south."
 
 The Witch Sand is scenery in Standard Bog. "It glints with an evil magic."
 
@@ -9452,42 +9460,42 @@ check going nowhere in standard bog:
 	if noun is west or noun is east, say "You'd probably take the silliest false step and sink into the Law Sods. But there's nowhere to go across the sods, anyway." instead;
 	say "It's really only safe to go back south." instead;
 
-The Language Machine is scenery in Standard Bog. "The language machine hums along [if wax is in lalaland]cheerfully[else]balefully[end if], its console spewing out [if wax is in lalaland]poetry, which isn't good, but it's not overblown[else]dolorous, leaden, formulated prose about, well, being stuck in a bog[end if] in its bottom half. In the top half is an LCD [fr-sm]."
+The Language Machine is scenery in Standard Bog. "The language machine hums along [if wax is moot]cheerfully[else]balefully[end if], its console spewing out [if wax is moot]poetry, which isn't good, but it's not overblown[else]dolorous, leaden, formulated prose about, well, being stuck in a bog[end if] in its bottom half. In the top half is an LCD [fr-sm]."
 
 to say fr-sm:
-	say "[if wax is in lalaland]smile[else]frown[end if]"
+	say "[if wax is moot]smile[else]frown[end if]"
 
 the lcd frown is part of the language machine. description is "BUG"
 
-understand "lcd smile" and "smile" as lcd frown when wax is in lalaland.
+understand "lcd smile" and "smile" as lcd frown when wax is moot.
 
 instead of doing something with the lcd frown:
-	say "The [fr-sm] is just a output of the computer's feelings. [if wax is in lalaland]You already helped it[else]You could maybe help it somehow[end if]."
+	say "The [fr-sm] is just a output of the computer's feelings. [if wax is moot]You already helped it[else]You could maybe help it somehow[end if]."
 
 check opening the language machine:
 	say "It's probably too complex to tinker with." instead;
 
 check talking to language machine:
-	say "It processes your words and converts them into an [if wax is in lalaland]amusing poem[else]angsty story[end if]. But it doesn't seem to notice you, being a machine[if wax is in lalaland]. Just as well. You've done what you can[else]. Maybe there's something that can modify how it sees its input." instead;
+	say "It processes your words and converts them into an [if wax is moot]amusing poem[else]angsty story[end if]. But it doesn't seem to notice you, being a machine[if wax is moot]. Just as well. You've done what you can[else]. Maybe there's something that can modify how it sees its input." instead;
 
 to say no-pos:
 	say "The machine is humming along and poeticizing happily. It needs no more possessions"
 
 check inserting into the language machine:
-	if poetic wax is in lalaland, say "[no-pos]." instead;
+	if poetic wax is moot, say "[no-pos]." instead;
 	try putting noun on language machine instead;
 
 check putting on the language machine:
-	if poetic wax is in lalaland, say "[no-pos]." instead;
+	if poetic wax is moot, say "[no-pos]." instead;
 	if noun is poetic wax:
-		now wax is in lalaland;
+		now wax is moot;
 		now player has trick hat;
 		say "The language machine emits a few weird meeps, then the wax seeps into it. The words on the terminal change from well-organized paragraphs to clumps of four in a line. You steel yourself and read a few...";
 		wfak;
 		say "...and they're not that great, but they're uplifting, and if they're still cynical, they have an amusing twist or two. No more FEEL MY ENNUI stuff. If only you could've done that back when you used to write, before you got too grim...well, maybe you still can.[paragraph break]The computer prints out a map for you, of the bog. It has all the pitfalls. You walk to the end to find a bona fide trick hat--like a wizard hat but with clever facial expressions instead of stars and whatnot.[paragraph break]You stick the map back in the computer, since it's really tearing through scratch paper to write poems, and it needs all the paper it can get. It's the least you can do. You won't need to go back, and that hat seems pretty cool. In fact, a bit too cool to wear without a good reason.";
 		set the pronoun it to language machine;
 		increment the score instead;
-	if poetic wax is in lalaland, say "The machine is on a roll. You don't have anything else to give to it, anyway." instead;
+	if poetic wax is moot, say "The machine is on a roll. You don't have anything else to give to it, anyway." instead;
 	if noun is story fish, say "[one of]The story fish moans about how it moans occasionally, but it's not as bad as that computer. You probably want to do something more positive for or to the computer[or]You don't want to annoy the story fish into moaning again[stopping]." instead;
 	if noun is contract, say "The machine whirs and coughs. Like any machine, it's used to being told what to do, but the contract may be too restrictive." instead;
 	say "The machine whirs defensively as you get close. Hm, maybe something else would work better." instead;
@@ -9583,13 +9591,13 @@ some poory pot is a smokable. description is "Geez. You can smell it. It's a sic
 
 part Discussion Block
 
-Discussion Block is east of Walker Street. It is in Main Chunk. "On one wall, a book bank is embedded--like a bookshelf, only tougher to extract the books. On another, a song torch. You can only go back west[if phil is in lalaland and art fine is in lalaland and poetic wax is not in discussion block]. There's not much to do here, now, except maybe page through the bank and torch's selections[end if]."
+Discussion Block is east of Walker Street. It is in Main Chunk. "On one wall, a book bank is embedded--like a bookshelf, only tougher to extract the books. On another, a song torch. You can only go back west[if phil is moot and art fine is moot and poetic wax is not in discussion block]. There's not much to do here, now, except maybe page through the bank and torch's selections[end if]."
 
 check going nowhere in discussion block:
 	if noun is outside:
 		try going west;
-	if art is in lalaland and phil is in lalaland, say "No sense searching for Art or Phil or the Creativity Block. You might even get lost and stumble on the Arguments Block, which would be horrible." instead;
-	if art is in lalaland or phil is in lalaland, say "Searching for Creativity Block, where [if art is in lalaland]Art[else]Phil[end if] went, would be counterproductive." instead;
+	if art is moot and phil is moot, say "No sense searching for Art or Phil or the Creativity Block. You might even get lost and stumble on the Arguments Block, which would be horrible." instead;
+	if art is moot or phil is moot, say "Searching for Creativity Block, where [if art is moot]Art[else]Phil[end if] went, would be counterproductive." instead;
 	say "A wall that way would block stumbling. You can only go back west." instead;
 
 to say a-p:
@@ -9734,12 +9742,12 @@ check examining book bank:
 			say "You go back to the start of the book bank.[paragraph break]";
 		now book-ord is 1;
 	choose row book-ord in the table of horrendous books;
-	if Art Fine is in lalaland, say "Let's see. [i][workname entry][r] by [authname entry]. Looks [one of]confusing[or]baffling[or]dreadfully important[or]best-seller-ish[in random order]." instead;
+	if Art Fine is moot, say "Let's see. [i][workname entry][r] by [authname entry]. Looks [one of]confusing[or]baffling[or]dreadfully important[or]best-seller-ish[in random order]." instead;
 	say "'Ah, yes,' drones Art Fine. '[i][workname entry][r]. A most [one of]about-everything-and-nothing-y[or]simple yet complex[or]iconic[or]transformative[or]edifying[or]scintillating[or]complex yet simple[or]zeitgeisty[in random order] read, providing you are a good reader. [authname entry]. A [one of]stirring treatise[or]vigorous discussion[or]tour de force[or]stunning perspective[at random] on [booksubj entry]. And more. [pompous-phrase]! More sensible than some jingle!'";
 	the rule succeeds;
 
 check taking book bank:
-	now Steal This Book is in lalaland;
+	now Steal This Book is moot;
 	say "You consider trying to Steal This Book, but then you picture the Stool Toad[if Judgment Pass is visited] or Officer Petty[end if] ready to [activation of steal this book]. Even without Art or Phil here to see you." instead;
 
 to say pompous-phrase:
@@ -9764,7 +9772,7 @@ check examining song torch:
 			say "Hmm, the songs seem to be repeating.[paragraph break]";
 		now song-ord is 1;
 	choose row song-ord in the table of horrendous songs;
-	if Harmonic Phil is in lalaland, say "You listen, and the song's lyrics seem to indicate it's [i][workname entry][r] by, you guess, [singername entry]. Ridiculous." instead;
+	if Harmonic Phil is moot, say "You listen, and the song's lyrics seem to indicate it's [i][workname entry][r] by, you guess, [singername entry]. Ridiculous." instead;
 	say "'Ah, yes,' drones Harmonic Phil. '[i][workname entry][r]. A most [one of]titillating[or]sense-enhancing[or]transcending[or]pure-art[or]spine-tingling[in random order] experience, providing you are a good listener. [singername entry]. Such [one of]complex melodies[or]vigorous discussion[or]a tour de force[or]stunning perspective[at random] on [songsubj entry]. And more. [pompous-phrase]! It wouldn't be the same in print!'";
 	the rule succeeds;
 
@@ -9786,7 +9794,7 @@ understand "fog petty" as a mistake ("Officer Petty is more likely to talk circl
 
 description of Officer Petty is "Officer Petty stares back at you, cracks his knuckles, and rubs a palm. He's bigger, stronger and fitter than you."
 
-the Intuition Counter is scenery in Judgment Pass. "It's labeled with all manner of dire motivational phrases I'm ashamed to spell out here[if officer petty is in lalaland]. It's no longer a [activation of countermand] with Officer Petty gone[end if]."
+the Intuition Counter is scenery in Judgment Pass. "It's labeled with all manner of dire motivational phrases I'm ashamed to spell out here[if officer petty is moot]. It's no longer a [activation of countermand] with Officer Petty gone[end if]."
 
 check going east in Judgment Pass:
 	if Officer Petty is in Judgment Pass, say "You're sure Officer Petty would grab you and pull you back with a [activation of terrorist] move or something, to instill proper fear of the law." instead;
@@ -9832,7 +9840,7 @@ check going west in idiot village for the first time:
 	say "[line break]It doesn't seem much of a [activation of village people]. Although you were able to go west, you didn't see any YMCA or place to sign up in the Navy, or even any macho man.";
 
 to say how-empty-iv:
-	say "[if business monkey is in lalaland and sly moore is in lalaland]complete[else if business monkey is in idiot village and sly moore is in idiot village]most[else]large[end if]ly"
+	say "[if business monkey is moot and sly moore is moot]complete[else if business monkey is in idiot village and sly moore is in idiot village]most[else]large[end if]ly"
 
 village-explored is a truth state that varies.
 
@@ -9841,9 +9849,9 @@ last-dir is a direction that varies.
 rotation is a number that varies.
 
 check going nowhere in idiot village (this is the final idol puzzle rule):
-	if thoughts idol is in lalaland, say "You don't need a victory lap through the Service Community now, fun as it might be." instead;
+	if thoughts idol is moot, say "You don't need a victory lap through the Service Community now, fun as it might be." instead;
 	if player has legend of stuff, say "The idol glares at you. Once it makes eye contact, it lowers its eyes to the Legend of Stuff. You feel a bit silly." instead;
-	if insanity terminal is in lalaland or player has bad face: [really just the first but for testing the 2nd works too]
+	if insanity terminal is moot or player has bad face: [really just the first but for testing the 2nd works too]
 		if noun is northeast or noun is east:
 			say "You run past the Thoughts Idol. Its eyes follow you. You hear a buzzing hum, then a voice in your head: 'Trying to be a star[one of][or] again[stopping]?'";
 			set the pronoun it to thoughts idol;
@@ -9948,7 +9956,7 @@ after quipping when qbc_litany is litany of Sly Moore:
 		enable the sly-didhe quip;
 		enable the sly-check quip;
 	if current quip is sly-check:
-		now candidate dummy is in lalaland;
+		now candidate dummy is moot;
 		enable the sly-dummy quip;
 	if current quip is sly-dummy:
 		enable the sly-geez quip;
@@ -9987,7 +9995,7 @@ orientation of northwest is 7.
 the thoughts idol is scenery in Idiot Village. "[if player is in idiot village][iv-idol][else]If you look too long back at the Thoughts Idol now, it may distract you. You know it's [idol-dir]. Gotta keep running, somehow, somewhere[end if]."
 
 check entering idol:
-	if terminal is in lalaland and player does not have legend of stuff, say "That'd probably make for a really gruesome end, if you could, which you can't. But you're possessed by the temptation to tease it, to make it so you're almost willing to, just to annoy it." instead;
+	if terminal is moot and player does not have legend of stuff, say "That'd probably make for a really gruesome end, if you could, which you can't. But you're possessed by the temptation to tease it, to make it so you're almost willing to, just to annoy it." instead;
 	say "No way. You can't even get near it." instead;
 
 before talking to idol:
@@ -10054,12 +10062,12 @@ check going in service community:
 		now last-dir is noun;
 		prevent undo;
 		if idol-progress is 7:
-			now bad face is in lalaland;
+			now bad face is moot;
 			now player has lifted face;
-			now thoughts idol is in lalaland;
+			now thoughts idol is moot;
 			now service memorial is in service community;
 			move player to idiot village, without printing a room description;
-			move crocked half to lalaland;
+			moot crocked half;
 			inc-max;
 			annotize thoughts idol;
 			say "[line break][bold type]Back at Idiot Village[roman type][line break]";
@@ -10117,7 +10125,7 @@ chapter community text
 rule for deciding whether to allow undo:
 	if undo is prevented:
 		if player is in idiot village:
-			say "[if thoughts idol is in lalaland]No, you did it right. No need to relive past victories[else]You kick yourself for doing something wrong, but ... well, the idol didn't kill you or anything. You can try again.";
+			say "[if thoughts idol is moot]No, you did it right. No need to relive past victories[else]You kick yourself for doing something wrong, but ... well, the idol didn't kill you or anything. You can try again.";
 			deny undo;
 		if player is in service community:
 			say "You're worried you might've messed up, but no, the Idol would've gotten you, then. Need to keep going on.";
@@ -10262,7 +10270,7 @@ check talking to Baiter Master:
 		say "He points to the Legend of Stuff. 'Oh. It looks like you took the easy way out. In fact...";
 		say "[line break][bm-stuff-brags]";
 	say "[line break][bm-idol-brags]";
-	say "[line break]'Well, even with the Thoughts Idol [if idol is in lalaland]gone[else]here[end if], I should be able to fix the mess you made.'"
+	say "[line break]'Well, even with the Thoughts Idol [if idol is moot]gone[else]here[end if], I should be able to fix the mess you made.'"
 
 to say bm-stuff-brags:
 	repeat through table of bm stuff brags:
@@ -10273,7 +10281,7 @@ to say bm-stuff-brags:
 to say bm-idol-brags:
 	repeat through table of bm idol brags:
 		if idol-fails <= times-failed entry or times-failed entry is -1:
-			say "[if idol is in lalaland][win-say entry][else][nowin-say entry][end if]";
+			say "[if idol is moot][win-say entry][else][nowin-say entry][end if]";
 			continue the action;
 
 reused-hint is a truth state that varies.
@@ -10365,8 +10373,8 @@ to choose-final-room:
 		now already-great is true;
 	if current quip is bm-fear:
 		terminate the conversation;
-		move baiter master to lalaland;
-		if thoughts idol is in lalaland:
+		moot baiter master;
+		if thoughts idol is moot:
 			say "But Idiot Village has had time to assemble and rescue the hero that dispelled the Thoughts Idol! They overwhelm the [bad-guy]'s loyalists, trash the more sinister surveillance technology in Freak Control, and lead you somewhere new. You protest you're not a leader--you just, well, did a bunch of errands. But they insist they have something to show you.";
 			it-take hammer;
 			set the pronoun them to mentality crowd;
@@ -10472,7 +10480,7 @@ understand the command "answer" as something new.
 to say ring-clue:
 	say "!";
 
-understand "brass ring" and "ring brass" as a mistake ("[if player is in out mist]You already had to ring the brass to get here. Gotta be something else with the ring.[ring-clue][else if player is in airy station][else if player is in freak control]You can't bring yourself to attack the [bad-guy] first.[else]You sense you don't quite need to, yet.[end if]") when quiz pop is in lalaland
+understand "brass ring" and "ring brass" as a mistake ("[if player is in out mist]You already had to ring the brass to get here. Gotta be something else with the ring.[ring-clue][else if player is in airy station][else if player is in freak control]You can't bring yourself to attack the [bad-guy] first.[else]You sense you don't quite need to, yet.[end if]") when quiz pop is moot
 
 understand "answer ring" and "ring answer" as a mistake ("The ring seems to be straining to be different. But it can't make a difference on its own.[ring-clue]") when player is in Out Mist.
 
@@ -10626,7 +10634,7 @@ to go-back-home:
 	the rule succeeds;
 
 to see-if-show-terminal:
-	if terminal is in lalaland, continue the action;
+	if terminal is moot, continue the action;
 	if got-terminal-almost is true, continue the action;
 	choose row with final response rule of alt-answer rule in the table of final question options;
 	blank out the final question wording entry;
@@ -10645,7 +10653,7 @@ to print-replay-message:
 		if T1 is false:
 			say "Thanks for replaying to find the good-but-not-great ending!";
 		else if T2 is false:
-			say "A better ending is [if T1 is true]still [end if]out there! [if Cute Percy is not in lalaland]There's something below Cute Percy[else if Insanity Terminal is not in lalaland]The Insanity Terminal hides a clue[else]The Thoughts Idol still remains to torture Idiot Village[end if].";
+			say "A better ending is [if T1 is true]still [end if]out there! [if Cute Percy is not moot]There's something below Cute Percy[else if Insanity Terminal is not moot]The Insanity Terminal hides a clue[else]The Thoughts Idol still remains to torture Idiot Village[end if].";
 	else:
 		unlock-verb "great";
 		if T1 is true:
@@ -11247,13 +11255,13 @@ book special
 
 this is the alternative-see rule:
 	now altseen is true;
-	unless Cute Percy is in lalaland:
+	unless Cute Percy is moot:
 		say "[2da]Cute Percy can be faked out.";
-	if Cute Percy is in lalaland and insanity terminal is not in lalaland:
+	if Cute Percy is moot and insanity terminal is not moot:
 		say "[2da]There are two hint devices beneath the Insanity Terminal.";
 	if service community is unvisited:
 		say "[2da]You could've explored the Service Community east and northeast of Idiot Village.";
-	if idol is not in lalaland:
+	if idol is not moot:
 		say "[2da]You didn't find a way to defeat the Thoughts Idol.";
 	if out mist is visited:
 		say "[2da]The other two ways to transform the ring were [other-ring-change] RING.";
@@ -11390,7 +11398,7 @@ Discussion Block	6	2	"DISCU"	"BLOCK"	--	--	--	--	--
 Classic Cult	1	3	"CLASS"	"CULT "	--	--	--	--	--
 Disposed Well	2	3	"DISPO"	"WELL "	--	--	--	--	--
 Chipper Wood	3	3	"CHIPR"	"WOOD "	--	--	--	--	--
-Nominal Fen	4	3	"[if silly boris is in lalaland]MELLO[else]NOMIN[end if]"	"[if silly boris is in lalaland]MARSH[else] FEN [end if]"	--	--	--	--	--
+Nominal Fen	4	3	"[if silly boris is moot]MELLO[else]NOMIN[end if]"	"[if silly boris is moot]MARSH[else] FEN [end if]"	--	--	--	--	--
 Judgment Pass	5	3	"JGMNT"	"PASS "	--	--	--	--	--
 Idiot Village	6	3	"IDIOT"	"VILLG"	--	--	--	--	--
 Service Community	7	3	"SERVC"	"COMMU"	--	--	--	--	--
@@ -11671,7 +11679,7 @@ Rule for printing a parser error when the latest parser error is the can't see a
 
 Rule for printing a parser error when the latest parser error is the nothing to do error:
 	if drop-warn is true:
-		say "You don't need to make a mess like that! There's only one place in this game where dropping is useful, anyway[if terry sally is in lalaland], and you've already passed it[end if].";
+		say "You don't need to make a mess like that! There's only one place in this game where dropping is useful, anyway[if terry sally is moot], and you've already passed it[end if].";
 		now drop-warn is false;
 	else:
 		say "Sorry, but I couldn't find anything to use ALL on[one of]. And no location (I hope) is flooded with enough stuff so you'll need to do more than TAKE ALL once or twice[or][stopping]." instead.
@@ -11715,7 +11723,7 @@ to say activation of (x - a thing):
 		say "[if ital-conc is true][i][end if][gtxt of x][r]";
 	else if debug-state is true:
 		say "(NO GTXT)";
-	now x is in lalaland;
+	now x is moot;
 
 to say f-t of (my-r - a room):
 	say "go to the [my-r] for the first time"
@@ -12323,6 +12331,8 @@ mimicry is a jerkish concept in conceptville. Understand "mimi cry" and "cry mim
 Mollycoddling is a jerkish concept in conceptville. Understand "coddling/cuddling molly" and "molly coddling/cuddling" as mollycoddling. howto is "[j-blab]". gtxt is "coddling, err, cuddling Molly".
 
 monte carlo is a jerkish concept in conceptville. Understand "carlo monte" as monte carlo. howto is "[j-blab]". gtxt is "Carlo Monty".
+
+morris dancing is a jerkish concept in conceptville. Understand "dancing morris" as morris dancing. howto is "[j-blab]". gtxt is "Dancing Morris".
 
 mortify is a jerkish concept in conceptville. Understand "mort iffy" and "iffy mort" as mortify. howto is "[j-blab]". gtxt is "iffy Mort".
 
@@ -13757,17 +13767,17 @@ understand "bro [number]" as broing.
 
 carry out broing:
 	if number understood is 1:
-		if brother blood is in lalaland:
+		if brother blood is moot:
 			say "SUCCESS!";
 		else:
 			say "FAILURE!";
 	if number understood is 2:
-		if brother soul is in lalaland:
+		if brother soul is moot:
 			say "SUCCESS!";
 		else:
 			say "FAILURE!";
 	if number understood is 3:
-		if brother big is in lalaland:
+		if brother big is moot:
 			say "SUCCESS!";
 		else:
 			say "FAILURE!";
@@ -13858,7 +13868,7 @@ jcing is an action out of world.
 
 understand the command "jc" as something new.
 
-understand "jc" as jcing when jerk-who-short is true and silly boris is not in lalaland.
+understand "jc" as jcing when jerk-who-short is true and silly boris is not moot.
 
 carry out jcing:
 	say "Starting with [last-jerk], the [j-co]['] magic number is [magic-jerk-number].";
@@ -13887,7 +13897,7 @@ carry out tixreseting:
 	try tixing last-tix;
 
 carry out tixing:
-	if Terry Sally is in lalaland:
+	if Terry Sally is moot:
 		say "You may need to restart and KNOCK HARD to retry getting tickets, with Terry Sally gone.";
 	if number understood > 4 or number understood < 0, say "The number of tickets you have can only be 0-4." instead;
 	now your-tix is the number understood;
@@ -13896,7 +13906,7 @@ carry out tixing:
 		now tickety is off-stage;
 		now trail paper is off-stage;
 	else if your-tix is 4:
-		now tickety is in lalaland;
+		now tickety is moot;
 		now player has trail paper;
 	else:
 		now player has boo tickety;
@@ -14030,7 +14040,7 @@ carry out gating:
 		gat-ruin-check;
 		now player has pick;
 		now player has burden;
-	else if Terry Sally is not in lalaland and mrlp is not main chunk:
+	else if Terry Sally is not moot and mrlp is not main chunk:
 		gat-ruin-check;
 		now player has minimum bear;
 		now player has trail paper;
@@ -14038,8 +14048,8 @@ carry out gating:
 		now player has condition mint;
 	else:
 		gat-ruin-check;
-		now trail paper is in lalaland;
-		now boo tickety is in lalaland;
+		now trail paper is moot;
+		now boo tickety is moot;
 		now player has poory pot;
 		now player has dreadful penny;
 		now player has wacker weed;
@@ -14064,8 +14074,8 @@ carry out gating:
 		if player does not have haha brew:
 			now player has cooler wine;
 	else:
-		now cooler wine is in lalaland;
-		now haha brew is in lalaland;
+		now cooler wine is moot;
+		now haha brew is moot;
 	now player has macguffin;
 	let int be indexed text;
 	let last-item be an object;
@@ -14104,12 +14114,12 @@ carry out gating:
 		say "GIVE IMPORTANT ITEM: [no line break]";
 		try giving last-item to noun;
 	say "Now we try taking [the noun]: [no line break]";
-	if noun is in lalaland:
+	if noun is moot:
 		say "Oops, moving [the noun] back to where you are.";
 		move noun to location of player;
 	try taking the noun; [heck why not?]
-	now haha brew is in lalaland;
-	now cooler wine is in lalaland;
+	now haha brew is moot;
+	now cooler wine is moot;
 	the rule succeeds.
 
 chapter testjumping
@@ -14239,22 +14249,22 @@ this is the face-term rule:
 this is the face-idol rule:
 	move-puzzlies-and-jerks;
 	move player to idiot village;
-	now Cute Percy is in lalaland;
+	now Cute Percy is moot;
 	open-bottom;
 	now player has crocked half;
 	now player has bad face;
-	now face of loss is in lalaland;
+	now face of loss is moot;
 	the rule succeeds;
 
 this is the defeat-idol rule:
 	move-puzzlies-and-jerks;
 	move player to questions field;
-	now Cute Percy is in lalaland;
+	now Cute Percy is moot;
 	open-bottom;
 	now player has crocked half;
 	now player has bad face;
-	now face of loss is in lalaland;
-	now thoughts idol is in lalaland;
+	now face of loss is moot;
+	now thoughts idol is moot;
 	now service memorial is in service community;
 	the rule succeeds;
 
@@ -14471,9 +14481,9 @@ understand "brobye" as brobyeing.
 
 carry out brobyeing:
 	if bros-left is 0, say "You already got rid of all the brothers." instead;
-	now brother blood is in lalaland;
-	now brother soul is in lalaland;
-	now brother big is in lalaland;
+	now brother blood is moot;
+	now brother soul is moot;
+	now brother big is moot;
 	say "The Keeper Brothers are now out of play. This may cause some oddness with in-game stuff, including solving puzzles that lead up to dispersing the Brothers.";
 	if silly boris is in Nominal Fen:
 		say "Do you wish to get rid of the [j-co], too?";
@@ -14500,9 +14510,9 @@ carry out bro1ing:
 		say "Everyone's gone.";
 		the rule succeeds;
 	let Z be a random stillblocking person;
-	now Z is in lalaland;
+	now Z is moot;
 	say "Moved [Z] to lalaland.";
-	now a random bro is in lalaland;
+	now a random bro is moot;
 	say "[list of stillblocking people] still in Questions Field.";
 	say "This is a test command only.";
 	the rule succeeds;
@@ -14522,7 +14532,7 @@ understand "ctp" as acbyeing.
 understand "acbye" as acbyeing.
 
 carry out acbyeing:
-	if Cute Percy is in lalaland:
+	if Cute Percy is moot:
 		say "Cute Percy is already gone!";
 	else:
 		say "I've sent Cute Percy to the great beyond. This is not reversible except with UNDO or RESTART.";
@@ -14545,7 +14555,7 @@ understand "jerk" as jerking.
 understand "groan" as jerking.
 
 carry out jerking:
-	if silly boris is in lalaland, say "The [j-co] are already gone instead. You'll need to RESTART if you want them back." instead;
+	if silly boris is moot, say "The [j-co] are already gone instead. You'll need to RESTART if you want them back." instead;
 	if Nominal Fen is unvisited:
 		say "You haven't made it to the [j-co] yet. ";
 	if finger index is not examined or know-jerks is false:
@@ -14571,7 +14581,7 @@ understand the command "jgo" as something new.
 understand "jgo" as jgoing.
 
 carry out jgoing:
-	if boris is in lalaland, say "Jerks are already gone." instead;
+	if boris is moot, say "Jerks are already gone." instead;
 	now all clients are in lalaland;
 	now player has quiz pop;
 	say "Bye bye [j-co]! Oh, you have the quiz pop, too.";
@@ -14969,11 +14979,11 @@ carry out jing:
 		now player is in round lounge instead;
 	if player is in round lounge, now player is in Tension Surface instead;
 	if mrlp is Beginning:
-		now gesture token is in lalaland;
-		now proof of burden is in lalaland;
+		now gesture token is moot;
+		now proof of burden is moot;
 		now player is in Pressure Pier instead;
 	if mrlp is outer bounds:
-		now trail paper is in lalaland;
+		now trail paper is moot;
 		now player is in Nominal Fen instead;
 	say "Now that you're in the main area, this command won't let you warp further in your beta testing quest. However, BROBYE will disperse the Brothers, JGO will spoil the [j-co]['] puzzle, and JERK(S)/GROAN(S) will clue it." instead;
 	the rule succeeds;
