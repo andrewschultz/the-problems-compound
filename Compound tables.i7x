@@ -725,6 +725,7 @@ false	"The [j-co] wonder how [activation of evidence] can't take a hint."
 false	"The [j-co] wonder where the heck new kid [activation of expat] is from."
 false	"The [j-co] try to be charitable and think of girls ranked [activation of flounder] on their beauty scale."
 false	"A couple [j-co] feel sorry they [activation of fluoridated] and listened to her conspiracy theories."
+false	"The [j-co] whoop up how [activation of frank marshall] makes fun of chess dorks."
 false	"The [j-co] are glad they're nowhere near as lame as [activation of gangbusters]. Not Buster Ball, of course."
 false	"The [j-co] mention how [activation of gelding] sure has balls."
 false	"The [j-co] express admiration for [activation of glenn beck]'s ability to shoot down crackpot conspiracy theories."
@@ -836,6 +837,7 @@ false	"The [j-co] laugh it's [activation of Wesley So] to make fun of the really
 false	"The [j-co] laugh at [activation of whistler's mother] who find true beauty in older females, like, over thirty." [todo: slowin' homer]
 false	"The [j-co] debate that comic strip by [activation of white guys]."
 false	"The [j-co] rave about the wonderfully greasy options at [activation of whole foods]."
+false	"The [j-co] agree with [activation of wilkes barre]: chess is un-American!"
 true	"The [j-co] debate the best time to play a certain MP3." [na 3pm]
 true	"The [j-co] can only WHISPER what Elaine likes." [na anal]
 true	"The [j-co] think McKinney has a robust workout regimen." [na anemic]

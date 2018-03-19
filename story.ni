@@ -3258,6 +3258,7 @@ evidence	"Evidence is something that supports a conclusion: for instance, a fing
 expat	"An ex-pat is someone who no longer lives in the country where they were born."
 flounder	"To flounder is to try and fail without any progress. It's also the name of a fish."
 fluoridated	"Fluoridated water is a subject of many silly conspiracy theories."
+Frank Marshall	"Frank Marshall was an American chess champion in the early 1900's He could beat everyone except world champion Jose Capablanca, who ground him down decisively in endgames."
 full grown	"Full grown means mature, physically or mentally."
 gangbusters	"Gangbusters is outdated slang for awesome."
 gelding	"A gelding is an animal that has been neutered, usually a horse."
@@ -3386,6 +3387,7 @@ wesley so	"Wesley So became one of the youngest American chess grandmasters ever
 whistler's mother	"Whistler's Mother is a famous painting of an old lady, the mother of the artist."
 white guys	"White guys is a pun on Guisewhite, for Cathy Guisewhite's comic strip [i]Cathy[r]."
 whole foods	"Whole Foods is a store that sells super organic foods at a huge markup."
+wilkes barre	"The Wilkes-Barre chess club has a gambit named after it. It's one of the few chess openings named after a US geographic location, and it's probably the most famous and prominent and sound."
 you buy	"A bayou is a tributary (river leading to bigger water), and the reverse pronunciation is 'you buy.'"
 Character Assassination	"Character assassination is an attempt to tarnish someone's good reputation." [start of chipper wood]
 Play it Cool	"To play it cool is not to lose your temper. Of course, Percy's chase may make you want to lose your temper."
@@ -11221,7 +11223,7 @@ this is the show-cases rule:
 book show rejected
 
 this is the show-rejected rule:
-	say "Fidel the Second, Hunter Savage (actually removed from release 2), ARMSTRONG, Killer Payne, Hosin' Leader, Hood Man, Dread Hun, Elephant White, and Joe Glass were names I couldn't quite get to work, but I think they're amusing enough. I hope you do, too.";
+	say "Fidel the Second, Hunter Savage (actually removed from release 2), ARMSTRONG, Killer Payne, Hosin' Leader, Hood Man, Dread Hun, Elephant White, Ben Haas, Les Wynn and Joe Glass were names I couldn't quite get to work, but I think they're amusing enough. I hope you do, too.";
 	now rejectseen is true;
 	the rule succeeds;
 
@@ -12220,6 +12222,8 @@ flounder is a jerkish concept in conceptville. Understand "flo under" and "under
 
 fluoridated is a jerkish concept in conceptville. Understand "dated flora" and "flora dated" as fluoridated. howto is "[j-blab]". gtxt is "dated Flora".
 
+Frank Marshall is a jerkish concept in conceptville. Understand "marshal/marshall frank" and "frank marshal" as Frank Marshall. howto is "[j-blab]". gtxt is "Marshal Frank".
+
 full grown is a firstvis concept in conceptville. Understand "grown full" as full grown. howto is "[f-t of nominal fen]". gtxt is "groan-ful".
 
 gangbusters is a jerkish concept in conceptville. Understand "buster's/busters/buster gang" and "gang buster/busters/buster's" as gangbusters. howto is "[j-blab]". gtxt is "Buster's Gang".
@@ -12475,6 +12479,8 @@ whistler's mother is a jerkish concept in conceptville. Understand "mother whist
 white guys is a jerkish concept in conceptville. Understand "white guise" and "guise white" and "guisewhite" and "whiteguise" as white guys. howto is "[j-blab]". gtxt is "Guisewhite".
 
 Whole Foods is a jerkish concept in conceptville. Understand "hole foods" and "foods hole" as whole foods. howto is "[j-blab]". gtxt is "Foods Hole".
+
+wilkes barre is a jerkish concept in conceptville. Understand "barre/barry wilkes" and "wilkes barry" as wilkes barre. howto is "[j-blab]". gtxt is "Barry Wilkes".
 
 you buy is a concept in conceptville. Understand "you buy" and "bay you" as you buy. howto is "[solve-j]". gtxt is "bayou". [norm]
 
