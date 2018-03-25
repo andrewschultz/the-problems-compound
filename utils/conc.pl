@@ -1865,7 +1865,11 @@ sub testUnderstands {
 
     print "$. ($definitions[$x]):\n";
 
-    $definitions[$x] = " Understand \"$unds[0]\" and \"$undrev\" as $unds[1]";
+    $definitions[$x] = sprintf(
+      " Understand \"%s\" and \"$undrev\" as %s",
+      lc( $unds[0] ),
+      lc($undrev), $unds[1]
+    );
     push( @ue, $. );
 
     print join( ".", @definitions ) . "\n";

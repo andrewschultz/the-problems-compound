@@ -3271,6 +3271,7 @@ hara-kiri	"Hara-kiri is Japanese ritual suicide."
 henry clay	"Henry Clay was a 19th century American statesman who did nearly everything except get elected President."
 hidey hole	"A hidey hole is somewhere you can go so you won't be found."
 High Fidelity	"High fidelity means music that is translated clearly. It's also a movie starring John Cusack with a famous scene I won't spoil."
+hilbert	"Hilbert is a famous mathematician."
 Hillary	"Hillary refers to Hillary Clinton, here, and the conspiracy theories directed at her."
 hittite	"A Hittite is a now-extinct race of people in the Bible."
 homer winslow	"Homer Winslow was the painter of the famous [i]Whistler's Mother[r]."
@@ -12247,6 +12248,8 @@ henry clay is a jerkish concept in conceptville. Understand "clay henry" as henr
 hidey hole is a jerkish concept in conceptville. Understand "hole hidey" as hidey hole. howto is "[j-blab]". gtxt is "Whole Heidi".
 
 high fidelity is a jerkish concept in conceptville. Understand "fidelity high" as high fidelity. howto is "[j-blab]". gtxt is "Fidelity High".
+
+hilbert is a concept in conceptville. Understand "hill bert" and "bert hill" as hilbert. howto is "j-blab". gtxt is "Bert Hill".
 
 hillary is a jerkish concept in conceptville. Understand "hill larry" and "larry hill" as hillary. howto is "[j-blab]". gtxt is "Larry Hill".
 
