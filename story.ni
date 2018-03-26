@@ -1454,6 +1454,7 @@ check smelling (this is the smelling a place rule): [see above for people]
 		if silly boris is moot, say "No more queasy smell." instead;
 		try smelling silly boris instead;
 	if player is in down ground, say "It smells okay here, but maybe that's because you're not too close to Fritz the On." instead;
+	if player is in judgment pass, say "Thankfully, it doesn't need to be renamed [activation of pass gas]Gas Pass." instead;
 	if player is in temper keep, say "[if sal-sleepy is false]You can understand why Volatile Sal is upset about smells, but you don't understand why he thinks it's other people.[else]Much nicer now with the poory pot in the vent.[end if]" instead;
 	if player is in joint strip, say "It smells like [activation of killer weed], which strangely (or not) hasn't been effective on the stickweed.[paragraph break][if off-the-path is true]But you can't go off the path again with the Stool Toad watching you[else]You're tempted to check what's off the path, to the north or east[end if]." instead; [temproom joint strip]
 	if player is in pressure pier, say "A faint smell of various foods to the west." instead;
@@ -3063,6 +3064,7 @@ Hard Knock	"A hard knock is physical wear and tear, or being hit hard, versus ju
 herd mentality	"A herd mentality is when everyone follows what everyone else is doing."
 moron	"A moron is a derogatory name for someone who's not very smart."
 No-Nonsense	"No-nonsense means, well, not taking any silliness."
+pass gas	"To pass gas is to fart."
 passing fancy	"A passing fancy is something that distracts you and is fun for a bit but you forget about it. To fancy passing means to want to go quickly, or fancy passing may just be something in sports."
 poke fun	"To poke fun is to make a joke, but poke can mean a lot of things--putter around, meddle, or maybe poke a friend to get their attention."
 second thought	"A second thought is looking at something another way, whether to your aid or detriment."
@@ -10485,6 +10487,8 @@ to say ring-clue:
 
 understand "brass ring" and "ring brass" as a mistake ("[if player is in out mist]You already had to ring the brass to get here. Gotta be something else with the ring.[ring-clue][else if player is in airy station][else if player is in freak control]You can't bring yourself to attack the [bad-guy] first.[else]You sense you don't quite need to, yet.[end if]") when quiz pop is moot
 
+understand "dork ring" as a mistake ("This is not Bard's Tale![ring-clue]") when player is in Out Mist.
+
 understand "answer ring" and "ring answer" as a mistake ("The ring seems to be straining to be different. But it can't make a difference on its own.[ring-clue]") when player is in Out Mist.
 
 understand "like ring" and "ring like" and "ringlike" as a mistake("You sort of like the ring the way it is, but you'd like it much better another way.[ring-clue]") when player is in Out Mist.
@@ -11786,6 +11790,8 @@ herd mentality is a snarky concept in conceptville. Understand "heard mentality"
 moron is a concept in conceptville. Understand "more on" and "on more" as moron. howto is "give Fritz the poory pot". gtxt is "ON more".
 
 No-Nonsense is a oddverby concept in conceptville. Understand "no nonsense" and "nonsense no" as no-nonsense. howto is "xyzzy". gtxt is "Nonsense? No".
+
+pass gas is a smelly concept in conceptville. Understand "gas pass" as pass gas. howto is "smell in Judgment Pass". gtxt is "Gas Pass".
 
 Passing Fancy is a concept in conceptville. Understand "fancy passing" as Passing Fancy. howto is "help all three Keeper Brothers". gtxt is "". [norm]
 
