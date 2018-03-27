@@ -670,6 +670,10 @@ table of jerk-macho-talk [xxjmt]
 unact	macho-boast
 false	"The [j-co] muse how you can't be a [activation of adult content] without getting, well, serious ACTION."
 false	"The [j-co] laugh at how unathletic [activation of air jordan] and [activation of nolan ryan] are. They vow to actually start working out some day."
+false	"The [j-co] wonder why [activation of k pop] hates foreign music so much."
+false	"The [j-co] love how [activation of flash gordon] smacks down comic book dorks."
+false	"The [j-co] continue bored mocking of retro computer geeks, software and hardware."
+false	"The [j-co] think [activation of bushnell] would be cool if she just stopped hating video games."
 false	"The [j-co] are upset what a stickler [activation of anal] is."
 false	"The [j-co] berate [activation of anapest] and her weird 'modern' poetry."
 false	"The [j-co] muse how [activation of Anne Frank] wouldn't have to write his diaries about being oppressed if he didn't write weird diaries in the first place."
@@ -873,6 +877,7 @@ true	"The [j-co] find Noemi way too nice." [na mean-o]
 true	"The [j-co] dream of a trip to Camp Mellon, where authority never wins!" [na mellencamp]
 true	"The [j-co] are sorry, but they don't find Delma attractive." [na model]
 true	"The [j-co] love how Damon lives for the weekend." [na monday]
+true	"The [j-co] chide Elmore for not grokking  the bro code." [na moral]
 true	"The [j-co] don't find Tony terribly interesting." [na neato]
 true	"The [j-co] agree that Diener is massively cool." [na nerdy]
 true	"The [j-co] wonder what Bruno has against alcohol." [na no brew]

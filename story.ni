@@ -3231,6 +3231,7 @@ bowled bradman	"If you bowled Bradman, you are very good indeed at cricket."
 box score	"A box score describes the basic individual statistics from a sporting event."
 broccoli	"Broccoli is a vegetable."
 brooke shields	"Brooke Shields was a popular model in the 1980s."
+bushnell	"Nolan Bushnell was the creator of Atari."
 cacophony	"Cacophony is a loud noise."
 call girl	"A call girl is a paid female escort."
 Cary Grant	"Cary Grant is a movie star from the 40s and 50s."
@@ -3258,6 +3259,7 @@ electrocute	"If someone is electrocuted, they're filled with an often lethal dos
 enhance	"To enhance is to make better."
 evidence	"Evidence is something that supports a conclusion: for instance, a fingerprint is evidence in a robbery or murder case."
 expat	"An ex-pat is someone who no longer lives in the country where they were born."
+flash gordon	"Flash Gordon is a comic superhero."
 flounder	"To flounder is to try and fail without any progress. It's also the name of a fish."
 fluoridated	"Fluoridated water is a subject of many silly conspiracy theories."
 Frank Marshall	"Frank Marshall was an American chess champion in the early 1900's He could beat everyone except world champion Jose Capablanca, who ground him down decisively in endgames."
@@ -3295,6 +3297,7 @@ joint committee	"A joint committee is a group of legislators from different part
 jollying around	"Jollying around is cheering someone up, often really condescendingly, by forcing them to be happy."
 journeyman	"A journeyman is someone who is maybe not spectacular but who has paid his dues in his field."
 junk mail	"Junk mail means letters and fliers you didn't ask for that appear in your (physical or electronic) mailbox anyway."
+k pop	"K Pop is pop music from Korea."
 keepin	"Keepin['] is, well, keeping, or letting someone stay."
 kevin spacey	"Kevin Spacey is the actor who played Verbal Kint in [u-sus]."
 Keyser Soze	"Keyser Söze is the shadowy antagonist of [u-sus]."
@@ -12171,6 +12174,8 @@ broccoli is a jerkish concept in conceptville. Understand "lee brock" and "brock
 
 brooke shields is a jerkish concept in conceptville. Understand "brook shields" and "shields brook" as brooke shields. howto is "[j-blab]". gtxt is "shields brook".
 
+bushnell is a jerkish concept in conceptville. Understand "bush nell" and "nell bush" as bushnell. howto is "[j-blab]". gtxt is "Nell Bush".
+
 cacophony is a jerkish concept in conceptville. Understand "coco phony" and "phony coco" as cacophony. howto is "[j-blab]". gtxt is "Phony Coco".
 
 call girl is a jerkish concept in conceptville. Understand "girl call" as call girl. howto is "[j-blab]". gtxt is "girl call".
@@ -12224,6 +12229,8 @@ enhance is a jerkish concept in conceptville. Understand "hansen" as enhance. ho
 evidence is a jerkish concept in conceptville. Understand "ev dense" and "dense ev" as evidence. howto is "[j-blab]". gtxt is "dense ev".
 
 expat is a jerkish concept in conceptville. Understand "x pat" and "pat x" as expat. howto is "[j-blab]". gtxt is "Pat X".
+
+flash gordon is a jerkish concept in conceptville. Understand "flasch gordon" and "gordon flasch" as flash gordon. howto is "[j-blab]". gtxt is "Gordon Flasch".
 
 flounder is a jerkish concept in conceptville. Understand "flo under" and "under flo" as flounder. howto is "[j-blab]". gtxt is "under Flo".
 
@@ -12298,6 +12305,8 @@ jollying around is a jerkish concept in conceptville. Understand "jolyon around"
 journeyman is a jerkish concept in conceptville. Understand "journey man" and "man journey" as journeyman. howto is "[j-blab]". gtxt is "man-journey".
 
 junk mail is a listeny concept in conceptville. Understand "male junk" and "junk male" as junk mail. howto is "[li of nominal fen] before figuring the Index puzzle". gtxt is "male junk".
+
+k pop is a jerkish concept in conceptville. Understand "kay pop" and "pop kay" as k pop. howto is "[j-blab]". gtxt is "Pop Kay".
 
 keepin is a jerkish concept in conceptville. Understand "pinkie" as keepin. howto is "[j-blab]". gtxt is "pinkie".
 
