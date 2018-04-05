@@ -3319,6 +3319,7 @@ melodious	"Melodious means nice-sounding."
 meretricious	"Meretricious means superficially attractive or insincere."
 mike drop	"Mike drop is an Internet term meaning you've won the argument and there's nothing left to say."
 mimicry	"Mimicry is imitating someone else."
+mockingboard	"A mockingboard is a piece of computer hardware that makes sound."
 mollycoddling	"Mollycoddling is being overprotective of someone."
 monte carlo	"Monte Carlo is a place where you can go to gamble. A Monte Carlo simulation also runs random events many times when it is too hard to calculate probability directly."
 morris dancing	"Morris dancing from medieval times, and thus not very trendy and hip."
@@ -12349,6 +12350,8 @@ meretricious is a jerkish concept in conceptville. Understand "tricias merit" an
 mike drop is a jerkish concept in conceptville. Understand "drop mike" as mike drop. howto is "[j-blab]". gtxt is "drop Mike".
 
 mimicry is a jerkish concept in conceptville. Understand "mimi cry" and "cry mimi" as mimicry. howto is "[j-blab]". gtxt is "Cry, Mimi".
+
+mockingboard is a jerkish concept in conceptville. Understand "mocking bored" and "bored mocking" as mockingboard. howto is "[j-blab]". gtxt is "bored mocking".
 
 Mollycoddling is a jerkish concept in conceptville. Understand "coddling/cuddling molly" and "molly coddling/cuddling" as mollycoddling. howto is "[j-blab]". gtxt is "coddling, err, cuddling Molly".
 

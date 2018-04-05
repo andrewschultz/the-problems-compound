@@ -672,7 +672,7 @@ false	"The [j-co] muse how you can't be a [activation of adult content] without 
 false	"The [j-co] laugh at how unathletic [activation of air jordan] and [activation of nolan ryan] are. They vow to actually start working out some day."
 false	"The [j-co] wonder why [activation of k pop] hates foreign music so much."
 false	"The [j-co] love how [activation of flash gordon] smacks down comic book dorks."
-false	"The [j-co] continue [activation of mockingboard=bored mocking] of retro computer geeks, software and hardware."
+false	"The [j-co] continue [activation of mockingboard] of retro computer geeks, software and hardware."
 false	"The [j-co] think [activation of bushnell] would be cool if she just stopped hating video games."
 false	"The [j-co] are upset what a stickler [activation of anal] is."
 false	"The [j-co] berate [activation of anapest] and her weird 'modern' poetry."
@@ -867,6 +867,7 @@ true	"The [j-co] like how Wary Flo doesn't use loaded words." [na flowery]
 true	"The [j-co] unanimously decide whether Noel should be allowed in the group." [na hell/'ell no]
 true	"The [j-co] discuss how Lyle raps." [na illy]
 true	"The [j-co] are unanimous: Vijay is ready for the big leagues." [na jayvee/jv]
+true	"The [j-co] note LJ always looks so free." [na jail]
 true	"The [j-co] mention how Perske's ideas never last." [na keepers]
 true	"The [j-co] ooh and ahh at Pinky's generosity." [na keepin']
 true	"The [j-co] mention what a follower Dahlia is." [na leader/leadah]
