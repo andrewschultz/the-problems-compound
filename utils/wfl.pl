@@ -54,6 +54,8 @@ my $wa = "alf";
 ##################helper variables
 my %isDone;
 my %word;
+my %timesFlipped;
+my %needChecked;
 my $checkWarnYet      = 0;
 my $addedSomething    = 0;
 my $shouldAlphabetize = 0;
@@ -212,6 +214,8 @@ initDupeRead();
 $autoSort = 0;
 
 my %dupCheck;
+
+readFlipFile();
 
 for my $q (@flipAry) {
   if ( ( !$override ) && ( length($q) <= 2 ) ) {
@@ -490,15 +494,11 @@ sub readOneWord {
     $wordsAdded++;
 
     if ( !$isDone{$flip} ) {
-      open( C, ">>$track" );
-      print C "========$flip\n";
-      if ($dicURLPrint) {
-        print C "CHECK http:\/\/idioms.thefreedictionary.com\/$flip\n";
-        $urlsAdded++;
-      }
-      close(C);
+      $timesFlipped{$flip} = 1;
     }
-    else { print "Not adding $flip to fliptrack.txt.\n"; }
+    else {
+      $timesFlipped{$flip}++;
+    }
 
   }
   else {
@@ -605,26 +605,19 @@ sub alfTrack {
   my @alf;
   my $x;
 
-  open( A, "$track" ) || die("No $track");
+  open( A, "$track" );
   open( B, ">$track-alf" );
   while ( $a = <A> ) {
-    if ( $a =~ /^#/ )    { print B $a; next; }
-    if ( $a =~ /^APP=/ ) { print B $a; next; }
-    if ( $a !~ /^=/ ) {
-      if ($stillAlf) { $x = pop(@alf) . $a; print B sort(@alf); }
-      last;
-    }
-    push( @alf, $a );
+    if ( $a =~ /^=/ ) { last; }
+    print B $a;
   }
-  if ($x) {
-    @alf = ($x);
-    while ( $a = <A> ) {
-      $b = <A>;
-      push( @alf, "$a$b" );
-    }
-  }
-  print B sort(@alf);
   close(A);
+  for $x ( sort keys %timesFlipped ) {
+    my $str = "=" x 20 + $x + " " + $timesFlipped{$x};
+    if ( defined( $needChecked{$x} ) ) { $str .= " *"; }
+    print B $str;
+  }
+  print B ";\n";
   close(B);
   if ( -s $track != -s "$track-alf" ) {
     print "Oops size mismatch in alf-track: "
@@ -869,6 +862,19 @@ sub scourClipboard {
   my $x    = $clip->Get();
   @flipAry = ( @flipAry, split( /[, \n\r]+/, $x ) );
 
+}
+
+sub readFlipFile {
+  my @q;
+  open( A, $track );
+  while ( $a = <A> ) {
+    chomp($a);
+    $a =~ s/^=+//;
+    @q = split( / /, $a );
+    $timesFlipped{ $q[0] } = ( $#q ? $q[1] : 1 );
+    if ( $q[2] == "*" ) { $needChecked{ $q[0] } = 1; }
+
+  }
 }
 
 sub usage {
