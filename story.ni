@@ -2410,7 +2410,7 @@ check giving the trap rattle to: [you can't get the trap rattle until you've got
 	if second noun is Lee Bull:
 		say "Sid Lew continues his abuse. At first Lee Bull seems to take it, but then--rattle, rattle. It distracts Sid Lew enough, Lee Bull finds his voice. Animated, he shows up every hole in Sid Lew's seductive but wrong arguments. He begins hitting Sid Lew on the head with the trap rattle until Sid Lew runs out, grousing Lee doesn't DESERVE [activation of right to privacy], and he won't USE it, but..."; [temproom truth home]
 		wfak;
-		say "[line break]Lee Bull shakes the rattle some more. You see something fall out. '[activation of mass production],' says Lee. 'It helps people with bottled up ideas see their way through to organize them, with their unique life view! I better star some [activation of assembly line] before it decays...' Lee begins to write. And write. He hands you the first page--and wow! All the clever life hacks you learn just from the introduction! It's too much, though. You fall asleep as your mind processes it all, with incidents from your own life suddenly making sense."; [temproom truth home]
+		say "[line break]Lee Bull shakes the rattle some more. You see something fall out. '[activation of mass production],' says Lee. 'It helps people with bottled up ideas see their way through to organize them, with their unique life view! I better star some [activation of assembly line] before it decays...' Lee begins to write. And write. He fiddles with something ('my [activation of tamper proof]... not perfect, but weeds out the obvious errors') and hands you the first page--and wow! All the clever life hacks you learn just from the introduction! It's too much, though. You fall asleep as your mind processes it all, with incidents from your own life suddenly making sense."; [temproom truth home]
 		wfak;
 		say "[line break]When you wake up, Lee Bull has written several copies of a small, but fully bound book. He gives it to you and shakes your hand. THE TRADE OF TRICKS, it's called. '[activation of thp] is particularly intoxicating,' he says, 'but I'm too tired to explain it.' He leaves to his own private quarters."; [temproom truth home]
 		now Lee Bull is moot;
@@ -3421,6 +3421,7 @@ psychotherapy	"Psychotherapy is seeing a trained professional for emotional and 
 right to privacy	"Right to privacy is considered a basic human right in democratic societies. It means you have the right to be left alone and not to be arrested for arbitrary reasons."
 showerproof	"Showerproof means rain can't get through material."
 sid vicious	"Sid Vicious was bassist for the Sex Pistols."
+tamper proof	"Tamper proof means something you're unable to mess with."
 technology	"Technology is, well, newer and better machines."
 thp	"Two hundred proof means pure grain alcohol."
 turing machine	"A Turing machine is, to oversimplify, a mathematical model of computation."
@@ -12570,6 +12571,8 @@ right to privacy is a concept in conceptville. Understand "privacy to write" and
 showerproof is a siddy concept in conceptville. Understand "shower proof" and "proof shower" as showerproof. howto is "[pl-sid]". gtxt is "proof shower".
 
 sid vicious is a siddy concept in conceptville. Understand "vicious sid" as sid vicious. howto is "[pl-sid]". gtxt is "Vicious Sid".
+
+tamper proof is a concept in conceptville. Understand "proof tamper" as tamper proof. howto is "give Lee the rattle". gtxt is "proof tamper".
 
 technology is a siddy concept in conceptville. Understand "tech y knowledge" and "knowledge y tech" as technology. howto is "[pl-sid]". gtxt is "knowledge y tech".
 
