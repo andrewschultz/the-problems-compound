@@ -829,6 +829,7 @@ false	"The [j-co] act disgusted at the food they [activation of spotted dick] so
 false	"The [j-co] hope to get their hands on the hot tape [activation of strangers with candy]."
 false	"The [j-co] deride [activation of Sweeney Todd] for his fear of horror movies and barbers."
 false	"The [j-co] mock [activation of sympathetic] for listening to girls whine about their breakups without getting their phone numbers."
+false	"The [j-co] regurgitate [activation of greg norman]'s anti-preppy jokes, especially about golf."
 false	"The [j-co] start a [activation of tallywhacker] of guys very likely to have no experience with women."
 false	"The [j-co] hear it's really easy to [activation of taradiddle]."
 false	"The [j-co] hate how [activation of telephony] gets in your face with his lies."

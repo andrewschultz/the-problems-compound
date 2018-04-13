@@ -3268,6 +3268,7 @@ gangbusters	"Gangbusters is outdated slang for awesome."
 gelding	"A gelding is an animal that has been neutered, usually a horse."
 glenn beck	"Glenn Beck is a commentator who was canned by Fox News for too many conspiracy theories."
 gorgeous	"Gorgeous is, well, beautiful."
+greg norman	"Greg norman is a legendary golfer."
 grown up	"Grown up means, well, you've learned and matured."
 gumby	"Gumby is a Claymation character who had his own show in the 1950s."
 halfling	"A halfling is a D&D character class, half elf, half human, for instance."
@@ -3502,6 +3503,7 @@ career threatening	"Something career threatening may risk not only your job but 
 counterexample	"A counterexample is a case that shows a general theory doesn't always work."
 countermand	"To countermand is to order against doing something."
 counterstriking	"Counterstriking is hitting back."
+pass the test	"To pass the test is to succeed at something."
 pass the torch	"To pass the torch is to hand off knowledge or responsibility to the next person."
 plainclothes	"Plainclothes is when an officer is on duty but out of uniform."
 point guard	"A point guard is usually the smallest, quickest player in the starting five of a basketball team."
@@ -9796,7 +9798,7 @@ Judgment Pass is east of Nominal Fen. It is in Main Chunk. "[if officer petty is
 check going nowhere in judgment pass:
 	if noun is inside or noun is outside or noun is north or noun is south, say "The only passage is east-west." instead;
 
-Officer Petty is an enforcing person in Judgment Pass. "[one of]The officer stares down at the intuition counter for a moment. 'NOPE,' he yells. 'Sure as my name's Officer Petty, no good reason for you to go to Idiot Village. If you're dumb, you'll never find a smart reason, and if you're smart, you'll have a dumb reason, which'll make you dumber, and you don't want that.'[or]Officer Petty continues to regard you with contempt.[stopping]"
+Officer Petty is an enforcing person in Judgment Pass. "[one of]The officer stares down at the intuition counter for a moment. 'NOPE,' he yells. 'Sure as my name's Officer Petty, no good reason for you to [activation of pass the test] and go to Idiot Village. If you're dumb, you'll never find a smart reason, and if you're smart, you'll have a dumb reason, which'll make you dumber, and you don't want that.'[or]Officer Petty continues to regard you with contempt.[stopping]"
 
 understand "coat petty" as a mistake ("Officer Petty raps on the Intuition Counter, then looks at you for a moment. 'You look like one of those closet perverts. I can't arrest you for that, but I have freedom of speech, y'know.'") when player is in Judgment Pass and Petty is in Judgment Pass.
 
@@ -12250,6 +12252,8 @@ Glenn Beck is a jerkish concept in conceptville. Understand "beck glenn" as glen
 
 gorgeous is a jerkish concept in conceptville. Understand "jess gore" and "gore jess" as gorgeous. howto is "[j-blab]". gtxt is "Jess Gore".
 
+greg norman is a concept in conceptville. Understand "norman gregg" and "gregg norman" as greg norman. howto is "[-blab] nominal fen". gtxt is "Norman Gregg".
+
 grown up is a concept in conceptville. Understand "up groan" and "groan up" as grown up. howto is "[solve-j] with swears off". gtxt is "up groan". [norm]
 
 gumby is a jerkish concept in conceptville. Understand "gum by" and "by gum" as gumby. howto is "[j-blab]". gtxt is "by gum".
@@ -12760,7 +12764,9 @@ countermand is a xable concept in conceptville. Understand "counter manned" and 
 
 counterstriking is a violent concept in conceptville. Understand "counter striking" and "striking counter" as counterstriking. howto is "[at of intuition counter]". gtxt is "striking counter".
 
-pass the torch is a snarky concept in conceptville. Understand "torch the pass" as pass the torch. howto is "BURN anything in Judgment Pass". gtxt is "torch the pass".
+pass the test is a firstvis concept in conceptville. Understand "test the pass" as pass the test. howto is "[f-t of judgment pass]". gtxt is "test the pass".
+
+pass the torch is a snarky concept in conceptville. Understand "torch the pass" as pass the torch. howto is "BURN anythitng in Judgment Pass". gtxt is "torch the pass".
 
 plainclothes is a concept in conceptville. Understand "plain close" and "close plain" as plainclothes. howto is "give Officer Petty the Reasoning Circular". gtxt is "Close Plain".
 
