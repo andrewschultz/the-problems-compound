@@ -3459,6 +3459,7 @@ bosom buddy	"A bosom buddy is a best friend."
 contempt of congress	"Contempt of Congress is when someone refuses to answer certain questions before Congress."
 daddy issues	"Daddy issues are a denial of any connection to one's father."
 fair enough	"Fair Enough is what you can say to tell someone you agree with them partially. It has a negative connotation."
+judgment free	"Judgment free means someone won't look down on you for your mistakes."
 lemon law	"A lemon law is something that lets you get your car back if it breaks down quickly after you buy it."
 Lyme disease	"Lyme disease is inflammation caused by a tick's bite."
 nutcase	"A nutcase is a pejorative term for someone who is crazy, clinical or otherwise, as opposed to Buddy Best's claims he just studies a lot."
@@ -9350,7 +9351,7 @@ after quipping when qbc_litany is table of Buddy Best talk:
 		terminate the conversation;
 		say "Buddy waves his hands to change the subject. 'Well, I don't want to waste any more of your time,' he says, with fake humility not meant to be convincing. You freeze.";
 		wfak;
-		say "[line break]'Negotiator, eh? Standing your ground? I'm sure you're nice once I get to know you even if you're not as nice as [bg] once you get to know him, but if you go I'll give you some real efficient self improvement stuff. No [activation of prosecutor]. [activation of readjust]. I'm sure you're smart enough to understand. [']Cause you probably should've understood it a few years ago. Look, I don't want to waste any more of your time.' Buddy Best throws the newsletter at you as you leave.";
+		say "[line break]'Negotiator, eh? Standing your ground? I'm sure you're nice once I get to know you even if you're not as nice as [bg] once you get to know him, but if you go I'll give you some real efficient self improvement stuff. No [activation of prosecutor]. [activation of readjust]. I'm sure you're smart enough to understand. [']Cause you probably should've understood it a few years ago. Look, I don't want to waste any more of your time, but I've helped you with enough [activation of judgment free].' Buddy Best throws the newsletter at you as you leave.";
 		wfak;
 		say "[line break]You pick it up. [i]Reasoning Circular[r]. Well, it's something. Which is more than you expected. Generally, obnoxious fast-talkers wound up taking something from YOU after a short, loud, fast dialog.";
 		it-take Reasoning Circular;
@@ -12665,6 +12666,8 @@ contempt of congress is a missable concept in conceptville. Understand "congress
 daddy issues is a firstvis concept in conceptville. Understand "issues daddy" as daddy issues. howto is "[f-t of court of contempt]". gtxt is "Issues Daddy".
 
 fair enough is a xable concept in conceptville. Understand "enough fair" as fair enough. howto is "[x-it of Reasoning Circular]". gtxt is "Enough Fair".
+
+judgment free is a dialoguey concept in conceptville. Understand "free judgment" as judgment free. howto is "[t2 of Buddy Best]". gtxt is "free judgment".
 
 lemon law is a xable concept in conceptville. Understand "law lemon" as lemon law. howto is "[x-it of buddy best]". gtxt is "law, a lemon".
 

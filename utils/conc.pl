@@ -262,6 +262,11 @@ while ( $count <= $#ARGV ) {
       $count++;
       next;
     };
+    /^-?go$/ && do {
+      $openStoryFile = $launchMinorErrs = $writeAfter = 1;
+      $count++;
+      next;
+    };
     /^-?[cv0nlmw]+$/ && do {
       $codeToClipboard = $printErrCode = $printErrors = 0;
       if ( $a =~ /(\w).?(\1)/ ) {
@@ -2617,6 +2622,7 @@ CURRENT TESTS:
   conc.pl -t -o -as = check all the Alec Smart games
   conc.pl -btp -w = write out any [activation of] defining code not present yet
   conc.pl -btp -l -m (launch/launch minor errors if no major)
+  conc.pl -btp (-lmw | -go) (write up and launch minor errors: most common)
 EOT
   exit;
 }
