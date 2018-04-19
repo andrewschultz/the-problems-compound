@@ -3092,6 +3092,7 @@ Mind Games	"Mind games are messing with people's mind with lies or half-truths. 
 palace	"A palace is a big, expensive, (usually) well-kept-up place."
 power games	"Power games are when people use manipulation to take charge, or when people struggle to control a business, often without voting involved."
 Quick Buck	"To make a quick buck usually means to make money unethically."
+streetwise	"Streetwise means knowing your way around a tough area."
 charity	"Charity is giving to others while expecting (in theory) nothing in return." [start of a round lounge]
 hatch act	"The Hatch Act is an American law regulating political activities by elected officials."
 nose picking	"Nose picking is -- not the best habit. A picking nose would be a discerning sense of smell." [start of tension surface]
@@ -4510,7 +4511,7 @@ instead of doing something with games:
 	say "There are a whole bunch: [the list of logic-games]. You can PLAY them one at a time, but not all at once."
 
 check going nowhere in Smart Street:
-	say "You don't have your bearings. Maybe you can go into the Fly House, but that's about it. You certainly can't see your room in any direction." instead;
+	say "'Trust me. You don't want to get lost in [activation of streetwise]. No way.' yells Guy Sweet, as you take a few steps. Maybe you can go into the Fly House, and you see no way back home." instead;
 
 section Guy Sweet
 
@@ -11856,6 +11857,8 @@ palace is a concept in conceptville. Understand "pal ace" and "ace pal" as palac
 power games is a concept in conceptville. Understand "games power" as power games. howto is "win your first logic game against Guy Sweet". gtxt is "games power". [norm]
 
 Quick Buck is a concept in conceptville. Understand "buck quick" as Quick Buck. howto is "talking". gtxt is "[if ball-caps is true]BUCK QUICK[else]Buck Quick[end if]". [norm]
+
+streetwise is a cantgo concept in conceptville. Understand "street whys" and "whys street" as streetwise. howto is "[nogo of smart street]". gtxt is "Whys Street".
 
 chapter surface concepts
 

@@ -670,10 +670,6 @@ table of jerk-macho-talk [xxjmt]
 unact	macho-boast
 false	"The [j-co] muse how you can't be a [activation of adult content] without getting, well, serious ACTION."
 false	"The [j-co] laugh at how unathletic [activation of air jordan] and [activation of nolan ryan] are. They vow to actually start working out some day."
-false	"The [j-co] wonder why [activation of k pop] hates foreign music so much."
-false	"The [j-co] love how [activation of flash gordon] smacks down comic book dorks."
-false	"The [j-co] continue [activation of mockingboard] of retro computer geeks, software and hardware."
-false	"The [j-co] think [activation of bushnell] would be cool if she just stopped hating video games."
 false	"The [j-co] are upset what a stickler [activation of anal] is."
 false	"The [j-co] berate [activation of anapest] and her weird 'modern' poetry."
 false	"The [j-co] muse how [activation of Anne Frank] wouldn't have to write his diaries about being oppressed if he didn't write weird diaries in the first place."
@@ -702,6 +698,7 @@ false	"The [j-co] figure [activation of bowled bradman] is too good just for spo
 false	"The [j-co] babble on about the [activation of box score], where everyone except math obsessed nerds can hook up with a girl."
 false	"The [j-co] recount the epic junk food eating contest between [activation of broccoli] and [activation of kohlrabi]."
 false	"The [j-co] mention what an eyesort old [activation of brooke shields] is."
+false	"The [j-co] think [activation of bushnell] would be cool if she just stopped hating video games."
 false	"The [j-co] debate whether [activation of cacophony] or [activation of polyphony] sings more annoyingly catchy pop songs."
 false	"The [j-co] brainstorm a [activation of call girl] that will make you irresistible."
 false	"The [j-co] berate [activation of Cary Grant] and [activation of Spencer Tracy] for an unusual lack success with women."
@@ -727,6 +724,7 @@ false	"The [j-co] agree that [activation of electrocute] isn't, like, LETHALLY h
 false	"The [j-co] berate [activation of enhance] for never getting better."
 false	"The [j-co] wonder how [activation of evidence] can't take a hint."
 false	"The [j-co] wonder where the heck new kid [activation of expat] is from."
+false	"The [j-co] love how [activation of flash gordon] smacks down comic book dorks."
 false	"The [j-co] try to be charitable and think of girls ranked [activation of flounder] on their beauty scale."
 false	"A couple [j-co] feel sorry they [activation of fluoridated] and listened to her conspiracy theories."
 false	"The [j-co] whoop up how [activation of frank marshall] makes fun of chess dorks."
@@ -734,6 +732,7 @@ false	"The [j-co] are glad they're nowhere near as lame as [activation of gangbu
 false	"The [j-co] mention how [activation of gelding] sure has balls."
 false	"The [j-co] express admiration for [activation of glenn beck]'s ability to shoot down crackpot conspiracy theories."
 false	"The [j-co] agree [activation of gorgeous] is not very attractive."
+false	"The [j-co] regurgitate [activation of greg norman]'s anti-preppy jokes, especially about golf."
 false	"The [j-co] disparage lame children's shows and second-rate swearing, [activation of gumby]."
 false	"The [j-co] mock the dorks who tried to get into the oh-so-fun [activation of halfling]."
 false	"The [j-co] rave how full of life [activation of hara-kiri] is."
@@ -751,7 +750,6 @@ false	"The [j-co] applaud [activation of jackhole] for his universally brilliant
 false	"The [j-co] mock [activation of James Dean] for being unable to rebel in any meaningful or interesting way."
 false	"The [j-co] wonder how [activation of james randi] manages to see into others['] minds."
 false	"The [j-co] remember not to [activation of jeremiad] to parties. He can't keep up a clever conversation or rant."
-true	"The [j-co] commend LJ as someone who will always be FREE."
 false	"The [j-co] mention [activation of jerry built] is very buff indeed!"
 false	"The [j-co] talk about getting in shape at the [activation of Jim Beam]."
 false	"The [j-co] vow to [activation of jimmy buffett] for his musical taste."
@@ -759,6 +757,7 @@ false	"The [j-co] discuss some sporting event or other that ended [activation of
 false	"The [j-co] dub [activation of johnny rotten] a waste of human life for wasting away and never trying to rebel."
 false	"The [j-co] agree it's no fun to be [activation of jollying around]."
 false	"Each of the [j-co] discusses a [activation of journeyman] he will take to be above average."
+false	"The [j-co] wonder why [activation of k pop] hates foreign music so much."
 false	"The [j-co] sure are glad they kicked [activation of keepin] out of the group long ago."
 false	"The [j-co] create a conspiracy theory for laughs: plain, quiet [activation of Keyser Soze] and [activation of Kevin Spacey] somehow ruthlessly control female and male social circles."
 false	"The [j-co] snicker over [activation of laverne and shirley]'s jokes about girls."
@@ -776,6 +775,7 @@ false	"The [j-co] have to admit [activation of melodious] sure can sing!"
 false	"The [j-co] applaud [activation of meretricious]."
 false	"The [j-co] wonder if they should [activation of mike drop] from their extended gang, starting a big argument."
 false	"The [j-co] recount good times yelling '[activation of mimicry]' at a girl who was just different."
+false	"The [j-co] continue [activation of mockingboard] of retro computer geeks, software and hardware."
 false	"The [j-co] harbor fantasies of [activation of mollycoddling], who is maybe not as wild as they pretend she is."
 false	"The [j-co] agree [activation of Monte Carlo] doesn't like leaving things to chance or doing the same thing over and over again."
 false	"The [j-co] laud the funky new moves of [activation of morris dancing]."
@@ -829,7 +829,6 @@ false	"The [j-co] act disgusted at the food they [activation of spotted dick] so
 false	"The [j-co] hope to get their hands on the hot tape [activation of strangers with candy]."
 false	"The [j-co] deride [activation of Sweeney Todd] for his fear of horror movies and barbers."
 false	"The [j-co] mock [activation of sympathetic] for listening to girls whine about their breakups without getting their phone numbers."
-false	"The [j-co] regurgitate [activation of greg norman]'s anti-preppy jokes, especially about golf."
 false	"The [j-co] start a [activation of tallywhacker] of guys very likely to have no experience with women."
 false	"The [j-co] hear it's really easy to [activation of taradiddle]."
 false	"The [j-co] hate how [activation of telephony] gets in your face with his lies."
@@ -867,8 +866,8 @@ true	"The [j-co] recount how Murphy broke his one bone." [na femur]
 true	"The [j-co] like how Wary Flo doesn't use loaded words." [na flowery]
 true	"The [j-co] unanimously decide whether Noel should be allowed in the group." [na hell/'ell no]
 true	"The [j-co] discuss how Lyle raps." [na illy]
-true	"The [j-co] are unanimous: Vijay is ready for the big leagues." [na jayvee/jv]
 true	"The [j-co] note LJ always looks so free." [na jail]
+true	"The [j-co] are unanimous: Vijay is ready for the big leagues." [na jayvee/jv]
 true	"The [j-co] mention how Perske's ideas never last." [na keepers]
 true	"The [j-co] ooh and ahh at Pinky's generosity." [na keepin']
 true	"The [j-co] mention what a follower Dahlia is." [na leader/leadah]
