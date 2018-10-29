@@ -295,6 +295,10 @@ to choose-swearing:
 		now allow-swears is false;
 
 when play begins (this is the main story introduction and initialization rule):
+	intro-restore-skip;
+	if read-intro is false:
+		say "Skipping the intro and putting you in Smart Street.";
+		continue the action;
 	force-status;
 	say "The Problems Compound may contain minor profanity/innuendo that is not critical to the story. Type Y or YES if this is okay. Typing N or NO will provide alternate text.";
 	choose-swearing;
@@ -320,6 +324,8 @@ when play begins (this is the main story introduction and initialization rule):
 	say "[line break][if debug-state is true])[else]>[end if] TAKE TICKET. PUT BOOK ON SHELF. GO GET A DRINK OF WATER";
 	wfak;
 	say "[paragraph break]The end of the hallway keeps getting farther away. You start to run, which makes it worse. You close your eyes until, exhausted, you catch your breath. The hallway's gone.";
+
+when play begins (this is the intro mechanics rule):
 	set the pronoun him to Guy Sweet;
 	now right hand status line is "[your-mood]";
 	now left hand status line is "[lhs]";
