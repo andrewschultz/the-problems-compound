@@ -1,3 +1,11 @@
+#
+# fl2.py: this is a script that determines a name that is both a first and last name.
+#
+# no arguments needed.
+#
+# used for Buddy Best's random case studies.
+#
+
 from collections import defaultdict
 
 firsts = defaultdict(bool)
