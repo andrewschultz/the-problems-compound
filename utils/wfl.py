@@ -5,12 +5,15 @@
 #replaces the perl version
 #
 
+import time
 import re
 import sys
 import i7
 from collections import defaultdict
 
 words = defaultdict(lambda: defaultdict(bool))
+prefix = defaultdict(lambda: defaultdict(lambda: defaultdict(bool)))
+suffix = defaultdict(lambda: defaultdict(lambda: defaultdict(bool)))
 to_check = defaultdict(bool)
 in_flip = defaultdict(bool)
 freqs = defaultdict(int)
@@ -30,14 +33,19 @@ ny = ['n', 'y']
 check_url = False
 max_url_to_check = 10
 
+maxlen = 15
+
 def usage(cmd = ""):
     if cmd: print("Bad command", cmd)
+    print("====USAGE====")
     print("=" * 50)
     print("(LATER)")
 
+def order_flip_file():
+
 def write_freq_file():
     f = open(freq2, "w")
-    f.write(freq2, freq_init)
+    f.write(freq_init)
     for x in sorted(to_check): f.write("{:s},{:s},{:s}\n".format(x, freqs[x], ny[to_check[x]]))
     f.close()
 
@@ -91,31 +99,34 @@ def data_from_one(partwd):
         for j in words[q]:
             if j.startswith(partwd):
                 if j[lp:] in words[q-lp]:
-                    match_str.append("{:s}+{:s}={:s}*".format(j[lp:], partwd, j))
-                    matchs += 1
-                else:
-                    maybe_str.append("{:s}+{:s}={:s}".format(j[lp:], partwd, j))
-                    maybes += 1
-            if j.endswith(partwd):
-                if j[:-lp] in words[q-lp]:
                     match_str.append("{:s}+{:s}={:s}*".format(partwd, j[lp:], j))
                     matchs += 1
                 else:
                     maybe_str.append("{:s}+{:s}={:s}".format(partwd, j[lp:], j))
                     maybes += 1
+            if j.endswith(partwd):
+                if j[:-lp] in words[q-lp]:
+                    match_str.append("{:s}+{:s}={:s}*".format(j[:-lp], partwd, j))
+                    matchs += 1
+                else:
+                    maybe_str.append("{:s}+{:s}={:s}".format(j[:-lp], partwd, j))
+                    maybes += 1
     total = matchs + maybes
     match_str = sorted(match_str)
     maybe_str = sorted(maybe_str)
-    print("\n".join(match_str))
-    print("\n".join(maybe_str))
-    print("===============",matchs,"matches",maybes,"maybes",total,"total for",partwd)
+    return_string = "\n".join(match_str) + "\n".join(maybe_str) + "=============== {:d} matches {:d} maybes {:d} total for {:s}".format(matchs,maybes,total,partwd)
+    if matchs + maybes: freqs[partwd] += 1
+    return(matchs,maybes,total)
 
 count = 1
+two_okay = False
+words_to_process = []
 
 while count < len(sys.argv):
     arg = sys.argv[count]
     if arg == 'f' or arg == 'fl': os.system(flip)
     elif arg == 'fr': os.system(freq)
+    elif arg == '2': two_okay = True
     elif arg[0] == 'u':
         check_url = True
         if len(arg) > 1:
@@ -127,16 +138,55 @@ while count < len(sys.argv):
         launch_my_urls()
         exit()
     else:
-        usage()
-        exit()
+        if len(arg) == 1:
+            print("Unknown 1-word command", arg)
+            usage()
+            exit()
+        if len(arg) == 2 and not two_okay:
+            print("Need -2 flag at start to process 2-length word", arg)
+            usage()
+            exit()
+        words_to_process.append(arg)
     count += 1
+
+get_in_flip()
+
+b4 = time.time()
 
 with open(i7.f_dic) as file:
     for line in file:
         l = line.lower().strip()
         words[len(l)][l] = True
+        continue
+        for x in range (2, len(l)): # this is a bit slow
+            prefix[x][l[:x]][l] = True
+            suffix[x][l[-x:]][l] = True
 
-get_freq_tried()
+af = time.time()
+print(b4, af, af - b4)
 
-get_in_flip()
+data_to_add = []
+w2 = []
+
+for q in words_to_process:
+    if q in in_flip: print(q, "is duplicate")
+    else:
+        w2.append(q)
+
+words_to_process = list(w2)
+
+for q in words_to_process:
+    temp = data_from_one(q)
+    if temp[1] + temp[2]: data_to_add.append(data_from_one)
+
+if len(data_to_add):
+    order_flip_file(data_to_add)
+else:
+    print("Nothing to add to flip file.")
+
+write_freq_file()
+
+# get_freq_tried()
+
+
 
