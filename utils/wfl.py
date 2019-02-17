@@ -41,7 +41,19 @@ def usage(cmd = ""):
     print("=" * 50)
     print("(LATER)")
 
+def unsaved_flip_file():
+    with open(i7.np_xml) as file:
+        for line in file:
+            if 'flip.txt' in line and 'backupFilePath=' in line:
+                print(i7.np_xml, "is logged as unsaved. Please save and re-run.")
+                return True
+    return False
+
 def order_flip_file():
+    if unsaved_flip_file():
+        print(flip, "is unsaved in notepad.txt. Open it and save before re-running.")
+        exit(0)
+    return
 
 def write_freq_file():
     f = open(freq2, "w")
@@ -136,6 +148,9 @@ while count < len(sys.argv):
                 sys.exit("-u requires an integer right after, no spaces")
         get_freq_tried()
         launch_my_urls()
+        exit()
+    elif arg == '?':
+        usage()
         exit()
     else:
         if len(arg) == 1:
