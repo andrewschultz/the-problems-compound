@@ -574,7 +574,7 @@ sub printResults {
       # print "$concToRoom{$x} $concTableLine{$concToRoom{$x}} $nuline\n";
       if ( exists $concToRoom{$x}
         && exists $concTableLine{ $concToRoom{$x} }
-        && $nuline == $concTableLine{ $concToRoom{$x} }
+        && $nuline eq $concTableLine{ $concToRoom{$x} }
         ) #this un-sorts at the start, but the alternative is to chuck something in the wrong room if, say, we are adding "abc" and the first idea alphabetically in the room is "bcd"
       {
         $nuline++;

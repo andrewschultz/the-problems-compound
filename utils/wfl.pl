@@ -1,6 +1,8 @@
 ###########################################
-#wfl.pl
-#searches for words to flip eg
+# wfl.pl
+#
+# WordFLip.pl
+# searches for words to flip eg
 #
 #usage
 #
@@ -159,7 +161,6 @@ if ( !$flipData && ( $#flipAry == -1 ) ) {
 print("NOTE: . converted to ,\n") if $flipData =~ /\./;
 @flipAry = split( /[,\.]/, $flipData ) if !$clipboard;
 @flipAry = sort(@flipAry);
-die(@flipAry);
 
 my @flipAry2 = ();
 
@@ -216,7 +217,7 @@ $autoSort = 0;
 my %dupCheck;
 
 readFlipFile();
-
+exit();
 for my $q (@flipAry) {
   if ( ( !$override ) && ( length($q) <= 2 ) ) {
     print ""
@@ -872,8 +873,7 @@ sub readFlipFile {
     $a =~ s/^=+//;
     @q = split( / /, $a );
     $timesFlipped{ $q[0] } = ( $#q ? $q[1] : 1 );
-    if ( $q[2] == "*" ) { $needChecked{ $q[0] } = 1; }
-
+    if ( defined( $q[2] ) && ( $q[2] eq "*" ) ) { $needChecked{ $q[0] } = 1; }
   }
 }
 
