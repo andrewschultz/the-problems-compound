@@ -34,12 +34,25 @@ check_url = False
 max_url_to_check = 10
 
 maxlen = 15
+max_mult_size = 1000
+
+repl = { 'A': 'abcdefghijklmnopqrstuvwxyz', 'C': 'bcdfghjklmnpqrstvwxyz', 'V': 'aeiouy' }
 
 def usage(cmd = ""):
     if cmd: print("Bad command", cmd)
     print("====USAGE====")
     print("=" * 50)
     print("(LATER)")
+
+def expand_caps(j):
+    global arg
+    for x in range(0, len(j)):
+        if j[x].isupper():
+            temp = []
+            if j[x] not in repl: sys.exit("Unusable capital {:s} in {:s}.".format(j[x], arg))
+            for q in repl[j[x]]: temp = temp + (expand_caps(j.replace(j[x], q, 1)))
+            return temp
+    return [j]
 
 def unsaved_flip_file():
     with open(i7.np_xml) as file:
@@ -139,6 +152,15 @@ while count < len(sys.argv):
     if arg == 'f' or arg == 'fl': os.system(flip)
     elif arg == 'fr': os.system(freq)
     elif arg == '2': two_okay = True
+    elif arg[0] == 'm' and arg[1:].isdigit(): max_mult_size = int(arg[1:])
+    elif re.search("[VCA]", arg):
+        if len(arg) < 3:
+            usage("Wild card with 2 letter word potentially gives too many combos.")
+            exit()
+        temp = expand_caps(arg)
+        qs = len(temp)
+        if qs > max_mult_size: sys.exit("Quicksizing {:s} gives {:d} possibilities, which over the maximum if {:d}. Change it with -m#.".format(arg, qs, max_mult_size))
+        words_to_process = words_to_process + temp
     elif arg[0] == 'u':
         check_url = True
         if len(arg) > 1:
@@ -154,12 +176,10 @@ while count < len(sys.argv):
         exit()
     else:
         if len(arg) == 1:
-            print("Unknown 1-word command", arg)
-            usage()
+            usage("Unknown 1-word command {:s}".format(arg))
             exit()
         if len(arg) == 2 and not two_okay:
-            print("Need -2 flag at start to process 2-length word", arg)
-            usage()
+            usage("Need -2 flag at start to process 2-length word {:s}".format(arg))
             exit()
         words_to_process.append(arg)
     count += 1
