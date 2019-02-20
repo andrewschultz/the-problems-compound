@@ -42,7 +42,21 @@ def usage(cmd = ""):
     if cmd: print("Bad command", cmd)
     print("====USAGE====")
     print("=" * 50)
+    print("u# = launch idiom urls")
+    print("m# = maximum number")
+    print("-2 = needed for two-letter prefix/suffix")
     print("(LATER)")
+
+
+#this could also be done with expand_caps but just in case there are huge numbers I figured I'd write this function out
+
+def expand_size(j):
+    idx = 1
+    for q in repl:
+        x = r'[{:s}]'.format(q)
+        j = re.findall(x, sample_string)
+        idx *= len(a[q]) ** len(j)
+    return idx
 
 def expand_caps(j):
     global arg
@@ -143,42 +157,45 @@ def data_from_one(partwd):
     if matchs + maybes: freqs[partwd] += 1
     return(matchs,maybes,total)
 
+prefix_preload = False
 count = 1
 two_okay = False
 words_to_process = []
 
 while count < len(sys.argv):
     arg = sys.argv[count]
-    if arg == 'f' or arg == 'fl': os.system(flip)
-    elif arg == 'fr': os.system(freq)
-    elif arg == '2': two_okay = True
-    elif arg[0] == 'm' and arg[1:].isdigit(): max_mult_size = int(arg[1:])
+    anh = arg
+    if anh[0] == '-': anh = anh[1:]
+    if anh == 'f' or anh == 'fl': os.system(flip)
+    elif anh == 'fr': os.system(freq)
+    elif anh == '2': two_okay = True
+    elif anh[0] == 'm' and arg[1:].isdigit(): max_mult_size = int(arg[1:])
     elif re.search("[VCA]", arg):
         if len(arg) < 3:
             usage("Wild card with 2 letter word potentially gives too many combos.")
             exit()
-        temp = expand_caps(arg)
-        qs = len(temp)
+        qs = expand_size(arg)
         if qs > max_mult_size: sys.exit("Quicksizing {:s} gives {:d} possibilities, which over the maximum if {:d}. Change it with -m#.".format(arg, qs, max_mult_size))
         words_to_process = words_to_process + temp
-    elif arg[0] == 'u':
+    elif anh[0] == 'u' and isdigit(anh[1:]):
         check_url = True
-        if len(arg) > 1:
-            try:
-                max_url_to_check = int(arg[1:])
-            except:
-                sys.exit("-u requires an integer right after, no spaces")
+        max_url_to_check = int(anh[1:])
+        if max_url_to_check < 0:
+            sys.exit("-u requires a positive integer right after, no spaces")
         get_freq_tried()
         launch_my_urls()
         exit()
-    elif arg == '?':
+    elif anh == '?':
         usage()
         exit()
+    elif arg[0] == '-':
+        usage("bad dash command")
+        exit()
     else:
-        if len(arg) == 1:
+        if len(anh) == 1:
             usage("Unknown 1-word command {:s}".format(arg))
             exit()
-        if len(arg) == 2 and not two_okay:
+        if len(anh) == 2 and not two_okay:
             usage("Need -2 flag at start to process 2-length word {:s}".format(arg))
             exit()
         words_to_process.append(arg)
@@ -192,10 +209,10 @@ with open(i7.f_dic) as file:
     for line in file:
         l = line.lower().strip()
         words[len(l)][l] = True
-        continue
-        for x in range (2, len(l)): # this is a bit slow
-            prefix[x][l[:x]][l] = True
-            suffix[x][l[-x:]][l] = True
+        if prefix_preload:
+            for x in range (2, len(l)): # this is a bit slow
+                prefix[x][l[:x]][l] = True
+                suffix[x][l[-x:]][l] = True
 
 af = time.time()
 print(b4, af, af - b4)
