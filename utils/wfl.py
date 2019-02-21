@@ -5,11 +5,13 @@
 #replaces the perl version
 #
 
+import os
 import time
 import re
 import sys
 import i7
 from collections import defaultdict
+from shutil import copy
 
 words = defaultdict(lambda: defaultdict(bool))
 prefix = defaultdict(lambda: defaultdict(lambda: defaultdict(bool)))
@@ -21,22 +23,23 @@ freqs = defaultdict(int)
 overall_length = defaultdict(int)
 results = defaultdict(str)
 
-# file / url constants
+# string/list constants
 flip = "flip.txt"
 freq = "wfl-freq.txt"
 freq2 = "wfl-freq2.txt"
 tfd = "http://idioms.thefreedictionary.com/"
 
+#local strings
 freq_init = "#this is the frequency file for wfl.py.\n#it has word, # of times run, and whether or not we want to check the URL\n"
-
+repl = { 'A': 'abcdefghijklmnopqrstuvwxyz', 'C': 'bcdfghjklmnpqrstvwxyz', 'V': 'aeiouy' }
 ny = ['n', 'y']
+
+#user modifiable variables
 check_url = False
 max_url_to_check = 10
-
 maxlen = 15
 max_mult_size = 1000
-
-repl = { 'A': 'abcdefghijklmnopqrstuvwxyz', 'C': 'bcdfghjklmnpqrstvwxyz', 'V': 'aeiouy' }
+copy_and_delete = False
 
 def usage(cmd = ""):
     if cmd: print("Bad command", cmd)
@@ -76,10 +79,40 @@ def unsaved_flip_file():
                 return True
     return False
 
-def order_flip_file():
+def occur(x):
+    y = x.split("\n")
+    if "=" in y[0]:
+        my_word = re.sub(^=*", "", y[0])
+        my_word = re.sub(" .*", "", my_word)
+        my_num = re.sub(".*\(", "", y[0])
+        my_num = re.sub("\).*", "", my_num)
+        return (my_num, my_word)
+    if y[-1].startswith("=="):
+        if 'matches' in y: # ====Found x matches x maybes x total
+            my_num = re.sub(" total.*", "", y[-1])
+            my_num = int(re.sub(".* ", "", my_num))
+            my_word = re.sub(".* for ", "", y[-1])
+            return (my_num, my_word)
+        else: #OLD FORMAT: ====Found 147/102 for cow
+            my_num = re.sub("\/.*", "", y[-1])
+            my_num = int(re.sub(".* ", "", my_num))
+            my_word = re.sub(".* for ", "", y[-1])
+            return (my_num, my_word)
+    sys.exit("BAILING could not create number/word tuple for:\n    {:s}\n".format(y[0]))
+
+def order_flip_file(data_array, copy_and_delete = False):
     if unsaved_flip_file():
         print(flip, "is unsaved in notepad.txt. Open it and save before re-running.")
         exit(0)
+    data_array = sorted(data_array, key=lambda x:(occur_tuple(x))
+    f = open(flip2, "w")
+    f.write("\n".join(data_array))
+    f.close()
+    if copy_and_delete:
+        copy(flip2, flip)
+        os.delete(flip2)
+    else:
+        print("-cd sets copy/delete which is currently off.")
     return
 
 def write_freq_file():
@@ -153,9 +186,10 @@ def data_from_one(partwd):
     total = matchs + maybes
     match_str = sorted(match_str)
     maybe_str = sorted(maybe_str)
-    return_string = "\n".join(match_str) + "\n".join(maybe_str) + "=============== {:d} matches {:d} maybes {:d} total for {:s}".format(matchs,maybes,total,partwd)
+    return_string = "========{:s} ({:d})\n".format(partwd, total) + "\n".join(match_str) + "\n".join(maybe_str) + "\n===============Found {:d} matches {:d} maybes {:d} total for {:s}".format(matchs,maybes,total,partwd)
     if matchs + maybes: freqs[partwd] += 1
-    return(matchs,maybes,total)
+    sys.exit(return_string)
+    return(return_string,matchs,maybes,total)
 
 prefix_preload = False
 count = 1
@@ -229,7 +263,7 @@ words_to_process = list(w2)
 
 for q in words_to_process:
     temp = data_from_one(q)
-    if temp[1] + temp[2]: data_to_add.append(data_from_one)
+    if temp[1] + temp[2]: data_to_add.append(temp[0])
 
 if len(data_to_add):
     order_flip_file(data_to_add)
