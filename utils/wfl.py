@@ -75,14 +75,13 @@ def unsaved_flip_file():
     with open(i7.np_xml) as file:
         for line in file:
             if 'flip.txt' in line and 'backupFilePath=' in line:
-                print(i7.np_xml, "is logged as unsaved. Please save and re-run.")
                 return True
     return False
 
 def occur(x):
     y = x.split("\n")
     if "=" in y[0]:
-        my_word = re.sub(^=*", "", y[0])
+        my_word = re.sub("^=*", "", y[0])
         my_word = re.sub(" .*", "", my_word)
         my_num = re.sub(".*\(", "", y[0])
         my_num = re.sub("\).*", "", my_num)
@@ -102,9 +101,9 @@ def occur(x):
 
 def order_flip_file(data_array, copy_and_delete = False):
     if unsaved_flip_file():
-        print(flip, "is unsaved in notepad.txt. Open it and save before re-running.")
+        print(flip, "is logged as unsaved. Please save and re-run.")
         exit(0)
-    data_array = sorted(data_array, key=lambda x:(occur_tuple(x))
+    data_array = sorted(data_array, key=lambda x:occur_tuple(x))
     f = open(flip2, "w")
     f.write("\n".join(data_array))
     f.close()
@@ -118,7 +117,7 @@ def order_flip_file(data_array, copy_and_delete = False):
 def write_freq_file():
     f = open(freq2, "w")
     f.write(freq_init)
-    for x in sorted(to_check): f.write("{:s},{:s},{:s}\n".format(x, freqs[x], ny[to_check[x]]))
+    for x in sorted(freqs): f.write("{:s},{:s},{:s}\n".format(x, freqs[x], ny[to_check[x]]))
     f.close()
 
 def get_freq_tried():
@@ -127,7 +126,7 @@ def get_freq_tried():
             if line.startswith("#"): continue
             if line.startswith(";"): continue
             l = line.lower().strip().split(",")
-            freqs[l[0]]=l[1]
+            freqs[l[0]]=int(l[1])
             if l[2] == 'y': to_check[l[2]] = True
 
 def launch_my_urls():
@@ -142,6 +141,8 @@ def launch_my_urls():
             to_check[x] = False
             write_freq_file()
         exit()
+    else:
+        print("Tried to launch urls but check_url was not set.")
 
 def get_in_flip():
     the_buffer = ""
@@ -188,7 +189,6 @@ def data_from_one(partwd):
     maybe_str = sorted(maybe_str)
     return_string = "========{:s} ({:d})\n".format(partwd, total) + "\n".join(match_str) + "\n".join(maybe_str) + "\n===============Found {:d} matches {:d} maybes {:d} total for {:s}".format(matchs,maybes,total,partwd)
     if matchs + maybes: freqs[partwd] += 1
-    sys.exit(return_string)
     return(return_string,matchs,maybes,total)
 
 prefix_preload = False
@@ -248,8 +248,10 @@ with open(i7.f_dic) as file:
                 prefix[x][l[:x]][l] = True
                 suffix[x][l[-x:]][l] = True
 
-af = time.time()
-print(b4, af, af - b4)
+#af = time.time()
+#print(b4, af, af - b4)
+
+get_freq_tried()
 
 data_to_add = []
 w2 = []
@@ -267,12 +269,8 @@ for q in words_to_process:
 
 if len(data_to_add):
     order_flip_file(data_to_add)
+    write_freq_file()
 else:
     print("Nothing to add to flip file.")
-
-write_freq_file()
-
-# get_freq_tried()
-
 
 
