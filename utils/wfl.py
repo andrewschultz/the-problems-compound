@@ -25,6 +25,7 @@ results = defaultdict(str)
 
 # string/list constants
 flip = "flip.txt"
+flip2 = "flip2.txt"
 freq = "wfl-freq.txt"
 freq2 = "wfl-freq2.txt"
 tfd = "http://idioms.thefreedictionary.com/"
@@ -48,8 +49,9 @@ def usage(cmd = ""):
     print("u# = launch idiom urls")
     print("m# = maximum number")
     print("-2 = needed for two-letter prefix/suffix")
-    print("(LATER)")
-
+    print("-f = open flip file, -fr = open frequency file")
+    print("-ou = override unsaved (needs dash)")
+    exit()
 
 #this could also be done with expand_caps but just in case there are huge numbers I figured I'd write this function out
 
@@ -78,14 +80,14 @@ def unsaved_flip_file():
                 return True
     return False
 
-def occur(x):
-    y = x.split("\n")
+def occur_tuple(x):
+    y = x.strip().split("\n")
     if "=" in y[0]:
         my_word = re.sub("^=*", "", y[0])
         my_word = re.sub(" .*", "", my_word)
         my_num = re.sub(".*\(", "", y[0])
         my_num = re.sub("\).*", "", my_num)
-        return (my_num, my_word)
+        return (int(my_num), my_word)
     if y[-1].startswith("=="):
         if 'matches' in y: # ====Found x matches x maybes x total
             my_num = re.sub(" total.*", "", y[-1])
@@ -97,11 +99,28 @@ def occur(x):
             my_num = int(re.sub(".* ", "", my_num))
             my_word = re.sub(".* for ", "", y[-1])
             return (my_num, my_word)
-    sys.exit("BAILING could not create number/word tuple for:\n    {:s}\n".format(y[0]))
+    sys.exit("BAILING could not create number/word tuple for:\n(start)    {:s}\n(end) {:s}".format(y[-1], y[0]))
 
-def order_flip_file(data_array, copy_and_delete = False):
-    if unsaved_flip_file():
-        print(flip, "is logged as unsaved. Please save and re-run.")
+def print_flip_left(fname = flip):
+    t2 = []
+    with open(fname) as file:
+        for (line_count, line) in enumerate(file, 1):
+            if not line.startswith("="): continue
+            if '=Found' in line:
+                if 'total for' in line:
+                    temp = line.strip().split(" ")
+                    t2.append("{:s}={:s}/{:s}".format(temp[-1], temp[-4], temp[-8]))
+                elif re.search("=Found [0-9]+/[0-9]+ for ", line):
+                    temp = line.strip().split(" ")
+                    t2.append("{:s}={:s}".format(temp[-1], temp[-3]))
+                else:
+                    print("Bad 'found' line {:d}: {:s}".format(line_count, line.strip()))
+                    sys.exit()
+    print(', '.join(t2))
+
+def order_flip_file(data_array, copy_and_delete = False, print_contents = True):
+    if not override_unsaved_flip and unsaved_flip_file():
+        print(flip, "is logged as unsaved. Please save and re-run, or if it has been saved, use the -ou flag, which needs a dash.")
         exit(0)
     data_array = sorted(data_array, key=lambda x:occur_tuple(x))
     f = open(flip2, "w")
@@ -112,12 +131,14 @@ def order_flip_file(data_array, copy_and_delete = False):
         os.delete(flip2)
     else:
         print("-cd sets copy/delete which is currently off.")
+    if print_contents:
+        print_flip_left(flip if copy_and_delete else flip2)
     return
 
 def write_freq_file():
     f = open(freq2, "w")
     f.write(freq_init)
-    for x in sorted(freqs): f.write("{:s},{:s},{:s}\n".format(x, freqs[x], ny[to_check[x]]))
+    for x in sorted(freqs): f.write("{:s},{:d},{:s}\n".format(x, freqs[x], ny[to_check[x]]))
     f.close()
 
 def get_freq_tried():
@@ -148,6 +169,7 @@ def get_in_flip():
     the_buffer = ""
     with open(flip) as file:
         for (line_count, line) in enumerate(file, 1):
+            the_buffer += line
             if line.startswith("=") and 'for' in line:
                 l = line.lower().strip()
                 l2 = re.sub(".* for ", "", l)
@@ -155,9 +177,8 @@ def get_in_flip():
                 l3 = re.sub(" (total for|found).*", "", l)
                 overall_length[l2] = l3
                 results[l2] = l3
+                data_to_add.append(the_buffer.strip())
                 the_buffer = ""
-            else:
-                the_buffer += line
     if the_buffer:
         print("There is a leftover buffer in {:s}.".format(flip))
         print("It is:",the_buffer.strip())
@@ -168,29 +189,48 @@ def data_from_one(partwd):
     matchs = 0
     maybes = 0
     lp = len(partwd)
-    for q in range(len(partwd)+1, maxlen+1):
-        for j in words[q]:
-            if j.startswith(partwd):
-                if j[lp:] in words[q-lp]:
-                    match_str.append("{:s}+{:s}={:s}*".format(partwd, j[lp:], j))
-                    matchs += 1
-                else:
-                    maybe_str.append("{:s}+{:s}={:s}".format(partwd, j[lp:], j))
-                    maybes += 1
-            if j.endswith(partwd):
-                if j[:-lp] in words[q-lp]:
-                    match_str.append("{:s}+{:s}={:s}*".format(j[:-lp], partwd, j))
-                    matchs += 1
-                else:
-                    maybe_str.append("{:s}+{:s}={:s}".format(j[:-lp], partwd, j))
-                    maybes += 1
+    if prefix_preload:
+        for j in prefix[lp][partwd]:
+            if j[lp:] in words[q-lp]:
+                match_str.append("{:s}+{:s}={:s}*".format(partwd, j[lp:], j))
+                matchs += 1
+            else:
+                maybe_str.append("{:s}+{:s}={:s}".format(partwd, j[lp:], j))
+                maybes += 1
+        for j in suffix[lp][partwd]:
+            if j[:-lp] in words[q-lp]:
+                match_str.append("{:s}+{:s}={:s}*".format(j[:-lp], partwd, j))
+                matchs += 1
+            else:
+                maybe_str.append("{:s}+{:s}={:s}".format(j[:-lp], partwd, j))
+                maybes += 1
+    else:
+        for q in range(len(partwd)+1, maxlen+1):
+            for j in words[q]:
+                if j.startswith(partwd):
+                    if j[lp:] in words[q-lp]:
+                        match_str.append("{:s}+{:s}={:s}*".format(partwd, j[lp:], j))
+                        matchs += 1
+                    else:
+                        maybe_str.append("{:s}+{:s}={:s}".format(partwd, j[lp:], j))
+                        maybes += 1
+                if j.endswith(partwd):
+                    if j[:-lp] in words[q-lp]:
+                        match_str.append("{:s}+{:s}={:s}*".format(j[:-lp], partwd, j))
+                        matchs += 1
+                    else:
+                        maybe_str.append("{:s}+{:s}={:s}".format(j[:-lp], partwd, j))
+                        maybes += 1
     total = matchs + maybes
     match_str = sorted(match_str)
     maybe_str = sorted(maybe_str)
-    return_string = "========{:s} ({:d})\n".format(partwd, total) + "\n".join(match_str) + "\n".join(maybe_str) + "\n===============Found {:d} matches {:d} maybes {:d} total for {:s}".format(matchs,maybes,total,partwd)
-    if matchs + maybes: freqs[partwd] += 1
+    return_string = "========{:s} ({:d})\n".format(partwd, total) + "\n".join(match_str) + "\n" + "\n".join(maybe_str) + "\n===============Found {:d} matches {:d} maybes {:d} total for {:s}".format(matchs,maybes,total,partwd)
+    if matchs + maybes:
+        freqs[partwd] += 1
+        to_check[partwd] = True
     return(return_string,matchs,maybes,total)
 
+override_unsaved_flip = False
 prefix_preload = False
 count = 1
 two_okay = False
@@ -203,6 +243,7 @@ while count < len(sys.argv):
     if anh == 'f' or anh == 'fl': os.system(flip)
     elif anh == 'fr': os.system(freq)
     elif anh == '2': two_okay = True
+    elif arg == '-ou': override_unsaved_flip = True
     elif anh[0] == 'm' and arg[1:].isdigit(): max_mult_size = int(arg[1:])
     elif re.search("[VCA]", arg):
         if len(arg) < 3:
@@ -235,8 +276,6 @@ while count < len(sys.argv):
         words_to_process.append(arg)
     count += 1
 
-get_in_flip()
-
 b4 = time.time()
 
 with open(i7.f_dic) as file:
@@ -268,9 +307,8 @@ for q in words_to_process:
     if temp[1] + temp[2]: data_to_add.append(temp[0])
 
 if len(data_to_add):
-    order_flip_file(data_to_add)
+    get_in_flip()
+    order_flip_file(data_to_add, print_contents = True)
     write_freq_file()
 else:
     print("Nothing to add to flip file.")
-
-
