@@ -751,7 +751,6 @@ false	"The [j-co] applaud [activation of jackhole] for his universally brilliant
 false	"The [j-co] mock [activation of James Dean] for being unable to rebel in any meaningful or interesting way."
 false	"The [j-co] wonder how [activation of james randi] manages to see into others['] minds."
 false	"The [j-co] remember not to [activation of jeremiad] to parties. He can't keep up a clever conversation or rant."
-true	"The [j-co] commend LJ as someone who will always be FREE."
 false	"The [j-co] mention [activation of jerry built] is very buff indeed!"
 false	"The [j-co] talk about getting in shape at the [activation of Jim Beam]."
 false	"The [j-co] vow to [activation of jimmy buffett] for his musical taste."
@@ -866,9 +865,10 @@ true	"The [j-co] wonder why Lowell never greets anyone." [na Ello]
 true	"The [j-co] mention Vinny sure is a hothead." [na even]
 true	"The [j-co] recount how Murphy broke his one bone." [na femur]
 true	"The [j-co] like how Wary Flo doesn't use loaded words." [na flowery]
-true	"The [j-co] unanimously decide whether Noel should be allowed in the group." [na hell/'ell no]
 true	"The [j-co] wonder why Megan doesn't like to hang around with them." [na gay men]
+true	"The [j-co] unanimously decide whether Noel should be allowed in the group." [na hell/'ell no]
 true	"The [j-co] discuss how Lyle raps." [na illy]
+true	"The [j-co] commend LJ as someone who will always be FREE." [na jail]
 true	"The [j-co] are unanimous: Vijay is ready for the big leagues." [na jayvee/jv]
 true	"The [j-co] mention how Perske's ideas never last." [na keepers]
 true	"The [j-co] ooh and ahh at Pinky's generosity." [na keepin']

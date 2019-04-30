@@ -1,6 +1,6 @@
 out=problems-compound-invisiclues.htm
 !The Problems Compound HTML Clues
-->c:/games/inform/Compound Materials/Release
+->c:/users/andrew/documents/github/the-problems-compound
 >INTRODUCTION
 >>Smart Street
 ?What is the Fly House for?
