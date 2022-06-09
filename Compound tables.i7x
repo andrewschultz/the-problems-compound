@@ -573,6 +573,7 @@ workname	authname	booksubj
 "Honor of Debt"	"Clancy Thomas"	"why overspending for the military is a good thing, or at least a good thing to condemn to seem nice without having to be nice"
 "Odyssey Space"	"Clark Arthur"	"a modern retelling of Ulysses dealing harshly with technocrats"
 "A Village Takes It"	"Clinton Hillary"	"the problems with how a bunch of squares who're trying to help will drain your artistic spirit"
+"To Keep a Charge"	"Clinton William"	"about how style always trumps substance and how to keep that fire going"
 "Life, MY"	"Clinton William"	"a poor uncharismatic schlub appalled with the complexity and speed of today's fast-paced world, especially politics"
 "The Stone Moon"	"Collins Wilkie"	"a short book of looting a temple to destroy a religion."
 "Gene the Selfish"	"Dawkins Richard"	"how someone cared too much about science for its own sake and not enough about his career, and how he had nobody but himself to blame for that"

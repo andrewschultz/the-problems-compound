@@ -10636,9 +10636,12 @@ to go-back-home:
 	score-now;
 	say "The door leads to your closet and vanishes when you walk through. You're hungry after all that running around. Downstairs you find some old cereal you got sick of--certainly not killer cereal (ha ha) but now you realize it could be Procrastination Cereal, Moping Cereal, Complainer Cereal, or even something goofy like Monogamy or Numbers Cereal. Maybe if it's really old you can pretend it's Pest Cereal, or if it tastes awful, Fraud Cereal. That little reverse will feel fresh for a while.";
 	wfak;
-	say "You laugh at your own joke, which brings your parents out, complaining your late night moping is worse than ever. You promise them it'll get better.";
+	say "[line break]You laugh at your own joke, which brings your parents out, complaining your late night moping is worse than ever. You promise them it'll get better.";
 	wfak;
-	say "Back in your bedroom, you have a thought. The Baiter Master saying you miss obvious things. Another look at [i]The Phantom Tollbooth[r]: the inside flap. 'Other books you may enjoy.' There will be other obvious things you should've discovered. But it's good you found something right away, back in the normal world. You're confident you'll find more--and that even when people like the Baiter Master or his allies are factually right, or loud, or confident, they aren't accelerated life experts. Or they're experts at the wrong sort of persuasion, and you've finally countered that a bit.";
+	say "[line break]Back in your bedroom, you have a thought. The Baiter Master saying you miss obvious things. Another look at [i]The Phantom Tollbooth[r]: the inside flap. 'Other books you may enjoy.' There will be other obvious things you should've discovered. But it's good you found something right away, back in the normal world. You're confident you'll find more--and that even when people like the Baiter Master or his allies are factually right, or loud, or confident, they aren't accelerated life experts. Or they're experts at the wrong sort of persuasion, and you've finally countered that a bit.";
+	say "[line break]You feel like writing about your experiences and what you learned and the questions you still have. For yourself, really, but you still need a title. What's a good one?";
+	wfak;
+	say "[line break]Oh. Of course. A. S.";
 	unlock-verb "anno";
 	print-replay-message;
 	see-if-show-terminal;
@@ -11235,7 +11238,7 @@ this is the show-cases rule:
 book show rejected
 
 this is the show-rejected rule:
-	say "Fidel the Second, Hunter Savage (actually removed from release 2), ARMSTRONG, Killer Payne, Hosin' Leader, Hood Man, Dread Hun, Elephant White, Ben Haas, Les Wynn and Joe Glass were names I couldn't quite get to work, but I think they're amusing enough. I hope you do, too.";
+	say "Fidel the Second, Hunter Savage (actually removed from release 2), ARMSTRONG, Killer Payne, Bart Bright, Hosin' Leader, Hood Man, Dread Hun, Elephant White, Ben Haas, Les Wynn and Joe Glass were names I couldn't quite get to work, but I think they're amusing enough. I hope you do, too.";
 	now rejectseen is true;
 	the rule succeeds;
 
