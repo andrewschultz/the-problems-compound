@@ -31,24 +31,6 @@ use American dialect.
 
 the release number is 3.
 
-section compiler limits
-
-[without these numbers being increased, the I7 would be translated to I6, but the I6 compiler would complain. That's what happens when a game gets bigger than intended. Often times I'll build in release to make sure things are okay, then I'll forget to build in debug, when things may go boom.]
-
-use MAX_ACTIONS of 210.
-
-use MAX_OBJECTS of 870.
-
-use MAX_DICT_ENTRIES of 2000.
-
-use MAX_NUM_STATIC_STRINGS of 20000. [+2000?]
-
-use MAX_SYMBOLS of 26000.
-
-use MAX_STATIC_DATA of 200000.
-
-use MAX_PROP_TABLE_SIZE of 350000.
-
 section compiler debug limits - not for release
 
 use MAX_ACTIONS of 220. [+10?]
@@ -97,12 +79,6 @@ a quip can be talked-thru. a quip is usually not talked-thru.
 a quip can be jerky. a quip is usually not jerky.
 
 Include (- Switches z; -) after "ICL Commands" in "Output.i6t".
-
-definition: a thing is moot:
-	if it is in lalaland, yes; [ic]
-	no;
-
-to moot (th - a thing): now th is in lalaland; [ic]
 
 section yes no stub
 
@@ -617,6 +593,12 @@ a logic-game is a kind of thing. a logic-game has a number called times-won. tim
 a logic-game can be tried. a logic-game is usually not tried.
 
 volume stubs
+
+section clients (Dandy Jim et al) to Pasture
+
+to remove-clients:
+	repeat with CL running through clients:
+		moot CL;
 
 section nicety stubs
 
@@ -2812,7 +2794,7 @@ does the player mean explaining the player when debug-state is true: it is very 
 does the player mean explaining the Insanity Terminal: it is very likely.
 does the player mean explaining the fright stage: it is unlikely.
 
-does the player mean explaining a concept in lalaland: it is likely.]
+does the player mean explaining a concept in Pasture: it is likely.]
 
 does the player mean explaining something visible: it is likely.
 
@@ -4701,7 +4683,7 @@ after doing something with a logic-game:
 section jump macros
 
 to move-puzzlies-and-jerks:
-	now all clients are in lalaland;
+	remove-clients;
 	now player has quiz pop;
 	move-puzzlies;
 
@@ -4910,7 +4892,7 @@ to notice-advance:
 	disable-ticketies;
 	now jump-level is 4;
 	move player to questions field;
-	now all clients are in lalaland;
+	remove-clients;
 	now player has quiz pop;
 	send-bros;
 	now the score is 17;
@@ -6437,7 +6419,7 @@ accel-place	alt-num	accel-cookie	accel-off	accel-greater	accel-brownie
 meal square	-1	"Pfft. None of the other foods look close to as good as the cookie you ate. Time to get going back east."	"Ugh. The sight of the remaining food turns your stomach. You just want to get going."	"You're sure you're meant for better things than pigging out and getting fat on food that probably doesn't taste that great, anyway."	"This is a neat place, and it'd be wonderful if there were people to eat with here, but there aren't, so maybe you just need to find people to be social to. Um, with."
 pressure pier	0	"You take a moment to sneer at [if Terry Sally is moot]the memory of the [end if]Terry Sally. 'Is this your JOB? Man, that's SAD. The stupid stuff you want people to do to show you they're cool? Little league stuff. I mean, thanks for the start and all, but SERIOUSLY.' He gapes, shocked, then flees before your wrath.[paragraph break]Man! You've never won an argument before. And you didn't expect to win that conclusively. Oh, wait, yes you did."	"You give an exasperated sigh. 'I'm not here because I want to be. I got suckered into it. Do you think I could...?'[paragraph break]'You know, some people don't even ASK. Or if they do, it's all unforceful. You're okay. You can go through.' [if Terry Sally is moot]You blame Terry Sally for not being around to listen to your whining[else]Terry Sally bows slightly--you don't care if it's sarcastic or not--and you walk past. You turn around, but he's not there[end if]."	"[if Terry Sally is moot]You're sad Terry Sally is gone. You'd be giving HIM advice, now.[else]'Oh, hey! Still here? I'm moving ahead in life!' you say to Terry Sally, who runs off in embarrassment.[end if]"	"[if Terry Sally is moot]You were going to compliment him on what a good job he was doing vetting people, but dang it, he's gone[else]'Wow! You're doing a really good job of, like, guarding stuff. You totally deserve a break!'[paragraph break]'Gosh! You think so too?'[paragraph break]'Well, if the [bad-guy] does...'[paragraph break]'No, you're right. Hey, I thought you were just another of, well, them, but you're all right. More than all right. Go on through.' Terry Sally walks [where-howdy][end if]."
 Nominal Fen	1	"'Hey, move it, I'm on a quest here!' They look shocked. You proceed to berate them for, is this all they ever do? Is it their purpose in life? Do they have anyone better to talk to? If so, what a waste. If not, sad.[paragraph break]Before this terrifying onslaught of hard-hitting language and lucid, back-to-basics logic, the [j-co] recognize how minor-league they are. They run off to chat or commiserate elsewhere.[paragraph break]Bam! Seven at one blow!"	"'Hey, what you all talking about?' you ask. 'Gossip, eh?' You try to join in, but--they seem a bit jealous of how good your grumbling is, and they excuse themselves."	"'Oh! Hey! You all talking about something interesting? I won't disturb you. Which way is the [bg]?' They look shocked you...USED HIS INITIALS. They point north. 'I KNOW,' you boom. They scatter."	"'Hey, guys! What's up?' you ask. They shuffle and mutter and walk away. Well, they probably had negative attitudes anyway. It feels more relaxed, now!"
-lalaland	2	"Oh, boy. Looking back, you didn't need all that reasoning to get past them. You could've probably just acted a little exasperated, said you were SURE someone could help, and wham! Well, it's good to have all this space, but you need to be going north."	"You sniff at the memory of the [j-co] you helped. They weren't properly grateful, and they weren't even good at being [j-co]. Maybe you should've gone into business with the Labor Child[if scheme pyramid is unvisited] they grumbled about[end if]. You'd figure how to backstab him later. Still, you learned a lot from that. Perhaps you can find ways to keep tabs on people, probe their weaknesses. Makes up for earlier memories of your own."	"You look back at the silliness and all you did to get around the [j-co] when really you could've just shown them what was what the way you are now. You're--BETTER than those logic puzzles."	"Wow! The [j-co] were cool and interesting and all, but no way they're as levelheaded as the guy you need to see. The things you could learn from him!"
+Pasture	2	"Oh, boy. Looking back, you didn't need all that reasoning to get past them. You could've probably just acted a little exasperated, said you were SURE someone could help, and wham! Well, it's good to have all this space, but you need to be going north."	"You sniff at the memory of the [j-co] you helped. They weren't properly grateful, and they weren't even good at being [j-co]. Maybe you should've gone into business with the Labor Child[if scheme pyramid is unvisited] they grumbled about[end if]. You'd figure how to backstab him later. Still, you learned a lot from that. Perhaps you can find ways to keep tabs on people, probe their weaknesses. Makes up for earlier memories of your own."	"You look back at the silliness and all you did to get around the [j-co] when really you could've just shown them what was what the way you are now. You're--BETTER than those logic puzzles."	"Wow! The [j-co] were cool and interesting and all, but no way they're as levelheaded as the guy you need to see. The things you could learn from him!"
 speaking plain	0	"Oh geez. You can't take this. You really can't. All this obvious improvement stuff. You lash out, do they think people REALLY don't know this? Do they think hearing it again will help? Uncle Dutch and Turk Young revile you as a purveyor of negative energy. No, they won't go on with all this cynicism around. But you will be moving on soon enough. They go away for a break for a bit. Maybe more than a bit. You don't want to hang around to find out."	"'FRAUDS!!!' you yell at Uncle Dutch and Turk Young. 'ANYONE CAN SPOUT PLATITUDES!' You break it down sumpin['] sumpin['] real contrarian on them, twisting their generalities. A crowd gathers around. They applaud your snark! You yell at them that applause is all well and good, but there's DOING. They ooh and ahh further. After a brief speech about the dork you used to be, and if you can get better, anyone can, you wave away the performers, then the crowd that followed them."	"You give a pre-emptive 'Oh, I KNOW,' before Turk and Dutch can say any more. 'But you're doing a pretty good job. I mean, almost as good as I could if I weren't destined for better things. Just--take a break to hone your act. Not that it's THAT stale...' They look at each other, nod, and walk away."	"You sit and listen a lot, and more importantly, give positive feedback for all their helpful advice. 'Wow! You guys, it's like, you're saying it straight, but it's really profound!' And they are. If you just had faith and weren't a sourpuss, why, you could learn a lot. Their show finished, they quickly thank you and explain they forgot they had another place to be, and they need to get started early."
 questions field	3	"Well, of COURSE the Brothers didn't leave a thank-you note. Ungrateful chumps. Next time you help someone, you'll demand a deposit of flattery up front, that's for sure."	"You expected no thanks, but you didn't expect to feel bad about getting no thanks. Hmph. Lesson learned!"	"You had some wisdom to foist on the Brothers, but if they'd REALLY done their job, they'd have stayed. The heck with them! If they couldn't soak up knowledge from BEING around the [bg], they're hopeless."	"Well! You did something for the brothers, but just in case, you want to make sure the [bad-guy] isn't upset with you for stealing his employees away. You never thought of that before. Maybe if he's mad, you can make it up to him."
 questions field	4	"'Kinda jealous of your brothers, eh? Not jealous enough to DO anything about it.' The brother[plur-s] nod[sing-s] at your sterling logic. 'You gonna waste your whole life here? I can't help everyone. I'm not a charity, you know.' More hard hitting truth! Ba-bam![wfk]'Go on, now! Go! What's that? I'm even bossier than the [bad-guy]? Excellent! If I can change, so can you! And the guy bossier than the [bad-guy] is ORDERING you to do something useful with your life!'[paragraph break]They follow your orders. You remember being bossed around by someone dumber than you--and now you turned the tables! Pasta fazoo!"	"'Still guarding Freak Control, eh? Well, I think you'll see you don't need to guard it from ME any more. Take the day off! C'mon, you want to. Hey, [bg] might be mad if you don't.' You're surprised he DOES run off."	"'Really! Is this what you want to do with the rest of your life? Sad. Doesn't it get tiring?' Surprisingly (OR NOT SURPRISINGLY AT ALL,) they agree."	"'Hey! Sorry to separate you from the rest of your family. But--well, mind if I go by? I mean, if you let someone in who just wants to help, maybe you'll, like, get rewarded.' The [if bros-left is 1]remaining brother shrugs and leaves[else]two remaining brothers look at each other, shrug, say 'He DID say...' and walk off[end if]. Man! You just had to ask nicely!"
@@ -6507,7 +6489,7 @@ to deal-with-loc:
 	if player is in Nominal Fen:
 		if silly boris is not moot:
 			check-fast-track;
-		now all clients are in lalaland;
+		remove-clients;
 		say "[line break]Need to keep going, here.";
 	if player is in speaking plain:
 		check-fast-track;
@@ -7744,7 +7726,7 @@ to zap-the-jerks:
 	say "[line break]The (ex-)[j-co]s arrive back, and [a random client] [if allow-swears is true]gives an [activation of grown up][else]wipes away a [activation of tear-jerk][end if] before handing you a bottle of Quiz Pop. 'Man, you seem to know what's what, and you helped us see it was okay to be us. Here's some totally sweet contraband[if allow-swears is true]. We're out of [activation of pop cherry] but this stuff is like good for people who figure stuff out[end if].'[paragraph break]Hmm. Interesting. Quiz Pop. As they walk away, you hear them deciding on a victory meal they can now afford at the [activation of you buy]: [activation of sausage fest]. With a [activation of joint committee] to top it off!";
 	it-take quiz pop;
 	increment the score;
-	now all clients are in lalaland;
+	remove-clients;
 	unlock-verb "track";
 	if bros-left is 0:
 		unlock-verb "notice";
@@ -11519,7 +11501,7 @@ index map with Robbery Highway mapped south of Clown Class.
 
 [not really rooms but for neatness's sake]
 
-index map with lalaland mapped east of Tense Present.
+index map with Pasture mapped east of Tense Present.
 
 index map with bullpen mapped east of Tense Future.
 
@@ -11717,22 +11699,6 @@ to debug-freeze: [this is so, in case I want to freeze the game, it doesn't seep
 rule for constructing the status line when started-yet is false (this is the status before you move rule) :
 	center "Your bedroom, up too late" at row 1;
 
-part meta-rooms
-
-meta-rooms is a region.
-
-chapter lalaland
-
-lalaland is a privately-named room in meta-rooms. "You should never see this. If you do, it is a [bug]."
-
-understand "lalaland" as lalaland when debug-state is true.
-
-chapter bullpen
-
-bullpen is a privately-named room in meta-rooms. "You should never see this. If you do, it is a [bug]." [the bullpen is for items that you dropped when you slept]
-
-understand "bullpen" as bullpen when debug-state is true.
-
 chapter conceptville [xxcv]
 
 to say activation of (x - a thing):
@@ -11763,7 +11729,7 @@ to say bga of (pe - a person):
 to say at of (q - a thing):
 	say "attack [q]"
 
-conceptville is a privately-named room in meta-rooms. "You should never see this. If you do, it is a [bug]." [this is a cheesy hack, as concepts you haven't seen yet are here, and when you see them, they move to lalaland.]
+conceptville is a privately-named room in Uh Met. "You should never see this. If you do, it is a [bug]." [this is a cheesy hack, as concepts you haven't seen yet are here, and when you see them, they move to Pasture, the "done with it" room.]
 
 understand "conceptville" as conceptville when debug-state is true.
 
@@ -11783,7 +11749,7 @@ clouds of suspicion is a missable concept in conceptville. Understand "suspicion
 
 Comedy of Errors is a oddverby concept in conceptville. Understand "errors of comedy" as comedy of errors. howto is "xyzzy". gtxt is "Errors of comedy".
 
-compound problems is a concept in lalaland. Understand "problems compound" and "compound problem" as compound problems. howto is "very start". gtxt is "Problems Compound". [norm]
+compound problems is a concept in Pasture. Understand "problems compound" and "compound problem" as compound problems. howto is "very start". gtxt is "Problems Compound". [norm]
 
 cut a deal is a snarky concept in conceptville. Understand "deal a cut" as cut a deal. howto is "cut any inanimate thing before Freak Control". gtxt is "deal a cut".
 
@@ -13069,7 +13035,7 @@ section rage road concepts
 
 road pizza is a firstvis concept in conceptville. Understand "pizza road" as road pizza. howto is "[f-t of Rage Road] (Directors['] Cut)". gtxt is "Pizza Road".
 
-chapter lalaland concepts
+chapter Pasture concepts [ included for posterity -- some start in Pasture, but you can never visit Pasture ]
 
 chapter endgame concepts
 
@@ -13846,7 +13812,7 @@ volume beta testing - not for release
 
 the force tester wherever rule is listed last in the when play begins rulebook.
 
-beta-zap-room is a room that varies. beta-zap-room is lalaland.
+beta-zap-room is a room that varies. beta-zap-room is Pasture.
 
 after printing the locale description when mrlp is endings and location of player is unvisited:
 	if player is in airy station:
@@ -14264,7 +14230,7 @@ this is the notice-advance rule:
 	the rule succeeds;
 
 this is the jerks-not-bros rule:
-	now all clients are in lalaland;
+	remove-clients;
 	now player has quiz pop;
 	the rule succeeds;
 
@@ -14516,7 +14482,7 @@ carry out donoteing:
 
 chapter brobyeing
 
-[* all 3 brothers to lalaland]
+[* all 3 brothers to Pasture]
 
 brobyeing is an action out of world.
 
@@ -14533,7 +14499,7 @@ carry out brobyeing:
 	if silly boris is in Nominal Fen:
 		say "Do you wish to get rid of the [j-co], too?";
 		if the player yes-consents:
-			now all clients are in lalaland;
+			remove-clients;
 			now player has quiz pop;
 			say "You now have the quiz pop.";
 		else:
@@ -14542,7 +14508,7 @@ carry out brobyeing:
 
 chapter bro1ing
 
-[* random bro to lalaland]
+[* random bro to Pasture]
 
 bro1ing is an action out of world.
 
@@ -14556,7 +14522,7 @@ carry out bro1ing:
 		the rule succeeds;
 	let Z be a random stillblocking person;
 	moot Z;
-	say "Moved [Z] to lalaland.";
+	say "Moved [Z] to Pasture.";
 	moot a random bro;
 	say "[list of stillblocking people] still in Questions Field.";
 	say "This is a test command only.";
@@ -14627,7 +14593,7 @@ understand "jgo" as jgoing.
 
 carry out jgoing:
 	if boris is moot, say "Jerks are already gone." instead;
-	now all clients are in lalaland;
+	remove-clients;
 	now player has quiz pop;
 	say "Bye bye [j-co]! Oh, you have the quiz pop, too.";
 	the rule succeeds;

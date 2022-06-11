@@ -1,13 +1,27 @@
-Version 2/090402 of Alec Smart Endgame Lists by Andrew Schultz begins here.
+Version 2/180419 of Alec Smart Endgame Lists by Andrew Schultz begins here.
+
+volume room for used items
+
+Uh Met is a region.
+
+Pasture is a privately-named room in Uh Met. understand "pasture" as pasture when debug-state is true.
+
+Side A is a privately-named room in Uh Met. understand "sidea" as side a when debug-state is true.
+
+definition: a thing is moot:
+	if it is in Pasture, yes;
+	no;
+
+to moot (th - a thing): now th is in Pasture;
+
+volume the actual endgame lists
 
 Table of Final Question Options (continued)
 final question wording	only if victorious	topic	final response rule	final response activity
-"see [bi of list-seen]LIST[r] of flips ([b]L 1-[number of rows in table of context rewrites][r] or [b]LN[r] or [b]LP[r] for next/previous)"	true	"L/LIST"	list-flips rule	mainendlisting
---	true	"LN"	next-list rule	mainendlisting
---	true	"LP"	prev-list rule	mainendlisting
---	true	"L [number]"	list-num rule	mainendlisting
-
-mainendlisting is an activity.
+"see [bi of list-seen]LIST[r] of flips ([b]L 1-[number of rows in table of context rewrites][r] or [b]LN[r] or [b]LP[r] for next/previous)"	true	"L/LIST"	list-flips rule	--
+--	true	"LN"	next-list rule	--
+--	true	"LP"	prev-list rule	--
+--	true	"L [number]"	list-num rule	--
 
 current-end-list is a number that varies.
 
