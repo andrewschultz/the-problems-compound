@@ -17,8 +17,6 @@ to search through this file, two x's at the start of a comment will delinate maj
   if you are searching for how concepts are triggered, search for activation of, with a left bracket before it.
 ]
 
-to say fill-in-here: say "!!"; [unused]
-
 volume initialization
 
 Release along with an interpreter.
@@ -37,12 +35,17 @@ include Basic Screen Effects by Emily Short.
 
 include Conditional Undo by Jesse McGrew.
 
-[debug table switch]
 include Compound Tables by Andrew Schultz.
+
+include Intro Restore Skip by Andrew Schultz.
 
 include In-Game Mapping by Andrew Schultz.
 
 include Trivial Niceties by Andrew Schultz.
+
+include Alec Smart Endgame Lists by Andrew Schultz.
+
+include Alec Smart Universal by Andrew Schultz.
 
 chapter quips
 
@@ -254,11 +257,7 @@ to choose-swearing:
 		say "You hear a far-off voice: 'Great. No freakin['] profanity. Sorry, FLIPPIN[']. In case they're extra sensitive.'";
 		now allow-swears is false;
 
-when play begins (this is the main story introduction and initialization rule):
-	intro-restore-skip;
-	if read-intro is false:
-		say "Skipping the intro and putting you in Smart Street.";
-		continue the action;
+when play begins (this is the main story initialization rule):
 	force-status;
 	say "The Problems Compound may contain minor profanity/innuendo that is not critical to the story. Type Y or YES if this is okay. Typing N or NO will provide alternate text.";
 	choose-swearing;
@@ -272,6 +271,9 @@ when play begins (this is the main story introduction and initialization rule):
 		now screen-read is true;
 	else:
 		now screen-read is false;
+
+when play begins (this is the main story introductory text rule):
+	abide by the check-skip-intro rule;
 	if screen-read is false:
 		say "Also, how thick are your glasses, if you have them? How much acne--? Wait, no, that's irrelevant. Not that people aren't mean about looks, but when you're stuck, you're stuck. Let's...let's get on with things.[paragraph break]";
 		wfak;
@@ -286,10 +288,10 @@ when play begins (this is the main story introduction and initialization rule):
 	say "[paragraph break]The end of the hallway keeps getting farther away. You start to run, which makes it worse. You close your eyes until, exhausted, you catch your breath. The hallway's gone.";
 
 when play begins (this is the intro mechanics rule):
+	now started-yet is true;
 	set the pronoun him to Guy Sweet;
 	now right hand status line is "[your-mood]";
 	now left hand status line is "[lhs]";
-	now started-yet is true;
 
 to say lhs:
 	say "[location of player]";
@@ -948,15 +950,15 @@ before waking up:
 to leave-dream:
 	now last-dream-loc is location of player;
 	move player to Warmer Bench;
-	if location of face of loss is bullpen: [this is a bad hack but it sort of needs to be done]
+	if location of face of loss is Side A: [this is a bad hack but it sort of needs to be done]
 		now player has face of loss;
-	if location of bad face is bullpen: [this is a bad hack but it sort of needs to be done]
+	if location of bad face is Side A: [this is a bad hack but it sort of needs to be done]
 		now player has bad face;
-	if location of opener eye is bullpen: [this is a bad hack but it sort of needs to be done]
+	if location of opener eye is Side A: [this is a bad hack but it sort of needs to be done]
 		now player has opener eye;
-	if location of lifted face is bullpen: [this is a bad hack but it sort of needs to be done]
+	if location of lifted face is Side A: [this is a bad hack but it sort of needs to be done]
 		now player has lifted face;
-	repeat with Q running through things in bullpen:
+	repeat with Q running through things in Side A:
 		now player has Q;
 
 chapter waiting
@@ -1282,8 +1284,8 @@ check sleeping:
 	say "This doesn't look like the place to retreat for a nap. In fact, not many places do." instead;
 
 to go-to-dream:
-	now all carried things are in bullpen;
-	now all worn things are in bullpen;
+	now all carried things are in Side A;
+	now all worn things are in Side A;
 	move player to last-dream-loc;
 
 chapter pushing and pulling
@@ -1794,14 +1796,14 @@ a thing can be unchaseable. a thing is usually not unchaseable.
 
 carry out gotothinging:
 	let mrlg be map region of location of noun;
-	if noun is off-stage or mrlg is nothing or mrlg is meta-rooms, say "[if noun is a person]They aren't[else]That isn't[end if] around right now." instead;
+	if noun is off-stage or mrlg is nothing or mrlg is Uh Met, say "[if noun is a person]They aren't[else]That isn't[end if] around right now." instead;
 	if noun is unchaseable, say "Sorry, you'll have to find [if noun is a person]them[else]that[end if] on your own." instead;
 	say "(going to [location of noun])[line break]";
 	try gotoing location of noun instead;
 
 carry out gotoing:
 	let mrlg be map region of noun;
-	if mrlg is nothing or mrlg is meta-rooms, say "Congratulations! You discovered an off-stage room. But I can't let you get there." instead;
+	if mrlg is nothing or mrlg is Uh Met, say "Congratulations! You discovered an off-stage room. But I can't let you get there." instead;
 	d "Trying location [noun].";
 	if accel-ending, say "[if cookie-eaten is true]Nonsense. Forward![else if off-eaten is true]Ugh. Why would you want to go THERE again? It was no fun the first time.[else]You know what's important, and the past is so over. Only north to the [bad-guy] will do![end if]" instead;
 	if p-c is true, say "EXIT the chase first." instead;
@@ -2728,7 +2730,7 @@ carry out explaining the player:
 		if count is 0:
 			say "Yay! No unexplained things.";
 		now count is 0;
-		repeat with Q running through rooms not in meta-rooms:
+		repeat with Q running through rooms not in Uh Met:
 			if Q is not a room-to-exp listed in table of room explanations:
 				increment count;
 				say "[count]: [Q][if Q is privately-named](privately-named)[end if] ([location of Q]) needs an explanation.";
@@ -2806,7 +2808,7 @@ definition: a thing (called x) is explainable:
 	if x is generic-jerk, decide no;
 	if x is a direction, decide no;
 	if debug-state is true and x is off-stage, decide yes; [it is going on stage at some point]
-	if x is in bullpen, decide yes; [bullpen is for items 'lost' during sleep]
+	if x is in Side A, decide yes; [Side A is for items 'lost' during sleep]
 	if x is moot, decide yes;
 	if x is in conceptville and debug-state is true, decide yes; [can it ever be in play? In debug, we need to know]
 	if x is part of towers of hanoi or x is part of Fly House or x is part of games counter or x is games counter or x is games, decide no;
@@ -11487,7 +11489,7 @@ index map with Robbery Highway mapped south of Clown Class.
 
 index map with Pasture mapped east of Tense Present.
 
-index map with bullpen mapped east of Tense Future.
+index map with Side A mapped east of Tense Future.
 
 index map with conceptville mapped east of Tense Past.
 
@@ -13403,7 +13405,7 @@ book anno-check
 
 to anno-check:
 	repeat with Q running through rooms:
-		if map region of Q is meta-rooms:
+		if map region of Q is Uh Met:
 			next;
 		if Q is not an anno-loc listed in table of annotations:
 			say "[Q] [map region of Q] needs annotations.";
