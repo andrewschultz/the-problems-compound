@@ -22,6 +22,13 @@ to moot (th - a thing): now th is in Pasture;
 
 volume generic concept stubs
 
+to say activation of (x - a thing):
+	if gtxt of x is not empty:
+		say "[if ital-conc is true][i][end if][gtxt of x][r]";
+	else if debug-state is true:
+		say "(NO GTXT)";
+	moot x;
+
 to say f-t of (rr - a room):
 	say "visit [rr] for the first time"
 

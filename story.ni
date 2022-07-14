@@ -45,7 +45,7 @@ include Trivial Niceties by Andrew Schultz.
 
 include Alec Smart Endgame Lists by Andrew Schultz.
 
-include Alec Smart Universal by Andrew Schultz.
+include Alec Smart Common by Andrew Schultz.
 
 chapter quips
 
@@ -11687,28 +11687,6 @@ rule for constructing the status line when started-yet is false (this is the sta
 
 chapter Shun No [xxcv]
 
-to say activation of (x - a thing):
-	if gtxt of x is not empty:
-		say "[if ital-conc is true][i][end if][gtxt of x][r]";
-	else if debug-state is true:
-		say "(NO GTXT)";
-	moot x;
-
-to say nogo of (my-r - a room):
-	say "go nowhere in [my-r]"
-
-to say li of (my-r - a room):
-	say "listen in [my-r]"
-
-to say x-it of (q - a thing):
-	say "examine [the q]";
-
-to say bga of (pe - a person):
-	say "ask [pe] about the [bad-guy]"
-
-to say at of (q - a thing):
-	say "attack [q]"
-
 section general concepts
 
 abuse testing is a oddverby concept in Shun No. Understand "testing abuse" as abuse testing. howto is "credits". gtxt is "testing abuse".
@@ -11789,7 +11767,7 @@ flat broke is a concept in Shun No. Understand "broke flat" as flat broke. howto
 
 Good Egg is a dialoguey concept in Shun No. Understand "egg good" as good egg. howto is "[t2 of Guy]". gtxt is "egg GOOD".
 
-house breaking is a violent concept in Shun No. Understand "breaking house" as house breaking. howto is "[at of Fly House]". gtxt is "Breaking a house".
+house breaking is a violent concept in Shun No. Understand "breaking house" as house breaking. howto is "[att of Fly House]". gtxt is "Breaking a house".
 
 knockwurst is a snarky concept in Shun No. Understand "knock worst" and "worst knock" as knockwurst. howto is "knock any way other than hard in Smart Street". gtxt is "worst knock".
 
@@ -11841,7 +11819,7 @@ chapter outer concepts
 
 section pressure pier concepts
 
-Bible Belt is a violent concept in Shun No. Understand "belt bible" as bible belt. howto is "[at of Basher Bible]". gtxt is "belt bible".
+Bible Belt is a violent concept in Shun No. Understand "belt bible" as bible belt. howto is "[att of Basher Bible]". gtxt is "belt bible".
 
 bible thumper is a xable concept in Shun No. Understand "thumper bible" as bible thumper. howto is "[x-it of Basher Bible]". gtxt is "thumper bible".
 
@@ -11891,7 +11869,7 @@ growing pains is a culinary concept in Shun No. Understand "pain/pains growing" 
 
 hallway is a missable concept in Shun No. Understand "hall whey" and "whey hall" as hallway. howto is "visit Meal Square with Terry Sally around". gtxt is "whey hall".
 
-hash table is a violent concept in Shun No. Understand "table hash" as hash table. howto is "[at of spoon table]". gtxt is "table hash".
+hash table is a violent concept in Shun No. Understand "table hash" as hash table. howto is "[att of spoon table]". gtxt is "table hash".
 
 house special is a smelly concept in Shun No. Understand "special house" as house special. howto is "smell Tray B". gtxt is "special house".
 
@@ -11905,7 +11883,7 @@ Loaf Around is a missable concept in Shun No. Understand "round loaf" and "loaf 
 
 No-Shame is a xable concept in Shun No. printed name is "no shame". Understand "no shame" as No-Shame. howto is "[x-it of condition mint]". gtxt is "SHAME? NO".
 
-order n is a violent concept in Shun No. Understand "n order" as order n. howto is "[at of spoon table]". gtxt is "n order".
+order n is a violent concept in Shun No. Understand "n order" as order n. howto is "[att of spoon table]". gtxt is "n order".
 
 pig out is a missable concept in Shun No. Understand "out pig" as pig out. howto is "TAKE ALL in Meal Square". gtxt is "OUT, PIG".
 
@@ -12026,7 +12004,7 @@ gin rummy is a dialoguey concept in Shun No. understand "rummy gin" as gin rummy
 
 Hip Rose is a firstvis concept in Shun No. Understand "rose hip/hips" as Hip Rose. howto is "[f-t of Soda Club]". gtxt is "Hip Rose".
 
-hit the bottle is a violent concept in Shun No. Understand "bottle the hit" as hit the bottle. howto is "[at of Ally Stout]". gtxt is "Bottle the hit".
+hit the bottle is a violent concept in Shun No. Understand "bottle the hit" as hit the bottle. howto is "[att of Ally Stout]". gtxt is "Bottle the hit".
 
 punch drunk is a dialoguey concept in Shun No. Understand "drunk punch" as punch drunk. howto is "[t2 of ally stout]". gtxt is "drunk punch".
 
@@ -12461,7 +12439,7 @@ section chipper wood concepts
 
 character assassination is a firstvis concept in Shun No. Understand "assassination character" as character assassination. howto is "[f-t of Chipper Wood]". gtxt is "assassination character".
 
-Play it Cool is a violent concept in Shun No. Understand "cool it play" as play it cool. howto is "[at of Cute Percy]". gtxt is "Cool it! Play".
+Play it Cool is a violent concept in Shun No. Understand "cool it play" as play it cool. howto is "[att of Cute Percy]". gtxt is "Cool it! Play".
 
 sweetheart deal is a missable concept in Shun No. Understand "deal sweetheart" as sweetheart deal. howto is "run from Chipper Wood before catching Cute Percy". gtxt is "Deal, sweetheart".
 
@@ -12653,7 +12631,7 @@ crack pipe is a listeny concept in Shun No. Understand "pipe crack" as crack pip
 
 crack up is a dialoguey concept in Shun No. Understand "up/down/joke crack" and "crack joke/down" as crack up. howto is "[t2 of Pusher Penn]". gtxt is "crack, up, down or even joke".
 
-dopamine is a violent concept in Shun No. Understand "mean dope" and "dope mean" as dopamine. howto is "[at of Pusher Penn]". gtxt is "a mean dope".
+dopamine is a violent concept in Shun No. Understand "mean dope" and "dope mean" as dopamine. howto is "[att of Pusher Penn]". gtxt is "a mean dope".
 
 go to pot is a firstvis concept in Shun No. Understand "pot to go" as go to pot. howto is "[f-t of Pot Chamber]". gtxt is "Pot to Go".
 
@@ -12665,7 +12643,7 @@ roach dropping is a snarky concept in Shun No. Understand "dropping roach" as ro
 
 time capsule is a dialoguey concept in Shun No. Understand "capsule time" as time capsule. howto is "[bga of Pusher Penn]". gtxt is "capsule time".
 
-vice admiral is a violent concept in Shun No. Understand "admiral vice" as vice admiral. howto is "[at of Pusher Penn]". gtxt is "admiral vice".
+vice admiral is a violent concept in Shun No. Understand "admiral vice" as vice admiral. howto is "[att of Pusher Penn]". gtxt is "admiral vice".
 
 weed out is a concept in Shun No. Understand "out weed" as weed out. howto is "accept Pusher Penn's wacker weed". gtxt is "out-weed". [norm]
 
@@ -12713,7 +12691,7 @@ counterexample is a snarky concept in Shun No. Understand "counter example" and 
 
 countermand is a xable concept in Shun No. Understand "counter manned" and "manned counter" as countermand. howto is "[x-it of intuition counter] once Officer Petty is gone". gtxt is "manned counter".
 
-counterstriking is a violent concept in Shun No. Understand "counter striking" and "striking counter" as counterstriking. howto is "[at of intuition counter]". gtxt is "striking counter".
+counterstriking is a violent concept in Shun No. Understand "counter striking" and "striking counter" as counterstriking. howto is "[att of intuition counter]". gtxt is "striking counter".
 
 pass the test is a firstvis concept in Shun No. Understand "test the pass" as pass the test. howto is "[f-t of judgment pass]". gtxt is "test the pass".
 
@@ -12735,7 +12713,7 @@ code monkey is a dialoguey concept in Shun No. Understand "monkey code" as code 
 
 grease monkey is a xable concept in Shun No. Understand "monkey grease" as grease monkey. howto is "[x-it of Business Monkey]". gtxt is "monkey grease".
 
-guerilla tactics is a violent concept in Shun No. Understand "tactics gorilla" and "gorilla tactics" as guerilla tactics. howto is "[at of Business Monkey]". gtxt is "Tactics Gorilla".
+guerilla tactics is a violent concept in Shun No. Understand "tactics gorilla" and "gorilla tactics" as guerilla tactics. howto is "[att of Business Monkey]". gtxt is "Tactics Gorilla".
 
 serve you right is a xable concept in Shun No. Understand "right you serve" as serve you right. howto is "[x-it of service memorial]". gtxt is "RIGHT, [b]YOU[r] SERVE".
 
@@ -12952,7 +12930,7 @@ mystify is a cantgo concept in Shun No. Understand "mist iffy" and "iffy mist" a
 
 section airy station concepts
 
-case insensitive is a violent concept in Shun No. Understand "insensitive case" as case insensitive. howto is "[at of Return Carriage]". gtxt is "insensitive case".
+case insensitive is a violent concept in Shun No. Understand "insensitive case" as case insensitive. howto is "[att of Return Carriage]". gtxt is "insensitive case".
 
 clear waivers is a cantgo concept in Shun No. Understand "waivers/wavers clear" and "clear wavers" as clear waivers. howto is "[nogo of Airy Station]". gtxt is "Wavers, clear".
 
