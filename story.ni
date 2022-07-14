@@ -31,22 +31,6 @@ use American dialect.
 
 the release number is 3.
 
-section compiler debug limits - not for release
-
-use MAX_ACTIONS of 220. [+10?]
-
-use MAX_OBJECTS of 910. [+40]
-
-use MAX_DICT_ENTRIES of 2100. [+100?]
-
-use MAX_NUM_STATIC_STRINGS of 22000. [+2000?]
-
-use MAX_SYMBOLS of 29000. [+3000]
-
-use MAX_STATIC_DATA of 210000. [+10000]
-
-use MAX_PROP_TABLE_SIZE of 370000. [+20000]
-
 book includes
 
 include Basic Screen Effects by Emily Short.
