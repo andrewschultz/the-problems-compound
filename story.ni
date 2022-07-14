@@ -11694,9 +11694,6 @@ to say activation of (x - a thing):
 		say "(NO GTXT)";
 	moot x;
 
-to say f-t of (my-r - a room):
-	say "go to the [my-r] for the first time"
-
 to say nogo of (my-r - a room):
 	say "go nowhere in [my-r]"
 
@@ -11705,9 +11702,6 @@ to say li of (my-r - a room):
 
 to say x-it of (q - a thing):
 	say "examine [the q]";
-
-to say t2 of (q - a thing):
-	say "talk to [q]";
 
 to say bga of (pe - a person):
 	say "ask [pe] about the [bad-guy]"
