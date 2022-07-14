@@ -1,6 +1,8 @@
-out=problems-compound-invisiclues.htm
 !The Problems Compound HTML Clues
-->c:/users/andrew/documents/github/the-problems-compound
+outdir=c:/users/andrew/documents/github/the-problems-compound
+out=problems-compound-invisiclues.htm
+outraw=problems-compound-invisiclues-raw.htm
+==end header==
 >INTRODUCTION
 >>Smart Street
 ?What is the Fly House for?

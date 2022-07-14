@@ -55,12 +55,12 @@ def usage(cmd = ""):
 
 #this could also be done with expand_caps but just in case there are huge numbers I figured I'd write this function out
 
-def expand_size(j):
+def expand_size(sample_string):
     idx = 1
     for q in repl:
         x = r'[{:s}]'.format(q)
         j = re.findall(x, sample_string)
-        idx *= len(a[q]) ** len(j)
+        idx *= len(repl[q]) ** len(j)
     return idx
 
 def expand_caps(j):
@@ -251,7 +251,7 @@ while count < len(sys.argv):
             exit()
         qs = expand_size(arg)
         if qs > max_mult_size: sys.exit("Quicksizing {:s} gives {:d} possibilities, which over the maximum if {:d}. Change it with -m#.".format(arg, qs, max_mult_size))
-        words_to_process = words_to_process + temp
+        words_to_process = words_to_process + expand_caps(arg)
     elif anh[0] == 'u' and isdigit(anh[1:]):
         check_url = True
         max_url_to_check = int(anh[1:])
